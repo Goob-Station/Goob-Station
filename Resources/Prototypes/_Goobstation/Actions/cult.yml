@@ -1,0 +1,181 @@
+# Blood Magic
+- type: entity
+  parent: BaseAction
+  id: ActionCultPrepareBloodMagic
+  name: Prepare Blood Magic
+  description: Prepare blood magic by carving runes into your flesh. This is easier with an empowering rune.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: carve
+  - type: InstantAction
+    event: !type:EventActionCultPrepareBloodMagic
+  - type: BloodCultAction
+    unlimitedUses: true
+    healthCost: 5
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultTouchSpellStun
+  name: Stun
+  description: Empowers your hand to stun and mute a victim on contact. Gets weaker depending on how many have joined the Cult. The stun dissipates on injury.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: hand
+  - type: InstantAction
+    event: !type:EventTouchSpellInvoke
+  - type: BloodCultAction
+    healthCost: 10
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultStun
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultTouchSpellTeleport
+  name: Teleport
+  description: Empowers your hand to teleport yourself or another cultist to a teleport rune on contact.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: tele
+  - type: InstantAction
+    event: !type:EventTouchSpellInvoke
+  - type: BloodCultAction
+    healthCost: 7
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultTeleport
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultEmp
+  name: Electromagnetic Pulse
+  description: Emits a large electromagnetic pulse.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: 
+  - type: InstantAction
+    event: !type:EventActionCultEmp
+  - type: BloodCultAction
+    healthCost: 10
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultTouchSpellShackles
+  name: Shadow Shackles
+  description: Empowers your hand to start handcuffing victim on contact, and mute them if successful. The shackles dissipate on injury.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: cuff
+  - type: InstantAction
+    event: !type:EventTouchSpellInvoke
+  - type: BloodCultAction
+    healthCost: 4
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultShackles
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultTouchSpellConstruction
+  name: Twisted Construction
+  description: Empowers your hand to corrupt certain metallic objects. Converts Plasteel into runed metal, 30 steel sheets into a construct shell, living cyborgs into constructs, cyborg shells into construct shells, purified soulstones (and any shades inside) into cultist soulstones and airlocks into brittle runed airlocks.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: transmute
+  - type: InstantAction
+    event: !type:EventTouchSpellInvoke
+  - type: BloodCultAction
+    healthCost: 12
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultConstruction
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultTouchSpellEquipment
+  name: Summon Combat Equipment
+  description: Empowers your hand to summon and equip combat gear onto a cultist you touch, including cult armor, a cult bola, and a cult sword. Not recommended for use before the blood cult's presence has been revealed.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: equip
+  - type: InstantAction
+    event: !type:EventTouchSpellInvoke
+  - type: BloodCultAction
+    healthCost: 0
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultEquipment
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultDagger
+  name: Summon Ritual Dagger
+  description: Allows you to summon a ritual dagger, in case you've lost the dagger that was given to you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: equip
+  - type: InstantAction
+    event: !type:EventActionCultDagger
+  - type: BloodCultAction
+    healthCost: 0
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultManipulation
+  name: Blood Rites
+  description: Empowers your hand to absorb blood to be used for advanced rites, or heal a cultist on contact. Use the spell in-hand to cast advanced rites.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: manip
+  - type: InstantAction
+    event: !type:Event
+  - type: BloodCultAction
+    healthCost: 0
+
+# - type: entity
+#   parent: BaseAction
+#   id: ActionCult
+#   name: 
+#   description: 
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: Action
+#     itemIconStyle: NoItem
+#     icon:
+#       sprite: _Goobstation/Cult/actions_cult.rsi
+#       state: 
+#   - type: InstantAction
+#     event: !type:Event
+#   - type: BloodCultAction

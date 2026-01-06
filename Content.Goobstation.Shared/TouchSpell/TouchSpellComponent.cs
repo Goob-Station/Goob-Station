@@ -8,7 +8,9 @@ public sealed partial class TouchSpellComponent : Component
     /// <summary>
     ///     What action is this touch spell coming from? If any.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)] public EntityUid? AssociatedAction;
+    [DataField] public EntityUid? AssociatedAction;
+
+    [DataField] public EntityUid? AssociatedPerformer;
 
     /// <summary>
     ///     Should it get deleted after use?

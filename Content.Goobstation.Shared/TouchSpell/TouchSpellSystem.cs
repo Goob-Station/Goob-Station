@@ -1,7 +1,5 @@
-using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
-using Content.Shared.Charges.Systems;
 using Content.Shared.EntityEffects;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -22,20 +20,18 @@ public sealed partial class TouchSpellSystem : EntitySystem
 {
     [Dependency] private readonly EntityEffectSystem _effects = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TouchSpellActionComponent, ActionPerformedEvent>(OnEquipTouchSpell);
+        SubscribeLocalEvent<TouchSpellActionComponent, EventTouchSpellInvoke>(OnInvokeTouchSpell);
 
         SubscribeLocalEvent<TouchSpellComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<TouchSpellComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void OnEquipTouchSpell(Entity<TouchSpellActionComponent> ent, ref ActionPerformedEvent args)
+    private void OnInvokeTouchSpell(Entity<TouchSpellActionComponent> ent, ref EventTouchSpellInvoke args)
     {
         if (!TryComp<HandsComponent>(ent, out var handsComp))
             return;
@@ -62,10 +58,12 @@ public sealed partial class TouchSpellSystem : EntitySystem
 
         // bind action to the spell
         if (TryComp<TouchSpellComponent>(ts, out var tsComp))
+        {
             tsComp.AssociatedAction = ent.Owner;
+            tsComp.AssociatedPerformer = args.Performer;
+        }
 
-        _actions.RemoveCooldown(ent.Owner);
-        _charges.AddCharges(ent.Owner, 1); // jic
+        // no args.Handled set because see ProcessAction()
     }
 
     private void OnAfterInteract(Entity<TouchSpellComponent> ent, ref AfterInteractEvent args)
@@ -97,16 +95,18 @@ public sealed partial class TouchSpellSystem : EntitySystem
         }
 
         var action = ent.Comp.AssociatedAction;
-        if (action.HasValue && TryComp<ActionComponent>(action.Value, out var actionComp))
-            ProcessAction(ent, (action.Value, actionComp));
+        var performer = ent.Comp.AssociatedPerformer;
+        if (action.HasValue && TryComp<ActionsComponent>(performer, out var actionComp))
+            ProcessAction(ent, (performer.Value, actionComp));
 
         if (ent.Comp.QueueDelete)
             QueueDel(ent);
     }
 
-    private void ProcessAction(Entity<TouchSpellComponent> ent, Entity<ActionComponent> action)
+    private void ProcessAction(Entity<TouchSpellComponent> ent, Entity<ActionsComponent> performer)
     {
-        _actions.StartUseDelay(action.Owner);
-        _charges.AddCharges(action.Owner, -1);
+        // manually invoke this shit
+        var performed = new ActionPerformedEvent(performer);
+        RaiseLocalEvent(ent.Comp.AssociatedAction!.Value, ref performed);
     }
 }

@@ -9,7 +9,7 @@ cult-gain-briefing =
     You must work with your brethren to summon an avatar of your eldritch goddess!
     Find more information about your role in the guidebook.
 
-cult-loss-self = An unfamiliar white light flashes through your mind, cleansing the taint of the Geometer and all your memories as her servant.
+cult-loss-self = An unfamiliar white light flashes through your mind, cleansing the taint of the Geometer and all your memories as her servant!
 
 cult-master-gain-briefing =
     You are the cult's Master!
