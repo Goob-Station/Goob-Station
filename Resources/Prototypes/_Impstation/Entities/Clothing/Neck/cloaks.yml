@@ -1,0 +1,17 @@
+- type: entity
+  parent: [ ClothingNeckBase, BaseMinorContraband ]
+  id: ClothingNeckCloakKaijuCloak
+  name: kaiju cloak
+  description: A mantle combining wings and tail, both of which obscure items carried underneath. Inspired by a fictional creation — that is, the story of a mad scientist reptilian splicing a moth person with themself to gain the power of flight, becoming a massive uncontrollable monster in the process. The perfect gift for a shy or eccentric loved one in your life.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/kaijucloak.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseSyndicateContraband]
+  id: ClothingNeckCloakFugitiveCloak
+  name: monochrome cloak
+  description: It's a federal crime, buster.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/fugitivecloak.rsi
