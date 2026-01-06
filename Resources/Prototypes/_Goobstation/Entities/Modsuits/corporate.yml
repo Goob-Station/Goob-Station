@@ -64,6 +64,10 @@
         - state: equipped-HAND-sealed
         - state: equipped-HAND-sealed-unshaded
           shader: unshaded
+        gloves-vox:
+        - state: equipped-HAND-sealed-vox
+        - state: equipped-HAND-sealed-unshaded-vox
+          shader: unshaded
     - type: ComponentToggler
       components:
       - type: Insulated
@@ -120,6 +124,10 @@
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-vox:
+        - state: equipped-HEAD-sealed-vox
+        - state: equipped-HEAD-sealed-unshaded-vox
           shader: unshaded
     - type: ActivatableUI
       inHandsOnly: false # Goobstation
@@ -180,6 +188,8 @@
       clothingVisuals:
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
+        outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-sealed-vox
     - type: StaminaResistance
       damageCoefficient: 0 # 100%
     - type: PressureProtection
@@ -208,12 +218,18 @@
         - state: equipped-FEET-sealed
         - state: equipped-FEET-sealed-unshaded
           shader: unshaded
+        shoes-vox:
+        - state: equipped-FEET-sealed-vox
+        - state: equipped-FEET-sealed-unshaded-vox
+          shader: unshaded
     - type: ItemToggle
     - type: ToggleClothing
       action: ActionToggleMagboots
     - type: ComponentToggler
       components:
       - type: NoSlip
+    - type: ModifyStandingUpTime
+      multiplier: .25
     - type: Magboots
       enabledPrefix: null
     - type: ClothingSpeedModifier
@@ -245,6 +261,10 @@
           - id: ClothingMaskGasCentcom
           - id: WeaponDisablerAdvanced
           - id: CentralCommandBusinessCard
+          - id: JawsOfLife
+          - id: PowerDrill
+          - id: WelderExperimental
+          - id: Multitool
           
 #NCT
 - type: entity
@@ -334,3 +354,7 @@
           - id: ClothingMaskGasCentcom
           - id: WeaponDisablerAdvanced
           - id: CentralCommandBusinessCard
+          - id: JawsOfLife
+          - id: PowerDrill
+          - id: WelderExperimental
+          - id: Multitool
