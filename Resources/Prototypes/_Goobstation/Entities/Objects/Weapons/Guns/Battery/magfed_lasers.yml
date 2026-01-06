@@ -67,6 +67,7 @@
   description: A high-tech burst laser sniper rifle, compatible with specialized sniper power cells.
   components:
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
     size: Huge
     shape:
     - 0,0,6,1
@@ -89,7 +90,7 @@
           tags:
           - MilitaryPowerCellSniper
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper_icon_48x.rsi
     layers:
     - state: icon
       visible: false
@@ -208,7 +209,7 @@
   description: A high-tech laser LMG, that draws power from specialized backpack.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg_icon_48x.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -216,6 +217,7 @@
       shader: unshaded
       map: ["enum.GunVisualLayers.BaseUnshaded"]
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
     size: Huge
     shape:
     - 0,0,4,3
