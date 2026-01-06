@@ -104,55 +104,16 @@
             "name": "equip"
         },
         {
-            "name": "",
-            "delays": [
-                [
-                    0.120000005,
-                    0.120000005,
-                    0.120000005,
-                    0.120000005
-                ]
-            ]
+            "name": "sword_fling"
         },
         {
-            "name": "sword_fling",
-            "delays": [
-                [
-                    1,
-                    0.089999996,
-                    0.089999996,
-                    0.2
-                ]
-            ]
+            "name": "spirit_sealed"
         },
         {
-            "name": "spirit_sealed",
-            "delays": [
-                [
-                    2,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
+            "name": "spirit_unsealed"
         },
         {
-            "name": "spirit_unsealed",
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
+            "name": "pulse"
         }
     ]
 }
