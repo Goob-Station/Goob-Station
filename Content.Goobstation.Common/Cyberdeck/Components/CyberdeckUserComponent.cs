@@ -61,13 +61,6 @@ public sealed partial class CyberdeckUserComponent : Component
     public SoundSpecifier UserHackingSound =
         new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/hack_user.ogg", AudioParams.Default.WithVolume(6f));
 
-    /// <summary>
-    /// Sound that is played for the victim of cyberdeck hacking.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier VictimHackedSound =
-        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/hack_victim.ogg", AudioParams.Default.WithVolume(6f));
-
     [DataField]
     public EntProtoId ProjectionEntityId = "CyberdeckProjection";
 

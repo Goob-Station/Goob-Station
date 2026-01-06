@@ -11,6 +11,7 @@ using Content.Shared._EinsteinEngines.Silicon.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Prototypes;
 using Content.Shared.Alert;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._EinsteinEngines.Silicon.Components;
 
@@ -122,8 +123,9 @@ public sealed partial class SiliconComponent : Component
 
     /// <summary>
     /// Goobstation
-    /// For how long this borg will delay cyberdeck's hacking
+    /// Sound that is played for the victim of cyberdeck hacking.
     /// </summary>
     [DataField]
-    public TimeSpan CyberdeckPenaltyTime = TimeSpan.FromSeconds(8);
+    public SoundSpecifier VictimHackedSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/hack_victim.ogg", AudioParams.Default.WithVolume(6f));
 }

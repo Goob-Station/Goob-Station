@@ -1026,6 +1026,7 @@
       tags:
       - LoneOpsUplink
 
+- type: listing
   id: UplinkAutosurgeonCyberdeck
   name: uplink-autosurgeon-cyberdeck-name
   description: uplink-autosurgeon-cyberdeck-desc

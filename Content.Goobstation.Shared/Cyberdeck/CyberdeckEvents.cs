@@ -43,13 +43,27 @@ public sealed partial class CyberdeckInfoAlertEvent : BaseAlertEvent;
 /// after CyberdeckHackDoAfterEvent had run and after charges were taken from the user.
 /// </summary>
 /// <remarks>
-/// Use Refund property VERY CAREFULLY. If true, it will return charges back to the user even if other effects succeeded.
+/// Use Refund property VERY CAREFULLY. If true, it will return charges back to the user EVEN if other effects succeeded.
 /// </remarks>
 [ByRefEvent]
 public record struct CyberdeckHackDeviceEvent(EntityUid User, bool Refund = false);
 
 /// <summary>
-/// Raised on a player entity before Cyberdeck decides to hack something in it.
+/// Raised on an original target entity and code selected target
+/// to get some information before starting the hacking do-after.
 /// </summary>
+/// <param name="OriginalTarget">Target originally selected by the player by doing an in-world action.</param>
+/// <param name="Target">Target that the code logic selected to be hacked at the end. If not equal to OriginalTarget, then it is contained inside it.</param>
+/// <param name="PenaltyTime">Timespan to add to the hacking do-after duration.</param>
+/// <param name="Handled">If true, the penalty for hacking was already added to the player.</param>
 [ByRefEvent]
-public record struct BeforeCyberdeckHackPlayerEvent(TimeSpan PenaltyTime);
+public record struct BeforeCyberdeckHackEvent(EntityUid OriginalTarget, EntityUid Target, TimeSpan PenaltyTime, bool Handled);
+
+/// <summary>
+/// Raised on an original target and code selected target after the cyberdeck hacking do-after started successfully.
+/// </summary>
+/// <param name="OriginalTarget">Target originally selected by the player by doing an in-world action.</param>
+/// <param name="Target">Target that the code logic selected to be hacked at the end. If not equal to OriginalTarget, then it is contained inside it.</param>
+/// <param name="Handled">If true, the warning message about hacking was already shown to the player.</param>
+[ByRefEvent]
+public record struct AfterCyberdeckHackEvent(EntityUid OriginalTarget, EntityUid Target, bool Handled);
