@@ -185,7 +185,6 @@
     - Flash
     - MagazinePistol
     - ClothingMaskGasSecurity # Goobstation
-    - BookSpaceLaw #Goobstation, moved from locker
 
 - type: chameleonOutfit
   id: WardenChameleonOutfit

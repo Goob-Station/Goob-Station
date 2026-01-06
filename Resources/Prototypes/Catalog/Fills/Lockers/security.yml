@@ -116,7 +116,7 @@
     - id: RubberStampWarden
     - id: DoorRemoteArmory
     #- id: HoloprojectorSecurity Goob, its in your belt
-    #- id: BookSpaceLaw, Goob moved to backpack to make warden players read it more, in the locker its just bloat
+    - id: BookSpaceLaw
     - id: ClothingBackpackElectropack
       amount: 2
     - id: RemoteSignaller
@@ -229,7 +229,7 @@
     children:
     - id: ClothingEyesGlassesNoir
     - id: ClothingHeadHatDetGadget
-    # - id: ClothingNeckTieDet Goob, get it from the detvend
+    - id: ClothingNeckTieDet
     - !type:GroupSelector #Goob, if you want the other one, get it from detvend
       children:
       - id: ClothingOuterVestDetective
