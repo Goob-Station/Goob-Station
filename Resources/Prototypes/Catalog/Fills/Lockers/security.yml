@@ -129,7 +129,6 @@
     - id: Multitool # Goobstation
     - id: Wrench # Goobstation
     - id: ContrabandDetectorFlatpack # Goobstation
-      amount: 2 #Im tired of wardens making sec entrances a chokepoint just because of this item
     - id: SecurityMegaphone # goob - loudspeakers
 
 - type: entityTable
