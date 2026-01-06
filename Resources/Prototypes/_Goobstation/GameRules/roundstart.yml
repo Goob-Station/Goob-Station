@@ -423,7 +423,7 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 1200
+    chaosScore: 1700
   - type: AntagSelection
     agentName: thief-round-end-agent-name
     definitions:
