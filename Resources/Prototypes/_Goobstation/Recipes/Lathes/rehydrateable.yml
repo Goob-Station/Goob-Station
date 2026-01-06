@@ -146,7 +146,7 @@
     Plasma: 250
 
 - type: latheRecipe
-  id: Onicube
+  id: OniCube
   result: OniCube
   completetime: 30
   materials:
