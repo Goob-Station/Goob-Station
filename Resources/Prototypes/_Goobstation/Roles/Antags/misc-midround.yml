@@ -133,7 +133,7 @@
     gloves: ClothingHandsChameleonThief
     outerClothing: ClothingOuterHardsuitVoxRaiderStealth
     suitstorage: ExtendedEmergencyNitrogenTankFilled
-    back: ClothingBackpack
+    back: ClothingBackpackHolding
   storage:
     back:
     - BoxSurvivalSlotsNitrogen

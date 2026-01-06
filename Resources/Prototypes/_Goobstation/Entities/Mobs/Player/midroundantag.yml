@@ -62,6 +62,7 @@
   name: Mime assassin
   components:
   - type: MimePowers
+    preventWriting: true
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
@@ -86,3 +87,6 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ VoxRaiderAntagGear ]
+  - type: Thieving
+    stripTimeReduction: 1
+    stealthy: true
