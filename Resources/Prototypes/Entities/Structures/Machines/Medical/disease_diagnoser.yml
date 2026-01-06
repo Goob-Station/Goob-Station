@@ -99,8 +99,6 @@
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
-      storagebase: !type:Container
-        ents: []
   - type: ItemSlots #goob edit - swabs in disease reports
     slots:
       item:
