@@ -106,6 +106,8 @@
     sprite: _Goobstation/Clothing/Belt/judobelt.rsi
   - type: GrantCorporateJudo
   - type: Storage
+    grid:
+    - 0,0,5,1 #you're not carrying a batong, if you want pure storage go with secbelt
     whitelist:
       tags:
       - CigPack
@@ -261,7 +263,7 @@
       - SurgeryTool
       - SolutionTransfer
       - SlimeExtract
-      
+
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
   id: ClothingBeltMilitaryWebbingBSOFilled
