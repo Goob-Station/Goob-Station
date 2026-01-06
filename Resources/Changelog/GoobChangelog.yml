@@ -19980,3 +19980,9 @@ Entries:
       message: added xenobio room to serpentcrest
   id: 2264
   time: '2026-01-05T07:26:32.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Server no break
+  id: 2265
+  time: '2026-01-06T03:33:28.0000000+00:00'
