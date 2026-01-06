@@ -19980,3 +19980,25 @@ Entries:
       message: added xenobio room to serpentcrest
   id: 2264
   time: '2026-01-05T07:26:32.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Server no break
+  id: 2265
+  time: '2026-01-06T03:33:28.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: EMAG and Access breaker resprite.
+    - type: Add
+      message: Added lots of new items into vend machines.
+  id: 2266
+  time: '2026-01-06T04:03:46.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Sentient artifacts self activation action cooldown has been massively
+        reduced.
+  id: 2267
+  time: '2026-01-06T04:04:54.0000000+00:00'
