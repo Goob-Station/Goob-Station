@@ -108,3 +108,7 @@
       sprite: _DV/CosmicCult/Icons/objectives.rsi
       state: effigy
   - type: CosmicEffigyCondition
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+      - NinjaBombingTargetBlocker # Use the same blacklist as ninja

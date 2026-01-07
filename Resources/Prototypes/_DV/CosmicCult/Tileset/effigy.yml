@@ -112,3 +112,9 @@
       - MobCosmicLodestarHostile
   - type: WarpPoint
     follow: true
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Tag
+    tags:
+      - GhostOnlyWarp

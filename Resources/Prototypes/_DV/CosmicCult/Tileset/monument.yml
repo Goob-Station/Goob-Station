@@ -106,12 +106,19 @@
     - CosmicCult
   - type: WarpPoint
     location: The Monument
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
   - type: CosmicCorrupting
     corruptionReduction: 0.01
     enabled: false
     floodFillStarting: true
+  - type: Tag
+    tags:
+      - Structure # Parent has this tag
+      - GhostOnlyWarp
 
  ########### SPAWN-IN ANIMATION #############
 

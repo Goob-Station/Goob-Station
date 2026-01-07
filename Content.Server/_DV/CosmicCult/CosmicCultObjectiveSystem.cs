@@ -5,6 +5,7 @@ using Content.Shared.Ninja.Components;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
 using Content.Shared.Warps;
+using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.Objectives.Systems;
@@ -15,6 +16,7 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -35,10 +37,14 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
             return;
 
         var warps = new List<EntityUid>();
-        var query = EntityQueryEnumerator<BombingTargetComponent, WarpPointComponent>();
-        while (query.MoveNext(out var warpUid, out _, out var warp))
+        var query = EntityQueryEnumerator<WarpPointComponent>();
+        var effigyBlacklist = comp.Blacklist;
+
+        // TODO: Add a blacklist comp to this like ninja now has from upstream #40726
+        while (query.MoveNext(out var warpUid, out var warp))
         {
-            if (warp.Location != null)
+            if (_whitelist.IsWhitelistFail(effigyBlacklist, warpUid)
+                && !string.IsNullOrWhiteSpace(warp?.Location))
             {
                 warps.Add(warpUid);
             }

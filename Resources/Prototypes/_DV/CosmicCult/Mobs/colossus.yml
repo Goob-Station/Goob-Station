@@ -83,6 +83,9 @@
         - FlyingMobLayer
   - type: WarpPoint
     follow: true
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Body
     requiredLegs: 0
   - type: Emoting
@@ -116,6 +119,7 @@
     - CannotSuicide
     - DoorBumpOpener
     - Unimplantable
+    - GhostOnlyWarp # Prevents it from being warped to or being a warp location bombing target
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic

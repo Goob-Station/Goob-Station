@@ -60,6 +60,9 @@
     blacklist:
       tags:
       - GhostOnlyWarp
+  - type: Tag # DeltaV - Prevent the warp point from being chosen for bombing/effigy targets
+    tags:
+      - GhostOnlyWarp
 
 - type: entity
   parent: ImmovableRod
