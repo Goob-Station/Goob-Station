@@ -35,7 +35,7 @@
     - id: Screwdriver
     - id: MeleeHammer
     - id: WelderExperimental
-    - id: CableLVStack
+    - id: CableApcStack
     - id: CableMVStack
     - id: CableHVStack
 
@@ -126,20 +126,36 @@
   id: MetalShelfVeryRareWeapons
   table: !type:GroupSelector
     children:
-    - id: WeaponRifleLecter
+    # Common / weaker pulls
     - id: WeaponPistolMk58
+      weight: 6
     - id: MagazineRifle
+      weight: 6
     - id: MagazinePistolSubMachineGun
+      weight: 6
     - id: MagazinePistolSubMachineGunTopMounted
+      weight: 6
     - id: BoxShotgunSlug
-    - id: WeaponShotgunEnforcer
-    - id: WeaponRifleAk
-    - id: WeaponSubMachineGunDrozd
-    - id: WeaponSubMachineGunWt550
+      weight: 5
+    # Mid-tier
     - id: WeaponSubMachineGunAtreides
-    - id: Fireaxe
+      weight: 3
+    - id: WeaponSubMachineGunWt550
+      weight: 3
+    - id: WeaponSubMachineGunDrozd
+      weight: 3
+    # High-tier
+    - id: WeaponShotgunEnforcer
+      weight: 1
+    - id: WeaponRifleAk
+      weight: 1
+    - id: WeaponRifleLecter
+      weight: 1
+    # Melee
     - id: Sledgehammer
+      weight: 1
     - id: Katana
+      weight: 1
 
 - type: entityTable
   id: MetalShelfVeryRarePower
@@ -173,29 +189,78 @@
   table: !type:GroupSelector
     children:
     - id: AnomalyCorePyroclastic
+    - id: AnomalyCoreGravity
+    - id: AnomalyCoreIce
+    - id: AnomalyCoreFlesh
+    - id: AnomalyCoreLiquid
+    - id: AnomalyCoreBluespace
+    - id: AnomalyCoreElectricity
+    - id: AnomalyCoreFlora
+    - id: AnomalyCoreShadow
+
+- type: entityTable
+  id: FillMetalShelfUltraRare
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: MetalShelfUltraRareWeapons
+    - !type:NestedSelector
+      tableId: MetalShelfUltraRareMeds
+    - !type:NestedSelector
+      tableId: MetalShelfUltraRareAnomalies
+    - !type:NestedSelector
+      tableId: MetalShelfUltraRareUtility
+    - !type:NestedSelector
+      tableId: RandomChemistryBottleAnyTable
+
+- type: entityTable
+  id: MetalShelfUltraRareWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponRifleLecter
+    - id: WeaponRifleAk
+    - id: WeaponShotgunEnforcer
+    - id: WeaponSubMachineGunDrozd
+    - id: WeaponSubMachineGunWt550
+
+- type: entityTable
+  id: MetalShelfUltraRareMeds
+  table: !type:GroupSelector
+    children:
+    - id: MedkitCombatFilled
+    - id: MedkitAdvancedFilled
+    - id: ChemistryBottleOmnizine
+    - id: ChemistryBottleCognizine
+    - id: RegenerativeMesh
+    - id: MedicatedSuture
+    - id: Bloodpack
+    - id: PillCanisterTricordrazine
+    - id: PillCanisterBicaridine
+    - id: PillCanisterDermaline
+
+- type: entityTable
+  id: MetalShelfUltraRareAnomalies
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyCorePyroclastic
       amount: !type:RangeNumberSelector
         range: 1, 3
     - id: AnomalyCoreGravity
       amount: !type:RangeNumberSelector
         range: 1, 3
-    - id: AnomalyCoreIce
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreFlesh
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreLiquid
-      amount: !type:RangeNumberSelector
-        range: 1, 3
     - id: AnomalyCoreBluespace
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreElectricity
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreFlora
       amount: !type:RangeNumberSelector
         range: 1, 3
     - id: AnomalyCoreShadow
       amount: !type:RangeNumberSelector
         range: 1, 3
+
+- type: entityTable
+  id: MetalShelfUltraRareUtility
+  table: !type:GroupSelector
+    children:
+    - id: PowerCellMicroreactor
+    - id: PowerCellHyper
+    - id: AmmoTechFabCircuitboard
+    - id: SpaceCash10000
+    - id: MaterialDiamond1

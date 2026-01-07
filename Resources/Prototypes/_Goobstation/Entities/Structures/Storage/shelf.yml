@@ -86,6 +86,16 @@
         storagebase: !type:NestedSelector
           tableId: FillMetalShelfVeryRare
 
+- type: entity
+  id: MetalShelfLargeFilledUltraRare
+  parent: MetalShelfLarge
+  suffix: filled, ultra rare
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:NestedSelector
+          tableId: FillMetalShelfUltraRare
+
 # Wood
 
 - type: entity
@@ -226,11 +236,33 @@
     state: supply_crate
 
 - type: entity
-  id: GoonSupplyCrateFilled
+  id: GoonSupplyCrateFilledRare
+  name: supply crate
+  description: Used for paramilitary drops. Could have some good stuff.
+  parent: MetalShelfLargeFilledRare
+  suffix: filled, rare
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: supply_crate
+
+- type: entity
+  id: GoonSupplyCrateFilledVeryRare
   name: supply crate
   description: Used for paramilitary drops. Could have some good stuff.
   parent: MetalShelfLargeFilledVeryRare
   suffix: filled, very rare
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: supply_crate
+
+- type: entity
+  id: GoonSupplyCrateFilledUltraRare
+  name: supply crate
+  description: Used for paramilitary drops. Could have some good stuff.
+  parent: MetalShelfLargeFilledUltraRare
+  suffix: filled, ultra rare
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
@@ -253,7 +285,7 @@
 - type: entity
   id: WoodenFloorPalette
   name: wooden pallet
-  description: A wooden pallet for stackables. 
+  description: A wooden pallet for stackables.
   parent: MetalShelfLarge
   components:
   - type: Sprite
@@ -262,4 +294,4 @@
   - type: Storage
     maxItemSize: Huge
     grid:
-    - 0,0,5,4 
+    - 0,0,5,4
