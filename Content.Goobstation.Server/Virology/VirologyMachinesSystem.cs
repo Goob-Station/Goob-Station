@@ -154,10 +154,10 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
         report.AppendLine(Loc.GetString("disease-analyzer-report-complexity", ("complexity", disease.Complexity)));
 
         report.AppendLine(Loc.GetString("disease-analyzer-report-effects-header"));
-        foreach (var effectUid in disease.Effects)
+        foreach (var effectUid in disease.Effects.ContainedEntities)
         {
             var meta = MetaData(effectUid);
-            if (TryComp<Shared.Disease.Components.DiseaseEffectComponent>(effectUid, out var effectComp) && meta.EntityPrototype != null)
+            if (TryComp<DiseaseEffectComponent>(effectUid, out var effectComp) && meta.EntityPrototype != null)
             {
                 report.AppendLine(Loc.GetString("disease-analyzer-report-effect-line",
                     ("effect", Loc.GetString(meta.EntityPrototype.Name)),
