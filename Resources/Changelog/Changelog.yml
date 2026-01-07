@@ -5250,3 +5250,11 @@ Entries:
   id: 9359
   time: '2026-01-07T19:37:53.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42280
+- author: aada
+  changes:
+  - message: Toy swords now deal a very small amount of stamina damage for proper
+      sword fights.
+    type: Tweak
+  id: 9360
+  time: '2026-01-07T22:03:27.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42184
