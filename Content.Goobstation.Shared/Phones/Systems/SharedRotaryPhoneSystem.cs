@@ -5,19 +5,15 @@ using Content.Shared.Destructible;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
-using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Phones.Systems;
 
@@ -28,12 +24,10 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -164,11 +158,16 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
     private void OnHangUp(EntityUid uid, RotaryPhoneComponent comp, EntGotInsertedIntoContainerMessage args)
     {
-        if(TryComp<ActorComponent>(args.Container.Owner, out var _))
-            comp.ConnectedPlayer = args.Container.Owner;
-
-        if (!TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
+        if (!TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var holder))
             return;
+
+        holder.PhoneNumber = comp.PhoneNumber;
+        holder.ConnectedPhone = uid;
+        comp.ConnectedPhoneStand = args.Container.Owner;
+        Dirty(uid, comp);
+
+        if(TryComp<ActorComponent>(args.Container.Owner, out _))
+            comp.ConnectedPlayer = args.Container.Owner;
 
         if(comp.ConnectedPhoneStand != null)
             UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Base);

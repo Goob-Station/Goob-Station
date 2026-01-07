@@ -48,14 +48,6 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
     private void OnPhoneRemoveHolder(EntityUid uid, RotaryPhoneHolderComponent comp, EntRemovedFromContainerMessage args)
     {
-        if (TryComp<RotaryPhoneComponent>(args.Entity, out var phone))
-        {
-            comp.PhoneNumber = phone.PhoneNumber;
-            comp.ConnectedPhone = args.Entity;
-            phone.ConnectedPhoneStand = uid;
-            Dirty(uid, comp);
-        }
-
         if(Deleted(uid) || Terminating(uid))
             return;
 
@@ -74,6 +66,9 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
     private void OnPhoneInsertHolder(EntityUid uid, RotaryPhoneHolderComponent comp, EntInsertedIntoContainerMessage args)
     {
+        if(Deleted(uid) || Terminating(uid))
+            return;
+
         RemComp<JointVisualsComponent>(uid);
         RemComp<JointComponent>(uid);
         Dirty(uid, comp);
