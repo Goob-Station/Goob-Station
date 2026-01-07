@@ -20018,3 +20018,9 @@ Entries:
         mapping purposes. Cry about it.
   id: 2268
   time: '2026-01-07T03:20:20.0000000+00:00'
+- author: router
+  changes:
+    - type: Tweak
+      message: Made Secret+ far less likely to choose events at all
+  id: 2269
+  time: '2026-01-07T06:02:59.0000000+00:00'
