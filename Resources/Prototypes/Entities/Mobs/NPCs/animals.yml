@@ -1810,7 +1810,7 @@
     understands:
     - Monkey
     - Kobold
-  - type: SentienceTarget
+  - type: SentienceTarget   # Goobstation - monkeys no longer randomly sentient outside of events
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
   - type: Skinnable # Goobstation - Fuck pun-pun
