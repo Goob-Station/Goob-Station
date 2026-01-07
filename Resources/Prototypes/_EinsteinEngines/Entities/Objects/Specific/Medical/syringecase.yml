@@ -43,7 +43,7 @@
     - 0,0,0,1
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,2,1
     whitelist:
       tags:
       - Bottle
@@ -51,6 +51,7 @@
       - Dropper
       - Syringe
       - Medipen
+      - AutoinjectorCartridge
 
   - type: ItemCounter # i do not have the spoons to make itemmapper work with opening/closing so you get this
     count:
