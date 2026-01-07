@@ -4561,7 +4561,7 @@ entities:
     - type: Transform
       pos: 13.5,-15.5
       parent: 1668
-- proto: BlastDoor
+- proto: BlastDoorCentralCommand
   entities:
   - uid: 288
     components:
@@ -4614,7 +4614,7 @@ entities:
     - type: Transform
       pos: 12.5,-3.5
       parent: 1668
-- proto: BlastDoorOpen
+- proto: BlastDoorOpenCentralCommand
   entities:
   - uid: 525
     components:
