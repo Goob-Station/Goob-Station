@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-NC-SA-4.0",
-  "copyright": "discord: Valniae (bbalint105)",
+  "license": "CC-BY-SA-3.0",
+  "copyright": "derived from the janitor cap {Taken from tgstation at https://github.com/tgstation/tgstation/commit/0671297bb1c1b31d5885f2768aecbe9dc51d39e7 , edited by Skarletto (github), Purpleified by SolsticeOfTheWinter, inhand sprites by SeamLesss (GitHub)} discord: Valniae (bbalint105)",
   "size": {
     "x": 32,
     "y": 32
