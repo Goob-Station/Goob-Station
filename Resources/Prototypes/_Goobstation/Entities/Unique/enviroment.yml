@@ -95,3 +95,153 @@
     noRot: true
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
     state: occupancy-0
+
+- type: entity
+  id: EnvironmentalHazardFloorWasteWaterBase
+  abstract: true
+  name: waste water
+  description: Looks like water but is as bad as they come. WILL KILL YOU! Don't step on it.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: FloorOccluder
+  - type: Transform
+    anchored: true
+  - type: SyncSprite
+  - type: Clickable
+  - type: Sprite
+    sprite: _Goobstation/Tiles/waste.rsi
+    drawdepth: BelowFloor
+    layers:
+      - state: waste_water
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWater
+      params:
+        volume: 8
+  - type: TileEntityEffect
+    effects:
+    - !type:DamageTileEffect
+      damage:
+        types:
+          Caustic: 40 # Basically they should die but they should be able to get the fuck out as a final chance.
+          Genetic: 10
+
+- type: entity
+  id: EnvironmentalHazardFloorWasteWaterEntity
+  parent: EnvironmentalHazardFloorWasteWaterBase
+  suffix: Default
+  components:
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    triggerGroups:
+      types:
+        - WasteWater
+
+- type: entity
+  id: EnvironmentalHazardFloorWasteWaterEntitySafe
+  parent: EnvironmentalHazardFloorWasteWaterBase
+  suffix: Catwalk-safe
+  components:
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    blacklist:
+      tags:
+        - Catwalk
+    triggerGroups:
+      types:
+        - WasteWater
+
+- type: entity
+  id: EnvironmentalHazardToxicGas
+  name: toxic gas
+  description: A cloud of highly toxic fumes.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: airborne
+    drawdepth: Effects
+    scale: 1.5,1.5
+    color: "#66FF66AA"
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        hard: false
+        mask:
+          - MobMask
+  - type: ToxicGasDamage
+    interval: 1
+    damage:
+      types:
+        Poison: 0.1 # Fairly fast but you can tank a few seconds
+        Caustic: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/space_wind.ogg
+
+- type: entity
+  id: EnvironmentalHazardToxicGasTimed
+  parent: EnvironmentalHazardToxicGas
+  suffix: Timed, 3 seconds
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: EnvironmentalHazardGasSpawnerTrap6
+  name: gas trap
+  description: Periodically spawns deadly toxic gas.
+  suffix: 6 seconds
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Piping/trap.rsi
+    state: gas_trap
+    drawdepth: HighFloorObjects
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - EnvironmentalHazardToxicGasTimed
+    intervalSeconds: 6
+
+- type: entity
+  id: EnvironmentalHazardGasSpawnerTrap9
+  parent: EnvironmentalHazardGasSpawnerTrap6
+  suffix: 9 seconds
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - EnvironmentalHazardToxicGasTimed
+    intervalSeconds: 9
