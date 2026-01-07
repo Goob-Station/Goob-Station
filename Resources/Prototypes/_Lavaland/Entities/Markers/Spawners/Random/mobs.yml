@@ -19,9 +19,9 @@
     - !type:GroupSelector
       weight: 20
       children:
-      - id: MobWatcherBase
-      - id: MobWatcherIcewing
       - id: MobWatcherLavaland
+      - id: MobWatcherMagmawing
+      - id: MobWatcherIcewing
 
 - type: entity
   name: lavaland mob spawner
