@@ -66,6 +66,9 @@
   id: MarkerBeacon
 
 - type: Tag
+  id: CrusherUpgradeFrame
+
+- type: Tag
   id: CrusherUpgradeMain
 
 - type: Tag

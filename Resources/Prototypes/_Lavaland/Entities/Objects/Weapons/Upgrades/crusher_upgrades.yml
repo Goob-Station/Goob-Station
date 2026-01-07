@@ -82,7 +82,7 @@
     - type: Gun # TODO turn it into an action gun and add auto-targeting
       projectileSpeed: 12 # Needed for the trail to look good
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-      fireRate: 1
+      fireRate: 0.125
       useKey: false
     - type: MapRestrictedGun
       planetWhitelist:
@@ -90,7 +90,7 @@
         - Biome
       popupOnBlock: gun-lavaland-restricted-message
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 10
+      rechargeCooldown: 8
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
     - type: BasicEntityAmmoProvider

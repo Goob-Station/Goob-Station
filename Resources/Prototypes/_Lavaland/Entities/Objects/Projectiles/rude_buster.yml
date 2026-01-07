@@ -17,9 +17,12 @@
   - type: Projectile
     damage:
       types:
+        Blunt: 15
         Heat: 15
-        Holy: 30
-        Structural: 60
+        Structural: 80
+    penetrationThreshold: 400 # Good for breaking rocks (and hordes of fauna)
+  - type: StaminaDamageOnCollide
+    damage: 60
   - type: Trail
     color: "#ae00ffdd"
     scale: 1.1
@@ -37,7 +40,7 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
+          bounds: "-0.4,-0.2,0.4,0.2"
         hard: false
         mask:
         - Impassable
@@ -46,6 +49,6 @@
     muzzleFlash: null
   - type: TileFrictionModifier # Thanks wizden for killing physics comp damping
     modifier: 0
-  - type: HomingProjectile
+  - type: HomingProjectile # TODO this doesn't work since it needs a target to be assigned by an action
     #homingTime: 0
     homingSpeed: 2160

@@ -160,16 +160,18 @@ namespace Content.Shared.Containers.ItemSlots
         {
             foreach (var slot in itemSlots.Slots.Values)
             {
+                // Lavaland Change start - light occlusion
+                if (slot.ContainerSlot != null)
+                    slot.ContainerSlot.OccludesLight = slot.OccludesLight;
+                // Lavaland Change end
+
                 if (slot.HasItem || string.IsNullOrEmpty(slot.StartingItem))
                     continue;
 
                 var item = Spawn(slot.StartingItem, Transform(uid).Coordinates);
 
-                if (slot.ContainerSlot != null) // Lavaland Change start - light occlusion
-                {
+                if (slot.ContainerSlot != null)
                     _containers.Insert(item, slot.ContainerSlot);
-                    slot.ContainerSlot.OccludesLight = slot.OccludesLight;
-                } // Lavaland Change end
             }
         }
 

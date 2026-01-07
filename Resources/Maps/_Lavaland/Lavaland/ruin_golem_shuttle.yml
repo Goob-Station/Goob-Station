@@ -2403,7 +2403,7 @@ entities:
     - type: Transform
       pos: -19.5,1.5
       parent: 1
-- proto: SalvageSpawnerMobMiningAsteroid
+- proto: SpawnerRandomMobLavaland
   entities:
   - uid: 352
     components:

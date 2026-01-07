@@ -31,6 +31,14 @@
     count: 1
 
 - type: entity
+  parent: MaterialWatcherWing
+  id: MaterialWatcherWing5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
   parent: BaseItem
   id: MaterialWatcherMagmaWing
   name: watcher's magma wing
@@ -62,6 +70,14 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: MaterialWatcherMagmaWing
+  id: MaterialWatcherMagmaWing5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
 
 - type: entity
   parent: BaseItem
@@ -97,6 +113,14 @@
     count: 1
 
 - type: entity
+  parent: MaterialWatcherIceWing
+  id: MaterialWatcherIceWing5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
   parent: BaseItem
   id: MaterialLegionSkull
   name: legion skull
@@ -126,3 +150,11 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: MaterialLegionSkull
+  id: MaterialLegionSkull5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
