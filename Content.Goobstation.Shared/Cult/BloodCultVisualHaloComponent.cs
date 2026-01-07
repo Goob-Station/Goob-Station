@@ -1,3 +1,4 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -6,7 +7,7 @@ namespace Content.Goobstation.Shared.Cult;
 /// <summary>
 ///     Gives cultists their halos.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class BloodCultVisualHaloComponent : Component
 {
     [DataField]

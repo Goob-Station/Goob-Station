@@ -34,7 +34,8 @@ public sealed partial class BloodCultVisualEyesSystem : EntitySystem
             return;
 
         ent.Comp.LastEyeColor = huac.EyeColor;
-        _human.SetBaseLayerColor(ent.Owner, HumanoidVisualLayers.Eyes, ent.Comp.EyeColor);
+        _human.SetBaseLayerColor(ent.Owner, HumanoidVisualLayers.Eyes, ent.Comp.EyeColor, true, huac);
+        huac.EyeColor = ent.Comp.EyeColor; // SetBaseLayerColor clearly doesn't fucking work.
     }
 
     private void OnCultEyesRemoved(Entity<BloodCultVisualEyesComponent> ent, ref ComponentShutdown args)
@@ -42,6 +43,7 @@ public sealed partial class BloodCultVisualEyesSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(ent, out var huac) || ent.Comp.LastEyeColor == null)
             return;
 
-        _human.SetBaseLayerColor(ent.Owner, HumanoidVisualLayers.Eyes, ent.Comp.LastEyeColor);
+        _human.SetBaseLayerColor(ent.Owner, HumanoidVisualLayers.Eyes, ent.Comp.LastEyeColor, true, huac);
+        huac.EyeColor = (Color) ent.Comp.LastEyeColor;
     }
 }

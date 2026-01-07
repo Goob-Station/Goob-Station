@@ -3,7 +3,7 @@
     "license": "CC-BY-SA-3.0",
     "copyright": "Taken from TGstation",
     "size": {
-        "x": 32,
+        "x": 64,
         "y": 64
     },
     "states": [

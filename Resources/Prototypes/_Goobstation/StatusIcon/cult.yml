@@ -1,24 +1,24 @@
 - type: factionIcon
   id: BloodCultist
   isShaded: false
-  priority: 1
+  priority: 11
   showTo:
     components:
       - ShowAntagIcons
       - BloodCultist
   icon:
-    sprite: _Goobstation/Cult/job_icons.rsi
+    sprite: /Textures/_Goobstation/Cult/job_icons.rsi
     state: acolyte
 
 - type: factionIcon
   id: BloodCultistLeader
   isShaded: false
-  priority: 1
+  priority: 11
   showTo:
     components:
       - ShowAntagIcons
       - BloodCultist
       - BloodCultistLeader
   icon:
-    sprite: _Goobstation/Cult/job_icons.rsi
+    sprite: /Textures/_Goobstation/Cult/job_icons.rsi
     state: master
