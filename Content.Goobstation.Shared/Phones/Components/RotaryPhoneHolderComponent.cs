@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Phones.Components;
 
@@ -11,6 +12,6 @@ public sealed partial class RotaryPhoneHolderComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ConnectedPhone;
 
-    [DataField, AutoNetworkedField]
-    public bool Emagged;
+    [AutoNetworkedField]
+    public SpriteSpecifier RopeSprite = new SpriteSpecifier.Rsi(new ResPath("_RMC14/Objects/phone/phone.rsi"), "rope");
 }

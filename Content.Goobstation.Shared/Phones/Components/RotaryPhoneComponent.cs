@@ -14,17 +14,20 @@ namespace Content.Goobstation.Shared.Phones.Components;
 public sealed partial class RotaryPhoneComponent : Component
 {
     /// <summary>
-    /// Is the phone connected to another phone or busy
+    /// Becomes true when the phone is picked up or when another phone calls this one
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Engaged;
 
     /// <summary>
-    /// Should the phones transfer
+    /// When true phones will transfer messages, becomes true when the phone is picked up while the phone is ringing
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Connected;
 
+    /// <summary>
+    /// When true the phone will speak instead of sending a private message to the person holding the phone
+    /// </summary>
     [DataField, AutoNetworkedField]
     public bool SpeakerPhone;
 
@@ -83,9 +86,6 @@ public sealed partial class RotaryPhoneComponent : Component
     public ProtoId<SourcePortPrototype> HangUpPort = "PhoneHangupPort";
 
     #region sounds
-
-    [AutoNetworkedField]
-    public SpriteSpecifier RopeSprite = new SpriteSpecifier.Rsi(new ResPath("_RMC14/Objects/phone/phone.rsi"), "rope");
 
     [DataField, AutoNetworkedField]
     public SoundSpecifier SpeakSound = new SoundCollectionSpecifier("RMCPhoneSpeak", AudioParams.Default.WithVolume(-3));

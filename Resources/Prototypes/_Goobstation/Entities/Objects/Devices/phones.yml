@@ -210,6 +210,7 @@
         insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneCommand
+        ejectOnInteract: true
 
 - type: entity
   parent: RotaryPhoneStand
@@ -223,6 +224,7 @@
         insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneSecurity
+        ejectOnInteract: true
 
 - type: entity
   parent: RotaryPhoneStand
@@ -236,6 +238,7 @@
         insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneSecurity911
+        ejectOnInteract: true
 
 - type: entity
   parent: RotaryPhoneStand
@@ -249,6 +252,7 @@
         insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneMedical
+        ejectOnInteract: true
 
 - type: entity
   parent: RotaryPhoneStand
@@ -262,6 +266,7 @@
         insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneEngineering
+        ejectOnInteract: true
 
 - type: entity
   parent: RotaryPhoneStand
@@ -275,6 +280,7 @@
         insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneCargo
+        ejectOnInteract: true
 
 - type: entity
   parent: RotaryPhoneStand
@@ -288,6 +294,7 @@
         insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneScience
+        ejectOnInteract: true
 
 - type: entity
   parent: RotaryPhoneStand
@@ -301,3 +308,4 @@
         insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneService
+        ejectOnInteract: true

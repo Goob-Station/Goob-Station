@@ -74,7 +74,7 @@ public sealed partial class PhoneMenu : FancyWindow
         UncategorizedHeading.DisposeAllChildren();
     }
 
-    public void AddPhoneBookLabel(string name, string catagory, int phonenumber)
+    public void AddPhoneBookLabel(string name, string category, int phonenumber)
     {
         var btn = new Button()
         {
@@ -83,7 +83,7 @@ public sealed partial class PhoneMenu : FancyWindow
 
         btn.OnPressed += _ => OnPhoneBookButtonPressed?.Invoke(phonenumber);
 
-        switch (catagory.ToLower())
+        switch (category.ToLower())
         {
             case "command":
                 CommandHeading.AddChild(btn);

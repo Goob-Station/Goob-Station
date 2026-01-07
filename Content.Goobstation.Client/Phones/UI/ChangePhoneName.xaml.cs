@@ -16,7 +16,7 @@ public sealed partial class ChangePhoneName : FancyWindow
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
-        FillCategorys();
+        FillCategories();
         MessageEdit.OnTextChanged += _ => OnTextChanged?.Invoke(MessageEdit.Text);
         CategoryOption.OnItemSelected += args =>
         {
@@ -56,7 +56,7 @@ public sealed partial class ChangePhoneName : FancyWindow
         };
     }
 
-    private void FillCategorys()
+    private void FillCategories()
     {
         CategoryOption.AddItem("command");
         CategoryOption.AddItem("security");

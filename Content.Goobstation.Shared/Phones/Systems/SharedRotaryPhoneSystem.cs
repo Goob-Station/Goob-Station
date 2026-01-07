@@ -1,11 +1,8 @@
-using System.Numerics;
-using Content.Goobstation.Shared.ExplodeOnPickup;
 using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceLinking;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
@@ -17,7 +14,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -28,14 +24,11 @@ namespace Content.Goobstation.Shared.Phones.Systems;
 public sealed class SharedRotaryPhoneSystem : EntitySystem
 {
     private static readonly ProtoId<TagPrototype> ScrewdriverTag = "Screwdriver";
-    public const string PhoneJoint = "jointphone";
 
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedJointSystem _jointSystem = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -53,12 +46,12 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         SubscribeLocalEvent<RotaryPhoneComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<RotaryPhoneComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RotaryPhoneComponent, InteractUsingEvent>(OnInteract);
-        SubscribeLocalEvent<RotaryPhoneHolderComponent, GotEmaggedEvent>(OnEmag);
+        SubscribeLocalEvent<RotaryPhoneComponent, DestructionEventArgs>(OnPhoneDestroy);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, ExaminedEvent>(OnExamineHolder);
-        SubscribeLocalEvent<RotaryPhoneHolderComponent, EntInsertedIntoContainerMessage>(OnPhoneInsertHolder);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, DestructionEventArgs>(OnDestruction);
     }
+
     private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
     {
         if(comp.PhoneNumber == null)
@@ -69,16 +62,9 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     {
         QueueDel(comp.ConnectedPhone);
     }
-
-    private void OnEmag(EntityUid uid, RotaryPhoneHolderComponent comp, ref GotEmaggedEvent args)
+    private void OnPhoneDestroy(EntityUid uid, RotaryPhoneComponent comp, DestructionEventArgs args)
     {
-        if(args.Handled || comp.Emagged || comp.ConnectedPhone == null)
-            return;
-
-        args.Handled = true;
-        comp.Emagged = true;
-
-        EnsureComp<ExplodeOnPickupComponent>(comp.ConnectedPhone.Value);
+        DisconnectPhones(comp);
     }
 
     private void OnInteract(EntityUid uid, RotaryPhoneComponent comp, InteractUsingEvent args)
@@ -126,17 +112,6 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    private void OnPhoneInsertHolder(EntityUid uid, RotaryPhoneHolderComponent comp, EntInsertedIntoContainerMessage args)
-    {
-        if (TryComp<RotaryPhoneComponent>(args.Entity, out var phone))
-        {
-            comp.PhoneNumber = phone.PhoneNumber;
-            comp.ConnectedPhone = args.Entity;
-            phone.ConnectedPhoneStand = uid;
-            Dirty(uid, comp);
-        }
-    }
-
     private void OnInsertAttempt(EntityUid uid, RotaryPhoneHolderComponent comp, ref ItemSlotInsertAttemptEvent args)
     {
         if(!TryComp<RotaryPhoneComponent>(args.Item, out var phone))
@@ -181,21 +156,6 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.PickUpPort);
         comp.Engaged = true;
 
-        if (_net.IsServer && !Deleted(uid) && !Terminating(uid) && _timing.IsFirstTimePredicted)
-        {
-            var visuals = EnsureComp<JointVisualsComponent>(uid);
-            visuals.Sprite = comp.RopeSprite;
-            visuals.Target = GetNetEntity(args.Container.Owner);
-            Dirty(uid, visuals);
-
-            var jointComp = EnsureComp<JointComponent>(uid);
-            var joint = _jointSystem.CreateDistanceJoint(uid, args.Container.Owner, anchorA: new Vector2(0f, 0f), id: PhoneJoint);
-            joint.MaxLength = 3f;
-            joint.Stiffness = 0.5f;
-            joint.MinLength = 0;
-            Dirty(uid, jointComp);
-        }
-
         if(comp.ConnectedPhone == null || !TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone) )
             return;
 
@@ -212,13 +172,6 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
         if(comp.ConnectedPhoneStand != null)
             UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Base);
-
-        if (_net.IsServer && _timing.IsFirstTimePredicted)
-        {
-            RemComp<JointVisualsComponent>(uid);
-            RemComp<JointComponent>(uid);
-            Dirty(uid, comp);
-        }
 
         RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.HangUpPort);
         DisconnectPhones(comp);

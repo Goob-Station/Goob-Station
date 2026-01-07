@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Numerics;
 using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
 using Content.Goobstation.Shared.Phones.Systems;
@@ -7,12 +7,15 @@ using Content.Server.Radio.Components;
 using Content.Server.Speech;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
+using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Phones;
 
@@ -21,10 +24,12 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
     [Dependency] private readonly SharedChatSystem _chatSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedRotaryPhoneSystem _rotaryPhoneSystem = default!;
+    [Dependency] private readonly SharedJointSystem _jointSystem = default!;
+
+    public const string PhoneJoint = "jointphone";
 
     public override void Initialize()
     {
@@ -36,6 +41,42 @@ public sealed class RotaryPhoneSystem : EntitySystem
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneCategoryChangedMessage>(OnPhoneCategoryChanged);
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneDialedMessage>(OnDial);
         SubscribeLocalEvent<RotaryPhoneComponent, BoundUIOpenedEvent>(OnOpen);
+        SubscribeLocalEvent<RotaryPhoneHolderComponent, EntRemovedFromContainerMessage>(OnPhoneRemoveHolder);
+        SubscribeLocalEvent<RotaryPhoneHolderComponent, EntInsertedIntoContainerMessage>(OnPhoneInsertHolder);
+    }
+
+
+    private void OnPhoneRemoveHolder(EntityUid uid, RotaryPhoneHolderComponent comp, EntRemovedFromContainerMessage args)
+    {
+        if (TryComp<RotaryPhoneComponent>(args.Entity, out var phone))
+        {
+            comp.PhoneNumber = phone.PhoneNumber;
+            comp.ConnectedPhone = args.Entity;
+            phone.ConnectedPhoneStand = uid;
+            Dirty(uid, comp);
+        }
+
+        if(Deleted(uid) || Terminating(uid))
+            return;
+
+        var visuals = EnsureComp<JointVisualsComponent>(uid);
+        visuals.Sprite = comp.RopeSprite;
+        visuals.Target = GetNetEntity(args.Entity);
+        Dirty(uid, visuals);
+
+        var jointComp = EnsureComp<JointComponent>(uid);
+        var joint = _jointSystem.CreateDistanceJoint(uid, args.Entity, anchorA: new Vector2(0f, 0f), id: PhoneJoint);
+        joint.MaxLength = 3f;
+        joint.Stiffness = 0.5f;
+        joint.MinLength = 0;
+        Dirty(uid, jointComp);
+    }
+
+    private void OnPhoneInsertHolder(EntityUid uid, RotaryPhoneHolderComponent comp, EntInsertedIntoContainerMessage args)
+    {
+        RemComp<JointVisualsComponent>(uid);
+        RemComp<JointComponent>(uid);
+        Dirty(uid, comp);
     }
 
     private void OnPhoneCategoryChanged(EntityUid uid, RotaryPhoneComponent comp, PhoneCategoryChangedMessage args)
@@ -141,7 +182,12 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
     private void OnListen(EntityUid uid, RotaryPhoneComponent comp, ref ListenEvent args)
     {
-        if(HasComp<RotaryPhoneComponent>(args.Source) || !_timing.IsFirstTimePredicted || args.Source == uid || HasComp<RadioSpeakerComponent>(args.Source) || comp.ConnectedPhone == null || !comp.Connected || !TryComp(comp.ConnectedPhone, out RotaryPhoneComponent? otherPhoneComponent))
+        if(HasComp<RotaryPhoneComponent>(args.Source)
+           || args.Source == uid
+           || HasComp<RadioSpeakerComponent>(args.Source)
+           || comp.ConnectedPhone == null
+           || !comp.Connected
+           || !TryComp(comp.ConnectedPhone, out RotaryPhoneComponent? otherPhoneComponent))
             return;
 
         var entityMeta = MetaData(args.Source);
