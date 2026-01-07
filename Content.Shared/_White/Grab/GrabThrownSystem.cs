@@ -15,9 +15,8 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using System.Numerics;
 using Content.Goobstation.Common.Standing;
-using Content.Shared._White.Standing;
-using Content.Shared.Standing;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Stunnable; // Goobstation
 
 namespace Content.Shared._White.Grab;
 
@@ -28,7 +27,7 @@ public sealed class GrabThrownSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -70,7 +69,7 @@ public sealed class GrabThrownSystem : EntitySystem
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
         _stamina.TakeStaminaDamage(ent, (float) Math.Floor(modNumber / 2));
 
-        _layingDown.TryLieDown(args.OtherEntity, behavior: DropHeldItemsBehavior.AlwaysDrop);
+        _stun.TryKnockdown(args.OtherEntity, TimeSpan.FromSeconds(1), false, behavior: DropHeldItemsBehavior.DropIfStanding); // Goobstation
 
         _color.RaiseEffect(Color.Red, new List<EntityUid>() { ent }, Filter.Pvs(ent, entityManager: EntityManager));
     }
@@ -99,13 +98,13 @@ public sealed class GrabThrownSystem : EntitySystem
         Vector2 vector,
         float grabThrownSpeed,
         DamageSpecifier? damageToUid = null,
-        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.NoDrop) // Goob edit
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.DropIfStanding) // Goob edit
     {
         var comp = EnsureComp<GrabThrownComponent>(uid);
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 
-        _layingDown.TryLieDown(uid, behavior: behavior);
+        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(1), false, behavior: behavior); // Goobstation
         _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 }

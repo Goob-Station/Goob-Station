@@ -35,7 +35,7 @@ public sealed partial class CombatDoAfterSystem
 
     private void OnEnsnared(Entity<EnsnaringKnockdownComponent> ent, ref EnsnaredEvent args)
     {
-        _layingDown.TryLieDown(args.Target);
+        _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(1), false); // Goobstation
         RemCompDeferred(ent.Owner, ent.Comp);
     }
 

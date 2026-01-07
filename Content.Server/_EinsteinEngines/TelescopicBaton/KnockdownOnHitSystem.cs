@@ -44,18 +44,12 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         foreach (var target in
                  args.HitEntities.Where(e => !HasComp<BorgChassisComponent>(e) && _mobState.IsAlive(e))) // Goob edit
         {
-            if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
-            {
-                if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation
-                    knockedDown.Add(target);
-                continue;
-            }
 
             if (!TryComp(target, out StatusEffectsComponent? statusEffects))
                 continue;
 
             if (_stun.TryKnockdown(target,
-                entity.Comp.Duration,
+                entity.Comp.Duration > TimeSpan.FromSeconds(1) ? entity.Comp.Duration : TimeSpan.FromSeconds(1), // Goobstation
                 entity.Comp.RefreshDuration,
                 ev.Behavior, // Goob edit
                 statusEffects)) // Goob edit
