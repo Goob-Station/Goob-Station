@@ -1,0 +1,22 @@
+- type: body
+  id: Doodon
+  name: "doodon"    #Copied from drone
+  root: torso
+  slots:
+    torso:
+      part: TorsoBorg
+      connections:
+      - right arm
+      - left arm
+    right arm:
+      part: RightArmBorg
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmBorg
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman # shitmed moment
+    left hand:
+      part: LeftHandHuman

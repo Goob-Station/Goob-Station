@@ -1,0 +1,188 @@
+- type: entity      # Base
+  parent: [ SimpleMobBase, MobCombat ]
+  id: BaseDoodon
+  abstract: true
+  components:
+  - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead 
+  - type: Doodon    
+  - type: Bloodstream
+    bloodReagent: AlienBlood
+    bloodMaxVolume: 20
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Item
+    size: Small
+  - type: CanEscapeInventory
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: Body # Change later
+    bodyType: Complex
+    prototype: Monkey
+    requiredLegs: 2
+  - type: Puller    
+  - type: Clumsy        # no guns for doodons
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
+  - type: InputMover
+  - type: MobMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Physics
+    bodyType: KinematicController
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.1
+        Burn: -0.1
+  
+- type: entity      # Papa
+  parent: BaseDoodon
+  id: PapaDoodon
+  name: papa doodon
+  description: The patriarch of the Doodon village.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: papa
+  - type: Hands
+    slots: 2
+    names: ["left hand", "right hand"]
+  - type: Sericulture
+    entityProduced: MaterialDoodonResin1
+    action: ActionDoodonResin
+    productionLength: 1
+    hungerCost: 10
+  - type: VentCrawler # goobstation - Ventcrawl
+    allowInventory: false
+  - type: PapaDoodon
+    commandAction: PapaDoodonCommand
+  
+- type: entity      # Worker
+  parent: BaseDoodon
+  id: WorkerDoodon
+  name: worker doodon
+  description: The backbone of the Doodon village.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: worker
+  - type: Hands
+    slots: 1
+    names: ["hand"]
+  - type: Sericulture
+    entityProduced: MaterialDoodonResin1
+    action: ActionDoodonResin
+    productionLength: 1
+    hungerCost: 10
+  - type: VentCrawler # goobstation - Ventcrawl
+    allowInventory: false
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+    
+- type: entity          # Warrior
+  parent: BaseDoodon
+  id: WarriorDoodon
+  name: doodon warrior
+  description: The arms of the Doodon village.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 15
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: warrior
+
+  - type: Hands
+    slots: 2
+    names: ["left hand", "right hand"]
+
+  - type: DoodonWarrior
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+    
+  - type: HTN
+    rootTask:
+      task: DoodonWarriorCompound
+    blackboard:
+      IdleRange: !type:Single
+        3.5
+      FollowCloseRange: !type:Single
+        1.5
+      FollowRange: !type:Single
+        3.0
+  - type: Item
+    size: Normal
+
+  - type: CombatMode
+    combatEnabled: true
+
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.0
+    baseSprintSpeed: 4.0
+
+  - type: InputMover
+  - type: MobMover
+  - type: MobState
+  - type: Damageable
+
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 20
+    animation: WeaponArcFist
+    
+- type: entity
+  name: moodon
+  description: The cattle of the Doodon village.
+  parent: BaseDoodon
+  id: Moodon
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: moodon 

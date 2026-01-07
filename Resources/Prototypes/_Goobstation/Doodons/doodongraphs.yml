@@ -25,3 +25,16 @@
               doAfter: 2
     - node: WarriorHutComplete
       entity: DoodonWarriorHut  
+
+- type: constructionGraph
+  id: DoodonMetalRefinerGraph
+  graph:
+    - node: start
+      edges:
+        - to: MetalRefinerComplete
+          steps:
+            - material: DoodonResin
+              amount: 7
+              doAfter: 2
+    - node: MetalRefinerComplete
+      entity: DoodonMetalRefiner 

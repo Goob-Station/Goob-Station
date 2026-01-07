@@ -29,3 +29,10 @@
   - Lavafauna
   - AllHostile
   - Xenoborg
+
+- type: npcFaction
+  id: Doodon
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - SimpleHostile

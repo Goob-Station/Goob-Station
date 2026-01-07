@@ -8,20 +8,16 @@
   },
   "states": [
     {
-        "name": "papa",
-        "directions": 4
+        "name": "stay"
     },
     {
-        "name": "warrior",
-        "directions": 4
+        "name": "follow"
     },
     {
-        "name": "worker",
-        "directions": 4
+        "name": "attack"
     },
     {
-        "name": "moodon",
-        "directions": 4
+        "name": "loose"
     }
   ]
 }

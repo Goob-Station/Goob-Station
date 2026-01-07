@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseAction
+  id: PapaDoodonCommand
+  name: Command Doodons
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Interface/doodon_orders.rsi
+      state: follow
+    useDelay: 1
+  - type: InstantAction
+    event: !type:PapaDoodonCommandActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonResin
+  name: Fabricate Resin
+  description: Condense the contents of your stomach into doodon resin.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Objects/Materials/materials.rsi
+      state: doodon_resin
+    useDelay: 1
+  - type: InstantAction
+    event: !type:SericultureActionEvent

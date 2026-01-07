@@ -40,4 +40,6 @@ public sealed partial class DoodonMachineComponent : Component
     /// Accumulated processing time.
     /// </summary>
     public float Accumulator;
+
+    [DataField] public bool InitialSpawnDone = false;
 }

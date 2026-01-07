@@ -30,8 +30,14 @@
           params:
             variation: 0.125
             volume: -2
+  - type: Damageable
+    damageModifierSet: Wood
   - type: DoodonBuilding
-            
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 1.5 
+    color: orange
 
 - type: entity
   parent: BaseDoodonStructure
@@ -68,7 +74,7 @@
     outputPrototype: WorkerDoodon
     resinStack: DoodonResin
     resinCost: 3
-    processTime: 5
+    processTime: 3
     respectPopulationCap: true
     spawnOnMapInit: true
     
@@ -85,3 +91,69 @@
     graph: WarriorHutGraph
     node: WarriorHutComplete
     placementMode: SnapgridCenter
+  - type: DoodonMachine
+    outputPrototype: WarriorDoodon
+    resinStack: DoodonResin
+    resinCost: 5
+    processTime: 3
+    respectPopulationCap: true
+    spawnOnMapInit: true
+    
+- type: entity
+  parent: BaseDoodonStructure
+  id: DoodonMetalRefiner
+  name: doodon metal refiner
+  description: Insert metal and get some resin.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: warriorhut
+  - type: Construction
+    graph: WarriorHutGraph
+    node: WarriorHutComplete
+    placementMode: SnapgridCenter
+  - type: DoodonMachine
+    outputPrototype: MaterialDoodonResin1
+    resinStack: Steel
+    resinCost: 4
+    processTime: 3
+    respectPopulationCap: false
+    spawnOnMapInit: false
+    
+- type: entity
+  parent: BaseDoodonStructure
+  id: DoodonGlassRefiner
+  name: doodon glass refiner
+  description: Insert glass and get some resin.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: warriorhut
+  - type: Construction
+    graph: WarriorHutGraph
+    node: WarriorHutComplete
+    placementMode: SnapgridCenter
+  - type: DoodonMachine
+    outputPrototype: MaterialDoodonResin1
+    resinStack: Glass
+    resinCost: 4
+    processTime: 3
+    respectPopulationCap: false
+    spawnOnMapInit: false
+    
+- type: entity
+  parent: BaseDoodonStructure
+  id: DoodonPasture
+  name: doodon pasture
+  description: The doodon pasture, makes moodons which can be milked for doodomnizine or juiced for omnizine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: pasture
+  - type: DoodonMachine
+    outputPrototype: Moodon
+    resinStack: MaterialDoodonResin
+    resinCost: 4
+    processTime: 3
+    respectPopulationCap: false
+    spawnOnMapInit: true

@@ -24,3 +24,16 @@
   icon:
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: warrior
+    
+- type: construction
+  name: doodon metal refiner
+  id: BuildDoodonMR
+  graph: DoodonMetalRefinerGraph
+  placementMode: SnapgridCenter
+  startNode: start
+  targetNode: MetalRefinerComplete
+  category: Structures
+  description: Refine metal into resin.
+  icon:
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: warrior
