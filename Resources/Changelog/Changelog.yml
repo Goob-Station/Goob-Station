@@ -5242,3 +5242,11 @@ Entries:
   id: 9358
   time: '2026-01-07T16:38:00.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42205
+- author: SomegnihT
+  changes:
+  - message: Vox now properly say they turn into fried chicken upon getting enough
+      heat damage
+    type: Fix
+  id: 9359
+  time: '2026-01-07T19:37:53.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42280
