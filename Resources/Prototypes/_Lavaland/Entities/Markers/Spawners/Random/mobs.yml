@@ -11,18 +11,17 @@
       weight: 50
       children:
       - id: MobGoliathRandom
-      - id: MobHivelord
+      - id: MobLegion
     - !type:GroupSelector
-        weight: 35
-        children:
-        - id: MobCarpDungeon
-    - !type:GroupSelector
-      weight: 15
+      weight: 30
       children:
+      - id: MobCarpDungeon
+    - !type:GroupSelector
+      weight: 20
+      children:
+      - id: MobWatcherBase
       - id: MobWatcherIcewing
       - id: MobWatcherLavaland
-      #- id: LavalandTendrilLegion
-
 
 - type: entity
   name: lavaland mob spawner
@@ -41,12 +40,11 @@
   placement:
     mode: AlignTileAny
 
-
 - type: entity
   id: MobGoliathRandom
   parent: MarkerBase
-  name: Goliath
-  suffix: Random
+  name: random goliath spawner
+  suffix: Random, Lavaland
   components:
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
