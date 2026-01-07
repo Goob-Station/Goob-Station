@@ -265,6 +265,7 @@
           - id: PowerDrill
           - id: WelderExperimental
           - id: Multitool
+          - id: MedkitCombatFilled
           
 #NCT
 - type: entity
@@ -358,3 +359,4 @@
           - id: PowerDrill
           - id: WelderExperimental
           - id: Multitool
+          - id: MedkitCombatFilled
