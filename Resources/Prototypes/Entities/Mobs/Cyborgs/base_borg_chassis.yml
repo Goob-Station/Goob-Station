@@ -538,6 +538,7 @@
     nameSet: True
     mobile: True # Goobstation - mobile cameras fix, borg camera not really relevant since monitor doesn't see it anyways but eh
     id: Xenoborg
+    useEntityNameAsCameraId: true
   - type: Explosive
     explosionType: Minibomb
     deleteAfterExplosion: false # let damage threshold gib the borg
