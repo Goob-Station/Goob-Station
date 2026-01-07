@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Cult.Actions;
+namespace Content.Goobstation.Shared.Cult.Actions;
 
 public sealed partial class EventActionCultPrepareBloodMagic : InstantActionEvent;
 public sealed partial class EventActionCultPrepareBloodMagicDoAfter : DoAfterEvent
