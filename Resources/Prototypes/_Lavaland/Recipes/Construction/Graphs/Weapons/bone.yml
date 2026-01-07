@@ -9,9 +9,9 @@
       steps:
       - material: Bones
         amount: 6
-      - material: GoliathHide
+      - material: LegionSkull
         amount: 2
-        doAfter: 5
+        doAfter: 10
   - node: axe
     entity: BoneAxe
 
@@ -25,6 +25,6 @@
       steps:
       - material: Bones
         amount: 2
-        doAfter: 2
+        doAfter: 6
   - node: dagger
     entity: DaggerBone
