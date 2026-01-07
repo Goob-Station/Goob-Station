@@ -95,9 +95,9 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         if (ent.Comp.DamageOverlayGroups != null)
         {
             foreach (var (group, sprite) in ent.Comp.DamageOverlayGroups)
-                if (!_sprite.LayerMapTryGet((args.Part.Owner, bodySprite), $"{ent.Comp.OccupiedLayer}{group}", out _, false))
+                if (!_sprite.LayerMapTryGet((bodyUid, bodySprite), $"{ent.Comp.OccupiedLayer}{group}", out _, false))
                 {
-                    AddDamageLayerToSprite((args.Part.Owner, bodySprite),
+                    AddDamageLayerToSprite((bodyUid, bodySprite),
                         sprite.Sprite,
                         $"{ent.Comp.OccupiedLayer}_{group}_100",
                         $"{ent.Comp.OccupiedLayer}{group}",
@@ -107,13 +107,13 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
 
         if (ent.Comp.BleedingOverlay == null)
             return;
-        if (!_sprite.LayerMapTryGet((args.Part.Owner, bodySprite),
+        if (!_sprite.LayerMapTryGet((bodyUid, bodySprite),
                 $"{ent.Comp.OccupiedLayer}Bleeding",
                 out _,
                 true)
             && ent.Comp.BleedingOverlay != null)
         {
-            AddDamageLayerToSprite((args.Part.Owner, bodySprite),
+            AddDamageLayerToSprite((bodyUid, bodySprite),
                 ent.Comp.BleedingOverlay,
                 $"{ent.Comp.OccupiedLayer}_Minor",
                 $"{ent.Comp.OccupiedLayer}Bleeding");
