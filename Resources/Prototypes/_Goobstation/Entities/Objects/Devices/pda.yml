@@ -383,3 +383,5 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
+  - type: Pda
+    id: OuterCommandIDCard

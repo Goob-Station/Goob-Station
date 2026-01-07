@@ -264,8 +264,31 @@
     pocket1: BoxFolderCentCom
 
 # Outer Command
+- type: job
+  id: OuterCommander
+  name: job-name-outercommander
+  description: job-description-outercommander
+  playTimeTracker: JobOuterCommander
+  setPreference: false
+  startingGear: OuterCommanderGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+    - !type:AgeRequirement
+      requiredAge: 21
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+  special:
+    - !type:AddImplantSpecial
+      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+
 - type: startingGear
-  id: OuterCommandGear
+  id: OuterCommanderGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitOuterCommand
     shoes: ClothingShoesBootsLaceup
