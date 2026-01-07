@@ -610,5 +610,4 @@ public sealed partial class DamageModifyEvent
 {
     public readonly EntityUid Target; // Goob - need this for some bullshit i think
     public readonly TargetBodyPart? TargetPart; // Goob - Shitmed
-    public readonly EntityUid? Origin; // Upstream but temporarily in goob because broke in #39417, fixed in #41250 ( will prevent compile because goobcode relies on it )
 }
