@@ -140,7 +140,7 @@
     - id: Fireaxe
     - id: Sledgehammer
     - id: Katana
-  
+
 - type: entityTable
   id: MetalShelfVeryRarePower
   table: !type:GroupSelector
@@ -185,7 +185,7 @@
       amount: !type:RangeNumberSelector
         range: 1, 3
     - id: AnomalyCoreLiquid
-      amount: !type:RangeNumberSelector1
+      amount: !type:RangeNumberSelector
         range: 1, 3
     - id: AnomalyCoreBluespace
       amount: !type:RangeNumberSelector
