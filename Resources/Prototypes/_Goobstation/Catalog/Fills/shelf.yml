@@ -21,6 +21,9 @@
     - id: FoodSnackMREBrownie
     - id: FoodTinMRE
     - id: FoodTinPeachesMaint
+    - id: DrinkVermouthBottleFull
+    - id: DrinkWhiskeyBottleFull
+    - id: FoodSnackSus
 
 - type: entityTable
   id: MetalShelfCommonTools
@@ -32,15 +35,21 @@
     - id: Screwdriver
     - id: MeleeHammer
     - id: WelderExperimental
+    - id: CableLVStack
+    - id: CableMVStack
+    - id: CableHVStack
 
 - type: entityTable
   id: MetalShelfCommonMeds
   table: !type:GroupSelector
     children:
-    - id: Gauze
+    - id: Gauze1
     - id: Bloodpack
-    - id: RegenerativeMesh
-    - id: MedicatedSuture
+    - id: Ointment10Lingering
+    - id: Ointment1
+    - id: Gauze10Lingering
+    - id: Brutepack10Lingering
+    - id: Brutepack1
     - id: EmergencyMedipen
 
 
@@ -83,6 +92,9 @@
     - id: MedkitBurnFilled
     - id: Stimpack
     - id: CombatMedipen
+    - id: BrutepackAdvanced1
+    - id: Tourniquet
+    - id: OintmentAdvanced1
 
 - type: entityTable
   id: MetalShelfRareCreatures
@@ -117,13 +129,25 @@
     - id: WeaponRifleLecter
     - id: WeaponPistolMk58
     - id: MagazineRifle
-
+    - id: MagazinePistolSubMachineGun
+    - id: MagazinePistolSubMachineGunTopMounted
+    - id: BoxShotgunSlug
+    - id: WeaponShotgunEnforcer
+    - id: WeaponRifleAk
+    - id: WeaponSubMachineGunDrozd
+    - id: WeaponSubMachineGunWt550
+    - id: WeaponSubMachineGunAtreides
+    - id: Fireaxe
+    - id: Sledgehammer
+    - id: Katana
+  
 - type: entityTable
   id: MetalShelfVeryRarePower
   table: !type:GroupSelector
     children:
     - id: PowerCellHyper
     - id: PowerCellMicroreactor
+    - id: PowerCellAntiqueProto
 
 - type: entityTable
   id: MetalShelfVeryRareMeds
@@ -161,7 +185,7 @@
       amount: !type:RangeNumberSelector
         range: 1, 3
     - id: AnomalyCoreLiquid
-      amount: !type:RangeNumberSelector
+      amount: !type:RangeNumberSelector1
         range: 1, 3
     - id: AnomalyCoreBluespace
       amount: !type:RangeNumberSelector
