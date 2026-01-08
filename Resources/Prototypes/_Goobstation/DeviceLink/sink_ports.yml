@@ -143,7 +143,12 @@
   name: signal-port-name-lathe-print
   description: signal-port-description-lathe-print
 
-# Vinyl player
+# Station Radio
+
+- type: sinkPort
+  id: StationRadioRelay
+  name: signal-port-name-station-radio-relay
+  description: signal-port-description-station-radio-relay
 
 - type: sinkPort
   id: StationRadioRigPort

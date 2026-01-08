@@ -8,7 +8,6 @@
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     layers:
     - state: icon
-  - type: StationRadioServer
   - type: DeviceLinkSource
     ports:
     - StationRadioServerPort
@@ -18,10 +17,25 @@
   - type: Rotatable
   - type: Machine
     board: StationRadioServerCircuitboard
-  - type: TelecomExempt
-  - type: RadioMicrophone
-    powerRequired: true
-    broadcastChannel: RadioShow
+  - type: DeviceNetworkRequiresPower
+  - type: DeviceLinkSink
+    ports:
+    - StationRadioRelay
+  - type: DeviceNetwork
+    receiveAll: true
+    deviceNetId: Wireless
+    receiveFrequencyId: StationRadio
+    transmitFrequencyId: StationRadio # Default value, can be changed
+  - type: DeviceCustomFrequency
+    transmitChange: true
+  - type: ActivatableUI
+    key: enum.DeviceCustomFrequencyUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DeviceCustomFrequencyUiKey.Key:
+        type: DeviceCustomFrequencyBoundUserInterface
+  - type: ActivatableUIRequiresPower
+  - type: StationRadioServer
 
 - type: entity
   id: StationRadioRig
@@ -43,3 +57,7 @@
   - type: Machine
     board: StationRadioRigCircuitboard
   - type: RadioRig
+  - type: DeviceNetworkRequiresPower
+  - type: DeviceLinkSource
+    ports:
+    - Microphone

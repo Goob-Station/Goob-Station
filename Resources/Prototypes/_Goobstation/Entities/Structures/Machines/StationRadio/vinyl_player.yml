@@ -49,7 +49,6 @@
   - type: DeviceLinkSource
     ports:
     - VinylPlayerPort
-  - type: DeviceList
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
@@ -79,3 +78,8 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: StationRadio # Default value, can be changed
+  - type: DeviceNetworkRequiresPower
+  - type: VinylPlayer

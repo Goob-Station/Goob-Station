@@ -126,7 +126,7 @@
     Gold: 500
     Silver: 500
   icon:
-    sprite:  _Goobstation/Structures/Machines/comms_transmitter.rsi
+    sprite: _Goobstation/Structures/Machines/comms_transmitter.rsi
     state: base
   result: TelecomTransmitterCircuitboard
 
@@ -134,7 +134,7 @@
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
   id: VinylPlayerCircuitboard
   icon:
-    sprite:  _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
+    sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
     state: icon
   result: VinylPlayerCircuitboard
 
@@ -142,7 +142,7 @@
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
   id: TapeDeckCircuitboard
   icon:
-    sprite:  _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
+    sprite: _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
     state: icon
   result: TapeDeckCircuitboard
 
@@ -150,7 +150,7 @@
   parent: [ BaseGoldCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
   id: StationRadioServerCircuitboard
   icon:
-    sprite:  _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
+    sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     state: icon
   result: StationRadioServerCircuitboard
 
@@ -158,7 +158,7 @@
   parent: [ BaseSilverCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
   id: StationRadioRigCircuitboard
   icon:
-    sprite:  _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
+    sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
     state: icon
   result: StationRadioRigCircuitboard
 
@@ -166,7 +166,7 @@
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
   id: StationRadioCircuitboard
   icon:
-    sprite:  _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
+    sprite: _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
     state: icon
   result: StationRadioCircuitboard
 

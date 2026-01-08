@@ -175,14 +175,14 @@
   name: signal-port-name-triggered-signaller
   description: signal-port-description-triggered-signaller
 
-# Vinyl player
+# Station Radio
+
+- type: sourcePort
+  id: Microphone
+  name: signal-port-name-microphone
+  description: signal-port-description-microphone
 
 - type: sourcePort
   id: VinylPlayerPort
   name: signal-port-name-vinyl-player
   description: signal-port-description-vinyl-player
-
-- type: sourcePort
-  id: StationRadioServerPort
-  name: signal-port-name-radio-server
-  description: signal-port-description-radio-server
