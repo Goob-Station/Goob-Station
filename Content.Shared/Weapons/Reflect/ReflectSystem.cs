@@ -230,6 +230,7 @@ public sealed class ReflectSystem : EntitySystem
 
             projectile.Comp.Shooter = user;
             projectile.Comp.Weapon = user;
+            projectile.Comp.OriginCoordinates = _transform.GetMapCoordinates(user).Position; // Goobstation - Fix for reflected projectiles
             Dirty(projectile, projectile.Comp);
         }
         else
