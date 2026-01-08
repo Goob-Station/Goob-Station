@@ -20,13 +20,13 @@
   copyright: "Made by TrixxedHeart, modified from shriek1.ogg"
   source: "https://github.com/space-wizards/space-station-14/pull/39914"
   
-  - files:
+- files:
   - vox_cry.ogg
   license: "CC0-1.0"
   copyright: "raptorgoesextinct.wav by Nerdwizard78"
   source: "https://freesound.org/people/Nerdwizard78/sounds/643928/"
   
- - files:
+- files:
   - vox_chitter.ogg
   license: "CC0-1.0"
   copyright: "dinosaur.wav by JhennaSide"
