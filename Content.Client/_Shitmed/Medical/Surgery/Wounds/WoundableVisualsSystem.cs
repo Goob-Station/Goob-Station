@@ -37,6 +37,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
 
     private const float AltBleedingSpriteChance = 0.15f;
     private const string BleedingSuffix = "Bleeding";
+    private const string MinorSuffix = "Minor";
 
     #region Initialization
     public override void Initialize()
@@ -60,7 +61,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
     {
         if (ent.Comp.BleedingOverlay == null)
             return;
-        AddDamageLayerToSprite(ent.Owner, ent.Comp.BleedingOverlay, BuildStateKey(ent.Comp.OccupiedLayer, "Minor"), BuildLayerKey(ent.Comp.OccupiedLayer, BleedingSuffix));
+        AddDamageLayerToSprite(ent.Owner, ent.Comp.BleedingOverlay, BuildStateKey(ent.Comp.OccupiedLayer, MinorSuffix), BuildLayerKey(ent.Comp.OccupiedLayer, BleedingSuffix));
     }
 
     private void InitDamage(Entity<WoundableVisualsComponent> ent)
@@ -94,23 +95,22 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         if (ent.Comp.DamageOverlayGroups != null)
         {
             foreach (var (group, sprite) in ent.Comp.DamageOverlayGroups)
-                if (!_sprite.LayerMapTryGet(bodyUid, $"{ent.Comp.OccupiedLayer}{group}", out _, false))
+                if (!_sprite.LayerMapTryGet(bodyUid, BuildLayerKey(ent.Comp.OccupiedLayer, group), out _, false))
                 {
                     AddDamageLayerToSprite(bodyUid,
                         sprite.Sprite,
-                        $"{ent.Comp.OccupiedLayer}_{group}_100",
-                        $"{ent.Comp.OccupiedLayer}{group}",
+                        BuildStateKey(ent.Comp.OccupiedLayer, group, "100"),
+                        BuildLayerKey(ent.Comp.OccupiedLayer, group),
                         sprite.Color);
                 }
         }
-        if (ent.Comp.BleedingOverlay != null
-            && !_sprite.LayerMapTryGet(bodyUid, $"{ent.Comp.OccupiedLayer}Bleeding", out _, false)
+        if (!_sprite.LayerMapTryGet(bodyUid, BuildLayerKey(ent.Comp.OccupiedLayer, BleedingSuffix), out _, false)
             && ent.Comp.BleedingOverlay != null)
         {
             AddDamageLayerToSprite(bodyUid,
                 ent.Comp.BleedingOverlay,
-                $"{ent.Comp.OccupiedLayer}_Minor",
-                $"{ent.Comp.OccupiedLayer}Bleeding");
+                BuildStateKey(ent.Comp.OccupiedLayer, MinorSuffix),
+                BuildLayerKey(ent.Comp.OccupiedLayer, BleedingSuffix));
         }
 
         UpdateWoundableVisuals(ent, bodyUid);
@@ -153,10 +153,9 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         if (visuals.DamageOverlayGroups == null || !Resolve(ent,ref ent.Comp))
             return;
 
-        // Remove damage overlay layers
         foreach (var (group, _) in visuals.DamageOverlayGroups)
         {
-            var layerKey = $"{visuals.OccupiedLayer}{group}";
+            var layerKey = BuildLayerKey(visuals.OccupiedLayer, group);
             if (!_sprite.LayerMapTryGet(ent, layerKey, out var layer, false))
                 continue;
             _sprite.LayerSetVisible(ent, layer, false);
@@ -164,8 +163,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
             _sprite.LayerMapRemove(ent, layerKey);
         }
 
-        // Remove bleeding layer
-        var bleedingKey = $"{visuals.OccupiedLayer}Bleeding";
+        var bleedingKey = BuildLayerKey(visuals.OccupiedLayer, BleedingSuffix);
         if (!_sprite.LayerMapTryGet(ent, bleedingKey, out var bleedLayer, false))
             return;
         _sprite.LayerSetVisible(ent, bleedLayer, false);
@@ -324,22 +322,6 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         return nearestSeverity;
     }
 
-    private static BleedingSeverity GetBleedingThreshold(FixedPoint2 threshold, WoundableVisualsComponent comp)
-    {
-        var nearestSeverity = BleedingSeverity.Minor;
-
-        foreach (var (key, value) in comp.BleedingThresholds.OrderByDescending(kv => kv.Value))
-        {
-            if (threshold < value)
-                continue;
-
-            nearestSeverity = key;
-            break;
-        }
-
-        return nearestSeverity;
-    }
-
     private void UpdateBleedingLayerState(Entity<SpriteComponent?> sprite,
         int spriteLayer,
         string statePrefix,
@@ -351,12 +333,11 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
 
         if (damage <= 0)
         {
-            _sprite.LayerSetVisible(sprite, spriteLayer, false);
+            SetLayerVisible(sprite, spriteLayer, false);
             return;
         }
 
-        if (!_sprite.TryGetLayer(sprite, spriteLayer, out var layer, false) || !layer.Visible)
-            _sprite.LayerSetVisible(sprite, spriteLayer, true);
+        SetLayerVisible(sprite, spriteLayer, true);
 
         var rsi = _sprite.LayerGetEffectiveRsi(sprite, spriteLayer);
         if (rsi == null)
