@@ -20032,3 +20032,28 @@ Entries:
       message: Raised time allowed to play Trainee roles.
   id: 2270
   time: '2026-01-08T13:01:55.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: >-
+        New vinyl disks: Get that antag!, Want you gone, Law2 open armory,
+        RunningOut (Cover), Ephedrine Overdose, Journey, Traitorous Intent,
+        Violet
+    - type: Add
+      message: The cargo shuttle now gets a station radio
+    - type: Add
+      message: Added radio host to Meta
+    - type: Tweak
+      message: 'Made new mapping for the radio host on: Amber, Delta, cog, marathon'
+    - type: Tweak
+      message: Mapping more radios around some stations
+    - type: Fix
+      message: Fixed HOP not having radio host access
+    - type: Fix
+      message: Fixed oasis not having radio host job spawn
+    - type: Fix
+      message: Fixed Radio host having an extra bag on spawn
+    - type: Fix
+      message: Fixed Radio turning back on when a new song starts
+  id: 2271
+  time: '2026-01-08T21:07:35.0000000+00:00'
