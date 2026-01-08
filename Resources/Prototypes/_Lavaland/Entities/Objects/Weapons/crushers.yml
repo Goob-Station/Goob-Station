@@ -269,7 +269,7 @@
         Slash: 3
         Structural: 30 # Breaks weak rocks effectively
 
-# The rest is random upgrades
+# Random upgrades
 - type: entity
   id: CrusherRandomUpgradesFill
   suffix: Random Upgrades
@@ -281,13 +281,13 @@
         id: FlashlightSeclite
         prob: 0.5
       upgrade_slot_main: !type:NestedSelector
-        tableId: RandomCrusherUpgradeMain
+        tableId: CrusherUpgradesMain
         prob: 0.67
       upgrade_slot_blade: !type:NestedSelector
-        tableId: RandomCrusherUpgradeBlade
+        tableId: CrusherUpgradesBlade
         prob: 0.75
       upgrade_slot_handle: !type:NestedSelector
-        tableId: RandomCrusherUpgradeHandle
+        tableId: CrusherUpgradesHandle
         prob: 0.75
 
 - type: entity
@@ -305,3 +305,13 @@
 - type: entity
   parent: [ WeaponCrusherHalberd, CrusherRandomUpgradesFill ]
   id: WeaponCrusherHalberdFilledRandom
+
+# Entity Tables
+- type: entityTable
+  id: CrusherWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponCrusher
+    - id: WeaponCrusherGlaive
+    - id: WeaponCrusherHammer
+    - id: WeaponCrusherHalberd

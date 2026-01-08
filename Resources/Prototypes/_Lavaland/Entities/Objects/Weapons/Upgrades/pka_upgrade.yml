@@ -145,3 +145,13 @@
     tags:
     - PKAUpgrade
     - PKAUpgradeSpace
+
+- type: entityTable
+  id: ProtoKineticUpgrades
+  table: !type:GroupSelector
+    children:
+    - id: PKAUpgradeDamage
+    - id: PKAUpgradeRange
+    - id: PKAUpgradeFireRate
+    - id: PKAUpgradeSpace
+      weight: 0.6 # Not that useful

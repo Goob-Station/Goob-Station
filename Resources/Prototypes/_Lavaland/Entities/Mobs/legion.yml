@@ -12,7 +12,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead
+      250: Dead
   - type: MeleeWeapon
     range: 1.3
     angle: 0
@@ -20,7 +20,7 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 20
+        Blunt: 20 # they don't even attack in melee because their AI is stupid right now
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 2
@@ -95,7 +95,7 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 8 # Literally collides with you at full speed
+        Blunt: 9 # Literally collides with you at full speed
   - type: Ammo
     muzzleFlash: null
   - type: Destructible

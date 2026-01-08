@@ -137,10 +137,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      140: Dead # Goob - 4 PKA shots, 2 crusher destabilised hits
+      140: Dead
   - type: Butcherable
     spawned:
-    - id: DiamondOre1 # not unprocessed
+    - id: DiamondOre1
     - id: MaterialWatcherWing1
       maxAmount: 2
   - type: MovementSpeedModifier
@@ -214,10 +214,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: WatcherBoltIcewing
     fireCost: 50
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      200: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
 
 - type: entity
   id: MobWatcherMagmawing
@@ -239,10 +235,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: WatcherBoltMagmawing
     fireCost: 50
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      200: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
   - type: Butcherable # Lavaland Change
     spawned:
     - id: DiamondOre1 # not unprocessed

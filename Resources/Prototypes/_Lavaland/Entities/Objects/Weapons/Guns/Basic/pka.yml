@@ -187,3 +187,22 @@
     containers:
       upgrade_slot_1:
         id: PKAUpgradeSpace
+
+# Entity tables
+- type: entityTable
+  id: ProtoKineticWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponProtoKineticAccelerator
+    - id: WeaponProtoKineticShotgun
+    - id: WeaponProtoKineticRepeater
+    - id: WeaponProtoKineticPistol
+
+- type: entityTable
+  id: ProtoKineticWeaponsSpace
+  table: !type:GroupSelector
+    children:
+    - id: WeaponProtoKineticAcceleratorSpace
+    - id: WeaponProtoKineticShotgunSpace
+    - id: WeaponProtoKineticRepeaterSpace
+    - id: WeaponProtoKineticPistolSpace

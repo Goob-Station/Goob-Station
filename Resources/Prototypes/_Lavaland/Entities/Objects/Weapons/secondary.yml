@@ -141,3 +141,12 @@
       path: /Audio/Items/Culinary/chop.ogg
   - type: Scalpel # Shitmed
     speed: 0.55
+
+# Entity tables
+- type: entityTable
+  id: SecondaryKineticWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponCrusherDagger
+    - id: LavalandWeaponKineticClaws
+    - id: LavalandWeaponKineticMachete

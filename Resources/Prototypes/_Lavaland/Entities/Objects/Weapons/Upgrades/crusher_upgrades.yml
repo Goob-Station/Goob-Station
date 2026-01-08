@@ -274,14 +274,14 @@
     - CrusherUpgradeHandleRange
 
 - type: entityTable
-  id: RandomCrusherUpgradeMain
+  id: CrusherUpgradesMain
   table: !type:GroupSelector
     children:
     - id: CrusherUpgradeMainMarker
     - id: CrusherUpgradeMainRudeBuster
 
 - type: entityTable
-  id: RandomCrusherUpgradeBlade
+  id: CrusherUpgradesBlade
   table: !type:GroupSelector
     children:
     - id: CrusherUpgradeBladeLavaAspect
@@ -289,9 +289,21 @@
     - id: CrusherUpgradeBladeSharpness
 
 - type: entityTable
-  id: RandomCrusherUpgradeHandle
+  id: CrusherUpgradesHandle
   table: !type:GroupSelector
     children:
     - id: CrusherUpgradeHandleWeights
     - id: CrusherUpgradeHandleLight
     - id: CrusherUpgradeHandleRange
+
+- type: entityTable
+  id: CrusherUpgrades
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: CrusherUpgradesMain
+    - !type:NestedSelector
+      tableId: CrusherUpgradesBlade
+    - !type:NestedSelector
+      tableId: CrusherUpgradesHandle
+      weight: 2 # They are uncraftable for now so need more chances
