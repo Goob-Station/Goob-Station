@@ -102,7 +102,8 @@
   - type: TileMovement
   - type: DamageSquareImmunity
   - type: SpawnLootOnDeath
-    loot: LavalandHierophantClub
+    table:
+      id: LavalandHierophantClub
     deleteOnDeath: true
   - type: MegafaunaAi
     actionDelay: 0.5
