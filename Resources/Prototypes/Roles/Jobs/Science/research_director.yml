@@ -139,7 +139,10 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobScientist
-    time: 21600 #6 hrs
+    time: 18000 #5 hrs
+  - !type:RoleTimeRequirement
+    role: JobRoboticist
+    time: 3600 #1 hrs
   - !type:DepartmentTimeRequirement
     department: Science
     time: 36000 #10 hrs
