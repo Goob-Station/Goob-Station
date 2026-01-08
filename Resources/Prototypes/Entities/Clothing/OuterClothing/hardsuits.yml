@@ -917,8 +917,8 @@
         Radiation: 0.45
         Caustic: 0.45
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.90
+    sprintModifier: 0.90
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -965,7 +965,7 @@
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieElite
   name: syndicate elite hardsuit # Goob edit
-  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders. # Goob edit
+  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing at the cost of vulerability to ballistics. Property of Gorlex Marauders. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
@@ -1000,9 +1000,9 @@
         Caustic: 0.4
   - type: Item
     size: Huge
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+#  - type: ClothingSpeedModifier # Goob change
+#    walkModifier: 0.9
+#    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: Tag
     tags:
