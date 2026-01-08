@@ -5272,3 +5272,17 @@ Entries:
   id: 9362
   time: '2026-01-08T11:03:07.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42304
+- author: aada
+  changes:
+  - message: The handheld health analyzer no longer requires a battery.
+    type: Tweak
+  id: 9363
+  time: '2026-01-08T19:38:23.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42292
+- author: perryprog
+  changes:
+  - message: The go go hat can now only retrieve and store items when worn.
+    type: Fix
+  id: 9364
+  time: '2026-01-08T19:38:23.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39189
