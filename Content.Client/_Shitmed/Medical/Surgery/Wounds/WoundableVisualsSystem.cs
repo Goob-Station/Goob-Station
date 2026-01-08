@@ -29,21 +29,22 @@ namespace Content.Client._Shitmed.Medical.Surgery.Wounds;
 /// </summary>
 public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsComponent>
 {
+    #region Dependencies
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-
+    #endregion
+    #region Constants
     private const float AltBleedingSpriteChance = 0.15f;
     private const string BleedingSuffix = "Bleeding";
     private const string MinorSuffix = "Minor";
-
+    #endregion
     #region Initialization
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<WoundableVisualsComponent, ComponentInit>(InitializeEntity, after: [typeof(WoundSystem)]);
         SubscribeLocalEvent<WoundableVisualsComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
         SubscribeLocalEvent<WoundableVisualsComponent, BodyPartRemovedEvent>(OnWoundableRemoved);
