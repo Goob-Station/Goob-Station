@@ -170,16 +170,13 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private const float DamagePitchVariation = 0.05f;
-    private float _crawlHitzoneSize; // Goobstation
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BallisticAmmoProviderComponent, PriceCalculationEvent>(OnBallisticPrice);
-        _cfg.OnValueChanged(GoobCVars.CrawlHitzoneSize, value => _crawlHitzoneSize = value, true); // Goobstation
     }
 
     private void OnBallisticPrice(EntityUid uid, BallisticAmmoProviderComponent component, ref PriceCalculationEvent args)
@@ -322,7 +319,10 @@ public sealed partial class GunSystem : SharedGunSystem
                                         !IsInFront() && // Goobstation
                                         collide.HitEntity != gun.Target &&
                                         CompOrNull<RequireProjectileTargetComponent>(collide.HitEntity)?.Active == true &&
-                                        (_transform.GetMapCoordinates(collide.HitEntity).Position - toMapBeforeRecoil).Length() > _crawlHitzoneSize)
+                                        TryComp<FixturesComponent>(ent, out var fixtures) && // Goobstation
+                                        fixtures.Fixtures.TryGetValue("fix1", out var fixture) && // Goobstation
+                                        fixture.Shape.ShapeType == ShapeType.Circle && // Goobstation
+                                        (_transform.GetMapCoordinates(collide.HitEntity).Position - toMapBeforeRecoil).Length() > fixture.Shape.Radius) // Goobstation
                                     {
                                         continue;
                                     }

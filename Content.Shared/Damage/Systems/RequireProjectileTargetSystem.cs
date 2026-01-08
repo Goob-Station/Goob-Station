@@ -18,7 +18,8 @@ using Content.Shared.Standing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Configuration; //Goobstation - Crawling
+using Robust.Shared.Physics; // Goobstation
+using Robust.Shared.Physics.Collision.Shapes; //Goobstation - Crawling
 
 namespace Content.Shared.Damage.Components;
 
@@ -28,16 +29,12 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
     // Goobstation
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-
-    private float _crawlHitzoneSize; //Goobstation
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RequireProjectileTargetComponent, PreventCollideEvent>(PreventCollide);
         SubscribeLocalEvent<RequireProjectileTargetComponent, StoodEvent>(StandingBulletHit);
         SubscribeLocalEvent<RequireProjectileTargetComponent, DownedEvent>(LayingBulletPass);
-        _cfg.OnValueChanged(GoobCVars.CrawlHitzoneSize, value => _crawlHitzoneSize = value, true); //Goobstation - Crawling
     }
 
     private void PreventCollide(Entity<RequireProjectileTargetComponent> ent, ref PreventCollideEvent args)
@@ -82,8 +79,15 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             if (TerminatingOrDeleted(shooter.Value))
                 return;
 
-            if ((_transform.GetMapCoordinates(ent).Position - projectile.TargetCoordinates).Length() <= _crawlHitzoneSize) //Goobstation
-                return;
+            // Goobstation start
+            if (TryComp<FixturesComponent>(ent, out var fixtures) &&
+                fixtures.Fixtures.TryGetValue("fix1", out var fixture) &&
+                fixture.Shape.ShapeType == ShapeType.Circle)
+            {
+                if ((_transform.GetMapCoordinates(ent).Position - projectile.TargetCoordinates).Length() <= fixture.Shape.Radius)
+                    return;
+            }
+            // Goobstation end
 
             if (!_container.IsEntityOrParentInContainer(shooter.Value))
                 args.Cancelled = true;
