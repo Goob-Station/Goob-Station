@@ -1,5 +1,5 @@
 - type: entity
-  id: RandomChemistryBottleMedical
+  id: RandomChemistryBottleMedicalSpawner
   name: random medical chemistry bottle spawner
   parent: MarkerBase
   components:
@@ -11,6 +11,48 @@
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: RandomChemistryBottleMedicalTable
+
+- type: entity
+  id: RandomChemistryBottleMedicalTier1Spawner
+  name: random medical chemistry bottle (tier 1)
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Objects/Specific/Chemistry/bottle.rsi
+      state: bottle
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier1
+
+- type: entity
+  id: RandomChemistryBottleMedicalTier2Spawner
+  name: random medical chemistry bottle (tier 2)
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: blue
+    - sprite: Objects/Specific/Chemistry/bottle.rsi
+      state: bottle
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier2
+
+- type: entity
+  id: RandomChemistryBottleMedicalTier3Spawner
+  name: random medical chemistry bottle (tier 3)
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: blue
+    - sprite: Objects/Specific/Chemistry/bottle.rsi
+      state: bottle
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier3
 
 - type: entityTable
   id: RandomChemistryBottleAnyTable
@@ -65,6 +107,46 @@
       - id: ChemistryBottleLacerinol
       - id: ChemistryBottlePuncturase
       - id: ChemistryBottleBruizine
+
+- type: entityTable
+  id: RandomChemistryBottleMedicalTier1
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottleSaline
+    - id: ChemistryBottleInaprovaline
+    - id: ChemistryBottleKelotane
+    - id: ChemistryBottleBicaridine
+    - id: ChemistryBottleHyronalin
+
+- type: entityTable
+  id: RandomChemistryBottleMedicalTier2
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottleDexalin
+    - id: ChemistryBottleDermaline
+    - id: ChemistryBottleBruizine
+    - id: ChemistryBottleLacerinol
+    - id: ChemistryBottlePuncturase
+    - id: ChemistryBottleDylovene
+    - id: ChemistryBottleEpinephrine
+    - id: ChemistryBottleTricordrazine
+    - id: ChemistryBottleIpecac
+    - id: ChemistryBottleOculine
+
+- type: entityTable
+  id: RandomChemistryBottleMedicalTier3
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottleDexalinPlus
+    - id: ChemistryBottleCryoxadone
+    - id: ChemistryBottleTranexamicAcid
+    - id: ChemistryBottleLeporazine
+    - id: ChemistryBottleSiderlac
+    - id: ChemistryBottleUltravasculine
+    - id: ChemistryBottleSynaptizine
+    - id: ChemistryBottleEthylredoxrazine
+    - id: ChemistryBottleCryptobiolin
+    - id: ChemistryBottleDoxarubixadone
 
 - type: entityTable
   id: RandomChemistryBottleToxinTable

@@ -40,6 +40,13 @@
     - id: CableHVStack
 
 - type: entityTable
+  id: MetalShelfCommonWeapons
+  table: !type:GroupSelector
+    children:
+    - id: MagazinePistol
+    - id: WeaponFlareGun
+
+- type: entityTable
   id: MetalShelfCommonMeds
   table: !type:GroupSelector
     children:
@@ -51,7 +58,6 @@
     - id: Brutepack10Lingering
     - id: Brutepack1
     - id: EmergencyMedipen
-
 
 - type: entityTable
   id: FillMetalShelfRare
@@ -65,6 +71,8 @@
       tableId: MetalShelfRareMeds
     - !type:NestedSelector
       tableId: MetalShelfRareCreatures
+    - !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier1
 
 - type: entityTable
   id: MetalShelfRareWeapons
@@ -73,6 +81,9 @@
     - id: WeaponSniperMosin
     - id: WeaponPistolMk58
     - id: WeaponFlareGun
+    - id: MagazinePistol
+      amount: !type:RangeNumberSelector
+        range: 1, 2
 
 - type: entityTable
   id: MetalShelfRareUtility
@@ -121,6 +132,8 @@
       tableId: MetalShelfVeryRareValuables
     - !type:NestedSelector
       tableId: MetalShelfVeryRareAnomalies
+    - !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier2
 
 - type: entityTable
   id: MetalShelfVeryRareWeapons
@@ -130,6 +143,10 @@
     - id: WeaponPistolMk58
       weight: 6
     - id: MagazineRifle
+      weight: 6
+    - id: MagazinePistolIncendiary
+      amount: !type:RangeNumberSelector
+        range: 1, 2
       weight: 6
     - id: MagazinePistolSubMachineGun
       weight: 6
@@ -212,6 +229,8 @@
       tableId: MetalShelfUltraRareUtility
     - !type:NestedSelector
       tableId: RandomChemistryBottleAnyTable
+    - !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier3
 
 - type: entityTable
   id: MetalShelfUltraRareWeapons
@@ -222,6 +241,9 @@
     - id: WeaponShotgunEnforcer
     - id: WeaponSubMachineGunDrozd
     - id: WeaponSubMachineGunWt550
+    - id: MagazinePistolUranium
+      amount: !type:RangeNumberSelector
+        range: 2, 3
 
 - type: entityTable
   id: MetalShelfUltraRareMeds
