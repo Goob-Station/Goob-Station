@@ -5265,3 +5265,10 @@ Entries:
   id: 9361
   time: '2026-01-07T22:19:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41208
+- author: Princess-Cheeseballs
+  changes:
+  - message: Audio will now play properly when toggling internals.
+    type: Fix
+  id: 9362
+  time: '2026-01-08T11:03:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42304
