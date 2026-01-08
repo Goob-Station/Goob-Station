@@ -140,13 +140,10 @@
       role: JobChemist
       time: 18000 #5 hrs
     - !type:RoleTimeRequirement
-      role: JobVirologist
-      time: 7200 #2 hrs
-    - !type:RoleTimeRequirement
-      role: JobParamedic
-      time: 7200 #2 hrs
-    - !type:RoleTimeRequirement
       role: JobMedicalDoctor
+      time: 28000 #8 hrs
+    - !type:DepartmentTimeRequirement
+      department: Medical
       time: 36000 #10 hrs
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true

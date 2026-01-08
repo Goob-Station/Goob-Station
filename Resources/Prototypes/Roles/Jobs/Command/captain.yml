@@ -141,22 +141,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 21600 # 6 hours
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 21600 # 6 hours
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 21600 # 6 hours
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Security
       time: 21600 # 6 hours
     - !type:DepartmentTimeRequirement
       department: Command
       time: 28000 # 8 hours
-    - !type:RoleTimeRequirement
-      role: JobHeadOfPersonnel
-      time: 9000 #2.5 hrs
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
