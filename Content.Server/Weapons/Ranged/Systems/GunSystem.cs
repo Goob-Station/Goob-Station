@@ -151,7 +151,8 @@ using Robust.Server.GameObjects; // Goobstation
 using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
-using Robust.Shared.Random; // Lavaland Change
+using Robust.Shared.Random;
+using Content.Shared.Buckle.Components; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -307,13 +308,18 @@ public sealed partial class GunSystem : SharedGunSystem
 
                             var result = rayCastResults[0];
 
+                            EntityUid? buckledToEntity = null; // Goobstation
+                            if (TryComp<BuckleComponent>(user, out var buckleComponent) && buckleComponent.BuckledTo.HasValue) // Goobstation
+                                buckledToEntity = buckleComponent.BuckledTo.Value; // Goobstation
+
                             // Check if laser is shot from in a container
                             if (!_container.IsEntityOrParentInContainer(lastUser))
                             {
                                 // Checks if the laser should pass over unless targeted by its user
                                 foreach (var collide in rayCastResults)
                                 {
-                                    if (!IsInFront() && // Goobstation
+                                    if (collide.HitEntity == buckledToEntity && // Goobstation
+                                        !IsInFront() && // Goobstation
                                         collide.HitEntity != gun.Target &&
                                         CompOrNull<RequireProjectileTargetComponent>(collide.HitEntity)?.Active == true &&
                                         (_transform.GetMapCoordinates(collide.HitEntity).Position - toMapBeforeRecoil).Length() > _crawlHitzoneSize)

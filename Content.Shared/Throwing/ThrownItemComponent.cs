@@ -69,6 +69,9 @@ namespace Content.Shared.Throwing
         // Goobstation start
         [DataField]
         public Vector2? OriginPosition;
+
+        [DataField]
+        public List<EntityUid> IgnoredEntities = new();
         // Goobstation end
     }
 }

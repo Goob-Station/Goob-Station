@@ -69,6 +69,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using System.Numerics; // Goobstation
+using Content.Shared.Buckle.Components; // Goobstation
 
 namespace Content.Shared.Throwing
 {
@@ -103,7 +104,15 @@ namespace Content.Shared.Throwing
         private void OnMapInit(EntityUid uid, ThrownItemComponent component, MapInitEvent args)
         {
             component.ThrownTime ??= _gameTiming.CurTime;
-            component.OriginPosition ??= _transform.GetWorldPosition(uid); // Goobstation
+            // Goobstation start
+            component.OriginPosition ??= _transform.GetWorldPosition(uid);
+            if (component.Thrower.HasValue &&
+                TryComp<BuckleComponent>(component.Thrower.Value, out var buckleComponent) &&
+                buckleComponent.BuckledTo.HasValue)
+            {
+                component.IgnoredEntities.Add(buckleComponent.BuckledTo.Value);
+            }
+            // Goobstation end
         }
 
         private void ThrowItem(EntityUid uid, ThrownItemComponent component, ref ThrownEvent @event)
@@ -140,6 +149,12 @@ namespace Content.Shared.Throwing
             }
 
             // Goobstation start
+            if (component.IgnoredEntities.Contains(args.OtherEntity))
+            {
+                args.Cancelled = true;
+                return;
+            }
+
             if (component.OriginPosition.HasValue)
             {
                 var delta = (_transform.GetWorldPosition(args.OtherEntity) - component.OriginPosition.Value).Normalized();

@@ -104,6 +104,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
 using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Shared.Buckle.Components;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -444,7 +445,18 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
         }
 
-        var fromCoordinates = Transform(user).Coordinates;
+        // Goobstation start
+        EntityCoordinates fromCoordinates;
+
+        var userMapCoords = TransformSystem.GetMapCoordinates(user);
+        if (MapManager.TryFindGridAt(userMapCoords, out var gridUid, out _))
+            // Anchor coordinates to the grid entity (not the vehicle parent)
+            fromCoordinates = TransformSystem.WithEntityId(new EntityCoordinates(user, Vector2.Zero), gridUid);
+        else
+            // Original function as backup if the lookup fails
+            fromCoordinates = Transform(user).Coordinates;
+        // Goobstation end
+
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, new List<(EntityUid? Entity, IShootable Shootable)>(), fromCoordinates, user);
 
@@ -572,11 +584,19 @@ public abstract partial class SharedGunSystem : EntitySystem
             Projectiles.SetShooter(uid, projectile, shooter.Value);
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
-        if (targetCoordinates.HasValue) // Goobstation
-            projectile.TargetCoordinates = targetCoordinates.Value; // Goobstation
+        // Goobstation start
+        if (targetCoordinates.HasValue)
+            projectile.TargetCoordinates = targetCoordinates.Value;
 
-        if (shooter.HasValue) // Goobstation
-            projectile.OriginCoordinates = TransformSystem.GetMapCoordinates(shooter.Value).Position; // Goobstation
+        if (shooter.HasValue)
+        {
+            projectile.OriginCoordinates = TransformSystem.GetMapCoordinates(shooter.Value).Position;
+            if (TryComp<BuckleComponent>(shooter, out var buckleComp) && buckleComp.BuckledTo.HasValue)
+            {
+                projectile.IgnoredEntities.Add(buckleComp.BuckledTo.Value);
+            }
+        }
+        // Goobstation end
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
