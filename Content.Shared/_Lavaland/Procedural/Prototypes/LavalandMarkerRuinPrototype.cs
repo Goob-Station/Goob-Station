@@ -8,7 +8,6 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -25,41 +24,24 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Procedural.Prototypes;
 
+/// <summary>
+/// Spawns a simple marker on picked coordinates and ensures that nothing intersects the Boundary box around it.
+/// Generated after grid and dungeon ruins
+/// </summary>
 [Prototype]
-public sealed partial class LavalandRuinPoolPrototype : IPrototype
+public sealed partial class LavalandMarkerRuinPrototype : IPrototype
 {
     [IdDataField] public string ID { get; } = default!;
 
-    /// <summary>
-    /// Distance in-between ruins.
-    /// </summary>
-    [DataField]
-    public int RuinDistance = 24;
+    [DataField(required: true)]
+    public Vector2i Boundary { get; }
 
-    /// <summary>
-    /// Max distance that Ruins can generate.
-    /// </summary>
-    [DataField]
-    public int MaxDistance = 336;
+    [DataField(required: true)]
+    public EntProtoId SpawnedMarker;
 
-    /// <summary>
-    /// List of all grid ruins and their count.
-    /// Used for ruins that are loaded as proper grids.
-    /// </summary>
     [DataField]
-    public Dictionary<ProtoId<LavalandGridRuinPrototype>, ushort> GridRuins = new();
+    public int SpawnAttempts = 8;
 
-    /// <summary>
-    /// List of all dungeon ruins and their count.
-    /// Used for ruins that are generated with Dungeon configs.
-    /// </summary>
-    [DataField]
-    public Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> DungeonRuins = new();
-
-    /// <summary>
-    /// List of all marker ruins and their count.
-    /// Used for ruins that are generated with Dungeon markers.
-    /// </summary>
-    [DataField]
-    public Dictionary<ProtoId<LavalandMarkerRuinPrototype>, ushort> MarkerRuins = new();
+    [DataField(required: true)]
+    public int Priority = int.MinValue;
 }

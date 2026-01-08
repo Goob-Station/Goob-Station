@@ -69,4 +69,6 @@
     Mug: 1
     Temple: 1
   dungeonRuins:
+    Experiment: 4 # test
+  markerRuins:
     CommonRuin5x5: 60
