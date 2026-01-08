@@ -21,12 +21,12 @@ public sealed partial class SlimeExtractComponent : Component
     /// <summary>
     ///     Minor effect that should happen when a luminescent slimeperson presses the funny action button.
     /// </summary>
-    [DataField] public List<EntityEffect> LuminescentMinorEffect;
+    [DataField] public List<EntityEffect>? LuminescentMinorEffect = new();
 
     /// <summary>
     ///     Major effect that should happen when a luminescent slimeperson presses the funny action button.
     /// </summary>
-    [DataField] public List<EntityEffect> LiminescentMajorEffect;
+    [DataField] public List<EntityEffect>? LiminescentMajorEffect = new();
 
     // todo add crossbreeding here (feeding extracts to slimes) (not gonna happen xoon:tm:)
 }
