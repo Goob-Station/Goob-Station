@@ -68,7 +68,7 @@ public sealed class ShowDiseaseIconsSystem : EquipmentHudSystem<ShowDiseaseIcons
     {
         var carrier = entity.Comp;
         var total = 0f;
-        foreach (var disease in carrier.Diseases)
+        foreach (var disease in carrier.Diseases.ContainedEntities)
         {
             if (!TryComp<DiseaseComponent>(disease, out var comp))
                 continue;
