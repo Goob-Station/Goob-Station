@@ -89,6 +89,7 @@
   parent: BaseMachine
   id: BaseMachinePowered
   components:
+  - type: StationAiWhitelist
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: ExtensionCableReceiver

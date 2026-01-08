@@ -90,6 +90,7 @@
   parent: GasTrinaryBase
   id: GasFilterBase
   components:
+    - type: StationAiWhitelist
     - type: SubFloorHide
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
@@ -188,6 +189,7 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: StationAiWhitelist
     - type: SubFloorHide
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
