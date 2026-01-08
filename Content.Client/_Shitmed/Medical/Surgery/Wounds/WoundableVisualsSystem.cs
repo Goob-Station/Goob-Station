@@ -110,7 +110,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         if (!_sprite.LayerMapTryGet((bodyUid, bodySprite),
                 $"{ent.Comp.OccupiedLayer}Bleeding",
                 out _,
-                true)
+                false)
             && ent.Comp.BleedingOverlay != null)
         {
             AddDamageLayerToSprite((bodyUid, bodySprite),
