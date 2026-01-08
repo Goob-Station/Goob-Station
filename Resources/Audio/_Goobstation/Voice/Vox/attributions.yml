@@ -32,17 +32,20 @@
   copyright: "dinosaur.wav by JhennaSide"
   source: "https://freesound.org/people/JhennaSide/sounds/455906/"
 
-- files: ["voxchitter1.ogg"]
+- files: 
+  - "voxchitter1.ogg"
   license: "Custom"
   copyright: "Recorded by June Hunter Images; modified by AvianMaiden."
   source: "https://www.youtube.com/watch?v=8xybFI2Q-No"
 
-- files: ["voxchitter2.ogg"]
+- files: 
+  - "voxchitter2.ogg"
   license: "CC-BY-3.0"
   copyright: "AlexTriceratops123"
   source: "https://web.archive.org/web/20200223000457/https://www.youtube.com/watch?v=uA5yGyB_z5U"
 
-- files: ["voxhiss.ogg"]
+- files: 
+  - "voxhiss.ogg"
   license: "Custom"
   copyright: "Recorded by John Naran; modified by AvianMaiden."
   source: "https://www.youtube.com/watch?v=ETS5NGOankI"
