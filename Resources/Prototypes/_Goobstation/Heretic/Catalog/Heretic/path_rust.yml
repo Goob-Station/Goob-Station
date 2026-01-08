@@ -39,7 +39,7 @@
   id: HereticRustPath2
   name: knowledge-path-rust-s2-name
   description: knowledge-path-rust-s2-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: mansus_grasp }
   productHereticKnowledge: GraspOfRust
   cost:
     KnowledgePoint: 1
@@ -93,7 +93,7 @@
   id: HereticRustPath4
   name: knowledge-path-rust-s4-name
   description: knowledge-path-rust-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: mansus_grasp }
   productHereticKnowledge: MarkOfRust
   cost:
     KnowledgePoint: 2
