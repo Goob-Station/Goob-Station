@@ -145,7 +145,7 @@
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 36000 #10 hrs
-      - !type:RoleTimeRequirement
+    - !type:RoleTimeRequirement
       role: JobDetective
       time: 3600 #1 hrs
     - !type:DepartmentTimeRequirement
