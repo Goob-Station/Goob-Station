@@ -49,6 +49,9 @@ namespace Content.Server.Crayon
         [DataField("capacity")]
         public int Capacity { get; set; } = 30;
 
+        [DataField, ViewVariables(VVAccess.ReadWrite)] // Impstation
+        public bool Infinite { get; set; } = false; // Impstation
+
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("deleteEmpty")]
         public bool DeleteEmpty = true;

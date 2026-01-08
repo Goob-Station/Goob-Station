@@ -56,13 +56,10 @@
       path: /Audio/_Goobstation/FloorGoblin/laugh.ogg
 
 - type: emoteSounds
-  id: HellGoose
+  id: ClownGoblin
   params:
     variation: 0.125
-  sound:
-    collection: GooseSounds
-    params:
-      variation: 0.125
   sounds:
-    Laugh:
-      path: /Audio/_Goobstation/Goose/goose_laugh.ogg
+    Scream:
+      collection: ClownGoblinScream
+

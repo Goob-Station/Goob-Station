@@ -78,6 +78,8 @@
       - Medical
       - Quartermaster
       - Research
+      - Robotics # goobstation
+      - Journalism # goobstation
       - ResearchDirector
       - Salvage
       - Security
@@ -164,6 +166,8 @@
     - SyndicateAgent
     - NanotrasenRepresentative # goobstation
     - BlueshieldOfficer # goobstation
+    - Robotics # goobstation
+    - Journalism # goobstation
     - Wizard
     - Xenoborg
     - GenpopEnter

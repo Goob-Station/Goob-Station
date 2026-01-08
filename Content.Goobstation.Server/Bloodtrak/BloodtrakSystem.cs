@@ -263,6 +263,8 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             return Shared.Bloodtrak.Distance.Close;
         if (dist <= pinpointer.MediumDistance)
             return Shared.Bloodtrak.Distance.Medium;
+        if (dist > pinpointer.MaxDistance)
+            return Shared.Bloodtrak.Distance.Unknown;
 
         return Shared.Bloodtrak.Distance.Far;
     }

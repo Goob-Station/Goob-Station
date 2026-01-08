@@ -86,6 +86,9 @@ uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. 
 uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 
+uplink-grey-tide-name = Grey Tide
+uplink-grey-tide-desc = An antient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is an Assistant.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
@@ -279,6 +282,18 @@ uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan
 uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
 
+uplink-autosurgeon-smartlink-name = Smartlink Autosurgeon
+uplink-autosurgeon-smartlink-desc = Modifies the user's arms to include smartlink cyberware, improving aim with ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-recoil-absorbing-name = Recoil Absorbing Arms Autosurgeon
+uplink-autosurgeon-recoil-absorbing-desc = Modifies the user's arms to include recoil absorbing cyberware, drastically reducing recoil when firing ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-berserker-heart-name = Berserker Heart Autosurgeon
+uplink-autosurgeon-berserker-heart-desc = Replaces the user's heart with a berserker implant, that allows them to enter a berserk state, greatly increasing their melee damage, speed and preventing from critical damage. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-jumpstarter-heart-name = Jumpstarter Heart Autosurgeon
+uplink-autosurgeon-jumpstarter-heart-desc = Replaces the user's heart with a jumpstarter implant, that injects enough omnizine to get up once you got critical damage. Has a 3 minutes cooldown. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
@@ -289,6 +304,9 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+
+uplink-guerrilla-gloves-name = Guerrilla Gloves
+uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
 
 # Deception
 
@@ -332,8 +350,11 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
 
-uplink-bloodred-casette-name = Bloodred Casette Player
-uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
+uplink-bloodred-cassette-name = Bloodred Casette Player
+uplink-bloodred-cassette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
 
 uplink-syndiedrobe-name = Syndiedrobe
 uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded clothing. Simple, sharp, and unmistakably red-and-black, it offers operatives a way to dress with Syndicate style.
+
+uplink-customboard-name = Custom Syndicate Lawboard
+uplink-customboard-desc = A modified lawboard that allows the user to change the laws to anything they want. Comes with Antimov pre-installed.

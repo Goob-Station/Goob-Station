@@ -466,6 +466,9 @@ public abstract partial class SharedHandsSystem
         var freeable = 0;
         foreach (var name in hands.Comp.Hands.Keys)
         {
+            if (excludeActiveHand && hands.Comp.ActiveHandId != null && name == hands.Comp.ActiveHandId)
+                continue;
+
             if (HandIsEmpty(hands.AsNullable(), name) || CanDropHeld(hands, name))
                 freeable++;
         }

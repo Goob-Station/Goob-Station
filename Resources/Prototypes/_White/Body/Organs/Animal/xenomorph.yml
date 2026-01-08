@@ -57,7 +57,8 @@
     onAdd:
     - type: ThermalVision
       toggleAction: ToggleThermalVisionXenomorph
-      color: "#7d0cc9"
+      color: white
+      drawOverlay: false
       lightRadius: 10
       strength: 0
       noise: 0
@@ -106,10 +107,10 @@
           Heat: 20 # Goobstation
   # <Goobstation>
   - type: AcidGland
-  - type: OrganActions
-    actions:
-    - ActionAcid
-  # </Goobstation>
+  # - type: OrganActions
+  #   actions:
+  #   - ActionAcid
+  # </Goobstation> commented until acid if fixed
 
 - type: entity
   parent: BaseXenomorphOrgan

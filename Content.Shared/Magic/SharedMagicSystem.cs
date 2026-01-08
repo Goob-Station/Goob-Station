@@ -91,6 +91,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Wizard;
@@ -274,6 +275,12 @@ public abstract class SharedMagicSystem : EntitySystem
         var hasReqs = true;
 
         // Goobstation start
+        if (comp.BlockedBySpectral && HasComp<SpectralComponent>(args.Performer))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         var requiresSpeech = comp.RequiresSpeech;
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
         var requiredSlots = 2;
@@ -339,7 +346,7 @@ public abstract class SharedMagicSystem : EntitySystem
         return !ev.Cancelled;
     }
 
-    private bool IsTouchSpellDenied(EntityUid target) // Goob edit
+    public bool IsTouchSpellDenied(EntityUid target) // Goob edit
     {
         var ev = new BeforeCastTouchSpellEvent(target);
         RaiseLocalEvent(target, ev, true);
@@ -548,6 +555,13 @@ public abstract class SharedMagicSystem : EntitySystem
         if (args.Handled || !PassesSpellPrerequisites(args.Action, args.Performer))
             return;
 
+        // Goobstation start
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(args.Performer, ref ev);
+        if (ev.Cancelled)
+            return;
+        // Goobstation end
+
         var transform = Transform(args.Performer);
 
         if (transform.MapID != args.Target.GetMapId(EntityManager) || !_interaction.InRangeUnobstructed(args.Performer, args.Target, range: 1000F, collisionMask: CollisionGroup.Opaque, popup: true))
@@ -741,7 +755,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         List<(Type, string)> blockers = new()
         {
-            (typeof(ChangelingComponent), "changeling"),
+            (typeof(ChangelingComponent), "changeling"), // TODO change to ChangelingIdentityComponent
             // You should be able to mindswap with heretics,
             // but all of their data and abilities are not tied to their mind, I'm not making this work.
             (typeof(HereticComponent), "heretic"),
@@ -836,6 +850,7 @@ public abstract class SharedMagicSystem : EntitySystem
             List<ProtoId<NpcFactionPrototype>> factionsToTransfer = new()
             {
                 "Wizard",
+                "Assistant",
             };
 
             ProtoId<NpcFactionPrototype> fallbackFaction = "NanoTrasen";

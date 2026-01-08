@@ -16,6 +16,8 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 600
+  - type: BatteryDrinkerSource
+    maxAmount: 100
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40

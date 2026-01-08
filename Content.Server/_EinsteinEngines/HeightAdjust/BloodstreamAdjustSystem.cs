@@ -42,13 +42,16 @@ public sealed class BloodstreamAdjustSystem : EntitySystem
 
         var factor = Math.Pow(_contests.MassContest(ent, bypassClamp: true, rangeFactor: 4f), ent.Comp.Power);
         factor = Math.Clamp(factor, ent.Comp.Min, ent.Comp.Max);
-
         var newVolume = bloodstream.BloodMaxVolume * factor;
         var newBloodLevel = bloodSolution.FillFraction * newVolume;
         bloodSolution.MaxVolume = newVolume;
-        bloodSolution.SetContents([new ReagentQuantity(bloodstream.BloodReagent, newBloodLevel, null)], false);
 
+        // Goobstation start - double blood in medical pda/health analyzer fix
+        //bloodSolution.SetContents([new ReagentQuantity(bloodstream.BloodReagent, newBloodLevel, getReagent)], false);
         _bloodstream.SetBloodMaxVolume((ent.Owner, bloodstream), newVolume);
+        // SetContents would remove DNA data from bloodstream, using a proper method provided by the system
+        _bloodstream.TryModifyBloodLevel((ent.Owner, bloodstream), newBloodLevel);
+        // Goobstation end
 
         return true;
     }
