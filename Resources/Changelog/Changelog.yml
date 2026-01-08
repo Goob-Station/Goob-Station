@@ -5286,3 +5286,10 @@ Entries:
   id: 9364
   time: '2026-01-08T19:38:23.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39189
+- author: LevitatingTree
+  changes:
+  - message: Saying ":?" now lets you shrug like "idk" used to.
+    type: Add
+  id: 9365
+  time: '2026-01-08T19:52:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41236
