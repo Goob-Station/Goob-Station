@@ -13,41 +13,52 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Atmos.Components;
-using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Movement.Components;
 using Content.Shared.Slippery;
-using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
-using System.Linq;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
+using Content.Goobstation.Common.Religion;
+using Content.Server.Polymorph.Components;
+using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Coordinates;
+using Content.Shared.Movement.Events;
+using Content.Shared.Physics.Controllers;
+using Content.Shared.Polymorph;
+using Content.Shared.Stunnable;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    private void SubscribeVoid()
+    private static readonly EntProtoId VoidAuraId = "VoidAscensionAura";
+
+    protected override void SubscribeVoid()
     {
-        SubscribeLocalEvent<HereticComponent, HereticAristocratWayEvent>(OnAristocratWay);
+        base.SubscribeVoid();
+
         SubscribeLocalEvent<HereticComponent, HereticAscensionVoidEvent>(OnAscensionVoid);
 
         SubscribeLocalEvent<HereticComponent, HereticVoidBlastEvent>(OnVoidBlast);
-        SubscribeLocalEvent<HereticComponent, HereticVoidBlinkEvent>(OnVoidBlink);
-        SubscribeLocalEvent<HereticComponent, HereticVoidPullEvent>(OnVoidPull);
+        SubscribeLocalEvent<HereticComponent, HereticVoidPrisonEvent>(OnVoidPrison);
+
+        SubscribeLocalEvent<VoidPrisonComponent, PolymorphedEvent>(OnPrisonRevert);
     }
 
-    private void OnAristocratWay(Entity<HereticComponent> ent, ref HereticAristocratWayEvent args)
+    private void OnPrisonRevert(Entity<VoidPrisonComponent> ent, ref PolymorphedEvent args)
     {
-        EnsureComp<SpecialLowTempImmunityComponent>(ent);
-        EnsureComp<SpecialBreathingImmunityComponent>(ent);
+        if (!args.IsRevert)
+            return;
+
+        Spawn(ent.Comp.EndEffect, Transform(ent).Coordinates);
+        Voidcurse.DoCurse(args.NewEntity);
     }
+
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)
     {
         EnsureComp<SpecialHighTempImmunityComponent>(ent);
@@ -55,6 +66,7 @@ public sealed partial class HereticAbilitySystem
         EnsureComp<AristocratComponent>(ent);
 
         EnsureComp<MovementIgnoreGravityComponent>(ent);
+        EnsureComp<CanMoveInAirComponent>(ent);
         EnsureComp<NoSlipComponent>(ent); // :godo:
 
         // fire immunity
@@ -64,6 +76,8 @@ public sealed partial class HereticAbilitySystem
         // the hunt begins
         var voidVision = new HereticVoidVisionEvent();
         RaiseLocalEvent(ent, voidVision);
+
+        SpawnAttachedTo(VoidAuraId, ent.Owner.ToCoordinates());
     }
 
     private void OnVoidBlast(Entity<HereticComponent> ent, ref HereticVoidBlastEvent args)
@@ -91,76 +105,24 @@ public sealed partial class HereticAbilitySystem
         args.Handled = true;
     }
 
-    private void OnVoidBlink(Entity<HereticComponent> ent, ref HereticVoidBlinkEvent args)
+    private void OnVoidPrison(Entity<HereticComponent> ent, ref HereticVoidPrisonEvent args)
     {
+        var target = args.Target;
+
+        if (!HasComp<PolymorphableComponent>(target) || HasComp<PolymorphedEntityComponent>(target) ||
+            HasComp<VoidPrisonComponent>(target))
+            return;
+
         if (!TryUseAbility(ent, args))
             return;
 
-        var condition = ent.Comp.CurrentPath == "Void";
-
-        var power = condition ? 1.5f + ent.Comp.PathStage / 5f : 1.5f;
-
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
-
-        foreach (var pookie in GetNearbyPeople(ent, power))
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
-
-        _transform.SetCoordinates(ent, args.Target);
-
-        // repeating for both sides
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
-
-        foreach (var pookie in GetNearbyPeople(ent, power))
-        {
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
-            if (condition) _voidcurse.DoCurse(pookie);
-        }
-
         args.Handled = true;
-    }
 
-    private void OnVoidPull(Entity<HereticComponent> ent, ref HereticVoidPullEvent args)
-    {
-        if (!TryUseAbility(ent, args))
+        var ev = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ev, true);
+        if (ev.Cancelled)
             return;
 
-        var power = ent.Comp.CurrentPath == "Void" ? 10f + ent.Comp.PathStage * 2 : 10f;
-        var rangeMult = 1f;
-
-        if (HasComp<AristocratComponent>(ent)) // epic boost from epic ascension
-        {
-            power *= 1.25f;
-            rangeMult *= 2f;
-        }
-
-        var topPriority = GetNearbyPeople(ent, 1.5f * rangeMult);
-        var midPriority = GetNearbyPeople(ent, 2.5f * rangeMult);
-        var farPriority = GetNearbyPeople(ent, 5f * rangeMult);
-
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Cold", power);
-
-        // damage closest ones
-        foreach (var pookie in topPriority)
-        {
-            // apply gaming.
-            _dmg.TryChangeDamage(pookie, damage, true, targetPart: TargetBodyPart.All);
-        }
-
-        // stun close-mid range
-        foreach (var pookie in midPriority)
-        {
-            _stun.TryStun(pookie, TimeSpan.FromSeconds(2.5f), true);
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
-
-            if (ent.Comp.CurrentPath == "Void")
-                _voidcurse.DoCurse(pookie);
-        }
-
-        // pull in farthest ones
-        foreach (var pookie in farPriority)
-            _throw.TryThrow(pookie, Transform(ent).Coordinates);
-
-        args.Handled = true;
+        _poly.PolymorphEntity(target, args.Polymorph);
     }
 }

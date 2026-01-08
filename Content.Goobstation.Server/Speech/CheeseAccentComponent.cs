@@ -12,6 +12,7 @@ namespace Content.Goobstation.Server.Speech;
 
 [RegisterComponent]
 [Access(typeof(CheeseAccentSystem))]
-public sealed partial class CheeseAccentComponent : Component;
 public sealed partial class CheeseAccentComponent : Component
-{ }
+{
+
+}

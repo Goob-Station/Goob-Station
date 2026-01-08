@@ -38,14 +38,17 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: fireball # Goob edit
   - type: TargetAction
     range: 60
     checkCanAccess: false
+  - type: EntityTargetAction # Goobstation
+    canTargetSelf: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
+      speed: 20
   - type: SpeakOnAction
     sentence: action-speech-spell-fireball
   - type: ActionUpgrade

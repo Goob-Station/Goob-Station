@@ -13,6 +13,9 @@
     name: ghost-role-lead-intern-name
     description: ghost-role-intern-desc
     rules: ghost-role-lead-intern-rules
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours
   - type: GhostRoleMobSpawner
     prototype: LeadIntern
 
@@ -27,6 +30,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [LeadInternGear]
+  - type: AntagImmune
 
 # Basic Intern Coin
 - type: entity
@@ -42,6 +46,9 @@
     name: ghost-role-intern-name
     description: ghost-role-intern-desc
     rules: ghost-role-intern-rules
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours
   - type: GhostRoleMobSpawner
     prototype: NTIntern
 
@@ -59,6 +66,9 @@
     name: ghost-role-nerd-intern-name
     description: ghost-role-intern-desc
     rules: ghost-role-intern-rules
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours
   - type: GhostRoleMobSpawner
     prototype: NTNerdIntern
 
@@ -73,6 +83,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [NTInternGear]
+  - type: AntagImmune
 
 # NT Nerd Intern
 - type: entity
@@ -85,6 +96,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [NTNerdInternGear]
+  - type: AntagImmune
 
 # NT Nerd Intern Gear
 - type: startingGear

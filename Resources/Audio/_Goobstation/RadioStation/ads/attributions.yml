@@ -1,0 +1,4 @@
+- files: ["bill_movie.ogg", "captain_training.ogg", "Cargonia.ogg", "Chemistry.ogg", "cloning_psa.ogg", "danitos_burritos.ogg", "dans_tickets.ogg", "grones.ogg", "pope_crunch_cereal.ogg", "quik_noodles.ogg", "Robotics.ogg", "security_psa.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "taken from goonstation"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound/radio_station/adverts"

@@ -13,6 +13,8 @@ swap-teleporter-popup-link-destroyed = Quantum link destroyed!
 swap-teleporter-popup-teleport-cancel-time = It's still recharging!
 swap-teleporter-popup-teleport-cancel-link = It's not linked with another device!
 swap-teleporter-popup-teleport-other = {CAPITALIZE(THE($entity))} activates, and you find yourself somewhere else.
+# Goobstation - QSIs don't teleport across maps
+swap-teleporter-popup-teleport-fail = {CAPITALIZE(THE($entity))} seems to do nothing...
 
 swap-teleporter-verb-destroy-link = Destroy Quantum Link
 

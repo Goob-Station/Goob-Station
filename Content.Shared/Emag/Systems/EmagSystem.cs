@@ -27,7 +27,8 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
-using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
+using Content.Shared.Whitelist;
+using Content.Goobstation.Common.Effects; // Shitmed - Starlight Abductors
 
 namespace Content.Shared.Emag.Systems;
 
@@ -45,6 +46,7 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV - Add a whitelist/blacklist to the Emag
+    [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
 
     public override void Initialize()
     {
@@ -106,6 +108,7 @@ public sealed class EmagSystem : EntitySystem
         _popup.PopupPredicted(Loc.GetString(ent.Comp.SuccessText, ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.Medium); // Goobstation - Success text de-hardcoded
 
         _audio.PlayPredicted(ent.Comp.EmagSound, ent, ent);
+        _sparks.DoSparks(Transform(target).Coordinates); // goob edit - sparks everywhere
 
         _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {typeToUse}");
 

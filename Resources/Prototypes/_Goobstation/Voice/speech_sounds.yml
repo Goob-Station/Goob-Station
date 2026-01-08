@@ -18,10 +18,10 @@
     collection: DuendeSounds
 
 - type: speechSounds
-  id: HellGoose
+  id: BikeHorn
   saySound:
-    collection: GooseSounds
+    path: /Audio/Items/bikehorn.ogg
   askSound:
-    collection: GooseSounds
+    path: /Audio/Items/brokenbikehorn.ogg
   exclaimSound:
-    collection: GooseSounds
+    path: /Audio/Items/desk_bell_ring.ogg

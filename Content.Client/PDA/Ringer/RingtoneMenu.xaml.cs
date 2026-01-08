@@ -63,6 +63,14 @@ namespace Content.Client.PDA.Ringer
                     }
 
                     input.CursorPosition = input.Text.Length;
+
+                    // Goobstation start edit
+                    if (index + 1 < RingerNoteInputs.Length)
+                    {
+                        RingerNoteInputs[index + 1].SelectAllOnFocus = true;
+                        RingerNoteInputs[index + 1].GrabKeyboardFocus();
+                    }
+                    // Goobstation end edit
                 };
 
                 input.OnFocusExit += _ =>

@@ -97,6 +97,7 @@ using Robust.Shared.Random;
 using Content.Shared.Item; // Goobstation - anythingburgers
 using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
 using Content.Server.Singularity.Components; // Goobstation - anythingburgers
+using Content.Shared.Interaction.Components; // Goobstation - anythingburgers
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -121,7 +122,8 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
         if (HasComp<EntityStorageComponent>(args.Used)
-            || HasComp<StorageComponent>(args.Used))
+            || HasComp<StorageComponent>(args.Used)
+            || HasComp<UnremoveableComponent>(args.Used)) // Goobstation - Prevent burgering unremovable items
             return; // Prevent Backpacks/Pet Carriers
 
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers

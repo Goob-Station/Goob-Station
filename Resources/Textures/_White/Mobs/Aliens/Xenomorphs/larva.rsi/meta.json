@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi | Edited by PuroSlavKing (Github)",
+  "copyright": "Taken from CMSS13: https://github.com/cmss13-devs/cmss13/commit/dbebd43 | Revised for Goobstation by JohnJJohn (Github)",
   "size": {
     "x": 32,
     "y": 32
@@ -16,36 +16,52 @@
       "directions": 4,
       "delays": [
         [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
         ],
         [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
         ],
         [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
         ],
         [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
         ]
       ]
     },
@@ -60,20 +76,7 @@
     },
     {
       "name": "xenomorph_unconscious",
-      "directions": 4,
       "delays": [
-        [
-          0.7,
-          0.7
-        ],
-        [
-          0.7,
-          0.7
-        ],
-        [
-          0.7,
-          0.7
-        ],
         [
           0.7,
           0.7

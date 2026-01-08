@@ -78,8 +78,8 @@
   - type: Sprite
     # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -137,8 +137,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.32
-        density: 90
+          radius: 0.35
+        density: 120
         restitution: 0.0
         mask:
         - MobMask

@@ -72,6 +72,7 @@
       - MidImpassable
       - LowImpassable
   - type: PlasmaCostAction
+    plasmaCost: 50 # Goobstation
 
 - type: entity
   id: ActionSpawnXenomorphEgg
@@ -102,7 +103,7 @@
   description: Secrete tough malleable resin.
   components:
   - type: Action
-    useDelay: 1
+    useDelay: 2 # Goobstation
     itemIconStyle: BigAction
     icon: { sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi, state: resin } # Goobstation new sprites
   - type: TargetAction
@@ -110,12 +111,13 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: WallResin
-      length: 0.5
+      length: 2 # Goobstation
       blockedCollisionMask:
       - FullTileMask
       blockedCollisionLayer:
       - WallLayer
   - type: PlasmaCostAction
+    plasmaCost: 50 # Goobstation
 
 # TODO: delete it # Goobstation - removed
 #- type: entity
@@ -140,6 +142,30 @@
 #      - GlassLayer
 #  - type: PlasmaCostAction
 
+- type: entity # Goobstation - new action
+  id: ActionSpawnResinDoor
+  parent: BaseAction
+  name: Build a resin door (75)
+  description: Secrete tough malleable resin.
+  components:
+  - type: Action
+    useDelay: 2
+    itemIconStyle: BigAction
+    icon: { sprite :  _RMC14/Structures/Xenos/xeno_resin_door.rsi, state: resin }
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      entity: ResinDoor
+      length: 2
+      blockedCollisionMask:
+      - TableMask
+      blockedCollisionLayer:
+      - TableLayer
+      - BulletImpassable
+  - type: PlasmaCostAction
+    plasmaCost: 75
+
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinNest
@@ -156,13 +182,14 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: ResinNest
-      length: 0.5
+      length: 2 # Goobstation
       blockedCollisionMask:
       - TableMask
       blockedCollisionLayer:
       - TableLayer
       - BulletImpassable
   - type: PlasmaCostAction
+    plasmaCost: 50 # Goobstation
 
 # Tail lash action
 - type: entity
@@ -180,23 +207,26 @@
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
 
-    # Acid action
-- type: entity
-  id: ActionAcid
-  parent: BaseAction
-  name: Corrosive acid (200)
-  description: Drench an object in acid, destroying it over time.
-  components:
-  - type: Action
-    useDelay: 11
-    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: acid }
-  - type: TargetAction
-    interactOnMiss: false
-    range: 2
-  - type: EntityTargetAction
-    event: !type:AcidActionEvent
-  - type: PlasmaCostAction
-    plasmaCost: 200
+# Acid action - Goob Commented out until future fix
+#- type: entity
+#  id: ActionAcid
+#  parent: BaseAction
+#  name: Corrosive acid (200)
+#  description: Drench an object in acid, destroying it over time.
+#  components:
+#  - type: Action
+#    useDelay: 11
+#    itemIconStyle: BigAction # Goobstation
+#    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # Goobstation
+#  - type: TargetAction
+#    interactOnMiss: false
+#    range: 2
+#    targetingIndicator: true # Goobstation
+#    checkCanAccess: true # Goobstation
+#  - type: EntityTargetAction
+#    event: !type:AcidActionEvent
+#  - type: PlasmaCostAction
+#    plasmaCost: 200
 
 # Jump action
 - type: entity
@@ -236,14 +266,22 @@
 - type: entity
   id: ActionXenomorphPromotion
   parent: BaseAction
-  name: Create royal parasite (500)
-  description: Produce a royal parasite to grant one of your children the honor of being your Praetorian.
+  name: Promote to Praetorian (500) # Goobstation
+  description: Directly promote a xenomorph to Praetorian status. # Goobstation
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 0
+    useDelay: 5 # Goobstation
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: promote }
-  - type: InstantAction
+  - type: TargetAction # Goobstation start
+    checkCanAccess: true
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      requireAll: true
+      components:
+        - XenomorphComponent # Goobstation end
     event: !type:PromotionActionEvent
   - type: PlasmaCostAction
     plasmaCost: 500

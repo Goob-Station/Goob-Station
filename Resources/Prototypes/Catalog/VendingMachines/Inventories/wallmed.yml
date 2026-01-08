@@ -19,6 +19,7 @@
 - type: vendingMachineInventory
   id: NanoMedInventory
   startingInventory:
+    Gauze: 3 # Goobstation
     Brutepack: 3
     Ointment: 3
     Bloodpack: 3

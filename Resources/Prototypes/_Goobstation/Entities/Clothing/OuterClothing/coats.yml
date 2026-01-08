@@ -81,3 +81,46 @@
     knockdownTimeDelta: -1.5
   - type: StaminaResistance
     damageCoefficient: 0.7
+
+#blue ward coat
+- type: entity
+  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseWardenContraband]
+  id: ClothingOuterCoatWardenBlue
+  name: warden's blue jacket
+  description: A sturdy, utilitarian jacket for those familiar with the brig.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/wardenblue.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/wardenblue.rsi
+
+#rd alt coat
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase, ClothingOuterCoatRD]
+  id: ClothingOuterCoatRDPurple
+  name: research director's experimental lab coat
+  description: Woven with experimental technology... this labcoat seems no more protective than your usual one. At least it looks nice.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
+    
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
+  id: ClothingOuterCoatRDPurpleOpened
+  name: research director's experimental lab coat
+
+#hop longcoat
+- type: entity
+  parent: [ClothingOuterStorageBase, BaseCommandContraband]
+  id: ClothingOuterCoatHoPLong
+  name: hop's longcoat
+  description: A smart longcoat for the Head of Personnel.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/hoplongcoat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/hoplongcoat.rsi
+#cap prestige coat gets storage so this one does too. Fuck it we ball.
