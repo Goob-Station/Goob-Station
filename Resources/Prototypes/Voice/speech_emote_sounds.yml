@@ -423,7 +423,6 @@
       collection: VoxHiss
     Caw:
       collection: HarpyCaws
-      pitch: 0.55
   params:
     variation: 0.125
 
