@@ -68,6 +68,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using System.Numerics; // Goobstation
 
 namespace Content.Shared.Throwing
 {
@@ -83,6 +84,7 @@ namespace Content.Shared.Throwing
         [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly SharedGravitySystem _gravity = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation
 
         private const string ThrowingFixture = "throw-fixture";
 
@@ -101,6 +103,7 @@ namespace Content.Shared.Throwing
         private void OnMapInit(EntityUid uid, ThrownItemComponent component, MapInitEvent args)
         {
             component.ThrownTime ??= _gameTiming.CurTime;
+            component.OriginPosition ??= _transform.GetWorldPosition(uid); // Goobstation
         }
 
         private void ThrowItem(EntityUid uid, ThrownItemComponent component, ref ThrownEvent @event)
@@ -133,7 +136,17 @@ namespace Content.Shared.Throwing
             if (args.OtherEntity == component.Thrower)
             {
                 args.Cancelled = true;
+                return; // Goobstation
             }
+
+            // Goobstation start
+            if (component.OriginPosition.HasValue)
+            {
+                var delta = (_transform.GetWorldPosition(args.OtherEntity) - component.OriginPosition.Value).Normalized();
+                if (Vector2.Dot(delta, _transform.GetWorldRotation(uid).ToVec()) < 0.42261826174) // cos (65) = 0 :godo:, a bit less tolerance for thrown items
+                    args.Cancelled = true;
+            }
+            // Goobstation end
         }
 
         private void OnSleep(EntityUid uid, ThrownItemComponent thrownItem, ref PhysicsSleepEvent @event)

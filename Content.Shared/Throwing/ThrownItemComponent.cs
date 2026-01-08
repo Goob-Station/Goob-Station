@@ -65,5 +65,10 @@ namespace Content.Shared.Throwing
         /// </summary>
         [DataField]
         public Vector2? OriginalScale = null;
+
+        // Goobstation start
+        [DataField]
+        public Vector2? OriginPosition;
+        // Goobstation end
     }
 }

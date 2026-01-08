@@ -147,5 +147,8 @@ public sealed partial class ProjectileComponent : Component
 
     [DataField]
     public Vector2 TargetCoordinates;
+
+    [DataField]
+    public Vector2? OriginCoordinates;
     // Goobstation end
 }

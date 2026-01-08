@@ -313,7 +313,8 @@ public sealed partial class GunSystem : SharedGunSystem
                                 // Checks if the laser should pass over unless targeted by its user
                                 foreach (var collide in rayCastResults)
                                 {
-                                    if (collide.HitEntity != gun.Target &&
+                                    if (!IsInFront() && // Goobstation
+                                        collide.HitEntity != gun.Target &&
                                         CompOrNull<RequireProjectileTargetComponent>(collide.HitEntity)?.Active == true &&
                                         (_transform.GetMapCoordinates(collide.HitEntity).Position - toMapBeforeRecoil).Length() > _crawlHitzoneSize)
                                     {
@@ -322,6 +323,13 @@ public sealed partial class GunSystem : SharedGunSystem
 
                                     result = collide;
                                     break;
+                                    // Goobstation start
+                                    bool IsInFront()
+                                    {
+                                        var delta = (_transform.GetMapCoordinates(collide.HitEntity).Position - from.Position).Normalized();
+                                        return Vector2.Dot(delta, dir) > 0.42261826174; // cos (65) :godo:
+                                    }
+                                    // Goobstation end
                                 }
                             }
 

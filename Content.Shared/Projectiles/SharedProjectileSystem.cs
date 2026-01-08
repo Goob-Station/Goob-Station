@@ -241,6 +241,18 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
     {
+        // Goobstation start
+        if (component.OriginCoordinates.HasValue)
+        {
+            var delta = (_transform.GetWorldPosition(args.OtherEntity) - component.OriginCoordinates.Value).Normalized();
+            if (Vector2.Dot(delta, _transform.GetWorldRotation(uid).ToWorldVec()) < 0.42261826174)  // cos (65) :godo:
+            {
+                args.Cancelled = true;
+                return;
+            }
+        }
+        // Goobstation end
+
         // Goobstation - Crawling fix
         if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
             return;

@@ -574,6 +574,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
         if (targetCoordinates.HasValue) // Goobstation
             projectile.TargetCoordinates = targetCoordinates.Value; // Goobstation
+
+        if (shooter.HasValue) // Goobstation
+            projectile.OriginCoordinates = TransformSystem.GetMapCoordinates(shooter.Value).Position; // Goobstation
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
