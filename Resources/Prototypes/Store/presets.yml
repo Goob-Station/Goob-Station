@@ -26,6 +26,7 @@
   abstract: true
   components:
   - type: Store
+    playSparksEffect: true # CorvaxGoob-SparksEffect
     name: store-preset-name-uplink
     categories:
     - UplinkWeaponry

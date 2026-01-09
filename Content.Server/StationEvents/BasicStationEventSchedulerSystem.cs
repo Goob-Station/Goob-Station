@@ -58,8 +58,9 @@ namespace Content.Server.StationEvents
         {
             base.Update(frameTime);
 
-            if (!_event.EventsEnabled)
-                return;
+            // Disabled by CorvaxGoob
+            //if (!_event.EventsEnabled) 
+            //    return;
 
             var query = EntityQueryEnumerator<BasicStationEventSchedulerComponent, GameRuleComponent>();
             while (query.MoveNext(out var uid, out var eventScheduler, out var gameRule))

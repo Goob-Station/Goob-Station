@@ -137,13 +137,6 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     [DataField]
     public bool RaiseProductEventOnUser;
 
-    // CorvaxGoob-SparksEffect
-    /// <summary>
-    /// Will spawn sparks when the listing is purchased. 
-    /// </summary>
-    [DataField]
-    public bool PlaySparksEffect = true;
-
     /// <summary>
     /// used internally for tracking how many times an item was purchased.
     /// </summary>

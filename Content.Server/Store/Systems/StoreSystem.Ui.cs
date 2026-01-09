@@ -340,7 +340,7 @@ public sealed partial class StoreSystem
                 RaiseLocalEvent(buyer, listing.ProductEvent);
         }
 
-        if (listing.PlaySparksEffect) // CorvaxGoob-SparkleEffects
+        if (component.PlaySparksEffect) // CorvaxGoob-SparkleEffects
             _sparks.DoSparks(Transform(uid).Coordinates, playSound: false);
 
         // Goob edit start

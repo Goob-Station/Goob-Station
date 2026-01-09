@@ -80,6 +80,13 @@ public sealed partial class StoreComponent : Component
     [ViewVariables, DataField]
     public List<EntityUid> BoughtEntities = new();
 
+    // CorvaxGoob-SparksEffect
+    /// <summary>
+    /// Will spawn sparks when the listing is purchased. 
+    /// </summary>
+    [DataField]
+    public bool PlaySparksEffect = false;
+
     /// <summary>
     ///     The total balance spent in this store. Used for refunds.
     /// </summary>

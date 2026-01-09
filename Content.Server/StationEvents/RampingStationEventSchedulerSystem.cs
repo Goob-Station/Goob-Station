@@ -53,8 +53,9 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
     {
         base.Update(frameTime);
 
-        if (!_event.EventsEnabled)
-            return;
+        // Disabled by CorvaxGoob
+        //if (!_event.EventsEnabled)
+        //    return;
 
         var query = EntityQueryEnumerator<RampingStationEventSchedulerComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var scheduler, out var gameRule))

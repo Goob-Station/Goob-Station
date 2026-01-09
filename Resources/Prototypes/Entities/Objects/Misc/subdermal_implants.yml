@@ -260,6 +260,7 @@
       components:
       - Hands # prevent mouse buying grenade penguin since its not telepathic
   - type: Store
+    playSparksEffect: true # CorvaxGoob-SparksEffect
     balance:
       Telecrystal: 0
   - type: UserInterface
