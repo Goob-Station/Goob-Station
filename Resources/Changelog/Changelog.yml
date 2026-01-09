@@ -5318,3 +5318,10 @@ Entries:
   id: 9369
   time: '2026-01-09T18:45:19.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42320
+- author: Hitlinemoss
+  changes:
+  - message: Cabbage placed on taco shells no longer turns into a carrot.
+    type: Fix
+  id: 9370
+  time: '2026-01-09T23:24:27.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42326
