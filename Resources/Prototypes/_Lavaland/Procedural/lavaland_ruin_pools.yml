@@ -68,7 +68,7 @@
     Generator: 3
     Mug: 1
     Temple: 1
-  dungeonRuins:
-    Experiment: 4 # test
+  #dungeonRuins: # TODO: map our own dungeons that are good and add them here
+  #  Experiment: 4
   markerRuins:
     CommonRuin5x5: 60
