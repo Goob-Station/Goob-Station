@@ -10,6 +10,7 @@
   parent: [ SimpleSpaceMobBase, MobCombat ]
   description: Exceedingly slow, but is immune to all forms of damage, except holy.
   components:
+  - type: Insulated
   - type: Bloodstream
     bloodMaxVolume: 5
     bloodReagent: MindbreakerToxin
@@ -87,6 +88,7 @@
   parent: MobLivingCurse
   description: You have no idea what this is!
   components:
+  - type: Insulated
   - type: PointLight
     radius: 1.5
     energy: 5
@@ -122,6 +124,7 @@
   id: BaseMobGlutton
   description: Something that was once a clown.
   components:
+    - type: Insulated
     - type: HTN
       rootTask:
         task: SimpleHostileCompound
@@ -209,6 +212,7 @@
   id: MobAbyssCrawler
   description: A pale mass of heaving flesh that gropes around in the gloom. It doesn't appear to have any eyes.
   components:
+    - type: Insulated
     - type: HTN
       rootTask:
         task: SimpleHostileCompound

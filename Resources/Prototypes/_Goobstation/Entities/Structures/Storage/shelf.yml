@@ -84,7 +84,7 @@
     - type: EntityTableContainerFill
       containers:
         storagebase: !type:NestedSelector
-          tableId: FillMetalShelfVeryRare
+          tableId: LootVeryRare
 
 - type: entity
   id: MetalShelfLargeFilledUltraRare

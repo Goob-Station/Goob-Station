@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Hazards;
 using Content.Shared.Damage;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
@@ -16,6 +17,9 @@ public sealed partial class DamageTileEffect : EntityEffect
     public override void Effect(EntityEffectBaseArgs args)
     {
         if (!args.EntityManager.TryGetComponent(args.TargetEntity, out DamageableComponent? damageable))
+            return;
+
+        if (args.EntityManager.HasComponent<HazardImmuneComponent>(args.TargetEntity)) // For simplemobs
             return;
 
         args.EntityManager.System<DamageableSystem>()

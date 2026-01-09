@@ -55,7 +55,7 @@
 # Very rare
 
 - type: entityTable
-  id: FillMetalShelfVeryRare
+  id: LootVeryRare
   table: !type:AllSelector
     children:
     # Weapons

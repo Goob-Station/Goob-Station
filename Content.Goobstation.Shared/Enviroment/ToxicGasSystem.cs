@@ -1,11 +1,10 @@
+using Content.Goobstation.Shared.Hazards;
 using Content.Shared.Damage;
 using Robust.Shared.Network;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Enviroment;
 public sealed class ToxicGasSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -29,6 +28,9 @@ public sealed class ToxicGasSystem : EntitySystem
             foreach (var entity in _lookup.GetEntitiesInRange(xform.Coordinates, 1.0f))
             {
                 if (!HasComp<DamageableComponent>(entity))
+                    continue;
+
+                if (HasComp<HazardImmuneComponent>(entity)) // For simplemobs
                     continue;
 
                 if (HasComp<ToxicGasImmunityComponent>(entity))

@@ -3,8 +3,6 @@
   parent: BaseStructure
   name: machine
   description: An old machine.
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -25,8 +23,6 @@
 - type: entity
   id: GannetsMachineOn
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -40,8 +36,6 @@
 - type: entity
   id: GannetsMachineAltOff
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -51,8 +45,6 @@
 - type: entity
   id: GannetsMachineAltOn
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -62,8 +54,6 @@
 - type: entity
   id: GannetsMachineAltOff2
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -73,8 +63,6 @@
 - type: entity
   id: GannetsMachineAltOn2
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -86,8 +74,6 @@
 - type: entity
   id: LeverMachine0
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -97,8 +83,6 @@
 - type: entity
   id: LeverMachine0Locked
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -108,8 +92,6 @@
 - type: entity
   id: LeverMachine1
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -119,8 +101,6 @@
 - type: entity
   id: LeverMachine1Locked
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -132,8 +112,6 @@
 - type: entity
   id: RadarMachine
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -143,8 +121,6 @@
 - type: entity
   id: RandomPCMachine
   parent: GannetsMachineOff
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     noRot: true
@@ -476,7 +452,6 @@
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: old0
-
 
 - type: entity
   id: TourTerminalComputer

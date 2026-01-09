@@ -49,7 +49,11 @@
     - id: MedkitCombatFilled
     - id: MedkitAdvancedFilled
     - id: BrutepackAdvanced1
+      amount: !type:RangeNumberSelector
+        range: 4, 6
     - id: OintmentAdvanced1
+      amount: !type:RangeNumberSelector
+        range: 4, 6
 
 - type: entityTable
   id: LootMedicineVeryRareChemicals

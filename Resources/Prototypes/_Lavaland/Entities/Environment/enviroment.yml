@@ -26,6 +26,9 @@
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.85
     sprintSpeedModifier: 0.8
+    ignoreWhitelist:
+      components:
+      - HazardImmune
 
 - type: entity
   id: EnvironmentalHazardSlow30
@@ -34,6 +37,9 @@
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.7
     sprintSpeedModifier: 0.65
+    ignoreWhitelist:
+      components:
+      - HazardImmune
 
 - type: entity
   id: EnvironmentalHazardSlow60
@@ -42,6 +48,9 @@
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.4
     sprintSpeedModifier: 0.35
+    ignoreWhitelist:
+      components:
+      - HazardImmune
 
 - type: entity
   id: EnvironmentalHazardSlow75
@@ -50,6 +59,9 @@
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.25
     sprintSpeedModifier: 0.2
+    ignoreWhitelist:
+      components:
+      - HazardImmune
 
 - type: entity
   id: ElevatorSpawnBunkerAlfaFloor1
@@ -154,6 +166,9 @@
     triggerGroups:
       types:
         - WasteWater
+    blacklist:
+      components:
+        - HazardImmune
 
 - type: entity
   id: EnvironmentalHazardFloorWasteWaterEntitySafe
@@ -166,6 +181,8 @@
     blacklist:
       tags:
         - Catwalk
+      components:
+        - HazardImmune
     triggerGroups:
       types:
         - WasteWater
