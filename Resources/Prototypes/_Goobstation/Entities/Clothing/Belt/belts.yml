@@ -269,9 +269,9 @@
   description: A larger slime-resistant pouch intended for use by Xenobiologists. Smells of bluespace extract and monkey hair.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/xenobag.rsi
+    sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/xenobag.rsi
+    sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
   - type: Storage
     grid:
     - 0,0,19,9
