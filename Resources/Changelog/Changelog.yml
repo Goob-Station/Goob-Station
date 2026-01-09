@@ -5303,3 +5303,10 @@ Entries:
   id: 9367
   time: '2026-01-09T06:58:22.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42209
+- author: perryprog
+  changes:
+  - message: Added a button to the smart fridge UI to remove empty entries.
+    type: Add
+  id: 9368
+  time: '2026-01-09T15:02:32.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39195
