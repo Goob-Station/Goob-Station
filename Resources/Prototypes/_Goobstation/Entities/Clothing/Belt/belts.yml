@@ -275,6 +275,13 @@
   - type: Storage
     grid:
     - 0,0,19,9
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 485
+        Silver: 171
+        Plasma: 379
+        Uranium: 34
+        BSCrystal: 20
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
