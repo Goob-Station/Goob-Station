@@ -11,7 +11,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
@@ -33,9 +35,9 @@ public sealed partial class HereticRitualPrototype : IPrototype
     [DataField] public Dictionary<string, int>? RequiredEntityNames;
 
     /// <summary>
-    ///     How many items with certain tags are required for the ritual?
+    ///     List of components for the ritual.
     /// </summary>
-    [DataField] public Dictionary<ProtoId<TagPrototype>, int>? RequiredTags;
+    [DataField] public List<RitualIngredient> Ingredients = new();
 
     /// <summary>
     ///     Is there a custom behavior that needs to be executed?
@@ -75,4 +77,18 @@ public sealed partial class HereticRitualPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool RuneSuccessAnimation = true;
+}
+
+
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class RitualIngredient
+{
+    [DataField]
+    public int Amount = 1;
+
+    [DataField(required: true)]
+    public EntityWhitelist Whitelist = new();
+
+    [DataField(required: true)]
+    public LocId Name;
 }

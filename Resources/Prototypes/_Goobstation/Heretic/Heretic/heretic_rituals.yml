@@ -35,9 +35,15 @@
   icon:
     sprite: _Goobstation/Heretic/amber_focus.rsi
     state: icon
-  requiredTags:
-    SheetGlass: 1
-    Eyes: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - SheetGlass
+    name: heretic-ritual-ingredient-glass-sheet
+  - whitelist:
+      components:
+      - Eyes
+    name: heretic-ritual-ingredient-eyes
   output:
     ClothingNeckAmberFocus: 1
 
@@ -48,10 +54,19 @@
   icon:
     sprite: _Goobstation/Heretic/items.rsi
     state: living_heart
-  requiredTags:
-    Paper: 1
-    Heart: 1
-    Pen: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Paper
+    name: heretic-ritual-ingredient-paper
+  - whitelist:
+      tags:
+      - Pen
+    name: heretic-ritual-ingredient-pen
+  - whitelist:
+      components:
+      - Heart
+    name: heretic-ritual-ingredient-heart
   outputEvent: !type:EventHereticRerollTargets
 
 - type: hereticRitual
@@ -61,10 +76,19 @@
   icon:
     sprite: _Goobstation/Heretic/book.rsi
     state: icon-on
-  requiredTags:
-    Meat: 1
-    Book: 1
-    Pen: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Meat
+    name: heretic-ritual-ingredient-meat
+  - whitelist:
+      tags:
+      - Pen
+    name: heretic-ritual-ingredient-pen
+  - whitelist:
+      tags:
+      - Book
+    name: heretic-ritual-ingredient-book
   output:
     CodexCicatrix: 1
 
@@ -77,8 +101,11 @@
     state: icon
   customBehaviors:
   - !type:RitualRecallBladeBehavior
-  requiredTags:
-    Chair: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Chair
+    name: heretic-ritual-ingredient-chair
 
 - type: hereticRitual
   id: FeastOfOwls
@@ -101,9 +128,15 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
     state: icon
-  requiredTags:
-    Knife: 1
-    Matchstick: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Knife
+    name: heretic-ritual-ingredient-knife
+  - whitelist:
+      tags:
+      - Matchstick
+    name: heretic-ritual-ingredient-matchstick
   output:
     HereticBladeAsh: 1
   limit: 2
@@ -115,12 +148,27 @@
   icon:
     sprite: _Goobstation/Heretic/mad_mask.rsi
     state: icon
-  requiredTags:
-    Mask: 1
-    Flare: 1
-    Lighter: 1
-    Ash: 1
-    Stunbaton: 1
+  ingredients:
+  - whitelist:
+      components:
+      - Mask
+    name: heretic-ritual-ingredient-mask
+  - whitelist:
+      tags:
+      - Flare
+    name: heretic-ritual-ingredient-flare
+  - whitelist:
+      tags:
+      - Lighter
+    name: heretic-ritual-ingredient-lighter
+  - whitelist:
+      tags:
+      - Ash
+    name: heretic-ritual-ingredient-ash
+  - whitelist:
+      components:
+      - Stunbaton
+    name: heretic-ritual-ingredient-stun-baton
   output:
     ClothingMaskMadHeretic: 1
 
@@ -147,8 +195,12 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
     state: icon
-  requiredTags:
-    Knife: 2
+  ingredients:
+  - whitelist:
+      tags:
+      - Knife
+    name: heretic-ritual-ingredient-knife
+    amount: 2
   output:
     HereticBladeBlade: 1
   limit: 4
@@ -179,8 +231,11 @@
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
-  requiredTags:
-    Knife: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Knife
+    name: heretic-ritual-ingredient-knife
   output:
     HereticBladeFlesh: 1
   limit: 2
@@ -195,8 +250,11 @@
   customBehaviors:
   - !type:RitualMuteGhoulifyBehavior
     onlyHumanoid: false
-  requiredTags:
-    Muzzle: 1
+  ingredients:
+  - whitelist:
+      components:
+      - Muzzle
+    name: heretic-ritual-ingredient-muzzle
   limit: 2
 
 - type: hereticRitual
@@ -209,9 +267,15 @@
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
-  requiredTags:
-    Eyes: 1
-    Stomach: 1
+  ingredients:
+  - whitelist:
+      components:
+      - Eyes
+    name: heretic-ritual-ingredient-eyes
+  - whitelist:
+      components:
+      - Stomach
+    name: heretic-ritual-ingredient-stomach
   output:
     MobGhoulProphet: 1
   limit: 2
@@ -226,11 +290,23 @@
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
-  requiredTags:
-    Pen: 1
-    Heart: 1
-    Stomach: 1
-    Lungs: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Pen
+    name: heretic-ritual-ingredient-pen
+  - whitelist:
+      components:
+      - Heart
+    name: heretic-ritual-ingredient-heart
+  - whitelist:
+      components:
+      - Stomach
+    name: heretic-ritual-ingredient-stomach
+  - whitelist:
+      components:
+      - Lung
+    name: heretic-ritual-ingredient-lung
   output:
     MobGhoulStalker: 1
 
@@ -262,8 +338,11 @@
   customBehaviors:
   - !type:RitualTemperatureBehavior
     minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
-  requiredTags:
-    Knife: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Knife
+    name: heretic-ritual-ingredient-knife
   output:
     HereticBladeVoid: 1
   limit: 2
@@ -293,9 +372,15 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
     state: icon
-  requiredTags:
-    Knife: 1
-    Trash: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Knife
+    name: heretic-ritual-ingredient-knife
+  - whitelist:
+      tags:
+      - Trash
+    name: heretic-ritual-ingredient-trash
   output:
     HereticBladeRust: 1
   limit: 2
@@ -323,9 +408,15 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi
     state: icon
-  requiredTags:
-    Knife: 1
-    SheetGlass: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Knife
+    name: heretic-ritual-ingredient-knife
+  - whitelist:
+      tags:
+      - SheetGlass
+    name: heretic-ritual-ingredient-glass-sheet
   output:
     HereticBladeCosmos: 1
   limit: 2
@@ -364,9 +455,15 @@
   icon:
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
-  requiredTags:
-    Table: 1
-    GasMask: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - Table
+    name: heretic-ritual-ingredient-table
+  - whitelist:
+      tags:
+      - GasMask
+    name: heretic-ritual-ingredient-gas-mask
   customBehaviors:
   - !type:RitualPathBasedSpawnBehavior
     fallbackEntity: ClothingOuterArmorHeretic
@@ -385,9 +482,15 @@
   icon:
     sprite: _Goobstation/Heretic/items.rsi
     state: eldritch_flask
-  requiredTags:
-    WaterTank: 1
-    GlassShard: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - WaterTank
+    name: heretic-ritual-ingredient-water-tank
+  - whitelist:
+      tags:
+      - GlassShard
+    name: heretic-ritual-ingredient-glass-shard
   output:
     HereticEldritchFlask: 1
 
@@ -398,10 +501,19 @@
   icon:
     sprite: _Goobstation/Heretic/eldritch_medalion.rsi
     state: icon
-  requiredTags:
-    GlassShard: 1
-    Eyes: 1
-    Flare: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - GlassShard
+    name: heretic-ritual-ingredient-glass-shard
+  - whitelist:
+      components:
+      - Eyes
+    name: heretic-ritual-ingredient-eyes
+  - whitelist:
+      tags:
+      - Flare
+    name: heretic-ritual-ingredient-flare
   output:
     ClothingEldritchMedalion: 1
 
@@ -412,10 +524,19 @@
   icon:
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     state: icon
-  requiredTags:
-    GlassShard: 1
-    Bedsheet: 1
-    WinterCoat: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - GlassShard
+    name: heretic-ritual-ingredient-glass-shard
+  - whitelist:
+      tags:
+      - Bedsheet
+    name: heretic-ritual-ingredient-bedsheet
+  - whitelist:
+      tags:
+      - WinterCoat
+    name: heretic-ritual-ingredient-winter-coat
   output:
     ClothingOuterArmorCloakVoid: 1
 
@@ -426,10 +547,21 @@
   icon:
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: fire_shark_icon
-  requiredTags:
-    Ash: 3
-    Liver: 1
-    SheetPlasma: 3
+  ingredients:
+  - whitelist:
+      tags:
+      - Ash
+    name: heretic-ritual-ingredient-ash
+    amount: 3
+  - whitelist:
+      components:
+      - Liver
+    name: heretic-ritual-ingredient-liver
+  - whitelist:
+      tags:
+      - SheetPlasma
+    name: heretic-ritual-ingredient-plasma-sheet
+    amount: 3
   output:
     MobGhoulFireShark: 3
   limit: 15
@@ -446,9 +578,17 @@
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Vomit
-  requiredTags:
-    Steel: 10
-    CableCoil: 15
+  ingredients:
+  - whitelist:
+      tags:
+      - Steel
+    name: heretic-ritual-ingredient-steel
+    amount: 10
+  - whitelist:
+      tags:
+      - CableCoil
+    name: heretic-ritual-ingredient-cable-coil
+    amount: 15
   output:
     MobGhoulRustWalker: 1
 
@@ -459,9 +599,18 @@
   icon:
     sprite: _Goobstation/Heretic/items.rsi
     state: rune_carver
-  requiredTags:
-    GlassShard: 1
-    Paper: 1
-    Knife: 1
+  ingredients:
+  - whitelist:
+      tags:
+      - GlassShard
+    name: heretic-ritual-ingredient-glass-shard
+  - whitelist:
+      tags:
+      - Paper
+    name: heretic-ritual-ingredient-paper
+  - whitelist:
+      tags:
+      - Knife
+    name: heretic-ritual-ingredient-knife
   output:
     CarvingKnife: 1
