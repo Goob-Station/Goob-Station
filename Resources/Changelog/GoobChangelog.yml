@@ -20125,3 +20125,9 @@ Entries:
       message: Career Trainer Modsuit
   id: 2276
   time: '2026-01-09T20:01:15.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: 'CQC riposte '
+  id: 2277
+  time: '2026-01-09T22:30:50.0000000+00:00'
