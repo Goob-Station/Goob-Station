@@ -180,9 +180,8 @@
       shader: unshaded
   - type: Physics
     bodyType: Dynamic
-    bodyStatus: InAir
-    linearDamping: 0
-    angularDamping: 0
+  - type: TileFrictionModifier
+    modifier: 0
   - type: Fixtures
     fixtures:
       projectile:
@@ -1191,8 +1190,8 @@
   - type: Clickable
   - type: Physics
     bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
+  - type: TileFrictionModifier
+    modifier: 0
   - type: TimedDespawn
     lifetime: 10
   - type: Projectile
@@ -1266,36 +1265,36 @@
   name: grappling hook
   categories: [ HideSpawnMenu ]
   components:
-  - type: EmbeddableProjectile
-    deleteOnRemove: true
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Sprite
-    noRot: false
-    sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
-    layers:
-    - state: hook
-  - type: Physics
-    bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
-  - type: Projectile
-    deleteOnCollide: false
-    damage:
-      types:
-        Blunt: 0
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        hard: false
-        mask:
-        - Impassable
-        - HighImpassable
-  - type: GrapplingProjectile
-  - type: SmartLinkBlacklist  # Goobstation
+    - type: EmbeddableProjectile
+      deleteOnRemove: true
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Sprite
+      noRot: false
+      sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+      layers:
+        - state: hook
+    - type: Physics
+      bodyType: Dynamic
+    - type: TileFrictionModifier
+      modifier: 0
+    - type: Projectile
+      deleteOnCollide: false
+      damage:
+        types:
+          Blunt: 0
+    - type: Fixtures
+      fixtures:
+        projectile:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.1,-0.1,0.1,0.1"
+          hard: false
+          mask:
+            - Impassable
+            - HighImpassable
+    - type: GrapplingProjectile
+    - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: GrapplingHook

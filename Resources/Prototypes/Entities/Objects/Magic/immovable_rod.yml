@@ -34,7 +34,6 @@
   - type: GravityAffected
   - type: Physics
     bodyType: Dynamic
-    linearDamping: 0
   - type: TileFrictionModifier
     modifier: 0
   - type: PointLight
