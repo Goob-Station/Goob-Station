@@ -10,7 +10,7 @@
 
 - type: xenobiologyBounty
   id: BountyExtractAnyThreeTier1
-  pointsAwarded: 8000
+  pointsAwarded: 10000
   entries:  
   - name: bounty-item-extract-any-three-tier1
     amount: 3
@@ -23,7 +23,7 @@
 
 - type: xenobiologyBounty
   id: BountyExtractAnyThreeTier2                                         
-  pointsAwarded: 2500                                           
+  pointsAwarded: 17500                                           
   entries:
   - name: bounty-item-extract-any-three-tier2
     amount: 3
@@ -39,7 +39,7 @@
 
 - type: xenobiologyBounty
   id: BountyExtractAnyThreeTier3
-  pointsAwarded: 17500
+  pointsAwarded: 25000
   entries:
   - name: bounty-item-extract-any-three-tier3
     amount: 3
@@ -52,7 +52,7 @@
 
 - type: xenobiologyBounty
   id: BountyExtractAnyThreeTier4
-  pointsAwarded: 35000
+  pointsAwarded: 37500
   entries:
   - name: bounty-item-extract-any-three-tier4
     amount: 3
