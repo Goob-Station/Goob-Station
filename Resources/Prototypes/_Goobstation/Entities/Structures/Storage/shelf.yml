@@ -64,7 +64,7 @@
     - type: EntityTableContainerFill
       containers:
         storagebase: !type:NestedSelector
-          tableId: FillMetalShelfCommon
+          tableId: LootCommon
 
 - type: entity
   id: MetalShelfLargeFilledRare
@@ -74,7 +74,7 @@
     - type: EntityTableContainerFill
       containers:
         storagebase: !type:NestedSelector
-          tableId: FillMetalShelfRare
+          tableId: LootRare
 
 - type: entity
   id: MetalShelfLargeFilledVeryRare
@@ -94,7 +94,7 @@
     - type: EntityTableContainerFill
       containers:
         storagebase: !type:NestedSelector
-          tableId: FillMetalShelfUltraRare
+          tableId: LootUltraRare
 
 # Wood
 

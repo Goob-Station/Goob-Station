@@ -155,3 +155,109 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+
+# Extremely rare loot, do NOT give these to players lightly.
+# They cannot be upgraded and are still affected by pressure damage, but should only be rewarded at the end of the bunker's final floor,
+# which reasonably takes a TON of effort to do and requires killing a Megafauna at the end.
+# Might never be mapped, we shall see.
+
+- type: entity
+  name: R.F.P.K. shotgun prototype
+  id: WeaponProtoKineticShotgunPrototype
+  parent: WeaponProtoKineticShotgun
+  description: An experimental prototype developed by the military, combining the best of both worlds to equip a shotgun with burst mode capabilities that allows for relentless volleys of pain.
+  suffix: DO NOT MAP
+  components:
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 0 # Already busted enough
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: Gun
+    selectedMode: Burst
+    minAngle: 10
+    maxAngle: 20
+    burstFireRate: 3
+    burstCooldown: 3 # Better than shotgun by enough to make it worth it.
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/kinetic_accel_boosted.ogg
+  - type: BasicEntityAmmoProvider
+    proto: PelletKineticSpread
+    capacity: 1
+    count: 1
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/prototype.rsi
+    layers:
+    - state: icon
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/prototype.rsi
+  - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/prototype.rsi
+    shape:
+    - 0,2,4,2
+
+- type: entity
+  name: U.R.F.P.K. repeater prototype
+  id: WeaponProtoKineticRepeaterPrototype
+  parent: WeaponProtoKineticRepeater
+  description: An experimental prototype developed by the military. Fires a massive, relentless volley of low-damage bullets. Once you start, it cannot stop.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/repeater.rsi
+    layers:
+    - state: icon
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/repeater.rsi
+  - type: BasicEntityAmmoProvider
+    proto: WeakBulletKinetic
+    capacity: 30
+    count: 1
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 0 # Already too busted
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: Gun
+    selectedMode: Burst
+    minAngle: 10
+    maxAngle: 30
+    shotsPerBurst: 30
+    burstFireRate: 5
+    burstCooldown: 6 # Long recharge time
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/repeater.rsi
+    shape:
+    - 0,0,3,3

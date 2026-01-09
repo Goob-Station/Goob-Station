@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/05/2026 06:37:12
-  entityCount: 3287
+  time: 01/09/2026 04:45:48
+  entityCount: 3295
 maps:
 - 1
 grids:
@@ -303,6 +303,13 @@ entities:
             id: Remains
           decals:
             317: 30,32
+        - node:
+            color: '#FFFFFFFF'
+            id: Rust
+          decals:
+            344: 31,38
+            345: 31,37
+            346: 24,39
         - node:
             color: '#FFFFFFFF'
             id: StandClear
@@ -658,6 +665,19 @@ entities:
             id: danger
           decals:
             144: -24,30
+        - node:
+            color: '#FFFF3412'
+            id: splatter
+          decals:
+            339: 31.362497,36.923206
+            340: 31.331247,37.235706
+            341: 31.424997,38.12633
+            342: 31.409372,38.485706
+        - node:
+            color: '#FFFF342E'
+            id: splatter
+          decals:
+            343: 31.378122,37.610706
     - type: GridAtmosphere
       version: 2
       data:
@@ -665,7 +685,8 @@ entities:
           0,0:
             0: 255
           0,-1:
-            0: 65535
+            0: 61167
+            1: 4368
           0,2:
             0: 65280
           -1,2:
@@ -725,7 +746,8 @@ entities:
           -1,-3:
             0: 32767
           0,-2:
-            0: 65535
+            0: 61439
+            1: 4096
           1,-4:
             0: 65535
           1,-3:
@@ -797,7 +819,8 @@ entities:
           -3,0:
             0: 65535
           -2,0:
-            0: 65535
+            0: 65407
+            2: 128
           -2,-4:
             0: 52428
           -2,-5:
@@ -857,9 +880,12 @@ entities:
           -3,5:
             0: 13105
           -3,6:
-            0: 819
+            0: 563
+            3: 256
           -3,8:
-            0: 65535
+            0: 8191
+            1: 40960
+            4: 16384
           -2,8:
             0: 61182
           -1,8:
@@ -917,11 +943,15 @@ entities:
           -6,4:
             0: 13107
           -5,0:
-            0: 13107
+            0: 4915
+            3: 8192
           -5,1:
-            0: 13107
+            0: 13073
+            2: 2
+            3: 32
           -7,5:
-            0: 65528
+            0: 65272
+            2: 256
           -7,6:
             0: 36863
           -7,8:
@@ -1022,6 +1052,82 @@ entities:
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.6852
+          - 81.57766
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -1970,6 +2076,12 @@ entities:
     - type: Transform
       pos: -7.9075737,16.725601
       parent: 2
+  - uid: 2978
+    components:
+    - type: Transform
+      parent: 477
+    - type: Physics
+      canCollide: False
 - proto: BoxFolderClipboard
   entities:
   - uid: 2434
@@ -4516,6 +4628,13 @@ entities:
     - type: Transform
       pos: -5.5247498,8.609353
       parent: 2
+- proto: ClothingHandsGlovesColorYellow
+  entities:
+  - uid: 3291
+    components:
+    - type: Transform
+      pos: 31.046621,39.25133
+      parent: 2
 - proto: ClothingHandsGlovesCombat
   entities:
   - uid: 3163
@@ -4528,8 +4647,10 @@ entities:
   - uid: 3162
     components:
     - type: Transform
-      pos: -9.495919,35.3548
-      parent: 2
+      parent: 1862
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: Cobweb1
   entities:
   - uid: 3071
@@ -4655,13 +4776,6 @@ entities:
     - type: Transform
       pos: 17.5,10.5
       parent: 2
-- proto: CrateWizardAnomCore
-  entities:
-  - uid: 2134
-    components:
-    - type: Transform
-      pos: -15.5,2.5
-      parent: 2
 - proto: CrateWoodenGrave
   entities:
   - uid: 2473
@@ -4684,6 +4798,15 @@ entities:
     - type: Transform
       pos: 17.5,-8.5
       parent: 2
+- proto: CrowbarOrange
+  entities:
+  - uid: 3290
+    components:
+    - type: Transform
+      parent: 1954
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: DataTerminalBrokenComputer
   entities:
   - uid: 488
@@ -6025,6 +6148,11 @@ entities:
       canCollide: False
 - proto: FoodTinMRETrash
   entities:
+  - uid: 279
+    components:
+    - type: Transform
+      pos: -8.480372,35.4349
+      parent: 2
   - uid: 3054
     components:
     - type: Transform
@@ -6067,6 +6195,12 @@ entities:
     - type: Transform
       pos: 31.41098,35.657
       parent: 2
+  - uid: 2134
+    components:
+    - type: Transform
+      parent: 477
+    - type: Physics
+      canCollide: False
 - proto: GoonCorpse2
   entities:
   - uid: 2397
@@ -6139,13 +6273,54 @@ entities:
     - type: Transform
       pos: -12.5,45.5
       parent: 2
-- proto: GoonSupplyCrateFilled
+- proto: GoonSupplyCrate
   entities:
-  - uid: 1789
+  - uid: 477
     components:
     - type: Transform
       pos: -4.5,6.5
       parent: 2
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 489
+          - 1656
+          - 1789
+          - 2134
+          - 2355
+          - 2978
+          - 3288
+    - type: UserInterface
+      actors:
+        enum.StorageUiKey.Key:
+        - invalid
+    - type: Storage
+      storedItems:
+        489:
+          position: 0,0
+          _rotation: South
+        1656:
+          position: 1,0
+          _rotation: South
+        1789:
+          position: 2,0
+          _rotation: South
+        2134:
+          position: 3,0
+          _rotation: South
+        2355:
+          position: 4,0
+          _rotation: South
+        2978:
+          position: 6,0
+          _rotation: East
+        3288:
+          position: 7,0
+          _rotation: South
+    - type: ActiveUserInterface
 - proto: GoonWoodenShelf
   entities:
   - uid: 1877
@@ -6306,6 +6481,30 @@ entities:
     - type: Transform
       pos: -27.5,22.5
       parent: 2
+    - type: Lock
+      locked: False
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: HandScannerAntagU
   entities:
   - uid: 2987
@@ -6691,6 +6890,34 @@ entities:
     - type: Transform
       pos: 0.5,-4.5
       parent: 2
+    - type: Lock
+      locked: False
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.25,-0.48
+            - 0.25,-0.48
+            - 0.25,0.48
+            - -0.25,0.48
+          mask:
+          - Impassable
+          - MidImpassable
+          - LowImpassable
+          - BlobImpassable
+          layer:
+          - Opaque
+          density: 75
+          hard: True
+          restitution: 0
+          friction: 0.4
+    - type: EntityStorage
+      removedMasks: 84
+      open: True
+    - type: PlaceableSurface
+      isPlaceable: True
   - uid: 1604
     components:
     - type: Transform
@@ -6701,16 +6928,100 @@ entities:
     - type: Transform
       pos: 0.5,-2.5
       parent: 2
+    - type: Lock
+      locked: False
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.25,-0.48
+            - 0.25,-0.48
+            - 0.25,0.48
+            - -0.25,0.48
+          mask:
+          - Impassable
+          - MidImpassable
+          - LowImpassable
+          - BlobImpassable
+          layer:
+          - Opaque
+          density: 75
+          hard: True
+          restitution: 0
+          friction: 0.4
+    - type: EntityStorage
+      removedMasks: 84
+      open: True
+    - type: PlaceableSurface
+      isPlaceable: True
   - uid: 1606
     components:
     - type: Transform
       pos: 0.5,-1.5
       parent: 2
+    - type: Lock
+      locked: False
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.25,-0.48
+            - 0.25,-0.48
+            - 0.25,0.48
+            - -0.25,0.48
+          mask:
+          - Impassable
+          - MidImpassable
+          - LowImpassable
+          - BlobImpassable
+          layer:
+          - Opaque
+          density: 75
+          hard: True
+          restitution: 0
+          friction: 0.4
+    - type: EntityStorage
+      removedMasks: 84
+      open: True
+    - type: PlaceableSurface
+      isPlaceable: True
   - uid: 1607
     components:
     - type: Transform
       pos: 0.5,-0.5
       parent: 2
+    - type: Lock
+      locked: False
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.25,-0.48
+            - 0.25,-0.48
+            - 0.25,0.48
+            - -0.25,0.48
+          mask:
+          - Impassable
+          - MidImpassable
+          - LowImpassable
+          - BlobImpassable
+          layer:
+          - Opaque
+          density: 75
+          hard: True
+          restitution: 0
+          friction: 0.4
+    - type: EntityStorage
+      removedMasks: 84
+      open: True
+    - type: PlaceableSurface
+      isPlaceable: True
 - proto: LockerSteel
   entities:
   - uid: 1752
@@ -6751,10 +7062,70 @@ entities:
     - type: Transform
       pos: -4.5,1.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 1862
     components:
     - type: Transform
       pos: -9.5,35.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 3162
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.147
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+  - uid: 1863
+    components:
+    - type: Transform
+      pos: -10.5,35.5
       parent: 2
     - type: Lock
       locked: False
@@ -6780,20 +7151,85 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
       removedMasks: 84
       open: True
     - type: PlaceableSurface
       isPlaceable: True
-  - uid: 1863
-    components:
-    - type: Transform
-      pos: -10.5,35.5
-      parent: 2
   - uid: 1870
     components:
     - type: Transform
       pos: -8.5,35.5
       parent: 2
+    - type: Lock
+      locked: False
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.25,-0.48
+            - 0.25,-0.48
+            - 0.25,0.48
+            - -0.25,0.48
+          mask:
+          - Impassable
+          - MidImpassable
+          - LowImpassable
+          - BlobImpassable
+          layer:
+          - Opaque
+          density: 75
+          hard: True
+          restitution: 0
+          friction: 0.4
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      removedMasks: 84
+      open: True
+    - type: PlaceableSurface
+      isPlaceable: True
   - uid: 1954
     components:
     - type: Transform
@@ -6805,8 +7241,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -6827,7 +7263,8 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 477
+          - 3289
+          - 3290
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -6985,8 +7422,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -7007,9 +7444,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 2483
           - 2484
           - 2485
+          - 2483
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -7018,11 +7455,6 @@ entities:
     components:
     - type: Transform
       pos: -18.5,4.5
-      parent: 2
-  - uid: 2181
-    components:
-    - type: Transform
-      pos: -18.5,3.5
       parent: 2
     - type: EntityStorage
       air:
@@ -7046,14 +7478,41 @@ entities:
         - 0
         - 0
         - 0
+  - uid: 2181
+    components:
+    - type: Transform
+      pos: -18.5,3.5
+      parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.8856695
+        - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 2486
           - 2616
+          - 2486
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -7151,11 +7610,6 @@ entities:
     - type: Transform
       pos: -27.4697,21.596874
       parent: 2
-  - uid: 2355
-    components:
-    - type: Transform
-      pos: -27.31345,21.471874
-      parent: 2
 - proto: MagazineBoxRifleBig
   entities:
   - uid: 3141
@@ -7184,6 +7638,14 @@ entities:
     - type: Transform
       pos: -27.43845,21.409374
       parent: 2
+- proto: MagazinePistolIncendiary
+  entities:
+  - uid: 1789
+    components:
+    - type: Transform
+      parent: 477
+    - type: Physics
+      canCollide: False
 - proto: MaintenanceWeaponSpawner
   entities:
   - uid: 3075
@@ -7285,14 +7747,6 @@ entities:
     - type: Transform
       pos: -4.6184998,8.562478
       parent: 2
-- proto: MetalShelfLargeFilled
-  entities:
-  - uid: 279
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 10.5,45.5
-      parent: 2
 - proto: MetalShelfLargeFilledCommon
   entities:
   - uid: 312
@@ -7305,17 +7759,19 @@ entities:
     - type: Transform
       pos: -18.5,43.5
       parent: 2
-- proto: MetalShelfLargeFilledRare
-  entities:
-  - uid: 489
+  - uid: 3292
+    components:
+    - type: Transform
+      pos: 10.5,45.5
+      parent: 2
+  - uid: 3293
     components:
     - type: Transform
       pos: -5.5,18.5
       parent: 2
-  - uid: 1656
+  - uid: 3294
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 11.5,35.5
       parent: 2
 - proto: NewsReaderCartridge
@@ -7442,6 +7898,14 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+  - uid: 3288
+    components:
+    - type: Transform
+      parent: 477
+    - type: Stack
+      count: 6
+    - type: Physics
+      canCollide: False
 - proto: OperatingConsoleSmallComputer
   entities:
   - uid: 1996
@@ -7512,7 +7976,7 @@ entities:
       parent: 2
     - type: Paper
       content: >-
-        I write this in the hopes that someone will eventually find this and take it as a word of warning. It's been 3 days since the lockdown was initiated. The Warden said rescue was coming, but I don't think I can hold on any longer. 
+        I write this in the hopes that someone will eventually find this and take it as a word of warning. It's been 3 days since the lockdown was initiated. The Warden said rescue was coming, but I don't think I can hold on any longer.
 
 
         That monster is still roaming free in Level 4. At night, I can hear it growling and stomping around, even from all the way up here. Perhaps it is best if rescue never does come. That thing took out the entire security team. I pray to god that it never manages to leave.
@@ -7815,6 +8279,20 @@ entities:
     - type: Transform
       pos: -16.66209,28.57029
       parent: 2
+- proto: PKAUpgradePressure
+  entities:
+  - uid: 489
+    components:
+    - type: Transform
+      parent: 477
+    - type: Physics
+      canCollide: False
+  - uid: 1656
+    components:
+    - type: Transform
+      parent: 477
+    - type: Physics
+      canCollide: False
 - proto: PlasmaBHoleWallDecal
   entities:
   - uid: 1880
@@ -9805,6 +10283,13 @@ entities:
     - type: Transform
       pos: -7.9976826,7.181426
       parent: 2
+  - uid: 3289
+    components:
+    - type: Transform
+      parent: 1954
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: SheetPlasteel1
   entities:
   - uid: 1799
@@ -10604,15 +11089,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,-2.5
       parent: 2
-- proto: Sledgehammer
-  entities:
-  - uid: 477
-    components:
-    - type: Transform
-      parent: 1954
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: SmallLight
   entities:
   - uid: 1975
@@ -10637,19 +11113,22 @@ entities:
     - type: Transform
       pos: 17.5,50.5
       parent: 2
+- proto: SpaceCash1000
+  entities:
+  - uid: 2355
+    components:
+    - type: Transform
+      parent: 477
+    - type: Stack
+      count: 2200
+    - type: Physics
+      canCollide: False
 - proto: SpawnBaseMobGlutton
   entities:
   - uid: 2984
     components:
     - type: Transform
       pos: -3.5,44.5
-      parent: 2
-- proto: SpawnCMMobXenoCrusherSentient
-  entities:
-  - uid: 2978
-    components:
-    - type: Transform
-      pos: 29.5,36.5
       parent: 2
 - proto: SpawnCMMobXenoDroneSentient
   entities:
@@ -10662,6 +11141,11 @@ entities:
     components:
     - type: Transform
       pos: 26.5,33.5
+      parent: 2
+  - uid: 3295
+    components:
+    - type: Transform
+      pos: 28.5,36.5
       parent: 2
 - proto: SpawnCMMobXenoQueen
   entities:

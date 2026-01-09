@@ -705,9 +705,6 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.8
-  - type: ClothingGrantComponent
-    component:
-    - type: ToxicGasImmunity # Goobstation
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
   - type: Tag # Goobstation

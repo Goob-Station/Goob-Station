@@ -18,3 +18,6 @@
     energy: 2
     color: Yellow
     castShadows: true
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Gold: 1000

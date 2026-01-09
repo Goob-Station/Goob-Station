@@ -1,0 +1,22 @@
+# Common
+
+- type: entityTable
+  id: LootJunkCommonMisc
+  table: !type:GroupSelector
+    children:
+    - id: FoodTinPeachesMaintTrash
+    - id: FoodTinBeansTrash
+    - id: FoodTinMRETrash
+
+# Rare
+
+- type: entityTable
+  id: LootJunkRareCreatures
+  table: !type:GroupSelector
+    children:
+    - id: MonkeyCube
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: KoboldCube
+      amount: !type:RangeNumberSelector
+        range: 1, 2

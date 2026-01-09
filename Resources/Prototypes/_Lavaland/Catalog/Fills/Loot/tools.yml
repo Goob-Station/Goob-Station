@@ -1,0 +1,69 @@
+# Common
+
+- type: entityTable
+  id: LootUtilityCommonTools
+  table: !type:GroupSelector
+    children:
+    - id: Crowbar
+    - id: Wirecutter
+    - id: Wrench
+    - id: Screwdriver
+
+- type: entityTable
+  id: LootUtilityCommonMisc
+  table: !type:GroupSelector
+    children:
+    - id: Flare
+    - id: CableApcStack
+    - id: CableMVStack
+    - id: CableHVStack
+
+# Rare
+
+- type: entityTable
+  id: LootUtilityRareTools
+  table: !type:GroupSelector
+    children:
+    - id: MeleeHammer
+    - id: WelderIndustrial
+
+- type: entityTable
+  id: LootUtilityRareMisc
+  table: !type:GroupSelector
+    children:
+    - id: RifleStock
+    - id: ClothingHandsGlovesCombat
+    - id: SheetPlasma10
+    - id: SheetPlasteel10
+
+# Very rare
+
+- type: entityTable
+  id: LootUtilityVeryRareTools
+  table: !type:GroupSelector
+    children:
+    - id: WelderExperimental
+    - id: PowerDrill
+
+- type: entityTable
+  id: LootUtilityVeryRarePower
+  table: !type:GroupSelector
+    children:
+    - id: PowerCellHyper
+    - id: PowerCellMicroreactor
+
+# Ultra rare
+
+- type: entityTable
+  id: LootUtilityUltraRareTools
+  table: !type:GroupSelector
+    children:
+    - id: MeleeHammer
+
+- type: entityTable
+  id: LootUtilityUltraRarePower
+  table: !type:GroupSelector
+    children:
+    - id: PowerCellMicroreactor
+    - id: PowerCellAntiqueProto
+    - id: PowerCageHigh

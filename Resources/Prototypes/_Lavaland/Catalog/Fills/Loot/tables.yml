@@ -1,0 +1,111 @@
+- type: entityTable
+  id: LootCommon
+  table: !type:AllSelector
+    children:
+    # Food
+    - !type:NestedSelector
+      tableId: LootFoodCommonMRE
+    - !type:NestedSelector
+      tableId: LootFoodCommonDrink
+    - !type:NestedSelector
+      tableId: LootFoodCommonMisc
+    # Utility
+    - !type:NestedSelector
+      tableId: LootUtilityCommonTools
+    - !type:NestedSelector
+      tableId: LootUtilityCommonMisc
+    # Medicine
+    - !type:NestedSelector
+      tableId: LootMedicineCommonTopicals
+    - !type:NestedSelector
+      tableId: LootMedicineCommonChemicals
+    # Junk
+    - !type:NestedSelector
+      tableId: LootJunkCommonMisc
+    # Weapons
+    - !type:NestedSelector
+      tableId: MetalShelfCommonWeapons
+
+# Rare
+
+- type: entityTable
+  id: LootRare
+  table: !type:AllSelector
+    children:
+    # Weapons
+    - !type:NestedSelector
+      tableId: MetalShelfRareWeapons
+    # Utility
+    - !type:NestedSelector
+      tableId: LootUtilityRareTools
+    - !type:NestedSelector
+      tableId: LootUtilityRareMisc
+    # Medicine
+    - !type:NestedSelector
+      tableId: LootMedicineRareTopicals
+    - !type:NestedSelector
+      tableId: LootMedicineRareChemicals
+    # Junk
+    - !type:NestedSelector
+      tableId: LootJunkRareCreatures
+    # Chemistry
+    - !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier1
+
+# Very rare
+
+- type: entityTable
+  id: FillMetalShelfVeryRare
+  table: !type:AllSelector
+    children:
+    # Weapons
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRareWeapons
+    # Utility
+    - !type:NestedSelector
+      tableId: LootUtilityVeryRareTools
+    - !type:NestedSelector
+      tableId: LootUtilityVeryRarePower
+    # Medicine
+    - !type:NestedSelector
+      tableId: LootMedicineVeryRareTopicals
+    - !type:NestedSelector
+      tableId: LootMedicineVeryRareChemicals
+    # Misc
+    - !type:NestedSelector
+      tableId: LootMiscVeryRareValuables
+    - !type:NestedSelector
+      tableId: LootMiscVeryRareAnomalies
+    # Chemistry
+    - !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier2
+
+# Ultra rare
+
+- type: entityTable
+  id: LootUltraRare
+  table: !type:AllSelector
+    children:
+    # Weapons
+    - !type:NestedSelector
+      tableId: MetalShelfUltraRareWeapons
+    # Utility
+    - !type:NestedSelector
+      tableId: LootUtilityUltraRareTools
+    - !type:NestedSelector
+      tableId: LootUtilityUltraRarePower
+    # Medicine
+    - !type:NestedSelector
+      tableId: LootMedicineUltraRareTopicals
+    - !type:NestedSelector
+      tableId: LootMedicineUltraRareChemicals
+    # Misc
+    - !type:NestedSelector
+      tableId: LootMiscUltraRareAnomalies
+    - !type:NestedSelector
+      tableId: LootMiscUltraRareValuables
+    # Chemistry
+    - !type:NestedSelector
+      tableId: RandomChemistryBottleAnyTable
+    - !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier3

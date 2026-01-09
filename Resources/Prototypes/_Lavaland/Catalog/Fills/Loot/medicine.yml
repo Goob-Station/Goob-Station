@@ -1,0 +1,80 @@
+# Common
+
+- type: entityTable
+  id: LootMedicineCommonTopicals
+  table: !type:GroupSelector
+    children:
+    - id: Gauze1
+    - id: Ointment10Lingering
+    - id: Ointment1
+    - id: Gauze10Lingering
+    - id: Brutepack10Lingering
+    - id: Brutepack1
+
+- type: entityTable
+  id: LootMedicineCommonChemicals
+  table: !type:GroupSelector
+    children:
+    - id: Bloodpack
+    - id: EmergencyMedipen
+    - id: PillCanisterTricordrazine
+
+# Rare
+
+- type: entityTable
+  id: LootMedicineRareTopicals
+  table: !type:GroupSelector
+    children:
+    - id: MedkitBruteFilled
+    - id: MedkitBurnFilled
+    - id: BrutepackAdvanced1
+    - id: Tourniquet
+    - id: OintmentAdvanced1
+
+- type: entityTable
+  id: LootMedicineRareChemicals
+  table: !type:GroupSelector
+    children:
+    - id: Stimpack
+    - id: CombatMedipen
+    - id: PillCanisterBicaridine
+    - id: PillCanisterDermaline
+
+# Very rare
+
+- type: entityTable
+  id: LootMedicineVeryRareTopicals
+  table: !type:GroupSelector
+    children:
+    - id: MedkitCombatFilled
+    - id: MedkitAdvancedFilled
+    - id: BrutepackAdvanced1
+    - id: OintmentAdvanced1
+
+- type: entityTable
+  id: LootMedicineVeryRareChemicals
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottlePuncturase
+    - id: ChemistryBottleLacerinol
+    - id: ChemistryBottleBruizine
+    - id: ChemistryBottleCognizine
+
+# Ultra rare
+
+- type: entityTable
+  id: LootMedicineUltraRareTopicals
+  table: !type:GroupSelector
+    children:
+    - id: MedkitCombatFilled
+    - id: MedkitAdvancedFilled
+    - id: RegenerativeMesh
+    - id: MedicatedSuture
+
+- type: entityTable
+  id: LootMedicineUltraRareChemicals
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottleOmnizine
+    - id: ChemistryBottleCognizine
+    - id: VestineChemistryVial
