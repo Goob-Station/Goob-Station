@@ -20067,3 +20067,43 @@ Entries:
       message: Fixed radiation causing another server hang.
   id: 2273
   time: '2026-01-09T18:36:30.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: >-
+        Ability to select any Hawaiian shirt in Radio Host's loadout & auto
+        starts with a leather waist bag
+    - type: Add
+      message: Shitpost CDs
+    - type: Add
+      message: Texture for some CDs
+    - type: Add
+      message: Syndicate Advertisement CD for 1tc
+    - type: Add
+      message: >-
+        Job Specific RadioHost CD for 30tc that upon completion will call a
+        threat similar to how ninja comms hack does.
+    - type: Add
+      message: Added a craftable and mappable CD Rack to hold all your ads!
+    - type: Fix
+      message: satchel spawning on floor for Radio Host
+    - type: Add
+      message: >-
+        Ability to select any Hawaiian shirt in Radio Host's loadout & auto
+        starts with a leather waist bag
+    - type: Add
+      message: Shitpost CDs
+    - type: Add
+      message: Texture for some CDs
+    - type: Add
+      message: Syndicate Advertisement CD for 1tc
+    - type: Add
+      message: >-
+        Job Specific RadioHost CD for 30tc that upon completion will call a
+        threat similar to how ninja comms hack does.
+    - type: Add
+      message: Added a craftable and mappable CD Rack to hold all your ads!
+    - type: Fix
+      message: satchel spawning on floor for Radio Host
+  id: 2274
+  time: '2026-01-09T19:59:20.0000000+00:00'
