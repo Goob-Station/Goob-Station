@@ -5293,3 +5293,12 @@ Entries:
   id: 9365
   time: '2026-01-08T19:52:57.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41236
+- author: B_Kirill, ScarKy0
+  changes:
+  - message: Added a bonfire with stake that sets the attached entities on fire.
+    type: Add
+  - message: A bonfire and a bonfire with stake can now be constructed.
+    type: Add
+  id: 9366
+  time: '2026-01-09T04:14:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42211
