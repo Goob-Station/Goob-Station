@@ -980,7 +980,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
   productEntity: AutosurgeonSandevistan
   cost:
-    Telecrystal: 66 # The urge to make it 65...
+    Telecrystal: 40
   categories:
   - UplinkImplants
   conditions:
@@ -996,7 +996,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
   productEntity: AutosurgeonSandevistan
   cost:
-    Telecrystal: 124
+    Telecrystal: 66
   categories:
   - UplinkImplants
   conditions:
@@ -1023,7 +1023,7 @@
     whitelist:
     - UplinkAutosurgeonRightMantisBlade
     - UplinkAutosurgeonLeftMantisBlade
-    - UplinkAutosurgeonSandevistan
+#    - UplinkAutosurgeonSandevistan
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
