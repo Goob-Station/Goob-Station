@@ -115,3 +115,4 @@ revolutionary-converter-speech-114 = One war, class war!
 revolutionary-converter-speech-115 = Long live the Atmosian Association of Socialists!
 revolutionary-converter-speech-116 = Future generations will remember our sacrifice!
 revolutionary-converter-speech-117 = Nanotresen bombed Kosmicheskaya Stantsiya 13!
+revolutionary-converter-speech-118 = The USSP is a shining beacon of liberty against Nanotresen's slavery!
