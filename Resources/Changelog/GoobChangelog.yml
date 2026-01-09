@@ -20113,3 +20113,15 @@ Entries:
       message: Centcom update
   id: 2275
   time: '2026-01-09T20:00:11.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Tweak
+      message: EE Modsuit's Flashlights
+    - type: Tweak
+      message: Corporate Modsuit sprite
+    - type: Tweak
+      message: Nanotrasen Job/Mindshield Icon
+    - type: Add
+      message: Career Trainer Modsuit
+  id: 2276
+  time: '2026-01-09T20:01:15.0000000+00:00'
