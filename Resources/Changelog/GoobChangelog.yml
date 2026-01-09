@@ -20061,3 +20061,9 @@ Entries:
   changes: []
   id: 2272
   time: '2026-01-08T23:57:33.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed radiation causing another server hang.
+  id: 2273
+  time: '2026-01-09T18:36:30.0000000+00:00'
