@@ -5310,3 +5310,11 @@ Entries:
   id: 9368
   time: '2026-01-09T15:02:32.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39195
+- author: B_Kirill
+  changes:
+  - message: Projectiles like bullets, rockets and fireballs no longer slow down during
+      flight.
+    type: Fix
+  id: 9369
+  time: '2026-01-09T18:45:19.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42320
