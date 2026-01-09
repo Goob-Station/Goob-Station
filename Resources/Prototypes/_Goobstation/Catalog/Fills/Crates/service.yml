@@ -200,7 +200,6 @@
       weight: 1
     - id: VinylDiskForgotten
       weight: 0.05
-      weight: 1
     - id: VinylDiskGetThatAntag
       weight: 1
     - id: VinylDiskLaw2
