@@ -16,6 +16,7 @@
   - type: RadarBlip
     scale: 3
     shape: hexagon
+    visibleFromOtherGrids: true
   - type: MovementIgnoreGravity
     gravityState: true # wtf lol?
   - type: WarpPoint
@@ -79,6 +80,20 @@
     thresholds:
       0: Alive
       4000: Dead # todo maybe add some good loot in the future to make space salv go whale hunting
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 4000
+      behaviors:
+      - !type:GibBehavior
+#        gibContents:
+  - type: DamageOnCollide
+    inverted: true # fuck you wrath components!
+    damage:
+      types:
+        Structural: 5000
+        Blunt: 10
 
 
 - type: entity
@@ -89,6 +104,7 @@
   - type: RadarBlip
     scale: 2
     shape: diamond
+    visibleFromOtherGrids: true
   - type: Sprite
     sprite: _Goobstation/Mobs/SpaceWhale/leviathan.rsi
     state: segment
@@ -106,36 +122,3 @@
   components:
   - type: TimedDespawn
     lifetime: 190 # to further prevent shitters from abusing it if something came up
-
-- type: entity
-  id: SpaceLeviathanAdmeme
-  suffix: Admeme, singulo, doesnt despawn # i would prefer for this to spawn, BUT, i am fucking 100% sure some fuck will find a way to lure it to the station and it will kill everything, so bru naw man
-  parent: SpaceLeviathan
-  components:
-  - type: Fixtures
-    fixtures:
-      EventHorizonCollider:
-        shape:
-          !type:PhysShapeCircle
-          radius: 2
-        density: 137992
-        mask:
-        - Opaque
-        layer:
-        - GlassLayer
-      EventHorizonConsumer:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.65
-        hard: false
-        mask:
-        - Opaque
-        layer:
-        - GlassLayer
-  - type: EventHorizon
-    radius: 2.5
-    canBreachContainment: false
-    colliderFixtureId: EventHorizonCollider
-    consumerFixtureId: EventHorizonConsumer
-    consumeTiles: true
-    consumeEntities: false
