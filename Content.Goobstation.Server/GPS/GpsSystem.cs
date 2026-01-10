@@ -21,7 +21,7 @@ public sealed class GpsSystem : SharedGpsSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<GPSComponent, ComponentInit>(OnGpsInit);
+        SubscribeLocalEvent<GPSComponent, MapInitEvent>(OnGpsInit);
         Subs.CVar(_config, GoobCVars.GpsUpdateRate, f => UpdateRate = f, true);
     }
 
@@ -51,7 +51,7 @@ public sealed class GpsSystem : SharedGpsSystem
         }
     }
 
-    private void OnGpsInit(EntityUid uid, GPSComponent component, ComponentInit args)
+    private void OnGpsInit(EntityUid uid, GPSComponent component, MapInitEvent args)
     {
         if (string.IsNullOrWhiteSpace(component.GpsName))
             component.GpsName = "GPS-" + _random.Next(1000, 9999);
