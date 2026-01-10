@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/10/2026 06:53:25
-  entityCount: 17000
+  time: 01/10/2026 07:31:15
+  entityCount: 17006
 maps:
 - 1
 grids:
@@ -12367,13 +12367,13 @@ entities:
             0: 28791
           -21,12:
             1: 15
-            5: 30464
+            3: 30464
           -20,13:
             1: 4353
             0: 52304
           -21,13:
             1: 20352
-            5: 7
+            3: 7
           -20,14:
             1: 20241
             0: 12
@@ -12527,7 +12527,7 @@ entities:
           -24,8:
             1: 251
             0: 4
-            3: 57344
+            4: 57344
           -24,3:
             1: 63728
           -23,4:
@@ -12569,17 +12569,17 @@ entities:
           -25,9:
             1: 35067
           -24,9:
-            4: 224
-            5: 57344
+            5: 224
+            3: 57344
           -25,10:
             1: 34952
           -24,10:
-            5: 224
+            3: 224
             2: 57344
           -25,11:
             1: 59528
           -24,11:
-            5: 224
+            3: 224
             1: 61440
           -23,11:
             1: 12834
@@ -12759,6 +12759,25 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
           - 6666.982
           - 0
           - 0
@@ -12780,25 +12799,6 @@ entities:
           moles:
           - 0
           - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -13760,18 +13760,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -59.5,44.5
-      parent: 2
-- proto: AirlockArmoryGlassLocked
-  entities:
-  - uid: 65
-    components:
-    - type: Transform
-      pos: -49.5,65.5
-      parent: 2
-  - uid: 66
-    components:
-    - type: Transform
-      pos: -49.5,64.5
       parent: 2
 - proto: AirlockArmoryLocked
   entities:
@@ -15321,6 +15309,18 @@ entities:
       parent: 2
 - proto: AirlockSecurityGlassLocked
   entities:
+  - uid: 65
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -49.5,64.5
+      parent: 2
+  - uid: 66
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -49.5,65.5
+      parent: 2
   - uid: 299
     components:
     - type: Transform
@@ -54787,7 +54787,7 @@ entities:
       pos: -2.5,38.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -101128.36
+      secondsUntilStateChange: -101671.23
       state: Closing
   - uid: 6681
     components:
@@ -55087,7 +55087,7 @@ entities:
       pos: -35.5,24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31158.555
+      secondsUntilStateChange: -31701.422
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 10028.0233073
@@ -55547,6 +55547,18 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,-4.5
+      parent: 2
+  - uid: 17004
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -62.5,32.5
+      parent: 2
+  - uid: 17005
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -62.5,33.5
       parent: 2
 - proto: FirelockGlass
   entities:
@@ -86350,6 +86362,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: -60.5,63.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
     - type: ApcPowerReceiver
       powerLoad: 0
   - uid: 10943
@@ -86410,6 +86424,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -22.5,46.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
     - type: ApcPowerReceiver
       powerLoad: 0
   - uid: 10953
@@ -86418,6 +86434,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -22.5,39.5
       parent: 2
+    - type: PoweredLight
+      on: False
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: ApcPowerReceiver
@@ -86751,14 +86769,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-  - uid: 11074
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -18.5,62.5
-      parent: 2
-    - type: PoweredLight
-      on: False
   - uid: 11079
     components:
     - type: Transform
@@ -86782,14 +86792,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -87.5,28.5
       parent: 2
-  - uid: 11464
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -14.5,62.5
-      parent: 2
-    - type: PoweredLight
-      on: False
   - uid: 15704
     components:
     - type: Transform
@@ -87585,6 +87587,22 @@ entities:
     - type: Transform
       pos: -43.5,39.5
       parent: 2
+  - uid: 11069
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -18.5,62.5
+      parent: 2
+    - type: PoweredLight
+      on: False
+  - uid: 11074
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,62.5
+      parent: 2
+    - type: PoweredLight
+      on: False
   - uid: 11075
     components:
     - type: Transform
@@ -91203,6 +91221,12 @@ entities:
     - type: Transform
       pos: 14.5,38.5
       parent: 2
+  - uid: 12345
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -41.5,37.5
+      parent: 2
   - uid: 13143
     components:
     - type: Transform
@@ -91244,6 +91268,30 @@ entities:
     components:
     - type: Transform
       pos: -11.5,20.5
+      parent: 2
+  - uid: 17000
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -43.5,38.5
+      parent: 2
+  - uid: 17001
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -43.5,36.5
+      parent: 2
+  - uid: 17002
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -39.5,38.5
+      parent: 2
+  - uid: 17003
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -36.5,39.5
       parent: 2
 - proto: RandomSpawner100
   entities:
@@ -94177,11 +94225,6 @@ entities:
     - type: Transform
       pos: -48.5,56.5
       parent: 2
-  - uid: 11069
-    components:
-    - type: Transform
-      pos: -37.5,2.5
-      parent: 2
   - uid: 16793
     components:
     - type: Transform
@@ -94654,16 +94697,15 @@ entities:
         - - On
           - On
         11074:
-        - - On
-          - Off
-        - - Off
-          - On
-        11464:
         - - Off
           - On
         - - On
           - Off
-        446: []
+        11069:
+        - - On
+          - Off
+        - - Off
+          - On
       lastSignals:
         Status: True
   - uid: 6615
@@ -94767,39 +94809,34 @@ entities:
       linkedPorts:
         16408:
         - - Off
-          - Open
-        - - On
           - Close
+        - - On
+          - Open
         16405:
         - - Off
-          - Open
-        - - On
           - Close
+        - - On
+          - Open
         16404:
         - - On
-          - Close
-        - - Off
           - Open
-        11069:
         - - Off
           - Close
-        - - On
-          - Open
         16385:
-        - - Off
-          - Open
         - - On
+          - Open
+        - - Off
           - Close
         16384:
         - - Off
-          - Open
-        - - On
           - Close
+        - - On
+          - Open
         16383:
         - - Off
-          - Open
-        - - On
           - Close
+        - - On
+          - Open
         3628:
         - - Off
           - On
@@ -94807,14 +94844,14 @@ entities:
           - Off
         5211:
         - - Off
-          - On
-        - - On
           - Off
+        - - On
+          - On
         5355:
         - - Off
-          - On
-        - - On
           - Off
+        - - On
+          - On
       lastSignals:
         Status: True
   - uid: 11519
@@ -95076,6 +95113,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -62.5,65.5
       parent: 2
+    - type: SignalSwitch
+      state: True
     - type: DeviceLinkSource
       linkedPorts:
         10942:
@@ -95083,12 +95122,16 @@ entities:
           - Off
         - - On
           - On
+      lastSignals:
+        Status: True
   - uid: 16149
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -19.5,43.5
       parent: 2
+    - type: SignalSwitch
+      state: True
     - type: DeviceLinkSource
       linkedPorts:
         10952:
@@ -95096,6 +95139,8 @@ entities:
           - Off
         - - On
           - On
+      lastSignals:
+        Status: True
   - uid: 16787
     components:
     - type: Transform
@@ -95254,9 +95299,6 @@ entities:
         - - On
           - Open
         15526:
-        - - Status
-          - DoorBolt
-        15525:
         - - Status
           - DoorBolt
       lastSignals:
@@ -96973,10 +97015,10 @@ entities:
       parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:
-  - uid: 12345
+  - uid: 11464
     components:
     - type: Transform
-      pos: -20.5,38.5
+      pos: -20.5,46.5
       parent: 2
 - proto: SpawnPointHeadOfSecurity
   entities:
