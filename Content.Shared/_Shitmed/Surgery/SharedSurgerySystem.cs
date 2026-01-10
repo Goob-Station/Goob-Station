@@ -270,7 +270,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return;
         }
 
-        var organSlotIdToOrgan = _body.GetPartOrgans(args.Part, part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
+        var organSlotIdToOrgan = _body.GetPartOrgans(args.Part, part).ToDictionary(o => o.Component.SlotId, o => o.Component);
 
         var allOnAddFound = true;
         var zeroOnAddFound = true;
@@ -280,15 +280,9 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                 continue;
 
-            if (organ.OnAdd == null)
-            {
-                allOnAddFound = false;
-                continue;
-            }
-
             foreach (var key in components.Keys)
             {
-                if (!organ.OnAdd.ContainsKey(key))
+                if (!organ.AddedKeys.Contains(key))
                     allOnAddFound = false;
                 else
                     zeroOnAddFound = false;
@@ -313,7 +307,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return;
         }
 
-        var typeMatch = part.PartType == ent.Comp.Part;
+        var typeMatch = ent.Comp.Parts.Contains(part.PartType);
         var symmetryMatch = ent.Comp.Symmetry == null || part.Symmetry == ent.Comp.Symmetry;
         var valid = typeMatch && symmetryMatch;
 
@@ -354,7 +348,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnBodyConditionValid(Entity<SurgeryBodyConditionComponent> ent, ref SurgeryValidEvent args)
     {
-        if (_bodyQuery.CompOrNull(args.Body)?.Prototype is {} bodyId)
+        if (_bodyQuery.CompOrNull(args.Body)?.Prototype is { } bodyId)
             args.Cancelled |= ent.Comp.Accepted.Contains(bodyId) == ent.Comp.Inverse;
     }
 
