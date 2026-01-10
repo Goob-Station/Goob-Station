@@ -11,7 +11,7 @@ public enum GpsUiKey
 }
 
 [Serializable, NetSerializable]
-public sealed class GpsEntry : IEquatable<GpsEntry>
+public sealed class GpsEntry
 {
     public NetEntity NetEntity;
     public string? Name;
@@ -33,41 +33,25 @@ public sealed class GpsEntry : IEquatable<GpsEntry>
 }
 
 [Serializable, NetSerializable]
-public sealed class GpsSetTrackedEntityMessage : BoundUserInterfaceMessage
+public sealed class GpsSetTrackedEntityMessage(NetEntity? netEntity) : BoundUserInterfaceMessage
 {
-    public NetEntity? NetEntity;
-    public GpsSetTrackedEntityMessage(NetEntity? netEntity)
-    {
-        NetEntity = netEntity;
-    }
+    public NetEntity? NetEntity = netEntity;
 }
 
 [Serializable, NetSerializable]
-public sealed class GpsSetGpsNameMessage : BoundUserInterfaceMessage
+public sealed class GpsSetGpsNameMessage(string gpsName) : BoundUserInterfaceMessage
 {
-    public string GpsName;
-    public GpsSetGpsNameMessage(string gpsName)
-    {
-        GpsName = gpsName;
-    }
+    public string GpsName = gpsName;
 }
 
 [Serializable, NetSerializable]
-public sealed class GpsSetInDistressMessage : BoundUserInterfaceMessage
+public sealed class GpsSetInDistressMessage(bool inDistress) : BoundUserInterfaceMessage
 {
-    public bool InDistress;
-    public GpsSetInDistressMessage(bool inDistress)
-    {
-        InDistress = inDistress;
-    }
+    public bool InDistress = inDistress;
 }
 
 [Serializable, NetSerializable]
-public sealed class GpsSetEnabledMessage : BoundUserInterfaceMessage
+public sealed class GpsSetEnabledMessage(bool inDistress) : BoundUserInterfaceMessage
 {
-    public bool Enabled;
-    public GpsSetEnabledMessage(bool inDistress)
-    {
-        Enabled = inDistress;
-    }
+    public bool Enabled = inDistress;
 }
