@@ -74,7 +74,7 @@ public sealed class DatabasePlaytimeGetTrackerCommand : IConsoleCommand
     }
 }
 
-[AdminCommand(AdminFlags.Permissions)]
+[AdminCommand(AdminFlags.Playtime)]
 public sealed class DatabasePlaytimeAddTrackerTimeCommand : IConsoleCommand
 {
     [Dependency] private readonly IServerDbManager _db = default!;
