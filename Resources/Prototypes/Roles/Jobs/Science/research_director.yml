@@ -139,7 +139,7 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobScientist
-    time: 18000 #5 hrs
+    time: 21600 #6 hrs
   - !type:DepartmentTimeRequirement
     department: Science
     time: 36000 #10 hrs
@@ -166,7 +166,7 @@
   - ResearchDirector
   - Brig
   - Cryogenics
-  - External # goobstation
+  - External # Goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
