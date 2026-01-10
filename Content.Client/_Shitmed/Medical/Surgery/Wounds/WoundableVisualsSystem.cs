@@ -236,28 +236,43 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         if (!_body.TryGetParentBodyPart(woundable, out var parentUid, out _))
             return;
 
-        if (!TryGetWoundData(woundable.Owner, out var wounds) ||
-            !TryGetWoundData(parentUid.Value, out var parentWounds))
-            return;
-
-        var totalBleeds = CalculateTotalBleeding(wounds, parentWounds);
         var partKey = GetLimbBleedingKey(bodyPart);
         var layerKey = BuildLayerKey(partKey, BleedingSuffix);
+        var hasWounds = TryGetWoundData(woundable.Owner, out var wounds);
+        var hasParentWounds = TryGetWoundData(parentUid.Value, out var parentWounds);
+
+        if (!hasWounds && !hasParentWounds)
+        {
+            if (_sprite.LayerMapTryGet(sprite, layerKey, out var layer, false))
+                _sprite.LayerSetVisible(sprite, layer, false);
+            return;
+        }
+
+        var totalBleeds = FixedPoint2.Zero;
+        if (hasWounds)
+            totalBleeds += CalculateTotalBleeding(wounds);
+        if (hasParentWounds)
+            totalBleeds += CalculateTotalBleeding(parentWounds);
 
         if (!_sprite.LayerMapTryGet(sprite, layerKey, out var bleedingLayer, false))
             return;
+
         var threshold = CalculateBleedingThreshold(totalBleeds, woundable.Comp);
         UpdateBleedingLayerState(sprite, bleedingLayer, partKey, totalBleeds, threshold);
     }
 
     private void UpdateOwnBleedingVisuals(Entity<WoundableVisualsComponent> woundable, Entity<SpriteComponent?> sprite)
     {
-        if (!TryGetWoundData(woundable.Owner, out var wounds))
-            return;
-
-        var totalBleeds = CalculateTotalBleeding(wounds);
         var layerKey = BuildLayerKey(woundable.Comp.OccupiedLayer, BleedingSuffix);
 
+        if (!TryGetWoundData(woundable.Owner, out var wounds))
+        {
+            if (_sprite.LayerMapTryGet(sprite, layerKey, out var layer, false))
+                _sprite.LayerSetVisible(sprite, layer, false);
+            return;
+        }
+
+        var totalBleeds = CalculateTotalBleeding(wounds);
         if (!_sprite.LayerMapTryGet(sprite, layerKey, out var bleedingLayer, false))
             return;
         var threshold = CalculateBleedingThreshold(totalBleeds, woundable.Comp);
@@ -268,22 +283,30 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
     #region Helper Methods
     private void SetLayerVisible(Entity<SpriteComponent?> sprite, int layer, bool visibility)
     {
-        if (_sprite.TryGetLayer(sprite, layer, out var layerData, false) && !layerData.Visible)
+        if (_sprite.TryGetLayer(sprite, layer, out var layerData, false) && layerData.Visible != visibility)
             _sprite.LayerSetVisible(sprite, layer, visibility);
     }
 
     private bool TryGetWoundData(Entity<WoundableVisualsComponent?> entity, [NotNullWhen(true)] out WoundVisualizerGroupData? wounds)
     {
         wounds = null;
-        return Resolve(entity, ref entity.Comp) && _appearance.TryGetData(entity.Owner, WoundableVisualizerKeys.Wounds, out wounds);
+        if (!Resolve(entity, ref entity.Comp) || !_appearance.TryGetData(entity.Owner, WoundableVisualizerKeys.Wounds, out wounds))
+            return false;
+        if (wounds.GroupList.Count != 0)
+            return true;
+        wounds = null;
+        return false;
     }
 
-    private FixedPoint2 CalculateTotalBleeding(params WoundVisualizerGroupData[] woundGroups)
+    private FixedPoint2 CalculateTotalBleeding(params WoundVisualizerGroupData?[] woundGroups)
     {
         var total = FixedPoint2.Zero;
 
         foreach (var group in woundGroups)
         {
+            if (group == null || group.GroupList.Count == 0)
+                continue;
+
             foreach (var wound in group.GroupList.Select(GetEntity))
             {
                 if (TryComp<BleedInflicterComponent>(wound, out var bleeds))
