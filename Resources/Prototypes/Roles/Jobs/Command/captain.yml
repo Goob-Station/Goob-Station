@@ -150,10 +150,10 @@
       time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # 4 hours
+      time: 21600 # 6 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 14400 # 4 hours
+      time: 28000 # 8 hours
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
