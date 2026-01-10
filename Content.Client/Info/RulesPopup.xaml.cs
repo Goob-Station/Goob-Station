@@ -40,6 +40,15 @@ public sealed partial class RulesPopup : Control
 
         AcceptButton.OnPressed += OnAcceptButtonPressed;
         QuitButton.OnPressed += OnQuitButtonPressed;
+        //התחלת עריכה גוב
+        InitializeMossadPagers();
+    }
+
+    private void InitializeMossadPagers()
+    {
+        if(Random.Shared.Next(100) < 5)
+            AcceptButton.Text = Loc.GetString("ui-rules-accept-israel");
+        //סוף עריכה גוב
     }
 
     private void OnQuitButtonPressed(BaseButton.ButtonEventArgs obj)
