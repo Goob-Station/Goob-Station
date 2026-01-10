@@ -16,9 +16,8 @@
   equipment:
     ears: ClothingHeadsetAltRadioHost
     eyes: ClothingEyesGlassesSunglasses
-    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    belt: ClothingBeltStorageWaistbag
     shoes: ClothingShoesColorBlack
-    back: ClothingBackpackSatchel
     id: RadioHostPDA
 
 - type: chameleonOutfit
