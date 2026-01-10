@@ -129,7 +129,7 @@
     lowerBound: 0
     appliedModifier: 1.25
   - type: Item
-    size: Ginormous
+    size: Normal
     sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_machete-inhands.rsi
   - type: BlockCharge # TODO fix this component and turn it into a complete parrying mechanic
     rechargeTime: 120

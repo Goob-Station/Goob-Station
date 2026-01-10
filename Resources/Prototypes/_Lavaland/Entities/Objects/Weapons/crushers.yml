@@ -252,7 +252,7 @@
     state: icon
   - type: Item
     size: Ginormous
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_halberd-inhands.rsi
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_halberd.rsi
   # Basically a crusher but better
