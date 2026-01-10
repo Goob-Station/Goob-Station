@@ -5325,3 +5325,10 @@ Entries:
   id: 9370
   time: '2026-01-09T23:24:27.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42326
+- author: Solid_Syn, BeckT
+  changes:
+  - message: Clowns now have the ability to toggle the wig on their mask!
+    type: Tweak
+  id: 9371
+  time: '2026-01-10T17:01:32.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42208
