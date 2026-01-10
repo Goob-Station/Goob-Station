@@ -86,8 +86,8 @@ ghost-role-information-conquest-name = Захват
 ghost-role-information-conquest-description = Эта станция получила приказы, ей дали время и больше свободы, чем другим.
 ghost-role-information-conquest-rules = Подготовь станцию к прибытию Империи Вилтрумов.
 # Justice Persona Role
-justice-role-name = Человек-правосудия
-justice-role-description = Помогай ГСБ с арестами, выкрикивая фразы пока тот совершает правосудиеe.
+justice-role-name = Человек-правосудие
+justice-role-description = Помогай ГСБ с арестами, выкрикивая фразы пока тот совершает правосудие.
 
 # Ancient Xenos
 
