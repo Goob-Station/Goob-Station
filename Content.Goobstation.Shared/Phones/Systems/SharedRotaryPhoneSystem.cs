@@ -148,7 +148,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
             return;
 
         RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.PickUpPort);
-        comp.Engaged = true;
+        comp.CurrentState = PhoneState.Engaged;
 
         if(comp.ConnectedPhone == null || !TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone) )
             return;
@@ -178,7 +178,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     }
     private void OnGotHungUp(EntityUid uid, RotaryPhoneComponent comp, PhoneHungUpEvent args)
     {
-        if (!comp.Connected)
+        if (comp.CurrentState != PhoneState.Connected)
         {
             if (comp.ConnectedPhoneStand != null)
                 UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Base);
@@ -191,15 +191,19 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
             comp.SoundEntity = audio.Value.Entity;
 
         comp.ConnectedPhone = null;
-        comp.Connected = false;
+
+        if (comp.CurrentState == PhoneState.Connected)
+            comp.CurrentState = PhoneState.Engaged;
+        else
+            comp.CurrentState = PhoneState.Base;
     }
 
     //Helper Functions
 
     private void ConnectPhones(RotaryPhoneComponent thisPhone, RotaryPhoneComponent otherPhone, EntityUid uid)
     {
-        thisPhone.Connected = true;
-        otherPhone.Connected = true;
+        thisPhone.CurrentState = PhoneState.Connected;
+        otherPhone.CurrentState = PhoneState.Connected;
         otherPhone.ConnectedPhone = uid;
 
         if(otherPhone.SoundEntity != null)
@@ -215,13 +219,13 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         {
             RaiseLocalEvent(thisPhone.ConnectedPhone.Value, new PhoneHungUpEvent());
 
-            if (!thisPhone.Connected && TryComp<RotaryPhoneComponent>(thisPhone.ConnectedPhone, out var otherPhone))
+            if (thisPhone.CurrentState != PhoneState.Connected && TryComp<RotaryPhoneComponent>(thisPhone.ConnectedPhone, out var otherPhone))
             {
                 if (otherPhone.SoundEntity != null)
                     otherPhone.SoundEntity = _audio.Stop(otherPhone.SoundEntity);
 
                 otherPhone.ConnectedPhone = null;
-                otherPhone.Engaged = false;
+                otherPhone.CurrentState =  PhoneState.Engaged;
             }
         }
 
@@ -229,8 +233,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
             thisPhone.SoundEntity = _audio.Stop(thisPhone.SoundEntity);
 
         thisPhone.ConnectedPhone = null;
-        thisPhone.Engaged = false;
-        thisPhone.Connected = false;
+        thisPhone.CurrentState = PhoneState.Base;
     }
 
     private void UpdateAppearance(Entity<RotaryPhoneComponent?> phone, RotaryPhoneVisuals visual)
