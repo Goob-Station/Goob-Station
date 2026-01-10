@@ -13,6 +13,18 @@ namespace Content.Goobstation.Shared.Phones.Components;
 public sealed partial class RotaryPhoneComponent : Component
 {
     /// <summary>
+    /// Becomes true when the phone is picked up or when another phone calls this one
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Engaged;
+
+    /// <summary>
+    /// When true phones will transfer messages, becomes true when the phone is picked up while the phone is ringing
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Connected;
+
+    /// <summary>
     /// When true the phone will speak instead of sending a private message to the person holding the phone
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -72,12 +84,6 @@ public sealed partial class RotaryPhoneComponent : Component
     [DataField]
     public ProtoId<SourcePortPrototype> HangUpPort = "PhoneHangupPort";
 
-    /// <summary>
-    /// The current state of the phone
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public PhoneState CurrentState = PhoneState.Base;
-
     #region sounds
 
     [DataField, AutoNetworkedField]
@@ -101,14 +107,6 @@ public sealed partial class RotaryPhoneComponent : Component
     public EntityUid? SoundEntity;
 
     #endregion
-}
-
-[Serializable, NetSerializable]
-public enum PhoneState
-{
-    Base,
-    Engaged,
-    Connected
 }
 
 [Serializable, NetSerializable]

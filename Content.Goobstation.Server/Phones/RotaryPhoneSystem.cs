@@ -150,11 +150,11 @@ public sealed class RotaryPhoneSystem : EntitySystem
             {
                 if (comp.DialedNumber == phoneComp.PhoneNumber && phone != uid)
                 {
-                    if (phoneComp.CurrentState != PhoneState.Engaged && phoneComp.CurrentState != PhoneState.Connected)
+                    if (!phoneComp.Engaged)
                     {
-                        comp.CurrentState = PhoneState.Engaged;
-                        phoneComp.CurrentState = PhoneState.Engaged;
+                        comp.Engaged = true;
                         comp.ConnectedPhone = phone;
+                        phoneComp.Engaged = true;
                         var audio = _audio.PlayPvs(comp.RingingSound, uid, AudioParams.Default.WithLoop(true));
                         _rotaryPhoneSystem.RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.OutGoingPort);
                         if (audio != null)
@@ -181,7 +181,7 @@ public sealed class RotaryPhoneSystem : EntitySystem
            || args.Source == uid
            || HasComp<RadioSpeakerComponent>(args.Source)
            || comp.ConnectedPhone == null
-           || comp.CurrentState != PhoneState.Connected
+           || !comp.Connected
            || !TryComp(comp.ConnectedPhone, out RotaryPhoneComponent? otherPhoneComponent))
             return;
 
