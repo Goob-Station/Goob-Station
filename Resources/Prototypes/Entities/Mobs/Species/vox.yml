@@ -219,13 +219,13 @@
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.Face" ]
     - map: [ "neck" ]
+    - map: [ "suitstorage" ] # This is not in the default order
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "maskalt" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "suitstorage" ] # This is not in the default order
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
@@ -270,6 +270,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: head
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: neck
       back:
         sizeMaps:
           32:
@@ -285,6 +290,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+      outerClothing: # Goob 
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: outerClothing
   # Goobstation start - voxes are uncloneable but do not rot - all the stuff from BaseMobSpeciesOrganic
   - type: Uncloneable
   - type: Absorbable # Goobstation - changelings
@@ -420,6 +430,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+      outerClothing: # Goob
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: outerClothing
   - type: Hands
     leftHandDisplacement:
       sizeMaps:
