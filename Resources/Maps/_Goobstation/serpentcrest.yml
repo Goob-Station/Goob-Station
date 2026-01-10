@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 04:27:07
-  entityCount: 28786
+  time: 01/10/2026 13:01:21
+  entityCount: 28791
 maps:
 - 1
 grids:
@@ -71682,6 +71682,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -8.5,-1.5
       parent: 26286
+  - uid: 28787
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 55.5,-44.5
+      parent: 2
 - proto: ComputerResearchAndDevelopment
   entities:
   - uid: 6365
@@ -152594,6 +152600,28 @@ entities:
     - type: Transform
       pos: 13.5,-11.5
       parent: 2
+- proto: SpawnPointShaftMiner
+  entities:
+  - uid: 28788
+    components:
+    - type: Transform
+      pos: 41.5,-43.5
+      parent: 2
+  - uid: 28789
+    components:
+    - type: Transform
+      pos: 41.5,-42.5
+      parent: 2
+  - uid: 28790
+    components:
+    - type: Transform
+      pos: 41.5,-41.5
+      parent: 2
+  - uid: 28791
+    components:
+    - type: Transform
+      pos: 41.5,-40.5
+      parent: 2
 - proto: SpawnPointStationEngineer
   entities:
   - uid: 26935
@@ -153925,116 +153953,6 @@ entities:
       open: True
     - type: PlaceableSurface
       isPlaceable: True
-  - uid: 26993
-    components:
-    - type: Transform
-      pos: 35.5,-38.5
-      parent: 2
-    - type: Lock
-      locked: False
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.48
-            - 0.25,-0.48
-            - 0.25,0.48
-            - -0.25,0.48
-          mask:
-          - Impassable
-          - MidImpassable
-          - LowImpassable
-          - BlobImpassable
-          layer:
-          - BulletImpassable
-          - Opaque
-          density: 350
-          hard: True
-          restitution: 0
-          friction: 0.4
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.147
-        moles:
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      removedMasks: 20
-      open: True
-    - type: PlaceableSurface
-      isPlaceable: True
-  - uid: 27111
-    components:
-    - type: Transform
-      pos: 35.5,-36.5
-      parent: 2
-    - type: Lock
-      locked: False
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.48
-            - 0.25,-0.48
-            - 0.25,0.48
-            - -0.25,0.48
-          mask:
-          - Impassable
-          - MidImpassable
-          - LowImpassable
-          - BlobImpassable
-          layer:
-          - BulletImpassable
-          - Opaque
-          density: 350
-          hard: True
-          restitution: 0
-          friction: 0.4
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.147
-        moles:
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      removedMasks: 20
-      open: True
-    - type: PlaceableSurface
-      isPlaceable: True
   - uid: 27699
     components:
     - type: Transform
@@ -154247,6 +154165,16 @@ entities:
     components:
     - type: Transform
       pos: 35.5,-42.5
+      parent: 2
+  - uid: 26993
+    components:
+    - type: Transform
+      pos: 35.5,-36.5
+      parent: 2
+  - uid: 27111
+    components:
+    - type: Transform
+      pos: 35.5,-38.5
       parent: 2
 - proto: SuitStorageSec
   entities:
