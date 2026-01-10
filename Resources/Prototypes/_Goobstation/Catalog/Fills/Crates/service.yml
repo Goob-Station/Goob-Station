@@ -290,7 +290,7 @@
     - id: VinylSleeveBlack
       weight: 1
     - id: VinylSleeveWhite
-      weight: 0.6
+      weight: 1
 
 - type: entity
   id: CrateRotaryPhone
@@ -305,4 +305,3 @@
     - id: RotaryPhoneFlatPack
     - id: RotaryPhoneFlatPack
     - id: RotaryPhoneFlatPack
-      weight: 1

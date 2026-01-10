@@ -128,7 +128,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         if (comp.ConnectedPhoneStand != null)
             UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Ring);
 
-        _popupSystem.PopupPredicted(Loc.GetString("phone-popup-ring", ("location", args.otherPhoneComponent.Name ?? "Unknown")), uid, args.phone, PopupType.Medium);
+        _popupSystem.PopupEntity(Loc.GetString("phone-popup-ring", ("location", args.otherPhoneComponent.Name ?? "Unknown")), uid, PopupType.Medium);
 
         RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.RingPort);
         comp.ConnectedPhone = args.phone;
