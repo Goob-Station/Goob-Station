@@ -155,7 +155,7 @@ namespace Content.Shared.Administration
         /// <summary>
         ///     Allows you to edit players playtime.
         /// </summary>
-        Playtime = 1 << 23,
+        Playtime = 1 << 30,
 
         /// <summary>
         ///     Dangerous host permissions like scsi.
