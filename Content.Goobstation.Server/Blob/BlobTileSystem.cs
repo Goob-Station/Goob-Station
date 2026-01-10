@@ -29,6 +29,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Content.Shared.Tag;
 
 namespace Content.Goobstation.Server.Blob;
 
@@ -42,11 +43,15 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;
 
     [ValidatePrototypeId<NpcFactionPrototype>]
     private const string BlobFaction = "Blob";
+
+    [ValidatePrototypeId<TagPrototype>] 
+    private const string WallTag = "Wall";
 
     public override void Initialize()
     {
@@ -161,9 +166,8 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 
             foreach (var ent in _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, innerTile.GridIndices))
             {
-                if (!HasComp<DestructibleComponent>(ent) || !HasComp<ConstructionComponent>(ent))
+                if (!HasComp<DestructibleComponent>(ent) || (!HasComp<ConstructionComponent>(ent) && !_tagSystem.HasTag(ent, WallTag)))
                     continue;
-
                 DoLunge(uid, ent);
                 _damageableSystem.TryChangeDamage(ent, core.Comp.ChemDamageDict[core.Comp.CurrentChem]);
                 _audioSystem.PlayPvs(core.Comp.AttackSound, uid, AudioParams.Default);
