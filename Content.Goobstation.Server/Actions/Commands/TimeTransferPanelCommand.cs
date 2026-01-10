@@ -12,7 +12,7 @@ using Robust.Shared.Console;
 
 namespace Content.Goobstation.Server.Actions.Commands;
 
-[AdminCommand(AdminFlags.Moderator)]
+[AdminCommand(AdminFlags.Playtime)] // CorvaxGoob-DiscordRoles
 public sealed class TimeTransferPanelCommand : LocalizedCommands
 {
     [Dependency] private readonly EuiManager _euis = default!;

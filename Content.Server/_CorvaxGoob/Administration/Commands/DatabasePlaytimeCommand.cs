@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Content.Server._CorvaxGoob.Administration.Commands;
 
-[AdminCommand(AdminFlags.Permissions)]
+[AdminCommand(AdminFlags.Playtime)]
 public sealed class DatabasePlaytimeGetTrackerCommand : IConsoleCommand
 {
     [Dependency] private readonly IServerDbManager _db = default!;

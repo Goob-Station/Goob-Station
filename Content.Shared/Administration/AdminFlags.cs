@@ -151,6 +151,12 @@ namespace Content.Shared.Administration
         /// </summary>
         FullAdmin = 1 << 22,
 
+        // CorvaxGoob-DiscordRoles
+        /// <summary>
+        ///     Allows you to edit players playtime.
+        /// </summary>
+        Playtime = 1 << 23,
+
         /// <summary>
         ///     Dangerous host permissions like scsi.
         /// </summary>
