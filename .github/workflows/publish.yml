@@ -54,7 +54,7 @@ jobs:
         echo "  StrictHostKeyChecking no" >> ~/.ssh/config
         git clone git@github.com:corvax-nexus/secrets.git Secrets
         cd Secrets
-        git checkout 5c318862a266247c461146b7d7ccffc4a6f05bc7
+        git checkout 5c318862a266247c461146b7d7ccffc4a6f05bc7 && cd ..
         cp -R Secrets/Resources/Prototypes Resources/Prototypes/CorvaxSecrets
         cp -R Secrets/Resources/ServerPrototypes Resources/Prototypes/CorvaxSecretsServer
         cp -R Secrets/Resources/Locale Resources/Locale/ru-RU/corvax-secrets
