@@ -55,13 +55,12 @@
   announcement: terror-lone-operative
   rule: RevolutionaryMidround
 
+- type: ninjaHackingThreat
+  id: Slasher
+  announcement: terror-slasher
+  rule: SlasherSpawn
+
 #- type: ninjaHackingThreat
 #  id: Wraith
 #  announcement: terror-wraith
 #  rule: WraithMidround
-
-# TODO When Slasher is Ready
-#- type: ninjaHackingThreat
-#  id: Slasher
-#  announcement: terror-slasher
-#  rule: SlasherSpawn
