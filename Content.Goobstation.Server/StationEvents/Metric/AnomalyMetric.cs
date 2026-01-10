@@ -42,7 +42,7 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
     private const float KudzuChaosValue = 0.25f;
 
 
-    public override ChaosMetrics CalculateChaos(EntityUid metricUid,
+    protected override ChaosMetrics CalculateChaos(EntityUid metricUid,
         Components.AnomalyMetricComponent component,
         CalculateChaosEvent args)
     {
@@ -85,7 +85,7 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
         KudzuTotal.Set(kudzuCount);
         AnomalyChaosCalculated.Set(anomalyChaos);
 
-        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
+        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>
         {
             {ChaosMetric.Anomaly, anomalyChaos},
         });

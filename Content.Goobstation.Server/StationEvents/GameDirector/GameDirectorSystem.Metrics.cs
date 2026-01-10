@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Prometheus;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goobstation.Server.StationEvents.GameDirector;
 
 public sealed partial class GameDirectorSystem
 {
@@ -13,7 +13,8 @@ public sealed partial class GameDirectorSystem
     private static readonly Gauge StoryBeatChangesTotal = Metrics.CreateGauge(
         "game_director_story_beat_changes_total",
         "Total number of story beat changes.",
-        "story_name", "beat_name");
+        "story_name",
+        "beat_name");
 
     private static readonly Gauge ActivePlayers = Metrics.CreateGauge(
         "game_director_active_players",

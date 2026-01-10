@@ -68,7 +68,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         "Calculated chaos value contributed by power status.");
 
 
-    public override ChaosMetrics CalculateChaos(
+    protected override ChaosMetrics CalculateChaos(
         EntityUid metricUid,
         DoorMetricComponent component,
         CalculateChaosEvent args)
@@ -190,11 +190,10 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         var accessSet = accessReaderComponent.AccessLists.ElementAt(0);
         foreach (var accessPrototype in accessSet)
         {
+            // TODO: PROTOTYPE
             switch (accessPrototype.Id)
             {
                 case "Security":
-                    modifier += 1;
-                    break;
                 case "Atmospherics":
                     modifier += 1;
                     break;

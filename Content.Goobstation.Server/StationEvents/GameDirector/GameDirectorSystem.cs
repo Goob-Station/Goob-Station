@@ -29,7 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goobstation.Server.StationEvents.GameDirector;
 
 /// <summary>
 ///   A scheduler which tries to keep station chaos within a set bound over time with the most suitable
@@ -59,14 +59,15 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         Subs.CVar(_configManager, GoobCVars.GameDirectorDebugPlayerCount, x => _gameDirectorDebugPlayerCount = x, true);
     }
 
-    private static void OnUnpaused(EntityUid uid, GameDirectorComponent component, ref EntityUnpausedEvent args)
+    private static void OnUnpaused(EntityUid uid, GameDirectorComponent scheduler, ref EntityUnpausedEvent args)
     {
-        component.BeatStart += args.PausedTime;
-        component.TimeNextEvent += args.PausedTime;
+        scheduler.BeatStart += args.PausedTime;
+        scheduler.TimeNextEvent += args.PausedTime;
     }
 
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
+        _sawmill.Info($"Game Director Spawned at {uid}");
         ResetMetrics();
         TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
@@ -147,7 +148,7 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
             _chat.SendAdminAnnouncement("GameDirector " + message);
     }
 
-    private ChaosMetrics CalculateChaos(EntityUid uid)
+    public ChaosMetrics CalculateChaos(EntityUid uid)
     {
         // Send an event to chaos metric components on the Game Director's entity.
         var calcEvent = new CalculateChaosEvent(new ChaosMetrics());

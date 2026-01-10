@@ -1,7 +1,7 @@
 ﻿using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.Metric;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goobstation.Server.StationEvents.GameDirector;
 
 /// <summary>
 ///   Pairs a PossibleEvent with the resultant chaos and a "score" for sorting by the GameDirector

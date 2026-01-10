@@ -18,13 +18,10 @@ using Prometheus;
 namespace Content.Goobstation.Server.StationEvents.Metric;
 
 /// <summary>
-///   Measure crew's hunger and thirst
-///
+///   Measure crew's hunger, thirst and charge
 /// </summary>
 public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
 {
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-
     private static readonly Gauge HungerThresholdCount = Metrics.CreateGauge(
         "game_director_metric_food_hunger_threshold_count",
         "Number of entities at a specific hunger threshold.",
@@ -53,7 +50,7 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
         "Calculated chaos value contributed by silicon charge levels.");
 
 
-    public override ChaosMetrics CalculateChaos(EntityUid metricUid, FoodMetricComponent component, CalculateChaosEvent args)
+    protected override ChaosMetrics CalculateChaos(EntityUid metricUid, FoodMetricComponent component, CalculateChaosEvent args)
     {
         // Gather hunger and thirst scores
         var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent>();

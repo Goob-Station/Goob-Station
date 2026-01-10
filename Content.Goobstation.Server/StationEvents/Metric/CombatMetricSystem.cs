@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Server.StationEvents.Metric.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Damage;
@@ -13,6 +14,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
@@ -39,6 +42,8 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    public readonly string NanotrasenFactionId = "NanoTrasen";
 
     private static readonly Gauge HostileEntitiesTotal = Metrics.CreateGauge(
         "game_director_metric_combat_hostile_entities_total",
@@ -88,33 +93,27 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
     {
         // Iterate through items to determine how powerful the entity is
         // Having a good range of offensive items in your inventory makes you more dangerous
-        double threat = 0;
-
         var tagsQ = GetEntityQuery<TagComponent>();
         var allTags = new HashSet<ProtoId<TagPrototype>>();
 
         foreach (var item in _inventory.GetHandOrInventoryEntities(uid))
-        {
             if (tagsQ.TryGetComponent(item, out var tags)) // thanks code rabbit
-            {
                 allTags.UnionWith(tags.Tags);
-            }
-        }
 
-        foreach (var key in allTags)
-        {
-            threat += component.ItemThreat.GetValueOrDefault(key);
-        }
+        var threat = allTags.Sum(key => component.ItemThreat.GetValueOrDefault(key));
 
-        return threat > component.maxItemThreat ? component.maxItemThreat : threat;
+        return threat > component.MaxItemThreat ? component.MaxItemThreat : threat;
     }
 
-    public override ChaosMetrics CalculateChaos(EntityUid metricUid,
+    protected override ChaosMetrics CalculateChaos(EntityUid metricUid,
         CombatMetricComponent combatMetric,
         CalculateChaosEvent args)
     {
         // Add up the pain of all the puddles
-        var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, DamageableComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<MobStateComponent, DamageableComponent, TransformComponent>();
+        var mindQuery = GetEntityQuery<MindContainerComponent>();
+        var npcFacQ = GetEntityQuery<NpcFactionMemberComponent>();
+        var powerQ = GetEntityQuery<CombatPowerComponent>();
         double hostilesChaos = 0;
         double friendliesChaos = 0;
         double medicalChaos = 0;
@@ -129,65 +128,47 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
         double hostileInventoryThreat = 0;
         double friendlyInventoryThreat = 0;
 
-        var powerQ = GetEntityQuery<CombatPowerComponent>();
 
         // var humanoidQ = GetEntityQuery<HumanoidAppearanceComponent>();
         var stationGrids = _stationSystem.GetAllStationGrids();
-
-        while (query.MoveNext(out var uid, out var mind, out var mobState, out var damage, out var transform))
+        while (query.MoveNext(out var uid, out var mobState, out var damage, out var transform))
         {
-            // Don't count anything that is mindless
-            if (mind.Mind == null)
-                continue;
-
-            // Only count threats currently on station, which avoids salvage threats getting counted for instance.
-            // Note this means for instance Nukies on nukie planet don't count, so the threat will spike when they arrive.
             if (transform.GridUid == null || !stationGrids.Contains(transform.GridUid.Value))
-                // TODO: Check for NPCs here, they still count.
                 continue;
 
-            // Read per-entity scaling factor (for instance space dragon has much higher threat)
+            var isAntag = false;
+
+            if (mindQuery.TryGetComponent(uid, out var mind) && mind.Mind != null)
+                isAntag = _roles.MindIsAntagonist(mind.Mind);
+            else
+            {
+                if (!CalculateNPC(npcFacQ, uid, powerQ, ref isAntag))
+                    continue;
+            }
+
             powerQ.TryGetComponent(uid, out var power);
             var threatMultiple = power?.Threat ?? 1.0f;
 
-            double entityThreat = 0;
-
-            var antag = _roles.MindIsAntagonist(mind.Mind);
-            if (antag)
+            if (isAntag)
             {
-                if (mobState.CurrentState != MobState.Alive) // dead enemies should count too
+                if (mobState.CurrentState != MobState.Alive)
                 {
                     deadHostileCount++;
                     deathChaos += combatMetric.DeadScore;
                     continue;
                 }
-
                 hostileCount++;
             }
             else
             {
-                // This is a friendly
-                if (mobState.CurrentState == MobState.Dead)
-                {
-                    deadFriendlyCount++;
-                    deathChaos += combatMetric.DeadScore;
+                if (!CalculateFriendlyCount(combatMetric, mobState, damage, ref deadFriendlyCount, ref deathChaos, ref friendlyCount, ref medicalChaos, ref critFriendlyCount))
                     continue;
-                }
-
-                friendlyCount++;
-                var totalDamage = damage.Damage.GetTotal().Double();
-                medicalChaos += totalDamage * combatMetric.MedicalMultiplier;
-                if (mobState.CurrentState == MobState.Critical)
-                {
-                    critFriendlyCount++;
-                    medicalChaos += combatMetric.CritScore;
-                }
             }
 
-            // Iterate through items to determine how powerful the entity is
-            entityThreat += InventoryPower(uid, combatMetric);
+            // 4. Calculate Threat
+            var entityThreat = InventoryPower(uid, combatMetric);
 
-            if (antag)
+            if (isAntag)
             {
                 hostileInventoryThreat += entityThreat;
                 hostilesChaos += (entityThreat + combatMetric.HostileScore) * threatMultiple;
@@ -221,5 +202,56 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
             {ChaosMetric.Medical, medicalChaos},
         });
         return chaos;
+    }
+
+    private bool CalculateNPC(
+        EntityQuery<NpcFactionMemberComponent> npcFacQ,
+        EntityUid uid,
+        EntityQuery<CombatPowerComponent> powerQ,
+        ref bool isAntag)
+    {
+        if (!npcFacQ.TryGetComponent(uid, out var fac))
+            return true;
+
+        var hasPower = powerQ.HasComponent(uid);
+        var isHostile = _faction.IsFactionHostile(NanotrasenFactionId, (uid, fac));
+
+        if (isHostile)
+        {
+            isAntag = true;
+            return !hasPower;
+        }
+
+        if (!hasPower)
+            return true;
+
+        isAntag = false;
+        return false;
+    }
+
+    private static bool CalculateFriendlyCount(CombatMetricComponent combatMetric,
+        MobStateComponent mobState,
+        DamageableComponent damage,
+        ref int deadFriendlyCount,
+        ref double deathChaos,
+        ref int friendlyCount,
+        ref double medicalChaos,
+        ref int critFriendlyCount)
+    {
+        if (mobState.CurrentState == MobState.Dead)
+        {
+            deadFriendlyCount++;
+            deathChaos += combatMetric.DeadScore;
+            return false;
+        }
+        friendlyCount++;
+        var totalDamage = damage.Damage.GetTotal().Double();
+        medicalChaos += totalDamage * combatMetric.MedicalMultiplier;
+        if (mobState.CurrentState != MobState.Critical)
+            return true;
+        critFriendlyCount++;
+        medicalChaos += combatMetric.CritScore;
+
+        return true;
     }
 }

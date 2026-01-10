@@ -1,11 +1,9 @@
 ﻿using System.Linq;
-using Content.Shared.Ghost;
-using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goobstation.Server.StationEvents.GameDirector;
 
 public sealed partial class GameDirectorSystem
 {
@@ -17,7 +15,7 @@ public sealed partial class GameDirectorSystem
     /// </summary>
     private PlayerCount CountActivePlayers()
     {
-        var allPlayers = _playerManager.Sessions.ToList();
+        var allPlayers = Enumerable.ToList<ICommonSession>(_playerManager.Sessions);
         var count = new PlayerCount();
         foreach (var player in allPlayers)
         {

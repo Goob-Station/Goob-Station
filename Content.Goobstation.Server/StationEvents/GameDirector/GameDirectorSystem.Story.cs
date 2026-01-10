@@ -1,10 +1,10 @@
-﻿using Content.Goobstation.Server.StationEvents.Components;
+﻿using System.Linq;
+using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.Metric;
 using Content.Server.StationEvents.Components;
-using System.Linq;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goobstation.Server.StationEvents.GameDirector;
 
 public sealed partial class GameDirectorSystem
 {
@@ -17,19 +17,18 @@ public sealed partial class GameDirectorSystem
         scheduler.PossibleEvents.Clear();
 
         if (selectedRules != null)
-            SelectFromTable(scheduler, count, selectedRules);
+            SelectFromTable(scheduler, selectedRules);
         else
             SelectFromAllEvents(scheduler, count);
 
-        LogMessage($"All possible events added");
+        LogMessage("All possible events added");
     }
 
     private void SelectFromAllEvents(GameDirectorComponent scheduler, PlayerCount count)
     {
         foreach (var proto in GameTicker.GetAllGameRulePrototypes())
         {
-            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory)
-                || stationEvent is not { } || !stationEvent.IsSelectable) // dont select inelligable statio events
+            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory) || !stationEvent.IsSelectable)
                 continue;
 
             // Gate here on players, but not on round runtime. The story will probably last long enough for the
@@ -41,7 +40,7 @@ public sealed partial class GameDirectorSystem
         }
     }
 
-    private void SelectFromTable(GameDirectorComponent scheduler, PlayerCount count, SelectedGameRulesComponent? selectedRules)
+    private void SelectFromTable(GameDirectorComponent scheduler, SelectedGameRulesComponent? selectedRules)
     {
         if (selectedRules == null)
             return;
@@ -105,7 +104,7 @@ public sealed partial class GameDirectorSystem
             return false;
 
         var beatName = scheduler.RemainingBeats[0];
-        beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
+        beat = _prototypeManager.Index(beatName);
         var secsInBeat = (_timing.CurTime - scheduler.BeatStart).TotalSeconds / _event.EventSpeedup;
         if (secsInBeat < beat.MinSecs)
             return true;
@@ -145,7 +144,7 @@ public sealed partial class GameDirectorSystem
             return false;
 
         var beatName = scheduler.RemainingBeats[0];
-        beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
+        beat = _prototypeManager.Index(beatName);
 
         StoryBeatChangesTotal.WithLabels(scheduler.CurrentStoryName.ToString(), beatName).Inc();
         LogMessage($"New StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
@@ -167,7 +166,7 @@ public sealed partial class GameDirectorSystem
 
         foreach (var storyName in stories)
         {
-            var story = _prototypeManager.Index<StoryPrototype>(storyName);
+            var story = _prototypeManager.Index(storyName);
 
             if (!IsStoryValid(story, count))
                 continue;
@@ -180,7 +179,7 @@ public sealed partial class GameDirectorSystem
             _sawmill.Info($"New Story {storyName}: {story.Description}. {scheduler.PossibleEvents.Count} events.");
 
             var beatName = scheduler.RemainingBeats[0];
-            beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
+            beat = _prototypeManager.Index(beatName);
 
             StoryBeatChangesTotal.WithLabels(storyName.ToString(), beatName).Inc();
             LogMessage($"First StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
@@ -206,7 +205,7 @@ public sealed partial class GameDirectorSystem
     private StoryBeatPrototype GetFallbackBeat(GameDirectorComponent scheduler)
     {
         scheduler.RemainingBeats.Add(scheduler.FallbackBeatName);
-        return _prototypeManager.Index<StoryBeatPrototype>(scheduler.FallbackBeatName);
+        return _prototypeManager.Index(scheduler.FallbackBeatName);
     }
 
     private static float RankChaosDelta(ChaosMetrics chaos)
@@ -224,11 +223,8 @@ public sealed partial class GameDirectorSystem
         //        big problems (lots of hostiles, spacing) prior to smaller ones (food & drink)
         var desiredChange = beat.Goal.ExclusiveSubtract(chaos);
         var result = FilterAndScore(scheduler, chaos, desiredChange, count);
-
         if (result.Count > 0)
             return result;
-
-
         // Fall back to improving all scores (not just the ones the beat is focused on)
         //   Generally this means reducing chaos (unspecified scores are desired to be 0).
         var allDesiredChange = beat.Goal - chaos;
