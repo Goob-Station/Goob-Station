@@ -114,6 +114,8 @@
             Librarian: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             ServiceWorker: [ 1, 2 ]
+            RadioHost: [ 1, 1]
+            Reporter: [ 1, 1]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
