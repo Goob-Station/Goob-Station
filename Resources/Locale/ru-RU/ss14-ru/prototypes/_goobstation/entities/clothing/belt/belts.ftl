@@ -1,6 +1,6 @@
 ent-ClothingBeltMilitaryWebbingCMO = разгрузка главного врача
     .desc = Медицинская разгрузка с глубокими карманами для использования медицинскими специалистами.
-ent-ClothingBeltDeathsquadWebbing = разгрузка оперативника отряда смерти
+ent-ClothingBeltDeathsquadWebbing = разгрузка оперативника Эскадрона Смерти
     .desc = Прочная и надёжная разгрузка, содержащая всё необходимое для боя. Скорее всего, вам не придётся её использовать.
     .suffix = НЕ МАППИТЬ
 ent-ClothingBeltSecurityWebbingMedical = разгрузка врача ОБР

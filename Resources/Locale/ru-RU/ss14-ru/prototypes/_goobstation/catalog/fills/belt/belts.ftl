@@ -1,8 +1,8 @@
 ent-ClothingBeltMilitaryWebbingCMOFilled = { ent-ClothingBeltMilitaryWebbingCMO }
     .suffix = Заполненный, НЕ ДЛЯ КАРТЫ
     .desc = { ent-ClothingBeltMilitaryWebbingCMO.desc }
-ent-ClothingBeltDeathsquadWebbingFilled = нагрудник оперативника отряда смерти
-    .desc = Прочный и надёжный нагрудник, содержащий всё необходимое для боя. Возможно, тебе он даже не пригодится.
+ent-ClothingBeltDeathsquadWebbingFilled = РПС Эскадрона Смерти
+    .desc = Прочная и надёжная разгрузка, содержащая всё необходимое для боя. Возможно, тебе она даже не пригодится.
     .suffix = Заполненный, НЕ ДЛЯ КАРТЫ
 ent-ClothingBeltHolsterFilledCentComm = { ent-ClothingBeltHolster }
     .suffix = Заполненный, N1984

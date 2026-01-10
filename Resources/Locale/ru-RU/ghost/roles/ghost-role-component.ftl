@@ -151,7 +151,7 @@ ghost-role-information-behonker-name = Бехонкер
 ghost-role-information-behonker-description = Вы - антагонист, несущий смерть и хонки всем, кто не следует за хонкоматерью.
 ghost-role-information-hellspawn-name = Адское отродье
 ghost-role-information-hellspawn-description = Несите смерть всем, кто не повинуется великой богине Нар'Си.
-ghost-role-information-Death-Squad-name = Оперативник Эскадрона смерти
+ghost-role-information-Death-Squad-name = Оперативник Эскадрона Смерти
 ghost-role-information-Death-Squad-description = Один из лучших агентов внутренних дел NanoTrasen. Ожидайте приказов от Центкома или представителя Центкома.
 ghost-role-information-Death-Squad-rules = Вы обязаны подчиняться приказам своего командира, вы фактически его [color={ role-type-familiar-color }][bold]{ role-type-familiar-name }[/bold][/color].
 ghost-role-information-SyndiCat-name = СиндиКот
