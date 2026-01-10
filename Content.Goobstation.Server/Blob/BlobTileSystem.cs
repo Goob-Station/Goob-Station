@@ -168,6 +168,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
             {
                 if (!HasComp<DestructibleComponent>(ent) || (!HasComp<ConstructionComponent>(ent) && !_tagSystem.HasTag(ent, WallTag)))
                     continue;
+                
                 DoLunge(uid, ent);
                 _damageableSystem.TryChangeDamage(ent, core.Comp.ChemDamageDict[core.Comp.CurrentChem]);
                 _audioSystem.PlayPvs(core.Comp.AttackSound, uid, AudioParams.Default);
