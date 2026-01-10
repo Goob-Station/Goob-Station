@@ -33,7 +33,7 @@
       Death: 100
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 250
+    chaosScore: 400
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
@@ -74,7 +74,7 @@
       Death: 150
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 600
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
@@ -117,7 +117,7 @@
       Death: 200
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 500
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
@@ -159,7 +159,7 @@
       Death: 250
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 800
+    chaosScore: 900
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
@@ -199,7 +199,7 @@
       Death: 40
     eventType: Chaotic
   - type: GameRule
-    chaosScore: 90
+    chaosScore: 150
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
   - type: Tag
@@ -223,7 +223,7 @@
       Death: 400
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 1000
+    chaosScore: 1100
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
@@ -244,7 +244,7 @@
     maxOccurrences: 2
     eventType: Neutral
   - type: GameRule
-    chaosScore: 0
+    chaosScore: 20
   - type: VentCrittersRule
     max: 1
     table: !type:GroupSelector
@@ -303,7 +303,7 @@
       Combat: 20
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 200
+    chaosScore: 280
   - type: AntagSpawner
     prototype: MobHumanTunnelClown
   - type: AntagSelection
@@ -338,7 +338,7 @@
       Combat: 40
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 350
+    chaosScore: 420
   - type: AntagSpawner
     prototype: MobHumanSingulothKnight
   - type: AntagSelection
@@ -376,7 +376,7 @@
       Hostile: 40
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 400
+    chaosScore: 550
   - type: AntagSpawner
     prototype: MobHumanDarkLord
   - type: AntagSelection
@@ -439,7 +439,7 @@
       Combat: 50
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 200
+    chaosScore: 300
   - type: AntagSpawner
     prototype: MobHumanMimeAssassin
   - type: AntagSelection
@@ -476,7 +476,7 @@
       Death: 60
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 250
+    chaosScore: 350
   - type: AntagSpawner
     prototype: MobHumanDarkPriest
   - type: AntagSelection
@@ -581,7 +581,7 @@
       Death: 40
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 400
+    chaosScore: 600
   - type: AntagRandomSpawn
   - type: AntagLoadProfileRule
     speciesOverride: Human
