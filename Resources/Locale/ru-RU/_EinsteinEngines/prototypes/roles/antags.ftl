@@ -10,9 +10,9 @@ roles-antag-sol-alliance-navy-deserter-objective = Наполните свой �
 id-card-access-level-sol-alliance-navy = ОСА
 role-type-SAN-antagonist-name = Дезертир
 # Shadowling
-roles-antag-shadowling-name = Шедоулинг
+roles-antag-shadowling-name = Тенеморф
 roles-antag-shadowling-description = Подчините экипаж, вознеситесь и станьте богоподобным.
 roles-antag-shadowling-objective = Вознеситесь.
 roles-antag-thrall-name = Тралл
-roles-antag-thrall-description = Работайте со своим Шедоулингом, чтобы обеспечить его вознесение.
-roles-antag-thrall-objective = Помогите своему Шедоулингу вознестись.
+roles-antag-thrall-description = Работайте со своим тенеморфом, чтобы обеспечить его вознесение.
+roles-antag-thrall-objective = Помогите своему тенеморфу вознестись.

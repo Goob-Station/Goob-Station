@@ -1,2 +1,2 @@
-ent-GuidebookShadowling = Руководство Шедоулинг
+ent-GuidebookShadowling = Руководство тенеморф
     .desc = Это руководство... Погодите, что?!

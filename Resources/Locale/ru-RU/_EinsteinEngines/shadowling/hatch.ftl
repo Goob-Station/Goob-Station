@@ -2,12 +2,12 @@ sling-hatch-engage-popup = ЭТО ДЕЙСТВИЕ ЗАПУСТИТ ПРОЦЕС
 sling-hatch-first = Ты едва можешь удерживать себя в этой низшей форме!
 sling-hatch-second = Желание стать чем-то большим захлёстывает тебя!
 sling-hatch-third = Ты чувствуешь непреодолимое желание вырваться из этой оболочки и обрести богоподобность!
-shadowling-ascension-not-empty = Ты ощущаешь колоссальную силу внутри этого кокона.
-shadowling-ascension-not-shadowling = Ты не тот, кого он ищет. Уничтожь его, пока не стало слишком поздно!
+shadowling-ascension-not-empty = Вы ощущаете колоссальную силу внутри этого кокона.
+shadowling-ascension-not-shadowling = Вы не тот, кого он ищет. Уничтожьте его, пока не стало слишком поздно!
 shadowling-ascension-not-creator = Только создатель этого кокона может вознестись в нём.
-shadowling-ascension-ascending = Другой Шедоулинг находится в процессе вылупления. Помоги ему!
+shadowling-ascension-ascending = Другой тенеморф находится в процессе вылупления. Помогите ему!
 shadowling-ascension-already-ascended = Вознесение уже завершено.
-shadowling-ascension-start-warning = Это твой кокон. Тебе следует начать вознесение как можно скорее.
+shadowling-ascension-start-warning = Это ваш кокон. Вам следует начать вознесение как можно скорее.
 shadowling-ascension-message =
     Неопознанная форма жизни завершает своё развитие на { $location }.
     Всем оставшимся членам экипажа приказано устранить источник любой ценой.
