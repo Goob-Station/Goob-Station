@@ -7,7 +7,7 @@
   components:
   - type: Vinyl
   - type: Sprite
-    sprite: Objects/Misc/cd.rsi
+    sprite: _Goobstation/Objects/Misc/RadioStation/cds.rsi
     state: icon
   - type: Damageable
     damageContainer: Inorganic
@@ -23,6 +23,11 @@
           collection: GlassBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - CD
 
 - type: entity
   parent: BaseCdDisk
@@ -146,6 +151,8 @@
   name: cd disk (commander announcement)
   id: CdDiskCommanderAnnouncement
   components:
+  - type: Sprite
+    state: synd-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/commander_announcement.ogg
@@ -155,6 +162,8 @@
   name: cd disk (commander figurines)
   id: CdDiskCommanderFigurines
   components:
+  - type: Sprite
+    state: synd-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/commander_figurines.ogg
@@ -164,6 +173,8 @@
   name: cd disk (commander resignation)
   id: CdDiskCommanderResignation
   components:
+  - type: Sprite
+    state: synd-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/commander_resignation.ogg
@@ -173,6 +184,8 @@
   name: cd disk (commander support)
   id: CdDiskCommanderSupport
   components:
+  - type: Sprite
+    state: synd-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/commander_support.ogg
@@ -213,7 +226,6 @@
     song:
       path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding3.ogg
 
-
 - type: entity
   parent: CdDiskWeird
   name: cd disk (xg onboarding 4)
@@ -222,3 +234,79 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding4.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  id: JVNECdDisk
+  abstract: true
+  description: The June and Eels show!
+  components:
+  - type: Sprite
+    state: jne-cd
+
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (Capstien)
+  id: JVNECdDiskCapstien
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Capstien.ogg
+
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (NINJA!!!)
+  id: JVNECdDiskNinja
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Ninja.ogg
+
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (Next Up)
+  id: JVNECdDiskNextUp
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/NextUp.ogg
+
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (June & Eels Show)
+  id: JVNECdDiskJNE
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/JNE.ogg
+
+- type: entity
+  parent: [BaseSyndicateContraband, BaseCdDisk]
+  id: SyndiCdDisk
+  abstract: true
+  description: Get da disk!
+  components:
+  - type: Sprite
+    state: synd-cd
+
+- type: entity
+  parent: SyndiCdDisk
+  name: cd disk (Numbers)
+  id: JVNECdDiskNumber
+  description: All around the mulberry bush, the monkey chased the weasel...
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Number.ogg
+  - type: VinylSummonRule
+    gameRule: NumberStationThreats
+
+- type: entity
+  parent: SyndiCdDisk
+  name: cd disk (Syndicate)
+  id: JVNECdDiskSyndicate
+  description: 102.9 Syndicate radio
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Syndicate.ogg
