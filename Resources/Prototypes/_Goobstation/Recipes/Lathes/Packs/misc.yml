@@ -14,9 +14,9 @@
   - MagazineBoxLightRifle
   - MagazinePistolCaselessRifleEmpty
   - MagazinePistolCaselessRifle
-  - MagazineBoxCaselessRifle
-  - MagazineCaselessRifleEmpty
-  - MagazineCaselessRifle
+#  - MagazineBoxCaselessRifle # Omu
+#  - MagazineCaselessRifleEmpty # Omu
+#  - MagazineCaselessRifle # Omu 
   - MagazineLowCaliberM7S
 
 - type: latheRecipePack

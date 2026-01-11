@@ -1,0 +1,15 @@
+- type: entity
+  id: MagazineCaselessRifleIncendiary
+  name: "magazine (9.5mm caseless incendiary)"
+  parent: MagazineCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleIncendiary
+
+- type: entity
+  id: MagazineCaselessRifleUranium
+  name: "magazine (9.5mm caseless uranium)"
+  parent: MagazineCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleUranium

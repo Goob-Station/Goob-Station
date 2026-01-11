@@ -1,0 +1,84 @@
+- type: entity
+  name: BRDI R-25
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  id: WeaponSubMachineGunBRDIR25
+  description: An iconic weapon used by members of the Biesel Republic Foreign Legion. As a pride and joy of the colonies, it represents freedom from the tyranny of the Sol Alliance. It is chambered in 9.5mm Caseless Rifle.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Weapons/Guns/SMGs/BRDI_R25.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _EinsteinEngines/Objects/Weapons/Guns/SMGs/BRDI_R25.rsi
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -17
+    maxAngle: -22
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+    fireRate: 5  # 300rpm in Semi & Full Auto
+    burstFireRate: 20  # 1200rpm in Burst mode.
+    shotsPerBurst: 3
+    burstCooldown: 0.9
+    cameraRecoilScalar: 0.5
+    selectedMode: Burst
+    soundGunshot:
+      path: /Audio/_EinsteinEngines/Weapons/Guns/Gunshots/fpa-90-suppressed-gunshot.ogg
+      params:
+        volume: -3
+        maxDistance: 8
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+#    fireOnDropChance: 0.3 # Omu
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 1500
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineCaselessRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineCaselessRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeCaselessRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeCaselessRifle
+#  - type: ExtendDescription
+#    descriptionList:
+#      - description: "gun-suppressed"
+#        fontSize: 10
+#        color: "#ff4f00"
+#        requireDetailRange: false
+
+- type: entity
+  name: antique BRDI R-25
+  parent: [WeaponSubMachineGunBRDIR25, BaseGrandTheftContraband]
+  id: WeaponSubMachineGunBRDIR25HoS
+  description: Once wielded by an unknown member of the Biesel Foreign Legion, this beloved rifle has seen battle with Sol on every world in the colonies.
+  components:
+    - type: StealTarget
+      stealGroup: WeaponEnergyGunLawbringer # Omu
+    - type: Sprite
+      sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_decorated.rsi # The Den sprites
+    - type: Clothing
+      sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_decorated.rsi # The Den sprites

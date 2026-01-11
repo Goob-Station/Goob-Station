@@ -533,12 +533,12 @@
   materials:
     Steel: 700
 
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxCaselessRifle
-  result: MagazineBoxCaselessRifle
-  materials:
-    Steel: 720
+#- type: latheRecipe # Omu
+#  parent: BaseAmmoRecipe
+#  id: MagazineBoxCaselessRifle
+#  result: MagazineBoxCaselessRifle
+#  materials:
+#    Steel: 720
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
@@ -656,19 +656,21 @@
   materials:
     Steel: 25
 
-- type: latheRecipe
-  parent: BaseEmptyAmmoRecipe
-  id: MagazineCaselessRifleEmpty
-  result: MagazineCaselessRifleEmpty
-  materials:
-    Steel: 25
+# Omu start
+#- type: latheRecipe
+#  parent: BaseEmptyAmmoRecipe
+#  id: MagazineCaselessRifleEmpty
+#  result: MagazineCaselessRifleEmpty
+#  materials:
+#    Steel: 25
 
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineCaselessRifle
-  result: MagazineCaselessRifle
-  materials:
-    Steel: 400
+#- type: latheRecipe
+#  parent: BaseAmmoRecipe
+#  id: MagazineCaselessRifle
+#  result: MagazineCaselessRifle
+#  materials:
+#    Steel: 400
+# Omu end
 
 - type: latheRecipe
   parent: BaseAmmoRecipe

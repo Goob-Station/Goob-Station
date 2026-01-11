@@ -39,6 +39,30 @@
   - WeaponEnergyGunLawbringer
 
 - type: selectableSet
+  id: HosBRDISet
+  name: selectable-set-hos-brdi-name
+  description: selectable-set-hos-brdi-description
+  sprite:
+    sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_decorated.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunBRDIR25HoS
+  - MagazineCaselessRifle
+  - MagazineCaselessRifle
+
+- type: selectableSet
+  id: BSOBRDISet
+  name: selectable-set-bso-brdi-name
+  description: selectable-set-bso-brdi-description
+  sprite:
+    sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_blue.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunBRDIR25BSO
+  - MagazineCaselessRifle
+  - MagazineCaselessRifle
+
+- type: selectableSet
   id: WeaponEnergyShotgunSet
   name: selectable-set-warden-eshotty-name
   description: selectable-set-warden-eshotty-description

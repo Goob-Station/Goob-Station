@@ -1,0 +1,19 @@
+- type: latheRecipePack
+  id: SecurityAmmoStaticOmu
+  recipes:
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineShotgunLeverRifle
+  - MagazineBoxCaselessRiflePractice
+  - MagazineCaselessRiflePractice
+  - MagazineCaselessRifleShortPractice
+  - MagazineBoxCaselessRifle
+  - MagazineCaselessRifle
+  - MagazineCaselessRifleShort
+
+- type: latheRecipePack
+  id: SecurityAmmoOmu
+  recipes:
+  - MagazineBoxCaselessRifleIncendiary
+  - MagazineBoxCaselessRifleUranium
+  - MagazineCaselessRifleIncendiary
+  - MagazineCaselessRifleUranium

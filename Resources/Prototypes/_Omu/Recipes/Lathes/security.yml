@@ -1,0 +1,77 @@
+# Caseless Rifle
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifle
+  result: MagazineCaselessRifle
+  materials:
+    Steel: 350
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifleIncendiary
+  result: MagazineCaselessRifleIncendiary
+  materials:
+    Plastic: 350
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRiflePractice
+  result: MagazineCaselessRiflePractice
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifleUranium
+  result: MagazineCaselessRifleUranium
+  materials:
+    Uranium: 350
+
+# Caseless Rifle Short
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifleShort
+  result: MagazineCaselessRifleShort
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifleShortPractice
+  result: MagazineCaselessRifleShortPractice
+  materials:
+    Steel: 150
+
+# Magazine boxes
+
+# Caseless Rifle
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxCaselessRifle
+  result: MagazineBoxCaselessRifle
+  materials:
+    Steel: 720
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxCaselessRifleIncendiary
+  result: MagazineBoxCaselessRifleIncendiary
+  materials:
+    Plastic: 720
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxCaselessRiflePractice
+  result: MagazineBoxCaselessRiflePractice
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxCaselessRifleUranium
+  result: MagazineBoxCaselessRifleUranium
+  materials:
+    Uranium: 720

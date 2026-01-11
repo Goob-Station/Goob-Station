@@ -1,0 +1,23 @@
+- type: entity
+  id: BulletCaselessRifleIncendiary
+  name: bullet (9.5mm caseless incendiary)
+  parent: BaseBulletIncendiary
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+        Heat: 12
+
+- type: entity
+  id: BulletCaselessRifleUranium
+  name: bullet (9.5mm caseless uranium)
+  parent: BaseBulletUranium
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 7
+        Piercing: 8
