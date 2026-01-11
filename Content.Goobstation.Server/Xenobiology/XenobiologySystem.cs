@@ -83,6 +83,7 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
     /// </summary>
     private void UpdateMitosis()
     {
+        var eligibleSlimes = new HashSet<Entity<SlimeComponent>>();
         var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
@@ -93,13 +94,14 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
             slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
 
             var hunger = _hunger.GetHunger(hungerComp);
-
             if (hunger > slime.MitosisHunger - slime.JitterDifference)
                 _jitter.DoJitter(uid, TimeSpan.FromSeconds(1), true);
-
             if (hunger >= slime.MitosisHunger)
-                DoMitosis((uid, slime));
+                eligibleSlimes.Add((uid, slime));
         }
+
+        foreach (var slime in eligibleSlimes)
+            DoMitosis(slime);
     }
 
     /// <summary>

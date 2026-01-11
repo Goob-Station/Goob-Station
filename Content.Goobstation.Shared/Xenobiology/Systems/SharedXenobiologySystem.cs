@@ -35,11 +35,9 @@ public abstract class SharedXenobiologySystem : EntitySystem
         }
 
         var coords = Transform(ent).Coordinates;
-
         // Hearts VFX - Slime taming is seperate to core Pettable Component/System
         PredictedSpawnAtPosition(ent.Comp.TameEffect, coords);
         ent.Comp.Tamer = args.User;
-
         _popup.PopupPredicted(Loc.GetString("slime-interaction-tame"), args.User, args.User);
     }
 }
