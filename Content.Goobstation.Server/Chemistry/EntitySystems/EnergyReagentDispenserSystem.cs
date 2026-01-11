@@ -196,7 +196,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             if (!TryComp<BatteryComponent>(reagentDispenser, out var battery))
                 return;
 
-            var amount = (int)reagentDispenser.Comp.DispenseAmount;
+            var amount = (int) reagentDispenser.Comp.DispenseAmount;
             var powerRequired = GetPowerCostForReagent(message.ReagentId, amount, reagentDispenser.Comp);
 
             if (battery.CurrentCharge < powerRequired)

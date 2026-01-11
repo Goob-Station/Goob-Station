@@ -100,7 +100,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
             _batteryCharge = state.BatteryCharge;
             _currentReceiving = state.CurrentReceivingEnergy;
             _idleUse = state.IdleUse;
-            _selectedAmount = (int)state.SelectedDispenseAmount;
+            _selectedAmount = (int) state.SelectedDispenseAmount;
             _usingBattery = state.UsingBattery;
             _hasPower = state.HasPower;
 
@@ -114,7 +114,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
             ClearButton.Disabled = state.OutputContainer is null;
             EjectButton.Disabled = state.OutputContainer is null;
 
-            AmountGrid.Selected = ((int)state.SelectedDispenseAmount).ToString();
+            AmountGrid.Selected = ((int) state.SelectedDispenseAmount).ToString();
             _cardsNeedUpdate = true;
             UpdateCardStates();
         }
@@ -238,7 +238,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
                 _batteryCharge = Math.Clamp(_batteryCharge + _currentReceiving * args.DeltaSeconds, 0, _batteryMaxCharge);
             }
 
-            if ((int)oldCharge != (int)_batteryCharge)
+            if ((int) oldCharge != (int) _batteryCharge)
             {
                 UpdateBatteryPercent();
             }
@@ -256,7 +256,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
                     continue;
 
                 var threshold = card.PowerCostPerUnit * _selectedAmount;
-                if ((oldEnergy < threshold && newEnergy >= threshold) || (oldEnergy >= threshold && newEnergy < threshold))
+                if (oldEnergy < threshold && newEnergy >= threshold || oldEnergy >= threshold && newEnergy < threshold)
                 {
                     _cardsNeedUpdate = true;
                     break;
