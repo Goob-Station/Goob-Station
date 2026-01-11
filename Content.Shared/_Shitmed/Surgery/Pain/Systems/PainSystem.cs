@@ -107,13 +107,16 @@ public sealed partial class PainSystem : EntitySystem
         if (args.Current is not NerveComponentState state)
             return;
 
-        component.ParentedNerveSystem = GetEntity(state.ParentedNerveSystem);
+        var parentEntity = GetEntity(state.ParentedNerveSystem);
+        component.ParentedNerveSystem = !TerminatingOrDeleted(parentEntity) ? parentEntity : EntityUid.Invalid;
         component.PainMultiplier = state.PainMultiplier;
 
         component.PainFeelingModifiers.Clear();
         foreach (var ((modEntity, id), modifier) in state.PainFeelingModifiers)
         {
-            component.PainFeelingModifiers.Add((GetEntity(modEntity), id), modifier);
+            var entity = GetEntity(modEntity);
+            if (!TerminatingOrDeleted(entity) && !component.PainFeelingModifiers.ContainsKey((entity, id)))
+                component.PainFeelingModifiers.Add((entity, id), modifier);
         }
     }
 
