@@ -71,7 +71,7 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
     {
         Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
-        ent.Comp.NextUpdateTime = _gameTiming.CurTime + TimeSpan.FromSeconds(_random.NextDouble(2, ent.Comp.UpdateInterval.TotalSeconds));;
+        ent.Comp.NextUpdateTime = _gameTiming.CurTime + TimeSpan.FromSeconds(_random.NextDouble(2, ent.Comp.UpdateInterval.TotalSeconds));
     }
 
     /// <summary>
