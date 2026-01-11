@@ -115,7 +115,7 @@ public sealed partial class SlimeComponent : Component
     /// How long in between each mitosis/breeding check?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(5); // bro why was this one second
 
     /// <summary>
     /// When is the next mitosis/breeding check?

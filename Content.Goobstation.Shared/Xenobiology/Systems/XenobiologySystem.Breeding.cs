@@ -44,9 +44,8 @@ public partial class XenobiologySystem
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
     {
         if (!_net.IsServer) return;
-
         Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
-        ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
+        ent.Comp.NextUpdateTime = _gameTiming.CurTime + TimeSpan.FromSeconds(_random.NextDouble(2, ent.Comp.UpdateInterval.TotalSeconds));;
     }
 
     /// <summary>
@@ -63,9 +62,9 @@ public partial class XenobiologySystem
                 || _mobState.IsDead(uid)
                 || growthComp.IsFirstStage)
                 continue;
+            slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
 
             eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
-            slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
         }
 
         foreach (var ent in eligibleSlimes)
