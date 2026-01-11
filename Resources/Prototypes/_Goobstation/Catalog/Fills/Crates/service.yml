@@ -86,29 +86,37 @@
   table: !type:GroupSelector
     children:
     - id: CdDiskDanitosBurritos
-      weight: 0.6
+      weight: 1
     - id: CdDiskBillMovie
-      weight: 0.6
+      weight: 1
     - id: CdDiskCapTraining
-      weight: 0.6
+      weight: 1
     - id: CdDiskCargonia
-      weight: 0.6
+      weight: 1
     - id: CdDiskChemistry
-      weight: 0.6
+      weight: 1
     - id: CdDiskCloningPsa
-      weight: 0.6
+      weight: 1
     - id: CdDiskDansTickets
-      weight: 0.6
+      weight: 1
     - id: CdDiskGrones
-      weight: 0.6
+      weight: 1
     - id: CdDiskPopeCrunchCereal
-      weight: 0.6
+      weight: 1
     - id: CdDiskQuikNoodles
-      weight: 0.6
+      weight: 1
     - id: CdDiskRobotics
-      weight: 0.6
+      weight: 1
     - id: CdDiskSecurityPsa
-      weight: 0.6
+      weight: 1
+    - id: JVNECdDiskCapstien
+      weight: 0.3
+    - id: JVNECdDiskNinja
+      weight: 0.3
+    - id: JVNECdDiskNextUp
+      weight: 0.5
+    - id: JVNECdDiskJNE
+      weight: 0.3
     - id: CdDiskCommanderAnnouncement
       weight: 0.2
     - id: CdDiskCommanderFigurines
@@ -127,147 +135,167 @@
       weight: 0.1
     - id: CdDiskXgOnboarding4
       weight: 0.1
-    - id: VinylDiskForgotten
-      weight: 0.05
 
 - type: entityTable
   id: RandomVinylDisk
   table: !type:GroupSelector
     children:
     - id: VinylDiskAI
-      weight: 0.6
+      weight: 1
     - id: VinylDiskDevil
-      weight: 0.6
+      weight: 1
     - id: VinylDiskPizza
-      weight: 0.6
+      weight: 1
     - id: VinylDiskGlossy
-      weight: 0.6
+      weight: 1
     - id: VinylDiskRed
-      weight: 0.6
+      weight: 1
     - id: VinylDiskLightBlue
-      weight: 0.6
+      weight: 1
     - id: VinylDiskBanana
-      weight: 0.6
+      weight: 1
     - id: VinylDiskCarrot
-      weight: 0.6
+      weight: 1
     - id: VinylDiskCyan
-      weight: 0.6
+      weight: 1
     - id: VinylDiskBlue
-      weight: 0.6
+      weight: 1
     - id: VinylDiskYellow
-      weight: 0.6
+      weight: 1
     - id: VinylDiskGreen
-      weight: 0.6
+      weight: 1
     - id: VinylDiskPurple
-      weight: 0.6
+      weight: 1
     - id: VinylDiskOrange
-      weight: 0.6
+      weight: 1
     - id: VinylDiskWhite
-      weight: 0.6
+      weight: 1
     - id: VinylDiskLightRed
-      weight: 0.6
+      weight: 1
     - id: VinylDiskDarkBlue
-      weight: 0.6
+      weight: 1
     - id: VinylDiskPink
-      weight: 0.6
+      weight: 1
     - id: VinylDiskBurnTheWorld
-      weight: 0.6
+      weight: 1
     - id: VinylDiskFeralAngel
-      weight: 0.6
+      weight: 1
     - id: VinylDiskAlsoSprach
-      weight: 0.6
+      weight: 1
     - id: VinylDiskValkyries
-      weight: 0.6
+      weight: 1
     - id: VinylDiskRomeoJuliet
-      weight: 0.6
+      weight: 1
     - id: VinylDiskRussian
-      weight: 0.6
+      weight: 1
     - id: VinylDiskFlowerDuet
-      weight: 0.6
+      weight: 1
     - id: VinylDiskWinterVivaldi
-      weight: 0.6
+      weight: 1
     - id: VinylDiskBachCello
-      weight: 0.6
+      weight: 1
     - id: VinylDiskFloaty
-      weight: 0.6
+      weight: 1
     - id: VinylDiskLime
-      weight: 0.6
+      weight: 1
+    - id: VinylDiskForgotten
+      weight: 0.05
+    - id: VinylDiskGetThatAntag
+      weight: 1
+    - id: VinylDiskLaw2
+      weight: 1
+    - id: VinylDiskEphedrine
+      weight: 1
+    - id: VinylDiskRunningOut
+      weight: 1
+    - id: VinylDiskJourney
+      weight: 1
+    - id: VinylDiskTraitorousIntent
+      weight: 1
+    - id: VinylDiskViolet
+      weight: 1
+    - id: VinylDiskWantYouGone
+      weight: 1
+    - id: VinylDiskEgg
+      weight: 1
+    - id: VinylDiskWeAreNumberTwo
+      weight: 1
 
 - type: entityTable
   id: RandomVinylSleeve
   table: !type:GroupSelector
     children:
     - id: VinylSleeveAI
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveDevil
-      weight: 0.6
+      weight: 1
     - id: VinylSleevePizza
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveFart
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveLavaLand
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveHockey
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveRat
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveMgs
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveQuestionable
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveJanitor
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveWeird
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveDJClown
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveVampire
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveShulker
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveRedSun
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveSkull
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveFisherman
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveHeisenbee
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveStation13
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveStation14
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveNukeDisk
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveBlockyCraft
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveEye
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveTh
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveClown
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveNanoYork
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveDJTider
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveCoffee
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveWelcomeSS13
-      weight: 0.6
+      weight: 1
     - id: VinylSleevePeace
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveJapan
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveChristmas
-      weight: 0.6
+      weight: 1
     - id: VinylSleevePickle
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveFlash
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveBeige
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveBlack
-      weight: 0.6
+      weight: 1
     - id: VinylSleeveWhite
-      weight: 0.6
+      weight: 1
