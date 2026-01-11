@@ -1,0 +1,80 @@
+- type: entity              # Doodon shield
+  name: doodon shield
+  parent: BaseShield
+  id: DoodonShield
+  description: A shield made out of doodon resin. Oddly warm.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Doodon/shield.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Doodon/shield.rsi
+    heldPrefix: doodon
+    size: Large
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 2
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 2
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+          params:
+            variation: 0.125
+            volume: -2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+
+- type: entity
+  name: doodon sword
+  parent: [BaseItem, BaseMinorContraband]
+  id: DoodonSword
+  description: A doodon sword fit for a doodon warrior. Are those legs?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Doodon/sword.rsi
+    state: icon
+  - type: MeleeWeapon
+    animationRotation: -135
+    heavyStaminaCost: 15 
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 15
+        Structural: 5
+  - type: Item
+    sprite: _Goobstation/Objects/Doodon/sword.rsi
+    heldPrefix: doodon
+    size: Large
+    
+- type: entity
+  name: doodon gem
+  parent: BaseItem
+  id: DoodonGem
+  description: A pristine gem refined from resin. It's valuable, but not to doodons.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Doodon/gem.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: StaticPrice
+    price: 4500

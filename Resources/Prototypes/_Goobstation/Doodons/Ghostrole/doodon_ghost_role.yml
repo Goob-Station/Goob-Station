@@ -1,0 +1,37 @@
+- type: entity
+  id: SpawnPointGhostPapaDoodon
+  name: ghost role spawn point
+  suffix: Papa Doodon
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-papa-doodon-name
+    description: ghost-role-information-papa-doodon-description
+    rules: ghost-role-information-papa-doodon-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    - MindRolePapaDoodon
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: PapaDoodon
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    
+    
+- type: entity
+  parent: BaseMindRole
+  id: MindRolePapaDoodon
+  name: Papa Doodon Role
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    sortWeight: 31
+  - type: PapaObjectivePool
+    count: 2
+    objectives:
+    - StockpileResinObjective
+    - BuildVillageObjective
+    - DevilContractObjective # (TEMP TEST) you know this one works

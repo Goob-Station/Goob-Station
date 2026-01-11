@@ -11,11 +11,11 @@
         "name": "icon"
     },
     {
-        "name": "inhand-left",
+        "name": "doodon-inhand-left",
         "directions": 4
     },
     {
-        "name": "inhand-right",
+        "name": "doodon-inhand-right",
         "directions": 4
     }
   ]

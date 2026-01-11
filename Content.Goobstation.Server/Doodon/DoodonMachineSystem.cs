@@ -1,12 +1,15 @@
-using System.Numerics;
-using Content.Server.Stack;
-using Content.Shared.Interaction;
-using Content.Shared.Stacks;
 using Content.Goobstation.Shared.Doodons;
 using Content.Server.NPC;
 using Content.Server.NPC.Systems;
-using Robust.Shared.GameObjects;
+using Content.Server.Stack;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Content.Shared.Stacks;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Doodons;
 
@@ -14,18 +17,19 @@ public sealed class DoodonMachineSystem : EntitySystem
 {
     [Dependency] private readonly StackSystem _stackSystem = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly SharedAudioSystem _soundSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<DoodonMachineComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<DoodonMachineComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<DoodonMachineComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnMapInit(EntityUid uid, DoodonMachineComponent machine, ref MapInitEvent args)
     {
-        // Important: do NOT spawn here.
-        // Construction/placement causes MapInit before town hall assignment,
-        // so we delay initial spawn until the building becomes Active.
         machine.InitialSpawnDone = false;
         machine.Processing = false;
         machine.Accumulator = 0f;
@@ -37,15 +41,11 @@ public sealed class DoodonMachineSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var machine))
         {
-            // ------------------------------------
-            // Delayed "spawn on placement"
-            // ------------------------------------
+            // Spawn-on-placement logic
             if (machine.SpawnOnMapInit && !machine.InitialSpawnDone)
             {
                 var isTownHall = HasComp<DoodonTownHallComponent>(uid);
 
-                // Town Hall: always allowed to do its initial spawn (Papa)
-                // Other buildings: wait until they're Active (assigned + in radius)
                 if (isTownHall || (TryComp<DoodonBuildingComponent>(uid, out var b) && b.Active))
                 {
                     if (CanProduce(uid, machine))
@@ -56,21 +56,20 @@ public sealed class DoodonMachineSystem : EntitySystem
                 }
             }
 
-            // ------------------------------------
-            // Processing ticking
-            // ------------------------------------
+            // Processing / cooldown
             if (!machine.Processing)
                 continue;
 
             machine.Accumulator += frameTime;
-
             if (machine.Accumulator < machine.ProcessTime)
                 continue;
 
             machine.Accumulator = 0f;
             machine.Processing = false;
 
-            Produce(uid, machine);
+            // Final gate (in case housing changed during processing)
+            if (CanProduce(uid, machine))
+                Produce(uid, machine);
         }
     }
 
@@ -79,13 +78,17 @@ public sealed class DoodonMachineSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Require active (except TownHall; you probably still want townhall usable always)
         var isTownHall = HasComp<DoodonTownHallComponent>(uid);
-        if (!isTownHall && TryComp<DoodonBuildingComponent>(uid, out var building) && !building.Active)
+        if (!isTownHall &&
+            TryComp<DoodonBuildingComponent>(uid, out var building) &&
+            !building.Active)
             return;
 
         if (machine.Processing)
+        {
+            _popup.PopupEntity(Loc.GetString("doodon-machine-busy"), uid, args.User);
             return;
+        }
 
         if (!TryComp<StackComponent>(args.Used, out var stack))
             return;
@@ -93,53 +96,128 @@ public sealed class DoodonMachineSystem : EntitySystem
         if (stack.StackTypeId != machine.ResinStack)
             return;
 
-        var needed = machine.ResinCost - machine.StoredResin;
-        if (needed <= 0)
-            return;
-
-        var toTake = Math.Min(needed, stack.Count);
-        if (toTake <= 0)
-            return;
-
-        if (!_stackSystem.Use(args.Used, toTake))
-            return;
-
-        machine.StoredResin += toTake;
-
-        // Start processing if enough resin and allowed to produce
-        if (machine.StoredResin >= machine.ResinCost && CanProduce(uid, machine))
+        // Must be able to produce BEFORE we eat resin
+        if (!CanProduce(uid, machine))
         {
-            machine.StoredResin -= machine.ResinCost;
-            machine.Processing = true;
-            machine.Accumulator = 0f;
+            // Optional: add an ftl key for "no housing/cap reached"
+            _popup.PopupEntity(Loc.GetString("doodon-machine-cannot-produce"), uid, args.User);
+            return;
         }
+
+        // Must insert full cost at once
+        if (stack.Count < machine.ResinCost)
+        {
+            _popup.PopupEntity(
+                Loc.GetString("doodon-machine-not-enough-resin",
+                    ("current", stack.Count),
+                    ("required", machine.ResinCost)),
+                uid,
+                args.User);
+            return;
+        }
+
+        if (!_stackSystem.Use(args.Used, machine.ResinCost))
+            return;
+
+        _soundSystem.PlayPvs(
+            machine.InsertSound,
+            Transform(uid).Coordinates,
+            AudioParams.Default.WithPitchScale(_random.NextFloat(0.92f, 1.08f)));
+
+        _popup.PopupEntity(Loc.GetString("doodon-machine-insert-resin"), uid, args.User);
+
+        machine.Processing = true;
+        machine.Accumulator = 0f;
 
         args.Handled = true;
     }
 
-    private bool CanProduce(EntityUid uid, DoodonMachineComponent machine)
+    private bool CanProduce(EntityUid machineUid, DoodonMachineComponent machine)
     {
-        // Town hall should always be able to spawn its papa.
-        if (HasComp<DoodonTownHallComponent>(uid))
+        // Town hall can always do its papa spawn etc (if you want)
+        if (HasComp<DoodonTownHallComponent>(machineUid))
             return true;
 
         if (!machine.RespectPopulationCap)
             return true;
 
-        if (!TryComp<DoodonBuildingComponent>(uid, out var building))
-            return false;
-
-        if (!building.Active)
-            return false;
-
-        if (building.TownHall is not { } hallUid)
+        if (!TryComp<DoodonBuildingComponent>(machineUid, out var building) ||
+            !building.Active || building.TownHall is not { } hallUid)
             return false;
 
         if (!TryComp<DoodonTownHallComponent>(hallUid, out var hall))
             return false;
 
-        return hall.CanSpawnMoreDoodons;
+        // If this output doesn't consume housing, always ok
+        if (machine.ProducedHousing == DoodonHousingType.None)
+            return true;
+
+        GetHousingStats(hallUid, hall,
+            out var workerCap, out var warriorCap, out var moodonCap,
+            out var workerPop, out var warriorPop, out var moodonPop);
+
+        return machine.ProducedHousing switch
+        {
+            DoodonHousingType.Worker => workerPop < workerCap,
+            DoodonHousingType.Warrior => warriorPop < warriorCap,
+            DoodonHousingType.Moodon => moodonPop < moodonCap,
+            _ => true
+        };
     }
+
+
+    private void GetHousingStats(
+     EntityUid hallUid, DoodonTownHallComponent hall,
+     out int workerCap, out int warriorCap, out int moodonCap,
+     out int workerPop, out int warriorPop, out int moodonPop)
+    {
+        workerCap = warriorCap = moodonCap = 0;
+        workerPop = warriorPop = moodonPop = 0;
+
+        // Capacity from buildings
+        foreach (var b in hall.Buildings)
+        {
+            if (Deleted(b) || !TryComp<DoodonBuildingComponent>(b, out var building))
+                continue;
+
+            if (!building.Active || building.TownHall != hallUid)
+                continue;
+
+            switch (building.HousingType)
+            {
+                case DoodonHousingType.Worker:
+                    workerCap += building.HousingCapacity;
+                    break;
+                case DoodonHousingType.Warrior:
+                    warriorCap += building.HousingCapacity;
+                    break;
+                case DoodonHousingType.Moodon:
+                    moodonCap += building.HousingCapacity;
+                    break;
+            }
+        }
+
+        // Occupancy from doodons
+        foreach (var d in hall.Doodons)
+        {
+            if (Deleted(d) || !TryComp<DoodonComponent>(d, out var doodon))
+                continue;
+
+            switch (doodon.RequiredHousing)
+            {
+                case DoodonHousingType.Worker:
+                    workerPop++;
+                    break;
+                case DoodonHousingType.Warrior:
+                    warriorPop++;
+                    break;
+                case DoodonHousingType.Moodon:
+                    moodonPop++;
+                    break;
+            }
+        }
+    }
+
 
     private void Produce(EntityUid machineUid, DoodonMachineComponent machine)
     {
@@ -152,7 +230,6 @@ public sealed class DoodonMachineSystem : EntitySystem
             if (TryGetPapaForMachine(machineUid, out var papaUid))
             {
                 warriorComp.Papa = papaUid;
-                // DO NOT Dirty() unless DoodonWarriorComponent is NetworkedComponent.
 
                 _npc.SetBlackboard(spawned, NPCBlackboard.FollowTarget, Transform(papaUid).Coordinates);
 
@@ -184,5 +261,19 @@ public sealed class DoodonMachineSystem : EntitySystem
         }
 
         return papa != default;
+    }
+
+    private void OnExamined(EntityUid uid, DoodonMachineComponent machine, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        var connected =
+            HasComp<DoodonTownHallComponent>(uid) ||
+            (TryComp<DoodonBuildingComponent>(uid, out var building) && building.TownHall != null);
+
+        args.PushMarkup(Loc.GetString(connected
+            ? "doodon-machine-connected"
+            : "doodon-machine-not-connected"));
     }
 }

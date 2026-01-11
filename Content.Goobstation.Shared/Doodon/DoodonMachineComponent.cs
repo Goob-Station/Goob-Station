@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
 
 namespace Content.Goobstation.Shared.Doodons;
@@ -26,20 +27,14 @@ public sealed partial class DoodonMachineComponent : Component
     [DataField]
     public bool SpawnOnMapInit = false;
 
-    /// <summary>
-    /// How much resin is currently stored.
-    /// </summary>
-    public int StoredResin;
+    [DataField]
+    public DoodonHousingType ProducedHousing = DoodonHousingType.None;
 
-    /// <summary>
-    /// Is the machine actively processing?
-    /// </summary>
     public bool Processing;
-
-    /// <summary>
-    /// Accumulated processing time.
-    /// </summary>
     public float Accumulator;
+
+    [DataField]
+    public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/_Goobstation/Doodon/lancer_splat.ogg");
 
     [DataField] public bool InitialSpawnDone = false;
 }

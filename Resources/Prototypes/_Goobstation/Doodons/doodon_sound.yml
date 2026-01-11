@@ -1,0 +1,14 @@
+
+- type: soundCollection
+  id: Doodon
+  files:
+  - /Audio/_Goobstation/Doodon/doodon1.ogg
+  - /Audio/_Goobstation/Doodon/doodon2.ogg
+
+
+
+- type: soundCollection
+  id: DoodonDeath
+  files:
+  - /Audio/_Goobstation/Doodon/doodondeath1.ogg
+  - /Audio/_Goobstation/Doodon/doodondeath2.ogg

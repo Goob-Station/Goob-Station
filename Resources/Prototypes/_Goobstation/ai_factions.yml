@@ -34,5 +34,19 @@
   id: Doodon
   hostile:
   - NanoTrasen
-  - Syndicate
+  - Dragon
   - SimpleHostile
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Changeling
+  - Heretic
+  - Blob
+  - Shadowling
+  - Wizard
+  - PirateFaction
+  - Wraith
+  - Lavafauna
+  - AllHostile
+  - Xenoborg

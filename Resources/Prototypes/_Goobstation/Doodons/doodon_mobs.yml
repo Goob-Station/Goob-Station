@@ -1,5 +1,5 @@
 - type: entity      # Base
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase ]
   id: BaseDoodon
   abstract: true
   components:
@@ -19,6 +19,9 @@
       behaviors:
       - !type:GibBehavior
         gibContents: Skip
+      - !type:PlaySoundBehavior
+        sound:
+          collection: DoodonDeath
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -26,18 +29,11 @@
   - type: Doodon    
   - type: Bloodstream
     bloodReagent: AlienBlood
-    bloodMaxVolume: 20
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: Item
-    size: Small
+    bloodMaxVolume: 40
   - type: CanEscapeInventory
-  - type: NPCRetaliation
-    attackMemoryLength: 10
   - type: Body # Change later
     bodyType: Complex
-    prototype: Monkey
+    prototype: Doodon
     requiredLegs: 2
   - type: Puller    
   - type: Clumsy        # no guns for doodons
@@ -51,6 +47,7 @@
       types:
         Blunt: 1
   - type: InputMover
+  - type: ComplexInteraction
   - type: MobMover
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
@@ -64,6 +61,27 @@
       groups:
         Brute: -0.1
         Burn: -0.1
+  - type: Stripping
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 15
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: SpamEmitSound         # Give the doodons a voice
+    minInterval: 30
+    maxInterval: 70
+    sound:
+      collection: Doodon
+      params:
+        volume: -5
+        maxDistance: 5
+        variation: 0.10
   
 - type: entity      # Papa
   parent: BaseDoodon
@@ -82,10 +100,14 @@
     action: ActionDoodonResin
     productionLength: 1
     hungerCost: 10
-  - type: VentCrawler # goobstation - Ventcrawl
-    allowInventory: false
   - type: PapaDoodon
     commandAction: PapaDoodonCommand
+  - type: PapaObjectiveGiver
+    count: 2
+    objectives:
+  - DevilContractObjective
+  - DevilWeightObjective
+  
   
 - type: entity      # Worker
   parent: BaseDoodon
@@ -104,11 +126,34 @@
     action: ActionDoodonResin
     productionLength: 1
     hungerCost: 10
-  - type: VentCrawler # goobstation - Ventcrawl
-    allowInventory: false
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: GroupRetaliation
+    range: 8
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+      - Passive
   - type: HTN
     rootTask:
-      task: RuminantCompound
+      task: SimpleHostileCompound
+   
+  - type: Doodon
+    requiredHousing: Worker
+    
+  - type: Physics
+    bodyType: KinematicController
+  - type: CombatMode
+    combatEnabled: true
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 5
+    animation: WeaponArcFist
+    
+    
     
 - type: entity          # Warrior
   parent: BaseDoodon
@@ -118,32 +163,18 @@
   components:
   - type: Physics
     bodyType: KinematicController
-
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.25
-        density: 15
-        mask:
-        - SmallMobMask
-        layer:
-        - SmallMobLayer
-
+  - type: Doodon
+    requiredHousing: Warrior
   - type: Sprite
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
     state: warrior
-
   - type: Hands
     slots: 2
     names: ["left hand", "right hand"]
-
   - type: DoodonWarrior
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-    
   - type: HTN
     rootTask:
       task: DoodonWarriorCompound
@@ -154,29 +185,27 @@
         1.5
       FollowRange: !type:Single
         3.0
-  - type: Item
-    size: Normal
+
 
   - type: CombatMode
     combatEnabled: true
 
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.0
-    baseSprintSpeed: 4.0
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 3.5
 
   - type: InputMover
   - type: MobMover
   - type: MobState
   - type: Damageable
-
   - type: MeleeWeapon
     soundHit:
       collection: Punch
     damage:
       types:
-        Blunt: 20
+        Blunt: 10
     animation: WeaponArcFist
-    
+   
 - type: entity
   name: moodon
   description: The cattle of the Doodon village.
@@ -186,3 +215,6 @@
   - type: Sprite
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
     state: moodon 
+  - type: Doodon
+    requiredHousing: Moodon
+    countsTowardsPopulation: false

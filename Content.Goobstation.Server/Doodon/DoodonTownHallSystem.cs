@@ -1,5 +1,7 @@
 using Content.Goobstation.Shared.Doodons;
 using Robust.Shared.GameObjects;
+using Content.Shared.Examine;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Doodons;
 
@@ -14,6 +16,7 @@ public sealed class DoodonTownHallSystem : EntitySystem
 {
     public override void Initialize()
     {
+        base.Initialize();
         // Building finished construction / appeared
         SubscribeLocalEvent<DoodonBuildingComponent, MapInitEvent>(OnBuildingMapInit);
 
@@ -23,6 +26,7 @@ public sealed class DoodonTownHallSystem : EntitySystem
         // Cleanup on deletion / component removal
         SubscribeLocalEvent<DoodonBuildingComponent, ComponentShutdown>(OnBuildingShutdown);
         SubscribeLocalEvent<DoodonComponent, ComponentShutdown>(OnDoodonShutdown);
+        SubscribeLocalEvent<DoodonTownHallComponent, ExaminedEvent>(OnHallExamined);
     }
 
     private void OnBuildingMapInit(EntityUid uid, DoodonBuildingComponent component, ref MapInitEvent args)
@@ -158,5 +162,119 @@ public sealed class DoodonTownHallSystem : EntitySystem
 
         if (TryComp<DoodonTownHallComponent>(hallUid, out var hallComp))
             hallComp.Doodons.Remove(uid);
+    }
+
+    private void OnHallExamined(EntityUid uid, DoodonTownHallComponent comp, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        // Connected buildings (active + assigned to this hall)
+        var connectedBuildings = 0;
+        foreach (var b in comp.Buildings)
+        {
+            if (Deleted(b))
+                continue;
+
+            if (!TryComp<DoodonBuildingComponent>(b, out var building))
+                continue;
+
+            if (!building.Active)
+                continue;
+
+            if (building.TownHall != uid)
+                continue;
+
+            connectedBuildings++;
+        }
+
+        // Housing stats + total pop (CountsTowardPopulation respected inside GetHousingStats)
+        GetHousingStats(uid, comp,
+            out var workerCap, out var warriorCap, out var moodonCap,
+            out var workerPop, out var warriorPop, out var moodonPop,
+            out var totalPopulation);
+
+        // Build ONE block so ordering stays stable and no weird gaps happen.
+        var text =
+            $"{Loc.GetString("doodon-townhall-population", ("current", totalPopulation))}\n" +
+            $"{Loc.GetString("doodon-townhall-buildings", ("count", connectedBuildings))}\n" +
+            $"{Loc.GetString("doodon-townhall-workers", ("count", ColorizeCount(workerPop, workerCap)))}\n" +
+            $"{Loc.GetString("doodon-townhall-warriors", ("count", ColorizeCount(warriorPop, warriorCap)))}\n" +
+            $"{Loc.GetString("doodon-townhall-moodons", ("count", ColorizeCount(moodonPop, moodonCap)))}";
+
+        args.PushMarkup(text);
+    }
+
+
+    private void GetHousingStats(
+    EntityUid hallUid,
+    DoodonTownHallComponent hall,
+    out int workerCap, out int warriorCap, out int moodonCap,
+    out int workerPop, out int warriorPop, out int moodonPop,
+    out int totalPopulation)
+    {
+        workerCap = warriorCap = moodonCap = 0;
+        workerPop = warriorPop = moodonPop = 0;
+        totalPopulation = 0;
+
+        // Capacity from connected buildings
+        foreach (var b in hall.Buildings)
+        {
+            if (Deleted(b) || !TryComp<DoodonBuildingComponent>(b, out var building))
+                continue;
+
+            if (!building.Active || building.TownHall != hallUid)
+                continue;
+
+            switch (building.HousingType)
+            {
+                case DoodonHousingType.Worker:
+                    workerCap += building.HousingCapacity;
+                    break;
+                case DoodonHousingType.Warrior:
+                    warriorCap += building.HousingCapacity;
+                    break;
+                case DoodonHousingType.Moodon:
+                    moodonCap += building.HousingCapacity;
+                    break;
+            }
+        }
+
+        // Occupancy from doodons
+        foreach (var d in hall.Doodons)
+        {
+            if (Deleted(d) || !TryComp<DoodonComponent>(d, out var doodon))
+                continue;
+
+            // Always count occupancy-by-type (for the X/Y fractions)
+            switch (doodon.RequiredHousing)
+            {
+                case DoodonHousingType.Worker:
+                    workerPop++;
+                    break;
+                case DoodonHousingType.Warrior:
+                    warriorPop++;
+                    break;
+                case DoodonHousingType.Moodon:
+                    moodonPop++;
+                    break;
+            }
+
+            // Only some doodons count toward "Total Population"
+            if (doodon.CountsTowardPopulation)
+                totalPopulation++;
+        }
+    }
+
+
+
+    private static string ColorizeCount(int population, int capacity)
+    {
+        var color =
+            population > capacity ? "red" :
+            population < capacity ? "yellow" :
+            "green";
+
+        return $"[color={color}]{population}/{capacity}[/color]";
     }
 }
