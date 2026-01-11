@@ -118,6 +118,7 @@
   - type: Tag
     tags:
     - Bedsheet
+  - type: BedSheetSlicable #makes it to drop cloth(2-5) from cutting it with sharp shaped objects
 
 - type: entity
   id: BedsheetBlack
