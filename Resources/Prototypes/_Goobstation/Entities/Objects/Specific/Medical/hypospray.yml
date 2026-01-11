@@ -529,7 +529,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 15
+        maxVol: 10
   - type: ExaminableSolution
     solution: hypospray
   - type: HyposprayWhitelist
