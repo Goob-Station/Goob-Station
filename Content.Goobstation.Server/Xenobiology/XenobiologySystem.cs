@@ -2,34 +2,65 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Goobstation.Shared.Xenobiology.Systems;
+using Content.Shared.Jittering;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
+using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Xenobiology.Systems;
+namespace Content.Goobstation.Server.Xenobiology;
 
-// This handles slime breeding and mutation.
-public partial class XenobiologySystem
+/// <summary>
+///     This handles the server-side of Xenobiology.
+/// </summary>
+public sealed class XenobiologySystem : SharedXenobiologySystem
 {
-    private void SubscribeBreeding()
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
+
+    public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        UpdateMitosis();
+    }
+
     private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer) return;
-
         // it sucks but it works and now y*ml warriors can add more slimes 500% faster
-        var slime = SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
-        if (!slime.HasValue)
+        if(!TrySpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed,out var slime))
             return;
 
         var s = slime.Value.Comp;
@@ -43,7 +74,6 @@ public partial class XenobiologySystem
 
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer) return;
         Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + TimeSpan.FromSeconds(_random.NextDouble(2, ent.Comp.UpdateInterval.TotalSeconds));;
     }
@@ -92,44 +122,53 @@ public partial class XenobiologySystem
             if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
                 selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
 
-            var sl = SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
-            if (sl.HasValue)
-            {
-                // carries over generations. type shit.
-                var newSlime = sl.Value.Comp;
-                newSlime.Tamer = ent.Comp.Tamer;
-                newSlime.MutationChance = ent.Comp.MutationChance;
-                newSlime.MaxOffspring = ent.Comp.MaxOffspring;
-                newSlime.ExtractsProduced = ent.Comp.ExtractsProduced;
-            }
+            if (!TrySpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed, out var sl))
+                continue;
+            // carries over generations. type shit.
+            var newSlime = sl.Value.Comp;
+            newSlime.Tamer = ent.Comp.Tamer;
+            newSlime.MutationChance = ent.Comp.MutationChance;
+            newSlime.MaxOffspring = ent.Comp.MaxOffspring;
+            newSlime.ExtractsProduced = ent.Comp.ExtractsProduced;
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
         QueueDel(ent);
     }
+    /// <summary>
+    /// Returns the extract associated by the slimes breed.
+    /// </summary>
+    /// <param name="slime">The slime entity.</param>
+    /// <returns>Gray if no breed can be found.</returns>
+    public EntProtoId GetProducedExtract(Entity<SlimeComponent> slime)
+    {
+        return _prototypeManager.TryIndex(slime.Comp.Breed, out var breedPrototype)
+            ? breedPrototype.ProducedExtract
+            : slime.Comp.DefaultExtract;
+    }
 
     /// <summary>
-    ///     Spawns a slime with a given mutation
+    ///  Tries to spawn a slime with a given mutation, returns false if unsuccessful.
     /// </summary>
     /// <param name="parent">The original entity.</param>
-    /// <param name="newEntityProto">The proto of the entity being spawned.</param>
+    /// <param name="newEntityProto">The prototype of the entity being spawned.</param>
     /// <param name="selectedBreed">The selected breed of the entity.</param>
-    private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
+    /// <param name="slime">The slime that was spawned.</param>
+    private bool TrySpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed, [NotNullWhen(true)] out Entity<SlimeComponent>? slime)
     {
-        if (Deleted(parent)
-        || !_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
-            return null;
-
+        slime = null;
+        if (Deleted(parent) || _net.IsClient || !_prototypeManager.TryIndex(selectedBreed, out var newBreed))
+            return false;
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
         if (!TryComp<SlimeComponent>(newEntityUid, out var newSlime))
-            return null;
-
-        if (newSlime.ShouldHaveShader && newSlime.Shader != null)
+            return false;
+        if (newSlime is { ShouldHaveShader: true, Shader: not null })
             _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
         _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
 
-        return new Entity<SlimeComponent>(newEntityUid, newSlime);
+        slime = (newEntityUid, newSlime);
+        return true;
     }
 }
