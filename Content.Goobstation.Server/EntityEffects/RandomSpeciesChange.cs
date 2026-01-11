@@ -11,8 +11,8 @@ public sealed partial class RandomSpeciesChange : EntityEffect
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-change-species-random");
 
-    [DataField] public List<ProtoId<SpeciesPrototype>> SpeciesWhitelist;
-    [DataField] public List<ProtoId<SpeciesPrototype>> SpeciesBlacklist;
+    [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesWhitelist;
+    [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesBlacklist;
 
     public override void Effect(EntityEffectBaseArgs args)
     {

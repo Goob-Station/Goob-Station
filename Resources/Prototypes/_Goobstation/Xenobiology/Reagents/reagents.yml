@@ -2,7 +2,7 @@
   id: BaseXenobioReagent
   abstract: true
   group: Biological
-  flavor: funny
+  flavor: horrible
   physicalDesc: reagent-physical-desc-viscous
   recognizable: false
   viscosity: 0.25
