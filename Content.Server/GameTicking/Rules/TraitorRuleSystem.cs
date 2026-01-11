@@ -137,6 +137,9 @@ using Content.Server.Codewords;
 using Content.Server.Database;
 using Content.Shared.Clumsy;
 using Content.Server.Popups;
+using Content.Shared.CCVar;
+using Content.Goobstation.Common.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -157,6 +160,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!; // goob edit
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // goob edit
 
     public override void Initialize()
     {
@@ -247,7 +251,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
 
         // goob edit - clumsy antag no more
-        if (TryComp<ClumsyComponent>(traitor, out var clumsy))
+        var shouldRemoveClumsy = _cfg.GetCVar(GoobCVars.RemoveClumsyOnAntag);
+        if (TryComp<ClumsyComponent>(traitor, out var clumsy) && shouldRemoveClumsy)
         {
             // if not for the clown car i would've nuked it off the planet
             clumsy.ClumsyCatching = false;

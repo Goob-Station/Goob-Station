@@ -122,6 +122,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> HighpopThreshold =
         CVarDef.Create("game.players.highpop_threshold", 50f, CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> RemoveClumsyOnAntag =
+        CVarDef.Create("game.antag.gain.remove_clumsy", true, CVar.SERVERONLY);
+
     /// <summary>
     ///     Is ore silo enabled.
     /// </summary>
