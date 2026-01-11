@@ -20131,3 +20131,13 @@ Entries:
       message: 'CQC riposte '
   id: 2277
   time: '2026-01-09T22:30:50.0000000+00:00'
+- author: Durk, Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        GPS are cool and useful now! They can track beacons and other GPS
+        trackers on a visual map in their new UI.
+    - type: Tweak
+      message: Handheld mass scanners were added back into the game.
+  id: 2278
+  time: '2026-01-10T19:21:35.0000000+00:00'
