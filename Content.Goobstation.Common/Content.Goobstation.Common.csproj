@@ -22,10 +22,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Temperature\" />
-    </ItemGroup>
-
     <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
     <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
 
