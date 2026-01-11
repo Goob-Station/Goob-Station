@@ -50,35 +50,6 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        UpdateMitosis();
-    }
-
-    private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
-    {
-        // it sucks but it works and now y*ml warriors can add more slimes 500% faster
-        if(!TrySpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed,out var slime))
-            return;
-
-        var s = slime.Value.Comp;
-        // every xenobio slime copy is personalized. feel free to tweak it as you like
-        // the rest of the shit such as inheritance is handled by SpawnSlime
-        s.MutationChance *= _random.NextFloat(.5f, 1.5f);
-        s.MaxOffspring += _random.Next(-1, 2);
-        s.ExtractsProduced += _random.Next(0, 2);
-        s.MitosisHunger *= _random.NextFloat(.75f, 1.2f);
-    }
-
-    private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
-    {
-        Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
-        ent.Comp.NextUpdateTime = _gameTiming.CurTime + TimeSpan.FromSeconds(_random.NextDouble(2, ent.Comp.UpdateInterval.TotalSeconds));
-    }
-
-    /// <summary>
-    ///     Checks slime entity hunger threshold, if the threshold required by SlimeComponent is met -> DoMitosis.
-    /// </summary>
-    private void UpdateMitosis()
-    {
         var eligibleSlimes = new HashSet<Entity<SlimeComponent, HungerComponent>>();
         var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
@@ -99,6 +70,28 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
                 _jitter.DoJitter(slime, TimeSpan.FromSeconds(1), true);
             DoMitosis(slime);
         }
+    }
+
+    private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
+    {
+        // it sucks but it works and now y*ml warriors can add more slimes 500% faster
+        if(!TrySpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed,out var slime))
+            return;
+
+        var s = slime.Value.Comp;
+        // every xenobio slime copy is personalized. feel free to tweak it as you like
+        // the rest of the shit such as inheritance is handled by SpawnSlime
+        s.MutationChance *= _random.NextFloat(.5f, 1.5f);
+        s.MaxOffspring += _random.Next(-1, 2);
+        s.ExtractsProduced += _random.Next(0, 2);
+        s.MitosisHunger *= _random.NextFloat(.75f, 1.2f);
+    }
+
+    private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
+    {
+        Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
+        // stagger slime mitosis
+        ent.Comp.NextUpdateTime = _gameTiming.CurTime + TimeSpan.FromSeconds(_random.NextDouble(0, ent.Comp.UpdateInterval.TotalSeconds));
     }
 
     /// <summary>
