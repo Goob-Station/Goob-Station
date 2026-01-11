@@ -17,6 +17,8 @@ namespace Content.Goobstation.Client.Chemistry.UI;
 public sealed partial class EnergyReagentCardControl : Control
 {
     public string ReagentId { get; }
+    public float PowerCostPerUnit { get; }
+    public bool IsDisabled => MainButton.Disabled;
     public Action<string>? OnPressed;
 
     public EnergyReagentCardControl(EnergyReagentInventoryItem item)
@@ -24,10 +26,27 @@ public sealed partial class EnergyReagentCardControl : Control
         RobustXamlLoader.Load(this);
 
         ReagentId = item.ReagentId;
+        PowerCostPerUnit = item.PowerCostPerUnit;
         ColorPanel.PanelOverride = new StyleBoxFlat { BackgroundColor = item.ReagentColor };
         ReagentNameLabel.Text = item.ReagentLabel;
         FillLabel.Text = $"{item.PowerCostPerUnit}W/u";
 
         MainButton.OnPressed += args => OnPressed?.Invoke(ReagentId);
+    }
+    public void SetDisabled(bool disabled, string tooltip = "")
+    {
+        if (disabled)
+        {
+            // Gray out the card when disabled
+            Modulate = Color.Gray;
+            MainButton.Disabled = true;
+            ToolTip = tooltip;
+        }
+        else
+        {
+            Modulate = Color.White;
+            MainButton.Disabled = false;
+            ToolTip = null;
+        }
     }
 }

@@ -52,9 +52,6 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Goobstation.Client.Chemistry.UI
 {
-    /// <summary>
-    /// Client-side UI used to control a <see cref="EnergyReagentDispenserComponent"/>.
-    /// </summary>
     [GenerateTypedNameReferences]
     public sealed partial class EnergyReagentDispenserWindow : FancyWindow
     {
@@ -64,27 +61,21 @@ namespace Content.Goobstation.Client.Chemistry.UI
         private float _batteryCharge;
         private float _batteryMaxCharge;
         private float _currentReceiving;
+        private int _selectedAmount;
+        private float _lastBatteryCharge = -1;
+        private bool _cardsNeedUpdate = true;
         public event Action<string>? OnDispenseReagentButtonPressed;
-        /// <summary>
-        /// Create and initialize the dispenser UI client-side. Creates the basic layout,
-        /// actual data isn't filled in until the server sends data about the dispenser.
-        /// </summary>
         public EnergyReagentDispenserWindow()
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
         }
-        /// <summary>
-        /// Update the button grid of reagents which can be dispensed.
-        /// </summary>
-        /// <param name="inventory">Reagents which can be dispensed by this dispenser</param>
         public void UpdateReagentsList(List<EnergyReagentInventoryItem> inventory)
         {
             if (ReagentList == null)
                 return;
 
             ReagentList.Children.Clear();
-            //Sort inventory by reagentLabel
             inventory.Sort((x, y) => string.Compare(x.ReagentLabel, y.ReagentLabel, StringComparison.Ordinal));
 
             foreach (var card in inventory
@@ -93,11 +84,10 @@ namespace Content.Goobstation.Client.Chemistry.UI
                 card.OnPressed += OnDispenseReagentButtonPressed;
                 ReagentList.Children.Add(card);
             }
+            _cardsNeedUpdate = true;
+            UpdateCardStates();
         }
 
-        /// <summary>
-        /// Update the UI state when new state data is received from the server.
-        /// </summary>
         public void UpdateState(BoundUserInterfaceState message)
         {
             if (message is not EnergyReagentDispenserBoundUserInterfaceState state)
@@ -106,6 +96,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
             _batteryMaxCharge = state.BatteryMaxCharge;
             _batteryCharge = state.BatteryCharge;
             _currentReceiving = state.CurrentReceivingEnergy;
+            _selectedAmount = (int)state.SelectedDispenseAmount;
 
             UpdateContainerInfo(state);
             UpdateReagentsList(state.Inventory);
@@ -114,12 +105,12 @@ namespace Content.Goobstation.Client.Chemistry.UI
             _entityManager.TryGetEntity(state.OutputContainerEntity, out var outputContainerEnt);
             View.SetEntity(outputContainerEnt);
 
-            // Disable the Clear & Eject button if no beaker
             ClearButton.Disabled = state.OutputContainer is null;
             EjectButton.Disabled = state.OutputContainer is null;
 
             AmountGrid.Selected = ((int)state.SelectedDispenseAmount).ToString();
-
+            _cardsNeedUpdate = true;
+            UpdateCardStates();
         }
 
         private void UpdateBatteryPercent()
@@ -128,7 +119,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
                 ? _batteryCharge / _batteryMaxCharge * 100
                 : 0;
 
-            BatteryStatusLabel.Text = $"{_batteryCharge:F0}/{_batteryMaxCharge:F0} ({batteryPercent:F0}%)";
+            BatteryStatusLabel.Text = $"{_batteryCharge,3:F0}/{_batteryMaxCharge,3:F0} ({batteryPercent,3:F0}%)";
             BatteryStatusLabel.StyleClasses.Clear();
             BatteryStatusLabel.StyleClasses.Add(batteryPercent switch
             {
@@ -138,12 +129,6 @@ namespace Content.Goobstation.Client.Chemistry.UI
             });
         }
 
-        /// <summary>
-        /// Update the fill state and list of reagents held by the current reagent container, if applicable.
-        /// <para>Also highlights a reagent if it's dispense button is being mouse hovered.</para>
-        /// </summary>
-        /// <param name="state">State data for the dispenser.</param>
-        /// or null if no button is being hovered.</param>
         public void UpdateContainerInfo(EnergyReagentDispenserBoundUserInterfaceState state)
         {
             ContainerInfo.Children.Clear();
@@ -156,13 +141,11 @@ namespace Content.Goobstation.Client.Chemistry.UI
                 return;
             }
 
-            // Set Name of the container and its fill status (Ex: 44/100u)
             ContainerInfoName.Text = state.OutputContainer.DisplayName;
             ContainerInfoFill.Text = state.OutputContainer.CurrentVolume + "/" + state.OutputContainer.MaxVolume;
 
             foreach (var (reagent, quantity) in state.OutputContainer.Reagents!)
             {
-                // Try get to the prototype for the given reagent. This gives us its name.
                 var localizedName = _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? proto)
                     ? proto.LocalizedName
                     : Loc.GetString("reagent-dispenser-window-reagent-name-not-found-text");
@@ -186,12 +169,80 @@ namespace Content.Goobstation.Client.Chemistry.UI
             }
         }
 
+        private void UpdateCardStates()
+        {
+            if (ReagentList == null || !_cardsNeedUpdate)
+                return;
+
+            var stateChanged = false;
+            foreach (var child in ReagentList.Children)
+            {
+                if (child is not EnergyReagentCardControl card)
+                    continue;
+
+                var totalCost = card.PowerCostPerUnit * _selectedAmount;
+                var shouldBeDisabled = totalCost > _batteryCharge;
+                if (card.IsDisabled != shouldBeDisabled)
+                {
+                    stateChanged = true;
+                    break;
+                }
+            }
+
+            if (!stateChanged && _lastBatteryCharge == _batteryCharge)
+                return;
+
+            _lastBatteryCharge = _batteryCharge;
+            _cardsNeedUpdate = false;
+
+            foreach (var child in ReagentList.Children)
+            {
+                if (child is not EnergyReagentCardControl card)
+                    continue;
+
+                var totalCost = card.PowerCostPerUnit * _selectedAmount;
+                if (totalCost > _batteryCharge)
+                {
+                    card.SetDisabled(true, "Insufficient energy");
+                }
+                else
+                {
+                    card.SetDisabled(false);
+                }
+            }
+        }
+
         protected override void FrameUpdate(FrameEventArgs args)
         {
             base.FrameUpdate(args);
 
+            var oldCharge = _batteryCharge;
             _batteryCharge = Math.Clamp(_batteryCharge + _currentReceiving * args.DeltaSeconds, 0, _batteryMaxCharge);
-            UpdateBatteryPercent();
+            if ((int)oldCharge != (int)_batteryCharge)
+            {
+                UpdateBatteryPercent();
+            }
+            CheckEnergyThresholds(oldCharge, _batteryCharge);
+        }
+
+        private void CheckEnergyThresholds(float oldEnergy, float newEnergy)
+        {
+            if (ReagentList == null)
+                return;
+
+            foreach (var child in ReagentList.Children)
+            {
+                if (child is not EnergyReagentCardControl card)
+                    continue;
+
+                var threshold = card.PowerCostPerUnit * _selectedAmount;
+                if ((oldEnergy < threshold && newEnergy >= threshold) || (oldEnergy >= threshold && newEnergy < threshold))
+                {
+                    _cardsNeedUpdate = true;
+                    break;
+                }
+            }
+            UpdateCardStates();
         }
     }
 }
