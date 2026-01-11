@@ -111,9 +111,6 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
     /// </summary>
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
-        if (_net.IsClient)
-            return;
-
         var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
         _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
 
@@ -159,7 +156,7 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
     private bool TrySpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed, [NotNullWhen(true)] out Entity<SlimeComponent>? slime)
     {
         slime = null;
-        if (Deleted(parent) || _net.IsClient || !_prototypeManager.TryIndex(selectedBreed, out var newBreed))
+        if (Deleted(parent) || !_prototypeManager.TryIndex(selectedBreed, out var newBreed))
             return false;
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
         if (!TryComp<SlimeComponent>(newEntityUid, out var newSlime))
