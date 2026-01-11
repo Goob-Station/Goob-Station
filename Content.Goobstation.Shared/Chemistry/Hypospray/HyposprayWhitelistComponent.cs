@@ -9,7 +9,6 @@ namespace Content.Goobstation.Shared.Chemistry.Hypospray;
 [RegisterComponent, AutoGenerateComponentState]
 public sealed partial class HyposprayWhitelistComponent : Component
 {
-
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<ReagentPrototype>> Whitelist = [];
 
