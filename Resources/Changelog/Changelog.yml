@@ -5356,3 +5356,10 @@ Entries:
   id: 9374
   time: '2026-01-11T04:19:48.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42330
+- author: SlamBamActionman
+  changes:
+  - message: Added an admin log for whenever a player connects/disconnects.
+    type: Add
+  id: 9375
+  time: '2026-01-11T21:46:54.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42363
