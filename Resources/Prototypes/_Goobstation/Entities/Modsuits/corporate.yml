@@ -126,6 +126,10 @@
         - state: equipped-HEAD-sealed-vox
         - state: equipped-HEAD-sealed-unshaded-vox
           shader: unshaded
+        head-vulpkanin: #TODO: add vulp sprites
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
     - type: ActivatableUI
       inHandsOnly: false # Goobstation
       singleUser: true
