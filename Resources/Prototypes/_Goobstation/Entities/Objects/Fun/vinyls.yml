@@ -418,6 +418,127 @@
       path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Bach-Cello-Suite-PM-Music.ogg
 
 - type: entity
+  name: "vinyl disk: Get that antag!"
+  id: VinylDiskGetThatAntag
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: valid-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/GetThatAntag!.ogg
+
+- type: entity
+  name: "vinyl disk: Want you gone"
+  id: VinylDiskWantYouGone
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: earth-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/WantYouGone.ogg
+
+- type: entity
+  name: "vinyl disk: Law 2, open armory"
+  id: VinylDiskLaw2
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: aisad-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/LAW2OPENARMORY.ogg
+
+- type: entity
+  name: "vinyl disk: Ephedrine Overdose"
+  id: VinylDiskEphedrine
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: ephedrine-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/EphedrineOverdose.ogg
+
+- type: entity
+  name: "vinyl disk: Running Out Cover"
+  id: VinylDiskRunningOut
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: greenish-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/RunningOutCover.ogg
+
+- type: entity
+  name: "vinyl disk: Journey"
+  id: VinylDiskJourney
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: ttd-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/OpenTTDJourney.ogg
+
+- type: entity
+  name: "vinyl disk: Traitorous Intent"
+  id: VinylDiskTraitorousIntent
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightishred-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/TraitorousIntent.ogg
+
+- type: entity
+  name: "vinyl disk: Violet"
+  id: VinylDiskViolet
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/violet.ogg
+
+- type: entity
+  name: "vinyl disk: lay egg is true"
+  id: VinylDiskEgg
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: pizza-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/lay_egg_is_true.ogg
+
+- type: entity
+  name: "vinyl disk: We are number two"
+  id: VinylDiskWeAreNumberTwo
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/we_are_number_two.ogg
+
+- type: entity
+  name: "vinyl disk: EXTRA METAL"
+  id: VinylDiskExtraMetal
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: green-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/xtra.ogg
+
+- type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
   parent: BaseVinylDisk
