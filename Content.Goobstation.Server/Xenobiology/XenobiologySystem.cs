@@ -14,11 +14,9 @@ using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -38,10 +36,8 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
 
     public override void Initialize()
@@ -79,11 +75,11 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
     }
 
     /// <summary>
-    ///     Checks slime entity hunger threshholds, if the threshhold required by SlimeComponent is met -> DoMitosis.
+    ///     Checks slime entity hunger threshold, if the threshold required by SlimeComponent is met -> DoMitosis.
     /// </summary>
     private void UpdateMitosis()
     {
-        var eligibleSlimes = new HashSet<Entity<SlimeComponent>>();
+        var eligibleSlimes = new HashSet<Entity<SlimeComponent, HungerComponent>>();
         var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
@@ -92,16 +88,17 @@ public sealed class XenobiologySystem : SharedXenobiologySystem
                 || growthComp.IsFirstStage)
                 continue;
             slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
-
-            var hunger = _hunger.GetHunger(hungerComp);
-            if (hunger > slime.MitosisHunger - slime.JitterDifference)
-                _jitter.DoJitter(uid, TimeSpan.FromSeconds(1), true);
-            if (hunger >= slime.MitosisHunger)
-                eligibleSlimes.Add((uid, slime));
+            if (_hunger.GetHunger(hungerComp) >= slime.MitosisHunger)
+                eligibleSlimes.Add((uid,slime,hungerComp));
         }
 
         foreach (var slime in eligibleSlimes)
+        {
+            var (_, slimeComp,hungerComp) = slime;
+            if (_hunger.GetHunger(hungerComp) > slimeComp.MitosisHunger - slimeComp.JitterDifference)
+                _jitter.DoJitter(slime, TimeSpan.FromSeconds(1), true);
             DoMitosis(slime);
+        }
     }
 
     /// <summary>

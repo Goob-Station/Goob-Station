@@ -18,6 +18,7 @@ public abstract class SharedXenobiologySystem : EntitySystem
 
     private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)
     {
+        // theres delay on this no matter what
         if (!args.IsInDetailsRange)
             return;
         if (slime.Comp.Tamer == args.Examiner)
