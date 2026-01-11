@@ -45,3 +45,257 @@
   - type: StorageFill
     contents:
     - id: ClawMachineFlatPack
+
+- type: entity
+  id: CrateCargoForklift
+  parent: CrateLivestock
+  name: Forklift crate
+  description: A perfect utility vehicle for cargo.
+  components:
+    - type: StorageFill
+      contents:
+        - id: VehicleForklift
+        - id: VehicleKeyForklift
+
+- type: entity
+  id: CrateRadioStationAds
+  parent: CrateGenericSteel
+  name: ads crate
+  description: A whole crate which sole purpose is to store 6 exclusive ads, aint capitalism great?
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomCDDisk
+        rolls: 6
+
+- type: entity
+  id: CrateRadioStationVinyls
+  parent: CrateGenericSteel
+  name: vinyls crate
+  description: A crate with 12 vinyls so you'll NEVER play the same song twice, they come in sleeves!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomVinylSleeve
+        rolls: 12
+
+- type: entityTable
+  id: RandomCDDisk
+  table: !type:GroupSelector
+    children:
+    - id: CdDiskDanitosBurritos
+      weight: 1
+    - id: CdDiskBillMovie
+      weight: 1
+    - id: CdDiskCapTraining
+      weight: 1
+    - id: CdDiskCargonia
+      weight: 1
+    - id: CdDiskChemistry
+      weight: 1
+    - id: CdDiskCloningPsa
+      weight: 1
+    - id: CdDiskDansTickets
+      weight: 1
+    - id: CdDiskGrones
+      weight: 1
+    - id: CdDiskPopeCrunchCereal
+      weight: 1
+    - id: CdDiskQuikNoodles
+      weight: 1
+    - id: CdDiskRobotics
+      weight: 1
+    - id: CdDiskSecurityPsa
+      weight: 1
+    - id: JVNECdDiskCapstien
+      weight: 0.3
+    - id: JVNECdDiskNinja
+      weight: 0.3
+    - id: JVNECdDiskNextUp
+      weight: 0.5
+    - id: JVNECdDiskJNE
+      weight: 0.3
+    - id: CdDiskCommanderAnnouncement
+      weight: 0.2
+    - id: CdDiskCommanderFigurines
+      weight: 0.2
+    - id: CdDiskCommanderResignation
+      weight: 0.2
+    - id: CdDiskCommanderSupport
+      weight: 0.2
+    - id: CdDiskHeisenbeeTrial
+      weight: 0.2
+    - id: CdDiskXgOnboarding1
+      weight: 0.1
+    - id: CdDiskXgOnboarding2
+      weight: 0.1
+    - id: CdDiskXgOnboarding3
+      weight: 0.1
+    - id: CdDiskXgOnboarding4
+      weight: 0.1
+
+- type: entityTable
+  id: RandomVinylDisk
+  table: !type:GroupSelector
+    children:
+    - id: VinylDiskAI
+      weight: 1
+    - id: VinylDiskDevil
+      weight: 1
+    - id: VinylDiskPizza
+      weight: 1
+    - id: VinylDiskGlossy
+      weight: 1
+    - id: VinylDiskRed
+      weight: 1
+    - id: VinylDiskLightBlue
+      weight: 1
+    - id: VinylDiskBanana
+      weight: 1
+    - id: VinylDiskCarrot
+      weight: 1
+    - id: VinylDiskCyan
+      weight: 1
+    - id: VinylDiskBlue
+      weight: 1
+    - id: VinylDiskYellow
+      weight: 1
+    - id: VinylDiskGreen
+      weight: 1
+    - id: VinylDiskPurple
+      weight: 1
+    - id: VinylDiskOrange
+      weight: 1
+    - id: VinylDiskWhite
+      weight: 1
+    - id: VinylDiskLightRed
+      weight: 1
+    - id: VinylDiskDarkBlue
+      weight: 1
+    - id: VinylDiskPink
+      weight: 1
+    - id: VinylDiskBurnTheWorld
+      weight: 1
+    - id: VinylDiskFeralAngel
+      weight: 1
+    - id: VinylDiskAlsoSprach
+      weight: 1
+    - id: VinylDiskValkyries
+      weight: 1
+    - id: VinylDiskRomeoJuliet
+      weight: 1
+    - id: VinylDiskRussian
+      weight: 1
+    - id: VinylDiskFlowerDuet
+      weight: 1
+    - id: VinylDiskWinterVivaldi
+      weight: 1
+    - id: VinylDiskBachCello
+      weight: 1
+    - id: VinylDiskFloaty
+      weight: 1
+    - id: VinylDiskLime
+      weight: 1
+    - id: VinylDiskForgotten
+      weight: 0.05
+    - id: VinylDiskGetThatAntag
+      weight: 1
+    - id: VinylDiskLaw2
+      weight: 1
+    - id: VinylDiskEphedrine
+      weight: 1
+    - id: VinylDiskRunningOut
+      weight: 1
+    - id: VinylDiskJourney
+      weight: 1
+    - id: VinylDiskTraitorousIntent
+      weight: 1
+    - id: VinylDiskViolet
+      weight: 1
+    - id: VinylDiskWantYouGone
+      weight: 1
+    - id: VinylDiskEgg
+      weight: 1
+    - id: VinylDiskWeAreNumberTwo
+      weight: 1
+
+- type: entityTable
+  id: RandomVinylSleeve
+  table: !type:GroupSelector
+    children:
+    - id: VinylSleeveAI
+      weight: 1
+    - id: VinylSleeveDevil
+      weight: 1
+    - id: VinylSleevePizza
+      weight: 1
+    - id: VinylSleeveFart
+      weight: 1
+    - id: VinylSleeveLavaLand
+      weight: 1
+    - id: VinylSleeveHockey
+      weight: 1
+    - id: VinylSleeveRat
+      weight: 1
+    - id: VinylSleeveMgs
+      weight: 1
+    - id: VinylSleeveQuestionable
+      weight: 1
+    - id: VinylSleeveJanitor
+      weight: 1
+    - id: VinylSleeveWeird
+      weight: 1
+    - id: VinylSleeveDJClown
+      weight: 1
+    - id: VinylSleeveVampire
+      weight: 1
+    - id: VinylSleeveShulker
+      weight: 1
+    - id: VinylSleeveRedSun
+      weight: 1
+    - id: VinylSleeveSkull
+      weight: 1
+    - id: VinylSleeveFisherman
+      weight: 1
+    - id: VinylSleeveHeisenbee
+      weight: 1
+    - id: VinylSleeveStation13
+      weight: 1
+    - id: VinylSleeveStation14
+      weight: 1
+    - id: VinylSleeveNukeDisk
+      weight: 1
+    - id: VinylSleeveBlockyCraft
+      weight: 1
+    - id: VinylSleeveEye
+      weight: 1
+    - id: VinylSleeveTh
+      weight: 1
+    - id: VinylSleeveClown
+      weight: 1
+    - id: VinylSleeveNanoYork
+      weight: 1
+    - id: VinylSleeveDJTider
+      weight: 1
+    - id: VinylSleeveCoffee
+      weight: 1
+    - id: VinylSleeveWelcomeSS13
+      weight: 1
+    - id: VinylSleevePeace
+      weight: 1
+    - id: VinylSleeveJapan
+      weight: 1
+    - id: VinylSleeveChristmas
+      weight: 1
+    - id: VinylSleevePickle
+      weight: 1
+    - id: VinylSleeveFlash
+      weight: 1
+    - id: VinylSleeveBeige
+      weight: 1
+    - id: VinylSleeveBlack
+      weight: 1
+    - id: VinylSleeveWhite
+      weight: 1

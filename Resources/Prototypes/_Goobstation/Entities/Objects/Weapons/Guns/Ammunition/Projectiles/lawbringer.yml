@@ -241,7 +241,7 @@
       ammo:
         reagents:
         - ReagentId: Haloperidol
-          Quantity: 2
+          Quantity: 1.5
   - type: BlurOnCollide
 
 - type: entity

@@ -32,7 +32,7 @@ public sealed partial class BotanySystem
             if (mutation.AppliesToProduce)
             {
                 var args = new EntityEffectBaseArgs(uid, EntityManager);
-                mutation.Effect.Effect(args);
+                _effect.Effect(mutation.Effect, args); // goob edit - use system instead
             }
         }
 

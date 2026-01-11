@@ -1,0 +1,72 @@
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackXenoBioTank
+  name: xenovac containment tank
+  description: Holds xenofauna. Also contains a vacuum nozzle on it's side. It's just like slime rancher.
+  components:
+  - type: XenoVacuumTank
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots:
+    - SUITSTORAGE
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+  - type: ContainerContainer
+    containers:
+      tankbase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: [ ]
+      item: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      StorageTank: !type:Container
+        showEnts: False
+        occludes: True
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      item:
+        priority: 2
+        whitelist:
+          components:
+          - XenoVacuum
+  - type: ItemMapper
+    mapLayers:
+      icon-filled:
+        whitelist:
+          components:
+          - XenoVacuum
+
+- type: entity
+  id: ClothingBackpackXenoBioTankFilled
+  parent: ClothingBackpackXenoBioTank
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponXenoVacNozzle
+
+- type: entity
+  id: WeaponXenoVacNozzle
+  parent: BaseItem
+  name: xenovac nozzle
+  description: A high-powered vacuum nozzle used in conjunction with a backpack-mounted storage tank to store slimes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    size: Normal
+  - type: Appearance
+  - type: XenoVacuum
+    entityWhitelist:
+      components:
+      - Slime

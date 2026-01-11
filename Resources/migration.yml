@@ -528,11 +528,11 @@ VehicleSecwayStealObjective: null
 #VehicleKeyATV: null Goobstation - Re-add vehicles
 VehicleKeySkeleton: null
 #VehicleKeySyndicateSegway: null Goobstation - Re-add vehicles
-VehicleKeySkeletonMotorcycle: null
+#VehicleKeySkeletonMotorcycle: null Corvax Goobstation - Re-add vehicles
 #VehicleSecway: null Goobstation - Re-add vehicles
 #VehicleATV: null Goobstation - Re-add vehicles
 #VehicleSyndicateSegway: null Goobstation - Re-add vehicles
-VehicleSkeletonMotorcycle: null
+#VehicleSkeletonMotorcycle: null Corvax Goobstation - Re-add vehicles
 VehicleUnicycle: null
 VehicleUnicycleFolded: null
 ActionVehicleHorn: null
@@ -1061,5 +1061,8 @@ ClothingNeckHeadphones: ClothingMultipleHeadphones
 # 2025-10-09
 FoodDonutJellySlugcat: FoodDonutJellyScurret
 
-# 2025-07-14 Goobstation Change Mapped Chem to Energy Chem by default
+# 2026-01-04
+GhostBarSpawner: null
+
+# 2026-01-10 Goobstation Change Mapped Chem to Energy Chem by default
 ChemDispenser: EnergyChemDispenser

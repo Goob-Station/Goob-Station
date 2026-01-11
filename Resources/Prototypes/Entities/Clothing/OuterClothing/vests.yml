@@ -135,7 +135,6 @@
       NerveDamage: 0
     coverage:
     - Chest
-    - Groin
     modifiers:
       coefficients:
         Blunt: 0.55
