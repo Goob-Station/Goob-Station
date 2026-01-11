@@ -40,6 +40,7 @@
   - AdvancedBoneGel # Shitmed
   # - BorgModuleDefibrillator # Goobstation, medical cyborgs start with this
   - BorgModuleAdvancedSurgery # Shitmed
+  - MedicalHypo # Goob
   technologyPrerequisites:
   - AdvancedEntertainment
   position: -2,4

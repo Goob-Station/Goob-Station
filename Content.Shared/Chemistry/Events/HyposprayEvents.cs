@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Inventory;
 
 namespace Content.Shared.Chemistry.Hypospray.Events;
@@ -41,4 +42,43 @@ public sealed class SelfBeforeHyposprayInjectsEvent : BeforeHyposprayInjectsTarg
 public sealed class TargetBeforeHyposprayInjectsEvent : BeforeHyposprayInjectsTargetEvent
 {
     public TargetBeforeHyposprayInjectsEvent(EntityUid user, EntityUid hypospray, EntityUid target) : base(user, hypospray, target) { }
+}
+
+/// <summary>
+///     This even is raised on the hypospray itself before it injects.
+///     Goobstation
+/// </summary>
+public sealed class BeforeHyposprayInjectsEvent : BeforeHyposprayInjectsTargetEvent
+{
+    public BeforeHyposprayInjectsEvent(EntityUid user, EntityUid hypospray, EntityUid target) : base(user, hypospray, target) { }
+}
+
+
+/// <summary>
+///     This event is raised on the hypospray before it draws.
+///     Goobstation
+/// </summary>
+public sealed partial class BeforeHyposprayDrawEvent : CancellableEntityEventArgs
+{
+    /// <summary>
+    /// Entity that used the hypospray.
+    /// </summary>
+    public EntityUid User;
+
+    /// <summary>
+    /// Entity that is being drawn from.
+    /// </summary>
+    public EntityUid Target;
+
+    /// <summary>
+    /// Solution that is being drawn from.
+    /// </summary>
+    public Entity<SolutionComponent> Soln;
+
+    public BeforeHyposprayDrawEvent(EntityUid user, EntityUid target, Entity<SolutionComponent> soln)
+    {
+        User = user;
+        Target = target;
+        Soln = soln;
+    }
 }

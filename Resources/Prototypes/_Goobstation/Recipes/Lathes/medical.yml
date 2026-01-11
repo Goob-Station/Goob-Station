@@ -154,3 +154,14 @@
   materials:
     Plastic: 500
     Cloth: 500
+
+- type: latheRecipe
+  id: MedicalHypo
+  result: MedicalHypo
+  completetime: 8
+  materials:
+    Steel: 500
+    Plastic: 500
+    Glass: 250
+    Silver: 100
+    Gold: 75

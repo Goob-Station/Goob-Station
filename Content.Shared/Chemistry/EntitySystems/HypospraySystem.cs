@@ -119,6 +119,15 @@ public sealed class HypospraySystem : EntitySystem
 
         string? msgFormat = null;
 
+        // Goobstation
+        var entityEvent = new BeforeHyposprayInjectsEvent(user, entity.Owner, target);
+        RaiseLocalEvent(entity, entityEvent);
+        if (entityEvent.Cancelled)
+        {
+            _popup.PopupClient(Loc.GetString(entityEvent.InjectMessageOverride ?? "hypospray-cant-inject", ("owner", Identity.Entity(target, EntityManager))), target, user);
+            return false;
+        }
+
         // Self event
         var selfEvent = new SelfBeforeHyposprayInjectsEvent(user, entity.Owner, target);
         RaiseLocalEvent(user, selfEvent);
@@ -221,6 +230,12 @@ public sealed class HypospraySystem : EntitySystem
         {
             return false;
         }
+
+        // Goobstation
+        var drawEvent = new BeforeHyposprayDrawEvent(user, target, targetSolution);
+        RaiseLocalEvent(entity, drawEvent);
+        if (drawEvent.Cancelled)
+            return false;
 
         // Get transfer amount. May be smaller than _transferAmount if not enough room, also make sure there's room in the injector
         var realTransferAmount = FixedPoint2.Min(entity.Comp.TransferAmount, targetSolution.Comp.Solution.Volume,

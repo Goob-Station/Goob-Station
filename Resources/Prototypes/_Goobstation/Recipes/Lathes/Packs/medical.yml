@@ -82,6 +82,7 @@
   - HandheldCrewMonitor
   - DefibrillatorCompact
   - ClothingHandsGlovesSurgical
+  - MedicalHypo
 
 - type: latheRecipePack
   id: EnvirosuitExtinguisherRefill

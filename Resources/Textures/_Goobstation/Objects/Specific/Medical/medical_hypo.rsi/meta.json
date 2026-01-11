@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "\"icon\" extracted from https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/hypo.dmi \"inhand-left\" extracted from https://github.com/ParadiseSS13/Paradise/blob/master/icons/mob/inhands/items_lefthand.dmi \"inhand-right\" extracted from https://github.com/ParadiseSS13/Paradise/blob/master/icons/mob/inhands/items_righthand.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

@@ -509,3 +509,110 @@
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.2
+
+- type: entity
+  name: medical hypospray
+  parent: [ BaseItem, BaseMedicalContraband ]
+  description: A modified hypospray with a sensor preventing the use of unsanctioned chemicals.
+  id: MedicalHypo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medical_hypo.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/medical_hypo.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 15
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: HyposprayWhitelist
+    drawFailureMessage: medical-hypospray-draw-failure
+    injectFailureMessage: medical-hypospray-inject-failure
+    whitelist:
+    - Stasizium
+    - Probital
+    - Mitogen
+    - Mitotrophin
+    - Tirimol
+    - Syriniver
+    - Musiver
+    - Ebifin
+    - Tehifin
+    - ProcenylLazide
+    - Bozaide
+    - Multiver
+    - Monover
+    - Calomel
+    - AmmoniatedMercury
+    - Antihol
+    - Ibuprofen
+    - SalicylicAcid
+    - Oxandrolone
+    - PentenicAcid
+    - Atropine
+    - Immurin
+    - Spaceacilin
+    - Devirate
+    - Dylovene
+    - Diphenhydramine
+    - Ethylredoxrazine
+    - Arithrazine
+    - Bicaridine
+    - Cryoxadone
+    - Doxarubixadone
+    - Dermaline
+    - Dexalin
+    - DexalinPlus
+    - Epinephrine
+    - Hyronalin
+    - Ipecac
+    - Inaprovaline
+    - Kelotane
+    - Leporazine
+    - Barozine
+    - Phalanximine
+    - PolypyryliumOligomers
+    - Ambuzol
+    - AmbuzolPlus
+    - PulpedBananaPeel
+    - Saline
+    - Siderlac
+    - Stellibinin
+    - Synaptizine
+    - TranexamicAcid
+    - Tricordrazine
+    - Lipozine
+    - Omnizine
+    - Ultravasculine
+    - Oculine
+    - Cognizine
+    - Ethyloxyephedrine
+    - Diphenylmethylamine
+    - Lacerinol
+    - Puncturase
+    - Bruizine
+    - Pyrazine
+    - Insuzine
+    - Opporozidone
+    - Necrosol
+    - Aloxadone
+    - Mannitol
+    - Psicodine
+    - PotassiumIodide
+    - Haloperidol
+  - type: HyposprayClothingBlacklist
+    blacklist:
+      tags: [ Hardsuit ]
+      components: [ SealableClothing ] # mod-suits
+    slots: [ OUTERCLOTHING ]
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 1
