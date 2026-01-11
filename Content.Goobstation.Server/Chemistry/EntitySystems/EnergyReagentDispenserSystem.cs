@@ -111,8 +111,18 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             }
 
             var currentReceivingEnergy = 0f;
+            var usingBattery = false;
+            var idleUse = 0f;
             if (TryComp<ApcPowerReceiverBatteryComponent>(reagentDispenser, out var apcPower))
+            {
                 currentReceivingEnergy = apcPower.BatteryRechargeRate;
+                usingBattery = apcPower.Enabled;
+                idleUse = apcPower.IdleLoad;
+            }
+
+            var hasPower = false;
+            if (TryComp<ApcPowerReceiverComponent>(reagentDispenser, out var apc))
+                hasPower = apc.Powered;
 
             var state = new EnergyReagentDispenserBoundUserInterfaceState(
                 outputContainerInfo,
@@ -121,7 +131,10 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 reagentDispenser.Comp.DispenseAmount,
                 batteryCharge,
                 batteryMaxCharge,
-                currentReceivingEnergy
+                currentReceivingEnergy,
+                idleUse,
+                usingBattery,
+                hasPower
             );
             _userInterfaceSystem.SetUiState(reagentDispenser.Owner, EnergyReagentDispenserUiKey.Key, state);
         }

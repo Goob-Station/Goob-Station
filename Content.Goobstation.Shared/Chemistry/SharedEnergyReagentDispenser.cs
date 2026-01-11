@@ -107,7 +107,10 @@ namespace Content.Goobstation.Shared.Chemistry
         EnergyReagentDispenserDispenseAmount selectedDispenseAmount,
         float batteryCharge,
         float batteryMaxCharge,
-        float currentReceivingEnergy)
+        float currentReceivingEnergy,
+        float idleUse,
+        bool usingBattery,
+        bool hasPower)
         : BoundUserInterfaceState
     {
         public readonly ContainerInfo? OutputContainer = outputContainer;
@@ -123,6 +126,9 @@ namespace Content.Goobstation.Shared.Chemistry
         public readonly float BatteryCharge = batteryCharge;
         public readonly float BatteryMaxCharge = batteryMaxCharge;
         public readonly float CurrentReceivingEnergy = currentReceivingEnergy;
+        public readonly float IdleUse = idleUse;
+        public readonly bool UsingBattery = usingBattery;
+        public readonly bool HasPower = hasPower;
     }
 
     [Serializable, NetSerializable]

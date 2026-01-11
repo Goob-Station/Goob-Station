@@ -61,6 +61,9 @@ namespace Content.Goobstation.Client.Chemistry.UI
         private float _batteryCharge;
         private float _batteryMaxCharge;
         private float _currentReceiving;
+        private float _idleUse;
+        private bool _usingBattery;
+        private bool _hasPower;
         private int _selectedAmount;
         private float _lastBatteryCharge = -1;
         private bool _cardsNeedUpdate = true;
@@ -96,7 +99,10 @@ namespace Content.Goobstation.Client.Chemistry.UI
             _batteryMaxCharge = state.BatteryMaxCharge;
             _batteryCharge = state.BatteryCharge;
             _currentReceiving = state.CurrentReceivingEnergy;
+            _idleUse = state.IdleUse;
             _selectedAmount = (int)state.SelectedDispenseAmount;
+            _usingBattery = state.UsingBattery;
+            _hasPower = state.HasPower;
 
             UpdateContainerInfo(state);
             UpdateReagentsList(state.Inventory);
@@ -217,7 +223,21 @@ namespace Content.Goobstation.Client.Chemistry.UI
             base.FrameUpdate(args);
 
             var oldCharge = _batteryCharge;
-            _batteryCharge = Math.Clamp(_batteryCharge + _currentReceiving * args.DeltaSeconds, 0, _batteryMaxCharge);
+
+            /// Causes the UI to assume the battery is charging if it is connected to APC, and thus not refresh every tick
+            /// Refreshing every tick makes the UI extremely hard to use as buttons cannot be pressed at the same time
+            /// We check if ApcPowerReceiverBatteryComponent is enabled, aka the machine is using the battery for idle power as APC is off/disconnected
+            /// If you touch this expect the indicator to go fucking whack or the UI to become problematic. UI suck moment. This seriously caused issues for so long because braindead
+            /// We add a check for if Powered is false because when the battery hits 0, usingBattery becomes false despite no APC power still, otherwise it will start to tick back up the second it hits 0
+            if (_usingBattery || _hasPower == false)
+            {
+                _batteryCharge = Math.Clamp(_batteryCharge - _idleUse * args.DeltaSeconds, 0, _batteryMaxCharge);
+            }
+            else
+            {
+                _batteryCharge = Math.Clamp(_batteryCharge + _currentReceiving * args.DeltaSeconds, 0, _batteryMaxCharge);
+            }
+
             if ((int)oldCharge != (int)_batteryCharge)
             {
                 UpdateBatteryPercent();
