@@ -115,6 +115,9 @@
     - neck
   - type: StaticPrice
     price: 100
+  - type: PhysicalComposition 
+    materialComposition:
+      Cloth: 50
   - type: Tag
     tags:
     - Bedsheet
