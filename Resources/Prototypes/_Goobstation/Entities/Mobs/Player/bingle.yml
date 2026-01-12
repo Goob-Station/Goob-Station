@@ -52,7 +52,8 @@
     rules: ghost-role-information-bingle-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-    raffle: null # to match the spawner, these guys come out in droves anway
+    raffle:
+      settings: default
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi

@@ -154,7 +154,7 @@
                 "Server",
                 "Client"
             ],
-            //"preLaunchTask": "build"
+            "preLaunchTask": "build"
         },
         {
             "name": "Server/Client - Tools",
