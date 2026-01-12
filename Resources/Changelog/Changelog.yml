@@ -5363,3 +5363,10 @@ Entries:
   id: 9375
   time: '2026-01-11T21:46:54.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42363
+- author: Velken
+  changes:
+  - message: Fixed description for "help osay" command
+    type: Fix
+  id: 9376
+  time: '2026-01-12T03:04:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42368
