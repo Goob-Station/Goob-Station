@@ -15,7 +15,7 @@
       types:
         Slash: 15
     soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
+      path: /Audio/Weapons/slashermachetehit.ogg
   - type: DamageOtherOnHit
     damage:
       types:
