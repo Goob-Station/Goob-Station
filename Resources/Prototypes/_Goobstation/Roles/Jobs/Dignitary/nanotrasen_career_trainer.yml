@@ -8,10 +8,10 @@
   startingGear: NanotrasenCareerTrainerGear
   icon: "JobIconNanotrasenTrainer"
   joinNotifyCrew: true
-  supervisors: job-supervisors-ntr-centcom
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   whitelisted: true # 1984
-  setPreference: false # 1984 x2
+  setPreference: true
   accessGroups:
   - AllAccess
   access:
@@ -20,24 +20,22 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
-#  - !type:AddComponentSpecial # Intentionally not command. I don't want them to ruin rev rounds.
-#    components:
-#    - type: CommandStaff
+    implants: [ MindShieldImplant, BluespaceLifelineImplant, KravMagaImplant ] # Krav for self-defense, don't want to be defenceless chud, dont want to be too OP.
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+      - type: Condemned
+        soulOwnedNotDevil: true
 
 - type: startingGear
   id: NanotrasenCareerTrainerGear
   equipment:
     id: TrainerPDA
     ears: ClothingHeadsetAltCentCom
-    eyes: ClothingEyesGlassesCentComm
-    pocket1: WeaponDisabler
+    eyes: ClothingEyesGlassesCentCommNoThermal
+    pocket1: Flash
     pocket2: FoodSnackLollypopWrappedCentComm # Come on, it's a trademark at this point.
-  storage:
-    back:
-    - Flash
-    - TelescopicBatonAdvanced
-    - CentralCommandBusinessCard
+    back: ClothingModsuitTrainerFilled
 
 - type: chameleonOutfit
   id: NanotrasenCareerTrainerChameleonOutfit
@@ -49,7 +47,7 @@
     gloves: ClothingHandsGlovesHeavyGoldenTrim
     jumpsuit: ClothingUniformJumpsuitTrainer
     id: TrainerPDA
-    back: ClothingBackpackSatchelLeather
+    back: ClothingModsuitTrainer
     shoes: ClothingShoesBootsLaceup
     outerClothing: ClothingOuterWinterCoatTrainer
     head: ClothingHeadHatTrainer

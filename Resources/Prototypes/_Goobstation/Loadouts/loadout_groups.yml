@@ -1071,14 +1071,16 @@
   loadouts:
   - NanotrasenTrainerHat
   - NanotrasenTrainerBeret
+  - NanotrasenTrainerCap
 
 - type: loadoutGroup
-  id: NanotrasenTrainerBackpack
-  name: loadout-group-nct-backpack
+  id: NanotrasenTrainerMask
+  name: loadout-group-nct-mask
+  maxLimit: 1
   loadouts:
-  - NanotrasenTrainerSatchel
-  - NanotrasenTrainerBackpack
-  - NanotrasenTrainerDuffel
+  - NanotrasenTrainerMaskGas
+  - NanotrasenTrainerMaskGaiter
+  - NanotrasenTrainerMaskLolly
 
 - type: loadoutGroup
   id: NanotrasenTrainerJumpsuit
@@ -1093,26 +1095,35 @@
   minLimit: 0
   loadouts:
   - NanotrasenTrainerCoat
+  - NanotrasenTrainerArmorBasic
+  - NanotrasenTrainerArmorSlim
 
 - type: loadoutGroup
   id: NanotrasenTrainerGloves
   name: loadout-group-nct-gloves
   loadouts:
   - NanotrasenTrainerGloves
+  - NanotrasenTrainerGlovesCombat
 
 - type: loadoutGroup
   id: NanotrasenTrainerBelt
   name: loadout-group-nct-belt
   minLimit: 0
   loadouts:
-  - NanotrasenTrainerClipboard
+  - NanotrasenTrainerWebbing
+  - NanotrasenTrainerWaistbag
 
 - type: loadoutGroup
   id: NanotrasenTrainerShoes
   name: loadout-group-nct-shoes
   loadouts:
-  - NanotrasenTrainerBoots
+  - NanotrasenTrainerLaceup
   - NanotrasenTrainerShoes
+  - NanotrasenTrainerJack
+  - NanotrasenTrainerCowboyBlack
+  - NanotrasenTrainerCowboyBrown
+  - NanotrasenTrainerCowboyWhite
+  - NanotrasenTrainerCowboyFancy
 
 # Reporter
 

@@ -27,7 +27,7 @@ loadout-group-bso-neck = Blueshield Officer neck
 loadout-group-bso-shoes = Blueshield Officer shoes
 
 loadout-group-nct-head = Nanotrasen Career Trainer head
-loadout-group-nct-backpack = Nanotrasen Career Trainer backpack
+loadout-group-nct-mask = Nanotrasen Career Trainer mask
 loadout-group-nct-jumpsuit = Nanotrasen Career Trainer jumpsuit
 loadout-group-nct-outerclothing = Nanotrasen Career Trainer outerclothing
 loadout-group-nct-belt = Nanotrasen Career Trainer belt

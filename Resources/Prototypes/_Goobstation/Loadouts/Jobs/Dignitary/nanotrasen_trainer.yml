@@ -11,21 +11,28 @@
     head: ClothingHeadHatTrainer
 
 
-# Backpacks
 - type: loadout
-  id: NanotrasenTrainerBackpack
+  id: NanotrasenTrainerCap
   equipment:
-    back: ClothingBackpack
+    head: ClothingHeadHatCentcomcap
+
+
+# Mask
+- type: loadout
+  id: NanotrasenTrainerMaskGaiter
+  equipment:
+    mask: ClothingMaskNeckGaiter
 
 - type: loadout
-  id: NanotrasenTrainerDuffel
+  id: NanotrasenTrainerMaskGas
   equipment:
-    back: ClothingBackpackDuffel
+    mask: ClothingMaskGasCentcom
 
 - type: loadout
-  id: NanotrasenTrainerSatchel
+  id: NanotrasenTrainerMaskLolly
   equipment:
-    back: ClothingBackpackSatchelLeather
+    mask: FoodSnackLollypopCentcomm
+
 
 # Jumpsuits
 - type: loadout
@@ -46,11 +53,23 @@
   equipment:
     outerClothing: ClothingOuterWinterCoatTrainer
 
+
+- type: loadout
+  id: NanotrasenTrainerArmorBasic
+  equipment:
+    outerClothing: ClothingOuterArmorBasic
+
+
+- type: loadout
+  id: NanotrasenTrainerArmorSlim
+  equipment:
+    outerClothing: ClothingOuterArmorBasicSlim
+
 # Belt
 - type: loadout
-  id: NanotrasenTrainerClipboard
+  id: NanotrasenTrainerWebbing
   equipment:
-    belt: BoxFolderCentComClipboard
+    belt: ClothingBeltSecurityWebbingNCT
 
 - type: loadout
   id: NanotrasenTrainerWaistbag
@@ -64,9 +83,15 @@
     gloves: ClothingHandsGlovesHeavyGoldenTrim
 
 
+- type: loadout
+  id: NanotrasenTrainerGlovesCombat
+  equipment:
+    gloves: ClothingHandsGlovesCombat
+
+
 # Shoes
 - type: loadout
-  id: NanotrasenTrainerBoots
+  id: NanotrasenTrainerLaceup
   equipment:
     shoes: ClothingShoesBootsLaceup
 
@@ -74,3 +99,33 @@
   id: NanotrasenTrainerShoes
   equipment:
     shoes: ClothingShoesLeather
+
+
+- type: loadout
+  id: NanotrasenTrainerJack
+  equipment:
+    shoes: ClothingShoesBootsJack
+
+
+- type: loadout
+  id: NanotrasenTrainerCowboyBlack
+  equipment:
+    shoes: ClothingShoesBootsCowboyBlack
+
+
+- type: loadout
+  id: NanotrasenTrainerCowboyBrown
+  equipment:
+    shoes: ClothingShoesBootsCowboyBrown
+
+
+- type: loadout
+  id: NanotrasenTrainerCowboyWhite
+  equipment:
+    shoes: ClothingShoesBootsCowboyWhite
+
+
+- type: loadout
+  id: NanotrasenTrainerCowboyFancy
+  equipment:
+    shoes: ClothingShoesBootsCowboyFancy

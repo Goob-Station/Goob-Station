@@ -137,14 +137,14 @@
   - NanotrasenTrainerHead
   - NanotrasenTrainerJumpsuit
   - NanotrasenTrainerOuterClothing
-  - NanotrasenTrainerBackpack
+  - NanotrasenTrainerMask
   - NanotrasenTrainerShoes
   - NanotrasenTrainerGloves
   - NanotrasenTrainerBelt
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - Survival
+  - SurvivalExtended
   # Goobstation - EE Plasmeme Change.
   - CentComOfficerEnvirohelm
   - CentComOfficerEnvirosuit
