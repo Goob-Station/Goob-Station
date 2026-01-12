@@ -1,7 +1,7 @@
 - type: guideEntry
   id: GhostRoles
   name: guide-entry-ghost-roles
-  text: "/ServerInfo/_Omu/Guidebook/GhostRole/Ghostrole.xml"
+  text: "/ServerInfo/__Goobstation/Guidebook/GhostRole/Ghostrole.xml"
   children:
   - AshWalkers
   - MinorAntagonists
@@ -17,4 +17,4 @@
 - type: guideEntry
   id: AshWalkers
   name: guide-entry-ash-walkers
-  text: "/ServerInfo/_Omu/Guidebook/GhostRole/Ashwalker.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/GhostRole/Ashwalker.xml"

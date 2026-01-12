@@ -1,6 +1,6 @@
 using System;
 using System.Numerics;
-using Content.Omu.Common.AshWalkers;
+using Content.Goobstation.Common.AshWalkers;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
