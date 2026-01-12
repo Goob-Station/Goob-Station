@@ -57,8 +57,8 @@ public sealed class KeypadSystem : EntitySystem
 
     private void SendPulse(EntityUid uid, string port)
     {
-        _deviceLink.SendSignal(uid, port, true);
-        _deviceLink.SendSignal(uid, port, false);
+        _deviceLink.SendSignal(uid, "KeypadCorrect", true);
+        _deviceLink.SendSignal(uid, "KeypadCorrect", false);
     }
 
     private void UpdateUi(EntityUid uid, KeypadComponent comp)
