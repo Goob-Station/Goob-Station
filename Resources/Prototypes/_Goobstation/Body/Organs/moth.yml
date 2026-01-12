@@ -8,4 +8,9 @@
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/Moth/organs.rsi
     state: heart-on
-  
+  - type: DashAction # Goobstation - dark souls moths
+    actionProto: ActionDashMoth
+  - type: Organ
+    onAdd:
+      - type: DashAction # Goobstation - dark souls moths
+        actionProto: ActionDashMoth
