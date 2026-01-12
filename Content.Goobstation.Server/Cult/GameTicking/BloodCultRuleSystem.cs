@@ -36,8 +36,10 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
         EnsureComp<BloodCultistComponent>(target);
         EnsureComp<BloodMagicProviderComponent>(target);
 
-        if (roundstart) _antag.SendBriefing(target, Loc.GetString("cult-gain-bloat"), Color.Crimson, null);
-        _antag.SendBriefing(target, Loc.GetString("cult-gain-briefing"), Color.Red, GainSound);
+        var gain = roundstart ? Loc.GetString("cult-gain-briefing") : Loc.GetString("cult-gain-convert");
+
+        _antag.SendBriefing(target, Loc.GetString("cult-gain-bloat"), Color.Crimson, null);
+        _antag.SendBriefing(target, gain, Color.Red, GainSound);
 
         rule.Comp.Cultists.Add(target);
     }

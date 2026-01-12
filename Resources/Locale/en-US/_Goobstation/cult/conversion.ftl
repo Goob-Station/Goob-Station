@@ -1,12 +1,16 @@
 cult-gain-bloat =
-    Even in the far future, some things are never quite understood.
-    There are things that lurk in the darkness of space, unspeakable horrors of ancient power that wish to bring ruin to the universe and to shape it into their image.
-    They reach out from the void, and turn the minds of mortal men and women in their favor in hopes that one day they shall be brought once more into this plane of existence.
-    Unfortunately for the station, looks like NanoTrasen accidentally positioned it near an undetectable weak point in time and space. Whoops. Who would've known?
+    Your blood pulses. Your head throbs. The world goes red.
+    All at once you are aware of a horrible, horrible, truth. The veil of reality has been ripped away and something evil takes root.
 
 cult-gain-briefing =
     You are the Blood Cultist!
     You must work with your brethren to summon an avatar of your eldritch goddess!
+    Find more information about your role in the guidebook.
+
+cult-gain-convert =
+    You are the Blood Cultist!
+    Assist your new compatriots in their dark dealings.
+    Your goal is theirs, and theirs is yours. You serve the Geometer above all else. Bring it back.
     Find more information about your role in the guidebook.
 
 cult-loss-self = An unfamiliar white light flashes through your mind, cleansing the taint of the Geometer and all your memories as her servant!
