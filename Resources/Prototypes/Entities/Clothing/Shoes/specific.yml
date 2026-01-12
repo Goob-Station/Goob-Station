@@ -197,7 +197,7 @@
     footstepSoundCollection: null
 
 - type: entity
-  parent: ClothingShoesBaseButcherable
+  parent: [ClothingShoesMilitaryBase, BaseSecurityContraband]  # CorvaxGoobChanges: added: ClothingShoesMilitaryBase, BaseSecurityContraband. Deleted: ClothingShoesBaseButcherable
   id: ClothingShoesSwat
   name: swat shoes
   description: When you want to turn up the heat.

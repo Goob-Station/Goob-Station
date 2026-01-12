@@ -86,11 +86,18 @@
     outputPressure: 42.6
     air:
       # 2 minutes of thrust
-      volume: 2
+      volume: 0.75 # CorvaxGoobChanges: 2 > 0.75
       temperature: 293.15
       moles:
       - 0.153853429 # oxygen
       - 0.153853429 # nitrogen
+  - type: ItemSlots # CorvaxGoobChanges
+    slots:
+      item:
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: ClothingShoesBootsMagEmergencyResponseTeam
@@ -114,14 +121,21 @@
   - type: GasTank
     outputPressure: 42.6
     air:
-      # 2 minutes of thrust
+      # near 5 minutes of thrust
       volume: 2
       temperature: 293.15
       moles:
-      - 0.153853429 # oxygen
-      - 0.153853429 # nitrogen
+      - 0.41571197 # oxygen
+      - 0.41571197 # nitrogen
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  - type: ItemSlots # CorvaxGoobChanges
+    slots:
+      item:
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseMajorContraband]
