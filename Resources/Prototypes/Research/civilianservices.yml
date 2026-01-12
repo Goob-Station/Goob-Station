@@ -212,7 +212,7 @@
   tier: 2
   cost: 5000
   recipeUnlocks:
-  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedTopical
   - BorgModuleAdvancedSurgery # Shitmed - does it make sense to have it before advanced surg? Don't know, but this spices up medborgs.
   - AdvancedJetInjector
   # Goobstation R&D Console rework start
