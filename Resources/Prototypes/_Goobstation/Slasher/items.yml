@@ -15,7 +15,7 @@
       types:
         Slash: 15
     soundHit:
-      path: /Audio/Weapons/slashermachetehit.ogg
+      path: /Audio/_Goobstation/Weapons/Melee/slashermachetehit.ogg
   - type: DamageOtherOnHit
     damage:
       types:
