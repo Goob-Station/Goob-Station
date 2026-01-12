@@ -86,6 +86,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing; // Goobstation - Add Cooldown to shock to prevent entity overload
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 using PullerComponent = Content.Shared.Movement.Pulling.Components.PullerComponent;
+using Content.Goobstation.Shared.Hazards;
 
 namespace Content.Server.Electrocution;
 
@@ -140,6 +141,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         SubscribeLocalEvent<ElectrifiedComponent, InteractUsingEvent>(OnElectrifiedInteractUsing);
         SubscribeLocalEvent<RandomInsulationComponent, MapInitEvent>(OnRandomInsulationMapInit);
         SubscribeLocalEvent<PoweredLightComponent, AttackedEvent>(OnLightAttacked);
+
+        SubscribeLocalEvent<ElectrifiedComponent, MapInitEvent>(OnMapInit); // Goobstation
 
         UpdatesAfter.Add(typeof(PowerNetSystem));
     }
@@ -447,6 +450,13 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     private bool DoCommonElectrocutionAttempt(EntityUid uid, EntityUid? sourceUid, ref float siemensCoefficient, bool ignoreInsulation = false)
     {
+        // Goobstation - If an entity has Insulation AND HazardImmune, then it does not get shocked, even by IgnoreInsulation sources.
+        if (ignoreInsulation &&
+            HasComp<HazardImmuneComponent>(uid) &&
+            HasComp<InsulatedComponent>(uid))
+        {
+            return false;
+        }
 
         var attemptEvent = new ElectrocutionAttemptEvent(uid, sourceUid, siemensCoefficient,
             ignoreInsulation ? SlotFlags.NONE : ~SlotFlags.POCKET & ~SlotFlags.HEAD); // Goobstation - insulated mouse can't be worn
@@ -579,4 +589,22 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         }
         _audio.PlayPvs(electrified.ShockNoises, targetUid, AudioParams.Default.WithVolume(electrified.ShockVolume));
     }
+
+    /// <summary>
+    /// Goobstation - If always shows spark is true, on mapinit the animation will start playing on loop.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="args"></param>
+    private void OnMapInit(EntityUid uid, ElectrifiedComponent component, MapInitEvent args)
+    {
+        if (!component.AlwaysShowSparks)
+            return;
+
+        if (!TryComp<AppearanceComponent>(uid, out _))
+            return;
+
+        _appearance.SetData(uid, ElectrifiedVisuals.ShowSparks, true);
+    }
+    // End of Goobstation
 }
