@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/12/2026 11:35:35
-  entityCount: 17400
+  time: 01/12/2026 11:58:21
+  entityCount: 17402
 maps:
 - 1
 grids:
@@ -50658,6 +50658,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -49.5,46.5
       parent: 2
+  - uid: 5842
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,5.5
+      parent: 2
   - uid: 6045
     components:
     - type: Transform
@@ -51163,12 +51169,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 6.5,5.5
-      parent: 2
-  - uid: 5842
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 5.5,5.5
       parent: 2
   - uid: 5843
     components:
@@ -53274,6 +53274,12 @@ entities:
     - type: Transform
       pos: -13.5,-19.5
       parent: 2
+  - uid: 17400
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,4.5
+      parent: 2
 - proto: DisposalTrunk
   entities:
   - uid: 2673
@@ -53514,6 +53520,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,-20.5
+      parent: 2
+  - uid: 17401
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,3.5
       parent: 2
 - proto: DisposalUnit
   entities:
@@ -56326,7 +56338,7 @@ entities:
       pos: 12.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15259.162
+      secondsUntilStateChange: -15310.547
       state: Closing
   - uid: 6676
     components:
@@ -57744,7 +57756,7 @@ entities:
       pos: -39.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1793.1808
+      secondsUntilStateChange: -1844.5654
       state: Closing
   - uid: 6872
     components:
