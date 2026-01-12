@@ -51,6 +51,11 @@ public struct RadiationRay(
     public float Rads = rads;
 
     /// <summary>
+    ///     Whether the ray has entered terminal decay.
+    /// </summary>
+    public bool UseTerminalDecay;
+
+    /// <summary>
     ///     Has rad ray reached destination or lost all intensity after blockers?
     /// </summary>
     public bool ReachedDestination => Rads > 0;

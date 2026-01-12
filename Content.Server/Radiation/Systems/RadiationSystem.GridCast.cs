@@ -29,6 +29,7 @@ namespace Content.Server.Radiation.Systems;
 // main algorithm that fire radiation rays to target
 public partial class RadiationSystem
 {
+    private const float TerminalDecayThreshold = 0.5f;
     private List<Entity<MapGridComponent>> _grids = new();
 
     private readonly record struct SourceData(
@@ -166,6 +167,10 @@ public partial class RadiationSystem
         // at first we assume that it doesn't hit any radiation blockers
         // and has only distance penalty
         var ray = new RadiationRay(mapId, source.Entity, source.WorldPosition, destUid, destWorld, rads);
+
+        // Goobstation - If we start below the threshold, immediately use terminal decay (intensity/distance -> intensity/(distance^2))
+        if (ray.Rads <= TerminalDecayThreshold)
+            ray.UseTerminalDecay = true;
 
         // if source and destination on the same grid it's possible that
         // between them can be another grid (ie. shuttle in center of donut station)
@@ -308,12 +313,29 @@ public partial class RadiationSystem
 
         foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
         {
+            // Apply inverse-square (terminal) decay once the ray drops below the threshold TerminalDecayThreshold
+            if (ray.UseTerminalDecay)
+            {
+                var safeDist = MathF.Max(dist, 0.5f);
+                ray.Rads /= (safeDist * safeDist);
+
+                if (ray.Rads <= MinIntensity)
+                {
+                    ray.Rads = 0;
+                    break;
+                }
+            }
+
             if (resistanceMap.TryGetValue(point, out var resData))
             {
                 var passRatioFromRadResistance = (1 / (resData > 2 ? (resData / 2) : 1));
 
                 var passthroughRatio = MathF.Pow(passRatioFromRadResistance, dist);
                 ray.Rads *= passthroughRatio;
+
+                // Resistance can trigger terminal decay
+                if (ray.Rads <= TerminalDecayThreshold)
+                    ray.UseTerminalDecay = true;
 
                 // save data for debug
                 if (saveVisitedTiles)
