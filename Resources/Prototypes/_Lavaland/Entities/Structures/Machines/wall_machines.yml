@@ -1,0 +1,297 @@
+- type: entity
+  id: BaseWallPanel
+  parent: BaseWallMachine
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+
+- type: entity
+  id: HandScanner
+  parent: BaseWallPanel
+  name: hand scanner
+  description: Scans your hand for fingerprints. Unfortunalely, whoever had access to this is long decomposed.
+  components:
+  - type: Sprite
+    state: handscanner
+
+- type: entity
+  id: HandScannerAntag
+  parent: HandScanner
+  components:
+  - type: Sprite
+    state: antagscanner
+
+- type: entity
+  id: HandScannerAntagU
+  parent: HandScanner
+  components:
+  - type: Sprite
+    state: antagscanner-u
+
+# Junction box
+
+- type: entity
+  id: JunctionBox
+  parent: BaseWallPanel
+  name: junction box
+  description: Holds lots of wires inside. Became outdated once APCs became commonplace.
+  components:
+  - type: Sprite
+    state: junctionbox
+
+- type: entity
+  id: JunctionBoxOpen
+  parent: JunctionBox
+  components:
+  - type: Sprite
+    state: junctionbox_open
+
+- type: entity
+  id: JunctionBox2
+  parent: JunctionBox
+  components:
+  - type: Anchorable
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox2
+
+- type: entity
+  id: JunctionBoxOpen2
+  parent: JunctionBox
+  components:
+  - type: Anchorable
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox2_open
+
+- type: entity
+  id: JunctionBox3
+  parent: JunctionBox
+  components:
+  - type: Anchorable
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox3
+
+- type: entity
+  id: JunctionBoxOpen3
+  parent: JunctionBox
+  components:
+  - type: Anchorable
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox3_open
+
+# Keypad
+
+- type: entity
+  id: SecureKeypad
+  parent: JunctionBox
+  name: keypad
+  description: Inputting the correct code may open something.
+  components:
+  - type: Anchorable
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: keypad
+  - type: Keypad
+    code: "1234"
+    maxLength: 4
+  - type: UserInterface
+    interfaces:
+      enum.KeypadUiKey.Key:
+        type: KeypadBoundUserInterface
+  - type: ActivatableUI
+    key: enum.KeypadUiKey.Key
+  - type: DeviceLinkSource
+    ports:
+      - KeypadCorrect
+      - KeypadIncorrect
+
+# Red light
+
+- type: entity
+  id: OccupancyLightOff
+  parent: JunctionBox
+  name: red indicator
+  description: Glows red when powered.
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-0
+
+- type: entity
+  id: OccupancyLightOn
+  parent: OccupancyLightOff
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-1
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Red
+
+# Lockdown
+
+- type: entity
+  id: LockdownPanelMachine
+  parent: BaseWallMachine
+  name: lockdown control
+  description: Green good. Red bad.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: lockdown
+
+- type: entity
+  id: LockdownPanelLeftOKMachine
+  parent: LockdownPanelMachine
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: lockdown_leftOK
+
+- type: entity
+  id: LockdownPanelRightOKMachine
+  parent: LockdownPanelMachine
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: lockdown_rightOK
+
+- type: entity
+  id: LockdownPanelSafeMachine
+  parent: LockdownPanelMachine
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: lockdown_safe
+
+# Lockdown
+
+- type: entity
+  id: CruiserConsoleComputer
+  parent: BaseFloorMachine
+  name: alert display
+  description: Green means good.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: cruiser
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+
+- type: entity
+  id: CruiserConsoleBrokenComputer
+  parent: CruiserConsoleComputer
+  description: ERROR...Unable to compute threat level.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: cruiserb
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Blue
+
+- type: entity
+  id: CruiserConsoleIdleComputer
+  parent: BaseWallMachine # No point light
+  name: alert display
+  description: The alert system might be down. 
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: cruiser0
+
+- type: entity
+  id: DrawerConsoleIdleComputer
+  parent: BaseWallMachine # No point light
+  name: alert display
+  description: The alert system might be down.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: drawbr0
+
+- type: entity
+  id: DrawerConsoleComputer
+  parent: CruiserConsoleComputer
+  description: Warning! Automated defense system has been hijacked! Evacuate the premises immediatelly!
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: drawbr
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Red
+
+- type: entity
+  id: DrawerConsoleAlertComputer
+  parent: CruiserConsoleComputer
+  description: Warning! Lockdown is currently in effect! Large hostile entity detected inside the facility!
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: drawbr-alert
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Red
+  - type: AmbientSound
+    volume: -2
+    range: 8
+    sound:
+      path: /Audio/Ambience/Objects/alarm.ogg
+
+# Identification control port
+
+- type: entity
+  id: IdentificationPortComputer
+  parent: BaseWallMachine
+  name: Identification Control Port
+  description: What it identifies is a mystery.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: idport
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+
+- type: entity
+  id: IdentificationPortControlComputer
+  parent: IdentificationPortComputer
+  name: Identification Control Port
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: idportC
+
+- type: entity
+  id: IdentificationPortIdleComputer
+  parent: IdentificationPortComputer
+  name: Identification Control Port
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: idport0
+
+- type: entity
+  id: IdentificationPortControlIdleComputer
+  parent: IdentificationPortComputer
+  name: Identification Control Port
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: idportC0

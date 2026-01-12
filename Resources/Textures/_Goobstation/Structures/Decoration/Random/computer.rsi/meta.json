@@ -284,13 +284,16 @@
       "name": "idportC0"
     },
     {
-      "name": "operating-small"
+      "name": "operating-small",
+      "directions": 4
     },
     {
-      "name": "operating-small0"
+      "name": "operating-small0",
+      "directions": 4
     },
     {
-      "name": "operating-smallb"
+      "name": "operating-smallb",
+      "directions": 4
     }
   ]
 }

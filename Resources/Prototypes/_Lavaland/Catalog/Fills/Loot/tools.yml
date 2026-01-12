@@ -66,4 +66,3 @@
     children:
     - id: PowerCellMicroreactor
     - id: PowerCellAntiqueProto
-    - id: PowerCageHigh

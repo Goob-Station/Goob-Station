@@ -8,24 +8,6 @@
   },
   "states": [
     {
-      "name": "drain"
-    },
-    {
-      "name": "drain_welded"
-    },
-    {
-      "name": "drain_clogged"
-    },
-    {
-      "name": "bigdrain"
-    },
-    {
-      "name": "bigdrain_clogged"
-    },
-    {
-      "name": "bigdrain_welded"
-    },
-    {
       "name": "ladder"
     },
     {

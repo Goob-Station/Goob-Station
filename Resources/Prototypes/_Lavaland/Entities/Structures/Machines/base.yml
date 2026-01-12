@@ -1,0 +1,74 @@
+- type: entity
+  id: BaseDecorMachine
+  abstract: true
+  components:
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    noRot: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: BaseFloorMachine
+  parent: BaseDecorMachine
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.45
+        density: 200
+        layer:
+        - HighImpassable
+
+- type: entity
+  id: BaseConsoleMachine
+  parent: BaseDecorMachine
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.3
+        density: 120
+        layer:
+        - MidImpassable
+
+- type: entity
+  id: BaseWallMachine
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    noRot: true
+    drawdepth: WallMountedItems
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

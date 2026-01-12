@@ -8,8 +8,8 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
-    state: gannets_machine10
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: cwall1
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic

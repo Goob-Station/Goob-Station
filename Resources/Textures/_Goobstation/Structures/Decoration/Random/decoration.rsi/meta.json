@@ -66,10 +66,8 @@
       "name": "lever1"
     },
     {
-      "name": "randompc"
-    },
-    {
-      "name": "radar"
+      "name": "radar",
+      "directions": 4
     },
     {
       "name": "toiletholder",

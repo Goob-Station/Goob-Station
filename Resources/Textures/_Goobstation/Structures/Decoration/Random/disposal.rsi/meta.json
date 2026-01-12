@@ -9,10 +9,6 @@
   "states": [
     {
       "name": "trashcan"
-    },
-    {
-      "name": "pipe-water",
-      "directions": 4
     }
   ]
 }

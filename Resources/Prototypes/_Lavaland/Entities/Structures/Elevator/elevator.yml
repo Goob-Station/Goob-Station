@@ -1,0 +1,42 @@
+- type: entity
+  id: ElevatorConsole
+  parent: BaseConsoleMachine
+  name: elevator control system
+  description: Goes up and down. Select the floor through the control panel.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: operating-small
+  - type: ElevatorController
+    floors:
+    - id: 1
+      name: "Bunker Alfa – Floor 1"
+      mapPath: /Maps/_Lavaland/Lavaland/bunker_alfa.yml
+      target:
+        prototype: ElevatorSpawnBunkerAlfaFloor1
+    - id: 2
+      name: "Bunker Alfa – Floor 2"
+      mapPath: /Maps/_Goobstation/Dungeons/bunker_alfa_floor2.yml
+      target:
+        prototype: ElevatorSpawnBunkerAlfaFloor2
+#    - id: 3
+#      name: "Bunker Alfa – Floor 3"
+#      mapPath: /Maps/Lavaland/temple.yml
+#      target:
+#        prototype: ElevatorSpawnBunkerAlfaFloor3
+#    - id: 4
+#      name: "Bunker Alfa – Floor 4"
+#      mapPath: /Maps/Lavaland/mug_factory.yml
+#      target:
+#        prototype: ElevatorSpawnBunkerAlfaFloor4
+#    - id: 5
+#      name: "Bunker Alfa – Floor 5"
+#      mapPath: /Maps/Lavaland/generator_scrapyard.yml
+#      target:
+#       prototype: ElevatorSpawnBunkerAlfaFloor5
+  - type: UserInterface
+    interfaces:
+      enum.ElevatorUiKey.Key:
+        type: ElevatorBoundUserInterface
+  - type: ActivatableUI
+    key: enum.ElevatorUiKey.Key

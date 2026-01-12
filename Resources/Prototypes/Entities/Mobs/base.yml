@@ -134,7 +134,6 @@
   - type: Fart
   - type: CollectiveMind # Goobstation - Starlight collective mind port
   - type: SpecialAnimationViewer # Goobstation - Cool Animations!!!!
-  - type: HazardImmune # Goobstation - Used to prevent mobs being affected by all sorts of hazards.
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
