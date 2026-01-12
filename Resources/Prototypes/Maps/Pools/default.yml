@@ -68,7 +68,7 @@
   - Origin
   - Saltern
   - Packed
-  - Reach
+  #- Reach # Goobstation, removed from map pool
   #- Train # Goobstation - all my friends hate train
   - FlandHighPop
   - OasisHighPop
@@ -80,3 +80,4 @@
   - Chloris # Goobstation - also Corvax because we love goidamaps
   - Cog # those who forget to clear their multitool
   - Serpentcrest # Goobstation when contra
+  #- Prison # Goobstation Detroit

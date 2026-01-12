@@ -27,6 +27,7 @@
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -296,6 +297,13 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<int> PatronAskSupport =
         CVarDef.Create("patron.ask_support", 7, CVar.REPLICATED | CVar.SERVER);
+
+    #region Xenobiology
+
+    public static readonly CVarDef<float> BreedingInterval =
+        CVarDef.Create("xenobiology.breeding.interval", 1f, CVar.REPLICATED | CVar.SERVER);
+
+    #endregion
 
     #region Goobcoins
 
@@ -653,4 +661,10 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> ContrabandIconsEnabled =
         CVarDef.Create("contraband.icons_enabled", false, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Controls how often GPS updates.
+    /// </summary>
+    public static readonly CVarDef<float> GpsUpdateRate =
+        CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
 }

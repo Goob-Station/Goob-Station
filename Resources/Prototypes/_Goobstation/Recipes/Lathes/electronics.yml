@@ -89,26 +89,32 @@
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: PlumbingPumpCircuitboard
+  result: PlumbingPumpCircuitboard
   icon:
     sprite: _Goobstation/Structures/Machines/Plumbing/liquid_pump.rsi
     state: icon
-  result: PlumbingPumpCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
+  id: TeslaCoilCircuitboard
+  result: TeslaCoilCircuitboard
   icon:
     sprite:  Structures/Power/Generation/Tesla/coil.rsi
     state: coil
-  id: TeslaCoilCircuitboard
-  result: TeslaCoilCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  icon: { sprite: Structures/Machines/Medical/biomass_reclaimer.rsi, state: icon } # Todo - Change this sprite.
+  id: SlimeGrinderMachineCircuitboard
+  result: SlimeGrinderMachineCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
+  id: RadiationCollectorCircuitboard
+  result: RadiationCollectorCircuitboard
   icon:
     sprite:  Structures/Power/Generation/Singularity/collector.rsi
     state: ca_on
-  id: RadiationCollectorCircuitboard
-  result: RadiationCollectorCircuitboard
 
 - type: latheRecipe
   parent: [ BaseEngineeringMachineRecipeCategory ]
@@ -123,6 +129,46 @@
     sprite:  _Goobstation/Structures/Machines/comms_transmitter.rsi
     state: base
   result: TelecomTransmitterCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: VinylPlayerCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
+    state: icon
+  result: VinylPlayerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: TapeDeckCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
+    state: icon
+  result: TapeDeckCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: StationRadioServerCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
+    state: icon
+  result: StationRadioServerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseSilverCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: StationRadioRigCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
+    state: icon
+  result: StationRadioRigCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: StationRadioCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
+    state: icon
+  result: StationRadioCircuitboard
 
 - type: latheRecipe
   parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]

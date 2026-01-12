@@ -1,0 +1,418 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 ShieldAcrados <222141571+ShieldAcrados@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2026 Jvne <juneialduncan@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# The Modsuit Itself, This is just a Deathsquad modsuit, but reskined for CC Officials
+- type: entity
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
+  id: ClothingModsuitCorporate
+  name: Corporate modsuit control unit
+  description: The main controller for a Corporate modsuit.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetCorporate
+        gloves: ClothingModsuitGauntletsCorporate
+        outerClothing: ClothingModsuitChestplateCorporate
+        shoes: ClothingModsuitBootsCorporate
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellAntiqueProto
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      grid:
+        - 0,0,7,6
+    - type: ExplosionResistance
+      damageCoefficient: 0.1
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        back:
+        - state: equipped-BACKPACK-sealed
+        - state: equipped-BACKPACK-sealed-unshaded
+          shader: unshaded      
+
+- type: entity
+  parent: [ClothingModsuitGauntletsStandard, BaseCentcommContraband]
+  id: ClothingModsuitGauntletsCorporate
+  name: Corporate modsuit gauntlets
+  description: A pair of gauntlets made for the Corporate modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        gloves:
+        - state: equipped-HAND-sealed
+        - state: equipped-HAND-sealed-unshaded
+          shader: unshaded
+        gloves-vox:
+        - state: equipped-HAND-sealed-vox
+        - state: equipped-HAND-sealed-unshaded-vox
+          shader: unshaded
+    - type: ComponentToggler
+      components:
+      - type: Insulated
+      - type: GrabModifier
+        grabEscapeModifier: -0.1
+        grabEscapeMultiplier: 0.8
+        grabMoveSpeedMultiplier: 2
+        startingGrabStage: Hard
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
+  id: ClothingModsuitHelmetCorporate
+  name: Corporate modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Corporate modsuit. It includes a built-in HUD.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
+    - type: Armor
+      traumaDeductions: # prevents traumas at all (kinda)
+        Dismemberment: 1
+        OrganDamage: 1
+        BoneDamage: 1
+        VeinsDamage: 1
+        NerveDamage: 1
+      modifiers:
+        coefficients:
+          Blunt: 0.1 # Best armor in the game - Yeah no shit.
+          Slash: 0.1
+          Piercing: 0.1
+          Heat: 0.1
+          Cold: 0.1
+          Cellular: 0.1
+          Radiation: 0
+          Caustic: 0.1
+    - type: ThermalVision
+      isEquipment: true
+      color: "#bf8133"
+      lightRadius: 15
+    - type: FlashImmunity # Goobstation
+    - type: FlashSoundSuppression # Goobstation
+      protectionRange: 0
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+    - type: PointLight
+      color: "#fc8a00"
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        head:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-vox:
+        - state: equipped-HEAD-sealed-vox
+        - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
+    - type: ActivatableUI
+      inHandsOnly: false # Goobstation
+      singleUser: true
+      requireActiveHand: false # Goobstation
+      verbText: verb-instrument-openui
+      key: enum.InstrumentUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.InstrumentUiKey.Key:
+          type: InstrumentBoundUserInterface
+    - type: ComponentToggler
+      components:
+      - type: Instrument
+        program: 62
+      - type: SwappableInstrument
+        instrumentList:
+          "Synth": {62: 0}
+          "Friend": {2: 0}
+          "Overdriven": {29: 0}
+          "Bass": {33: 0}
+          "Rock": {29: 0}
+          "Acoustic": {24: 0}
+          "Flute": {73: 0}
+          "Sax": {66: 0}
+
+- type: entity
+  parent: [ClothingModsuitChestplateStandard, BaseCentcommContraband]
+  id: ClothingModsuitChestplateCorporate
+  name: Corporate modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Corporate modsuit. It incorporates powered servos to reduce the equipment load.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: Armor
+      traumaDeductions: # prevents traumas at all (kinda)
+        Dismemberment: 1
+        OrganDamage: 1
+        BoneDamage: 1
+        VeinsDamage: 1
+        NerveDamage: 1
+      modifiers:
+        coefficients:
+          Blunt: 0.1 # Best armor in the game - Yeah no shit.
+          Slash: 0.1
+          Piercing: 0.1
+          Heat: 0.1
+          Cold: 0.1
+          Cellular: 0.1
+          Radiation: 0
+          Caustic: 0.1
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+        outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-sealed-vox
+    - type: StaminaResistance
+      damageCoefficient: 0 # 100%
+    - type: PressureProtection
+      highPressureMultiplier: 0.02
+      lowPressureMultiplier: 1000
+    - type: ExplosionResistance
+      damageCoefficient: 0.2
+    - type: FireProtection
+      reduction: 1
+    - type: ClothingGrantComponent
+      component:
+      - type: SupermatterImmune
+      - type: EventHorizonIgnore
+        horizonWhitelist:
+          tags:
+          - Tesla
+      - type: ContainmentFieldIgnore
+    - type: ComponentToggler
+      components:
+      - type: ClothingAutoInject
+        reagents:
+          Epinephrine: 10
+          Bicaridine: 10
+          TranexamicAcid: 5
+          Tramadol: 5
+
+- type: entity
+  parent: [ClothingModsuitBootsStandard, BaseCentcommContraband]
+  id: ClothingModsuitBootsCorporate
+  name: Corporate modsuit boots
+  description: A state-of-the-art pair of magboots for the Corporate modsuit. So long as the suit is powered, these will not slow the wearer down.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        shoes:
+        - state: equipped-FEET-sealed
+        - state: equipped-FEET-sealed-unshaded
+          shader: unshaded
+        shoes-vox:
+        - state: equipped-FEET-sealed-vox
+        - state: equipped-FEET-sealed-unshaded-vox
+          shader: unshaded
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: ModifyStandingUpTime
+      multiplier: .25
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1.1
+      sprintModifier: 1.1
+
+- type: entity
+  id: SuitStorageCorporate
+  parent: SuitStorageBase
+  suffix: Corporate Modsuit
+  components:
+    - type: StorageFill
+      contents:
+          - id: OxygenTankFilled
+          - id: ClothingModsuitCorporate
+          - id: ClothingMaskBreath
+
+- type: entity
+  id: ClothingModsuitCorporateFilled
+  parent: ClothingModsuitCorporate
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+          - id: BoxSurvivalSlotsEngineering
+          - id: HandheldFaxOfficial # NTRs fax is huge, do you expect me to use some POOR person fax?
+          - id: BoxFolderCentComClipboard # Solely for holding and looking menacing.
+          - id: DeterrentCaseFilled
+          - id: ClothingMaskGasCentcom
+          - id: WeaponDisablerAdvanced
+          - id: CentralCommandBusinessCard
+          - id: JawsOfLife
+          - id: PowerDrill
+          - id: WelderExperimental
+          - id: Multitool
+          - id: MedkitCombatFilled
+          
+#NCT
+- type: entity
+  parent: [ClothingModsuitCorporate, ClothingModsuitStandard, BaseCentcommContraband]
+  id: ClothingModsuitTrainer
+  name: Career Trainer modsuit control unit
+  description: The main controller for a Career Trainer modsuit.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetTrainer
+        gloves: ClothingModsuitGauntletsTrainer
+        outerClothing: ClothingModsuitChestplateTrainer
+        shoes: ClothingModsuitBootsTrainer
+
+- type: entity
+  parent: [ClothingModsuitGauntletsCorporate, ClothingModsuitGauntletsStandard, BaseCentcommContraband]
+  id: ClothingModsuitGauntletsTrainer
+  name: Corporate modsuit gauntlets
+  description: A pair of gauntlets made for the Career Trainer modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
+
+- type: entity
+  parent: [ClothingModsuitHelmetCorporate, ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
+  id: ClothingModsuitHelmetTrainer
+  name: Corporate modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Career Trainer modsuit. It includes a built-in HUD.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
+    - type: ThermalVision
+      isEquipment: true
+      color: "#7c073b"
+      lightRadius: 15
+    - type: PointLight
+      color: "#fc0574"
+    - type: Armor # mostly the same stats as HoS modsuit
+      traumaDeductions:
+        Dismemberment: 0.3
+        OrganDamage: 0.3
+        BoneDamage: 0.3
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.55
+          Slash: 0.55
+          Piercing: 0.5
+          Heat: 0.55
+          Caustic: 0.5
+          Radiation: 0.0
+    - type: FireProtection
+      reduction: 0.2
+
+- type: entity
+  parent: [ClothingModsuitChestplateCorporate, ClothingModsuitChestplateStandard, BaseCentcommContraband]
+  id: ClothingModsuitChestplateTrainer
+  name: Career Trainer modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Career Trainer modsuit. It incorporates powered servos to reduce the equipment load.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
+    - type: Armor # mostly the same stats as HoS modsuit
+      traumaDeductions:
+        Dismemberment: 0.3
+        OrganDamage: 0.3
+        BoneDamage: 0.3
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.45
+          Heat: 0.5
+          Caustic: 0.5
+          Radiation: 0
+    - type: ExplosionResistance
+      damageCoefficient: 0.4
+    - type: StaminaResistance
+      damageCoefficient: 0.7
+    - type: FireProtection
+      reduction: 0.8
+
+- type: entity
+  parent: [ClothingModsuitBootsCorporate, ClothingModsuitBootsStandard, BaseCentcommContraband]
+  id: ClothingModsuitBootsTrainer
+  name: Career Trainer modsuit boots
+  description: A state-of-the-art pair of magboots for the Career Trainer modsuit. So long as the suit is powered, these will not slow the wearer down.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
+
+- type: entity
+  id: SuitStorageTrainer
+  parent: SuitStorageBase
+  suffix: Trainer Modsuit
+  components:
+    - type: StorageFill
+      contents:
+          - id: OxygenTankFilled
+          - id: ClothingModsuitCorporate
+          - id: ClothingMaskBreath
+
+- type: entity
+  id: ClothingModsuitTrainerFilled
+  parent: ClothingModsuitTrainer
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+          - id: BoxSurvivalSlotsEngineering
+          - id: HandheldFaxOfficial # NTRs fax is huge, do you expect me to use some POOR person fax?
+          - id: BoxFolderCentComClipboard # Solely for holding and looking menacing.
+          - id: DeterrentCaseFilled
+          - id: ClothingMaskGasCentcom
+          - id: WeaponDisablerAdvanced
+          - id: CentralCommandBusinessCard
+          - id: JawsOfLife
+          - id: PowerDrill
+          - id: WelderExperimental
+          - id: Multitool
+          - id: MedkitCombatFilled
