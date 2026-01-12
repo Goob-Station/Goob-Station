@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/06/2026 09:21:50
+  time: 01/10/2026 19:10:57
   entityCount: 6910
 maps: []
 grids:
@@ -20364,10 +20364,10 @@ entities:
       linkedPorts:
         810:
         - - SignalContrabandDetected
-          - Toggle
+          - Close
         853:
         - - SignalContrabandDetected
-          - Toggle
+          - Close
   - uid: 6745
     components:
     - type: Transform
@@ -20378,10 +20378,10 @@ entities:
       linkedPorts:
         810:
         - - SignalContrabandDetected
-          - Toggle
+          - Close
         853:
         - - SignalContrabandDetected
-          - Toggle
+          - Close
 - proto: ConveyorBelt
   entities:
   - uid: 1576
@@ -35990,18 +35990,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 18.5,0.5
       parent: 1668
-  - uid: 6729
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,0.5
-      parent: 1668
-- proto: TurnstileGenpopEnter
-  entities:
   - uid: 5778
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
+      pos: 8.5,0.5
+      parent: 1668
+- proto: TurnstileGenpopEnter
+  entities:
+  - uid: 6729
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 13.5,24.5
       parent: 1668
 - proto: TwoWayLever
@@ -42068,18 +42068,70 @@ entities:
       rot: 3.141592653589793 rad
       pos: -12.5,-10.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5619
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,-10.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5620
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -14.5,-5.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
+    - type: DeviceList
+      deviceLimit: 50
+      devices:
+      - 1552
+      - 569
+      - 462
+      - 76
+      - 989
+      - 170
+      - 201
+      - 281
+      - 198
+      - 278
+      - 813
+      - 1304
+      - 855
+      - 910
+      - 741
+      - 965
+      - 674
+      - 675
+      - 632
+      - 6750
+      - 6752
+      - 6751
+      - 6756
+      - 6758
+      - 6760
+      - 6761
+      - 6764
+      - 6765
+      - 6768
+      - 6770
+      - 6769
+      - 6771
+      - 6775
+      - 6779
+      - 6780
+      - 6793
+      - 6794
+      - 6795
+      - 6796
+      - 3367
   - uid: 5623
     components:
     - type: Transform
