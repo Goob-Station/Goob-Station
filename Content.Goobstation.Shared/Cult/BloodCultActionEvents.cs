@@ -4,6 +4,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Cult.Actions;
 
+public abstract class CultRuneEvent : CancellableEntityEventArgs
+{
+    public List<EntityUid>? Targets;
+    public string InvokeLoc = string.Empty; // the the loc that could override the default one
+}
+
 public sealed partial class EventActionCultPrepareBloodMagic : InstantActionEvent;
 public sealed partial class EventActionCultPrepareBloodMagicDoAfter : DoAfterEvent
 {
