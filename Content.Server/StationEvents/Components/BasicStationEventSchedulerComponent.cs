@@ -26,7 +26,7 @@ public sealed partial class BasicStationEventSchedulerComponent : Component
     /// The minimum and maximum time between rule starts in seconds.
     /// </summary>
     [DataField]
-    public MinMax MinMaxEventTiming = new(3 * 60, 10 * 60);
+    public MinMax MinMaxEventTiming = new(5 * 60, 10 * 60); // CorvaxGoob-GameRulesTweaks
 
     /// <summary>
     /// How long until the next check for an event runs, is initially set based on MinimumTimeUntilFirstEvent & MinMaxEventTiming.

@@ -157,13 +157,13 @@
   - type: SubGamemodes
     rules:
     - id: Thief
-      prob: 0.5
+      prob: 0.4 # CorvaxGoob-GameRulesTweak
     - id: Heretic # goob edit
-      prob: 0.2
+      prob: 0.2 # CorvaxGoob-GameRulesTweak
     - id: Devil # Goob
-      prob: 0.02
+      prob: 0.1 # CorvaxGoob-GameRulesTweak
     - id: Shadowling # Goob
-      prob: 0.02
+      prob: 0.05 # CorvaxGoob-GameRulesTweak
 
 - type: entity
   parent: BaseGameRule
@@ -617,6 +617,8 @@
   id: RampingStationEventScheduler
   parent: BaseGameRule
   components:
+  - type: GameRule # CorvaxGoob-GameRulesTweak
+    minPlayers: 30
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
