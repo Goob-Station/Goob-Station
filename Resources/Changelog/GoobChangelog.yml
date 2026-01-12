@@ -20151,3 +20151,11 @@ Entries:
       message: Xenovac can now suck on monkeys.
   id: 2279
   time: '2026-01-12T13:22:04.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Fixed some CC mapping issues
+    - type: Fix
+      message: fixed temp protection and added breathmask comp to CC modsuits
+  id: 2280
+  time: '2026-01-12T19:48:19.0000000+00:00'
