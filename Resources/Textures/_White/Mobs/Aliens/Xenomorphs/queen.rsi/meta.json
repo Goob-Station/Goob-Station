@@ -1,24 +1,24 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation on: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alienqueen.dmi | Edited by PuroSlavKing (Github)",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/ddabee8e6ea5b54977fc56b75b9b8ca86b743328/icons/mob/xenos/castes/tier_4/queen.dmi",
   "size": {
     "x": 64,
     "y": 64
   },
   "states": [
     {
-      "name": "xenomorph",
+      "name": "xenoqueen",
       "directions": 4
     },
     {
-      "name": "xenomorph_sleep"
+      "name": "xenoqueen_sleep"
     },
     {
-      "name": "xenomorph_unconscious"
+      "name": "xenoqueen_unconscious"
     },
     {
-      "name": "xenomorph_dead"
+      "name": "xenomqueen_dead"
     }
   ]
 }
