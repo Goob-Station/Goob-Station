@@ -154,10 +154,12 @@ public partial class RadiationSystem
         // Goobstation Start - Radiation Overhaul
         // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
-        var dist = Math.Max(dir.Length(),0.5f);
+        var dist = Math.Max(dir.Length(), 0.5f);
         if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
             dist = Math.Max(dist - horizon.Radius, 0.5f);
-        var rads = source.Intensity / (dist) - (dist) / 30f;
+
+        var rads = source.Intensity / (dist);
+
         if (rads < 0.01)
             return null;
         // Goobstation End - Radiation Overhaul
@@ -174,7 +176,7 @@ public partial class RadiationSystem
         {
             if (!_gridQuery.TryGetComponent(gridUid, out var gridComponent))
                 return ray;
-            return Gridcast((gridUid, gridComponent, Transform(gridUid)), ref ray, saveVisitedTiles, source.Transform, destTrs);
+            return Gridcast((gridUid, gridComponent, Transform(gridUid)), ref ray, saveVisitedTiles, source.Transform, destTrs, dist);
         }
 
         // lets check how many grids are between source and destination
@@ -193,7 +195,7 @@ public partial class RadiationSystem
         // the ray will be updated with each grid that has some blockers
         foreach (var grid in _grids)
         {
-            ray = Gridcast((grid.Owner, grid.Comp, Transform(grid)), ref ray, saveVisitedTiles, source.Transform, destTrs);
+            ray = Gridcast((grid.Owner, grid.Comp, Transform(grid)), ref ray, saveVisitedTiles, source.Transform, destTrs, dist);
 
             // looks like last grid blocked all radiation
             // we can return right now
@@ -273,7 +275,8 @@ public partial class RadiationSystem
         ref RadiationRay ray,
         bool saveVisitedTiles,
         TransformComponent sourceTrs,
-        TransformComponent destTrs)
+        TransformComponent destTrs,
+        float sourceDist)
     {
         var blockers = saveVisitedTiles ? new List<(Vector2i, float)>() : null;
 
@@ -308,10 +311,21 @@ public partial class RadiationSystem
 
         foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
         {
+            if (ray.Rads < 0.75f)
+            {
+                var safeDist = MathF.Max(sourceDist, 1f);
+                ray.Rads /= (safeDist * safeDist);
+
+                if (ray.Rads <= MinIntensity)
+                {
+                    ray.Rads = 0;
+                    break;
+                }
+            }
+
             if (resistanceMap.TryGetValue(point, out var resData))
             {
                 var passRatioFromRadResistance = (1 / (resData > 2 ? (resData / 2) : 1));
-
                 var passthroughRatio = MathF.Pow(passRatioFromRadResistance, dist);
                 ray.Rads *= passthroughRatio;
 
