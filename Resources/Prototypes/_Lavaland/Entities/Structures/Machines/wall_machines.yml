@@ -95,19 +95,19 @@
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
     state: keypad
-  - type: Keypad
-    code: "1234"
-    maxLength: 4
-  - type: UserInterface
-    interfaces:
-      enum.KeypadUiKey.Key:
-        type: KeypadBoundUserInterface
-  - type: ActivatableUI
-    key: enum.KeypadUiKey.Key
-  - type: DeviceLinkSource
-    ports:
-      - KeypadCorrect
-      - KeypadIncorrect
+#  - type: Keypad
+#    code: "1234"
+#    maxLength: 4
+#  - type: UserInterface
+#    interfaces:
+#      enum.KeypadUiKey.Key:
+#        type: KeypadBoundUserInterface
+#  - type: ActivatableUI
+#    key: enum.KeypadUiKey.Key
+#  - type: DeviceLinkSource
+#    ports:
+#      - KeypadCorrect
+#      - KeypadIncorrect
 
 # Red light
 
