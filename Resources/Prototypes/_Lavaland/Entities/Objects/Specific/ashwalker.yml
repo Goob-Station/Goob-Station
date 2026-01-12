@@ -5,7 +5,7 @@
   description: A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within.
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Specific/_Lavaland/ashwalkeregg.rsi
+    sprite: _Lavaland/Objects/Specific/Lavaland/ashwalkeregg.rsi
     state: large-egg
   - type: GhostRole
     name: ghost-role-information-ash-walker-name

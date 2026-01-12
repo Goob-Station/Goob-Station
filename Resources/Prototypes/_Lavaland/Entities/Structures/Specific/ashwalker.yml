@@ -9,7 +9,7 @@
   components:
    - type: Sprite
      noRot: true
-     sprite: _Goobstation/Structures/Specific/necropolisnest.rsi
+     sprite: _Lavaland/Structures/Specific/necropolisnest.rsi
      state: nest
      drawdepth: Mobs
    - type: NecropolisNest
