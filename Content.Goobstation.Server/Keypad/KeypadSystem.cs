@@ -57,8 +57,9 @@ public sealed class KeypadSystem : EntitySystem
 
     private void SendPulse(EntityUid uid, string port)
     {
-        if (!TryComp<DeviceLinkSourceComponent>(uid, out _))
-            return;
+        // You literally didn't specify what the problem is so I'm assuming you're just a TryComp hater.
+        if (!HasComp<DeviceLinkSourceComponent>(uid))
+            throw new InvalidOperationException($"Entity {uid} missing DeviceLinkSourceComponent.");
 
         _deviceLink.SendSignal(uid, port, true);
         _deviceLink.SendSignal(uid, port, false);
