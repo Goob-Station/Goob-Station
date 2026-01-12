@@ -24,7 +24,8 @@
     - id: ClothingUniformJumpskirtBlueshieldOfficer
     - id: ClothingUniformJumpsuitBlueshieldOfficer
     - id: ClothingUniformJumpsuitBlueshieldShirt
-    - id: ClothingBlueshieldArmoredJacket
+    - id: ClothingShoesBootsWinterSnowjackBso # CorvaxGoob На случай, если станция Гласир
+    # - id: ClothingBlueshieldArmoredJacket - CorvaxGoob Анти манч
     # - id: ClothingHeadHatBeretNavy - NO. ITS A NAVY OFFICER HAT. NOT THE BLUESHIELD HAT. BAD BAD BAD BAD.
 
 - type: entity
