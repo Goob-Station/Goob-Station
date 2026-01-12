@@ -3,8 +3,6 @@ using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
-using Robust.Shared.Prototypes;
-
 
 namespace Content.Goobstation.Shared.CustomLawboard;
 
@@ -39,12 +37,19 @@ public abstract class SharedCustomLawboardSystem : EntitySystem
         return sanitizedLaws;
     }
 
+    public static SiliconLawset CreateLawset(List<SiliconLaw> laws)
+    {
+        var lawset = new SiliconLawset();
+        lawset.Laws = laws;
+
+        return lawset;
+    }
+
     private void OnChangeLaws(EntityUid uid, CustomLawboardComponent customLawboard, CustomLawboardChangeLawsMessage args)
     {
         var provider = EnsureComp<SiliconLawProviderComponent>(uid);
-        var lawset = new SiliconLawset();
         var sanitizedLaws = SanitizeLaws(args.Laws);
-        lawset.Laws = sanitizedLaws; // Sanitizing is done so you can't make newlines in a law.
+        var lawset = CreateLawset(sanitizedLaws);
 
         customLawboard.Laws = sanitizedLaws;
         provider.Lawset = lawset;
