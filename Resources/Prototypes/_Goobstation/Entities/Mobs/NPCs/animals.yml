@@ -519,6 +519,7 @@
   parent: MobMouse
   id: MouseMenace
   name: menace
+  description: A mouse with an attitude.
   components:
   - type: EnchantFill
     enchants:

@@ -58,6 +58,17 @@
   - type: MindRole
     roleType: Familiar
 
+# This role is intended for all animals who aren't explicitly an antag
+- type: entity
+  parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
+  id: MindRoleGhostRoleSentientAnimal
+  name: Ghost Role (SentientAnimal)
+  components:
+  - type: MindRole
+    roleType: SentientAnimal
+    antagPrototype: FreeAgent
+    sortWeight: 30
+
 - type: entity
   parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
   id: MindRoleGhostRoleFreeAgent
