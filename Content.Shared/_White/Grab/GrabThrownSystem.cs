@@ -17,6 +17,7 @@ using System.Numerics;
 using Content.Goobstation.Common.Standing;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Stunnable; // Goobstation
+using Content.Shared.Damage.Components; // Goobstation
 
 namespace Content.Shared._White.Grab;
 
@@ -69,7 +70,7 @@ public sealed class GrabThrownSystem : EntitySystem
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
         _stamina.TakeStaminaDamage(ent, (float) Math.Floor(modNumber / 2));
 
-        _stun.TryKnockdown(args.OtherEntity, TimeSpan.FromSeconds(1), false, behavior: DropHeldItemsBehavior.DropIfStanding); // Goobstation
+        _stun.TryKnockdown(args.OtherEntity, GetThrowKnockdownDuration(args.OtherEntity), true, behavior: DropHeldItemsBehavior.DropIfStanding); // Goobstation
 
         _color.RaiseEffect(Color.Red, new List<EntityUid>() { ent }, Filter.Pvs(ent, entityManager: EntityManager));
     }
@@ -104,7 +105,19 @@ public sealed class GrabThrownSystem : EntitySystem
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 
-        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(1), false, behavior: behavior); // Goobstation
+        _stun.TryKnockdown(uid, GetThrowKnockdownDuration(uid), true, behavior: behavior); // Goobstation
         _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
+
+    // Goobstation start
+    private TimeSpan GetThrowKnockdownDuration(EntityUid uid)
+    {
+        if (TryComp<StaminaComponent>(uid, out var stamina))
+        {
+            var percentageMissing = stamina.StaminaDamage / stamina.CritThreshold;
+            return TimeSpan.FromSeconds(Math.Clamp(percentageMissing * 4f, 0.5f, 3.0f));
+        }
+        return TimeSpan.FromSeconds(0.5f);
+    }
+    // Goobstation end
 }

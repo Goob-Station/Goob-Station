@@ -461,7 +461,8 @@ public sealed class PullingSystem : EntitySystem
 
         if (!_combatMode.IsInCombatMode(uid)
             || HasComp<GrabThrownComponent>(pulling)
-            || component.GrabStage <= GrabStage.Soft)
+            || component.GrabStage <= GrabStage.Soft
+            || component.NextThrow > _timing.CurTime) // Goobstation
             return;
 
         var distanceToCursor = dir.Length();
@@ -1159,6 +1160,8 @@ public sealed class PullingSystem : EntitySystem
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
         }
 
+        if (stage >= GrabStage.Hard)
+            puller.Comp.NextThrow = _timing.CurTime + puller.Comp.ThrowCooldown;
 
         var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
         RaiseLocalEvent(puller.Owner, comboEv);

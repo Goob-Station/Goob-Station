@@ -169,7 +169,8 @@ public sealed class PullController : VirtualController
         if (_container.IsEntityInContainer(player))
             return false;
 
-        pullerComp.NextThrow = _timing.CurTime + pullerComp.ThrowCooldown;
+        // Commented out, what the hell does move pulled object have to do with the hard grab throw?
+        //pullerComp.NextThrow = _timing.CurTime + pullerComp.ThrowCooldown;
 
         // Cap the distance
         var range = 2f;

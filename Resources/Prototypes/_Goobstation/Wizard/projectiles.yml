@@ -97,6 +97,7 @@
     homingSpeed: 1080
   - type: KnockdownOnCollide
     behavior: DropIfStanding
+    duration: 4 # Goobstation edit
   - type: Ammo
     muzzleFlash: null
 

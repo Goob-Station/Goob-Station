@@ -103,7 +103,7 @@ public sealed partial class PullerComponent : Component
     public TimeSpan NextThrow;
 
     [DataField]
-    public TimeSpan ThrowCooldown = TimeSpan.FromSeconds(1);
+    public TimeSpan ThrowCooldown = TimeSpan.FromSeconds(0.65); // Goobstation
 
     // Before changing how this is updated, please see SharedPullerSystem.RefreshMovementSpeed
     public float WalkSpeedModifier => Pulling == default ? 1.0f : 0.95f;

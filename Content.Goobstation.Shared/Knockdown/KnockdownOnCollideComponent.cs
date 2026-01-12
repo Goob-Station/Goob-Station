@@ -14,4 +14,9 @@ public sealed partial class KnockdownOnCollideComponent : Component
 {
     [DataField]
     public DropHeldItemsBehavior Behavior = DropHeldItemsBehavior.NoDrop;
+
+    // Goobstation start
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromSeconds(2); // Default is 2 seconds
+    // Goobstation end
 }

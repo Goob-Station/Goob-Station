@@ -26,6 +26,7 @@ using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Movement.Pulling.Components; // Goobstation
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -146,7 +147,15 @@ public abstract partial class SharedHandsSystem
 
         // if item is a fake item (like with pulling), just delete it rather than bothering with trying to drop it into the world
         if (TryComp(entity, out VirtualItemComponent? @virtual))
-            _virtualSystem.DeleteVirtualItem((entity.Value, @virtual), ent);
+        {
+            // Goobstataion start
+            if (TryComp<PullableComponent>(@virtual.BlockingEntity, out var blockingEnt) && blockingEnt.Puller.HasValue &&
+                TryComp<PullerComponent>(blockingEnt.Puller.Value, out var puller) && puller.GrabStage >= Goobstation.Common.MartialArts.GrabStage.Soft)
+                return false;
+            else
+                // Goobstation end
+                _virtualSystem.DeleteVirtualItem((entity.Value, @virtual), ent);
+        }
 
         if (TerminatingOrDeleted(entity))
             return true;
