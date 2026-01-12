@@ -20171,3 +20171,9 @@ Entries:
       message: Removed Prison station and air plants.
   id: 2282
   time: '2026-01-12T19:50:55.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Wound visuals are back, rejoice!
+  id: 2283
+  time: '2026-01-12T19:51:52.0000000+00:00'
