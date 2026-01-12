@@ -122,6 +122,12 @@ public sealed partial class ElectrifiedComponent : Component
     public float ShockDamage = 7.5f;
 
     /// <summary>
+    /// Goobstation - The entity will have the spark animation constantly.
+    /// </summary>
+    [DataField("alwaysShowSparks")]
+    public bool AlwaysShowSparks = false;
+
+    /// <summary>
     /// Shock time, in seconds.
     /// </summary>
     [DataField, AutoNetworkedField]
