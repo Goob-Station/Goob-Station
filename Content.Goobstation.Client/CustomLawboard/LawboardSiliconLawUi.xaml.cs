@@ -268,7 +268,7 @@ public sealed partial class LawboardSiliconLawUi : FancyWindow
             var root = yamlStream.Documents[0].RootNode;
             var lawset = _serMan.Read<SiliconLawset>(root.ToDataNode(), notNullableOverride: true);
 
-            _laws = lawset.Laws;
+            _laws = SharedCustomLawboardSystem.SanitizeLaws(lawset.Laws);
             SetLaws(_laws);
             ProcessLawsChanged(true);
         }

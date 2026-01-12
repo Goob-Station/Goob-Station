@@ -3,6 +3,7 @@ using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.CustomLawboard;
 
@@ -20,13 +21,17 @@ public abstract class SharedCustomLawboardSystem : EntitySystem
         SubscribeLocalEvent<CustomLawboardComponent, CustomLawboardChangeLawsMessage>(OnChangeLaws);
     }
 
-    public List<SiliconLaw> SanitizeLaws(List<SiliconLaw> listToSanitize)
+    public static List<SiliconLaw> SanitizeLaws(List<SiliconLaw> listToSanitize)
     {
         var sanitizedLaws = new List<SiliconLaw>();
-        foreach (SiliconLaw law in listToSanitize)
+        foreach (SiliconLaw law in listToSanitize.Take(MaxLaws)) // clamp to maxlaws  
         {
+            var sanitizedLaw = law.LawString.Replace("\n", " "); // Remove newlines cause they mess chat up when the law is stated  
 
-            var sanitizedLaw = law.LawString.Replace("\n", " "); // Remove newlines cause they mess chat up when the law is stated
+            // clamp max law length
+            if (sanitizedLaw.Length > MaxLawLength)
+                sanitizedLaw = sanitizedLaw[..MaxLawLength];
+
             sanitizedLaws.Add(new SiliconLaw()
             {
                 LawString = sanitizedLaw,
