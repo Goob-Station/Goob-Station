@@ -232,14 +232,6 @@ public abstract partial class SharedMindSystem : EntitySystem
             UnVisit(component.MindId.Value);
     }
 
-    // goob start
-    public void SetShowExamineInfo(Entity<MindContainerComponent> ent, bool value)
-    {
-        ent.Comp.ShowExamineInfo = value;
-        Dirty(ent);
-    }
-    // goob end
-
     /// <summary>
     /// Checks to see if the user's mind prevents them from suicide
     /// Handles the suicide event without killing the user if true

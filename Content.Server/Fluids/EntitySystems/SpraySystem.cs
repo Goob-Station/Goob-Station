@@ -142,7 +142,7 @@ public sealed class SpraySystem : SharedSpraySystem
     {
         // Assmos - Extinguisher Nozzle
         var sprayOwner = entity.Owner;
-        var solutionName = SprayComponent.SolutionName;
+        var solutionName = entity.Comp.Solution;
 
         if (user == null)
             return;
@@ -160,10 +160,10 @@ public sealed class SpraySystem : SharedSpraySystem
                 }
 
                 if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
-                    _solutionContainer.TryGetSolution(item, SprayComponent.TankSolutionName, out _, out _))
+                    _solutionContainer.TryGetSolution(item, entity.Comp.Solution, out _, out _))
                 {
                     sprayOwner = item;
-                    solutionName = SprayComponent.TankSolutionName;
+                    solutionName = entity.Comp.TankSolution;
                     foundContainer = true;
                     break;
                 }
@@ -175,10 +175,10 @@ public sealed class SpraySystem : SharedSpraySystem
                 while (enumerator.NextItem(out var item))
                 {
                     if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
-                        _solutionContainer.TryGetSolution(item, SprayComponent.TankSolutionName, out _, out _))
+                        _solutionContainer.TryGetSolution(item, entity.Comp.TankSolution, out _, out _))
                     {
                         sprayOwner = item;
-                        solutionName = SprayComponent.TankSolutionName;
+                        solutionName = entity.Comp.TankSolution;
                         foundContainer = true;
                         break;
                     }
@@ -188,7 +188,8 @@ public sealed class SpraySystem : SharedSpraySystem
 
         if (!_solutionContainer.TryGetSolution(sprayOwner, solutionName, out var soln, out var solution)) return;
         // End of assmos changes
-        //if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution)) return;
+        //if (!_solutionContainer.TryGetSolution(entity.Owner, entity.Comp.Solution, out var soln, out var solution))
+        //    return;
 
         var ev = new SprayAttemptEvent(user);
         RaiseLocalEvent(entity, ref ev);

@@ -45,25 +45,25 @@ namespace Content.Shared.Fluids.Components;
 [Access(typeof(SharedSpraySystem))]
 public sealed partial class SprayComponent : Component
 {
-    public const string SolutionName = "spray";
-    public const string TankSolutionName = "tank"; // Assmos - Extinguisher Nozzle
+    public string Solution = "spray";
+    public string TankSolution = "tank"; // Assmos - Extinguisher Nozzle
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public FixedPoint2 TransferAmount = 10;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public float SprayDistance = 3.5f;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public float SprayVelocity = 3.5f;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public EntProtoId SprayedPrototype = "Vapor";
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public int VaporAmount = 1;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public float VaporSpread = 90f;
 
     /// <summary>

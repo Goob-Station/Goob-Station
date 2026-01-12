@@ -28,6 +28,14 @@ public sealed class MindExamineSystem : EntitySystem
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
     }
 
+    // goob start
+    public void SetShowExamineInfo(Entity<MindExaminableComponent> ent, MindState value)
+    {
+        ent.Comp.State = value;
+        Dirty(ent);
+    }
+    // goob end
+
     private void OnExamined(Entity<MindExaminableComponent> ent, ref ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
