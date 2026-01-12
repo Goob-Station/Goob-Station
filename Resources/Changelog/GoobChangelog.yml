@@ -20159,3 +20159,9 @@ Entries:
       message: fixed temp protection and added breathmask comp to CC modsuits
   id: 2280
   time: '2026-01-12T19:48:19.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Ephedrine Overdose by mrjajkes to nuke music
+  id: 2281
+  time: '2026-01-12T19:50:28.0000000+00:00'
