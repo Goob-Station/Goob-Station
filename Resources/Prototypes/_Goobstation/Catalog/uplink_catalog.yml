@@ -55,6 +55,7 @@
 # SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -68,7 +69,7 @@
   cost:
     Telecrystal: 30
   categories:
-    -  UplinkDisruption
+  -  UplinkDisruption
 
 - type: listing
   id: UplinkCarpCaller
@@ -78,7 +79,7 @@
   cost:
     Telecrystal: 40 # you can't really do much with it
   categories:
-    -  UplinkDisruption
+  -  UplinkDisruption
 
 - type: listing
   id: UplinkBoxReagentGrenades
@@ -88,7 +89,7 @@
   cost:
     Telecrystal: 30
   categories:
-    -  UplinkDisruption
+  -  UplinkDisruption
 
 - type: listing
   id: UplinkRemoteSignallerAdvanced
@@ -98,7 +99,7 @@
   cost:
     Telecrystal: 8
   categories:
-    -  UplinkDisruption
+  -  UplinkDisruption
 
 - type: listing
   id: UplinkSarinGasGrenade
@@ -458,7 +459,7 @@
   cost:
     Telecrystal: 25
   categories:
-    - UplinkWeaponry
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponM7S
@@ -468,7 +469,7 @@
   cost:
     Telecrystal: 60
   categories:
-    -  UplinkWeaponry
+  -  UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponHE1SG8
@@ -479,7 +480,7 @@
   cost:
     Telecrystal: 130
   categories:
-    - UplinkWeaponry
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponCombatShotgun
@@ -489,7 +490,7 @@
   cost:
     Telecrystal: 50
   categories:
-    -  UplinkWeaponry
+  -  UplinkWeaponry
 
 # Wearables
 
@@ -601,6 +602,27 @@
     Telecrystal: 20
   categories:
   - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrillaNukeops
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Job specific
 - type: listing
@@ -657,7 +679,7 @@
   cost:
     Telecrystal: 14
   categories:
-    -  UplinkJob
+  -  UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -673,7 +695,7 @@
   cost:
     Telecrystal: 5
   categories:
-    -  UplinkJob
+  -  UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -720,7 +742,7 @@
   cost:
     Telecrystal: 30
   categories:
-    - UplinkAllies
+  - UplinkAllies
 
 - type: listing
   id: uplinkBeeNades    #goob - bee update
@@ -886,13 +908,13 @@
   cost:
     Telecrystal: 25 # Half the budget #bounty someone want it cheaper.
   categories:
-    - UplinkImplants
+  - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
-          - ContravendUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+      - ContravendUplink
 
 - type: listing
   id: UplinkSmokeImplanter
@@ -903,7 +925,7 @@
   cost:
     Telecrystal: 10
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 - type: listing
   id: UplinkNutrimentImplanter
@@ -938,7 +960,7 @@
   cost:
     Telecrystal: 40
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 - type: listing
   id: UplinkBinaryImplant
@@ -1073,10 +1095,10 @@
   categories:
   - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 # Deception
 
@@ -1581,14 +1603,14 @@
   categories:
   - UplinkWeaponry # Usually the first tab new players look at
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-        - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-        - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkSyndiedrobe
@@ -1610,6 +1632,35 @@
     Telecrystal: 50 # Same price as what Antimov was. Might be worth increasing the price for nukies as they can do some BAD things with this.
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkCdDiskSyndicate
+  name: uplink-cddisksyndicate-name
+  description: uplink-cddisksyndicate-desc
+  productEntity: JVNECdDiskSyndicate
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkCdDiskNumber
+  name: uplink-cddisknumber-name
+  description: uplink-cddisknumber-desc
+  productEntity: JVNECdDiskNumber
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerJobCondition
+    whitelist:
+    - RadioHost
 
 - type: listing
   id: UplinkInjectionSaw

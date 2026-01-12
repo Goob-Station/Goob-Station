@@ -24,6 +24,7 @@
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -258,6 +259,9 @@ uplink-combat-medkit-pills-desc = Contains most medicines you need to recover fr
 uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
 uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
 
+uplink-injectionsaw-name = Injection Saw
+uplink-injectionsaw-desc = Modified saw outfitted with both a long needle and knife underneath, capable of storing reagents inside. Seems to inject chemicals fast. Starts empty.
+
 # Implants
 
 uplink-smoke-implant-name = Smoke Implant
@@ -359,5 +363,8 @@ uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded cloth
 uplink-customboard-name = Custom Syndicate Lawboard
 uplink-customboard-desc = A modified lawboard that allows the user to change the laws to anything they want. Comes with Antimov pre-installed.
 
-uplink-injectionsaw-name = Injection Saw
-uplink-injectionsaw-desc = Modified saw outfitted with both a long needle and knife underneath, capable of storing reagents inside. Seems to inject chemicals fast. Starts empty.
+uplink-cddisksyndicate-name = Syndicate Advertisement CD
+uplink-cddisksyndicate-desc = 102.9 Syndicate radio
+
+uplink-cddisknumber-name = Number Station CD
+uplink-cddisknumber-desc = Call in a threat to distract the station... good luck playing the whole thing.
