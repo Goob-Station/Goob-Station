@@ -75,3 +75,25 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-slasher
+
+# Immortal Snail
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleImmortalSnail
+  name: Immortal Snail Role
+  components:
+  - type: MindRole
+    antagPrototype: ImmortalSnail
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-immortal-snail
+
+# Immortal Snail Target
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleImmortalSnailTarget
+  name: Immortal Snail Target Role
+  components:
+  - type: MindRole
+    subtype: role-subtype-immortal-snail-target
+  - type: ImmortalSnailTargetRole

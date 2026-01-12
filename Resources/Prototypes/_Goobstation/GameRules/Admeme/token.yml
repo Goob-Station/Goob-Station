@@ -363,3 +363,49 @@
         - NamesSlasherTitle
         - NamesSlasher
         nameFormat: name-format-slasher
+
+- type: entity
+  parent: ImmortalSnailRule
+  id: TokenImmortalSnailRule
+  components:
+  - type: ImmortalSnailRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: immortal-snail-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostImmortalSnailToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleImmortalSnail
+      briefing:
+        text: immortal-snail-role-greeting
+        color: Yellow
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlaughterTitle
+        - NamesSlaughter
+        nameFormat: name-format-slaughter
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobImmortalSnail
+  - type: StationEvent
+    weight: 0.1
+    startAnnouncement: false
+    earliestStart: 30
+    minimumPlayers: 30
+    duration: null
+    eventType: Chaotic
+    maxOccurrences: 1
+    chaos:
+      Hostile: 200
+      Friend: 40
+      Medical: 100
+      Death: 100
+  - type: GameRule
+    chaosScore: 900
+  - type: AntagObjectives
+    objectives:
+      - ImmortalSnailTouchOfDeathObjective

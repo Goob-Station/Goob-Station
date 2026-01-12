@@ -1,0 +1,33 @@
+- type: entity
+  id: ActionImmortalSnailTouchOfDeath
+  name: Touch of Death
+  description: Instantly kill your assigned target with a single touch.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 2
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: Clothing/Mask/clown.rsi, state: icon }
+  - type: TargetAction
+    range: 0.5
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:TouchOfDeathEvent
+
+- type: entity
+  id: ActionImmortalSnailHeartbeat
+  name: Track Target
+  description: Sense the direction to your target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 5
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: Clothing/Mask/clown.rsi, state: icon }
+  - type: InstantAction
+    event: !type:SnailHeartbeatEvent

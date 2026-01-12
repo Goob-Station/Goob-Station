@@ -8,3 +8,5 @@ role-subtype-changeling = Ling
 role-subtype-brainwashed = Brainwashed
 role-subtype-slaughter-demon = Slaughter Demon
 role-subtype-slasher = The Slasher
+role-subtype-immortal-snail = Immortal Snail
+role-subtype-immortal-snail-target = Immortal

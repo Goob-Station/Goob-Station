@@ -1,0 +1,70 @@
+- type: entity
+  name: immortal snail
+  parent: MobSnail
+  id: MobImmortalSnail
+  description: A super intelligent snail that slowly crawls toward its target. It always knows where you are.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/snail_clown.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: snail
+  - type: Appearance
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: snail
+      Dead:
+        Base: dead
+  - type: ImmortalSnail
+  - type: CombatMode
+    combatToggleAction: ActionCombatModeToggle
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 2
+        Structural: 23
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: Godmode
+  - type: Hunger
+    baseDecayRate: 0
+  - type: Thirst
+    baseDecayRate: 0
+  - type: GhostRole
+    name: immortal-snail-role-name
+    description: immortal-snail-role-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleImmortalSnail
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Muted
+  - type: LanguageSpeaker
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0
+    damageRecovery:
+      types:
+        Asphyxiation: 0
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0
+  - type: MovementAlwaysTouching

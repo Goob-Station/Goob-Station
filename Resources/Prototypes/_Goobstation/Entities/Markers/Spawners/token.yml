@@ -143,3 +143,16 @@
     rules: ghost-role-information-hastur-rules
     raffle:
       settings: short
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostImmortalSnail
+  id: SpawnPointGhostImmortalSnailToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-immortal-snail-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules
+    raffle:
+      settings: short
