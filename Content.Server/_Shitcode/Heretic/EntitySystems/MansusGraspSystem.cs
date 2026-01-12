@@ -20,6 +20,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using System.Numerics;
 using Content.Goobstation.Common.Religion;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
@@ -68,6 +69,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
@@ -255,10 +257,14 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     {
         var tags = ent.Comp.Tags;
 
+        var runesInRange = _lookup.GetEntitiesInRange(Transform(args.User).Coordinates, 1f)
+            .Where(q => HasComp<HereticRitualRuneComponent>(q)).ToList();
+
         if (!args.CanReach
-            || !args.ClickLocation.IsValid(EntityManager)
-            || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-            || HasComp<ActiveDoAfterComponent>(args.User)) // prevent rune shittery
+        || !args.ClickLocation.IsValid(EntityManager)
+        || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic
+        || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
+        || runesInRange.Count >= 1) // more than 1 rune nearby. why?
             return;
 
         var runeProto = "HereticRuneRitualDrawAnimation";
@@ -284,7 +290,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         }
 
         // spawn our rune
-        var rune = Spawn(runeProto, args.ClickLocation);
+        var coords = args.ClickLocation.WithPosition(args.ClickLocation.Position.Floored() + new Vector2(0.5f, 0.5f));
+        var rune = Spawn(runeProto, coords);
         _transform.AttachToGridOrMap(rune);
         var dargs = new DoAfterArgs(EntityManager, args.User, time, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
         {
