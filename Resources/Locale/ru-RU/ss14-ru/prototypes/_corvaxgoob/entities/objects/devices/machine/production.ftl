@@ -15,3 +15,6 @@ ent-MachineMedipenRefillerCircuitboard = заполнитель медипено
 ent-QuantumTelepadMachineCircuitboard = квантовый телепад (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
     .suffix = { ent-BaseMachineCircuitboard.suffix }
+ent-CivilianFlatpackerMachineCircuitboard = Упаковщик 467-Г (машинная плата)
+    .desc = { ent-BaseMachineCircuitboard.desc }
+    .suffix = { ent-BaseMachineCircuitboard.suffix }

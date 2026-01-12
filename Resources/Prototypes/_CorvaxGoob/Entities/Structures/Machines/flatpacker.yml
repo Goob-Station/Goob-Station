@@ -1,0 +1,32 @@
+- type: entity
+  id: MachineCivilianFlatpacker
+  parent: MachineFlatpacker
+  name: Flatpacker 467-C
+  description: The predecessor of the "Flatpacker 1001", which is currently being produced. It is intended for civilian use and is not focused on industrial work.
+  components:
+  - type: FlatpackCreator
+    packDuration: 12
+    baseMachineCost:
+      Steel: 1250
+    baseComputerCost:
+      Steel: 750
+      Glass: 500
+  - type: Machine
+    board: CivilianFlatpackerMachineCircuitboard
+  - type: Sprite
+    sprite: Structures/Machines/flatpacker.rsi
+    snapCardinals: true
+    layers:
+    - state: base
+      sprite: _CorvaxGoob/Structures/Machines/flatpacker.rsi
+    - state: screen
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: packing
+      map: ["anim"]
+      visible: false
+    - state: inserting
+      visible: false
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]

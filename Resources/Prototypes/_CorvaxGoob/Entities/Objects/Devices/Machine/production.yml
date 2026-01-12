@@ -99,3 +99,16 @@
       Manipulator: 2
   - type: Item
     size: Normal
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: CivilianFlatpackerMachineCircuitboard
+  name: civilian flatpacker board
+  description: A machine printed circuit board for a civilian flatpacker.
+  components:
+  - type: MachineBoard
+    prototype: MachineCivilianFlatpacker
+    stackRequirements:
+      Steel: 8
+      Glass: 4
+      Manipulator: 3

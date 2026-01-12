@@ -15,6 +15,7 @@
   - ProtolatheMachineCircuitboard
   - AutolatheMachineCircuitboard
   - CircuitImprinterMachineCircuitboard
+  - CivilianFlatpackerMachineCircuitboard # CorvaxGoob
 
 - type: latheRecipePack
   id: GrenadeTriggersStatic
