@@ -247,7 +247,7 @@ public sealed partial class LawboardSiliconLawUi : FancyWindow
         }
         catch (Exception e)
         {
-            _sawmill.Error($"Error when exporting program: {e}");
+            _sawmill.Error($"Error when exporting lawboard: {e}");
         }
         finally
         {
@@ -274,7 +274,7 @@ public sealed partial class LawboardSiliconLawUi : FancyWindow
         }
         catch (Exception e)
         {
-            _sawmill.Error($"Error when importing program: {e}");
+            _sawmill.Error($"Error when importing lawboard: {e}");
         }
     }
 
