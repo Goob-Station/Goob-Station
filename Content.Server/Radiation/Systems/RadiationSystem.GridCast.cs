@@ -313,10 +313,10 @@ public partial class RadiationSystem
 
         foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
         {
-            // Apply inverse-square (terminal) decay once the ray drops below the threshold TerminalDecayThreshold
+            // Goobstation - Apply inverse-square (terminal) decay once the ray drops below the threshold TerminalDecayThreshold
             if (ray.UseTerminalDecay)
             {
-                var safeDist = MathF.Max(dist, 0.5f);
+                var safeDist = MathF.Max(dist, 1f);
                 ray.Rads /= (safeDist * safeDist);
 
                 if (ray.Rads <= MinIntensity)
@@ -333,7 +333,7 @@ public partial class RadiationSystem
                 var passthroughRatio = MathF.Pow(passRatioFromRadResistance, dist);
                 ray.Rads *= passthroughRatio;
 
-                // Resistance can trigger terminal decay
+                // Goobstation - Resistance can trigger terminal decay
                 if (ray.Rads <= TerminalDecayThreshold)
                     ray.UseTerminalDecay = true;
 
