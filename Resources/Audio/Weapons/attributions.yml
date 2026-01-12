@@ -113,6 +113,6 @@
   source: "https://github.com/Citadel-Station-13/Citadel-Station-13-RP/tree/cc701aedb633d83eae8339a8b3712ad8ad99cca0/sound"
 
 - files: ["slashermachetehit.ogg"]
-  license: "CC-BY-NC-SA"
+  license: "CC-BY-SA-3.0"
   copyright: "Taken from Goonstation"
   source: "https://github.com/goonstation/goonstation/blob/master/sound/impact_sounds/katana_slash.ogg"
