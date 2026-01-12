@@ -1,0 +1,11 @@
+- type: entity
+  id: OrganMothMangoHeart
+  parent: [ OrganAnimalHeart, FoodMango ]
+  name: mango heart
+  suffix: OrganHeart
+  description: "A writhing mass of mango goodness. According to medical research it has 65 chambers."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Moth/organs.rsi
+    state: heart-on
+  

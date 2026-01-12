@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "artwork/sprites by ccrispcrumbles (discord), json by Androidonator (github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "heart-on",
+      "delays": [
+        [
+          0.6,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "heart-inhand-left",
+      "directions": 4,
+        "delays": [
+          [
+            0.6, 
+            0.1
+          ],
+          [
+            0.6,
+            0.1
+          ],
+          [
+            0.6,
+            0.1
+          ],
+          [
+            0.6,
+            0.1
+          ]
+        ]
+    },
+    {
+      "name": "heart-inhand-right",
+      "directions": 4,
+      "delays": [
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.6,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
