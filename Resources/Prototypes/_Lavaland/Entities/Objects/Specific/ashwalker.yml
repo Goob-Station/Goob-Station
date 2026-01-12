@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseItem
+  id: AshWalkerEgg
+  name: ash walker egg
+  description: A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/_Lavaland/ashwalkeregg.rsi
+    state: large-egg
+  - type: GhostRole
+    name: ghost-role-information-ash-walker-name
+    description: ghost-role-information-ash-walker-description
+    rules: ghost-role-information-ash-walker-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: AshWalker

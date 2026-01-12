@@ -142,6 +142,8 @@
     spawned:
     - id: DiamondOre1 # not unprocessed
       amount: 1
+    - id: MaterialBones1 # Goobstation
+      amount: 1
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.65 # Lavaland change // Slightly slower than regular walkspeed, makes it not annoying as fuck to catch
     baseSprintSpeed: 1.65 # Lavaland change

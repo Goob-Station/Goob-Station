@@ -1,0 +1,29 @@
+- type: entity
+  name: bone dagger
+  parent: [BaseKnife, BaseMinorContraband]
+  id: BoneDagger
+  description: A sharpened bone. The bare minimum in survival.
+  components:
+  - type: Tag
+    tags:
+    - Knife
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/bone_dagger.rsi
+    state: icon
+  - type: Item
+    sprite: _Lavaland/Objects/Weapons/Melee/bone_dagger.rsi
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 13 # 3 more then a kitchen knife
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 13
+  - type: Construction
+    graph: BoneDaggerConstructionGraph
+    node: dagger

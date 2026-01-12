@@ -133,6 +133,8 @@
       amount: 3
     - id: MaterialGoliathHide1
       amount: 1
+    - id: MaterialBones1 # Goobstation
+      amount: 2
   - type: Fauna # Lavaland Change
 
 - type: entity
@@ -235,7 +237,7 @@
   name: hivelord
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
-  - type: WeatherImmune 
+  - type: WeatherImmune
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/hivelord.rsi
     layers:
@@ -289,6 +291,8 @@
   - type: Butcherable
     spawned:
     - id: FoodHivelordRemains
+    - id: MaterialBones1 # Goobstation
+      amount: 1
   - type: Fauna # Lavaland Change
 
 - type: entity
@@ -468,3 +472,5 @@
     - id: DiamondOre1
       amount: 1
       maxAmount: 3
+    - id: MaterialBones1 # Goobstation
+      amount: 2

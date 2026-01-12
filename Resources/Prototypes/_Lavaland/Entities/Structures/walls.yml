@@ -68,3 +68,18 @@
     enabled: false
   - type: RustRequiresPathStage
     pathStage: 11 # Can't rust
+
+- type: entity
+  parent: BaseWall
+  id: WallNecropolisIndestructible
+  name: necropolis wall
+  description: A seemingly impenetrable wall.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/necropolis.rsi
+  - type: Icon
+    sprite: Structures/Walls/necropolis.rsi
+  - type: IconSmooth
+    key: walls
+    base: necropolis

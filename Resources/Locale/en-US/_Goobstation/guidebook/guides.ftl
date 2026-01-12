@@ -102,3 +102,7 @@ guide-entry-sop-janitor = Janitor
 guide-entry-sop-librarian = Librarian
 guide-entry-sop-mime = Mime
 guide-entry-sop-reporter = Reporter
+
+# - Ghost Roles
+guide-entry-ghost-roles = Ghost Roles
+guide-entry-ash-walkers = Ash Walkers

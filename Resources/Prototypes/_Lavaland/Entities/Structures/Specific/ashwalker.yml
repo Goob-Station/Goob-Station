@@ -1,0 +1,67 @@
+- type: entity
+  id: AshWalkerNecropolisNest
+  categories: [ Spawner ]
+  parent: BaseStructure
+  name: necropolis nest
+  description: A huge structure. Several eggs shiver around it.
+  placement:
+    mode: SnapgridCenter
+  components:
+   - type: Sprite
+     noRot: true
+     sprite: _Omu/Structures/Specific/necropolisnest.rsi
+     state: nest
+     drawdepth: Mobs
+   - type: NecropolisNest
+   - type: Damageable
+     damageContainer: Biological
+     damageModifierSet: Skeleton
+   - type: Destructible
+     thresholds:
+     - trigger:
+         !type:DamageTrigger
+         damage: 500 # twice of a regular tendril.
+       behaviors:
+       - !type:DoActsBehavior
+         acts: [ "Destruction" ]
+       - !type:SpawnEntitiesBehavior
+         spawn:
+           LavalandCrateNecropolisRandom:
+             min: 1
+             max: 1
+   - type: Transform
+     anchored: true
+   - type: Appearance
+   - type: InteractionOutline
+   - type: Clickable
+   - type: Physics
+     bodyType: Static
+   - type: Fixtures
+     fixtures:
+       fix1:
+         shape:
+           !type:PhysShapeAabb
+           bounds: "-0.5,-0.5,0.5,0.5"
+         layer:
+         - WallLayer
+         mask:
+         - ItemMask
+         density: 1000
+         hard: false
+   - type: StepTrigger
+     requiredTriggeredSpeed: 0
+     intersectRatio: 0.2
+   - type: PassiveDamage #passive Healing
+     damage:
+       types:
+         Heat: -1
+         Shock: -1
+         Structural: -1
+       groups:
+         Brute: -3
+   - type: WarpPoint
+     follow: true
+     location: Necropolis Nest
+   - type: Drain # remove liquids around the nest, mostly just to not ruin HOW COOL THE NEST LOOKS
+     unitsPerSecond: 10
+     unitsDestroyedPerSecond: 10

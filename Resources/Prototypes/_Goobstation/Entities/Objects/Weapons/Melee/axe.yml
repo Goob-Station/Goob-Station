@@ -1,0 +1,55 @@
+- type: entity # it's literally just a reskin of the fireaxe. slightly lower damage though.
+  name: bone axe
+  parent: [BaseItem, BaseMajorContraband]
+  id: BoneAxe
+  description: An axe made of bones. A primitive hunters favorite... probably.
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 5.0
+    decapitation: true
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/bone_axe.rsi
+    state: icon
+  - type: MeleeWeapon # 20 damage at max, 5 less then the fireaxe. Blunt damage replaced with slash.
+    heavyStaminaCost: 15
+    wideAnimationRotation: 135
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 15
+        Structural: 10
+      woundSeverityMultipliers:
+        Slash: 4.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 5
+        Structural: 20
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Melee/bone_axe.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Tool
+    qualities:
+      - Axing
+  - type: ToolTileCompatible
+  - type: UseDelay
+    delay: 2
+  - type: Scalpel
+    speed: 0.1
+  - type: BoneSaw
+    speed: 0.2
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: Construction
+    graph: BoneAxeConstructionGraph
+    node: axe
