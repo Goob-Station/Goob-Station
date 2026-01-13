@@ -20225,3 +20225,11 @@ Entries:
         slimes roundstart.
   id: 2290
   time: '2026-01-13T07:33:40.0000000+00:00'
+- author: Stupid fuck
+  changes:
+    - type: Fix
+      message: Fixed xenovac not working.
+    - type: Remove
+      message: Emag interaction with xenovac.
+  id: 2291
+  time: '2026-01-13T17:47:26.0000000+00:00'
