@@ -5443,3 +5443,10 @@ Entries:
   id: 9384
   time: '2026-01-13T10:16:02.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42381
+- author: alexalexmax
+  changes:
+  - message: The ninja headset is now immune to EMPs.
+    type: Tweak
+  id: 9385
+  time: '2026-01-13T13:44:00.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42334
