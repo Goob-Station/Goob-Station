@@ -20245,3 +20245,11 @@ Entries:
       message: Moths now say mango while zombified.
   id: 2293
   time: '2026-01-13T23:07:12.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Blob will no longer stall round, If the shuttle has already arrived to
+        the station.
+  id: 2294
+  time: '2026-01-13T23:11:44.0000000+00:00'
