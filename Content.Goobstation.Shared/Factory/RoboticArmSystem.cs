@@ -28,6 +28,7 @@ public sealed class RoboticArmSystem : EntitySystem
     [Dependency] private readonly AutomationSystem _automation = default!;
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
+    [Dependency] private readonly ExclusiveSlotsSystem _exclusive = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
@@ -51,17 +52,12 @@ public sealed class RoboticArmSystem : EntitySystem
 
         SubscribeLocalEvent<RoboticArmComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<RoboticArmComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<RoboticArmComponent, AfterAutoHandleStateEvent>(OnHandleState);
         // input items
         SubscribeLocalEvent<RoboticArmComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<RoboticArmComponent, EndCollideEvent>(OnEndCollide);
         // HasItem visuals
         SubscribeLocalEvent<RoboticArmComponent, EntInsertedIntoContainerMessage>(OnItemModified);
         SubscribeLocalEvent<RoboticArmComponent, EntRemovedFromContainerMessage>(OnItemModified);
-        // linking
-        SubscribeLocalEvent<RoboticArmComponent, LinkAttemptEvent>(OnLinkAttempt);
-        SubscribeLocalEvent<RoboticArmComponent, NewLinkEvent>(OnNewLink);
-        SubscribeLocalEvent<RoboticArmComponent, PortDisconnectedEvent>(OnPortDisconnected);
     }
 
     public override void Update(float frameTime)
@@ -103,10 +99,7 @@ public sealed class RoboticArmSystem : EntitySystem
 
     private void OnInit(Entity<RoboticArmComponent> ent, ref ComponentInit args)
     {
-        _device.EnsureSinkPorts(ent, ent.Comp.InputPort);
-        _device.EnsureSourcePorts(ent, ent.Comp.OutputPort, ent.Comp.MovedPort);
-
-        UpdateSlots(ent);
+        _device.EnsureSourcePorts(ent, ent.Comp.MovedPort);
 
         UpdateItemSlots(ent);
     }
@@ -125,12 +118,6 @@ public sealed class RoboticArmSystem : EntitySystem
                 ? Loc.GetString("robotic-arm-examine-item", ("item", item))
                 : Loc.GetString("robotic-arm-examine-no-item"));
         }
-    }
-
-    private void OnHandleState(Entity<RoboticArmComponent> ent, ref AfterAutoHandleStateEvent args)
-    {
-        // incase client didnt predict linked port changing, update them
-        UpdateSlots(ent);
     }
 
     private void OnStartCollide(Entity<RoboticArmComponent> ent, ref StartCollideEvent args)
@@ -192,98 +179,13 @@ public sealed class RoboticArmSystem : EntitySystem
         _appearance.SetData(ent, RoboticArmVisuals.HasItem, ent.Comp.HasItem);
     }
 
-    private void OnLinkAttempt(Entity<RoboticArmComponent> ent, ref LinkAttemptEvent args)
-    {
-        // only prevent linking machines, don't care about control ports
-        var linkingOutput = args.SourcePort == ent.Comp.OutputPort;
-        var linkingInput = args.SinkPort == ent.Comp.InputPort;
-        if (!linkingOutput && !linkingInput)
-            return;
-
-        if (ent.Owner == args.Source && linkingOutput)
-        {
-            // only 1 machine
-            if (GetOutputMachine(ent) != null)
-            {
-                args.Cancel();
-                return;
-            }
-
-            // make sure the port is for an automation slot
-            if (!_automation.HasSlot(args.Sink, args.SinkPort, input: true))
-            {
-                args.Cancel();
-                return;
-            }
-        }
-        else if (ent.Owner == args.Sink && linkingInput)
-        {
-            // only 1 machine
-            if (GetInputMachine(ent) != null)
-            {
-                args.Cancel();
-                return;
-            }
-
-            // make sure the port is for an automation slot
-            if (!_automation.HasSlot(args.Source, args.SourcePort, input: false))
-            {
-                args.Cancel();
-                return;
-            }
-        }
-    }
-
-    private void OnNewLink(Entity<RoboticArmComponent> ent, ref NewLinkEvent args)
-    {
-        if (args.SinkPort == ent.Comp.InputPort)
-        {
-            ent.Comp.InputMachine = GetNetEntity(args.Source);
-            ent.Comp.InputMachinePort = args.SourcePort;
-            ent.Comp.InputSlot = _automation.GetSlot(args.Source, args.SourcePort, input: false);
-            DirtyField(ent, ent.Comp, nameof(RoboticArmComponent.InputMachine));
-            DirtyField(ent, ent.Comp, nameof(RoboticArmComponent.InputMachinePort));
-        }
-        else if (args.SourcePort == ent.Comp.OutputPort)
-        {
-            ent.Comp.OutputMachine = GetNetEntity(args.Sink);
-            ent.Comp.OutputMachinePort = args.SinkPort;
-            ent.Comp.OutputSlot = _automation.GetSlot(args.Sink, args.SinkPort, input: true);
-            DirtyField(ent, ent.Comp, nameof(RoboticArmComponent.OutputMachine));
-            DirtyField(ent, ent.Comp, nameof(RoboticArmComponent.OutputMachinePort));
-        }
-    }
-
-    private void OnPortDisconnected(Entity<RoboticArmComponent> ent, ref PortDisconnectedEvent args)
-    {
-        // this event is shit and doesnt have source/sink entity and port just 1 string
-        // so if you made InputPort and OutputPort the same string it would silently break
-        // absolute supercode
-        if (args.Port == ent.Comp.InputPort)
-        {
-            ent.Comp.InputMachine = null;
-            ent.Comp.InputMachinePort = null;
-            ent.Comp.InputSlot = null;
-            DirtyField(ent, ent.Comp, nameof(RoboticArmComponent.InputMachine));
-            DirtyField(ent, ent.Comp, nameof(RoboticArmComponent.InputMachinePort));
-        }
-        else if (args.Port == ent.Comp.OutputPort)
-        {
-            ent.Comp.OutputMachine = null;
-            ent.Comp.OutputMachinePort = null;
-            ent.Comp.OutputSlot = null;
-            DirtyField(ent, ent.Comp, nameof(RoboticArmComponent.OutputMachine));
-            DirtyField(ent, ent.Comp, nameof(RoboticArmComponent.OutputMachinePort));
-        }
-    }
-
     /// <summary>
     /// If a machine is linked for the arm's output, tries to insert into it.
     /// If there is no machine linked it just gets dropped.
     /// </summary>
     public bool TryDrop(Entity<RoboticArmComponent> ent, EntityUid item)
     {
-        if (GetOutputMachine(ent) is {} machine && ent.Comp.OutputSlot is {} slot)
+        if (_exclusive.GetOutput(ent, out var machine, out var slot))
             return TryInsert(ent, item, machine, slot);
 
         // no dropping items into walls
@@ -307,15 +209,16 @@ public sealed class RoboticArmSystem : EntitySystem
 
     public bool TryPickupAny(Entity<RoboticArmComponent> ent)
     {
-        if (GetInputMachine(ent) is {} machine && ent.Comp.InputSlot is {} slot)
+        if (_exclusive.GetInput(ent, out var machine, out var slot))
             return TryPickupFrom(ent, machine, slot);
 
         var count = ent.Comp.InputItems.Count;
         if (count == 0)
             return false;
 
-        var output = ent.Comp.OutputSlot;
-        if (output == null && IsOutputBlocked(ent))
+        // prevent dropping items on walls etc
+        var output = _exclusive.GetOutputSlot(ent);
+        if (output != null && IsOutputBlocked(ent))
             return false;
 
         var filter = _filter.GetSlot(ent);
@@ -368,14 +271,6 @@ public sealed class RoboticArmSystem : EntitySystem
             return false;
 
         return _slots.TryInsert(ent, ent.Comp.ItemSlot, stack, user: null);
-    }
-
-    private void UpdateSlots(Entity<RoboticArmComponent> ent)
-    {
-        if (GetInputMachine(ent) is {} input && ent.Comp.InputMachinePort is {} inPort)
-            ent.Comp.InputSlot = _automation.GetSlot(input, inPort, input: false);
-        if (GetOutputMachine(ent) is {} output && ent.Comp.OutputMachinePort is {} outPort)
-            ent.Comp.OutputSlot = _automation.GetSlot(output, outPort, input: true);
     }
 
     private void UpdateItemSlots(Entity<RoboticArmComponent> ent)
@@ -437,17 +332,5 @@ public sealed class RoboticArmSystem : EntitySystem
         var xform = Transform(uid);
         var offset = xform.LocalRotation.ToVec();
         return xform.Coordinates.Offset(offset);
-    }
-
-    private EntityUid? GetInputMachine(RoboticArmComponent comp)
-    {
-        TryGetEntity(comp.InputMachine, out var machine);
-        return machine;
-    }
-
-    private EntityUid? GetOutputMachine(RoboticArmComponent comp)
-    {
-        TryGetEntity(comp.OutputMachine, out var machine);
-        return machine;
     }
 }

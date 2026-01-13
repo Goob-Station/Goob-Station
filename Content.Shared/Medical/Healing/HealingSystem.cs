@@ -80,6 +80,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Medical.Healing;
 
@@ -102,6 +103,26 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly SharedTargetingSystem _targetingSystem = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly WoundSystem _wounds = default!;
+
+    // Goobstation edit
+    [Dependency] private readonly INetManager _net = default!;
+
+    // Goobstation start
+    private TargetBodyPart[] _partHealingOrder =
+        {
+            TargetBodyPart.Head,
+            TargetBodyPart.Chest,
+            TargetBodyPart.Groin,
+            TargetBodyPart.LeftArm,
+            TargetBodyPart.LeftHand,
+            TargetBodyPart.RightArm,
+            TargetBodyPart.RightHand,
+            TargetBodyPart.LeftLeg,
+            TargetBodyPart.LeftFoot,
+            TargetBodyPart.RightLeg,
+            TargetBodyPart.RightFoot
+        };
+    // Goobstation end
 
     public override void Initialize()
     {
@@ -150,7 +171,7 @@ public sealed class HealingSystem : EntitySystem
 
         // Restores missing blood
         if (healing.ModifyBloodLevel != 0 && bloodstream != null)
-            _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
+            _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), -healing.ModifyBloodLevel); // Goobedit
 
         var healed = _damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.Args.User);
 
@@ -184,7 +205,10 @@ public sealed class HealingSystem : EntitySystem
                 $"{ToPrettyString(args.User):user} healed themselves for {total:damage} damage");
         }
 
-        _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
+        // Goobstation
+        // Only play sound if this is not a body part (body parts are handled by OnBodyDoAfter)
+        if (!HasComp<BodyComponent>(target.Owner))
+            _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
 
         // Logic to determine the whether or not to repeat the healing action
         args.Repeat = HasDamage((args.Used.Value, healing), target) && !dontRepeat;
@@ -238,24 +262,45 @@ public sealed class HealingSystem : EntitySystem
     private string? GetDamageGroupByType(string id)
         => (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault();
 
-    private bool IsBodyDamaged(Entity<BodyComponent> target, EntityUid user, HealingComponent healing)
+
+    // Goobstation start
+    /// <summary>
+    /// Method <c>IsBodyDamaged</c> returns if a body part can be healed by the healing component. Returns false part is fully healed too.
+    /// </summary>
+    /// <param name="target">the target Entity</param>
+    /// <param name="user">The person trying to heal. (optional)</param>
+    /// <param name="healing">The healing component.</param>
+    /// <param name="targetedPart">bypasses targeting system to specify a limb. Must be set if user is null. (optional)</param>
+    /// <returns> Wether or not the targeted part can be healed. </returns>
+    public bool IsBodyDamaged(Entity<BodyComponent> target, EntityUid? user, HealingComponent healing, EntityUid? targetedPart = null) // Goob edit: private => public, used in RepairableSystems.cs
     {
-        if (!TryComp<TargetingComponent>(user, out var targeting))
+        if (user is null && targetedPart is null) // no limb can be targeted at all
             return false;
 
-        var (partType, symmetry) = _bodySystem.ConvertTargetBodyPart(targeting.Target);
-        var targetedBodyPart = _bodySystem.GetBodyChildrenOfType(target, partType, target, symmetry).ToList().FirstOrNull();
-
-        if (targetedBodyPart == null
-            || !TryComp(targetedBodyPart.Value.Id, out DamageableComponent? damageable))
+        if (user is not null)
         {
-            _popupSystem.PopupPredicted(Loc.GetString("missing-body-part"), target, user, PopupType.MediumCaution);
+            if (!TryComp<TargetingComponent>(user, out var targeting))
+                return false;
+
+            var (partType, symmetry) = _bodySystem.ConvertTargetBodyPart(targeting.Target);
+            var targetedBodyPart = _bodySystem.GetBodyChildrenOfType(target, partType, target, symmetry).ToList().FirstOrNull();
+
+            if (targetedBodyPart is not null && targetedPart is null)
+                targetedPart = targetedBodyPart.Value.Id;
+        }
+
+        if (targetedPart == null
+            || !TryComp(targetedPart, out DamageableComponent? damageable))
+        {
+            if (user is not null)
+                // Goobstation Predicted --> Client
+                _popupSystem.PopupClient(Loc.GetString("missing-body-part"), target, user.Value, PopupType.MediumCaution);
             return false;
         }
 
         if (healing.Damage.DamageDict.Keys
             .Any(damageKey => _wounds.GetWoundableSeverityPoint(
-                targetedBodyPart.Value.Id,
+                targetedPart.Value,
                 damageGroup: GetDamageGroupByType(damageKey),
                 healable: true) > 0 || damageable.Damage.DamageDict[damageKey].Value > 0))
             return true;
@@ -263,14 +308,35 @@ public sealed class HealingSystem : EntitySystem
         if (healing.BloodlossModifier == 0)
             return false;
 
-        foreach (var wound in _wounds.GetWoundableWounds(targetedBodyPart.Value.Id))
+        foreach (var wound in _wounds.GetWoundableWounds(targetedPart.Value))
         {
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
                 continue;
 
             return true;
         }
+        // Goobstation end
 
+        return false;
+    }
+
+    /// <summary>
+    ///     This function tries to return the first limb that has one of the damage type we are trying to heal
+    ///     Returns true or false if next damaged part exists.
+    /// </summary>
+    public bool TryGetNextDamagedPart(EntityUid ent, HealingComponent healing, out EntityUid? part) // Goob edit: private => public, used in RepairableSystems.cs
+    {
+        part = null;
+        if (!TryComp<BodyComponent>(ent, out var body))
+            return false;
+
+        var parts = _bodySystem.GetBodyChildren(ent, body).ToArray();
+        foreach (var limb in parts)
+        {
+            part = limb.Id;
+            if (IsBodyDamaged((ent, body), null, healing, limb.Id))
+                return true;
+        }
         return false;
     }
 
@@ -292,9 +358,17 @@ public sealed class HealingSystem : EntitySystem
             targetedWoundable = targetedBodyPart.Id;
         }
 
+        // Goobstation - commented out as it is no longer needed due to newer topical application logic
+        // Goobstation start
+        /*if (!IsBodyDamaged((ent, comp), null, healing, targetedWoundable))                          // Check if there is anything to heal on the initial limb target
+            if (TryGetNextDamagedPart(ent, healing, out var limbTemp) && limbTemp is not null)      // If not then get the next limb to heal
+                targetedWoundable = limbTemp.Value;*/
+        // Goobstation end
+
         if (targetedWoundable == EntityUid.Invalid)
         {
-            _popupSystem.PopupPredicted(
+            // Goobstation - predicted --> client
+            _popupSystem.PopupClient(
                 Loc.GetString("medical-item-cant-use", ("item", args.Used)),
                 ent,
                 args.User,
@@ -308,54 +382,106 @@ public sealed class HealingSystem : EntitySystem
 
         var healedBleed = false;
         var canHeal = true;
-        var healedTotal = FixedPoint2.Zero;
+        var healedTotal = new DamageSpecifier(); // Goobstation
         FixedPoint2 modifiedBleedStopAbility = 0;
         // Heal some bleeds
-        bool healedBleedWound = false;
         bool healedBleedLevel = false;
         if (healing.BloodlossModifier != 0)
         {
-            healedBleedWound = _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
-            if (healedBleedWound)
-                _popupSystem.PopupPredicted(modifiedBleedStopAbility > 0
+            // Goobstation start
+            var bleedBefore = 0.0;
+            if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
+                bleedBefore = bloodstream.BleedAmountFromWounds + bloodstream.BleedAmountNotFromWounds;
+            healedBleed = bleedBefore > 0.0;
+            _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
+            if (healing.BloodlossModifier + modifiedBleedStopAbility < 0.0)
+                _bloodstreamSystem.TryModifyBleedAmount(ent, (healing.BloodlossModifier + modifiedBleedStopAbility).Float()); // Use the leftover bleed heal
+            if (healedBleed)
+                _popupSystem.PopupClient(bleedBefore + healing.BloodlossModifier <= 0.0
                         ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
                         : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
                     ent,
                     args.User);
-
+            // Goobstation end
         }
 
         if (healing.ModifyBloodLevel != 0)
             healedBleedLevel = _bloodstreamSystem.TryModifyBloodLevel(ent, -healing.ModifyBloodLevel);
 
-        healedBleed = healedBleedWound || healedBleedLevel;
+        //healedBleed = healedBleedWound || healedBleedLevel;
 
-        if (TraumaSystem.TraumasBlockingHealing.Any(traumaType => _trauma.HasWoundableTrauma(targetedWoundable, traumaType, woundableComp, false)))
+        // Goobstation start
+        var leftoverHealAndTrauma = false;
+        var leftoverHealAndBleed = false;
+        var healingLeft = healing.Damage * _damageable.UniversalTopicalsHealModifier;
+        if (TryComp<BodyComponent>(ent, out var bodyComp) && bodyComp.BodyType == _Shitmed.Body.BodyType.Complex)
         {
-            canHeal = false;
-
-            if (!healedBleed)
+            // Create parts to go over queue: targetted part -> head -> torso -> groin -> everything else
+            // Iterate over the parts in the predefined order until we run out of parts or run out of healing
+            var woundablesQueue = new Queue<EntityUid>();
+            woundablesQueue.Enqueue(targetedWoundable);
+            for (var i = 0; i < _partHealingOrder.Length; i++)
             {
-                _popupSystem.PopupPredicted(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
-                return;
+                var (partType, symmetry) = _bodySystem.ConvertTargetBodyPart(_partHealingOrder[i]);
+                var targetedBodyPart = _bodySystem.GetBodyChildrenOfType(ent, partType, comp, symmetry).ToList().FirstOrDefault();
+                if (targetedBodyPart.Id == targetedWoundable)
+                    continue;
+                woundablesQueue.Enqueue(targetedBodyPart.Id);
             }
+            while (woundablesQueue.Count > 0 && healingLeft.GetTotal() < 0.0)
+            {
+                canHeal = true;
+                targetedWoundable = woundablesQueue.Dequeue();
+                if (!TryComp<WoundableComponent>(targetedWoundable, out var woundableComp2))
+                    continue;
+                if (TraumaSystem.TraumasBlockingHealing.Any(traumaType => _trauma.HasWoundableTrauma(targetedWoundable, traumaType, woundableComp2, false)))
+                {
+                    canHeal = false;
+
+                    if (!healedBleedLevel)
+                    {
+                        leftoverHealAndTrauma = true;
+                        continue;
+                    }
+                }
+
+                if (canHeal)
+                {
+                    if (healing.BloodlossModifier == 0 && healing.ModifyBloodLevel >= 0 && woundableComp2.Bleeds > 0)  // If the healing item has no bleeding heals, and its bleeding, we raise the alert. Goobstation edit
+                    {
+                        leftoverHealAndBleed = true;
+                        continue;
+                    }
+
+                    var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healingLeft, true, origin: args.User, ignoreBlockers: healedBleed || healing.BloodlossModifier == 0); // GOOBEDIT
+
+                    if (damageChanged is not null)
+                    {
+                        healedTotal += -damageChanged;
+                        healingLeft += -damageChanged;
+                    }
+                }
+            }
+
+        }
+        else
+        {
+            var healed = _damageable.TryChangeDamage(ent, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User);
+            if (healed != null)
+                healingLeft -= healed;
         }
 
-        if (canHeal)
+        var isAnyTypeFullyConsumed = healingLeft.DamageDict.Any(d => d.Value == 0);
+
+        if (!healedBleed && !isAnyTypeFullyConsumed && (leftoverHealAndTrauma || leftoverHealAndBleed))
         {
-            var damageChanged = _damageable.TryChangeDamage(ent, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User);
-
-            if (damageChanged is not null)
-                healedTotal += -damageChanged.GetTotal();
-
-            if (healedTotal <= 0 && !healedBleed)
-            {
-                if (healing.BloodlossModifier == 0 && woundableComp.Bleeds > 0) // If the healing item has no bleeding heals, and its bleeding, we raise the alert.
-                    _popupSystem.PopupPredicted(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
-
-                return;
-            }
+            if (leftoverHealAndTrauma)
+                _popupSystem.PopupClient(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
+            else if (leftoverHealAndBleed) // the else is because would like to not pop both the popups at once, priority goes to the trauma popup
+                _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
+            return;
         }
+        // Goobstation end
 
         // Re-verify that we can heal the damage.
         if (TryComp<StackComponent>(args.Used.Value, out var stackComp))
@@ -373,25 +499,25 @@ public sealed class HealingSystem : EntitySystem
         if (ent != args.User)
         {
             _adminLogger.Add(LogType.Healed,
-                $"{EntityManager.ToPrettyString(args.User):user} healed {EntityManager.ToPrettyString(ent):target} for {healedTotal:damage} damage");
+                $"{EntityManager.ToPrettyString(args.User):user} healed {EntityManager.ToPrettyString(ent):target} for {healedTotal.GetTotal():damage} damage"); // Goobstation
         }
         else
         {
             _adminLogger.Add(LogType.Healed,
-                $"{EntityManager.ToPrettyString(args.User):user} healed themselves for {healedTotal:damage} damage");
+                $"{EntityManager.ToPrettyString(args.User):user} healed themselves for {healedTotal.GetTotal():damage} damage"); // Goobstation
         }
-
-        _audio.PlayPvs(healing.HealingEndSound, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
+        _audio.PlayPredicted(healing.HealingEndSound, ent, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f)); // Goob edit
 
         // Logic to determine whether or not to repeat the healing action
-        args.Repeat = IsBodyDamaged((ent, comp), args.User, healing);
+        args.Repeat = IsAnythingToHeal(args.User, ent, (args.Used.Value, healing)); // GOOBEDIT
         args.Handled = true;
 
         if (args.Repeat || dontRepeat)
             return;
 
         if (modifiedBleedStopAbility != -healing.BloodlossModifier)
-            _popupSystem.PopupPredicted(Loc.GetString("medical-item-finished-using", ("item", args.Used)), ent, args.User, PopupType.Medium);
+            // Goobstation predicted --> client
+            _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), ent, args.User, PopupType.Medium);
     }
 
     // Shitmed Change End
@@ -412,6 +538,22 @@ public sealed class HealingSystem : EntitySystem
         if (TryHeal(healing, args.Target.Value, args.User))
             args.Handled = true;
     }
+
+    // Goobstation start
+    private bool IsAnythingToHeal(EntityUid user, EntityUid target, Entity<HealingComponent> healing)
+    {
+        if (!TryComp<DamageableComponent>(target, out var targetDamage))
+            return false;
+
+        return HasDamage(healing, (target, targetDamage)) ||
+            TryComp<BodyComponent>(target, out var bodyComp) && // I'm paranoid, sorry.
+            IsBodyDamaged((target, bodyComp), user, healing.Comp) ||
+            healing.Comp.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
+                && TryComp<BloodstreamComponent>(target, out var bloodstream)
+                && _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
+                && bloodSolution.Volume < bloodSolution.MaxVolume;
+    }
+    // Goobstation end
 
     private bool TryHeal(Entity<HealingComponent> healing, Entity<DamageableComponent?> target, EntityUid user)
     {
@@ -436,7 +578,7 @@ public sealed class HealingSystem : EntitySystem
             HasDamage(healing, (target.Owner, target.Comp)) ||
             TryComp<BodyComponent>(target, out var bodyComp) && // I'm paranoid, sorry.
             IsBodyDamaged((target, bodyComp), user, healing.Comp) ||
-            healing.Comp.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
+            healing.Comp.ModifyBloodLevel < 0 // Special case if healing item can restore lost blood... Goobstation edit
                 && TryComp<BloodstreamComponent>(target, out var bloodstream)
                 && _solutionContainerSystem.ResolveSolution(target.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
                 && bloodSolution.Volume < bloodSolution.MaxVolume; // ...and there is lost blood to restore.
@@ -447,20 +589,26 @@ public sealed class HealingSystem : EntitySystem
             return false;
         }
         // Shitmed Change End
-
-        _audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
+            // Goobstation Moved - to avoid audio spam
+            //_audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
 
         var isNotSelf = user != target.Owner;
 
         if (isNotSelf)
         {
+            // Show this to the target
+            // Goobstation predicted --> client
             var msg = Loc.GetString("medical-item-popup-target", ("user", Identity.Entity(user, EntityManager)), ("item", healing.Owner));
-            _popupSystem.PopupPredicted(msg, target, target, PopupType.Medium);
+            _popupSystem.PopupClient(msg, target, target, PopupType.Medium);
         }
 
         var delay = isNotSelf
             ? healing.Comp.Delay
             : healing.Comp.Delay * GetScaledHealingPenalty(target.Owner, healing.Comp.SelfHealPenaltyMultiplier);
+
+        // Play sound when starting the healing action
+        // Goobstation
+        _audio.PlayPredicted(healing.Comp.HealingBeginSound, target, user);
 
         var doAfterEventArgs =
             new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: healing)
@@ -469,7 +617,7 @@ public sealed class HealingSystem : EntitySystem
                 // not being able to heal your own ticking damage would be frustrating.
                 NeedHand = true,
                 BreakOnMove = true,
-                BreakOnWeightlessMove = false,
+                BreakOnWeightlessMove = false
             };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);

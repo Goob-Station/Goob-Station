@@ -372,7 +372,7 @@
     Oxygen:
       amount: 2
   products:
-    Stimulants: 2 # Goobstation edit
+    Stimulants: 3 # Goobstation edit
 
 - type: reaction
   id: Ephedrine
@@ -401,7 +401,7 @@
     SpaceGlue:
       amount: 2
   products:
-    MuteToxin: 2
+    MuteToxin: 4 #goob edit
 
 - type: reaction
   id: ChloralHydrate
@@ -556,7 +556,7 @@
     Vestine:
       amount: 1
   products:
-    Nocturine: 1
+    Nocturine: 2 #goob edit
 
 - type: reaction
   id: Tazinide
@@ -567,7 +567,7 @@
     Vestine:
       amount: 1
   products:
-    Tazinide: 1
+    Tazinide: 2 #goob edit
 
 - type: reaction
   id: ArtifactGlue

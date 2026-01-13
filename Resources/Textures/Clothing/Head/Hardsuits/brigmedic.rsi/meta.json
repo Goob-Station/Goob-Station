@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by PuroSlavKing (github) for SS14",
+  "copyright": "Made by PuroSlavKing (github) for SS14, Vulp version made by YERO",
   "size": {
     "x": 32,
     "y": 32
@@ -35,6 +35,22 @@
     },
     {
       "name": "on-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-vulpkanin",
       "directions": 4
     }
   ]

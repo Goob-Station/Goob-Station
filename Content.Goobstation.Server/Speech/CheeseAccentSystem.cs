@@ -26,7 +26,7 @@ public sealed class CheeseAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        message = _replacement.ApplyReplacements(message, "Cheese");
+        message = _replacement.ApplyReplacements(message, "cheese");
 
         // Sanitize capital again, in case we substituted a word that should be capitalized
         message = message[0].ToString().ToUpper() + message.Remove(0, 1);

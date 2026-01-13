@@ -31,10 +31,12 @@ using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -51,6 +53,8 @@ public abstract class SharedImplanterSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly INetManager _netMan = default!; // Goobstation - Labeled implants
+    [Dependency] private readonly LabelSystem _label = default!; // Goobstation - Labeled implants
 
     public override void Initialize()
     {
@@ -58,6 +62,7 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         SubscribeLocalEvent<ImplanterComponent, ComponentInit>(OnImplanterInit);
         SubscribeLocalEvent<ImplanterComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<ImplanterComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<ImplanterComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<ImplanterComponent, UseInHandEvent>(OnUseInHand);
@@ -81,6 +86,17 @@ public abstract class SharedImplanterSystem : EntitySystem
     {
         var implantData = Comp<MetaDataComponent>(args.Entity);
         component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+
+        // Goobstation - Labeled implants
+        if (_netMan.IsServer)
+            _label.Label(uid, implantData.EntityName);
+    }
+
+    // Goobstation - Labeled implants - Remove label on implant inject
+    private void OnEntRemoved(EntityUid uid, ImplanterComponent component, EntRemovedFromContainerMessage args)
+    {
+        if (_netMan.IsServer)
+            _label.Label(uid, null);
     }
 
     private void OnExamine(EntityUid uid, ImplanterComponent component, ExaminedEvent args)

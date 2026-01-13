@@ -46,7 +46,7 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: CommandTrackingImplant
-  name: Command tracking implant
+  name: command tracking implant
   description: This implant reserved for command has a tracking device attached to a private suit sensor network, as well as a condition monitor for the Command radio channel.
   categories: [ HideSpawnMenu ]
   components:
@@ -301,3 +301,26 @@
   - type: ComponentsImplant
     added:
     - type: XenoCompatible
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RedspaceLifelineImplant
+  name: redspace lifeline implant
+  description: Teleports the hosts body to Syndicate High Command on activation. They will not be able to return.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      permanent: true
+      implantAction: ActionActivateRedspaceLifeline
+    - type: MansusGraspBlockTrigger
+    - type: TriggerOnMobstateChange
+      mobState:
+        - Dead
+    - type: TriggerImplantAction
+    - type: DeleteParentOnTrigger
+    - type: SpawnOnTrigger
+      proto: RedspaceLifelineSpawnCore
+    - type: Tag
+      tags:
+        - SubdermalImplant
+        - HideContextMenu

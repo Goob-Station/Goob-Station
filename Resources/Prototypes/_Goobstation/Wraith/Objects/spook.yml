@@ -1,0 +1,95 @@
+- type: entity
+  id: SpookObject
+  name: ???
+  suffix: DO NOT MAP
+  description: It can do various things by being interacted with.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 15
+        layer:
+        - GhostImpassable
+  - type: InteractionOutline
+  - type: Sprite
+    noRot: true
+    layers:
+      - sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: curse
+    overrideContainerOcclusion: true # Always show up regardless of where they're contained.
+    drawdepth: Ghosts
+  - type: Visibility
+    layer: 2
+  - type: Spectral
+  - type: Spook
+    actions:
+    - prototype: ActionFlipLights
+    - prototype: ActionBurnLights
+    - prototype: ActionOpenDoors
+    - prototype: ActionCreateSmoke
+    - prototype: ActionCreateEctoplasm
+    - prototype: ActionSapApc
+    - prototype: ActionSpookRandom
+  - type: Actions
+  - type: ActionGrant
+    actions:
+    - ActionFlipLights
+    - ActionBurnLights
+    - ActionOpenDoors
+    - ActionCreateSmoke
+    - ActionCreateEctoplasm
+    - ActionSapApc
+    - ActionSpookRandom
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: FlipLights
+  - type: BurnLights
+  - type: CreateEctoplasm
+  - type: CreateSpookSmoke
+    smokeSolution:
+      reagents:
+      - ReagentId: ThickSmoke
+        Quantity: 50
+  - type: OpenDoorsSpook
+  - type: SapAPC
+  - type: RandomSpook
+
+- type: entity
+  parent: Ectoplasm
+  id: EctoplasmGoon
+  name: ectoplasm
+  description: A glob of who knows what. Just staring at it gives you the creeps.
+  components:
+    - type: Sprite
+      noRot: true
+      sprite: _Goobstation/Wraith/Objects/ectoplasm.rsi
+      state: ectoplasmaGoon
+    - type: Tag
+      tags:
+        - Trash
+        - Ectoplasm
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 50
+          reagents:
+            - ReagentId: Ash
+              Quantity: 25
+            - ReagentId: Coldsauce
+              Quantity: 25
+    - type: GuideHelp
+      guides:
+      - MinorAntagonists

@@ -1,7 +1,9 @@
+using Content.Goobstation.Common.Devour;
 using Content.Shared.Actions;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems; // Goobstation
 using Content.Shared.Devour.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
@@ -23,6 +25,7 @@ public sealed class DevourSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -110,11 +113,23 @@ public sealed class DevourSystem : EntitySystem
         {
             _bloodstreamSystem.TryAddToChemicals(ent.Owner, ichorInjection);
         }
+        // <Goobstation> voring walls is good for iron intake
+        if (args.Args.Target is {} target && _solution.TryGetSolution(target, "food", out _, out var food))
+            _bloodstreamSystem.TryAddToChemicals(ent.Owner, food);
+        // </Goobstation>
 
         // If the devoured thing meets the stomach whitelist criteria, add it to the stomach
         if (args.Args.Target != null && _whitelistSystem.IsWhitelistPass(ent.Comp.StomachStorageWhitelist, (EntityUid)args.Args.Target))
         {
             _containerSystem.Insert(args.Args.Target.Value, ent.Comp.Stomach);
+
+            // Goobstation start
+
+            if (HasComp<MobStateComponent>(args.Args.Target.Value)) // can be cases where objects are also whitelisted, which wont need this
+                EnsureComp<PreventSelfRevivalComponent>(args.Args.Target.Value);
+
+            // Goobstation end
+
         }
         //TODO: Figure out a better way of removing structures via devour that still entails standing still and waiting for a DoAfter. Somehow.
         //If it's not alive, it must be a structure.
@@ -131,6 +146,13 @@ public sealed class DevourSystem : EntitySystem
     {
         if (ent.Comp.StomachStorageWhitelist == null)
             return;
+
+        // Goobstation start
+
+        foreach (var entity in ent.Comp.Stomach.ContainedEntities)
+            RemComp<PreventSelfRevivalComponent>(entity);
+
+        // Goobstation end
 
         // For some reason we have two different systems that should handle gibbing,
         // and for some another reason GibbingSystem, which should empty all containers, doesn't get involved in this process

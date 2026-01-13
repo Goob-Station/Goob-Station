@@ -129,6 +129,14 @@ namespace Content.Shared.Lathe
         [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public float MaterialUseMultiplier = 1;
         #endregion
+
+        // Goobstation change start
+        // <summary>
+        // Output to MaterialStorage instead of spawning it
+        // </summary>
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public bool OutputToStorage = false;
+        // Goobstation change end
     }
 
     public sealed class LatheGetRecipesEvent : EntityEventArgs

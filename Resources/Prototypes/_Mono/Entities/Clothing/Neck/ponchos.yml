@@ -20,17 +20,6 @@
 
 - type: entity
   parent: ClothingNeckPonchoBlack
-  id: ClothingNeckPonchoBlackStripe
-  name: rogue cold weather poncho
-  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold. This one is black with red markings.
-  components:
-  - type: Sprite
-    sprite: _Mono/Clothing/Neck/Ponchos/blackstripe.rsi
-  - type: Clothing
-    sprite: _Mono/Clothing/Neck/Ponchos/blackstripe.rsi
-
-- type: entity
-  parent: ClothingNeckPonchoBlack
   id: ClothingNeckPonchoArctic
   name: cold weather poncho
   description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold.

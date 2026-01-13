@@ -117,6 +117,10 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
                 if (_whitelistSystem.IsWhitelistPass(slowContactsComponent.IgnoreWhitelist, uid))
                     continue;
 
+                // Goobstation
+                if (_whitelistSystem.IsWhitelistFail(slowContactsComponent.Whitelist, uid))
+                    continue;
+
                 // Entities that are airborne should not be affected by contact slowdowns that are specified to not affect airborne entities.
                 if (isAirborne && !slowContactsComponent.AffectAirborne)
                     continue;
@@ -174,7 +178,8 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
 
     private void OnEntityEnter(EntityUid uid, SpeedModifierContactsComponent component, ref StartCollideEvent args)
     {
-        AddModifiedEntity(args.OtherEntity);
+        if (!args.OurFixture.Hard) // Goobstation
+            AddModifiedEntity(args.OtherEntity);
     }
 
     /// <summary>

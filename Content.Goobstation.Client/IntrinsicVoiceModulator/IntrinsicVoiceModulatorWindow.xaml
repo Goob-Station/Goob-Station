@@ -1,0 +1,16 @@
+<!-- SPDX-License-Identifier: MIT -->
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc voice-mask-name-change-window}">
+	<PanelContainer Name="RootBackdrop">
+		<BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
+			<Label Name="CurrentName" Text="{Loc 'voice-mask-name-current-name'}" />
+			<LineEdit Name="NameLineEdit" />
+			<Label Text="{Loc 'voice-mask-name-change-speech-style'}" />
+            <OptionButton Name="SpeechVerbSelector" /> <!-- Populated in LoadVerbs -->
+			<Label Text="{Loc 'voice-mask-icon-label'}"/>
+			<GridContainer Name="IconGrid" Columns="10">
+				<!-- Job icon buttons are generated in the code -->
+			</GridContainer>
+		</BoxContainer>
+	</PanelContainer>
+</DefaultWindow>

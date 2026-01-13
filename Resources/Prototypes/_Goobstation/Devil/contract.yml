@@ -60,6 +60,8 @@
     tags:
     - Document
     - Paper
+  - type: ScannableForPoints
+    points: 0
 
 - type: entity
   id: PaperDevilContractBlank

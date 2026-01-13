@@ -35,18 +35,32 @@ heretic-role-greeting-short =
 ## ghoul
 heretic-ghoul-greeting =
     You have been summoned into this world by {CAPITALIZE(THE($ent))}!
-    You must aid him in his journey to ascension and protect him at all costs.
+    You must aid them in their journey to ascension and protect them at all costs.
     You may follow other heretics if your master is beyond resurrection.
 heretic-ghoul-greeting-noname =
     You have been summoned into this world by eldritch forces.
     Obey the orders of your masters no matter what.
+heretic-ghoul-briefing-start =
+    You have been summoned into this world by {CAPITALIZE(THE($ent))}!
+heretic-ghoul-briefing-start-noname =
+    You have been summoned into this world by eldritch forces.
+heretic-ghoul-briefing-end =
+    Obey the orders of your masters no matter what.
+
+    use +m key in chat to access mansus link.
 
 ghostrole-ghoul-name = Ghoul
+ghostrole-flesh-mimic-name = Flesh Mimic
 ghostrole-prophet-name = Raw Prophet
 ghostrole-stalker-name = Flesh Stalker
+ghostrole-fire-shark-name = Fire Shark
 ghostrole-rustwalker-name = Rust Walker
+ghostrole-stargazer-name = Star Gazer
 ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
-ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link.
+ghostrole-flesh-mimic-desc = Aid your summoner in achieving ascension. Be aware that you die over time.
+ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link. Passively heal heretics and eldritch creatures.
 ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and sabotage crew's lighting.
+ghostrole-fire-shark-desc = Aid your summoner in achieving ascension. Burn your victims.
 ghostrole-rustwalker-desc = Aid your summoner in achieving ascension. Spread rust everywhere.
+ghostrole-stargazer-desc = Aid your summoner in wreaking havoc everywhere.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.

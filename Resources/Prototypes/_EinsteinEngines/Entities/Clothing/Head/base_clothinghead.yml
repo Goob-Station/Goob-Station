@@ -54,6 +54,7 @@
       head:
       - state: on-equipped-HELMET
         shader: unshaded
+  - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
     color: "#ffa1ff"

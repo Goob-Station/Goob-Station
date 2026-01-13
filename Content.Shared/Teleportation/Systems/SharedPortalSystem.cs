@@ -15,6 +15,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared.Ghost;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -211,6 +212,13 @@ public abstract class SharedPortalSystem : EntitySystem
 
             return;
         }
+
+        // Goobstation start
+        var ev = new TeleportAttemptEvent(false);
+        RaiseLocalEvent(subject, ref ev);
+        if (ev.Cancelled)
+            return;
+        // Goobstation end
 
         var arrivalSound = CompOrNull<PortalComponent>(targetEntity)?.ArrivalSound ?? portalComponent.ArrivalSound;
         var departureSound = portalComponent.DepartureSound;

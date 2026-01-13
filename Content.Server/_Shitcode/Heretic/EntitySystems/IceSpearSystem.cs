@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Religion;
 using Content.Server.Damage.Systems;
 using Content.Server.Temperature.Components;
 using Content.Shared._Goobstation.Wizard.Traps;
@@ -32,8 +33,10 @@ public sealed class IceSpearSystem : EntitySystem
         if (!HasComp<MobStateComponent>(args.Target))
             return;
 
+        var hitNullRodUser = IsTouchSpellDenied(args.Target); // hit a null rod
+
         if (!HasComp<HereticComponent>(args.Target) && !HasComp<GhostComponent>(args.Target) &&
-            HasComp<TemperatureComponent>(args.Target))
+            HasComp<TemperatureComponent>(args.Target) && !hitNullRodUser)
             EnsureComp<IceCubeComponent>(args.Target);
 
         if (Exists(ent.Comp.ActionId))
@@ -45,5 +48,13 @@ public sealed class IceSpearSystem : EntitySystem
         var coords = Transform(ent).Coordinates;
         _audio.PlayPvs(ent.Comp.ShatterSound, coords);
         QueueDel(ent);
+    }
+
+    private bool IsTouchSpellDenied(EntityUid target)
+    {
+        var ev = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ev, true);
+
+        return ev.Cancelled;
     }
 }

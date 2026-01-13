@@ -162,6 +162,8 @@
       prob: 0.2
     - id: Devil # Goob
       prob: 0.02
+    - id: Shadowling # Goob
+      prob: 0.02
 
 - type: entity
   parent: BaseGameRule
@@ -230,6 +232,7 @@
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
+    agentName: nukeops-roundend-name # Goobstation
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -238,6 +241,11 @@
     #Balance concerns are not a valid reason to disable a species, except for high-impact Nukie-specific exploits.
     #- Vox
     - Yowie # Goobstation
+    - Plasmaman # EE
+  - type: AntagObjectives # Goobstation
+    objectives:
+    - NukeopsDetonateObjective
+
 
 - type: entity
   parent: BaseNukeopsRule
@@ -494,6 +502,7 @@
         components:
         - CommandStaff # Goobstation
         - ZombieImmune
+        - AntagImmune
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum

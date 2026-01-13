@@ -24,8 +24,6 @@
       gloves:
       - state: equipped-HAND
         color: "#913b00"
-  - type: Fiber
-    fiberColor: fibers-orange
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
@@ -140,11 +138,15 @@
   suffix: Loadouts, Colorable
 
 - type: entity
-  parent: ClothingHandsGlovesEnviroglovesWhite
+  parent: [ClothingHandsGlovesEnviroglovesBase, BaseSecurityContraband]
   id: ClothingHandsGlovesEnviroglovesDetective
   name: forensic envirogloves
   description: Covers up those scandalous boney fingerprints.
   components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/forensic.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/forensic.rsi
   - type: FingerprintMask
   - type: GuideHelp
     guides:
@@ -356,6 +358,11 @@
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-blue
+  - type: DamageOnInteractProtection # Botanist death nettle moment
+    damageProtection:
+      flatReductions:
+        Heat: 10
+        Caustic: 5
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
@@ -445,6 +452,12 @@
   id: ClothingHandsGlovesEnviroglovesCaptain
   name: captain's envirogloves
   description: Covers up those scandalous, bony hands in a fancy way.
+  components:
+  - type: FingerprintMask
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-durathread
+    fiberColor: fibers-regal-blue #Goobstation - Captain enviroglove parity
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase

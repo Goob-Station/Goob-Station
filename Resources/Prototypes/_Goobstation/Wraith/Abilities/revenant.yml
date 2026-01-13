@@ -1,0 +1,52 @@
+- type: entity
+  id: RevenantAbilities
+  name: Revenant Abilities
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Aura
+    auraFarm: 0.4
+    distortion: 0.02
+    auraColor: "#030300"
+  - type: RevenantCrush
+    abilityDuration: 5
+    initialDamage:
+      types:
+        Blunt: 50
+  - type: TouchOfEvil
+    damageBuff: 2.5
+  - type: RevenantShockwave
+    structureDamage:
+      types:
+        Structural: 80
+  - type: RevenantPush
+    damageWhenThrown:
+      groups:
+        Brute: 30
+  - type: WraithCommand
+    blacklist:
+      components:
+      - MobState
+      - Body
+      - Food
+      - EntityStorage
+      - Solution
+    searchRange: 14 # why not
+    stunDuration: 8 # why not
+  - type: WraithPoints
+    startingWraithPoints: 500
+  - type: PassiveWraithPoints
+    wpGeneration: 15 # generate points 15x than a normal wraith
+    nextWpUpdate: 1 # generate points every second
+  - type: ActionGrant
+    actions:
+    - ActionRevenantPush
+    - ActionMassCommand
+    - ActionShockwave
+    - ActionTouchOfEvil
+    - ActionCrush
+  - type: TriggerOnMobstateChange # smoke on death
+    mobState:
+    - Critical
+  - type: SmokeOnTrigger
+    duration: 4
+    spreadAmount: 50

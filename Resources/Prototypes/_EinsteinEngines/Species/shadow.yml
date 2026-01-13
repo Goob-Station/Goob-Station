@@ -1,6 +1,6 @@
 - type: species
   id: Shadow
-  name: species-name-Shadow
+  name: species-name-shadow
   roundStart: false
   prototype: MobShadow
   sprites: MobShadowSprites

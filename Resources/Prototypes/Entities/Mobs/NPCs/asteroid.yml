@@ -107,7 +107,7 @@
     range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna
   - type: HTN
     constantlyReplan: false
     rootTask:
@@ -235,6 +235,7 @@
   name: hivelord
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
+  - type: WeatherImmune 
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/hivelord.rsi
     layers:
@@ -274,7 +275,7 @@
     count: 1
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna # Goobedit - Lavaland
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -329,7 +330,7 @@
         acts: [ "Destruction" ]
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna
   - type: HTN
     rootTask:
       task: SimpleHostileCompound

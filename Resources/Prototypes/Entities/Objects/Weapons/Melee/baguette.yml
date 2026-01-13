@@ -25,3 +25,6 @@
     spread: 90
   - type: GibThisGuy #Goobstation
     ocNames: []
+  - type: Item # Goobedit
+    shape:
+    - 0,0,0,2

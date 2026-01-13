@@ -14,6 +14,25 @@ namespace Content.Client._Shitcode.Wizard.Systems;
 public sealed class FadingTimedDespawnSystem : SharedFadingTimedDespawnSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animationSystem = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<FadingTimedDespawnComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnShutdown(Entity<FadingTimedDespawnComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        _animationSystem.Stop(ent.Owner, FadingTimedDespawnComponent.AnimationKey);
+
+        if (TryComp(ent, out SpriteComponent? sprite))
+            _sprite.SetColor((ent.Owner, sprite), sprite.Color.WithAlpha(1f));
+    }
 
     protected override void FadeOut(Entity<FadingTimedDespawnComponent> ent)
     {

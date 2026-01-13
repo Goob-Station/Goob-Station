@@ -129,7 +129,7 @@ public sealed class EggLayerSystem : EntitySystem
 
         foreach (var ent in EntitySpawnCollection.GetSpawns(egglayer.EggSpawn, _random))
         {
-            Spawn(ent, Transform(uid).Coordinates);
+            SpawnNextToOrDrop(ent, uid); // goob edit
         }
 
         // Sound + popups
@@ -138,5 +138,18 @@ public sealed class EggLayerSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-others", ("entity", uid)), uid, Filter.PvsExcept(uid), true);
 
         return true;
+    }
+
+//_Trauma
+// Removes egg laying action when EggLayerComponent is removed from an entity.
+
+    private void RemoveEggLayer()
+    {
+        SubscribeLocalEvent<EggLayerComponent, ComponentShutdown>(OnShutdown);
+    }
+
+     void OnShutdown(Entity<EggLayerComponent> ent, ref ComponentShutdown args)
+    {
+        _actions.RemoveAction(ent.Comp.Action);
     }
 }
