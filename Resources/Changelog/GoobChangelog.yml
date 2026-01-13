@@ -20205,3 +20205,9 @@ Entries:
       message: Loop station has a proper xenobio lab now.
   id: 2287
   time: '2026-01-13T07:29:59.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: The syndicate monkey cube box has been readded to the nukie planet.
+  id: 2288
+  time: '2026-01-13T07:30:53.0000000+00:00'
