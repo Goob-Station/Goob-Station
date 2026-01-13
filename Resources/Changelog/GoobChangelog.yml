@@ -20239,3 +20239,9 @@ Entries:
       message: ERT, DS, and CBURN are back to being human only
   id: 2292
   time: '2026-01-13T22:59:14.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: Moths now say mango while zombified.
+  id: 2293
+  time: '2026-01-13T23:07:12.0000000+00:00'
