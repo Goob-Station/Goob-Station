@@ -134,6 +134,7 @@
       coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
+      blockSmokeIngestion: True
     - type: HideLayerClothing
       slots:
       - Hair
