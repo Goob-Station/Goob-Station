@@ -16,6 +16,8 @@
         Slash: 15
     soundHit:
       path: /Audio/_Goobstation/Weapons/Melee/slashermachetehit.ogg
+      params:
+        volume: -12
   - type: DamageOtherOnHit
     damage:
       types:
