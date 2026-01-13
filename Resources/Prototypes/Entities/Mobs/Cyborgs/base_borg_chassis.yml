@@ -299,7 +299,6 @@
       components:
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Screwing #Goob Edit
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -481,6 +480,11 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+  - type: BypassLock
+  - type: BypassLockRequiresMobState
+    requiredMobState:
+    - Critical
+    - Dead
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
@@ -617,6 +621,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
   - type: Damageable #Goobstation - Ion Damage
     damageContainer: Silicon
     damageModifierSet: SiliconProtected
@@ -684,6 +690,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
   - type: CollectiveMind # Goobstation collectivemind binary
     defaultChannel: Binary
     channels:
@@ -816,3 +824,5 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Xenoborg
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
