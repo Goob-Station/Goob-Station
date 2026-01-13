@@ -36,6 +36,7 @@
   - Rodentia
   - SlimePerson
   - Dwarf
+  - Feroxi
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
