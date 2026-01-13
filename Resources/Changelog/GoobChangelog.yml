@@ -20233,3 +20233,9 @@ Entries:
       message: Emag interaction with xenovac.
   id: 2291
   time: '2026-01-13T17:47:26.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: ERT, DS, and CBURN are back to being human only
+  id: 2292
+  time: '2026-01-13T22:59:14.0000000+00:00'
