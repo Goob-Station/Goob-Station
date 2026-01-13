@@ -209,6 +209,9 @@ chatsan-replacement-67 = all good
 chatsan-word-68 = idk
 chatsan-replacement-68 = i don't know
 
+chatsan-word-69 = wya
+chatsan-replacement-69 = where you at
+
 # goob start
 chatsan-word-69 = ts
 chatsan-replacement-69 = this shit
