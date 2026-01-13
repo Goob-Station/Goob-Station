@@ -5467,3 +5467,10 @@ Entries:
   id: 9387
   time: '2026-01-13T17:04:44.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42391
+- author: ScarKy0
+  changes:
+  - message: Scram implant no longer brings the person pulling you along.
+    type: Fix
+  id: 9388
+  time: '2026-01-13T17:18:55.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42393
