@@ -1034,8 +1034,11 @@
   name: uplink-stimpack-name
   description: uplink-stimpack-desc
   productEntity: Stimpack
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
   cost:
-    Telecrystal: 10 # goob - 1 TC per 3 seconds.
+    Telecrystal: 5 # goob
   categories:
   - UplinkChemicals
 
@@ -1045,8 +1048,11 @@
   name: uplink-stimkit-name
   description: uplink-stimkit-desc
   productEntity: StimkitFilled
+  #discountCategory: rareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 3
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkChemicals
 
