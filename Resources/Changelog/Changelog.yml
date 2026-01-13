@@ -5403,3 +5403,16 @@ Entries:
   id: 9380
   time: '2026-01-12T22:30:25.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39837
+- author: Princess-Cheeseballs
+  changes:
+  - message: Botany's chemical mutation table now takes rarity into account when selecting
+      chemicals. This means Omnizine is no longer the most common chemical to roll.
+    type: Fix
+  - message: Vestine chemical mutation table has been adjusted to be less powerful.
+      Vestine is now poisonous to plants.
+    type: Tweak
+  - message: Stellibinin now reduces plant toxicity at 50% the effectiveness of Dylovene.
+    type: Add
+  id: 9381
+  time: '2026-01-13T07:42:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42302
