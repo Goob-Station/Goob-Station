@@ -5436,3 +5436,10 @@ Entries:
   id: 9383
   time: '2026-01-13T08:12:43.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42337
+- author: ScarKy0
+  changes:
+  - message: The Smuggler's Satchel now costs 1TC instead of 2TC.
+    type: Tweak
+  id: 9384
+  time: '2026-01-13T10:16:02.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42381
