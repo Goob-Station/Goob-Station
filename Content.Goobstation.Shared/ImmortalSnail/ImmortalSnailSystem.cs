@@ -153,6 +153,9 @@ public abstract class SharedImmortalSnailSystem : EntitySystem
                 unrevivable.ReasonMessage = "immortal-snail-unrevivable";
             }
 
+            if (_mind.TryGetMind(target, out var mindId, out _))
+                _mind.WipeMind(mindId);
+
             _mobState.ChangeMobState(target, MobState.Dead, mobState);
 
             _popup.PopupEntity(Loc.GetString("immortal-snail-touch-kill-self", ("target", targetName)), ent, ent);
