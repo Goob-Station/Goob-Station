@@ -5504,3 +5504,13 @@ Entries:
   id: 9391
   time: '2026-01-13T22:35:55.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41870
+- author: ArtisticRoomba
+  changes:
+  - message: The frezon production conversion rate has been increased. Tritium combines
+      with oxygen to make frezon at a 1:50 ratio instead of a 1:8 ratio. This means
+      you'll be making more frezon for less tritium inputted in a standard frezon
+      setup.
+    type: Tweak
+  id: 9392
+  time: '2026-01-13T23:41:36.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42400
