@@ -183,7 +183,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
         var tankComp = tank.Value.Comp;
         var isAlive = TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == MobState.Alive;
 
-        if (!HasComp<EmaggedComponent>(vacuum) || isAlive && !_whitelist.IsWhitelistPass(vacuum.Comp.EntityWhitelist, target))
+        if (!_whitelist.IsWhitelistPass(vacuum.Comp.EntityWhitelist, target) && (!HasComp<EmaggedComponent>(vacuum) || !isAlive))
         {
             var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);
