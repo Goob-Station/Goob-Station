@@ -158,7 +158,9 @@ public partial class RadiationSystem
         if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
             dist = Math.Max(dist - horizon.Radius, 0.5f);
 
-        var rads = source.Intensity / (dist) - (dist - 15 > 0 ? (0.1f * dist - 15) : 0);
+        //Ray enters terminal decay if the distance between source->receiver >15 tiles.
+        //Decays at an additional linear rate of 0.07 rads per tile past tile 15 ontop of the existing hyperbolic function: (intensity/distance)
+        var rads = source.Intensity / (dist) - (dist - 15 > 0 ? (0.07f * (dist - 15)) : 0);
 
         if (rads < 0.01)
             return null;
