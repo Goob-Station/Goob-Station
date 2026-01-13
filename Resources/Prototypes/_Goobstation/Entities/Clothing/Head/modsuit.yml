@@ -134,6 +134,7 @@
       coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
+      blockSmokeIngestion: True
     - type: HideLayerClothing
       slots:
       - Hair
@@ -143,8 +144,8 @@
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
-    radius: 3
-    energy: 2
+    radius: 5
+    energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     netsync: true
