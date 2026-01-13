@@ -1,0 +1,110 @@
+<Document>
+  # Lavaland
+
+  After Nanotrasen emptied the Mega Asteroid for materials, they set their eyes on a new source of Plasma.
+  Unluckily for you, they set their eyes on a planet, with hostile ash storms and just as hostile fauna.
+
+  Welcome to Lavaland.
+
+  To get to Lavaland, you will need to take the mining shuttle pod. It will typically be located in Cargo, however, some stations may have it in seperate locations.
+
+  ## Environment
+  Lavaland is harsh, with ash storms that will deal constant burns to any miners caught outside.
+  Basalt is the usual terrain on Lavaland. Most gear you are provided will easily mine through it.
+  As the name suggets, you will also find large amounts of lava around. Don't jump in it. It's not worth it, no matter how funny it is.
+
+  ## Equipment
+  You will want to have proper gear to survive. Your lockers in Cargo will have what you need.
+
+  After redeeming points from the Ore Processor, you can use the Salvage Vendor for more gear.
+  Remember to smelt your materials after inserting them!
+
+  <Box>
+    <GuideEntityEmbed Entity="LockerSalvageSpecialist"/>
+    <GuideEntityEmbed Entity="VendingMachineSalvage"/>
+    <GuideEntityEmbed Entity="OreProcessor"/>
+  </Box>
+
+  Your Proto-Kinetic Accelerator (PKA) will be your main weapon for defending yourself against hostiles.
+
+  Either from your Salvage Vendor, or looting the ruins scattered across Lavaland, you can also purchase [color=cyan]Modkits[/color] to improve your PKA.
+
+  <Box>
+    <GuideEntityEmbed Entity="WeaponProtoKineticAccelerator"/>
+    <GuideEntityEmbed Entity="PKAUpgradeDamage"/>
+  </Box>
+
+  ## Fauna
+
+  Lavaland contains lots of fauna that call it home, and very few of them are friendly. Many of them are simple animals, however, some may be sentient.
+
+  <Box>
+    <GuideEntityEmbed Entity="MobLavalandGoliath"/>
+  </Box>
+  The [bold][color=red]Goliath[/color][/bold] is a hulking canine-like creature. It sports many tendrils and crushing jaw muscles. It tastes mighty fine when grilled, however.
+
+  It attacks through summoning tendrils from the ground in a T-Shape, digging into prety and stunning them for a peroid of time, where it will then move in and attack.
+  When the tentacles are emerging, the victim and quickly move out of the way to avoid being stunned.
+
+  Once butchered, its hide can be used to reinforce your suit.
+
+  <Box>
+    <GuideEntityEmbed Entity="MobWatcherLavaland"/>
+  </Box>
+  The [bold][color=red]Watcher[/color][/bold] is a flying creature with red sinewy antlers sprouting from a large menacing eye.
+
+  It attacks through shooting a ice beam that deals cold damage, and slowing you down.
+  Upon being butchered, it also contains a diamond.
+
+  <Box>
+    <GuideEntityEmbed Entity="MobHivelordBrood" Caption=""/>
+    <GuideEntityEmbed Entity="MobHivelord" Scale="2.4"/>
+    <GuideEntityEmbed Entity="MobHivelordBrood" Caption=""/>
+  </Box>
+  The [bold][color=red]Hivelord[/color][/bold] is a alien mass of unknown organic material.
+
+  It attacks through splitting of parts of itself, a "Brood", which then attacks the target, whilst the main Hivelord keeps distance.
+  Whilst a single Brood is weak, their strength comes in sheer numbers. A brood cannot maintain its form however, and will disappear if not killed.
+
+  Upon being butchered, its remains can be eaten for quick healing. It will turn inert after some time, however.
+
+  <Box>
+    <GuideEntityEmbed Entity="AshWalker"/>
+    <GuideEntityEmbed Entity="AshWalkerNecropolisNest"/>
+    <GuideEntityEmbed Entity="AshWalker"/>
+  </Box>
+  The [bold][color=red]Ashwalkers[/color][/bold] are a tribe of creatures that worship the Necropolis.
+
+  Due to them being sentient, their exact intentions are varied. They cannot speak common, and will usually attack miners on sight. Some may ignore or attempt to befriend the miners, however.
+  You can read more on them [textlink="here." link="AshWalkers"]
+
+  # Megafauna
+
+  The biggest threat is Megafauna. Whilst rare, if fought, will require heavy skill to defeat. Its rewards will be worth it, however.
+  Megafauna are either found in the open, or in their unique arenas.
+
+
+  <Box>
+    <GuideEntityEmbed Entity="MobHierophant" Scale="2.6"/>
+  </Box>
+  The [bold][color=purple]Hierophant[/color][/bold] is a massive metal club.
+  It attacks through summoning squares around its arena, dealing 10 Blunt and 10 Heat if you fail to dodge it.
+  Upon entering the arena, you will be forced into [bold]Tile Movement[/bold].
+  It's arena will be on the mass scanner as a massive square. It may be far from the outpost, however, so prepare shelter capsules.
+
+  It is highly recommended you only fight it once you are equipped with the best gear you can get. A Reifnroced Explorere Suit, a fully upgraded PKA, and Jumpboots are good for this fight.
+  Once you begin fighting, you will be locked into the arena. [bold]Ensure you are ready before entering![/bold]
+  The Hierophants health and speed will increase according to the number of players in the arena.
+
+  Its attacks are:
+  Blink - Teleports near its target after a brief delay, dealing damage to anything near the start and end point of its blink.
+
+  Cross Blast - Creates diagonal and cardinal crosses of projectiles near the target. The number of crosses increases with damage.
+
+  Chasers - Creates a chaser, which will fire beneath the Hierophant. It will then follow the target.
+
+  AoE blast - Will create a large AoE blast at the target. It will start as a 3x3 area, growing larger rapidly before stopping.
+
+  Upon death, it will become a item, which can be used to teleport similarly to the Hierophant, or curse someone to use Tile Movement. It will also deal 15 Blunt, and 5 Heat upon hit.
+
+</Document>

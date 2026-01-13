@@ -105,4 +105,3 @@ guide-entry-sop-reporter = Reporter
 
 # - Ghost Roles
 guide-entry-ghost-roles = Ghost Roles
-guide-entry-ash-walkers = Ash Walkers
