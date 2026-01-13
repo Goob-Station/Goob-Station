@@ -5416,3 +5416,12 @@ Entries:
   id: 9381
   time: '2026-01-13T07:42:52.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42302
+- author: ScarKy0
+  changes:
+  - message: Hyperzine Injector cost has been lowered to 2TC from 4TC.
+    type: Tweak
+  - message: Hyperzine Microinjector Kit cost has been lowered to 5TC from 12TC.
+    type: Tweak
+  id: 9382
+  time: '2026-01-13T07:57:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42383
