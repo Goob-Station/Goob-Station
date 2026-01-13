@@ -20141,3 +20141,87 @@ Entries:
       message: Handheld mass scanners were added back into the game.
   id: 2278
   time: '2026-01-10T19:21:35.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Emagged xenovac can no longer suck alive guys. (But still can suck
+        crit/dead people)
+    - type: Tweak
+      message: Xenovac can now suck on monkeys.
+  id: 2279
+  time: '2026-01-12T13:22:04.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Fixed some CC mapping issues
+    - type: Fix
+      message: fixed temp protection and added breathmask comp to CC modsuits
+  id: 2280
+  time: '2026-01-12T19:48:19.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Ephedrine Overdose by mrjajkes to nuke music
+  id: 2281
+  time: '2026-01-12T19:50:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: Removed Prison station and air plants.
+  id: 2282
+  time: '2026-01-12T19:50:55.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Wound visuals are back, rejoice!
+  id: 2283
+  time: '2026-01-12T19:51:52.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Fix
+      message: >-
+        RD's Experimental Lab Coat now has the same resistances as the regular
+        one.
+  id: 2284
+  time: '2026-01-12T19:53:13.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Bluespace Extract Slime interaction with blood also teleport your
+        positronic brain as an IPC
+  id: 2285
+  time: '2026-01-13T02:37:18.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Cluster has a proper xenobio lab now.
+  id: 2286
+  time: '2026-01-13T07:29:11.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Loop station has a proper xenobio lab now.
+  id: 2287
+  time: '2026-01-13T07:29:59.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: The syndicate monkey cube box has been readded to the nukie planet.
+  id: 2288
+  time: '2026-01-13T07:30:53.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Submarine has a xenobio lab now.
+  id: 2289
+  time: '2026-01-13T07:33:12.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: >-
+        Omega, Packed and Saltern actually have proper xenobio equipment and
+        slimes roundstart.
+  id: 2290
+  time: '2026-01-13T07:33:40.0000000+00:00'
