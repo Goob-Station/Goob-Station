@@ -49,7 +49,6 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
         SubscribeLocalEvent<NinjaSuitComponent, CreateItemAttemptEvent>(OnCreateStarAttempt);
         SubscribeLocalEvent<NinjaSuitComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
         SubscribeLocalEvent<NinjaSuitComponent, GotUnequippedEvent>(OnUnequipped);
-        SubscribeLocalEvent<NinjaSuitComponent, EmpAttemptEvent>(OnEmpAttempt);
     }
 
     private void OnEquipped(Entity<NinjaSuitComponent> ent, ref ClothingGotEquippedEvent args)
@@ -185,12 +184,5 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
         // disable glove abilities
         if (user.Comp.Gloves is { } uid)
             _toggle.TryDeactivate(uid, user: user);
-    }
-
-    private void OnEmpAttempt(Entity<NinjaSuitComponent> ent, ref EmpAttemptEvent args)
-    {
-        // ninja suit (battery) is immune to emp
-        // powercell relays the event to suit
-        args.Cancelled = true;
     }
 }
