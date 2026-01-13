@@ -151,10 +151,9 @@ public abstract class SharedImmortalSnailSystem : EntitySystem
             {
                 var unrevivable = EnsureComp<UnrevivableComponent>(target);
                 unrevivable.ReasonMessage = "immortal-snail-unrevivable";
+                if (_mind.TryGetMind(target, out var mindId, out _))
+                    _mind.WipeMind(mindId);
             }
-
-            if (_mind.TryGetMind(target, out var mindId, out _))
-                _mind.WipeMind(mindId);
 
             _mobState.ChangeMobState(target, MobState.Dead, mobState);
 
