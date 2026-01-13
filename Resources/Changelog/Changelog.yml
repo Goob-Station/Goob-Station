@@ -5450,3 +5450,11 @@ Entries:
   id: 9385
   time: '2026-01-13T13:44:00.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42334
+- author: Velken, Murphyneko
+  changes:
+  - message: Station tiles and floors can now be placed on planets, asteroids and
+      different platings.
+    type: Tweak
+  id: 9386
+  time: '2026-01-13T14:05:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38898
