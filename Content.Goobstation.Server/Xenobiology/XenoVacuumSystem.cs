@@ -17,6 +17,7 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -180,8 +181,9 @@ public sealed partial class XenoVacuumSystem : EntitySystem
         }
 
         var tankComp = tank.Value.Comp;
+        var isAlive = TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == MobState.Alive;
 
-        if (!HasComp<EmaggedComponent>(vacuum) && !_whitelist.IsWhitelistPass(vacuum.Comp.EntityWhitelist, target))
+        if (!HasComp<EmaggedComponent>(vacuum) || isAlive && !_whitelist.IsWhitelistPass(vacuum.Comp.EntityWhitelist, target))
         {
             var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);
