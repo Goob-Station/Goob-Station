@@ -661,4 +661,10 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> ContrabandIconsEnabled =
         CVarDef.Create("contraband.icons_enabled", true, CVar.SERVER | CVar.REPLICATED);
    #endregion
+
+    /// <summary>
+    /// Controls how often GPS updates.
+    /// </summary>
+    public static readonly CVarDef<float> GpsUpdateRate =
+        CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
 }
