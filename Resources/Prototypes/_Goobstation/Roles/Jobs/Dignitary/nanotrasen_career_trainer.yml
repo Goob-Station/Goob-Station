@@ -23,6 +23,7 @@
     implants: [ MindShieldImplant, BluespaceLifelineImplant, KravMagaImplant ] # Krav for self-defense, don't want to be defenceless chud, dont want to be too OP.
   - !type:AddComponentSpecial
     components:
+      - type: UniversalLanguageSpeaker
       - type: CommandStaff
       - type: Condemned
         soulOwnedNotDevil: true
@@ -35,7 +36,14 @@
     eyes: ClothingEyesGlassesCentCommNoThermal
     pocket1: Flash
     pocket2: FoodSnackLollypopWrappedCentComm # Come on, it's a trademark at this point.
-    back: ClothingModsuitTrainerFilled
+    back: ClothingModsuitTrainer
+  storage:
+    back:
+    - HandheldFaxOfficial
+    - BoxFolderCentComClipboard 
+    - DeterrentCaseFilled
+    - WeaponDisablerAdvanced
+    - CentralCommandBusinessCard
 
 - type: chameleonOutfit
   id: NanotrasenCareerTrainerChameleonOutfit
@@ -51,4 +59,4 @@
     shoes: ClothingShoesBootsLaceup
     outerClothing: ClothingOuterWinterCoatTrainer
     head: ClothingHeadHatTrainer
-    neck: ClothingNeckChameleon
+    neck: ExecutiveIDCard

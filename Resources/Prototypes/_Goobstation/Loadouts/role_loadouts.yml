@@ -135,9 +135,10 @@
   groups:
   - GroupTankHarness
   - NanotrasenTrainerHead
+  - NanotrasenTrainerNeck
+  - NanotrasenTrainerMask
   - NanotrasenTrainerJumpsuit
   - NanotrasenTrainerOuterClothing
-  - NanotrasenTrainerMask
   - NanotrasenTrainerShoes
   - NanotrasenTrainerGloves
   - NanotrasenTrainerBelt

@@ -33,6 +33,11 @@
   equipment:
     mask: FoodSnackLollypopCentcomm
 
+#Neck
+- type: loadout
+  id: NanotrasenTrainerExecutive
+  equipment:
+    neck: ExecutiveIDCard
 
 # Jumpsuits
 - type: loadout

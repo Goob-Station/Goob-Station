@@ -1083,6 +1083,12 @@
   - NanotrasenTrainerMaskLolly
 
 - type: loadoutGroup
+  id: NanotrasenTrainerNeck
+  name: loadout-group-nct-neck
+  loadouts:
+  - NanotrasenTrainerExecutive
+
+- type: loadoutGroup
   id: NanotrasenTrainerJumpsuit
   name: loadout-group-nct-jumpsuit
   loadouts:
