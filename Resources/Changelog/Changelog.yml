@@ -5529,3 +5529,20 @@ Entries:
   id: 9394
   time: '2026-01-14T15:03:04.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38335
+- author: SlamBamActionman
+  changes:
+  - message: Added a target station map inside the LoneOp's Striker shuttle.
+    type: Add
+  id: 9395
+  time: '2026-01-14T20:04:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42376
+- author: Samuka
+  changes:
+  - message: Xenoborgs no longer drop core pinpointers.
+    type: Remove
+  - message: Xenoborgs now drop core pinpointer pieces. With 4 you can craft a repaired
+      core pinpointer!
+    type: Add
+  id: 9396
+  time: '2026-01-14T20:36:12.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42295
