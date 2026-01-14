@@ -5522,3 +5522,10 @@ Entries:
   id: 9393
   time: '2026-01-14T05:21:21.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42407
+- author: skrybl
+  changes:
+  - message: Changed the sprite for the janitorial maid uniform.
+    type: Tweak
+  id: 9394
+  time: '2026-01-14T15:03:04.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38335
