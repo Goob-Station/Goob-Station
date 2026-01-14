@@ -1107,5 +1107,6 @@ PlushieLehmin: null
 # 2025-10-09
 FoodDonutJellySlugcat: FoodDonutJellyScurret
 
-# 2026-01-04
-GhostBarSpawner: null
+# Reverted by CorvaxGoob-GhostBar
+# # 2026-01-04
+# GhostBarSpawner: null
