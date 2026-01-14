@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -67,3 +68,6 @@ loadout-group-virologist-jumpsuit = Virologist jumpsuit
 loadout-group-virologist-backpack = Virologist backpack
 loadout-group-virologist-outerclothing = Virologist outer clothing
 loadout-group-virologist-id = Virologist ID
+
+#RadioHost
+loadout-group-radiohost-jumpsuit = Shirt
