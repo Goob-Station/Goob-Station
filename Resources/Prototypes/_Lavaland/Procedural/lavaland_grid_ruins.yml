@@ -20,7 +20,14 @@
   id: SyndicateBase
   name: lavaland-ruin-syndicate
   path: /Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
-  priority: -1 # highest priority
+  priority: -2 # highest priority
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: SyndicateBase
+  name: lavaland-ruin-ash-walker
+  path: /Maps/_Lavaland/Lavaland/ashwalker_nest.yml
+  priority: -3 # highest priority
   patchToPlanet: false
 
 - type: lavalandGridRuin

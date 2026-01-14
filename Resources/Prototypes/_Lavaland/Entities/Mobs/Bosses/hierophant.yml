@@ -80,6 +80,9 @@
   - type: Tag
     tags:
     - CannotSuicide
+  - type: WarpPoint
+    follow: true
+    location: Hierophant
   # Actual boss from here
   - type: ActionGrant
     actions:

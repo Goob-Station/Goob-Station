@@ -9,7 +9,7 @@
     doAfterDuration: 5.0
     decapitation: true
   - type: Sprite
-    sprite: _Lavaland/Objects/Weapons/Melee/bone_axe.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/bone_axe.rsi
     state: icon
   - type: MeleeWeapon # 20 damage at max, 5 less then the fireaxe. Blunt damage replaced with slash.
     heavyStaminaCost: 15
@@ -32,7 +32,7 @@
   - type: Item
     size: Ginormous
   - type: Clothing
-    sprite: _Lavaland/Objects/Weapons/Melee/bone_axe.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/bone_axe.rsi
     quickEquip: false
     slots:
     - back
