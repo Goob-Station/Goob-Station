@@ -20253,3 +20253,13 @@ Entries:
         the station.
   id: 2294
   time: '2026-01-13T23:11:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More bounties for xenobiology
+    - type: Add
+      message: Xenobiology bag of holding
+    - type: Tweak
+      message: Increased the point amount of some xenobiology bounties
+  id: 2295
+  time: '2026-01-14T02:59:22.0000000+00:00'
