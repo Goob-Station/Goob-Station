@@ -1,10 +1,16 @@
-using Content.Goobstation.Shared.Cult.Actions;
+using Content.Goobstation.Shared.Cult.Events;
+using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Server.Cult.Runes;
+namespace Content.Goobstation.Shared.Cult.Runes;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class BloodCultRuneComponent : Component
 {
+    /// <summary>
+    ///     What color the rune will be.
+    /// </summary>
+    [DataField] public Color Color = Color.MediumPurple;
+
     /// <summary>
     ///     How much people do you need around the rune for it to work.
     /// </summary>

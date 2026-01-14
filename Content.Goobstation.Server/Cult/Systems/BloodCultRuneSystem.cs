@@ -1,16 +1,20 @@
-using Content.Goobstation.Shared.Cult;
-using Content.Server.Chat.Systems;
-using Content.Server.Popups;
+using Robust.Shared.Player;
 using Content.Shared.Chat;
+using Content.Shared.Effects;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using System.Linq;
+using Content.Goobstation.Shared.Cult.Runes;
+using Content.Goobstation.Shared.Cult;
 
 namespace Content.Goobstation.Server.Cult.Runes;
+
 public sealed partial class BloodCultRuneSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
 
     public const float InvokersLookupRange = 1.5f;
     public const float TargetsLookupRange = 1f;
@@ -40,6 +44,10 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
             var message = Loc.GetString(loc);
             _chat.TrySendInGameICMessage(invoker, message, InGameICChatType.Speak, true, hideLog: true);
         }
+
+        _colorFlash.RaiseEffect(Color.Red, [ent], Filter.Pvs(ent, entityManager: EntityManager));
+
+        args.Handled = true;
     }
 
     private void OnInteractUsing(Entity<BloodCultRuneComponent> ent, ref InteractUsingEvent args)
@@ -50,8 +58,6 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
             args.Handled = true;
             return;
         }
-
-        // mango
     }
 
     /// <summary>
@@ -69,7 +75,9 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
             return false;
         }
 
-        var targetsLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, TargetsLookupRange).ToList();
+        var targetsLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, TargetsLookupRange)
+            .Where(q => !HasComp<BloodCultistComponent>(q))
+            .ToList();
 
         var ev = ent.Comp.Event;
         ev.Targets = targetsLookup;
@@ -83,6 +91,7 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
 
     public void DestroyRune(Entity<BloodCultRuneComponent> ent)
     {
-
+        QueueDel(ent);
+        // todo effects and/or doafter
     }
 }

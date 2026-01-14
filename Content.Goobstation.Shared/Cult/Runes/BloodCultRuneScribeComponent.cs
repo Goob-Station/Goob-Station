@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
-namespace Content.Goobstation.Server.Cult.Runes;
+namespace Content.Goobstation.Shared.Cult.Runes;
 
 [RegisterComponent]
 public sealed partial class BloodCultRuneScribeComponent : Component

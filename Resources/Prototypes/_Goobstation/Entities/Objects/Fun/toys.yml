@@ -1085,8 +1085,16 @@
   description: The power of the Prank Gods, channeled through your grip. Security won't appreciate the prank.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/mansus_grasp.rsi
-    state: icon
+    color: "#329a00"
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#51fc02" # here too
+      right:
+      - state: inhand-right
+        color: "#51fc02" # here too...
   - type: MeleeWeapon
     attackRate: 1.5
     angle: 0
@@ -1097,9 +1105,6 @@
         Blunt: 0
     soundHit:
       path: /Audio/Items/welder.ogg
-  - type: Item
-    size: Small
-    sprite: _Goobstation/Heretic/mansus_grasp.rsi
   - type: UseDelay
     delay: 1.5
   - type: EmitSoundOnUse
