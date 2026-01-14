@@ -31,6 +31,11 @@ poll-command-close-success = Poll {$id} has been closed.
 poll-command-list-no-polls = No active polls.
 poll-command-info-not-found = Poll {$id} not found.
 
+poll-control-seen-by = Seen by {$count} {$count ->
+    [one] player
+   *[other] players
+}
+
 # Client Commands
 cmd-polls-desc = Opens the community polls window.
 cmd-polls-help = Usage: polls

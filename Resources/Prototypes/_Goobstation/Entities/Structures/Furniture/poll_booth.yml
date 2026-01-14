@@ -1,0 +1,8 @@
+- type: entity
+  id: PollBooth
+  parent: Table
+  name: polling booth
+  description: A booth for casting your vote on community polls. Activate to open the polls window.
+  components:
+  - type: PollBooth
+  - type: InteractionOutline
