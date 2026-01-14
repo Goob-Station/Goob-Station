@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise at github.com/ParadiseSS13/Paradise/blob/master/icons/effects/96x96.dmi",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "gate_full"
+    },
+    {
+      "name": "gate_bottom"
+    },
+    {
+      "name": "gate_dais"
+    },
+    {
+      "name": "gate_top"
+    },
+    {
+      "name": "gate_blocker"
+    }
+  ]
+}
