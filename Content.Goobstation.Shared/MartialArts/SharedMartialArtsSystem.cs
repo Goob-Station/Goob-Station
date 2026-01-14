@@ -529,6 +529,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 EnsureComp<NinjutsuSneakAttackComponent>(user);
                 break;
             case MartialArtsForms.CloseQuartersCombat:
+                var itcryeverytime =
+                    new CanDoCQCEvent();
+                  /*  
                 var riposte = EnsureComp<RiposteeComponent>(user);
                 riposte.Data.TryAdd("CQC",
                     new(0.1f,
@@ -543,6 +546,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                     null,
                     null,
                     new CanDoCQCEvent()));
+                    */
                 break;
         }
 

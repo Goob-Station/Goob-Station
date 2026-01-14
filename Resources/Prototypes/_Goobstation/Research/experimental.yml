@@ -112,3 +112,18 @@
   position: -6,0 # CorvaxGoob-fix-research
   technologyPrerequisites:
   - ExperimentalScience
+
+- type: technology
+  id: XenobagHolding
+  name: research-technology-xenobag-holding
+  icon:
+    sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 10000
+  recipeUnlocks: 
+  - ClothingBeltChemBagXenobiologyHolding
+  position: -4,3
+  technologyPrerequisites:
+  - Xenobiology
