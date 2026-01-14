@@ -5556,3 +5556,10 @@ Entries:
   id: 9397
   time: '2026-01-14T21:26:39.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42416
+- author: TheFlyingSentry
+  changes:
+  - message: Containment units no longer contribute to light pollution
+    type: Fix
+  id: 9398
+  time: '2026-01-14T21:40:38.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42289
