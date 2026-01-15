@@ -55,6 +55,7 @@
         - id: ClothingEyesGlassesChemical
         - id: VestineChemistryVial
           amount: 2
+        #- id: ChemistryEmptyVial # Goobstation
         # - id: Syringe # Goobstation
         - id: ChemicalPayload # Goobstation
         - id: SyringeStimulants

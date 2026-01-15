@@ -19,16 +19,16 @@
 #  - type: DelayedItem
 #    item: AdminInstantEffectSmoke10
 #
-#- type: entity
-#  id: AdminInstantEffectEMP7
-#  categories: [ HideSpawnMenu ]
-#  suffix: EMP, 7 meters
-#  parent: AdminInstantEffectBase
-#  components:
-#  - type: EmpOnTrigger
-#    range: 7
-#    energyConsumption: 50000
-#
+- type: entity
+  id: AdminInstantEffectEMP7
+  categories: [ HideSpawnMenu ]
+  suffix: EMP, 7 meters
+  parent: AdminInstantEffectBase
+  components:
+  - type: EmpOnTrigger
+    range: 7
+    energyConsumption: 50000
+
 #- type: entity
 #  id: DelayedEMP
 #  parent: BaseItem

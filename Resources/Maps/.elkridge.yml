@@ -17972,7 +17972,7 @@ entities:
     - type: Transform
       pos: -17.5,-11.5
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 4094
     components:

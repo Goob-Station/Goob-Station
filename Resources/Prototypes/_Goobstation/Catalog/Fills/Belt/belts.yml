@@ -217,7 +217,7 @@
     - id: Jug
     - id: LargeBeaker
     - id: Beaker
-    - id: BaseChemistryEmptyVial
+    - id: ChemistryEmptyVial
     - id: Syringe
 
 - type: entity

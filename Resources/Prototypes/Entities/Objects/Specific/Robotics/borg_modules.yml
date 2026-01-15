@@ -1071,24 +1071,24 @@
     - item: HandheldHealthAnalyzer
     - item: Syringe
     - item: BorgDropper
-    - item: BaseChemistryEmptyVial
+    - item: ChemistryEmptyVial
       hand:
         emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: BaseChemistryEmptyVial
+        emptyRepresentative: ChemistryEmptyVial
         whitelist:
           components:
           - FitsInDispenser
-    - item: BaseChemistryEmptyVial
+    - item: ChemistryEmptyVial
       hand:
         emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: BaseChemistryEmptyVial
+        emptyRepresentative: ChemistryEmptyVial
         whitelist:
           components:
           - FitsInDispenser
-    - item: BaseChemistryEmptyVial
+    - item: ChemistryEmptyVial
       hand:
         emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: BaseChemistryEmptyVial
+        emptyRepresentative: ChemistryEmptyVial
         whitelist:
           components:
           - FitsInDispenser
@@ -1158,11 +1158,11 @@
     - item: SprayBottle
     - item: GasAnalyzer
     - item: BorgDropper
+    - item: ChemistryEmptyVial
     - item: HolofanProjector # Goobstation
-    - item: BaseChemistryEmptyVial
       hand:
         emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: BaseChemistryEmptyVial
+        emptyRepresentative: ChemistryEmptyVial
         whitelist:
           components:
           - FitsInDispenser

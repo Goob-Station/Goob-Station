@@ -24028,7 +24028,7 @@ entities:
     - type: Transform
       pos: -118.34879,31.563398
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 881
     components:

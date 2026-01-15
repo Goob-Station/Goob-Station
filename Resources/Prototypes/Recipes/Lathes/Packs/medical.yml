@@ -39,8 +39,9 @@
   - Dropper #Goobstation
   - PillCanister
   - HandLabeler
-  - ChemicalPayload
-  - BaseChemistryEmptyVial
+  - ChemistryEmptyVial
+  - ChemistryEmptyVialSmall
+  - ChemicalPayload # Goobstation?
   - Dropper
 
 - type: latheRecipePack
