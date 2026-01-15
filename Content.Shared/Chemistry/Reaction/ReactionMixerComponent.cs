@@ -12,6 +12,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.DoAfter;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -34,16 +35,33 @@ public sealed partial class ReactionMixerComponent : Component
     public LocId MixMessage = "default-mixing-success";
 
     /// <summary>
+    /// The sound to play when mixing.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? MixingSound;
+
+    /// <summary>
     /// Defines if interacting is enough to mix with this component.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool MixOnInteract = true;
+    public ReactionMixerType MixerType = ReactionMixerType.Machine;
 
     /// <summary>
     /// How long it takes to mix with this.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan TimeToMix = TimeSpan.Zero;
+
+    // Used to cancel the played sound.
+    public EntityUid? AudioStream;
+}
+
+[Serializable, NetSerializable]
+public enum ReactionMixerType
+{
+    None, // Mixing is handled by its own system.
+    Machine, // Mixing is handled via interaction.
+    Handheld // Mixing is handled via using in hand
 }
 
 [ByRefEvent]
