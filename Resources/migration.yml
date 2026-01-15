@@ -554,7 +554,7 @@ VehicleSecwayStealObjective: null
 #VehicleKeyJanicart: null Goobstation - Re-add vehicles
 #VehicleKeySecway: null Goobstation - Re-add vehicles
 #VehicleKeyATV: null Goobstation - Re-add vehicles
-VehicleKeySkeleton: null 
+VehicleKeySkeleton: null
 #VehicleKeySyndicateSegway: null Goobstation - Re-add vehicles
 #VehicleKeySkeletonMotorcycle: null Corvax Goobstation - Re-add vehicles
 #VehicleSecway: null Goobstation - Re-add vehicles
@@ -1106,3 +1106,7 @@ PlushieLehmin: null
 
 # 2025-10-09
 FoodDonutJellySlugcat: FoodDonutJellyScurret
+
+# Reverted by CorvaxGoob-GhostBar
+# # 2026-01-04
+# GhostBarSpawner: null

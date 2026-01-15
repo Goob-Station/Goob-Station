@@ -139,19 +139,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 9000 # 2.5 hours
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 9000 # 2.5 hours
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 9000 # 2.5 hrs
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 9000 # 2.5 hrs
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 9000 # 2.5 hours
+      time: 14400 # 4 hours
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
@@ -199,6 +199,8 @@
   - Cargo
   - Atmospherics
   - Medical
+  - Journalism # Goob
+  - Robotics # Goob
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

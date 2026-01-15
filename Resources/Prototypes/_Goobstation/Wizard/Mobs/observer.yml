@@ -9,5 +9,5 @@
   components:
   - type: Spectral
   - type: Ghost
-    canEnterGhostBar: false
     canTakeGhostRoles: false
+    canEnterGhostBar: false # CorvaxGoob-GhostBar

@@ -19805,3 +19805,461 @@ Entries:
       message: New flora detected in Lavaland Wastes!
   id: 2239
   time: '2025-12-21T17:14:47.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Captain not having radio station access
+  id: 2240
+  time: '2025-12-26T09:04:23.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Tinfoil hats now block possession from slashers.
+    - type: Tweak
+      message: >-
+        Slashers regenerate action must now be recharged after every use by
+        stealing a soul.
+    - type: Tweak
+      message: It is now very obvious when a slasher uses their regenerate action.
+    - type: Tweak
+      message: Slashers do-after to enter incorporeal has been increased.
+    - type: Tweak
+      message: Slashers max resistance has been massively nerfed.
+    - type: Tweak
+      message: Slashers max health has been nerfed.
+  id: 2241
+  time: '2025-12-26T09:06:58.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: Fixed Kudzu spreading 3x faster than intended
+  id: 2242
+  time: '2025-12-29T17:12:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Syringe case storage size changed from 2x5 to 2x3
+  id: 2243
+  time: '2025-12-30T14:07:04.0000000+00:00'
+- author: Doppiofrog
+  changes:
+    - type: Add
+      message: >-
+        Added the Hushpup silenced shotgun, a 30 TC bundle that comes with the
+        Hushpup and a quarter.
+  id: 2244
+  time: '2026-01-01T10:02:24.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: DT-8 Terminus is now research locked
+  id: 2245
+  time: '2026-01-01T15:12:30.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Diseases now can give you fun accents.
+  id: 2246
+  time: '2026-01-01T22:50:43.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: >-
+        Lobotomies are now re-enabled, and are now able to be mended by any
+        other person.
+  id: 2247
+  time: '2026-01-02T08:09:23.0000000+00:00'
+- author: router
+  changes:
+    - type: Add
+      message: Borgs can now reference virologists.
+  id: 2248
+  time: '2026-01-02T08:10:04.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: >-
+        Did you know that you could selfprotag as captain while being an
+        assistant?
+  id: 2249
+  time: '2026-01-02T18:50:05.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: Ghost bar
+  id: 2250
+  time: '2026-01-03T22:48:20.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: Oops all thieves now has a lower chance to roll.
+  id: 2251
+  time: '2026-01-04T08:01:18.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: made present anoms rarer );
+  id: 2252
+  time: '2026-01-05T02:13:24.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Fix
+      message: >-
+        Fixed egg-laying entities inside duffelbags or hands orbiting
+        players/duffelbags
+  id: 2253
+  time: '2026-01-05T02:13:44.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Fix
+      message: Typos in crimelist
+  id: 2254
+  time: '2026-01-05T02:14:15.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Jacked galoshes are now jacked for real.
+  id: 2255
+  time: '2026-01-05T02:17:27.0000000+00:00'
+- author: Added a lot of new helmet sprites for vulps,
+  changes: []
+  id: 2256
+  time: '2026-01-05T02:18:34.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: Shadowling ascension egg no longer has more health than the Hierophant.
+  id: 2257
+  time: '2026-01-05T02:18:41.0000000+00:00'
+- author: ZOXELON
+  changes:
+    - type: Add
+      message: Added outer clothing displacement map for voxes!
+    - type: Fix
+      message: >-
+        Wizden#39219 Several strange sprite issues with Vox have been fixed,
+        most notably jumpsuits and many neck items overlapping the face, as well
+        as a layering issue where their tank would appear over their hair.!
+  id: 2258
+  time: '2026-01-05T02:20:47.0000000+00:00'
+- author: oldschool_otaku
+  changes:
+    - type: Fix
+      message: Virologist can spawn in his envirosuit now.
+  id: 2259
+  time: '2026-01-05T02:22:16.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: You can now print reporter clothes at a uniform printer.
+  id: 2260
+  time: '2026-01-05T02:24:48.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Add
+      message: Mansus Grasp is now usable in combat mode
+  id: 2261
+  time: '2026-01-05T02:28:13.0000000+00:00'
+- author: charcuteriesampler
+  changes:
+    - type: Tweak
+      message: >-
+        Xenomorph facehuggers will no longer force you to sleep when they are
+        dead.
+  id: 2262
+  time: '2026-01-05T02:31:25.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Guerrilla gloves now cost 60tc for nuclear operatives.
+  id: 2263
+  time: '2026-01-05T07:26:02.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Add
+      message: added xenobio room to serpentcrest
+  id: 2264
+  time: '2026-01-05T07:26:32.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Server no break
+  id: 2265
+  time: '2026-01-06T03:33:28.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: EMAG and Access breaker resprite.
+    - type: Add
+      message: Added lots of new items into vend machines.
+  id: 2266
+  time: '2026-01-06T04:03:46.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Sentient artifacts self activation action cooldown has been massively
+        reduced.
+  id: 2267
+  time: '2026-01-06T04:04:54.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Added a new medium to high-pop station "Prison", centered around the
+        theme of a large prison on an asteroid surrounded by lava. It also
+        contains a large city section around arrivals isolated from the station
+        itself.
+    - type: Add
+      message: New sprites from RMC have been added for mapping purposes.
+    - type: Add
+      message: >-
+        New plants that produce a breathable atmosphere over time. Only for
+        mapping purposes. Cry about it.
+  id: 2268
+  time: '2026-01-07T03:20:20.0000000+00:00'
+- author: router
+  changes:
+    - type: Tweak
+      message: Made Secret+ far less likely to choose events at all
+  id: 2269
+  time: '2026-01-07T06:02:59.0000000+00:00'
+- author: zagreastyas
+  changes:
+    - type: Tweak
+      message: Raised playtimes needed for several Command roles
+    - type: Tweak
+      message: Raised time allowed to play Trainee roles.
+  id: 2270
+  time: '2026-01-08T13:01:55.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: >-
+        New vinyl disks: Get that antag!, Want you gone, Law2 open armory,
+        RunningOut (Cover), Ephedrine Overdose, Journey, Traitorous Intent,
+        Violet
+    - type: Add
+      message: The cargo shuttle now gets a station radio
+    - type: Add
+      message: Added radio host to Meta
+    - type: Tweak
+      message: 'Made new mapping for the radio host on: Amber, Delta, cog, marathon'
+    - type: Tweak
+      message: Mapping more radios around some stations
+    - type: Fix
+      message: Fixed HOP not having radio host access
+    - type: Fix
+      message: Fixed oasis not having radio host job spawn
+    - type: Fix
+      message: Fixed Radio host having an extra bag on spawn
+    - type: Fix
+      message: Fixed Radio turning back on when a new song starts
+  id: 2271
+  time: '2026-01-08T21:07:35.0000000+00:00'
+- author: loltart
+  changes: []
+  id: 2272
+  time: '2026-01-08T23:57:33.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed radiation causing another server hang.
+  id: 2273
+  time: '2026-01-09T18:36:30.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: >-
+        Ability to select any Hawaiian shirt in Radio Host's loadout & auto
+        starts with a leather waist bag
+    - type: Add
+      message: Shitpost CDs
+    - type: Add
+      message: Texture for some CDs
+    - type: Add
+      message: Syndicate Advertisement CD for 1tc
+    - type: Add
+      message: >-
+        Job Specific RadioHost CD for 30tc that upon completion will call a
+        threat similar to how ninja comms hack does.
+    - type: Add
+      message: Added a craftable and mappable CD Rack to hold all your ads!
+    - type: Fix
+      message: satchel spawning on floor for Radio Host
+    - type: Add
+      message: >-
+        Ability to select any Hawaiian shirt in Radio Host's loadout & auto
+        starts with a leather waist bag
+    - type: Add
+      message: Shitpost CDs
+    - type: Add
+      message: Texture for some CDs
+    - type: Add
+      message: Syndicate Advertisement CD for 1tc
+    - type: Add
+      message: >-
+        Job Specific RadioHost CD for 30tc that upon completion will call a
+        threat similar to how ninja comms hack does.
+    - type: Add
+      message: Added a craftable and mappable CD Rack to hold all your ads!
+    - type: Fix
+      message: satchel spawning on floor for Radio Host
+  id: 2274
+  time: '2026-01-09T19:59:20.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Tweak
+      message: Centcom update
+  id: 2275
+  time: '2026-01-09T20:00:11.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Tweak
+      message: EE Modsuit's Flashlights
+    - type: Tweak
+      message: Corporate Modsuit sprite
+    - type: Tweak
+      message: Nanotrasen Job/Mindshield Icon
+    - type: Add
+      message: Career Trainer Modsuit
+  id: 2276
+  time: '2026-01-09T20:01:15.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: 'CQC riposte '
+  id: 2277
+  time: '2026-01-09T22:30:50.0000000+00:00'
+- author: Durk, Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        GPS are cool and useful now! They can track beacons and other GPS
+        trackers on a visual map in their new UI.
+    - type: Tweak
+      message: Handheld mass scanners were added back into the game.
+  id: 2278
+  time: '2026-01-10T19:21:35.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Emagged xenovac can no longer suck alive guys. (But still can suck
+        crit/dead people)
+    - type: Tweak
+      message: Xenovac can now suck on monkeys.
+  id: 2279
+  time: '2026-01-12T13:22:04.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Fixed some CC mapping issues
+    - type: Fix
+      message: fixed temp protection and added breathmask comp to CC modsuits
+  id: 2280
+  time: '2026-01-12T19:48:19.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Ephedrine Overdose by mrjajkes to nuke music
+  id: 2281
+  time: '2026-01-12T19:50:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: Removed Prison station and air plants.
+  id: 2282
+  time: '2026-01-12T19:50:55.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Wound visuals are back, rejoice!
+  id: 2283
+  time: '2026-01-12T19:51:52.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Fix
+      message: >-
+        RD's Experimental Lab Coat now has the same resistances as the regular
+        one.
+  id: 2284
+  time: '2026-01-12T19:53:13.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Bluespace Extract Slime interaction with blood also teleport your
+        positronic brain as an IPC
+  id: 2285
+  time: '2026-01-13T02:37:18.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Cluster has a proper xenobio lab now.
+  id: 2286
+  time: '2026-01-13T07:29:11.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Loop station has a proper xenobio lab now.
+  id: 2287
+  time: '2026-01-13T07:29:59.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: The syndicate monkey cube box has been readded to the nukie planet.
+  id: 2288
+  time: '2026-01-13T07:30:53.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Submarine has a xenobio lab now.
+  id: 2289
+  time: '2026-01-13T07:33:12.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: >-
+        Omega, Packed and Saltern actually have proper xenobio equipment and
+        slimes roundstart.
+  id: 2290
+  time: '2026-01-13T07:33:40.0000000+00:00'
+- author: Stupid fuck
+  changes:
+    - type: Fix
+      message: Fixed xenovac not working.
+    - type: Remove
+      message: Emag interaction with xenovac.
+  id: 2291
+  time: '2026-01-13T17:47:26.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: ERT, DS, and CBURN are back to being human only
+  id: 2292
+  time: '2026-01-13T22:59:14.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: Moths now say mango while zombified.
+  id: 2293
+  time: '2026-01-13T23:07:12.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Blob will no longer stall round, If the shuttle has already arrived to
+        the station.
+  id: 2294
+  time: '2026-01-13T23:11:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More bounties for xenobiology
+    - type: Add
+      message: Xenobiology bag of holding
+    - type: Tweak
+      message: Increased the point amount of some xenobiology bounties
+  id: 2295
+  time: '2026-01-14T02:59:22.0000000+00:00'

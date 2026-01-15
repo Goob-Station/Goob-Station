@@ -85,6 +85,7 @@
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -207,12 +208,14 @@
 - type: roleLoadout
   id: JobRadioHost
   groups:
+  - RadioHostJumpsuit
   - CommonBackpack
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
   - Glasses
+  - GroupTankHarness
   - ServiceWorkerEnvirohelm
   - ServiceWorkerEnvirosuit
   - ServiceWorkerEnvirogloves
@@ -263,3 +266,6 @@
    - SurvivalMedical
    - Trinkets
    - GroupSpeciesBreathToolMedical
+   - VirologyEnvirohelm
+   - VirologyEnvirosuit
+   - VirologyEnvirogloves

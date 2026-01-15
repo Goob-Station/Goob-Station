@@ -241,7 +241,7 @@ namespace Content.Client.Ghost
             _console.RemoteExecuteCommand(null, "ghostroles");
         }
 
-        public void GhostBarSpawn() // Goobstation - Ghost Bar
+        public void GhostBarSpawn() // CorvaxGoob-GhostBar
         {
             RaiseNetworkEvent(new GhostBarSpawnEvent());
         }

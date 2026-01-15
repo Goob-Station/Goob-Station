@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -1554,3 +1555,39 @@
   name: loadout-group-virologist-id
   loadouts:
    - VirologistPDA
+
+- type: loadoutGroup
+  id: VirologyEnvirohelm
+  name: loadout-group-virology-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - VirologistEnvirohelm
+
+- type: loadoutGroup
+  id: VirologyEnvirosuit
+  name: loadout-group-virology-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - VirologistEnvirosuit
+
+- type: loadoutGroup
+  id: VirologyEnvirogloves
+  name: loadout-group-virology-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - NitrileEnvirogloves
+
+# Radio Host
+
+- type: loadoutGroup
+  id: RadioHostJumpsuit
+  name: loadout-group-radiohost-jumpsuit
+  loadouts:
+  - JumpsuitHawaiBlack
+  - JumpsuitHawaiBlue
+  - JumpsuitHawaiRed
+  - JumpsuitHawaiYellow

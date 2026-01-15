@@ -193,7 +193,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/Shuttles/retort_medical.yml",
             "/Maps/_Goobstation/Shuttles/retort_engineering.yml",
             "/Maps/_Goobstation/Shuttles/retort_janitorial.yml",
-            "/Maps/_Goobstation/Shuttles/retort_cburn.yml",
+            "/Maps/_Goobstation/Shuttles/retort_cburn.yml"
         };
 
         private static readonly string[] GameMaps =
