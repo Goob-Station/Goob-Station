@@ -73,6 +73,12 @@
     Arms:
       points: 8
       required: false
+    # CorvaxGoob - Start
+    Head:                                      # forced markings for workaround
+      points: 3                                # removed all non_unshaded markins for their eyes
+      required: true                           # having glowing effect all times
+      defaultMarkings: [ShadowkinGlowingEyes]  # see line 148 Prototypes\_EinsteinEngines\Entities\Mobs\Species\shadowkin.yml
+      # CorvaxGoob - End
 
 - type: humanoidBaseSprite
   id: MobShadowkinAnyMarkingFollowSkin

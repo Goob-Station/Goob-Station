@@ -1,0 +1,15 @@
+# For some reason Unshaded on map-eyes did't work, so this is workaround to make then unshaded again,
+# See line 148 Prototypes\_EinsteinEngines\Entities\Mobs\Species\shadowkin.yml
+- type: marking
+  id: ShadowkinGlowingEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring                                         # used based eyes colors as based
+  sprites:
+    - sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi   # used same sprite as based eyes
+      state: eyes
+  shader: unshaded                                                # make them glow again

@@ -314,7 +314,7 @@
   id: HumanoidEyebags
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie] # goob edit - yowies
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Vulpkanin, Rodentia, Yowie] # goob edit - yowies # CorvaxGoob - Removed Shadowkin
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: eyebags

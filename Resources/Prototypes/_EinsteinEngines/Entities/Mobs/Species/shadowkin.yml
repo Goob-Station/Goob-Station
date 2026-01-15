@@ -145,7 +145,7 @@
       - map: ["enum.HumanoidVisualLayers.Head"]
       - map: ["enum.HumanoidVisualLayers.Snout"]
       - map: ["enum.HumanoidVisualLayers.Eyes"]
-        shader: unshaded
+        shader: unshaded  # CorvaxGoob: for some reason it did't work anymore so forced unshaded markers for workaround
       - map: ["enum.HumanoidVisualLayers.RArm"]
       - map: ["enum.HumanoidVisualLayers.LArm"]
       - map: ["enum.HumanoidVisualLayers.RLeg"]
