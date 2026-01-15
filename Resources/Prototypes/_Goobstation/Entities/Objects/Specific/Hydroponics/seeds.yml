@@ -22,3 +22,13 @@
     seedId: bluespaceTomato
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Hydroponics/bluespace_tomato.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of mango gland seeds
+  id: MangoGlandSeeds
+  components:
+  - type: Seed
+    seedId: mangoGland
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mango_gland.rsi

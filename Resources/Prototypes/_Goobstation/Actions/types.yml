@@ -296,3 +296,18 @@
     icon: Interface/NavMap/beveled_arrow_south.png
   - type: InstantAction
     event: !type:UnforkliftActionEvent
+
+- type: entity
+  id: ActionDashMangoGland
+  name: Dash
+  parent: ActionDashGeneric
+  description: Dash forward mangoily.
+  components:
+    - type: Action
+      useDelay: 6.5
+      icon: { sprite: _Goobstation/Objects/Specific/Hydroponics/mango_gland.rsi, state: dash }
+      itemIconStyle: NoItem
+      sound: !type:SoundPathSpecifier
+        path: /Audio/Effects/thudswoosh.ogg
+        params:
+          volume: 6.5
