@@ -779,9 +779,9 @@
     allowMovement: true
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
-    rules: ghost-role-information-sentientanimal-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleSentientAnimal
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: Fixtures
     fixtures:
       fix1:
@@ -1583,7 +1583,7 @@
     prob: 0.25
     name: ghost-role-information-kangaroo-name
     description: ghost-role-information-kangaroo-description
-    rules: ghost-role-information-sentientanimal-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Vocal
     sounds:
@@ -1818,9 +1818,9 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
-    rules: ghost-role-information-sentientanimal-rules # Goobstation - - remove: 1984
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleSentientAnimal
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Clumsy
@@ -1974,7 +1974,7 @@
     makeSentient: true
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
-    rules: ghost-role-information-sentientanimal-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
 
 - type: entity
   name: kobold
@@ -2052,9 +2052,9 @@
     allowMovement: true
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
-    rules: ghost-role-information-sentientanimal-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleSentientAnimal
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -3869,7 +3869,7 @@
     allowMovement: true
     name: ghost-role-information-hamster-name
     description: ghost-role-information-hamster-description
-    rules: ghost-role-information-sentientanimal-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
