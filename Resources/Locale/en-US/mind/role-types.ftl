@@ -2,7 +2,6 @@ role-type-crew-aligned-name = Crew Aligned
 role-type-solo-antagonist-name = Solo Antagonist
 role-type-team-antagonist-name = Team Antagonist
 role-type-free-agent-name = Free Agent
-role-type-sentient-animal-name = Sentient Animal
 role-type-familiar-name = Familiar
 role-type-silicon-name = Silicon
 role-type-silicon-antagonist-name = Altered Silicon
@@ -20,6 +19,7 @@ role-type-silicon-color = #6495ed
 role-type-silicon-antagonist-color =#c832e6
 
 # Goobstation Sentient Animal PR Start
+role-type-sentient-animal-name = Sentient Animal
 role-type-sentient-animal-color = #ffff00
 # Goobstation Sentient Animal PR End
 
