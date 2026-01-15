@@ -5625,3 +5625,11 @@ Entries:
   id: 9406
   time: '2026-01-15T19:00:27.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36132
+- author: ScarKy0
+  changes:
+  - message: Added the Paper Centrifuge! A craftable, makeshift centrifudge primarly
+      usable in maintenance chemistry.
+    type: Add
+  id: 9407
+  time: '2026-01-15T20:01:06.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42040
