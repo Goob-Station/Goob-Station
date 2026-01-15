@@ -14,6 +14,8 @@ namespace Content.Goobstation.Server.Doodons;
 /// </summary>
 public sealed class DoodonTownHallSystem : EntitySystem
 {
+    private const float RefreshInterval = 2.0f; // seconds (tune as you like)
+    private float _refreshAccum;
     public override void Initialize()
     {
         base.Initialize();
@@ -27,6 +29,56 @@ public sealed class DoodonTownHallSystem : EntitySystem
         SubscribeLocalEvent<DoodonBuildingComponent, ComponentShutdown>(OnBuildingShutdown);
         SubscribeLocalEvent<DoodonComponent, ComponentShutdown>(OnDoodonShutdown);
         SubscribeLocalEvent<DoodonTownHallComponent, ExaminedEvent>(OnHallExamined);
+        SubscribeLocalEvent<DoodonTownHallComponent, ToggleTownHallRadiusEvent>(OnToggleRadius);
+        SubscribeLocalEvent<DoodonTownHallComponent, ComponentShutdown>(OnHallShutdown);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        _refreshAccum += frameTime;
+        if (_refreshAccum < RefreshInterval)
+            return;
+
+        _refreshAccum = 0f;
+
+        // If there are no halls, nothing to connect to.
+        if (!AnyTownHalls())
+            return;
+
+        RefreshBuildings();
+        RefreshDoodons();
+    }
+
+    private bool AnyTownHalls()
+    {
+        var halls = EntityQueryEnumerator<DoodonTownHallComponent>();
+        return halls.MoveNext(out _, out _);
+    }
+
+    private void RefreshBuildings()
+    {
+        var buildings = EntityQueryEnumerator<DoodonBuildingComponent>();
+        while (buildings.MoveNext(out var uid, out var building))
+        {
+            if (Deleted(uid))
+                continue;
+
+            AssignBuildingToTownHall(uid, building);
+        }
+    }
+
+    private void RefreshDoodons()
+    {
+        var doodons = EntityQueryEnumerator<DoodonComponent>();
+        while (doodons.MoveNext(out var uid, out var doodon))
+        {
+            if (Deleted(uid))
+                continue;
+
+            AssignDoodonToTownHall(uid, doodon);
+        }
     }
 
     private void OnBuildingMapInit(EntityUid uid, DoodonBuildingComponent component, ref MapInitEvent args)
@@ -266,7 +318,11 @@ public sealed class DoodonTownHallSystem : EntitySystem
         }
     }
 
-
+    private void OnToggleRadius(EntityUid uid, DoodonTownHallComponent comp, ToggleTownHallRadiusEvent args)
+    {
+        comp.ShowInfluence = !comp.ShowInfluence;
+        Dirty(uid, comp);
+    }
 
     private static string ColorizeCount(int population, int capacity)
     {
@@ -277,4 +333,41 @@ public sealed class DoodonTownHallSystem : EntitySystem
 
         return $"[color={color}]{population}/{capacity}[/color]";
     }
+
+    private void OnHallShutdown(EntityUid uid, DoodonTownHallComponent comp, ref ComponentShutdown args)
+    {
+        // Deactivate + unassign buildings that pointed at this hall.
+        foreach (var b in comp.Buildings)
+        {
+            if (Deleted(b) || !TryComp<DoodonBuildingComponent>(b, out var building))
+                continue;
+
+            if (building.TownHall != uid)
+                continue;
+
+            building.TownHall = null;
+            building.Active = false;
+
+            // IMPORTANT:
+            // Don't Dirty() unless DoodonBuildingComponent is networked.
+            // If you need the client UI to update, trigger it via Appearance / Examine, not Dirty on non-networked comps.
+        }
+
+        // Unassign doodons too (optional but usually correct)
+        foreach (var d in comp.Doodons)
+        {
+            if (Deleted(d) || !TryComp<DoodonComponent>(d, out var doodon))
+                continue;
+
+            if (doodon.TownHall != uid)
+                continue;
+
+            doodon.TownHall = null;
+        }
+
+        // Clear sets (not required but keeps refs clean)
+        comp.Buildings.Clear();
+        comp.Doodons.Clear();
+    }
+
 }

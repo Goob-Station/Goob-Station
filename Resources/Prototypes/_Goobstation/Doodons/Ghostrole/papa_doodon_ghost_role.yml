@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseMindRole
+  id: MindRolePapaDoodon
+  name: Papa Doodon Role
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    sortWeight: 31

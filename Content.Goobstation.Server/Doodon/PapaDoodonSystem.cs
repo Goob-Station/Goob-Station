@@ -1,24 +1,83 @@
+// SPDX-FileCopyrightText: 2025 GoobBot
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Doodons;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
+using Content.Shared.Actions;
+using Content.Shared.Mind;
 using Content.Shared.Pointing;
+using Content.Shared.Popups;
 using Robust.Shared.Map;
-using System;
+using Robust.Shared.Timing;
 using System.Numerics;
 
 namespace Content.Goobstation.Server.Doodons;
 
+/// <summary>
+/// Server logic for Papa Doodon:
+/// - Cycles warrior orders with command action
+/// - Point-to-attack target when in AttackTarget order
+/// - Grants two actions when controlled:
+///   - Establish Town Hall (one-time)
+///   - Toggle Town Hall influence radius display (toggles nearest hall)
+/// </summary>
 public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
 {
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private const float CheckInterval = 1.0f;
+    private float _accum;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<PapaDoodonComponent, PapaDoodonCommandActionEvent>(OnCommand);
         SubscribeLocalEvent<PapaDoodonComponent, AfterPointedAtEvent>(OnPointedAt);
+        SubscribeLocalEvent<PapaDoodonComponent, DoodonEstablishTownHallEvent>(OnEstablishTownHall);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        _accum += frameTime;
+        if (_accum < CheckInterval)
+            return;
+
+        _accum = 0f;
+
+        // Give actions once Papa is actually controlled (has a mind).
+        var query = EntityQueryEnumerator<PapaDoodonComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            // Only give actions to a controlled Papa (prevents wild Papas from getting hotbar actions)
+            if (!_mind.TryGetMind(uid, out _, out _))
+                continue;
+
+            // Establish hall is one-time.
+            if (!comp.HallPlaced)
+            {
+                if (comp.EstablishHallActionEntity == null || !Exists(comp.EstablishHallActionEntity.Value))
+                    _actions.AddAction(uid, ref comp.EstablishHallActionEntity, comp.EstablishHallAction);
+            }
+            else
+            {
+                if (comp.EstablishHallActionEntity != null && Exists(comp.EstablishHallActionEntity.Value))
+                    _actions.RemoveAction(comp.EstablishHallActionEntity.Value);
+
+                comp.EstablishHallActionEntity = null;
+            }
+
+            Dirty(uid, comp);
+        }
     }
 
     private static DoodonOrderType Next(DoodonOrderType cur)
@@ -54,7 +113,7 @@ public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
             // 1) Set the HTN order (what HasOrdersPrecondition reads)
             _npc.SetBlackboard(warriorUid, NPCBlackboard.CurrentOrders, comp.CurrentOrder);
 
-            // 2) Keep the component field in sync (so VV shows the real order)
+            // 2) Keep component field in sync (so VV shows the real order)
             warrior.Orders = comp.CurrentOrder;
             Dirty(warriorUid, warrior);
 
@@ -91,8 +150,6 @@ public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
             if (warrior.Papa != uid)
                 continue;
 
-            Logger.Info($"Ordering warrior {warriorUid} to AttackTarget; target={args.Pointed}");
-
             // Force them into attack mode and set ordered target
             _npc.SetBlackboard(warriorUid, NPCBlackboard.CurrentOrders, DoodonOrderType.AttackTarget);
             _npc.SetBlackboard(warriorUid, NPCBlackboard.CurrentOrderedTarget, args.Pointed);
@@ -107,5 +164,33 @@ public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
             _htn.Replan(htnComp);
         }
     }
-}
 
+    private void OnEstablishTownHall(EntityUid uid, PapaDoodonComponent comp, DoodonEstablishTownHallEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        if (comp.HallPlaced)
+        {
+            _popup.PopupEntity("You have already established a Town Hall.", uid, uid);
+            return;
+        }
+
+        // Spawn at Papa’s feet
+        var coords = Transform(uid).Coordinates;
+        Spawn(comp.TownHallPrototype, coords);
+
+        comp.HallPlaced = true;
+
+        // Remove the one-time action
+        if (comp.EstablishHallActionEntity != null && Exists(comp.EstablishHallActionEntity.Value))
+            _actions.RemoveAction(comp.EstablishHallActionEntity.Value);
+
+        comp.EstablishHallActionEntity = null;
+
+        _popup.PopupEntity("You establish a Doodon Town Hall.", uid, uid);
+        Dirty(uid, comp);
+    }
+}

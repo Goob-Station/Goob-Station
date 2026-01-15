@@ -6,13 +6,24 @@
         - to: DoodonDwellingComplete
           steps:
             - material: DoodonResin
-              amount: 5
+              amount: 3
               doAfter: 2
     - node: DoodonDwellingComplete
       entity: DoodonDwelling
-
-
-              
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin1
+              amount: 1 
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 7
+        
 - type: constructionGraph
   id: WarriorHutGraph
   graph:
@@ -21,11 +32,25 @@
         - to: WarriorHutComplete
           steps:
             - material: DoodonResin
-              amount: 10
+              amount: 6
               doAfter: 2
     - node: WarriorHutComplete
       entity: DoodonWarriorHut  
-
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin1
+              amount: 1 
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 7
+        
+              
 - type: constructionGraph
   id: DoodonMetalRefinerGraph
   graph:
@@ -34,7 +59,184 @@
         - to: MetalRefinerComplete
           steps:
             - material: DoodonResin
-              amount: 7
+              amount: 4
               doAfter: 2
     - node: MetalRefinerComplete
       entity: DoodonMetalRefiner 
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin1
+              amount: 1 
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 7
+        
+      
+      
+- type: constructionGraph
+  id: DoodonGlassRefinerGraph
+  graph:
+    - node: start
+      edges:
+        - to: GlassRefinerComplete
+          steps:
+            - material: DoodonResin
+              amount: 4
+              doAfter: 2
+    - node: GlassRefinerComplete
+      entity: DoodonGlassRefiner 
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin1
+              amount: 1 
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 7
+        
+      
+      
+- type: constructionGraph
+  id: DoodonPastureGraph
+  graph:
+    - node: start
+      edges:
+        - to: PastureComplete
+          steps:
+            - material: DoodonResin
+              amount: 3
+              doAfter: 2
+    - node: PastureComplete
+      entity: DoodonPasture
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin1
+              amount: 1 
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 7
+        
+#- type: constructionGraph       # Doohickery
+#  id: DoodonDoohickeryGraph
+#  graph:
+#    - node: start
+#      edges:
+#       - to: DoohickeryComplete
+#          steps:
+#            - material: DoodonResin
+#              amount: 3
+              # doAfter: 2
+    # - node: DoohickeryComplete
+      # entity: DoodonDoohickery
+      # edges:
+        # - to: start
+          # completed:
+            # - !type:SpawnPrototype
+              # prototype: MaterialDoodonResin1
+              # amount: 1 
+            # - !type:DeleteEntity {}
+          # conditions:
+            # - !type:EntityAnchored
+              # anchored: true
+          # steps:
+            # - tool: Prying
+              # doAfter: 7
+        
+      
+- type: constructionGraph       # Shieldsmith
+  id: DoodonShieldsmithGraph
+  graph:
+    - node: start
+      edges:
+        - to: ShieldsmithComplete
+          steps:
+            - material: DoodonResin
+              amount: 4
+              doAfter: 2
+    - node: ShieldsmithComplete
+      entity: DoodonShieldsmith
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin1
+              amount: 1 
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 7
+        
+              
+              
+- type: constructionGraph       #Swordsmith
+  id: DoodonSwordsmithGraph
+  graph:
+    - node: start
+      edges:
+        - to: SwordsmithComplete
+          steps:
+            - material: DoodonResin
+              amount: 4
+              doAfter: 2
+    - node: SwordsmithComplete
+      entity: DoodonSwordsmith
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin1
+              amount: 1 
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 7
+        
+- type: constructionGraph       #GemCutter
+  id: DoodonGemCutterGraph
+  graph:
+    - node: start
+      edges:
+        - to: GemCutterComplete
+          steps:
+            - material: DoodonResin
+              amount: 3
+              doAfter: 2
+    - node: GemCutterComplete
+      entity: DoodonGemCutter
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin1
+              amount: 1 
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 7
+        

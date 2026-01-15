@@ -5,9 +5,10 @@
   components:
   - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
     speaks:
-    - TauCetiBasic
+    - Doodon
     understands:
     - TauCetiBasic
+    - Doodon
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -74,15 +75,39 @@
         layer:
         - SmallMobLayer
   - type: SpamEmitSound         # Give the doodons a voice
-    minInterval: 30
-    maxInterval: 70
+    minInterval: 45
+    maxInterval: 90
     sound:
       collection: Doodon
       params:
-        volume: -5
+        volume: -6
         maxDistance: 5
         variation: 0.10
-  
+  - type: Inventory    # just hands
+    templateId: doodon
+  - type: PressureImmunity      # Space fairing creatures
+  - type: Speech
+    speechVerb: SmallMob
+  - type: TypingIndicator
+    proto: alien
+  - type: Temperature       # No icey doodons
+    heatDamageThreshold: 500
+    coldDamageThreshold: 0
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: DoodonTownHallVision
+  - type: Tag
+    tags:
+    - VimPilot
+  - type: Item
+    size: Small
+  - type: CollectiveMind        # The Collective mind
+    defaultChannel: DoodonMind
+    channels:
+    - DoodonMind
+      
 - type: entity      # Papa
   parent: BaseDoodon
   id: PapaDoodon
@@ -92,6 +117,7 @@
   - type: Sprite
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
     state: papa
+    drawdepth: SmallMobs
   - type: Hands
     slots: 2
     names: ["left hand", "right hand"]
@@ -99,15 +125,43 @@
     entityProduced: MaterialDoodonResin1
     action: ActionDoodonResin
     productionLength: 1
-    hungerCost: 10
+    hungerCost: 5
   - type: PapaDoodon
     commandAction: PapaDoodonCommand
-  - type: PapaObjectiveGiver
-    count: 2
-    objectives:
-  - DevilContractObjective
-  - DevilWeightObjective
-  
+  - type: MindContainer
+    showObjectives: true
+    showAntagIcons: false
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    jobRequired: false
+    name: ghost-role-information-papa-doodon-name
+    description: ghost-role-information-papa-doodon-information
+    rules: ghost-role-information-papa-doodon-rules
+    mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      - MindRolePapaDoodon
+    raffle:
+    settings: default
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 3
+  - type: LanguageKnowledge # Only papa can speak Tau Ceti
+    speaks:
+    - TauCetiBasic
+    - Doodon
+    understands:
+    - TauCetiBasic
+    - Doodon
+  - type: CanHostGuardian
   
 - type: entity      # Worker
   parent: BaseDoodon
@@ -118,6 +172,7 @@
   - type: Sprite
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
     state: worker
+    drawdepth: SmallMobs
   - type: Hands
     slots: 1
     names: ["hand"]
@@ -133,7 +188,7 @@
   - type: FactionException
   - type: NpcFactionMember
     factions:
-      - Passive
+      - Doodon
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -146,20 +201,34 @@
   - type: CombatMode
     combatEnabled: true
   - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
     soundHit:
-      collection: Punch
+      path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Blunt: 5
-    animation: WeaponArcFist
-    
+        Piercing: 3
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-doodon-name
+    description: ghost-role-information-doodon-information
+    rules: ghost-role-information-doodon-rules
+    mindRoles:
+      - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: default
+      
     
     
 - type: entity          # Warrior
   parent: BaseDoodon
   id: WarriorDoodon
   name: doodon warrior
-  description: The arms of the Doodon village.
+  description: The arms of the Doodon village.  # Warriors work like Rat king rats. They have minds too simple to be controlled by the player.
   components:
   - type: Physics
     bodyType: KinematicController
@@ -168,13 +237,14 @@
   - type: Sprite
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
     state: warrior
-  - type: Hands
+    drawdepth: SmallMobs
+  - type: Hands     # Equip Them With swords and shields
     slots: 2
     names: ["left hand", "right hand"]
   - type: DoodonWarrior
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Doodon
   - type: HTN
     rootTask:
       task: DoodonWarriorCompound
@@ -185,15 +255,22 @@
         1.5
       FollowRange: !type:Single
         3.0
-
-
+  - type: Fixtures      # Too big to fit under doors
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: CombatMode
     combatEnabled: true
-
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 3.5
-
   - type: InputMover
   - type: MobMover
   - type: MobState
@@ -203,18 +280,56 @@
       collection: Punch
     damage:
       types:
-        Blunt: 10
+        Blunt: 8
     animation: WeaponArcFist
+  - type: Item
+    size: Normal
    
-- type: entity
+- type: entity              # Moodon
   name: moodon
-  description: The cattle of the Doodon village.
+  description: The cattle of the Doodon village. Contains omnizne.
   parent: BaseDoodon
   id: Moodon
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
-    state: moodon 
+    state: moodon
+    drawdepth: SmallMobs
   - type: Doodon
     requiredHousing: Moodon
-    countsTowardsPopulation: false
+    countsTowardsPopulation: false      # Moodons are cattle, and do not count towards city population. They do still require pastures though
+  - type: SolutionContainerManager
+    solutions:
+      juice:
+        maxVol: 20
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 20
+      udder:
+        maxVol: 50
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 10
+  - type: Udder
+    reagentId: Milk
+    quantityPerUpdate: 5
+    growthDelay: 30
+  - type: ExaminableHunger
+  - type: Extractable
+    grindableSolutionName: juice
+  - type: InteractionPopup
+    successChance: 0.7
+    interactDelay: 3
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/_Goobstation/Doodon/moo_moodon.ogg
+  - type: NpcFactionMember
+    factions:
+    - Doodon
+  - type: Body
+    prototype: AnimalRuminant
+  - type: HTN
+    rootTask:
+      task: RuminantCompound

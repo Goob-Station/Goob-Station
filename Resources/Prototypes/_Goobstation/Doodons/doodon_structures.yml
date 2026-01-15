@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   parent: BaseMachine
-  id: BaseDoodonStructure
+  id: BaseDoodonStructure               # Base
   components:
   - type: Transform
     anchored: true
@@ -34,13 +34,12 @@
     damageModifierSet: Wood
   - type: DoodonBuilding
   - type: PointLight
-    enabled: false
-    netsync: false
-    radius: 1.5 
-    color: orange
+    radius: 2
+    energy: 2
+    color: "#FF6F00"
 
 - type: entity
-  parent: BaseDoodonStructure
+  parent: BaseDoodonStructure       # Town Hall
   id: DoodonTownHall
   name: doodon town hall
   description: The heart of the Doodon village.
@@ -49,16 +48,28 @@
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: townhall
   - type: DoodonTownHall
-  - type: DoodonMachine
-    outputPrototype: PapaDoodon
-    resinStack: DoodonResin
-    resinCost: 30
-    processTime: 5
-    respectPopulationCap: true
-    spawnOnMapInit: true
+    influenceRadius: 7
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#FF6F00"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300 # High HP since it's very important to the doodons
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+          params:
+            variation: 0.125
+            volume: -2
     
 - type: entity
-  parent: BaseDoodonStructure
+  parent: BaseDoodonStructure       # Dwelling
   id: DoodonDwelling
   name: doodon dwelling
   description: The place Doodon workers call home. Can hold one worker Doodon.
@@ -84,7 +95,7 @@
 
     
 - type: entity
-  parent: BaseDoodonStructure
+  parent: BaseDoodonStructure       # Warrior Hut
   id: DoodonWarriorHut
   name: doodon warrior hut
   description: Training grounds for doodon warriors. Can hold one warrior Doodon.
@@ -118,8 +129,8 @@
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: metalrefiner
   - type: Construction
-    graph: WarriorHutGraph
-    node: WarriorHutComplete
+    graph: DoodonMetalRefinerGraph
+    node: MetalRefinerComplete
     placementMode: SnapgridCenter
   - type: DoodonMachine
     outputPrototype: MaterialDoodonResin1
@@ -142,8 +153,8 @@
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: glassrefiner
   - type: Construction
-    graph: WarriorHutGraph
-    node: WarriorHutComplete
+    graph: DoodonGlassRefinerGraph
+    node: GlassRefinerComplete
     placementMode: SnapgridCenter
   - type: DoodonMachine
     outputPrototype: MaterialDoodonResin1
@@ -167,6 +178,9 @@
   - type: DoodonBuilding
     housingType: Moodon
     housingCapacity: 3
+  - type: Construction
+    graph: DoodonPastureGraph
+    node: PastureComplete
   - type: DoodonMachine
     outputPrototype: Moodon
     resinStack: DoodonResin
@@ -186,8 +200,8 @@
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: doohickery
   - type: Construction
-    graph: WarriorHutGraph
-    node: WarriorHutComplete
+    graph: DoodonDoohickeryGraph
+    node: DoohickeryComplete
     placementMode: SnapgridCenter
   - type: DoodonMachine
     outputPrototype: MaterialDoodonResin1
@@ -206,6 +220,9 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: shieldsmith
+  - type: Construction
+    graph: DoodonShieldsmithGraph
+    node: ShieldsmithComplete
   - type: DoodonMachine
     outputPrototype: DoodonShield
     resinStack: DoodonResin
@@ -223,6 +240,9 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: swordsmith
+  - type: Construction
+    graph: DoodonSwordsmithGraph
+    node: SwordsmithComplete
   - type: DoodonMachine
     outputPrototype: DoodonSword
     resinStack: DoodonResin
@@ -240,6 +260,9 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: gemcutter
+  - type: Construction
+    graph: DoodonGemCutterGraph
+    node: GemCutterComplete
   - type: DoodonMachine
     outputPrototype: DoodonGem
     resinStack: DoodonResin

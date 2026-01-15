@@ -9,17 +9,16 @@
       - chest
       organs:
         brain: OrganHumanBrain
-        eyes: OrganHumanEyes
     chest:
       part: ChestHuman
       connections:
       - groin
       - right arm
       - left arm
-      - head # Shitmed
+      - head
       organs:
         heart: OrganHumanHeart
-        lungs: OrganHumanLungs
+        lungs: OrganSpaceAnimalLungs
     groin:
       part: GroinHuman
       connections:

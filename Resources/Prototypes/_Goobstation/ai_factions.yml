@@ -33,20 +33,10 @@
 - type: npcFaction
   id: Doodon
   hostile:
-  - NanoTrasen
   - Dragon
   - SimpleHostile
   - Syndicate
   - Xeno
   - Zombie
-  - Revolutionary
-  - Changeling
-  - Heretic
   - Blob
-  - Shadowling
-  - Wizard
-  - PirateFaction
-  - Wraith
-  - Lavafauna
   - AllHostile
-  - Xenoborg

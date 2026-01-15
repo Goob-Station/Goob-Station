@@ -9,21 +9,21 @@
     state: doodon_plush
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
+      collection: Doodon
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
+      collection: DoodonDeath
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
+      collection: Doodon
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
+      collection: Doodon
   - type: Food
     requiresSpecialDigestion: true
     useSound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
+      collection: DoodonDeath
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/Items/Toys/mousesqueek.ogg
+      collection: Doodon

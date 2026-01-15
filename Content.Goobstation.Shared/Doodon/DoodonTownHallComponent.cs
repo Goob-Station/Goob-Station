@@ -1,18 +1,21 @@
 using Robust.Shared.GameObjects;
+using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Server.Doodons;
+namespace Content.Goobstation.Shared.Doodons;
 
 /// <summary>
 /// Central authority for a Doodon village.
 /// Tracks all buildings and doodons within its influence.
 /// </summary>
-[RegisterComponent]
+
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class DoodonTownHallComponent : Component
 {
     /// <summary>
     /// Maximum distance (in tiles) that buildings can function.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float InfluenceRadius = 7f;
 
     /// <summary>
@@ -39,4 +42,7 @@ public sealed partial class DoodonTownHallComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool CanSpawnMoreDoodons => Doodons.Count < Buildings.Count;
+    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool ShowInfluence;
 }

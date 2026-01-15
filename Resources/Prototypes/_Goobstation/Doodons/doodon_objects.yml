@@ -78,3 +78,18 @@
     size: Normal
   - type: StaticPrice
     price: 4500
+    
+    
+#- type: entity
+ # name: doodon doohickey
+  #parent: BaseItem
+  #id: DoodonDoohickey
+  #description: A pristine gem refined from resin. It's valuable, but not to doodons.
+  #components:
+  #- type: Sprite
+  #  sprite: _Goobstation/Objects/Doodon/gem.rsi
+  #  state: icon
+  #- type: Item
+  #  size: Normal
+  #- type: StaticPrice
+  #  price: 4500

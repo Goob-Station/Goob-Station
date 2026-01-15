@@ -24,3 +24,31 @@
     useDelay: 1
   - type: InstantAction
     event: !type:SericultureActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonEstablishTownHall
+  name: Establish Town Hall
+  description: Place down the Doodon Town Hall. You can only do this once.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: townhall
+    useDelay: 5
+  - type: InstantAction
+    event: !type:DoodonEstablishTownHallEvent
+    
+- type: entity
+  parent: BaseAction
+  id: ActionToggleTownHallRadius
+  name: Toggle Influence Radius
+  description: Show or hide the Town Hall influence area.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: dwelling
+    useDelay: 0.2
+  - type: InstantAction
+    event: !type:ToggleTownHallRadiusEvent

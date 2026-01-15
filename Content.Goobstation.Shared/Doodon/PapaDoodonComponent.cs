@@ -18,6 +18,14 @@ public sealed partial class PapaDoodonComponent : Component
     [AutoNetworkedField]
     [DataField("currentOrder")]
     public DoodonOrderType CurrentOrder = DoodonOrderType.Follow;
+
+    // Actions
+    [DataField] public EntProtoId EstablishHallAction = "ActionDoodonEstablishTownHall";
+    [DataField] public EntityUid? EstablishHallActionEntity;
+
+    // Town hall placement
+    [DataField] public EntProtoId TownHallPrototype = "DoodonTownHall";
+    [DataField] public bool HallPlaced;
 }
 
 [Serializable, NetSerializable]
