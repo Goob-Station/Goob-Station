@@ -208,8 +208,6 @@
         - state: equipped-OUTERCLOTHING-sealed
         outerClothing-vox:
         - state: equipped-OUTERCLOTHING-sealed-vox
-    - type: ClothingGrantComponent
-      component:
     - type: ComponentToggler
       components:
       - type: ClothingAutoInject
