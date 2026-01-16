@@ -14,14 +14,13 @@ using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Tag;
 using Robust.Client.GameObjects;
 using Robust.Shared.Graphics.RSI;
-using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic;
 
 public sealed class RustRuneSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -40,6 +39,7 @@ public sealed class RustRuneSystem : EntitySystem
         if (args.Sprite == null || !args.AppearanceData.TryGetValue(OffsetVisuals.Offset, out var offset))
             return;
 
+        // shut up john obsolete
         args.Sprite.Offset = (Vector2) offset;
     }
 
@@ -50,8 +50,8 @@ public sealed class RustRuneSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        RemoveLayers(sprite);
-        AddLayers(uid, comp, sprite);
+        RemoveLayers((uid, sprite));
+        AddLayers((uid, sprite), comp);
     }
 
     private void OnAfterAutoHandleState(Entity<RustRuneComponent> ent, ref AfterAutoHandleStateEvent args)
@@ -61,7 +61,7 @@ public sealed class RustRuneSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        AddLayers(uid, comp, sprite);
+        AddLayers((uid, sprite), comp);
     }
 
     private void OnShutdown(Entity<RustRuneComponent> ent, ref ComponentShutdown args)
@@ -71,7 +71,7 @@ public sealed class RustRuneSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        RemoveLayers(sprite);
+        RemoveLayers((uid, sprite));
     }
 
     private void OnStartup(Entity<RustRuneComponent> ent, ref ComponentStartup args)
@@ -81,46 +81,46 @@ public sealed class RustRuneSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        AddLayers(uid, comp, sprite);
+        AddLayers((uid, sprite), comp);
     }
 
-    private void RemoveLayers(SpriteComponent sprite)
+    private void RemoveLayers(Entity<SpriteComponent?> ent)
     {
-        if (sprite.LayerMapTryGet(RustRuneKey.Rune, out var rune))
-            sprite.RemoveLayer(rune);
+        if (_sprite.LayerMapTryGet(ent, RustRuneKey.Rune, out var rune, false))
+            _sprite.RemoveLayer(ent, rune);
 
-        if (sprite.LayerMapTryGet(RustRuneKey.Overlay, out var overlay))
-            sprite.RemoveLayer(overlay);
+        if (_sprite.LayerMapTryGet(ent, RustRuneKey.Overlay, out var overlay, false))
+            _sprite.RemoveLayer(ent, overlay);
     }
 
-    private void AddLayers(EntityUid uid, RustRuneComponent comp, SpriteComponent sprite)
+    private void AddLayers(Entity<SpriteComponent?> ent, RustRuneComponent runeComp)
     {
-        var diagonal = _tag.HasTag(uid, comp.DiagonalTag);
+        var diagonal = _tag.HasTag(ent, runeComp.DiagonalTag);
 
-        if (comp.RustOverlay && !sprite.LayerMapTryGet(RustRuneKey.Overlay, out _))
+        if (runeComp.RustOverlay && !_sprite.LayerMapTryGet(ent, RustRuneKey.Overlay, out _, false))
         {
-            var layer = sprite.AddLayer(diagonal ? comp.DiagonalSprite : comp.OverlaySprite);
-            sprite.LayerMapSet(RustRuneKey.Overlay, layer);
+            var layer = _sprite.AddLayer(ent, diagonal ? runeComp.DiagonalSprite : runeComp.OverlaySprite);
+            _sprite.LayerMapSet(ent, RustRuneKey.Overlay, layer);
         }
 
-        if (comp.RuneIndex >= 0 && comp.RuneIndex < comp.RuneSprites.Count)
+        if (runeComp.RuneIndex >= 0 && runeComp.RuneIndex < runeComp.RuneSprites.Count)
         {
-            if (!sprite.LayerMapTryGet(RustRuneKey.Rune, out var layer))
+            if (!_sprite.LayerMapTryGet(ent, RustRuneKey.Rune, out var layer, false))
             {
-                layer = sprite.AddLayer(comp.RuneSprites[comp.RuneIndex]);
-                sprite.LayerMapSet(RustRuneKey.Rune, layer);
-                sprite.LayerSetShader(RustRuneKey.Rune, "unshaded");
+                layer = _sprite.AddLayer(ent, runeComp.RuneSprites[runeComp.RuneIndex]);
+                _sprite.LayerMapSet(ent, RustRuneKey.Rune, layer);
+                ent.Comp!.LayerSetShader(RustRuneKey.Rune, "unshaded");
             }
 
-            if (comp.AnimationEnded)
+            if (runeComp.AnimationEnded)
             {
-                sprite.LayerSetTexture(layer,
-                    _spriteSystem.RsiStateLike(comp.RuneSprites[comp.RuneIndex])
-                        .GetFrame(RsiDirection.South, comp.LastFrame));
+                var state = _sprite.RsiStateLike(runeComp.RuneSprites[runeComp.RuneIndex]);
+                var frame = state.GetFrame(RsiDirection.South, runeComp.LastFrame);
+                _sprite.LayerSetTexture(ent, layer, frame);
             }
 
-            var offset = diagonal ? comp.DiagonalOffset : comp.RuneOffset;
-            sprite.LayerSetOffset(layer, offset);
+            var offset = diagonal ? runeComp.DiagonalOffset : runeComp.RuneOffset;
+            _sprite.LayerSetOffset(ent, layer, offset);
         }
     }
 }

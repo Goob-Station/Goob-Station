@@ -16,9 +16,9 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic;
 
-public sealed partial class GhoulSystem : EntitySystem
+public sealed partial class GhoulIconsSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -31,7 +31,7 @@ public sealed partial class GhoulSystem : EntitySystem
     }
 
     /// <summary>
-    /// Show to ghouls who their master is
+    ///     Show to ghouls who their master is
     /// </summary>
     private void OnHereticMasterIcons(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
     {
@@ -55,7 +55,7 @@ public sealed partial class GhoulSystem : EntitySystem
     }
 
     /// <summary>
-    /// Show an icon for all ghouls to all ghouls and all heretics.
+    ///     Show an icon for all ghouls to all ghouls and all heretics.
     /// </summary>
     private void OnGhoulIcons(Entity<GhoulComponent> ent, ref GetStatusIconsEvent args)
     {

@@ -6,7 +6,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Client._Shitcode.Heretic.UI;
+namespace Content.Goobstation.Client.Heretic.UI;
 
 public sealed class VoidConduitOverlay : Overlay
 {
@@ -24,7 +24,7 @@ public sealed class VoidConduitOverlay : Overlay
     public VoidConduitOverlay()
     {
         IoCManager.InjectDependencies(this);
-        ZIndex = (int) Shared.DrawDepth.DrawDepth.FloorEffects;
+        ZIndex = (int) Content.Shared.DrawDepth.DrawDepth.FloorEffects;
 
         _xform = _entMan.System<TransformSystem>();
         _sprite = _entMan.System<SpriteSystem>();

@@ -4,28 +4,27 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Eui;
+using Content.Goobstation.Client.UserInterface;
 using Content.Shared.Heretic.Messages;
-using JetBrains.Annotations;
 using Robust.Client.Graphics;
 
-namespace Content.Client._Shitcode.Heretic.UI;
+namespace Content.Goobstation.Client.Heretic.UI;
 
-[UsedImplicitly]
 public sealed class FeastOfOwlsEui : BaseEui
 {
-    private readonly FeastOfOwlsMenu _menu;
+    private readonly SimpleConfirmationMenu _menu;
 
     public FeastOfOwlsEui()
     {
-        _menu = new FeastOfOwlsMenu();
+        _menu = new SimpleConfirmationMenu("feast-of-owls-text", "feast-of-owls-accept-button", "feast-of-owls-deny-button");
 
-        _menu.DenyButton.OnPressed += _ =>
+        _menu.CancelButton.OnPressed += _ =>
         {
             SendMessage(new FeastOfOwlsMessage(false));
             _menu.Close();
         };
 
-        _menu.AcceptButton.OnPressed += _ =>
+        _menu.ConfirmButton.OnPressed += _ =>
         {
             SendMessage(new FeastOfOwlsMessage(true));
             _menu.Close();
