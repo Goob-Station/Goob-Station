@@ -210,12 +210,6 @@
         - state: equipped-OUTERCLOTHING-sealed-vox
     - type: ClothingGrantComponent
       component:
-      - type: SupermatterImmune
-      - type: EventHorizonIgnore
-        horizonWhitelist:
-          tags:
-          - Tesla
-      - type: ContainmentFieldIgnore
     - type: ComponentToggler
       components:
       - type: ClothingAutoInject
@@ -262,7 +256,7 @@
       components:
       - type: NoSlip
     - type: ModifyStandingUpTime
-      multiplier: .25
+      multiplier: .5
     - type: Magboots
       enabledPrefix: null
     - type: ClothingSpeedModifier
