@@ -20263,3 +20263,9 @@ Entries:
       message: Increased the point amount of some xenobiology bounties
   id: 2295
   time: '2026-01-14T02:59:22.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: BSO's battle syringe now deals 1 damage instead of 5 on inject.
+  id: 2296
+  time: '2026-01-15T07:04:53.0000000+00:00'
