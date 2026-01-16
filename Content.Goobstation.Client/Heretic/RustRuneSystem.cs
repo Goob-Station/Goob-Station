@@ -10,6 +10,7 @@
 
 using System.Numerics;
 using Content.Client.IconSmoothing;
+using Content.Goobstation.Common.UserInterface;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Tag;
 using Robust.Client.GameObjects;

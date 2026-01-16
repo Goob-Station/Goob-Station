@@ -2,8 +2,6 @@ using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Goobstation.Client.Heretic;
 
-public sealed class IconSmoothCornersInitializedEvent : EntityEventArgs;
-
 #region Ritual events
 
 // these do nothing and are there just for yaml limter to shut the fuck up.

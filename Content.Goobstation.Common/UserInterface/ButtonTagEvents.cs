@@ -1,7 +1,7 @@
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Common.Heretic;
+namespace Content.Goobstation.Common.UserInterface;
 
 [Serializable, NetSerializable]
 public sealed class ButtonTagPressedEvent(string id, NetEntity user, NetCoordinates coords) : EntityEventArgs
