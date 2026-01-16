@@ -5633,3 +5633,33 @@ Entries:
   id: 9407
   time: '2026-01-15T20:01:06.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42040
+- author: Velken
+  changes:
+  - message: RCD can no longer spam lights in the same spot.
+    type: Fix
+  - message: RCD can no longer be used to destroy indestructible tiles.
+    type: Fix
+  id: 9408
+  time: '2026-01-15T20:39:02.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42432
+- author: B_Kirill
+  changes:
+  - message: Added camera map. Cutting MAP wire hides camera from map while keeping
+      it accessible in camera list.
+    type: Add
+  id: 9409
+  time: '2026-01-15T21:37:19.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39684
+- author: ScarKy0
+  changes:
+  - message: Added Makeshift and Regular Mortar&Pestle! It can be found in the nutrimax
+      and dinnerware vendors or crafted. It works slower and can only process 1 item
+      at a time.
+    type: Add
+  - message: Added Makeshift and Regular Handheld Juicer! It can be found in the nutrimax
+      and dinnerware vendors or crafted. It works slower and can only process 1 item
+      at a time.
+    type: Add
+  id: 9410
+  time: '2026-01-16T00:35:32.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42019
