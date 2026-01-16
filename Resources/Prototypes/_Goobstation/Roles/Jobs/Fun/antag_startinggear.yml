@@ -5,18 +5,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: startingGear
-  id: ContractorGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitOperative
-    eyes: ClothingEyesHudSyndicate
-    mask: ClothingMaskNeckGaiter
-    shoes: ClothingShoesBootsCombatFilled
-    gloves: ClothingHandsGlovesCombat
-    id: SyndiPDANukie
-    belt: ClothingBeltSecurityWebbingContractorFilled
-    ears: ClothingHeadsetAltSyndicate
-    back: ClothingModsuitContractor
-    outerClothing: ClothingOuterArmorBasicSlim
-    suitstorage: JetpackContractorFilled
-    pocket1: WeaponDisablerSyndicate
+
