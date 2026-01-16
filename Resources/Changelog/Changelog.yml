@@ -5663,3 +5663,11 @@ Entries:
   id: 9410
   time: '2026-01-16T00:35:32.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42019
+- author: EmoGarbage404
+  changes:
+  - message: Fixed flatpackers ignoring material costs for certain machine board requirements
+      and being able to print unlatheable items for flatpacks.
+    type: Fix
+  id: 9411
+  time: '2026-01-16T00:52:35.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42445
