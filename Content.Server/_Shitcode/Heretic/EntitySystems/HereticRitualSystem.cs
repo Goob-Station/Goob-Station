@@ -26,6 +26,7 @@ using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Stacks;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
+using Content.Server.Heretic.Abilities;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -40,8 +41,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly GhoulSystem _ghoul = default!;
+    [Dependency] private readonly HereticAbilitySystem _hereticAbilities = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
+    private static readonly EntProtoId SuccessAnimation = "HereticRuneRitualAnimation";
 
     public HereticRitualPrototype GetRitual(ProtoId<HereticRitualPrototype>? id)
     {
@@ -218,14 +221,14 @@ public sealed partial class HereticRitualSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
-        SubscribeLocalEvent<HereticRitualRuneComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<HereticRitualRuneComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticRitualRuneComponent, HereticRitualMessage>(OnRitualChosenMessage);
     }
 
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
     {
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
+        if (!TryComp<HereticComponent>(args.User, out var heretic)
+        || !_hereticAbilities.IsValid(ent))
             return;
 
         if (heretic.KnownRituals.Count == 0)
@@ -239,38 +242,12 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnRitualChosenMessage(Entity<HereticRitualRuneComponent> ent, ref HereticRitualMessage args)
     {
-        var user = args.Actor;
-
-        if (!TryComp<HereticComponent>(user, out var heretic))
+        if (!_hereticAbilities.IsValid(ent)
+        || !TryDoRitual(args.Actor, ent, args.ProtoId))
             return;
 
-        heretic.ChosenRitual = args.ProtoId;
-
-        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).LocName);
-        _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
-    }
-
-    private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
-    {
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
-            return;
-
-        if (!TryComp<MansusGraspComponent>(args.Used, out var grasp))
-            return;
-
-        if (heretic.ChosenRitual == null)
-        {
-            _popup.PopupEntity(Loc.GetString("heretic-ritual-noritual"), args.User, args.User);
-            return;
-        }
-
-        var successAnimation = _proto.Index(heretic.ChosenRitual.Value).RuneSuccessAnimation;
-
-        if (!TryDoRitual(args.User, ent, heretic.ChosenRitual.Value))
-            return;
-
-        if (successAnimation)
-            RitualSuccess(ent, args.User);
+        var successAnimation = _proto.Index(args.ProtoId).RuneSuccessAnimation;
+        if (successAnimation) RitualSuccess(ent, args.Actor);
     }
 
     private void OnExamine(Entity<HereticRitualRuneComponent> ent, ref ExaminedEvent args)
@@ -287,6 +264,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
     {
         _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
         _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, user);
-        Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
+        Spawn(SuccessAnimation, Transform(ent).Coordinates);
     }
 }

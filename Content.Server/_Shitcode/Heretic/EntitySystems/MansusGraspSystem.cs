@@ -293,7 +293,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         var coords = args.ClickLocation.WithPosition(args.ClickLocation.Position.Floored() + new Vector2(0.5f, 0.5f));
         var rune = Spawn(runeProto, coords);
         _transform.AttachToGridOrMap(rune);
-        var dargs = new DoAfterArgs(EntityManager, args.User, time, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
+        var dargs = new DoAfterArgs(EntityManager, args.User, time, new DrawRitualRuneDoAfterEvent(rune, coords), args.User)
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
