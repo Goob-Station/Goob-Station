@@ -117,7 +117,6 @@
     quickEquip: false
     slots:
     - back
-    maxItemSize: Huge
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

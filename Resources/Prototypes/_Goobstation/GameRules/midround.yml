@@ -694,7 +694,6 @@
   - type: AntagObjectives
     objectives:
     - ContractorRansomObjective
-    maxDifficulty: 1
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     agentName: ghost-role-information-contractor-name

@@ -365,7 +365,7 @@
         nameFormat: name-format-slasher
 
 - type: entity
-  parent: ContractorSpawnMidround
+  parent: ContractorSpawn
   id: TokenContractorSpawn
   components:
   - type: AntagSelection
@@ -386,6 +386,15 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-
   - type: StationEvent
     isSelectable: false
+    startAnnouncement: null
+    weight: 1
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Hostile: 40
+      Combat: 40
+      Death: 40
+    eventType: HostilesSpawn
