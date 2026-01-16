@@ -19,6 +19,8 @@
     - MindRoleGhostRoleSilicon
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -40,6 +42,8 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -61,6 +65,8 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -82,6 +88,8 @@
     - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -103,6 +111,8 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -125,6 +135,8 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -146,6 +158,8 @@
     - MindRoleGhostRoleNeutral
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -167,6 +181,8 @@
     - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -188,6 +204,8 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

@@ -155,6 +155,7 @@ namespace Content.Server.GameTicking
                 "Overflow role does not have the correct name!");
             InitializeGameRules();
             InitializeReplays();
+            InitializeObserverStatus(); // Goobstation - Observer status tracking
             _initialized = true;
         }
 
