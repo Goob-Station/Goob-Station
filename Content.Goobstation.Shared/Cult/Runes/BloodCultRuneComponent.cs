@@ -9,5 +9,5 @@ public sealed partial class BloodCultRuneComponent : Component
     /// <summary>
     ///     What will the rune do when activated.
     /// </summary>
-    [DataField(required: true)] public required List<CultRuneEvent> Events;
+    [DataField(required: true)] public List<CultRuneEvent> Events;
 }
