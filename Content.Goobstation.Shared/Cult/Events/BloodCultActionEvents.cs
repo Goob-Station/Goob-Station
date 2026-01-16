@@ -9,9 +9,9 @@ public abstract class CultRuneEvent : CancellableEntityEventArgs
     [NonSerialized] public List<EntityUid>? Invokers;
     [NonSerialized] public List<EntityUid>? Targets;
 
-    public int RequiredInvokers = 1;
+    [DataField] public int RequiredInvokers = 1;
 
-    public Color PulseColor = Color.Black;
+    [DataField] public Color PulseColor = Color.Black;
 
     /// <summary>
     ///     What will people say when the rune is activated.

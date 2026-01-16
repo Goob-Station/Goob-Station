@@ -10,6 +10,4 @@ public sealed partial class BloodCultRuneComponent : Component
     ///     What will the rune do when activated.
     /// </summary>
     [DataField(required: true)] public required List<CultRuneEvent> Events;
-
-    public Color PulseColor = Color.Black;
 }
