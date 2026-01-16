@@ -5679,3 +5679,11 @@ Entries:
   id: 9412
   time: '2026-01-16T02:09:01.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42446
+- author: neomoth
+  changes:
+  - message: Fix zombie resistance, instead of making you more likely to be infected,
+      it now properly makes you less likely to be infected.
+    type: Fix
+  id: 9413
+  time: '2026-01-16T08:40:47.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42451
