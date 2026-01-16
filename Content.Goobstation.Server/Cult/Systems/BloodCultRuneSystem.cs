@@ -6,6 +6,9 @@ using Content.Shared.Popups;
 using System.Linq;
 using Content.Goobstation.Shared.Cult.Runes;
 using Content.Goobstation.Shared.Cult;
+using Content.Goobstation.Shared.Cult.Events;
+using Content.Shared.Examine;
+using System.Text;
 
 namespace Content.Goobstation.Server.Cult.Runes;
 
@@ -25,6 +28,30 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
 
         SubscribeLocalEvent<BloodCultRuneComponent, InteractHandEvent>(OnIntearctHand);
         SubscribeLocalEvent<BloodCultRuneComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<BloodCultRuneComponent, ExaminedEvent>(OnExamined);
+    }
+
+    private void OnExamined(Entity<BloodCultRuneComponent> ent, ref ExaminedEvent args)
+    {
+        var names = string.Empty;
+        var descriptions = string.Empty;
+        var trueCount = ent.Comp.Events.Count - 1;
+        for (int i = 0; i < ent.Comp.Events.Count; i++)
+        {
+            var ev = ent.Comp.Events[i];
+            var name = Loc.GetString(ev.InspectNameLoc);
+            var desc = Loc.GetString(ev.InspectDescLoc);
+            var color = ev.PulseColor.ToHex();
+
+            // "name1 / name2 / name3"
+            names += $"{((i > 0 && i < trueCount) ? " / " : "")}[color={color}]{name}[/color]";
+
+            // "- description 1"
+            // "\n- description 2"
+            descriptions += $"\n- [color={color}]{desc}[/color]";
+        }
+
+        args.PushMarkup(Loc.GetString("rune-examine", ("name", names), ("rituals", descriptions)));
     }
 
     private void OnIntearctHand(Entity<BloodCultRuneComponent> ent, ref InteractHandEvent args)
@@ -32,7 +59,16 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
         var invokersLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, InvokersLookupRange)
             .Where(q => HasComp<BloodCultistComponent>(q)).ToList();
 
-        if (!TryInvokeRune(ent, invokersLookup, out var loc))
+        var invoked = false;
+        var loc = string.Empty;
+        foreach (var ev in ent.Comp.Events)
+        {
+            if (!TryInvokeRune(ent, ev, invokersLookup, out loc))
+                continue;
+            invoked = true;
+        }
+
+        if (!invoked)
         {
             if (!string.IsNullOrWhiteSpace(loc))
                 _popup.PopupCursor(loc, args.User);
@@ -65,13 +101,13 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
     ///    The loc returned is what invokers will say on success.
     ///    On fail it's what the user will recieve as a popup in raw string form.
     /// </summary>
-    public bool TryInvokeRune(Entity<BloodCultRuneComponent> ent, List<EntityUid> invokers, out string loc)
+    public bool TryInvokeRune(Entity<BloodCultRuneComponent> ent, CultRuneEvent ev, List<EntityUid> invokers, out string loc)
     {
-        loc = ent.Comp.InvokeLoc;
+        loc = ev.InvokeLoc;
 
-        if (invokers.Count < ent.Comp.RequiredInvokers)
+        if (invokers.Count < ev.RequiredInvokers)
         {
-            loc = Loc.GetString("rune-invoke-fail-invokers", ("n", ent.Comp.RequiredInvokers - invokers.Count));
+            loc = Loc.GetString("rune-invoke-fail-invokers", ("n", ev.RequiredInvokers - invokers.Count));
             return false;
         }
 
@@ -79,7 +115,7 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
             .Where(q => !HasComp<BloodCultistComponent>(q))
             .ToList();
 
-        var ev = ent.Comp.Event;
+        ev.Invokers = invokers;
         ev.Targets = targetsLookup;
         RaiseLocalEvent(ent, ev);
 

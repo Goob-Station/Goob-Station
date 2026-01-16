@@ -2,7 +2,7 @@ using Content.Client.UserInterface.Controls;
 using Content.Goobstation.Shared.Cult.Events;
 using Robust.Client.UserInterface.Controls;
 
-namespace Content.Goobstation.Client.Cult;
+namespace Content.Goobstation.Client.UI;
 
 public sealed class NameSelectorBUI(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {

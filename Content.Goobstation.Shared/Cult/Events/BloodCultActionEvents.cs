@@ -6,8 +6,26 @@ namespace Content.Goobstation.Shared.Cult.Events;
 
 public abstract class CultRuneEvent : CancellableEntityEventArgs
 {
-    public List<EntityUid>? Targets;
-    public string InvokeLoc = string.Empty; // the the loc that could override the default one
+    [NonSerialized] public List<EntityUid>? Invokers;
+    [NonSerialized] public List<EntityUid>? Targets;
+
+    public int RequiredInvokers = 1;
+
+    public Color PulseColor = Color.Black;
+
+    /// <summary>
+    ///     What will people say when the rune is activated.
+    /// </summary>
+    [DataField] public LocId InvokeLoc = string.Empty;
+
+    [DataField] public LocId InspectNameLoc;
+
+    [DataField] public LocId InspectDescLoc;
+}
+
+public sealed partial class BloodCultRuneScribeSelectRuneMessage(EntProtoId id) : BoundUserInterfaceMessage
+{
+    public EntProtoId ID = id;
 }
 
 public sealed partial class EventActionCultPrepareBloodMagic : InstantActionEvent;

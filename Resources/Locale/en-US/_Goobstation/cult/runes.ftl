@@ -1,6 +1,24 @@
+rune-examine =
+    This is [color=crimson]{$name}[/color] rune. It can perform the following rituals: {$rituals}
+
 rune-invoke-fail = You are unable to invoke the rune!
 rune-invoke-fail-invokers = You need {$n} more adjacent cultists to use this rune in such a manner.
 
+rune-name-basic = Basic
+rune-name-malf = Malign
+rune-name-offering = Offering
+rune-name-sacrifice = Sacrifice
+rune-name-empower = Empower
+rune-name-teleport = Teleport
+rune-name-revive = Revive
+rune-name-barrier = Barrier
+rune-name-summon = Summon
+rune-name-bloodboil = Boiling blood
+rune-name-spirit = Spirit realm
+rune-name-apocalypse = Apocalypse
+rune-name-narsie = Dimensional Rending
+
+rune-desc-basic = A sinister rune used by sinister individuals for persorming sinister rituals.
 rune-desc-malf = A senseless rune written in gibberish. No good can come from invoking this.
 rune-desc-offering = Offers a noncultist above it to Nar'Sie, converting them. Requires 2 invokers.
 rune-desc-sacrifice = Offers a noncultist above it to Nar'Sie, sacrificing them. Requires 3 invokers.
@@ -14,6 +32,7 @@ rune-desc-spirit = Manifests a spirit servant of the Geometer and allows you to 
 rune-desc-apocalypse = A harbinger of the end times. Grows in strength with the cult's desperation - but at the risk of... side effects.
 rune-desc-narsie = Tears apart dimensional barriers, calling forth the Geometer. Requires 9 invokers.
 
+rune-invoke-basic = Gar y'ok!
 rune-invoke-malf = Ra'sha yoka!
 rune-invoke-offering = Mah'weyh pleggh at e'ntrath!
 rune-invoke-sacrifice = Barhah hra zar'garis!
