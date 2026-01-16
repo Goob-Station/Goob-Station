@@ -59,3 +59,11 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Hydroponics/mango_gland.rsi
     state: produce
+  - type: Organ
+    onAdd:
+    - type: DashAction
+      actionProto: ActionDashMangoGland
+    - type: InjectOnMobState
+      reagents:
+        JuiceMango: 10
+        Epinephrine: 10

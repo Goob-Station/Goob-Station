@@ -311,3 +311,11 @@
         path: /Audio/Effects/thudswoosh.ogg
         params:
           volume: 6.5
+    - type: SpeakOnAction
+      sentence: action-speech-dash-mango
+    - type: WorldTargetAction
+      event: !type:DashActionEvent
+        staminaDrain: 15
+        speed: 13
+        distance: 6
+        NeedsGravity: false
