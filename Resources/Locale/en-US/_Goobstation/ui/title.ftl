@@ -1,0 +1,1 @@
+ui-confirmation-title = Confirm action
