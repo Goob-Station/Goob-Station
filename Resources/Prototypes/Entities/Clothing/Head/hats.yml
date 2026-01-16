@@ -1407,7 +1407,7 @@
         Blunt: 0.9
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, BaseNullrod] # goob edit
   id: ClothingHeadHatHolyWatermelon
   name: watermelon halo
   description: Holy moly.
