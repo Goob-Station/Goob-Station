@@ -4,4 +4,4 @@ namespace Content.Goobstation.Common.Cloning;
 /// Raised on the original body when its clone has a mind added (usually via the cloning EUI)
 /// </summary>
 [ByRefEvent]
-public record struct TransferredToCloneEvent(EntityUid Cloned);
+public record struct TransferredToCloneEvent(EntityUid Original, EntityUid ClonePod, EntityUid NewBody);

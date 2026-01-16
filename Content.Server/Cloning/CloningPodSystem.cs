@@ -117,7 +117,7 @@ public sealed class CloningPodSystem : EntitySystem
         // <Goobstation>
         if (clonedComponent.Original is {} original && Exists(original))
         {
-            var ev = new TransferredToCloneEvent(uid);
+            var ev = new TransferredToCloneEvent(uid, clonedComponent.Parent, clonedComponent.NewBody);
             RaiseLocalEvent(original, ref ev);
             clonedComponent.Original = null; // prevent multiple events from brain swaps
         }
@@ -244,6 +244,7 @@ public sealed class CloningPodSystem : EntitySystem
         cloneMindReturn.Mind = mind;
         cloneMindReturn.Parent = uid;
         cloneMindReturn.Original = bodyToClone; // Goobstation
+        cloneMindReturn.NewBody = mob.Value; // Goobstation
         _containerSystem.Insert(mob.Value, clonePod.BodyContainer);
         //ClonesWaitingForMind.Add(mind, mob.Value); // Goobstation: use mindId
         _euiManager.OpenEui(new AcceptCloningEui(mindEnt, mind, this), client);

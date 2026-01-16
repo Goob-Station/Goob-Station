@@ -25,5 +25,11 @@ namespace Content.Server.Cloning.Components
         /// </summary>
         [DataField]
         public EntityUid? Original;
+
+        /// <summary>
+        /// Goobstation - The new body
+        /// </summary>
+        [DataField]
+        public EntityUid NewBody;
     }
 }
