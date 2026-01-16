@@ -2625,7 +2625,7 @@
 
 - type: entity
   name: holymelon
-  parent: [FoodProduceBase, ItemHeftyBase, BaseNullrod] # goob edit
+  parent: [ FoodProduceBase, ItemHeftyBase, BaseNullrod ] # goob edit
   id: FoodHolymelon
   description: The water within this melon has been blessed by some deity that's particularly fond of watermelon. Legends say it could also repel dark arts if applied properly.
   components:
