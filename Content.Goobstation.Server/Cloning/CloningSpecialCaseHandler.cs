@@ -1,26 +1,12 @@
-using System.Linq;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Cloning;
-using Content.Goobstation.Server.Changeling;
 using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Shared.CrematorImmune;
-using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Religion;
-using Content.Goobstation.Shared.Supermatter.Components;
-using Content.Server.Antag.Components;
-using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Store.Components;
-using Content.Goobstation.Shared.CheatDeath;
-using Content.Server.Speech.Components;
-using Content.Server.Zombies;
-using Content.Shared._Lavaland.Chasm;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Chat;
 using Content.Shared.Cloning;
-using Content.Shared.Shuttles.Components;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Cloning;
@@ -40,8 +26,6 @@ public sealed partial class CloningSpecialCaseHandler : EntitySystem
         SubscribeLocalEvent<StoreComponent, TransferredToCloneEvent>(OnTransferredToClone);
         SubscribeLocalEvent<HereticComponent, TransferredToCloneEvent>(OnTransferredToClone);
         SubscribeLocalEvent<ChangelingComponent, TransferredToCloneEvent>(OnTransferredToClone);
-        SubscribeLocalEvent<DevilComponent, TransferredToCloneEvent>(OnTransferredToClone);
-
     }
 
     // Lotta things end up using store like ling and heretic so im handling both here.
@@ -112,37 +96,5 @@ public sealed partial class CloningSpecialCaseHandler : EntitySystem
     }
         #endregion PostCloning
 
-    #endregion
-
-    // Not in goob currently but back later prob, and downstream
-    #region Devil
-
-    private static readonly Type[] DevilCompsToRemove =
-    {
-        // Taken from devilsystem
-        typeof(DevilComponent),
-        typeof(ZombieImmuneComponent),
-        typeof(BreathingImmunityComponent),
-        typeof(PressureImmunityComponent),
-        typeof(ActiveListenerComponent),
-        typeof(WeakToHolyComponent),
-        typeof(CrematoriumImmuneComponent),
-        typeof(AntagImmuneComponent),
-        typeof(SupermatterImmuneComponent),
-        typeof(PreventChasmFallingComponent),
-        typeof(FTLSmashImmuneComponent),
-        typeof(CheatDeathComponent),
-    };
-
-    private void OnTransferredToClone(Entity<DevilComponent> oldDevil, ref TransferredToCloneEvent args)
-    {
-        foreach (var comp in DevilCompsToRemove)
-        {
-            if (!HasComp(oldDevil, comp))
-                continue;
-            RemComp(oldDevil, comp);
-        }
-
-    }
     #endregion
 }

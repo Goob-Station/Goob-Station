@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Devil;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Components;
 using Content.Shared.Body.Components;
@@ -32,6 +33,10 @@ using Content.Shared.Pointing;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.CheatDeath;
+using Content.Goobstation.Shared.Devil;
+using Content.Shared.Heretic;
+using Content.Shared.Store.Components;
 
 
 namespace Content.Server.Body.Systems
@@ -40,6 +45,7 @@ namespace Content.Server.Body.Systems
     {
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+        [Dependency] private readonly MoveDevilCompsComm _devilMove = default!;// Goob start
         public override void Initialize()
         {
             base.Initialize();
@@ -57,6 +63,21 @@ namespace Content.Server.Body.Systems
                 || HasComp<ChangelingIdentityComponent>(args.OldBody))
                 return;
 
+            // ngl i was trying to move heretic shit to the mind properly but its kinda ass
+            // so shitcode a solution until i finish that
+            // we store it in the BRAIN
+
+            if (TryComp<HereticComponent>(args.OldBody, out var heretic) &&
+                TryComp<StoreComponent>(args.OldBody, out var store))
+            {
+                CopyComps(args.OldBody, uid, null, [heretic, store]);
+                RemComp<HereticComponent>(args.OldBody);
+                RemComp<StoreComponent>(args.OldBody);
+            }
+
+            if (HasComp<DevilComponent>(args.OldBody))
+                _devilMove.MoveDevilComps(args.OldBody, uid);
+
             brain.Active = false;
             if (!CheckOtherBrains(args.OldBody))
             {
@@ -72,6 +93,17 @@ namespace Content.Server.Body.Systems
                 || TerminatingOrDeleted(args.Body)
                 || HasComp<ChangelingIdentityComponent>(args.Body))
                 return;
+
+            if (TryComp<HereticComponent>(uid, out var heretic) &&
+                TryComp<StoreComponent>(uid, out var store))
+            {
+                CopyComps(uid, args.Body, null, [heretic, store]);
+                RemComp<HereticComponent>(uid);
+                RemComp<StoreComponent>(uid);
+            }
+
+            if (HasComp<DevilComponent>(uid))
+                _devilMove.MoveDevilComps(uid, args.Body);
 
             if (!CheckOtherBrains(args.Body))
             {
@@ -96,7 +128,7 @@ namespace Content.Server.Body.Systems
             if (!_mindSystem.TryGetMind(oldEntity, out var mindId, out var mind))
                 return;
 
-            _mindSystem.TransferTo(mindId, newEntity, mind: mind);
+            _mindSystem.TransferTo(mindId, newEntity, true,  mind: mind); // goob ghostcheckoverride
             if (brain != null)
                 brain.Active = true;
         }
