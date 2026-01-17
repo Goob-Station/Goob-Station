@@ -634,7 +634,6 @@
     - ClothMade
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/mothdog.rsi
-    state: mothdognt
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/mothdog.rsi
     state: mothdognt
