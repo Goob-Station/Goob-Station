@@ -1,6 +1,5 @@
 ﻿using Content.Goobstation.Common.Knowledge.Components;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Common.Knowledge.Systems;
 
@@ -9,7 +8,6 @@ namespace Content.Goobstation.Common.Knowledge.Systems;
 /// </summary>
 public sealed partial class KnowledgeSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private EntityQuery<KnowledgeComponent> _knowledgeQuery;
@@ -71,16 +69,10 @@ public sealed partial class KnowledgeSystem : EntitySystem
         Dirty(args.Entity, statusComp);
     }
 
-    public (string Category, KnowledgeInfo Info) GetKnowledgeInfo(Entity<KnowledgeComponent> knowledge)
+    public string? GetKnowledgeString(Entity<KnowledgeComponent> knowledge)
     {
-        var (uid, comp) = knowledge;
-        var category = _protoMan.Index(comp.Category);
-
-        var ev = new KnowledgeGetDescriptionEvent();
-        RaiseLocalEvent(uid, ref ev);
-        var description = ev.Description ?? Description(uid);
-
-        return (Loc.GetString(category.Name),
-            new KnowledgeInfo(Name(uid), description, comp.Color, comp.Sprite));
+        var ev = new KnowledgeGetStringEvent();
+        RaiseLocalEvent(knowledge.Owner, ref ev);
+        return ev.Description;
     }
 }

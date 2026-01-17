@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Common.Knowledge.Prototypes;
 
@@ -12,9 +13,21 @@ public sealed partial class KnowledgeCategoryPrototype : IPrototype
     [IdDataField]
     public string ID { get; } = default!;
 
-    /// <summary>
-    /// Localized name of that category to use in the character menu.
-    /// </summary>
     [DataField(required: true)]
     public LocId Name;
+
+    [DataField(required: true)]
+    public LocId Description;
+
+    /// <summary>
+    /// Color of the sidebar in the character UI.
+    /// </summary>
+    [DataField]
+    public Color Color = Color.White;
+
+    /// <summary>
+    /// Sprite to display in the character menu.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? Sprite;
 }

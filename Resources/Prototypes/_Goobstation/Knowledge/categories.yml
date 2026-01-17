@@ -6,10 +6,39 @@
   id: Debug
   name: knowledge-category-debug
 
-- type: knowledgeCategory
-  id: Skills
-  name: knowledge-category-skills
-
+# Memories about certain events, only used for RP and doesn't influence anything.
 - type: knowledgeCategory
   id: Memories
   name: knowledge-category-memories
+
+# Construction, device usage, and other stuff that requires working with complex systems.
+- type: knowledgeCategory
+  id: EngineeringSkills
+  name: knowledge-category-engineering-skills
+
+# Healing, surgery, chemistry
+- type: knowledgeCategory
+  id: MedicalSkills
+  name: knowledge-category-medical-skills
+
+# Cooking, botany, mime abilities
+- type: knowledgeCategory
+  id: ServiceSkills
+  name: knowledge-category-service-skills
+
+# Xenoarcheology, anomalies research and stuff
+- type: knowledgeCategory
+  id: ResearchSkills
+  name: knowledge-category-research-skills
+
+# Combat (security) related skills: usage of guns, martial arts, cuffing
+- type: knowledgeCategory
+  id: CombatSkills
+  name: knowledge-category-combat-skills
+
+# Cargo workers are stupid, they don't need their own category right now.
+
+# Mostly RP skills for heads
+- type: knowledgeCategory
+  id: CommandSkills
+  name: knowledge-category-command-skills

@@ -24,4 +24,4 @@ public record struct KnowledgeContainerRelayEvent(EntityUid Target, EntityUid? F
 /// Event that is raised to get a description of some knowledge to display it in the character menu.
 /// </summary>
 [ByRefEvent]
-public record struct KnowledgeGetDescriptionEvent(string? Description, bool Handled = false);
+public record struct KnowledgeGetStringEvent(string? Description, bool Handled = false);

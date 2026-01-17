@@ -16,11 +16,13 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Goobstation.Common.Knowledge;
+using System.Text;
+using Content.Goobstation.Common.Knowledge.Prototypes;
 using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.CharacterInfo;
 
@@ -69,7 +71,7 @@ public sealed class CharacterInfoSystem : EntitySystem
         Dictionary<string, List<ObjectiveInfo>> Objectives,
         string? Briefing,
         string EntityName,
-        Dictionary<string, List<KnowledgeInfo>> Knowledge // Goobstation edit
+        Dictionary<ProtoId<KnowledgeCategoryPrototype>, List<string>> Knowledge // Goobstation edit
     );
 
     /// <summary>

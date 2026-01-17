@@ -123,17 +123,17 @@ public sealed partial class GoobCharacterWindow : DefaultWindow
         KnowledgeTab.Knowledge.RemoveAllChildren();
         KnowledgeTab.KnowledgePlaceholder.Visible = knowledge.Any();
 
-        foreach (var (groupId, conditions) in knowledge)
+        foreach (var (category, text) in knowledge)
         {
             var objectiveControl = new CharacterKnowledgeControl()
             {
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
-                Modulate = Color.Gray
+                //Modulate = Color.Gray
             };
 
 
             var objectiveText = new FormattedMessage();
-            objectiveText.TryAddMarkup(groupId, out _);
+            objectiveText.TryAddMarkup(category, out _);
 
             var objectiveLabel = new RichTextLabel
             {
@@ -143,7 +143,7 @@ public sealed partial class GoobCharacterWindow : DefaultWindow
 
             objectiveControl.AddChild(objectiveLabel);
 
-            foreach (var condition in conditions)
+            foreach (var condition in text)
             {
                 var conditionControl = new KnowledgeEntryControl();
                 if (condition.Sprite != null)

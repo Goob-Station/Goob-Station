@@ -1,7 +1,6 @@
 ﻿using Content.Goobstation.Common.Knowledge.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Common.Knowledge.Components;
 
@@ -35,7 +34,7 @@ public sealed partial class KnowledgeComponent : Component
 
     /// <summary>
     /// If true, this knowledge will become permanent, unless a system removes them forcefully.
-    /// Used only for debug or admin abuse.
+    /// Mainly for debug or admin abuse.
     /// </summary>
     [DataField]
     public bool Unremoveable;
@@ -45,16 +44,4 @@ public sealed partial class KnowledgeComponent : Component
     /// </summary>
     [DataField]
     public bool Hidden;
-
-    /// <summary>
-    /// Color of the sidebar in the character UI.
-    /// </summary>
-    [DataField]
-    public Color Color = Color.White;
-
-    /// <summary>
-    /// Sprite to display in the character UI.
-    /// </summary>
-    [DataField]
-    public SpriteSpecifier? Sprite;
 }

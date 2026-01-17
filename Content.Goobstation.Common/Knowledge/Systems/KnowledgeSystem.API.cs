@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Knowledge.Components;
-using Content.Goobstation.Common.Knowledge.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -85,20 +84,18 @@ public sealed partial class KnowledgeSystem
     /// </summary>
     /// <param name="target">Entity to remove a unit from.</param>
     /// <param name="knowledgeUnit">Knowledge unit to remove.</param>
-    /// <param name="category">Category of knowledge that we are removing.</param>
     /// <param name="level">Level of removal, that will remove knowledge only if its level is lower or equal to that value.</param>
     /// <param name="force">If true, will override all checks and will just always remove this knowledge.</param>
     /// <returns>True if removed successfully.</returns>
     public bool TryRemoveKnowledgeUnit(
         EntityUid target,
         EntProtoId knowledgeUnit,
-        ProtoId<KnowledgeCategoryPrototype> category,
         int level,
         bool force = false)
     {
         if (!TryGetKnowledgeUnit(target, knowledgeUnit, out var unit)
             || !_knowledgeQuery.TryComp(unit, out var knowledge)
-            || !CanRemoveKnowledge((unit.Value, knowledge), category, level, force))
+            || !CanRemoveKnowledge((unit.Value, knowledge), level, force))
             return false;
 
         PredictedQueueDel(unit);
@@ -128,14 +125,14 @@ public sealed partial class KnowledgeSystem
     /// <returns>
     /// False if the target is not a knowledge container.
     /// </returns>
-    public bool TryRemoveAllKnowledgeUnits(EntityUid target, ProtoId<KnowledgeCategoryPrototype> category, int level, bool force = false)
+    public bool TryRemoveAllKnowledgeUnits(EntityUid target, int level, bool force = false)
     {
         if (!TryGetAllKnowledgeUnits(target, out var units))
             return false;
 
         foreach (var unit in units)
         {
-            if (!CanRemoveKnowledge(unit.AsNullable(), category, level, force))
+            if (!CanRemoveKnowledge(unit.AsNullable(), level, force))
                 continue;
 
             PredictedQueueDel(unit.Owner);
@@ -284,7 +281,6 @@ public sealed partial class KnowledgeSystem
     /// </summary>
     public bool CanRemoveKnowledge(
         Entity<KnowledgeComponent?> target,
-        ProtoId<KnowledgeCategoryPrototype> category,
         int level,
         bool force = false)
     {
@@ -295,7 +291,6 @@ public sealed partial class KnowledgeSystem
             return true;
 
         if (target.Comp.Unremoveable
-            || target.Comp.Category != category
             || target.Comp.Level > level)
             return false;
 
