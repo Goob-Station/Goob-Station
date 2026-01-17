@@ -32,7 +32,7 @@ rune-desc-spirit = Manifests a spirit servant of the Geometer and allows you to 
 rune-desc-apocalypse = A harbinger of the end times. Grows in strength with the cult's desperation - but at the risk of... side effects.
 rune-desc-narsie = Tears apart dimensional barriers, calling forth the Geometer. Requires 9 invokers.
 
-rune-invoke-basic = Gar y'ok!
+rune-invoke-basic = Aiy ele-mayo!
 rune-invoke-malf = Ra'sha yoka!
 rune-invoke-offering = Mah'weyh pleggh at e'ntrath!
 rune-invoke-sacrifice = Barhah hra zar'garis!

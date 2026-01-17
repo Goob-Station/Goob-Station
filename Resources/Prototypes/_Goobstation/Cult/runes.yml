@@ -1,8 +1,8 @@
 - type: entity
   abstract: true
-  id: CultBaseRune
-  name: basic rune
-  desc: A sinister rune used by sinister individuals for performing sinister rituals.
+  id: CultRuneBase
+  name: rune
+  desc: An odd collection of symbols drawn in what seems to be blood.
   placement:
     mode: SnapgridCenter
   components:
@@ -10,6 +10,7 @@
     drawdepth: WallMountedItems
     sprite: Structures/Magic/Cult/rune.rsi
     state: cult1 # cult1 - cult7
+    color: "#FF0000"
   - type: Clickable
   - type: IgnoresFingerprints
   - type: Damageable
@@ -46,3 +47,25 @@
       invokeLoc: rune-name-basic
       inspectNameLoc: rune-desc-basic
       inspectDescLoc: rune-invoke-basic
+
+- type: entity
+  parent: CultRuneBase
+  id: CultRuneOffer
+  components:
+  - type: Sprite
+    state: cult1
+    color: "#FFFFFF"
+  - type: BloodCultRune
+    events:
+    - !type:CultRuneOfferEvent
+      requiredInvokers: 2
+      pulseColor: "#FF0000"
+      invokeLoc: rune-name-offering
+      inspectNameLoc: rune-desc-offering
+      inspectDescLoc: rune-invoke-offering
+    - !type:CultRuneSacrificeEvent
+      requiredInvokers: 3
+      pulseColor: "#AA0000"
+      invokeLoc: rune-name-sacrifice
+      inspectNameLoc: rune-desc-sacrifice
+      inspectDescLoc: rune-invoke-sacrifice

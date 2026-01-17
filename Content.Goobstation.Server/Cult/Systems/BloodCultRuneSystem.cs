@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.Cult;
 using Content.Goobstation.Shared.Cult.Events;
 using Content.Shared.Examine;
 using System.Text;
+using Content.Shared.Ghost;
 
 namespace Content.Goobstation.Server.Cult.Runes;
 
@@ -18,9 +19,6 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
-
-    public const float InvokersLookupRange = 1.5f;
-    public const float TargetsLookupRange = 1f;
 
     public override void Initialize()
     {
@@ -33,6 +31,9 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
 
     private void OnExamined(Entity<BloodCultRuneComponent> ent, ref ExaminedEvent args)
     {
+        if (!HasComp<BloodCultistComponent>(args.Examiner) || !HasComp<GhostComponent>(args.Examiner))
+            return;
+
         var names = string.Empty;
         var descriptions = string.Empty;
         var trueCount = ent.Comp.Events.Count - 1;
@@ -56,8 +57,12 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
 
     private void OnIntearctHand(Entity<BloodCultRuneComponent> ent, ref InteractHandEvent args)
     {
-        var invokersLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, InvokersLookupRange)
+        var invokersLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.InvokersLookupRange)
             .Where(q => HasComp<BloodCultistComponent>(q)).ToList();
+
+        foreach (var invoker in invokersLookup)
+            if (HasComp<BloodCultistLeaderComponent>(invoker))
+                invokersLookup.Add(invoker); // Leaders counts as 2. Also gets twice as much i guess.
 
         var invoked = false;
         var loc = string.Empty;
@@ -111,7 +116,7 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
             return false;
         }
 
-        var targetsLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, TargetsLookupRange)
+        var targetsLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.TargetsLookupRange)
             .Where(q => !HasComp<BloodCultistComponent>(q))
             .ToList();
 
