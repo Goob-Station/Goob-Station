@@ -31,6 +31,8 @@
     species: Harpy
   - type: Woundable # Goobstation
     boneEntity: BoneWeak
+  - type: Damageable # Shitmed
+    damageModifierSet: Harpy
 
 - type: entity
   parent: [ PartHarpyBase, BaseChest ]
