@@ -17,8 +17,6 @@
   - type: Construction
     graph: FillBot
     node: bot
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
@@ -56,7 +54,6 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: GhostRole
-    prob: 0.05
     makeSentient: true
     allowSpeech: true
     allowMovement: true
