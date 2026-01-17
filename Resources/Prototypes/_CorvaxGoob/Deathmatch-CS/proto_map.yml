@@ -1,0 +1,16 @@
+#Как адекватно подготовить карту - "> entities with ConditionalSpawner delete", смэс, атмосия
+- type: gameMap
+  id: Box_CS
+  mapName: 'Box Station'
+  mapPath: /Maps/_CorvaxGoob/Nonstations/rdmbox.yml
+  minPlayers: 0
+  maxPlayers: 100
+  stations:
+    Box_Arena:
+      stationProto: CSArenaMap
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Box Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'TG'

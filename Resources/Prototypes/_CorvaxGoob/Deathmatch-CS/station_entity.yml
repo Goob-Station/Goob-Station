@@ -1,0 +1,11 @@
+- type: entity
+  id: CSArenaMap
+  parent:
+  - BaseStation
+  - BaseStationJobsSpawning
+  - BaseStationRecords
+  - BaseStationNanotrasen
+  - BaseStationWizardTarget # хз хз, посмотрим может ГМы захотят волшебника
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Transform

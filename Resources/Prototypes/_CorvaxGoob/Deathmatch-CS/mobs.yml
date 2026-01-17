@@ -1,0 +1,159 @@
+# Этот прототип - рекомендованный шаблон
+- type: startingGear
+  id: SyndicateTDMGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
+    head: ClothingHeadHelmetSwatSyndicate
+    back: ClothingBackpackSyndicate
+    shoes: ClothingShoesBootsMerc
+    pocket1: BaseUplinkRadio100TC
+    pocket2: HoPIDCard
+    gloves: ClothingHandsGlovesCombat
+
+- type: startingGear
+  id: NanoTrasenTDMGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRecruitNT
+    head: ClothingHeadHelmetSwat
+    back: ClothingBackpackNanoTrasenTDM
+    shoes: ClothingShoesBootsCombat
+    pocket1: BaseUplinkRadio100TC
+    pocket2: HoPIDCard
+    gloves: ClothingHandsGlovesCombat
+###
+
+- type: randomHumanoidSettings
+  id: SyndicateTDM
+  parent: EventHumanoid
+  speciesBlacklist:
+  - Chitinid
+  - Abductor
+  - Shadowkin
+  - Scurret
+  - Felinid
+  - Oni
+  - Resomi
+  - Shadow
+  - Plasmaman
+  - Rodentia
+  - Feroxi
+  - Harpy
+  - Diona
+  - Arachnid
+  - Dwarf
+  - Moth
+  - Reptilian
+  - Skeleton
+  - Vulpkanin
+  - Vox
+  - Tajaran
+  - IPC
+  - SlimePerson
+  components:
+  - type: GhostRole
+    name: боец команды Синдиката
+    description: "Ликвидируйте бойцов NanoTrasen"
+    skills:
+      - ShuttleControl
+      - Shooting
+  - type: Loadout
+    prototypes: [ SyndicateTDMGear ]
+  - type: Fighter
+    command: 1
+  - type: Mind
+    preventGhosting: true
+    preventSuicide: true
+
+- type: randomHumanoidSettings
+  id: NanoTrasenTDM
+  parent: EventHumanoid
+  speciesBlacklist:
+  - Chitinid
+  - Abductor
+  - Shadowkin
+  - Scurret
+  - Felinid
+  - Oni
+  - Resomi
+  - Shadow
+  - Plasmaman
+  - Rodentia
+  - Feroxi
+  - Harpy
+  - Diona
+  - Arachnid
+  - Dwarf
+  - Moth
+  - Reptilian
+  - Skeleton
+  - Vulpkanin
+  - Vox
+  - Tajaran
+  - IPC
+  - SlimePerson
+  components:
+  - type: GhostRole
+    name: боец команды NanoTrasen
+    description: "Ликвидируйте Синдикат"
+    skills:
+      - ShuttleControl
+      - Shooting
+  - type: Loadout
+    prototypes: [ NanoTrasenTDMGear ]
+  - type: Fighter
+    command: 2
+  - type: Mind
+    preventGhosting: true
+    preventSuicide: true
+###
+
+- type: entity
+  id: RandomHumanoidSyndicateTDM
+  name: пехотинец Синдиката
+  suffix: РДМ КС
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Uniforms/Jumpsuit/recruit_syndie.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/OuterClothing/Armor/security.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Head/Helmets/swat_syndicate.rsi
+      state: equipped-HELMET
+  - type: RandomHumanoidSpawner
+    settings: SyndicateTDM
+
+- type: entity
+  id: RandomHumanoidNanoTrasenTDM
+  name: пехотинец NanoTrasen
+  suffix: РДМ КС
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Uniforms/Jumpsuit/recruit_nt.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/OuterClothing/Armor/security.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Head/Helmets/swat.rsi
+      state: equipped-HELMET
+  - type: RandomHumanoidSpawner
+    settings: NanoTrasenTDM
+###
+
+- type: entity
+  parent: ClothingBackpackSyndicate
+  id: ClothingBackpackNanoTrasenTDM
+  name: рюкзак
+  description: Вы носите это на спине и кладёте в него предметы.
+  suffix: РДМ КС
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/backpack.rsi

@@ -1,0 +1,28 @@
+# Этот прототип - рекомендованный шаблон
+- type: gamePreset
+  id: Deathmatch_CorvaxStabion
+  alias:
+    - deathmatch_CorvaxStabion
+    - dmCS
+  name: противостояние
+  description: Вы хотели зайти в CS но попали в CorvaxStation.
+  maxPlayers: 100
+  minPlayers: 0
+  showInVote: false
+  supportedMaps: DeathMatchMapPool_CS
+  rules:
+    - DeathMatch_CS
+
+- type: entity
+  id: DeathMatch_CS
+  parent: BaseGameRule
+  components:
+  - type: CSRule # можно изменять во время игры vv [айди ивента, найти можно через endgamerule]
+    numberOfSessions: 4
+    rewardSpawns:
+    - id: Telecrystal10
+
+- type: gameMapPool
+  id: DeathMatchMapPool_CS
+  maps:
+  - Box_CS
