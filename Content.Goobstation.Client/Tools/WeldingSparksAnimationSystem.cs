@@ -29,7 +29,9 @@ public sealed class WeldingSparksAnimationSystem : EntitySystem
         if (!TryComp<WeldableComponent>(targetEnt, out var weldableComp) || !TryComp<WeldingSparksAnimationComponent>(targetEnt, out var sparksAnim))
             return;
 
-        var sparksEnt = GetEntity(ev.SparksEnt);
+        if (!TryGetEntity(ev.SparksEnt, out var sparksEnt))
+            // `targetEnt` is validated with the `TryComp()` calls, so that can just use `GetEntity()`.
+            return;
 
         var animationPlayer = EnsureComp<AnimationPlayerComponent>(targetEnt);
         if (_animation.HasRunningAnimation(targetEnt, animationPlayer, ANIM_KEY))
@@ -56,7 +58,7 @@ public sealed class WeldingSparksAnimationSystem : EntitySystem
             }
         };
 
-        _animation.Play(sparksEnt, animation, ANIM_KEY);
+        _animation.Play(sparksEnt.Value, animation, ANIM_KEY);
     }
 
     private (Vector2, Vector2) GetOffsets(Entity<WeldingSparksAnimationComponent> ent, bool isWelded)
