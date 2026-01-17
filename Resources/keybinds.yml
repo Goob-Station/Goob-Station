@@ -133,6 +133,11 @@
 
 version: 1 # Not used right now, whatever.
 binds:
+# Goobstation - START
+- function: Blink
+  type: State
+  key: Space
+# Goobstation - END
 - function: UIClick
   type: State
   key: MouseLeft

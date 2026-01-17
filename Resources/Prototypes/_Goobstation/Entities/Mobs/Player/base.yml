@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 Site-14 Contributors
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+# Additional Use Restrictions apply:
+# See /LICENSES/SITE14-ADDENDUM.md
+
+
+- type: entity
+  id: Site14BaseMob
+  abstract: true
+  components:
+  - type: Blinking

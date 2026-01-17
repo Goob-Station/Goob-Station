@@ -1,0 +1,25 @@
+uniform highp float EyelidClosure;
+
+const highp float EllipseWidth = 0.6;
+const highp float EllipseHeight = 0.35;
+const highp float EdgeSoftness = 0.02;
+
+void fragment() {
+    highp vec2 center = vec2(0.5, 0.5);
+    highp vec2 pos = UV - center;
+
+    pos.x /= EllipseWidth;
+    pos.y /= EllipseHeight;
+
+    highp float dist = length(pos);
+
+    highp float eyeRadius = 1.0 - EyelidClosure;
+
+    highp float alpha = smoothstep(eyeRadius - EdgeSoftness, eyeRadius + EdgeSoftness, dist);
+
+    if (EyelidClosure >= 0.99) {
+        alpha = 1.0;
+    }
+
+    COLOR = vec4(0.0, 0.0, 0.0, alpha);
+}
