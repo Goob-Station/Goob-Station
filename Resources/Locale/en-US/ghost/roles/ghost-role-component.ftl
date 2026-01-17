@@ -75,12 +75,6 @@ ghost-role-information-silicon-rules = You are a [color={role-type-silicon-color
                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
-# Goobstation Sentient Animal PR Start									   
-ghost-role-information-sentientanimal-rules = You are a [color={role-type-sentient-animal-color}][bold]{role-type-sentient-animal-name}[/bold][/color]. You are a neutral animal who may act in self defense but otherwise not seek to harm crew.
-                                              You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
-                                              You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc, however you are not knowledgeable in advanced roles.
-                                              You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
-# Goobstation Sentient Animal PR End 
 
 ghost-role-information-mouse-name = Mouse
 # Goobstation

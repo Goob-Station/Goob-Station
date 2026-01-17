@@ -30,12 +30,6 @@
   color: '#ffff00'
   symbol: "☯"
   
-- type: roleType # Goobstation Sentient Animal PR
-  id: SentientAnimal
-  name: role-type-sentient-animal-name
-  color: '#ffff00'
-  symbol: "☯"
-
 - type: roleType
   id: Familiar
   name: role-type-familiar-name
