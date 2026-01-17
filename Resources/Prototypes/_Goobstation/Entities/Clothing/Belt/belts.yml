@@ -263,6 +263,20 @@
       - SlimeExtract
       
 - type: entity
+  parent: ClothingBeltChemBagXenobiology
+  id: ClothingBeltChemBagXenobiologyHolding
+  name: xenobiology pouch of holding
+  description: A larger slime-resistant pouch intended for use by Xenobiologists. Smells of bluespace extract and monkey hair.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
+  - type: Storage
+    grid:
+    - 0,0,19,9
+
+- type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
   id: ClothingBeltMilitaryWebbingBSOFilled
   name: blueshield chest rig
