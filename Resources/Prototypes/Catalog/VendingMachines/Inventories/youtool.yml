@@ -51,3 +51,5 @@
     Multitool: 2
     ClothingBeltUtility: 3
     ClothingHandsGlovesColorYellow: 1
+  emaggedInventory: # goob
+    ClothingHandsGlovesExplosiveShock: 1

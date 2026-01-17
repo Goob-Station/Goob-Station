@@ -99,3 +99,11 @@
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: blueshield
   jobName: job-name-bs
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconRadioHost
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: radiohost
+  jobName: job-name-radiohost

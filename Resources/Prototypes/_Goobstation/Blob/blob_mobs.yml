@@ -89,7 +89,7 @@
       animation: WeaponArcSmash
       damage:
         types:
-          Piercing: 5
+          Blunt: 8
     - type: DamageStateVisuals
       states:
         Alive:
@@ -139,7 +139,7 @@
     - type: ZombieImmune
     - type: Damageable
       damageContainer: Blob
-      damageModifierSet: BlobMob
+      damageModifierSet: BlobBlobbernaut
     - type: Tag
       tags:
         - Blobbernaut

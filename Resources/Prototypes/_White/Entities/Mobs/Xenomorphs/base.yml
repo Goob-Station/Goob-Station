@@ -27,7 +27,8 @@
     canExamine: false
   - type: ThermalVision
     toggleAction: ToggleThermalVisionXenomorph
-    color: "#7d0cc9"
+    color: white
+    drawOverlay: false
     lightRadius: 10
     strength: 0
     noise: 0
@@ -104,10 +105,18 @@
         Brute: 25
   - type: TypingIndicator
     proto: alien
+  - type: AtmosExposed
   - type: Temperature
-    heatDamageThreshold: 360
+    heatDamageThreshold: 600
     coldDamageThreshold: -150
     currentTemperature: 310.15
+    coldDamage: #per second, scales with temperature & other constants
+      types:
+        Cold : 0.1
+    specificHeat: 42
+    heatDamage: #per second, scales with temperature & other constants
+      types:
+        Heat : 1.5
   - type: ZombieImmune
   - type: StatusEffects
     allowed:

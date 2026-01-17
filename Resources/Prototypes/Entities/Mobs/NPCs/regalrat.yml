@@ -420,7 +420,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 30 #Bulky by mouse standards...
+        density: 15 # Goob edit #Bulky by mouse standards...
         mask:
         - SmallMobMask
         layer:

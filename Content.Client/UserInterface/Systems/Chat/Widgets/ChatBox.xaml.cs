@@ -21,10 +21,12 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Goobstation.Common.CCVar; // Goobstation Change
 using Content.Shared.Chat;
@@ -86,11 +88,9 @@ public partial class ChatBox : UIWidget
         // WD EDIT START
         _cfg = IoCManager.Resolve<IConfigurationManager>();
         _coalescence = _cfg.GetCVar(GoobCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
-        _cfg.OnValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
+        _cfg.OnValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence, true); // eplicitly false to underline the above comment
         // WD EDIT END
     }
-
-    private void UpdateCoalescence(bool value) { _coalescence = value; Repopulate(); } // WD EDIT
 
     private void OnTextEntered(LineEditEventArgs args)
     {
@@ -120,7 +120,7 @@ public partial class ChatBox : UIWidget
         // Adding first and then removing does not produce any visual effects.
         // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
         // Thanks robustengine, very cool.
-        if (_coalescence && _lastLine == tup)
+        if (_coalescence && msg.CanCoalesce && _lastLine == tup)
         {
             _lastLineRepeatCount++;
             AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
@@ -144,6 +144,9 @@ public partial class ChatBox : UIWidget
         _controller.UpdateSelectedChannel(this);
     }
 
+    // Goobstation moved to .Goob.cs
+    #region Moved to .Goob.cs
+    /*
     public void Repopulate()
     {
         Contents.Clear();
@@ -153,21 +156,21 @@ public partial class ChatBox : UIWidget
             OnMessageAdded(message.Item2);
         }
     }
+    */
 
+    /*
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
         Contents.Clear();
-
-        foreach (var message in _controller.History)
-        {
-            OnMessageAdded(message.Item2);
-        }
 
         if (active)
         {
             _controller.ClearUnfilteredUnreads(channel);
         }
     }
+    */
+    #endregion
+
 
     private void OnNewHighlights(string highlighs)
     {

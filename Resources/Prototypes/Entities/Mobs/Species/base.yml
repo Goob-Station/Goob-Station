@@ -499,8 +499,8 @@
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
   - type: Sprinter # Goobstation
-  - type: SprintingAffectedByScale # Goobstation: port EE height/width sliders
   - type: MindControllable # Goobstation
+  - type: VisibleContraband # Goobstation
 
 - type: entity
   save: false
@@ -510,6 +510,7 @@
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
+  - BaseMobDisgust
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
@@ -542,7 +543,7 @@
         Cold: 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat: 1.5 #per second, scales with temperature & other constants
+        Heat: 1.0 # Goob edit #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
       293: 0.8
@@ -571,13 +572,21 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  # <Goobstation>
+  - type: Carriable
   - type: FootprintOwner # Corvax-Next-Footprints
-  - type: Carriable # Goobstation
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
   - type: BloodstreamAffectedByMass # Goobstation: port EE height/width sliders. Also, lol at the comment above.
     power: 0.6
   - type: FlightAffectedByScale # Goobstation: port EE height/width sliders.
   - type: StunVisuals
+  - type: DiseaseCarrier
+  - type: Immunity
+    affectedTypes:
+    - Viral
+    - Bacterial
+    - Parasite
+  # </Goobstation>
 
 - type: entity
   save: false

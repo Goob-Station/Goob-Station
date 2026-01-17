@@ -121,6 +121,7 @@
   description: It's a space carp.
   abstract: true
   components:
+    - type: WeatherImmune
     - type: InputMover
     - type: MobMover
     - type: HTN

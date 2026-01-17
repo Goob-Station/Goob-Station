@@ -79,8 +79,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.42 # they r big
-        density: 185 # but not as buff as oni
+          radius: 0.35
+        density: 220
         restitution: 0.0
         mask:
         - MobMask

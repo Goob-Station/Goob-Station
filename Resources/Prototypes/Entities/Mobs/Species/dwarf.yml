@@ -68,14 +68,6 @@
 #    scale: 1.1, 0.75 # goob value
 #  - type: ScaleData # Goobstation
 #    scale: 1.1, 0.75
-  - type: Body
-    prototype: Dwarf
-    requiredLegs: 2
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeatHuman
-      amount: 5
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -88,6 +80,14 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Body
+    prototype: Dwarf
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
   - type: Vocal
     sounds:
       Male: UnisexDwarf

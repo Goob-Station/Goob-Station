@@ -76,7 +76,6 @@ namespace Content.Server.EntityEffects.Effects
     /// Default metabolism used for medicine reagents.
     /// </summary>
 
-
     [UsedImplicitly]
     public sealed partial class HealthChange : EntityEffect
     {

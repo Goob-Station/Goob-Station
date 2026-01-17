@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC0-1.0",
-  "copyright": "Created by EmoGarbage",
+  "copyright": "Created by EmoGarbage, running animation by Ilya246",
   "size": {
     "x": 32,
     "y": 32
@@ -17,14 +17,14 @@
       "name": "running",
       "delays": [
         [
-          0.625,
-          0.625,
-          0.625,
-          0.625,
-          0.625,
-          0.625,
-          0.625,
-          0.625
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
         ]
       ]
     }

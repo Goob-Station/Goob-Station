@@ -393,6 +393,9 @@
     - PlushieBrizby
     - PlushieBoggle
     - PlushieLehmin
+    - PlushieWachtel
+    - PlushieLeguia
+    - PlushiePasha
     evilRewards:
     - EvilPlushieXeve
     - EvilPlushieBoggle
@@ -403,4 +406,7 @@
     - EvilPlushieMnwaar
     - EvilPlushieDurk
     - EvilPlushieLouie
+    - EvilPlushieWachtel
+    - EvilPlushieLeguia
+    - EvilPlushiePasha
   - type: DoAfter
