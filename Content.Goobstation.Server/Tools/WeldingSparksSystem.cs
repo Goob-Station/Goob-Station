@@ -38,7 +38,7 @@ public sealed class WeldingSparksSystem : EntitySystem
         if (spawnLoc is not { } loc)
             return;
             
-        SpawnEffect(ent, ref args, doAfterId, spawnLoc);
+        SpawnEffect(ent, ref args, doAfterId, loc);
     }
 
     private void SpawnEffect(Entity<WeldingSparksComponent> ent, ref UseToolEvent args, DoAfterId id, EntityCoordinates spawnLoc)
