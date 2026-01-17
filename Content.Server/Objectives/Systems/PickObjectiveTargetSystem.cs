@@ -14,6 +14,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Revolutionary.Components;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Shared.NukeOps;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -128,9 +129,9 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         var allHeads = new HashSet<Entity<MindComponent>>();
         foreach (var person in allHumans)
         {
-            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
-                allHeads.Add(person);
-        }
+            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned) && !HasComp<NukeOperativeComponent>(owned))
+                allHeads.Add(person); // Goob edit - exclude nuke ops from being selected as heads (bruh why would you even want that)
+        } 
 
         // Goobstation - Cancel if there is no command staff
         if (allHeads.Count == 0)

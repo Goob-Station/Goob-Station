@@ -59,6 +59,7 @@
       - Silicon
       - Ghost
       - XenomorphEgg
+      - FacehuggerImmune # Goobstation
     damageOnImpact:
       types:
         Blunt: 15
@@ -105,7 +106,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 100
+        density: 10
         mask:
         - SmallMobMask
         layer:

@@ -614,6 +614,7 @@
   mutationPrototypes:
     - blueTomato
     - bloodTomato
+    - bluespaceTomato # Goob-Add
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 8

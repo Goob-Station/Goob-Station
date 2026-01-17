@@ -745,6 +745,138 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("player", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Poll", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("polls_id");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("active");
+
+                    b.Property<bool>("AllowMultipleChoices")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("allow_multiple_choices");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid?>("CreatedById")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_by_id");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("description");
+
+                    b.Property<DateTime?>("EndTime")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("end_time");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("start_time");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("PK_polls");
+
+                    b.HasIndex("Active")
+                        .HasDatabaseName("IX_polls_active");
+
+                    b.HasIndex("CreatedById")
+                        .HasDatabaseName("IX_polls_created_by_id");
+
+                    b.HasIndex("EndTime")
+                        .HasDatabaseName("IX_polls_end_time");
+
+                    b.HasIndex("StartTime")
+                        .HasDatabaseName("IX_polls_start_time");
+
+                    b.ToTable("polls", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("poll_options_id");
+
+                    b.Property<int>("DisplayOrder")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("display_order");
+
+                    b.Property<string>("OptionText")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("option_text");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("poll_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_poll_options");
+
+                    b.HasIndex("PollId")
+                        .HasDatabaseName("IX_poll_options_poll_id");
+
+                    b.ToTable("poll_options", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollVote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("poll_votes_id");
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("poll_id");
+
+                    b.Property<int>("PollOptionId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("poll_option_id");
+
+                    b.Property<DateTime>("VotedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voted_at");
+
+                    b.HasKey("Id")
+                        .HasName("PK_poll_votes");
+
+                    b.HasIndex("PlayerUserId")
+                        .HasDatabaseName("IX_poll_votes_player_user_id");
+
+                    b.HasIndex("PollId")
+                        .HasDatabaseName("IX_poll_votes_poll_id");
+
+                    b.HasIndex("PollOptionId")
+                        .HasDatabaseName("IX_poll_votes_poll_option_id");
+
+                    b.HasIndex("PollId", "PlayerUserId", "PollOptionId")
+                        .IsUnique();
+
+                    b.ToTable("poll_votes", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Preference", b =>
                 {
                     b.Property<int>("Id")
@@ -789,6 +921,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");
+
+                    b.Property<string>("BarkVoice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("bark_voice");
 
                     b.Property<string>("CharacterName")
                         .IsRequired()
@@ -1124,6 +1261,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<bool>("GhostColor")
                         .HasColumnType("INTEGER")
                         .HasColumnName("ghost_color");
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("icon");
 
                     b.Property<bool>("LobbyMessage")
                         .HasColumnType("INTEGER")
@@ -1881,6 +2022,61 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("LastSeenHWId");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Poll", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_polls_player_created_by_id");
+
+                    b.Navigation("CreatedBy");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollOption", b =>
+                {
+                    b.HasOne("Content.Server.Database.Poll", "Poll")
+                        .WithMany("Options")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_options_polls_poll_id");
+
+                    b.Navigation("Poll");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollVote", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_votes_player_player_user_id");
+
+                    b.HasOne("Content.Server.Database.Poll", "Poll")
+                        .WithMany("Votes")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_votes_polls_poll_id");
+
+                    b.HasOne("Content.Server.Database.PollOption", "PollOption")
+                        .WithMany("Votes")
+                        .HasForeignKey("PollOptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_votes_poll_options_poll_option_id");
+
+                    b.Navigation("Player");
+
+                    b.Navigation("Poll");
+
+                    b.Navigation("PollOption");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.HasOne("Content.Server.Database.Preference", "Preference")
@@ -2310,6 +2506,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("LinkingCodes");
 
                     b.Navigation("Patron");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Poll", b =>
+                {
+                    b.Navigation("Options");
+
+                    b.Navigation("Votes");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollOption", b =>
+                {
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Preference", b =>

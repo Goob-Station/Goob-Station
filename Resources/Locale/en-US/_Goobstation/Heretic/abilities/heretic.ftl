@@ -29,6 +29,7 @@ mansus-grasp-trigger-fail = Something prevents you from activating this!
 
 ## blade
 heretic-blade-examine = [color=yellow]Using it while it's in your hand will break the blade and teleport you away from danger.[/color]
+heretic-blade-break-fail-acended-message = You cannot break blades while ascended!
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
 heretic-riposte-used = Riposte used!
 heretic-riposte-available = Riposte available!
@@ -81,6 +82,8 @@ heretic-speech-rust-plume = 'NTR'P'C PL'M'!
 heretic-speech-void-blast = F'RZ'E!
 heretic-speech-void-phase = RE'L'T' PH'S'E!
 heretic-speech-void-pull = BR'NG F'RTH TH'M T' M'!!
+heretic-speech-void-prison = V'D PR'S'N!
+heretic-speech-void-conduit = MBR'C' TH' V''D!
 
 heretic-speech-cosmic-rune = ST'R R'N'!
 heretic-speech-star-touch = ST'R 'N'RG'!!
@@ -94,3 +97,4 @@ heretic-speech-mansuslink = PI'RC' TH' M'ND!
 heretic-speech-realignment = R'S'T!
 heretic-speech-fuckoff = F'K 'FF!!
 heretic-speech-ice-spear = D'WN 'F TH'CE!
+heretic-speech-shapeshft = SH'PE

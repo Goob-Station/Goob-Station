@@ -10,6 +10,7 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Explosion;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Timing;
 using System.Text.Json.Serialization;
 
 namespace Content.Server.EntityEffects.Effects;
@@ -51,7 +52,7 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
     /// </summary>
     [DataField]
     public float IntensityPerUnit = 1;
-	
+
     /// <summary>
     ///     Factor used to scale the explosion intensity when calculating tile break chances. Allows for stronger
     ///     explosives that don't space tiles, without having to create a new explosion-type prototype.
@@ -70,9 +71,7 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
         var intensity = IntensityPerUnit;
 
         if (args is EntityEffectReagentArgs reagentArgs)
-        {
             intensity = MathF.Min((float) reagentArgs.Quantity * IntensityPerUnit, MaxTotalIntensity);
-        }
 
         args.EntityManager.System<ExplosionSystem>()
             .QueueExplosion(
@@ -81,6 +80,6 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
             intensity,
             IntensitySlope,
             MaxIntensity,
-			TileBreakScale);
+            TileBreakScale);
     }
 }

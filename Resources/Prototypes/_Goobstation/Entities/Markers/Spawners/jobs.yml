@@ -40,3 +40,39 @@
     layers:
       - state: green
       - state: centcom
+
+- type: entity
+  id: SpawnPointRoboticist
+  parent: SpawnPointJobBase
+  name: SpawnPointRoboticist
+  components:
+  - type: SpawnPoint
+    job_id: Roboticist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: scientist
+
+- type: entity
+  id: SpawnPointRadioHost
+  parent: SpawnPointJobBase
+  name: SpawnPointRadioHost
+  components:
+  - type: SpawnPoint
+    job_id: RadioHost
+  - type: Sprite
+    layers:
+    - state: green
+    - state: radiohost
+
+- type: entity
+  id: SpawnPointVirologist
+  parent: SpawnPointJobBase
+  name: virologist
+  components:
+  - type: SpawnPoint
+    job_id: Virologist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: doctor
