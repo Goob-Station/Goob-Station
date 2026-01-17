@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Client.Atmos.EntitySystems;
 using Content.Client.Stylesheets;
 using Content.Goobstation.Shared.Supermatter.Components;
@@ -14,7 +15,6 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using System.Linq;
 
 namespace Content.Goobstation.Client.Supermatter.Consoles;
 
@@ -25,7 +25,7 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
 
     private readonly IEntityManager _entManager;
     private readonly Dictionary<string, EngineBarEntry> _engineDictionary;
-    
+
     public SupermatterEntryContainer(NetEntity uid)
     {
         RobustXamlLoader.Load(this);
@@ -69,12 +69,12 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
 
         _engineDictionary = new Dictionary<string, EngineBarEntry>
         {
-            { "integrity",   new EngineBarEntry(IntegrityBarLabel,   IntegrityBar,   IntegrityBarBorder,   0.9f, 0.1f, red,      orange, green) },
-            { "power",       new EngineBarEntry(PowerBarLabel,       PowerBar,       PowerBarBorder,       0.9f, 0.1f, green,    orange, red  ) },
-            { "radiation",   new EngineBarEntry(RadiationBarLabel,   RadiationBar,   RadiationBarBorder,   0.1f, 0.9f, green,    orange, red  ) },
-            { "moles",       new EngineBarEntry(MolesBarLabel,       MolesBar,       MolesBarBorder,       0.5f, 0.5f, green,    orange, red  ) },
-            { "temperature", new EngineBarEntry(TemperatureBarLabel, TemperatureBar, TemperatureBarBorder, 0.5f, 0.5f, turqoise, green,  red  ) },
-            { "waste",       new EngineBarEntry(WasteBarLabel,       WasteBar,       WasteBarBorder,       0.5f, 0.5f, green,    orange, red  ) }
+            { "integrity",      new EngineBarEntry(IntegrityBarLabel,   IntegrityBar,   IntegrityBarBorder,     0.9f, 0.1f, red,        orange, green) },
+            { "power",          new EngineBarEntry(PowerBarLabel,       PowerBar,       PowerBarBorder,         0.9f, 0.1f, green,      orange, red) },
+            { "radiation",      new EngineBarEntry(RadiationBarLabel,   RadiationBar,   RadiationBarBorder,     0.1f, 0.9f, green,      orange, red) },
+            { "moles",          new EngineBarEntry(MolesBarLabel,       MolesBar,       MolesBarBorder,         0.5f, 0.5f, green,      orange, red) },
+            { "temperature",    new EngineBarEntry(TemperatureBarLabel, TemperatureBar, TemperatureBarBorder,   0.5f, 0.5f, turqoise,   green,  red) }, 
+            { "waste",          new EngineBarEntry(WasteBarLabel,       WasteBar,       WasteBarBorder,         0.5f, 0.5f, green,      orange, red) }
         };
     }
 
@@ -230,15 +230,15 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
 
     private sealed class EngineBarEntry
     {
-        public Label Label;
-        public ProgressBar Bar;
-        public PanelContainer Border;
+        public readonly Label Label;
+        public readonly ProgressBar Bar;
+        public readonly PanelContainer Border;
         public float Value;
-        public float LeftSize;
-        public float RightSize;
-        public Color LeftColor;
-        public Color MiddleColor;
-        public Color RightColor;
+        public readonly float LeftSize;
+        public readonly float RightSize;
+        public readonly Color LeftColor;
+        public readonly Color MiddleColor;
+        public readonly Color RightColor;
 
         public EngineBarEntry(Label label, ProgressBar bar, PanelContainer border, float leftSize, float rightSize, Color leftColor, Color middleColor, Color rightColor)
         {
