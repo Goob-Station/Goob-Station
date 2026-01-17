@@ -10,15 +10,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Client.Heretic;
+namespace Content.Client._Shitcode.Heretic;
 
-public sealed class VoidCurseSystem : EntitySystem
+public sealed class VoidCurseSystem : SharedVoidCurseSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -37,15 +36,17 @@ public sealed class VoidCurseSystem : EntitySystem
         var eqe = EntityQueryEnumerator<VoidCurseComponent>();
         while (eqe.MoveNext(out var uid, out var comp))
         {
-            if (!TryComp<SpriteComponent>(uid, out var sprite)
-            || !_sprite.LayerMapTryGet((uid, sprite), VoidCurseLayer.Base, out var layer, false))
+            if (!TryComp<SpriteComponent>(uid, out var sprite))
+                continue;
+
+            if (!sprite.LayerMapTryGet(0, out var layer))
                 continue;
 
             var state = _overlayStateNormal;
             if (comp.Stacks >= comp.MaxStacks)
                 state = _overlayStateMax;
 
-            _sprite.LayerSetRsiState((uid, sprite), layer, state);
+            sprite.LayerSetState(layer, state);
         }
     }
 
@@ -54,16 +55,16 @@ public sealed class VoidCurseSystem : EntitySystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        if (_sprite.LayerMapTryGet((ent, sprite), VoidCurseLayer.Base, out var l, false))
+        if (sprite.LayerMapTryGet(0, out var l))
         {
-            _sprite.LayerSetRsiState((ent, sprite), l, _overlayStateNormal);
+            sprite.LayerSetState(l, _overlayStateNormal);
             return;
         }
 
         var rsi = new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Heretic/void_overlay.rsi"), _overlayStateNormal);
-        var layer = _sprite.AddLayer((ent, sprite),rsi);
+        var layer = sprite.AddLayer(rsi);
 
-        _sprite.LayerMapSet((ent, sprite), VoidCurseLayer.Base, layer);
+        sprite.LayerMapSet(0, layer);
         sprite.LayerSetShader(layer, "unshaded");
     }
     private void OnShutdown(Entity<VoidCurseComponent> ent, ref ComponentShutdown args)
@@ -71,14 +72,9 @@ public sealed class VoidCurseSystem : EntitySystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        if (!_sprite.LayerMapTryGet((ent, sprite), VoidCurseLayer.Base, out var layer, false))
+        if (!sprite.LayerMapTryGet(0, out var layer))
             return;
 
-        _sprite.RemoveLayer((ent, sprite), layer);
+        sprite.RemoveLayer(layer);
     }
-}
-
-public enum VoidCurseLayer
-{
-    Base
 }

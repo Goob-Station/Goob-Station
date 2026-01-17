@@ -46,7 +46,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
-[Virtual] public partial class SharedHereticAbilitySystem : EntitySystem
+public abstract partial class SharedHereticAbilitySystem : EntitySystem
 {
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
