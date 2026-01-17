@@ -324,6 +324,15 @@
     maxItemSize: Normal
     grid:
     - 0,0,6,2
+  - type: ChameleonClothing
+    slot: [belt]
+    default: ClothingBeltSecurityWebbingContractorFilled
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
   - type: ExplosionResistance
     damageCoefficient: 0.05
   - type: StorageFill

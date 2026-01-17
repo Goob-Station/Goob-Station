@@ -107,10 +107,6 @@
     sprite: _Goobstation/Clothing/Back/Modsuits/standard.rsi
     layers:
     - state: control
-    - state: control-sealed
-      visible: false
-      shader: unshaded
-      map: [ "sealed" ]
   - type: Item
     size: Ginormous
   - type: Clothing
@@ -162,11 +158,6 @@
   - type: DoAfter
   - type: SealableClothingControl
   - type: SealableClothingRequiresPower
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
   - type: Construction
     graph: Modsuit
     node: standard

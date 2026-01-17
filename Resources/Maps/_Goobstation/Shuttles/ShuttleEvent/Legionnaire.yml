@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/16/2026 11:30:00
-  entityCount: 489
+  time: 01/17/2026 06:05:56
+  entityCount: 503
 maps: []
 grids:
 - 2
@@ -400,6 +400,18 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+- proto: ActionChangeVoiceMask
+  entities:
+  - uid: 491
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 490
+    - type: Action
+      container: 490
+      originalIconColor: '#FFFFFFFF'
+      attachedEntity: 448
 - proto: ActionToggleInternals
   entities:
   - uid: 179
@@ -1177,6 +1189,21 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,3.5
       parent: 2
+- proto: ChameleonControllerImplanter
+  entities:
+  - uid: 502
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5144863,-1.7393622
+      parent: 2
+- proto: ChameleonPDA
+  entities:
+  - uid: 503
+    components:
+    - type: Transform
+      pos: 5.5144863,-1.3331122
+      parent: 2
 - proto: ClosetWallEmergencyFilledRandom
   entities:
   - uid: 450
@@ -1185,6 +1212,101 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,-5.5
       parent: 2
+- proto: ClothingEyesChameleon
+  entities:
+  - uid: 495
+    components:
+    - type: Transform
+      parent: 448
+    - type: Clothing
+      inSlotFlag: EYES
+      inSlot: eyes
+    - type: Physics
+      canCollide: False
+- proto: ClothingHandsChameleon
+  entities:
+  - uid: 499
+    components:
+    - type: Transform
+      pos: 7.7176113,-1.4112372
+      parent: 2
+- proto: ClothingHeadHatChameleon
+  entities:
+  - uid: 496
+    components:
+    - type: Transform
+      parent: 448
+    - type: Clothing
+      inSlotFlag: HEAD
+      inSlot: head
+    - type: Physics
+      canCollide: False
+- proto: ClothingHeadsetChameleon
+  entities:
+  - uid: 501
+    components:
+    - type: Transform
+      pos: 7.2176113,-1.4112372
+      parent: 2
+- proto: ClothingMaskGasVoiceChameleon
+  entities:
+  - uid: 490
+    components:
+    - type: Transform
+      parent: 448
+    - type: VoiceMask
+      actionEntity: 491
+    - type: Clothing
+      inSlotFlag: MASK
+      inSlot: mask
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 491
+- proto: ClothingNeckChameleon
+  entities:
+  - uid: 492
+    components:
+    - type: Transform
+      parent: 448
+    - type: Clothing
+      inSlotFlag: NECK
+      inSlot: neck
+    - type: Physics
+      canCollide: False
+- proto: ClothingOuterChameleon
+  entities:
+  - uid: 494
+    components:
+    - type: Transform
+      parent: 448
+    - type: Clothing
+      inSlotFlag: OUTERCLOTHING
+      inSlot: outerClothing
+    - type: Physics
+      canCollide: False
+- proto: ClothingShoesChameleon
+  entities:
+  - uid: 500
+    components:
+    - type: Transform
+      pos: 7.5457363,-1.7393622
+      parent: 2
+- proto: ClothingUniformJumpsuitChameleon
+  entities:
+  - uid: 493
+    components:
+    - type: Transform
+      parent: 448
+    - type: Clothing
+      inSlotFlag: INNERCLOTHING
+      inSlot: jumpsuit
+    - type: Physics
+      canCollide: False
 - proto: ComputerGunneryConsole
   entities:
   - uid: 400
@@ -1531,8 +1653,6 @@ entities:
     - type: Transform
       pos: 3.5,0.5
       parent: 2
-    - type: GasPressurePump
-      enabled: True
     - type: AtmosPipeColor
       color: '#0335FCFF'
 - proto: GasVentPump
@@ -1750,13 +1870,6 @@ entities:
     - type: Transform
       pos: 9.5,1.5
       parent: 2
-- proto: LockerSyndicatePersonalFilled
-  entities:
-  - uid: 448
-    components:
-    - type: Transform
-      pos: 5.5,-3.5
-      parent: 2
 - proto: MachineFTLDrive
   entities:
   - uid: 157
@@ -1764,6 +1877,54 @@ entities:
     - type: Transform
       pos: 7.5,1.5
       parent: 2
+- proto: Mannequin
+  entities:
+  - uid: 448
+    components:
+    - type: Transform
+      anchored: True
+      rot: -4.71238898038469 rad
+      pos: 5.5,-3.5
+      parent: 2
+    - type: Physics
+      bodyType: Static
+    - type: ContainerContainer
+      containers:
+        jumpsuit: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 493
+        outerClothing: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 494
+        neck: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 492
+        mask: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 490
+        eyes: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 495
+        head: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 496
+        suitstorage: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        back: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+    - type: Actions
+      actions:
+      - 491
 - proto: MedicalBed
   entities:
   - uid: 194
@@ -1830,6 +1991,16 @@ entities:
     components:
     - type: Transform
       pos: 4.5,3.5
+      parent: 2
+  - uid: 497
+    components:
+    - type: Transform
+      pos: 5.5,-1.5
+      parent: 2
+  - uid: 498
+    components:
+    - type: Transform
+      pos: 7.5,-1.5
       parent: 2
 - proto: SpawnPointContractor
   entities:
