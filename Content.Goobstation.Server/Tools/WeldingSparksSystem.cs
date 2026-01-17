@@ -35,6 +35,9 @@ public sealed class WeldingSparksSystem : EntitySystem
         var doAfterId = new DoAfterId(args.User, args.DoAfterIdx);
 
         var spawnLoc = GetSpawnLoc(ent, args.Target);
+        if (spawnLoc is not { } loc)
+            return;
+            
         SpawnEffect(ent, ref args, doAfterId, spawnLoc);
     }
 
@@ -49,7 +52,7 @@ public sealed class WeldingSparksSystem : EntitySystem
         }
     }
 
-    private EntityCoordinates GetSpawnLoc(Entity<WeldingSparksComponent> ent, EntityUid? target)
+    private EntityCoordinates? GetSpawnLoc(Entity<WeldingSparksComponent> ent, EntityUid? target)
     {
         // If there's a `target` (other than the parent tool), go with that.
         if (target is not null && target != ent.Owner)
@@ -59,8 +62,8 @@ public sealed class WeldingSparksSystem : EntitySystem
         if (ent.Comp.LastClickLocation is { } clickLoc && clickLoc.IsValid(EntityManager))
             return clickLoc.SnapToGrid(EntityManager);
 
-        // this shouldn't really be possible but you know how it is
-        throw new Exception("Attempted to spawn welding sparks with no valid spawn location!");
+        Log.Error("Attempted to spawn weld sparks without a valid spawn location")
+        return null;
     }
 
     // After the tool's DoAfter finishes or is cancelled, remove the effect associated with it.
