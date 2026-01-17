@@ -62,7 +62,7 @@ public sealed class WeldingSparksSystem : EntitySystem
         if (ent.Comp.LastClickLocation is { } clickLoc && clickLoc.IsValid(EntityManager))
             return clickLoc.SnapToGrid(EntityManager);
 
-        Log.Error("Attempted to spawn weld sparks without a valid spawn location")
+        Log.Error("Attempted to spawn weld sparks without a valid spawn location");
         return null;
     }
 
