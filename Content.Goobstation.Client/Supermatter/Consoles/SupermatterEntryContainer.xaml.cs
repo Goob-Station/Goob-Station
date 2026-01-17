@@ -15,7 +15,6 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using Serilog;
 using System.Linq;
 
 namespace Content.Goobstation.Client.Supermatter.Consoles;
@@ -27,6 +26,7 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
 
     private readonly IEntityManager _entManager;
     private readonly IResourceCache _cache;
+    private readonly Dictionary<string, EngineBarEntry> _engineDictionary;
 
     private Dictionary<SupermatterStatusType, string> _statusStrings = new()
     {
@@ -75,6 +75,21 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         TemperatureLimitBarLabel.FontOverride = monoFont;
         WasteBarLabel.FontOverride = monoFont;
         AbsorptionBarLabel.FontOverride = monoFont;
+
+        var red = StyleNano.DangerousRedFore;
+        var orange = StyleNano.ConcerningOrangeFore;
+        var green = StyleNano.GoodGreenFore;
+        var turqoise = Color.FromHex("#009893");
+
+        _engineDictionary = new Dictionary<string, EngineBarEntry>
+        {
+            { "integrity",   new EngineBarEntry(IntegrityBarLabel,   IntegrityBar,   IntegrityBarBorder,   0.9f, 0.1f, red,      orange, green) },
+            { "power",       new EngineBarEntry(PowerBarLabel,       PowerBar,       PowerBarBorder,       0.9f, 0.1f, green,    orange, red  ) },
+            { "radiation",   new EngineBarEntry(RadiationBarLabel,   RadiationBar,   RadiationBarBorder,   0.1f, 0.9f, green,    orange, red  ) },
+            { "moles",       new EngineBarEntry(MolesBarLabel,       MolesBar,       MolesBarBorder,       0.5f, 0.5f, green,    orange, red  ) },
+            { "temperature", new EngineBarEntry(TemperatureBarLabel, TemperatureBar, TemperatureBarBorder, 0.5f, 0.5f, turqoise, green,  red  ) },
+            { "waste",       new EngineBarEntry(WasteBarLabel,       WasteBar,       WasteBarBorder,       0.5f, 0.5f, green,    orange, red  ) }
+        };
     }
 
     public void UpdateEntry(SupermatterConsoleEntry entry, bool isFocus, SupermatterFocusData? focusData = null)
@@ -98,27 +113,18 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         {
             if (focusData != null)
             {
-                var red = StyleNano.DangerousRedFore;
-                var orange = StyleNano.ConcerningOrangeFore;
-                var green = StyleNano.GoodGreenFore;
-                var turqoise = Color.FromHex("#009893");
-
-                // TODO: please don't define this dictionary every update you animal
-                var engineDictionary = new Dictionary<string, (Label label, ProgressBar bar, PanelContainer border, float value, float leftSize, float rightSize, Color leftColor, Color middleColor, Color rightColor)>()
-                {
-                    { "integrity",   (IntegrityBarLabel,   IntegrityBar,   IntegrityBarBorder,   focusData.Value.Integrity,       0.9f, 0.1f, red,      orange, green) },
-                    { "power",       (PowerBarLabel,       PowerBar,       PowerBarBorder,       focusData.Value.Power,           0.9f, 0.1f, green,    orange, red  ) },
-                    { "radiation",   (RadiationBarLabel,   RadiationBar,   RadiationBarBorder,   focusData.Value.Radiation,       0.1f, 0.9f, green,    orange, red  ) },
-                    { "moles",       (MolesBarLabel,       MolesBar,       MolesBarBorder,       focusData.Value.AbsorbedMoles,   0.5f, 0.5f, green,    orange, red  ) },
-                    { "temperature", (TemperatureBarLabel, TemperatureBar, TemperatureBarBorder, focusData.Value.Temperature,     0.5f, 0.5f, turqoise, green,  red  ) },
-                    { "waste",       (WasteBarLabel,       WasteBar,       WasteBarBorder,       focusData.Value.WasteMultiplier, 0.5f, 0.5f, green,    orange, red  ) }
-                };
+                _engineDictionary["integrity"].Value = focusData.Value.Integrity;
+                _engineDictionary["power"].Value = focusData.Value.Power;
+                _engineDictionary["radiation"].Value = focusData.Value.Radiation;
+                _engineDictionary["moles"].Value = focusData.Value.AbsorbedMoles;
+                _engineDictionary["temperature"].Value = focusData.Value.Temperature;
+                _engineDictionary["waste"].Value = focusData.Value.WasteMultiplier;
 
                 // Special cases
-                var powerBar = engineDictionary["power"];
-                var powerPrefix = powerBar.value switch { >= 1000 => "G", >= 1 => "M", _ => "" };
-                var powerMultiplier = powerBar.value switch { >= 1000 => 0.001, >= 1 => 1, _ => 1000 };
-                powerBar.label.Text = Loc.GetString("supermatter-console-window-label-power-bar", ("power", (powerBar.value * powerMultiplier).ToString("0.000")), ("prefix", powerPrefix));
+                var powerBar = _engineDictionary["power"];
+                var powerPrefix = powerBar.Value switch { >= 1000 => "G", >= 1 => "M", _ => "" };
+                var powerMultiplier = powerBar.Value switch { >= 1000 => 0.001, >= 1 => 1, _ => 1000 };
+                powerBar.Label.Text = Loc.GetString("supermatter-console-window-label-power-bar", ("power", (powerBar.Value * powerMultiplier).ToString("0.000")), ("prefix", powerPrefix));
 
                 var temperatureLimit = focusData.Value.TemperatureLimit;
                 TemperatureBar.MaxValue = temperatureLimit;
@@ -128,15 +134,15 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
                 AbsorptionBarLabel.Text = Loc.GetString("supermatter-console-window-label-absorption-bar", ("absorption", absorptionRatio.ToString("0")));
 
                 // Update engine bars
-                foreach (var bar in engineDictionary)
+                foreach (var bar in _engineDictionary)
                 {
                     var current = bar.Value;
-                    UpdateEngineBar(current.bar, current.border, current.value, current.leftSize, current.rightSize, current.leftColor, current.middleColor, current.rightColor);
+                    UpdateEngineBar(current.Bar, current.Border, current.Value, current.LeftSize, current.RightSize, current.LeftColor, current.MiddleColor, current.RightColor);
 
                     if (bar.Key == "power")
                         continue;
 
-                    current.label.Text = Loc.GetString("supermatter-console-window-label-" + bar.Key + "-bar", (bar.Key, current.value.ToString("0.00")));
+                    current.Label.Text = Loc.GetString("supermatter-console-window-label-" + bar.Key + "-bar", (bar.Key, current.Value.ToString("0.00")));
                 }
 
                 // Update gas bars
@@ -147,7 +153,7 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
                 foreach (var gas in gases)
                 {
                     var name = gas.Name;
-                    var color = Color.FromHex("#" + gas.Color);
+                    var color = Color.FromHex(gas.Color.StartsWith("#") ? gas.Color : $"#{gas.Color}");
                     var value = GetStoredGas(gas, focusData) / focusData.Value.AbsorbedMoles * 100;
 
                     //Log.Debug(string.Format("{0:N2}", value));
@@ -157,35 +163,6 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
                 }
             }
         }
-    }
-
-    private string GetStatusLabel(SupermatterStatusType status)
-    {
-        switch (status)
-        {
-            case SupermatterStatusType.Inactive:
-                return "supermatter-console-window-inactive-status";
-
-            case SupermatterStatusType.Normal:
-                return "supermatter-console-window-normal-status";
-
-            case SupermatterStatusType.Caution:
-                return "supermatter-console-window-caution-status";
-
-            case SupermatterStatusType.Warning:
-                return "supermatter-console-window-warning-status";
-
-            case SupermatterStatusType.Danger:
-                return "supermatter-console-window-danger-status";
-
-            case SupermatterStatusType.Emergency:
-                return "supermatter-console-window-emergency-status";
-
-            case SupermatterStatusType.Delaminating:
-                return "supermatter-console-window-delaminating-status";
-        }
-
-        return "supermatter-console-window-error-status";
     }
 
     private Color GetStatusColor(SupermatterStatusType status)
@@ -289,5 +266,30 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         var entryContainer = (SupermatterGasBarContainer)tableChild;
 
         entryContainer.UpdateEntry(name, color, value);
+    }
+
+    private sealed class EngineBarEntry
+    {
+        public Label Label;
+        public ProgressBar Bar;
+        public PanelContainer Border;
+        public float Value;
+        public float LeftSize;
+        public float RightSize;
+        public Color LeftColor;
+        public Color MiddleColor;
+        public Color RightColor;
+
+        public EngineBarEntry(Label label, ProgressBar bar, PanelContainer border, float leftSize, float rightSize, Color leftColor, Color middleColor, Color rightColor)
+        {
+            Label = label;
+            Bar = bar;
+            Border = border;
+            LeftSize = leftSize;
+            RightSize = rightSize;
+            LeftColor = leftColor;
+            MiddleColor = middleColor;
+            RightColor = rightColor;
+        }
     }
 }
