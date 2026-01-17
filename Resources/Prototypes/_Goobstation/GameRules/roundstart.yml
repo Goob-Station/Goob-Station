@@ -470,6 +470,7 @@
       min: 2
       max: 4
       playerRatio: 10
+      startingGear: BloodCultist
       jobBlacklist: [ Chaplain ]
       blacklist:
         components:

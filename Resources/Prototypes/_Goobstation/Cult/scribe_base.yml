@@ -1,0 +1,21 @@
+- type: entity
+  id: RuneScribeCult
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.EntityRadialMenuKey.Key:
+        type: CultRuneScribeBUI
+  - type: BloodCultRuneScribe
+    scribeSound: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    malfRune: CultRuneMalf
+    runes:
+    - CultRuneOffer
+    - CultRuneEmpower
+    - CultRuneTeleport
+    - CultRuneRevive
+    - CultRuneBarrier
+    - CultRuneSummon
+    - CultRuneBloodboil
+    - CultRuneSpirit
+    - CultRuneApocalypse
+    - CultRuneNarsie

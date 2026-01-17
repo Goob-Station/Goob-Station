@@ -44,13 +44,32 @@
     - !type:CultRuneBasicEvent
       requiredInvokers: 1
       pulseColor: "#FFFFFF"
-      invokeLoc: rune-name-basic
-      inspectNameLoc: rune-desc-basic
-      inspectDescLoc: rune-invoke-basic
+      invokeLoc: rune-invoke-basic
+      inspectNameLoc: rune-name-basic
+      inspectDescLoc: rune-desc-basic
+
+- type: entity
+  parent: CultRuneBase
+  id: CultRuneMalf
+  suffix: Malf
+  components:
+  - type: BloodCultRune
+    events:
+    # as in every foreach events above take priority
+    - !type:CultRuneMalfEvent
+      requiredInvokers: 1
+      pulseColor: "#AA00AA"
+      invokeLoc: rune-invoke-malf
+      inspectNameLoc: rune-name-malf
+      inspectDescLoc: rune-desc-malf
+      damage:
+        types:
+          Burn: 20
 
 - type: entity
   parent: CultRuneBase
   id: CultRuneOffer
+  suffix: Offer
   components:
   - type: Sprite
     state: cult1
@@ -60,12 +79,59 @@
     - !type:CultRuneOfferEvent
       requiredInvokers: 2
       pulseColor: "#FF0000"
-      invokeLoc: rune-name-offering
-      inspectNameLoc: rune-desc-offering
-      inspectDescLoc: rune-invoke-offering
+      invokeLoc: rune-invoke-offering
+      inspectNameLoc: rune-name-offering
+      inspectDescLoc: rune-desc-offering
     - !type:CultRuneSacrificeEvent
       requiredInvokers: 3
       pulseColor: "#AA0000"
-      invokeLoc: rune-name-sacrifice
-      inspectNameLoc: rune-desc-sacrifice
-      inspectDescLoc: rune-invoke-sacrifice
+      invokeLoc: rune-invoke-sacrifice
+      inspectNameLoc: rune-name-sacrifice
+      inspectDescLoc: rune-desc-sacrifice
+
+
+- type: entity
+  parent: CultRuneBase
+  id: CultRuneEmpower
+  suffix: Empower
+  components:
+  - type: Sprite
+    state: cult3
+    color: "#0000FF"
+  - type: UserInterface
+    interfaces:
+      enum.EntityRadialMenuKey.Key:
+        type: CultBloodMagicBUI
+  - type: BloodCultRune
+    events:
+    - !type:CultRuneEmpowerEvent
+      requiredInvokers: 1
+      pulseColor: "#FF0000"
+      invokeLoc: rune-invoke-empower
+      inspectNameLoc: rune-name-empower
+      inspectDescLoc: rune-desc-empower
+
+- type: entity
+  parent: CultRuneBase
+  id: CultRuneTeleport
+  suffix: Teleport
+  components:
+  - type: Sprite
+    state: cult2
+    color: "#221C35"
+  - type: BloodCultRune
+    events:
+    - !type:CultRuneTeleportEvent
+      requiredInvokers: 1
+      pulseColor: "#FF0000"
+      invokeLoc: rune-name-teleport
+      inspectNameLoc: rune-desc-teleport
+      inspectDescLoc: rune-invoke-teleport
+
+# - CultRuneRevive
+# - CultRuneBarrier
+# - CultRuneSummon
+# - CultRuneBloodboil
+# - CultRuneSpirit
+# - CultRuneApocalypse
+# - CultRuneNarsie

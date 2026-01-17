@@ -9,8 +9,11 @@ using Content.Goobstation.Shared.Cult;
 using Content.Goobstation.Shared.Cult.Events;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Damage;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Humanoid;
 
-namespace Content.Goobstation.Server.Cult.Runes;
+namespace Content.Goobstation.Server.Cult.Systems;
 
 public sealed partial class BloodCultRuneSystem : EntitySystem
 {
@@ -18,24 +21,24 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
+    [Dependency] private readonly DamageableSystem _dmg = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BloodCultRuneComponent, InteractHandEvent>(OnIntearctHand);
-        SubscribeLocalEvent<BloodCultRuneComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<BloodCultRuneComponent, ExaminedEvent>(OnExamined);
+        SubscribeRunes();
     }
 
     private void OnExamined(Entity<BloodCultRuneComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<BloodCultistComponent>(args.Examiner) || !HasComp<GhostComponent>(args.Examiner))
+        if (!args.IsInDetailsRange || !HasComp<BloodCultistComponent>(args.Examiner) && !HasComp<GhostComponent>(args.Examiner))
             return;
 
         var names = string.Empty;
         var descriptions = string.Empty;
-        var trueCount = ent.Comp.Events.Count - 1;
         for (int i = 0; i < ent.Comp.Events.Count; i++)
         {
             var ev = ent.Comp.Events[i];
@@ -44,7 +47,7 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
             var color = ev.PulseColor.ToHex();
 
             // "name1 / name2 / name3"
-            names += $"{((i > 0 && i < trueCount) ? " / " : "")}[color={color}]{name}[/color]";
+            names += $"{((i > 0) ? " \\ " : "")}[color={color}]{name}[/color]";
 
             // "- description 1"
             // "\n- description 2"
@@ -56,20 +59,31 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
 
     private void OnIntearctHand(Entity<BloodCultRuneComponent> ent, ref InteractHandEvent args)
     {
+        if (!HasComp<BloodCultistComponent>(args.User))
+            return;
+
         var invokersLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.InvokersLookupRange)
             .Where(q => HasComp<BloodCultistComponent>(q)).ToList();
 
+        var invokers = new List<EntityUid>();
         foreach (var invoker in invokersLookup)
+        {
+            invokers.Add(invoker);
             if (HasComp<BloodCultistLeaderComponent>(invoker))
-                invokersLookup.Add(invoker); // Leaders counts as 2. Also gets twice as much i guess.
+                invokers.Add(invoker); // Leaders counts as 2. Also gets twice as much i guess.
+        }
 
         var invoked = false;
+        CultRuneEvent? invokedEvent = null;
         var loc = string.Empty;
         foreach (var ev in ent.Comp.Events)
         {
-            if (!TryInvokeRune(ent, ev, invokersLookup, out loc))
-                continue;
-            invoked = true;
+            if (TryInvokeRune(ent, ev, invokers, out loc))
+            {
+                invoked = true;
+                invokedEvent = ev;
+                break; // no more
+            }
         }
 
         if (!invoked)
@@ -79,25 +93,24 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
             return;
         }
 
-        foreach (var invoker in invokersLookup)
-        {
-            var message = Loc.GetString(loc);
-            _chat.TrySendInGameICMessage(invoker, message, InGameICChatType.Speak, true, hideLog: true);
-        }
+        foreach (var invoker in invokers.Distinct().ToList())
+            ProcessInvoker(invoker, invokedEvent);
 
         _colorFlash.RaiseEffect(Color.Red, [ent], Filter.Pvs(ent, entityManager: EntityManager));
 
         args.Handled = true;
     }
 
-    private void OnInteractUsing(Entity<BloodCultRuneComponent> ent, ref InteractUsingEvent args)
+    private void ProcessInvoker(EntityUid invoker, CultRuneEvent? ev)
     {
-        if (HasComp<BloodCultRuneScribeComponent>(args.Used))
-        {
-            DestroyRune(ent);
-            args.Handled = true;
-            return;
-        }
+        if (ev == null) return;
+
+        var message = Loc.GetString(ev.InvokeLoc);
+        _chat.TrySendInGameICMessage(invoker, message, InGameICChatType.Speak, true, hideLog: true);
+
+        // todo make it get the hand used on the rune
+        if (ev.Damage != null)
+            _dmg.TryChangeDamage(invoker, ev.Damage, true, targetPart: TargetBodyPart.RightHand);
     }
 
     /// <summary>
@@ -116,22 +129,18 @@ public sealed partial class BloodCultRuneSystem : EntitySystem
         }
 
         var targetsLookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.TargetsLookupRange)
+            .Where(q => HasComp<HumanoidAppearanceComponent>(q))
             .Where(q => !HasComp<BloodCultistComponent>(q))
             .ToList();
 
-        ev.Invokers = invokers;
-        ev.Targets = targetsLookup;
-        RaiseLocalEvent(ent, ev);
+        var @event = ev;
+        @event!.Invokers = invokers;
+        @event.Targets = new List<EntityUid>(targetsLookup);
+        RaiseLocalEvent(ent, (object) @event);
 
-        if (ev.Cancelled) return false;
-        if (!string.IsNullOrWhiteSpace(ev.InvokeLoc)) loc = ev.InvokeLoc;
+        if (@event.Cancelled) return false;
+        if (!string.IsNullOrWhiteSpace(ev.InvokeLoc)) loc = @event.InvokeLoc;
 
         return true;
-    }
-
-    public void DestroyRune(Entity<BloodCultRuneComponent> ent)
-    {
-        QueueDel(ent);
-        // todo effects and/or doafter
     }
 }

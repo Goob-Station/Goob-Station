@@ -8,3 +8,5 @@ objective-condition-cult-sacrifice-desc = Bring their corpse to the offering run
 
 objective-condition-cult-summon-name = Summon the Geometer
 objective-condition-cult-summon-desc = Gather up, draw the rune and perform the ritual in {$location} with at least 9 members present.
+
+objective-update-announcement-sacrifice = Yes! This is the one I desire! You have done well.

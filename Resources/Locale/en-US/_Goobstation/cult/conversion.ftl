@@ -15,9 +15,14 @@ cult-gain-convert =
 
 cult-loss-self = An unfamiliar white light flashes through your mind, cleansing the taint of the Geometer and all your memories as her servant!
 
+cult-vote-master-initiator = The Geometer
+
+cult-vote-master-title = New leader of the cult
+
 cult-master-gain-briefing =
     You are the cult's Master!
     As the cult's Master, you have a unique title and loud voice when communicating,
+    have double the weight of a normal cultist when performing rituals,
     are capable of marking targets, such as a location or a noncultist, to direct the cult to them,
     and, finally, you are capable of summoning the entire living cult to your location ONCE.
     Use these abilities to direct the cult to victory at any cost!
@@ -30,7 +35,7 @@ cult-mindshield-resist = You feel something interfering with your mental conditi
 
 cult-tier-none = The veil weakens as your cult grows.
 
-cult-tier-eyes = The veil weakens as your cult grows, your eyes begin to glow ever brighter.
+cult-tier-eyes = The veil weakens as your cult grows, your eyes begin to glow.
 
 cult-tier-eyes-examine = [color=red]Their eyes glow with an unnatural light.[/color]
 

@@ -100,7 +100,7 @@ public sealed partial class GoobAdminVerbSystem
         };
         args.Verbs.Add(shadowling);
 
-        var cultName = Loc.GetString("admin-verb-text-make-cultist");
+        var cultName = Loc.GetString("admin-verb-make-cultist-name");
         Verb cult = new()
         {
             Text = cultName,

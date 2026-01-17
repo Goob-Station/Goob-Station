@@ -7,8 +7,8 @@ namespace Content.Goobstation.Shared.Cult;
 /// <summary>
 ///     Marks an entity as a member of a blood cult. Powers are stored in the server part.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Virtual]
-public partial class BloodCultistComponent : Component
+[RegisterComponent, NetworkedComponent]
+public sealed partial class BloodCultistComponent : Component
 {
     [DataField] public ProtoId<FactionIconPrototype> StatusIcon = "BloodCultist";
 }

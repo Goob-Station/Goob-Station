@@ -1,3 +1,5 @@
+using Content.Shared.Damage;
+
 namespace Content.Goobstation.Server.Cult.Actions;
 
 [RegisterComponent]
@@ -9,14 +11,9 @@ public sealed partial class BloodCultActionComponent : Component
     [DataField] public bool Limited = false;
 
     /// <summary>
-    ///     How much slots in the spell space will this one take?
-    /// </summary>
-    [DataField] public int SlotsCost = 1;
-
-    /// <summary>
     ///     How much health will this action drain on use.
     /// </summary>
-    [DataField] public float HealthCost = 0f;
+    [DataField] public DamageSpecifier? Damage;
 
     /// <summary>
     ///     If the magic has been enhanced somehow, likely due to an empowering rune.

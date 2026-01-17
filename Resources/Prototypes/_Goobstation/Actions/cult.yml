@@ -15,8 +15,14 @@
     event: !type:EventActionCultPrepareBloodMagic
   - type: BloodCultAction
     unlimitedUses: true
-    healthCost: 5
-
+    damage:
+      types:
+        Slash: 5
+  - type: UserInterface
+    interfaces:
+      enum.EntityRadialMenuKey.Key:
+        type: CultBloodMagicBUI
+    
 - type: entity
   parent: BaseAction
   id: ActionCultTouchSpellStun
@@ -32,7 +38,9 @@
   - type: InstantAction
     event: !type:EventTouchSpellInvoke
   - type: BloodCultAction
-    healthCost: 10
+    damage:
+      types:
+        Slash: 10
   - type: TouchSpellAction
     touchSpell: TouchSpellCultStun
 
@@ -51,7 +59,9 @@
   - type: InstantAction
     event: !type:EventTouchSpellInvoke
   - type: BloodCultAction
-    healthCost: 7
+    damage:
+      types:
+        Slash: 7
   - type: TouchSpellAction
     touchSpell: TouchSpellCultTeleport
 
@@ -71,7 +81,9 @@
   - type: InstantAction
     event: !type:EventActionCultEmp
   - type: BloodCultAction
-    healthCost: 10
+    damage:
+      types:
+        Slash: 10
 
 - type: entity
   parent: BaseAction
@@ -88,7 +100,9 @@
   - type: InstantAction
     event: !type:EventTouchSpellInvoke
   - type: BloodCultAction
-    healthCost: 4
+    damage:
+      types:
+        Slash: 4
   - type: TouchSpellAction
     touchSpell: TouchSpellCultShackles
 
@@ -107,10 +121,12 @@
   - type: InstantAction
     event: !type:EventTouchSpellInvoke
   - type: BloodCultAction
-    healthCost: 12
+    damage:
+      types:
+        Slash: 12
   - type: TouchSpellAction
     touchSpell: TouchSpellCultConstruction
-
+    
 - type: entity
   parent: BaseAction
   id: ActionCultTouchSpellEquipment
@@ -126,10 +142,9 @@
   - type: InstantAction
     event: !type:EventTouchSpellInvoke
   - type: BloodCultAction
-    healthCost: 0
   - type: TouchSpellAction
     touchSpell: TouchSpellCultEquipment
-
+    
 - type: entity
   parent: BaseAction
   id: ActionCultDagger
@@ -145,8 +160,7 @@
   - type: InstantAction
     event: !type:EventActionCultDagger
   - type: BloodCultAction
-    healthCost: 0
-
+    
 - type: entity
   parent: BaseAction
   id: ActionCultTouchSpellManipulation
@@ -162,7 +176,6 @@
   - type: InstantAction
     event: !type:EventTouchSpellInvoke
   - type: BloodCultAction
-    healthCost: 0
   - type: TouchSpellAction
     touchSpell: TouchSpellCultManipulation
 

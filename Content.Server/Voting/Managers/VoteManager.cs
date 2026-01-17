@@ -34,6 +34,7 @@ using System.Collections;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Shared.Cult;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -492,6 +493,11 @@ namespace Content.Server.Voting.Managers
                     return false;
             // End DeltaV - Cosmic Cult
 
+            // Goobstation edit - cult voters
+            if (eligibility == VoterEligibility.BloodCult)
+                if (!_entityManager.HasComponent<BloodCultistComponent>(player.AttachedEntity))
+                    return false;
+
             return true;
         }
 
@@ -591,6 +597,7 @@ namespace Content.Server.Voting.Managers
             GhostMinimumPlaytime, // Player needs to be a ghost, with a minimum playtime and deathtime as defined by votekick CCvars.
             MinimumPlaytime, //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
             CosmicCult, // DeltaV - Player needs to be a cosmic cultist. Used by the cosmic cult gamemode.
+            BloodCult, // Goobstation - player needs to be a blood cultist. this fucking sucks.
         }
 
         #endregion

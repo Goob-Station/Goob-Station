@@ -1,7 +1,7 @@
-using Content.Client._Shitcode.Heretic.UI;
+using Content.Goobstation.Client.Heretic.UI;
 using Robust.Client.Graphics;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic;
 
 public sealed class VoidConduitOverlaySystem : EntitySystem
 {
