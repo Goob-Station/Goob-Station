@@ -8,7 +8,6 @@ using Content.Goobstation.Shared.Cult.Runes;
 using Content.Goobstation.Shared.Cult;
 using Content.Goobstation.Shared.Cult.Events;
 using Content.Shared.Examine;
-using System.Text;
 using Content.Shared.Ghost;
 
 namespace Content.Goobstation.Server.Cult.Runes;
