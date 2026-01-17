@@ -105,7 +105,7 @@ public sealed partial class GoobAdminVerbSystem
         {
             Text = cultName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Cult/Icons/antag_icons.rsi"), "cult"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Cult/job_icons.rsi"), "acolyte"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, "BloodCult");
