@@ -29,3 +29,8 @@
   recipes:
   - SlimeGrinderMachineCircuitboard
   - XenobiologyBountyComputerCircuitboard
+
+- type: latheRecipePack
+  id: XenobagHoldingPack
+  recipes: 
+  - ClothingBeltChemBagXenobiologyHolding
