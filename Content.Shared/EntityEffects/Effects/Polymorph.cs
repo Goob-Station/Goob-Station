@@ -16,15 +16,18 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.EntityEffects.Effects;
 
 public sealed partial class Polymorph : EventEntityEffect<Polymorph>
-{ // todo marty this was goobedited for wiz doublecheck
+{
     /// <summary>
     ///     What polymorph prototype is used on effect
     /// </summary>
     [DataField("prototype", customTypeSerializer:typeof(PrototypeIdSerializer<PolymorphPrototype>))]
     public string PolymorphPrototype { get; set; }
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-    => Loc.GetString("reagent-effect-guidebook-make-polymorph",
-            ("chance", Probability), ("entityname",
-                prototype.Index<EntityPrototype>(prototype.Index<PolymorphPrototype>(PolymorphPrototype).Configuration.Entity!).Name)); //todo marty that exclamation mark is yours and evil
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) // Goob edit
+    {
+        var entProto = prototype.Index<PolymorphPrototype>(PolymorphPrototype).Configuration.Entity;
+        if (entProto == null)
+            return null;
+        return Loc.GetString("reagent-effect-guidebook-make-polymorph", ("chance", Probability), ("entityname", prototype.Index<EntityPrototype>(entProto.Value).Name));
+    }
 }

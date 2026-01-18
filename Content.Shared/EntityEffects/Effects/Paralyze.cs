@@ -42,7 +42,6 @@ public sealed partial class Paralyze : EntityEffect
         {
             paralyzeTime *= (double)reagentArgs.Scale;
         }
-        //todo marty check below this somehow came in on another patch
         var stunSystem = args.EntityManager.System<SharedStunSystem>();
         _ = Refresh
             ? stunSystem.TryUpdateParalyzeDuration(args.TargetEntity, TimeSpan.FromSeconds(paralyzeTime))

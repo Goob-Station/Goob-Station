@@ -27,7 +27,7 @@
     - CopperBlood
   - type: DemonicWhisper
   - type: Visibility
-    layer: 2
+    layer: 2 # Ghost visflag
   - type: Spectral
   - type: Eye
     drawFov: false

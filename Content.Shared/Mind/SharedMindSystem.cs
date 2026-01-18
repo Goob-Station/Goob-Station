@@ -61,7 +61,10 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Common.Changeling; // Goobstation
+using Content.Goobstation.Common.Changeling;
+using Content.Shared._EinsteinEngines.Language.Components;
+using Content.Shared._EinsteinEngines.Language.Events;
+using Content.Shared._EinsteinEngines.Language.Systems; // Goobstation
 using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -810,6 +813,23 @@ public abstract partial class SharedMindSystem : EntitySystem
         }
 
         EnsureComp<ExaminerComponent>(uid);
+
+        // Einstein Engines - Language begin
+        // If the entity already speaks some language (like monkey or robot), we do nothing else.
+        // Otherwise, we give them the fallback language
+
+        // I'm assuming here that if they have languagespeaker, we don't need to do everything else.
+        if (TryComp<LanguageSpeakerComponent>(uid, out var languageSpeaker) &&
+            languageSpeaker.SpokenLanguages.Count > 1)
+            return;
+
+        var newSpeaker = EnsureComp<LanguageSpeakerComponent>(uid);
+
+        newSpeaker.SpokenLanguages.Add(SharedLanguageSystem.FallbackLanguagePrototype);
+        newSpeaker.UnderstoodLanguages.Add(SharedLanguageSystem.FallbackLanguagePrototype);
+        RaiseLocalEvent(uid, new LanguagesUpdateEvent());
+        Dirty(uid, newSpeaker);
+        // Einstein Engines - Language end
     }
 }
 

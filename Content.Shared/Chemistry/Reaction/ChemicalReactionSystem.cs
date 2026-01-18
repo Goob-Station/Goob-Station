@@ -61,7 +61,7 @@ namespace Content.Shared.Chemistry.Reaction
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly EntityEffectSystem _effect = default!; // goob edit - use system instead
+        [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // goob edit - use system instead
 
         /// <summary>
         /// A cache of all reactions indexed by at most ONE of their required reactants.

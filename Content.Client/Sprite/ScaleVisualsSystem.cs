@@ -28,7 +28,7 @@ public sealed class ScaleVisualsSystem : SharedScaleVisualsSystem
     }
 
     // revert to the original scale
-    protected override void ResetScale(Entity<ScaleVisualsComponent> ent)
+    protected override void ResetScale(Entity<Shared.Sprite.ScaleVisualsComponent> ent)
     {
         base.ResetScale(ent);
 

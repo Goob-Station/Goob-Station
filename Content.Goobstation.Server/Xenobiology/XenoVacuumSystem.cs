@@ -121,7 +121,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
                 _throw.TryThrow(removedEnt, thrown.ToCoordinates());
             else
                 _throw.TryThrow(removedEnt, args.ClickLocation);
-            _stun.TryParalyze(removedEnt, TimeSpan.FromSeconds(2), true);
+            _stun.TryUpdateParalyzeDuration(removedEnt, TimeSpan.FromSeconds(2));
             _htn.SetHTNEnabled(removedEnt, true,2f);
         }
 

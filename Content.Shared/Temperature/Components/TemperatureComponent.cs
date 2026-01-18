@@ -9,7 +9,8 @@ namespace Content.Shared.Temperature.Components;
 /// informing others of the current temperature,
 /// and taking fire damage from high temperature.
 /// </summary>
-public abstract class SharedTemperatureComponent : Component
+public abstract partial class SharedTemperatureComponent : Component
+//todo marty kill this
 {
     /// <summary>
     /// Surface temperature which is modified by the environment.

@@ -6,7 +6,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
-using System.Numerics; // using for vectors
+using System.Numerics;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Sprite; // using for vectors
 namespace Content.Goobstation.Server.EatToGrow;
 
 
@@ -20,11 +22,11 @@ public sealed class EatToGrowSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FoodComponent, BeforeFullyEatenEvent>(OnFoodEaten);
+        SubscribeLocalEvent<FoodComponent, FullyEatenEvent>(OnFoodEaten);
         SubscribeLocalEvent<EatToGrowComponent, MobStateChangedEvent>(ShrinkOnDeath);
     }
 
-    private void OnFoodEaten(Entity<FoodComponent> ent, ref BeforeFullyEatenEvent args)
+    private void OnFoodEaten(Entity<FoodComponent> ent, ref FullyEatenEvent args)
     {
         // The entity that ate the food (the mothroach, human, etc.)
         var eater = args.User;
@@ -78,7 +80,7 @@ public sealed class EatToGrowSystem : EntitySystem
     {
         // Copied from TryGrow, just need to grow in reverse
         if (args.NewMobState != MobState.Dead || !TryComp<EatToGrowComponent>(eater, out var comp) || comp.ShrinkOnDeath == false)
-        return;
+            return;
 
         // shrink the entity
         Grow(eater, comp, -comp.TimesGrown); // uses the negative of times grown to shrink the entity back to normal

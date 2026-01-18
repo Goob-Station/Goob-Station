@@ -342,9 +342,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
         var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
-        _mindSystem.MakeSentient(child);
-        //todo marty start here
-        MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
+        _mindSystem.MakeSentient(child, configuration.AllowMovement);
         // Goob edit end
 
         // Einstein Engines - Language begin
