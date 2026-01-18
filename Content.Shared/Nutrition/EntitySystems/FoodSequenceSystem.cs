@@ -82,6 +82,7 @@
 
 using System.Numerics;
 using System.Text;
+using Content.Shared._Shitmed.StatusEffects;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
@@ -94,7 +95,8 @@ using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Item; // Goobstation - anythingburgers
-using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Interaction.Components; // Goobstation - anythingburgers
 
 namespace Content.Shared.Nutrition.EntitySystems;
 //todo marty anythingburgers what the fuck - goobify this code
@@ -121,16 +123,16 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
-        // if (HasComp<EntityStorageComponent>(args.Used) //todo marty refactor this or move entitytstoragecomp to shared
-        //     || HasComp<StorageComponent>(args.Used)
-        //     || HasComp<UnremoveableComponent>(args.Used)) // Goobstation - Prevent burgering unremovable items
-        //     return; // Prevent Backpacks/Pet Carriers
+         if (HasComp<SharedEntityStorageComponent>(args.Used) //todo marty refactor this or move entitytstoragecomp to shared
+             || HasComp<StorageComponent>(args.Used)
+             || HasComp<UnremoveableComponent>(args.Used)) // Goobstation - Prevent burgering unremovable items
+             return; // Prevent Backpacks/Pet Carriers
 
-        if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
-            EnsureComp<FoodSequenceElementComponent>(args.Used);
+         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
+             EnsureComp<FoodSequenceElementComponent>(args.Used);
 
-        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
-            args.Handled = TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
+         if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
+             args.Handled = TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
     }
 
     private void OnIngredientAdded(Entity<FoodMetamorphableByAddingComponent> ent, ref FoodSequenceIngredientAddedEvent args)
@@ -203,16 +205,18 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         // we can't add a live mouse to a burger.
         if (!TryComp<FoodComponent>(element, out var elementFood))
             return false;
-        if (elementFood.RequireDead && _mobState.IsAlive(element))
+
+        if (elementFood.RequireDead && _mobState.IsAlive(element) && !start.Comp.AcceptAll) // Goobstation bypass dead check when AcceptAll
             return false;
 
         //looking for a suitable FoodSequence prototype
         ProtoId<FoodSequenceElementPrototype> elementProto = string.Empty;
         foreach (var pair in element.Comp.Entries)
         {
-            if (pair.Key == start.Comp.Key)
+            if (pair.Key == start.Comp.Key || start.Comp.AcceptAll) // Goobstation anythingburgers
             {
                 elementProto = pair.Value;
+                break; // Goobstation - anythingburgers
             }
         }
         if (!_proto.TryIndex(elementProto, out var elementIndexed))
@@ -252,7 +256,11 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         var ev = new FoodSequenceIngredientAddedEvent(start, element, elementProto, user);
         RaiseLocalEvent(start, ev);
 
-        QueueDel(element);
+        //QueueDel(element); goob anything
+
+        if (!IsClientSide(element)) // Goob anythingburger
+            QueueDel(element);
+
         return true;
     }
 
@@ -308,20 +316,22 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (!_solutionContainer.TryGetSolution(start, startFood.Solution, out var startSolutionEntity, out var startSolution))
             return;
 
-        if (!_solutionContainer.TryGetSolution(element, elementFood.Solution, out _, out var elementSolution))
-            return;
-        if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer))
-        { // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
+        // if (!_solutionContainer.TryGetSolution(element, elementFood.Solution, out _, out var elementSolution))
+        //    return; // Goob anythingburg
+
+        if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer)) // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
+        {
             foreach (var name in elementSolutionContainer.Containers)
             {
                 if (!_solutionContainer.TryGetSolution(element, name, out _, out var elementSolutionGoob))
                     continue;
 
-                startSolution.MaxVolume += elementSolution.MaxVolume;
+                startSolution.MaxVolume += elementSolutionGoob.MaxVolume;
                 _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolutionGoob);
             }
         }
     }
+
 
     private void MergeFlavorProfiles(EntityUid start, EntityUid element)
     {
@@ -389,10 +399,10 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
             _item.SetShape(start, new List<Box2i> { new Box2i(0, 0, 1, increment) });
         }
-        // else if (increment >= 8) { //todo marty refactor this or move GravityWellComponent to shared
-        //     EnsureComp<GravityWellComponent>(start, out var gravityWell);
-        //     gravityWell.MaxRange = (float)Math.Sqrt(increment/4);
-        //     gravityWell.BaseRadialAcceleration = (float)Math.Sqrt(increment/4);
-        // }
+        else if (increment >= 8) { // todo marty refactor this or move GravityWellComponent to shared
+            EnsureComp<SpawnGravityWellComponent>(start, out var gravityWell);
+            gravityWell.MaxRange = (float)Math.Sqrt(increment/4);
+            gravityWell.BaseRadialAcceleration = (float)Math.Sqrt(increment/4);
+        }
     }
 }

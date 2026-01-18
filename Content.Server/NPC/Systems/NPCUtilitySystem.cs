@@ -331,7 +331,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (!_wieldable.CanWield(targetUid, wieldable, owner, true, false))
                     return 0f;
 
-                var beforeWieldEv = new WieldAttemptEvent(owner);
+                var beforeWieldEv = new WieldAttemptEvent(owner, targetUid);
                 RaiseLocalEvent(targetUid, ref beforeWieldEv);
 
                 return beforeWieldEv.Cancelled ? 0f : 1f;
@@ -402,7 +402,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 return _mobState.IsDead(targetUid) ? 1f : 0f;
             }
             case TargetMeleeCon:
-            {   
+            {
                 if (TryComp<MeleeWeaponComponent>(targetUid, out var melee) &&
                     (!TryComp<FoldableComponent>(targetUid, out var foldable) || foldable.IsFolded)) // Goobstation
                 {

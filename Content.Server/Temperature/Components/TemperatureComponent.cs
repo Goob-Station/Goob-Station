@@ -129,7 +129,7 @@ namespace Content.Server.Temperature.Components;
 /// and taking fire damage from high temperature.
 /// </summary>
 [RegisterComponent]
-public sealed partial class TemperatureComponent : SharedTemperatureComponent
+public sealed partial class TemperatureComponent : Component
 {
     /// <summary>
     /// Surface temperature which is modified by the environment.

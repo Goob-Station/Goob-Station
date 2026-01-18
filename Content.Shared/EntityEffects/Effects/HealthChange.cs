@@ -61,13 +61,16 @@ using Content.Shared.Localizations;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Text.Json.Serialization;
+using Content.Goobstation.Common.Temperature;
 
 // Shitmed Changes
 using Content.Shared._Shitmed.EntityEffects.Effects;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared.Heretic;
+using Content.Shared.Temperature;
 using Content.Shared.Temperature.Components;
+using Content.Shared.Temperature.Systems;
 
 namespace Content.Shared.EntityEffects.Effects
 {
@@ -184,10 +187,13 @@ namespace Content.Shared.EntityEffects.Effects
 
             if (ScaleByTemperature.HasValue)
             {
-                if (!args.EntityManager.TryGetComponent<SharedTemperatureComponent>(args.TargetEntity, out var temp))
+                var tempEv = new GetCurrentTemperatureEvent();
+                args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ref tempEv);
+
+                if (tempEv.CurrentTemperature == null)
                     scale = FixedPoint2.Zero;
                 else
-                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature, scale, false);
+                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(tempEv.CurrentTemperature.Value, scale, false);
             }
 
             var universalReagentDamageModifier =

@@ -3,12 +3,12 @@ using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Disease.Effects;
+namespace Content.Goobstation.Shared.EntityEffects.Disease;
 
 /// <summary>
 /// Reduces the progress of diseases of chosen type on the entity.
 /// </summary>
-public sealed partial class DiseaseProgressChange : EntityEffect
+public sealed partial class DiseaseProgressChange : EventEntityEffect<DiseaseProgressChange>
 {
     /// <summary>
     /// Diseases of which type to affect.
@@ -25,6 +25,20 @@ public sealed partial class DiseaseProgressChange : EntityEffect
     [DataField]
     public bool Scaled = true;
 
+    [DataField]
+    public float Scale = 1f;
+    [DataField]
+    public float Quantity = 1f;
+
+    public DiseaseProgressChange(ProtoId<DiseaseTypePrototype> affectedType, float progressModifier, bool scaled, float scale, float quantity)
+    {
+        AffectedType = affectedType;
+        ProgressModifier = progressModifier;
+        Scaled = scaled;
+        Scale = scale;
+        Quantity = quantity;
+    }
+
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         return Loc.GetString("reagent-effect-guidebook-disease-progress-change",
@@ -35,25 +49,17 @@ public sealed partial class DiseaseProgressChange : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (!args.EntityManager.TryGetComponent<DiseaseCarrierComponent>(args.TargetEntity, out var carrier))
+        if (!args.EntityManager.TryGetComponent<DiseaseCarrierComponent>(args.TargetEntity, out _))
             return;
 
-        foreach (var diseaseUid in carrier.Diseases.ContainedEntities)
+        var ev = new DiseaseProgressChange(AffectedType, ProgressModifier, Scaled, Scale, Quantity);
+
+        if (args is EntityEffectReagentArgs reagentArgs)
         {
-            if (!args.EntityManager.TryGetComponent<DiseaseComponent>(diseaseUid, out var disease)
-                || disease.DiseaseType != AffectedType)
-                continue;
-
-            var sys = args.EntityManager.System<DiseaseSystem>();
-            var amt = ProgressModifier;
-            if (args is EntityEffectReagentArgs reagentArgs)
-            {
-                if (Scaled)
-                    amt *= reagentArgs.Quantity.Float();
-                amt *= reagentArgs.Scale.Float();
-            }
-
-            sys.ChangeInfectionProgress((diseaseUid, disease), amt);
+            ev.Scale = reagentArgs.Scale.Float();
+            ev.Quantity = reagentArgs.Quantity.Float();
         }
+
+        args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ev);
     }
 }

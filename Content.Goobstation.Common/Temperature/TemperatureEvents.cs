@@ -10,3 +10,8 @@ public record struct GetTemperatureThresholdsEvent(
     float HeatDamageThreshold,
     float ColdDamageThreshold,
     Dictionary<float, float>? SpeedThresholds);
+
+[ByRefEvent]
+public record struct GetCurrentTemperatureEvent(
+    float? CurrentTemperature
+    );
