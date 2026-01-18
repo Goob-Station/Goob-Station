@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 264.0.0
-  forkId: syndicate-goob
-  forkVersion: 29c2393a43d619cf5a95c68843dd8891a7c7e55e
-  time: 01/08/2026 08:21:39
-  entityCount: 23297
+  forkId: ""
+  forkVersion: ""
+  time: 01/17/2026 23:12:01
+  entityCount: 23303
 maps:
 - 785
 grids:
@@ -13272,7 +13272,7 @@ entities:
       pos: 15.5,60.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -291166.4
+      secondsUntilStateChange: -291344.84
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13733,7 +13733,7 @@ entities:
       pos: 86.5,32.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -77091.39
+      secondsUntilStateChange: -77269.82
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14178,7 +14178,7 @@ entities:
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: Door
-      secondsUntilStateChange: -49754.07
+      secondsUntilStateChange: -49932.504
       state: Opening
     - type: DeviceLinkSource
       linkedPorts:
@@ -15220,6 +15220,12 @@ entities:
     - type: Transform
       pos: 52.5,57.5
       parent: 1
+  - uid: 3462
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 64.5,44.5
+      parent: 1
 - proto: AirlockMaintRnDLocked
   entities:
   - uid: 1106
@@ -15392,13 +15398,6 @@ entities:
     components:
     - type: Transform
       pos: 54.5,55.5
-      parent: 1
-- proto: AirlockMedicalMorgueMaintLocked
-  entities:
-  - uid: 6664
-    components:
-    - type: Transform
-      pos: 64.5,44.5
       parent: 1
 - proto: AirlockQuartermasterLocked
   entities:
@@ -15659,7 +15658,7 @@ entities:
       pos: 98.5,85.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -122387.46
+      secondsUntilStateChange: -122565.89
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -64878,6 +64877,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 46.5,103.5
       parent: 1
+  - uid: 20618
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 48.5,37.5
+      parent: 1
   - uid: 20644
     components:
     - type: Transform
@@ -65065,6 +65070,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 68.5,35.5
+      parent: 1
+  - uid: 15331
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 55.5,40.5
       parent: 1
   - uid: 15415
     components:
@@ -65390,6 +65401,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 88.5,98.5
+      parent: 1
+  - uid: 19985
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 55.5,37.5
       parent: 1
   - uid: 20580
     components:
@@ -67558,12 +67575,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 54.5,58.5
       parent: 1
-  - uid: 15331
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 55.5,37.5
-      parent: 1
   - uid: 15332
     components:
     - type: Transform
@@ -67575,12 +67586,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 55.5,39.5
-      parent: 1
-  - uid: 15334
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 55.5,40.5
       parent: 1
   - uid: 15335
     components:
@@ -68785,6 +68790,11 @@ entities:
     - type: Transform
       pos: 27.5,101.5
       parent: 1
+  - uid: 20576
+    components:
+    - type: Transform
+      pos: 48.5,36.5
+      parent: 1
   - uid: 20582
     components:
     - type: Transform
@@ -68844,6 +68854,42 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 35.5,103.5
+      parent: 1
+  - uid: 20592
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 49.5,37.5
+      parent: 1
+  - uid: 20598
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 50.5,37.5
+      parent: 1
+  - uid: 20614
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 51.5,37.5
+      parent: 1
+  - uid: 20615
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 52.5,37.5
+      parent: 1
+  - uid: 20616
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 53.5,37.5
+      parent: 1
+  - uid: 20617
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 54.5,37.5
       parent: 1
   - uid: 20645
     components:
@@ -69582,6 +69628,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 55.5,77.5
+      parent: 1
+  - uid: 6664
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 48.5,35.5
       parent: 1
   - uid: 8412
     components:
@@ -105081,6 +105133,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 70.5,103.5
       parent: 1
+- proto: MobSlimeXenobioBabyGrey
+  entities:
+  - uid: 15334
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 68.5,7.5
+      parent: 1
 - proto: MonkeyCubeBox
   entities:
   - uid: 6813
@@ -124500,31 +124560,6 @@ entities:
     - type: Transform
       pos: 45.5,26.5
       parent: 1
-- proto: SpaceCashCounterfeit250
-  entities:
-  - uid: 20576
-    components:
-    - type: Transform
-      pos: 121.50944,38.85412
-      parent: 1
-    - type: CollisionWake
-      enabled: False
-    - type: Conveyed
-  - uid: 20592
-    components:
-    - type: Transform
-      pos: 121.50944,38.54856
-      parent: 1
-    - type: CollisionWake
-      enabled: False
-    - type: Conveyed
-  - uid: 20598
-    components:
-    - type: Transform
-      pos: 120.5,37.5
-      parent: 1
-    - type: Stack
-      count: 1000
 - proto: SpaceVillainArcadeFilled
   entities:
   - uid: 22932
@@ -149312,11 +149347,6 @@ entities:
     components:
     - type: Transform
       pos: 68.5,15.5
-      parent: 1
-  - uid: 19985
-    components:
-    - type: Transform
-      pos: 68.5,7.5
       parent: 1
   - uid: 19986
     components:
