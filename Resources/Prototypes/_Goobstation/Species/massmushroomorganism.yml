@@ -168,7 +168,7 @@
   id: MobMassMushroomOrganismAltHead
   baseSprite:
     sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
-    state: head
+    state: head_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltHeadMale
@@ -192,7 +192,7 @@
   id: MobMassMushroomOrganismAltGroin
   baseSprite:
     sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
-    state: groin
+    state: groin_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltGroinMale

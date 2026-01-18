@@ -135,7 +135,7 @@
   - type: Item
     heldPrefix: produce
   - type: Produce
-    seedId: MassMushroomOrganismSeeds
+    seedId: massMushroomOrganism
   - type: Tag
     tags:
     - Vegetable
