@@ -10,3 +10,8 @@ stack-unprocessed-uranium-ore = unprocessed uranium ore
 stack-unprocessed-bananium-ore = unprocessed bananium ore
 stack-unprocessed-coal = unprocessed coal
 stack-unprocessed-artifact-fragment-ore = unprocessed artifact fragment ore
+
+stack-ashwood-plank = {$amount ->
+[1] ashwood plank
+*[other] ashwood planks
+}

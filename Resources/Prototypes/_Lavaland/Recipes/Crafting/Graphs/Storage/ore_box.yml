@@ -1,0 +1,65 @@
+- type: constructionGraph
+  id: OreBox
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: crate
+      steps:
+      - material: WoodPlank
+        amount: 6
+        doAfter: 2
+      - material: Steel
+        amount: 4
+        doAfter: 2
+  - node: crate
+    entity: OreBox
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 3
+      - tool: Prying
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 6
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 4
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+
+- type: constructionGraph
+  id: OreBoxAshwood
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: crate
+      steps:
+      - material: AshwoodPlank
+        amount: 6
+        doAfter: 3
+      - material: Plasteel
+        amount: 4
+        doAfter: 3
+  - node: crate
+    entity: OreBoxAshwood
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 4
+      - tool: Prying
+        doAfter: 3
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialAshwoodPlank1
+        amount: 6
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 4
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity

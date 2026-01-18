@@ -1,0 +1,36 @@
+- type: entity
+  name: magnetic ore bag
+  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
+  id: OreBagMagnetic
+  parent: OreBag
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Mining/ore_bag.rsi
+    layers:
+    - state: orebag_off
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Clothing
+    sprite: _Lavaland/Objects/Specific/Mining/ore_bag.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: MagnetPickup # Lavaland TODO: rewrite this component's logic when porting to Reforged
+  - type: ItemToggle
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: orebag_on }
+          False: { state: orebag_off }
+  - type: Storage
+    grid:
+    - 0,0,9,5

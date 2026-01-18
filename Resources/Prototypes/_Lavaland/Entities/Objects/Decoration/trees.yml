@@ -26,6 +26,8 @@
         density: 1000
         layer:
         - WallLayer
+  - type: Damageable
+    damageModifierSet: Ashwood
   - type: Destructible
     thresholds:
     - trigger:
@@ -48,6 +50,6 @@
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
-          Log:
+          AshwoodLog:
             min: 2
-            max: 5
+            max: 4

@@ -92,8 +92,12 @@
     cost: 1000
   - id: LavalandEquipmentExplorerSuit
     cost: 1000
-  - id: AdvancedMineralScanner
+  - id: MiningDrill
     cost: 1100
+  - id: AdvancedMineralScanner
+    cost: 1150
+  - id: OreBagMagnetic
+    cost: 1200
   - id: PKAUpgradeDamage
     cost: 1200
   # TODO: lazarus injector for 1k
