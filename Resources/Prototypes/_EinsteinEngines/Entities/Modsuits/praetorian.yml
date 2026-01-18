@@ -204,7 +204,7 @@
         - state: equipped-FEET-sealed
         shoes-vox:
         - state: equipped-FEET-sealed-vox
-        outerClothing-reptilian:
+        shoes-reptilian:
         - state: equipped-FEET-sealed-reptilian
     - type: ItemToggle
     - type: ToggleClothing
