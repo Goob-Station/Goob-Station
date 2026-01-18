@@ -61,6 +61,8 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
   - type: Armor
+    coverage: # CorvaxGoobChanges : added coverage zone
+    - Head
     modifiers:
       coefficients:
         Blunt: 0.75
