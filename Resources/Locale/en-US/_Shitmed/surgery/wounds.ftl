@@ -1,6 +1,6 @@
 inspect-wound-minor = injured
 inspect-wound-moderate = hurt
-inspect-wound-severe = badly damaged 
+inspect-wound-severe = badly damaged
 inspect-wound-critical = mangled
 inspect-wound-loss = completely mangled
 
@@ -13,3 +13,7 @@ inspect-wound-Brute-severe = heavily bruised
 inspect-wound-Burn-minor = red
 inspect-wound-Burn-moderate = blistering
 inspect-wound-Burn-severe = charred
+
+inspect-wound-weeping-avulsion-minor = torn open
+inspect-wound-weeping-avulsion-moderate = completely torn open
+inspect-wound-weeping-avulsion-severe = completely torn open, along with significant loss of tissue

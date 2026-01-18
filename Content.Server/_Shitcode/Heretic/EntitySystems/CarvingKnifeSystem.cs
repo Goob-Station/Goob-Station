@@ -16,7 +16,7 @@ using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Components.StatusEffects;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
@@ -162,7 +162,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
             ("victim", args.Victim),
             ("location", location),
             ("timer", ent.Comp.TeleportDelay),
-            ("id", CarvingAlertedStatusEffectComponent.Id),
+            ("id", Shared._Shitcode.Heretic.Components.StatusEffects.CarvingAlertedStatusEffectComponent.Id),
             ("uid", netUser.Id),
             ("coords", coordsLoc));
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
@@ -179,7 +179,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
                 AlertEffect,
                 out var effect,
                 TimeSpan.FromMilliseconds(ent.Comp.TeleportDelay + 100)))
-            EnsureComp<CarvingAlertedStatusEffectComponent>(effect.Value).Locations.Add(coords);
+            EnsureComp<Shared._Shitcode.Heretic.Components.StatusEffects.CarvingAlertedStatusEffectComponent>(effect.Value).Locations.Add(coords);
     }
 
     private void OnDeleteCarvings(Entity<CarvingKnifeComponent> ent, ref DeleteAllCarvingsEvent args)

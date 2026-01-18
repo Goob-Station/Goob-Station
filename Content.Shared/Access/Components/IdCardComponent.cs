@@ -148,6 +148,8 @@ public sealed partial class IdCardComponent : Component
     /// Determines if accesses from this card should be logged by <see cref="AccessReaderComponent"/>
     /// </summary>
     [DataField]
+    [AutoNetworkedField] // Goobstation
+    [Access( Other = AccessPermissions.ReadWrite)] // Goobstation
     public bool BypassLogging;
 
     [DataField]
@@ -157,5 +159,6 @@ public sealed partial class IdCardComponent : Component
     public LocId FullNameLocId = "access-id-card-component-owner-full-name-job-title-text";
 
     [DataField]
+    [Access( Other = AccessPermissions.ReadWrite)] // Goobstation
     public bool CanMicrowave = true;
 }

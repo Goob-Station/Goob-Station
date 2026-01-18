@@ -18,9 +18,9 @@ heretic-ascension-blade =
     A storm of steel, am I, CHAMPION OF THE TORN AND PURE. WITNESS MY ASCENSION!
 
 heretic-ascension-lock =
-    The Stewards... I hear them, now. My friends in the misted sky.
-    A Labyrinth meant to contain us now broken. Solved. A guiding string led through.
-    We cannot be contained. WE CANNOT BE LOCKED AWAY. WITNESS OUR ASCENSION!
+    The Stewards guided me, and I guided them.
+    My foes were the Locks and my blades were the Key!
+    The Labyrinth will be Locked no more, and freedom will be ours! WITNESS US!
 
 heretic-ascension-flesh =
     The heavens offered ideals and dreams. I desired more than that.

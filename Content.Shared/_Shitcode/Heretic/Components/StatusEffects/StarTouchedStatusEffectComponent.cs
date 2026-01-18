@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Shitcode.Heretic.Components;
+namespace Content.Shared._Shitcode.Heretic.Components.StatusEffects;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StarTouchedStatusEffectComponent : Component

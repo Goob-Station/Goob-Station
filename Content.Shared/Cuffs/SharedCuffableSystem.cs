@@ -117,7 +117,8 @@ using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
 using Content.Shared._EinsteinEngines.Flight;
-using Content.Shared._Goobstation.Wizard.Mutate; // Goobstation
+using Content.Shared._Goobstation.Wizard.Mutate;
+using Content.Shared._Shitcode.Heretic.Components; // Goobstation
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -597,7 +598,7 @@ namespace Content.Shared.Cuffs
             EnsureComp<HandcuffComponent>(handcuff, out var handcuffsComp);
             handcuffsComp.Used = true;
             Dirty(handcuff, handcuffsComp);
-            
+
             var ev = new TargetHandcuffedEvent();
             RaiseLocalEvent(target, ref ev);
 
@@ -637,12 +638,16 @@ namespace Content.Shared.Cuffs
             }
 
             // Goobstation Change Start
+            // TODO: make an event for the shit below
             if (TryComp<FlightComponent>(target, out var flight) && flight.On)
             {
                 _popup.PopupClient(Loc.GetString("handcuff-component-target-flying-error",
                     ("targetName", Identity.Name(target, EntityManager, user))), user, user);
                 return true;
             }
+
+            if (HasComp<LastRefugeComponent>(target))
+                return true;
             // Goobstation Change End
 
             var cuffTime = handcuffComponent.CuffTime;

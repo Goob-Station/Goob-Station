@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Physics;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Components.StatusEffects;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Heretic;
@@ -12,7 +13,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 

@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Electrocution;
 using Content.Shared.Explosion;
+using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;
@@ -25,6 +27,8 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<RustbringerComponent, ElectrocutionAttemptEvent>(OnElectrocuteAttempt);
         SubscribeLocalEvent<RustbringerComponent, BeforeHarmfulActionEvent>(OnBeforeHarmfulAction);
         SubscribeLocalEvent<RustbringerComponent, DamageModifyEvent>(OnModifyDamage);
+
+        SubscribeLocalEvent<HereticComponent, EventHereticRustCharge>(OnRustCharge);
     }
 
     private void OnModifyDamage(Entity<RustbringerComponent> ent, ref DamageModifyEvent args)
@@ -100,5 +104,37 @@ public abstract partial class SharedHereticAbilitySystem
 
         tileCoords = tileRef.GridIndices;
         return tileDef.ID == RustTile;
+    }
+
+    private void OnRustCharge(Entity<HereticComponent> ent, ref EventHereticRustCharge args)
+    {
+        if (!args.Target.IsValid(EntityManager) || !TryUseAbility(ent, args))
+            return;
+
+        var xform = Transform(ent);
+
+        if (!IsTileRust(xform.Coordinates, out _))
+        {
+            Popup.PopupClient(Loc.GetString("heretic-ability-fail-tile-underneath-not-rusted"), ent, ent);
+            return;
+        }
+
+        var ourCoords = _transform.ToMapCoordinates(args.Target);
+        var targetCoords = _transform.GetMapCoordinates(ent, xform);
+
+        if (ourCoords.MapId != targetCoords.MapId)
+            return;
+
+        var dir = ourCoords.Position - targetCoords.Position;
+
+        if (dir.LengthSquared() < 0.001f)
+            return;
+
+        _standing.Stand(ent);
+        EnsureComp<RustChargeComponent>(ent);
+        EnsureComp<RustObjectsInRadiusComponent>(ent);
+        _throw.TryThrow(ent, dir.Normalized() * args.Distance, args.Speed, playSound: false, doSpin: false);
+
+        args.Handled = true;
     }
 }

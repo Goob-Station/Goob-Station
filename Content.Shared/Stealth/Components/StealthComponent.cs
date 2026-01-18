@@ -59,6 +59,7 @@ public sealed partial class StealthComponent : Component
     /// Minimum visibility before the entity becomes unexaminable (and thus no longer appears on context menus).
     /// </summary>
     [DataField("examineThreshold")]
+    [AutoNetworkedField, Access(Other = AccessPermissions.ReadWrite)] // Goobstation
     public float ExamineThreshold = 0.5f;
 
     /// <summary>
@@ -100,18 +101,21 @@ public sealed partial class StealthComponent : Component
     ///     Localization string for how you'd like to describe this effect.
     /// </summary>
     [DataField("examinedDesc")]
+    [AutoNetworkedField, Access(Other =  AccessPermissions.ReadWrite)] // Goobstation
     public string ExaminedDesc = "stealth-visual-effect";
 
     /// <summary>
     /// Remove stealth if an attack is made
     /// </summary>
     [DataField]
+    [AutoNetworkedField, Access(Other =  AccessPermissions.ReadWrite)] // Goobstation
     public bool RevealOnAttack = true; // Goobstation - Stealth change
 
     /// <summary>
     /// Remove stealth if an attack is made
     /// </summary>
     [DataField]
+    [AutoNetworkedField, Access(Other =  AccessPermissions.ReadWrite)] // Goobstation
     public bool RevealOnDamage = true; // Goobstation - Stealth change
     /// <summary>
     ///
@@ -124,6 +128,6 @@ public sealed partial class StealthComponent : Component
     /// Is detectable by thermals?
     /// </summary>
     [DataField]
-    [AutoNetworkedField]
+    [AutoNetworkedField, Access(Other =  AccessPermissions.ReadWrite)] // Goobstation
     public bool ThermalsImmune = false; // Goobstation - Stealth change
 }

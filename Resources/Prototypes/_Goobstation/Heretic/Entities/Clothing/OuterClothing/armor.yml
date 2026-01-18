@@ -143,13 +143,27 @@
       head: ClothingHeadHatHoodHereticCosmos
 
 - type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticLock
+  suffix: Lock
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/lock_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/lock_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticLock
+
+- type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicalContraband ]
   id: ClothingOuterArmorCloakVoid
   name: void cloak
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
   # - type: UnholyItem # This should only be active when cloak is visible. Can't simply ensure/remove this component on
-  # cloak toggle due to goobmod. Should be done when heretic is mored to goobmod probably.
+  # cloak toggle due to goobmod. Should be done when heretic is moved to goobmod probably.
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:

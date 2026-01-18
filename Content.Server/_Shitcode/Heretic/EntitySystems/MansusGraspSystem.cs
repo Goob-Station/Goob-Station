@@ -194,7 +194,12 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         }
 
         // upgraded grasp
-        if (!TryApplyGraspEffectAndMark(user, hereticComp, target, grasp, out var triggerGrasp))
+        if (!TryApplyGraspEffectAndMark(user,
+                hereticComp,
+                target,
+                grasp,
+                out var triggerGrasp,
+                out var cooldownMultiplier))
             return false;
 
         if (triggerGrasp && TryComp(target, out StatusEffectsComponent? status))
@@ -209,7 +214,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
                 status);
         }
 
-        _actions.SetCooldown(hereticComp.MansusGrasp, grasp.Comp.CooldownAfterUse);
+        _actions.SetCooldown(hereticComp.MansusGrasp, grasp.Comp.CooldownAfterUse * cooldownMultiplier);
         hereticComp.MansusGrasp = EntityUid.Invalid;
         InvokeGrasp(user, grasp);
         QueueDel(grasp);
@@ -248,7 +253,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             : (ent.Value.Comp.Sound, ent.Value.Comp.Invocation);
 
         _audio.PlayPvs(sound, user);
-        _chat.TrySendInGameICMessage(user, Loc.GetString(invocation), InGameICChatType.Speak, false);
+        if (invocation != null)
+            _chat.TrySendInGameICMessage(user, Loc.GetString(invocation), InGameICChatType.Speak, false);
     }
 
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)

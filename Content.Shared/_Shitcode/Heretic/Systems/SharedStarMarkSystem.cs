@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Components.StatusEffects;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
