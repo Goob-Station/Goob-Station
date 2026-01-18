@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
-  engineVersion: 262.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 09/05/2025 21:03:24
-  entityCount: 250
-maps:
-- 234
+  category: Grid
+  engineVersion: 264.0.0
+  forkId: GoobLRP
+  forkVersion: 6df1fc8f5e51e2512a5da522d8cc6fac09fe09ea
+  time: 01/18/2026 04:23:12
+  entityCount: 252
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -24,7 +24,7 @@ entities:
       name: grid
     - type: Transform
       pos: -0.5520833,-0.5416667
-      parent: 234
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -55,6 +55,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -122,16 +127,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
-  - uid: 234
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
+    - type: FTLDrive
 - proto: AbductorAlienPad
   entities:
   - uid: 181
@@ -158,17 +154,17 @@ entities:
   - uid: 196
     components:
     - type: Transform
-      pos: 4.4806957,2.7953928
+      pos: 4.674331,3.4188242
       parent: 1
   - uid: 197
     components:
     - type: Transform
-      pos: 4.4806957,2.7953928
+      pos: 4.658177,3.3094492
       parent: 1
   - uid: 198
     components:
     - type: Transform
-      pos: 4.4806957,2.7953928
+      pos: 4.627456,3.3563242
       parent: 1
 - proto: AbductorHumanObservationConsole
   entities:
@@ -184,6 +180,17 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 1
+- proto: ActionToggleInternals
+  entities:
+  - uid: 26
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 216
+    - type: Action
+      container: 216
+      originalIconColor: '#FFFFFFFF'
 - proto: AirAlarm
   entities:
   - uid: 248
@@ -224,6 +231,13 @@ entities:
     components:
     - type: Transform
       pos: 2.4815433,0.0026143193
+      parent: 1
+- proto: Biofabricator
+  entities:
+  - uid: 224
+    components:
+    - type: Transform
+      pos: 2.5,2.5
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -586,10 +600,10 @@ entities:
       parent: 1
 - proto: CandyBowlFilledLollypopsMystery
   entities:
-  - uid: 218
+  - uid: 217
     components:
     - type: Transform
-      pos: 4.588385,2.5045772
+      pos: 4.492695,2.480742
       parent: 1
 - proto: ChairPilotSeat
   entities:
@@ -611,7 +625,7 @@ entities:
   - uid: 12
     components:
     - type: Transform
-      pos: -1.4820733,0.17776257
+      pos: 4.5197234,2.9188242
       parent: 1
 - proto: ClothingBackpackDuffelAbductorFilled
   entities:
@@ -620,16 +634,29 @@ entities:
     - type: Transform
       pos: -1.4716566,0.75067925
       parent: 1
+    - type: GroupExamine
+      group:
+      - hoverMessage: ""
+        contextText: verb-examine-group-other
+        icon: /Textures/Interface/examine-star.png
+        components:
+        - Armor
+        - ClothingSpeedModifier
+        entries:
+        - message: This decreases your running speed by [color=yellow]10%[/color].
+          priority: 0
+          component: ClothingSpeedModifier
+        title: null
 - proto: ClothingMaskBreath
   entities:
-  - uid: 217
+  - uid: 218
     components:
     - type: Transform
-      pos: -1.4554858,0.07291669
+      pos: -1.3348932,0.5133933
       parent: 1
-- proto: ComputerIFF
+- proto: ComputerIFFSyndicate
   entities:
-  - uid: 183
+  - uid: 11
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -674,6 +701,11 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 1
+  - uid: 208
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
   - uid: 209
     components:
     - type: Transform
@@ -695,11 +727,6 @@ entities:
       pos: -0.5,-1.5
       parent: 1
   - uid: 213
-    components:
-    - type: Transform
-      pos: -0.5,-1.5
-      parent: 1
-  - uid: 214
     components:
     - type: Transform
       pos: -0.5,-1.5
@@ -846,6 +873,40 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: MaterialBiomass
+  entities:
+  - uid: 183
+    components:
+    - type: Transform
+      pos: 2.295832,-0.6167982
+      parent: 1
+  - uid: 229
+    components:
+    - type: Transform
+      pos: 2.561457,-0.5074232
+      parent: 1
+  - uid: 230
+    components:
+    - type: Transform
+      pos: 2.795832,-0.6167982
+      parent: 1
+  - uid: 233
+    components:
+    - type: Transform
+      pos: 2.762569,-0.31275636
+      parent: 1
+  - uid: 234
+    components:
+    - type: Transform
+      pos: 2.336482,-0.39490277
+      parent: 1
+- proto: MedicalBiofabricator
+  entities:
+  - uid: 228
+    components:
+    - type: Transform
+      pos: -1.5,-0.5
+      parent: 1
 - proto: MedicalCyberneticEyes
   entities:
   - uid: 219
@@ -905,7 +966,7 @@ entities:
       linearDamping: 0
 - proto: MedkitToxinFilled
   entities:
-  - uid: 216
+  - uid: 215
     components:
     - type: Transform
       pos: 1.5861018,-1.6045549
@@ -915,22 +976,25 @@ entities:
       linearDamping: 0
 - proto: NitrousOxideTankFilled
   entities:
-  - uid: 230
+  - uid: 216
     components:
     - type: Transform
-      pos: -1.5075691,0.34375
+      pos: -1.563313,0.46820688
       parent: 1
+    - type: GasTank
+      toggleActionEntity: 26
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 26
 - proto: PlushieAbductor
   entities:
-  - uid: 228
+  - uid: 253
     components:
     - type: Transform
-      pos: 1.12643,5.1424003
-      parent: 1
-  - uid: 229
-    components:
-    - type: Transform
-      pos: 1.610805,4.8767753
+      pos: 1.15,5.25
       parent: 1
 - proto: Poweredlight
   entities:
@@ -952,12 +1016,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,4.5
       parent: 1
-- proto: ReinforcedPlasmaWindow
+- proto: ReinforcedUraniumWindow
   entities:
-  - uid: 26
+  - uid: 116
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 0.5,6.5
       parent: 1
 - proto: SecurityCyberneticEyes
@@ -965,17 +1028,12 @@ entities:
   - uid: 222
     components:
     - type: Transform
-      pos: 2.4815433,-0.49738568
+      pos: 2.7046454,0.30507672
       parent: 1
   - uid: 223
     components:
     - type: Transform
-      pos: 2.4815433,-0.49738568
-      parent: 1
-  - uid: 224
-    components:
-    - type: Transform
-      pos: 2.4815433,-0.49738568
+      pos: 2.7046454,0.27382672
       parent: 1
 - proto: SMESBasic
   entities:
@@ -993,7 +1051,7 @@ entities:
       parent: 1
 - proto: SpawnPointAbductorScientist
   entities:
-  - uid: 208
+  - uid: 235
     components:
     - type: Transform
       pos: 1.5,1.5
@@ -1023,12 +1081,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,2.5
-      parent: 1
-  - uid: 11
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,-0.5
       parent: 1
   - uid: 18
     components:
@@ -1060,7 +1112,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-1.5
       parent: 1
-  - uid: 215
+  - uid: 214
     components:
     - type: Transform
       pos: 0.5,-1.5
@@ -1550,12 +1602,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,4.5
-      parent: 1
-  - uid: 116
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,2.5
       parent: 1
   - uid: 120
     components:
