@@ -49,7 +49,7 @@ public abstract partial class SharedPapaDoodonSystem : EntitySystem
 
         _actions.SetIcon(actionEnt,
             new SpriteSpecifier.Rsi(
-                new ResPath("_Goobstation/Interface/doodon_orders.rsi"),
+                new ResPath("_Goobstation/Interface/DoodonActions/doodon_orders.rsi"),
                 iconState));
     }
 }

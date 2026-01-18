@@ -5,9 +5,9 @@
   components:
   - type: Action
     icon:
-      sprite: _Goobstation/Interface/doodon_orders.rsi
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
       state: follow
-    useDelay: 1
+    useDelay: 0.3
   - type: InstantAction
     event: !type:PapaDoodonCommandActionEvent
 
@@ -33,8 +33,8 @@
   components:
   - type: Action
     icon:
-      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
-      state: townhall
+      sprite: _Goobstation/Interface/DoodonActions/town_hall_actions.rsi
+      state: build
     useDelay: 5
   - type: InstantAction
     event: !type:DoodonEstablishTownHallEvent
@@ -47,8 +47,37 @@
   components:
   - type: Action
     icon:
-      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
-      state: dwelling
+      sprite: _Goobstation/Interface/DoodonActions/town_hall_actions.rsi
+      state: sight
     useDelay: 0.2
   - type: InstantAction
     event: !type:ToggleTownHallRadiusEvent
+    
+    
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonBuildSelect
+  name: Select Structure
+  components:
+  - type: Action
+    useDelay: 0.2
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_build.rsi
+      state: select
+  - type: InstantAction
+    event: !type:DoodonOpenBuildMenuActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonBuildPlace
+  name: Build Structure
+  components:
+  - type: Action
+    useDelay: 0.5
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_build.rsi
+      state: build
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:DoodonBuildWorldActionEvent

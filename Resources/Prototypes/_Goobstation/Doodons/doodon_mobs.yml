@@ -162,7 +162,26 @@
     - TauCetiBasic
     - Doodon
   - type: CanHostGuardian
-  
+  - type: DoodonBuilder
+    buildables:
+    - DoodonDwelling
+    - DoodonWarriorHut
+    - DoodonPasture
+    - DoodonMetalRefiner
+    - DoodonGlassRefiner
+    - DoodonShieldsmith
+    - DoodonSwordsmith
+    - DoodonGemCutter
+  - type: UserInterface
+    interfaces:
+      enum.Content.Goobstation.Shared.Doodon.Building.DoodonBuildUiKey.Key:
+        type: DoodonBuildMenuBoundUserInterface
+  - type: ActionGrant
+    actions:
+      - ActionDoodonBuildSelect
+      - ActionDoodonBuildPlace
+  - type: DoodonBuildMenu
+    
 - type: entity      # Worker
   parent: BaseDoodon
   id: WorkerDoodon

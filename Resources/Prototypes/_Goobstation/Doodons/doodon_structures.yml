@@ -77,17 +77,17 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: dwelling
-  - type: Construction
-    graph: DDwellingGraph
-    node: DoodonDwellingComplete
-    placementMode: SnapgridCenter
   - type: DoodonBuilding
     housingType: Worker
     housingCapacity: 1
+    resinCost: 3 # Resin cost for the Building itself
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: dwelling
   - type: DoodonMachine
     outputPrototype: WorkerDoodon
     resinStack: DoodonResin
-    resinCost: 3
+    resinCost: 1  # Resin cost for the Unit to respawn
     processTime: 3
     respectPopulationCap: true
     spawnOnMapInit: true
@@ -103,13 +103,12 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: warriorhut
-  - type: Construction
-    graph: WarriorHutGraph
-    node: WarriorHutComplete
-    placementMode: SnapgridCenter
   - type: DoodonBuilding
     housingType: Warrior
-    housingCapacity: 1
+    resinCost: 6
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: warriorhut
   - type: DoodonMachine
     outputPrototype: WarriorDoodon
     resinStack: DoodonResin
@@ -118,7 +117,7 @@
     respectPopulationCap: true
     spawnOnMapInit: true
     producedHousing: Warrior
-    
+  
 - type: entity          # Metal refiner
   parent: BaseDoodonStructure
   id: DoodonMetalRefiner
@@ -128,10 +127,11 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: metalrefiner
-  - type: Construction
-    graph: DoodonMetalRefinerGraph
-    node: MetalRefinerComplete
-    placementMode: SnapgridCenter
+  - type: DoodonBuilding
+    resinCost: 4
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: metalrefiner
   - type: DoodonMachine
     outputPrototype: MaterialDoodonResin1
     resinStack: Steel
@@ -152,10 +152,11 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: glassrefiner
-  - type: Construction
-    graph: DoodonGlassRefinerGraph
-    node: GlassRefinerComplete
-    placementMode: SnapgridCenter
+  - type: DoodonBuilding
+    resinCost: 4
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: glassrefiner
   - type: DoodonMachine
     outputPrototype: MaterialDoodonResin1
     resinStack: Glass
@@ -178,9 +179,10 @@
   - type: DoodonBuilding
     housingType: Moodon
     housingCapacity: 3
-  - type: Construction
-    graph: DoodonPastureGraph
-    node: PastureComplete
+    resinCost: 4
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: pasture
   - type: DoodonMachine
     outputPrototype: Moodon
     resinStack: DoodonResin
@@ -189,27 +191,32 @@
     respectPopulationCap: false
     spawnOnMapInit: true
     
-    
-- type: entity                  # Doohickery
-  parent: BaseDoodonStructure
-  id: DoodonDoohickery
-  name: doodon doohickery
-  description: A building dedicated to making doohickeys. Science can make use of these.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
-    state: doohickery
-  - type: Construction
-    graph: DoodonDoohickeryGraph
-    node: DoohickeryComplete
-    placementMode: SnapgridCenter
-  - type: DoodonMachine
-    outputPrototype: MaterialDoodonResin1
-    resinStack: Steel
-    resinCost: 4
-    processTime: 3
-    respectPopulationCap: false
-    spawnOnMapInit: false
+    # Not implemented due to Arti stuff
+# - type: entity                  # Doohickery
+  # parent: BaseDoodonStructure
+  # id: DoodonDoohickery
+  # name: doodon doohickery
+  # description: A building dedicated to making doohickeys. Science can make use of these.
+  # components:
+  # - type: Sprite
+    # sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    # state: doohickery
+  # - type: Construction
+    # graph: DoodonDoohickeryGraph
+    # node: DoohickeryComplete
+    # placementMode: SnapgridCenter
+  # - type: DoodonBuilding
+    # resinCost: 3
+    # buildIcon:
+      # sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      # state: glassrefiner
+  # - type: DoodonMachine
+    # outputPrototype: MaterialDoodonResin1
+    # resinStack: Steel
+    # resinCost: 4
+    # processTime: 3
+    # respectPopulationCap: false
+    # spawnOnMapInit: false
     
 - type: entity                      # Shieldsmith
   parent: BaseDoodonStructure
@@ -220,9 +227,11 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: shieldsmith
-  - type: Construction
-    graph: DoodonShieldsmithGraph
-    node: ShieldsmithComplete
+  - type: DoodonBuilding
+    resinCost: 3
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: shieldsmith
   - type: DoodonMachine
     outputPrototype: DoodonShield
     resinStack: DoodonResin
@@ -240,9 +249,11 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: swordsmith
-  - type: Construction
-    graph: DoodonSwordsmithGraph
-    node: SwordsmithComplete
+  - type: DoodonBuilding
+    resinCost: 3
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: swordsmith
   - type: DoodonMachine
     outputPrototype: DoodonSword
     resinStack: DoodonResin
@@ -260,9 +271,11 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: gemcutter
-  - type: Construction
-    graph: DoodonGemCutterGraph
-    node: GemCutterComplete
+  - type: DoodonBuilding
+    resinCost: 3
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: gemcutter
   - type: DoodonMachine
     outputPrototype: DoodonGem
     resinStack: DoodonResin

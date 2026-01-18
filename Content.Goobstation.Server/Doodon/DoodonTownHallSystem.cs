@@ -2,6 +2,8 @@ using Content.Goobstation.Shared.Doodons;
 using Robust.Shared.GameObjects;
 using Content.Shared.Examine;
 using Robust.Shared.Utility;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Server.Doodons;
 
@@ -31,6 +33,7 @@ public sealed class DoodonTownHallSystem : EntitySystem
         SubscribeLocalEvent<DoodonTownHallComponent, ExaminedEvent>(OnHallExamined);
         SubscribeLocalEvent<DoodonTownHallComponent, ToggleTownHallRadiusEvent>(OnToggleRadius);
         SubscribeLocalEvent<DoodonTownHallComponent, ComponentShutdown>(OnHallShutdown);
+        SubscribeLocalEvent<DoodonComponent, MobStateChangedEvent>(OnDoodonMobStateChanged);
     }
 
     public override void Update(float frameTime)
@@ -154,6 +157,11 @@ public sealed class DoodonTownHallSystem : EntitySystem
     {
         var doodonXform = Transform(uid);
 
+        // If we already have a hall and it still exists, KEEP IT.
+        // This is what stops population from dropping when leaving influence.
+        if (doodon.TownHall is { } existingHall && !Deleted(existingHall) && HasComp<DoodonTownHallComponent>(existingHall))
+            return;
+
         EntityUid? closestHall = null;
         float closestDistance = float.MaxValue;
 
@@ -162,13 +170,12 @@ public sealed class DoodonTownHallSystem : EntitySystem
         {
             var hallXform = Transform(hallUid);
 
-            // Must be on same map
             if (hallXform.MapID != doodonXform.MapID)
                 continue;
 
             var distance = (hallXform.WorldPosition - doodonXform.WorldPosition).Length();
 
-            // Must be in radius
+            // Only assign if they are currently inside some hall's influence radius.
             if (distance > hall.InfluenceRadius)
                 continue;
 
@@ -179,19 +186,14 @@ public sealed class DoodonTownHallSystem : EntitySystem
             }
         }
 
-        // Remove from old hall if it had one
-        if (doodon.TownHall is { } oldHallUid && TryComp<DoodonTownHallComponent>(oldHallUid, out var oldHall))
-        {
-            oldHall.Doodons.Remove(uid);
-        }
-
+        // No hall in range AND we had no valid hall -> remain unassigned.
         if (closestHall is null)
         {
-            // No hall in range: leave unassigned (up to you if you want to delete / disable)
             doodon.TownHall = null;
             return;
         }
 
+        // Assign + track on hall
         doodon.TownHall = closestHall;
 
         if (TryComp<DoodonTownHallComponent>(closestHall.Value, out var hallComp))
@@ -298,24 +300,21 @@ public sealed class DoodonTownHallSystem : EntitySystem
             if (Deleted(d) || !TryComp<DoodonComponent>(d, out var doodon))
                 continue;
 
-            // Always count occupancy-by-type (for the X/Y fractions)
+            // Ignore dead doodons so population doesn't count corpses
+            if (TryComp<MobStateComponent>(d, out var mob) && mob.CurrentState == MobState.Dead)
+                continue;
+
             switch (doodon.RequiredHousing)
             {
-                case DoodonHousingType.Worker:
-                    workerPop++;
-                    break;
-                case DoodonHousingType.Warrior:
-                    warriorPop++;
-                    break;
-                case DoodonHousingType.Moodon:
-                    moodonPop++;
-                    break;
+                case DoodonHousingType.Worker: workerPop++; break;
+                case DoodonHousingType.Warrior: warriorPop++; break;
+                case DoodonHousingType.Moodon: moodonPop++; break;
             }
 
-            // Only some doodons count toward "Total Population"
             if (doodon.CountsTowardPopulation)
                 totalPopulation++;
         }
+
     }
 
     private void OnToggleRadius(EntityUid uid, DoodonTownHallComponent comp, ToggleTownHallRadiusEvent args)
@@ -369,5 +368,15 @@ public sealed class DoodonTownHallSystem : EntitySystem
         comp.Buildings.Clear();
         comp.Doodons.Clear();
     }
+    private void OnDoodonMobStateChanged(EntityUid uid, DoodonComponent comp, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
 
+        if (comp.TownHall is not { } hallUid)
+            return;
+
+        if (TryComp<DoodonTownHallComponent>(hallUid, out var hallComp))
+            hallComp.Doodons.Remove(uid);
+    }
 }
