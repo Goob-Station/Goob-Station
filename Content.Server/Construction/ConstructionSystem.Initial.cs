@@ -416,7 +416,7 @@ namespace Content.Server.Construction
             }
 
             // Goobstation edit start
-            if (!AvailableConstructionGroups(user).Overlaps(constructionPrototype.Groups))
+            if (!AvailableConstructionGroups(user).ToHashSet().Overlaps(constructionPrototype.Groups))
             {
                 Log.Error($"User {ToPrettyString(user)} tried to start a construction {prototype} that it doesn't have knowledge about!");
                 return false;
@@ -526,7 +526,7 @@ namespace Content.Server.Construction
             }
 
             // Goobstation edit start
-            if (!AvailableConstructionGroups(user).Overlaps(constructionPrototype.Groups))
+            if (!AvailableConstructionGroups(user).ToHashSet().Overlaps(constructionPrototype.Groups))
             {
                 Log.Error($"User {ToPrettyString(user)} tried to start a construction {prototypeName} that it doesn't have knowledge about!");
                 RaiseNetworkEvent(new AckStructureConstructionMessage(ack), user);

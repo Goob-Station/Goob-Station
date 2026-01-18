@@ -193,8 +193,9 @@ public abstract partial class InteractionTest
     - CanPilot
   - type: UserInterface
   - type: KnowledgeGrant
-    table: !type:NestedSelector
-      tableId: AllConstructions
+    table: !type:AllSelector
+      children:
+      - id: ConstructionAllKnowledge
 "; // Goobstation edit - added KnowledgeGrant
 
     [SetUp]

@@ -157,7 +157,7 @@ public sealed class CharacterUIController : UIController // Goobstation edit - b
             return;
         }
 
-        var (entity, job, objectives, briefing, entityName, _) = data;
+        var (entity, job, objectives, briefing, entityName) = data;
 
         _window.SpriteView.SetEntity(entity);
 

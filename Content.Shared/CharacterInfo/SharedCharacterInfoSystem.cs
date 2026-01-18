@@ -12,9 +12,6 @@
 
 using Content.Shared.Objectives;
 using Robust.Shared.Serialization;
-using System.Text; // Goobstation edit
-using Content.Goobstation.Common.Knowledge.Prototypes; // Goobstation edit
-using Robust.Shared.Prototypes;  // Goobstation edit
 
 namespace Content.Shared.CharacterInfo;
 
@@ -36,14 +33,12 @@ public sealed class CharacterInfoEvent : EntityEventArgs
     public readonly string JobTitle;
     public readonly Dictionary<string, List<ObjectiveInfo>> Objectives;
     public readonly string? Briefing;
-    public readonly Dictionary<ProtoId<KnowledgeCategoryPrototype>, List<string>> Knowledge; // Goobstation edit
 
-    public CharacterInfoEvent(NetEntity netEntity, string jobTitle, Dictionary<string, List<ObjectiveInfo>> objectives, string? briefing, Dictionary<ProtoId<KnowledgeCategoryPrototype>, List<string>> knowledge)  // Goobstation edit - added knowledge
+    public CharacterInfoEvent(NetEntity netEntity, string jobTitle, Dictionary<string, List<ObjectiveInfo>> objectives, string? briefing)
     {
         NetEntity = netEntity;
         JobTitle = jobTitle;
         Objectives = objectives;
         Briefing = briefing;
-        Knowledge = knowledge;
     }
 }

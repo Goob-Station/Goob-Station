@@ -26,7 +26,7 @@ using Content.Shared.Objectives.Systems;
 
 namespace Content.Server.CharacterInfo;
 
-public sealed partial class CharacterInfoSystem : EntitySystem // Goobstation edit - made partial
+public sealed class CharacterInfoSystem : EntitySystem
 {
     [Dependency] private readonly JobSystem _jobs = default!;
     [Dependency] private readonly MindSystem _minds = default!;
@@ -74,6 +74,6 @@ public sealed partial class CharacterInfoSystem : EntitySystem // Goobstation ed
             briefing = _roles.MindGetBriefing(mindId);
         }
 
-        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing, GetKnowledgeTabInfo(entity)), args.SenderSession);  // Goobstation edit - added knowledge
+        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing), args.SenderSession);
     }
 }

@@ -61,6 +61,9 @@
     identifier: "nerveSystem"
     causesDeath: true
   - type: KnowledgeContainer # Goobstation - Knowledge
+  - type: ContainerContainer
+    containers:
+      knowledge: !type:Container
 
 - type: entity
   id: OrganAnimalEyes

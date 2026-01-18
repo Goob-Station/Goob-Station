@@ -28,3 +28,6 @@
   canBuildInImpassable: true
   conditions:
     - !type:TileNotBlocked
+  groups:
+  - Furniture
+  - Technological

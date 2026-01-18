@@ -20,22 +20,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Knowledge.Systems;
-using Content.Shared.Body.Systems;
 using Content.Shared.Construction.Components;
-using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using static Content.Shared.Interaction.SharedInteractionSystem;
 
 namespace Content.Shared.Construction
 {
-    public abstract class SharedConstructionSystem : EntitySystem
+    public abstract partial class SharedConstructionSystem : EntitySystem // Goobstation - made partial
     {
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
         [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-        [Dependency] private readonly KnowledgeSystem _knowledge = default!;
 
         /// <summary>
         ///     Get predicate for construction obstruction checks.
@@ -58,18 +54,6 @@ namespace Content.Shared.Construction
                 return Loc.GetString(info.ExamineName.Value);
 
             return PrototypeManager.Index(info.DefaultPrototype).Name;
-        }
-
-        /// <summary>
-        /// Goobstation
-        /// Returns all available construction groups for that entity.
-        /// </summary>
-        public HashSet<ProtoId<ConstructionGroupPrototype>> AvailableConstructionGroups(EntityUid user)
-        {
-            if (!_knowledge.TryGetKnowledgeWithComp<ConstructionKnowledgeComponent>(user, out var knowledge))
-                return Array.Empty<ProtoId<ConstructionGroupPrototype>>().ToHashSet();
-
-            return knowledge.Select(x => x.Comp1.Group).ToHashSet();
         }
     }
 }

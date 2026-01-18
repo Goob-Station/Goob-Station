@@ -45,8 +45,9 @@
     - Completed
     - Failed
   - type: KnowledgeGrant
-    table: !type:NestedSelector
-      tableId: AllConstructions
+    table: !type:AllSelector
+      children:
+      - id: ConstructionAllKnowledge
   # Power
   - type: ApcPowerReceiver
     powerLoad: 1000

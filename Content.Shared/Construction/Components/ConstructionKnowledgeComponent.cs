@@ -12,8 +12,9 @@ namespace Content.Shared.Construction.Components;
 public sealed partial class ConstructionKnowledgeComponent : Component
 {
     /// <summary>
-    /// Group that this knowledge grants.
+    /// Groups that this knowledge grants.
     /// </summary>
     [DataField(required: true)]
-    public ProtoId<ConstructionGroupPrototype> Group;
+    [AlwaysPushInheritance]
+    public HashSet<ProtoId<ConstructionGroupPrototype>> Groups;
 }

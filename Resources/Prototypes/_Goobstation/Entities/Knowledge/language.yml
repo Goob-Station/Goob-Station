@@ -5,7 +5,6 @@
   name: Language knowledge
   components:
   - type: Knowledge
-    category: Skills
     level: 800
     color: "#0b30a8"
   - type: LanguageKnowledge

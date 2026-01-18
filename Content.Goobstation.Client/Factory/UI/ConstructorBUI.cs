@@ -124,7 +124,7 @@ public sealed class ConstructorBUI : BoundUserInterface
         var isEmptyCategory = string.IsNullOrEmpty(category) || category == _forAllCategoryName;
 
         _recipes.Clear();
-        var availableGroups = _construction.AvailableConstructionGroups(user); // Goobstation edit
+        var availableGroups = _construction.AvailableConstructionGroups(user).ToHashSet(); // Goobstation edit
         foreach (var recipe in _proto.EnumeratePrototypes<ConstructionPrototype>())
         {
             if (recipe.Hide)

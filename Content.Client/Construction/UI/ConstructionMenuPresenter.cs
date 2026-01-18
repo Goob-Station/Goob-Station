@@ -311,7 +311,7 @@ namespace Content.Client.Construction.UI
             // Goobstation start
             if (_playerManager.LocalEntity == null)
                 return recipes;
-            var availableGroups = _constructionSystem!.AvailableConstructionGroups(_playerManager.LocalEntity.Value);
+            var availableGroups = _constructionSystem!.AvailableConstructionGroups(_playerManager.LocalEntity.Value).ToHashSet();
             // Goobstation end
 
             foreach (var recipe in _prototypeManager.EnumeratePrototypes<ConstructionPrototype>())

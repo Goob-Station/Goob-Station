@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Client.CharacterInfo;
 using Content.Client.Stylesheets;
-using Content.Client.UserInterface.Systems._GoobCharacter.Controls;
 using Content.Client.UserInterface.Systems.Character.Controls;
 using Content.Client.UserInterface.Systems.Objectives.Controls;
 using Content.Shared.Mind;
@@ -42,12 +41,12 @@ public sealed partial class GoobCharacterWindow : DefaultWindow
     public void CharacterUpdated(CharacterInfoSystem.CharacterData data)
     {
         SetCharacterTab(data);
-        SetKnowledgeTab(data);
+        //SetKnowledgeTab(data);
     }
 
     private void SetCharacterTab(CharacterInfoSystem.CharacterData data)
     {
-        var (entity, job, objectives, briefing, entityName, _) = data;
+        var (entity, job, objectives, briefing, entityName) = data;
 
         CharacterTab.SpriteView.SetEntity(entity);
 
@@ -116,7 +115,7 @@ public sealed partial class GoobCharacterWindow : DefaultWindow
         CharacterTab.RolePlaceholder.Visible = briefing == null && !controls.Any() && !objectives.Any();
     }
 
-    private void SetKnowledgeTab(CharacterInfoSystem.CharacterData data)
+    /*private void SetKnowledgeTab(CharacterInfoSystem.CharacterData data)
     {
         var (_, _, _, _, _, knowledge) = data;
 
@@ -164,7 +163,7 @@ public sealed partial class GoobCharacterWindow : DefaultWindow
         }
 
         KnowledgeTab.KnowledgePlaceholder.Visible = !knowledge.Any();
-    }
+    }*/
 
     public void UpdateRoleType()
     {

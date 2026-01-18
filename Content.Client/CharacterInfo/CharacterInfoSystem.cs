@@ -16,13 +16,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Text;
-using Content.Goobstation.Common.Knowledge.Prototypes;
 using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.CharacterInfo;
 
@@ -53,7 +50,7 @@ public sealed class CharacterInfoSystem : EntitySystem
     private void OnCharacterInfoEvent(CharacterInfoEvent msg, EntitySessionEventArgs args)
     {
         var entity = GetEntity(msg.NetEntity);
-        var data = new CharacterData(entity, msg.JobTitle, msg.Objectives, msg.Briefing, Name(entity), msg.Knowledge); // Goobstation edit
+        var data = new CharacterData(entity, msg.JobTitle, msg.Objectives, msg.Briefing, Name(entity));
 
         OnCharacterUpdate?.Invoke(data);
     }
@@ -70,8 +67,7 @@ public sealed class CharacterInfoSystem : EntitySystem
         string Job,
         Dictionary<string, List<ObjectiveInfo>> Objectives,
         string? Briefing,
-        string EntityName,
-        Dictionary<ProtoId<KnowledgeCategoryPrototype>, List<string>> Knowledge // Goobstation edit
+        string EntityName
     );
 
     /// <summary>

@@ -1,6 +1,5 @@
-﻿using Content.Goobstation.Common.Knowledge.Prototypes;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
+﻿using Robust.Shared.GameStates;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Common.Knowledge.Components;
 
@@ -16,12 +15,6 @@ public sealed partial class KnowledgeComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? AppliedTo;
-
-    /// <summary>
-    /// Category of that knowledge. Used for distinguishing memories from skills.
-    /// </summary>
-    [DataField(required: true)]
-    public ProtoId<KnowledgeCategoryPrototype> Category;
 
     /// <summary>
     /// Relative level of how easy it is to forget this type of knowledge.
@@ -44,4 +37,16 @@ public sealed partial class KnowledgeComponent : Component
     /// </summary>
     [DataField]
     public bool Hidden;
+
+    /// <summary>
+    /// Color of the sidebar in the character UI.
+    /// </summary>
+    [DataField]
+    public Color Color = Color.White;
+
+    /// <summary>
+    /// Sprite to display in the character menu.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? Sprite;
 }

@@ -140,10 +140,11 @@
   - type: StunVisuals
   # Goobstation start
   # For now, it's just all possible construction groups, but in the future
-  # we may start limiting recipes more when we have mechanics to actually learn them.
+  # we may start limiting recipes more, when we have mechanics to actually learn them.
   - type: KnowledgeGrant
-    table: !type:NestedSelector
-      tableId: AllConstructions
+    table: !type:AllSelector
+      children:
+      - id: ConstructionAllKnowledge
   # Goobstation end
 
 - type: entity

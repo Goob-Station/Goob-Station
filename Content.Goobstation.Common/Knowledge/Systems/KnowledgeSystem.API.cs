@@ -306,9 +306,9 @@ public sealed partial class KnowledgeSystem
     /// <returns>Entity that contains knowledge related to original uid.</returns>
     public Entity<KnowledgeContainerComponent> EnsureKnowledgeContainer(EntityUid uid)
     {
-        // Raise event on all children
+        // Raise event on an entity. Stuff like BodySystem should give us a result
         var ev = new KnowledgeContainerRelayEvent(uid);
-        RecursiveRaiseRelayEvent(uid, ref ev);
+        RaiseLocalEvent(uid, ref ev);
 
         // Check entity that we have found
         if (_containerQuery.TryComp(ev.Found, out var knowledgeFound))
@@ -322,9 +322,9 @@ public sealed partial class KnowledgeSystem
     /// <inheritdoc cref="EnsureKnowledgeContainer(Robust.Shared.GameObjects.EntityUid)"/>
     public void EnsureKnowledgeContainer(EntityUid uid, out Entity<KnowledgeContainerComponent> container)
     {
-        // Raise event on all children
+        // Raise event on an entity. Stuff like BodySystem should give us a result
         var ev = new KnowledgeContainerRelayEvent(uid);
-        RecursiveRaiseRelayEvent(uid, ref ev);
+        RaiseLocalEvent(uid, ref ev);
 
         // Check entity that we have found
         if (_containerQuery.TryComp(ev.Found, out var knowledgeFound))
@@ -336,16 +336,6 @@ public sealed partial class KnowledgeSystem
         // If not found just give up and ensure it on the entity itself
         var knowledge = EnsureComp<KnowledgeContainerComponent>(uid);
         container = (uid, knowledge);
-    }
-
-    private void RecursiveRaiseRelayEvent(EntityUid uid, ref KnowledgeContainerRelayEvent ev)
-    {
-        var enumerator = Transform(uid).ChildEnumerator;
-        while (enumerator.MoveNext(out var child))
-        {
-            RaiseLocalEvent(child, ref ev);
-            RecursiveRaiseRelayEvent(child, ref ev);
-        }
     }
 
     private void EnsureContainer(Entity<KnowledgeContainerComponent> ent)
