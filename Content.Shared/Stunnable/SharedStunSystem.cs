@@ -101,7 +101,6 @@ namespace Content.Shared.Stunnable;
 public abstract partial class SharedStunSystem : EntitySystem
 {
     public static readonly EntProtoId StunId = "StatusEffectStunned";
-    public static readonly EntProtoId KnockdownId = "StatusEffectKnockdown"; // todo marty kill probably
 
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
