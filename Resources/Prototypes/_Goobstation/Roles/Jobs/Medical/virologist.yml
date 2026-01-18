@@ -11,6 +11,8 @@
   icon: "JobIconVirologist"
   supervisors: job-supervisors-cmo
   goobcoins: 20 #Goob content
+  skills: # CorvaxGoob-Skills
+  - MedicalEquipment
   guides:
   - MedicalDoctor
   - Medical
