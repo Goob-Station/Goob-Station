@@ -51,7 +51,7 @@
     state: pod_0
   discipline: CivilianServices
   tier: 3
-  position: 4, 5
+  position: 5, 5
   technologyPrerequisites:
   - BiochemicalStasis
   cost: 20000
