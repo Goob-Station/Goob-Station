@@ -3,6 +3,11 @@
   id: ReptilianScream
   files:
   - /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+#alternative screams from RMC
+- type: soundCollection
+  id: ReptilianScreech
+  files:
   - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_2.ogg
   - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_3.ogg
   - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_4.ogg

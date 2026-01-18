@@ -18,10 +18,6 @@
     - shrieks
     - shrieking
     - shrieked
-    - screech
-    - screeches
-    - screeching
-    - screeched
     - yell
     - yells
     - yelled
@@ -600,3 +596,18 @@
     - purrs
     - purr
     - purred
+
+- type: emote # Omu
+  id: ReptilianScreech
+  name: chat-emote-name-reptile-screech
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/scream.png
+  chatMessages: ["chat-emote-msg-reptile-screech"]
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  chatTriggers:
+    - screech
+    - screeches
+    - screeching
+    - screeched
