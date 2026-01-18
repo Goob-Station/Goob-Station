@@ -1,7 +1,8 @@
 using Content.Goobstation.Shared.Throwing;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Throwing;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map.Components;
 
 namespace Content.Goobstation.Server.Throwing;
 
@@ -36,8 +37,17 @@ public sealed class SwapTeleportOnThrowSystem : EntitySystem
         var throwerPos = throwerTransform.Coordinates;
         var targetPos = targetTransform.Coordinates;
 
+        var throwerParent = throwerTransform.ParentUid;
+        var targetParent = throwerTransform.ParentUid;
+
         _transform.SetCoordinates(thrower.Value, targetPos);
         _transform.SetCoordinates(target, throwerPos);
+
+        if (!HasComp<MapGridComponent>(targetParent))
+            _transform.SetParent(thrower.Value, throwerParent);
+
+        if (!HasComp<MapGridComponent>(throwerParent))
+            _transform.SetParent(target, targetParent);
 
         _audio.PlayPvs(ent.Comp.OriginSound, throwerPos);
         _audio.PlayPvs(ent.Comp.TargetSound, targetPos);
