@@ -3,3 +3,8 @@
   id: ChemLabcoatLong
   equipment:
     outerClothing: ClothingOuterCoatLabcoatChemLong
+
+- type: loadout
+  id: EpiLabcoat
+  equipment:
+    outerClothing: ClothingOuterCoatEpi

@@ -8,3 +8,34 @@
   loadouts:
   - BeltAssaultFilled
   - BeltBlueshieldEliteFilled #Starlight Sprite Port
+  - BsoSwordBelt #For the swordies
+
+#Brigmed/Corpsman
+
+- type: loadoutGroup
+  id: CorpsmanGlasses
+  name: loadout-group-corpsman-glasses
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - GlassesMedSec
+  - GlassesCorpsman
+
+- type: loadoutGroup
+  id: CorpsmanBelt
+  name: loadout-group-corpsman-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CorpsmanBelt
+  - CorpsmanWebbing
+
+- type: loadoutGroup
+  id: CorpsmanHeadset
+  name: loadout-group-corpsman-headset
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicHeadset
+  - BrigmedicAltHeadset
+

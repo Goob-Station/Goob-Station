@@ -90,7 +90,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockClothesFilled
-  cost: 5300
+  cost: 6000 # Omu 5300 -> 6000
   category: cargoproduct-category-name-service
   group: market
 

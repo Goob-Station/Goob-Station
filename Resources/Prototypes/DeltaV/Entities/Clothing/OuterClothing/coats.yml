@@ -1,0 +1,41 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatEpi
+  name: epistemics lab coat # DeltaV - Epistemics Department replacing Science
+  description: An old labcoat salvaged from the Regalis sector. Smells like magic.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/epicoat.rsi # DeltaV - Epistemic lab coat
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/epicoat.rsi # DeltaV - Epistemic lab coat
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Caustic: 0.65
+  
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRndMysta
+  name: mystagogue lab coat # Delta V - Mystagogue new coat
+  description: Similar to the standard model but with more purple and gold. # Delta V - Mystagogue new coat
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/mystacoat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/mystacoat.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Caustic: 0.65
