@@ -6,6 +6,7 @@
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/organs.rsi
     state: mush_stomach
+  - type: SolutionContainerManager
     solutions:
       stomach:
         maxVol: 75

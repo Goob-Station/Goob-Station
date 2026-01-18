@@ -82,168 +82,168 @@
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismHead
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
-    state: head
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
+    state: head_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismHeadMale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismHeadFemale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismChestMale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismGroin
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
-    state: groin
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
+    state: groin_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismGroinMale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismLLeg
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismLArm
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismLHand
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismLFoot
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismRLeg
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismRArm
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismRHand
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismRFoot
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: r_foot
 
 # Alt
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltHead
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: head
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltHeadMale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltHeadFemale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltChestMale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltGroin
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: groin
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltGroinMale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltLLeg
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltLArm
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltLHand
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltLFoot
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltRLeg
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltRArm
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltRHand
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobMassMushroomOrganismAltRFoot
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: r_foot

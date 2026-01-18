@@ -130,7 +130,7 @@
         - ReagentId: GreyMatter
           Quantity: 5
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism/mass_mushroom_organism.rsi
     state: produce
   - type: Item
     heldPrefix: produce
@@ -143,6 +143,6 @@
   - type: Clothing
     slots:
     - HEAD
-    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism/mass_mushroom_organism.rsi
     equipSound: /Audio/_Goobstation/MassMushroomOrganism/equipsound.ogg
   - type: MassMushroomOrganism

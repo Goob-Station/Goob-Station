@@ -7,7 +7,7 @@
   - type: SporeDivision
   - type: Hunger
   - type: Icon
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
     state: full
   - type: Thirst
   - type: Butcherable
@@ -60,7 +60,7 @@
     - Hair
     - Snout
   - type: Icon
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
     state: full
   - type: Body
     prototype: MassMushroomOrganismAlt

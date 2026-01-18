@@ -22,7 +22,7 @@ public sealed class MassMushroomOrganismSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        var rsi = new ResPath("/Textures/_Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism.rsi/mutation_stages");
+        var rsi = new ResPath("/Textures/_Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism/mutation_stages.rsi");
         var phases = new (FungalInfectionPhaseVisuals Layer, string State)[]
         {
             (FungalInfectionPhaseVisuals.First,  component.FirstStageVisual),

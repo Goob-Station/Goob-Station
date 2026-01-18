@@ -5,9 +5,9 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
   - type: Icon
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/parts.rsi
   - type: BodyPart
     species: MassMushroomOrganism
   - type: Damageable
@@ -20,9 +20,9 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
   - type: Icon
-    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts/alt.rsi
   - type: BodyPart
     species: MassMushroomOrganismAlt
   - type: Damageable

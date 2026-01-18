@@ -65,7 +65,7 @@
   name: seeds-mass-mushroom-organism-name
   noun: seeds-noun-spores
   displayName: seeds-mass-mushroom-organism-display-name
-  plantRsi: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism.rsi
+  plantRsi: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism/mass_mushroom_organism.rsi
   packetPrototype: MassMushroomOrganismSeeds
   productPrototypes:
   - FoodMassMushroomOrganism
