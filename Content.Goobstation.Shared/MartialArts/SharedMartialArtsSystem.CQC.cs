@@ -27,11 +27,11 @@ using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.NameIdentifier;
 using Content.Shared.Standing;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
@@ -134,8 +134,8 @@ public partial class SharedMartialArtsSystem
                     puller.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
                     targeting.Target == TargetBodyPart.Head
                     && _mobThreshold.TryGetDeadThreshold(args.Target, out var damageToKill)
-                    && TryComp(args.Target, out NameIdentifierComponent? nameId)
-                    && (nameId.Group == "Monkey" || nameId.Group == "Kobold"))
+                    && TryComp(args.Target, out HumanoidAppearanceComponent? appearance)
+                    && (appearance.Species == "Monkey" || appearance.Species == "Kobold"))
                 {
                     _pulling.TryStopPull(args.Target, pullable);
 
