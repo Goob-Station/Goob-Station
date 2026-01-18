@@ -6,4 +6,6 @@
   - type: Seed
     seedId: massMushroomOrganism
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/chanterelle.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism.rsi
+    state: seed
+

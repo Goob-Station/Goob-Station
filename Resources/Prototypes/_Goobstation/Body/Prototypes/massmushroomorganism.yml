@@ -4,11 +4,11 @@
   root: chest
   slots:
     head:
-      part: HeadMassMushroomOrganism
+      part: HeadHuman
       connections:
       - chest
       organs:
-        brain: OrganMassMushroomOrganismBrain
+        brain: OrganHumanBrain
         eyes: OrganMassMushroomOrganismEyes
     chest:
       part: ChestMassMushroomOrganism
@@ -18,7 +18,7 @@
       - left arm
       - head # Shitmed
       organs:
-        heart: OrganMassMushroomOrganismHeart
+        heart: OrganHumanHeart
         lungs: OrganMassMushroomOrganismLungs
     groin:
       part: GroinMassMushroomOrganism
@@ -27,29 +27,85 @@
       - left leg
       organs:
         stomach: OrganMassMushroomOrganismStomach
-        liver: OrganMassMushroomOrganismLiver
-        kidneys: OrganMassMushroomOrganismKidneys
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
     right arm:
-      part: RightArmMassMushroomOrganism
+      part: RightArmHuman
       connections:
       - right hand
     left arm:
-      part: LeftArmMassMushroomOrganism
+      part: LeftArmHuman
       connections:
       - left hand
     right hand:
-      part: RightHandMassMushroomOrganism
+      part: RightHandHuman
     left hand:
-      part: LeftHandMassMushroomOrganism
+      part: LeftHandHuman
     right leg:
-      part: RightLegMassMushroomOrganism
+      part: RightLegHuman
       connections:
       - right foot
     left leg:
-      part: LeftLegMassMushroomOrganism
+      part: LeftLegHuman
       connections:
       - left foot
     right foot:
-      part: RightFootMassMushroomOrganism
+      part: RightFootHuman
     left foot:
-      part: LeftFootMassMushroomOrganism
+      part: LeftFootHuman
+
+- type: body
+  id: MassMushroomOrganismAlt
+  name: "mass mushroom organism alt"
+  root: chest
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganMassMushroomOrganismEyes
+    chest:
+      part: ChestMassMushroomOrganismAlt
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganMassMushroomOrganismLungs
+    groin:
+      part: GroinMassMushroomOrganismAlt
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganMassMushroomOrganismStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman

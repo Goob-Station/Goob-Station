@@ -63,3 +63,12 @@
   - chat-speech-verb-feroxi-2
   - chat-speech-verb-feroxi-3
   - chat-speech-verb-feroxi-4
+
+- type: speechVerb
+  id: MassMushroomOrganism
+  name: chat-speech-verb-name-massmushroomorganism
+  speechVerbStrings:
+  - chat-speech-verb-massmushroomorganism-1
+  - chat-speech-verb-massmushroomorganism-2
+  - chat-speech-verb-massmushroomorganism-3
+  - chat-speech-verb-massmushroomorganism-4

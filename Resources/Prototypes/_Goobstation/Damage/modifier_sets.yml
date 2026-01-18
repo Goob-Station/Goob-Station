@@ -72,6 +72,16 @@
   ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
+  id: MassMushroomOrganism
+  coefficients:
+    Blunt: 0.95
+    Slash: 0.95
+    Piercing: 0.95
+    Heat: 1.20
+    Cold: 0.80
+    Poison: 0.90
+
+- type: damageModifierSet
   id: FireShark
   coefficients:
     Heat: 0.25

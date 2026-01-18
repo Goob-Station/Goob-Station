@@ -119,7 +119,7 @@
 
 - type: entity
   name: mass mushroom organism
-  parent: FoodProduceBase
+  parent: [ FoodProduceBase, ClothingHeadBase ]
   id: FoodMassMushroomOrganism
   description:
   components:
@@ -130,7 +130,8 @@
         - ReagentId: GreyMatter
           Quantity: 5
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/chanterelle.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism.rsi
+    state: produce
   - type: Item
     heldPrefix: produce
   - type: Produce
@@ -139,26 +140,9 @@
     tags:
     - Vegetable
     - Mushroom
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/chanterelle.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-content-mushroom
-      taco:
-        name: food-sequence-content-mushroom
-      skewer:
-        name: food-sequence-content-mushroom
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-mushroom
   - type: Clothing
     slots:
     - HEAD
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism.rsi
+    equipSound: /Audio/_Goobstation/MassMushroomOrganism/equipsound.ogg
   - type: MassMushroomOrganism
-  - type: ClothingGrantComponent
-    component:
-    - type: ActionGrant
-      actions:
-      - ActionFungalGrowth

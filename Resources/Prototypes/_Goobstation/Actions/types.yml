@@ -297,14 +297,26 @@
   - type: InstantAction
     event: !type:UnforkliftActionEvent
 
+# MassMushroomOrganism
 - type: entity
   parent: BaseAction
   id: ActionFungalGrowth
   name: Fungal Growth
-  description:
+  description: Causes the fungus to grow into you and overtake your body.
+  components:
+  - type: Action
+    icon: { sprite: _Goobstation/Actions/massmushroomorganism.rsi, state: fungalgrowth }
+  - type: InstantAction
+    event: !type:FungalGrowthEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionSporeDivision
+  name: Spore Division
+  description: Rapidly multiply internal spores to create Nutriment. Costs hunger.
   components:
   - type: Action
     useDelay: 1
-    icon: Interface/Actions/scream.png
+    icon: { sprite: _Goobstation/Actions/massmushroomorganism.rsi, state: sporedivision }
   - type: InstantAction
-    event: !type:FungalGrowthEvent
+    event: !type:SporeDivisionEvent

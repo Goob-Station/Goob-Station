@@ -111,3 +111,25 @@
     forced: true
     duration: 180
     attachToGridOrMap: true
+
+- type: polymorph
+  id: MassMushroomOrganismPolymorph
+  configuration:
+    entity: MobMassMushroomOrganism
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: MassMushroomOrganismAltPolymorph
+  configuration:
+    entity: MobMassMushroomOrganismAlt
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false

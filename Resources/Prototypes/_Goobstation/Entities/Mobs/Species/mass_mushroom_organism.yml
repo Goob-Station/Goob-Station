@@ -1,12 +1,13 @@
 - type: entity
+  name: Urist McMushroom
   parent: BaseMobSpeciesOrganic
   id: BaseMobMassMushroomOrganism
-  name: Urist McMushroom
   abstract: true
   components:
+  - type: SporeDivision
   - type: Hunger
   - type: Icon
-    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
     state: full
   - type: Thirst
   - type: Butcherable
@@ -18,7 +19,7 @@
     prototype: MassMushroomOrganism
     requiredLegs: 2
   - type: HumanoidAppearance
-    species: Human
+    species: MassMushroomOrganism
     hideLayersOnEquip:
     - Hair
     - Snout
@@ -26,13 +27,64 @@
     bloodReagent: Nutriment
   - type: Inventory
     templateId: human
+  - type: Speech
+    speechVerb: MassMushroomOrganism
+    speechSounds: Alto
+  - type: LightDetection
+  - type: LightDetectionDamage
+    takeDamageOnLight: false
+    healOnShadows: true
+    showAlert: false
+    damageToHeal:
+      types:
+        Blunt: -0.03
+        Slash: -0.03
+        Piercing: -0.03
+        Heat: -0.03
+        Cold: -0.03
+        Shock: -0.03
+        Asphyxiation: -0.03
+        Bloodloss: -0.03
+        Poison: -0.03
 
 - type: entity
-  parent: BaseSpeciesDummy
-  id: MobMassMushroomOrganismDummy
-  categories: [ HideSpawnMenu ]
+  name: Urist McMushroom
+  suffix: Alt
+  parent: BaseMobMassMushroomOrganism
+  id: BaseMobMassMushroomOrganismAlt
+  abstract: true
   components:
   - type: HumanoidAppearance
-    species: Human
-  - type: Inventory
-    templateId: human
+    species: MassMushroomOrganismAlt
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+    state: full
+  - type: Body
+    prototype: MassMushroomOrganismAlt
+    requiredLegs: 2
+
+- type: entity
+  save: false
+  name: Urist McMushroom
+  parent: MobHumanDummy
+  id: MobMassMushroomOrganismDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy mushroom meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: MassMushroomOrganism
+
+- type: entity
+  save: false
+  name: Urist McMushroom
+  suffix: alt
+  parent: MobHumanDummy
+  id: MobMassMushroomOrganismAltDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy mushroom meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: MassMushroomOrganismAlt

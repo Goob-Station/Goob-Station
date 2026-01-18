@@ -3,3 +3,10 @@
   name: Urist McMushroom
   parent: BaseMobMassMushroomOrganism
   id: MobMassMushroomOrganism
+
+- type: entity
+  save: false
+  name: Urist McMushroom
+  suffix: Alt
+  parent: BaseMobMassMushroomOrganismAlt
+  id: MobMassMushroomOrganismAlt

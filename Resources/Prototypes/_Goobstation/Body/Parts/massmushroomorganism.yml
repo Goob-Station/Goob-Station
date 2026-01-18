@@ -1,0 +1,51 @@
+- type: entity
+  id: PartMassMushroomOrganismBase
+  parent: BasePart
+  name: "mass mushroom organism body part"
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi
+  - type: BodyPart
+    species: MassMushroomOrganism
+  - type: Damageable
+    damageModifierSet: MassMushroomOrganism
+
+- type: entity
+  id: PartMassMushroomOrganismAltBase
+  parent: BasePart
+  name: "mass mushroom organism body part alt"
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/parts.rsi/alt
+  - type: BodyPart
+    species: MassMushroomOrganismAlt
+  - type: Damageable
+    damageModifierSet: MassMushroomOrganism
+
+- type: entity
+  id: ChestMassMushroomOrganism
+  name: mass mushroom organism chest
+  parent: [PartMassMushroomOrganismBase, BaseChest]
+
+- type: entity
+  id: ChestMassMushroomOrganismAlt
+  name: mass mushroom organism chest
+  suffix: alt
+  parent: [PartMassMushroomOrganismAltBase, BaseChest]
+
+- type: entity
+  parent: [ PartMassMushroomOrganismBase, BaseGroin]
+  id: GroinMassMushroomOrganism
+  name: mass mushroom organism groin
+
+- type: entity
+  parent: [ PartMassMushroomOrganismAltBase, BaseGroin]
+  id: GroinMassMushroomOrganismAlt
+  name: mass mushroom organism groin
+  suffix: alt
