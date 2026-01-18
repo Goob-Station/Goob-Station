@@ -1,0 +1,7 @@
+- type: construction
+  id: PhotoAlbum
+  graph: PhotoAlbum
+  startNode: start
+  targetNode: album
+  category: construction-category-misc
+  objectType: Item

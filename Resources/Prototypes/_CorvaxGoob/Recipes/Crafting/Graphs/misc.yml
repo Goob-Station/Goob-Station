@@ -1,0 +1,33 @@
+- type: constructionGraph
+  id: PhotoAlbum
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: album
+      steps:
+        - material: Cardboard
+          amount: 5
+          doAfter: 5
+        - tag: Pen
+          name: construction-graph-tag-pen
+          icon:
+            sprite: Objects/Misc/pens.rsi
+            state: pen
+        - tag: Paper
+          name: construction-graph-tag-paper
+          icon:
+            sprite: Objects/Misc/bureaucracy.rsi
+            state: paper
+        - tag: Paper
+          name: construction-graph-tag-paper
+          icon:
+            sprite: Objects/Misc/bureaucracy.rsi
+            state: paper
+        - tag: Paper
+          name: construction-graph-tag-paper
+          icon:
+            sprite: Objects/Misc/bureaucracy.rsi
+            state: paper
+  - node: album
+    entity: PhotoAlbum
