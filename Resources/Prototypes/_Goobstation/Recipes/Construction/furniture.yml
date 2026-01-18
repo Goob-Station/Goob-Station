@@ -15,6 +15,8 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  groups:
+  - SimpleFurniture
 
 - type: construction
   id: CdRack
@@ -26,3 +28,6 @@
   canBuildInImpassable: true
   conditions:
     - !type:TileNotBlocked
+  groups:
+  - Furniture
+  - Technological

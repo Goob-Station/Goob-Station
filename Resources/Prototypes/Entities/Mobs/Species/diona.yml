@@ -135,7 +135,7 @@
       Unsexed: UnisexDiona
   - type: TypingIndicator
     proto: diona
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - RootSpeak

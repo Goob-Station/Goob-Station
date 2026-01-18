@@ -9,6 +9,9 @@
   targetNode: toygrenade
   category: construction-category-misc
   objectType: Item
+  groups:
+  - AdvancedHandmade
+  - Technological
 
 - type: construction
   id: ToyMansusGrasp
@@ -16,6 +19,9 @@
   targetNode: toymansusgrasp
   category: construction-category-misc
   objectType: Item
+  groups:
+  - AdvancedHandmade
+  - Technological
 
 - type: construction
   id: ToyCodexCicatrix
@@ -23,4 +29,6 @@
   targetNode: toycodexcicatrix
   category: construction-category-misc
   objectType: Item
-
+  groups:
+  - AdvancedHandmade
+  - Technological

@@ -4,10 +4,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Knowledge.Components;
+using Content.Goobstation.Common.Knowledge.Systems;
+using Content.Server.Silicons.Borgs;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Events;
 using Content.Shared._EinsteinEngines.Language.Systems;
+using Content.Shared.Body.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -15,17 +19,19 @@ namespace Content.Server._EinsteinEngines.Language;
 
 public sealed partial class LanguageSystem : SharedLanguageSystem
 {
+    [Dependency] private readonly KnowledgeSystem _knowledge = default!; // Goobstation edit
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LanguageSpeakerComponent, MapInitEvent>(OnInitLanguageSpeaker);
+        SubscribeLocalEvent<LanguageSpeakerComponent, MapInitEvent>(OnInitLanguageSpeaker, after: [typeof(SharedBodySystem), typeof(BorgSystem)]);
         SubscribeLocalEvent<LanguageSpeakerComponent, ComponentGetState>(OnGetLanguageState);
         SubscribeLocalEvent<UniversalLanguageSpeakerComponent, DetermineEntityLanguagesEvent>(OnDetermineUniversalLanguages);
         SubscribeNetworkEvent<LanguagesSetMessage>(OnClientSetLanguage);
 
-        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, MapInitEvent>((uid, _, _) => UpdateEntityLanguages(uid));
-        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, ComponentRemove>((uid, _, _) => UpdateEntityLanguages(uid));
+        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, MapInitEvent>((uid, _, _) => UpdateEntityLanguages(uid), after: [typeof(SharedBodySystem), typeof(BorgSystem)]);
+        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, ComponentShutdown>((uid, _, _) => UpdateEntityLanguages(uid));
     }
 
     #region event handling
@@ -34,6 +40,25 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     {
         if (string.IsNullOrEmpty(ent.Comp.CurrentLanguage))
             ent.Comp.CurrentLanguage = ent.Comp.SpokenLanguages.FirstOrDefault(UniversalPrototype);
+
+        // Goobstation edit start
+        if (TryComp(ent.Owner, out LanguageGrantComponent? grant))
+        {
+            if (!_knowledge.TryEnsureKnowledgeUnit(ent.Owner, LanguageKnowledgeId, out var knowledgeEnt))
+            {
+                Log.Error($"Entity {ToPrettyString(ent.Owner)} failed to setup {nameof(KnowledgeContainerComponent)} properly!");
+                return;
+            }
+
+            var knowledge = EnsureComp<LanguageKnowledgeComponent>(knowledgeEnt.Value);
+
+            foreach (var spoken in grant.SpokenLanguages)
+                knowledge.SpokenLanguages.Add(spoken);
+
+            foreach (var understood in grant.UnderstoodLanguages)
+                knowledge.UnderstoodLanguages.Add(understood);
+        }
+        // Goobstation edit end
 
         UpdateEntityLanguages(ent!);
     }
@@ -128,7 +153,13 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         bool addSpoken = true,
         bool addUnderstood = true)
     {
-        EnsureComp<LanguageKnowledgeComponent>(uid, out var knowledge);
+        // Goobstation edit start
+        if (!_knowledge.TryEnsureKnowledgeUnit(uid, LanguageKnowledgeId, out var knowledgeEnt))
+            return;
+
+        var knowledge = EnsureComp<LanguageKnowledgeComponent>(knowledgeEnt.Value);
+        // Goobstation edit end
+
         EnsureComp<LanguageSpeakerComponent>(uid, out var speaker);
 
         if (addSpoken && !knowledge.SpokenLanguages.Contains(language))
@@ -144,22 +175,25 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     ///     Removes a language from the respective lists of intrinsically known languages of the given entity.
     /// </summary>
     public void RemoveLanguage(
-        Entity<LanguageKnowledgeComponent?> ent,
+        EntityUid ent, // Goobstation edit
         ProtoId<LanguagePrototype> language,
         bool removeSpoken = true,
         bool removeUnderstood = true)
     {
-        if (!Resolve(ent, ref ent.Comp, false))
+        // Goobstation edit start
+        if (!_knowledge.TryGetKnowledgeUnit(ent, LanguageKnowledgeId, out var knowledgeEnt))
             return;
+        var knowledge = EnsureComp<LanguageKnowledgeComponent>(knowledgeEnt.Value);
+        // Goobstation edit end
 
         if (removeSpoken)
-            ent.Comp.SpokenLanguages.Remove(language);
+            knowledge.SpokenLanguages.Remove(language); // Goobstation edit
 
         if (removeUnderstood)
-            ent.Comp.UnderstoodLanguages.Remove(language);
+            knowledge.UnderstoodLanguages.Remove(language); // Goobstation edit
 
         // We don't ensure that the entity has a speaker comp. If it doesn't... Well, woe be the caller of this method.
-        UpdateEntityLanguages(ent.Owner);
+        UpdateEntityLanguages(ent);
     }
 
     /// <summary>
@@ -193,14 +227,25 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         var ev = new DetermineEntityLanguagesEvent();
         // We add the intrinsically known languages first so other systems can manipulate them easily
-        if (TryComp<LanguageKnowledgeComponent>(ent, out var knowledge))
+        // Goobstation edit start
+        //if (TryComp<LanguageGrantComponent>(ent, out var knowledge))
+        //{
+        //    foreach (var spoken in knowledge.SpokenLanguages)
+        //        ev.SpokenLanguages.Add(spoken);
+        //
+        //    foreach (var understood in knowledge.UnderstoodLanguages)
+        //       ev.UnderstoodLanguages.Add(understood);
+        //}
+        if (_knowledge.TryGetKnowledgeUnit(ent.Owner, LanguageKnowledgeId, out var knowledgeEnt)
+            && TryComp(knowledgeEnt, out LanguageKnowledgeComponent? languageKnowledge))
         {
-            foreach (var spoken in knowledge.SpokenLanguages)
+            foreach (var spoken in languageKnowledge.SpokenLanguages)
                 ev.SpokenLanguages.Add(spoken);
 
-            foreach (var understood in knowledge.UnderstoodLanguages)
+            foreach (var understood in languageKnowledge.UnderstoodLanguages)
                 ev.UnderstoodLanguages.Add(understood);
         }
+        // Goobstation edit end
 
         RaiseLocalEvent(ent, ref ev);
 

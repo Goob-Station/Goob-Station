@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+
 using Content.Shared.Objectives;
 using Robust.Shared.Serialization;
 

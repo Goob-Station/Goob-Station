@@ -132,7 +132,7 @@
     - Snout
   - type: TypingIndicator
     proto: plasmaman
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - TauCetiBasic
     - Calcic

@@ -126,6 +126,10 @@
   - type: NerveSystem # backmen: wounding
   - type: ConsciousnessRequired
     identifier: "nerveSystem"
+  - type: KnowledgeContainer # Goobstation - Knowledge
+  - type: ContainerContainer
+    containers:
+      knowledge: !type:Container
 
 - type: entity
   id: OrganDionaEyes

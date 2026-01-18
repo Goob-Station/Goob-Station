@@ -1,0 +1,57 @@
+- type: entity
+  parent: BaseKnowledge
+  id: BaseConstructionKnowledge
+  name: Construction knowledge
+  abstract: true
+  components:
+  - type: Knowledge
+    level: 500
+    color: "#0ba881"
+  - type: ConstructionKnowledge
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionAllKnowledge
+  components:
+  - type: ConstructionKnowledge
+    groups:
+    - SimpleHandmade
+    - AdvancedHandmade
+    - SurvivalWeaponsHandmade
+    - SurvivalWeaponsHandmadeAdvanced
+    - Technological
+    - Materials
+    - Doors
+    - Airlocks
+    - Toys
+    - Bananium
+    - Bots
+    - SimpleFurniture
+    - Furniture
+    - Infrastructure
+    - Electronics
+    - Walls
+    - AdvancedWalls
+    - Science
+    - Windows
+    - AdvancedWindows
+    - SpiderCraft # Also require a tag so it's fine
+    - Smokeables
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionSimpleKnowledge
+  components:
+  - type: ConstructionKnowledge
+    groups:
+    - SimpleHandmade
+    - SurvivalWeaponsHandmade
+    - Materials
+    - Doors
+    - Toys
+    - SimpleFurniture
+    - Walls
+    - SpiderCraft # Also require a tag so it's fine
+    - Smokeables
+
+# TODO make more construction knowledge entities

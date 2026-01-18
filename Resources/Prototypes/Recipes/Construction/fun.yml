@@ -13,3 +13,7 @@
   targetNode: bananiumHorn
   category: construction-category-weapons
   objectType: Item
+  # Goobstation start
+  groups:
+  - Bananium
+  # Goobstation end

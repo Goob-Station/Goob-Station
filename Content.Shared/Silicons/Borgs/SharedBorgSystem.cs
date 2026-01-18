@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Knowledge;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Item.ItemToggle;
@@ -46,6 +47,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
         SubscribeLocalEvent<BorgChassisComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
         SubscribeLocalEvent<BorgChassisComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
+
+        SubscribeLocalEvent<BorgBrainComponent, KnowledgeContainerRelayEvent>(HandleKnowledge); // Goobstation edit
 
         InitializeRelay();
     }
@@ -144,4 +147,15 @@ public abstract partial class SharedBorgSystem : EntitySystem
         ent.Comp.DefaultModule = newDefault;
         Dirty(ent);
     }
+
+    // Goobstation edit start
+    private void HandleKnowledge(Entity<BorgBrainComponent> ent, ref KnowledgeContainerRelayEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Found = ent.Owner;
+        // Don't handle it so on the next iteration we will get the actual brain
+    }
+    // Goobstation edit end
 }

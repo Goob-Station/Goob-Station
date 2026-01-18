@@ -15,3 +15,5 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   targetNode: detector
+  groups:
+  - Electronics

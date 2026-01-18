@@ -15,6 +15,9 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
+  groups:
+  - Infrastructure
+  - Electronics
 
 - type: construction
   id: GasFilterInline
@@ -25,6 +28,9 @@
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  groups:
+  - Infrastructure
+  - Electronics
 
 - type: construction
   id: HeatExchangerInline
@@ -33,6 +39,9 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
+  groups:
+  - Infrastructure
+  - Electronics
 
 - type: construction
   id: HeatExchangerInlineBend
@@ -41,3 +50,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
+  groups:
+  - Infrastructure
+  - Electronics

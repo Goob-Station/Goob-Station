@@ -440,7 +440,7 @@
     guides:
     - Cyborgs
     - Robotics
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - RobotTalk

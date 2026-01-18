@@ -6,6 +6,9 @@
   category: construction-category-misc
   targetNode: stack
   objectType: Item
+  groups:
+  - SimpleHandmade
+  - Technological
 
 - type: construction
   id: ScrewDouble
@@ -13,3 +16,6 @@
   category: construction-category-misc
   targetNode: stack
   objectType: Item
+  groups:
+  - SimpleHandmade
+  - Technological

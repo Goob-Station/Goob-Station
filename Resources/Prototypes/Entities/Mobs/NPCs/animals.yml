@@ -334,7 +334,7 @@
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Mouse
     understands:
@@ -556,7 +556,7 @@
     eggSpawn:
     - id: FoodEgg
   - type: ExaminableHunger
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Chicken
     understands:
@@ -720,7 +720,7 @@
         gibContents: Skip # Shitmed Change
         recursive: false
   - type: NonSpreaderZombie
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks: [Hissing]
     understands: [Hissing]
   - type: SentienceTarget
@@ -864,7 +864,7 @@
       amount: 2
   - type: Extractable
     grindableSolutionName: food
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Moffic
     understands:
@@ -1012,7 +1012,7 @@
     eggSpawn:
     - id: FoodEgg
   - type: ExaminableHunger
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Duck
     understands:
@@ -1292,7 +1292,7 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Crab
     understands:
@@ -1558,7 +1558,7 @@
   - type: Inventory
     speciesId: kangaroo
     templateId: kangaroo
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Kangaroo
     understands:
@@ -1804,7 +1804,7 @@
   - type: Speech
     speechSounds: Monkey
     speechVerb: Monkey
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Monkey
     understands:
@@ -1850,7 +1850,7 @@
   - type: Speech
     speechSounds: Monkey
     speechVerb: Monkey
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Monkey
     understands:
@@ -1903,7 +1903,7 @@
   - type: NameIdentifier
     group: Kobold
   - type: LizardAccent
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Kobold
     understands:
@@ -2165,7 +2165,7 @@
     spawned:
     - id: FoodMeatRat
       amount: 1
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Mouse
     understands:
@@ -2636,7 +2636,7 @@
     sounds:
       Unsexed: Parrot
   - type: ParrotAccent
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - TauCetiBasic
     understands:
@@ -2741,7 +2741,7 @@
     heatDamage:
       types:
         Heat : 0.2 #per second, scales with temperature & other constants
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks: [Penguin]
     understands: [Penguin]
 
@@ -2865,7 +2865,7 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks: [Hissing]
     understands: [Hissing]
 
@@ -2913,7 +2913,7 @@
   - type: MeleeChemicalInjector
     transferAmount: 0.75
     solution: melee
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Xeno
     understands:
@@ -3091,7 +3091,7 @@
   description: This spider looks a little magical
   suffix: Wizard
   components:
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Universal # Should allow them to understand everything and speak it too. Might need to change this.
     understands:
@@ -3148,7 +3148,7 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Hissing
     understands:
@@ -3227,7 +3227,7 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Hissing
     understands:
@@ -3310,7 +3310,7 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Fox
     understands:
@@ -3375,7 +3375,7 @@
     spawned:
     - id: FoodMeat
       amount: 2
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Dog
     understands:
@@ -3526,7 +3526,7 @@
     spawned:
     - id: FoodMeat
       amount: 3
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Cat
     understands:
@@ -3631,7 +3631,7 @@
         Slash: 6
         Piercing: 6
         Structural: 15
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Cat
     understands:
@@ -3785,7 +3785,7 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Hissing
     understands:
@@ -3844,7 +3844,7 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Hissing
     understands:
@@ -3950,7 +3950,7 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Mouse
     understands:
@@ -4078,7 +4078,7 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/pig_oink.ogg
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Pig
     understands:
@@ -4172,7 +4172,7 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - RootSpeak
     understands:
@@ -4248,7 +4248,7 @@
       task: SimpleHostileCompound
   - type: Puller
     needsHands: false
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Deer
     understands:

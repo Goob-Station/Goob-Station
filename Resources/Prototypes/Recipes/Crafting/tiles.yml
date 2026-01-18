@@ -18,6 +18,10 @@
   targetNode: steeltile
   category: construction-category-tiles
   objectType: Item
+  # Goobstation start
+  groups:
+  - SimpleHandmade
+  # Goobstation end
 
 - type: construction
   id: TileWood
@@ -26,6 +30,10 @@
   targetNode: woodtile
   category: construction-category-tiles
   objectType: Item
+  # Goobstation start
+  groups:
+  - SimpleHandmade
+  # Goobstation end
 
 - type: construction
   id: TileBrassFilled
@@ -34,6 +42,10 @@
   targetNode: filledPlate
   category: construction-category-tiles
   objectType: Item
+  # Goobstation start
+  groups:
+  - SimpleHandmade
+  # Goobstation end
 
 - type: construction
   id: TileBrassReebe
@@ -42,6 +54,10 @@
   targetNode: reebe
   category: construction-category-tiles
   objectType: Item
+  # Goobstation start
+  groups:
+  - SimpleHandmade
+  # Goobstation end
 
 - type: construction
   id: TileWhite
@@ -50,6 +66,10 @@
   targetNode: whitetile
   category: construction-category-tiles
   objectType: Item
+  # Goobstation start
+  groups:
+  - SimpleHandmade
+  # Goobstation end
 
 - type: construction
   id: TileDark
@@ -58,6 +78,10 @@
   targetNode: darktile
   category: construction-category-tiles
   objectType: Item
+  # Goobstation start
+  groups:
+  - SimpleHandmade
+  # Goobstation end
 
 - type: construction
   id: TileFlesh
@@ -66,6 +90,10 @@
   targetNode: fleshTile
   category: construction-category-tiles
   objectType: Item
+  # Goobstation start
+  groups:
+  - SimpleHandmade
+  # Goobstation end
 
 - type: construction
   id: TileWoodLarge
@@ -74,3 +102,7 @@
   targetNode: woodtilelarge
   category: construction-category-tiles
   objectType: Item
+  # Goobstation start
+  groups:
+  - SimpleHandmade
+  # Goobstation end

@@ -67,6 +67,13 @@ public sealed partial class CloningSettingsPrototype : IPrototype, IInheritingPr
     public bool CopyImplants = true;
 
     /// <summary>
+    ///     Goobstation
+    ///     Whether or not to copy knowledge.
+    /// </summary>
+    [DataField]
+    public bool CopyKnowledge = true;
+
+    /// <summary>
     ///     Whitelist for the equipment allowed to be copied.
     /// </summary>
     [DataField]

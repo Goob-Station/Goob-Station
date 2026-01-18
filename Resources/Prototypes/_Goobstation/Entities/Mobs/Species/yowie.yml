@@ -34,7 +34,7 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - TauCetiBasic
     - SolCommon # They originate from Australia - Durk
