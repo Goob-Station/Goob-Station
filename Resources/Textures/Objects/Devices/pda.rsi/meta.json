@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "inhand/equipped sprites from https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d , PDA sprites from https://github.com/ParadiseSS13/Paradise , edited by Jvne",
+  "copyright": "inhand/equipped sprites from https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d , PDA sprites from McRamon https://github.com/ParadiseSS13/Paradise/pull/28254 genetics PDA from Contrabang https://github.com/ParadiseSS13/Paradise/pull/30017 modified for ss14 by Jvne",
   "size": {
     "x": 32,
     "y": 32
