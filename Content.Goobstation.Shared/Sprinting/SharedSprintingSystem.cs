@@ -30,11 +30,13 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Numerics;
 
 namespace Content.Goobstation.Shared.Sprinting;
+
 public abstract class SharedSprintingSystem : EntitySystem
 {
     [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
@@ -102,6 +104,42 @@ public abstract class SharedSprintingSystem : EntitySystem
                 sprinterComp.StaminaDrainKey,
                 sprinterComp.StaminaDrainRate * staminaComp.Modifier * sprinterComp.StaminaDrainMultiplier);
         }
+
+        var query2 = EntityQueryEnumerator<SprinterComponent>();
+        while (query2.MoveNext(out var uid, out var sprinterComp))
+        {
+            if (!sprinterComp.IsSprinting || !TryComp<PhysicsComponent>(uid, out var inputMover))
+                continue;
+
+            var newTime = _timing.CurTime;
+            sprinterComp.SprintEnergy += (float) (newTime - sprinterComp.PreviousTime).TotalSeconds * sprinterComp.SprintEnergyGain;
+            sprinterComp.PreviousTime = newTime;
+
+            //var curDir = DirVecForButtons(inputMover.HeldMoveButtons);
+            var curDir = inputMover.LinearVelocity.Normalized();
+            if (!curDir.IsValid())
+                curDir = Vector2.Zero;
+
+            var dot = Vector2.Dot(curDir, sprinterComp.PreviousDirection);
+            if (!dot.IsValid())
+                dot = -1f; // would usually return NaN if you start standing still, because vector zero has no direction
+            if (curDir != Vector2.Zero)
+            {
+                dot = Math.Clamp(dot, -1f, 1f); // Acos sometimes fails due to Dot function returning a value very little out of range
+                var angle = Math.Abs(MathF.Acos(dot));
+                var loss = angle * (float) (1 / Math.PI);
+                if (loss > 0.01f)
+                    Log.Debug("LOSS: " + loss);
+                sprinterComp.SprintEnergy -= loss * sprinterComp.SprintEnergyMax;
+            }
+            sprinterComp.PreviousDirection = curDir;
+
+            sprinterComp.SprintEnergy = Math.Clamp(sprinterComp.SprintEnergy, 0f, sprinterComp.SprintEnergyMax);
+            sprinterComp.SprintSpeedMultiplier = Math.Max(1f, 1f + (sprinterComp.SprintSpeedMultiplierMax - 1f) * sprinterComp.SprintEnergy);
+
+            Dirty(uid, sprinterComp);
+            _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        }
     }
 
     private void OnRefreshSpeed(Entity<SprinterComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -158,6 +196,11 @@ public abstract class SharedSprintingSystem : EntitySystem
 
         if (!gracefulStop)
             _damageable.TryChangeDamage(uid, component.SprintDamageSpecifier);
+
+        component.SprintSpeedMultiplier = 1f;
+        component.SprintEnergy = 0f;
+        component.PreviousTime = _timing.CurTime;
+        component.PreviousDirection = Vector2.Zero;
 
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
         _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, newSprintState, true, component.StaminaDrainKey, uid);

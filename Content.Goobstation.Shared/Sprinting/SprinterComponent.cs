@@ -11,6 +11,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Prototypes;
+using System.Numerics;
 
 namespace Content.Goobstation.Shared.Sprinting;
 
@@ -61,7 +62,43 @@ public sealed partial class SprinterComponent : Component
     ///     How much do we multiply sprint speed?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SprintSpeedMultiplier = 1.45f;
+    public float SprintSpeedMultiplier = 1f;
+
+    /// <summary>
+    ///     Maximum speed bonus from sprint
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float SprintSpeedMultiplierMax = 1.7f;
+
+    /// <summary>
+    ///     Maximum energy of sprint, basically how close are we from baseline to max sprint speed -> 1 = 100$
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float SprintEnergyMax = 1f;
+
+    /// <summary>
+    ///     What is current sprint speed bonus?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float SprintEnergyGain = 0.4f;
+
+    /// <summary>
+    ///     The general direction of the sprint
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float SprintEnergy = 0f;
+
+    /// <summary>
+    ///     Used to determine if there was a turn in direction
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Vector2 PreviousDirection = Vector2.Zero;
+
+    /// <summary>
+    ///     For detlatime
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan PreviousTime = TimeSpan.Zero;
 
     /// <summary>
     ///     How long do we have to wait between sprints?
