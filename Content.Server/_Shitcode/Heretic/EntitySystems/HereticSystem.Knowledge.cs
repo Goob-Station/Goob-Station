@@ -40,21 +40,19 @@ public sealed partial class HereticSystem
 
         body ??= CompOrNull<MindComponent>(ent.Owner).CurrentEntity;
 
-        var (mind, comp) = ent;
-
         var data = GetKnowledge(id);
 
         if (data.Event != null && body != null)
         {
             RaiseKnowledgeEvent(body.Value, data.Event, false);
-            comp.KnowledgeEvents.Add(data.Event);
+            ent.Comp.KnowledgeEvents.Add(data.Event);
         }
 
         if (data.ActionPrototypes is { Count: > 0 })
         {
             foreach (var act in data.ActionPrototypes)
             {
-                _actionContainer.AddAction(mind, act);
+                _actionContainer.AddAction(ent.Owner, act);
             }
         }
 
@@ -62,22 +60,22 @@ public sealed partial class HereticSystem
         {
             foreach (var ritual in data.RitualPrototypes)
             {
-                comp.KnownRituals.Add(_ritual.GetRitual(ritual));
+                ent.Comp.KnownRituals.Add(_ritual.GetRitual(ritual));
             }
         }
 
-        Dirty(mind, comp);
+        Dirty(ent);
 
         // set path if out heretic doesn't have it, or if it's different from whatever he has atm
-        if (string.IsNullOrWhiteSpace(comp.CurrentPath))
+        if (string.IsNullOrWhiteSpace(ent.Comp.CurrentPath))
         {
-            if (!data.SideKnowledge && comp.CurrentPath != data.Path)
-                comp.CurrentPath = data.Path;
+            if (!data.SideKnowledge && ent.Comp.CurrentPath != data.Path)
+                ent.Comp.CurrentPath = data.Path;
         }
 
         // make sure we only progress when buying current path knowledge
-        if (data.Stage > comp.PathStage && data.Path == comp.CurrentPath)
-            comp.PathStage = data.Stage;
+        if (data.Stage > ent.Comp.PathStage && data.Path == ent.Comp.CurrentPath)
+            ent.Comp.PathStage = data.Stage;
 
         return true;
     }
