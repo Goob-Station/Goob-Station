@@ -149,7 +149,7 @@
     - 0,0,0,1
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,2,1
     whitelist: #Goobstation - whitelisted cig pack strorage
       tags:
       - Cigarette
@@ -223,7 +223,7 @@
     - 0,0,0,1
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,2,1
     whitelist: #Goobstation - whitelisted cig pack strorage
       tags:
       - Cigarette
