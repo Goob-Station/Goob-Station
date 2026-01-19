@@ -30,6 +30,7 @@
   actionPrototypes:
   - ActionHereticOpenStore
   - ActionHereticMansusGrasp
+  event: !type:HereticStartupEvent
 
 - type: hereticKnowledge
   id: HeartbeatOfMansus
@@ -137,13 +138,18 @@
   - ActionHereticAscension1
   - ActionHereticAscension2
   event: !type:HereticAscensionAshEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialHighTempImmunity
+    - type: SpecialBreathingImmunity
+    - type: SpecialPressureImmunity
+    - type: FireImmunity
 
 ### blade path
 - type: hereticKnowledge
   id: CuttingEdge
   path: Blade
   stage: 1
-  event: !type:HereticCuttingEdgeEvent
   ritualPrototypes:
   - BladeBlade
 
@@ -157,6 +163,10 @@
   path: Blade
   stage: 3
   event: !type:HereticDanceOfTheBrandEvent
+    addedComponents:
+    - type: Ripostee
+      data:
+        HereticBlade: !type:RiposteData
 
 - type: hereticKnowledge
   id: MarkOfBlade
@@ -175,6 +185,8 @@
   path: Blade
   stage: 6
   event: !type:HereticChampionStanceEvent
+    addedComponents:
+    - type: ChampionStance
 
 - type: hereticKnowledge
   id: EmpoweredBlades
@@ -200,6 +212,8 @@
   path: Blade
   stage: 10
   event: !type:HereticAscensionBladeEvent
+    addedComponents:
+    - type: SilverMaelstrom
 
 ### flesh path
 - type: hereticKnowledge
@@ -214,6 +228,8 @@
   path: Flesh
   stage: 2
   event: !type:EventHereticFleshPassive
+    addedComponents:
+    - type: FleshPassive
 
 - type: hereticKnowledge
   id: ImperfectRitual
@@ -268,6 +284,11 @@
   path: Flesh
   stage: 10
   event: !type:HereticAscensionFleshEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialHighTempImmunity
+    - type: SpecialPressureImmunity
+    - type: FleshPassive
 
 ### void path
 - type: hereticKnowledge
@@ -281,7 +302,9 @@
   id: GraspOfVoid
   path: Void
   stage: 2
-  event: !type:HereticAristocratWayEvent
+  event: !type:EventHereticVoidPassiveT1
+    addedComponents:
+    - type: SpecialLowTempImmunity
 
 #- type: hereticKnowledge
 #  id: AristocratWay
@@ -302,8 +325,9 @@
   id: MarkOfVoid
   path: Void
   stage: 4
-  event: !type:HereticAristocratWayEvent
-    grantBreathingImmunity: true
+  event: !type:EventHereticVoidPassiveT2
+    addedComponents:
+    - type: SpecialBreathingImmunity
 
 #- type: hereticKnowledge
 #  id: VoidBlast
@@ -352,6 +376,23 @@
   stage: 10
   path: Void
   event: !type:HereticAscensionVoidEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialHighTempImmunity
+    - type: SpecialBreathingImmunity
+    - type: SpecialPressureImmunity
+    - type: Aristocrat
+    - type: MovementIgnoreGravity
+    - type: CanMoveInAir
+    - type: NoSlip
+    - type: ThermalVision
+      color: "#b4babf"
+      isActive: true
+      lightRadius: 7.5
+      flashDurationMultiplier: 1
+      activateSound: null
+      deactivateSound: null
+      thermalShader: null
 
 ## rust path
 - type: hereticKnowledge
@@ -366,6 +407,8 @@
   path: Rust
   stage: 2
   event: !type:HereticLeechingWalkEvent
+    addedComponents:
+    - type: LeechingWalk
 
 - type: hereticKnowledge
   id: AggressiveSpread
@@ -420,6 +463,9 @@
   stage: 10
   path: Rust
   event: !type:HereticAscensionRustEvent
+    addedComponents:
+    - type: LeechingWalk
+    - type: Rustbringer
 
 ## cosmos path
 - type: hereticKnowledge
@@ -447,6 +493,8 @@
   path: Cosmos
   stage: 4
   event: !type:EventHereticCosmosPassive
+    addedComponents:
+    - type: CosmosPassive
 
 - type: hereticKnowledge
   id: StarTouch
@@ -488,6 +536,15 @@
   stage: 10
   path: Cosmos
   event: !type:HereticAscensionCosmosEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialHighTempImmunity
+    - type: SpecialPressureImmunity
+    - type: NightVision
+      color: white
+      activateSound: null
+      deactivateSound: null
+      drawOverlay: false
   actionPrototypes:
   - ActionResetStarGazerConsciousness
 

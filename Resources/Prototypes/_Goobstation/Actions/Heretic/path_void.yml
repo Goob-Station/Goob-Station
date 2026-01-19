@@ -16,7 +16,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 15
     itemIconStyle: NoItem
     icon:
@@ -26,7 +25,8 @@
     event: !type:HereticVoidBlastEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-blast
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-blast
 
 - type: entity
   parent: BaseAction
@@ -37,7 +37,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 20
     itemIconStyle: NoItem
     icon:
@@ -52,7 +51,8 @@
     event: !type:HereticVoidBlinkEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-phase
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-phase
 
 - type: entity
   parent: BaseAction
@@ -64,7 +64,6 @@
   - type: Action
     predicted: false
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 30
     itemIconStyle: NoItem
     icon:
@@ -80,7 +79,8 @@
     event: !type:HereticVoidPrisonEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-prison
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-prison
 
 - type: entity
   parent: BaseAction
@@ -93,7 +93,6 @@
     useDelay: 30
     itemIconStyle: NoItem
     checkCanInteract: false
-    raiseOnUser: true
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_pull
@@ -103,7 +102,8 @@
     event: !type:HereticVoidPullEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-pull
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-pull
 
 - type: entity
   parent: BaseAction
@@ -116,7 +116,6 @@
     useDelay: 60
     itemIconStyle: NoItem
     checkCanInteract: false
-    raiseOnUser: true
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_rift
@@ -124,4 +123,5 @@
     event: !type:HereticVoidConduitEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-conduit
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-conduit

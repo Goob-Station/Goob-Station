@@ -70,6 +70,7 @@ using Content.Shared.Damage.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Cloning;
+using Content.Server.Database.Migrations.Sqlite;
 using Content.Shared.Chat;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -136,16 +137,14 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HereticComponent, EventHereticOpenStore>(OnStore);
-        SubscribeLocalEvent<HereticComponent, EventHereticMansusGrasp>(OnMansusGrasp);
+        SubscribeLocalEvent<EventHereticOpenStore>(OnStore);
+        SubscribeLocalEvent<EventHereticMansusGrasp>(OnMansusGrasp);
 
-        SubscribeLocalEvent<HereticComponent, EventHereticLivingHeart>(OnLivingHeart);
-        SubscribeLocalEvent<HereticComponent, EventHereticLivingHeartActivate>(OnLivingHeartActivate);
+        SubscribeLocalEvent<EventHereticLivingHeart>(OnLivingHeart);
+        SubscribeLocalEvent<EventHereticLivingHeartActivate>(OnLivingHeartActivate);
 
-        SubscribeLocalEvent<HereticComponent, HereticVoidVisionEvent>(OnVoidVision);
-
-        SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
-        SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
+        SubscribeLocalEvent<EventHereticMansusLink>(OnMansusLink);
+        SubscribeLocalEvent<HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
         SubscribeLock();
     }
@@ -169,69 +168,80 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             _chat.TrySendInGameICMessage(ent, Loc.GetString(actionComp.MessageLoc!), InGameICChatType.Speak, false);
     }
 
-    private void OnStore(Entity<HereticComponent> ent, ref EventHereticOpenStore args)
+    private void OnStore(EventHereticOpenStore args)
     {
+        if (!TryUseAbility(args))
+            return;
+
+        if (!Heretic.TryGetHereticComponent(args.Performer, out _, out var ent))
+            return;
+
         if (!TryComp<StoreComponent>(ent, out var store))
             return;
 
-        _store.ToggleUi(ent, ent, store);
+        _store.ToggleUi(args.Performer, ent, store);
     }
-    private void OnMansusGrasp(Entity<HereticComponent> ent, ref EventHereticMansusGrasp args)
+    private void OnMansusGrasp(EventHereticMansusGrasp args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        if (!TryComp<HandsComponent>(ent, out var handsComp))
+        if (!Heretic.TryGetHereticComponent(args.Performer, out var heretic, out var ent))
             return;
 
-        if (ent.Comp.MansusGrasp != EntityUid.Invalid)
+        var uid = args.Performer;
+
+        if (!TryComp<HandsComponent>(uid, out var handsComp))
+            return;
+
+        if (heretic.MansusGraspAction != EntityUid.Invalid)
         {
-            foreach (var item in _hands.EnumerateHeld((ent.Owner, handsComp)))
+            foreach (var item in _hands.EnumerateHeld((uid, handsComp)))
             {
                 if (HasComp<MansusGraspComponent>(item))
                     QueueDel(item);
             }
-            ent.Comp.MansusGrasp = EntityUid.Invalid;
+            heretic.MansusGraspAction = EntityUid.Invalid;
             return;
         }
 
-        if (!_hands.TryGetEmptyHand((ent.Owner, handsComp), out var emptyHand))
+        if (!_hands.TryGetEmptyHand((uid, handsComp), out var emptyHand))
         {
             // Empowered blades - infuse all of our blades that are currently in our inventory
-            if (ent.Comp.CurrentPath == "Blade" && ent.Comp.PathStage >= 7)
-            {
-                if (!InfuseOurBlades())
-                    return;
+            if (heretic is not { CurrentPath: "Blade", PathStage: >= 7 })
+                return;
 
-                _actions.SetCooldown(args.Action.Owner, MansusGraspSystem.DefaultCooldown);
-                _mansusGrasp.InvokeGrasp(ent, null);
-            }
+            if (!InfuseOurBlades())
+                return;
+
+            _actions.SetCooldown(args.Action.Owner, MansusGraspSystem.DefaultCooldown);
+            _mansusGrasp.InvokeGrasp(uid, null);
 
             return;
         }
 
-        var st = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
+        var st = Spawn(GetMansusGraspProto((ent, heretic)), Transform(uid).Coordinates);
 
-        if (!_hands.TryPickup(ent, st, emptyHand, animate: false, handsComp: handsComp))
+        if (!_hands.TryPickup(uid, st, emptyHand, animate: false, handsComp: handsComp))
         {
-            Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), uid, uid);
             QueueDel(st);
             return;
         }
 
-        ent.Comp.MansusGrasp = args.Action.Owner;
+        heretic.MansusGraspAction = args.Action.Owner;
         args.Handled = true;
 
         return;
 
         bool InfuseOurBlades()
         {
-            if (!ent.Comp.LimitedTransmutations.TryGetValue(BladeBladeRitual, out var blades))
+            if (!heretic.LimitedTransmutations.TryGetValue(BladeBladeRitual, out var blades))
                 return false;
 
             var xformQuery = GetEntityQuery<TransformComponent>();
-            var containerEnt = ent.Owner;
-            if (_container.TryGetOuterContainer(ent, xformQuery.Comp(ent), out var container, xformQuery))
+            var containerEnt = uid;
+            if (_container.TryGetOuterContainer(uid, xformQuery.Comp(uid), out var container, xformQuery))
                 containerEnt = container.Owner;
 
             var success = false;
@@ -270,27 +280,32 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         return "TouchSpellMansus";
     }
 
-    private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)
+    private void OnLivingHeart(EventHereticLivingHeart args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        if (!TryComp<UserInterfaceComponent>(ent, out var uic))
+        if (!Heretic.TryGetHereticComponent(args.Performer, out var heretic, out var mind))
             return;
 
-        if (ent.Comp.SacrificeTargets.Count == 0)
+        if (!TryComp<UserInterfaceComponent>(mind, out var uic))
+            return;
+
+        var uid = args.Performer;
+
+        if (heretic.SacrificeTargets.Count == 0)
         {
-            Popup.PopupEntity(Loc.GetString("heretic-livingheart-notargets"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-livingheart-notargets"), uid, uid);
             args.Handled = true;
             return;
         }
 
-        _ui.OpenUi((ent, uic), HereticLivingHeartKey.Key, ent);
+        _ui.OpenUi((mind, uic), HereticLivingHeartKey.Key, uid);
         args.Handled = true;
     }
-    private void OnLivingHeartActivate(Entity<HereticComponent> ent, ref EventHereticLivingHeartActivate args)
+    private void OnLivingHeartActivate(EventHereticLivingHeartActivate args)
     {
-        var loc = string.Empty;
+        string loc;
 
         var target = GetEntity(args.Target);
         if (target == null)
@@ -298,10 +313,13 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         if (!TryComp<MobStateComponent>(target, out var mobstate))
             return;
+
+        var uid = args.Actor;
+
         var state = mobstate.CurrentState;
         var locstate = state.ToString().ToLower();
 
-        var ourMapCoords = _transform.GetMapCoordinates(ent);
+        var ourMapCoords = _transform.GetMapCoordinates(uid);
         var targetMapCoords = _transform.GetMapCoordinates(target.Value);
 
         if (_map.IsPaused(targetMapCoords.MapId))
@@ -311,12 +329,12 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         else
         {
             var targetStation = _station.GetOwningStation(target);
-            var ownStation = _station.GetOwningStation(ent);
+            var ownStation = _station.GetOwningStation(uid);
 
             var isOnStation = targetStation != null && targetStation == ownStation;
 
             var ang = Angle.Zero;
-            if (_mapMan.TryFindGridAt(_transform.GetMapCoordinates(Transform(ent)), out var grid, out var _))
+            if (_mapMan.TryFindGridAt(_transform.GetMapCoordinates(Transform(uid)), out var grid, out var _))
                 ang = Transform(grid).LocalRotation;
 
             var vector = targetMapCoords.Position - ourMapCoords.Position;
@@ -329,15 +347,17 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 ("direction", locdir));
         }
 
-        Popup.PopupEntity(loc, ent, ent, PopupType.Medium);
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
+        Popup.PopupEntity(loc, uid, uid, PopupType.Medium);
+        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), uid, AudioParams.Default.WithVolume(-3f));
     }
 
     public static ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";
-    private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
+    private void OnMansusLink(EventHereticMansusLink args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
+
+        var ent = args.Performer;
 
         if (!HasComp<MindContainerComponent>(args.Target))
         {
@@ -362,7 +382,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         Popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);
         DoAfter.TryStartDoAfter(dargs);
     }
-    private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
+    private void OnMansusLinkDoafter(HereticMansusLinkDoAfter args)
     {
         if (args.Cancelled)
             return;
@@ -372,22 +392,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         // updated: get upstream'ed you clanker
         _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
-    }
-
-    private void OnVoidVision(Entity<HereticComponent> ent, ref HereticVoidVisionEvent args)
-    {
-        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
-        thermalVision.Color = Color.FromHex("#b4babf");
-        thermalVision.LightRadius = 7.5f;
-        thermalVision.FlashDurationMultiplier = 1f;
-        thermalVision.ActivateSound = null;
-        thermalVision.DeactivateSound = null;
-        thermalVision.ThermalShader = null;
-
-        AddComp(ent, thermalVision, true);
-
-        var toggleEvent = new ToggleThermalVisionEvent();
-        RaiseLocalEvent(ent, toggleEvent);
     }
 
     private float GetFleshHealMultiplier(Entity<MartialArtModifiersComponent> ent)
@@ -485,8 +489,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var hereticQuery = GetEntityQuery<HereticComponent>();
         var ghoulQuery = GetEntityQuery<GhoulComponent>();
 
-        var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
-        while (leechQuery.MoveNext(out var uid, out var leech, out var xform))
+        var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, MindContainerComponent, TransformComponent>();
+        while (leechQuery.MoveNext(out var uid, out var leech, out var mindContainer, out var xform))
         {
             if (!IsTileRust(xform.Coordinates, out _))
                 continue;
@@ -496,7 +500,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             var multiplier = 2f;
             var boneHeal = FixedPoint2.Zero;
             var shouldHeal = true;
-            if (hereticQuery.TryComp(uid, out var heretic))
+            if (hereticQuery.TryComp(mindContainer.Mind, out var heretic))
             {
                 if (heretic.PathStage >= 7)
                 {

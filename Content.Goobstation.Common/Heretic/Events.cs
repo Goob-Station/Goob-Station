@@ -12,3 +12,14 @@ public sealed class ButtonTagPressedEvent(string id, NetEntity user, NetCoordina
 
     public string Id = id;
 }
+
+[ByRefEvent]
+public record struct HereticCheckEvent(EntityUid Uid, HereticCheckType Type, bool Result = false);
+
+[Flags]
+public enum HereticCheckType
+{
+    Heretic = 1 << 0,
+    Ghoul = 1 << 1,
+    Ascended = 1 << 2,
+}

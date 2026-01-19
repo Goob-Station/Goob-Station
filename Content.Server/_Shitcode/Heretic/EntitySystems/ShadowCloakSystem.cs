@@ -31,7 +31,7 @@ public sealed class ShadowCloakSystem : SharedShadowCloakSystem
 
         var parent = Transform(ent).ParentUid;
 
-        if (args.User != parent || !HasComp<HereticComponent>(parent))
+        if (args.User != parent)
             return;
 
         if (_blade.TryThrowProtectiveBlade(parent, null))

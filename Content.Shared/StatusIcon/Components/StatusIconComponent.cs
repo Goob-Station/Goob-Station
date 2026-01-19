@@ -34,4 +34,4 @@ public sealed partial class StatusIconComponent : Component
 /// </summary>
 /// <param name="StatusIcons"></param>
 [ByRefEvent]
-public record struct GetStatusIconsEvent(List<StatusIconData> StatusIcons);
+public record struct GetStatusIconsEvent(EntityUid Uid, List<StatusIconData> StatusIcons); // Goob edit

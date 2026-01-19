@@ -1,10 +1,7 @@
-using Content.Goobstation.Common.Atmos;
-using Content.Goobstation.Common.Temperature.Components;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Coordinates.Helpers;
-using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Projectiles;
 using Content.Shared.StatusEffect;
@@ -16,79 +13,57 @@ public abstract partial class SharedHereticAbilitySystem
 {
     protected virtual void SubscribeCosmos()
     {
-        SubscribeLocalEvent<HereticComponent, EventHereticCosmicRune>(OnCosmicRune);
-        SubscribeLocalEvent<HereticComponent, EventHereticStarTouch>(OnStarTouch);
-        SubscribeLocalEvent<HereticComponent, EventHereticStarBlast>(OnHereticStarBlast);
-        SubscribeLocalEvent<HereticComponent, EventHereticCosmicExpansion>(OnHereticExpansion);
-        SubscribeLocalEvent<HereticComponent, EventHereticCosmosPassive>(OnPassive);
-        SubscribeLocalEvent<HereticComponent, HereticAscensionCosmosEvent>(OnAscension);
-
-        SubscribeLocalEvent<StarGazerComponent, EventHereticStarBlast>(OnStarGazerStarBlast);
-        SubscribeLocalEvent<StarGazerComponent, EventHereticCosmicExpansion>(OnStarGazerExpansion);
+        SubscribeLocalEvent<EventHereticCosmicRune>(OnCosmicRune);
+        SubscribeLocalEvent<EventHereticStarTouch>(OnStarTouch);
+        SubscribeLocalEvent<EventHereticStarBlast>(OnStarBlast);
+        SubscribeLocalEvent<EventHereticCosmicExpansion>(OnExpansion);
+        SubscribeLocalEvent<HereticAscensionCosmosEvent>(OnAscension);
 
         SubscribeLocalEvent<StarBlastComponent, ProjectileHitEvent>(OnHit);
         SubscribeLocalEvent<StarBlastComponent, EntityTerminatingEvent>(OnEntityTerminating);
     }
 
-    protected virtual void OnAscension(Entity<HereticComponent> ent, ref HereticAscensionCosmosEvent args)
+    private void OnAscension(HereticAscensionCosmosEvent args)
     {
-        EnsureComp<SpecialHighTempImmunityComponent>(ent);
-        EnsureComp<SpecialLowTempImmunityComponent>(ent);
-        EnsureComp<SpecialPressureImmunityComponent>(ent);
-
-        _eye.SetDrawFov(ent, false);
+        _eye.SetDrawFov(args.Heretic, args.Negative);
     }
 
-    private void OnStarGazerExpansion(Entity<StarGazerComponent> ent, ref EventHereticCosmicExpansion args)
+    private void OnExpansion(EventHereticCosmicExpansion args)
     {
-        OnExpansion(ent, ref args, 10, true);
-    }
-
-    private void OnStarGazerStarBlast(Entity<StarGazerComponent> ent, ref EventHereticStarBlast args)
-    {
-        OnStarBlast(ent, ref args, 10);
-    }
-
-    private void OnHereticExpansion(Entity<HereticComponent> ent, ref EventHereticCosmicExpansion args)
-    {
-        OnExpansion(ent, ref args, ent.Comp.PathStage, ent.Comp is { Ascended: true, CurrentPath: "Cosmos" });
-    }
-
-    private void OnHereticStarBlast(Entity<HereticComponent> ent, ref EventHereticStarBlast args)
-    {
-        OnStarBlast(ent, ref args, ent.Comp.PathStage);
-    }
-
-    private void OnPassive(Entity<HereticComponent> ent, ref EventHereticCosmosPassive args)
-    {
-        EnsureComp<CosmosPassiveComponent>(ent);
-    }
-
-    private void OnExpansion(EntityUid ent, ref EventHereticCosmicExpansion args, int strength, bool ascended)
-    {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        args.Handled = true;
+        var ent = args.Performer;
 
         var coords = Transform(ent).Coordinates;
+
+        Heretic.TryGetHereticComponent(ent, out var heretic, out _);
+        var strength = heretic is {CurrentPath: "Cosmos"} ? heretic.PathStage : 10;
 
         _starMark.ApplyStarMarkInRange(coords, ent, args.Range);
         _starMark.SpawnCosmicFields(coords, 2, strength);
 
         PredictedSpawnAtPosition(args.Effect, coords);
 
-        if (!ascended)
+        if (heretic is null or {Ascended: true, CurrentPath: "Cosmos"})
             return;
 
         _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.North, -4, 4, 3, strength);
         _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.East, -4, 4, 3, strength);
     }
 
-    private void OnStarBlast(EntityUid ent, ref EventHereticStarBlast args, int strength)
+    private void OnStarBlast(EventHereticStarBlast args)
     {
         if (!TryComp(args.Action, out StarBlastActionComponent? starBlast))
             return;
+
+        if (!TryUseAbility(args, false))
+            return;
+
+        var ent = args.Performer;
+
+        Heretic.TryGetHereticComponent(ent, out var heretic, out _);
+        var strength = heretic is {CurrentPath: "Cosmos"} ? heretic.PathStage : 10;
 
         if (Exists(starBlast.Projectile))
         {
@@ -120,9 +95,6 @@ public abstract partial class SharedHereticAbilitySystem
         }
 
         if (!args.Target.IsValid(EntityManager))
-            return;
-
-        if (!TryUseAbility(ent, args))
             return;
 
         args.Handled = true;
@@ -167,21 +139,24 @@ public abstract partial class SharedHereticAbilitySystem
         _starMark.SpawnCosmicFields(coords, 1, strength);
     }
 
-    private void OnStarTouch(Entity<HereticComponent> ent, ref EventHereticStarTouch args)
+    private void OnStarTouch(EventHereticStarTouch args)
     {
-        var touch = GetTouchSpell<EventHereticStarTouch, StarTouchComponent>(ent, ref args);
+        var touch = GetTouchSpell<EventHereticStarTouch, StarTouchComponent>(args.Performer, ref args);
         if (touch == null)
             return;
 
         EnsureComp<StarTouchComponent>(touch.Value).Action = args.Action.Owner;
     }
 
-    private void OnCosmicRune(Entity<HereticComponent> ent, ref EventHereticCosmicRune args)
+    private void OnCosmicRune(EventHereticCosmicRune args)
     {
         if (!TryComp(args.Action, out HereticCosmicRuneActionComponent? runeAction))
             return;
 
-        var coords = Transform(ent).Coordinates.SnapToGrid(EntityManager, _mapMan);
+        if (!TryUseAbility(args, false))
+            return;
+
+        var coords = Transform(args.Performer).Coordinates.SnapToGrid(EntityManager, _mapMan);
 
         // No placing runes on top of runes
         if (Lookup.GetEntitiesInRange<HereticCosmicRuneComponent>(coords, 0.4f).Count > 0)
@@ -189,9 +164,6 @@ public abstract partial class SharedHereticAbilitySystem
             Popup.PopupClient(Loc.GetString("heretic-ability-fail-tile-occupied"), args.Performer, args.Performer);
             return;
         }
-
-        if (!TryUseAbility(ent, args))
-            return;
 
         args.Handled = true;
 

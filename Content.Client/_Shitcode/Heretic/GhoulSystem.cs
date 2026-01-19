@@ -18,7 +18,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Shitcode.Heretic;
 
-public sealed partial class GhoulSystem : EntitySystem
+public sealed class GhoulSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -26,43 +26,18 @@ public sealed partial class GhoulSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HereticComponent, GetStatusIconsEvent>(OnHereticMasterIcons);
-        SubscribeLocalEvent<GhoulComponent, GetStatusIconsEvent>(OnGhoulIcons);
+
+        SubscribeLocalEvent<GetStatusIconsEvent>(OnGetIcons);
     }
 
-    /// <summary>
-    /// Show to ghouls who their master is
-    /// </summary>
-    private void OnHereticMasterIcons(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
+    private void OnGetIcons(ref GetStatusIconsEvent args)
     {
-        var player = _player.LocalEntity;
-
-        if (TryComp(player, out StarGazerComponent? starGazer) && ent.Owner == starGazer.Summoner &&
-            _prototype.TryIndex(starGazer.MasterIcon, out var icon))
-        {
-            args.StatusIcons.Add(icon);
-            return;
-        }
-
-        if (!TryComp<GhoulComponent>(player, out var playerGhoul))
+        if (_player.LocalEntity is not { } player)
             return;
 
-        if (ent.Owner != playerGhoul.BoundHeretic)
-            return;
-
-        if (_prototype.TryIndex(playerGhoul.MasterIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
+        if (TryComp(player, out HereticMinionComponent? minion) && minion.BoundHeretic == args.Uid)
+            args.StatusIcons.Add(_prototype.Index(minion.MasterIcon));
+        else if (TryComp(args.Uid, out minion) && minion.BoundHeretic == player)
+            args.StatusIcons.Add(_prototype.Index(minion.GhoulIcon));
     }
-
-    /// <summary>
-    /// Show an icon for all ghouls to all ghouls and all heretics.
-    /// </summary>
-    private void OnGhoulIcons(Entity<GhoulComponent> ent, ref GetStatusIconsEvent args)
-    {
-        var player = _player.LocalEntity;
-
-        if (_prototype.TryIndex(ent.Comp.GhoulIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
-    }
-
 }

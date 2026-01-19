@@ -9,4 +9,7 @@ namespace Content.Goobstation.Common.Temperature.Components;
 ///     Used to ensure that HighTempImmunityComponent is not overriden (when it is made eventually)
 /// </summary>
 [RegisterComponent]
-public sealed partial class SpecialHighTempImmunityComponent : Component;
+public sealed partial class SpecialHighTempImmunityComponent : Component
+{
+    public override bool SessionSpecific => true;
+}

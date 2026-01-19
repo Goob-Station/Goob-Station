@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Flammability;
+using Content.Goobstation.Common.Heretic;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Clothing.Components;
@@ -113,6 +114,8 @@ public sealed class MadnessMaskSystem : EntitySystem
 
     private bool IsHereticOrGhoul(EntityUid uid)
     {
-        return HasComp<HereticComponent>(uid) || HasComp<GhoulComponent>(uid);
+        var ev = new HereticCheckEvent(uid, HereticCheckType.Ghoul | HereticCheckType.Heretic);
+        RaiseLocalEvent(uid, ref ev, true);
+        return ev.Result;
     }
 }

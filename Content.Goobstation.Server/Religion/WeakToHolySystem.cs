@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Heretic;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod;
@@ -98,7 +99,15 @@ public sealed class WeakToHolySystem : EntitySystem
 
     private void OnUnholyItemDamage(Entity<WeakToHolyComponent> uid, ref DamageUnholyEvent args)
     {
-        if (uid.Comp.AlwaysTakeHoly || TryComp<HereticComponent>(uid, out var heretic) && heretic.Ascended)
+        if (uid.Comp.AlwaysTakeHoly)
+        {
+            args.ShouldTakeHoly = true;
+            return;
+        }
+
+        var checkEv = new HereticCheckEvent(uid, HereticCheckType.Heretic | HereticCheckType.Ascended);
+        RaiseLocalEvent(uid, ref checkEv, true);
+        if (checkEv.Result)
         {
             args.ShouldTakeHoly = true;
             return;

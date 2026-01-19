@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Heretic;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
@@ -34,7 +35,9 @@ public sealed partial class HereticMagicItemSystem : EntitySystem
 
     private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner))
+        var checkEv = new HereticCheckEvent(args.Examiner, HereticCheckType.Heretic);
+        RaiseLocalEvent(args.Examiner, ref checkEv, true);
+        if (!checkEv.Result)
             return;
 
         args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));

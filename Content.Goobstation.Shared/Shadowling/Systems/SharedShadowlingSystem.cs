@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Heretic;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
@@ -8,7 +9,6 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
-using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -209,11 +209,15 @@ public abstract class SharedShadowlingSystem : EntitySystem
 
     public bool CanGlare(EntityUid target)
     {
-        return HasComp<MobStateComponent>(target)
-               && !HasComp<ShadowlingComponent>(target)
-               && !HasComp<ThrallComponent>(target)
-               && !HasComp<HereticComponent>(target)
-               && !HasComp<ChangelingIdentityComponent>(target);
+        if (!HasComp<MobStateComponent>(target)
+            || HasComp<ShadowlingComponent>(target)
+            || HasComp<ThrallComponent>(target)
+            || HasComp<ChangelingIdentityComponent>(target))
+            return false;
+
+        var checkEv = new HereticCheckEvent(target, HereticCheckType.Heretic);
+        RaiseLocalEvent(target, ref checkEv, true);
+        return !checkEv.Result;
     }
 
     public void DoEnthrall(EntityUid uid, EntProtoId components, SimpleDoAfterEvent args)

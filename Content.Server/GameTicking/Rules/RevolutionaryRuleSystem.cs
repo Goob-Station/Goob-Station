@@ -80,6 +80,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Revolutionary;
 using Content.Server.Communications;
 using System.Linq;
+using Content.Goobstation.Common.Heretic;
 using Content.Goobstation.Shared.Revolutionary;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Systems;
@@ -242,13 +243,18 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind))
             return;
 
-        if (HasComp<RevolutionaryComponent>(ev.Target) ||
+        // Goobstation start
+        var checkEv = new HereticCheckEvent(ev.Target, HereticCheckType.Heretic);
+        RaiseLocalEvent(ev.Target, ref checkEv, true);
+        // Goobstation end
+
+        if (checkEv.Result || // Goobstation
+            HasComp<RevolutionaryComponent>(ev.Target) ||
             HasComp<MindShieldComponent>(ev.Target) ||
             !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target) ||
-            HasComp<HereticComponent>(ev.Target) ||
             HasComp<ChangelingIdentityComponent>(ev.Target) || // goob edit - no more ling or heretic revs
             HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {

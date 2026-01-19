@@ -18,8 +18,6 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.Heretic;
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -29,6 +27,8 @@ using Robust.Shared.Random;
 using System.Text;
 using Content.Server.Station.Components;
 using Content.Server._Goobstation.Objectives.Components;
+using Content.Shared.Mind;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -37,8 +37,8 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
 
     public static readonly SoundSpecifier BriefingSound =
@@ -46,10 +46,6 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
 
     public static readonly SoundSpecifier BriefingSoundIntense =
         new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
-
-    public static readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
-
-    public static readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
     public static readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
 
@@ -100,19 +96,22 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
             if (_role.MindHasRole<HereticRoleComponent>(mindId, out var mr))
                 AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
         }
-        _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
-        _npcFaction.AddFaction(target, HereticFactionId);
 
-        EnsureComp<HereticComponent>(target);
+        EnsureComp<HereticComponent>(mindId);
 
         // add store
-        var store = EnsureComp<StoreComponent>(target);
+        var store = EnsureComp<StoreComponent>(mindId);
         foreach (var category in rule.StoreCategories)
+        {
             store.Categories.Add(category);
+        }
         store.CurrencyWhitelist.Add(Currency);
         store.Balance.Add(Currency, 2);
 
         rule.Minds.Add(mindId);
+
+        _ui.SetUi(mindId, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface", -1));
+        _ui.SetUi(mindId, HereticLivingHeartKey.Key, new InterfaceData("LivingHeartMenuBoundUserInterface", -1));
 
         return true;
     }
@@ -124,12 +123,10 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         var mostKnowledge = 0f;
         var mostKnowledgeName = string.Empty;
 
-        foreach (var heretic in EntityQuery<HereticComponent>())
+        var query = EntityQueryEnumerator<HereticComponent, MindComponent>();
+        while (query.MoveNext(out var mindId, out var heretic, out var mind))
         {
-            if (!_mind.TryGetMind(heretic.Owner, out var mindId, out var mind))
-                continue;
-
-            var name = _objective.GetTitle((mindId, mind), Name(heretic.Owner));
+            var name = _objective.GetTitle((mindId, mind), Name(mind.OwnedEntity ?? mindId));
             if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
             {
                 if (objective.Researched > mostKnowledge)

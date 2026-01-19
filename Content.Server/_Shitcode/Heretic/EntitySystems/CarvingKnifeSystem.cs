@@ -111,7 +111,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (!args.InHands)
             return;
 
-        if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+        if (!IsHereticOrGhoul(args.User))
             return;
 
         args.AddAction(ent.Comp.RunebreakActionEntity);
@@ -203,7 +203,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private void OnExamine(Entity<CarvingKnifeComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner) && !HasComp<GhoulComponent>(args.Examiner))
+        if (!IsHereticOrGhoul(args.Examiner))
             return;
 
         UpdateRunes(ent);
@@ -217,7 +217,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (args.Target == null || !_tag.HasTag(args.Target.Value, CarvingTag))
             return;
 
-        if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+        if (!IsHereticOrGhoul(args.User))
             return;
 
         QueueDel(args.Target.Value);
@@ -292,7 +292,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (!comp.Carvings.Contains(args.ProtoId))
             return;
 
-        if (!HasComp<HereticComponent>(args.Actor) && !HasComp<GhoulComponent>(args.Actor))
+        if (!IsHereticOrGhoul(args.Actor))
             return;
 
         UpdateRunes(ent);
@@ -338,7 +338,15 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
         _audio.PlayPvs(comp.Sound, xform.Coordinates);
     }
+
+    private bool IsHereticOrGhoul(EntityUid uid)
+    {
+        var ev = new HereticCheckEvent(uid, HereticCheckType.Ghoul | HereticCheckType.Heretic);
+        RaiseLocalEvent(uid, ref ev, true);
+        return ev.Result;
+    }
 }
+
 
 [ByRefEvent]
 public readonly record struct RuneCarvedEvent(EntityUid User);

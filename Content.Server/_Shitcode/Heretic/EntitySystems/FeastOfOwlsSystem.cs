@@ -5,6 +5,7 @@ using Content.Server.Speech.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffect;
@@ -29,8 +30,8 @@ public sealed class FeastOfOwlsSystem : EntitySystem
         base.Update(frameTime);
 
         var vocalQuery = GetEntityQuery<VocalComponent>();
-        var query = EntityQueryEnumerator<FeastOfOwlsComponent, HereticComponent, StoreComponent, StatusEffectsComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var heretic, out var store, out var status))
+        var query = EntityQueryEnumerator<FeastOfOwlsComponent, StatusEffectsComponent, MindContainerComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var status, out var mindContainer))
         {
             if (comp.CurrentStep >= comp.Reward)
             {
@@ -47,7 +48,7 @@ public sealed class FeastOfOwlsSystem : EntitySystem
 
             if (comp.CurrentStep + 1 < comp.Reward && !_stun.TryParalyze(uid, comp.ParalyzeTime, true, status))
             {
-                _heretic.UpdateKnowledge(uid, heretic, comp.Reward - comp.CurrentStep, store, false, false);
+                _heretic.UpdateKnowledge(uid, comp.Reward - comp.CurrentStep, false, false, mindContainer);
                 RemCompDeferred(uid, comp);
                 continue;
             }
@@ -62,7 +63,7 @@ public sealed class FeastOfOwlsSystem : EntitySystem
 
             _popup.PopupEntity(Loc.GetString("feast-of-owls-knowledge-gaim-message"), uid, uid, PopupType.LargeCaution);
 
-            _heretic.UpdateKnowledge(uid, heretic, 1, store, false, false);
+            _heretic.UpdateKnowledge(uid,  1,  false, false, mindContainer);
 
             comp.CurrentStep++;
 

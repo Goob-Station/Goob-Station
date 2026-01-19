@@ -24,6 +24,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
+using Content.Shared.Magic.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -57,6 +58,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
     [Dependency] protected readonly SharedVoidCurseSystem Voidcurse = default!;
+    [Dependency] protected readonly SharedHereticSystem Heretic = default!;
 
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
@@ -119,7 +121,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeFlesh();
         SubscribeSide();
 
-        SubscribeLocalEvent<HereticComponent, EventHereticShadowCloak>(OnShadowCloak);
+        SubscribeLocalEvent<EventHereticShadowCloak>(OnShadowCloak);
+
+        SubscribeLocalEvent<HereticActionComponent, BeforeCastSpellEvent>(OnBeforeCast);
     }
 
     protected List<Entity<MobStateComponent>> GetNearbyPeople(EntityUid ent,
@@ -134,7 +138,8 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if (TryComp<HereticComponent>(look, out var th) && th.CurrentPath == path || HasComp<GhoulComponent>(look))
+            if (Heretic.TryGetHereticComponent(look, out var th, out _) && th.CurrentPath == path ||
+                HasComp<GhoulComponent>(look))
                 continue;
 
             if (!HasComp<StatusEffectsComponent>(look))
@@ -155,64 +160,79 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     }
 
 
-    private void OnShadowCloak(Entity<HereticComponent> ent, ref EventHereticShadowCloak args)
+    private void OnShadowCloak(EventHereticShadowCloak args)
     {
+        var ent = args.Performer;
+
         if (!TryComp(ent, out StatusEffectsComponent? status))
             return;
 
         if (TryComp(ent, out ShadowCloakedComponent? shadowCloaked))
         {
             Status.TryRemoveStatusEffect(ent, args.Status, status, false);
-            RemCompDeferred(ent.Owner, shadowCloaked);
+            RemCompDeferred(ent, shadowCloaked);
             args.Handled = true;
             return;
         }
 
         // TryUseAbility only if we are not cloaked so that we can uncloak without focus
         // Ideally you should uncloak when losing focus but whatever
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        args.Handled = true;
         Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
     }
 
-    public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
+    public bool TryUseAbility(BaseActionEvent args, bool handle = true)
     {
-        if (args.Handled
-        || HasComp<RustChargeComponent>(ent) // no abilities while charging
-        || !TryComp<HereticActionComponent>(args.Action, out var actionComp))
+        if (args.Handled)
             return false;
+        var ev = new BeforeCastSpellEvent(args.Performer);
+        RaiseLocalEvent(args.Action, ref ev);
+        var result = !ev.Cancelled;
+        if (result && handle)
+            args.Handled = true;
+        return result;
+    }
 
-        // check if any magic items are worn
-        if (!TryComp<HereticComponent>(ent, out var hereticComp) ||
-            !actionComp.RequireMagicItem || hereticComp.Ascended)
+    private void OnBeforeCast(Entity<HereticActionComponent> ent, ref BeforeCastSpellEvent args)
+    {
+        if (HasComp<RustChargeComponent>(args.Performer))
         {
-            SpeakAbility(ent, actionComp);
-            return true;
+            args.Cancelled = true;
+            return;
         }
+
+        if (HasComp<GhoulComponent>(args.Performer) || HasComp<StarGazerComponent>(args.Performer))
+            return;
+
+        if (!Heretic.TryGetHereticComponent(args.Performer, out var heretic, out _))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (!ent.Comp.RequireMagicItem || heretic.Ascended)
+            return;
 
         var ev = new CheckMagicItemEvent();
-        RaiseLocalEvent(ent, ev);
+        RaiseLocalEvent(args.Performer, ev);
 
         if (ev.Handled)
-        {
-            SpeakAbility(ent, actionComp);
-            return true;
-        }
+            return;
 
         // Almost all of the abilites are serverside anyway
         if (_net.IsServer)
-            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-magicitem"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-magicitem"), args.Performer, args.Performer);
 
-        return false;
+        args.Cancelled = true;
     }
 
-    private EntityUid? GetTouchSpell<TEvent, TComp>(Entity<HereticComponent> ent, ref TEvent args)
+    private EntityUid? GetTouchSpell<TEvent, TComp>(EntityUid ent, ref TEvent args)
         where TEvent : InstantActionEvent, ITouchSpellEvent
         where TComp : Component
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args, false))
             return null;
 
         if (!TryComp(ent, out HandsComponent? hands) || hands.Hands.Count < 1)

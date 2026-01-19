@@ -68,6 +68,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
 
     public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
@@ -83,7 +84,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         SubscribeLocalEvent<MansusGraspComponent, MeleeHitEvent>(OnMelee);
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<RustGraspComponent, AfterInteractEvent>(OnRustInteract);
-        SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
+        SubscribeLocalEvent<DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
         SubscribeLocalEvent<MansusGraspBlockTriggerComponent, BeforeTriggerEvent>(OnTriggerAttempt);
     }
 
@@ -103,7 +104,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         if (args.Handled)
             return;
 
-        if (!args.CanReach || !TryComp<HereticComponent>(args.User, out var heretic) ||
+        if (!args.CanReach || !_heretic.TryGetHereticComponent(args.User, out var heretic, out var mind) ||
             !TryComp(uid, out UseDelayComponent? delay) || _delay.IsDelayed((uid, delay), comp.Delay) ||
             !TryComp(uid, out MansusGraspComponent? grasp))
             return;
@@ -124,7 +125,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             return;
         }
 
-        if (!_ability.TryMakeRustWall(args.Target.Value, (args.User, heretic)))
+        if (!_ability.TryMakeRustWall(args.Target.Value, (mind, heretic)))
             return;
 
         args.Handled = true;
@@ -165,7 +166,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
     private bool GraspTarget(Entity<MansusGraspComponent> grasp, EntityUid user, EntityUid target)
     {
-        if (!TryComp<HereticComponent>(user, out var hereticComp))
+        if (!_heretic.TryGetHereticComponent(user, out var hereticComp, out _))
         {
             QueueDel(grasp);
             return true;
@@ -186,8 +187,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         if (cancelled)
         {
-            _actions.SetCooldown(hereticComp.MansusGrasp, grasp.Comp.CooldownAfterUse);
-            hereticComp.MansusGrasp = EntityUid.Invalid;
+            _actions.SetCooldown(hereticComp.MansusGraspAction, grasp.Comp.CooldownAfterUse);
+            hereticComp.MansusGraspAction = EntityUid.Invalid;
             InvokeGrasp(user, grasp);
             QueueDel(grasp);
             return true;
@@ -209,8 +210,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
                 status);
         }
 
-        _actions.SetCooldown(hereticComp.MansusGrasp, grasp.Comp.CooldownAfterUse);
-        hereticComp.MansusGrasp = EntityUid.Invalid;
+        _actions.SetCooldown(hereticComp.MansusGraspAction, grasp.Comp.CooldownAfterUse);
+        hereticComp.MansusGraspAction = EntityUid.Invalid;
         InvokeGrasp(user, grasp);
         QueueDel(grasp);
         return true;
@@ -257,7 +258,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         if (!args.CanReach
             || !args.ClickLocation.IsValid(EntityManager)
-            || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
+            || !_heretic.TryGetHereticComponent(args.User, out var heretic, out _) // not a heretic - how???
             || HasComp<ActiveDoAfterComponent>(args.User)) // prevent rune shittery
             return;
 
@@ -269,7 +270,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             runeProto = scriber.RuneDrawingEntity;
             time = scriber.Time;
         }
-        else if (heretic.MansusGrasp == EntityUid.Invalid // no grasp - not special
+        else if (heretic.MansusGraspAction == EntityUid.Invalid // no grasp - not special
                  || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
 
@@ -293,10 +294,11 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             BreakOnMove = true,
             CancelDuplicate = false,
             MultiplyDelay = false,
+            Broadcast = true,
         };
         _doAfter.TryStartDoAfter(dargs);
     }
-    private void OnRitualRuneDoAfter(Entity<HereticComponent> ent, ref DrawRitualRuneDoAfterEvent ev)
+    private void OnRitualRuneDoAfter(DrawRitualRuneDoAfterEvent ev)
     {
         // delete the animation rune regardless
         QueueDel(ev.RitualRune);

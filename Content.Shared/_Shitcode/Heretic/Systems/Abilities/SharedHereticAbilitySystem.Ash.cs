@@ -7,25 +7,28 @@ public abstract partial class SharedHereticAbilitySystem
 {
     protected virtual void SubscribeAsh()
     {
-        SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcanoBlast);
+        SubscribeLocalEvent<EventHereticVolcanoBlast>(OnVolcanoBlast);
     }
 
-    private void OnVolcanoBlast(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
+    private void OnVolcanoBlast(EventHereticVolcanoBlast args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args, false))
             return;
 
-        args.Handled = true;
+        var ent = args.Performer;
 
         if (!_statusNew.TrySetStatusEffectDuration(ent,
                 SharedFireBlastSystem.FireBlastStatusEffect,
                 TimeSpan.FromSeconds(2)))
             return;
 
+        args.Handled = true;
+
         var fireBlasted = EnsureComp<FireBlastedComponent>(ent);
         fireBlasted.Damage = -2f;
 
-        if (ent.Comp is not { Ascended: true, CurrentPath: "Ash" })
+        if (!Heretic.TryGetHereticComponent(ent, out var heretic, out _) ||
+            heretic is not { Ascended: true, CurrentPath: "Ash" })
             return;
 
         fireBlasted.MaxBounces *= 2;

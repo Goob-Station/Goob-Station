@@ -9,4 +9,7 @@ namespace Content.Goobstation.Common.Atmos;
 ///     Used to ensure that PressureImmunityComponent is not overriden.
 /// </summary>
 [RegisterComponent]
-public sealed partial class SpecialPressureImmunityComponent : Component;
+public sealed partial class SpecialPressureImmunityComponent : Component
+{
+    public override bool SessionSpecific => true;
+}

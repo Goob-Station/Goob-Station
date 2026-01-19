@@ -221,7 +221,6 @@ public sealed partial class PossessionSystem : EntitySystem
         [
             (typeof(ChangelingIdentityComponent), "changeling"),
             (typeof(DevilComponent), "devil"),
-            (typeof(HereticComponent), "heretic"),
             (typeof(GhoulComponent), "ghoul"),
             (typeof(GhostComponent), "ghost"),
             (typeof(SpectralComponent), "ghost"),
