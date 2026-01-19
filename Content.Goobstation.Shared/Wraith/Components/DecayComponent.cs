@@ -1,5 +1,6 @@
-using Content.Shared.Emag.Systems;
+using Content.Goobstation.Common.Emag.Prototypes;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
 
@@ -16,5 +17,5 @@ public sealed partial class DecayComponent : Component
     /// What emag interaction to use
     /// </summary>
     [DataField]
-    public EmagType Emag = EmagType.All;
+    public ProtoId<EmagTypePrototype> EmagType = "All";
 }

@@ -29,7 +29,7 @@ public sealed partial class DecaySystem : EntitySystem
             return;
         }
 
-        if (_emag.TryEmagEffect(ent.Owner, ent.Owner, args.Target, ent.Comp.Emag))
+        if (_emag.TryEmagEffect(ent.Owner, ent.Owner, args.Target, ent.Comp.EmagType))
         {
             args.Handled = true;
             return;

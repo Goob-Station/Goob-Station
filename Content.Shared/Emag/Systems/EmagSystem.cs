@@ -26,9 +26,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Serialization;
 using Content.Shared.Whitelist;
-using Content.Goobstation.Common.Effects; // Shitmed - Starlight Abductors
+using Content.Goobstation.Common.Effects; // goob edit
+using Content.Goobstation.Common.Emag.Prototypes; // goob edit
+using Robust.Shared.Prototypes; // Shitmed - Starlight Abductors
 
 namespace Content.Shared.Emag.Systems;
 
@@ -47,7 +48,10 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV - Add a whitelist/blacklist to the Emag
     [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // goob edit - EmagType prototypes
 
+    private readonly ProtoId<EmagTypePrototype> _emagIdAccess = "Access"; // goob edit
+    private readonly ProtoId<EmagTypePrototype> _emagIdAll = "All"; // goob edit
     public override void Initialize()
     {
         base.Initialize();
@@ -58,10 +62,11 @@ public sealed class EmagSystem : EntitySystem
 
     private void OnAccessOverriderAccessUpdated(Entity<EmaggedComponent> entity, ref OnAccessOverriderAccessUpdatedEvent args)
     {
-        if (!CompareFlag(entity.Comp.EmagType, EmagType.Access))
+        EmagTypePrototype emagTypeAccess = _prototypeManager.Index(_emagIdAccess); // goob edit
+        if (entity.Comp.EmagType.Id != "Access")
             return;
 
-        entity.Comp.EmagType &= ~EmagType.Access;
+        entity.Comp.EmagType = emagTypeAccess;
         Dirty(entity);
     }
     private void OnAfterInteract(EntityUid uid, EmagComponent comp, AfterInteractEvent args)
@@ -75,7 +80,7 @@ public sealed class EmagSystem : EntitySystem
     /// <summary>
     /// Does the emag effect on a specified entity with a specified EmagType. The optional field customEmagType can be used to override the emag type defined in the component.
     /// </summary>
-    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target, EmagType? customEmagType = null)
+    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target, ProtoId<EmagTypePrototype>? customEmagType = null) // goob edit
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
@@ -98,9 +103,10 @@ public sealed class EmagSystem : EntitySystem
         }
         // Shitmed end
 
-        var typeToUse = customEmagType ?? ent.Comp.EmagType;
+        // Use custom emag type if provided, otherwise use the component's type
+        var emagTypeToUse = customEmagType ?? ent.Comp.EmagType; // goob edit
 
-        var emaggedEvent = new GotEmaggedEvent(user, ent.Comp.EmagType, EmagUid: ent);
+        var emaggedEvent = new GotEmaggedEvent(user, emagTypeToUse, EmagUid: ent); // goob edit
         RaiseLocalEvent(target, ref emaggedEvent);
         if (!emaggedEvent.Handled)
             return false;
@@ -110,7 +116,7 @@ public sealed class EmagSystem : EntitySystem
         _audio.PlayPredicted(ent.Comp.EmagSound, ent, ent);
         _sparks.DoSparks(Transform(target).Coordinates); // goob edit - sparks everywhere
 
-        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {typeToUse}");
+        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {emagTypeToUse}"); // goob edit - log emag type
 
         if (emaggedEvent.Handled)
             _sharedCharges.TryUseCharge(chargesEnt);
@@ -119,55 +125,48 @@ public sealed class EmagSystem : EntitySystem
         {
             EnsureComp<EmaggedComponent>(target, out var emaggedComp);
 
-            emaggedComp.EmagType |= typeToUse;
+            emaggedComp.EmagType = emagTypeToUse;
             Dirty(target, emaggedComp);
         }
 
         return emaggedEvent.Handled;
     }
-
+    /// Gigantic goob edit - EmagType checking functions
     /// <summary>
     /// Checks whether an entity has the EmaggedComponent with a set flag.
     /// </summary>
     /// <param name="target">The target entity to check for the flag.</param>
-    /// <param name="flag">The EmagType flag to check for.</param>
+    /// <param name="protoId">The EmagType flag to check for.</param>
     /// <returns>True if entity has EmaggedComponent and the provided flag. False if the entity lacks EmaggedComponent or provided flag.</returns>
-    public bool CheckFlag(EntityUid target, EmagType flag)
+    public bool CheckProtoId(EntityUid target, ProtoId<EmagTypePrototype> protoId)
     {
+        EmagTypePrototype emagTypeAll = _prototypeManager.Index(_emagIdAll);
         if (!TryComp<EmaggedComponent>(target, out var comp))
             return false;
 
-        if ((comp.EmagType & flag) == flag)
+        if (comp.EmagType == protoId || protoId == emagTypeAll)
             return true;
 
         return false;
     }
 
     /// <summary>
-    /// Compares a flag to the target.
+    /// Compares a protoId to the target.
     /// </summary>
-    /// <param name="target">The target flag to check.</param>
-    /// <param name="flag">The flag to check for within the target.</param>
-    /// <returns>True if target contains flag. Otherwise false.</returns>
-    public bool CompareFlag(EmagType target, EmagType flag)
+    /// <param name="target">The target protoId to check.</param>
+    /// <param name="protoId">The protoId to check for within the target.</param>
+    /// <returns>True if target contains protoId. Otherwise false.</returns>
+    public bool CompareProtoId(ProtoId<EmagTypePrototype> target, ProtoId<EmagTypePrototype> protoId)
     {
-        if ((target & flag) == flag)
+        EmagTypePrototype emagTypeAll = _prototypeManager.Index(_emagIdAll);
+        if (target == protoId || protoId == emagTypeAll)
             return true;
 
         return false;
     }
+    // Gigantic goob edit end
 }
 
-
-[Flags]
-[Serializable, NetSerializable]
-public enum EmagType
-{
-    None = 0,
-    All = ~None,
-    Interaction = 1 << 1,
-    Access = 1 << 2
-}
 /// <summary>
 /// Shows a popup to emag user (client side only!) and adds <see cref="EmaggedComponent"/> to the entity when handled
 /// </summary>
@@ -178,4 +177,4 @@ public enum EmagType
 /// <param name="EmagUid">Uid of emag entity, Goobstation</param>
 /// <remarks>Needs to be handled in shared/client, not just the server, to actually show the emagging popup</remarks>
 [ByRefEvent]
-public record struct GotEmaggedEvent(EntityUid UserUid, EmagType Type, bool Handled = false, bool Repeatable = false, EntityUid? EmagUid = null); // Goob edit
+public record struct GotEmaggedEvent(EntityUid UserUid, ProtoId<EmagTypePrototype> Type, bool Handled = false, bool Repeatable = false, EntityUid? EmagUid = null); // Goob edit
