@@ -173,7 +173,7 @@ public sealed class AccessReaderSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Access))
+        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdAccess)) // goob edit
             return;
 
         if (!reader.BreakOnAccessBreaker)

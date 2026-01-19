@@ -223,7 +223,7 @@ namespace Content.Server.Mail
             if (idCard == null) /// Return if we still haven't found an id card.
                 return;
 
-            if (!_emag.CheckFlag(uid, EmagType.Interaction))
+            if (!_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
             {
                 if (idCard.FullName != component.Recipient || idCard.LocalizedJobTitle != component.RecipientJob)
                 {
@@ -383,10 +383,10 @@ namespace Content.Server.Mail
 
         private void OnMailEmagged(EntityUid uid, MailComponent component, ref GotEmaggedEvent args)
         {
-            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
                 return;
 
-            if (_emag.CheckFlag(uid, EmagType.Interaction))
+            if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
                 return;
 
             if (!component.IsLocked)

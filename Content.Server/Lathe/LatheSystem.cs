@@ -395,7 +395,7 @@ namespace Content.Server.Lathe
             if (uid != args.Lathe)
                 return;
 
-            if (!args.GetUnavailable && !_emag.CheckFlag(uid, EmagType.Interaction))
+            if (!args.GetUnavailable && !_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
                 return;
 
             AddRecipesFromPacks(args.Recipes, component.EmagStaticPacks);

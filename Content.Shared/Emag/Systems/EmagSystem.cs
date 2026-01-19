@@ -52,6 +52,7 @@ public sealed class EmagSystem : EntitySystem
 
     public readonly ProtoId<EmagTypePrototype> EmagIdInteraction = "Interaction"; // goob edit
     public readonly ProtoId<EmagTypePrototype> EmagIdAccess = "Access"; // goob edit
+    
     private readonly ProtoId<EmagTypePrototype> _emagIdAll = "All"; // goob edit
     public override void Initialize()
     {

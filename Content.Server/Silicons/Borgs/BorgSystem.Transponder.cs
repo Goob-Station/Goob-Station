@@ -175,7 +175,7 @@ public sealed partial class BorgSystem
 
     private bool CheckEmagged(EntityUid uid, string name)
     {
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
         {
             Popup.PopupEntity(Loc.GetString($"borg-transponder-emagged-{name}-popup"), uid, uid, PopupType.LargeCaution);
             return true;

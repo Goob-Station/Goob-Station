@@ -29,6 +29,7 @@ public sealed class EmagProviderSystem : EntitySystem
     [Dependency] private readonly SharedNinjaGlovesSystem _gloves = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
+    [Dependency] private readonly EmagSystem _emag = default!; // goob edit
 
     public override void Initialize()
     {
@@ -56,7 +57,7 @@ public sealed class EmagProviderSystem : EntitySystem
         if (_tag.HasTag(target, comp.AccessBreakerImmuneTag))
             return;
 
-        var emagEv = new GotEmaggedEvent(uid, EmagType.Access);
+        var emagEv = new GotEmaggedEvent(uid, _emag.EmagIdAccess); // goob edit
         RaiseLocalEvent(args.Target, ref emagEv);
 
         if (!emagEv.Handled)

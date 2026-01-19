@@ -58,10 +58,10 @@ public sealed class GoobEmergencyShuttleSystem : EntitySystem
         if (_emerg.EarlyLaunchAuthorized || !_emerg.EmergencyShuttleArrived || _emerg.ConsoleAccumulator <= _emerg.AuthorizeTime)
             return;
 
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
             return;
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
             return;
 
         args.Handled = false;

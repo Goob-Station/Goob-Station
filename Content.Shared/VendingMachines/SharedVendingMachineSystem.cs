@@ -337,10 +337,10 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
             return;
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
             return;
 
         // only emag if there are emag-only items
@@ -362,7 +362,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         var inventory = new List<VendingMachineInventoryEntry>(component.Inventory.Values);
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
             inventory.AddRange(component.EmaggedInventory.Values);
 
         if (component.Contraband)

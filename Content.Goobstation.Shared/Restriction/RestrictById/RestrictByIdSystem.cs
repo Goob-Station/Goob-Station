@@ -29,7 +29,7 @@ namespace Content.Goobstation.Shared.Restriction.RestrictById
 
         private void OnEmagged(Entity<RestrictByIdComponent> ent, ref GotEmaggedEvent args)
         {
-            if (!_emag.CompareFlag(args.Type, EmagType.Interaction) || !ent.Comp.IsEmaggable)
+            if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction) || !ent.Comp.IsEmaggable)
                 return;
 
             args.Handled = true;

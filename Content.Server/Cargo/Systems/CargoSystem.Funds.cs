@@ -58,7 +58,7 @@ public sealed partial class CargoSystem
             var stackPrototype = _protoMan.Index(ent.Comp.CashType);
             _stack.Spawn(args.Amount, stackPrototype, Transform(ent).Coordinates);
 
-            if (!_emag.CheckFlag(ent, EmagType.Interaction))
+            if (!_emag.CheckProtoId(ent, _emag.EmagIdInteraction)) // goob edit
             {
                 var msg = Loc.GetString("cargo-console-fund-withdraw-broadcast",
                     ("name", tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown")),
@@ -73,7 +73,7 @@ public sealed partial class CargoSystem
             var otherAccount = _protoMan.Index(args.Account.Value);
             UpdateBankAccount((station, bank), args.Amount, args.Account.Value);
 
-            if (!_emag.CheckFlag(ent, EmagType.Interaction))
+            if (!_emag.CheckProtoId(ent, _emag.EmagIdInteraction)) // goob edit
             {
                 var msg = Loc.GetString("cargo-console-fund-transfer-broadcast",
                     ("name", tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown")),
