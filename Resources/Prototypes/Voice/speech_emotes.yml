@@ -584,20 +584,6 @@
     - rattled
 
 - type: emote # Omu
-  id: ReptilianPurr
-  name: chat-emote-name-reptile-purr
-  category: Vocal
-  icon: Interface/Emotes/weh.png
-  chatMessages: ["chat-emote-msg-reptile-purr"]
-  whitelist:
-    tags:
-    - ReptilianEmotes
-  chatTriggers:
-    - purrs
-    - purr
-    - purred
-
-- type: emote # Omu
   id: ReptilianScreech
   name: chat-emote-name-reptile-screech
   category: Vocal

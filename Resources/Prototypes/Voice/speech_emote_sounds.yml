@@ -186,6 +186,7 @@
     Belch: # Frontier
       collection: Belch # Frontier
     ReptilianPurr: #Omu
+    Purr: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
     Rattle: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
@@ -237,6 +238,7 @@
     Belch: # Frontier
       collection: Belch # Frontier
     ReptilianPurr: #Omu
+    Purr: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
     Rattle: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
