@@ -117,19 +117,23 @@
   configuration:
     entity: MobMassMushroomOrganism
     forced: true
+    transferDamage: false
     transferName: true
     transferHumanoidAppearance: false
     allowRepeatedMorphs: true
     revertOnDeath: false
     revertOnCrit: false
+    inventory: transfer
 
 - type: polymorph
   id: MassMushroomOrganismAltPolymorph
   configuration:
     entity: MobMassMushroomOrganismAlt
     forced: true
+    transferDamage: false
     transferName: true
     transferHumanoidAppearance: false
     allowRepeatedMorphs: true
     revertOnDeath: false
     revertOnCrit: false
+    inventory: transfer

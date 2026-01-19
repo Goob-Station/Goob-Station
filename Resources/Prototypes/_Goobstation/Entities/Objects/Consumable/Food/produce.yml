@@ -121,7 +121,7 @@
   name: mass mushroom organism
   parent: [ FoodProduceBase, ClothingHeadBase ]
   id: FoodMassMushroomOrganism
-  description:
+  description: A weakly pulsating fungal mass.
   components:
   - type: SolutionContainerManager
     solutions:
