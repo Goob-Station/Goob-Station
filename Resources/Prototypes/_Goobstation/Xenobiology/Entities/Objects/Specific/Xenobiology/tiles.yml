@@ -1,0 +1,114 @@
+- type: entity
+  id: FloorBluespaceEntity
+  name: bluespace carpet
+  description: State of the art carpets produced in the Nanotrasen Aperture Laboratory. These ones make you faster on them!
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/floors.rsi
+    drawdepth: FloorTiles
+    layers:
+    - state: bluespace
+  - type: SyncSprite
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHoverBorg
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FloorTileItemBluespace:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 1.55
+    sprintSpeedModifier: 1.55
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+    - Catwalk
+
+- type: entity
+  id: FloorSepiaEntity
+  name: sepia carpet
+  description: The carpet feels somehow nostalgic. So nostalgic you don't want to take a step off of it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/floors.rsi
+    drawdepth: FloorTiles
+    layers:
+    - state: sepia
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepFloor
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FloorTileItemSepia:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.45
+    sprintSpeedModifier: 0.45
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: SpawnAfterInteract
+    prototype: FloorTileItemSepia
+    doAfter: 1
+    removeOnInteract: true
+  - type: Tag
+    tags:
+    - Catwalk

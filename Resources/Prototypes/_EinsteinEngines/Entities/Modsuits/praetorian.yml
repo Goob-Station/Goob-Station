@@ -88,15 +88,10 @@
         - state: equipped-HEAD-resomi
         head-vox:
         - state: equipped-HEAD-vox
+        head-vulpkanin:
+        - state: equipped-HEAD-vulpkanin
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
-    - type: HideLayerClothing # Goobstation
-      slots:
-        - Hair
-        - Snout
-        - HeadTop
-        - HeadSide
-      hideOnToggle: true
     - type: PressureProtection
       highPressureMultiplier: 0.05
       lowPressureMultiplier: 1000
@@ -131,6 +126,10 @@
         head-vox:
         - state: equipped-HEAD-sealed-vox
         - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
+        head-vulpkanin:
+        - state: equipped-HEAD-sealed-vulpkanin
+        - state: equipped-HEAD-sealed-unshaded-vulpkanin
           shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard
