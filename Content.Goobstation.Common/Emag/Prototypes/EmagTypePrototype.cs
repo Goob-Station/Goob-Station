@@ -18,13 +18,3 @@ public sealed partial class EmagTypePrototype : IPrototype
     [DataField]
     public LocId? Name { get; set; }
 }
-
-/// How to use EmagTypePrototypes:
-/// 
-/// [Dependency] private readonly IPrototypeManager _prototype = default!; // goob edit
-/// 
-/// private readonly ProtoId<EmagTypePrototype> _emagIdInteraction = "Interaction"; // goob edit
-/// EmagTypePrototype emagTypeInteraction = _prototype.Index(_emagIdInteraction); // goob edit
-
-/// private readonly ProtoId<EmagTypePrototype> _emagIdAccess = "Access"; // goob edit
-/// EmagTypePrototype emagTypeAccess = _prototype.Index(EmagIdAccess); // goob edit
