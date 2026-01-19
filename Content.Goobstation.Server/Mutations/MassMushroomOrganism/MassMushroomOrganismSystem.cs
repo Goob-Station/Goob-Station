@@ -281,7 +281,6 @@ public sealed class MassMushroomOrganismSystem : EntitySystem
 
         if (_polymorph.PolymorphEntity(target, ent) is not { } mushroom)
             return;
-        _rejuvenate.PerformRejuvenate(mushroom);
 
         var faction = EnsureComp<NpcFactionMemberComponent>(mushroom);
         _npcFaction.AddFaction((mushroom, faction), FactionType);

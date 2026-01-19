@@ -16,7 +16,7 @@ public sealed partial class FungalInfectionComponent : Component
     public TimeSpan NextUpdateTime = TimeSpan.Zero;
 
     [DataField]
-    public TimeSpan TimeToNewPhase = TimeSpan.FromSeconds(300);
+    public TimeSpan TimeToNewPhase = TimeSpan.FromSeconds(150);
 
     [DataField]
     public TimeSpan UpdateInterval = TimeSpan.Zero;
