@@ -74,7 +74,9 @@ public abstract class SharedBindSoulSystem : EntitySystem
 
     private void OnMobStateChanged(MobStateChangedEvent ev)
     {
-        if (ev.NewMobState != MobState.Dead)
+        if (ev.NewMobState != MobState.Dead ||
+            !Exists(ev.Target) ||
+            Deleted(ev.Target))// CorvaxGoob-CSRuleSystem-eventbus_moment
             return;
 
         var mapUid = Transform(ev.Target).MapUid;

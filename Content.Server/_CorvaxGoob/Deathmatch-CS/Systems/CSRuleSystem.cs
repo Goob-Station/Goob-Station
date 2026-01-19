@@ -138,9 +138,12 @@ public sealed class CSRuleSystem : GameRuleSystem<CSRuleComponent>
                         return;
             }
 
-            _map.DeleteMap(session.MapId);
             _sessions.Remove(session);
             CreateNewSession();
+
+            if (_map.TryGetMap(session.MapId, out var uid2))
+                QueueDel(uid2);
+
             return;
         }
     }

@@ -1,8 +1,8 @@
 # Этот прототип - рекомендованный шаблон
 - type: gamePreset
-  id: Deathmatch_CorvaxStabion
+  id: Deathmatch_CorvaxStation
   alias:
-    - deathmatch_CorvaxStabion
+    - deathmatch_CorvaxStation
     - dmCS
   name: противостояние
   description: Вы хотели зайти в CS но попали в CorvaxStation.
