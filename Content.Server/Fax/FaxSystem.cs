@@ -390,7 +390,7 @@ public sealed class FaxSystem : EntitySystem
             switch (command)
             {
                 case FaxConstants.FaxPingCommand:
-                    var isForSyndie = _emag.CheckProtoId(uid, EmagType.Interaction) &&
+                    var isForSyndie = _emag.CheckProtoId(uid, _emag.EmagIdInteraction) && // goob edit
                                       args.Data.ContainsKey(FaxConstants.FaxSyndicateData);
                     if (!isForSyndie && !component.ResponsePings)
                         return;
