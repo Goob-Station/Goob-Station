@@ -113,10 +113,6 @@
       weight: 0.3
     - id: JVNECdDiskNinja
       weight: 0.3
-    - id: JVNECdDiskNextUp
-      weight: 0.5
-    - id: JVNECdDiskJNE
-      weight: 0.3
     - id: CdDiskCommanderAnnouncement
       weight: 0.2
     - id: CdDiskCommanderFigurines
