@@ -242,7 +242,7 @@
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
     Rattle: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
-    Screech: #Omu
+    ReptilianScreech: #Omu
       collection: ReptilianScreech
 
 - type: emoteSounds
