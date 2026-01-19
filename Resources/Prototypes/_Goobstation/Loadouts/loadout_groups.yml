@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -906,6 +907,7 @@
   minLimit: 0
   loadouts:
   - ClothingNeckScarfStripedCentcom
+  - NanotrasenRepresentativeEnsemble
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
@@ -1013,6 +1015,7 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerOuterBlueshieldMantle
+  - BlueshieldOfficerEnsemble
 
 - type: loadoutGroup
   id: BlueshieldOfficerMask
@@ -1297,6 +1300,7 @@
   minLimit: 0
   loadouts:
   - MinerCloak
+  - SalvageEspecialistEnsemble
 
 # Chemist
 
@@ -1572,3 +1576,14 @@
   loadouts:
   - WhiteEnvirogloves
   - NitrileEnvirogloves
+
+# Radio Host
+
+- type: loadoutGroup
+  id: RadioHostJumpsuit
+  name: loadout-group-radiohost-jumpsuit
+  loadouts:
+  - JumpsuitHawaiBlack
+  - JumpsuitHawaiBlue
+  - JumpsuitHawaiRed
+  - JumpsuitHawaiYellow

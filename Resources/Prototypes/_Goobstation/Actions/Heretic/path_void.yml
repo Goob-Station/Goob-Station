@@ -16,6 +16,7 @@
   components:
   - type: Action
     checkCanInteract: false
+    raiseOnUser: true
     useDelay: 15
     itemIconStyle: NoItem
     icon:
@@ -36,6 +37,7 @@
   components:
   - type: Action
     checkCanInteract: false
+    raiseOnUser: true
     useDelay: 20
     itemIconStyle: NoItem
     icon:
@@ -62,6 +64,7 @@
   - type: Action
     predicted: false
     checkCanInteract: false
+    raiseOnUser: true
     useDelay: 30
     itemIconStyle: NoItem
     icon:
@@ -90,6 +93,7 @@
     useDelay: 30
     itemIconStyle: NoItem
     checkCanInteract: false
+    raiseOnUser: true
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_pull
@@ -112,6 +116,7 @@
     useDelay: 60
     itemIconStyle: NoItem
     checkCanInteract: false
+    raiseOnUser: true
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_rift
