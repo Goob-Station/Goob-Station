@@ -38,7 +38,7 @@ public sealed partial class HereticSystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        body ??= CompOrNull<MindComponent>(ent.Owner).CurrentEntity;
+        body ??= CompOrNull<MindComponent>(ent.Owner)?.CurrentEntity;
 
         var data = GetKnowledge(id);
 
