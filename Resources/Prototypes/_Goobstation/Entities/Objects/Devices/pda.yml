@@ -80,6 +80,17 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay_synd"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+    - state: "insert_overlay"
+      map: [ "enum.PdaVisualLayers.Pen" ]
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -274,6 +285,17 @@
     state: pda-highcommand
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay_synd"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+    - state: "insert_overlay"
+      map: [ "enum.PdaVisualLayers.Pen" ]
     state: pda-highcommand
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key

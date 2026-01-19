@@ -22,6 +22,7 @@ namespace Content.Shared.PDA
     public enum PdaVisuals
     {
         IdCardInserted,
+        PenInserted,
         PdaType
     }
 

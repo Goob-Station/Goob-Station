@@ -52,11 +52,12 @@ namespace Content.Shared.PDA
             ItemSlotsSystem.RemoveItemSlot(uid, pda.PenSlot);
             ItemSlotsSystem.RemoveItemSlot(uid, pda.PaiSlot);
         }
-
         protected virtual void OnItemInserted(EntityUid uid, PdaComponent pda, EntInsertedIntoContainerMessage args)
         {
             if (args.Container.ID == PdaComponent.PdaIdSlotId)
                 pda.ContainedId = args.Entity;
+            if (args.Container.ID == PdaComponent.PdaPenSlotId)
+                pda.ContainedPen = args.Entity;
 
             UpdatePdaAppearance(uid, pda);
         }
@@ -65,6 +66,8 @@ namespace Content.Shared.PDA
         {
             if (args.Container.ID == pda.IdSlot.ID)
                 pda.ContainedId = null;
+            if (args.Container.ID == pda.PenSlot.ID)
+                pda.ContainedPen = null;
 
             UpdatePdaAppearance(uid, pda);
         }
@@ -78,6 +81,7 @@ namespace Content.Shared.PDA
         private void UpdatePdaAppearance(EntityUid uid, PdaComponent pda)
         {
             Appearance.SetData(uid, PdaVisuals.IdCardInserted, pda.ContainedId != null);
+            Appearance.SetData(uid, PdaVisuals.PenInserted, pda.ContainedPen != null);
         }
 
         public virtual void UpdatePdaUi(EntityUid uid, PdaComponent? pda = null)

@@ -77,6 +77,7 @@ namespace Content.Shared.PDA
         public string? IdCard;
 
         [ViewVariables] public EntityUid? ContainedId;
+        [ViewVariables] public EntityUid? ContainedPen;
         [ViewVariables] public bool FlashlightOn;
 
         [ViewVariables(VVAccess.ReadWrite)] public string? OwnerName;

@@ -196,8 +196,8 @@
       visible: false
     - state: "id_overlay"
       map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
+    - state: "insert_overlay"
+      map: [ "enum.PdaVisualLayers.Pen" ]
   - type: Icon
     sprite: Objects/Devices/pda.rsi
     state: pda
@@ -323,8 +323,8 @@
       visible: false
     - state: "id_overlay_wide"
       map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
+    - state: "insert_overlay"
+      map: [ "enum.PdaVisualLayers.Pen" ]
 
 - type: entity
   parent: BasePDA
@@ -1274,6 +1274,19 @@
   name: syndicate PDA
   description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
   components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay_synd"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+    - state: "insert_overlay"
+      map: [ "enum.PdaVisualLayers.Pen" ]
   - type: Pda
     id: SyndicateIDCard
   - type: Appearance
@@ -1651,6 +1664,19 @@
   name: syndicate corpsman PDA
   description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
   components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay_synd"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+    - state: "insert_overlay"
+      map: [ "enum.PdaVisualLayers.Pen" ]
   - type: Pda
     id: NukieAgentIDCard # Goobstation
   - type: Appearance
