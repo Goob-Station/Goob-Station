@@ -341,7 +341,7 @@
     - Arm
     - Leg
     modifiers:
-      coefficients:
+    coefficients:
         Caustic: 0.95
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.95 #goob edit
