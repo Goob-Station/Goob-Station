@@ -43,7 +43,7 @@
     activatedDamage:
       types:
         Blunt: 12
-      woundSeverityMultipliers:
+      woundSeverityMultipliers: #Goob
         Blunt: 0.5 # Im tired of this shit breaking bones, its meant to be nonlethal
   - type: ItemToggleSize
     activatedSize: Normal
