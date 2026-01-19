@@ -3,13 +3,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Hydroponics.Mutations.MassMushroomOrganism;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MassMushroomOrganismComponent : Component
 {
     [DataField]
     public bool IsActive;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid Host;
 
     [DataField]
