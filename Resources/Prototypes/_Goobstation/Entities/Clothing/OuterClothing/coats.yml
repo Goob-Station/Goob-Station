@@ -120,7 +120,6 @@
         Caustic: 0.6
         Radiation: 0.6
 
-
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
   id: ClothingOuterCoatRDPurpleOpened
