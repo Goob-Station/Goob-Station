@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Emag.Systems;
+using Content.Goobstation.Common.Emag.Prototypes; // goob edit
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
@@ -38,7 +38,7 @@ public sealed partial class EmagProviderComponent : Component
     /// What type of emag this will provide.
     /// </summary>
     [DataField]
-    public EmagType EmagType = EmagType.Access;
+    public ProtoId<EmagTypePrototype> EmagType = "Access"; //goob edit
 
     /// <summary>
     /// What sound should the emag play when used

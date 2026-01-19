@@ -50,7 +50,8 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // goob edit - EmagType prototypes
 
-    private readonly ProtoId<EmagTypePrototype> _emagIdAccess = "Access"; // goob edit
+    public readonly ProtoId<EmagTypePrototype> EmagIdInteraction = "Interaction"; // goob edit
+    public readonly ProtoId<EmagTypePrototype> EmagIdAccess = "Access"; // goob edit
     private readonly ProtoId<EmagTypePrototype> _emagIdAll = "All"; // goob edit
     public override void Initialize()
     {
@@ -62,7 +63,7 @@ public sealed class EmagSystem : EntitySystem
 
     private void OnAccessOverriderAccessUpdated(Entity<EmaggedComponent> entity, ref OnAccessOverriderAccessUpdatedEvent args)
     {
-        EmagTypePrototype emagTypeAccess = _prototypeManager.Index(_emagIdAccess); // goob edit
+        EmagTypePrototype emagTypeAccess = _prototypeManager.Index(EmagIdAccess); // goob edit
         if (entity.Comp.EmagType.Id != "Access")
             return;
 
@@ -143,8 +144,11 @@ public sealed class EmagSystem : EntitySystem
         EmagTypePrototype emagTypeAll = _prototypeManager.Index(_emagIdAll);
         if (!TryComp<EmaggedComponent>(target, out var comp))
             return false;
-
-        if (comp.EmagType == protoId || protoId == emagTypeAll)
+        
+        if (!_prototypeManager.TryIndex(protoId, out var proto))
+            return false;
+        
+        if (comp.EmagType == proto || proto == emagTypeAll)
             return true;
 
         return false;
@@ -158,8 +162,10 @@ public sealed class EmagSystem : EntitySystem
     /// <returns>True if target contains protoId. Otherwise false.</returns>
     public bool CompareProtoId(ProtoId<EmagTypePrototype> target, ProtoId<EmagTypePrototype> protoId)
     {
+        if(!_prototypeManager.TryIndex(protoId, out var proto))
+            return false;
         EmagTypePrototype emagTypeAll = _prototypeManager.Index(_emagIdAll);
-        if (target == protoId || protoId == emagTypeAll)
+        if (target == proto || proto == emagTypeAll)
             return true;
 
         return false;
