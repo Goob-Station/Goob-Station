@@ -121,7 +121,7 @@
   name: mass mushroom organism
   parent: [ FoodProduceBase, ClothingHeadBase ]
   id: FoodMassMushroomOrganism
-  description: A weakly pulsating fungal mass.
+  description: A weakly pulsating fungal mass. You feel a strange urge to put it on your head.
   components:
   - type: SolutionContainerManager
     solutions:
