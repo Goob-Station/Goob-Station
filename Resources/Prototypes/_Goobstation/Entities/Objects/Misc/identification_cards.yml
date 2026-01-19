@@ -63,6 +63,7 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
+    - state: ert_empty
     - state: ert_security
   - type: IdCard
     jobTitle: job-name-hecu
@@ -195,6 +196,7 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
+    - state: ert_empty
   - type: PresetIdCard
     job: NavyCaptain
 
@@ -209,6 +211,7 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
+    - state: ert_empty
   - type: PresetIdCard
     job: NavyOfficer
 
@@ -222,6 +225,7 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
+    - state: ert_empty
     - state: ert_security
   - type: PresetIdCard
     job: SpecialOperationsOfficer
@@ -236,6 +240,7 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
+    - state: ert_empty
     - state: ert_security
   - type: PresetIdCard
     job: Inspector
@@ -250,6 +255,7 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
+    - state: ert_empty
     - state: ert_security
   - type: IdCard
     jobTitle: job-name-diplomat
@@ -313,7 +319,7 @@
   components:
   - type: Sprite
     layers:
-    - state: default
+    - state: silver
     - state: idcommandmaid
   - type: PresetIdCard
     job: CommandMaid

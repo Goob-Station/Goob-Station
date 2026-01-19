@@ -358,7 +358,7 @@
   components:
   - type: Sprite
     layers:
-    - state: chemist # Goobstation - Chemist card
+    - state: default
     - state: idchemist
   - type: PresetIdCard
     job: Chemist
@@ -660,12 +660,12 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: ert_empty
     - state: ert_commander
   - type: PresetIdCard
     job: ERTLeader
   - type: Item
-    heldPrefix: gold
+    heldPrefix: blue
   - type: NanoChatCard # DeltaV
     listNumber: false
 
@@ -676,7 +676,7 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: ert_empty
     - state: ert_chaplain # we have the sprite for the id but dont have chaplain ERT equipment for now.
   - type: PresetIdCard
     job: ERTChaplain
@@ -692,7 +692,7 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: ert_empty
     - state: ert_engineer
   - type: PresetIdCard
     job: ERTEngineer
@@ -706,7 +706,7 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: ert_empty
     - state: ert_janitor
   - type: PresetIdCard
     job: ERTJanitor
@@ -720,7 +720,7 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: ert_empty
     - state: ert_medic
   - type: PresetIdCard
     job: ERTMedical
@@ -734,7 +734,7 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: ert_empty
     - state: ert_security
   - type: PresetIdCard
     job: ERTSecurity
@@ -826,7 +826,7 @@
   components:
   - type: Sprite
     layers:
-    - state: orange
+    - state: default
     - state: idatmospherictechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
@@ -853,6 +853,7 @@
   components:
   - type: Sprite
     layers:
+    - state: syndie
     - state: pirate
   - type: Access
     tags:
@@ -979,7 +980,7 @@
   components:
   - type: Sprite
     layers:
-    - state: default
+    - state: rainbow
     - state: idcluwne
   - type: IdCard
     jobTitle: job-title-cluwne

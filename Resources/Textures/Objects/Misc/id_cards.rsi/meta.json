@@ -17,6 +17,9 @@
       "name": "admin"
     },
     {
+      "name": "ert_empty"
+    },
+    {
       "name": "ert_chaplain"
     },
     {
@@ -193,9 +196,6 @@
     {
       "name": "orange"
     },
-	{
-      "name": "chemist"
-    },
     {
       "name": "pirate"
     },
@@ -219,6 +219,9 @@
     },
     {
       "name": "prisoner_007"
+    },
+    {
+      "name": "rainbow"
     },
     {
       "name": "silver"
