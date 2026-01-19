@@ -10,7 +10,7 @@ public sealed partial class MassMushroomOrganismComponent : Component
     public bool IsActive;
 
     [DataField, AutoNetworkedField]
-    public EntityUid Host;
+    public EntityUid? Host;
 
     [DataField]
     public EntProtoId Action = "ActionFungalGrowth";
