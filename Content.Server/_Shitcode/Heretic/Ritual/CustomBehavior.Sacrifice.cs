@@ -136,7 +136,7 @@ namespace Content.Server.Heretic.Ritual;
 
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uid);
             var isSec = args.EntityManager.HasComponent<SecurityStaffComponent>(uid);
-            var isHeretic = _heretic.TryGetHereticComponent(uid, out _, out _);
+            var isHeretic = _heretic.TryGetHereticComponent(uid, out var otherHeretic, out var otherMind);
             knowledgeGain +=
                 isHeretic ||
                 heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uid))
@@ -156,6 +156,10 @@ namespace Content.Server.Heretic.Ritual;
                 _sawmill ??= _log.GetSawmill("sacrifice");
                 _sawmill.Error(e.Message);
             }
+
+            // Sacrificed heretics lose their powers forever
+            if (otherMind != EntityUid.Invalid && otherHeretic is { } h)
+                args.EntityManager.RemoveComponentDeferred(otherMind, h);
 
             // update objectives
             // this is godawful dogshit. but it works :)

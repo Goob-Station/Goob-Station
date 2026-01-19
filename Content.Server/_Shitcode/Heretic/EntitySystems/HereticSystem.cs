@@ -334,9 +334,16 @@ public sealed partial class HereticSystem : SharedHereticSystem
         if (!TryComp(ent, out MindComponent? mind) || mind.CurrentEntity is not { } body || TerminatingOrDeleted(body))
             return;
 
-        foreach (var ev in ent.Comp.KnowledgeEvents)
+        SetMinionsMaster(ent, null);
+        RaiseKnowledgeEvents(ent, body, true);
+
+        if (TerminatingOrDeleted(ent) || !TryComp(ent, out ActionsContainerComponent? container))
+            return;
+
+        foreach (var action in container.Container.ContainedEntities.ToList())
         {
-            RaiseKnowledgeEvent(body, ev, true);
+            if (HasComp<HereticActionComponent>(action))
+                _actionContainer.RemoveAction(action);
         }
     }
 
