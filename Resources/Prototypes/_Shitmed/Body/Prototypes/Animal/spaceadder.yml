@@ -18,7 +18,7 @@
       connections:
       - groin
       organs:
-        lungs: OrganAnimalLungs
+        lungs: OrganSpaceAnimalLungs # Immunity to airloss
         heart: OrganAnimalHeart
     groin:
       part: GroinAnimal
