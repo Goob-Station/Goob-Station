@@ -8,6 +8,7 @@ using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
@@ -72,7 +73,7 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
 
         foreach (var (uid, flam) in result)
         {
-            _flammable.AdjustFireStacks(uid, origin.Comp.BonusFireStacks, flam, true);
+            _flammable.AdjustFireStacks(uid, origin.Comp.BonusFireStacks, flam, true, origin.Comp.FireProtectionPenetration);
 
             if (statusQuery.TryComp(uid, out var status))
                 _stun.KnockdownOrStun(uid, origin.Comp.BonusKnockdownTime, true, status);
@@ -81,7 +82,7 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
                 continue;
 
             Dmg.TryChangeDamage(uid,
-                origin.Comp.FireBlastBonusDamage,
+                origin.Comp.FireBlastBonusDamage * Body.GetVitalBodyPartRatio(uid),
                 false,
                 false,
                 dmg,
@@ -166,10 +167,10 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
         if (antimagic)
             return true;
 
-        _flammable.AdjustFireStacks(target, origin.Comp.FireStacks, flam, true);
+        _flammable.AdjustFireStacks(target, origin.Comp.FireStacks, flam, true, origin.Comp.FireProtectionPenetration);
 
         Dmg.TryChangeDamage(target,
-            origin.Comp.FireBlastDamage,
+            origin.Comp.FireBlastDamage * Body.GetVitalBodyPartRatio(target),
             origin: origin,
             targetPart: TargetBodyPart.All,
             splitDamage: SplitDamageBehavior.SplitEnsureAll,
@@ -185,7 +186,7 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
         var originPos = Xform.GetMapCoordinates(origin);
         var targetPos = Xform.GetMapCoordinates(target);
 
-        var dir = (targetPos.Position - originPos.Position).Normalized();
+        var dir = (originPos.Position - targetPos.Position).Normalized();
 
         var ray = new CollisionRay(originPos.Position, dir, (int) CollisionGroup.Opaque);
         var result = _physics.IntersectRay(originPos.MapId, ray, origin.Comp.FireBlastRange, origin, false);
@@ -211,13 +212,13 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
                 continue;
 
             if (flammableQuery.TryComp(ent.HitEntity, out var flam))
-                _flammable.AdjustFireStacks(ent.HitEntity, origin.Comp.CollisionFireStacks, flam, true);
+                _flammable.AdjustFireStacks(ent.HitEntity, origin.Comp.CollisionFireStacks, flam, true, origin.Comp.FireProtectionPenetration);
 
             if (!dmgQuery.TryComp(ent.HitEntity, out var dmg))
                 continue;
 
             Dmg.TryChangeDamage(ent.HitEntity,
-                origin.Comp.FireBlastBeamCollideDamage,
+                origin.Comp.FireBlastBeamCollideDamage * Body.GetVitalBodyPartRatio(ent.HitEntity),
                 false,
                 false,
                 dmg,

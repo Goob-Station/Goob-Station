@@ -1,4 +1,5 @@
 using Content.Shared.StatusEffect;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -37,6 +38,9 @@ public sealed partial class SpiritCandleComponent : Component
     /// </summary>
     [ViewVariables]
     public bool Active;
+
+    [DataField]
+    public SoundSpecifier SuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/wraithwhisper1.ogg");
 
     #region Visuals
 

@@ -275,6 +275,12 @@ public abstract class SharedMagicSystem : EntitySystem
         var hasReqs = true;
 
         // Goobstation start
+        if (comp.BlockedBySpectral && HasComp<SpectralComponent>(args.Performer))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         var requiresSpeech = comp.RequiresSpeech;
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
         var requiredSlots = 2;
@@ -749,7 +755,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         List<(Type, string)> blockers = new()
         {
-            (typeof(ChangelingComponent), "changeling"),
+            (typeof(ChangelingComponent), "changeling"), // TODO change to ChangelingIdentityComponent
             // You should be able to mindswap with heretics,
             // but all of their data and abilities are not tied to their mind, I'm not making this work.
             (typeof(HereticComponent), "heretic"),
@@ -844,6 +850,7 @@ public abstract class SharedMagicSystem : EntitySystem
             List<ProtoId<NpcFactionPrototype>> factionsToTransfer = new()
             {
                 "Wizard",
+                "Assistant",
             };
 
             ProtoId<NpcFactionPrototype> fallbackFaction = "NanoTrasen";

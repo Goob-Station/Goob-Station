@@ -44,6 +44,7 @@
 
 using Content.Shared.Ghost;
 using Content.Shared.IdentityManagement.Components;
+using Robust.Shared.Utility; // Goob
 
 namespace Content.Shared.IdentityManagement;
 
@@ -64,28 +65,28 @@ public static class Identity
 
         var meta = ent.GetComponent<MetaDataComponent>(uid);
         if (meta.EntityLifeStage <= EntityLifeStage.Initializing)
-            return meta.EntityName; // Identity component and such will not yet have initialized and may throw NREs
+            return FormattedMessage.EscapeText(meta.EntityName); // Goob Sanitize Text
 
         var uidName = meta.EntityName;
 
         if (!ent.TryGetComponent<IdentityComponent>(uid, out var identity))
-            return uidName;
+            return FormattedMessage.EscapeText(uidName); // Goob Sanitize Text
 
         var ident = identity.IdentityEntitySlot.ContainedEntity;
         if (ident is null)
-            return uidName;
+            return FormattedMessage.EscapeText(uidName); // Goob Sanitize Text
 
         var identName = ent.GetComponent<MetaDataComponent>(ident.Value).EntityName;
         if (viewer == null || !CanSeeThroughIdentity(uid, viewer.Value, ent))
         {
-            return identName;
+            return FormattedMessage.EscapeText(identName); // Goob Sanitize Text
         }
         if (uidName == identName)
         {
-            return uidName;
+            return FormattedMessage.EscapeText(uidName); // Goob Sanitize Text
         }
 
-        return $"{uidName} ({identName})";
+        return $"{FormattedMessage.EscapeText(uidName)} ({FormattedMessage.EscapeText(identName)})"; // Goob Sanitize Text
     }
 
     /// <summary>

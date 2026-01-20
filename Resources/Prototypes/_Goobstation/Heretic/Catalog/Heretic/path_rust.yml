@@ -53,12 +53,30 @@
     whitelist:
     - Rust
 
+#- type: listing
+#  id: HereticRustPath3
+#  name: knowledge-path-rust-s3-name
+#  description: knowledge-path-rust-s3-desc
+#  icon: { sprite: _Goobstation/Heretic/tiles.rsi, state: plating_rust }
+#  productHereticKnowledge: LeechingWalk
+#  cost:
+#    KnowledgePoint: 1
+#  categories:
+#  - HereticPathRust
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:HereticPathCondition
+#    stage: 2
+#    whitelist:
+#    - Rust
+
 - type: listing
   id: HereticRustPath3
   name: knowledge-path-rust-s3-name
   description: knowledge-path-rust-s3-desc
-  icon: { sprite: _Goobstation/Heretic/tiles.rsi, state: plating_rust }
-  productHereticKnowledge: LeechingWalk
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
+  productHereticKnowledge: AggressiveSpread
   cost:
     KnowledgePoint: 1
   categories:
@@ -111,8 +129,8 @@
   id: HereticRustPath6
   name: knowledge-path-rust-s6-name
   description: knowledge-path-rust-s6-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
-  productHereticKnowledge: AggressiveSpread
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: entropic_plume }
+  productHereticKnowledge: EntropicPlume
   cost:
     KnowledgePoint: 1
   categories:
@@ -145,10 +163,10 @@
 
 - type: listing
   id: HereticRustPath8
-  name: knowledge-path-rust-s8-name
-  description: knowledge-path-rust-s8-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: entropic_plume }
-  productHereticKnowledge: EntropicPlume
+  name: knowledge-path-rust-s8-rust-charge-name
+  description: knowledge-path-rust-s8-rust-charge-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: rust_charge }
+  productHereticKnowledge: RustCharge
   cost:
     KnowledgePoint: 1
   categories:
