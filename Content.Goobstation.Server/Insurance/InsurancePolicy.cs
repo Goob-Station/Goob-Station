@@ -13,7 +13,7 @@ public sealed partial class InsurancePolicy
     public EntityWhitelist ValidEntities;
 
     /// <summary>
-    /// Extra entities to be spawned with the compensation package.
+    /// Extra entities to be spawned in the drop pod.
     /// </summary>
     [DataField]
     public List<EntProtoId>? ExtraCompensationItems;
@@ -30,10 +30,4 @@ public sealed partial class InsurancePolicy
     /// </summary>
     [DataField]
     public float? DropDelay = null;
-
-    /// <summary>
-    /// The radius to search for valid positions to drop compensation packages.
-    /// </summary>
-    [DataField]
-    public int DropRadius = 2;
 }

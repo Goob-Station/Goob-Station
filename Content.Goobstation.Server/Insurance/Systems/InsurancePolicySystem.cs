@@ -18,7 +18,7 @@ public sealed partial class InsurancePolicySystem : EntitySystem
     public void Insure(EntityUid target, EntityUid owner, InsurancePolicyComponent comp)
     {
         var insurance = EnsureComp<InsuranceComponent>(target);
-        insurance.PolicyOwner = owner;
+        insurance.Beneficiary = owner;
         insurance.Policy = comp.Policy;
     }
 
@@ -34,11 +34,8 @@ public sealed partial class InsurancePolicySystem : EntitySystem
         }
 
         args.Handled = true;
-
         _popup.PopupEntity(Loc.GetString("insurance-insure"), args.Target.Value, args.User);
-
         Insure(args.Target.Value, args.User, ent.Comp);
-
         QueueDel(args.Used);
     }
 }
