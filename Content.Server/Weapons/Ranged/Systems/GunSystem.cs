@@ -547,9 +547,9 @@ public sealed partial class GunSystem : SharedGunSystem
     private Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction, EntityUid? user = null) // Goobstation user
     {
         var timeSinceLastFire = (curTime - component.LastFire).TotalSeconds;
-        var minTheta = Math.Min(component.MinAngleModified.Theta, component.MaxAngleModified.Theta); // make min max work properly
-        var maxTheta = Math.Max(component.MinAngleModified.Theta, component.MaxAngleModified.Theta); // reverse recoil direction for funny mechanics
-        var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncreaseModified.Theta - component.AngleDecayModified.Theta * timeSinceLastFire, minTheta, maxTheta);
+        var minTheta = Math.Min(component.MinAngleModified.Theta, component.MaxAngleModified.Theta); // goob edit make min max work properly
+        var maxTheta = Math.Max(component.MinAngleModified.Theta, component.MaxAngleModified.Theta); // goob edit reverse recoil direction for funny mechanics
+        var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncreaseModified.Theta - component.AngleDecayModified.Theta * timeSinceLastFire, minTheta, maxTheta); // goob edit
         component.CurrentAngle = new Angle(newTheta);
         component.LastFire = component.NextFire;
 
