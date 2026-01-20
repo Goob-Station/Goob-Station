@@ -198,7 +198,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      190: Dead
+      160: Dead
   - type: SlaughterDevour
     feastSound: /Audio/_Goobstation/Misc/scary_horn2.ogg
   - type: SlaughterDemon
@@ -230,6 +230,8 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/sadtrombone.ogg
+  - type: Puller
+    stageChangeCooldown: 1
 
 # midround roll
 - type: entity

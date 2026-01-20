@@ -104,7 +104,7 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
 
     protected virtual bool CheckAlreadyCrawling(Entity<BloodCrawlComponent> ent)
     {
-        return false;
+        return true;
     }
 
     protected virtual void PolymorphDemon(EntityUid user, ProtoId<PolymorphPrototype> polymorph) {}

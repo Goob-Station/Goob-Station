@@ -9,16 +9,15 @@
     #TODO When Slasher is ready Slasher: 0.6 # Goobstation
     Blob: 0.5
     Dragon: 0.3
-    SlaughterDemon: 0.3
-    LaughterDemon: 0.3
+    LaughterDemon: 0.6
     Revolutionary: 0.2
 
 # Threats
 
-- type: ninjaHackingThreat
-  id: SlaughterDemon
-  announcement: terror-slaughter-demon
-  rule: SlaughterDemonMidround
+#- type: ninjaHackingThreat
+#  id: SlaughterDemon
+#  announcement: terror-slaughter-demon
+#  rule: SlaughterDemonMidround
 
 - type: ninjaHackingThreat
   id: LoneOperative
