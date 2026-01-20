@@ -40,7 +40,7 @@
   time: 10
   solids:
     RightLegVox: 1
-    
+
 - type: microwaveMealRecipe
   id: RecipeChudBurger
   name: nothing burger recipe
@@ -52,3 +52,12 @@
     FoodMeat: 1
   reagents:
     Nothing: 5
+
+- type: microwaveMealRecipe
+  id: RecipeMothdog
+  name: mothdog recipe
+  result: FoodSnackMothdog
+  time: 5
+  group: Savory
+  solids:
+    HeadMoth: 1
