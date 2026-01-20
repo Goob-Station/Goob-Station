@@ -50,21 +50,26 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // goob edit - EmagType prototypes
 
-    public readonly ProtoId<EmagTypePrototype> EmagIdInteraction = "Interaction"; // goob edit
-    public readonly ProtoId<EmagTypePrototype> EmagIdAccess = "Access"; // goob edit
-    
-    private readonly ProtoId<EmagTypePrototype> _emagIdAll = "All"; // goob edit
+    public readonly Dictionary<string, ProtoId<EmagTypePrototype>> EmagType = new();
+    private readonly ProtoId<EmagTypePrototype> _emagAll = "All"; // Goob edit
+
     public override void Initialize()
     {
         base.Initialize();
-
+        var query = _prototypeManager.EnumeratePrototypes<EmagTypePrototype>();
+        foreach (var emagType in query)
+        {
+            EmagType[emagType.ID] = emagType;
+        }
         SubscribeLocalEvent<EmagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<EmaggedComponent, OnAccessOverriderAccessUpdatedEvent>(OnAccessOverriderAccessUpdated);
     }
 
     private void OnAccessOverriderAccessUpdated(Entity<EmaggedComponent> entity, ref OnAccessOverriderAccessUpdatedEvent args)
     {
-        EmagTypePrototype emagTypeAccess = _prototypeManager.Index(EmagIdAccess); // goob edit
+        if(EmagType.TryGetValue("Access", out var emag) == false) // goob edit
+            return;
+        EmagTypePrototype emagTypeAccess = _prototypeManager.Index(emag); // goob edit
         if (entity.Comp.EmagType.Id != "Access")
             return;
 
@@ -140,19 +145,12 @@ public sealed class EmagSystem : EntitySystem
     /// <param name="target">The target entity to check for the flag.</param>
     /// <param name="protoId">The EmagType flag to check for.</param>
     /// <returns>True if entity has EmaggedComponent and the provided flag. False if the entity lacks EmaggedComponent or provided flag.</returns>
-    public bool CheckProtoId(EntityUid target, ProtoId<EmagTypePrototype> protoId)
+    public bool CheckProtoId(EntityUid target, string protoId)
     {
-        EmagTypePrototype emagTypeAll = _prototypeManager.Index(_emagIdAll);
         if (!TryComp<EmaggedComponent>(target, out var comp))
             return false;
-        
-        if (!_prototypeManager.TryIndex(protoId, out var proto))
-            return false;
-        
-        if (comp.EmagType == proto || proto == emagTypeAll)
-            return true;
 
-        return false;
+        return CompareProtoId(comp.EmagType, protoId);
     }
 
     /// <summary>
@@ -161,15 +159,15 @@ public sealed class EmagSystem : EntitySystem
     /// <param name="target">The target protoId to check.</param>
     /// <param name="protoId">The protoId to check for within the target.</param>
     /// <returns>True if target contains protoId. Otherwise false.</returns>
-    public bool CompareProtoId(ProtoId<EmagTypePrototype> target, ProtoId<EmagTypePrototype> protoId)
+    public bool CompareProtoId(ProtoId<EmagTypePrototype> target, string protoId)
     {
-        if(!_prototypeManager.TryIndex(protoId, out var proto))
+        if (!EmagType.ContainsKey(protoId))
             return false;
-        EmagTypePrototype emagTypeAll = _prototypeManager.Index(_emagIdAll);
-        if (target == proto || proto == emagTypeAll)
+
+        if (target == _emagAll)
             return true;
 
-        return false;
+        return target == protoId;
     }
     // Gigantic goob edit end
 }
