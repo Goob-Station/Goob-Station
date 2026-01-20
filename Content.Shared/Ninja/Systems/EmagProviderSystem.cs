@@ -57,7 +57,7 @@ public sealed class EmagProviderSystem : EntitySystem
         if (_tag.HasTag(target, comp.AccessBreakerImmuneTag))
             return;
 
-        var emagEv = new GotEmaggedEvent(uid, _emag.EmagIdAccess); // goob edit
+        var emagEv = new GotEmaggedEvent(uid, "Access"); // goob edit
         RaiseLocalEvent(args.Target, ref emagEv);
 
         if (!emagEv.Handled)

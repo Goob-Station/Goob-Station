@@ -146,10 +146,10 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, MaterialReclaimerComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (_emag.CheckProtoId(uid, "Interaction")) // goob edit
             return;
 
         args.Handled = true;
@@ -305,7 +305,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
                component.Enabled &&
                !component.Broken &&
                HasComp<BodyComponent>(victim) &&
-               _emag.CheckProtoId(uid, _emag.EmagIdInteraction); // goob edit
+               _emag.CheckProtoId(uid, "Interaction"); // goob edit
     }
 
     /// <summary>

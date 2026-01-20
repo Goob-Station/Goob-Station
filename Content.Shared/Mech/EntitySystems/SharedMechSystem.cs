@@ -592,7 +592,7 @@ public abstract partial class SharedMechSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, MechComponent component, ref GotEmaggedEvent args) // Goobstation
     {
-        if (!component.BreakOnEmag || !_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+        if (!component.BreakOnEmag || !_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
         args.Handled = true;
         component.EquipmentWhitelist = null;

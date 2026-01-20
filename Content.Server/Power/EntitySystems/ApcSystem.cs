@@ -142,10 +142,10 @@ public sealed class ApcSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, ApcComponent comp, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (_emag.CheckProtoId(uid, "Interaction")) // goob edit
             return;
 
         args.Handled = true;
@@ -206,7 +206,7 @@ public sealed class ApcSystem : EntitySystem
 
     private ApcChargeState CalcChargeState(EntityUid uid, PowerState.Battery battery)
     {
-        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (_emag.CheckProtoId(uid, "Interaction")) // goob edit
             return ApcChargeState.Emag;
 
         if (battery.CurrentStorage / battery.Capacity > ApcComponent.HighPowerThreshold)

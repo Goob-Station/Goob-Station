@@ -391,7 +391,7 @@ public sealed class LockSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, LockComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdAccess)) // goob edit
+        if (!_emag.CompareProtoId(args.Type, "Access")) // goob edit
             return;
 
         if (!component.Locked || !component.BreakOnAccessBreaker)

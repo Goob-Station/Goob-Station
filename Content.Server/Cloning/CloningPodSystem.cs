@@ -288,10 +288,10 @@ public sealed class CloningPodSystem : EntitySystem
     /// </summary>
     private void OnEmagged(Entity<CloningPodComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckProtoId(ent.Owner, _emag.EmagIdInteraction)) // goob edit
+        if (_emag.CheckProtoId(ent.Owner, "Interaction")) // goob edit
             return;
 
         if (!this.IsPowered(ent.Owner, EntityManager))

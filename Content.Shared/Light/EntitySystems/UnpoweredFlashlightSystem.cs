@@ -123,7 +123,7 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
 
     private void OnGotEmagged(EntityUid uid, UnpoweredFlashlightComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
         if (!_light.TryGetLight(uid, out var light))

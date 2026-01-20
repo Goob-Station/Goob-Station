@@ -265,7 +265,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     private void OnIonStormLaws(EntityUid uid, SiliconLawProviderComponent component, ref IonStormLawsEvent args)
     {
         // Emagged borgs are immune to ion storm
-        if (!_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (!_emag.CheckProtoId(uid, "Interaction")) // goob edit
         {
             component.Lawset = args.Lawset;
 

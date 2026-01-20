@@ -352,7 +352,7 @@ public sealed class FaxSystem : EntitySystem
                 return;
             }
 
-            if (component.KnownFaxes.ContainsValue(newName) && !_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit // Allow existing names if emagged for fun
+            if (component.KnownFaxes.ContainsValue(newName) && !_emag.CheckProtoId(uid, "Interaction")) // goob edit // Allow existing names if emagged for fun
             {
                 _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-name-exist"), uid);
                 return;
@@ -371,10 +371,10 @@ public sealed class FaxSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, FaxMachineComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (_emag.CheckProtoId(uid, "Interaction")) // goob edit
             return;
 
         args.Handled = true;
@@ -390,7 +390,7 @@ public sealed class FaxSystem : EntitySystem
             switch (command)
             {
                 case FaxConstants.FaxPingCommand:
-                    var isForSyndie = _emag.CheckProtoId(uid, _emag.EmagIdInteraction) && // goob edit
+                    var isForSyndie = _emag.CheckProtoId(uid, "Interaction") && // goob edit
                                       args.Data.ContainsKey(FaxConstants.FaxSyndicateData);
                     if (!isForSyndie && !component.ResponsePings)
                         return;
@@ -564,7 +564,7 @@ public sealed class FaxSystem : EntitySystem
             { DeviceNetworkConstants.Command, FaxConstants.FaxPingCommand }
         };
 
-        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (_emag.CheckProtoId(uid, "Interaction")) // goob edit
             payload.Add(FaxConstants.FaxSyndicateData, true);
 
         _deviceNetworkSystem.QueuePacket(uid, null, payload);

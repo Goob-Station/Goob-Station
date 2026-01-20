@@ -216,10 +216,10 @@ namespace Content.Server.Cargo.Systems
 
         private void OnEmagged(Entity<CargoOrderConsoleComponent> ent, ref GotEmaggedEvent args)
         {
-            if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+            if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
                 return;
 
-            if (_emag.CheckProtoId(ent, _emag.EmagIdInteraction)) // goob edit
+            if (_emag.CheckProtoId(ent, "Interaction")) // goob edit
                 return;
 
             args.Handled = true;
@@ -373,7 +373,7 @@ namespace Content.Server.Cargo.Systems
             order.Approved = true;
             _audio.PlayPvs(ApproveSound, uid);
 
-            if (!_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+            if (!_emag.CheckProtoId(uid, "Interaction")) // goob edit
             {
                 var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(uid, player);
                 RaiseLocalEvent(tryGetIdentityShortInfoEvent);

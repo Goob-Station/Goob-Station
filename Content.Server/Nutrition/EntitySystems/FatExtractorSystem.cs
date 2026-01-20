@@ -79,10 +79,10 @@ public sealed class FatExtractorSystem : EntitySystem
 
     private void OnGotEmagged(EntityUid uid, FatExtractorComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (_emag.CheckProtoId(uid, "Interaction")) // goob edit
             return;
 
         args.Handled = true;
@@ -151,7 +151,7 @@ public sealed class FatExtractorSystem : EntitySystem
         if (_hunger.GetHunger(hunger) < component.NutritionPerSecond)
             return false;
 
-        if (hunger.CurrentThreshold < component.MinHungerThreshold && !_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (hunger.CurrentThreshold < component.MinHungerThreshold && !_emag.CheckProtoId(uid, "Interaction")) // goob edit
             return false;
 
         return true;

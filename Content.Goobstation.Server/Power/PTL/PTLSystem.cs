@@ -235,10 +235,10 @@ public sealed partial class PTLSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, PTLComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareProtoId(args.Type, _emag.EmagIdInteraction)) // goob edit
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckProtoId(uid, _emag.EmagIdInteraction)) // goob edit
+        if (_emag.CheckProtoId(uid, "Interaction")) // goob edit
             return;
 
         if (component.ReversedFiring)
