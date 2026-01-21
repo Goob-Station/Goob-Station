@@ -71,7 +71,7 @@ public sealed partial class SprinterComponent : Component
     public float SprintSpeedMultiplierMax = 1.7f;
 
     /// <summary>
-    ///     Maximum energy of sprint, basically how close are we from baseline to max sprint speed -> 1 = 100$
+    ///     Maximum energy of sprint, basically how close are we from baseline to max sprint speed -> 1 = 100%
     /// </summary>
     [DataField, AutoNetworkedField]
     public float SprintEnergyMax = 1f;
