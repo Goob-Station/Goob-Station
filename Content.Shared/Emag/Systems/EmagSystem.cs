@@ -67,13 +67,13 @@ public sealed class EmagSystem : EntitySystem
 
     private void OnAccessOverriderAccessUpdated(Entity<EmaggedComponent> entity, ref OnAccessOverriderAccessUpdatedEvent args)
     {
-        if(EmagType.TryGetValue("Access", out var emag) == false) // goob edit
-            return;
-        EmagTypePrototype emagTypeAccess = _prototypeManager.Index(emag); // goob edit
-        if (entity.Comp.EmagType.Id != "Access")
+        if (entity.Comp.EmagType.Id != "Access") // goob edit start
             return;
 
-        entity.Comp.EmagType = emagTypeAccess;
+        if (!EmagType.TryGetValue("Access", out var emag))
+            return; 
+
+        entity.Comp.EmagType = emag; // goob edit end
         Dirty(entity);
     }
     private void OnAfterInteract(EntityUid uid, EmagComponent comp, AfterInteractEvent args)
@@ -143,10 +143,11 @@ public sealed class EmagSystem : EntitySystem
     /// Checks whether an entity has the EmaggedComponent with a set flag.
     /// </summary>
     /// <param name="target">The target entity to check for the flag.</param>
-    /// <param name="protoId">The EmagType flag to check for.</param>
+    /// <param name="protoId">The of the protoID to check for.</param>
     /// <returns>True if entity has EmaggedComponent and the provided flag. False if the entity lacks EmaggedComponent or provided flag.</returns>
     public bool CheckProtoId(EntityUid target, string protoId)
     {
+        
         if (!TryComp<EmaggedComponent>(target, out var comp))
             return false;
 
@@ -157,7 +158,7 @@ public sealed class EmagSystem : EntitySystem
     /// Compares a protoId to the target.
     /// </summary>
     /// <param name="target">The target protoId to check.</param>
-    /// <param name="protoId">The protoId to check for within the target.</param>
+    /// <param name="protoId">The string of protoId to check for within the target.</param>
     /// <returns>True if target contains protoId. Otherwise false.</returns>
     public bool CompareProtoId(ProtoId<EmagTypePrototype> target, string protoId)
     {
