@@ -108,7 +108,7 @@
   parent: BaseCyberneticOrgan
   id: BasicCyberneticHeart
   name: cybernetic heart
-  description: A precision-tuned heart that accelerates medicine absorption while slowing the effects of poisons and narcotics.
+  description: A precision-tuned heart that slows down medicine absorption while hastening the absorption of poisons and narcotics resulting in weakened effects.
   components:
   - type: Sprite
     state: heart-on
@@ -129,11 +129,11 @@
     metabolizerTypes: [ Cybernetic ]
     groups:
     - id: Medicine
-      rateModifier: 1.3
-    - id: Poison
       rateModifier: 0.7
+    - id: Poison
+      rateModifier: 1.4
     - id: Narcotic
-      rateModifier: 0.8
+      rateModifier: 1.2
   - type: Tag
     tags:
     - Organ
@@ -146,7 +146,7 @@
   parent: BasicCyberneticHeart
   id: UpgradedCyberneticHeart
   name: upgraded cybernetic heart
-  description: A next-gen circulatory core that rapidly delivers medicine throughout the body while heavily delaying and weakening toxins and narcotics.
+  description: A next-gen circulatory core that slowly delivers medicine throughout the body providing much better healing while heavily accelerating and weakening toxins and narcotics.
   components:
   - type: Sprite
     state: heart-u-on
@@ -166,11 +166,11 @@
     metabolizerTypes: [ Cybernetic ]
     groups:
     - id: Medicine
-      rateModifier: 2.25
+      rateModifier: 0.4
     - id: Poison
-      rateModifier: 0.35
+      rateModifier: 2.8
     - id: Narcotic
-      rateModifier: 0.6
+      rateModifier: 1.6
 
 # Liver
 
