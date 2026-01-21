@@ -51,7 +51,7 @@ public abstract class SharedSprintingSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<SprinterComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
+        SubscribeLocalEvent<SprinterComponent, FrequentRefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.Sprint, new SprintInputCmdHandler(this))
             .Register<SharedSprintingSystem>();
@@ -105,17 +105,19 @@ public abstract class SharedSprintingSystem : EntitySystem
                 sprinterComp.StaminaDrainRate * staminaComp.Modifier * sprinterComp.StaminaDrainMultiplier);
         }
 
+        if (_timing.ApplyingState)
+            return;
+
         var query2 = EntityQueryEnumerator<SprinterComponent>();
         while (query2.MoveNext(out var uid, out var sprinterComp))
         {
             if (!sprinterComp.IsSprinting || !TryComp<PhysicsComponent>(uid, out var inputMover))
                 continue;
 
-            var newTime = _timing.CurTime;
-            sprinterComp.SprintEnergy += (float) (newTime - sprinterComp.PreviousTime).TotalSeconds * sprinterComp.SprintEnergyGain;
-            sprinterComp.PreviousTime = newTime;
+            var oldEnergy = sprinterComp.SprintEnergy;
 
-            //var curDir = DirVecForButtons(inputMover.HeldMoveButtons);
+            sprinterComp.SprintEnergy += frameTime * sprinterComp.SprintEnergyGain;
+
             var curDir = inputMover.LinearVelocity.Normalized();
             if (!curDir.IsValid())
                 curDir = Vector2.Zero;
@@ -137,12 +139,16 @@ public abstract class SharedSprintingSystem : EntitySystem
             sprinterComp.SprintEnergy = Math.Clamp(sprinterComp.SprintEnergy, 0f, sprinterComp.SprintEnergyMax);
             sprinterComp.SprintSpeedMultiplier = Math.Max(1f, 1f + (sprinterComp.SprintSpeedMultiplierMax - 1f) * sprinterComp.SprintEnergy);
 
-            Dirty(uid, sprinterComp);
-            _movementSpeed.RefreshMovementSpeedModifiers(uid);
+            // Only refresh if energy actually changed to avoid redundant refreshes during prediction
+            if (!MathHelper.CloseTo(oldEnergy, sprinterComp.SprintEnergy))
+            {
+                Dirty(uid, sprinterComp);
+                _movementSpeed.RefreshFrequentMovementSpeedModifiers(uid);
+            }
         }
     }
 
-    private void OnRefreshSpeed(Entity<SprinterComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshSpeed(Entity<SprinterComponent> ent, ref FrequentRefreshMovementSpeedModifiersEvent args)
     {
         if (!ent.Comp.IsSprinting)
             return;
@@ -202,7 +208,7 @@ public abstract class SharedSprintingSystem : EntitySystem
         component.PreviousTime = _timing.CurTime;
         component.PreviousDirection = Vector2.Zero;
 
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _movementSpeed.RefreshFrequentMovementSpeedModifiers(uid);
         _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, newSprintState, true, component.StaminaDrainKey, uid);
         Dirty(uid, component);
     }

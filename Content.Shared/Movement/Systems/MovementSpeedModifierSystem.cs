@@ -184,15 +184,51 @@ namespace Content.Shared.Movement.Systems
             var ev = new RefreshMovementSpeedModifiersEvent(isImmune);
             RaiseLocalEvent(uid, ev);
 
-            if (MathHelper.CloseTo(ev.WalkSpeedModifier, move.WalkSpeedModifier) &&
-                MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifier))
+            // Goobstation start
+            if (MathHelper.CloseTo(ev.WalkSpeedModifier, move.WalkSpeedModifierWithoutFrequent) &&
+                MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifierWithoutFrequent))
                 return;
 
-
-            move.WalkSpeedModifier = Math.Min(ev.WalkSpeedModifier, _maxSpeed); // Goobstation Change
-            move.SprintSpeedModifier = Math.Min(ev.SprintSpeedModifier, _maxSpeed); // Goobstation Change
+            move.WalkSpeedModifierWithoutFrequent = ev.WalkSpeedModifier;
+            move.SprintSpeedModifierWithoutFrequent = ev.SprintSpeedModifier;
+            move.WalkSpeedModifier = Math.Min(move.WalkSpeedModifierFrequent * move.WalkSpeedModifierWithoutFrequent, _maxSpeed); // Goobstation Change
+            move.SprintSpeedModifier = Math.Min(move.SprintSpeedModifierFrequent * move.SprintSpeedModifierWithoutFrequent, _maxSpeed); // Goobstation Change
+            // Goobstation end
             Dirty(uid, move);
         }
+
+        // Goobstation start
+        /// <summary>
+        /// Refresh movement speed modifiers method, should be only used for predicted systems!
+        /// </summary>
+        public void RefreshFrequentMovementSpeedModifiers(EntityUid uid, MovementSpeedModifierComponent? move = null)
+        {
+            if (!Resolve(uid, ref move, false))
+                return;
+
+            if (_timing.ApplyingState)
+                return;
+
+            // <Goobstation Change>
+            var isImmune = false;
+            if (HasComp<SpeedModifierImmunityComponent>(uid))
+                isImmune = true;
+            // </Goobstation Change>
+
+            var ev = new FrequentRefreshMovementSpeedModifiersEvent(isImmune);
+            RaiseLocalEvent(uid, ev);
+
+            if (MathHelper.CloseTo(ev.SprintSpeedModifier, move.WalkSpeedModifierFrequent) &&
+                MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifierFrequent))
+                return;
+
+            move.WalkSpeedModifierFrequent = ev.WalkSpeedModifier;
+            move.SprintSpeedModifierFrequent = ev.SprintSpeedModifier;
+            move.WalkSpeedModifier = Math.Min(move.WalkSpeedModifierFrequent * move.WalkSpeedModifierWithoutFrequent, _maxSpeed);
+            move.SprintSpeedModifier = Math.Min(move.SprintSpeedModifierFrequent * move.SprintSpeedModifierWithoutFrequent, _maxSpeed);
+            Dirty(uid, move);
+        }
+        // Goobstation end
 
         public void ChangeBaseSpeed(EntityUid uid, float baseWalkSpeed, float baseSprintSpeed, float acceleration, MovementSpeedModifierComponent? move = null)
         {
@@ -275,6 +311,42 @@ namespace Content.Shared.Movement.Systems
         }
 
         public RefreshMovementSpeedModifiersEvent(bool isImmune = false)
+        {
+            _isImmune = isImmune;
+        }
+        // </Goobstation Change>
+
+        public void ModifySpeed(float mod, bool bypassImmunity = false)
+        {
+            ModifySpeed(mod, mod, bypassImmunity);
+        }
+    }
+
+    public sealed class FrequentRefreshMovementSpeedModifiersEvent : EntityEventArgs
+    {
+        public SlotFlags TargetSlots { get; } = ~SlotFlags.POCKET;
+
+        public float WalkSpeedModifier { get; private set; } = 1.0f;
+        public float SprintSpeedModifier { get; private set; } = 1.0f;
+
+        /// <summary>
+        ///    Goobstation Change: Whether or not this entity is immune to most movement speed modifiers.
+        ///    Bypassable by setting bypassImmunity to true.
+        /// </summary
+        // what the fuck is this?
+        private bool _isImmune = false;
+
+        // <Goobstation Change>
+        public void ModifySpeed(float walk, float sprint, bool bypassImmunity = false)
+        {
+            if (_isImmune && !bypassImmunity)
+                return;
+
+            WalkSpeedModifier *= walk;
+            SprintSpeedModifier *= sprint;
+        }
+
+        public FrequentRefreshMovementSpeedModifiersEvent(bool isImmune = false)
         {
             _isImmune = isImmune;
         }

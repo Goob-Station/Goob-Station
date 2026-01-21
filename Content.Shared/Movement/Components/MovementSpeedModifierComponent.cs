@@ -187,6 +187,20 @@ namespace Content.Shared.Movement.Components
         [AutoNetworkedField, ViewVariables]
         public float SprintSpeedModifier = 1.0f;
 
+        // Goobstation start
+        [AutoNetworkedField, ViewVariables]
+        public float WalkSpeedModifierWithoutFrequent = 1.0f;
+
+        [AutoNetworkedField, ViewVariables]
+        public float SprintSpeedModifierWithoutFrequent = 1.0f;
+
+        [AutoNetworkedField, ViewVariables]
+        public float WalkSpeedModifierFrequent = 1.0f;
+
+        [AutoNetworkedField, ViewVariables]
+        public float SprintSpeedModifierFrequent = 1.0f;
+        // Goobstation end
+
         #endregion
 
         #region Weightless
