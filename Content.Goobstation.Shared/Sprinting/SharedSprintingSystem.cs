@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Movement;
+using Content.Shared.Damage.Events;
 using Content.Shared._EinsteinEngines.Flight.Events;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
@@ -13,7 +14,6 @@ using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
