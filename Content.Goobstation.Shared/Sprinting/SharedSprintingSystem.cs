@@ -6,7 +6,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Movement;
-using Content.Shared.Damage.Events;
 using Content.Shared._EinsteinEngines.Flight.Events;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
@@ -14,6 +13,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
@@ -73,6 +73,8 @@ public abstract class SharedSprintingSystem : EntitySystem
         SubscribeLocalEvent<SprinterComponent, DisarmedEvent>(OnDisarm);
     }
 
+    const float MinAngleForLoss = 5f * MathF.PI / 180f; // 5 degrees
+
     #region Core Functions
 
     private sealed class SprintInputCmdHandler(SharedSprintingSystem system) : InputCmdHandler
@@ -108,38 +110,39 @@ public abstract class SharedSprintingSystem : EntitySystem
         var query2 = EntityQueryEnumerator<SprinterComponent>();
         while (query2.MoveNext(out var uid, out var sprinterComp))
         {
-            if (!sprinterComp.IsSprinting || !TryComp<PhysicsComponent>(uid, out var inputMover))
+            if (!sprinterComp.IsSprinting || !TryComp<PhysicsComponent>(uid, out var physicsComponent))
                 continue;
 
-            var oldEnergy = sprinterComp.SprintEnergy;
-
-            sprinterComp.SprintEnergy += frameTime * sprinterComp.SprintEnergyGain;
-
-            var curDir = inputMover.LinearVelocity.Normalized();
+            var curDir = physicsComponent.LinearVelocity.Normalized();
             if (!curDir.IsValid())
-                curDir = Vector2.Zero;
-
-            var dot = Vector2.Dot(curDir, sprinterComp.PreviousDirection);
-            if (!dot.IsValid())
-                dot = -1f; // would usually return NaN if you start standing still, because vector zero has no direction
-            if (curDir != Vector2.Zero)
             {
-                dot = Math.Clamp(dot, -1f, 1f); // Acos sometimes fails due to Dot function returning a value very little out of range
-                var angle = Math.Abs(MathF.Acos(dot));
-                var loss = angle * (float) (1 / Math.PI);
-                sprinterComp.SprintEnergy -= loss * sprinterComp.SprintEnergyMax;
+                curDir = Vector2.Zero;
+                sprinterComp.StarterSprintEnergy = 0f;
+                sprinterComp.SprintStart = _timing.CurTime;
             }
+
+            if (curDir != Vector2.Zero && sprinterComp.PreviousDirection != Vector2.Zero)
+            {
+                var dot = Vector2.Dot(curDir, sprinterComp.PreviousDirection);
+                dot = Math.Clamp(dot, -1f, 1f);
+                var angle = MathF.Acos(dot);
+                var loss = angle * (float) (1 / Math.PI);
+                loss = MathF.Round(loss * 256f) / 256f;
+                if (angle > MinAngleForLoss)
+                {
+                    sprinterComp.StarterSprintEnergy = Math.Max(0f, sprinterComp.SprintEnergy - loss * sprinterComp.SprintEnergyMax);
+                    sprinterComp.SprintStart = _timing.CurTime;
+                }
+            }
+
             sprinterComp.PreviousDirection = curDir;
 
-            sprinterComp.SprintEnergy = Math.Clamp(sprinterComp.SprintEnergy, 0f, sprinterComp.SprintEnergyMax);
-            sprinterComp.SprintSpeedMultiplier = Math.Max(1f, 1f + (sprinterComp.SprintSpeedMultiplierMax - 1f) * sprinterComp.SprintEnergy);
+            sprinterComp.SprintEnergy = Math.Clamp(sprinterComp.StarterSprintEnergy + (float) (_timing.CurTime - sprinterComp.SprintStart).TotalSeconds * sprinterComp.SprintEnergyGain,
+                0f, sprinterComp.SprintEnergyMax);
+            sprinterComp.SprintSpeedMultiplier = 1f + (sprinterComp.SprintSpeedMultiplierMax - 1f) * sprinterComp.SprintEnergy;
 
-            // Only refresh if energy actually changed to avoid redundant refreshes during prediction
-            if (!MathHelper.CloseTo(oldEnergy, sprinterComp.SprintEnergy))
-            {
-                Dirty(uid, sprinterComp);
-                _movementSpeed.RefreshFrequentMovementSpeedModifiers(uid);
-            }
+            Dirty(uid, sprinterComp);
+            _movementSpeed.RefreshFrequentMovementSpeedModifiers(uid);
         }
     }
 
@@ -199,6 +202,8 @@ public abstract class SharedSprintingSystem : EntitySystem
             _damageable.TryChangeDamage(uid, component.SprintDamageSpecifier);
 
         component.SprintSpeedMultiplier = 1f;
+        component.SprintStart = _timing.CurTime;
+        component.StarterSprintEnergy = 0f;
         component.SprintEnergy = 0f;
         component.PreviousDirection = Vector2.Zero;
 

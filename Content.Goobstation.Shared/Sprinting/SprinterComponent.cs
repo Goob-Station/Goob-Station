@@ -95,6 +95,18 @@ public sealed partial class SprinterComponent : Component
     public Vector2 PreviousDirection = Vector2.Zero;
 
     /// <summary>
+    ///     Time since sprint started or direction of the sprint changed
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan SprintStart = TimeSpan.Zero;
+
+    /// <summary>
+    ///     The energy to calculate from using SprintStart
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float StarterSprintEnergy = 0f;
+
+    /// <summary>
     ///     How long do we have to wait between sprints?
     /// </summary>
     [DataField, AutoNetworkedField]
