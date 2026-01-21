@@ -41,8 +41,6 @@ public sealed partial class FartComponent : Component
     [DataField]
     public Gas GasToFart = Gas.Ammonia;
 
-    [DataField]
-    public bool isAnimated = false;
     /// <summary>
     /// Determine how fast the fart animation plays
     /// </summary>
