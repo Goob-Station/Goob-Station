@@ -1,0 +1,16 @@
+- type: entity
+  id: AbnormalFartGas
+  name: abnormal fart gas
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Effects/effects160x160.rsi
+    layers:
+    - state: entropic_plume
+      shader: unshaded
+    noRot: false
+  - type: TimedDespawn
+    lifetime: 1.4
+  - type: Tag
+    tags:
+      - HideContextMenu

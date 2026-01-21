@@ -385,3 +385,6 @@ ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your ma
 
 ghost-role-information-emotional-support-scurret-name = Emotional Support Scurret
 ghost-role-information-emotional-support-scurret-description = Support the crew, be adorable, say "wa" a lot.
+
+ghost-role-information-alexander-name = Alexander
+ghost-role-information-alexander-description = Chef's finest colleague.

@@ -202,3 +202,7 @@ chat-speech-verb-wawa-1 = intones
 chat-speech-verb-wawa-2 = states
 chat-speech-verb-wawa-3 = declares
 chat-speech-verb-wawa-4 = ponders
+
+chat-speech-verb-name-pig = Pig
+chat-speech-verb-pig-1 = oinks
+chat-speech-verb-pig-2 = snorts

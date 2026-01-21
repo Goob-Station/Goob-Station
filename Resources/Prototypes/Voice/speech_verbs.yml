@@ -196,3 +196,10 @@
   - chat-speech-verb-wawa-2
   - chat-speech-verb-wawa-3
   - chat-speech-verb-wawa-4
+
+- type: speechVerb
+  id: Pig
+  name: chat-speech-verb-name-pig
+  speechVerbStrings:
+  - chat-speech-verb-pig-1
+  - chat-speech-verb-pig-2

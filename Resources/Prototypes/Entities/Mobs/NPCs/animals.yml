@@ -4083,6 +4083,14 @@
     - Pig
     understands:
     - Pig
+  - type: Speech
+    speechVerb: Pig
+    speechSounds: Pig
+  - type: Vocal
+    sounds:
+      Male: Pig
+      Female: Pig
+      Unsexed: Pig
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember

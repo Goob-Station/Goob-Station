@@ -198,3 +198,12 @@
     path: /Audio/Animals/wawa_question.ogg
   exclaimSound:
     path: /Audio/Animals/wawa_exclaim.ogg
+
+- type: speechSounds
+  id: Pig
+  saySound:
+    path: /Audio/Animals/pig_oink.ogg
+  askSound:
+    path: /Audio/Animals/pig_oink.ogg
+  exclaimSound:
+    path: /Audio/Animals/pig_oink.ogg
