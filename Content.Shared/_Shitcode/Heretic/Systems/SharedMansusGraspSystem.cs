@@ -180,6 +180,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     var ghoul = _compFactory.GetComponent<GhoulComponent>();
                     ghoul.BoundHeretic = performer;
                     ghoul.GiveBlade = true;
+                    ghoul.DeathBehavior = GhoulDeathBehavior.NoGib;
 
                     AddComp(target, ghoul);
                     applyMark = false;

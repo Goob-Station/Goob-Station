@@ -30,10 +30,11 @@ public sealed partial class GhoulComponent : Component
     /// <summary>
     ///     Total health for ghouls.
     /// </summary>
-    [DataField] public FixedPoint2 TotalHealth = 50;
+    [DataField]
+    public FixedPoint2 TotalHealth = 50;
 
     [DataField]
-    public bool DropOrgansOnDeath = true;
+    public GhoulDeathBehavior DeathBehavior = GhoulDeathBehavior.GibOrgans;
 
     [DataField]
     public EntProtoId? SpawnOnDeathPrototype;
@@ -69,4 +70,11 @@ public sealed partial class GhoulComponent : Component
 
     [DataField]
     public LocId GhostRoleRules = "ghostrole-ghoul-rules";
+}
+
+public enum GhoulDeathBehavior : byte
+{
+    GibOrgans, // Gibs into organs
+    Gib, // Gibs without organs
+    NoGib, // Doesn't gib
 }

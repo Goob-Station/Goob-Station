@@ -67,6 +67,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Polymorph;
 using Content.Server.Polymorph.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -105,6 +106,27 @@ public sealed class GhoulSystem : EntitySystem
         SubscribeLocalEvent<GhoulRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
         SubscribeLocalEvent<GhoulWeaponComponent, ExaminedEvent>(OnWeaponExamine);
+
+        SubscribeLocalEvent<VoicelessDeadComponent, MapInitEvent>(OnVoicelessDeadInit);
+    }
+
+    private void OnVoicelessDeadInit(Entity<VoicelessDeadComponent> ent, ref MapInitEvent args)
+    {
+        var woundableQuery = GetEntityQuery<WoundableComponent>();
+        foreach (var (partId, partComp) in _body.GetBodyChildren(ent))
+        {
+            foreach (var (organId, organComp) in _body.GetPartOrgans(partId, partComp))
+            {
+                organComp.Removable = false;
+                Dirty(organId, organComp);
+            }
+
+            if (!woundableQuery.TryComp(partId, out var woundable))
+                continue;
+
+            woundable.CanRemove = false;
+            Dirty(partId, woundable);
+        }
     }
 
     private void OnGetBriefing(Entity<GhoulRoleComponent> ent, ref GetBriefingEvent args)
@@ -224,17 +246,7 @@ public sealed class GhoulSystem : EntitySystem
             RemCompDeferred(ent, mimicked);
         }
 
-        if (!ent.Comp.GiveBlade || !TryComp(ent, out HandsComponent? hands))
-            return;
-
-        var blade = Spawn(ent.Comp.BladeProto, Transform(ent).Coordinates);
-        EnsureComp<GhoulWeaponComponent>(blade);
-        ent.Comp.BoundWeapon = blade;
-
-        if (!_hands.TryPickup(ent, blade, animate: false, handsComp: hands) &&
-            _inventory.TryGetSlotEntity(ent, "back", out var slotEnt) &&
-            _storage.CanInsert(slotEnt.Value, blade, out _))
-            _storage.Insert(slotEnt.Value, blade, out _, out _, playSound: false);
+        GiveGhoulWeapon(ent);
     }
 
     private void SendBriefing(Entity<GhoulComponent> ent)
@@ -258,11 +270,7 @@ public sealed class GhoulSystem : EntitySystem
 
     private void OnShutdown(Entity<GhoulComponent> ent, ref ComponentShutdown args)
     {
-        if (ent.Comp.BoundWeapon == null || TerminatingOrDeleted(ent.Comp.BoundWeapon.Value))
-            return;
-
-        _audio.PlayPvs(ent.Comp.BladeDeleteSound, Transform(ent.Comp.BoundWeapon.Value).Coordinates);
-        QueueDel(ent.Comp.BoundWeapon.Value);
+        DestroyGhoulWeapon(ent);
     }
 
     private void OnTakeGhostRole(Entity<GhoulComponent> ent, ref TakeGhostRoleEvent args)
@@ -284,9 +292,42 @@ public sealed class GhoulSystem : EntitySystem
         args.PushMarkup(Loc.GetString(ent.Comp.ExamineMessage));
     }
 
+    private void GiveGhoulWeapon(Entity<GhoulComponent> ent)
+    {
+        if (!ent.Comp.GiveBlade || !TryComp(ent, out HandsComponent? hands) || Exists(ent.Comp.BoundWeapon))
+            return;
+
+        var blade = Spawn(ent.Comp.BladeProto, Transform(ent).Coordinates);
+        EnsureComp<GhoulWeaponComponent>(blade);
+        ent.Comp.BoundWeapon = blade;
+
+        if (!_hands.TryPickup(ent, blade, animate: false, handsComp: hands) &&
+            _inventory.TryGetSlotEntity(ent, "back", out var slotEnt) &&
+            _storage.CanInsert(slotEnt.Value, blade, out _))
+            _storage.Insert(slotEnt.Value, blade, out _, out _, playSound: false);
+    }
+
+    private void DestroyGhoulWeapon(Entity<GhoulComponent> ent)
+    {
+        if (ent.Comp.BoundWeapon == null || TerminatingOrDeleted(ent.Comp.BoundWeapon.Value))
+            return;
+
+        _audio.PlayPvs(ent.Comp.BladeDeleteSound, Transform(ent.Comp.BoundWeapon.Value).Coordinates);
+        QueueDel(ent.Comp.BoundWeapon.Value);
+    }
+
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)
+        {
+            if (args.NewMobState == MobState.Alive)
+                GiveGhoulWeapon(ent);
+            return;
+        }
+
+        DestroyGhoulWeapon(ent);
+
+        if (ent.Comp.DeathBehavior == GhoulDeathBehavior.NoGib)
             return;
 
         if (ent.Comp.SpawnOnDeathPrototype != null)
@@ -300,8 +341,7 @@ public sealed class GhoulSystem : EntitySystem
             RemComp(nymph.Owner, nymph.Comp1);
         }
 
-        _body.GibBody(ent,
-            body: body,
-            contents: ent.Comp.DropOrgansOnDeath ? GibContentsOption.Drop : GibContentsOption.Skip);
+        _body.GibBody(ent, body: body, contents: ent.Comp.DeathBehavior ==
+            GhoulDeathBehavior.GibOrgans ? GibContentsOption.Drop : GibContentsOption.Skip);
     }
 }

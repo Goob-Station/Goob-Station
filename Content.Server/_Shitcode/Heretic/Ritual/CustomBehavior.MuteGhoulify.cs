@@ -10,37 +10,110 @@
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        var limitExceeded = args is { Limit: > 0, Limited: not null } && args.Limited.Count >= args.Limit;
+        outstr = null;
+
+        if (!limitExceeded && base.Execute(args, out _))
+            return true;
+
+        uids.Clear();
+
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, 1.5f);
+        foreach (var look in lookup)
+        {
+            if (args.Limited?.Contains(look) is true)
+                uids.Add(look);
+        }
+
+        if (uids.Count > 0)
+            return true;
+
+        outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
+
+        return false;
+    }
+
     public override void Finalize(RitualData args)
     {
-        if (args is { Limit: > 0, Limited: not null } && args.Limited.Count >= args.Limit)
-            return;
-
-        for (var i = 0; i < Math.Min(uids.Count, Max); i++)
+        foreach (var uid in uids)
         {
-            var uid = uids[i];
+            if (args.Limited?.Contains(uid) is true)
+            {
+                args.EntityManager.EventBus.RaiseLocalEvent(uid, new RejuvenateEvent());
+                continue;
+            }
+
+            var limitExceeded = args is { Limit: > 0, Limited: not null } && args.Limited.Count >= args.Limit;
+
+            if (limitExceeded || args.EntityManager.HasComponent<GhoulComponent>(uid))
+                continue;
+
             var ghoul = new GhoulComponent
             {
-                TotalHealth = 100f,
+                TotalHealth = 150f,
                 GiveBlade = true,
                 BoundHeretic = args.Performer,
+                DeathBehavior = GhoulDeathBehavior.NoGib,
             };
             args.EntityManager.AddComponent(uid, ghoul, overwrite: true);
             args.EntityManager.EnsureComponent<MutedComponent>(uid);
             args.EntityManager.EnsureComponent<HereticBladeUserBonusDamageComponent>(uid);
+            args.EntityManager.EnsureComponent<VoicelessDeadComponent>(uid);
 
-            if (args.Limited == null)
+            args.Limited?.Add(uid);
+        }
+    }
+
+    public override bool LimitExceeded(RitualData args, out bool ritualSuccess)
+    {
+        ritualSuccess = false;
+        if (args.Limited == null)
+            return true;
+
+        var xformsys = args.EntityManager.System<SharedTransformSystem>();
+
+        var coords = xformsys.GetMapCoordinates(args.Platform);
+        EntityUid? selectedGhoul = null;
+        var maxDist = 1.5f;
+
+        foreach (var ghoul in args.Limited)
+        {
+            if (!args.EntityManager.EntityExists(ghoul))
                 continue;
 
-            args.Limited.Add(uid);
-
-            if (args.Limit > 0 && args.Limited.Count >= args.Limit)
+            var ghoulCoords = xformsys.GetMapCoordinates(ghoul);
+            if (ghoulCoords.MapId != coords.MapId)
+            {
+                selectedGhoul = ghoul;
                 break;
+            }
+
+            var dist = (coords.Position - ghoulCoords.Position).Length();
+
+            if (dist < 1.5f) // Ghoul is already on the rune, attempt to heal it
+                return false;
+
+            if (dist < maxDist)
+                continue;
+
+            maxDist = dist;
+            selectedGhoul = ghoul;
         }
+
+        if (selectedGhoul is not { } selected)
+            return true;
+
+        xformsys.SetMapCoordinates(selected, coords);
+        ritualSuccess = true;
+        return true;
     }
 }
