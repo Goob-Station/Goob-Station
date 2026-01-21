@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "icon by SlamBamActionman;synd-cd, jne-cd by Jvne",
+  "copyright": "icon by SlamBamActionman;synd-cd, jne-cd, jj-cd by Jvne",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,9 @@
     },
     {
       "name": "jne-cd"
+    }, 
+	{
+      "name": "jj-cd"
     }
   ]
 }

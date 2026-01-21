@@ -310,3 +310,15 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/Syndicate.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (Play by play)
+  id: CdDiskJJ
+  description: A play by play of an unfortunate event.
+  components:
+  - type: Sprite
+    state: jj-cd
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/jj.ogg
