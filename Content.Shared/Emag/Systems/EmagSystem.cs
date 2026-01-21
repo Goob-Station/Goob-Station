@@ -167,7 +167,7 @@ public sealed class EmagSystem : EntitySystem
         if (target == _emagAll)
             return true;
 
-        return target == protoId;
+        return target.Id == protoId;
     }
     // Gigantic goob edit end
 }
