@@ -203,7 +203,6 @@ public abstract class SharedSprintingSystem : EntitySystem
 
         component.SprintSpeedMultiplier = 1f;
         component.SprintEnergy = 0f;
-        component.PreviousTime = _timing.CurTime;
         component.PreviousDirection = Vector2.Zero;
 
         _movementSpeed.RefreshFrequentMovementSpeedModifiers(uid);

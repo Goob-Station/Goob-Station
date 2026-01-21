@@ -95,12 +95,6 @@ public sealed partial class SprinterComponent : Component
     public Vector2 PreviousDirection = Vector2.Zero;
 
     /// <summary>
-    ///     For detlatime
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public TimeSpan PreviousTime = TimeSpan.Zero;
-
-    /// <summary>
     ///     How long do we have to wait between sprints?
     /// </summary>
     [DataField, AutoNetworkedField]
