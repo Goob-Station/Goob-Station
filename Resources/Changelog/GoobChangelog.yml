@@ -20225,3 +20225,47 @@ Entries:
         slimes roundstart.
   id: 2290
   time: '2026-01-13T07:33:40.0000000+00:00'
+- author: Stupid fuck
+  changes:
+    - type: Fix
+      message: Fixed xenovac not working.
+    - type: Remove
+      message: Emag interaction with xenovac.
+  id: 2291
+  time: '2026-01-13T17:47:26.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: ERT, DS, and CBURN are back to being human only
+  id: 2292
+  time: '2026-01-13T22:59:14.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: Moths now say mango while zombified.
+  id: 2293
+  time: '2026-01-13T23:07:12.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Blob will no longer stall round, If the shuttle has already arrived to
+        the station.
+  id: 2294
+  time: '2026-01-13T23:11:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More bounties for xenobiology
+    - type: Add
+      message: Xenobiology bag of holding
+    - type: Tweak
+      message: Increased the point amount of some xenobiology bounties
+  id: 2295
+  time: '2026-01-14T02:59:22.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: BSO's battle syringe now deals 1 damage instead of 5 on inject.
+  id: 2296
+  time: '2026-01-15T07:04:53.0000000+00:00'
