@@ -244,7 +244,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
 
         // Goobstation start
-        var checkEv = new HereticCheckEvent(ev.Target, HereticCheckType.Heretic);
+        var checkEv = new HereticCheckEvent(ev.Target);
         RaiseLocalEvent(ev.Target, ref checkEv, true);
         // Goobstation end
 

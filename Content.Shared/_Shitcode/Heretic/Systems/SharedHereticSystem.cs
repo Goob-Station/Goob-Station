@@ -24,14 +24,7 @@ public abstract class SharedHereticSystem : EntitySystem
 
     private void OnCheck(ref HereticCheckEvent ev)
     {
-        if ((int) (ev.Type & HereticCheckType.Ghoul) != 0)
-            ev.Result = _ghoulQuery.HasComp(ev.Uid);
-
-        if (ev.Result || (int) (ev.Type & HereticCheckType.Heretic) == 0)
-            return;
-
-        ev.Result = TryGetHereticComponent(ev.Uid, out var heretic, out _) &&
-                    ((ev.Type & HereticCheckType.Ascended) == 0 || heretic.Ascended);
+        ev.Result = TryGetHereticComponent(ev.Uid, out _, out _);
     }
 
     public bool TryGetHereticComponent(

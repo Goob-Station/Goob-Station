@@ -9,10 +9,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Heretic;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Server.Heretic.EntitySystems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
@@ -37,6 +37,9 @@ public sealed class WeakToHolySystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
+
+
     public override void Initialize()
     {
         base.Initialize();
@@ -105,9 +108,7 @@ public sealed class WeakToHolySystem : EntitySystem
             return;
         }
 
-        var checkEv = new HereticCheckEvent(uid, HereticCheckType.Heretic | HereticCheckType.Ascended);
-        RaiseLocalEvent(uid, ref checkEv, true);
-        if (checkEv.Result)
+        if (_heretic.TryGetHereticComponent(uid, out var heretic, out _) && heretic.Ascended)
         {
             args.ShouldTakeHoly = true;
             return;
