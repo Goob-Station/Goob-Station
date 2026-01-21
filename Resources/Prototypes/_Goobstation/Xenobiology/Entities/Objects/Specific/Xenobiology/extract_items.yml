@@ -53,11 +53,11 @@
     metabolizerTypes: [ Cybernetic ]
     groups:
     - id: Medicine
-      rateModifier: 2.50
+      rateModifier: 0.4
     - id: Poison
-      rateModifier: 0.25
+      rateModifier: 4.0
     - id: Narcotic
-      rateModifier: 1.75
+      rateModifier: 0.55
   - type: Tag
     tags:
     - PowerCell
