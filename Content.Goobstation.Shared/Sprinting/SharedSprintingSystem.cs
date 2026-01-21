@@ -105,9 +105,6 @@ public abstract class SharedSprintingSystem : EntitySystem
                 sprinterComp.StaminaDrainRate * staminaComp.Modifier * sprinterComp.StaminaDrainMultiplier);
         }
 
-        if (_timing.ApplyingState)
-            return;
-
         var query2 = EntityQueryEnumerator<SprinterComponent>();
         while (query2.MoveNext(out var uid, out var sprinterComp))
         {
