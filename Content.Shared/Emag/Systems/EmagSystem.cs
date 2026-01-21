@@ -147,7 +147,6 @@ public sealed class EmagSystem : EntitySystem
     /// <returns>True if entity has EmaggedComponent and the provided flag. False if the entity lacks EmaggedComponent or provided flag.</returns>
     public bool CheckProtoId(EntityUid target, string protoId)
     {
-        
         if (!TryComp<EmaggedComponent>(target, out var comp))
             return false;
 
