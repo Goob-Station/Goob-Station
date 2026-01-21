@@ -71,7 +71,7 @@ public sealed class EmagSystem : EntitySystem
             return;
 
         if (!EmagType.TryGetValue("Access", out var emag))
-            return; 
+            return;
 
         entity.Comp.EmagType = emag; // goob edit end
         Dirty(entity);
