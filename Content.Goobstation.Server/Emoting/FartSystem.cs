@@ -21,18 +21,13 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Systems;
 using Content.Shared.Camera;
-using Content.Shared.Chat.Prototypes;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using static Content.Shared.Fax.AdminFaxEuiMsg;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Goobstation.Server.Emoting;
@@ -49,7 +44,6 @@ public sealed partial class FartSystem : SharedFartSystem
     [Dependency] private readonly SharedCameraRecoilSystem _recoilSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly GunSystem _gun = default!;
     private readonly string[] _fartSounds = [
