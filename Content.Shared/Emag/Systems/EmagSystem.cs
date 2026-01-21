@@ -140,11 +140,11 @@ public sealed class EmagSystem : EntitySystem
     }
     /// Gigantic goob edit - EmagType checking functions
     /// <summary>
-    /// Checks whether an entity has the EmaggedComponent with a set flag.
+    /// Checks whether an entity has the EmaggedComponent with a set ID.
     /// </summary>
-    /// <param name="target">The target entity to check for the flag.</param>
+    /// <param name="target">The target entity to check for the ID.</param>
     /// <param name="protoId">The of the protoID to check for.</param>
-    /// <returns>True if entity has EmaggedComponent and the provided flag. False if the entity lacks EmaggedComponent or provided flag.</returns>
+    /// <returns>True if entity has EmaggedComponent and the provided ID. False if the entity lacks EmaggedComponent or provided ID.</returns>
     public bool CheckProtoId(EntityUid target, string protoId)
     {
         if (!TryComp<EmaggedComponent>(target, out var comp))
@@ -158,7 +158,7 @@ public sealed class EmagSystem : EntitySystem
     /// </summary>
     /// <param name="target">The target protoId to check.</param>
     /// <param name="protoId">The string of protoId to check for within the target.</param>
-    /// <returns>True if target contains protoId. Otherwise false.</returns>
+    /// <returns>True if target contains protoId, Otherwise false.</returns>
     public bool CompareProtoId(ProtoId<EmagTypePrototype> target, string protoId)
     {
         if (!EmagType.ContainsKey(protoId))
