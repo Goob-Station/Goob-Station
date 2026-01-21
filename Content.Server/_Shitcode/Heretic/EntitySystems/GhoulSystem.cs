@@ -16,6 +16,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Administration.Systems;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
@@ -51,6 +52,7 @@ using Robust.Server.Audio;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Heretic.Abilities;
+using Content.Server.Jittering;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
@@ -67,7 +69,9 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Polymorph;
 using Content.Server.Polymorph.Systems;
+using Content.Server.Speech.EntitySystems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared.NPC.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -76,6 +80,10 @@ public sealed class GhoulSystem : EntitySystem
     private static readonly ProtoId<HTNCompoundPrototype> Compound = "HereticSummonCompound";
     private static readonly EntProtoId<MindRoleComponent> GhoulRole = "MindRoleGhoul";
 
+    [Dependency] private readonly IComponentFactory _compFact = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
+    [Dependency] private readonly StutteringSystem _stutter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
@@ -92,6 +100,22 @@ public sealed class GhoulSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
+    private readonly List<Type> _componentsToRemoveOnGhoulify =
+    [
+        typeof(RespiratorComponent),
+        typeof(BarotraumaComponent),
+        typeof(HungerComponent),
+        typeof(ThirstComponent),
+        typeof(ReproductiveComponent),
+        typeof(ReproductivePartnerComponent),
+        typeof(TemperatureComponent),
+        typeof(ConsciousnessComponent),
+        typeof(PacifiedComponent),
+        typeof(XenomorphComponent),
+        typeof(RatKingComponent),
+        typeof(DragonComponent),
+    ];
+
     public override void Initialize()
     {
         base.Initialize();
@@ -103,28 +127,69 @@ public sealed class GhoulSystem : EntitySystem
         SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
 
+        SubscribeLocalEvent<GhoulDeconvertComponent, ComponentStartup>(OnDeconvertStartup);
+
         SubscribeLocalEvent<GhoulRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
         SubscribeLocalEvent<GhoulWeaponComponent, ExaminedEvent>(OnWeaponExamine);
 
         SubscribeLocalEvent<VoicelessDeadComponent, MapInitEvent>(OnVoicelessDeadInit);
+        SubscribeLocalEvent<VoicelessDeadComponent, ComponentShutdown>(OnVoicelessDeadShutdown);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<GhoulDeconvertComponent, GhoulComponent>();
+        while (query.MoveNext(out var uid, out var deconvert, out var ghoul))
+        {
+            deconvert.Delay -= frameTime;
+
+            if (deconvert.Delay > 0f)
+                continue;
+
+            UnGhoulifyEntity((uid, ghoul));
+            RemCompDeferred(uid, deconvert);
+        }
+    }
+
+
+    private void OnDeconvertStartup(Entity<GhoulDeconvertComponent> ent, ref ComponentStartup args)
+    {
+        var time = TimeSpan.FromSeconds(ent.Comp.Delay);
+        _jitter.DoJitter(ent, time, true);
+        _stutter.DoStutter(ent, time, true);
+    }
+
+    private void OnVoicelessDeadShutdown(Entity<VoicelessDeadComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        ProcessVoicelessDeadBody(ent, true);
     }
 
     private void OnVoicelessDeadInit(Entity<VoicelessDeadComponent> ent, ref MapInitEvent args)
     {
+        ProcessVoicelessDeadBody(ent, false);
+    }
+
+    private void ProcessVoicelessDeadBody(EntityUid uid, bool makeRemovable)
+    {
         var woundableQuery = GetEntityQuery<WoundableComponent>();
-        foreach (var (partId, partComp) in _body.GetBodyChildren(ent))
+        foreach (var (partId, partComp) in _body.GetBodyChildren(uid))
         {
             foreach (var (organId, organComp) in _body.GetPartOrgans(partId, partComp))
             {
-                organComp.Removable = false;
+                organComp.Removable = makeRemovable;
                 Dirty(organId, organComp);
             }
 
             if (!woundableQuery.TryComp(partId, out var woundable))
                 continue;
 
-            woundable.CanRemove = false;
+            woundable.CanRemove = makeRemovable;
             Dirty(partId, woundable);
         }
     }
@@ -162,20 +227,80 @@ public sealed class GhoulSystem : EntitySystem
             Dirty(ent);
     }
 
+    public void UnGhoulifyEntity(Entity<GhoulComponent> ent)
+    {
+        if (!ent.Comp.CanDeconvert)
+            return;
+
+        if (!TryComp(ent, out HumanoidAppearanceComponent? humanoid))
+        {
+            if (Prototype(ent) is not { } proto)
+                return;
+
+            var config = new PolymorphConfiguration
+            {
+                Entity = proto,
+                TransferDamage = true,
+                TransferName = true,
+                Forced = true,
+                RevertOnCrit = false,
+                RevertOnDeath = false,
+                RevertOnEat = false,
+                AllowRepeatedMorphs = true,
+            };
+
+            _polymorph.PolymorphEntity(ent, config);
+            return;
+        }
+
+        _humanoid.SetSkinColor(ent, ent.Comp.OldSkinColor, true, false, humanoid);
+        _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, ent.Comp.OldEyeColor, true, humanoid);
+
+        var species = _proto.Index(humanoid.Species);
+        var prototype = _proto.Index(species.Prototype);
+        foreach (var comp in _componentsToRemoveOnGhoulify.Concat([typeof(MobThresholdsComponent)]))
+        {
+            var name = _compFact.GetComponentName(comp);
+            if (!prototype.Components.TryGetValue(name, out var reg))
+                continue;
+
+            var newComp = _compFact.GetComponent(reg);
+            AddComp(ent, newComp, true);
+        }
+
+        if (TryComp(ent, out CollectiveMindComponent? collective))
+            collective.Channels.Remove(HereticAbilitySystem.MansusLinkMind);
+
+        if (TryComp(ent, out NpcFactionMemberComponent? fact))
+        {
+            _faction.ClearFactions((ent, fact));
+            _faction.AddFactions((ent.Owner, fact), ent.Comp.OldFactions);
+        }
+
+        if (_mind.TryGetMind(ent, out var mindId, out var mind))
+            _role.MindRemoveRole<GhoulComponent>((mindId, mind));
+
+        if (Exists(ent.Comp.BoundHeretic) && TryComp(ent.Comp.BoundHeretic.Value, out HereticComponent? heretic))
+        {
+            foreach (var (_, list) in heretic.LimitedTransmutations)
+            {
+                list.Remove(ent);
+            }
+        }
+
+        RemComp<GhostTakeoverAvailableComponent>(ent);
+        RemComp<GhoulComponent>(ent);
+        RemComp<VoicelessDeadComponent>(ent);
+        RemComp<HereticBladeUserBonusDamageComponent>(ent);
+    }
+
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
-        RemComp<RespiratorComponent>(ent);
-        RemComp<BarotraumaComponent>(ent);
-        RemComp<HungerComponent>(ent);
-        RemComp<ThirstComponent>(ent);
-        RemComp<ReproductiveComponent>(ent);
-        RemComp<ReproductivePartnerComponent>(ent);
-        RemComp<TemperatureComponent>(ent);
-        RemComp<ConsciousnessComponent>(ent);
-        RemComp<PacifiedComponent>(ent);
-        RemComp<XenomorphComponent>(ent);
-        RemComp<RatKingComponent>(ent);
-        RemComp<DragonComponent>(ent);
+        foreach (var component in _componentsToRemoveOnGhoulify)
+        {
+            RemComp(ent, component);
+        }
+
         EnsureComp<CombatModeComponent>(ent);
 
         EnsureComp<CollectiveMindComponent>(ent).Channels.Add(HereticAbilitySystem.MansusLinkMind);
@@ -183,8 +308,13 @@ public sealed class GhoulSystem : EntitySystem
         if (Exists(ent.Comp.BoundHeretic))
             SetBoundHeretic(ent, ent.Comp.BoundHeretic.Value, false);
 
-        _faction.ClearFactions(ent.Owner);
-        _faction.AddFaction(ent.Owner, HereticRuleSystem.HereticFactionId);
+        if (TryComp(ent.Owner, out NpcFactionMemberComponent? fact))
+        {
+            ent.Comp.OldFactions = fact.Factions.ToHashSet();
+
+            _faction.ClearFactions((ent.Owner, fact));
+            _faction.AddFaction((ent.Owner, fact), HereticRuleSystem.HereticFactionId);
+        }
 
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind)
@@ -205,6 +335,9 @@ public sealed class GhoulSystem : EntitySystem
 
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
+            ent.Comp.OldSkinColor = humanoid.SkinColor;
+            ent.Comp.OldEyeColor = humanoid.EyeColor;
+
             // make them "have no eyes" and grey
             // this is clearly a reference to grey tide
             var greycolor = Color.FromHex("#505050");
@@ -213,6 +346,7 @@ public sealed class GhoulSystem : EntitySystem
         }
 
         _rejuvenate.PerformRejuvenate(ent);
+
         if (TryComp<MobThresholdsComponent>(ent, out var th))
         {
             _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, MobState.Dead, th);
@@ -341,7 +475,10 @@ public sealed class GhoulSystem : EntitySystem
             RemComp(nymph.Owner, nymph.Comp1);
         }
 
-        _body.GibBody(ent, body: body, contents: ent.Comp.DeathBehavior ==
-            GhoulDeathBehavior.GibOrgans ? GibContentsOption.Drop : GibContentsOption.Skip);
+        _body.GibBody(ent,
+            body: body,
+            contents: ent.Comp.DeathBehavior == GhoulDeathBehavior.GibOrgans
+                ? GibContentsOption.Drop
+                : GibContentsOption.Skip);
     }
 }

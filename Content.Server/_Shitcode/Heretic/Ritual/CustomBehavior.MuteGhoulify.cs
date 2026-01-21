@@ -48,6 +48,7 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
         {
             if (args.Limited?.Contains(uid) is true)
             {
+                args.EntityManager.RemoveComponent<GhoulDeconvertComponent>(uid);
                 args.EntityManager.EventBus.RaiseLocalEvent(uid, new RejuvenateEvent());
                 continue;
             }
@@ -63,6 +64,7 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
                 GiveBlade = true,
                 BoundHeretic = args.Performer,
                 DeathBehavior = GhoulDeathBehavior.NoGib,
+                CanDeconvert = true,
             };
             args.EntityManager.AddComponent(uid, ghoul, overwrite: true);
             args.EntityManager.EnsureComponent<MutedComponent>(uid);
@@ -113,6 +115,7 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
             return true;
 
         xformsys.SetMapCoordinates(selected, coords);
+        args.EntityManager.RemoveComponent<GhoulDeconvertComponent>(selected);
         ritualSuccess = true;
         return true;
     }

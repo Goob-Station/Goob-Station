@@ -181,6 +181,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     ghoul.BoundHeretic = performer;
                     ghoul.GiveBlade = true;
                     ghoul.DeathBehavior = GhoulDeathBehavior.NoGib;
+                    ghoul.CanDeconvert = true;
 
                     AddComp(target, ghoul);
                     applyMark = false;
