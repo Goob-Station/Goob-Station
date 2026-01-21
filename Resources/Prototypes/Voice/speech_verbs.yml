@@ -197,7 +197,7 @@
   - chat-speech-verb-wawa-3
   - chat-speech-verb-wawa-4
 
-- type: speechVerb
+- type: speechVerb # Goobstation
   id: Pig
   name: chat-speech-verb-name-pig
   speechVerbStrings:

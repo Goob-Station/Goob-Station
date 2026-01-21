@@ -9,8 +9,6 @@
     - state: abnormal_fart
       shader: unshaded
     noRot: false
-  - type: Fart
-    fartAnimationSpeed: 5
   - type: TimedDespawn
     lifetime: 1.4
   - type: Tag

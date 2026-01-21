@@ -4083,10 +4083,10 @@
     - Pig
     understands:
     - Pig
-  - type: Speech
+  - type: Speech # Goobstation
     speechVerb: Pig
     speechSounds: Pig
-  - type: Vocal
+  - type: Vocal # Goobstation
     sounds:
       Male: Pig
       Female: Pig

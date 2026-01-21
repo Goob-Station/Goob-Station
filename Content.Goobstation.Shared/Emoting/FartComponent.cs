@@ -41,17 +41,36 @@ public sealed partial class FartComponent : Component
     public Gas GasToFart = Gas.Ammonia;
 
     /// <summary>
-    /// Determine how fast the fart animation plays
+    /// Animation for the abnormal fart gas
     /// </summary>
     [DataField]
-    public float FartAnimationSpeed;
+    public EntProtoId? GasAnimation = "AbnormalFartGas";
+
+    /// <summary>
+    /// Duration of all farts timeouts
+    /// </summary>
+    public TimeSpan FartTimeoutDuration = TimeSpan.FromSeconds(60);
+
+    /// <summary>
+    /// Determine how fast the abnormal fart animation plays
+    /// </summary>
+    [DataField]
+    public float FartAnimationSpeed = 5;
 
     /// <summary>
     ///     Path to the sound when you get bible smited
     /// </summary>
-    [DataField]
     [Access(Other = AccessPermissions.ReadWriteExecute)]
     public SoundSpecifier BibleSmiteSnd = new SoundPathSpecifier("/Audio/_Goobstation/Effects/thunder_clap.ogg");
+
+    [ViewVariables]
+    public SoundSpecifier FartSounds = new SoundCollectionSpecifier("FartSounds");
+
+    [ViewVariables]
+    public SoundSpecifier FartInhaleSounds = new SoundCollectionSpecifier("FartInhaleSounds");
+
+    [ViewVariables]
+    public SoundSpecifier SuperFartSounds = new SoundCollectionSpecifier("SuperFartSounds");
 }
 
 [Serializable, NetSerializable]

@@ -979,7 +979,7 @@
     params:
       variation: 0.125
 
-- type: emoteSounds
+- type: emoteSounds # Goobstation
   id: Pig
   sound:
     path: /Audio/Animals/pig_oink.ogg

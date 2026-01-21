@@ -790,14 +790,14 @@
     understands:
     - Pig
     - TauCetiBasic
-  - type: GhostRole
+  - type: GhostRole # Goobstation
     makeSentient: true
     allowSpeech: true
     allowMovement: true
     name: ghost-role-information-alexander-name
     description: ghost-role-information-alexander-description
     rules: ghost-role-information-nonantagonist-rules
-  - type: GhostTakeoverAvailable
+  - type: GhostTakeoverAvailable # Goobstation
 
 - type: entity
   name: Renault
