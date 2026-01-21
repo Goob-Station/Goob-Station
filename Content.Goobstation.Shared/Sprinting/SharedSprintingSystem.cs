@@ -130,8 +130,6 @@ public abstract class SharedSprintingSystem : EntitySystem
                 dot = Math.Clamp(dot, -1f, 1f); // Acos sometimes fails due to Dot function returning a value very little out of range
                 var angle = Math.Abs(MathF.Acos(dot));
                 var loss = angle * (float) (1 / Math.PI);
-                if (loss > 0.01f)
-                    Log.Debug("LOSS: " + loss);
                 sprinterComp.SprintEnergy -= loss * sprinterComp.SprintEnergyMax;
             }
             sprinterComp.PreviousDirection = curDir;
