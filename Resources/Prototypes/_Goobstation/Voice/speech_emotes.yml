@@ -22,9 +22,6 @@
     components:
     - BorgChassis
     - Silicon
-    - Tag
-    tags:
-      - Pig
   chatMessages: ["chat-emote-msg-fart"]
   chatTriggers:
     - fart
@@ -80,9 +77,6 @@
     components:
     - BorgChassis
     - Silicon
-    - Tag
-    tags:
-      - Pig
   chatMessages: ["chat-emote-msg-fart-inhale"]
   chatTriggers:
     - inhale anally
@@ -124,9 +118,6 @@
     components:
     - BorgChassis
     - Silicon
-    - Tag
-    tags:
-      - Pig
   chatMessages: ["chat-emote-msg-fart-super"]
   chatTriggers:
     - superfart
@@ -150,13 +141,10 @@
   id: AbnormalFart
   name: chat-emote-name-fart-abnormal
   category: Farts
-  icon: _Goobstation/Interface/Emotes/fart-super.png
+  icon: _Goobstation/Interface/Emotes/fart-abnormal.png
   whitelist:
-    components:
-    - Vocal
-    - Tag
     tags:
-      - Pig
+    - Pig
   blacklist:
     components:
     - BorgChassis

@@ -203,21 +203,24 @@ public sealed partial class FartSystem : SharedFartSystem
             var ev = new PostFartEvent(uid, true);
             RaiseLocalEvent(uid, ev);
         }
-        //For pig only
         else if (args.Emote.ID == "AbnormalFart")
         {
             args.Handled = true;
+            if (comp.FartTimeout)
+            {
+                _popup.PopupEntity(Loc.GetString("emote-fart-out-of-farts"), uid, uid);
+                return;
+            }
             comp.FartTimeout = true;
-
             //Randomize and play the fart sounds
             _rng.Shuffle(_fartSounds);
             _audio.PlayEntity(_fartSounds[0], Filter.Pvs(uid), uid, true);
-            DoAbnormalFartAnimation(uid, "AbnormalFartGas", 5);
+            DoFartAnimation(uid, "AbnormalFartGas", comp.FartAnimationSpeed);
             // Release ammonia into the air
             var tileMix = _atmos.GetTileMixture(uid, excite: true);
             tileMix?.AdjustMoles(comp.GasToFart, comp.MolesAmmoniaPerFart * 1);
-            // One minute timeout for ammonia release (60000MS = 60S)
-            Timer.Spawn(1000, () =>
+            // One minute timeout for ammonia release (30000MS = 30S)
+            Timer.Spawn(30000, () =>
             {
                 comp.FartTimeout = false;
             });
@@ -278,7 +281,7 @@ public sealed partial class FartSystem : SharedFartSystem
             return;
         }
     }
-    private void DoAbnormalFartAnimation(EntityUid uid, string? protoName, float speed)
+    private void DoFartAnimation(EntityUid uid, string? protoName, float speed)
     {
         var xform = Transform(uid);
 

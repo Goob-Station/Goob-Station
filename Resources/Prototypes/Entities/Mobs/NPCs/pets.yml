@@ -783,6 +783,7 @@
     tags:
     - CannotSuicide
     - VimPilot
+    - Pig
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Pig
