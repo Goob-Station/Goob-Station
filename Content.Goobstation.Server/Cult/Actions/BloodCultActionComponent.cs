@@ -23,7 +23,8 @@ public sealed partial class BloodCultActionComponent : Component
     /// <summary>
     ///    How many uses this action has left before being destroyed. Only 1 use by default.
     /// </summary>
-    [DataField] public int Uses = 1;
+    [DataField] public int MaxUses = 1;
+    [ViewVariables(VVAccess.ReadOnly)] public int Uses = 1;
 
     [DataField] public bool UnlimitedUses = false;
 

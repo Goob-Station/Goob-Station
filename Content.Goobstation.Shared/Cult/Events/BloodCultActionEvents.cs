@@ -10,7 +10,12 @@ public sealed partial class EventActionCultPrepareBloodMagic : InstantActionEven
 [Serializable, NetSerializable]
 public sealed partial class EventActionCultPrepareBloodMagicDoAfter : SimpleDoAfterEvent
 {
-    public EntProtoId? SpellId;
+    public EntProtoId SpellId;
+
+    public EventActionCultPrepareBloodMagicDoAfter(EntProtoId spellId)
+    {
+        SpellId = spellId;
+    }
 }
 
 public sealed partial class EventActionCultEmp : InstantActionEvent;

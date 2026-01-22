@@ -154,6 +154,7 @@ using static Robust.Client.UserInterface.Controls.MultiselectOptionButton<
     Content.Client.UserInterface.Systems.Actions.Windows.ActionsWindow.Filters>;
 using static Robust.Client.UserInterface.Controls.TextureRect;
 using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
+using Content.Goobstation.Shared.Actions;
 
 namespace Content.Client.UserInterface.Systems.Actions;
 
@@ -164,6 +165,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IEyeManager _eye = default!; // Goobstation
+    [Dependency] private readonly IEntityManager _ent = default!; // goob edit
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
@@ -719,6 +721,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             button.ClearData();
             if (_container?.TryGetButtonIndex(button, out position) ?? false)
             {
+                // goob edit - has a message now.
+                var action = _actions[position].GetValueOrDefault();
+                _ent.RaisePredictiveEvent(new ActionRemovedFromUIControllerMessage(_ent.GetNetEntity(action)));
+
                 if (_actions.Count > position && position >= 0)
                     _actions.RemoveAt(position);
             }

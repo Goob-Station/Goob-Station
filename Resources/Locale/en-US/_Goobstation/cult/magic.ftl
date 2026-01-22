@@ -4,11 +4,15 @@ cult-magic-limit-reached = You cannot store more than {$limit} spells. Pick a sp
 
 cult-magic-gain-start = You begin to carve unnatural symbols into your flesh!
 
-cult-magic-gain = Your wounds glow with power, you have prepared a {$name} invocation!
+cult-magic-gain = Your wounds glow with power, you have prepared a {$spell} invocation!
+
+cult-magic-loss = As you scrap the knowledge of {$spell}, the wounds on your wrist stop glowing.
 
 cult-magic-gain-mutex = You are already invoking blood magic!
 
 cult-magic-examine-uses = Has {$n} uses remaining.
+
+cult-magic-examine-uses-single = Single use.
 
 cult-magic-examine-damage = Deals {$n} damage to your arm per use.
 
