@@ -17,3 +17,5 @@ ent-ClothingHeadsetAltBlueshield = blueshield officers over-ear headset
     .desc = { ent-ClothingHeadsetAlt.desc }
 ent-ClothingHeadsetCommandService = command-service headset
     .desc = A headset with a command and service channels.
+ent-ClothingHeadsetAltRadioHost = Radio host's over-ear headset
+    .desc = An over-ear headset with extra foam padding around the ears.

@@ -16,3 +16,6 @@ ent-LauncherLollypopRegeneratingMystery = mystery lollypop dispenser
 ent-LauncherLollypopRegenerating = lollypop dispenser
     .desc = Utilizes a in-built fabricator to generate lollypops from energy.
     .suffix = Regenerating, DO NOT MAP
+ent-SantaCannonRegenerating = Santa's merry pneumatic cannon
+    .desc = The only thing you'll need to spread christmas cheer!
+    .suffix = DO NOT MAP

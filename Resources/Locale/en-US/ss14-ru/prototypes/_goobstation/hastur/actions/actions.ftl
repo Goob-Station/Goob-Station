@@ -1,0 +1,14 @@
+ent-ActionHasturDevour = Devour
+    .desc = Instantly devour a human...
+ent-ActionHasturLash = Lash
+    .desc = Lash a target from a distance, bringing them to their knees.
+ent-ActionInsanityAura = Insanity Aura
+    .desc = Causes everyone to go a bit mad around you...
+ent-ActionMassWhisper = Mass Whisper
+    .desc = Reach into the mind of all beings and whisper them into madness...
+ent-ActionVeilOfTheVoid = Veil of the void
+    .desc = Vanish/Manifest back from the void to hunt your prey...
+ent-ActionOmnipresence = Omnipresence
+    .desc = Choose everywhere to be.
+ent-ActionHasturClone = Clone
+    .desc = Split yourself into two, leaving a temporary shadow of your presence behind.

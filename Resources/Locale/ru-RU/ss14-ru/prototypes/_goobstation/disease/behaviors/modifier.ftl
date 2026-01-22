@@ -1,0 +1,10 @@
+ent-DiseaseBehaviorFightImmunity = Сопротивление иммунитету
+    .desc = Делает болезнь устойчивой к иммунитету после её развития.
+ent-DiseaseBehaviorSluggish = Чувство вялости
+    .desc = Вызывает чувство вялости.
+ent-DiseaseBehaviorTemperature = Температура
+    .desc = Повышает температуру тела до опасных значений.
+ent-DiseaseBehaviorCold = Термофагия
+    .desc = Поглощает тепло тела, понижая температуру до опасных значений.
+ent-DiseaseBehaviorRapidMutation = Быстрая мутация
+    .desc = Быстро мутирует себя и другие болезни, даже находясь в организме хозяина.

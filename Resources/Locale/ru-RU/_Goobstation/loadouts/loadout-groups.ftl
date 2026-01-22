@@ -30,6 +30,10 @@ loadout-group-paramedic-envirogloves = экоперчатки парамедик
 loadout-group-psychologist-envirohelm = экошлем психолога
 loadout-group-psychologist-envirosuit = экокостюм психолога
 loadout-group-psychologist-envirogloves = экоперчатки психолога
+# Virologist
+loadout-group-virology-envirohelm = экошлем вирусолога
+loadout-group-virology-envirosuit = экокостюм вирусолога
+loadout-group-virology-envirogloves = экоперчатки вирусолога
 # Cargo Technician
 loadout-group-cargo-technician-envirohelm = экошлем грузчика
 loadout-group-cargo-technician-envirosuit = экокостюм грузчика

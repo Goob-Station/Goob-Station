@@ -1,0 +1,12 @@
+ent-DiseaseBase = { "" }
+    .desc = { "" }
+ent-DiseaseBaseMouse = { ent-DiseaseBase }
+    .desc = { ent-DiseaseBase.desc }
+ent-DiseaseFlu = flu
+    .desc = Highly annoying and mildly dangerous.
+ent-DiseaseCancer = cancer
+    .desc = Deals genetic damage to the infected. Doesn't go away by itself.
+ent-DiseaseGravitosisA = gravitosis A
+    .desc = A strange disease.
+ent-DiseaseGunemia = gunemia
+    .desc = A strange disease.

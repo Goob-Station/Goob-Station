@@ -116,3 +116,7 @@ ent-SurgeryInsertArmAugment = Установить имплант руки
     .desc = { ent-SurgeryInstallAugmentBase.desc }
 ent-SurgeryRemoveArmAugment = Удалить имплант руки
     .desc = { ent-SurgeryRemoveAugmentBase.desc }
+ent-SurgeryLobotomize = Лоботомия
+    .desc = { ent-SurgeryBase.desc }
+ent-SurgeryMendBrainTissue = Восстановить мозговую ткань
+    .desc = { ent-SurgeryBase.desc }

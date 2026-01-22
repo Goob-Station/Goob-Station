@@ -10,3 +10,5 @@ ent-ClothingUniformJumpskirtReporter = reporter's dress
     .desc = An extravagant black dress designed to catch the attention of as many people as possible.
 ent-ClothingUniformJumpskirtTrainer = NCT Jumpskirt
     .desc = A jumpskirt issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
+ent-ClothingUniformJumpskirtCommandMaid = command maid uniform
+    .desc = A stylish maid uniform specially designed for elite Command Maids. Combines professionalism with a touch of elegance.

@@ -1,2 +1,2 @@
-ent-EffectTelepadSparks = { "" }
+ent-SpawnEffectSparks = { "" }
     .desc = { "" }

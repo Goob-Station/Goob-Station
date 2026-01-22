@@ -1,0 +1,16 @@
+ent-YellowSlimeExtract = yellow slime extract
+    .desc = { ent-BaseSlimeExtract.desc }
+ent-DarkPurpleSlimeExtract = dark purple slime extract
+    .desc = { ent-BaseSlimeExtract.desc }
+ent-DarkBlueSlimeExtract = dark blue slime extract
+    .desc = { ent-BaseSlimeExtract.desc }
+ent-SilverSlimeExtract = silver slime extract
+    .desc = { ent-BaseSlimeExtract.desc }
+ent-BluespaceSlimeExtract = bluespace slime extract
+    .desc = { ent-BaseSlimeExtract.desc }
+ent-SepiaSlimeExtract = sepia slime extract
+    .desc = { ent-BaseSlimeExtract.desc }
+ent-CeruleanSlimeExtract = cerulean slime extract
+    .desc = { ent-BaseSlimeExtract.desc }
+ent-PyriteSlimeExtract = pyrite slime extract
+    .desc = { ent-BaseSlimeExtract.desc }

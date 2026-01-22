@@ -7,9 +7,6 @@ patron-support-window-tier1-name = 🗲 Революционер (200RUB/мес�
 patron-support-window-tier1-perk1 = • ⚑ Уникальная роль в Discord
 patron-support-window-tier1-perk2 = • 🎬 Уникальная тема призрака
 patron-support-window-tier1-perk3 = • 🗨 Доступ к отдельному чату в Discord
-#patron-support-window-tier1-perk4 = • Thanks in the credits in-game
-#patron-support-window-tier1-perk5 = • Special Discord role
-#patron-support-window-tier1-perk6 = • Access to members-only Discord channel
 patron-support-window-tier2-name = ⛤ Еретик (500RUB/месяц)
 patron-support-window-tier2-perk1 = = Всё за предыдущий уровень
 patron-support-window-tier2-perk2 = • 🟡 Жёлтый цвет ника в OOC

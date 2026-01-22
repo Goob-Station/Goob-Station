@@ -1,0 +1,13 @@
+ent-XenobioVolatileOrgan = volatile organ
+    .desc = A pulsating mass of slime, it seems to react to nearby devices.
+    .suffix = Full
+ent-XenobioGoopBall = goop ball
+    .desc = Not as goopy as it looks. Proven to capture fires on the same level as the holofan. Screaming included!
+ent-FloorTileItemBluespace = fitted bluespace carpet square
+    .desc = { ent-FloorTileItemBase.desc }
+ent-FloorTileItemSepia = fitted sepia carpet square
+    .desc = { ent-FloorTileItemBase.desc }
+ent-XenobioVolatileRedExtractJelly = volatile red slime jelly
+    .desc = Using this on a piece of clothing seems to remove any potential slowdowns. Hovewer, subjects wearing such clothing were burnt to a crisp after a scientist lit his cigarette.
+ent-XenobioAdamantineBar = adamantine bar
+    .desc = Theoretically, if you sold a couple of these, you wouldn't need to work on the station any more. It must have it's use, since it costs a fortune to get one of these. But where?

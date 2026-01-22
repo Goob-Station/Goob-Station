@@ -14,3 +14,6 @@ ent-ClothingMaskMuzzleSecure = secure muzzle
     .desc = Can prevent vampires from biting people, or prevent annoying people from talking.
 ent-ClothingMaskMuzzleShock = shock muzzle
     .desc = A muzzle designed to prevent biting. This one is fitted with a behaviour correction system.
+ent-ClothingMaskGasUnremoveable = { ent-ClothingMaskGas }
+    .suffix = Unremoveable
+    .desc = { ent-ClothingMaskGas.desc }

@@ -29,3 +29,7 @@ ent-WeaponPistolCasul = casul
     .desc = The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
 ent-WeaponPistolJackal = jackal
     .desc = The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+ent-BlessingOfTheReaper = blessing of the reaper
+    .desc = A special undroppable armblade nullrod, it's blessed by the dark gods.
+ent-RatvarianSpear = ancient spear
+    .desc = An ancient spear made of brass, I mean gold, I mean bronze. It looks highly mechanical.

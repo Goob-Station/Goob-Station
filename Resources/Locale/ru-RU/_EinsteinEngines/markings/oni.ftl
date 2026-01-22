@@ -137,3 +137,5 @@ marking-OniHornDoubleCurvedOutwards3Tone = Двойные, Изогнутые н
 marking-OniHornDoubleCurvedOutwards3Tone-double_curved_outwards_3tone_1 = Основной
 marking-OniHornDoubleCurvedOutwards3Tone-double_curved_outwards_3tone_2 = Дополнительный
 marking-OniHornDoubleCurvedOutwards3Tone-double_curved_outwards_3tone_3 = Кончик
+marking-OniTwoToedFeet-two_toes = Двупалые стопы
+marking-OniTwoToedFeet = Двупалые стопы

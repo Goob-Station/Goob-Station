@@ -9,9 +9,6 @@ patron-support-window-tier1-name = Assistant ($5/month)
 patron-support-window-tier1-perk1 = • 2x Goob Coin earnings
 patron-support-window-tier1-perk2 = • Priority role queue access
 patron-support-window-tier1-perk3 = • Purple OOC name color
-patron-support-window-tier1-perk4 = • Thanks in the credits in-game
-patron-support-window-tier1-perk5 = • Special Discord role
-patron-support-window-tier1-perk6 = • Access to members-only Discord channel
 
 patron-support-window-tier2-name = Janitor ($10/month)
 patron-support-window-tier2-perk1 = • Custom ghost color

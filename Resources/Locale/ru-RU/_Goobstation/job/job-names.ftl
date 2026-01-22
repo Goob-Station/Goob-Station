@@ -35,6 +35,7 @@ job-name-highcommander = Офицер Синдиката
 
 job-name-hecu = агент HECU
 job-name-governmentman = G-Man
+job-name-radiohost = радиоведущий
 
 # Misc
 
@@ -53,6 +54,8 @@ JobNavyCaptain = капитан ВКФ
 JobDiplomat = дипломат NanoTrasen
 JobRoboticist = робототехник
 JobGovernmentMan = G-Man
-JobConquest = Конквест
+JobRadioHost = радиоведущий
+JobVirologist = вирусолог
+JobConquest = конквест
 JobInspector = инспектор ЦК
 JobMercenaryCaptain = капитан Наёмников

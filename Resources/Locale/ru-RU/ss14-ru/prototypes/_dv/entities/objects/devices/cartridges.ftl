@@ -1,4 +1,4 @@
 ent-MailMetricsCartridge = картридж для почтовой статистики
     .desc = Картридж, который отслеживает статистику, связанную с доставкой почты.
-ent-NanoChatCartridge = картридж НаноЧат
+ent-NanoChatCartridge = картридж NanoChat
     .desc = Позволяет отправлять сообщения другим людям!

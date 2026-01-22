@@ -10,10 +10,14 @@
 
 guide-entry-space-law = Корпоративный Закон
 guide-entry-medpatches = Медицинские пластыри
+guide-entry-virology = Вирусология
 guide-entry-rules-nrp = Правила NRP
 guide-entry-sm = Суперматерия
 guide-entry-automation = Автоматизация
 guide-entry-plumbing = Трубы
+guide-entry-alcoholic-drinks = Алкоголь
+guide-entry-non-alcoholic-drinks = Безалкоголь
+guide-entry-enchanting = Зачарования
 # Goob SOP
 # - Основные разделы
 guide-entry-sop = СОП (Стандартные Операционные Процедуры)

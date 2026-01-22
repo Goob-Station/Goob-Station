@@ -116,3 +116,7 @@ ent-SurgeryInsertArmAugment = Insert Arm Augment
     .desc = { ent-SurgeryInstallAugmentBase.desc }
 ent-SurgeryRemoveArmAugment = Remove Arm Augment
     .desc = { ent-SurgeryRemoveAugmentBase.desc }
+ent-SurgeryLobotomize = Lobotomize
+    .desc = { ent-SurgeryBase.desc }
+ent-SurgeryMendBrainTissue = Mend brain tissue
+    .desc = { ent-SurgeryBase.desc }

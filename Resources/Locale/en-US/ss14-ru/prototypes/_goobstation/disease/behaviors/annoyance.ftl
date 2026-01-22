@@ -1,0 +1,14 @@
+ent-DiseaseBehaviorVomit = Vomiting
+    .desc = Makes you periodically vomit.
+ent-DiseaseBehaviorFeelUnwell = Feeling unwell
+    .desc = Makes you feel unwell.
+ent-DiseaseBehaviorHeadache = Headache
+    .desc = Gives you headaches, which may make working more difficult.
+ent-DiseaseBehaviorGravitosisA = Gravitosis A
+    .desc = Rare and exotic disease symptom that causes objects to swirl around you.
+ent-DiseaseBehaviorGravitosisB = Gravitosis B
+    .desc = Rare and exotic disease symptom that causes objects to go towards you.
+ent-DiseaseBehaviorGravitosisC = Gravitosis C
+    .desc = Rare and exotic disease symptom that causes objects to go away from you.
+ent-DiseaseBehaviorOwO = OwOify
+    .desc = Rare and exotic disease symptom that causes you to vocalize like a cat.

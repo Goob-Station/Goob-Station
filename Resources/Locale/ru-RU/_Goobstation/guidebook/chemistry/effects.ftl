@@ -20,3 +20,9 @@ reagent-effect-guidebook-deal-stamina-damage =
         [true] немедленный
        *[false] постепенный
     } урон выносливости
+reagent-effect-guidebook-stealth-entities = Маскирует живых существ поблизости.
+reagent-effect-guidebook-change-faction = Меняет фракцию существа на { $faction }.
+reagent-effect-guidebook-mutate-plants-nearby = Случайным образом мутирует ближайшие растения.
+reagent-effect-guidebook-dnascramble = Перемешивает ДНК существа.
+reagent-effect-guidebook-change-species = Превращает цель в { $species }.
+reagent-effect-guidebook-sex-change = Изменяет половую принадлежность цели.

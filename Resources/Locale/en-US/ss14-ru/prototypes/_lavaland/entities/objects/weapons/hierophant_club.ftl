@@ -1,4 +1,4 @@
 ent-LavalandHierophantClub = hierophant club
     .desc = Get item'ed lol
-ent-LavalandHierophantClubTeleportMarker = mysterious marker
+ent-LavalandHierophantMarker = mysterious marker
     .desc = What even is this?

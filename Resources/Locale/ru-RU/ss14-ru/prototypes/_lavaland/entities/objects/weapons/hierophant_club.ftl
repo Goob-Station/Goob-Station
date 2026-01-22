@@ -1,4 +1,4 @@
 ent-LavalandHierophantClub = посох Иерофанта
     .desc = Стал предметом, прикол.
-ent-LavalandHierophantClubTeleportMarker = странный маркер
+ent-LavalandHierophantMarker = странный маркер
     .desc = Что это такое?

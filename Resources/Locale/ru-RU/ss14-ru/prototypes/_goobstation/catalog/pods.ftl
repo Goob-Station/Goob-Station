@@ -1,0 +1,16 @@
+ent-SpawnArmamentsCursader = доспехи крестоносца
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsStudent = одеяние студента
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsAncient = древние доспехи
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsWitchhunter = снаряжение охотника на ведьм
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsAdept = одеяния адепта
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsClock = забытые доспехи
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsMonk = монашеское одеяние
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsBishop = одеяния епископа
+    .desc = { ent-SpawnSupplyEmpty.desc }

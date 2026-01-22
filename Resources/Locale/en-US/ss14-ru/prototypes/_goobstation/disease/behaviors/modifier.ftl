@@ -1,0 +1,10 @@
+ent-DiseaseBehaviorFightImmunity = Immune resistance
+    .desc = Makes the disease resist immunity once developed.
+ent-DiseaseBehaviorSluggish = Feeling sluggish
+    .desc = Makes you feel sluggish.
+ent-DiseaseBehaviorTemperature = Temperature
+    .desc = Raises your body temperature to harmful levels.
+ent-DiseaseBehaviorCold = Thermophagy
+    .desc = Consumes body heat, lowering your body temperature to harmful levels.
+ent-DiseaseBehaviorRapidMutation = Rapid mutation
+    .desc = This disease rapidly mutates itself and other diseases even while in the host.

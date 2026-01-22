@@ -8,3 +8,7 @@ ent-CrateClawMachine = claw machine crate
     .desc = A crate with a claw machine inside, plushies included with every purchase!
 ent-CrateCargoForklift = Forklift crate
     .desc = A perfect utility vehicle for cargo.
+ent-CrateRadioStationAds = ads crate
+    .desc = A whole crate which sole purpose is to store 6 exclusive ads, aint capitalism great?
+ent-CrateRadioStationVinyls = vinyls crate
+    .desc = A crate with 12 vinyls so you'll NEVER play the same song twice, they come in sleeves!

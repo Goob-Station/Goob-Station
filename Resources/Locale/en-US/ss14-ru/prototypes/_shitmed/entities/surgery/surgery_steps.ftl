@@ -78,3 +78,7 @@ ent-SurgeryStepInsertAugmentPowerCellCharger = Add power cell charger
     .desc = { ent-SurgeryStepInsertOrgan.desc }
 ent-SurgeryStepInsertAugmentArm = Add arm augment
     .desc = { ent-SurgeryStepInsertOrgan.desc }
+ent-SurgeryStepLobotomize = Lobotomize patient
+    .desc = { ent-SurgeryStepBase.desc }
+ent-SurgeryStepMendBrainTissue = Mend brain tissue
+    .desc = { ent-SurgeryStepBase.desc }

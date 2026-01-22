@@ -1,0 +1,10 @@
+ent-ActionBaseHierophant = hierophant action
+    .desc = { ent-BaseAction.desc }
+ent-ActionHierophantBox = Expanding Box
+    .desc = Spawns an expanding box on the target position.
+ent-ActionHierophantCrosses = Sequence Crosses
+    .desc = Spawns a sequence of crosses on the target position.
+ent-ActionHierophantChasers = Spawn Chasers
+    .desc = Spawns hierophant tile chasers that move towards the target.
+ent-ActionHierophantBlink = Blink
+    .desc = Teleports you to the target position.

@@ -13,3 +13,6 @@ ent-DoorElectronicsRobotics = { ent-DoorElectronics }
 ent-DoorElectronicsAllService = { ent-DoorElectronics }
     .suffix = Сервис, Закрытый
     .desc = { ent-DoorElectronics.desc }
+ent-DoorElectronicsJournalism = { ent-DoorElectronics }
+    .suffix = Журнализм, Закрытый
+    .desc = { ent-DoorElectronics.desc }
