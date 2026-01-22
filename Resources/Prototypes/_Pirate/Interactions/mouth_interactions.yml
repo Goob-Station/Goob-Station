@@ -28,7 +28,6 @@
     !type:ComplexAction
     actions:
     - !type:ModifyHealthAction
-      randomFactor: {min: 0.5, max: 1.5}
       damage:
         types: {Piercing: 5}
     # Для мазохстів:
