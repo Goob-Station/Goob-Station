@@ -1,1 +1,141 @@
 # touch spells go here
+- type: entity
+  parent: TouchSpellUnholyBase
+  id: TouchSpellCultStun
+  name: stunning aura
+  description: Will stun and mute a weak-minded victim on contact.
+  components:
+  - type: Sprite
+    color: "#ff0000" # change color here
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff0000" # here too
+      right:
+      - state: inhand-right
+        color: "#ff0000" # here too...
+  - type: TouchSpell
+    effects:
+    - !type:SendICMessageEntityEffect
+      messageLoc: cult-magic-invoke-stun
+    - !type:BloodCultSpellStun
+
+
+- type: entity
+  parent: TouchSpellUnholyBase
+  id: TouchSpellCultTeleport
+  name: teleporting aura
+  description: Will teleport a cultist to a teleport rune on contact.
+  components:
+  - type: Sprite
+    color: "#221C35" # change color here
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#221C35" # here too
+      right:
+      - state: inhand-right
+        color: "#221C35" # here too...
+  - type: TouchSpell
+    effects:
+    - !type:SendICMessageEntityEffect
+      messageLoc: cult-magic-invoke-teleport
+    - !type:BloodCultSpellTeleport
+
+- type: entity
+  parent: TouchSpellUnholyBase
+  id: TouchSpellCultShackles
+  name: shackling aura
+  description: Will instantly handcuff a stunned victim on contact, and mute them if successful.
+  components:
+  - type: Sprite
+    color: "#000000" # change color here
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#000000" # here too
+      right:
+      - state: inhand-right
+        color: "#000000" # here too...
+  - type: TouchSpell
+    effects:
+    - !type:SendICMessageEntityEffect
+      messageLoc: cult-magic-invoke-shackles
+    - !type:ApplyHandcuffsEntityEffect
+      handcuffsId: HandcuffsCult
+
+- type: entity
+  parent: TouchSpellUnholyBase
+  id: TouchSpellCultConstruction
+  name: twisting aura
+  description: Corrupts certain metallic objects on contact.
+  components:
+  - type: Sprite
+    color: "#000000" # change color here
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#000000" # here too
+      right:
+      - state: inhand-right
+        color: "#000000" # here too...
+  - type: TouchSpell
+    effects:
+    - !type:SendICMessageEntityEffect
+      messageLoc: cult-magic-invoke-construction
+    - !type:BloodCultSpellConstruction
+
+- type: entity
+  parent: TouchSpellUnholyBase
+  id: TouchSpellCultEquipment
+  name: arming aura
+  description: Will equip cult combat gear onto a cultist on contact.
+  components:
+  - type: Sprite
+    color: "#33cc33" # change color here
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#33cc33" # here too
+      right:
+      - state: inhand-right
+        color: "#33cc33" # here too...
+  - type: TouchSpell
+    effects:
+    - !type:SendICMessageEntityEffect
+      messageLoc: cult-magic-invoke-dagger
+    - !type:ForceEquipItemEntityEffect
+      items:
+      - ClothingUniformJumpsuitColorBlack
+      - ClothingOuterArmorCult
+      - ClothingHeadHelmetCult
+      - ClothingShoesCult
+      #- BolaCult
+      - RitualDagger
+
+- type: entity
+  parent: TouchSpellUnholyBase
+  id: TouchSpellCultManipulation
+  name: blood rite aura
+  description: Absorbs blood from anything you touch. Touching cultists and constructs can heal them. Use in-hand to cast advanced rites.
+  components:
+  - type: Sprite
+    color: "#7D1717" # change color here
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#7D1717" # here too
+      right:
+      - state: inhand-right
+        color: "#7D1717" # here too...
+  - type: TouchSpell
+    effects:
+    - !type:SendICMessageEntityEffect
+      messageLoc: cult-magic-invoke-manipulation
+    - !type:BloodCultSpellManipulation

@@ -179,6 +179,54 @@
   - type: TouchSpellAction
     touchSpell: TouchSpellCultManipulation
 
+- type: entity
+  parent: BaseAction
+  id: ActionCultManipulationHalberd
+  name: Bloody Halberd
+  description: Summons a robust two-handed halberd. Can be recalled to your hand from up to 10 tiles away if it has a clear path back to you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: bloodspear
+  - type: InstantAction
+    #event: !type:Event
+  - type: BloodCultAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultManipulationBoltBarrage
+  name: Bolt Barrage
+  description: Temporarily grants you the ability to launch several powerful projectiles from your hand, similar to the Wizard's arcane barrage.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: pulse
+  - type: InstantAction
+    #event: !type:Event
+  - type: BloodCultAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionCultManipulationBloodBeam
+  name: Blood Beam
+  description: POWER OVERWHELMING!!!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: sintouch
+  - type: InstantAction
+    #event: !type:Event
+  - type: BloodCultAction
+
 # - type: entity
 #   parent: BaseAction
 #   id: ActionCult
