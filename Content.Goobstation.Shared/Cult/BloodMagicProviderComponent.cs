@@ -1,8 +1,9 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Cult.Magic;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class BloodMagicProviderComponent : Component
 {
     [DataField] public EntProtoId SpellsProviderActionId = "ActionCultPrepareBloodMagic";
@@ -21,6 +22,8 @@ public sealed partial class BloodMagicProviderComponent : Component
     {
         "ActionCultTouchSpellStun",
         "ActionCultTouchSpellTeleport",
+        "ActionCultEmp",
+        "ActionCultTouchSpellShackles",
         "ActionCultTouchSpellConstruction",
         "ActionCultTouchSpellEquipment",
         "ActionCultDagger",
