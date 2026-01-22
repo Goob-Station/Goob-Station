@@ -293,7 +293,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  parent: [ClothingUniformSkirtBase, ClothingUniformSkirtFoldableBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtHoS
   name: head of security's jumpskirt
   description: It's bright red and rather crisp, much like security's victims tend to be.
@@ -318,7 +318,7 @@
         sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  parent: [ClothingUniformSkirtBase, ClothingUniformSkirtFoldableBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtHoSAlt
   name: head of security's turtleneck
   description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
@@ -513,7 +513,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
+  parent: [ClothingUniformSkirtBase, ClothingUniformSkirtFoldableBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtSec
   name: security jumpskirt
   description: A jumpskirt made of strong material, providing robust protection.
@@ -539,7 +539,7 @@
 
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
+  parent: [ClothingUniformSkirtBase, ClothingUniformSkirtFoldableBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtWarden
   name: warden's uniform
   description: A formal security suit for officers complete with Nanotrasen belt buckle.
