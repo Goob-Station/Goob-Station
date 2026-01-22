@@ -78,6 +78,7 @@
   - type: SlaughterDemon # main component
     speedModWalk: 2.5
     speedModRun: 2.5
+    requiredReagentAmount: 15
     bloodCrawlSounds:
       collection: bloodCrawl
       params:
