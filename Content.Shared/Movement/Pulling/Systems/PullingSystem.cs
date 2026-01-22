@@ -705,6 +705,14 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
+        // Goobstation start
+        if (!TryComp<PullableComponent>(pullableUid, out var pullableComp))
+            return false;
+
+        if (pullableComp.PreventPulling)
+            return false;
+        // Goobstation end
+
         if (pullerComp.NeedsHands
             && !_handsSystem.TryGetEmptyHand(puller, out _)
             && pullerComp.Pulling == null)

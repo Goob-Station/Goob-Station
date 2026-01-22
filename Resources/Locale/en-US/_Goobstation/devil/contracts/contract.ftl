@@ -46,3 +46,5 @@ default-contract-content = This binding contract made this day between:
 
             {"["}italic]All clauses come into effect upon signing of this paper by both parties.{"["}/italic]
             {"["}italic]{"["}color=#ac3a0d]Clauses may not be broken. Ever.{"["}/color]{"["}/italic]
+
+popup-pull-prevented = This entity cannot be pulled.

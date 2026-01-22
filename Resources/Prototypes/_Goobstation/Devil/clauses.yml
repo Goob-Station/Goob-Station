@@ -181,6 +181,12 @@
   - type: PreventBuckling
 
 - type: clause
+  id: mass
+  clauseWeight: -10
+  addedComponents:
+  - type: Uncontainable
+
+- type: clause
   id: sight
   clauseWeight: 60
   addedComponents:

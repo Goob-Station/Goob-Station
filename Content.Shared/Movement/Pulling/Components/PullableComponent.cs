@@ -178,6 +178,12 @@ public sealed partial class PullableComponent : Component
 
     [DataField]
     public float EscapeAttemptCooldown = 2f;
+
+    /// <summary>
+    /// To make an entity being pulled cancelable.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool PreventPulling;
     // Goobstation end
 }
 
