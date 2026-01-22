@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: ScalpelCut
+  files:
+  - /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+  - /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg

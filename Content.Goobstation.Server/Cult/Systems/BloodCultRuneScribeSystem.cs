@@ -3,7 +3,9 @@ using Content.Goobstation.Shared.Cult.Events;
 using Content.Goobstation.Shared.Cult.Runes;
 using Content.Goobstation.Shared.UserInterface;
 using Content.Server.DoAfter;
+using Content.Server.Popups;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Robust.Server.GameObjects;
@@ -19,6 +21,7 @@ public sealed partial class BloodCultRuneScribeSystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     // placeholder
     public static readonly SoundSpecifier ScribeSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/bloodcult_scribe.ogg");
@@ -27,11 +30,17 @@ public sealed partial class BloodCultRuneScribeSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BloodCultRuneScribeComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<BloodCultRuneScribeComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<BloodCultRuneScribeComponent, BloodCultRuneScribeSelectRuneMessage>(OnSelectRuneMessage);
         SubscribeLocalEvent<BloodCultRuneScribeComponent, RuneScribeDoAfter>(OnRuneScribeDoAfter);
-        SubscribeLocalEvent<BloodCultRuneScribeComponent, RuneScribeRemoveDoAfter>(OnRuneScribeRemoveDoAfter);
+        SubscribeLocalEvent<BloodCultRuneComponent, RuneScribeRemoveDoAfter>(OnRuneRemoveDoAfter);
         SubscribeLocalEvent<BloodCultRuneComponent, InteractUsingEvent>(OnInteractUsing);
+    }
+
+    private void OnExamined(Entity<BloodCultRuneScribeComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("rune-scribe-examine"));
     }
 
     private void OnUseInHand(Entity<BloodCultRuneScribeComponent> ent, ref UseInHandEvent args)
@@ -45,6 +54,8 @@ public sealed partial class BloodCultRuneScribeSystem : EntitySystem
 
     private void OnSelectRuneMessage(Entity<BloodCultRuneScribeComponent> ent, ref BloodCultRuneScribeSelectRuneMessage args)
     {
+        _popup.PopupEntity(Loc.GetString("rune-scribe-start"), ent, ent);
+        _aud.PlayPvs(new SoundCollectionSpecifier("ScalpelCut"), ent, AudioParams.Default);
         var da = new DoAfterArgs(EntityManager, args.Actor, 2.5f, new RuneScribeDoAfter(args.Rune), ent, ent)
         {
             BreakOnDamage = true,
@@ -52,22 +63,22 @@ public sealed partial class BloodCultRuneScribeSystem : EntitySystem
             BreakOnMove = true,
         };
         _doAfter.TryStartDoAfter(da);
-        _aud.PlayPvs(ent.Comp.ScribeSound, ent, AudioParams.Default);
     }
 
     private void OnRuneScribeDoAfter(Entity<BloodCultRuneScribeComponent> ent, ref RuneScribeDoAfter args)
     {
         var rune = args.Cancelled ? ent.Comp.MalfRune : args.Rune;
-        var xform = Transform(ent).Coordinates;
-        var pos = xform.WithPosition(xform.Position.Floored() + new Vector2(0.5f, 0.5f));
-
-        Spawn(rune, _xform.ToMapCoordinates(pos));
+        var transform = Transform(args.User);
+        var runeEntity = Spawn(rune, _xform.GetMapCoordinates(args.User));
+        _xform.SetLocalPosition(runeEntity, transform.LocalPosition.Floored() + new Vector2(0.5f, 0.5f));
+        _xform.SetLocalRotation(runeEntity, Angle.Zero); // fuck you
+        _aud.PlayPvs(new SoundCollectionSpecifier("ScalpelCut"), ent, AudioParams.Default);
     }
 
-    private void OnRuneScribeRemoveDoAfter(Entity<BloodCultRuneScribeComponent> ent, ref RuneScribeRemoveDoAfter args)
+    private void OnRuneRemoveDoAfter(Entity<BloodCultRuneComponent> ent, ref RuneScribeRemoveDoAfter args)
     {
         if (args.Cancelled) return;
-        QueueDel(ent);
+        QueueDel(args.Target);
     }
 
     private void OnInteractUsing(Entity<BloodCultRuneComponent> ent, ref InteractUsingEvent args)

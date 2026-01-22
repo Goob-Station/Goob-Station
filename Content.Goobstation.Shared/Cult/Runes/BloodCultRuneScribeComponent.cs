@@ -17,8 +17,4 @@ public sealed partial class BloodCultRuneScribeComponent : Component
     [DataField] public EntProtoId? MalfRune;
 
     [DataField] public DamageSpecifier DamagePerScribe = new();
-
-    [DataField] public SoundSpecifier? ScribeSound;
-
-    [DataField] public SoundSpecifier? RuneDestroySound;
 }

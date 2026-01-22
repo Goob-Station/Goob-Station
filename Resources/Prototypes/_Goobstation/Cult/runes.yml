@@ -39,9 +39,9 @@
         sound:
           path: /Audio/_Goobstation/Heretic/runebreak.ogg
   - type: BloodCultRune
-    events:
+    behaviors:
     # as in every foreach events above take priority
-    - !type:CultRuneBasicEvent
+    - !type:CultRuneBehaviorBasic
       requiredInvokers: 1
       pulseColor: "#FFFFFF"
       invokeLoc: rune-invoke-basic
@@ -54,9 +54,8 @@
   suffix: Malf
   components:
   - type: BloodCultRune
-    events:
-    # as in every foreach events above take priority
-    - !type:CultRuneMalfEvent
+    behaviors:
+    - !type:CultRuneBehaviorBasic
       requiredInvokers: 1
       pulseColor: "#AA00AA"
       invokeLoc: rune-invoke-malf
@@ -75,14 +74,14 @@
     state: cult1
     color: "#FFFFFF"
   - type: BloodCultRune
-    events:
-    - !type:CultRuneOfferEvent
+    behaviors:
+    - !type:CultRuneBehaviorOffer
       requiredInvokers: 2
       pulseColor: "#FF0000"
       invokeLoc: rune-invoke-offering
       inspectNameLoc: rune-name-offering
       inspectDescLoc: rune-desc-offering
-    - !type:CultRuneSacrificeEvent
+    - !type:CultRuneBehaviorSacrifice
       requiredInvokers: 3
       pulseColor: "#AA0000"
       invokeLoc: rune-invoke-sacrifice
@@ -103,8 +102,8 @@
       enum.EntityRadialMenuKey.Key:
         type: CultBloodMagicBUI
   - type: BloodCultRune
-    events:
-    - !type:CultRuneEmpowerEvent
+    behaviors:
+    - !type:CultRuneBehaviorEmpower
       requiredInvokers: 1
       pulseColor: "#FF0000"
       invokeLoc: rune-invoke-empower
@@ -120,18 +119,18 @@
     state: cult2
     color: "#221C35"
   - type: BloodCultRune
-    events:
-    - !type:CultRuneTeleportEvent
+    behaviors:
+    - !type:CultRuneBehaviorTeleport
       requiredInvokers: 1
       pulseColor: "#FF0000"
-      invokeLoc: rune-name-teleport
-      inspectNameLoc: rune-desc-teleport
-      inspectDescLoc: rune-invoke-teleport
+      invokeLoc: rune-invoke-teleport
+      inspectNameLoc: rune-name-teleport
+      inspectDescLoc: rune-desc-teleport
 
-# - CultRuneRevive
-# - CultRuneBarrier
-# - CultRuneSummon
-# - CultRuneBloodboil
-# - CultRuneSpirit
-# - CultRuneApocalypse
-# - CultRuneNarsie
+# - CultRuneBehaviorRevive
+# - CultRuneBehaviorBarrier
+# - CultRuneBehaviorSummon
+# - CultRuneBehaviorBloodboil
+# - CultRuneBehaviorSpirit
+# - CultRuneBehaviorApocalypse
+# - CultRuneBehaviorNarsie

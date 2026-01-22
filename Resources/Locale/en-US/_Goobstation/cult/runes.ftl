@@ -1,8 +1,17 @@
+rune-scribe-start = You begin slicing open your palm and drawing figures on the floor.
+
+rune-scribe-examine = [color=crimson]Allows the scribing of blood runes of the cult of Nar'Sie.
+    Can be used to scrape blood runes away, removing any trace of them.
+    Cult Girders will be destroyed in a single blow.
+    Striking another cultist with it will purge all holy water from them and transform it into unholy water.
+    Striking a noncultist, however, will tear their flesh.[/color]
+
 rune-examine =
     This is [color=crimson]{$name}[/color] rune. It can perform the following rituals: {$rituals}
 
-rune-invoke-fail = You are unable to invoke the rune!
+rune-invoke-fail = The markings pulse with a small flash of red light, then fall dark.
 rune-invoke-fail-invokers = You need {$n} more adjacent cultists to use this rune in such a manner.
+rune-invoke-fail-notarget = There is no target present!
 
 rune-name-basic = Basic
 rune-name-malf = Malign

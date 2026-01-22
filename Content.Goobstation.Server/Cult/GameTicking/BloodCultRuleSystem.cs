@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.Cult;
 using Content.Goobstation.Shared.Cult.Magic;
-using Content.Server._EinsteinEngines.Language;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
@@ -23,7 +22,6 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly LanguageSystem _lang = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IVoteManager _votes = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
@@ -209,7 +207,7 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
             EnsureComp<BloodCultVisualHaloComponent>(ent);
     }
 
-#endregion
+    #endregion
 
     protected override void Added(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -236,14 +234,9 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
         EnsureComp<BloodCultistComponent>(target);
         EnsureComp<BloodMagicProviderComponent>(target);
 
-        _lang.AddLanguage(target, CultLanguage);
-
         var gain = roundstart ? Loc.GetString("cult-gain-briefing") : Loc.GetString("cult-gain-convert");
-
         _antag.SendBriefing(target, Loc.GetString("cult-gain-bloat"), Color.Crimson, null);
         _antag.SendBriefing(target, gain, Color.Red, GainSound);
-
-        UpdateTierBasedOnCultistCount(rule);
 
         if (!rule.Comp.CultLeader.HasValue)
             ScheduleLeaderElection(rule);

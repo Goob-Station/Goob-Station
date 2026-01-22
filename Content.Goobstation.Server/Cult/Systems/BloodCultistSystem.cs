@@ -11,7 +11,7 @@ public sealed partial class BloodCultistSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly LanguageSystem _lang = default!;
-    [Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
+    [Dependency] private readonly BloodCultRuleSystem _cultRule = default!;
     [Dependency] private readonly BloodMagicSystem _bloodMagic = default!;
 
     public override void Initialize()
@@ -27,12 +27,16 @@ public sealed partial class BloodCultistSystem : EntitySystem
 
     private void OnCultistComponentStartup(Entity<BloodCultistComponent> ent, ref ComponentStartup args)
     {
-        if (!_bloodCultRule.TryGetRule(out var rule))
+        if (!_cultRule.TryGetRule(out var rule))
             return;
 
         var gamerule = rule!.Value;
 
         gamerule.Comp.Cultists.Add(ent);
+
+        _lang.AddLanguage(ent, BloodCultRuleSystem.CultLanguage);
+        _cultRule.UpdateTierBasedOnCultistCount(gamerule);
+        _cultRule.ApplyTierEffects(ent, gamerule.Comp.CurrentTier);
     }
 
     private void OnCultistComponentShutdown(Entity<BloodCultistComponent> ent, ref ComponentShutdown args)
@@ -55,16 +59,16 @@ public sealed partial class BloodCultistSystem : EntitySystem
     {
         _antag.SendBriefing(ent, Loc.GetString("cult-master-loss-self"), Color.Crimson, BloodCultRuleSystem.UnimportantAnnouncementSound);
 
-        if (_bloodCultRule.TryGetRule(out var rule) && rule!.Value.Comp.CultLeader == ent)
+        if (_cultRule.TryGetRule(out var rule) && rule!.Value.Comp.CultLeader == ent)
         {
             var gamerule = rule!.Value;
             gamerule.Comp.CultLeader = null;
-            _bloodCultRule.DoCultAnnouncement(gamerule, Loc.GetString("cult-master-loss"));
-            _bloodCultRule.ScheduleLeaderElection(gamerule);
+            _cultRule.DoCultAnnouncement(gamerule, Loc.GetString("cult-master-loss"));
+            _cultRule.ScheduleLeaderElection(gamerule);
         }
 
         if (TryComp<BloodMagicProviderComponent>(ent, out var bmp))
             foreach (var spell in bmp.LeaderSpells)
-                _bloodMagic.TryRemoveSpell((ent, bmp), spell);
+                _bloodMagic.RemoveSpell((ent, bmp), spell);
     }
 }
