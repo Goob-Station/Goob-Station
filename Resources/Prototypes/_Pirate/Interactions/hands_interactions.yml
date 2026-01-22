@@ -1,0 +1,44 @@
+- type: Interaction
+  id: Pet
+  parent: [BaseGlobal, BaseHands]
+  priority: 1
+  #icon: /Textures/Interface/Actions/hug.png
+  delay: 0.4
+  range: {max: 1}
+  hideByRequirement: true
+  requirement:
+    !type:ComplexRequirement
+    requirements:
+    - !type:MobStateRequirement
+      inverted: true
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components: [HumanoidAppearance]
+  action:
+    !type:NoOpAction
+#    !type:MoodAction
+#    effect: BeingPet
+  effectFailure: null
+
+- type: Interaction
+  id: PetAnimal
+  parent: Pet
+  requirement:
+    !type:ComplexRequirement
+    requirements:
+    - !type:MobStateRequirement
+      allowedStates: [Alive]
+    - !type:EntityWhitelistRequirement
+      blacklist:
+        components: [HumanoidAppearance]
+  action:
+    !type:NoOpAction
+#    !type:ComplexAction # TODO might wanna make a multiplexer action for situations like this
+#    actions:
+#    - !type:MoodAction
+#      effect: BeingPet
+#    - !type:OnUserAction
+#      action:
+#        !type:MoodAction
+#        effect: PetAnimal
+  effectFailure: null

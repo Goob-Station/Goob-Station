@@ -1,0 +1,100 @@
+- type: Interaction
+  id: BaseMouth
+  abstract: true
+  priority: -15
+  requiresCanInteract: true
+  checkInteractionBlocker: false
+  requiresHands: false
+  requiresConsciousness: true
+
+- type: Interaction
+  id: Bite
+  parent: [BaseGlobal, BaseMouth]
+  priority: -15 # Не Епік РП.
+  delay: 0.4
+  cooldown: 5
+  globalCooldown: true
+  range: {max: 0.888} # Дуже-дуже близько
+  hideByRequirement: true
+  requirement:
+    !type:ComplexRequirement
+    requirements:
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components: [MobState, Food]
+    - !type:SlotObstructionRequirement
+      slot: MASK
+  action:
+    !type:ComplexAction
+    actions:
+    - !type:ModifyHealthAction
+      randomFactor: {min: 0.5, max: 1.5}
+      damage:
+        types: {Piercing: 5}
+    # Для мазохстів:
+    #- !type:ConditionalAction
+    #  condition:
+    #    !type:EntityWhitelistRequirement
+    #    whitelist:
+    #      components: [Masochist]
+    #  true:
+    #    !type:MoodAction
+    #    effect: ??? # Позитивний ефект сюди
+  effectSuccess:
+    popup: Obvious
+    sound:
+      path: /Audio/Effects/bite.ogg
+      params:
+        volume: -3
+        maxDistance: 4
+  effectFailure:
+    popup: Subtle
+
+- type: Interaction
+  id: Kiss
+  parent: [BaseGlobal, BaseMouth]
+  priority: -1
+  delay: 0.4
+  range: {max: 1}
+  hideByRequirement: true
+  requirement:
+    !type:ComplexRequirement
+    requirements:
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components: [MobState] # Нехай не цілують стіни
+    - !type:SlotObstructionRequirement
+      slot: MASK
+  action:
+    !type:NoOpAction
+  #  !type:MoodAction
+  #  effect: BeingKissed
+  effectSuccess:
+    popup: Obvious
+    sound: {path: /Audio/_Pirate/Epic/kiss.ogg}
+  effectFailure: null
+
+- type: Interaction
+  id: Lick
+  parent: [BaseGlobal, BaseMouth]
+  priority: -2
+  delay: 0.7
+  range: {max: 1}
+  hideByRequirement: true
+  requirement:
+    !type:ComplexRequirement
+    requirements:
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components: [MobState, Anomaly, Food]
+        tags: [Window, Knife] # жах
+    - !type:SlotObstructionRequirement
+      slot: MASK
+  action:
+    !type:NoOpAction
+  #  !type:MoodAction
+  #  effect: BeingLicked
+  effectSuccess:
+    popup: Obvious
+    sound: {path: /Audio/_Pirate/Epic/lick.ogg}
+  effectFailure: null
