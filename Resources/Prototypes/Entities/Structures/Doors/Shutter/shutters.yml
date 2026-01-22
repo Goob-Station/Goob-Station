@@ -151,6 +151,9 @@
   - type: InteractionVerbs # EE: Interaction Verbs
     allowedVerbs:
     - KnockOn
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: -0.5, -0.5
+    endingOffset: 0.5, -0.5
 
 - type: entity
   id: ShuttersNormal

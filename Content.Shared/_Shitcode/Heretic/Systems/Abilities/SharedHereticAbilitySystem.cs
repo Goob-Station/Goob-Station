@@ -200,9 +200,8 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             return false;
 
         // check if any magic items are worn
-        if (!TryComp<HereticComponent>(ent, out var hereticComp)
-        || !actionComp.RequireMagicItem
-        || hereticComp.Ascended)
+        if (!TryComp<HereticComponent>(ent, out var hereticComp) ||
+            !actionComp.RequireMagicItem || hereticComp.Ascended)
         {
             SpeakAbility(ent, actionComp);
             return true;
