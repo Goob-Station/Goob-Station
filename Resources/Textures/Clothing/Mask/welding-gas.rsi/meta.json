@@ -52,6 +52,14 @@
     {
       "name": "up-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "up-equipped-MASK-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK-vulpkanin",
+      "directions": 4
     }
   ]
 }
