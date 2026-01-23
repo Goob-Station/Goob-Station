@@ -141,6 +141,45 @@
   - type: InstantAction
     event: !type:CheatDeathEvent {}
 
+# Shop
+
+- type: entity
+  parent: ActionSlasherSummonMachete
+  id: ActionDevilSummonPitchfork
+  name: Summon pitchfork
+  description: Summons a stick to poke people with.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/devil.rsi, state: pitchfork }
+  - type: InstantAction
+    event: !type:SlasherSummonMacheteEvent
+      machetePrototype: DevilPitchfork
+
+- type: entity
+  id: ActionSmallFavor
+  name: Small favor
+  description: As a small favor, bring a lesser slaughter demon from Hell for two minutes.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
+    useDelay: 1200
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: smallfavor
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SlaughterDemonTimedMidround
+        amount: 1
+      offset: 0, 1
+
 # Greater forms
 
 - type: entity

@@ -241,3 +241,27 @@
     thresholds:
       0: Alive
       180: Dead
+
+# Temporary
+- type: entity
+  parent: MobLesserSlaughterDemon
+  id: MobLesserSlaughterDemonTimed
+  name: contracted lesser demon
+  description: Temporarily brought out of hell as a favor.
+  components:
+  - type: TimedDespawn
+    lifetime: 120
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-timed-demon-name
+    description: ghost-role-information-timed-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: short
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 6000

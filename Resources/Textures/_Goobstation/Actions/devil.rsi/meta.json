@@ -42,6 +42,24 @@
     },
     {
       "name": "heart-broken"
+    },
+    {
+	  "name": "authority"
+	},
+	{
+      "name": "smallfavor"
+    },
+    {
+      "name": "bigfavor"
+    },
+    {
+      "name": "fireimmune"
+    },
+    {
+	  "name": "hellstep"
+	},
+	{
+      "name": "heresy"
     }
   ]
 }

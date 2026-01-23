@@ -120,3 +120,50 @@
       - ShowCrewPowerObjectiveFluff
       - DriveInsaneObjectiveFluff
       - SpreadBloodObjectiveFluff
+
+- type: entity
+  parent: BaseGameRule
+  id: SlaughterDemonTimedMidround
+  components:
+  - type: AntagSelection
+    agentName: contracted-slaughter-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlaughterDemonTimed
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSlaughterDemon
+      briefing:
+        text: slaughter-role-greeting
+        color: Red
+        sound: /Audio/Misc/narsie_rises.ogg
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlaughterTitle
+        - NamesSlaughter
+        nameFormat: name-format-slaughter
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobLesserSlaughterDemonTimed
+  - type: StationEvent # Can't happen naturally
+    weight: 0
+    earliestStart: 999
+    minimumPlayers: 999
+    duration: null
+    maxOccurrences: 0
+    chaos:
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 900
+  - type: Tag
+    tags:
+    - MidroundAntag
+  - type: AntagObjectives
+    objectives:
+      - SlaughterDevourObjective

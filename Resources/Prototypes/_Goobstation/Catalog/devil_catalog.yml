@@ -23,3 +23,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SmallFavor
+  name: Small favor
+  description: devil-small-favor-desc
+  productAction: ActionSmallFavor
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
