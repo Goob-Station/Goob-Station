@@ -24,5 +24,5 @@ public sealed partial class EmaggedComponent : Component
     /// The EmagType flags that were used to emag this device
     /// </summary>
     [DataField, AutoNetworkedField]
-    public ProtoId<EmagTypePrototype> EmagType; // goob edit
+    public HashSet<ProtoId<EmagTypePrototype>> EmagType = new(); // goob edit
 }

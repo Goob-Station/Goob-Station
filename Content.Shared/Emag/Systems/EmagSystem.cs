@@ -16,6 +16,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -67,13 +68,13 @@ public sealed class EmagSystem : EntitySystem
 
     private void OnAccessOverriderAccessUpdated(Entity<EmaggedComponent> entity, ref OnAccessOverriderAccessUpdatedEvent args)
     {
-        if (entity.Comp.EmagType.Id != "Access") // goob edit start
+        if (entity.Comp.EmagType.Contains("Access")) // goob edit start
             return;
 
         if (!EmagType.TryGetValue("Access", out var emag))
             return;
 
-        entity.Comp.EmagType = emag; // goob edit end
+        entity.Comp.EmagType.Add(emag); // goob edit end
         Dirty(entity);
     }
     private void OnAfterInteract(EntityUid uid, EmagComponent comp, AfterInteractEvent args)
@@ -132,7 +133,7 @@ public sealed class EmagSystem : EntitySystem
         {
             EnsureComp<EmaggedComponent>(target, out var emaggedComp);
 
-            emaggedComp.EmagType = emagTypeToUse;
+            emaggedComp.EmagType.Add(emagTypeToUse);
             Dirty(target, emaggedComp);
         }
 
@@ -150,7 +151,13 @@ public sealed class EmagSystem : EntitySystem
         if (!TryComp<EmaggedComponent>(target, out var comp))
             return false;
 
-        return CompareProtoId(comp.EmagType, protoId);
+        if (!EmagType.ContainsKey(protoId))
+            return false;
+
+        if (comp.EmagType.Contains(_emagAll))
+            return true;
+
+        return comp.EmagType.Contains(protoId);
     }
 
     /// <summary>
