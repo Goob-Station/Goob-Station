@@ -18,3 +18,13 @@
     Plasma: 1500
     Uranium: 100
     BSCrystal: 100
+
+- type: latheRecipe
+  id: SlimeScannerXenobio
+  result: SlimeScannerXenobio
+  categories:
+  - Tools
+  completetime: 2
+  materials:
+    Plastic: 200
+    Glass: 150
