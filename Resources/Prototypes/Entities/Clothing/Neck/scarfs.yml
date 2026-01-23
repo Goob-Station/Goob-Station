@@ -171,7 +171,7 @@
       sprite: Clothing/Neck/Scarfs/purple.rsi
 
 - type: entity
-  parent: [ ClothingScarfBase, BaseSyndicateContraband ]
+  parent: [ ClothingScarfBase ] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingNeckScarfStripedSyndieGreen
   name: striped syndicate green scarf
   description: A stylish striped syndicate green scarf. The perfect winter accessory for those with a keen fashion sense, and those who are in the mood to steal something.
@@ -182,11 +182,11 @@
       sprite: Clothing/Neck/Scarfs/syndiegreen.rsi
     - type: StaticPrice
       price: 500
-    - type: ScannableForPoints # goob edit
-      points: 1
+    # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+    #   points: 1
 
 - type: entity
-  parent: [ ClothingScarfBase, BaseSyndicateContraband ]
+  parent: [ ClothingScarfBase ] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingNeckScarfStripedSyndieRed
   name: striped syndicate red scarf
   description: A stylish striped syndicate red scarf. The perfect winter accessory for those with a keen fashion sense, and those who are in the mood to steal something.
@@ -197,8 +197,8 @@
       sprite: Clothing/Neck/Scarfs/syndiered.rsi
     - type: StaticPrice
       price: 500
-    - type: ScannableForPoints # goob edit
-      points: 1
+    # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+    #   points: 1
 
 - type: entity
   parent: [ ClothingScarfBase, BaseCentcommContraband ]

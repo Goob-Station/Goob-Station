@@ -275,7 +275,7 @@
           - Sidearm
 
 - type: entity
-  parent: [ClothingShoesBaseWinterBoots, BaseSyndicateContraband]
+  parent: [ClothingShoesBaseWinterBoots] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingShoesBootsWinterSyndicate
   name: syndicate's winter boots
   description: Durable heavy boots, looks like merch from "Syndieland".

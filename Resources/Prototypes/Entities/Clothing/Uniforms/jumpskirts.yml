@@ -631,7 +631,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformSkirtBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformSkirtBase] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpskirtOperative
   name: operative jumpskirt
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
@@ -747,7 +747,7 @@
       sprite: Clothing/Uniforms/Jumpskirt/lawyergood.rsi
 
 - type: entity
-  parent: [ ClothingUniformSkirtBase, BaseSyndicateContraband ]
+  parent: [ ClothingUniformSkirtBase ] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpskirtSyndieFormalDress
   name: syndicate formal dress
   description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."

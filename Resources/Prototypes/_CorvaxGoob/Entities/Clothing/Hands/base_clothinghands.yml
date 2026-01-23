@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingHandsGlovesSyntheticBase, BaseSyndicateContraband]
+  parent: [ClothingHandsGlovesSyntheticBase]
   id: ClothingHandsCatPawsBase
   abstract: true
   categories: [ DoNotMap ]

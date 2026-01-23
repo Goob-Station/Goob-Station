@@ -1181,7 +1181,7 @@
     sprite: Clothing/Head/Hats/truckershat.rsi
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  parent: [ ClothingHeadBase ] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingHeadPyjamaSyndicateBlack
   name: syndicate black pyjama hat
   description: For keeping that traitor head of yours warm.
@@ -1195,11 +1195,11 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
-  - type: ScannableForPoints # goob edit
-    points: 1
+  # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+  #   points: 1
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  parent: [ ClothingHeadBase ] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingHeadPyjamaSyndicatePink
   name: syndicate pink pyjama hat
   description: For keeping that traitor head of yours warm.
@@ -1213,11 +1213,11 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
-  - type: ScannableForPoints # goob edit
-    points: 1
+  # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+  #   points: 1
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  parent: [ ClothingHeadBase ] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingHeadPyjamaSyndicateRed
   name: syndicate red pyjama hat
   description: For keeping that traitor head of yours warm.
@@ -1231,8 +1231,8 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
-  - type: ScannableForPoints # goob edit
-    points: 1
+  # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+  #   points: 1
 
 - type: entity
   parent: ClothingHeadBase
@@ -1426,7 +1426,7 @@
 
 
 - type: entity
-  parent: [ClothingHeadBase, BaseSyndicateContraband]
+  parent: [ClothingHeadBase] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingHeadHatSyndie
   name: syndicate hat
   description: A souvenir hat from "Syndieland", their production has already been closed.
@@ -1435,8 +1435,8 @@
     sprite: Clothing/Head/Hats/syndiecap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/syndiecap.rsi
-  - type: ScannableForPoints # goob edit
-    points: 1
+  # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+  #   points: 1
 
 - type: entity
   parent: ClothingHeadBase

@@ -299,7 +299,7 @@
     accent: MobsterAccent
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  parent: [ ClothingHeadBase ] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingHeadHatCatEars
   name: cat ears
   description: "NYAH!"

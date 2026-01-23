@@ -934,7 +934,7 @@
       head: ClothingHeadHatHoodWinterWarden
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseSyndicateContraband]
+  parent: [ClothingOuterWinterCoatToggleable] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingOuterWinterSyndieCap
   name: syndicate's winter coat
   description: "The syndicate's winter coat is made of durable fabric, with gilded patterns, and coarse wool."
@@ -975,7 +975,7 @@
 ##############################################################
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseSyndicateContraband]
+  parent: [ClothingOuterWinterCoatToggleable] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingOuterWinterSyndie
   name: syndicate's winter coat
   description: Insulated winter coat, looks like a merch from "Syndieland".

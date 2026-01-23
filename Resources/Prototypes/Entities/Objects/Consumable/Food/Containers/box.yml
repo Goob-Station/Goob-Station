@@ -689,7 +689,7 @@
 
 - type: entity
   id: HappyHonkNukie
-  parent: [HappyHonk, BaseSyndicateContraband]
+  parent: [HappyHonk] # CorvaxGoob-Contraband : deleted contra label
   name: robust nukie meal
   description: A sus meal with a potentially explosive surprise.
   suffix: Toy Unsafe

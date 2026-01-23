@@ -901,7 +901,7 @@
       sprite: Clothing/Uniforms/Jumpsuit/lawyergood.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformBase] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpsuitPyjamaSyndicateBlack
   name: black syndicate pyjamas
   description: For those long nights in perma.
@@ -910,11 +910,11 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicateblack.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicateblack.rsi
-  - type: ScannableForPoints # goob edit
-    points: 1
+  # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+  #   points: 1
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformBase] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpsuitPyjamaSyndicatePink
   name: pink syndicate pyjamas
   description: For those long nights in perma.
@@ -923,11 +923,11 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatepink.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatepink.rsi
-  - type: ScannableForPoints # goob edit
-    points: 1
+  # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+  #   points: 1
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformBase] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpsuitPyjamaSyndicateRed
   name: red syndicate pyjamas
   description: For those long nights in perma.
@@ -936,8 +936,8 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatered.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatered.rsi
-  - type: ScannableForPoints # goob edit
-    points: 1
+  # - type: ScannableForPoints # goob edit # CorvaxGoob-Contraband : deleted contra label
+  #   points: 1
 
 - type: entity
   parent: ClothingUniformBase
@@ -984,7 +984,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformBase] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpsuitOperative
   name: operative jumpsuit
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
@@ -1287,7 +1287,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  parent: [ClothingUniformBase] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpsuitSyndieFormal
   name: syndicate formal suit
   description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."

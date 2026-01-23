@@ -832,7 +832,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: [ IDCardStandard, BaseSyndicateContraband ]
+  parent: [ IDCardStandard ] # CorvaxGoob-Contraband : deleted contra label
   id: SyndicateIDCard
   name: syndicate ID card
   components:
