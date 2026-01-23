@@ -13,7 +13,7 @@ import os
 import psycopg2
 from uuid import UUID
 
-LATEST_DB_MIGRATION = "20250314222016_ConstructionFavorites"
+LATEST_DB_MIGRATION = "20260120200503_BanRefactor"
 
 def main():
     parser = argparse.ArgumentParser()
@@ -47,9 +47,8 @@ def main():
     dump_player(cur, user_id, arg_output)
     dump_preference(cur, user_id, arg_output)
     dump_role_whitelists(cur, user_id, arg_output)
-    dump_server_ban(cur, user_id, arg_output)
+    dump_ban(cur, user_id, arg_output)
     dump_server_ban_exemption(cur, user_id, arg_output)
-    dump_server_role_ban(cur, user_id, arg_output)
     dump_uploaded_resource_log(cur, user_id, arg_output)
     dump_whitelist(cur, user_id, arg_output)
 
@@ -306,7 +305,7 @@ FROM (
         f.write(json_data)
 
 
-def dump_server_ban(cur: "psycopg2.cursor", user_id: str, outdir: str):
+def dump_ban(cur: "psycopg2.cursor", user_id: str, outdir: str):
     print("Dumping server_ban...")
 
     cur.execute("""
@@ -316,19 +315,39 @@ FROM (
     SELECT
         *,
         (SELECT to_jsonb(unban_sq) - 'ban_id' FROM (
-            SELECT * FROM server_unban WHERE server_unban.ban_id = server_ban.server_ban_id
+            SELECT * FROM unban WHERE unban.ban_id = ban.ban_id
         ) unban_sq)
-        as unban
+        as unban,
+        (SELECT COALESCE(json_agg(to_jsonb(ban_player_subq) - 'ban_id'), '[]') FROM (
+            SELECT * FROM ban_player WHERE ban_player.ban_id = ban.ban_id
+        ) ban_player_subq)
+        as ban_player,
+        (SELECT COALESCE(json_agg(to_jsonb(ban_address_subq) - 'ban_id'), '[]') FROM (
+            SELECT * FROM ban_address WHERE ban_address.ban_id = ban.ban_id
+        ) ban_address_subq)
+        as ban_address,
+        (SELECT COALESCE(json_agg(to_jsonb(ban_role_subq) - 'ban_id'), '[]') FROM (
+            SELECT * FROM ban_role WHERE ban_role.ban_id = ban.ban_id
+        ) ban_role_subq)
+        as ban_role,
+        (SELECT COALESCE(json_agg(to_jsonb(ban_hwid_subq) - 'ban_id'), '[]') FROM (
+            SELECT * FROM ban_hwid WHERE ban_hwid.ban_id = ban.ban_id
+        ) ban_hwid_subq)
+        as ban_hwid,
+        (SELECT COALESCE(json_agg(to_jsonb(ban_round_subq) - 'ban_id'), '[]') FROM (
+            SELECT * FROM ban_round WHERE ban_round.ban_id = ban.ban_id
+        ) ban_round_subq)
+        as ban_round
     FROM
-        server_ban
+        ban
     WHERE
-        player_user_id = %s
+        ban_id IN (SELECT bp.ban_id FROM ban_player bp WHERE bp.user_id = %s)
 ) as data
 """, (user_id,))
 
     json_data = cur.fetchall()[0][0]
 
-    with open(os.path.join(outdir, "server_ban.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(outdir, "ban.json"), "w", encoding="utf-8") as f:
         f.write(json_data)
 
 

@@ -8,7 +8,7 @@ using Robust.Shared.Network;
 
 namespace Content.Server.Database
 {
-    public sealed class ServerUnbanDef
+    public sealed class UnbanDef
     {
         public int BanId { get; }
 
@@ -16,7 +16,7 @@ namespace Content.Server.Database
 
         public DateTimeOffset UnbanTime { get; }
 
-        public ServerUnbanDef(int banId, NetUserId? unbanningAdmin, DateTimeOffset unbanTime)
+        public UnbanDef(int banId, NetUserId? unbanningAdmin, DateTimeOffset unbanTime)
         {
             BanId = banId;
             UnbanningAdmin = unbanningAdmin;
