@@ -242,6 +242,24 @@
     prototype: NTRBoardShuttle
 
 - type: entity
+  id: SpawnPodGygaxElectronics
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyGygaxElectronics
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: GygaxCentralElectronics
+
+- type: entity
+  id: SpawnPodDurandElectronics
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyDurandElectronics
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: DurandCentralElectronics
+
+- type: entity
   id: SpawnPodMedkit
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyMedkit
@@ -331,4 +349,4 @@
   components:
   - type: SpawnOnDespawn
     prototype: ExecutiveCassette
-    
+

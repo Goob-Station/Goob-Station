@@ -608,6 +608,38 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: NTRExecutiveGygax
+  name: ntr-executive-gygax-name
+  description: ntr-executive-gygax-desc
+  productEntity: SpawnPodGygaxElectronics
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: gygax #Works™ despite the fact its a 64x64 sprite
+  cost:
+    NTLoyaltyPoint: 150
+  categories:
+  - NTRBoards
+  restockTime: 2700 # 45min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 #doesnt really matter given you're gonna be short for points, not time
+
+- type: listing
+  id: NTRExecutiveDurand
+  name: ntr-executive-durand-name
+  description: ntr-executive-durand-desc
+  productEntity: SpawnPodDurandElectronics
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: durand
+  cost:
+    NTLoyaltyPoint: 150
+  categories:
+  - NTRBoards
+  restockTime: 2700 # 45min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800
+
 # evil (debug)
 # todo: add more debug stuff / and possibly make this open if emagged or something, but it was never intended for it tho.
 - type: listing

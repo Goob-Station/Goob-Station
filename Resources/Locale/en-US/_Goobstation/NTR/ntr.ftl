@@ -121,6 +121,12 @@ ntr-executive-shuttle-desc = Standard crate containing 4 thruster flatpacks, 1 s
 ntr-executive-id-name = Id card computer board
 ntr-executive-id-desc = High-value computer board to make an ID card console.
 
+ntr-executive-gygax-name = Gygax central control module
+ntr-executive-gygax-desc = Does not come with the rest of the Gygax. Keep in mind, if you actually manage to convince sci to build one that security is WELL within their rights to take it.
+
+ntr-executive-durand-name = Durand central control module
+ntr-executive-durand-desc = Does not come with the rest of the Durand. Keep in mind, if you actually manage to convince sci to build one that security is WELL within their rights to take it.
+
 # tiers
 
 ntr-executive-tier-1-name = Station
