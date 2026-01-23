@@ -63,6 +63,8 @@
     - PowerCell
     - DroneUsable
     - Organ
+    - Heart
+  - type: Heart
 
 - type: entity
   name: goop ball
