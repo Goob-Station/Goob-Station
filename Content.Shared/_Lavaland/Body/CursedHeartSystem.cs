@@ -23,18 +23,17 @@
 
 using Content.Shared.Actions;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared._Shitmed.Damage; // Shitmed Change
+
 namespace Content.Shared._Lavaland.Body;
 
 // TODO: Use Shitmed instead of Shitcode
@@ -73,44 +72,43 @@ public sealed class CursedHeartSystem : EntitySystem
             if (_timing.CurTime < comp.LastPump + TimeSpan.FromSeconds(comp.MaxDelay))
                 continue;
 
-            Damage(uid);
+            var ent = (uid, comp);
+            Damage(ent);
             comp.LastPump = _timing.CurTime;
         }
     }
 
-    private void Damage(EntityUid uid)
+    private void Damage(Entity<CursedHeartComponent> ent)
     {
         // TODO: WHY BLOODSTREAM IS NOT IN SHARED RAAAAAGH
         //_bloodstream.TryModifyBloodLevel(uid, -50, spill: false);
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Airloss"), 50), true, false);
-        _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), uid, uid, PopupType.MediumCaution);
+        _damage.TryChangeDamage(ent.Owner, ent.Comp.PumpHarm, true, false);
+        _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), ent.Owner, ent.Owner, PopupType.MediumCaution);
     }
 
-    private void OnMapInit(EntityUid uid, CursedHeartComponent comp, MapInitEvent args)
+    private void OnMapInit(Entity<CursedHeartComponent> ent, ref MapInitEvent args)
     {
-        _actions.AddAction(uid, ref comp.PumpActionEntity, "ActionPumpCursedHeart");
+        _actions.AddAction(ent.Owner, ref ent.Comp.PumpActionEntity, "ActionPumpCursedHeart");
     }
 
-    private void OnShutdown(EntityUid uid, CursedHeartComponent comp, ComponentShutdown args)
+    private void OnShutdown(Entity<CursedHeartComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, comp.PumpActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.PumpActionEntity);
     }
 
-    private void OnPump(EntityUid uid, CursedHeartComponent comp, PumpHeartActionEvent args)
+    private void OnPump(Entity<CursedHeartComponent> ent, ref PumpHeartActionEvent args)
     {
         if (args.Handled)
             return;
 
         args.Handled = true;
-        _audio.PlayGlobal(new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg"), uid);
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -5), true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Airloss"), -5), true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Burn"), -8), true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
+        _audio.PlayGlobal(ent.Comp.Heartbeat, ent.Owner);
+        _damage.TryChangeDamage(ent.Owner, ent.Comp.PumpHeal, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
         //_bloodstream.TryModifyBloodLevel(uid, 17);
-        comp.LastPump = _timing.CurTime;
+        ent.Comp.LastPump = _timing.CurTime;
     }
 
-    private void OnUseInHand(EntityUid uid, CursedHeartGrantComponent comp, UseInHandEvent args)
+    private void OnUseInHand(Entity<CursedHeartGrantComponent> ent, ref UseInHandEvent args)
     {
         if (HasComp<CursedHeartComponent>(args.User))
         {
@@ -119,10 +117,10 @@ public sealed class CursedHeartSystem : EntitySystem
             return;
         }
 
-        _audio.PlayGlobal(new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg"), args.User);
         var heart = EnsureComp<CursedHeartComponent>(args.User);
+        _audio.PlayGlobal(heart.Heartbeat, args.User);
         heart.LastPump = _timing.CurTime;
-        QueueDel(uid);
+        QueueDel(ent.Owner);
         args.Handled = true;
     }
 }

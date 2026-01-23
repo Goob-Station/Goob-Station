@@ -20,6 +20,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Body;
@@ -33,8 +35,26 @@ public sealed partial class CursedHeartComponent : Component
 
     public TimeSpan LastPump = TimeSpan.Zero;
 
+    /// <summary>
+    /// How long the heart deals damage after not being pumped
+    /// </summary>
     [DataField]
     public float MaxDelay = 5f;
+
+    /// <summary>
+    /// How much heal per pump
+    /// </summary>
+    [DataField(required: true)]
+    public DamageSpecifier PumpHeal = default!;
+
+    /// <summary>
+    /// How much damage dealt per missed pump
+    /// </summary>
+    [DataField(required: true)]
+    public DamageSpecifier PumpHarm = default!;
+
+    [DataField]
+    public SoundSpecifier Heartbeat = new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg");
 }
 
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;
