@@ -119,7 +119,7 @@ public sealed partial class LawboardSiliconLawUi : FancyWindow
         NewLawButton.OnPressed += _ => AddNewLaw();
         Save.OnPressed += _ => SaveLaws();
 
-        Import.OnPressed += _ => ImportProgram();
+        Import.OnPressed += _ => ImportLaws();
         Export.OnPressed += _ => ExportLaws();
 
         if (LawProvider != null && LawProvider.Lawset != null)
@@ -255,7 +255,7 @@ public sealed partial class LawboardSiliconLawUi : FancyWindow
         }
     }
 
-    private async void ImportProgram()
+    private async void ImportLaws()
     {
         if (await _dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml"))) is not { } file)
             return;
