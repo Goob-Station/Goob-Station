@@ -117,19 +117,8 @@
 
 - type: entity
   abstract: true
+  parent: BaseFoldable
   id: ClothingUniformFoldableBase
-  components:
-  - type: Foldable
-    canFoldInsideContainer: true
-    unfoldVerbText: unfold-verb-clothing-jacket
-    foldVerbText: fold-verb-clothing-jacket
-  - type: FoldableClothing
-    foldedEquippedPrefix: folded
-
-- type: entity
-  abstract: true
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformSkirtFoldableBase
   components:
   - type: Foldable
     canFoldInsideContainer: true
