@@ -20,6 +20,42 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace Content.Shared._Lavaland.Body;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Actions;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 [RegisterComponent]
-public sealed partial class CursedHeartGrantComponent : Component;
+public sealed partial class CursedHeartGrantComponent : Component
+{
+    /// <summary>
+    /// How long the heart deals damage after not being pumped
+    /// </summary>
+    [DataField]
+    public float MaxDelay = 5f;
+
+    /// <summary>
+    /// How much heal per pump
+    /// </summary>
+    [DataField(required: true)]
+    public DamageSpecifier PumpHeal = new();
+
+    /// <summary>
+    /// How much damage dealt per missed pump
+    /// </summary>
+    [DataField(required: true)]
+    public DamageSpecifier PumpHarm = new();
+
+    /// <summary>
+    /// How much blood heal per pump
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BloodHealPerPump = FixedPoint2.New(20);
+
+    /// <summary>
+    /// How much blood is lost per missed pump
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BloodHarmMissedPump = FixedPoint2.New(-50);
+}

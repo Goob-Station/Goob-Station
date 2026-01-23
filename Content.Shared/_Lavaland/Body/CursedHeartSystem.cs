@@ -26,13 +26,13 @@ using Content.Shared.Damage;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared._Shitmed.Damage; // Shitmed Change
+using Content.Shared._Shitmed.Damage;
+using Content.Shared.Body.Systems;
+using Content.Shared.Body.Components; // Shitmed Change
 
 namespace Content.Shared._Lavaland.Body;
 
@@ -42,12 +42,9 @@ public sealed class CursedHeartSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
-    //[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -81,7 +78,7 @@ public sealed class CursedHeartSystem : EntitySystem
     private void Damage(Entity<CursedHeartComponent> ent)
     {
         // TODO: WHY BLOODSTREAM IS NOT IN SHARED RAAAAAGH
-        //_bloodstream.TryModifyBloodLevel(uid, -50, spill: false);
+        _bloodstream.TryModifyBloodLevel(ent.Owner, ent.Comp.BloodHarmMissedPump);
         _damage.TryChangeDamage(ent.Owner, ent.Comp.PumpHarm, true, false);
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), ent.Owner, ent.Owner, PopupType.MediumCaution);
     }
@@ -104,7 +101,7 @@ public sealed class CursedHeartSystem : EntitySystem
         args.Handled = true;
         _audio.PlayGlobal(ent.Comp.Heartbeat, ent.Owner);
         _damage.TryChangeDamage(ent.Owner, ent.Comp.PumpHeal, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
-        //_bloodstream.TryModifyBloodLevel(uid, 17);
+        _bloodstream.TryModifyBloodLevel(ent.Owner, ent.Comp.BloodHealPerPump);
         ent.Comp.LastPump = _timing.CurTime;
     }
 
@@ -118,9 +115,18 @@ public sealed class CursedHeartSystem : EntitySystem
         }
 
         var heart = EnsureComp<CursedHeartComponent>(args.User);
+        var grant = ent.Comp;
+
+        //There might be a better way to handles this
+        heart.MaxDelay = grant.MaxDelay;
+        heart.PumpHeal = grant.PumpHeal;
+        heart.PumpHarm = grant.PumpHarm;
+        heart.BloodHealPerPump = grant.BloodHealPerPump;
+        heart.BloodHarmMissedPump = grant.BloodHarmMissedPump;
+
         _audio.PlayGlobal(heart.Heartbeat, args.User);
         heart.LastPump = _timing.CurTime;
-        QueueDel(ent.Owner);
+        PredictedQueueDel(ent.Owner);
         args.Handled = true;
     }
 }
