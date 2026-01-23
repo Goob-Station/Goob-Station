@@ -23,8 +23,7 @@ public partial class SharedClothingCoatingSystem : EntitySystem
     private void OnAfterInteract(Entity<ClothingCoatingComponent> ent, ref AfterInteractEvent args)
     {
         if (!args.Target.HasValue
-        || !TryComp<ClothingComponent>(args.Target, out var clothing)
-        || TryComp<ClothingCoatingBlacklistComponent>(args.Target, out var blacklist))
+        || !TryComp<ClothingComponent>(args.Target, out var clothing))
             return;
 
         var target = args.Target.Value;

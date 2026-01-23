@@ -241,7 +241,6 @@
     damageCoefficient: 0.1
   - type: ModifyDelayedKnockdown
     cancel: true
-  - type: ClothingCoatingBlacklist
 
 # Security voidsuit - used this instead of security hardsuit
 - type: entity
