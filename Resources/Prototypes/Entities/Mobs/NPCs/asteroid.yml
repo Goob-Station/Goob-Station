@@ -233,7 +233,7 @@
 
 - type: entity
   id: MobHivelord
-  parent: [ BaseMobAsteroid, FlyingMobBase ]
+  parent: [ BaseMobAsteroid, SimpleSpaceMobBase ] # Goob change, the tendril literally cannot absorb the hivelord if it's floating.
   name: hivelord
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
