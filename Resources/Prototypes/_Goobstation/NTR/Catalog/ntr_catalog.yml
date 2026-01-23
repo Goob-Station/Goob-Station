@@ -619,7 +619,7 @@
   cost:
     NTLoyaltyPoint: 150
   categories:
-  - NTRBoards
+  - NTRBoards #intentionally put it here to keep it out of sight out of mind
   restockTime: 2700 # 45min
   resetRestockOnPurchase: true
   restockAfterPurchase: 1800 #doesnt really matter given you're gonna be short for points, not time
