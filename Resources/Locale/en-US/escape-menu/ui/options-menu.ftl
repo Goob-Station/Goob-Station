@@ -395,7 +395,8 @@ ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 # Goobstation - Highlight chat sounds!
 ui-options-highlight-sound = Play sound on highlight
 
-ui-options-hold-to-attack = Hold to attack
+ui-options-hold-to-attack-melee = Hold to attack (melee)
+ui-options-hold-to-attack-ranged = Hold to attack (ranged)
 
 ui-options-censor-nudity = Censor character nudity
 
