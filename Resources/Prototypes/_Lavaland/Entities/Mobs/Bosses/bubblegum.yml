@@ -70,5 +70,3 @@
     forgiveRange: 20.0
   - type: CombatPower # Goobstation
     factor: 25 # times more dangerous than a crew-member
-  - type: DamageSquareImmunity
-    isImmune: true
