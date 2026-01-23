@@ -28,8 +28,6 @@ public sealed partial class AccessibilityTab : Control
         // Goobstation - Highight chat ping sounds!
         Control.AddOptionCheckBox(CCVars.ChatHighlightSound, HighlightSoundCheckBox);
 
-        Control.AddOptionCheckBox(CCVars.AccessibilityHoldToAttackMelee, HoldToAttackMeleeCheckBox);
-        Control.AddOptionCheckBox(CCVars.AccessibilityHoldToAttackRanged, HoldToAttackRangedCheckBox);
         Control.AddOptionCheckBox(CCVars.AccessibilityClientCensorNudity, CensorNudityCheckBox);
 
         Control.Initialize();
