@@ -141,7 +141,7 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualengineer.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase,  ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitBlueshieldOfficer
   name: blueshield officer jumpsuit
   description: A short-sleeved grey and blue jumpsuit, made out of a sturdy material. Blueshield standard issue.
