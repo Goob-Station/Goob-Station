@@ -181,7 +181,6 @@
     tags:
     - CannotSuicide
   - type: NoSlip
-  - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
   - type: DamageSquareImmunity
     isImmune: true
   - type: Aggressive # also required component for aggro checking
