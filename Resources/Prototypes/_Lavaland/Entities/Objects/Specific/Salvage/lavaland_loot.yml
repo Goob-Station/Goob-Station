@@ -33,16 +33,15 @@
   - type: CursedHeartGrant
   - type: CursedHeart
     maxDelay: 10
+    pumpHarm:
+      groups:
+        Airloss: 90
     pumpHeal:
       groups:
         Brute: -5
         Burn: -5
         Toxin: -5
-      types:
-        Asphyxiation: -10
-    pumpHarm:
-      types:
-        Asphyxiation: 40
+        Airloss: -5
 
 
 
