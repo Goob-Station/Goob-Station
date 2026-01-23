@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "pandora",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "pandora_dead"
+    },
+    {
+      "name": "legionnaire",
+      "directions": 4
+    },
+    {
+      "name": "legionnaire_headless",
+      "directions": 4
+    },
+    {
+      "name": "legionnaire_dead"
+    },
+    {
+      "name": "legionnaire_head",
+      "delays": [
+        [
+          0.3,
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "legion",
+      "directions": 4
+    },
+    {
+      "name": "gutlunch",
+      "directions": 4
+    },
+    {
+      "name": "gutshank",
+      "directions": 4
+    },
+    {
+      "name": "dwarf_legion",
+      "directions": 4
+    },
+    {
+      "name": "ash_whelp",
+      "directions": 4
+    },
+    {
+      "name": "ash_whelp_dead"
+    },
+    {
+      "name": "legion_turret",
+      "delays": [
+        [
+          0.1,
+          0.2,
+          0.1,
+          0.1,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mega_legion",
+      "delays": [
+        [
+          0.1,
+          0.2,
+          0.1,
+          0.1,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "brimdemon",
+      "directions": 4
+    },
+    {
+      "name": "brimdemon_firing",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.2,
+          0.2,
+          0.1,
+          0.2,
+          0.2,
+          0.3
+        ],
+        [
+          0.3,
+          0.2,
+          0.2,
+          0.1,
+          0.2,
+          0.2,
+          0.3
+        ],
+        [
+          0.3,
+          0.2,
+          0.2,
+          0.1,
+          0.2,
+          0.2,
+          0.3
+        ],
+        [
+          0.3,
+          0.2,
+          0.2,
+          0.1,
+          0.2,
+          0.2,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "brimdemon_dead"
+    },
+    {
+      "name": "brimbeam_start",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "brimbeam_mid",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "brimbeam_end",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "legion_monkey",
+      "directions": 4
+    }
+  ]
+}
