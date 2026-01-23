@@ -181,8 +181,6 @@
     tags:
     - CannotSuicide
   - type: NoSlip
-  - type: DamageSquareImmunity
-    isImmune: true
   - type: Aggressive # also required component for aggro checking
     forgiveRange: 20.0
   - type: BossMusic
