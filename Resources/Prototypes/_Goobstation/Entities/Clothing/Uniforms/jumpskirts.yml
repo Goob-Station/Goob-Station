@@ -32,7 +32,7 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformBase,  ClothingUniformFoldableBase]
   id: ClothingUniformJumpskirtBlueshieldOfficer
   name: blueshield officer jumpskirt
   description: A short-sleeved grey and blue jumpskirt, made out of a sturdy material. Blueshield standard issue.
