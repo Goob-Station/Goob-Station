@@ -40,7 +40,6 @@ public sealed class BubblegumChargeSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
-            // ACTIVE CHARGE
             if (comp.IsCharging && comp.Landing != null)
             {
                 if (!Exists(comp.Landing.Value))
@@ -53,7 +52,6 @@ public sealed class BubblegumChargeSystem : EntitySystem
                 var landingPos = Transform(comp.Landing.Value).WorldPosition;
                 var delta = landingPos - chargerPos;
 
-                // IMPORTANT: first-tick transform guard
                 if (delta.LengthSquared() <= 0.0001f)
                     continue;
 
@@ -72,7 +70,6 @@ public sealed class BubblegumChargeSystem : EntitySystem
                 continue;
             }
 
-            // COOLDOWN
             if (_timing.CurTime < comp.NextChargeTime)
                 continue;
 
@@ -110,7 +107,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
         var query = EntityQueryEnumerator<ActorComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var xform))
         {
-            if (HasComp<DevilComponent>(uid))
+            if (HasComp<DevilComponent>(uid)) // Devils are excluded because this is a Bubblegum attack. Idk just pretend all lavaland mobs are demons or something, or add a Bubblegum HasComp check later.
                 continue;
 
             var delta = xform.WorldPosition - origin;
