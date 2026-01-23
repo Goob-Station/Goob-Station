@@ -183,7 +183,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     }
     private void OnMansusGrasp(EventHereticMansusGrasp args)
     {
-        if (!TryUseAbility(args))
+        if (!TryUseAbility(args, false))
             return;
 
         if (!Heretic.TryGetHereticComponent(args.Performer, out var heretic, out var ent))
@@ -296,12 +296,10 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         if (heretic.SacrificeTargets.Count == 0)
         {
             Popup.PopupEntity(Loc.GetString("heretic-livingheart-notargets"), uid, uid);
-            args.Handled = true;
             return;
         }
 
         _ui.OpenUi((mind, uic), HereticLivingHeartKey.Key, uid);
-        args.Handled = true;
     }
     private void OnLivingHeartActivate(EventHereticLivingHeartActivate args)
     {
