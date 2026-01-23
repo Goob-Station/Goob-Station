@@ -14,8 +14,8 @@
       "name": "equipped-INNERCLOTHING",
       "directions": 4
     },
-    {
-      "name": "equipped-INNERCLOTHING-monkey",
+	{
+      "name": "folded-equipped-INNERCLOTHING",
       "directions": 4
     },
     {
