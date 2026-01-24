@@ -160,14 +160,3 @@
   result: HamtrRArm
   categories:
   - Hamptr # Goobstation
-
-# Vim
-- type: latheRecipe
-  id: MechEquipmentHorn
-  result: MechEquipmentHorn
-  categories:
-  - MechEquipment
-  completetime: 10
-  materials:
-    Steel: 500
-    Bananium: 200
