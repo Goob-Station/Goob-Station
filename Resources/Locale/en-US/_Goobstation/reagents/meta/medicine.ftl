@@ -96,3 +96,12 @@ reagent-desc-hercuri = Strong coolant, both serviceable for internal and externa
 
 reagent-name-herignis = herignis
 reagent-desc-herignis = Can thaw out most chilled of lizardmen, recommended to only use in small doses, as it can quickly heat up its metaboliser to dangerous levels.
+
+reagent-name-immurin = immurin
+reagent-desc-immurin = A chemical that boosts your immune system, making it work faster and harder. The boost remains for some time even after the chemical has metabolised. Tastes terrible.
+
+reagent-name-spaceacilin = spaceacilin
+reagent-desc-spaceacilin = Commonly used and effective anti-bacterial medicine. Slightly weakens your immunity.
+
+reagent-name-devirate = devirate
+reagent-desc-devirate = Anti-viral medicine. Slightly toxic.

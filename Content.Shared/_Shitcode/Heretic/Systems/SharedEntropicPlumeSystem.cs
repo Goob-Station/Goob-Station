@@ -70,8 +70,9 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
             HasComp<GhoulComponent>(args.OtherEntity))
             return;
 
-        if (_inventory.GetHandOrInventoryEntities(args.OtherEntity, SlotFlags.WITHOUT_POCKET)
-            .Any(item => HasComp<DivineInterventionComponent>(item)))
+        var ev = new BeforeCastTouchSpellEvent(args.OtherEntity, false);
+        RaiseLocalEvent(args.OtherEntity, ev, true);
+        if (ev.Cancelled)
             return;
 
         ent.Comp.AffectedEntities.Add(args.OtherEntity);

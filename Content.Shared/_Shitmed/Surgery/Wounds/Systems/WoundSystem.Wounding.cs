@@ -33,7 +33,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
+
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
 public sealed partial class WoundSystem
@@ -903,7 +903,7 @@ public sealed partial class WoundSystem
 
         if (woundableComp.DamageOnAmputate != null
             && _body.TryGetRootPart(bodyPart.Body.Value, out var rootPart)
-            && !HasComp<ChangelingComponent>(bodyPart.Body.Value)) // Shitcod Alert!!!!
+            && !HasComp<ChangelingComponent>(bodyPart.Body.Value)) // TODO change to ChangelingIdentityComponent
             _damageable.TryChangeDamage(bodyPart.Body.Value,
                 woundableComp.DamageOnAmputate,
                 targetPart: _body.GetTargetBodyPart(rootPart));

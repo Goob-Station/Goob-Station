@@ -55,6 +55,7 @@
 # SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -526,7 +527,7 @@
   icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
   productEntity: ClothingHeadHelmetSwatSyndicate
   cost:
-    Telecrystal: 5
+    Telecrystal: 10
   categories:
   - UplinkWearables
 
@@ -591,26 +592,20 @@
   - UplinkWearables
 
 - type: listing
-  id: UplinkSecondSkinSyndicate
-  name: uplink-second-skin-name
-  description: uplink-second-skin-desc
-  icon: { sprite: _Goobstation/Clothing/OuterClothing/second_skin.rsi, state: action }
-  productEntity: SecondSkinSyndicate
-  cost:
-    Telecrystal: 10
-  categories:
-  - UplinkWearables
-
-- type: listing
-  id: UplinkClothingHandsGlovesGuerrilla
+  id: UplinkClothingHandsGlovesGuerrillaNukeops
   name: uplink-guerrilla-gloves-name
   description: uplink-guerrilla-gloves-desc
   icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
   productEntity: ClothingHandsGlovesGuerrilla
   cost:
-    Telecrystal: 20
+    Telecrystal: 60
   categories:
   - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Job specific
 - type: listing
@@ -814,7 +809,7 @@
   description: uplink-advanced-combat-medipen-desc
   productEntity: AdvancedCombatMedipen
   cost:
-    Telecrystal: 20
+    Telecrystal: 24
   categories:
   - UplinkChemicals
 
@@ -1620,3 +1615,32 @@
     Telecrystal: 50 # Same price as what Antimov was. Might be worth increasing the price for nukies as they can do some BAD things with this.
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkCdDiskSyndicate
+  name: uplink-cddisksyndicate-name
+  description: uplink-cddisksyndicate-desc
+  productEntity: JVNECdDiskSyndicate
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkCdDiskNumber
+  name: uplink-cddisknumber-name
+  description: uplink-cddisknumber-desc
+  productEntity: JVNECdDiskNumber
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerJobCondition
+    whitelist:
+    - RadioHost
