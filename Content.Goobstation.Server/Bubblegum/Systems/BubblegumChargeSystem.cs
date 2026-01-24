@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Devil;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Mind.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -14,13 +15,15 @@ using System.Numerics;
 namespace Content.Goobstation.Server.Bubblegum.Systems;
 
 /// <summary>
-/// This is a system that searches for an ActorComponent in the vicinity of the comp holder, then spawns a "target" on top of them, and charges towards it.
+/// Searches for a nearby player, spawns a landing marker on them,
+/// and charges toward it until reached or invalid.
 /// </summary>
 public sealed class BubblegumChargeSystem : EntitySystem
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -40,7 +43,6 @@ public sealed class BubblegumChargeSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
-            // ACTIVE CHARGE
             if (comp.IsCharging && comp.Landing != null)
             {
                 if (!Exists(comp.Landing.Value))
@@ -49,75 +51,69 @@ public sealed class BubblegumChargeSystem : EntitySystem
                     continue;
                 }
 
-                var chargerPos = Transform(uid).WorldPosition;
-                var landingPos = Transform(comp.Landing.Value).WorldPosition;
-                var delta = landingPos - chargerPos;
-
-                // IMPORTANT: first-tick transform guard
-                if (delta.LengthSquared() <= 0.0001f)
-                    continue;
+                var delta =
+                    Transform(comp.Landing.Value).WorldPosition -
+                    Transform(uid).WorldPosition;
 
                 if (delta.LengthSquared() <=
                     comp.LandingReachDistance * comp.LandingReachDistance)
                 {
                     _physics.SetLinearVelocity(uid, Vector2.Zero);
                     QueueDel(comp.Landing.Value);
-
                     StopCharge(uid, comp);
                     continue;
                 }
 
-                var direction = delta.Normalized();
-                _physics.SetLinearVelocity(uid, direction * comp.ChargeSpeed);
+                _physics.SetLinearVelocity(uid, delta.Normalized() * comp.ChargeSpeed);
                 continue;
             }
 
-            // COOLDOWN
             if (_timing.CurTime < comp.NextChargeTime)
                 continue;
 
-            TryStartCharge(uid);
+            TryStartCharge(uid, comp);
             comp.NextChargeTime = _timing.CurTime + comp.ChargeDelay;
             Dirty(uid, comp);
         }
     }
 
-    private void TryStartCharge(EntityUid charger)
+    private void TryStartCharge(EntityUid charger, BubblegumChargeComponent comp)
     {
-        if (!TryComp(charger, out BubblegumChargeComponent? comp))
-            return;
-
         if (comp.IsCharging)
             return;
 
-        var target = FindNearestTarget(charger);
+        var target = FindNearestTarget(charger, comp);
         if (target == null)
             return;
 
-        var landing = SpawnLanding(target.Value, comp.LandingProto);
-        comp.Landing = landing;
-
+        comp.Landing = SpawnLanding(target.Value, comp.LandingProto);
         StartCharge(charger, comp);
     }
 
-    private EntityUid? FindNearestTarget(EntityUid charger, float maxRange = 20f)
+    private EntityUid? FindNearestTarget(EntityUid charger, BubblegumChargeComponent comp)
     {
-        var origin = Transform(charger).WorldPosition;
+        var originXform = Transform(charger);
+        var originCoords = originXform.Coordinates;
 
         EntityUid? best = null;
         var bestDist = float.MaxValue;
 
-        var query = EntityQueryEnumerator<ActorComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out _, out var xform))
+        foreach (var uid in _lookup.GetEntitiesInRange(originCoords, comp.TargetSearchRange))
         {
-            if (HasComp<DevilComponent>(uid))
+            if (!HasComp<ActorComponent>(uid))
                 continue;
 
-            var delta = xform.WorldPosition - origin;
+            if (!HasComp<MindContainerComponent>(uid))
+                continue;
+
+            if (HasComp<DevilComponent>(uid)) // Devils get special privilege
+                continue;
+
+            var delta =
+                Transform(uid).WorldPosition -
+                originXform.WorldPosition;
+
             var dist = delta.LengthSquared();
-
-            if (dist > maxRange * maxRange)
-                continue;
 
             if (dist < bestDist)
             {
@@ -131,8 +127,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
 
     private EntityUid SpawnLanding(EntityUid target, EntProtoId proto)
     {
-        var targetXform = Transform(target);
-        return Spawn(proto, targetXform.Coordinates);
+        return Spawn(proto, Transform(target).Coordinates);
     }
 
     private void StartCharge(EntityUid charger, BubblegumChargeComponent comp)
@@ -174,13 +169,11 @@ public sealed class BubblegumChargeSystem : EntitySystem
         if (!comp.IsCharging)
             return;
 
-        var other = args.OtherEntity;
-
-        if (!HasComp<DamageableComponent>(other))
+        if (!HasComp<DamageableComponent>(args.OtherEntity))
             return;
 
         _damageable.TryChangeDamage(
-            other,
+            args.OtherEntity,
             comp.Damage,
             targetPart: TargetBodyPart.All);
     }

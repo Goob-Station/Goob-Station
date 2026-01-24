@@ -10,7 +10,7 @@ public sealed partial class BubblegumChargeComponent : Component
     public EntProtoId LandingProto = "BubblegumLanding";
 
     [DataField]
-    public float ChargeSpeed = 12f;
+    public float ChargeSpeed = 20f;
 
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
@@ -24,6 +24,9 @@ public sealed partial class BubblegumChargeComponent : Component
 
     [DataField]
     public float LandingReachDistance = 0.5f;
+
+    [DataField]
+    public float TargetSearchRange = 20f;
 
     public EntityUid? Landing;
 }
