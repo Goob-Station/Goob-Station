@@ -21,27 +21,35 @@
 
 - type: entity
   id: LavalandCursedHeart
-  parent: BaseHumanOrgan
+  parent: OrganHumanHeart
   name: heart
-  description: "I feel bad for the heartless bastard who lost this."
+  description: "You can feel something bad coming out from it"
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
     state: cursed_heart
   - type: Item
     size: Small
-  - type: CursedHeartGrant
-    maxDelay: 10
-    pumpHarm:
-      groups:
-        Airloss: 50
-    pumpHeal:
-      groups:
-        Brute: -5
-        Burn: -5
-        Toxin: -5
-        Airloss: -5
-
+  - type: Organ
+    intCap: 100
+    integrity: 100
+    integrityThresholds:
+      Normal: 100
+      Damaged: 50
+      Destroyed: 0
+    onAdd:
+    - type: CursedHeart
+      pumpHarm:
+        groups:
+          Airloss: 50
+      pumpHeal:
+        groups:
+          Brute: -5
+          Burn: -5
+          Toxin: -5
+          Airloss: -5
+  - type: StaticPrice
+    price: 10000
 
 - type: entity
   id: LavalandVampirismCrystal

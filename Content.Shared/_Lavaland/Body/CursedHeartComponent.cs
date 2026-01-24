@@ -23,32 +23,46 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Body;
 
-[RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class CursedHeartComponent : Component
 {
-    [AutoNetworkedField]
-    public EntityUid? PumpActionEntity;
+    [DataField]
+    public EntProtoId PumpActionEntity = "ActionPumpCursedHeart";
 
     public TimeSpan LastPump = TimeSpan.Zero;
 
-    [ViewVariables]
+    /// <summary>
+    /// How long the heart deals damage after not being pumped
+    /// </summary>
+    [DataField]
     public float MaxDelay = 5f;
 
-    [ViewVariables]
+    /// <summary>
+    /// How much heal per pump
+    /// </summary> 
+    [DataField(required: true)]
     public DamageSpecifier PumpHeal = new();
 
-    [ViewVariables]
+    /// <summary>
+    /// How much damage dealt per missed pump
+    /// </summary>
+    [DataField(required: true)]
     public DamageSpecifier PumpHarm = new();
 
-    [ViewVariables]
+    /// <summary>
+    /// How much blood heal per pump
+    /// </summary>
+    [DataField]
     public FixedPoint2 BloodHealPerPump = FixedPoint2.New(20);
 
-    [ViewVariables]
+    /// <summary>
+    /// How much blood is lost per missed pump
+    /// </summary>
+    [DataField]
     public FixedPoint2 BloodHarmMissedPump = FixedPoint2.New(-50);
 
     [ViewVariables]

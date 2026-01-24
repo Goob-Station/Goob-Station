@@ -23,7 +23,6 @@
 
 using Content.Shared.Actions;
 using Content.Shared.Damage;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
@@ -32,11 +31,10 @@ using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared._Shitmed.Damage;
 using Content.Shared.Body.Systems;
-using Content.Shared.Body.Components; // Shitmed Change
+using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Shared._Lavaland.Body;
 
-// TODO: Use Shitmed instead of Shitcode
 public sealed class CursedHeartSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -49,11 +47,16 @@ public sealed class CursedHeartSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CursedHeartComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<CursedHeartComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CursedHeartComponent, PumpHeartActionEvent>(OnPump);
+        SubscribeLocalEvent<CursedHeartComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CursedHeartComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
+    }
 
-        SubscribeLocalEvent<CursedHeartGrantComponent, UseInHandEvent>(OnUseInHand);
+    private void OnStartup(Entity<CursedHeartComponent> ent, ref ComponentStartup args)
+    {
+        _actions.AddAction(ent.Owner, ent.Comp.PumpActionEntity);
+        _audio.PlayGlobal(ent.Comp.Heartbeat, ent.Owner);
+        ent.Comp.LastPump = _timing.CurTime;
     }
 
     public override void Update(float frameTime)
@@ -77,20 +80,9 @@ public sealed class CursedHeartSystem : EntitySystem
 
     private void Damage(Entity<CursedHeartComponent> ent)
     {
-        // TODO: WHY BLOODSTREAM IS NOT IN SHARED RAAAAAGH
         _bloodstream.TryModifyBloodLevel(ent.Owner, ent.Comp.BloodHarmMissedPump);
         _damage.TryChangeDamage(ent.Owner, ent.Comp.PumpHarm, true, false);
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), ent.Owner, ent.Owner, PopupType.MediumCaution);
-    }
-
-    private void OnMapInit(Entity<CursedHeartComponent> ent, ref MapInitEvent args)
-    {
-        _actions.AddAction(ent.Owner, ref ent.Comp.PumpActionEntity, "ActionPumpCursedHeart");
-    }
-
-    private void OnShutdown(Entity<CursedHeartComponent> ent, ref ComponentShutdown args)
-    {
-        _actions.RemoveAction(ent.Owner, ent.Comp.PumpActionEntity);
     }
 
     private void OnPump(Entity<CursedHeartComponent> ent, ref PumpHeartActionEvent args)
@@ -105,28 +97,8 @@ public sealed class CursedHeartSystem : EntitySystem
         ent.Comp.LastPump = _timing.CurTime;
     }
 
-    private void OnUseInHand(Entity<CursedHeartGrantComponent> ent, ref UseInHandEvent args)
+    private void OnTryRemoveOrgan(Entity<CursedHeartComponent> ent, ref TryRemoveOrganEvent args)
     {
-        if (HasComp<CursedHeartComponent>(args.User))
-        {
-            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-already-cursed"), args.User, args.User, PopupType.MediumCaution);
-            args.Handled = true;
-            return;
-        }
-
-        var heart = EnsureComp<CursedHeartComponent>(args.User);
-        var grant = ent.Comp;
-
-        //There might be a better way to handles this
-        heart.MaxDelay = grant.MaxDelay;
-        heart.PumpHeal = grant.PumpHeal;
-        heart.PumpHarm = grant.PumpHarm;
-        heart.BloodHealPerPump = grant.BloodHealPerPump;
-        heart.BloodHarmMissedPump = grant.BloodHarmMissedPump;
-
-        _audio.PlayGlobal(heart.Heartbeat, args.User);
-        heart.LastPump = _timing.CurTime;
-        PredictedQueueDel(ent.Owner);
-        args.Handled = true;
+        args.Cancelled = true;
     }
 }
