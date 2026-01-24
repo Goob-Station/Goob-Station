@@ -169,6 +169,8 @@
 #        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: MothAccent
   - type: Vocal
+    wilhelm: "/Audio/_Goobstation/Voice/Moth/moth_sax.ogg" # Goobstation
+    wilhelmProbability: 0.1 # Goobstation
     sounds:
       Male: MaleMoth
       Female: FemaleMoth

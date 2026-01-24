@@ -37,10 +37,10 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
-        Heat: 0.55
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.65
         Caustic: 0.55
   - type: Unremoveable
   - type: IdentityBlocker
