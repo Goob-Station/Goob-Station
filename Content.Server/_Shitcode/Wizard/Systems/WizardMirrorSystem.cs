@@ -95,13 +95,17 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
                 RevertOnDeath = false,
                 ComponentsToTransfer = new()
                 {
+                    new("LanguageKnowledge"),
+                    new("LanguageSpeaker"),
+                    new("Grammar"),
                     new("Wizard", mirror: true),
                     new("Apprentice", mirror: true),
                     new("UniversalLanguageSpeaker", mirror: true),
                     new("TowerOfBabel", mirror: true),
                     new("CanEnchant", mirror: true),
-                    new("CanPerformCombo", mirror: true),
+                    new("CanPerformCombo"),
                     new("MartialArtsKnowledge"),
+                    new("NinjutsuSneakAttack"),
                     new("NpcFactionMember"),
                 },
             };

@@ -13,7 +13,7 @@
   parent: BaseItem
   id: ArmClawChangeling
   name: hand claw
-  description: A grotesque claw made out of bone and flesh that injects dangerous poison on hits.
+  description: A grotesque claw made out of bone and flesh that instantly grabs anyone it hits.
   suffix: Unremoveable
   components:
   - type: Sprite
@@ -27,7 +27,7 @@
     damage:
       types:
         Slash: 5
-        Piercing: 15
+        Piercing: 10 # You get 10 more free damage by just throwing them after getting that free hardgrab, equaling out to 25
         Structural: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
