@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from paradise at commit https://github.com/ParadiseSS13/Paradise/commit/ade220d0cb13fab206f75e91ecfb31890937572a modified for SS14 by Jvne",
+  "copyright": "Taken from paradise at commit https://github.com/ParadiseSS13/Paradise/commit/ade220d0cb13fab206f75e91ecfb31890937572a modified for SS14 by Jvne, monkey made by brainfood1183 (github) for ss14",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,10 @@
   "states": [
     {
       "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-INNERCLOTHING-monkey",
       "directions": 4
     },
 	{

@@ -18,7 +18,7 @@
   description: A sturdy jumpskirt, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/cargotech.rsi
   - type: Item
     inhandVisuals:
       left:
@@ -28,7 +28,7 @@
       - state: inhand-right
         color: "#b7793d"
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/cargotech.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -37,9 +37,9 @@
   description: Enemy of dogs everywhere.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
     
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband]
@@ -48,7 +48,7 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/qm.rsi
   - type: Item
     inhandVisuals:
       left:
@@ -58,7 +58,7 @@
       - state: inhand-right
         color: "#b7793d"
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/qm.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband]
@@ -67,7 +67,7 @@
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
-      sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
+      sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/qmturtleskirt.rsi
     - type: Item
       inhandVisuals:
         left:
@@ -77,7 +77,7 @@
         - state: inhand-right
           color: "#b7793d"
     - type: Clothing
-      sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
+      sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/qmturtleskirt.rsi
 
 ## Centcom
 
@@ -211,9 +211,9 @@
   description: Hi, I'm Scott, president of Donk Pizza. Have you heard of [FAMOUS VIRTUAL PERFORMER]?
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/performer.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/performer.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/performer.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/performer.rsi
 
 ## Color
 
@@ -741,6 +741,17 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Medical/senior_physician.rsi
 
 ## Science
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtResearchDirector
+  name: research director's turtleneck
+  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/rnd.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/rnd.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]

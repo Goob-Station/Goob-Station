@@ -41,7 +41,7 @@
   description: A sturdy jumpsuit, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/cargotech.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/cargotech.rsi
   - type: Item
     inhandVisuals:
       left:
@@ -458,7 +458,7 @@
   description: A nice and tidy uniform. Shame about the bar though.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/bartender.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/bartender.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -1063,6 +1063,17 @@
 ## Science
 
 - type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitResearchDirector
+  name: research director's turtleneck
+  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/RND/rnd.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/RND/rnd.rsi
+
+- type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitScientist
   name: scientist jumpsuit
@@ -1148,6 +1159,28 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_alt.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_alt.rsi
+    
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoSBlue
+  name: head of security's blue jumpsuit
+  description: A blue jumpsuit of Head of Security.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_blue.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_blue.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoSGrey
+  name: head of security's grey jumpsuit
+  description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_grey.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_grey.rsi
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband]
