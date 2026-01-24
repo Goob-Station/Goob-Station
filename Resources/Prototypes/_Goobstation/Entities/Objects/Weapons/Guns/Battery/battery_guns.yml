@@ -403,6 +403,7 @@
     - belt
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
   - type: Gun
+    projectileSpeed: 25 # Goobstation: another speed for bullets
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:

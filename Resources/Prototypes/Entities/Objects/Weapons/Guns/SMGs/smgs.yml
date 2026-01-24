@@ -87,6 +87,7 @@
     burstFireRate: 8
     angleIncrease: 3
     angleDecay: 16
+    projectileSpeed: 20 # Goobstation: another speed for bullets
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -240,10 +241,10 @@
       unwieldOnUse: false
     - type: GunWieldBonus
       minAngle: -19
-      maxAngle: -16
+      maxAngle: -23 # Goob edit: Drozd has too much spread
     - type: Gun
       minAngle: 21
-      maxAngle: 32
+      maxAngle: 30 # Goob edit
       fireRate: 6
       burstFireRate: 18
       soundGunshot:
@@ -303,13 +304,13 @@
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
-  - type: Gun # Goobstation - I am the one who nerfs the WT.
-    minAngle: 2
-    maxAngle: 16
+  - type: Gun # Goob edit start: ReBalance this WT
+    minAngle: 6
+    maxAngle: 10
     fireRate: 5
     burstFireRate: 8
-    angleIncrease: 3
-    angleDecay: 16
+    angleIncrease: 1
+    angleDecay: 10 # Goob edit end
     selectedMode: FullAuto
     availableModes:
     - FullAuto

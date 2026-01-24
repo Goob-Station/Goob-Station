@@ -42,7 +42,7 @@
         Blunt: 5
   - type: ProjectileRequireWhitelist
     whitelist:
-     components:
+      components:
       - Clumsy
   - type: ProjectileThrowOnHit
     distance: 20
@@ -190,7 +190,7 @@
     damage:
       types:
         Blunt: 2
-        Heat: 2
+        Heat: 3
   - type: IgniteOnCollide
     fireStacks: 2
 
@@ -241,7 +241,9 @@
       ammo:
         reagents:
         - ReagentId: Haloperidol
-          Quantity: 1.5
+          Quantity: 1
+        - ReagentId: ChloralHydrate
+          Quantity: 1
   - type: BlurOnCollide
 
 - type: entity

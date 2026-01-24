@@ -94,8 +94,8 @@
   recipes:
   - ClothingUniformJumpsuitDetective
   - ClothingUniformJumpskirtDetective
-  - ClothingHeadHatBeretHoS
-  - ClothingHeadHatHoshat
+  - ClothingHeadHatBeretHoSNoArmor # Goob edit: don't need armor in uniform printer
+  - ClothingHeadHatHoshatNoArmor # Goob edit
   - ClothingUniformJumpsuitHoS
   - ClothingUniformJumpskirtHoS
   - ClothingUniformJumpsuitHosFormal
@@ -110,14 +110,14 @@
   - ClothingUniformJumpskirtSeniorOfficer
   - ClothingUniformJumpsuitPrisoner
   - ClothingUniformJumpskirtPrisoner
-  - ClothingHeadHatBeretSecurity
+  - ClothingHeadHatBeretSecurityNoArmor # Goob edit
   - ClothingUniformJumpsuitSec
   - ClothingUniformJumpskirtSec
-  - ClothingHeadHatBeretBrigmedic
+  - ClothingHeadHatBeretBrigmedicNoArmor # Goob edit
   - ClothingUniformJumpsuitBrigmedic
   - ClothingUniformJumpskirtBrigmedic
-  - ClothingHeadHatBeretWarden
-  - ClothingHeadHatWarden
+  - ClothingHeadHatBeretWardenNoArmor # Goob edit
+  - ClothingHeadHatWardenNoArmor # Goob edit
   - ClothingUniformJumpsuitWarden
   - ClothingUniformJumpskirtWarden
 

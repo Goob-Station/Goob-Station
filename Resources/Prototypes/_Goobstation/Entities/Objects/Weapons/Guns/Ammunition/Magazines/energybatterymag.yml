@@ -20,6 +20,7 @@
   - type: Tag
     tags:
       - EnergyMagAmmo
+      - MilitaryPowerCell # For sec belts
 
 - type: entity
   id: EnergyMagRifleLethal

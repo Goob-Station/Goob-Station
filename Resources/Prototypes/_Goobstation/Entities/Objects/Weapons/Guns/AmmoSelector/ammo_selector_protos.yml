@@ -85,7 +85,7 @@
     state: pulse
   color: blue
   protoId: BulletPulse
-  fireCost: 60
+  fireCost: 40 # Same number as clown version
 
 - type: selectableAmmo
   id: BulletEnergyGunDetain

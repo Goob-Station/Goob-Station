@@ -236,6 +236,108 @@
     damageCoefficient: 0.75
 
 - type: entity
+  parent: [ClothingHeadHatBeretRND, BaseSecurityCommandContraband]
+  id: ClothingHeadHatBeretHoSNoArmor # (NoArmor) for uniform printer
+  name: head of security's beret
+  description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_hos.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_hos.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: ClothingHeadHatHoshatNoArmor
+  name: head of security cap
+  description: A stylish cap worn by the Head of Security. Shows the officers who's in charge.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/hoshat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/hoshat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+
+- type: entity
+  parent: [ClothingHeadHatBeretRND, BaseSecurityContraband]
+  id: ClothingHeadHatBeretWardenNoArmor
+  name: warden's beret
+  description: A corporate-blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_warden.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_warden.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+
+- type: entity
+  parent: [ClothingHeadBase, BaseSecurityContraband]
+  id: ClothingHeadHatWardenNoArmor
+  name: warden's cap
+  description: This hat emphasizes that you are THE LAW.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/warden.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/warden.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+
+- type: entity
+  parent: [ClothingHeadHatBeret, BaseSecurityContraband]
+  id: ClothingHeadHatBeretBrigmedicNoArmor
+  name: brigmedical beret
+  description: A white beret for brigmedics.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_brigmedic.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_brigmedic.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+
+- type: entity
+  parent: [ClothingHeadHatBeret, BaseSecurityContraband]
+  id: ClothingHeadHatBeretSecurityNoArmor
+  name: security beret
+  description: A beret with the security department's insignia. For officers that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_security.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_security.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadMailCarrier
   name: mail carrier's hat

@@ -208,6 +208,7 @@
     quickEquip: false
     slots:
     - Belt
+    - suitStorage # Goobstation
   - type: DisarmMalus
     malus: 0.225
   - type: Appearance

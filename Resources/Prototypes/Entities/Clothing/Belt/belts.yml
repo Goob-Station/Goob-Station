@@ -336,24 +336,19 @@
     sprite: Clothing/Belt/assault.rsi
   - type: Clothing
     sprite: Clothing/Belt/assault.rsi
-  - type: Storage
-    whitelist:
-      tags:
-        - CigPack
-        - Taser
-        - SecBeltEquip # Goobstation
-        - HandheldCrewMonitor # Goobstation
-        - EnergySpeedloader # Goobstation
-        - Sidearm # Goobstation
-        - PepperSpray # Goobstation
-      components:
-        - Stunbaton
-        - FlashOnTrigger
-        - SmokeOnTrigger
-        - Flash
-        - Handcuff
-        - BallisticAmmoProvider
-        - Ammo
+#  - type: Storage # Goob remove / This belt is for BSO and ERT only.
+#    whitelist:
+#      tags:
+#        - CigPack
+#        - Taser
+#      components:
+#        - Stunbaton
+#        - FlashOnTrigger
+#        - SmokeOnTrigger
+#        - Flash
+#        - Handcuff
+#        - BallisticAmmoProvider
+#        - Ammo
   - type: ItemMapper
     mapLayers:
       flashbang:
