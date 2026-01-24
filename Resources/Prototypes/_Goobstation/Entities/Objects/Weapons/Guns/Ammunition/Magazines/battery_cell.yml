@@ -66,8 +66,8 @@
     - MilitaryPowerCell
 
 - type: entity
-  name: "енергокомірка для ПП"
-  description: "Військова енергокомірка, сумісна з лазерами масштабу ПП."
+  name: SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers.
   id: PowerCellIRSMG
   suffix: Full
   parent: BaseMilitaryPowerCellSMG
@@ -79,8 +79,8 @@
     fireCost: 50
 
 - type: entity
-  name: "рентгенівська енергокомірка для ПП"
-  description: "Військова енергокомірка, сумісна з лазерами масштабу ПП, що випромінює рентгенівські промені."
+  name: x-ray SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that fires x-rays.
   id: PowerCellXraySMG
   suffix: Full
   parent: BaseMilitaryPowerCellSMG
@@ -92,8 +92,8 @@
     fireCost: 50
 
 - type: entity
-  name: "розігнана енергокомірка для ПП"
-  description: "Військова енергокомірка, сумісна з лазерами масштабу ПП, яка була розігнана."
+  name: overclocked SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that has been overclocked.
   id: PowerCellOverchargedSMG
   suffix: Full
   parent: BaseMilitaryPowerCellSMG
@@ -105,8 +105,8 @@
     fireCost: 100
 
 - type: entity
-  name: "імпульсна енергокомірка для ПП"
-  description: "Військова енергокомірка, сумісна з лазерами масштабу ПП, що випромінює імпульсні промені."
+  name: pulse SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that fires pulse beams.
   id: PowerCellPulseSMG
   suffix: Full
   parent: BaseMilitaryPowerCellSMG
@@ -118,8 +118,8 @@
     fireCost: 50
 
 - type: entity
-  name: "іонна енергокомірка для ПП"
-  description: "Військова енергокомірка, сумісна з лазерами масштабу ПП, що випромінює іонні промені."
+  name: ion SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that fires ion beams.
   id: PowerCellIonSMG
   suffix: Full
   parent: BaseMilitaryPowerCellSMG
@@ -162,8 +162,8 @@
       Zinc: 10
 
 - type: entity
-  name: "снайперська енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними снайперськими гвинтівками."
+  name: sniper power cell
+  description: A militarized power cell compatible with laser snipers.
   id: PowerCellIRSniper
   suffix: Full
   parent: BaseMilitaryPowerCellSniper
@@ -175,8 +175,8 @@
     fireCost: 100
 
 - type: entity
-  name: "рентгенівська снайперська енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними снайперськими гвинтівками, що випромінює рентгенівські промені."
+  name: x-ray sniper power cell
+  description: A militarized power cell compatible with laser snipers that fires x-rays.
   id: PowerCellXraySniper
   suffix: Full
   parent: BaseMilitaryPowerCellSniper
@@ -188,8 +188,8 @@
     fireCost: 100
 
 - type: entity
-  name: "розігнана снайперська енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними снайперськими гвинтівками, яка була розігнана."
+  name: overclocked sniper power cell
+  description: A militarized power cell compatible with laser snipers that has been overclocked.
   id: PowerCellOverchargedSniper
   suffix: Full
   parent: BaseMilitaryPowerCellSniper
@@ -201,8 +201,8 @@
     fireCost: 200
 
 - type: entity
-  name: "імпульсна снайперська енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними снайперськими гвинтівками, що випромінює імпульсні промені."
+  name: pulse sniper power cell
+  description: A militarized power cell compatible with laser snipers that fires pulse beams.
   id: PowerCellPulseSniper
   suffix: Full
   parent: BaseMilitaryPowerCellSniper
@@ -214,8 +214,8 @@
     fireCost: 100
 
 - type: entity
-  name: "іонна снайперська енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними снайперськими гвинтівками, що випромінює іонні промені."
+  name: ion sniper power cell
+  description: A militarized power cell compatible with laser snipers that fires ion beams.
   id: PowerCellIonSniper
   suffix: Full
   parent: BaseMilitaryPowerCellSniper
@@ -255,8 +255,8 @@
       Zinc: 5
 
 - type: entity
-  name: "револьверна енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними револьверами."
+  name: revolver power cell
+  description: A militarized power cell compatible with laser revolvers.
   id: PowerCellIRRevolver
   suffix: Full
   parent: BaseMilitaryPowerCellRevolver
@@ -281,8 +281,8 @@
     fireCost: 62.5
 
 - type: entity
-  name: "рентгенівська револьверна енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними револьверами, що випромінює рентгенівські промені."
+  name: x-ray revolver power cell
+  description: A militarized power cell compatible with laser revolvers that fires x-rays.
   id: PowerCellXrayRevolver
   suffix: Full
   parent: BaseMilitaryPowerCellRevolver
@@ -307,8 +307,8 @@
     fireCost: 62.5
 
 - type: entity
-  name: "розігнана револьверна енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними револьверами, яка була розігнана."
+  name: overclocked revolver power cell
+  description: A militarized power cell compatible with laser revolvers that has been overclocked.
   id: PowerCellOverchargedRevolver
   suffix: Full
   parent: BaseMilitaryPowerCellRevolver
@@ -333,8 +333,8 @@
     fireCost: 125
 
 - type: entity
-  name: "імпульсна револьверна енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними револьверами, що випромінює імпульсні промені."
+  name: pulse revolver power cell
+  description: A militarized power cell compatible with laser revolvers that fires pulse beams.
   id: PowerCellPulseRevolver
   suffix: Full
   parent: BaseMilitaryPowerCellRevolver
@@ -359,8 +359,8 @@
     fireCost: 62.5
 
 - type: entity
-  name: "іонна револьверна енергокомірка"
-  description: "Військова енергокомірка, сумісна з лазерними револьверами, що випромінює іонні промені."
+  name: ion revolver power cell
+  description: A militarized power cell compatible with laser revolvers that fires ion beams.
   id: PowerCellIonRevolver
   suffix: Full
   parent: BaseMilitaryPowerCellRevolver
@@ -388,8 +388,8 @@
 - type: entity
   id: MilitaryPowerCellLMG
   parent: BaseMilitaryPowerCell
-  name: "батарея для кулемета"
-  description: "Автомобільна батарея, сумісна з лазерним кулеметом, що приєднується до рюкзака-постачальника заряду."
+  name: LMG battery
+  description: A car battery compatible with laser LMG, attachable to charge provider backpack.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_lmg.rsi

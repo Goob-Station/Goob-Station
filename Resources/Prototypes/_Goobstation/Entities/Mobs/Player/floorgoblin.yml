@@ -3,10 +3,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "підлоговий гоблін"
+  name: floor goblin
   id: MobFloorGoblin
   parent: SimpleSpaceMobBase
-  description: "Живе під мостинами, краде взуття, кусає за щиколотки."
+  description: Lives under the floor boards, steals shoes, bites ankles.
   components:
   - type: Sprite
     drawdepth: SmallMobs

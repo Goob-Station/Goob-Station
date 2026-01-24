@@ -1,8 +1,8 @@
 - type: entity
-  name: "коробка картриджів для Солбрейкера"
+  name: box of soulbreaker cartridges
   parent: [ AmmoProviderShotgunShell, BaseMantisContraband ]
   id: BoxShellSoulbreaker
-  description: "Коробка з антипіонерськими патронами, призначеними для рушниць для розбиття масових заворушень."
+  description: A box full of anti-psionic soulbreaker cartridges, designed for riot shotguns.
   components:
     - type: BallisticAmmoProvider
       proto: ShellSoulbreaker

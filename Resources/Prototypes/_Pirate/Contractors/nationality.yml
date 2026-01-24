@@ -4,15 +4,26 @@
   passportPrototype: BieselPassport
 
 - type: nationality
-  id: Solarian
-  nameKey: nationality_name_solarian
+  id: Nralakk
+  nameKey: nationality_name_nralakk
   requirements:
     - !type:SpeciesRequirement
+      inverted: true
       species:
-        - Human
-  languages:
-    - SolCommon
-  passportPrototype: SolPassport
+        - Vox
+        - IPC
+  passportPrototype: NralakkPassport
+
+#- type: nationality
+#  id: Solarian
+#  nameKey: nationality_name_solarian
+#  requirements:
+#    - !type:SpeciesRequirement
+#      species:
+#        - Human
+#  languages:
+#    - SolCommon
+#  passportPrototype: SolPassport
 
 - type: nationality
   id: Eridanian
@@ -39,9 +50,9 @@
   nameKey: nationality_name_adhomai
   requirements:
     - !type:SpeciesRequirement
-      inverted: true
       species:
-        - Vox
+        - Tajaran
+        - Resomi
   passportPrototype: AdhomaiPassport
 
 - type: nationality
@@ -52,6 +63,7 @@
       inverted: true
       species:
         - Vox
+        - IPC
   passportPrototype: IzweskiPassport
 
 - type: nationality

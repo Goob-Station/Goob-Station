@@ -13,8 +13,8 @@
 - type: entity
   id: BorgChassisDerelictSyndicateAssault
   parent: BaseBorgChassisDerelict
-  name: "покинутий штурмовий кіборг синдикату"
-  description: "Струнка, зла машина для вбивства з доступом до різноманітних смертоносних модулів. Цей знаходиться у стані сильного занепаду."
+  name: derelict syndicate assasult cyborg
+  description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair.
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Silicon/chassis.rsi
@@ -62,8 +62,8 @@
 - type: entity
   id: BorgChassisUrist
   parent: BaseBorgChassisDerelict
-  name: "Уріст МакБорг"
-  description: "Гидота, яка нібито допомагає в діяльності станції."
+  name: Urist McBorg
+  description: An abomination that supposedly assists in station activity.
   components:
   - type: Sprite
     layers:
@@ -130,7 +130,7 @@
 - type: entity
   id: BorgChassisMiningBasic
   parent: BorgChassisMining
-  name: "базовий шахтарський кіборг"
+  name: basic mining cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -139,7 +139,7 @@
 - type: entity
   id: BorgChassisMiningAdvanced
   parent: BorgChassisMining
-  name: "просунутий шахтарський кіборг"
+  name: advanced mining cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -148,7 +148,7 @@
 - type: entity
   id: BorgChassisMiningCoffin
   parent: BorgChassisMining
-  name: "кіборг-труна"
+  name: coffin cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -157,7 +157,7 @@
 - type: entity
   id: BorgChassisMiningLavaland
   parent: BorgChassisMining
-  name: "лавалендовий кіборг"
+  name: lavaland cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -166,7 +166,7 @@
 - type: entity
   id: BorgChassisMiningCricket
   parent: BorgChassisMining
-  name: "шахтарський кіборг \"Цвіркун"
+  name: cricket mining cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -175,7 +175,7 @@
 - type: entity
   id: BorgChassisMiningSquat
   parent: BorgChassisMining
-  name: "присадкуватий кіборг"
+  name: squat cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -184,7 +184,7 @@
 - type: entity
   id: BorgChassisMiningNoble
   parent: BorgChassisMining
-  name: "шляхетний шахтарський кіборг"
+  name: noble mining cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -194,7 +194,7 @@
 - type: entity
   id: BorgChassisEngineerBasic
   parent: BorgChassisEngineer
-  name: "базовий інженерний кіборг"
+  name: basic engineer cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -203,7 +203,7 @@
 - type: entity
   id: BorgChassisEngineerAntique
   parent: BorgChassisEngineer
-  name: "антикварний інженерний кіборг"
+  name: antique engineer cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -212,7 +212,7 @@
 - type: entity
   id: BorgChassisEngineerStandart
   parent: BorgChassisEngineer
-  name: "стандартний інженерний кіборг"
+  name: standart engineer cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -221,7 +221,7 @@
 - type: entity
   id: BorgChassisEngineerNoble
   parent: BorgChassisEngineer
-  name: "шляхетний інженерний кіборг"
+  name: noble engineer cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -230,7 +230,7 @@
 - type: entity
   id: BorgChassisEngineerCricket
   parent: BorgChassisEngineer
-  name: "інженерний кіборг \"Цвіркун"
+  name: cricket engineer cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -239,7 +239,7 @@
 - type: entity
   id: BorgChassisEngineerRover
   parent: BorgChassisEngineer
-  name: "інженерний кіборг \"Ровер"
+  name: rover engineer cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -249,7 +249,7 @@
 - type: entity
   id: BorgChassisJanitorBasic
   parent: BorgChassisJanitor
-  name: "базовий кіборг-прибиральник"
+  name: basic janitor cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -258,7 +258,7 @@
 - type: entity
   id: BorgChassisJanitorMopbot
   parent: BorgChassisJanitor
-  name: "кіборг-швабробот"
+  name: mopbot cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -267,7 +267,7 @@
 - type: entity
   id: BorgChassisJanitorStandart
   parent: BorgChassisJanitor
-  name: "стандартний кіборг-прибиральник"
+  name: standart janitor cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -276,7 +276,7 @@
 - type: entity
   id: BorgChassisJanitorCustodi
   parent: BorgChassisJanitor
-  name: "кіборг \"Кустоді"
+  name: custodi cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -285,7 +285,7 @@
 - type: entity
   id: BorgChassisJanitorNoble
   parent: BorgChassisJanitor
-  name: "шляхетний кіборг-прибиральник"
+  name: noble janitor cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -294,7 +294,7 @@
 - type: entity
   id: BorgChassisJanitorCricket
   parent: BorgChassisJanitor
-  name: "кіборг-прибиральник \"Цвіркун"
+  name: cricket janitor cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -303,7 +303,7 @@
 - type: entity
   id: BorgChassisJanitorRover
   parent: BorgChassisJanitor
-  name: "кіборг-прибиральник \"Ровер"
+  name: rover janitor cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -313,7 +313,7 @@
 - type: entity
   id: BorgChassisMedicalStandart
   parent: BorgChassisMedical
-  name: "медичний кіборг"
+  name: medical cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -322,7 +322,7 @@
 - type: entity
   id: BorgChassisMedicalMedbot
   parent: BorgChassisMedical
-  name: "кіборг-медбот"
+  name: medbot cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -331,7 +331,7 @@
 - type: entity
   id: BorgChassisMedicalNeedles
   parent: BorgChassisMedical
-  name: "кіборг \"Голки"
+  name: needles cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -340,7 +340,7 @@
 - type: entity
   id: BorgChassisMedicalAdvanced
   parent: BorgChassisMedical
-  name: "просунутий медичний кіборг"
+  name: advanced medical cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -349,7 +349,7 @@
 - type: entity
   id: BorgChassisMedicalQualified
   parent: BorgChassisMedical
-  name: "кваліфікований медичний кіборг"
+  name: qualified medical cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -358,7 +358,7 @@
 - type: entity
   id: BorgChassisMedicalNoble
   parent: BorgChassisMedical
-  name: "шляхетний медичний кіборг"
+  name: noble medical cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -367,7 +367,7 @@
 - type: entity
   id: BorgChassisMedicalCricket
   parent: BorgChassisMedical
-  name: "медичний кіборг \"Цвіркун"
+  name: cricket medical cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -376,7 +376,7 @@
 - type: entity
   id: BorgChassisMedicalRover
   parent: BorgChassisMedical
-  name: "медичний кіборг \"Ровер"
+  name: rover medical cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -386,7 +386,7 @@
 - type: entity
   id: BorgChassisServiceStandart
   parent: BorgChassisService
-  name: "стандартний сервісний кіборг"
+  name: standart service cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -395,7 +395,7 @@
 - type: entity
   id: BorgChassisServiceBrobot
   parent: BorgChassisService
-  name: "кіборг-бробот"
+  name: brobot cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -404,7 +404,7 @@
 - type: entity
   id: BorgChassisServiceWaitress
   parent: BorgChassisService
-  name: "кіборг-офіціантка"
+  name: waitress cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -413,7 +413,7 @@
 - type: entity
   id: BorgChassisServiceCricket
   parent: BorgChassisService
-  name: "сервісний кіборг \"Цвіркун"
+  name: cricket service cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -422,7 +422,7 @@
 - type: entity
   id: BorgChassisServiceKent
   parent: BorgChassisService
-  name: "кіборг \"Кент"
+  name: kent cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -431,7 +431,7 @@
 - type: entity
   id: BorgChassisServiceNoble
   parent: BorgChassisService
-  name: "шляхетний сервісний кіборг"
+  name: noble service cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -440,7 +440,7 @@
 - type: entity
   id: BorgChassisServiceRich
   parent: BorgChassisService
-  name: "багатий кіборг"
+  name: rich cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
@@ -449,7 +449,7 @@
 - type: entity
   id: BorgChassisServiceRover
   parent: BorgChassisService
-  name: "сервісний кіборг \"Ровер"
+  name: rover service cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype

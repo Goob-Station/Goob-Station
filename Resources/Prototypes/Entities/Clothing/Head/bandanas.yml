@@ -118,49 +118,49 @@
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandBlack]
   id: ClothingHeadBandBlack
-  name: "чорна бандана"
+  name: black bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandBlue]
   id: ClothingHeadBandBlue
-  name: "синя бандана"
+  name: blue bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
   id: ClothingHeadBandBotany
-  name: "ботанічна бандана"
+  name: botany bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandGold]
   id: ClothingHeadBandGold
-  name: "золота бандана"
+  name: gold bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandGreen]
   id: ClothingHeadBandGreen
-  name: "зелена бандана"
+  name: green bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandGrey]
   id: ClothingHeadBandGrey
-  name: "сіра бандана"
+  name: grey bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandRed]
   id: ClothingHeadBandRed
-  name: "червона бандана"
+  name: red bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandSkull]
   id: ClothingHeadBandSkull
-  name: "бандана з черепом"
+  name: skull bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandMerc]
   id: ClothingHeadBandMerc
-  name: "бандана найманця"
+  name: mercenary bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandBrown]
   id: ClothingHeadBandBrown
-  name: "коричнева бандана"
+  name: brown bandana

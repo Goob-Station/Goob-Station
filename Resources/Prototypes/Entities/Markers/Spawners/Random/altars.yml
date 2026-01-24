@@ -6,7 +6,7 @@
 
 #Add satanic when ready
 - type: entity
-  name: "спавнер випадкового вівтарю"
+  name: random altar spawner
   id: AltarSpawner
   parent: MarkerBase
   components:
@@ -32,7 +32,7 @@
       offset: 0.0
 
 - type: entity
-  name: "спавнер випадкового конверт-вівтарю"
+  name: random convert-altar spawner
   id: ConvertAltarSpawner
   parent: MarkerBase
   components:
@@ -47,7 +47,7 @@
       offset: 0.0
 
 - type: entity
-  name: "спавнер випадковго вівтарю культу"
+  name: random cult-altar spawner
   id: CultAltarSpawner
   parent: MarkerBase
   components:

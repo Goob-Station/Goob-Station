@@ -30,7 +30,7 @@
 
 - type: entity
   id: ChestXenomorph
-  name: "груди ксеноморфа"
+  name: xenomorph chest
   parent: [PartXenomorph, BaseChest]
   components:
   - type: Extractable
@@ -52,7 +52,7 @@
 
 - type: entity
   id: GroinXenomorph
-  name: "пах ксеноморфа"
+  name: xenomorph groin
   parent: [PartXenomorph, BaseGroin]
   components:
   - type: Extractable
@@ -65,7 +65,7 @@
 
 - type: entity
   id: HeadXenomorph
-  name: "голова ксеноморфа"
+  name: xenomorph head
   parent: [PartXenomorph, BaseHead]
   components:
   - type: Extractable
@@ -78,40 +78,40 @@
 
 - type: entity
   id: LeftArmXenomorph
-  name: "ліва рука ксеноморфа"
+  name: left xenomorph arm
   parent: [PartXenomorph, BaseLeftArm]
 
 - type: entity
   id: RightArmXenomorph
-  name: "права рука ксеноморфа"
+  name: right xenomorph arm
   parent: [PartXenomorph, BaseRightArm]
 
 - type: entity
   id: LeftHandXenomorph
-  name: "ліва кисть ксеноморфа"
+  name: left xenomorph hand
   parent: [PartXenomorph, BaseLeftHand]
 
 - type: entity
   id: RightHandXenomorph
-  name: "права кисть ксеноморфа"
+  name: right xenomorph hand
   parent: [PartXenomorph, BaseRightHand]
 
 - type: entity
   id: LeftLegXenomorph
-  name: "ліва нога ксеноморфа"
+  name: left xenomorph leg
   parent: [PartXenomorph, BaseLeftLeg]
 
 - type: entity
   id: RightLegXenomorph
-  name: "права нога ксеноморфа"
+  name: right xenomorph leg
   parent: [PartXenomorph, BaseRightLeg]
 
 - type: entity
   id: LeftFootXenomorph
-  name: "ліва ступня ксеноморфа"
+  name: left xenomorph foot
   parent: [PartXenomorph, BaseLeftFoot]
 
 - type: entity
   id: RightFootXenomorph
-  name: "права ступня ксеноморфа"
+  name: right xenomorph foot
   parent: [PartXenomorph, BaseRightFoot]

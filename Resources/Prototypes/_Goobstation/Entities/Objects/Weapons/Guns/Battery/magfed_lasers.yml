@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ER-5 Torrent"
+  name: ER-5 Torrent
   parent: [ BaseWeaponCustomCell, BaseSecurityContraband ]
   id: WeaponLaserCellSMG
-  description: "Високотехнологічний лазерний ПП, сумісний зі спеціалізованими енергетичними комірками для ПП."
+  description: A high-tech laser SMG, compatible with specialized SMG power cells.
   components:
   - type: Item
     size: Large
@@ -61,10 +61,10 @@
 
 
 - type: entity
-  name: "ES-7 Multilens"
+  name:  ES-7 Multilens
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponLaserCellSniper
-  description: "Високотехнологічна лазерна снайперська гвинтівка з режимом стрільби чергами, сумісна зі спеціалізованими снайперськими енергетичними комірками."
+  description: A high-tech burst laser sniper rifle, compatible with specialized sniper power cells.
   components:
   - type: Item
     size: Huge
@@ -128,10 +128,10 @@
 
 
 - type: entity
-  name: "EG-1 Taro"
+  name: EG-1 Taro
   parent: [ BaseWeaponCustomCellSmall, BaseSecurityContraband ]
   id: WeaponLaserCellRevolver
-  description: "Високотехнологічний лазерний револьвер, сумісний зі спеціалізованими револьверними енергетичними комірками."
+  description: A high-tech laser revolver, compatible with specialized revolver power cells.
   components:
   - type: Item
     size: Small
@@ -202,10 +202,10 @@
 
 
 - type: entity
-  name: "EL-20 HAMRR"
+  name: EL-20 HAMRR
   parent: [BaseItem, BaseSecurityContraband]
   id: WeaponLaserLMG
-  description: "Високотехнологічний лазерний кулемет, що живиться від спеціалізованого рюкзака."
+  description: A high-tech laser LMG, that draws power from specialized backpack.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi

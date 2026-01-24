@@ -858,11 +858,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("REAL")
                         .HasColumnName("height");
 
-                    b.Property<string>("Lifepath")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("lifepath");
-
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");

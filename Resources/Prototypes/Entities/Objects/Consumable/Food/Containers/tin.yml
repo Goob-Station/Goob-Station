@@ -98,8 +98,8 @@
   abstract: true
   parent: [FoodBase, FoodOpenableBase]
   id: FoodTinBase
-  name: "олово"
-  description: "Бляшанка з чимось, щільно закрита."
+  name: tin
+  description: A tin of something, sealed tight.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -152,8 +152,8 @@
   abstract: true
   parent: BaseItem
   id: FoodTinBaseTrash
-  name: "порожня бляшанка"
-  description: "Порожня бляшанка. З неї можна отримати трохи металу."
+  name: empty tin
+  description: An empty tin. Could get a bit of metal from this.
   components:
   - type: Sprite
     state: trash
@@ -175,8 +175,8 @@
 - type: entity
   parent: FoodTinBase
   id: FoodTinPeaches
-  name: "консервовані персики"
-  description: "Просто гарна банка стиглих персиків, що плавають у власному соку."
+  name: tinned peaches
+  description: Just a nice can of ripe peaches swimming in their own juices.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/peaches.rsi
@@ -194,7 +194,7 @@
 - type: entity
   parent: FoodTinBaseTrash
   id: FoodTinPeachesTrash
-  name: "консервовані персики"
+  name: tinned peaches
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/peaches.rsi
@@ -203,7 +203,7 @@
 - type: entity
   parent: FoodTinPeaches
   id: FoodTinPeachesMaint
-  name: "мариновані персики"
+  name: maintenance peaches
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/maint_peaches.rsi
@@ -227,7 +227,7 @@
 - type: entity
   parent: FoodTinBaseTrash
   id: FoodTinPeachesMaintTrash
-  name: "мариновані персики"
+  name: maintenance peaches
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/maint_peaches.rsi
@@ -235,8 +235,8 @@
 - type: entity
   parent: FoodTinBase
   id: FoodTinBeans
-  name: "банка квасолі"
-  description: "Музичний фрукт у трохи менш музичному контейнері."
+  name: tin of beans
+  description: Musical fruit in a slightly less musical container.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/beans.rsi
@@ -252,7 +252,7 @@
 - type: entity
   parent: FoodTinBaseTrash
   id: FoodTinBeansTrash
-  name: "банка квасолі"
+  name: tin of beans
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/beans.rsi
@@ -262,8 +262,8 @@
 - type: entity
   parent: FoodTinBase
   id: FoodTinMRE
-  name: "м'ясні консерви"
-  description: "Стандартна бляшанка для м'яса зі зручною ручкою для витягування."
+  name: tinned meat
+  description: A standard issue tin of meat with a convenient pull tab.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/meat.rsi
@@ -286,7 +286,7 @@
 - type: entity
   parent: FoodTinBaseTrash
   id: FoodTinMRETrash
-  name: "м'ясні консерви"
+  name: tinned meat
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/meat.rsi

@@ -90,10 +90,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "лоток для гідропоніки"
+  name: hydroponics tray
   parent: [ hydroponicsSoil, SmallConstructibleMachine]
   id: hydroponicsTray
-  description: "Космічна ферма міжзоряного рівня, що дозволяє швидко вирощувати та селекціонувати сільськогосподарські культури. Тільки... не забувайте про космічні бур'яни."
+  description: An interstellar-grade space farmplot allowing for rapid growth and selective breeding of crops. Just... keep in mind the space weeds.
   components:
   - type: Fixtures
     fixtures:

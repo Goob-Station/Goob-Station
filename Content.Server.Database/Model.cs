@@ -646,7 +646,6 @@ namespace Content.Server.Database
         public string FlavorText { get; set; } = null!;
         public string Nationality { get; set; } = null!; // Pirate - port EE contractors
         public string Employer { get; set; } = null!; // Pirate - port EE contractors
-        public string Lifepath { get; set; } = null!; // Pirate - port EE contractors
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;

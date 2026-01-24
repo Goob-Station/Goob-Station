@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity # I will just say this gun fucking sucks. holy shit.
-  name: "X-01 Мультифаза"
+  name: X-01 Multiphase
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunMultiphase
-  description: "Це дорога, сучасна копія антикварного лазерного пістолета. Ця зброя має кілька унікальних режимів стрільби, але не може перезаряджатися з часом."
+  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi

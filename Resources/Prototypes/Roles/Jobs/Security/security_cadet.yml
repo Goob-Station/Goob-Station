@@ -119,15 +119,6 @@
       - NanoTrasen
       - ZavodskoiInterstellar
       - PMCG
-    - !type:CharacterLifepathRequirement
-      inverted: true
-      lifepaths:
-      - Cultist
-      - Smuggler
-      - ExCriminal
-      - Enforcer
-      - Hacker
-      - ConArtist
     # Pirate contractor end
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"

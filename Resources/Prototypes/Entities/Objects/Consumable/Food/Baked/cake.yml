@@ -156,7 +156,7 @@
   parent: FoodCakeBase
   id: FoodCakeSliceBase
   abstract: true
-  description: "Просто шматочок торта, його вистачить на всіх."
+  description: Just a slice of cake, it is enough for everyone.
   components:
   - type: FlavorProfile
     flavors:
@@ -181,10 +181,10 @@
 # Custom Cake Example
 
 - type: entity
-  name: "чорничний торт"
+  name: blueberry cake
   parent: FoodCakeBase
   id: FoodCakeBlueberry
-  description: "Забруднює зуби."
+  description: Stains your teeth.
   components:
   - type: Sprite
     layers:
@@ -209,10 +209,10 @@
         color: blue
 
 - type: entity
-  name: "шматочок чорниці"
+  name: blueberry slice
   parent: FoodCakeSliceBase
   id: FoodCakeBlueberrySlice
-  description: "Забруднює зуби."
+  description: Stains your teeth.
   components:
   - type: Sprite
     layers:
@@ -238,10 +238,10 @@
 # Cake
 
 - type: entity
-  name: "торт"
+  name: cake
   parent: FoodCakeBase
   id: FoodCakePlain
-  description: "Звичайний торт, а не брехня."
+  description: A plain cake, not a lie.
   components:
   - type: Sprite
     state: plain
@@ -262,7 +262,7 @@
 # Added in type lines above
 
 - type: entity
-  name: "шматочок торта"
+  name: slice of cake
   parent: FoodCakeSliceBase
   id: FoodCakePlainSlice
   components:
@@ -282,10 +282,10 @@
 # Tastes like sweetness, cake.
 
 - type: entity
-  name: "морквяний пиріг"
+  name: carrot cake
   parent: FoodCakeBase
   id: FoodCakeCarrot
-  description: "Улюблена пустеля одного васкальського кролика."
+  description: A favorite desert of a certain wascally wabbit.
   components:
   - type: Sprite
     state: carrot
@@ -320,10 +320,10 @@
         color: "#ffbd2f"
 
 - type: entity
-  name: "шматочок морквяного пирога"
+  name: slice of carrot cake
   parent: FoodCakeSliceBase
   id: FoodCakeCarrotSlice
-  description: "Морквяна скибочка морквяного торта. Морква корисна для очей!"
+  description: Carrotty slice of carrot cake. Carrots are good for your eyes!
   components:
   - type: Sprite
     state: carrot-slice
@@ -359,10 +359,10 @@
 # Tastes like sweetness, cake, carrot.
 
 - type: entity
-  name: "мозговий торт"
+  name: brain cake
   parent: FoodCakeBase
   id: FoodCakeBrain
-  description: "Хрустке тістечко, схоже на торт."
+  description: A squishy cake-thing.
   components:
   - type: Sprite
     state: brain
@@ -386,10 +386,10 @@
         color: "#ff5b7a"
 
 - type: entity
-  name: "шматочок мозкового пирога"
+  name: slice of brain cake
   parent: FoodCakeSliceBase
   id: FoodCakeBrainSlice
-  description: "Дозвольте розповісти вам дещо про пріони. ВОНИ ДУЖЕ СМАЧНІ."
+  description: Lemme tell you something about prions. THEY'RE DELICIOUS.
   components:
   - type: Sprite
     state: brain-slice
@@ -413,10 +413,10 @@
 # Tastes like sweetness, cake, brains.
 
 - type: entity
-  name: "сирний пиріг"
+  name: cheese cake
   parent: FoodCakeBase
   id: FoodCakeCheese
-  description: "Небезпечно сирні."
+  description: DANGEROUSLY cheesy.
   components:
   - type: Sprite
     state: cheese
@@ -434,10 +434,10 @@
         color: "#ffffff"
 
 - type: entity
-  name: "шматочок сирного пирога"
+  name: slice of cheese cake
   parent: FoodCakeSliceBase
   id: FoodCakeCheeseSlice
-  description: "Шматочок чистого задоволення."
+  description: Slice of pure cheestisfaction.
   components:
   - type: Sprite
     state: cheese-slice
@@ -454,10 +454,10 @@
 # Tastes like sweetness, cream cheese.
 
 - type: entity
-  name: "апельсиновий торт"
+  name: orange cake
   parent: FoodCakeBase
   id: FoodCakeOrange
-  description: "Торт з додаванням апельсина."
+  description: A cake with added orange.
   components:
   - type: Sprite
     layers:
@@ -482,7 +482,7 @@
         color: "#ff9900"
 
 - type: entity
-  name: "шматочок апельсинового пирога"
+  name: slice of orange cake
   parent: FoodCakeSliceBase
   id: FoodCakeOrangeSlice
   components:
@@ -509,10 +509,10 @@
 # Tastes like sweetness, cake, oranges.
 
 - type: entity
-  name: "лаймовий пиріг"
+  name: lime cake
   parent: FoodCakeBase
   id: FoodCakeLime
-  description: "Торт з додаванням лайму."
+  description: A cake with added lime.
   components:
   - type: Sprite
     layers:
@@ -537,7 +537,7 @@
         color: "#00ff00"
 
 - type: entity
-  name: "шматочок лаймового торта"
+  name: slice of lime cake
   parent: FoodCakeSliceBase
   id: FoodCakeLimeSlice
   components:
@@ -564,10 +564,10 @@
 # Tastes like sweetness, cake, limes.
 
 - type: entity
-  name: "лимонний торт"
+  name: lemon cake
   parent: FoodCakeBase
   id: FoodCakeLemon
-  description: "Торт з додаванням лимона."
+  description: A cake with added lemon.
   components:
   - type: Sprite
     layers:
@@ -592,7 +592,7 @@
         color: "#ffff00"
 
 - type: entity
-  name: "шматочок лимонного торта"
+  name: slice of lemon cake
   parent: FoodCakeSliceBase
   id: FoodCakeLemonSlice
   components:
@@ -619,10 +619,10 @@
 # Tastes like sweetness, cake, lemons.
 
 - type: entity
-  name: "лимунний торт"
+  name: lemoon cake
   parent: FoodCakeBase
   id: FoodCakeLemoon
-  description: "Торт, що символізує місяць Землі."
+  description: A cake that represents the moon of earth.
   components:
   - type: Sprite
     state: lemoon
@@ -651,10 +651,10 @@
     heldPrefix: lemoon
 
 - type: entity
-  name: "шматочок лимонного торта"
+  name: shard of lemoon cake
   parent: FoodCakeSliceBase
   id: FoodCakeLemoonSlice
-  description: "Осколок місяця, має запах молока."
+  description: A shard of moon, has the smell of milk.
   components:
   - type: Sprite
     state: lemoon-slice
@@ -692,10 +692,10 @@
         color: "#fffead"
 
 - type: entity
-  name: "шоколадний торт"
+  name: chocolate cake
   parent: FoodCakeBase
   id: FoodCakeChocolate
-  description: "Торт з додаванням шоколаду."
+  description: A cake with added chocolate.
   components:
   - type: Sprite
     layers:
@@ -724,7 +724,7 @@
         color: "#ba672e"
 
 - type: entity
-  name: "шматочок шоколадного торта"
+  name: slice of chocolate cake
   parent: FoodCakeSliceBase
   id: FoodCakeChocolateSlice
   components:
@@ -754,10 +754,10 @@
 # Tastes like sweetness, cake, chocolate.
 
 - type: entity
-  name: "яблучний пиріг"
+  name: apple cake
   parent: FoodCakeBase
   id: FoodCakeApple
-  description: "Пиріг з яблуком у центрі."
+  description: A cake centred with apple.
   components:
   - type: Sprite
     layers:
@@ -782,10 +782,10 @@
         color: "#ff4300"
 
 - type: entity
-  name: "шматочок яблучного пирога"
+  name: slice of apple cake
   parent: FoodCakeSliceBase
   id: FoodCakeAppleSlice
-  description: "Шматочок небесного пирога."
+  description: A slice of heavenly cake.
   components:
   - type: Sprite
     layers:
@@ -811,10 +811,10 @@
 # Tastes like sweetness, cake, slime.
 
 - type: entity
-  name: "слизовий торт"
+  name: slime cake
   parent: FoodCakeBase
   id: FoodCakeSlime
-  description: "Торт зі слизу. Напевно, не під напругою."
+  description: A cake made of slimes. Probably not electrified.
   components:
   - type: Sprite
     state: slime
@@ -838,10 +838,10 @@
         color: "#00ffff"
 
 - type: entity
-  name: "шматочок слизового торта"
+  name: slice of slime cake
   parent: FoodCakeSliceBase
   id: FoodCakeSlimeSlice
-  description: "Шматочок торта зі слизу."
+  description: A slice of slime cake.
   components:
   - type: Sprite
     state: slime-slice
@@ -865,10 +865,10 @@
 # Tastes like sweetness, cake, slime.
 
 - type: entity
-  name: "гарбузово-пряний пиріг"
+  name: pumpkin-spice cake
   parent: FoodCakeBase
   id: FoodCakePumpkin
-  description: "Порожнистий пиріг зі справжнім гарбузом."
+  description: A hollow cake with real pumpkin.
   components:
   - type: Sprite
     state: pumpkinspice
@@ -899,10 +899,10 @@
         color: "#ffffff"
 
 - type: entity
-  name: "шматочок гарбузово-пряного пирога"
+  name: slice of pumpkin-spice cake
   parent: FoodCakeSliceBase
   id: FoodCakePumpkinSlice
-  description: "Пряний шматочок гарбузової смакоти."
+  description: A spicy slice of pumpkin goodness.
   components:
   - type: Sprite
     state: pumpkinspice-slice
@@ -933,10 +933,10 @@
 # Tastes like sweetness, cake, pumpkin.
 
 - type: entity
-  name: "різдвяний торт"
+  name: christmas cake
   parent: FoodCakeBase
   id: FoodCakeChristmas
-  description: "Торт, зроблений з Різдва."
+  description: A cake made of christmas.
   components:
   - type: Sprite
     state: christmas
@@ -956,7 +956,7 @@
         color: "#ab5012"
 
 - type: entity
-  name: "шматочок різдвяного пирога"
+  name: slice of christmas cake
   parent: FoodCakeSliceBase
   id: FoodCakeChristmasSlice
   components:
@@ -978,10 +978,10 @@
 # Tastes like sweetness, cake, christmas.
 
 - type: entity
-  name: "святковий торт"
+  name: birthday cake
   parent: FoodCakeBase
   id: FoodCakeBirthday
-  description: "З днем народження, маленький клоуне..."
+  description: Happy Birthday little clown...
   components:
   - type: Sprite
     state: birthday
@@ -991,10 +991,10 @@
     heldPrefix: birthday
 
 - type: entity
-  name: "шматочок святкового торта"
+  name: slice of birthday cake
   parent: FoodCakeSliceBase
   id: FoodCakeBirthdaySlice
-  description: "Шматочок твого дня народження."
+  description: A slice of your birthday.
   components:
   - type: Sprite
     state: birthday-slice
@@ -1003,10 +1003,10 @@
 # Tastes like sweetness, cake, christmas.
 
 - type: entity
-  name: "ванільний торт"
+  name: vanilla cake
   parent: FoodCakeBase
   id: FoodCakeVanilla
-  description: "Ванільний торт з ванільною глазур'ю."
+  description: A vanilla frosted cake.
   components:
   - type: Sprite
     state: vanilla
@@ -1027,10 +1027,10 @@
     heldPrefix: vanilla
 
 - type: entity
-  name: "шматочок ванільного торта"
+  name: slice of vanilla cake
   parent: FoodCakeSliceBase
   id: FoodCakeVanillaSlice
-  description: "Шматочок ванільного торта з ванільною глазур'ю."
+  description: A slice of vanilla frosted cake.
   components:
   - type: Sprite
     state: vanilla-slice
@@ -1056,10 +1056,10 @@
 # Tastes like sweetness, cake, vanilla.
 
 - type: entity
-  name: "клоунський торт"
+  name: clown cake
   parent: FoodCakeBase
   id: FoodCakeClown
-  description: "Кумедний торт з обличчям клоуна."
+  description: A funny cake with a clown face on it.
   components:
   - type: Sprite
     state: clown
@@ -1080,10 +1080,10 @@
     heldPrefix: clown
 
 - type: entity
-  name: "шматочок клоунського торта"
+  name: slice of clown cake
   parent: FoodCakeSliceBase
   id: FoodCakeClownSlice
-  description: "Нарізка невдалих жартів і безглуздого реквізиту."
+  description: A slice of bad jokes, and silly props.
   components:
   - type: Sprite
     state: clown-slice
@@ -1103,10 +1103,10 @@
 # Tastes like sweetness, cake, clown.
 
 - type: entity
-  name: "торт космонавта"
+  name: spaceman's cake
   parent: FoodCakeBase
   id: FoodCakeSpaceman
-  description: "Торт з глазур'ю у вигляді сурми космонавта."
+  description: A spaceman's trumpet frosted cake.
   components:
   - type: Sprite
     state: trumpet
@@ -1127,10 +1127,10 @@
     heldPrefix: trumpet
 
 - type: entity
-  name: "шматок торта космонавта"
+  name: slice of spaceman's cake
   parent: FoodCakeSliceBase
   id: FoodCakeSpacemanSlice
-  description: "Торт з глазур'ю у вигляді сурми космонавта."
+  description: A spaceman's trumpet frosted cake.
   components:
   - type: Sprite
     state: trumpet-slice
@@ -1150,10 +1150,10 @@
 # Tastes like sweetness, cake, jam.
 
 - type: entity
-  name: "пиріг"
+  name: cak
   id: MobCatCake
   parent: EdibleBase
-  description: "Це торт. Це кіт. Це торт."
+  description: It's a cake. It's a cat. It's a cak.
   components:
   - type: FlavorProfile
     flavors:
@@ -1241,10 +1241,10 @@
 # I can't figure out where to put this. It kind of acts like a cake I guess?
 
 - type: entity
-  name: "надречовина"
+  name: suppermatter
   parent: FoodCakeBase
   id: FoodCakeSuppermatter
-  description: "Надзвичайно щільна і потужна їжа."
+  description: Extremely dense and powerful food.
   components:
   - type: Sprite
     state: suppermatter
@@ -1269,10 +1269,10 @@
     energy: 1.4
 
 - type: entity
-  name: "осколок суперматерії"
+  name: suppermatter shard
   parent: FoodCakeSliceBase
   id: FoodCakeSuppermatterSlice
-  description: "Єдина порція енергії."
+  description: A single portion of power.
   components:
   - type: Sprite
     state: suppermatter-shard

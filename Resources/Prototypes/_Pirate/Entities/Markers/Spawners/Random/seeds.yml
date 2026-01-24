@@ -1,6 +1,6 @@
 
 - type: entity
-  name: "спавнер насіння утилю"
+  name: Salvage Seed Spawner
   id: SalvageSeedSpawnerLow
   suffix: Low
   parent: MarkerBase

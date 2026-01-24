@@ -7,7 +7,7 @@
 
 - type: entity
   id: LockerBlueshieldOfficer
-  name: "офіцерська шафка з блакитним щитом"
+  name: blueshield officer locker
   parent: LockerBaseSecure
   components:
   - type: Appearance
@@ -22,7 +22,7 @@
 
 - type: entity
   id: LockerNanorep
-  name: "шафка представника Нанотрейзен"
+  name: nanotrasen representative locker
   parent: LockerBaseSecure
   components:
   - type: Appearance

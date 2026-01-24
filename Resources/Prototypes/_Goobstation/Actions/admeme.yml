@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVaporizeFreeman
-  name: "Випарувати"
-  description: "На цьому все."
+  name: Vaporize
+  description: That will be all.
   components:
   - type: TargetAction
     interactOnMiss: false
@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBlinkFreeman
-  name: "Блимання"
-  description: "Мудро вчинено, містере Фрімен. Побачимося попереду."
+  name: Blink
+  description: Wisely done, Mr. Freeman. I will see you up ahead.
   components:
   - type: Sprite
     sprite: Objects/Magic/magicactions.rsi # Todo - Unique sprite?
@@ -55,8 +55,8 @@
 - type: entity
   parent: BaseAction
   id: ActionShiftFreeman
-  name: "Зсув"
-  description: "Невже знову цей час?"
+  name: Shift
+  description: Is it really that time again?
   components:
   - type: Action
     useDelay: 1
@@ -73,8 +73,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStopTimeFreeman
-  name: "Зупинити Час"
-  description: "Я усвідомлюю, що цей момент може бути не найзручнішим для відвертої розмови."
+  name: Stop Time
+  description: I realize this moment may not be the most convienient time for a heart-to-heart.
   components:
   - type: Action
     raiseOnUser: true

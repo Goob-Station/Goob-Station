@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDevourLootbug
-  name: "[color=red]Поглинути[/color]"
-  description: "Поглинайте різноманітні матеріали всередину свого тіла."
+  name: "[color=red]Devour[/color]"
+  description: Consume various materials to insides of your body.
   components:
   - type: Action
     icon: { sprite : Interface/Actions/devour.rsi, state: icon }

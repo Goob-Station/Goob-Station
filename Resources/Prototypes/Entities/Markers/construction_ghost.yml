@@ -19,7 +19,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "будівельний привид"
+  name: construction ghost
   id: constructionghost
   categories: [ HideSpawnMenu ]
   components:

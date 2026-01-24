@@ -14,8 +14,8 @@
   id: BaseShowcaseRobot
   abstract: true
   parent: BaseStructure
-  name: "вітрина охоронних роботів"
-  description: "Нефункціональна копія старого робота-охоронця."
+  name: security robot showcase
+  description: A non-functional replica of an old security robot.
   components:
     - type: Anchorable
     - type: Damageable
@@ -47,8 +47,8 @@
 - type: entity
   id: ShowcaseRobot
   parent: BaseShowcaseRobot
-  name: "вітрина охоронних роботів"
-  description: "Нефункціональна копія старого робота-охоронця."
+  name: security robot showcase
+  description: A non-functional replica of an old security robot.
   components:
   - type: Sprite
     sprite: Structures/Decoration/showcase.rsi
@@ -57,8 +57,8 @@
 - type: entity
   id: ShowcaseRobotWhite
   parent: BaseShowcaseRobot
-  name: "вітрина з білим роботом"
-  description: "Нефункціональна копія старого робота."
+  name: white robot showcase
+  description: A non-functional replica of an old robot.
   components:
   - type: Sprite
     sprite: Structures/Decoration/showcase.rsi
@@ -67,8 +67,8 @@
 - type: entity
   id: ShowcaseRobotAntique
   parent: BaseShowcaseRobot
-  name: "вітрина вантажних роботів"
-  description: "Нефункціональна копія старого вантажного робота."
+  name: cargo robot showcase
+  description: A non-functional replica of an old cargo robot.
   components:
   - type: Sprite
     sprite: Structures/Decoration/showcase.rsi
@@ -77,8 +77,8 @@
 - type: entity
   id: ShowcaseRobotMarauder
   parent: BaseShowcaseRobot
-  name: "мародерська вітрина"
-  description: "Нефункціональна копія мародера, пофарбована в зелений колір."
+  name: marauder showcase
+  description: A non-functional replica of a marauder, painted green.
   components:
   - type: Sprite
     sprite: Structures/Decoration/showcase.rsi

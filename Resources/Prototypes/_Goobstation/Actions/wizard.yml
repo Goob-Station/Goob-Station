@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMimeMalaise
-  name: "Нездужання міма"
-  description: "..."
+  name: Mime Malaise
+  description: ...
   components:
   - type: Action
     raiseOnUser: true
@@ -44,8 +44,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCluwneCurse
-  name: "Прокляття Клюна"
-  description: "Настав час почати викручуватися."
+  name: Curse of the Cluwne
+  description: It's time to start cluwning around.
   components:
   - type: Action
     raiseOnUser: true
@@ -80,8 +80,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBananaTouch
-  name: "Банановий дотик"
-  description: "Настав час почати клоунаду."
+  name: Banana Touch
+  description: It's time to start clowning around.
   components:
   - type: Action
     raiseOnUser: true
@@ -117,8 +117,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMagicMissile
-  name: "Чарівна ракета"
-  description: "Випускає кілька приголомшливих магічних снарядів, що повільно рухаються і самонаводяться на цілі поблизу."
+  name: Magic Missile
+  description: Fires several stunning, slow moving, homing magic projectiles at nearby targets.
   components:
   - type: Action
     raiseOnUser: true
@@ -146,8 +146,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDisableTech
-  name: "Вимкнути технологію"
-  description: "Виводить з ладу всю зброю, камери та більшість інших технологій у зоні досяжності."
+  name: Disable Technology
+  description: Disables all weapons, cameras and most other technology in range.
   components:
   - type: Action
     raiseOnUser: true
@@ -177,8 +177,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSmoke
-  name: "Дим"
-  description: "Створює хмару задушливого диму у вашому місці розташування."
+  name: Smoke
+  description: Spawns a cloud of choking smoke at your location.
   components:
   - type: Action
     raiseOnUser: true
@@ -202,8 +202,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRepulse
-  name: "Відштовхуй!"
-  description: "Відкидає все навколо користувача."
+  name: Repulse
+  description: Throws everything around the user away.
   components:
   - type: Action
     raiseOnUser: true
@@ -242,8 +242,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStopTime
-  name: "Час зупинки"
-  description: "Зупиняє час навколо тебе."
+  name: Stop Time
+  description: Stops time around you.
   components:
   - type: Action
     raiseOnUser: true
@@ -274,8 +274,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCorpseExplosion
-  name: "Вибух трупа"
-  description: "Наповнює труп енергією, змушуючи його бурхливо вибухати."
+  name: Corpse Explosion
+  description: Fills a corpse with energy, causing it to explode violently.
   components:
   - type: Action
     raiseOnUser: true
@@ -307,8 +307,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBlindSpell
-  name: "Сліпий"
-  description: "Тимчасово засліплює одну ціль."
+  name: Blind
+  description: Temporarily blinds a single target.
   components:
   - type: Action
     raiseOnUser: true
@@ -344,8 +344,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBindSoul
-  name: "Зв'язати душу"
-  description: "Прив'яжіть свою душу до предмета, щоб воскреснути після смерті. Якщо ваша душа вже прив'язана до предмета і ви мертві, спробуйте воскресити її."
+  name: Bind Soul
+  description: Bind your soul to an item to resurrect after death. If your soul is already bound to an item and you are dead, attempt resurrecion.
   components:
   - type: Action
     raiseOnUser: true
@@ -388,8 +388,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMutateSpell
-  name: "Мутувати"
-  description: "Змушує вас перетворитися на Халка і на короткий час отримати лазерний зір."
+  name: Mutate
+  description: Causes you to turn into a hulk and gain laser vision for a short while.
   components:
   - type: Action
     raiseOnUser: true
@@ -416,8 +416,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTeslaBlast
-  name: "Вибух Тесли"
-  description: "Зарядіть тесла-дугу і випустіть її у випадкові цілі поблизу."
+  name: Tesla Blast
+  description: Charge up a tesla arc and release it at random nearby targets.
   components:
   - type: Action
     raiseOnUser: true
@@ -447,8 +447,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLightningBolt
-  name: "Блискавка"
-  description: "Стріляйте блискавками у своїх ворогів."
+  name: Lightning Bolt
+  description: Fire a lightning bolt at your foes.
   components:
   - type: Action
     raiseOnUser: true
@@ -481,8 +481,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHomingToolbox
-  name: "Інструментарій самонаведення"
-  description: "Вистрілює в супротивника магічним самонавідним інструментарієм."
+  name: Homing Toolbox
+  description: Fires a magical homing toolbox at your opponent.
   components:
   - type: Action
     raiseOnUser: true
@@ -521,8 +521,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSpellCards
-  name: "Карти заклинань"
-  description: "Випустіть до шести залпів самонавідних карт заклинань."
+  name: Spell Cards
+  description: Fire up to six bursts of homing spell cards.
   components:
   - type: Action
     raiseOnUser: true
@@ -562,8 +562,8 @@
 - type: entity
   parent: BaseAction
   id: ActionArcaneBarrage
-  name: "Таємничий загороджувальний бар'єр"
-  description: "Випустіть потік таємничої енергії на своїх ворогів."
+  name: Arcane Barrage
+  description: Fire a torrent of arcane energy at your foes.
   components:
   - type: Action
     raiseOnUser: true
@@ -585,8 +585,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLesserSummonGuns
-  name: "Зброя меншого виклику"
-  description: "Викликайте нескінченний потік болтових гвинтівок."
+  name: Lesser Summon Guns
+  description: Summon an unending stream of bolt action rifles.
   components:
   - type: Sprite # For apprentices
     sprite: _Goobstation/Wizard/actions.rsi
@@ -611,8 +611,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBarnyardCurse
-  name: "Прокляття скотного двору"
-  description: "Прирікає нещасну душу на володіння мовою і рисами обличчя тварини з ферми."
+  name: Curse of the Barnyard
+  description: Dooms an unlucky soul to possess the speech and facial attributes of a barnyard animal.
   components:
   - type: Action
     raiseOnUser: true
@@ -669,8 +669,8 @@
 - type: entity
   parent: BaseAction
   id: ActionScreamForMe
-  name: "Кричи для мене"
-  description: "Це зле заклинання завдає вашій жертві багато важких ран, внаслідок чого вона, швидше за все, стікатиме кров'ю до смерті, якщо не отримає негайної медичної допомоги."
+  name: Scream For Me
+  description: This wicked spell inflicts many severe wounds on your target, causing them to likely bleed to death unless they receive immediate medical attention.
   components:
   - type: Sprite # For apprentices
     sprite: _Goobstation/Wizard/actions.rsi
@@ -708,8 +708,8 @@
 - type: entity
   parent: BaseAction
   id: ActionInstantSummons
-  name: "Миттєвий виклик до суду"
-  description: "Викликає попередньо позначений предмет до вашої руки з будь-якої точки Всесвіту."
+  name: Instant Summons
+  description: Recalls a previously marked item to your hand from anywhere in the universe.
   components:
   - type: Action
     raiseOnUser: true
@@ -735,8 +735,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTeleportWizard
-  name: "Телепортуйся"
-  description: "Це заклинання телепортує вас у вибрану вами область."
+  name: Teleport
+  description: This spell teleports you to an area of your selection.
   components:
   - type: Action
     raiseOnUser: true
@@ -760,8 +760,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTrapsSpell
-  name: "Пастки!"
-  description: "Викликайте навколо себе кілька пасток."
+  name: The Traps!
+  description: Summon a number of traps around you.
   components:
   - type: Action
     raiseOnUser: true
@@ -791,8 +791,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLesserSummonBees
-  name: "Малі бджоли-метелики"
-  description: "Це заклинання магічним чином б'є ногою по просторовому вулику, миттєво викликаючи рій бджіл до вашого місцезнаходження."
+  name: Lesser Summon Bees
+  description: This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location.
   components:
   - type: Sprite # For apprentices
     sprite: _Goobstation/Wizard/actions.rsi
@@ -841,8 +841,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSummonSimians
-  name: "Викликати симіанів"
-  description: "Це заклинання проникає глибоко в стихію бананів (мавпячу, а не клоунську) і викликає перед вами менших мавп і горил, які миттєво виходять з себе і нападають на все, що потрапляє в поле зору. Весело!"
+  name: Summon Simians
+  description: This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons lesser monkeys and gorillas in front of you that will promptly flip out and attack everything in sight. Fun!
   components:
   - type: Action
     raiseOnUser: true
@@ -874,8 +874,8 @@
 - type: entity
   parent: BaseAction
   id: ActionGorillaForm
-  name: "Форма горили"
-  description: "Прийміть форму могутньої горили."
+  name: Gorilla Form
+  description: Take on the shape of a powerful gorilla.
   components:
   - type: Action
     raiseOnUser: true
@@ -903,8 +903,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSanguineStrike
-  name: "Страйк сангвініків"
-  description: "Зачаровує ваш наступний удар зброєю, щоб завдати більше шкоди, зцілити вас від завданої шкоди і поповнити запаси крові."
+  name: Sanguine Strike
+  description: Enchants your next weapon strike to deal more damage, heal you for damage dealt, and refill blood.
   components:
   - type: Action
     raiseOnUser: true
@@ -929,8 +929,8 @@
 - type: entity
   parent: BaseAction
   id: ActionChuuniInvocations
-  name: "Виклики Чууні"
-  description: "Змушує всі ваші заклинання кричати заклинання, а заклинання стають... дурними. Після застосування заклинання ви злегка зцілюєтеся."
+  name: Chuuni Invocations
+  description: Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell.
   components:
   - type: Action
     raiseOnUser: true
@@ -955,8 +955,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSwapSpell
-  name: "Своп"
-  description: "Дозволяє помінятися місцями з будь-якою живою істотою."
+  name: Swap
+  description: Allows you to swap locations with any living being.
   components:
   - type: Action
     raiseOnUser: true
@@ -989,8 +989,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSoulTap
-  name: "Душевний тап"
-  description: "Підживлюйте свої заклинання власною душею!"
+  name: Soul Tap
+  description: Fuel your spells using your own soul!
   components:
   - type: Action
     raiseOnUser: true
@@ -1012,8 +1012,8 @@
 - type: entity
   parent: BaseAction
   id: ActionThrownLightning
-  name: "Кинута блискавка"
-  description: "У вашій руці з'явиться викуваний з елдричних енергій пакет чистої сили, відомий як пакет заклинань, який при кидку завдасть значної шкоди витривалості вашій цілі."
+  name: Thrown Lightning
+  description: Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will deal a lot of stamina damage to your target.
   components:
   - type: Action
     raiseOnUser: true
@@ -1032,8 +1032,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBlinkSpell
-  name: "Блінк"
-  description: "Випадково телепортуйтеся на невелику відстань."
+  name: Blink
+  description: Randomly teleport a short distance.
   components:
   - type: Action
     raiseOnUser: true
@@ -1058,8 +1058,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSummonStickmen
-  name: "Викликати міньйонів паличок"
-  description: "Дозволяє викликати на допомогу в бою вірних союзників-стикменів."
+  name: Summon Stick Minions
+  description: Allows you to summon faithful stickmen allies to aide you in battle.
   components:
   - type: Action
     raiseOnUser: true
@@ -1087,8 +1087,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTileToggle
-  name: "Перемкнути рух плитки"
-  description: "Перемкнути рух плитки для цілі."
+  name: Toggle tile movement
+  description: Toggle tile movement for the target.
   components:
   - type: Action
     raiseOnUser: true

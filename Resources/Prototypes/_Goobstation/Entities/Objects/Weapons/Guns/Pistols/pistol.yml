@@ -13,10 +13,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Дуалетта"
+  name: Dualetta
   parent: [BaseWeaponPistol, BaseSyndicateContraband]
   id: WeaponPistolDualetta
-  description: "Найкрутіший пістолет у секторі. Кажуть, ніхто не має достатньо сильної волі, щоб заплямувати репутацію цієї зброї, наважившись вистрілити з неї без парного пістолета."
+  description: The coolest pistol in the sector. It is said that nobody is strong enough of will to tarnish this weapon's reputation by daring to fire it without its paired pistol.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponPistolAnaconda
-  name: "Анаконда"
-  description: "Важкий пістолет, здатний самостійно забезпечувати себе боєприпасами за допомогою вбудованого фабрикатора."
+  name: Anaconda
+  description: A heavy pistol capable of supplying itself with the ammo on the way using a built-in fabricator.
   components:
   - type: Item
     size: Small
@@ -122,10 +122,10 @@
       ballistic-ammo: !type:Container
 
 - type: entity
-  name: "контрактний термінатор"
+  name: contract terminator
   parent: [BaseWeaponPistol, BaseCentcommContraband]
   id: WeaponPistolCentcommAgent
-  description: "Пістолет, спеціально розроблений для стрільби кулями з нейротоксином. Здатний маскуватися за допомогою синьопросторової технології."
+  description: A pistol specifically designed to fire neurotoxin laced bullets. It's capable concealing itself via bluespace technology.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi

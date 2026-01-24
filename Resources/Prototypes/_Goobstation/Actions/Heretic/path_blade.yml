@@ -12,11 +12,12 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRealignment
-  name: "Перегрупування"
-  description: "Оговтайтеся від усіх оглушень і нокдаунів, набуваючи короткочасного пацифізму."
+  name: Realignment
+  description: Recover from all stuns and knockdowns, gaining short term pacifism.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     checkConsciousness: false
     useDelay: 15
@@ -33,11 +34,12 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticFuriousSteel
-  name: "Несамовита сталь"
-  description: "Викличте навколо себе три захисні леза, що обертаються навколо вас."
+  name: Furious steel
+  description: Summon three orbiting protecting blades around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem

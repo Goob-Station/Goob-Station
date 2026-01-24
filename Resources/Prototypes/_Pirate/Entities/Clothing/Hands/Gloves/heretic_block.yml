@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingHandsBase, BaseSecurityContraband]
   id: ClothingHandsGlovesMansusBlock
-  name: "телекінетичні рукавички"
-  description: "Ця дивна пара рукавичок блокує здатність їхнього власника використовувати сили Мансула. Команда жерців подбала, щоб їх неможливо було зняти без чиєїсь допомоги."
+  name: Telekinetic gloves
+  description: This strange pair of gloves blocks their owner's ability to use Mansul's powers. The team of priests made sure that they could not be removed without someone's help.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Hands/Gloves/marsulbloskgloves.rsi

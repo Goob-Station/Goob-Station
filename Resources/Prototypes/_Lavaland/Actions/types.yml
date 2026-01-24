@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTogglePKALight
-  name: "Перемкнути світло ПКА"
-  description: "Вмикає та вимикає світло ПКА."
+  name: Toggle PKA Light
+  description: Toggle the PKA light on and off.
   components:
   - type: Action
     useDelay: 0.5

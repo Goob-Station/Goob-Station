@@ -1,8 +1,8 @@
 - type: entity
   id: DiseaseBehaviorCough
   parent: DiseaseBehaviorBase
-  name: "Кашель"
-  description: "Змушує вас кашляти. Заразний."
+  name: Cough
+  description: Makes you cough. Infective.
   components:
   - type: DiseaseEffect
     complexity: 6

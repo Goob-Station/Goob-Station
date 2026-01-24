@@ -24,7 +24,7 @@
 # These rulesets exist because Salvage mobs kept harassing the station and going out of control.
 
 - type: entity
-  name: "спавнер ящиків з матеріалами утилізаторів"
+  name: Salvage Material Crate Spawner
   id: SalvageMaterialCrateSpawner
   parent: MarkerBase
   components:
@@ -62,7 +62,7 @@
       offset: 0.0
 
 - type: entity
-  name: "спавнер трофеїв з утилізації"
+  name: salvage loot spawner
   id: SalvageLootSpawner
   parent: MarkerBase
   components:
@@ -80,7 +80,7 @@
       offset: 0.0
 
 - type: entity
-  name: "спавнер мобів утилізаторів"
+  name: Salvage Mob Spawner
   id: SalvageMobSpawner
   parent: MarkerBase
   suffix: 25
@@ -109,7 +109,7 @@
       offset: 0.2
 
 - type: entity #I made this in case someone decided to make a terrifying space tick swarm for salvage. that someone may be me -EG404
-  name: "спавнер космічного кліща утилізаторів"
+  name: Salvage Space Tick Spawner
   id: SpaceTickSpawner
   parent: MarkerBase
   suffix: 100
@@ -124,7 +124,7 @@
         - MobTickSalvage
 
 - type: entity
-  name: "спавнер космічних ведмедів утилізаторів"
+  name: Salvage Space Bear Spawner
   id: SpawnMobBearSalvage
   parent: MarkerBase
   components:
@@ -161,7 +161,7 @@
     offset: 0.2
 
 - type: entity
-  name: "спавнер космічного кенгуру утилізаторів"
+  name: Salvage Space Kangaroo Spawner
   id: SpawnMobKangarooSalvage
   parent: MarkerBase
   components:
@@ -175,7 +175,7 @@
     - MobKangarooSpaceSalvage
 
 - type: entity
-  name: "спавнер космічного павука утилізаторів"
+  name: Salvage Space Spider Spawner
   id: SpawnMobSpiderSalvage
   parent: MarkerBase
   components:
@@ -189,7 +189,7 @@
     - MobSpiderSpaceSalvage
 
 - type: entity
-  name: "спавнер космічної кобри утилізаторів"
+  name: Salvage Space Cobra Spawner
   id: SpawnMobCobraSalvage
   parent: MarkerBase
   components:
@@ -203,7 +203,7 @@
     - MobCobraSpaceSalvage
 
 - type: entity
-  name: "спавнер плоті утилізаторів"
+  name: Salvage Flesh Spawner
   id: SalvageFleshSpawner
   parent: SalvageMobSpawner
   suffix: 100

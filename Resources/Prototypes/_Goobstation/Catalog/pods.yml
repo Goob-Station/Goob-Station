@@ -1,7 +1,7 @@
 - type: entity
   id: SpawnArmamentsCursader
   categories: [ HideSpawnMenu ]
-  name: "обладунки хрестоносця"
+  name: crusader armour
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -12,7 +12,7 @@
 - type: entity
   id: SpawnArmamentsStudent
   categories: [ HideSpawnMenu ]
-  name: "мантія студента"
+  name: student robe
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -23,7 +23,7 @@
 - type: entity
   id: SpawnArmamentsAncient
   categories: [ HideSpawnMenu ]
-  name: "стародавні обладунки"
+  name: ancient armour
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -34,7 +34,7 @@
 - type: entity
   id: SpawnArmamentsWitchhunter
   categories: [ HideSpawnMenu ]
-  name: "вбрання мисливця на відьом"
+  name: witch hunter garb
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -45,7 +45,7 @@
 - type: entity
   id: SpawnArmamentsAdept
   categories: [ HideSpawnMenu ]
-  name: "мантія адепта"
+  name: adept robes
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -55,7 +55,7 @@
 - type: entity
   id: SpawnArmamentsClock
   categories: [ HideSpawnMenu ]
-  name: "забуті обладунки"
+  name: forgotten armour
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -66,7 +66,7 @@
 - type: entity
   id: SpawnArmamentsMonk
   categories: [ HideSpawnMenu ]
-  name: "ряса монаха"
+  name: monk's habit
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -76,7 +76,7 @@
 - type: entity
   id: SpawnArmamentsBishop
   categories: [ HideSpawnMenu ]
-  name: "мантія єпископа"
+  name: bishop's robes
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn

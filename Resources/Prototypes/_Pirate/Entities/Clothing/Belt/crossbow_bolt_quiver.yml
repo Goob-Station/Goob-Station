@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBeltQuiver
   id: ClothingBeltQuiverMagicCrossbow
-  name: "колчан (болти)"
-  description: "Вміщує до 20 болтів і щільно облягає талію."
+  name: quiver (bolts)
+  description: Can hold up to 20 bolts, and fits snug around your waist.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Belt/crossbow_quiver.rsi

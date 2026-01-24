@@ -1,8 +1,8 @@
 - type: entity
   parent: OxygenTank
   id: WaterVaporTank
-  name: "балон з водяною парою"
-  description: "Стандартний циліндричний газовий балон для водяної пари. Може містити 5 літрів газу."
+  name: water vapor tank
+  description: A standard cylindrical gas tank for water vapor. It can hold 5 L of gas.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tanks/water_vapor.rsi
@@ -14,8 +14,8 @@
 - type: entity
   parent: EmergencyOxygenTank
   id: EmergencyWaterVaporTank
-  name: "аварійний балон з водяною парою"
-  description: "Легкопортативний балон для надзвичайних ситуацій. Містить дуже мало водяної пари, призначений лише для виживання. Може містити 0.66 літра газу."
+  name: emergency water vapor tank
+  description: An easily portable tank for emergencies. Contains very little water vapor, rated for survival use only. It can hold 0.66 L of gas.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tanks/emergency_water_vapor.rsi
@@ -27,8 +27,8 @@
 - type: entity
   parent: ExtendedEmergencyOxygenTank
   id: ExtendedEmergencyWaterVaporTank
-  name: "розширений аварійний балон з водяною парою"
-  description: "Аварійний балон збільшеної місткості. Технічно призначений для тривалого використання. Може містити 1.5 літра газу."
+  name: extended-capacity emergency water vapor tank
+  description: An emergency tank with extended capacity. Technically rated for prolonged use. It can hold 1.5 L of gas.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tanks/emergency_extended_water_vapor.rsi
@@ -40,8 +40,8 @@
 - type: entity
   parent: DoubleEmergencyOxygenTank
   id: DoubleEmergencyWaterVaporTank
-  name: "подвійний аварійний балон з водяною парою"
-  description: "Високоякісний двобалонний контейнер аварійного життєзабезпечення. Містить прийнятну кількість водяної пари для свого невеликого розміру. Може містити 2.5 літра газу."
+  name: double emergency water vapor tank
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of water vapor for its small size. It can hold 2.5 L of gas.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tanks/emergency_double_water_vapor.rsi

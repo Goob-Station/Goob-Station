@@ -31,15 +31,6 @@
       employers:
       - NanoTrasen
       - IdrisIncorporated
-    - !type:CharacterLifepathRequirement
-      inverted: true
-      lifepaths:
-      - Cultist
-      - Smuggler
-      - ExCriminal
-      - Enforcer
-      - Hacker
-      - ConArtist
   goobcoins: 30 #Goob content
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"

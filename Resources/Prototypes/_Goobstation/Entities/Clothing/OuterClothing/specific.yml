@@ -20,8 +20,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterSuitHEV
-  name: "костюм H.E.V"
-  description: "Повнотілий костюм для небезпечних умов, розроблений для захисту власника від радіації, енергетичних розрядів, тупих травм під час роботи з небезпечними матеріалами."
+  name: H.E.V suit
+  description: Full-body hazardous suit designed to protect wearer from radiation, energy discarges, blunt-force trauma during the handling of hazardous material.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
@@ -58,8 +58,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: SurveillanceWirelessCameraBodyEntertainment
-  name: "камера nopro"
-  description: "Натільна камера. Вона стежить за вами."
+  name: nopro camera
+  description: A body mounted camera. It's watching you.
   components:
     - type: DeviceNetwork
       deviceNetId: Wireless
@@ -94,8 +94,8 @@
 - type: entity
   parent: ClothingOuterWizardCentCommReal
   id: WhiteRobes
-  name: "шати Обраного"
-  description: "ці білі шати носять лише найкращі з відділу спецоперацій Нанотрасен."
+  name: robes of the chosen one
+  description: theses white robes are worn by only the finest of Nanotrasen's special operations department.
   suffix: chosen one
   components:
   - type: Sprite
@@ -106,8 +106,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSuitHotDog
-  name: "костюм хот-дога"
-  description: "Гаряча сосиска!"
+  name: hotdog costume
+  description: Hot-diggity-dog!
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/hotdog.rsi
@@ -123,8 +123,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSuitPickle
-  name: "костюм огірка"
-  description: "Жахливо пахне оцтом."
+  name: pickle suit
+  description: Smells horribly of vinegar.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/pickle.rsi
@@ -140,8 +140,8 @@
 - type: entity
   parent: ClothingOuterBaseToggleable
   id: ClothingOuterArmorHereticCostume
-  name: "окультні шати"
-  description: "Потертий, запилений комплект шат. Усередині вздовж швів тягнуться дивні розмиті очі."
+  name: occult robes
+  description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
   components:
   - type: Construction
     graph: HereticCostume

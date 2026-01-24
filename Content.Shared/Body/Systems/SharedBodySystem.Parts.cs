@@ -1021,6 +1021,27 @@ public partial class SharedBodySystem
         return !Resolve(bodyId, ref body, logMissing: false) ? 0 : GetBodyChildren(bodyId, body).Count(part => part.Component.PartType == partType);
     }
 
+    public float GetVitalBodyPartRatio(EntityUid bodyId, BodyComponent? body = null)
+    {
+        if (!Resolve(bodyId, ref body, logMissing: false))
+            return 1f;
+
+        var children = GetBodyChildren(bodyId, body);
+        var vitalCount = 0;
+        var count = 0;
+        foreach (var child in children)
+        {
+            count++;
+            if ((int) (child.Component.PartType & BodyPartType.Vital) != 0)
+                vitalCount++;
+        }
+
+        if (vitalCount == 0)
+            return 1f;
+
+        return (float) count / vitalCount;
+    }
+
     public string GetSlotFromBodyPart(BodyPartComponent? part)
     {
         var slotName = "";

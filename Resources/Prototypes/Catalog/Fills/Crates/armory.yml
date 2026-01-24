@@ -33,8 +33,8 @@
 - type: entity
   id: CrateArmorySMG
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: "Ящик з ПП"
-  description: "Містить два пістолети-кулемети з чотирма магазинами. Для відкриття потрібен доступ до зброярні."
+  name: SMG crate
+  description: Contains two SMGs with four mags. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -46,8 +46,8 @@
 - type: entity
   id: CrateArmoryShotgun
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: "ящик з дробовиками"
-  description: "Для тих випадків, коли ворога конче потрібно завалити свинцем. Містить два бойові дробовики Enforcer та кілька стандартних набоїв до них. Для відкриття потрібен доступ Арсеналу."
+  name: shotgun crate
+  description: For when the enemy absolutely needs to be replaced with lead. Contains two Enforcer Combat Shotguns, and some standard shotgun shells. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -59,8 +59,8 @@
 - type: entity
   id: CrateTrackingImplants
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: "імпланти відстеження"
-  description: "Містить кілька відстежувальних імплантів. Добре підходить для в'язнів, яких ви хочете відпустити, але все одно продовжувати стежити за ними."
+  name: tracking implants
+  description: Contains a handful of tracking implanters. Good for prisoners you'd like to release but still keep track of.
   components:
   - type: StorageFill
     contents:
@@ -70,8 +70,8 @@
 - type: entity
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   id: CrateTrainingBombs
-  name: "навчальні бомби"
-  description: "Містить три навчальні бомби малої потужності для тренувань з знешкодження та безпечної утилізації боєприпасів, костюм сапера не входить до комплекту. Для відкриття потрібен доступ до Арсеналу."
+  name: training bombs
+  description: Contains three low-yield training bombs for security to learn defusal and safe ordnance disposal, EOD suit not included. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -81,8 +81,8 @@
 - type: entity
   id: CrateArmoryLaser
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: "ящик з лазерними гвинтівками"
-  description: "Містить три стандартні лазерні гвинтівки. Для відкриття потрібен доступ Арсеналу."
+  name: lasers crate
+  description: Contains three standard-issue laser rifles. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -92,8 +92,8 @@
 - type: entity
   id: CrateArmoryPistols
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: "ящик з пістолетами"
-  description: "Містить два стандартних пістолети NT з чотирма магазинами. Для відкриття потрібен доступ Арсеналу."
+  name: pistols crate
+  description: Contains two standard NT pistols with four mags. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -105,8 +105,8 @@
 - type: entity
   id: CrateSecurityRiot
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: "ящик спецназу"
-  description: "Містить два комплекти броні для придушення заворушень, шоломи, щити та енфорсери, заряджені гумовими кулями. Включені додаткові боєприпаси. Потребує доступу до збройової для відкриття."
+  name: swat crate
+  description: Contains two sets of riot armor, helmets, shields, and enforcers loaded with beanbags. Extra ammo is included. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -124,8 +124,8 @@
 - type: entity
   id: CrateArmoryRifle
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: "ящик з гвинтівками"
-  description: "Містить дві потужні штурмові гвинтівки з чотирма магазинами. Для відкриття потрібен доступ до зброярні."
+  name: rifle crate
+  description: Contains two high-powered assault rifles with four mags. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:

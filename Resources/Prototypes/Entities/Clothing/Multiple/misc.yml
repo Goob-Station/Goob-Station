@@ -1,8 +1,8 @@
 - type: entity
   parent: Clothing
   id: ClothingMultipleHeadphones
-  name: "навушники"
-  description: "Якісні навушники від Drunk Masters, з хорошою звукоізоляцією."
+  name: headphones
+  description: Quality headphones from Drunk Masters, with good sound insulation.
   components:
   - type: Sprite
     sprite: Clothing/Multiple/headphones.rsi

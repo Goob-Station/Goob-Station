@@ -16,8 +16,8 @@
 
 - type: entity
   id: DisposalMachineFrame
-  name: "рама машини високого тиску"
-  description: "Рама машини, виготовлена таким чином, щоб витримувати тиск, який використовується в системі утилізації станції."
+  name: high pressure machine frame
+  description: A machine frame made to withstand the amount of pressure used in the station's disposal system.
   placement:
     mode: SnapgridCenter
   components:

@@ -1,8 +1,8 @@
 - type: entity
-  name: "мк 32 \"\"Універсальний\"\"\""
+  name: mk 32 "Universal"
   parent: BaseWeaponPistol
   id: WeaponPistolUniversal
-  description: "Дорогий і надійний пістолет з пристойними наступальними можливостями. Використовує набої калібру .45 магнум."
+  description: An expensive and robust pistol with decent offensive capabilities. Uses .45 magnum ammo.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Pistols/universal.rsi
@@ -47,7 +47,7 @@
       gun_chamber: !type:ContainerSlot
 
 - type: entity
-  name: "мк 32 \"\"Універсальний\"\"\""
+  name: mk 32 "Universal"
   parent: WeaponPistolUniversal
   id: WeaponPistolUniversalEmpty
   suffix: Empty
@@ -72,14 +72,15 @@
           - CartridgeMagnum
 
 - type: entity
-  name: "мк 32 \"\"Універсальний\"\"\""
+  name: mk 32 "Universal"
   parent: WeaponPistolUniversal
   id: WeaponPistolUniversalSecurity
-  description: "Дорогий і надійний пістолет з пристойними бойовими можливостями. Використовує патрони .45 магнум. Серійний номер на цівці вказує, що ця зброя належить офіцеру служби безпеки NT."
+  description: An expensive and robust pistol with decent offensive capabilities. Uses .45 magnum ammo.
+    The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Security Loadouts
 
 - type: entity
-  name: "мк 32 \"\"Універсальний\"\"\""
+  name: mk 32 "Universal"
   parent: WeaponPistolUniversal
   id: WeaponPistolUniversalNonLethal
   suffix: Non-lethal
@@ -106,8 +107,9 @@
           - CartridgeMagnum
 
 - type: entity
-  name: "мк 32 \"\"Універсальний\"\"\""
+  name: mk 32 "Universal"
   parent: WeaponPistolUniversalNonLethal
   id: WeaponPistolUniversalSecurityNonLethal
-  description: "Дорогий і надійний пістолет з пристойними бойовими можливостями. Використовує патрони .45 магнум. Серійний номер на цівці вказує, що ця зброя належить офіцеру служби безпеки NT."
+  description: An expensive and robust pistol with decent offensive capabilities. Uses .45 magnum ammo.
+    The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Non-lethal, Security Loadouts

@@ -1,9 +1,9 @@
 - type: entity
-  name: "Фороновий кинджал"
+  name: Phoron dagger
   parent: [ BaseMeleeWeaponEnergy, BaseCentcommContraband ]
   id: PhoronDagger
   suffix: DO NOT MAP
-  description: "Витончений кинджал для смаження сиру та вбивства тайдерів."
+  description: A sleek dagger for grilling cheese and slaying tiders.
   components:
     - type: ItemToggle
       soundFailToActivate:

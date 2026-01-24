@@ -399,7 +399,6 @@ namespace Content.Server.Database
                 profile.Species,
                 profile.Nationality, // Pirate - port EE contractors
                 profile.Employer, // Pirate - port EE contractors
-                profile.Lifepath, // Pirate - port EE contractors
                 profile.Height, // Goobstation: port EE height/width sliders
                 profile.Width, // Goobstation: port EE height/width sliders
                 profile.Age,
@@ -444,7 +443,6 @@ namespace Content.Server.Database
             profile.Width = humanoid.Width; // Goobstation: port EE height/width sliders
             profile.Nationality = humanoid.Nationality; // Pirate - port EE contractors
             profile.Employer = humanoid.Employer; // Pirate - port EE contractors
-            profile.Lifepath = humanoid.Lifepath; // Pirate - port EE contractors
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
             profile.Gender = humanoid.Gender.ToString();

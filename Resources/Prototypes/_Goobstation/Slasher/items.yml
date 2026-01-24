@@ -1,8 +1,8 @@
 - type: entity
-  name: "мачете"
+  name: machete
   parent: [ BaseSword, BaseMajorContraband ]
   id: SlasherMachete
-  description: "Великий, зловісний на вигляд клинок."
+  description: A large, vicious looking blade.
   components:
   - type: Tag
     tags:
@@ -37,8 +37,8 @@
 - type: entity
   parent: WeldingMaskBase
   id: ClothingHeadHatSlasherMask
-  name: "маска Слешера"
-  description: "Наголовна маска, що повністю захищає власника від дугового ураження очей у відкритому космосі."
+  name: slasher mask
+  description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
@@ -76,8 +76,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterSlasherApron
-  name: "фартух Слешера"
-  description: "Вишуканий фартух для стильної особи."
+  name: slasher apron
+  description: A fancy apron for a stylish person.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
@@ -114,8 +114,8 @@
 - type: entity
   parent: ClothingHandsGlovesColorBlack
   id: ClothingHandsSlasherGloves
-  name: "рукавиці Слешера"
-  description: "Важкі чорні рукавиці, зіпсовані часом."
+  name: slasher gloves
+  description: Heavy black gloves, stained by time.
   components:
   - type: Armor
     coverage:
@@ -131,8 +131,8 @@
 - type: entity
   parent: ClothingShoesLeather
   id: ClothingShoesSlasher
-  name: "черевики Слешера"
-  description: "Старі шкіряні черевики, що бачили кращі часи."
+  name: slasher shoes
+  description: Old leather boots that have seen better days.
   components:
   - type: Armor
     coverage:
@@ -148,8 +148,8 @@
 - type: entity
   id: SlasherMeatSpike
   parent: BaseStructure
-  name: "Зловісний кривавий шип"
-  description: "Можливо, тобі варто тікати."
+  name: Ominous Meat Spike
+  description: You might want to run.
   components:
   - type: InteractionOutline
   - type: Sprite

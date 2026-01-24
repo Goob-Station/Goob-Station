@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseStructure
   id: DataSiphon
-  name: "сифон даних"
-  description: "Викачує з станції цінні речі та зберігає їх у витратній формі."
+  name: data siphon
+  description: Drains the station of it's valuables and stores valuables in expendable form.
   placement:
     mode: AlignTileAny
   components:

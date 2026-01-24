@@ -49,8 +49,8 @@
 - type: entity
   parent: BaseDice
   id: PercentileDie
-  name: "процентильна плашка"
-  description: "Кубик з десятьма гранями. Краще підходить для кидків d100, ніж м'яч для гольфу."
+  name: percentile die
+  description: A die with ten sides. Works better for d100 rolls than a golf ball.
   components:
   - type: Dice
     sides: 10
@@ -63,8 +63,8 @@
 - type: entity
   parent: BaseDice
   id: d20Dice
-  name: "d20"
-  description: "Кубик з двадцятьма гранями. Найкраще кидати на ГМ."
+  name: d20
+  description: A die with twenty sides. The preferred die to throw at the GM.
   components:
   - type: Dice
     sides: 20
@@ -75,8 +75,8 @@
 - type: entity
   parent: BaseDice
   id: d12Dice
-  name: "d12"
-  description: "Кубик з дванадцятьма гранями. У ній відчувається якась занедбаність."
+  name: d12
+  description: A die with twelve sides. There's an air of neglect about it.
   components:
   - type: Dice
     sides: 12
@@ -87,8 +87,8 @@
 - type: entity
   parent: BaseDice
   id: d10Dice
-  name: "d10"
-  description: "Кубик з десятьма гранями. Корисний для відсотків."
+  name: d10
+  description: A die with ten sides. Useful for percentages.
   components:
   - type: Dice
     sides: 10
@@ -100,8 +100,8 @@
 - type: entity
   parent: BaseDice
   id: d8Dice
-  name: "d8"
-  description: "Кубик з вісьмома гранями. Відчуття... удачі."
+  name: d8
+  description: A die with eight sides. It feels... lucky.
   components:
   - type: Dice
     sides: 8
@@ -112,8 +112,8 @@
 - type: entity
   parent: BaseDice
   id: d6Dice
-  name: "d6"
-  description: "Плашка з шістьма сторонами. Простий і придатний до використання."
+  name: d6
+  description: A die with six sides. Basic and serviceable.
   components:
   - type: Dice
     sides: 6
@@ -124,8 +124,8 @@
 - type: entity
   parent: BaseDice
   id: d4Dice
-  name: "d4"
-  description: "Кубик з чотирма гранями. Калтроп ботаніка."
+  name: d4
+  description: A die with four sides. The nerd's caltrop.
   components:
   - type: Dice
     sides: 4

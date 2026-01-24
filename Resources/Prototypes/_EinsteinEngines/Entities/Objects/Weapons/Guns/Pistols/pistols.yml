@@ -1,8 +1,8 @@
 - type: entity
-  name: "пси-зломщик"
+  name: psi-breaker
   parent: [ BaseWeaponPistol, BaseMantisContraband]
   id: WeaponPistolPsiBreaker
-  description: "Невеликий, яскравий пістолет з мармуровою рукояткою. Тактичної переваги не дає. Використовує спеціальні набої калібру .38."
+  description: A small, flashy pistol with a marble style grip. Provides no tactical advantage. Uses .38 special ammo.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Weapons/Guns/Pistols/psibreaker.rsi

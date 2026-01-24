@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Тревор"
+  name: Trevor
   parent: [MobHorse, ShowSecurityIcons]
   id: MobTrevor
-  description: "Тисяча років космічної еволюції, і це найкраще, що ми змогли вигадати."
+  description: A thousand years of space evolution and this is the best we could come up with.
   components:
   - type: Sprite
     drawdepth: Mobs

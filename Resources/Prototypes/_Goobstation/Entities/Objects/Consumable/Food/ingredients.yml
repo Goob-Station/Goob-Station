@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketProtein
-  name: "упаковка протеїнового порошку"
-  description: "Містить 10 унцій порошкового протеїну. Змішати з 20 унціями води"
+  name: protein powder packet
+  description: Contains 10u of powdered protein. Mix with 20u of water
   components:
   - type: SolutionContainerManager
     solutions:
@@ -31,10 +31,10 @@
     fillBaseName: packet-solid-
 
 - type: entity
-  name: "блок сиру свободи"
+  name: block of freedom cheese
   parent: FoodBakingBase
   id: FoodFreedomCheeseBlock
-  description: "Цільний шматок сиру, що забиває артерії, зроблений за сумнівним рецептом старого світу. Наріжте його для своїх друзів... або просто з'їжте весь шматок самі, дивак."
+  description: A solid block of artery-clogging cheese based on an questionable old world recipe. Slice it for your buddies.. or just eat the entire block for yourself, you weirdo.
   components:
   - type: FlavorProfile
     flavors:
@@ -61,10 +61,10 @@
 
 
 - type: entity
-  name: "скибочка сиру свободи"
+  name: freedom cheese slice
   parent: FoodBakingBase
   id: FoodFreedomCheeseSlice
-  description: "Дуже сумнівна суміш чеддера, наповнювачів та духу свободи. Медична страховка NanoTrasen не покриває інциденти, пов'язані зі споживанням цього продукту."
+  description: Highly questionable amalgamation of cheddar, fillers and the spirit of freedom. NanoTrasen's healthcare does not cover incidents regarding the consumption of this item.
   components:
   - type: FlavorProfile
     flavors:

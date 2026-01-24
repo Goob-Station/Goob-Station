@@ -103,8 +103,8 @@
   parent: BaseItem
   id: BaseVendingMachineRestock
   abstract: true
-  name: "коробка для поповнення торгового автомата"
-  description: "Коробка для поповнення торгових автоматів фірмовими смаколиками."
+  name: vending machine restock box
+  description: A box for restocking vending machines with corporate goodies.
   components:
   - type: VendingMachineRestock
   - type: Sprite
@@ -148,8 +148,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockBooze
-  name: "Коробка для поповнення запасів Booze-O-Mat"
-  description: "Покладіть на свій килимок Booze-O-Mat, щоб розпочати вечірку! Не продається пасажирам, які не досягли встановленого законом віку."
+  name: Booze-O-Mat restock box
+  description: Slot into your Booze-O-Mat to start the party! Not for sale to passengers below the legal age.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -164,8 +164,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockChang
-  name: "Коробка пана Чанга для поповнення запасів"
-  description: "Коробка, обклеєна білими етикетками зі сміливими червоними китайськими ієрогліфами, готова до завантаження в найближчий торговий автомат пана Чанга."
+  name: Mr. Chang's restock box
+  description: A box covered in white labels with bold red Chinese characters, ready to be loaded into the nearest Mr. Chang's vending machine.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -180,8 +180,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockChefvend
-  name: "Коробка для поповнення запасів ChefVend"
-  description: "Поповніть ChefVend. Тільки не розбивайте більше яєць."
+  name: ChefVend restock box
+  description: Refill the ChefVend. Just don't break any more of the eggs.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -196,8 +196,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockCondimentStation
-  name: "ящик для поповнення запасів станції приправ"
-  description: "Поповни станцію для приправ. Холодний соус."
+  name: condiment station restock box
+  description: Refill the condiment station. Mmmm, cold sauce.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -212,8 +212,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockClothes
-  name: "ящик для поповнення гардеробу"
-  description: "Настав час зробити крок назустріч моді! Помістіть у слот для поповнення запасів будь-якого продавця одягу, щоб почати."
+  name: wardrobe restock box
+  description: It's time to step up your fashion! Place inside any clothes vendor restock slot to begin.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -247,8 +247,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockCostumes
-  name: "Коробка для поповнення запасів AutoDrobe"
-  description: "Безліч співробітників NanoTrasen грають у барвистому театрі в трагікомедії. Ви теж можете до них приєднатися! Завантажте це в найближчий торговий автомат AutoDrobe."
+  name: AutoDrobe restock box
+  description: A panoply of NanoTrasen employees are prancing about a colorful theater in a tragicomedy. You can join them too! Load this into your nearest AutoDrobe vending machine.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -263,8 +263,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockDinnerware
-  name: "Коробка для поповнення запасів Plasteel Chef"
-  description: "На цій кухні ніколи не буває сирих продуктів! Щоб почати, киньте в слот для поповнення запасів на пластиковому шеф-кухарі."
+  name: Plasteel Chef's restock box
+  description: It's never raw in this kitchen! Drop into the restock slot on the Plasteel Chef to begin.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -279,8 +279,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockDiscountDans
-  name: "Знижка на коробку для поповнення запасів Дена"
-  description: "Коробка, повна солі та крохмалю. Навіщо страждати якістю, коли можна мати кількість? Знижка від Дена!"
+  name: Discount Dan's restock box
+  description: A box full of salt and starch. Why suffer Quality when you can have Quantity? Discount Dan's!
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -295,8 +295,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockDonut
-  name: "Міцна коробка для поповнення запасів пончиків"
-  description: "Коробка з тороїдальними пачками смаженого тіста для поповнення торгового автомата. Використовувати тільки за вказівкою Robust Industries, LLC."
+  name: Robust Donuts restock box
+  description: A box full of toroidal bundles of fried dough for restocking a vending machine. Use only as directed by Robust Industries, LLC.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -311,8 +311,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockEngineering
-  name: "Коробка для поповнення запасів EngiVend"
-  description: "Тільки для використання сертифікованими фахівцями."
+  name: EngiVend restock box
+  description: Only to be used by certified professionals.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -328,8 +328,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockGames
-  name: "Коробка для поповнення запасів Good Clean Fun"
-  description: "Час кидати за ініціативою, дракони-кістки! Заряджайтеся в автоматі Good Clean Fun!"
+  name: Good Clean Fun restock box
+  description: It's time to roll for initiative, dice dragons! Load up at the Good Clean Fun vending machine!
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -344,8 +344,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockGetmoreChocolateCorp
-  name: "Коробка для поповнення запасу шоколаду GetMore"
-  description: "Коробка з найкращим ерзац-какао. Тільки для використання в офіційних торгових автоматах Getmore Chocolate."
+  name: GetMore Chocolate restock box
+  description: A box loaded with the finest ersatz cacao. Only to be used in official Getmore Chocolate vending machines.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -360,8 +360,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockHotDrinks
-  name: "Найкраща коробка для поповнення запасів Solar"
-  description: "Підсмажений! Для використання в торгових автоматах Solar's Best Hot Drinks або інших торгових автоматах партнерів."
+  name: Solar's Best restock box
+  description: Toasty! For use in Solar's Best Hot Drinks or other affiliate vending machines.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -376,8 +376,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockMedical
-  name: "Коробка для поповнення запасів NanoMed"
-  description: "Вставте в NanoMed або NanoMedPlus у вашому відділенні для дозування. Поводьтеся з ним обережно."
+  name: NanoMed restock box
+  description: Slot into your department's NanoMed or NanoMedPlus to dispense. Handle with care.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -393,8 +393,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockNutriMax
-  name: "Коробка для поповнення запасів NutriMax"
-  description: "Ми зробимо ваші пальці зеленими за допомогою наших інструментів. Приступаємо до збору врожаю! Завантажуємо в торговий автомат NutriMax."
+  name: NutriMax restock box
+  description: We'll make your thumbs green with our tools. Let's get to harvesting! Load into a NutriMax vending machine.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -409,8 +409,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockPTech
-  name: "Коробка для поповнення запасів PTech"
-  description: "Вся бюрократія, з якою ви можете впоратися, і навіть більше! Завантажте в торговий автомат PTech, щоб почати."
+  name: PTech restock box
+  description: All the bureaucracy you can handle, and more! Load into the PTech vending machine to get started.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -425,8 +425,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockRobustSoftdrinks
-  name: "коробка для поповнення запасів напоїв"
-  description: "Холодний, незграбний контейнер з холодними циліндрами, що стикаються. Використовувати тільки за вказівкою Robust Industries, LLC."
+  name: beverage restock box
+  description: A cold, clunky container of colliding chilly cylinders. Use only as directed by Robust Industries, LLC.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -449,8 +449,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSecTech
-  name: "Коробка для поповнення запасів SecTech"
-  description: "Комуністи, стережіться: прибуло підкріплення! На етикетці написано: ТІЛЬКИ ДЛЯ ПЕРСОНАЛУ БЕЗПЕКИ."
+  name: SecTech restock box
+  description: "Communists beware: the reinforcements have arrived! A label reads SECURITY PERSONNEL ONLY."
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -466,8 +466,8 @@
   abstract: true # DeltaV: Salvage vendor doesn't have stock anymore
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSalvageEquipment
-  name: "Коробка для поповнення запасів утилізатора"
-  description: "Вдарте об землю, поки космічний короп не вхопив вас за зад! Для початку вріжся в продавця утильсировини."
+  name: Salvage Vendor restock box
+  description: Strike the earth ere the space carp nip your behind! Slam into a salvage vendor to begin.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -482,8 +482,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSeeds
-  name: "Коробка для поповнення запасів MegaSeed"
-  description: "На етикетці вказано, що це насіння - сімейна цінність, яка передалася від наших предків. Покладіть його в MegaSeed Servitor!"
+  name: MegaSeed restock box
+  description: A label says they're heirloom seeds, passed down from our ancestors. Pack it into the MegaSeed Servitor!
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -498,8 +498,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSmokes
-  name: "Коробка для поповнення запасів ShadyCigs"
-  description: "Важко щось розгледіти під усіма цими попередженнями, але там згадується про завантаження його в торговий автомат."
+  name: ShadyCigs restock box
+  description: It's hard to see anything under all the Surgeon General warnings, but it mentions loading it into a vending machine.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -514,8 +514,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockTankDispenser
-  name: "ящик для видачі балонів"
-  description: "Здатний замінити цистерни видачі газу. Поводьтеся з ним обережно."
+  name: tank dispenser restock box
+  description: Capable of replacing tanks in a gas tank dispenser. Handle with care.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -531,8 +531,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockVendomat
-  name: "Коробка для поповнення запасу вендомату"
-  description: "Коробка, повна деталей для різних механізмів. Для початку завантажте її у вендомат."
+  name: Vendomat restock box
+  description: A box full of parts for various machinery. Load it into a Vendomat to begin.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -547,8 +547,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockRobotics
-  name: "Коробка для поповнення запасів Robotech Deluxe"
-  description: "Коробка, повна інструментів для створення боргів. Завантажте її в Robotech Deluxe, щоб почати."
+  name: Robotech Deluxe restock box
+  description: A box full of tools for creating borgs. Load it into a Robotech Deluxe to begin.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -563,8 +563,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockHappyHonk
-  name: "коробка поповнення \"Щасливий гудок"
-  description: "Помістіть цю коробку, повну веселощів, у слот для поповнення на дозаторі \"Щасливий гудок\", щоб почати."
+  name: Happy Honk restock box
+  description: Place this box full of fun into the restock slot on the Happy Honk Dispenser to begin.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -579,8 +579,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockChemVend
-  name: "Коробка для поповнення запасів ChemVend"
-  description: "Ящик, наповнений хімікатами та вкритий небезпечними на вигляд діамантами NFPA. Для початку завантажте її в ChemVend."
+  name: ChemVend restock box
+  description: A box filled with chemicals and covered in dangerous-looking NFPA diamonds. Load it into a ChemVend to begin.
   components:
   - type: VendingMachineRestock
     canRestock:

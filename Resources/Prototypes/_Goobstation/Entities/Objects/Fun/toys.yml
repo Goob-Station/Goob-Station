@@ -31,8 +31,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieLouie
-  name: "плюшевий луї"
-  description: "Мила м'яка іграшка, що нагадує щура. Ви відчуваєте дивний примус привітатися з щуром."
+  name: louie plushie
+  description: A cute stuffed toy that resembles a rat. You feel a strange compulsion to say hi to the rat.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -59,10 +59,10 @@
       path: /Audio/Items/Toys/mousesqueek.ogg
 
 - type: entity
-  name: "Пінотронглер"
+  name: Foam Throngler
   parent: BaseSword
   id: FoamThrongler
-  description: "Не той Тронглер, якого ви хотіли, а той Тронглер, на якого ви заслуговуєте."
+  description: Not the Throngler you wanted, But the Throngler you deserve.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Fun/Throngler-Foam.rsi
@@ -86,8 +86,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieDurk
-  name: "Плюшевий Дурк"
-  description: "Мила м'яка іграшка, що нагадує певного атмосферного техніка. Тримаючи її, ви відчуваєте наближення великого руйнування всесвіту"
+  name: Durk plushie
+  description: A cute stuffed toy that resembles a certain atmospheric technician. You feel like a great breaking of the universe approaches while holding this
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -113,10 +113,10 @@
       path: /Audio/Effects/adminhelp.ogg
 
 - type: entity
-  name: "Іграшковий Вандерпрод"
+  name: Toy Wonderprod
   parent: BaseSword
   id: FoamWonderprod
-  description: "Використання цього змусить службу безпеки вбити вас."
+  description: Using this will make sec kill you.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/foamwonderprod.rsi
@@ -172,8 +172,8 @@
 - type: entity
   parent: BaseBinglePlushie
   id: PlushieBingle
-  name: "повнорозмірний плюшевий бінгл"
-  description: "Мила м'яка іграшка, що нагадує синього інопланетянина. Ви відчуваєте дивне бажання сказати бінгл"
+  name: full size bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
@@ -183,8 +183,8 @@
 - type: entity
   parent: BaseBinglePlushie
   id: PlushieBingleSmall
-  name: "плюшевий бінгл"
-  description: "Мила м'яка іграшка, що нагадує синього інопланетянина. Ви відчуваєте дивне бажання сказати бінгл"
+  name: bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -194,8 +194,8 @@
 - type: entity
   parent: BaseBinglePlushie
   id: PlushieBingleYakub
-  name: "плюшевий бінгл Якуба"
-  description: "Мила м'яка іграшка, що нагадує синього інопланетянина. Ви відчуваєте дивне бажання сказати бінгл"
+  name: yakub bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
@@ -205,8 +205,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieBongle
-  name: "плюшевий бонгл"
-  description: "Мила м'яка іграшка, що нагадує червоного інопланетянина. Ви відчуваєте дивне бажання сказати бонгл"
+  name: bongle plushie
+  description: A cute stuffed toy that resembles a red alien. You feel a strange compulsion to say bongle
   components:
   - type: Sprite
     noRot: true
@@ -216,8 +216,8 @@
 - type: entity
   parent: BaseBinglePlushie
   id: PlushieBinglePony
-  name: "плюшевий поні-бінгл"
-  description: "Мила м'яка іграшка, що нагадує синього інопланетянина. Ви відчуваєте дивне бажання сказати бінгл"
+  name: bingle pony plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     noRot: true
@@ -227,8 +227,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieAbductor
-  name: "плюшевий інопланетянин"
-  description: "Глорп Зап Зібл Гларп \"Плюш\" Блібл"
+  name: alien plush
+  description: Glorp Zap Zeeble Glarp "Plush" Bleeble
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -261,7 +261,7 @@
 
 - type: entity
   id: GrenadeToy
-  name: "граната-жарт"
+  name: prank grenade
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -285,7 +285,7 @@
 
 - type: entity
   id: BulletGrenadeToy
-  name: "граната-жарт"
+  name: prank grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -305,10 +305,10 @@
       collection: Explosion
 
 - type: entity
-  name: "тайванський ставок" # we ball
+  name: taiwan pond # we ball
   parent: [BaseWeaponLauncher, BaseGunWieldable]
   id: WeaponLauncherTaiwanPond
-  description: "ПЛЮХ."
+  description: PLOOP.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
@@ -342,8 +342,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieSamantha
-  name: "плюшева джейн блюшилд"
-  description: "Мила м'яка іграшка, що нагадує ветерана-офіцера блюшилд. Тримаючи її, ви відчуваєте раптове бажання з'їсти льодяник."
+  name: jane blueshield plushie
+  description: A cute stuffed toy that resembles a veteran blueshield officer. You feel a sudden urge for lollypops while holding it.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -409,8 +409,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieJvne
-  name: "плюшева джун"
-  description: "Важкий був день..."
+  name: jvne plushie
+  description: It's been a rough day...
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -442,8 +442,8 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieFern
-  name: "плюшевий містичний ящір"
-  description: "Ви відчуваєте, ніби за вами спостерігає щось інше... просто поза полем зору, в тіні."
+  name: mystical lizard plushie
+  description: You feel as if something else is watching you... just out of sight, in the shadows.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -464,8 +464,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieNigel
-  name: "красива плюшева іграшка"
-  description: "Пахне величчю та виразним запахом парфумів марки \"Адаламін\"?"
+  name: handsome plushie
+  description: Smells like greatness, and a distinct smell of adalamin brand perfume?
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -495,8 +495,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieBrizby
-  name: "Плюшевий Брізбі"
-  description: "Завжди визнає, що він злий."
+  name: Brizby plushie
+  description: Will always admit to being evil.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -544,8 +544,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieBaldzby
-  name: "Плюшевий Болдзбі"
-  description: "Тепер правда відкрита для всіх."
+  name: Baldzby plushie
+  description: Now the truth is open for all to see.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -574,8 +574,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieBoggle
-  name: "плюшевий Боггл"
-  description: "Відчувається, що всередині є гроші."
+  name: Boggle plushie
+  description: You can feel money inside.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -607,8 +607,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieLehmin
-  name: "плюшевий Лехмін"
-  description: "Пахне хімікатами, вам стає не по собі, коли ви його тримаєте."
+  name: Lehmin plushie
+  description: Smells like chemicals, you feel uneasy holding it.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -640,7 +640,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieMnwaar
-  name: "Плюшевий Мнваар"
+  name: Mnwaar plush
   description: "A plushie of a small, deep gray, semi-heterochromic Shadowkin wearing the outfit of a Chief Medical Officer.\nThe tag reads: \"Mnwaar: Medical's Muted Manager!™ Now with magnetically attaching Hypospray!\""
   components:
   - type: Sprite
@@ -686,9 +686,9 @@
 - type: entity
   parent: BasePlushie
   id: PlushieXeve
-  name: "плюшева іграшка Xeve Byrd"
+  name: Xeve Byrd plush
   suffix: Voodoo
-  description: "Ота клята птиця, яку я ненавиджу."
+  description: "That fucking byrd that I hate."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -745,8 +745,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieTheHolyCrusader
-  name: "плюшевий Святий Хрестоносець"
-  description: "Найсвятіший хлопець, якого ви коли-небудь зустрінете"
+  name: Holy Crusader plush
+  description: "The Holiest guy you will Ever meet"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -809,8 +809,8 @@
 - type: entity
   parent: BaseItem
   id: DiscoBeachBall
-  name: "диско пляжний м'яч"
-  description: "Диско-пляжний м'яч перетворює будь-яку поїздку на пляж на Студію 54."
+  name: disco beach ball
+  description: A disco beach ball turns any beach trip into Studio 54.
   components:
   - type: Sprite
     sprite: Objects/Fun/Balls/beach_ball.rsi
@@ -861,11 +861,11 @@
             max: 1
 
 - type: entity
-  name: "Розбишака"
+  name: The Throngler
   parent: ToyHammer
   id: ThronglerToy
   suffix: Toy
-  description: "Навіщо ви це робите?"
+  description: Why would you make this?
   components:
     - type: Sprite
       sprite: Objects/Weapons/Melee/Throngler2.rsi
@@ -892,8 +892,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushiePasha
-  name: "плюшевий втомлений вокс"
-  description: "Не надто милий плюшевий іграшковий, що нагадує перепрацьованого Вокса. Сильно пахне нікотином."
+  name: tired vox plushie
+  description: A not so cute stuffed toy that resembles an overworked Vox. Smells strongly of nicotine.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -931,8 +931,8 @@
 - type: entity
   parent: PlushieMoth
   id: PlushieLeguia
-  name: "один вугор"
-  description: "Сумнівна істота."
+  name: one singular eel
+  description: Dubious creature.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -970,8 +970,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieWachtel
-  name: "плюшевий Груг"
-  description: "Найп'яніший Водій Божий"
+  name: grug plushie
+  description: God's Drunkest Driver
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -1007,73 +1007,73 @@
       path: /Audio/Effects/adminhelp.ogg
 
 - type: entity
-  name: "зла плюшева Ксів"
+  name: evil Xeve plush
   parent: PlushieXeve
   id: EvilPlushieXeve
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Боггл"
+  name: evil Boggle plush
   parent: PlushieBoggle
   id: EvilPlushieBoggle
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Брізбі"
+  name: evil Brizby plush
   parent: PlushieBrizby
   id: EvilPlushieBrizby
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Найджел"
+  name: evil Nigel plush
   parent: PlushieNigel
   id: EvilPlushieNigel
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Ферн"
+  name: evil Fern plush
   parent: PlushieFern
   id: EvilPlushieFern
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Джун"
+  name: evil Jvne plush
   parent: PlushieJvne
   id: EvilPlushieJvne
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Мнваар"
+  name: evil Mnwaar plush
   parent: PlushieMnwaar
   id: EvilPlushieMnwaar
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Дарк"
+  name: evil Durk plush
   parent: PlushieDurk
   id: EvilPlushieDurk
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Луї"
+  name: evil Louie plush
   parent: PlushieLouie
   id: EvilPlushieLouie
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Груг"
+  name: evil Grug plush
   parent: PlushieWachtel
   id: EvilPlushieWachtel
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Легуя"
+  name: evil Leguia plush
   parent: PlushieLeguia
   id: EvilPlushieLeguia
   suffix: Evil
 
 - type: entity
-  name: "злий плюшевий Паша"
+  name: evil Pasha plush
   parent: PlushiePasha
   id: EvilPlushiePasha
   suffix: Evil
@@ -1081,8 +1081,8 @@
 - type: entity
   parent: BaseItem
   id: ToyMansusGrasp
-  name: "зелена хватка"
-  description: "Сила Богів Жартів, спрямована через вашу хватку. Служба безпеки не оцінить жарт."
+  name: green grasp
+  description: The power of the Prank Gods, channeled through your grip. Security won't appreciate the prank.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/mansus_grasp.rsi
@@ -1112,8 +1112,8 @@
 - type: entity
   parent: BaseItem
   id: ToyBladeEldritch
-  name: "репліка ельдричного клинка"
-  description: "Пластиковий зелений серпоподібний клинок, оздоблений декоративним оком. Вам здається, що за вами стежать..."
+  name: replica eldritch blade
+  description: A plastic green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
   components:
   - type: Construction
     graph: ToyBlades
@@ -1136,8 +1136,8 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeAsh
-  name: "репліка попелястого клинка"
-  description: "Розплавлений і невикований, шмат пластика, викривлений до попелу й шлаку. Недомарений, він прагне бути більшим, ніж є."
+  name: replica ashen blade
+  description: Molten and unwrought, a hunk of plastic warped to cinders and slag. Unmade, it aspires to be more than it is.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
@@ -1157,8 +1157,8 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeBlade
-  name: "репліка розтрощеного клинка"
-  description: "Гордий клинок, відсічений і розірваний. У люті він ріже. Пластикові шрами навіки прив’язують його до темної мети."
+  name: replica sundered blade
+  description: A gallant blade, severed and torn. Furiously, the blade cuts. Plastic scars bind it forever to its dark purpose.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
@@ -1178,8 +1178,8 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeFlesh
-  name: "репліка кривавого клинка"
-  description: "Серпоподібний клинок, народжений із плоттю викривленого пластика. У свідомості він прагне поширити на інших нестерпну комедію, яку пережив через своє моторошне походження."
+  name: replica bloody blade
+  description: A crescent blade born from fleshwarped plastic. Keenly aware, it seeks to spread to others the excruciating comedy it has endured from its dreadful origins.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi
@@ -1199,8 +1199,8 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeRust
-  name: "репліка іржавого клинка"
-  description: "Цей серпоподібний клинок занепалий, в’яне до іржі. Та все одно кусає, розриваючи плоть і кістки зазубреним, гнилим пластиком."
+  name: replica rusted blade
+  description: This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten plastic.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
@@ -1220,8 +1220,8 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeVoid
-  name: "репліка клинка порожнечі"
-  description: "Позбавлений будь-якої субстанції, цей клинок віддзеркалює комедію. Він — справжній образ безглуздя й хаосу, що виникає після його застосування."
+  name: replica void blade
+  description: Devoid of any substance, this blade reflects comedy. It is a real depiction of hilarity, and chaos that ensues after its implementation.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_void.rsi
@@ -1241,8 +1241,8 @@
 - type: entity
   parent: BaseItem
   id: ToyCodexCicatrix
-  name: "кодекс Цікатрікс"
-  description: "Цей легкий фоліант сповнений загадкових карлючок і заплутаних схем. За легендою, його можна розшифрувати й відкрити таємниці завіси між світами."
+  name: codex cicatrix
+  description: This light tome is full of cryptic scribbles and confusing diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
   components:
   - type: UseDelay
     delay: 1.5

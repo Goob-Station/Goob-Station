@@ -34,12 +34,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "телекристал"
+  name: telecrystal
   parent: [BaseItem, BaseSyndicateContraband]
   id: Telecrystal
   # Goobstation - Telecrystal rework
   suffix: 100 TC
-  description: "Здається, він пульсує підозріло привабливими енергіями."
+  description: It seems to be pulsing with suspiciously enticing energies.
   components:
   - type: Sprite
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
@@ -92,8 +92,8 @@
 - type: entity
   parent: [BaseItem, StorePresetUplink, BaseSyndicateContraband]
   id: BaseUplinkRadio
-  name: "синдикатський канал зв'язку"
-  description: "Підозріло виглядає старий радіоприймач..."
+  name: syndicate uplink
+  description: Suspiciously looking old radio...
   suffix: Empty
   components:
   - type: Sprite

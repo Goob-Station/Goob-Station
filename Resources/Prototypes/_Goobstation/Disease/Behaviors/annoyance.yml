@@ -1,8 +1,8 @@
 - type: entity
   id: DiseaseBehaviorVomit
   parent: DiseaseBehaviorBase
-  name: "Блювання"
-  description: "Змушує вас періодично блювати."
+  name: Vomiting
+  description: Makes you periodically vomit.
   components:
   - type: DiseaseEffect
     complexity: 12 # can make you constantly hungry
@@ -26,8 +26,8 @@
 - type: entity
   id: DiseaseBehaviorFeelUnwell
   parent: DiseaseBehaviorBase
-  name: "Нездужання"
-  description: "Викликає нездужання."
+  name: Feeling unwell
+  description: Makes you feel unwell.
   components:
   - type: DiseaseEffect
     complexity: 4 # just an annoyance
@@ -42,8 +42,8 @@
 - type: entity
   id: DiseaseBehaviorHeadache
   parent: DiseaseBehaviorBase
-  name: "Головний біль"
-  description: "Викликає головний біль, що може ускладнити роботу."
+  name: Headache
+  description: Gives you headaches, which may make working more difficult.
   components:
   - type: DiseaseEffect
     complexity: 8 # very annoying
@@ -58,8 +58,8 @@
 - type: entity
   id: DiseaseBehaviorGravitosisA
   parent: DiseaseBehaviorBase
-  name: "Гравітозис А"
-  description: "Рідкісний і екзотичний симптом хвороби, який змушує предмети закручуватися навколо вас."
+  name: Gravitosis A
+  description: Rare and exotic disease symptom that causes objects to swirl around you.
   components:
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
@@ -74,8 +74,8 @@
 - type: entity
   id: DiseaseBehaviorGravitosisB
   parent: DiseaseBehaviorBase
-  name: "Гравітозис Б"
-  description: "Рідкісний і екзотичний симптом хвороби, який змушує предмети рухатися до вас."
+  name: Gravitosis B
+  description: Rare and exotic disease symptom that causes objects to go towards you.
   components:
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
@@ -90,8 +90,8 @@
 - type: entity
   id: DiseaseBehaviorGravitosisC
   parent: DiseaseBehaviorBase
-  name: "Гравітозис С"
-  description: "Рідкісний і екзотичний симптом хвороби, який змушує предмети віддалятися від вас."
+  name: Gravitosis C
+  description: Rare and exotic disease symptom that causes objects to go away from you.
   components:
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
@@ -106,8 +106,8 @@
 - type: entity
   id: DiseaseBehaviorOwO
   parent: DiseaseBehaviorBase
-  name: "ОвО-фікація"
-  description: "Рідкісний та екзотичний симптом хвороби, який змушує вас мовити як кіт."
+  name: OwOify
+  description: Rare and exotic disease symptom that causes you to vocalize like a cat.
   components:
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying

@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: LibrarianTranslatorImplant
-  name: "імплант перекладача бібліотекаря"
-  description: "Імплант, що дає здатність розуміти та розмовляти більшістю мов."
+  name: librarian translator implant
+  description: An implant giving the ability to understand and speak most languages.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -94,8 +94,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: ChevalTranslatorImplant
-  name: "імплант-перекладач Шеваль"
-  description: "Імплант, що дає здатність розуміти та розмовляти мовою Шеваль."
+  name: cheval translator implant
+  description: An implant giving the ability to understand and speak Cheval.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -107,8 +107,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: BasicSpaceItalianTranslatorImplant
-  name: "базовий імплант космічного італійського перекладача"
-  description: "Надає вам можливість розуміти мешканців кухні."
+  name: basic space italian translator implant
+  description: Provides you the ability to understand the residents of the kitchen.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -118,8 +118,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: SpaceItalianTranslatorImplant
-  name: "просунутий імплант космічного італійського перекладача"
-  description: "Надає вам можливість говорити мовою кухні."
+  name: advanced space italian translator implant
+  description: Provides you the ability to speak the language of the kitchen.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -131,8 +131,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: YowKriolTranslatorImplant
-  name: "Імплантат-перекладач йоу-кріолу"
-  description: "Імплантат, що дає змогу розуміти й розмовляти йоу-кріолом."
+  name: Yow Kriol translator implant
+  description: An implant giving the ability to understand and speak Yow Kriol.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant

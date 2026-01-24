@@ -84,8 +84,8 @@
 - type: entity
   parent: BaseItem
   id: BaseFigurine
-  name: "статуетка"
-  description: "Маленька мініатюра."
+  name: figurine
+  description: A small miniature.
   abstract: true
   components:
   - type: Sprite
@@ -116,8 +116,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineHeadOfPersonnel
-  name: "фігурка голови персоналу"
-  description: "Фігурка, із славнозвісним зображеннямголови персоналу, що, як завжди, перебуває далеко від свого офісу."
+  name: head of personnel figure
+  description: A figurine depicting the glorious head of all personnel, away from their office as usual.
   components:
   - type: Sprite
     state: hop
@@ -127,8 +127,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurinePassenger
-  name: "пасажирська фігурка"
-  description: "Фігурка, що зображає буденне, пересічне пасажирство станції. Не знаходить нічого цікавого."
+  name: passenger figure
+  description: A figurine depicting an every day, run-of-the-mill passenger. No funny business here.
   components:
   - type: Sprite
     state: passenger
@@ -138,8 +138,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineGreytider
-  name: "сіріша фігура"
-  description: "Фігурка із зображенням пасажира сумнівного вигляду. Грейтайд по всьому світу!"
+  name: greytider figure
+  description: A figurine depicting a dubious-looking passenger. Greytide worldwide!
   components:
   - type: Sprite
     state: passenger_greytide
@@ -149,8 +149,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineClown
-  name: "фігурка клоуна"
-  description: "Фігурка, що зображує клоуна. Ви здригаєтеся, думаючи через що вона могла пройти."
+  name: clown figure
+  description: A figurine depicting a clown. You shudder to think of what people have probably done to this figurine before.
   components:
   - type: Sprite
     state: clown
@@ -160,8 +160,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineHoloClown
-  name: "фігурка голоклоуна"
-  description: "Фігурка, що зображує голографічних клоунів. Ще більш дратівливих, ніж звичайних, і не менш реальних.."
+  name: holoclown figure
+  description: A figurine depicting a holoclown. Even more annoying than a clown and no less real.
   components:
   - type: Sprite
     state: holoclown
@@ -171,8 +171,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineMime
-  name: "фігурка міма"
-  description: "Фігурка, що зображує мовчазного виродка, з яким ви добре знайомі."
+  name: mime figure
+  description: A figurine depicting that silent bastard you are all too familiar with.
   components:
   - type: Sprite
     state: mime
@@ -182,8 +182,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineMusician
-  name: "фігурка музиканта"
-  description: "Фігурка, що зображує музиканта, їх музика вражає."
+  name: musician figure
+  description: A figurine depicting a Musician, his music was electrifying.
   components:
   - type: Sprite
     state: musician
@@ -193,8 +193,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineBoxer
-  name: "фігура боксера"
-  description: "Фігурка, що зображує боксера, як завжди з рукавичками напоготові."
+  name: boxer figure
+  description: A figurine depicting a Boxer holding their red gloves.
   components:
   - type: Sprite
     state: boxer
@@ -204,8 +204,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineCaptain
-  name: "фігурка капітана"
-  description: "Фігурка, що зображує стандартне капітанське вбрання певної станції Нанотрейзен."
+  name: captain figure
+  description: A figurine depicting the standard outfit of a captain belonging to a civilian-sector Nanotrasen vessel.
   components:
   - type: Sprite
     state: captain
@@ -215,8 +215,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineHeadOfSecurity
-  name: "фігурка голови служби безпеки"
-  description: "Фігурка із не сумнозвісним зображенням голови відділу служби безпеки."
+  name: head of security figure
+  description: A figurine depicting the glorious head of the Security department.
   components:
   - type: Sprite
     state: hos
@@ -226,8 +226,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineWarden
-  name: "фігурка наглядача"
-  description: "Фігурка, що зображує наглядача, з готовністю в будь-який час посадити когось за ґрати."
+  name: warden figure
+  description: A figurine depicting a Warden, ready to jail someone at any moment.
   components:
   - type: Sprite
     state: warden
@@ -237,8 +237,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineDetective
-  name: "фігура детектива"
-  description: "Фігурка, що зображує детектива в культовому пальті."
+  name: detective figure
+  description: A figurine depicting a Detective wearing their iconic trench coat.
   components:
   - type: Sprite
     state: detective
@@ -248,8 +248,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineSecurity
-  name: "фігурка офіцера"
-  description: "Фігурка, що зображує співробітництво служби безпеки з кийком, що точно готове захищати станцію."
+  name: security officer figure
+  description: A figurine depicting a Security Officer holding a stunbaton, ready to defend the station.
   components:
   - type: Sprite
     state: security
@@ -259,8 +259,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineLawyer
-  name: "фігура юриста"
-  description: "Фігурка, що зображує адвоката у свіжо пошитому костюмі."
+  name: lawyer figure
+  description: A figurine depicting a Lawyer sporting a freshly tailored suit.
   components:
   - type: Sprite
     state: lawyer
@@ -270,8 +270,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineCargoTech
-  name: "фігура вантажника"
-  description: "Фігурка, що зображує рептилію, працюючу на вантажних вакансіях Карго."
+  name: cargo technican figure
+  description: A figurine depicting a reptillian Cargo Technican.
   components:
   - type: Sprite
     state: cargotech
@@ -281,8 +281,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineSalvage
-  name: "фігурка шахтарства"
-  description: "Фігурка із шахтарським зображенням, що тримає в руках ніж для виживання."
+  name: salvage specialist figure
+  description: A figurine depicting a Salvage Specialist holding a survival knife.
   components:
   - type: Sprite
     state: salvage
@@ -292,8 +292,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineQuartermaster
-  name: "фігурка квартирмейстера"
-  description: "Фігурка, що зображує славного голову вантажного відділу."
+  name: quartermaster figure
+  description: A figurine depicting the glorious head of the Cargo department.
   components:
   - type: Sprite
     state: qm
@@ -303,8 +303,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineChiefEngineer
-  name: "фігурка голови інженерії"
-  description: "Фігурка із славнозвісним зображенням голови інженерного відділу."
+  name: chief engineer figure
+  description: A figurine depicting the glorious head of the Engineering department.
   components:
   - type: Sprite
     state: ce
@@ -314,8 +314,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineEngineer
-  name: "фігурка інженерії"
-  description: "Фігурка, що зображає інженерію станції, з ломом напоготові."
+  name: station engineer figure
+  description: A figurine depicting a Station Engineer holding a crowbar at-ready.
   components:
   - type: Sprite
     state: engineer
@@ -325,8 +325,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineAtmosTech
-  name: "фігурка атмосферного техніка"
-  description: "Фігурка, що зображає атосферну інженерію, із ще викненим зварювальним апаратом у руках."
+  name: atmospheric technician figure
+  description: A figurine depicting an Atmos Tech holding an unlit welder.
   components:
   - type: Sprite
     state: atmos
@@ -336,8 +336,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineResearchDirector
-  name: "фігурка наукового керівника"
-  description: "Фігурка, що зображує славного голову наукового відділу."
+  name: research director figure
+  description: A figurine depicting the glorious head of the Science department.
   components:
   - type: Sprite
     state: rd
@@ -347,8 +347,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineScientist
-  name: "фігурка вчених"
-  description: "Фігурка, що зображує вчених в лабораторному халаті."
+  name: scientist figurine
+  description: A figurine depicting a Scientist donning a labcoat.
   components:
   - type: Sprite
     state: scientist
@@ -358,8 +358,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineChiefMedicalOfficer
-  name: "фігурка головного лікаря"
-  description: "Фігурка із славносвісним зображенням голови медичного відділу."
+  name: chief medical officer figure
+  description: A figurine depicting the glorious head of the Medical department.
   components:
   - type: Sprite
     state: cmo
@@ -369,8 +369,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineChemist
-  name: "фігурка хіміка"
-  description: "Фігурка, що зображає хіміка, що, імовірно, планує виготовити метамфетамін."
+  name: chemist figure
+  description: A figurine depicting a Chemist probably planning to make meth.
   components:
   - type: Sprite
     state: chemist
@@ -380,8 +380,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineParamedic
-  name: "фігурка парамедика"
-  description: "Фігурка, що зображує парамедика в бронескафандрі порожнечі."
+  name: paramedic figure
+  description: A figurine depicting a Paramedic wearing their void suit.
   components:
   - type: Sprite
     state: paramedic
@@ -391,8 +391,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineMedicalDoctor
-  name: "фігурка лікаря"
-  description: "Фігурка, що зображає лікаря в халаті та зі шприцом."
+  name: medical doctor figure
+  description: A figurine depicting a Medical Doctor, donning a labcoat & syringe.
   components:
   - type: Sprite
     state: medical
@@ -402,8 +402,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineLibrarian
-  name: "фігурка бібліотекаря"
-  description: "Фігурка, що зображає бібліотекаря, єдиного та неповторного."
+  name: librarian figure
+  description: A figurine depicting the one-and-only librarian.
   components:
   - type: Sprite
     state: librarian
@@ -413,8 +413,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineChaplain
-  name: "фігурка капелана"
-  description: "Фігурка, що зображає капелана, що з надією молиться за добрі справи."
+  name: chaplain figure
+  description: A figurine depicting a Chaplain hopefully praying for good things.
   components:
   - type: Sprite
     state: chaplain
@@ -424,8 +424,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineChef
-  name: "фігурка шеф-кухаря"
-  description: "Фігурка, що зображає шеф-кухаря, повного майстерності кулінарного мистецтва... час від часу."
+  name: chef figure
+  description: A figurine depicting a chef, master of the culinary arts!.. most of the time.
   components:
   - type: Sprite
     state: chef
@@ -435,8 +435,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineBartender
-  name: "фігурка бармена"
-  description: "Фігурка, що зображає бармена, стильно виглядаючого в рокерських окулярах окулярам і циліндрі."
+  name: bartender figure
+  description: A figurine depicting a Bartender looking stylish with their rockin shades and tophat.
   components:
   - type: Sprite
     state: bartender
@@ -446,8 +446,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineBotanist
-  name: "фігурка гідропоніки"
-  description: "Фігурка, що зображує екіпаж парцюючий в гідропоніці, який точно не дасть кудзу вийти з-під контролю."
+  name: botanist figure
+  description: A figurine depicting a Botanist that surely won't let kudzu get out of control.
   components:
   - type: Sprite
     state: botanist
@@ -457,8 +457,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineJanitor
-  name: "фігурка прибиральника"
-  description: "Фігурка прибирального персоналу в ґалошах."
+  name: janitor figure
+  description: A figurine depicting a Janitor with their galoshes.
   components:
   - type: Sprite
     state: janitor
@@ -468,8 +468,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineNukie
-  name: "фігурка оперативника"
-  description: "Фігурка, що зображає постать в криваво-червоному комбінезоні, схожому на той, що можуть носити члени ядерної оперативної групи."
+  name: syndicate operative figure
+  description: A figurine depicting someone in a blood-red hardsuit, similar to what someone on a nuclear operative team might wear.
   components:
   - type: Sprite
     state: nukie
@@ -479,8 +479,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineNukieElite
-  name: "оперативний працівник елітного синдикату"
-  description: "Фігурка, що зображає людину в елітному криваво-червоному комбінезоні, схожому на той, що може носити член команди ядерних агентів."
+  name: elite syndicate operative figure
+  description: A figurine depicting someone in an elite blood-red hardsuit, similar to what someone on a nuclear operative team might wear.
   components:
   - type: Sprite
     state: nukie_elite
@@ -490,8 +490,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineNukieCommander
-  name: "фігурка командування оперативної групи"
-  description: "Фігурка, що зображає постать у криваво-червоному комбінезоні, схожому на той, що може носити командування ядерної оперативної групи."
+  name: syndicate operative commander figure
+  description: A figurine depicting someone in a beefed-up blood-red hardsuit, similar to what the commander of a nuclear operative team might wear.
   components:
   - type: Sprite
     state: nukie_commander
@@ -501,8 +501,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineFootsoldier
-  name: "фігурка піхотинця синдикату"
-  description: "Фігурка із зображенням вбрання піхотинця синдикату."
+  name: syndicate footsoldier figure
+  description: A figurine depicting the outfit of a syndicate footsoldier.
   components:
   - type: Sprite
     state: footsoldier
@@ -512,8 +512,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineWizard
-  name: "фігурка чарівника"
-  description: "Фігурка, що зображає постать з довгою шовковистою бородою в чарівницькому вбранні. Магли мріють мати такі."
+  name: wizard figure
+  description: A figurine depicting someone with a long, silky beard wearing a wizard outfit. Warlocks wish they had anything on this.
   components:
   - type: Sprite
     state: wizard
@@ -523,8 +523,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineWizardFake
-  name: "фігурка псевдочарівника"
-  description: "Фігурка, що зображає постать у підробленому костюмі чарівника. Який цирк!"
+  name: fake wizard figure
+  description: A figurine depicting someone in a fake-ass wizard costume. What a ripoff!
   components:
   - type: Sprite
     state: wizard_fake
@@ -536,8 +536,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineSpaceDragon
-  name: "фігурка космічного дракона"
-  description: "Велика фігурка, що зображує космічного дракона, червоні очі які вічно дивляться на вас."
+  name: space dragon figure
+  description: A large figurine depicting a space dragon, its red eyes on gazing on its prey.
   components:
   - type: Sprite
     state: spacedragon
@@ -547,8 +547,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineQueen
-  name: "фігура ксенокоролеви"
-  description: "Велика фігурка, що зображує королеву ксеносів, готову до атаки."
+  name: xeno queen figure
+  description: A large figurine depicting a xeno queen, ready to attack.
   components:
   - type: Sprite
     state: queen
@@ -558,8 +558,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineRatKing
-  name: "фігурка щурячого короля"
-  description: "Велика фігурка, що зображує щурячого короля, що готується звити собі гніздо."
+  name: rat king figure
+  description: A large figurine depicting a rat king, prepared to make its nest.
   components:
   - type: Sprite
     state: ratking
@@ -569,8 +569,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineRatServant
-  name: "фігурка щурячого підданства"
-  description: "Фігурка, що зображує щура, що живе в ім'я свого короля!"
+  name: rat servant figure
+  description: A figurine depicting a rat serving the king of rats!
   components:
   - type: Sprite
     state: ratservant
@@ -580,8 +580,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineMouse
-  name: "фігурка миші"
-  description: "Фігурка, що зображає мишу, що дременула до найближчого шматка їжі чи калюжі пролитого напою."
+  name: mouse figure
+  description: A figurine depicting a mouse scuttling away to the nearest piece of food.
   components:
   - type: Sprite
     state: mouse
@@ -591,8 +591,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineSlime
-  name: "фігурка слизняка"
-  description: "Фігурка, що зображує напівпрозору слизову істоту."
+  name: slime figure
+  description: A figurine depicting a translucent blue slime.
   components:
   - type: Sprite
     state: slime
@@ -602,8 +602,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineHamlet
-  name: "фігурка Гамлета"
-  description: "Фігурка із зображенням Гамлета, не класти у мікрохвиьову піч."
+  name: hamlet figure
+  description: A figurine depicting Hamlet, microwave not included.
   components:
   - type: Sprite
     state: hamlet
@@ -616,8 +616,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyGriffin
-  name: "фігурка Грифона"
-  description: "Фігурка, змодельована на честь \"Грифона\", відома в кримінального авторитеті."
+  name: griffin figure
+  description: An action figure modeled after 'The Griffin', criminal mastermind.
   components:
   - type: Sprite
     state: griffinprize
@@ -625,8 +625,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyOwlman
-  name: "фігурка Сови"
-  description: "Фігурка, створена за мотивами \"Сови\", на захисті справедливості."
+  name: owl figure
+  description: An action figure modeled after 'The Owl', defender of justice.
   components:
   - type: Sprite
     state: owlprize
@@ -634,8 +634,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToySkeleton
-  name: "фігурка скелета"
-  description: "Виглядає лякаюче КІСТКИ КІСТКИ!"
+  name: skeleton figure
+  description: Spooked ya!
   components:
   - type: Sprite
     state: skeletonprize
@@ -643,8 +643,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineThief
-  name: "фігурка крадія"
-  description: "Ви чуєте скрипи закритих дверей вдалині..."
+  name: thief character figure
+  description: Hiding in the shadows...
   components:
   - type: Sprite
     state: thiefcharacter

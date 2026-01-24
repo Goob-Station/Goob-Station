@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgePistolMindbreaker
-  name: "патрон (.35 auto mindbreaker)"
-  description: "Мабуть, найпопулярніший калібр на ринку, що використовується у всіляких пістолетах та пістолетах-кулеметах."
+  name: cartridge (.35 auto mindbreaker)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns.
   parent: [ BaseCartridgePistol, BaseMantisContraband ]
   components:
   - type: CartridgeAmmo

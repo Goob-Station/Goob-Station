@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseWall
   id: WallCosmicCult
-  name: "лиховісна стіна"
-  description: "Стіна дивного вигляду. Якщо дивитися на неї занадто довго, виникає відчуття дискомфорту."
+  name: malign wall
+  description: A strange-looking wall. Staring at it for too long instills a sense of discomfort.
   components:
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
@@ -28,7 +28,7 @@
 - type: entity
   parent: WallCosmicCult
   id: WallCosmicCultTrimmed
-  name: "лиховісна стіна"
+  name: malign wall
   suffix: Trimmed
   components:
   - type: Icon
@@ -53,8 +53,8 @@
 
 - type: entity
   id: WindowCosmicCult
-  name: "лиховісна панель"
-  description: "Дивне на вигляд вікно. Щось у ньому вас нервує."
+  name: malign pane
+  description: An odd-looking window. Something about it unnerves you.
   parent: WindowRCDResistant
   components:
   - type: Sprite
@@ -97,7 +97,7 @@
 
 - type: entity
   id: WindowCosmicCultDark
-  name: "лиховісна панель"
+  name: malign pane
   suffix: Tinted
   parent: WindowCosmicCult
   components:
@@ -112,9 +112,9 @@
 
 - type: entity
   parent: WallShuttleDiagonal
-  description: "Дивне на вигляд вікно. Щось у ньому вас нервує."
+  description: An odd-looking window. Something about it unnerves you.
   id: WindowCosmicCultDiagonal
-  name: "лиховісна панель"
+  name: malign pane
   suffix: Diagonal
   placement:
     mode: SnapgridCenter
@@ -146,7 +146,7 @@
 - type: entity
   parent: WindowCosmicCultDiagonal
   id: WindowCosmicCultDiagonalDark
-  name: "лиховісна панель"
+  name: malign pane
   suffix: Diagonal, Tinted
   placement:
     mode: SnapgridCenter

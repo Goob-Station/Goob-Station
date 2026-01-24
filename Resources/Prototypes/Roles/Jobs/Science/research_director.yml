@@ -162,15 +162,6 @@
     employers:
     - NanoTrasen
     - Interdyne
-  - !type:CharacterLifepathRequirement
-    inverted: true
-    lifepaths:
-    - Cultist
-    - Smuggler
-    - ExCriminal
-    - Enforcer
-    - Hacker
-    - ConArtist
   # Pirate contractor end
   weight: 10
   startingGear: ResearchDirectorGear

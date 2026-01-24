@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: DartMonkeyCube
-  name: "куб дротикової мавпи"
-  description: "Стиснений куб, який при використанні створює стаціонарну мавпу, що стріляє дротиками по кульках."
+  name: dart monkey cube
+  description: A compressed cube, that when used, produces a stationary monkey that shoots darts at balloons.
   components: 
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi
@@ -18,8 +18,8 @@
 - type: entity
   id: CrateDartMonkey
   parent: CratePlastic
-  name: "ящик з дротиковою мавпою"
-  description: "Ящик, що містить сильно стиснену дротикову мавпу. Ідеально для лускання кульок, тільки не ставте запитань про етику цього..."
+  name: dart monkey crate
+  description: A crate containing a highly compressed dart monkey. Perfect for popping balloons, just don't question the ethics of it...
   components:
   - type: StorageFill
     contents:

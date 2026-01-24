@@ -3,8 +3,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformMNKOfficeSkirt
-  name: "Офісна спідниця МНК"
-  description: "Вбрання МНК у межах офісного дрес-коду."
+  name: MNK office skirt
+  description: An MNK outfit within office dress code.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/office_skirt.rsi
@@ -14,8 +14,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformMNKUnderGarment
-  name: "Нижній одяг МНК"
-  description: "МНК подбав про комфорт найважливіших місць."
+  name: MNK under garment
+  description: MNK ensured comfort for the important bits.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/under_garments.rsi
@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformMNKGymBra
-  name: "Спортивний бюстгальтер МНК"
-  description: "Максимальна продуктивність із блокаторами поту МНК."
+  name: MNK gym bra
+  description: Maximum performance with MNK sweat blockers.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/gym_bra.rsi
@@ -36,8 +36,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformMNKDressBlack
-  name: "Чорна сукня МНК"
-  description: "Стильна чорна сукня з фірмовим віконцем МНК."
+  name: MNK black dress
+  description: A sleek black dress sporting a MNK window.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/black_dress.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformMNKBlackOveralls
-  name: "Чорний комбінезон МНК"
-  description: "Зручна майка та товстий чорний комбінезон МНК."
+  name: MNK black overalls
+  description: A comfy undershirt and thick black MNK overalls.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/black_overall.rsi
@@ -58,8 +58,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformMNKBlackShoulder
-  name: "Вбрання МНК з відкритими плечима"
-  description: "Вбрання МНК із відкритими плечима."
+  name: MNK exposed shoulders
+  description: A MNK outfit with exposed shoulders.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/exposed_shoulder.rsi
@@ -69,8 +69,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformMNKTracksuitBlack
-  name: "Чорний спортивний костюм МНК"
-  description: "Набір легкого спортивного одягу МНК."
+  name: MNK black tracksuit
+  description: A set of light MNK athletic clothing.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/tracksuit.rsi

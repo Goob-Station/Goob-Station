@@ -1,7 +1,7 @@
 - type: entity
   id: DevilGrip
-  name: "диявольська хватка"
-  description: "Та мала частка вашої сили, що залишилася в цьому царстві, скерована у ваші руки."
+  name: devils grip
+  description: What little fraction of your power remains in this realm, channeled into your hands.
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable

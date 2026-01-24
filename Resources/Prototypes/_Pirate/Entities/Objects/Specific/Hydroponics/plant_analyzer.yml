@@ -1,8 +1,8 @@
 - type: entity
   id: PlantAnalyzer
   parent: [BaseItem, PowerCellSlotSmallItem]
-  name: "аналізатор рослин"
-  description: "Сканер, який використовується для оцінки різних зон росту рослини, генетичних ознак та хімічних речовин."
+  name: plant analyzer
+  description: A scanner used to evaluate a plant's various areas of growth, genetic traits and chemicals.
   components:
   - type: PowerCellDraw
     drawRate: 0.8
@@ -34,10 +34,10 @@
     - Chemicals
 
 - type: entity
-  name: "звіт аналізатора рослин"
+  name: plant analyzer report
   parent: Paper
   id: PlantAnalyzerReportPaper
-  description: "Роздруківка з аналізатора рослин."
+  description: A printout from a plant analyzer.
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi

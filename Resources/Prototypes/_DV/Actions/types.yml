@@ -15,8 +15,8 @@
 - type: entity
   parent: BaseAction
   id: ActionOpenRadioImplant
-  name: "Відкрити радіоімплант"
-  description: "Відкриває відсік для ключів bluespace радіоімплантату, вмонтованого у ваш череп."
+  name: Open Radio Implant
+  description: Opens the bluespace key compartment of the radio implant embedded in your skull.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -30,8 +30,8 @@
 - type: entity
   parent: BaseAction
   id: ActionOpenMouthStorage
-  name: "Відкрити сховище в щічках"
-  description: "Дозволяє зберігати предмети в щоках."
+  name: Open cheek storage
+  description: Allows you to store items in your cheeks.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -43,8 +43,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleSneakMode
-  name: "Увімкнути прихований режим"
-  description: "Проникайте під столи."
+  name: Toggle sneak mode
+  description: Sneak underneath tables.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -57,8 +57,8 @@
 
 - type: entity
   id: ActionChitzite
-  name: "Викашляти Чітзіт"
-  description: "Очистіть своє тіло від надлишку радіації та отримайте крутий небезпечний камінь."
+  name: Cough Up Chitzite
+  description: Purge the excess radiation build-up from your body, and gain a cool danger rock.
   components:
   - type: Action
     enabled: false

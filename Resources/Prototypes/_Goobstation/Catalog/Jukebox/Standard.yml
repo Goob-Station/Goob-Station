@@ -105,43 +105,43 @@
 
 - type: jukebox
   id: skubstep
-  name: "Фінкет - Skubstep"
+  name: Finket - Skubstep
   path:
     path: /Audio/Lobby/skubstep.ogg
 
 - type: jukebox
   id: sneeds
-  name: "Burgerchild - Корм та Насіння Сніда"
+  name: Burgerchild - Sneeds Feed and Seed
   path:
     path: /Audio/Lobby/sneedsfeedandseed.ogg
 
 - type: jukebox
   id: clownwmv
-  name: "Адмірал Хіппі - Клоун.wmv"
+  name: Admiral Hippie - Clown.wmv
   path:
     path: /Audio/Lobby/clownwmv.ogg
 
 - type: jukebox
   id: clownalwayswins
-  name: "NИTRODE - Клоун завжди перемагає"
+  name: NИTRODE - Clown Always Wins
   path:
     path: /Audio/Lobby/clownalwayswins.ogg
 
 - type: jukebox
   id: horn
-  name: "Scruq - Ріг!"
+  name: Scruq - Horn!
   path:
     path: /Audio/Lobby/horn.ogg
 
 - type: jukebox
   id: thewizard
-  name: "Chris Remo - Чарівник"
+  name: Chris Remo - The Wizard
   path:
     path: /Audio/Lobby/thewizard.ogg
 
 - type: jukebox
   id: dawsonschristian
-  name: "Vic Tyler - Християнин Доусона"
+  name: Vic Tyler - Dawson's Christian
   path:
     path: /Audio/Lobby/dawsonschristian.ogg
 
@@ -153,162 +153,162 @@
 
 - type: jukebox
   id: violet
-  name: "Mrjajkes - Фіолетовий"
+  name: Mrjajkes - Violet
   path:
     path: /Audio/_Goobstation/Announcements/violet.ogg
 
 - type: jukebox
   id: redsun
-  name: "Червоне сонце в небі"
+  name: Red Sun in the Sky
   path:
     path: /Audio/Lobby/redsun.ogg
 
 - type: jukebox
   id: chollima
-  name: "Pochonbo Electronic Ensemble - Чхолліма на крилі"
+  name: Pochonbo Electronic Ensemble - Chollima on the Wing
   path:
     path: /Audio/Lobby/chollima.ogg
 
 - type: jukebox
   id: blatantly_nuclear
-  name: "mrjajkes - Відверто ядерний"
+  name: mrjajkes - Blatantly Nuclear
   path:
     path: /Audio/StationEvents/blatantly_nuclear.ogg
 
 - type: jukebox
   id: countdown
-  name: "Qwertyqwerty - Відлік"
+  name: Qwertyqwerty - Countdown
   path:
     path: /Audio/StationEvents/countdown.ogg
 
 - type: jukebox
   id: last_call
-  name: "Mrjajkes - Останній дзвінок"
+  name: Mrjajkes - Last Call
   path:
     path: /Audio/StationEvents/last_call.ogg
 
 - type: jukebox
   id: running_out
-  name: "Bolgarich - Час спливає"
+  name: Bolgarich - Running Out
   path:
     path: /Audio/StationEvents/running_out.ogg
 
 - type: jukebox
   id: sound_station_14
-  name: "Donchan - Sound Station 14"
+  name: Donchan - Sound Station 14
   path:
     path: /Audio/StationEvents/sound_station_14.ogg
 
 - type: jukebox
   id: tansume
-  name: "Moranbong Band - Тансуме"
+  name: Moranbong Band - Tansume
   path:
     path: /Audio/StationEvents/tansume.ogg
 
 - type: jukebox
   id: absconditus
-  name: "ZhayTee - Absconditus"
+  name: ZhayTee - Absconditus
   path:
     path: /Audio/Lobby/absconditus.ogg
 
 - type: jukebox
   id: spaceasshole
-  name: "Chris Remo - Космічний мудак"
+  name: Chris Remo - Space Asshole
   path:
     path: /Audio/Lobby/space_asshole.ogg
 
 - type: jukebox
   id: endless_space
-  name: "SolusLunes - Нескінченний космос"
+  name: SolusLunes - Endless Space
   path:
     path: /Audio/Lobby/endless_space.ogg
 
 - type: jukebox
   id: singuloose
-  name: "Janis Schiedková - Сінгулуз"
+  name: Janis Schiedková - Singuloose
   path:
     path: /Audio/Lobby/singuloose.ogg
 
 - type: jukebox
   id: comet_haley
-  name: "Stellardrone - Комета Галлея"
+  name: Stellardrone - Comet Haley
   path:
     path: /Audio/Lobby/comet_haley.ogg
 
 - type: jukebox
   id: title2
-  name: "Eric Shumaker & Jonathan Dunn - Робокоп / Заголовок 2"
+  name: Eric Shumaker & Jonathan Dunn - Robocop / Title 2
   path:
     path: /Audio/Lobby/title2.ogg
 
 - type: jukebox
   id: spac_stac
-  name: "Hayabusa - Spac Stac"
+  name: Hayabusa - Spac Stac
   path:
     path: /Audio/Lobby/Spac_Stac.ogg
 
 - type: jukebox
   id: pwmur
-  name: "Sunbeamstress - Форон зробить нас багатими"
+  name: Sunbeamstress - Phoron Will Make Us Rich
   path:
     path: /Audio/Lobby/pwmur.ogg
 
 - type: jukebox
   id: lasers_rip_apart_the_bulkhead
-  name: "Sunbeamstress - Лазери розривають перебірку"
+  name: Sunbeamstress - Lasers Rip Apart the Bulkhead
   path:
     path: /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
 
 - type: jukebox
   id: every_light_is_blinking_at_once
-  name: "Sunbeamstress - Усі вогні блимають одночасно"
+  name: Sunbeamstress - Every Light is Blinking at Once
   path:
     path: /Audio/Lobby/every_light_is_blinking_at_once.ogg
 
 - type: jukebox
   id: atomicamnesiammx
-  name: "Philip Dyer - Атомна амнезія MMX"
+  name: Philip Dyer - Atomic Amnesia MMX
   path:
     path: /Audio/Lobby/atomicamnesiammx.ogg
 
 - type: jukebox
   id: the_future_soon
-  name: "Jonathan Coulton - Майбутнє незабаром"
+  name: Jonathan Coulton - The Future Soon
   path:
     path: /Audio/Lobby/the_future_soon.ogg
 
 - type: jukebox
   id: running_in
-  name: "Q/\ntum - Вбігаючи (feat Z.W.E.I.)"
+  name: Q/\ntum - Running In (feat Z.W.E.I.)
   path:
     path: /Audio/_Goobstation/Music/running_in.ogg
 
 - type: jukebox
   id: abductor
-  name: "Crockitz - Abductor"
+  name: Crockitz - Abductor
   path:
     path: /Audio/_Goobstation/Music/Abductor.ogg
 
 - type: jukebox
   id: blackswarm
-  name: "Bobik-music - Black Swarm"
+  name: Bobik-music - Black Swarm
   path:
     path: /Audio/_Goobstation/Music/Black_Swarm.ogg
 
 - type: jukebox
   id: asgore
-  name: "KennyTheLyr1c1st - Asgore Runs Over Dess"
+  name: KennyTheLyr1c1st - Asgore Runs Over Dess
   path:
     path: /Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg
 
 - type: jukebox
   id: the_final_battle
-  name: "Bobik-music — The Final Battle"
+  name: Bobik-music - The Final Battle
   path:
     path: /Audio/_Goobstation/Music/Colonial_Marines_The_Final_Battle.ogg
 
 - type: jukebox
   id: graytide
-  name: "Mrjajkes — Пісня Ґрейтайду"
+  name: Mrjajkes - The Greytide Song
   path:
     path: /Audio/_Goobstation/Music/the_gray_tide_song.ogg

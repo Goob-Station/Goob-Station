@@ -21,8 +21,8 @@
 - type: entity
   parent: BaseWoodwindInstrument
   id: SaxophoneInstrument
-  name: "саксофон"
-  description: "Інструмент. Можливо, ви могли б перетворити це на сирий джаз."
+  name: saxophone
+  description: An instrument. You could probably grind this into raw jazz.
   components:
   - type: Instrument
     program: 66
@@ -46,7 +46,7 @@
 - type: entity
   parent: BaseWoodwindInstrument
   id: HarmonicaInstrument
-  name: "гармоніка"
+  name: harmonica
   components:
   - type: Instrument
     program: 22
@@ -65,8 +65,8 @@
 - type: entity
   parent: BaseWoodwindInstrument
   id: ClarinetInstrument
-  name: "кларнет"
-  description: "Незграбні тонування."
+  name: clarinet
+  description: Skweedward tintacklays.
   components:
   - type: Instrument
     program: 71
@@ -76,8 +76,8 @@
 - type: entity
   parent: BaseWoodwindInstrument
   id: FluteInstrument
-  name: "флейта"
-  description: "Досягаючи нових висот жахливого пронизливого звучання."
+  name: flute
+  description: Reaching new heights of being horrifyingly shrill.
   components:
   - type: Instrument
     program: 73
@@ -87,8 +87,8 @@
 - type: entity
   parent: BaseWoodwindInstrument
   id: RecorderInstrument
-  name: "рекордер"
-  description: "Поставляється в різних кольорах модного пластику!"
+  name: recorder
+  description: Comes in various colors of fashionable plastic!
   components:
   - type: Instrument
     program: 74
@@ -98,8 +98,8 @@
 - type: entity
   parent: BaseWoodwindInstrument
   id: PanFluteInstrument
-  name: "сопілка"
-  description: "Ідеально підходить для заманювання стародавніх міфічних істот на танець з вами."
+  name: pan flute
+  description: Perfect for luring ancient mythical beings to dance with you.
   components:
   - type: Instrument
     program: 75
@@ -110,8 +110,8 @@
 - type: entity
   parent: BaseWoodwindInstrument
   id: OcarinaInstrument
-  name: "окарина"
-  description: "Добре підходить для виконання колискових."
+  name: ocarina
+  description: Good for playing lullabies.
   components:
   - type: Instrument
     program: 79
@@ -123,8 +123,8 @@
 - type: entity
   parent: BaseWoodwindInstrument
   id: BagpipeInstrument
-  name: "волинка"
-  description: "Чудово поєднується з кілтом."
+  name: bagpipe
+  description: Pairs nicely with a kilt.
   components:
   - type: Instrument
     program: 109

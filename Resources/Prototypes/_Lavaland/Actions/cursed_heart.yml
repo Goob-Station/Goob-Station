@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseAction
   id: ActionPumpCursedHeart
-  name: "Серцебиття"
-  description: "Качайте власну кров, щоб жити!"
+  name: Heartbeat
+  description: Pump your own blood to live!
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

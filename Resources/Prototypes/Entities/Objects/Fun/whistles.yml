@@ -11,8 +11,8 @@
   abstract: true
   parent: BaseItem
   id: BaseWhistle
-  name: "свисток"
-  description: "Хтось забув вимкнути чайник?"
+  name: whistle
+  description: Someone forgot to turn off kettle?
   components:
   - type: Item
     sprite: Objects/Fun/whistles.rsi
@@ -41,7 +41,7 @@
 - type: entity
   parent: BaseWhistle
   id: SecurityWhistle
-  description: "Від його звуку відчуваєш страх."
+  description: Sound of it make you feel fear.
   components:
   - type: Sprite
     state: sec
@@ -53,8 +53,8 @@
 - type: entity
   parent: [BaseWhistle, BaseMinorContraband]
   id: SyndicateWhistle
-  name: "окопний свисток"
-  description: "Свисток, яким командири Синдикату привертали увагу. Вперед!"
+  name: trench whistle
+  description: A whistle used by Syndicate commanders to draw attention. Avanti!
   components:
   - type: Sprite
     state: trench

@@ -83,10 +83,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "BaseWeaponRifle"
+  name: BaseWeaponRifle
   parent: [BaseItem, BaseGunWieldable]
   id: BaseWeaponRifle
-  description: "Корінцевий зубастий і пагонистий."
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -172,10 +172,10 @@
   # Goobstation edit end
 
 - type: entity
-  name: "АКМ"
+  name: AKM
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
-  description: "Дещо побита бойова гвинтівка, розроблена на старій Землі. Улюблена злочинцями, ополченцями та терористами завдяки своїй знаменитій надійності та простоті виготовлення. Живиться магазинами калібру .30."
+  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
@@ -221,10 +221,10 @@
   - type: Appearance
 
 - type: entity
-  name: "М-90г"
+  name: M-90gl
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90GrenadeLauncher
-  description: "Стара модель карабіна буллпап, з підствольним гранатометом. Використовує гвинтівкові набої калібру .20."
+  description: An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses .20 rifle ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
@@ -267,10 +267,10 @@
     fireRate: 6
 
 - type: entity
-  name: "Лектер"
+  name: Lecter
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleLecter
-  description: "Штурмова гвинтівка високого військового класу. Використовує набої 20-го калібру."
+  description: A high end military grade assault rifle. Uses .20 rifle ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
@@ -315,10 +315,10 @@
   - type: Appearance
 
 - type: entity
-  name: "Есток" # goob
+  name: Estoc # goob
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: "Штурмова гвинтівка з прицілом, призначена для боїв на середніх та дальніх дистанціях. Використовує гвинтівкові набої .20." # goob
+  description: A designated assault rifle with a scope, favored for medium-to-long range engagements. Uses .20 rifle ammo. # goob
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
@@ -380,10 +380,10 @@
   - type: Appearance
 
 - type: entity
-  name: "Піна Foam Force Astro Ace"
+  name: Foam Force Astro Ace
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponRifleFoam
-  description: "Преміальна пістолетна гвинтівка найвищої якості. Її пластик здається міцним, а механізми - надійними."
+  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi

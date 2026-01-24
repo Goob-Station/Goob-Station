@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseLathe
   id: PrinterDoc
-  name: "принтер документів"
-  description: "Бюрократична досконалість. Зберігає базу даних усіх документів Nanotrasen і дозволяє роздруковувати їх, якщо у вас є папір."
+  name: document printer
+  description: Bureaucratic perfection. Stores a database of all Nanotrasen documents, and lets you print them as long as you have paper.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Machines/printer.rsi

@@ -573,6 +573,9 @@
   id: SyringeArmor
 
 - type: Tag
+  id: SyringeCase
+
+- type: Tag
   id: Table
 
 - type: Tag

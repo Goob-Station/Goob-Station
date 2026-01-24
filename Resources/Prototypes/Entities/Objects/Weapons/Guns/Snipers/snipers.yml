@@ -68,10 +68,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "BaseWeaponSniper"
+  name: BaseWeaponSniper
   parent: BaseItem
   id: BaseWeaponSniper
-  description: "Корінцевий зубастий і пагонистий."
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -130,10 +130,10 @@
 
 # Goobstation - Start - I decided to put it here, because it changes Hristov.
 - type: entity
-  name: "БазовийСнайперськийМагазин"
+  name: BaseMagazineSniper
   parent: [BaseItem, BaseGunWieldable]
   id: BaseWeaponSniperMagazine
-  description: "Корінцевий зубастий і пагонистий."
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -192,10 +192,10 @@
 # Goobstation - End
 
 - type: entity
-  name: "Кардашев-Мосін"
+  name: Kardashev-Mosin
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband]
   id: WeaponSniperMosin
-  description: "Справжня реліквія, Кардашев-Мосін служив майже в кожному збройному конфлікті з моменту свого створення 670 років тому. Конструкція гвинтівки з ковзним затвором залишається практично ідентичною до свого початкового дизайну, чи то для полювання, снайперської стрільби, чи для нескінченної окопної війни. Заряджається 10 патронами калібру .30."
+  description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
@@ -249,10 +249,10 @@
     points: 2
 
 - type: entity
-  name: "Хрістов"
+  name: Hristov
   parent: [BaseWeaponSniperMagazine, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSniperHristov
-  description: "Коли вам абсолютно, позитивно потрібно змусити когось пошкодувати про свій життєвий вибір з безпечної відстані. Використовує патрони .60 anti-materiel."
+  description: For when you absolutely, positively need to make someone regret their life choices from a safe distance. Uses .60 anti-materiel ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
@@ -284,10 +284,10 @@
     price: 3500
 
 - type: entity
-  name: "мушкет"
+  name: musket
   parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
   id: Musket
-  description: "Це мало бути в музеї задовго до вашого народження. Використовує набої .60 калібру."
+  description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
   components:
   - type: Sharp
   - type: Item
@@ -323,10 +323,10 @@
   - type: GunRequiresWield
 
 - type: entity
-  name: "крем'яний пістолет"
+  name: flintlock pistol
   parent: [BaseWeaponSniper, BaseMajorContraband]
   id: WeaponPistolFlintlock
-  description: "Супутник пірата. Йо-хо-хо! Використовує патрони .45 magnum."
+  description: A pirate's companion. Yarrr! Uses .45 magnum ammo.
   components:
   - type: Gun
     minAngle: 0

@@ -168,15 +168,6 @@
       employers:
       - NanoTrasen
       - IdrisIncorporated
-    - !type:CharacterLifepathRequirement
-      inverted: true
-      lifepaths:
-      - Cultist
-      - Smuggler
-      - ExCriminal
-      - Enforcer
-      - Hacker
-      - ConArtist
     # Pirate contractor end
   guides: # goobstation
   - Command

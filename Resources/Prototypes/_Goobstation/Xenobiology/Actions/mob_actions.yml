@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSlimeLatch
-  name: "Вчепитися"
-  description: "Вчепіться за ціль і почніть перетравлювати її! Або відчепіться від поточної, якщо ви вже вчепилися за щось."
+  name: Latch
+  description: Latch onto a target and begin digesting it! Or get off of an existing one if you're already latched onto something.
   components:
   - type: Action
     itemIconStyle: NoItem

@@ -10,7 +10,7 @@
 
 - type: body
   id: SpaceCobra
-  name: "космічна кобра"
+  name: "space cobra"
   root: chest
   slots:
     chest:
@@ -18,8 +18,8 @@
       connections:
       - groin
       organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss
-        heart: OrganCobraHeart # Allows you to become invisible.
+        lungs: OrganAnimalLungs
+        heart: OrganCobraHeart
     groin:
       part: GroinAnimal
       connections:

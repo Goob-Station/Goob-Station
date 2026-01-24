@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseItem
   id: BaseFigurineMech
-  name: "статуетка"
-  description: "Маленька мініатюра."
+  name: figurine
+  description: A small miniature.
   abstract: true
   components:
   - type: Sprite
@@ -26,8 +26,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyRipley
-  name: "іграшковий ріплі"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha № 1/12\"."
+  name: ripley toy
+  description: Mini-Mecha action figure! 'Mecha No. 1/12' is written on the back.
   components:
   - type: Sprite
     state: ripley
@@ -54,8 +54,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyFireRipley
-  name: "вогняний ріплі"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 2/12\"."
+  name: fire ripley
+  description: Mini-Mecha action figure! 'Mecha No. 2/12' is written on the back.
   components:
   - type: Sprite
     state: fireripley
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyDeathRipley
-  name: "іграшковий смерторіплі"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha № 3/12\"."
+  name: deathripley toy
+  description: Mini-Mecha action figure! 'Mecha No. 3/12' is written on the back.
   components:
   - type: Sprite
     state: deathripley
@@ -110,8 +110,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyGygax
-  name: "іграшковий гайгакс"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 4/12\"."
+  name: gygax toy
+  description: Mini-Mecha action figure! 'Mecha No. 4/12' is written on the back.
   components:
   - type: Sprite
     state: gygax
@@ -138,8 +138,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyDurand
-  name: "іграшковий дюранд"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 5/12\"."
+  name: durand toy
+  description: Mini-Mecha action figure! 'Mecha No. 5/12' is written on the back.
   components:
   - type: Sprite
     state: durand
@@ -166,8 +166,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyHonk
-  name: "іграшковий H.O.N.K"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 6/12\"."
+  name: H.O.N.K. toy
+  description: Mini-Mecha action figure! 'Mecha No. 6/12' is written on the back.
   components:
   - type: Sprite
     state: honk
@@ -194,8 +194,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyMarauder
-  name: "іграшковий мародер"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 7/12\"."
+  name: marauder toy
+  description: Mini-Mecha action figure! 'Mecha No. 7/12' is written on the back.
   components:
   - type: Sprite
     state: marauder
@@ -222,8 +222,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToySeraph
-  name: "іграшковий серафим"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 8/12\"."
+  name: seraph toy
+  description: Mini-Mecha action figure! 'Mecha No. 8/12' is written on the back.
   components:
   - type: Sprite
     state: seraph
@@ -250,8 +250,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyMauler
-  name: "іграшковий душогуб"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 9/12\"."
+  name: mauler toy
+  description: Mini-Mecha action figure! 'Mecha No. 9/12' is written on the back.
   components:
   - type: Sprite
     state: mauler
@@ -278,8 +278,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyOdysseus
-  name: "іграшковий одісеус"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha №10/12\"."
+  name: odysseus toy
+  description: Mini-Mecha action figure! 'Mecha No. 10/12' is written on the back.
   components:
   - type: Sprite
     state: odysseus
@@ -306,8 +306,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyPhazon
-  name: "іграіграшковий фазон"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha №11/12\"."
+  name: phazon toy
+  description: Mini-Mecha action figure! 'Mecha No. 11/12' is written on the back.
   components:
   - type: Sprite
     state: phazon
@@ -334,8 +334,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyReticence
-  name: "іграшковий ретісенс"
-  description: "Міні-фігурка Мехи! На спині написано \"Mecha No.12/12\"."
+  name: reticence toy
+  description: Mini-Mecha action figure! 'Mecha No. 12/12' is written on the back.
   components:
   - type: Sprite
     state: reticence

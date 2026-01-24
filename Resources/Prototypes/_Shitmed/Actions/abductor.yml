@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionExitConsole
-  name: "Вийти "
-  description: "Вийти з консолі"
+  name: Exit console
+  description: Exit console.
   components:
   - type: Action
     checkCanInteract: false
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionSendYourself
-  name: "Надслати себе"
-  description: "Щоб скористатися цією здатністю, вам потрібно прискоритися до тієї самої мапи, що й станція!"
+  name: Send yourself
+  description: You need to FTL to the same map as the station to use this ability!
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -43,8 +43,8 @@
 - type: entity
   parent: BaseAction
   id: ActionReturnToShip
-  name: "повернутися"
-  description: "повернутися на корабель."
+  name: return
+  description: return to the ship.
   components:
   - type: Action
     useDelay: 30

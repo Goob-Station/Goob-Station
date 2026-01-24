@@ -1,8 +1,8 @@
 - type: entity
   parent: EmergencyOxygenTank
   id: EmergencyPlasmaTank
-  name: "аварійний резервуар для плазми"
-  description: "Легко переносний балон для надзвичайних ситуацій. Містить дуже мало плазми, призначений лише для виживання."
+  name: emergency plasma tank
+  description: An easily portable tank for emergencies. Contains very little plasma, rated for survival use only.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Tanks/emergency.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: ExtendedEmergencyOxygenTank
   id: ExtendedEmergencyPlasmaTank
-  name: "аварійний плазмовий бак збільшеної місткості"
-  description: "Аварійний бак збільшеної місткості. Технічно розрахований на тривале використання."
+  name: extended capacity emergency plasma tank
+  description: An emergency tank with extended capacity. Technically rated for prolonged use.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
@@ -69,8 +69,8 @@
 - type: entity
   parent: DoubleEmergencyOxygenTank
   id: DoubleEmergencyPlasmaTank
-  name: "внутрішній бак для плазми"
-  description: "Резервуар з плазмою, призначений для внутрішнього використання для Plasmamen."
+  name: plasma internals tank
+  description: A tank of plasma designed to be internals for Plasmamen.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
@@ -103,7 +103,7 @@
 - type: entity
   id: PlasmaTankFilledInternals
   parent: PlasmaTankFilled
-  name: "плазмовий бак"
+  name: plasma tank
   suffix: Filled, Plasmaman Internals
   components:
   - type: GasTank

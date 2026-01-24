@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: DeathRattleLavalandImplant
-  name: "імплант передсмертного хрипу Лаваленду"
-  description: "Цей імплант повідомить радіоканал постачання у разі смерті носія. Працює лише на поверхні Лаваленду та повідомляє точні координати смерті."
+  name: lavaland death rattle implant
+  description: This implant will inform the Supply radio channel should the user die. Works only on lavaland surface and tells exact coordinates of death.
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant

@@ -1,8 +1,8 @@
 - type: entity
-  name: "FPA-90"
+  name: FPA-90
   parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponSubMachineGunFPA90
-  description: "Це дешевий мотлох від компанії, відомої своїми дешевими гарматами, але принаймні під час використання не потрібен захист слуху. Стріляє набоями 9.5мм."
+  description: Це дешевий мотлох від компанії, відомої своїми дешевими гарматами, але принаймні під час використання не потрібен захист слуху. Стріляє набоями 9.5мм.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/SMGs/FPA90.rsi
@@ -57,10 +57,10 @@
     shape: null
 
 - type: entity
-  name: "BRDI R-25"
+  name: BRDI R-25
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband, BaseGunWieldable]
   id: WeaponSubMachineGunBRDIR25
-  description: "Іконічна зброя, яку використовують члени Іноземного легіону Республіки Бізель. Як гордість Республіки, вона символізує свободу від тиранії Солоріанського Альянсу. Стріляє набоями 9.5мм."
+  description: Іконічна зброя, яку використовують члени Іноземного легіону Республіки Бізель. Як гордість Республіки, вона символізує свободу від тиранії Солоріанського Альянсу. Стріляє набоями 9.5мм.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/SMGs/BRDI_R25.rsi
@@ -123,10 +123,10 @@
             - CartridgeCaselessRifle
 
 - type: entity
-  name: "антикварний BRDI R-25"
+  name: антикварний BRDI R-25
   parent: WeaponSubMachineGunBRDIR25
   id: WeaponSubMachineGunBRDIR25HoS
-  description: "Колись цю улюблену гвинтівку тримав невідомий член Іноземного легіону Республіки Бізель; вона брала участь у боях з Солом в кожних боях Республіки."
+  description: Колись цю улюблену гвинтівку тримав невідомий член Іноземного легіону Республіки Бізеля; вона брала участь у боях з Солом в кожних боях Республіки.
   components:
     - type: StealTarget
       stealGroup: HoSAntiqueWeapon

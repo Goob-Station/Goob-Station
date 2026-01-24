@@ -1,8 +1,8 @@
 - type: entity
   parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCargoContraband ]
   id: LavalandEquipmentAncientArmor
-  name: "доспіхи попередників"
-  description: "Давні доспіхи, повністю зроблені з міцних панцирних пластин голіафів."
+  name: predecessor armor
+  description: Ancient armor that is fully made out of strong goliath plates. 
   components:
   - type: Sprite
     sprite: _Lavaland/Clothing/OuterClothing/Hardsuits/ancient_armor.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: LavalandEquipmentAncientArmorHood
-  name: "шолом попередників"
-  description: "Броньований шолом, що нагадує якесь язичницьке божество. Очні отвори закриті міцною смолою. Здається, в ньому важко дихати."
+  name: predecessor helmet
+  description: Armored helmet that resembles some pagan deity. Eye holes are covered with durable resin. Looks like it's hard to breath inside.
   components:
   - type: Sprite
     sprite: _Lavaland/Clothing/Head/Hardsuits/ancient_armor.rsi

@@ -1,8 +1,8 @@
 - type: entity
   id: HiveRecoveryNodeXeno
   parent: BaseHiveStructure
-  name: "Вузол відновлення"
-  description: "Тепле, заспокійливе джерело світла, що пульсує з ледь чутним гулом."
+  name: Recovery Node
+  description: A warm, soothing light source that pulsates with a faint hum.
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/hive_structures.rsi

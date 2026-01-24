@@ -13,8 +13,8 @@
 - type: entity
   parent: DrinkBase
   id: DrinkSpaceGlue
-  name: "тюбик космічного клею"
-  description: "Високоефективний клей, призначений для обслуговування надзвичайно складного механічного обладнання. НЕ ПИТИ!"
+  name: space glue tube
+  description: High performance glue intended for maintenance of extremely complex mechanical equipment. DON'T DRINK!
   components:
   - type: Openable
     sound:
@@ -56,8 +56,8 @@
 - type: entity
   parent: DrinkBase
   id: DrinkSpaceLube
-  name: "тюбик космічного мастила"
-  description: "Високоефективне мастило, призначене для обслуговування надзвичайно складного механічного обладнання."
+  name: space lube tube
+  description: High performance lubricant intended for maintenance of extremely complex mechanical equipment.
   components:
   - type: Openable
     sound:
@@ -144,8 +144,8 @@
 - type: entity
   parent: DrinkBottleGlassBaseFull
   id: DrinkMopwataBottleRandom
-  name: "смачна мопвата"
-  description: "Каламутна коричнева пляшка з вицвілою етикеткою із зображенням швабри. Від неї віє каламутним... вінтажем."
+  name: delicious mopwata
+  description: A foggy brown bottle with a faded label depicting a mop. It comes full of murky... vintage.
   components:
   - type: Item
     size: Small

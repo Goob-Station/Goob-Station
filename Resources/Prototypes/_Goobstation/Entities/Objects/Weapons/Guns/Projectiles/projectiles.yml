@@ -25,10 +25,10 @@
 
 - type: entity
   id: BulletMic
-  name: "MIC-заряд"
+  name: MIC bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: "Не так вже й погано, але все одно не хочеться потрапити під нього."
+  description: Not too bad, but you still don't want to get hit by it.
   components:
   - type: Sprite
     noRot: false
@@ -63,10 +63,10 @@
 
 - type: entity
   id: BulletPlasmaCutter
-  name: "ріжучий болт"
+  name: cutter bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: "Не так вже й погано, але все одно не хочеться потрапити під нього."
+  description: Not too bad, but you still don't want to get hit by it.
   components:
   - type: Reflective
     reflective:
@@ -114,7 +114,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   id: BulletHighCaliber
-  name: "куля (.50 протиматеріальний)"
+  name: bullet (.50 anti-materiel)
   components:
   - type: Projectile
     damage:
@@ -127,7 +127,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: BulletHighCaliberExplosive
-  name: "куля (.50 фугасно-запалювальна)"
+  name: bullet (.50 high-explosive incendiary)
   components:
   - type: Projectile
     damage:
@@ -220,7 +220,7 @@
     state: impact_laser
 
 - type: entity
-  name: "важкий лазерний болт"
+  name: heavy laser bolt
   id: BulletLaserHeavy
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
@@ -232,7 +232,7 @@
         Heat: 8
 
 - type: entity
-  name: "важкий лазерний болт"
+  name: heavy laser bolt
   id: BulletLaserHeavyStructural
   parent: BulletLaserHeavy
   categories: [ HideSpawnMenu ]
@@ -245,7 +245,7 @@
         Structural: 10
 
 - type: entity
-  name: "важкий лазерний залп"
+  name: heavy laser barrage
   id: BulletLaserSpreadHeavy
   categories: [ HideSpawnMenu ]
   parent: BulletLaserHeavy
@@ -270,10 +270,10 @@
 
 - type: entity
   id: BulletTemperatureCold
-  name: "холодний температурний заряд"
+  name: cold temperature bolt
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
-  description: "Пробирає до кісток!"
+  description: Chilling!
   components:
   - type: Projectile
     damage:
@@ -293,10 +293,10 @@
 
 - type: entity
   id: BulletTemperatureHot
-  name: "гарячий температурний заряд"
+  name: hot temperature bolt
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
-  description: "Пече!"
+  description: Burning!
   components:
   - type: Projectile
     damage:
@@ -311,7 +311,7 @@
 
 
 - type: entity
-  name: "дизейблерний заряд"
+  name: disabler bolt
   id: BulletEnergyGunDisabler
   parent: BulletDisabler
   categories: [ HideSpawnMenu ]
@@ -361,7 +361,7 @@
     forceSound: true
 
 - type: entity
-  name: "дизейблерний заряд"
+  name: disabler bolt
   id: BulletSyndicateDisabler
   parent: BulletDisabler
   categories: [ HideSpawnMenu ]
@@ -379,7 +379,7 @@
 
 - type: entity
   id: BulletGrenadeTeargas
-  name: "граната зі сльозогінним газом"
+  name: tear gas grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -405,10 +405,10 @@
 
 - type: entity
   id: HolyBulletCharge
-  name: "святий заряд"
+  name: holy bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: "Позначає ціль для додаткової святої шкоди."
+  description: Marks a target for additional holy damage.
   components:
   - type: Reflective
     reflective:
@@ -442,7 +442,7 @@
 
 - type: entity
   id: BulletPistolSilver
-  name: "куля (.45 срібна)"
+  name: bullet (.45 silver)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -496,7 +496,7 @@
 
 - type: entity
   id: ProjectileMonkeyDart
-  name: "дротик, кинутий мавпою"
+  name: monkey-thrown dart
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

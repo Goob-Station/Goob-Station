@@ -1,8 +1,8 @@
 - type: entity
   id: MagazinePistolMindbreaker
-  name: "пістолетний магазин (.35 auto mindbreaker)"
+  name: pistol magazine (.35 auto mindbreaker)
   parent: [ BaseMagazinePistol, BaseMantisContraband ]
-  description: "10-зарядний однорядний магазин для пістолетів."
+  description: 10-round single-stack magazine for pistols.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolMindbreaker

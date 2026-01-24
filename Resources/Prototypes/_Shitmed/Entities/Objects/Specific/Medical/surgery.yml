@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseToolSurgery
   id: Bonesetter
-  name: "кісткоутворювач"
-  description: "Використовується для вправлення кісток на місце."
+  name: bone setter
+  description: Used for setting bones back into place.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
@@ -16,8 +16,8 @@
 - type: entity
   parent: BaseToolSurgery
   id: BoneGel
-  name: "пляшка гелю для кісток"
-  description: "Контейнер для кісткового гелю, який часто потрібно поповнювати зі спеціалізованої машини."
+  name: bottle of bone gel
+  description: A container for bone gel that often needs to be refilled from a specialized machine.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseToolSurgery
   id: MedicalStitches
-  name: "медичні шви"
-  description: "Тонка вигнута голка з відрізком розсмоктуючої полігліколідної шовної нитки."
+  name: medical stitches
+  description: A fine, curved needle with a length of absorbable polyglycolide suture thread.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
@@ -39,10 +39,10 @@
   - type: Stitches
 
 - type: entity
-  name: "різак для тканин"
+  name: tissue cutter
   id: EnergyScalpel
   parent: Scalpel
-  description: "Скальпель, який використовує енергетичне лезо, також служить як дриль в увімкненому стані."
+  description: A scalpel which uses an energy blade, also serves as a drill in its powered state.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
@@ -104,10 +104,10 @@
             volume: -5
 
 - type: entity
-  name: "силові затискачі"
+  name: power pinches
   id: AdvancedRetractor
   parent: Retractor
-  description: "Ретрактор з механічними затискачами, також служить як гемостат в увімкненому стані."
+  description: A retractor with mechanical pinches, also serves as a hemostat in its powered state.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
@@ -168,10 +168,10 @@
             volume: -5
 
 - type: entity
-  name: "енергетичний степлер"
+  name: energy stapler
   id: EnergyCautery
   parent: Cautery
-  description: "Каутер з енергетичним наконечником, також служить як шви в увімкненому стані."
+  description: A cautery with an energy tip, also serves as stitches in its powered state.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
@@ -228,10 +228,10 @@
             volume: -5
 
 - type: entity
-  name: "кістковий мультитул"
+  name: bone multitool
   id: AdvancedBoneGel
   parent: BoneGel
-  description: "Механізований загоювач кісток, також слугує як кісткоправ у включеному стані."
+  description: A mechanized bone healer, also serves as bone setter in its powered state.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
@@ -287,10 +287,10 @@
             volume: -5
 
 - type: entity
-  name: "хірургічний омнітул"
+  name: surgical omnitool
   id: OmnimedTool
   parent: BaseToolSurgery
-  description: "Компактний хірургічний омнітул, зручно упакований, як швейцарський армійський ніж."
+  description: A compact surgical omnitool conveniently packed like a Swiss Army knife.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
@@ -316,8 +316,8 @@
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]
   id: OmnimedToolSyndie
-  name: "хірургічний омнітул Gorlex"
-  description: "Компактний хірургічний омнітул, зручно упакований, як швейцарський армійський ніж, за винятком того, що його користувач, ймовірно, порушив кілька швейцарських конвенцій. Може проводити операції через одяг."
+  name: gorlex surgical omnitool
+  description: A compact surgical omnitool conveniently packed like a Swiss Army knife, except that its user has probably violated a couple of Swiss conventions. Can perform surgery through clothing.
   components:
   - type: Sprite
     state: evil
@@ -330,7 +330,7 @@
   id: OmnimedToolDebug
   parent: OmnimedToolSyndie
   suffix: Admeme
-  name: "експериментальний хірургічний омнітул"
+  name: experimental surgical omnitool
   components:
   - type: Hemostat
     speed: 10

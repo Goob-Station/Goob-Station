@@ -18,8 +18,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
-  name: "набір медичного скафандра синдикату"
-  description: "Надлишковий бойовий медичний скафандр, укомплектований для вашого LARP."
+  name: syndicate medic hardsuit bundle
+  description: "A surplus combat medic hardsuit, bundled for your LARP."
   components:
   - type: StorageFill
     contents:
@@ -33,8 +33,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
-  name: "набір стелс-костюма \"Сайберсан"
-  description: "Покращений набір стелс-скафандра \"Сайберсан\"."
+  name: cybersun stealthsuit bundle
+  description: "An advanced cybersun stealth hardsuit bundle."
   components:
   - type: StorageFill
     contents:
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateBurner
-  name: "Комплект Burner"
-  description: "Великокаліберна гвинтівка Burner, постачається з деякими протиматеріальними та фугасними боєприпасами."
+  name: Burner Bundle
+  description: "A high caliber Burner rifle, comes with some anti materiel and high explosive ammunition."
   components:
   - type: StorageFill
     contents:
@@ -60,8 +60,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateM90Bundle # - 古い M90 バンドルがこの ID を使用しているかどうかはわかりませんが、その ID はコメントアウトされており、もう存在しないと思います。
-  name: "Комплект M-90"
-  description: "Комплект із штурмовою гвинтівкою M-90 синдикату та 2 запасними магазинами."
+  name: M-90 bundle
+  description: "A bundle carrying the syndicate's M-90 assault rifle, packed with 2 spare magazines."
   components:
   - type: StorageFill
     contents:
@@ -72,8 +72,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledWSPR
-  name: "Комплект WSPR"
-  description: "Комплект із штурмовою гвинтівкою WSPR синдикату та 2 запасними магазинами."
+  name: WSPR bundle
+  description: "A bundle carrying the syndicate's WSPR assault rifle, packed with 2 spare magazines."
   components:
   - type: StorageFill
     contents:
@@ -84,8 +84,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledWhimsy
-  name: "набір радості та химерності синдикату"
-  description: "Набір, що містить усе необхідне агенту синдикату, щоб гарно провести час."
+  name: syndicate joy & whimsy bundle
+  description: "A bundle containing everything a syndicate needs to have a jolly good time."
   components:
   - type: StorageFill
     contents:
@@ -107,8 +107,8 @@
 - type: entity # GOD I FUCKING LOVE GAMBLING
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledCandy
-  name: "набір цукерок"
-  description: "Набір, по вінця наповнений цукерками. Хтось тут у нас ласун!"
+  name: candy bundle
+  description: "A bundle packed to the brim with candy. Someone's got a sweet tooth!"
   components:
   - type: StorageFill
     contents:
@@ -122,8 +122,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledHE1SG8
-  name: "набір HE1S-G8"
-  description: "Цей набір містить гвинтівку HE1S-G8 та 19 набоїв до неї для додаткових веселощів."
+  name: HE1S-G8 bundle
+  description: This bundle holds the HE1S-G8 rifle paired with 19 cartridges for some extra funny.
   components:
   - type: StorageFill
     contents:

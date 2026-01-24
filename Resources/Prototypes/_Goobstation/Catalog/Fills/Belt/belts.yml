@@ -42,8 +42,8 @@
   parent: [ ClothingBeltDeathsquadWebbing, BaseCentcommContraband ]
   suffix: Filled, DO NOT MAP
   id: ClothingBeltDeathsquadWebbingFilled
-  name: "розгрузка оператора загону смерті"
-  description: "Міцна та надійна розгрузка, що містить усе необхідне для продовження бою. Ймовірно, вам не доведеться її використовувати."
+  name: deathsquad operative chestrig
+  description: "A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it."
   components:
   - type: StorageFill
     contents:
@@ -138,8 +138,8 @@
 - type: entity
   id: ClothingBeltHolsterFilledChaplain
   parent: ClothingBeltBase
-  name: "Кобура капелана"
-  description: "Наплічна кобура від Богів. Містить набір з двох пістолетів."
+  name: Chaplains' Holster
+  description: A shoulder holster from the Gods. Contains a set of dual pistols.
   suffix: Filled, Chaplain
   components:
   - type: Item

@@ -10,7 +10,7 @@
 
 - type: body
   id: SpaceBear
-  name: "космічний ведмідь"
+  name: "space bear"
   root: chest
   slots:
     chest:
@@ -18,8 +18,8 @@
       connections:
       - groin
       organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss
-        heart: OrganSpaceAnimalHeart # Immunity to pressure
+        lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
     groin:
       part: GroinAnimal
       connections:

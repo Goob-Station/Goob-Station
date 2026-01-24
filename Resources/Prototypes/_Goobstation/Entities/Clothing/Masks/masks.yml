@@ -20,8 +20,8 @@
 - type: entity
   parent: ClothingMaskGasERT
   id: ClothingMaskGasChrono
-  name: "футуристичний протигаз"
-  description: "Футуристичний протигаз невідомої конструкції з неймовірною кількістю систем фільтрації"
+  name: futuristic gasmask
+  description: A futuristic gas mask of unknown design with an unimaginable number of filtration systems
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Mask/chronolegioneer.rsi
@@ -44,7 +44,7 @@
 - type: entity
   parent: ClothingMaskClown
   id: ClothingMaskClownUnremoveable
-  name: "незнімна бананова перука та маска клоуна"
+  name: unremoveable banana clown wig and mask
   components:
   - type: Unremoveable
   - type: FlashImmunity
@@ -54,8 +54,8 @@
   parent: [ClothingMaskBase, BaseMinorContraband]
   id: ClothingMaskGasVoiceCraftable
   suffix: Voice Mask, Craftable
-  name: "Маска з модулятором голосу"
-  description: "Погано сконструйований модулятор голосу, зроблений з протигаза та голосового тригера."
+  name: Voice Modulator Mask
+  description: A poorly constructed voice modulator made of a gasmask and voice trigger.
   components:
     - type: Sprite
       sprite: Clothing/Mask/gas.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasHalf
-  name: "половинний протигаз"
-  description: "Протигаз... тільки його половина."
+  name: half gas mask
+  description: A gas mask... only the half of it.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Mask/gashalf.rsi
@@ -110,8 +110,8 @@
 - type: entity # TODO: Whenever vampirism is ported, make this block it.
   parent: ClothingMaskBase
   id: ClothingMaskMuzzleSecure
-  name: "надійний намордник"
-  description: "Може завадити вампірам кусати людей, або не дати набридливим людям розмовляти."
+  name: secure muzzle
+  description: Can prevent vampires from biting people, or prevent annoying people from talking.
   components:
   - type: Item
     size: Tiny
@@ -131,8 +131,8 @@
 - type: entity # TODO: Whenever vampirism is ported, make this block it, and shock.
   parent: ClothingMaskMuzzleSecure
   id: ClothingMaskMuzzleShock
-  name: "шоковий намордник"
-  description: "Намордник, призначений для запобігання укусам. Цей оснащений системою корекції поведінки."
+  name: shock muzzle
+  description: A muzzle designed to prevent biting. This one is fitted with a behaviour correction system.
   components:
   - type: ShockOnTrigger
   - type: TriggerOnSpeak

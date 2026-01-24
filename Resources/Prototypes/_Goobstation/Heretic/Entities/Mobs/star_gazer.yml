@@ -4,15 +4,15 @@
   - MobCombat
   - FlyingMobBase
   id: MobStarGazer
-  name: "зорегляд"
-  description: "Істота, якій доручено спостерігати за зірками."
+  name: star gazer
+  description: A creature that has been tasked to watch over the stars.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/star_gazer.rsi
     layers:
     - state: star_gazer
       offset: 0, 1
-  - type: ActionsProvider
+  - type: ActionGrant
     actions:
     - ActionHereticCosmicExpansion
     - ActionHereticStarBlast
@@ -120,6 +120,9 @@
   - type: EventHorizonIgnore
   - type: SpacetimeSpellbladeEnchantment # It's not a spellblade, trust
     effect: EffectCosmicSlash
+  - type: HealingAura
+    componentHealMultipliers:
+      CosmosPassive: 2
   - type: Tag
     tags:
     - CannotSuicide

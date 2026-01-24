@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseItem
   id: AntiMindControlDevice
-  name: "пристрій проти контролю розуму"
-  description: "Спеціальний пристрій, призначений для скасування контролю над розумом."
+  name: anti-mind control device
+  description: A special device designed for reverting mind control.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Shadowling/anti_mind_control.rsi
@@ -20,7 +20,7 @@
 - type: entity
   parent: ArmBladeChangeling
   id: LightEaterArmBlade
-  name: "Пожирач Світла"
-  description: "Ручний клинок, що може миттєво прорізати джерела світла та спопелити їх."
+  name: Light Eater
+  description: An arm-blade that can rip through lights and ash them in a moment's notice.
   components:
   - type: LightEater

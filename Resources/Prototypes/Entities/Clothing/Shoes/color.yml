@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBlack
-  name: "чорні туфлі"
-  description: "Стильні чорні туфлі."
+  name: black shoes
+  description: Stylish black shoes.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -44,8 +44,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorWhite
-  name: "білі туфлі"
-  description: "Не знімайте їх на офісній різдвяній вечірці."
+  name: white shoes
+  description: Don't take them off at your office Christmas party.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBlue
-  name: "сині туфлі"
-  description: "Стильні сині туфлі."
+  name: blue shoes
+  description: Stylish blue shoes.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -104,8 +104,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBrown
-  name: "коричневі туфлі"
-  description: "Пара коричневих туфель."
+  name: brown shoes
+  description: A pair of brown shoes.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -135,8 +135,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorGreen
-  name: "зелені туфлі"
-  description: "Стильні зелені туфлі."
+  name: green shoes
+  description: Stylish green shoes.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -166,8 +166,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorOrange
-  name: "помаранчеві туфлі"
-  description: "Стильні помаранчеві туфлі."
+  name: orange shoes
+  description: Stylish orange shoes.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -197,8 +197,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorRed
-  name: "червоні туфлі"
-  description: "Стильні червоні туфлі."
+  name: red shoes
+  description: Stylish red shoes.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -228,8 +228,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorYellow
-  name: "жовті туфлі"
-  description: "Стильні жовті туфлі."
+  name: yellow shoes
+  description: Stylish yellow shoes.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -259,8 +259,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorPurple
-  name: "фіолетові туфлі"
-  description: "Стильні фіолетові туфлі."
+  name: purple shoes
+  description: Stylish purple shoes.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi

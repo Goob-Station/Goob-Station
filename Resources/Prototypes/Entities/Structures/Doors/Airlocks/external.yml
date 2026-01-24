@@ -22,7 +22,7 @@
   parent: AirlockRCDResistant
   id: AirlockExternal
   suffix: External
-  description: "Вона відкривається, вона закривається, вона може розчавити вас, а за нею може бути лише простір."
+  description: It opens, it closes, it might crush you, and there might be only space behind it.
   components:
   - type: Door
     crushDamage:
@@ -40,6 +40,8 @@
     layoutId: AirlockExternal
   - type: Paintable
     group: null
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: -0.5, 0
 
 - type: entity
   parent: AirlockExternal

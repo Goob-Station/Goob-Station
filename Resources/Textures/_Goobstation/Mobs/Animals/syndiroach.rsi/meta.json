@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites regretfully handcrafted by BeeRobyn on Discord https://github.com/BeeRobynn",
+  "copyright": "Taken from fulpstation at https://github.com/fulpstation/fulpstation/commit/edb232b692ec9f356ec554ea1971da552b9bc447. 'mothroach-moving' by MilenVolf, all modified by Leguia for syndiroach.",
   "size": {
     "x": 32,
     "y": 32

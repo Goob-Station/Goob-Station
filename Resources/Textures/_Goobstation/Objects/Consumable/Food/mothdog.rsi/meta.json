@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "made by ccrispcrumbles(446250715963457546) on discord for Goobstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mothdog-1"
+    },
+    {
+      "name": "mothdog-2"
+    },
+    {
+      "name": "mothdog-3"
+    },
+    {
+      "name": "mothdog-4"
+    },
+      {
+          "name": "mothdognt"
+      }
+  ]
+}

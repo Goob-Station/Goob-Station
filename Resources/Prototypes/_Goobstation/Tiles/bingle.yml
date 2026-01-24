@@ -7,7 +7,7 @@
 
 - type: tile
   id: FloorBingle
-  name: "tiles-bingle-floor"
+  name: tiles-bingle-floor
   sprite: /Textures/_Goobstation/Tiles/binglefloortile.png
   variants: 4
   placementVariants:
@@ -28,7 +28,7 @@
 - type: entity
   id: FloorTileItemBingle
   parent: FloorTileItemBase
-  name: "підлога з бінгла"
+  name: bingle floor
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tiles/bingle.rsi

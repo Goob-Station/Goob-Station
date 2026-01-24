@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryJanitorial
-  name: "Прибиральний блок керування модкостюмом \"Респонсорій"
-  description: "Головний контролер для прибирального модкостюма \"Респонсорій\"."
+  name: Janitorial Responsory modsuit control unit
+  description: The main controller for a Janitorial Responsory modsuit.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/janitorial-responsory.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsResponsoryJanitorial
-  name: "Прибиральні рукавиці модкостюма \"Респонсорій"
-  description: "Пара рукавиць, створених для прибирального модкостюма \"Респонсорій\"."
+  name: Janitorial Responsory modsuit gauntlets
+  description: A pair of gauntlets made for the Janitorial Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -63,8 +63,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetResponsoryJanitorial
-  name: "Прибиральний шолом модкостюма \"Респонсорій"
-  description: "Сучасний шолом, розроблений Нанотрейзен для прибирального модкостюма \"Респонсорій\". Він має вбудований HUD."
+  name: Janitorial Responsory modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Janitorial Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -109,8 +109,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsoryJanitorial
-  name: "Прибиральний нагрудник модкостюма \"Респонсорій"
-  description: "Сучасний нагрудник, розроблений Нанотрейзен для прибирального модкостюма \"Респонсорій\". Він містить сервоприводи для зменшення навантаження від обладнання."
+  name: Janitorial Responsory modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Janitorial Responsory modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -148,8 +148,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryJanitorial
-  name: "Прибиральні черевики модкостюма \"Респонсорій"
-  description: "Сучасна пара магнітних черевиків для прибирального модкостюма \"Респонсорій\". Поки костюм живиться, вони не сповільнюватимуть власника."
+  name: Janitorial Responsory modsuit boots
+  description: A state-of-the-art pair of magboots for the Janitorial Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

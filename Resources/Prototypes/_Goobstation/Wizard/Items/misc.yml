@@ -10,7 +10,7 @@
 
 - type: entity
   id: CartridgeMagicBullet
-  name: "патрон magic bullet"
+  name: magic bullet cartridge
   parent: [ BaseCartridge, BaseSecurityContraband ]
   components:
   - type: Tag
@@ -28,8 +28,8 @@
   - type: SpentAmmoVisuals
 
 - type: entity
-  name: "сувій телепортації"
-  description: "Цей сувій може телепортувати вас у будь-яке місце на станції."
+  name: scroll of teleportation
+  description: This scroll can teleport you anywhere on the station.
   parent: [BaseItem, BaseMagicalContraband]
   id: ScrollTeleport
   components:
@@ -55,8 +55,8 @@
     price: 1000
 
 - type: entity
-  name: "сувій телепортації"
-  description: "Цей сувій може телепортувати вас у будь-яке місце на станції. Може бути використаний лише один раз."
+  name: scroll of teleportation
+  description: This scroll can teleport you anywhere on the station. Only has one use.
   parent: ScrollTeleport
   id: ScrollTeleportApprentice
   suffix: Apprentice
@@ -65,8 +65,8 @@
     usesLeft: 1
 
 - type: entity
-  name: "пакет заклинання блискавки"
-  description: "Пташиний корм, загорнутий у тканину, яка потріскує від електрики."
+  name: lightning bolt spell packet
+  description: Some birdseed wrapped in cloth that crackles with electricity.
   parent: BaseItem
   id: ThrownLightning
   components:
@@ -102,8 +102,8 @@
     offset: 0.0,-0.5
 
 - type: entity
-  name: "договір про учнівство"
-  description: "Магічний договір, раніше підписаний учнем. В обмін на навчання магічним мистецтвам, він зобов'язаний відповісти на ваш заклик про допомогу."
+  name: contract of apprenticeship
+  description: A magic contract previously signed by an apprentice. In exchange for instruction in the magical arts, they are bound to answer your call for aid.
   parent: [BaseItem, BaseMagicalContraband]
   id: ContractApprenticeship
   components:
@@ -169,8 +169,8 @@
 - type: entity
   parent: [DrinkBase, BaseMagicalContraband]
   id: EverfullMug
-  name: "вічно повна кружка"
-  description: "Зачароване горнятко, яке автоматично наповнює омнізин."
+  name: everfull mug
+  description: An enchanted mug which refills omnizine automatically.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/evermug.rsi
@@ -193,7 +193,7 @@
     price: 25000
 
 - type: entity
-  name: "посвідчення особи пасажира"
+  name: passenger ID card
   parent: AgentIDCard
   id: WizardIDCard
   suffix: Wizard
@@ -205,7 +205,7 @@
 - type: entity
   parent: BaseCrowbar
   id: CrowbarWizard
-  description: "Компактний багатоцільовий інструмент для виламування дверей та знищення станцій."
+  description: A compact multipurpose tool to pry open doors and destroy stations.
   components:
   - type: MeleeWeapon
     damage:

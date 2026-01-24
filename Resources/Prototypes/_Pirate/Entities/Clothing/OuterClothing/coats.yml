@@ -44,8 +44,8 @@
 - type: entity
   parent: [ClothingOuterArmorIPJacket, ClothingOuterStorageBase, BaseInterdyneContraband]
   id: ClothingOuterCoatInterdyneJacket
-  name: "Куртка Інтердайна"
-  description: "Куртка з дорогої тканини, та з вставними легкими пластинами власного виробництва, для захисту носія."
+  name: Куртка Інтердайна
+  description: Куртка з дорогої тканини, та з вставними легкими пластинами власного виробництва, для захисту носія.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/OuterClothing/Coats/ip_jacket.rsi
@@ -55,8 +55,8 @@
 - type: entity
   parent: ClothingOuterCoatInterdyneLabBase
   id: ClothingOuterCoatInterdyneWhite
-  name: "Лабораторний халат Інтердайну"
-  description: "Халат з дорогої тканини, для захисту носія від розлитої кислоти."
+  name: Лабораторний халат Інтердайну
+  description: Халат з дорогої тканини, для захисту носія від розлитої кислоти.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/OuterClothing/Coats/ip_labcoat.rsi
@@ -66,8 +66,8 @@
 - type: entity
   parent: ClothingOuterCoatInterdyneLabBase
   id: ClothingOuterCoatInterdyneBlack
-  name: "Чорний лабораторний халат Інтердайну"
-  description: "Чорний халат з дорогої тканини, для захисту носія від розлитої кислоти."
+  name: Чорний лабораторний халат Інтердайну
+  description: Чорний халат з дорогої тканини, для захисту носія від розлитої кислоти.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/OuterClothing/Coats/ip_labcoatblack.rsi

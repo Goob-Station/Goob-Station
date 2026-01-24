@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: MouseMultiply
-  name: "Розмножитися"
-  description: "Використовує голод для розмноження."
+  name: Multiply
+  description: Uses hunger to multiply.
   components:
   - type: Action
     icon:
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBodyPartBurst
-  name: "вирватися на волю!"
-  description: "Прорийтеся крізь плоть, у якій ви опинилися в пастці!"
+  name: burst free!
+  description: Dig your way out of the flesh you are trapped in!
   components:
   - type: Action
     useDelay: 15

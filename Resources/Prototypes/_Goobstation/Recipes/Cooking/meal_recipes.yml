@@ -8,7 +8,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeLollypop
-  name: "рецепт льодяника"
+  name: lollypop recipe
   result: FoodSnackLollypop
   time: 5
   solids:
@@ -18,7 +18,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFreedomCheeseBlock
-  name: "рецепт сиру свободи"
+  name: freedom cheese recipe
   result: FoodFreedomCheeseBlock
   time: 5
   solids:
@@ -27,7 +27,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFriedVoxL
-  name: "рецепт смаженої \"\"курки\""
+  name: 'fried "chicken" recipe'
   result: FoodMeatVoxFried
   time: 10
   solids:
@@ -35,15 +35,15 @@
 
 - type: microwaveMealRecipe
   id: RecipeFriedVoxR
-  name: "рецепт смаженої \"\"курки\""
+  name: 'fried "chicken" recipe'
   result: FoodMeatVoxFried
   time: 10
   solids:
     RightLegVox: 1
-    
+
 - type: microwaveMealRecipe
   id: RecipeChudBurger
-  name: "рецепт нічогобургера"
+  name: nothing burger recipe
   result: FoodBurgerChud
   time: 10
   group: Savory
@@ -52,3 +52,12 @@
     FoodMeat: 1
   reagents:
     Nothing: 5
+
+- type: microwaveMealRecipe
+  id: RecipeMothdog
+  name: mothdog recipe
+  result: FoodSnackMothdog
+  time: 5
+  group: Savory
+  solids:
+    HeadMoth: 1

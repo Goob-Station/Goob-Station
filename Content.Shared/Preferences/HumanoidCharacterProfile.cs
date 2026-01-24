@@ -148,9 +148,6 @@ namespace Content.Shared.Preferences
 
         [DataField]
         public string Employer { get; set; } = SharedHumanoidAppearanceSystem.DefaultEmployer;
-
-        [DataField]
-        public string Lifepath { get; set; } = SharedHumanoidAppearanceSystem.DefaultLifepath;
         // Pirate edit end - port EE contractors
         // Pirate - traits
         public HumanoidCharacterProfile WithoutAllTraitPreferences()
@@ -219,7 +216,6 @@ namespace Content.Shared.Preferences
             string species,
             string nationality, // Pirate - port EE contractors
             string employer, // Pirate - port EE contractors
-            string lifepath, // Pirate - port EE contractors
             float height, // Goobstation: port EE height/width sliders
             float width, // Goobstation: port EE height/width sliders
             int age,
@@ -240,7 +236,6 @@ namespace Content.Shared.Preferences
             Species = species;
             Nationality = nationality; // Pirate - port EE contractors
             Employer = employer; // Pirate - port EE contractors
-            Lifepath = lifepath; // Pirate - port EE contractors
             Height = height; // Goobstation: port EE height/width sliders
             Width = width; // Goobstation: port EE height/width sliders
             Age = age;
@@ -278,7 +273,6 @@ namespace Content.Shared.Preferences
                 other.Species,
                 other.Nationality, // Pirate - port EE contractors
                 other.Employer, // Pirate - port EE contractors
-                other.Lifepath, // Pirate - port EE contractors
                 other.Height, // Goobstation: port EE height/width sliders
                 other.Width, // Goobstation: port EE height/width sliders
                 other.Age,
@@ -319,7 +313,6 @@ namespace Content.Shared.Preferences
                 Species = species,
                 Nationality = SharedHumanoidAppearanceSystem.DefaultNationality, // Pirate - port EE contractors
                 Employer = SharedHumanoidAppearanceSystem.DefaultEmployer, // Pirate - port EE contractors
-                Lifepath = SharedHumanoidAppearanceSystem.DefaultLifepath, // Pirate - port EE contractors
             };
         }
 
@@ -393,7 +386,6 @@ namespace Content.Shared.Preferences
                 BarkVoice = barkvoiceId, // Goob Station - Barks
                 Nationality = SharedHumanoidAppearanceSystem.DefaultNationality, // Pirate - port EE contractors
                 Employer = SharedHumanoidAppearanceSystem.DefaultEmployer, // Pirate - port EE contractors
-                Lifepath = SharedHumanoidAppearanceSystem.DefaultLifepath, // Pirate - port EE contractors
             };
         }
 
@@ -420,10 +412,6 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithEmployer(string employer)
         {
             return new(this) { Employer = employer };
-        }
-        public HumanoidCharacterProfile WithLifepath(string lifepath)
-        {
-            return new(this) { Lifepath = lifepath };
         }
         // Pirate edit end - port EE contractors
 
@@ -652,7 +640,6 @@ namespace Content.Shared.Preferences
             if (BarkVoice != other.BarkVoice) return false; // Goob Station - Barks
             if (Nationality != other.Nationality) return false; // Pirate - port EE contractors
             if (Employer != other.Employer) return false; // Pirate - port EE contractors
-            if (Lifepath != other.Lifepath) return false; // Pirate - port EE contractors
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
@@ -763,16 +750,6 @@ namespace Content.Shared.Preferences
             {
                 employer = FormattedMessage.RemoveMarkupOrThrow(Employer);
             }
-
-            string lifepath;
-            if (Lifepath.Length > maxFlavorTextLength)
-            {
-                lifepath = FormattedMessage.RemoveMarkupOrThrow(Lifepath)[..maxFlavorTextLength];
-            }
-            else
-            {
-                lifepath = FormattedMessage.RemoveMarkupOrThrow(Lifepath);
-            }
             // Pirate edit end - port EE contractors
 
             // begin Goobstation: port EE height/width sliders
@@ -836,7 +813,6 @@ namespace Content.Shared.Preferences
             Age = age;
             Nationality = nationality; // Pirate - port EE contractors
             Employer = employer; // Pirate - port EE contractors
-            Lifepath = lifepath; // Pirate - port EE contractors
             Height = height; // Goobstation: port EE height/width sliders
             Width = width; // Goobstation: port EE height/width sliders
             Sex = sex;
@@ -953,7 +929,6 @@ namespace Content.Shared.Preferences
             hashCode.Add(Width); // Goobstation: port EE height/width sliders
             hashCode.Add(Employer); // Pirate - port EE contractors
             hashCode.Add(Nationality); // Pirate - port EE contractors
-            hashCode.Add(Lifepath); // Pirate - port EE contractors
             hashCode.Add(Age);
             hashCode.Add((int) Sex);
             hashCode.Add((int) Gender);

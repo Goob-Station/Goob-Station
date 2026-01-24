@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitApocryphal
-  name: "Апокрифічний блок керування модкостюмом"
-  description: "Головний контролер для апокрифічного модкостюма."
+  name: Apocryphal modsuit control unit
+  description: The main controller for a Apocryphal modsuit.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsApocryphal
-  name: "Апокрифічні рукавиці модкостюма"
-  description: "Пара рукавиць, створених для апокрифічного модкостюма."
+  name: Apocryphal modsuit gauntlets
+  description: A pair of gauntlets made for the Apocryphal modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -64,8 +64,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetApocryphal
-  name: "Апокрифічний шолом модкостюма" # Goob edit
-  description: "Сучасний шолом, розроблений Нанотрейзен для апокрифічного модкостюма. Він має вбудований HUD."
+  name: Apocryphal modsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Apocryphal modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -113,8 +113,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateApocryphal
-  name: "Апокрифічний нагрудник модкостюма"
-  description: "Сучасний нагрудник, розроблений Нанотрейзен для апокрифічного модкостюма. Він містить сервоприводи для зменшення навантаження від обладнання."
+  name: Apocryphal modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Apocryphal Modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -157,8 +157,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsApocryphal
-  name: "Апокрифічні черевики модкостюма"
-  description: "Сучасна пара магнітних черевиків для апокрифічного модкостюма. Поки костюм живиться, вони не сповільнюватимуть власника."
+  name: Apocryphal modsuit boots
+  description: A state-of-the-art pair of magboots for the Apocryphal modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

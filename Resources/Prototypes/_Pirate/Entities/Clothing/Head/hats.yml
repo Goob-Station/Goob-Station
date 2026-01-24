@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseInterdyneContraband]
   id: ClothingHeadHatBeretInterdyneWhite
-  name: "Берет Інтердайну"
-  description: "Від цього берета віє ліками та лікарнею"
+  name: Берет Інтердайну
+  description: Від цього берета віє ліками та лікарнею
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/interdyne_beret.rsi
@@ -52,8 +52,8 @@
 - type: entity
   parent: ClothingHeadHatInterdyneOfficerBase
   id: ClothingHeadHatInterdyneOfficer
-  name: "Офіцерський капелюх"
-  description: "Цей капелюх належить офіцеру Інтердайну, думаю не треба говорити що з вами стане якщо він не в відповідних руках"
+  name: Офіцерський капелюх
+  description: Цей капелюх належить офіцеру Інтердайну, думаю не треба говорити що з вами стане якщо він не в відповідних руках
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/officer_interdyne_black.rsi
@@ -63,8 +63,8 @@
 - type: entity
   parent: ClothingHeadHatInterdyneOfficerBase
   id: ClothingHeadHatInterdyneOfficerWhite
-  name: "Офіцерський капелюх"
-  description: "Цей капелюх належить офіцеру Інтердайну, думаю не треба говорити що з вами стане якщо він не в відповідних руках"
+  name: Офіцерський капелюх
+  description: Цей капелюх належить офіцеру Інтердайну, думаю не треба говорити що з вами стане якщо він не в відповідних руках
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/officer_interdyne_white.rsi

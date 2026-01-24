@@ -1,7 +1,7 @@
 # It's a silicon that has a hand. And nothing else.
 - type: body
   id: SiliconHand
-  name: "КремнієваКисть"
+  name: "Silicon"
   root: right arm
   slots:
     right arm:

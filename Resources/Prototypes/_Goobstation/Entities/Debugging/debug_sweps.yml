@@ -1,8 +1,8 @@
 - type: entity
-  name: "свята вибухова палиця 100 шкоди"
+  name: holy blast stick 100dmg
   parent: BaseItem
   id: MeleeDebugGibHoly100
-  description: "Ось, сила БОГА!!"
+  description: Behold, the power of GOD!!
   suffix: DEBUG
   components:
   - type: Tag
@@ -20,10 +20,10 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: "свята вибухова палиця 200 шкоди"
+  name: holy blast stick 200dmg
   parent: BaseItem
   id: MeleeDebugGibHoly200
-  description: "Ось, сила БОГА!!"
+  description: Behold, the power of GOD!!
   suffix: DEBUG
   components:
   - type: Tag
@@ -41,10 +41,10 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: "свята караюча палиця" # This ones just for fun
+  name: holy smite stick # This ones just for fun
   parent: BaseItem
   id: MeleeDebugGibHoly200000
-  description: "ЗГИНИ, ГРІШНИКУ"
+  description: BEGONE SINNER
   suffix: DEBUG
   components:
   - type: Tag

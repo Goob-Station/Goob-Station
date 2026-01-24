@@ -27,7 +27,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "гондола"
+  name: gondola
   parent:
     - MobRespirator
     - MobAtmosStandard
@@ -35,7 +35,7 @@
     - MobBloodstream
     - MobFlammable
   id: MobGondola
-  description: "Не маючи рук, він втілює даоський принцип у-вей (недіяння), а його усміхнений вираз обличчя демонструє його повне і абсолютне прийняття світу таким, яким він є."
+  description: Having no hands he embodies the Taoist principle of wu-wei (non-action) while his smiling facial expression shows his utter and complete acceptance of the world as it is.
   components:
   - type: Hunger
     thresholds:
@@ -151,10 +151,10 @@
   - type: Perishable
 
 - type: entity
-  name: "синді-тарган"
+  name: syndiroach
   id: MobMothSyndy
   parent: MobMothroach
-  description: "Вибуховий мофф."
+  description: Explosive moth.
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
@@ -191,11 +191,11 @@
     - TauCetiBasic # Needs to understand your nukie ops.
 
 - type: entity
-  name: "синді бі"
+  name: syndie bee
   suffix: Angry, syndicate
   parent: [ MobAngryBee ]
   id: MobSyndieAngryBee
-  description: "Яка гарна бджілка. О ні, вона виглядає сердитою і хоче мою піцу."
+  description: How nice a bee. Oh no, it looks angry and wants my pizza.
   components:
   - type: NpcFactionMember
     factions:
@@ -222,10 +222,10 @@
         3
 
 - type: entity
-  name: "лутбаг"
+  name: lootbug
   id: MobLootbug
   parent: SimpleSpaceMobBase
-  description: "Він їсть метал, можливо, він з'їв щось цінне?"
+  description: It eats metal, maybe it's eaten something of value?
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -315,10 +315,10 @@
     price: 500
 
 - type: entity
-  name: "космічний короп"
+  name: space carp
   id: MobCarpSentient
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  description: "Це космічний короп. Раніше був людиною."
+  description: It's a space carp. Used to be a person.
   components:
   - type: InputMover
   - type: MobMover
@@ -416,10 +416,10 @@
 
 
 - type: entity
-  name: "дивна миша"
+  name: strange mouse
   parent: MobMouse
   id: MobMouseSentient
-  description: "Піск! Раніше була людиною!"
+  description: Squeak! Used to be a person!
   components:
   - type: MobThresholds
     thresholds:
@@ -443,10 +443,10 @@
         Piercing: 5
 
 - type: entity
-  name: "гомункул"
+  name: homunculus
   id: MobHomunculus
   parent: SimpleMobBase
-  description: "Яке жалюгідне створіння..."
+  description: What a wretched beast...
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -518,7 +518,7 @@
 - type: entity
   parent: MobMouse
   id: MouseMenace
-  name: "загроза"
+  name: menace
   components:
   - type: EnchantFill
     enchants:
@@ -527,10 +527,10 @@
       EnchantSharpness: 5 # hit hard ye
 
 - type: entity
-  name: "Клоун Ієн"
+  name: Clown Ian
   parent: MobCorgiIan
   id: MobCorgiIanClown
-  description: "Улюблений коргі Хонкматері."
+  description: Honkmother's favorite corgi.
   components:
     - type: Sprite
       drawdepth: Mobs
@@ -569,10 +569,10 @@
       - FootstepSound
 
 - type: entity
-  name: "брулбар"
+  name: brullbar
   id: MobBrullbar
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: "Схожий на ведмедя, але не такий придатний для обіймів."
+  description: Oh god.
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
@@ -620,10 +620,10 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: "король брулбарів"
+  name: brullbar king
   id: MobBrullbarKing
   parent: MobBrullbar
-  description: "Виглядає злим, і є злим. Тобі краще тікати."
+  description: Looks mean, is mean. You better run.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -653,10 +653,10 @@
       prob: 0.2
 
 - type: entity
-  name: "ведмідь"
+  name: bear
   id: MobBearGoon
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: "Чого витріщився? Ніколи не бачив ведмедя?"
+  description: Why are you staring? Never seen a bear before?
   components:
   - type: HTN
     rootTask:
@@ -692,10 +692,10 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: "білий вовк"
+  name: white wolf
   parent: [ SimpleMobBase, MobCombat ]
   id: MobWhiteWolf
-  description: "Не намагайтеся погладити цього."
+  description: Don't try to pet this one.
   components:
     - type: HTN
       rootTask:
@@ -742,10 +742,10 @@
       - Dog
 
 - type: entity
-  name: "кінь"
+  name: horse
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobHorse
-  description: "Дуже мерзенне створіння. Для тих, хто любить помахати кулаками."
+  description: Very foul creature. For those that feel like punching.
   components:
   - type: MovementSpeedModifier
     baseSprintSpeed: 5.5
@@ -825,8 +825,8 @@
 - type: entity
   parent: SimpleMobBase
   id: MobClownGoblin
-  name: "клоун-гоблін"
-  description: "Маленька ходяча клоунська маска та черевики. Так і хочеться натиснути їм на носа й гуднути!"
+  name: clown goblin
+  description: Little walking clown mask and shoes. You want to honk their nose!
   components:
   - type: WaddleAnimation
   - type: Hunger

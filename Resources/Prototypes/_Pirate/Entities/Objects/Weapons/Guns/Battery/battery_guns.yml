@@ -1,8 +1,8 @@
 - type: entity
-  name: "x-02 енерго-поліморф"
+  name: x-02 енерго-поліморф
   parent: BaseWeaponBatterySmall
   id: WeaponEnergyGunMultiphasePolymorh
-  description: "Чаклунська модифікація енерго-пістолету, що викликає небачені результати."
+  description: Чаклунська модифікація енерго-пістолету, що викликає небачені результати.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
@@ -93,10 +93,10 @@
     autoRechargeRate: 5
 
 - type: entity
-  name: "енергетична зброя"
+  name: energy gun
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   id: WeaponEnergyGun
-  description: "Базова гібридна енергетична зброя з двома режимами: дизейблер і летальний."
+  description: "Базова гібридна енергетична зброя з двома режимами: дизейбер і летальний."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Battery/energygun.rsi
@@ -157,10 +157,10 @@
   - type: Multishot
 
 - type: entity
-  name: "мініатюрна енергетична зброя"
+  name: miniature energy gun
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponEnergyGunMini
-  description: "Легка версія енергетичної зброї з меншим об'ємом заряду."
+  description: "Легка версія енергетичної пушки з меншим обсягом заряду."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Battery/mini_energygun.rsi
@@ -221,7 +221,7 @@
   - type: Multishot
 
 - type: entity
-  name: "лазерний карабін ІК-60"
+  name: IK-60 laser carbine
   parent: [BaseWeaponBattery, BaseSecurityContraband, BaseGunWieldable]
   id: WeaponGunLaserCarbineAutomatic
   description: "Напівавтоматичний лазерний карабін, який широко використовується штурмовими загонами міліції Республіки Бізель."
@@ -281,7 +281,7 @@
   - type: Appearance
 
 - type: entity
-  name: "енергетичний пістолет PDW-9"
+  name: PDW-9 Energy Pistol
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponEnergyGunPistol
   description: "Військовий пістолет, який широко використовується загонами міліції Республіки Бізель."

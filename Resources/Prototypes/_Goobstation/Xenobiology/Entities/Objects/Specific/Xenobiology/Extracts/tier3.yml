@@ -1,7 +1,7 @@
 - type: entity
   id: RedSlimeExtract
   parent: BaseSlimeExtract
-  name: "червоний екстракт слайма"
+  name: red slime extract
   components:
   - type: Sprite
     layers:
@@ -55,7 +55,7 @@
 - type: entity
   id: GreenSlimeExtract
   parent: BaseSlimeExtract
-  name: "зелений екстракт слайма"
+  name: green slime extract
   components:
   - type: Sprite
     layers:
@@ -108,7 +108,7 @@
 - type: entity
   id: PinkSlimeExtract
   parent: BaseSlimeExtract
-  name: "рожевий екстракт слайма"
+  name: pink slime extract
   components:
   - type: Sprite
     layers:
@@ -160,7 +160,7 @@
 - type: entity
   id: GoldSlimeExtract
   parent: BaseSlimeExtract
-  name: "золотий екстракт слайма"
+  name: gold slime extract
   components:
   - type: Sprite
     layers:

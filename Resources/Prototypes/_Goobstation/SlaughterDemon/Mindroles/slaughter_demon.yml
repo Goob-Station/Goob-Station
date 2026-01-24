@@ -6,7 +6,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleSlaughterDemon
-  name: "Роль Демона-Різника"
+  name: Slaughter Demon Role
   components:
   - type: MindRole
     antagPrototype: SlaughterDemon

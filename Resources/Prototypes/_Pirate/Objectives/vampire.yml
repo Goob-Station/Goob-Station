@@ -97,8 +97,8 @@
 - type: entity
   parent: [BaseVampireObjective, BaseSurviveObjective]
   id: VampireSurviveObjective
-  name: "Вижити"
-  description: "Ви повинні вижити за будь-яких обставин."
+  name: Survive
+  description: I must survive no matter what.
   components:
   - type: Objective
     icon:
@@ -108,8 +108,8 @@
 - type: entity
   parent: [BaseVampireObjective, BaseLivingObjective]
   id: VampireEscapeObjective
-  name: "Втекти до Центкому живим і без кайданів."
-  description: "Потрібно втекти на евакуаційному шатлі. Потай."
+  name: Escape to centcomm alive and unrestrained.
+  description: I need to escape on the evacuation shuttle. Undercover.
   components:
   - type: Objective
     difficulty: 1.3
@@ -123,7 +123,7 @@
 - type: entity
   parent: [BaseVampireObjective, BaseKillObjective]
   id: VampireKillRandomPersonObjective
-  description: "Зробіть це як завгодно, лише подбайте, щоб вони не дісталися до Центкому."
+  description: Do it however you like, just make sure they don't make it to centcomm.
   components:
   - type: Objective
     difficulty: 1.75

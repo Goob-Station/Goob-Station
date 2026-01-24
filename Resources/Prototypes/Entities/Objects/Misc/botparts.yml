@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseItem
   id: ProximitySensor
-  name: "датчик наближення"
-  description: "Відчуває речі в безпосередній близькості."
+  name: proximity sensor
+  description: Senses things in close proximity.
   components:
   - type: Sprite
     sprite: Objects/Misc/proximity_sensor.rsi

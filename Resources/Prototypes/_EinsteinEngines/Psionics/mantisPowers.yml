@@ -1,6 +1,6 @@
 - type: psionicPower
   id: MantisSummonBlackBlade
-  name: "Викликати Чорний Клинок"
+  name: Summon Black Blade
   powerCategories:
     - Mentalic
     - Dangerous
@@ -13,8 +13,8 @@
 
 - type: entity
   id: ActionMantisSummonBlackBlade
-  name: "Викликати Чорний Клинок"
-  description: "Прикличте свідоцтво ваших гріхів."
+  name: Summon Black Blade
+  description: Beckon forth the testament of your sins.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -40,10 +40,10 @@
     isEmote: true
 
 - type: entity
-  name: "чорний меч"
+  name: black sword
   parent: [ BaseItem, BaseMantisContraband ]
   id: MantisBlackBlade
-  description: "Величезний чорний меч, покритий дивними рунами. Він невпинно шепоче своєму власнику."
+  description: A huge black sword covered in strange runes. It whispers incessantly to its wielder.
   components:
   - type: Sharp
   - type: Sprite

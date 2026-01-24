@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: ResinWeed
-  name: "смоляна підлога"
-  description: "Товстий шар смоли вкриває підлогу."
+  name: resin floor
+  description: A thick resin surface covers the floor.
   components:
   - type: Sprite
     noRot: true
@@ -76,8 +76,8 @@
 - type: entity
   parent: ResinWeed
   id: ResinWeedNode
-  name: "сяюча смола"
-  description: "Блакитна біолюмінесценція сяє з-під поверхні."
+  name: glowing resin
+  description: Blue bioluminescence shines from beneath the surface.
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi # Goobstation new sprites

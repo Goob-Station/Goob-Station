@@ -6,7 +6,7 @@
 # Minor medical loot spawner
 # Use case: Common areas that aren't medical
 - type: entity
-  name: "точка появи медичного луту"
+  name: healing supplies spawner
   id: LootSpawnerMedicalMinor
   parent: MarkerBase
   components:
@@ -31,7 +31,7 @@
 
 # Proper medical loot spawner, contains things like beakers and better meds.
 - type: entity
-  name: "точка появи класного медичного луту"
+  name: medical loot spawner
   id: LootSpawnerMedicalClassy
   parent: MarkerBase
   components:

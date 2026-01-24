@@ -8,7 +8,7 @@
 
 - type: bark
   id: Alto
-  name: "Альт"
+  name: Alto
   soundCollection:
     collection: AltoBark
 
@@ -22,7 +22,7 @@
 
 - type: bark
   id: Baritone
-  name: "Баритон"
+  name: Baritone
   volume: 1
   soundCollection:
     collection: BaritoneBark
@@ -37,7 +37,7 @@
 
 - type: bark
   id: Bass
-  name: "Бас"
+  name: Bass
   volume: 2
   soundCollection:
     collection: BassBark
@@ -52,7 +52,7 @@
 
 - type: bark
   id: Tenor
-  name: "Тенор"
+  name: Tenor
   volume: 1
   soundCollection:
     collection: TenorBark
@@ -67,7 +67,7 @@
 
 - type: bark
   id: Arachnid
-  name: "Арахнід"
+  name: Arachnid
   volume: 1
   soundCollection:
     collection: ArachnidBark
@@ -84,7 +84,7 @@
 
 - type: bark
   id: Lizard
-  name: "Ящір"
+  name: Lizard
   volume: 0.4
   soundCollection:
     collection: LizardBark
@@ -102,7 +102,7 @@
 
 - type: bark
   id: Slime
-  name: "Слайм"
+  name: Slime
   volume: 0.5
   soundCollection:
     collection: SlimeBark
@@ -119,7 +119,7 @@
 
 - type: bark
   id: Vox
-  name: "Вокс"
+  name: Vox
   volume: 0.5
   soundCollection:
     collection: VoxBark
@@ -134,7 +134,7 @@
 
 - type: bark
   id: Harpy
-  name: "Гарпія"
+  name: Harpy
   volume: 1
   soundCollection:
     collection: HarpyBark
@@ -151,7 +151,7 @@
 
 - type: bark
   id: Vulpkanin
-  name: "Вульпканін"
+  name: Vulpkanin
   volume: 1
   soundCollection:
     collection: VulpkaninBark
@@ -166,7 +166,7 @@
 
 - type: bark
   id: Squeak
-  name: "Писк"
+  name: Squeak
   frequency: 0.3
   minPitch: 0.8
   maxPitch: 1.1
@@ -185,7 +185,7 @@
 
 - type: bark
   id: MaleAvali
-  name: "Авалі (чоловік)"
+  name: MaleAvali
   frequency: 0.5
   volume: 0.7
   soundCollection:
@@ -203,7 +203,7 @@
 
 - type: bark
   id: FemaleAvali
-  name: "Авалі (жінка)"
+  name: FemaleAvali
   volume: 0.7
   frequency: 0.5
   soundCollection:
@@ -221,7 +221,7 @@
 
 - type: bark
   id: Pai
-  name: "пШІ"
+  name: Pai
   volume: 1
   frequency: 0.4
   soundCollection:
@@ -239,7 +239,7 @@
 
 - type: bark
   id: Borg
-  name: "Кіборг"
+  name: Borg
   volume: 0.7
   frequency: 0.35
   soundCollection:
@@ -257,7 +257,7 @@
 
 - type: bark
   id: BorgSyndie
-  name: "Кіборг Синдикату"
+  name: BorgSyndie
   roundStart: false
   volume: 0.5
   frequency: 0.35
@@ -277,7 +277,7 @@
 
 - type: bark
   id: Durk
-  name: "Дурк"
+  name: Durk
   volume: 1
   frequency: 0.9
   minPitch: 0.9
@@ -298,7 +298,7 @@
 
 - type: bark
   id: Aviu1
-  name: "Зухвалий"
+  name: Impudent
   frequency: 0.7
   soundCollection:
     collection: Aviu1Bark
@@ -315,7 +315,7 @@
 
 - type: bark
   id: Aviu2
-  name: "Сильний"
+  name: Strong
   frequency: 0.7
   soundCollection:
     collection: Aviu2Bark
@@ -332,7 +332,7 @@
 
 - type: bark
   id: Aviu3
-  name: "Чужий"
+  name: Alien
   frequency: 0.7
   soundCollection:
     collection: Aviu3Bark
@@ -349,7 +349,7 @@
 
 - type: bark
   id: Aviu4
-  name: "Ефірний"
+  name: Ethereal
   frequency: 0.7
   soundCollection:
     collection: Aviu4Bark

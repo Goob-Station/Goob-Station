@@ -9,8 +9,8 @@
 - type: entity
   parent: Acidifier
   id: RedspaceLifeline
-  name: "рятувальний трос червоного простору"
-  description: "Телепортує ваше тіло, щоб врятувати ваше життя!"
+  name: redspace lifeline
+  description: Teleports your body to save your life!
   components:
   - type: Transform
     anchored: True
@@ -32,8 +32,8 @@
 - type: entity
   parent: RedspaceLifeline
   id: RedspaceLifelineSpawnCore
-  name: "рятувальний трос червоного простору"
-  description: "Телепортує ваше тіло, щоб врятувати ваше життя!"
+  name: redspace lifeline
+  description: Teleports your body to save your life!
   components:
   - type: Transform
     anchored: True

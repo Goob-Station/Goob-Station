@@ -51,8 +51,8 @@
 - type: entity
   id: portableChemicalMixer
   parent: BaseItem
-  name: "портативний хімічний змішувач"
-  description: "Хімічний маніпулятор класу «Тайдер»"
+  name: portable chemical mixer
+  description: A "Tider" grade chemical manipulator
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
@@ -123,8 +123,8 @@
 - type: entity
   id: portableChemicalMixerIncomplete
   parent: BaseItem
-  name: "незавершений портативний хімічний змішувач"
-  description: "Незавершений хімічний маніпулятор класу «Тайдер»"
+  name: Incomplete portable chemical mixer
+  description: A incompleted "Tider" grade chemical manipulator
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

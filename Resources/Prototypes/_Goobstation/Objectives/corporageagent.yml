@@ -46,8 +46,8 @@
 - type: entity
   parent: [BaseCorporateObjective, BaseLivingObjective]
   id: CorporateEscapeShuttleObjective
-  name: "Втекти на шатлі живим і на волі."
-  description: "Один із наших таємних агентів проведе з вами бесіду, коли ви прибудете на евакуаційний шатл. Не з'являйтеся в наручниках."
+  name: Escape to centcomm alive and unrestrained.
+  description: One of our undercover agents will debrief you when you arrive on the evacuation shuttle. Don't show up in cuffs.
   components:
   - type: Objective
     difficulty: 1
@@ -77,8 +77,8 @@
 - type: entity
   parent: [BaseCorporateObjective, BaseLivingObjective]
   id: CorporateHijackShuttleObjective
-  name: "Захопити аварійний шатл"
-  description: "Екіпаж став свідком того, чого не повинен був. Покиньте станцію на шатлі, вільному від будь-якого персоналу Нанотрейзен. Використовуйте БУДЬ-ЯКІ доступні вам методи. Переконайтеся, що ніхто не втече, щоб розповісти про те, що тут сталося. Ігноруйте допомогу від будь-кого, крім агента підтримки."
+  name: Hijack emergency shuttle
+  description: The crew has witnessed something they shouldn't have. Leave on the shuttle free and clear of any Nanotrasen crew. Use ANY methods available to you. Make sure no one escapes to spread word of what happened here. Ignore assistance from anyone other than a support agent.
   components:
     - type: Objective
       difficulty: 5 # insane, default config max difficulty
@@ -92,7 +92,7 @@
 - type: entity
   parent: [BaseCorporateObjective, BaseKillObjective]
   id: CorporateKillRandomPersonObjective
-  description: "Їх підозрюють у зраді. Зробіть це як завгодно, просто переконайтеся, що вони не покинуть станцію."
+  description: They are suspected of being a Traitor. Do it however you like, just make sure they don't get off the station.
   components:
   - type: Objective
     difficulty: 1.75
@@ -106,7 +106,7 @@
 - type: entity
   parent: [BaseCorporateObjective, BaseKillObjective]
   id: CorporateKillRandomHeadObjective
-  description: "Вони занадто часто висловлювалися проти нас. Змусьте їх зникнути. Хай щастить, агенте."
+  description: They've spoken out against us one too many times. Make them disappear. Good luck, agent.
   components:
   - type: Objective
     # technically its still possible for KillRandomPersonObjective to roll a head but this is guaranteed, so higher difficulty
@@ -127,7 +127,7 @@
 - type: entity
   parent: [BaseCorporateSocialObjective, BaseKeepAliveObjective]
   id: RandomCorporateAliveObjective
-  description: "Вони становлять для нас інтерес. Переконайтеся, що вони виживуть."
+  description: They're of interest to us. Make sure they survive.
   components:
   - type: Objective
     difficulty: 1.75
@@ -138,7 +138,7 @@
 - type: entity
   parent: [BaseCorporateSocialObjective, BaseHelpProgressObjective]
   id: RandomCorporateProgressObjective
-  description: "Ми уклали досить вигідну угоду з їхнім роботодавцем. Допоможіть їм у роботі, і ви отримаєте гарний бонус."
+  description: We've signed a pretty good deal with their employer. Help them out with their work and you'll get a nice bonus.
   components:
   - type: Objective
     difficulty: 2.5
@@ -328,7 +328,7 @@
 - type: entity
   parent: [BaseCorporateObjective, BaseKillObjective]
   id: CorporatePermaKillRandomTraitorObjective
-  description: "Зробіть це як завгодно, аби вони більше не дихали."
+  description: Do it however you like, as long as they're not breathing anymore.
   components:
   - type: Objective
     difficulty: 2.5 # Most cases tots are armed themselves so have fun
@@ -345,7 +345,7 @@
 - type: entity
   parent: [BaseCorporateObjective, BaseKillObjective]
   id: CorporatePermaKillRandomPersonObjective
-  description: "Зробіть це як завгодно, аби вони більше не дихали."
+  description: Do it however you like, as long as they're not breathing anymore.
   components:
   - type: Objective
     difficulty: 1.75

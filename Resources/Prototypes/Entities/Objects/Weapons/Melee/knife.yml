@@ -185,10 +185,10 @@
     speed: 0.65
 
 - type: entity
-  name: "кухонний ніж"
+  name: kitchen knife
   parent: BaseKnife
   id: KitchenKnife
-  description: "Універсальний кухарський ніж від Торгівельної гільдії Астерс. Гарантовано залишиться гострим на довгі роки..."
+  description: A general purpose Chef's Knife made by Asters Merchant Guild. Guaranteed to stay sharp for years to come..
   components:
   - type: Tag
     tags:
@@ -213,10 +213,10 @@
         Slash: 10
 
 - type: entity
-  name: "тесак м'ясника"
+  name: butcher's cleaver
   parent: BaseKnife
   id: ButchCleaver
-  description: "Величезне лезо, що використовується для рубання та подрібнення м'яса. Сюди входять клоуна і клоунські субпродукти."
+  description: A huge blade used for chopping and chopping up meat. This includes clowns and clown-by-products.
   components:
   - type: Tag
     tags:
@@ -244,10 +244,10 @@
     speed: 0.5
 
 - type: entity
-  name: "бойовий ніж"
+  name: combat knife
   parent: [BaseKnife, BaseSecurityContraband]
   id: CombatKnife
-  description: "Смертоносний ніж, призначений для сутичок у  ближньому бою."
+  description: A deadly knife intended for melee confrontations.
   components:
   - type: Tag
     tags:
@@ -298,10 +298,10 @@
         friction: 0.2
 
 - type: entity
-  name: "ніж для виживання"
+  name: survival knife
   parent: [BaseSecurityCargoContraband, CombatKnife]
   id: SurvivalKnife
-  description: "Зброя першого і останнього засобу для боротьби з космічним коропом."
+  description: Weapon of first and last resort for combatting space carp.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/survival_knife.rsi
@@ -313,10 +313,10 @@
       sprite: Objects/Weapons/Melee/survival_knife.rsi
 
 - type: entity
-  name: "ніж кукрі"
+  name: kukri knife
   parent: [BaseSecurityCargoContraband, CombatKnife]
   id: KukriKnife
-  description: "У професіоналів є стандарти. Бути ввічливим. Бути ефективним. Мати план, як вбити кожного, кого зустрінеш."
+  description: Professionals have standards. Be polite. Be efficient. Have a plan to kill everyone you meet.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
@@ -334,8 +334,8 @@
 - type: entity
   parent: [ClothingHeadHatGreyFlatcap, BaseMinorContraband]
   id: BladedFlatcapGrey
-  name: "сірий кашкет"
-  description: "Непримітний капелюх із зашитими в поля осколками скла."
+  name: grey flatcap
+  description: Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim.
   suffix: Bladed
   components:
   - type: Construction
@@ -361,8 +361,8 @@
 - type: entity
   parent: BladedFlatcapGrey
   id: BladedFlatcapBrown
-  name: "коричнева пласка кепка"
-  description: "\"Дурний клоун! Ти виставив мене в поганому світлі!\" У її козирку заховані уламки скла."
+  name: brown flatcap
+  description: "\"Stupid clown! You made me look bad!\" It has glass shards hidden in the brim."
   components:
   - type: Construction
     graph: BladedFlatcapBrown
@@ -372,10 +372,10 @@
     sprite: Clothing/Head/Hats/brownflatcap.rsi
 
 - type: entity
-  name: "скляний ніж"
+  name: shiv
   parent: [BaseKnife, BaseMinorContraband]
   id: Shiv
-  description: "Уламок скла з обмотаним навколо нього шматком тканини."
+  description: A crude weapon fashioned from a piece of cloth and a glass shard.
   components:
   - type: Tag
     tags:
@@ -400,10 +400,10 @@
   - type: UndetectableContraband #Goobstation-Contraband detector
 
 - type: entity
-  name: "посилене лезо"
+  name: reinforced shiv
   parent: Shiv
   id: ReinforcedShiv
-  description: "Армований уламок скла з обмотаним навколо нього шматком тканини."
+  description: A crude weapon fashioned from a piece of cloth and a reinforced glass shard.
   components:
   - type: Construction
     graph: ReinforcedShiv
@@ -419,10 +419,10 @@
     sprite: Objects/Weapons/Melee/reinforced_shiv.rsi
 
 - type: entity
-  name: "плазмовий ніж"
+  name: plasma shiv
   parent: Shiv
   id: PlasmaShiv
-  description: "Осколок плазми з обмотаним навколо нього шматком тканини."
+  description: A crude weapon fashioned from a piece of cloth and a plasma glass shard.
   components:
   - type: Construction
     graph: PlasmaShiv
@@ -438,10 +438,10 @@
     sprite: Objects/Weapons/Melee/plasma_shiv.rsi
 
 - type: entity
-  name: "урановий ніж"
+  name: uranium shiv
   parent: Shiv
   id: UraniumShiv
-  description: "Урановий осколок з обмотаним навколо нього шматком тканини"
+  description: A crude weapon fashioned from a piece of cloth and a uranium glass shard. Violates the geneva convention!
   components:
   - type: Construction
     graph: UraniumShiv
@@ -458,10 +458,10 @@
     sprite: Objects/Weapons/Melee/uranium_shiv.rsi
 
 - type: entity
-  name: "метальний ніж"
+  name: throwing knife
   parent: [BaseKnife, BaseSyndicateContraband]
   id: ThrowingKnife
-  description: "Цей криваво-червоний ніж дуже аеродинамічний і його легко кидати, але удачі в рукопашному бою."
+  description: This blood-red knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
   components:
   - type: Tag
     tags:

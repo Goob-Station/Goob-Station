@@ -133,8 +133,8 @@
 
 - type: job
   id: SpecialOperationsOfficer
-  name: "офіцер спецоперацій"
-  description: "елітний оперативник, відправлений для виконання критично важливих завдань та усунення загроз високого рівня"
+  name: job-name-special-operations-officer
+  description: job-description-operations-officer
   playTimeTracker: JobSpecialOperationsOfficer
   setPreference: false
   startingGear: SpecialOperationsOfficerGear
@@ -214,7 +214,7 @@
 - type: job
   id: Inspector
   name: job-name-inspector
-  description: "аудитор, відправлений Центральним Командуванням для перевірки відповідності станції протоколам та виявлення будь-яких порушень"
+  description: job-description-inspector
   playTimeTracker: JobInspector
   setPreference: false
   startingGear: InspectorGear

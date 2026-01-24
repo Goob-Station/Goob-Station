@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseStructure
   id: CosmicShuttleCore
-  name: "лиховісний інструмент"
-  description: "Його поверхня світиться безліччю незбагненних гліфів, які передають у ваш розум одне слово: \"Політ\"."
+  name: malign instrument
+  description: Its surface glows with a myriad of inscrutable glyphs that commmunicate a single word into your mind; "Flight".
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmiccomputer.rsi
@@ -57,7 +57,7 @@
 
 ##################### CHAIR
 - type: entity
-  name: "лиховісне крісло"
+  name: malign settee
   id: CosmicChair
   parent: SeatBase
   placement:
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseStructure
   id: CosmicObelisk
-  name: "лиховімний обеліск"
-  description: "Таємнича, але інертна структура. Тривожна."
+  name: malign obelisk
+  description: A mysterious-yet-inert sturcture. Unsettling.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmicpillar.rsi
@@ -117,7 +117,7 @@
 - type: entity
   parent: BaseStructure
   id: CosmicThruster
-  name: "лиховісний двигун"
+  name: malign engine
   components:
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
@@ -177,9 +177,9 @@
 ##################### LAMP
 - type: entity
   id: CosmicLamp
-  description: "Всередині мерехтить вогник не-світла."
+  description: A mote of un-light shimmers within.
   suffix: Always Powered
-  name: "лиховісне світло"
+  name: malign light
   components:
   - type: MeleeSound
     soundGroups:
@@ -224,8 +224,8 @@
 
 - type: entity
   id: CosmicMalignRift
-  name: "лиховісний розлом"
-  description: "Зсередини ллється зловмисне світло."
+  name: malign rift
+  description: A malign light pours forth from within.
   placement:
     mode: SnapgridCenter
   components:
@@ -257,8 +257,8 @@
 - type: entity
   id: CosmicVacuousSpire
   parent: BaseStructure
-  name: "порожнистий шпиль"
-  description: "Також відомий як \"вилка чууні\"."
+  name: vacuous spire
+  description: Also known as the "chuuni fork".
   components:
   - type: Pullable
   - type: Anchorable
@@ -338,8 +338,8 @@
 - type: entity
   id: AltarCosmic
   parent: AltarNanotrasen
-  name: "космічний вівтар"
-  description: "Вівтар... Чогось."
+  name: cosmic altar
+  description: Altar of.. Something.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/altar.rsi
@@ -358,8 +358,8 @@
 - type: entity
   id: CosmicTable
   parent: CounterBase
-  name: "лиховісний стіл"
-  description: "Незбагненно, космічно... Квадратний."
+  name: malign table
+  description: Unfathomably, cosmically.. Square.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmictable.rsi

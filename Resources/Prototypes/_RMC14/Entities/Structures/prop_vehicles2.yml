@@ -18,8 +18,8 @@
   parent: RMCPropVehicle2Base #use East and West
   id: RMCPropVehicleCargoCrane
   suffix: Use East, West
-  name: "вантажний кран"
-  description: "Кран, що використовується для завантаження та розвантаження вантажу."
+  name: cargo crane
+  description: A crane used for loading and unloading cargo.
   components:
   - type: Sprite
     state: crane
@@ -67,8 +67,8 @@
 - type: entity
   parent: RMCPropVehicleCargoCrane
   id: RMCPropVehicleCargoCraneCargo
-  name: "вантажний кран"
-  description: "Кран, що використовується для завантаження та розвантаження вантажу."
+  name: cargo crane
+  description: A crane used for loading and unloading cargo.
   components:
   - type: Sprite
     state: crane_cargo
@@ -77,8 +77,8 @@
 - type: entity
   parent: RMCPropVehicleCargoCrane
   id: RMCPropVehicleCargoCraneCargoSnow
-  name: "вантажний кран"
-  description: "Кран, що використовується для завантаження та розвантаження вантажу."
+  name: cargo crane
+  description: A crane used for loading and unloading cargo.
   components:
   - type: Sprite
     state: crane_cargo_snow
@@ -87,8 +87,8 @@
 - type: entity
   parent: RMCPropVehicleCargoCrane
   id: RMCPropVehicleCargoCraneSnow
-  name: "вантажний кран"
-  description: "Кран, що використовується для завантаження та розвантаження вантажу."
+  name: cargo crane
+  description: A crane used for loading and unloading cargo.
   components:
   - type: Sprite
     state: crane_snow
@@ -97,8 +97,8 @@
 - type: entity
   parent: RMCPropVehicleCargoCrane
   id: RMCPropVehicleCargoCraneDestroyed
-  name: "вантажний кран"
-  description: "Кран, що використовується для завантаження та розвантаження вантажу."
+  name: cargo crane
+  description: A crane used for loading and unloading cargo.
   components:
   - type: Sprite
     state: crane_damaged
@@ -108,8 +108,8 @@
   parent: RMCPropVehicle2Base #Use East and West
   id: RMCPropVehicleCrawler
   suffix: Use East, West
-  name: "колоніальний гусеничний транспортер"
-  description: "Це гусеничний транспортер для роботи у суворих умовах. Поставляється компанією Orbital Blue International; «Ваші друзі в аерокосмічному бізнесі». Дочірня компанія Ві-Я."
+  name: colony crawler
+  description: It is a tread bound crawler used in harsh conditions. Supplied by Orbital Blue International; 'Your friends, in the Aerospace business.' A subsidiary of We-Ya.
   components:
   - type: Sprite
     state: crawler
@@ -126,8 +126,8 @@
 - type: entity
   parent: RMCPropVehicleCrawler
   id: RMCPropVehicleCrawlerCovered
-  name: "колоніальний гусеничний транспортер"
-  description: "Це гусеничний транспортер для роботи у суворих умовах. Поставляється компанією Orbital Blue International; «Ваші друзі в аерокосмічному бізнесі». Дочірня компанія Ві-Я."
+  name: colony crawler
+  description: It is a tread bound crawler used in harsh conditions. Supplied by Orbital Blue International; 'Your friends, in the Aerospace business.' A subsidiary of We-Ya.
   components:
   - type: Sprite
     state: crawler_covered_bed
@@ -135,8 +135,8 @@
 - type: entity
   parent: RMCPropVehicleCrawler
   id: RMCPropVehicleCrawlerCrate
-  name: "колоніальний гусеничний транспортер"
-  description: "Це гусеничний транспортер для роботи у суворих умовах. Поставляється компанією Orbital Blue International; «Ваші друзі в аерокосмічному бізнесі». Дочірня компанія Ві-Я."
+  name: colony crawler
+  description: It is a tread bound crawler used in harsh conditions. Supplied by Orbital Blue International; 'Your friends, in the Aerospace business.' A subsidiary of We-Ya.
   components:
   - type: Sprite
     state: crawler_crate
@@ -144,8 +144,8 @@
 - type: entity
   parent: RMCPropVehicleCrawler
   id: RMCPropVehicleCrawlerCrate2
-  name: "колоніальний гусеничний транспортер"
-  description: "Це гусеничний транспортер для роботи у суворих умовах. Поставляється компанією Orbital Blue International; «Ваші друзі в аерокосмічному бізнесі». Дочірня компанія Ві-Я."
+  name: colony crawler
+  description: It is a tread bound crawler used in harsh conditions. Supplied by Orbital Blue International; 'Your friends, in the Aerospace business.' A subsidiary of We-Ya.
   components:
   - type: Sprite
     state: crawler_crate_alt
@@ -153,8 +153,8 @@
 - type: entity
   parent: RMCPropVehicleCrawler
   id: RMCPropVehicleCrawlerCrate3
-  name: "колоніальний гусеничний транспортер"
-  description: "Це гусеничний транспортер для роботи у суворих умовах. Поставляється компанією Orbital Blue International; «Ваші друзі в аерокосмічному бізнесі». Дочірня компанія Ві-Я."
+  name: colony crawler
+  description: It is a tread bound crawler used in harsh conditions. Supplied by Orbital Blue International; 'Your friends, in the Aerospace business.' A subsidiary of We-Ya.
   components:
   - type: Sprite
     state: crawler_crate_alt2
@@ -162,8 +162,8 @@
 - type: entity
   parent: RMCPropVehicleCrawler
   id: RMCPropVehicleCrawlerCrateWY
-  name: "колоніальний гусеничний транспортер"
-  description: "Це гусеничний транспортер для роботи у суворих умовах. Поставляється компанією Orbital Blue International; «Ваші друзі в аерокосмічному бізнесі». Дочірня компанія Ві-Я."
+  name: colony crawler
+  description: It is a tread bound crawler used in harsh conditions. Supplied by Orbital Blue International; 'Your friends, in the Aerospace business.' A subsidiary of We-Ya.
   components:
   - type: Sprite
     state: crawler_crate_wy
@@ -171,8 +171,8 @@
 - type: entity
   parent: RMCPropVehicleCrawler
   id: RMCPropVehicleCrawlerFuel
-  name: "колоніальний гусеничний транспортер"
-  description: "Це гусеничний транспортер для роботи у суворих умовах. Поставляється компанією Orbital Blue International; «Ваші друзі в аерокосмічному бізнесі». Дочірня компанія Ві-Я."
+  name: colony crawler
+  description: It is a tread bound crawler used in harsh conditions. Supplied by Orbital Blue International; 'Your friends, in the Aerospace business.' A subsidiary of We-Ya.
   components:
   - type: Sprite
     state: crawler_fuel
@@ -181,8 +181,8 @@
   parent: RMCPropVehicle2Base #Use East and West
   id: RMCPropVehicleTruck
   suffix: Use East, West
-  name: "вантажівка"
-  description: "Стара вантажівка, схоже, зламана."
+  name: truck
+  description: An old truck, seems to be broken down.
   components:
   - type: Sprite
     state: truck
@@ -199,8 +199,8 @@
 - type: entity
   parent: RMCPropVehicleTruck
   id: RMCPropVehicleTruckCargo
-  name: "вантажівка"
-  description: "Стара вантажна вантажівка, схоже, зламана."
+  name: truck
+  description: An old cargo truck, seems to be broken down.
   components:
   - type: Sprite
     state: truck_cargo
@@ -208,8 +208,8 @@
 - type: entity
   parent: RMCPropVehicleTruck
   id: RMCPropVehicleTruckMining
-  name: "вантажівка"
-  description: "Стара видобувна вантажівка, схоже, зламана."
+  name: truck
+  description: An old mining truck, seems to be broken down.
   components:
   - type: Sprite
     state: truck_mining
@@ -217,8 +217,8 @@
 - type: entity
   parent: RMCPropVehicleTruck
   id: RMCPropVehicleTruckBroken
-  name: "вантажівка"
-  description: "Стара вантажівка, схоже, зламана."
+  name: truck
+  description: An old truck, seems to be broken down.
   components:
   - type: Sprite
     state: truck_damaged
@@ -226,8 +226,8 @@
 - type: entity
   parent: RMCPropVehicleTruck
   id: RMCPropVehicleTruckSnow
-  name: "вантажівка"
-  description: "Стара вантажівка, схоже, зламана."
+  name: truck
+  description: An old truck, seems to be broken down.
   components:
   - type: Sprite
     state: truck_snow
@@ -235,8 +235,8 @@
 - type: entity
   parent: RMCPropVehicleTruck
   id: RMCPropVehicleTruckCargoSnow
-  name: "вантажівка"
-  description: "Стара вантажна вантажівка, схоже, зламана."
+  name: truck
+  description: An old cargo truck, seems to be broken down.
   components:
   - type: Sprite
     state: truck_cargo
@@ -245,8 +245,8 @@
   parent: RMCPropVehicle2Base #Use East and West
   id: RMCPropVehicleTractor
   suffix: Use East, West
-  name: "трактор"
-  description: "Старий трактор, схоже, зламався."
+  name: tractor
+  description: An old tractor, seems to be broken down.
   components:
   - type: Sprite
     state: tractor
@@ -263,8 +263,8 @@
 - type: entity
   parent: RMCPropVehicleTruck
   id: RMCPropVehicleTractorDamaged
-  name: "трактор"
-  description: "Стара вантажна вантажівка, схоже, зламана."
+  name: tractor
+  description: An old cargo truck, seems to be broken down.
   components:
   - type: Sprite
     state: tractor_damaged
@@ -272,8 +272,8 @@
 - type: entity
   parent: RMCPropVehicleTruck
   id: RMCPropVehicleTractorSnow
-  name: "трактор"
-  description: "Стара вантажна вантажівка, схоже, зламана."
+  name: tractor
+  description: An old cargo truck, seems to be broken down.
   components:
   - type: Sprite
     state: tractor_snow
@@ -282,8 +282,8 @@
   parent: RMCPropVehicle2Base #Use East and West
   id: RMCPropVehicleVan
   suffix: Use East, West [PropVan
-  name: "фургон"
-  description: "Старий фургон, схоже, зламався."
+  name: van
+  description: An old van, seems to be broken down.
   components:
   - type: Sprite
     state: van
@@ -300,8 +300,8 @@
 - type: entity
   parent: RMCPropVehicleVan
   id: RMCPropVehicleVanDamaged
-  name: "фургон"
-  description: "Старий фургон, схоже, зламався."
+  name: van
+  description: An old van, seems to be broken down.
   components:
   - type: Sprite
     state: van_damaged
@@ -309,8 +309,8 @@
 - type: entity
   parent: RMCPropVehicleVan
   id: RMCPropVehicleVanSnow
-  name: "фургон"
-  description: "Старий фургон, схоже, зламався."
+  name: van
+  description: An old van, seems to be broken down.
   components:
   - type: Sprite
     state: van_snow
@@ -318,8 +318,8 @@
 - type: entity
   parent: RMCPropVehicleVan
   id: RMCPropVehicleVanCandy
-  name: "фургон"
-  description: "Старий фургон, здається, набитий... цукерками?"
+  name: van
+  description: An old van, seems to be filled with... Candy?
   components:
   - type: Sprite
     state: van_candy

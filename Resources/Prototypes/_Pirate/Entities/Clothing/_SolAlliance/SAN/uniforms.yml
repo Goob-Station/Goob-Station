@@ -1,6 +1,6 @@
 # Uniforms
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolArmyService
   name: Solarian army uniform
   suffix: SAN
@@ -12,7 +12,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_army_service.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolArmyServiceGeneral
   name: Solarian army general uniform
   suffix: SAN
@@ -24,7 +24,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_army_service_general.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolArmyServiceOfficer
   name: Solarian army officer uniform
   suffix: SAN
@@ -36,7 +36,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_army_service_officer.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolFatigueGreen
   name: Solarian green BDUs
   suffix: SAN
@@ -48,7 +48,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_fatigue_green.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolFatigueGrey
   name: Solarian grey BDUs
   suffix: SAN
@@ -60,7 +60,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_fatigue_grey.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolFatigueIPC
   name: Solarian IPC fatigues
   suffix: SAN
@@ -72,7 +72,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_fatigue_ipc.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolFatigueTan
   name: Solarian fatigues
   suffix: SAN
@@ -84,7 +84,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_fatigue_tan.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolMarineDress
   name: Solarian marine dress blues
   suffix: SAN
@@ -96,7 +96,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_mahreen_dress.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolNavyCoveralls
   name: Solarian navy coveralls
   suffix: SAN
@@ -108,7 +108,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_navy_coveralls.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolNavyDress
   name: Solarian navy dress uniform
   suffix: SAN
@@ -120,7 +120,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_navy_dress.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolNavyDressAdmiral
   name: Solarian navy dress admiral uniform
   suffix: SAN
@@ -132,7 +132,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_navy_dress_admiral.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolNavyDressOfficer
   name: Solarian navy dress officer uniform
   suffix: SAN
@@ -144,7 +144,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_navy_dress_officer.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolNavyDressSeniorOfficer
   name: Solarian navy dress senior officer uniform
   suffix: SAN
@@ -156,7 +156,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_navy_dress_senior_officer.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolNavySailor
   name: Solarian navy sailor uniform
   suffix: SAN
@@ -168,7 +168,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Uniforms/SAN_sailor.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, SolAllianceInfo]
+  parent: [ClothingUniformBase, SolAllianceInfo, BaseMinorContraband]
   id: ClothingUniformJumpsuitSolServiceWhite
   name: Solarian army uniform
   suffix: SAN

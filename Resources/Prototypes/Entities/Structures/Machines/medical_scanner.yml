@@ -53,8 +53,8 @@
 - type: entity
   id: MedicalScanner
   parent: BaseMachinePowered
-  name: "медичний сканер"
-  description: "Громіздкий медичний сканер."
+  name: medical scanner
+  description: A bulky medical scanner.
   components:
   - type: MedicalScanner
   - type: DeviceNetwork

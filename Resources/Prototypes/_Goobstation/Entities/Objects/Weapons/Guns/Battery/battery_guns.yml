@@ -116,10 +116,10 @@
       collection: MetalThud # Goobstation ^
 
 - type: entity
-  name: "мініатюрний енергетичний арбалет"
+  name: miniature energy crossbow
   parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
   id: MiniatureEnergyCrossbow
-  description: "Енергетичний арбалет синдикату, маленький, тихий і смертоносний."
+  description: The syndicate's energy crossbow, small, silent and deadly.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
@@ -152,10 +152,10 @@
     resetOnHandSelected: false
 
 - type: entity
-  name: "плазмова гвинтівка"
+  name: plasma rifle
   parent: BaseWeaponBattery
   id: WeaponPlasmaRifle
-  description: "Може вибухнути у вас в обличчі, а може й ні."
+  description: It may or may not explode in your face.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
@@ -204,10 +204,10 @@
     startingCharge: 0
 
 - type: entity
-  name: "EG-4 Зрівнювач"
+  name: EG-4 Equalizer
   parent: [ BaseWeaponCustomCellSmall, BaseCentcommContraband ]
   id: WeaponEnergyRevolver
-  description: "Високотехнологічний енергетичний револьвер, здатний стріляти різними зарядами залежно від елемента живлення."
+  description: A highly advanced energy revolver capable of firing various bolts depending on the power cell.
   components:
   - type: Item
     heldPrefix: lethal
@@ -256,10 +256,10 @@
             - EnergySpeedloader
 
 - type: entity
-  name: "дизейблер центкому"
+  name: centcomm disabler
   parent: [ WeaponDisablerPractice, BaseCentcommContraband ]
   id: WeaponDisablerAdvanced
-  description: "Нелетальна зброя самооборони для агентів, яким не довіряють традиційну летальну зброю. Перезаряджається з часом."
+  description: A non-lethal self-defense weapon for agents not trustable with traditional lethals. Recharges over time.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
@@ -284,10 +284,10 @@
     autoRechargeRate: 40
 
 - type: entity
-  name: "дизейблер синдикату"
+  name: syndicate disabler
   parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
   id: WeaponDisablerSyndicate
-  description: "Просунутий дизейблер, створений на основі реверс-інжинірингу прототипу Nanotrasen. Хоча йому бракує трохи зупиняючої сили, він компенсує це акумулятором, що перезаряджається."
+  description: An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
   components:
     - type: Gun
       fireRate: 3
@@ -323,10 +323,10 @@
       autoRechargeRate: 50
 
 - type: entity
-  name: "покращений імпульсний карабін"
+  name: advanced pulse carbine
   parent: WeaponPulseCarbine
   id: WeaponPulseCarbineAdvanced
-  description: "Найсучасніший імпульсний карабін. Цей конкретний має експериментальну перезаряджувану комірку."
+  description: A state-of-the-art pulse carbine. This particular one has an experimental recharging cell.
   components:
   - type: Tag
     tags:
@@ -336,10 +336,10 @@
     autoRechargeRate: 80
 
 - type: entity
-  name: "енергетична штурмова гвинтівка CR-2"
+  name: CR-2 energy assault rifle
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponEnergyRifle
-  description: "Покращена енергетична гвинтівка, здатна стріляти різними зарядами залежно від магазину з енергетичною коміркою."
+  description: An advanced energy rifle capable of firing various bolts depending on the powercell magazine.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
@@ -386,10 +386,10 @@
             - EnergyMagAmmo
 
 - type: entity
-  name: "DT-12 \"Законник\""
+  name: DT-12 "Lawbringer"
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunLawbringer
-  description: "Універсальна енергетична гармата з багатьма різними режимами. Власник цієї гармати втілює сам закон."
+  description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
@@ -482,9 +482,9 @@
     autoRechargePauseTime: 40
 
 - type: entity
-  name: "іонна гвинтівка"
+  name: ion rifle
   id: WeaponEnergyIonRifle
-  description: "Енергетична гвинтівка, що стріляє іонізованими енергетичними зарядами, призначеними для знищення механічних цілей."
+  description: An energy rifle that shoots ionized energy bolts designed to destroy mechanical targets.
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   components:
   - type: Sprite

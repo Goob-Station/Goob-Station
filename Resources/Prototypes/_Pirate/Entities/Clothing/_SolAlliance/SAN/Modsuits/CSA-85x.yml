@@ -1,6 +1,6 @@
 # Частини мод-с'юту
 - type: entity
-  parent: [ClothingModsuitStandard, SolAllianceInfo]
+  parent: [ClothingModsuitStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitSANMarine
   name: блок керування мод-костюмом CSA-85x "Мазу"
   description: Головний контролер для мод-костюма "Мазу". Рідкісний та неймовірно цінний екземпляр військового обладнання, який зазвичай використовують у спецпідрозділах Соляріанської армії.
@@ -29,7 +29,7 @@
         - 0,0,7,4
 
 - type: entity
-  parent: [ClothingModsuitGauntletsStandard, SolAllianceInfo]
+  parent: [ClothingModsuitGauntletsStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsSANMarine
   name: рукавиці мод-костюма CSA-85x "Мазу"
   description: Пара рукавиць, призначених для розчавлювання черепів прибульців. Є частиною модного костюма "Мазу".
@@ -40,7 +40,7 @@
     - type: Insulated
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, SolAllianceInfo, ShowSecurityIcons, BaseClothingRadio]
+  parent: [ClothingModsuitHelmetStandard, SolAllianceInfo, ShowSecurityIcons, BaseClothingRadio, BaseSyndicateContraband]
   id: ClothingModsuitHelmetSANMarine
   name: шолом мод-костюма CSA-85x "Мазу"
   description: Сучасний шолом для мод-костюма "Мазу". Він має вбудований проекційний дисплей.
@@ -63,7 +63,7 @@
       color: "#FF4500"
 
 - type: entity
-  parent: [ClothingModsuitChestplateStandard, SolAllianceInfo]
+  parent: [ClothingModsuitChestplateStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitChestplateSANMarine
   name: нагрудник мод-костюма CSA-85x "Мазу"
   description: Сучасний нагрудник для мод-костюма "Мазу".
@@ -97,7 +97,7 @@
       reduction: 0.90
 
 - type: entity
-  parent: [ClothingModsuitBootsStandard, SolAllianceInfo]
+  parent: [ClothingModsuitBootsStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitBootsSANMarine
   name: чоботи мод-костюма CSA-85x "Мазу"
   description: Сучасна пара чоботів для мод-костюма "Мазу".

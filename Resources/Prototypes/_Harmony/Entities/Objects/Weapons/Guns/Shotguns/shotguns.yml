@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunHushpup
-  name: "Хашпап"
-  description: "Маловідома модифікація «Енфорсера», оснащена експериментальним глушником. Чудово підходить для тих, хто має суворий моральний кодекс. Використовує дробовикові патрони 12 калібру."
+  name: Hushpup
+  description: An obscure modification of the Enforcer, fitted with an experimental muffler. Great for those with a strict moral code. Uses 12 gauge shotgun shells.
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Weapons/Guns/Shotguns/hushpup.rsi

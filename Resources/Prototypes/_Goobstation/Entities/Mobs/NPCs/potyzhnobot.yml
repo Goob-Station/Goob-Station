@@ -2,8 +2,8 @@
 - type: entity
   parent: [MobSiliconBase, MobCombat]
   id: MobPotyzhnobot
-  name: "потужно бот"
-  description: "ПОТУЖНО"
+  name: potyzhno bot
+  description: ПОТУЖНО
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Silicon/Bots/potyzhnobot.rsi

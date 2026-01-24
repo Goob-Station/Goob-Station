@@ -7,10 +7,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "дротикомет"
+  name: dart gun
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: DartGun
-  description: "На етикетці написано: \"Interdyne Pharmaceutics не несе відповідальності за будь-які порушення Женевської конвенції, спричинені неправильним використанням\""
+  description: 'The label reads: "Interdyne Pharmaceutics is not responsible for any geneva convention violations caused by improper use."'
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/dart_gun.rsi
@@ -56,8 +56,8 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   id: BulletDartGun
-  name: "хімічний дротик"
-  description: "Цей лікує чи шкодить?"
+  name: chemical dart
+  description: Is this one healing or harming?
   components:
   - type: Sprite
     sprite: Objects/Fun/Darts/dart_red.rsi

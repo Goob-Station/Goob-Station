@@ -58,8 +58,8 @@
 
 - type: entity
   id: MedalCase
-  name: "футляр для медалі"
-  description: "Футляр з медалями."
+  name: medal case
+  description: Case with medals.
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseCommandContraband ]
   components:
   - type: Sprite

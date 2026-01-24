@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BorgHypo, BaseXenoborgContraband ]
   id: NocturineHypo
-  name: "гіпоінжектор ноктурину"
-  description: "Самозаправний інжектор для швидкого введення ноктурину жертвам."
+  name: nocturine hypo
+  description: A self-refilling injector for rapid administration of nocturine to victms.
   components:
   - type: SolutionContainerManager
     solutions:

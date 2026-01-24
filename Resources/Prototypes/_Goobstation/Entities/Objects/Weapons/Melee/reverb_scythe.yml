@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "резонансна коса"
-  description: "Здається, відповідь тут... Але плід ще недостатньо солодкий."
+  name: resonant scythe
+  description: The answer seems to be here… But the fruit isnt sweet enough just yet.
   parent: BaseItem
   id: ReverbScythe
   components:

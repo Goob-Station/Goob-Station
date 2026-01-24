@@ -1,6 +1,6 @@
 # Headgear other than armor
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyCampaign
   name: Solarian campaign hat
   suffix: SAN
@@ -12,7 +12,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_campaign.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyCap
   name: Solarian army cap
   suffix: SAN
@@ -24,7 +24,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_cap.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyCapOfficer
   name: Solarian army officer cap
   suffix: SAN
@@ -36,7 +36,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_cap_officer.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyCapSenior
   name: Solarian army senior officer cap
   suffix: SAN
@@ -48,7 +48,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_cap_senior.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyField
   name: Solarian army field hat
   suffix: SAN
@@ -60,7 +60,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_field.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyFieldGrey
   name: Solarian army field hat
   suffix: SAN
@@ -72,7 +72,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_field_grey.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyGarrison
   name: Solarian army garrison hat
   suffix: SAN
@@ -84,7 +84,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_garrison.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyGarrisonCaptain
   name: Solarian army garrison captain hat
   suffix: SAN
@@ -96,7 +96,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_garrison_captain.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANArmyGarrisonOficer
   name: Solarian army garrison officer hat
   suffix: SAN
@@ -108,7 +108,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_army_garrison_officer.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANMarineUtility
   name: Solarian marine utility hat
   suffix: SAN
@@ -120,7 +120,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_marine_utility.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANMarineUtilityGrey
   name: Solarian marine utility hat
   suffix: SAN
@@ -132,7 +132,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_marine_utility_grey.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANNavyCap
   name: Solarian navy cap
   suffix: SAN
@@ -144,7 +144,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_navy_cap.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANNavyCapAdmiral
   name: Solarian navy admiral cap
   suffix: SAN
@@ -156,7 +156,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_navy_cap_admiral.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANNavyCapOfficer
   name: Solarian navy officer cap
   suffix: SAN
@@ -168,7 +168,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_navy_cap_officer.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANNavyCapOfficerSenior
   name: Solarian navy senior officer cap
   suffix: SAN
@@ -180,7 +180,7 @@
       sprite: _Pirate/Clothing/_SolAlliance/Helmet/SAN_navy_cap_senior.rsi
 
 - type: entity
-  parent: [ClothingHeadBaseButcherable, SolAllianceInfo]
+  parent: [ClothingHeadBaseButcherable, SolAllianceInfo, BaseMinorContraband]
   id: ClothingHeadHatSANWheelCap
   name: Solarian wheel cap
   suffix: SAN

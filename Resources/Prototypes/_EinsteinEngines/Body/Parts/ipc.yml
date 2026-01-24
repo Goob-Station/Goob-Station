@@ -19,7 +19,7 @@
   abstract: true
   parent: BasePartInorganic
   id: PartIPCBase
-  name: "частина тіла МІК"
+  name: "ipc body part"
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -44,7 +44,7 @@
 - type: entity
   parent: [ PartIPCBase, BaseChestInorganic ]
   id: ChestIPC
-  name: "груди МІК"
+  name: "ipc chest"
   components:
   - type: BodyPart
     organs:
@@ -56,12 +56,12 @@
 - type: entity
   parent: [ PartIPCBase, BaseGroinInorganic ]
   id: GroinIPC
-  name: "пах МІК"
+  name: "ipc groin"
 
 - type: entity
   parent: [ PartIPCBase, BaseHead ]
   id: HeadIPC
-  name: "голова ІПШ"
+  name: "ipc head"
   components:
   - type: BodyPart
     organs: # posibrain is stored in the torso
@@ -71,39 +71,39 @@
 - type: entity
   parent: [ PartIPCBase, BaseLeftArm ]
   id: LeftArmIPC
-  name: "ліва рука ІПШ"
+  name: "left ipc arm"
 
 - type: entity
   parent: [ PartIPCBase, BaseRightArm ]
   id: RightArmIPC
-  name: "права рука ІПШ"
+  name: "right ipc arm"
 
 - type: entity
   parent: [ PartIPCBase, BaseLeftHand ]
   id: LeftHandIPC
-  name: "ліва кисть ІПШ"
+  name: "left ipc hand"
 
 - type: entity
   parent: [ PartIPCBase, BaseRightHand ]
   id: RightHandIPC
-  name: "права кисть ІПШ"
+  name: "right ipc hand"
 
 - type: entity
   parent: [ PartIPCBase, BaseLeftLeg ]
   id: LeftLegIPC
-  name: "ліва нога ІПШ"
+  name: "left ipc leg"
 
 - type: entity
   parent: [ PartIPCBase, BaseRightLeg ]
   id: RightLegIPC
-  name: "права нога ІПШ"
+  name: "right ipc leg"
 
 - type: entity
   parent: [ PartIPCBase, BaseLeftFoot ]
   id: LeftFootIPC
-  name: "ліва ступня ІПШ"
+  name: "left ipc foot"
 
 - type: entity
   parent: [ PartIPCBase, BaseRightFoot ]
   id: RightFootIPC
-  name: "права ступня ІПШ"
+  name: "right ipc foot"

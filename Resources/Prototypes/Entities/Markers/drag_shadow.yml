@@ -16,7 +16,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "перетягування тіні"
+  name: drag shadow
   id: dragshadow
   categories: [ HideSpawnMenu ]
   components:

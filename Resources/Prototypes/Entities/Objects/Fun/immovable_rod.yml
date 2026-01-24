@@ -17,8 +17,8 @@
 
 - type: entity
   id: ImmovableRod
-  name: "нерухомий стрижень"
-  description: "Відчувається, що він голодний. Зазвичай це поганий знак."
+  name: immovable rod
+  description: You can sense that it's hungry. That's usually a bad sign.
   components:
   - type: Clickable
   - type: InteractionOutline
@@ -59,8 +59,8 @@
 # goob edit
 - type: entity
   id: ImmovableVoidRod
-  name: "нерухомий стрижень порожнечі"
-  description: "Відчувається, що він голодний. Зазвичай це поганий знак."
+  name: immovable void rod
+  description: You can sense that it's hungry. That's usually a bad sign.
   components:
   - type: Clickable
   - type: InteractionOutline
@@ -170,8 +170,8 @@
 - type: entity
   parent: ImmovableRodKeepTiles # Goob edit
   id: ImmovableRodMop
-  name: "нерухома швабра"
-  description: "Кинутий, як спис, з силою тисячі розлючених прибиральників."
+  name: immovable mop
+  description: Hurled like a javelin, with the power of a thousand furious janitors.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -182,8 +182,8 @@
 - type: entity
   parent: ImmovableRodKeepTiles # Goob edit
   id: ImmovableRodShark
-  name: "нерухома акула"
-  description: "АКУЛИНЕ ТОРНАДО!"
+  name: immovable shark
+  description: SHARK TORNADO!
   components:
   - type: Sprite
     sprite: Objects/Fun/Plushies/shark.rsi
@@ -194,8 +194,8 @@
 - type: entity
   parent: ImmovableRodKeepTiles # Goob edit
   id: ImmovableRodClown
-  name: "нерухомий клоун"
-  description: "Викинутий із сусідньої станції за одну сонячну систему від нас. ГУДОК!"
+  name: immovable clown
+  description: Ejected from the neighbouring station one solar system over. HONK!
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -206,8 +206,8 @@
 - type: entity
   parent: ImmovableRodKeepTiles # Goob edit
   id: ImmovableRodBanana
-  name: "нерухомий банан"
-  description: "Принаймні, ви не посковзнетеся на ньому."
+  name: immovable banana
+  description: At least you won't slip on it.
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
@@ -217,8 +217,8 @@
 - type: entity
   parent: ImmovableRodKeepTiles # Goob edit
   id: ImmovableRodHammer
-  name: "нерухомий молоток"
-  description: "Дзявк."
+  name: immovable hammer
+  description: Bwoink.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/sledgehammer.rsi
@@ -229,8 +229,8 @@
 - type: entity
   parent: ImmovableRodKeepTiles # Goob edit
   id: ImmovableRodThrongler
-  name: "нерухомий натовп"
-  description: "Якщо зловите, можете залишити собі."
+  name: immovable throngler
+  description: If you catch it, you can keep it.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/Throngler2.rsi
@@ -241,8 +241,8 @@
 - type: entity
   parent: ImmovableRodKeepTiles # Goob edit
   id: ImmovableRodGibstick
-  name: "нерухомий крючок"
-  description: "Чого ви очікували?"
+  name: immovable gibstick
+  description: What did you expect?
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/debug.rsi
@@ -253,8 +253,8 @@
 - type: entity
   parent: ImmovableRodKeepTiles # Goob edit
   id: ImmovableRodWeh
-  name: "нерухоме майно"
-  description: "УХ!"
+  name: immovable weh
+  description: WEH!
   components:
   - type: Sprite
     sprite: Objects/Fun/Plushies/lizard.rsi

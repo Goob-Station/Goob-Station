@@ -8,7 +8,7 @@
 - type: entity
   id: OrganAnimalRuminantStomach
   parent: OrganAnimalStomach
-  name: "шлунок травоїдної тварини"
+  name: ruminant stomach
   categories: [ HideSpawnMenu ]
   components:
   - type: SolutionContainerManager

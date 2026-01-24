@@ -4,11 +4,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "фермід"
+  name: fermid
   id: MobFermidBase
   parent: [ SimpleSpaceMobBase, MobCombat ]
   abstract: true
-  description: "Надзвичайно ворожі жуки, що мешкають на астероїдах. Краще уникати їх за будь-якої можливості."
+  description: Extremely hostile asteroid-dwelling bugs. Best to avoid them wherever possible.
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Body # Shitmed Change
@@ -95,12 +95,12 @@
     factor: 0.5 # times more dangerous than a crew-member
 
 - type: entity
-  name: "фермід"
+  name: fermid
   id: MobFermidSmall
   parent: MobFermidBase
 
 - type: entity
-  name: "фермід"
+  name: fermid
   id: MobFermidLarge
   parent: MobFermidBase
   components:
@@ -133,7 +133,7 @@
     factor: 1 # times more dangerous than a crew-member
 
 - type: entity
-  name: "фермід-воїн"
+  name: warrior fermid
   id: MobFermidWarrior
   parent: MobFermidBase
   components:
@@ -169,10 +169,10 @@
     factor: 1.5 # times more dangerous than a crew-member
 
 - type: entity
-  name: "королева фермідів"
+  name: fermid queen
   id: MobFermidQueen
   parent: MobFermidBase
-  description: "Хтось приніс засіб від комах?"
+  description: Did anyone bring insect repellent?
   components:
   - type: Sprite
     drawdepth: Mobs

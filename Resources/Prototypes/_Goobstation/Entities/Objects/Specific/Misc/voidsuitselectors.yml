@@ -7,8 +7,8 @@
 # paramedic
 - type: entity
   id: UndeterminedVoidsuitParamedic
-  name: "селектор скафандра парамедика"
-  description: "Невеликий пульт, що використовує технологію блюспейс для виклику скафандра або мод-костюма на ваш вибір."
+  name: paramedic hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseMedicalContraband ]
   components:
   - type: Sprite
@@ -22,8 +22,8 @@
 # security
 - type: entity
   id: UndeterminedVoidsuitSecurity
-  name: "селектор скафандра служби безпеки"
-  description: "Невеликий пульт, що використовує технологію блюспейс для виклику скафандра або мод-костюма на ваш вибір."
+  name: security hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -37,8 +37,8 @@
 # head of security
 - type: entity
   id: UndeterminedVoidsuitHeadOfSecurity
-  name: "селектор скафандра голови служби безпеки"
-  description: "Невеликий пульт, що використовує технологію блюспейс для виклику скафандра або мод-костюма на ваш вибір."
+  name: head of security hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -52,8 +52,8 @@
 # engineer
 - type: entity
   id: UndeterminedVoidsuitEngineer
-  name: "селектор скафандра інженера"
-  description: "Невеликий пульт, що використовує технологію блюспейс для виклику скафандра або мод-костюма на ваш вибір."
+  name: engineer hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseEngineeringContraband ]
   components:
   - type: Sprite
@@ -67,8 +67,8 @@
 # Cappy Suit
 - type: entity
   id: UndeterminedVoidsuitCaptain
-  name: "селектор скафандра капітана"
-  description: "Невеликий пульт, що використовує технологію блюспейс для виклику скафандра або мод-костюма на ваш вибір."
+  name: captain hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite
@@ -82,8 +82,8 @@
 #Research Director RD suits
 - type: entity
   id: UndeterminedVoidsuitRD
-  name: "селектор скафандра наукового керівника"
-  description: "Невеликий пульт, що використовує технологію блюспейс для виклику скафандра або мод-костюма на ваш вибір."
+  name: research director hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite

@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryEngineering
-  name: "Інженерний блок керування модкостюмом \"Респонсорій"
-  description: "Головний контролер для інженерного модкостюма \"Респонсорій\"."
+  name: Engineering Responsory modsuit control unit
+  description: The main controller for a Engineering Responsory modsuit.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/engineering-responsory.rsi
@@ -49,8 +49,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsResponsoryEngineering
-  name: "Інженерні рукавиці модкостюма \"Респонсорій"
-  description: "Пара рукавиць, створених для інженерного модкостюма \"Респонсорій\"."
+  name: Engineering Responsory modsuit gauntlets
+  description: A pair of gauntlets made for the Engineering Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -66,8 +66,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetResponsoryEngineering
-  name: "Інженерний шолом модкостюма \"Респонсорій"
-  description: "Сучасний шолом, розроблений Нанотрейзен для інженерного модкостюма \"Респонсорій\". Він має вбудований HUD."
+  name: Engineering Responsory modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Engineering Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -108,8 +108,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsoryEngineering
-  name: "Інженерний нагрудник модкостюма \"Респонсорій"
-  description: "Сучасний нагрудник, розроблений Нанотрейзен для інженерного модкостюма \"Респонсорій\". Він містить сервоприводи для зменшення навантаження від обладнання."
+  name: Engineering Responsory modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Engineering Responsory modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -144,8 +144,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryEngineering
-  name: "Інженерні черевики модкостюма \"Респонсорій"
-  description: "Сучасна пара магнітних черевиків для інженерного модкостюма \"Респонсорій\". Поки костюм живиться, вони не сповільнюватимуть власника."
+  name: Engineering Responsory modsuit boots
+  description: A state-of-the-art pair of magboots for the Engineering Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

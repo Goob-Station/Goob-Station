@@ -31,11 +31,13 @@
     species: Harpy
   - type: Woundable # Goobstation
     boneEntity: BoneWeak
+  - type: Damageable # Shitmed
+    damageModifierSet: Harpy
 
 - type: entity
   parent: [ PartHarpyBase, BaseChest ]
   id: ChestHarpy
-  name: "грудна клітка гарпії"
+  name: "harpy chest"
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
@@ -47,7 +49,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseGroin ]
   id: GroinHarpy
-  name: "пах гарпії"
+  name: "harpy groin"
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
@@ -59,7 +61,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseHead ]
   id: HeadHarpy
-  name: "голова гарпії"
+  name: "harpy head"
   components:
   - type: Woundable # Goobstation
     boneEntity: BoneNeckWeak
@@ -67,12 +69,12 @@
 - type: entity
   parent: [ PartHarpyBase, BaseLeftArm ]
   id: LeftArmHarpy
-  name: "ліва рука гарпії"
+  name: "left harpy arm"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightArm ]
   id: RightArmHarpy
-  name: "права рука гарпії"
+  name: "right harpy arm"
   components:
   - type: BodyPart
     onAdd: # Shitmed Change
@@ -86,17 +88,17 @@
 - type: entity
   parent: [ PartHarpyBase, BaseLeftHand ]
   id: LeftHandHarpy
-  name: "ліва долоня гарпії"
+  name: "left harpy hand"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightHand ]
   id: RightHandHarpy
-  name: "права долоня гарпії"
+  name: "right harpy hand"
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftLeg ]
   id: LeftLegHarpy
-  name: "ліва нога гарпії"
+  name: "left harpy leg"
   components:
   - type: MovementBodyPart # Goobstation
     sprintSpeed: 5
@@ -104,7 +106,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseRightLeg ]
   id: RightLegHarpy
-  name: "права нога гарпії"
+  name: "right harpy leg"
   components:
   - type: MovementBodyPart # Goobstation
     sprintSpeed: 5
@@ -112,9 +114,9 @@
 - type: entity
   parent: [ PartHarpyBase, BaseLeftFoot ]
   id: LeftFootHarpy
-  name: "ліва стопа гарпії"
+  name: "left harpy foot"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightFoot ]
   id: RightFootHarpy
-  name: "права стопа гарпії"
+  name: "right harpy foot"

@@ -156,3 +156,5 @@ ghost-role-information-clown-goblin-name = Клоун-гоблін
 ghost-role-information-clown-goblin-description = Жахлива істота, народжена в пеклі.
 ghost-role-information-santa-name = Санта-Клаус
 ghost-role-information-santa-description = Поширюйте різдвяний настрій по станції!
+ghost-role-information-fillbot-name = Філлбот
+ghost-role-information-fillbot-description = Служи тому, хто створив тебе; якщо його ніде не знайти — роби, як забажаєш.

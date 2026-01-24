@@ -1,8 +1,8 @@
 - type: entity
   id: RadioLeadIntern
   parent: BaseItem
-  name: "радіо виклику головного інтерна"
-  description: "Схвалене NT радіо, яке може викликати головного інтерна за допомогою спеціальних монет."
+  name: lead intern summoning radio
+  description: A NT-approved radio that can summon a lead intern with special coins.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
@@ -23,7 +23,7 @@
 - type: entity
   id: LeadIntern
   parent: MobHuman
-  name: "Головний інтерн"
+  name: Lead Intern
   suffix: Human
   components:
   - type: RandomHumanoidAppearance
@@ -36,8 +36,8 @@
 - type: entity
   id: InternCoin
   parent: BaseItem
-  name: "монета виклику інтерна"
-  description: "Киньте, щоб викликати інтерна."
+  name: intern summoning coin
+  description: Toss to summon an intern.
   components:
   - type: Sprite
     sprite: Objects/Misc/coins.rsi
@@ -56,8 +56,8 @@
 - type: entity
   id: NerdInternCoin
   parent: BaseItem
-  name: "монета виклику інтерна-ботаніка"
-  description: "Киньте, щоб викликати інтерна-ботаніка."
+  name: nerd intern summoning coin
+  description: Toss to summon a nerd intern.
   components:
   - type: Sprite
     sprite: Objects/Misc/coins.rsi
@@ -76,7 +76,7 @@
 - type: entity
   id: NTIntern
   parent: MobHuman
-  name: "Інтерн NT"
+  name: NT Intern
   suffix: Human
   components:
   - type: RandomHumanoidAppearance
@@ -89,7 +89,7 @@
 - type: entity
   id: NTNerdIntern
   parent: MobHuman
-  name: "Інтерн-ботанік NT"
+  name: NT Nerd Intern
   suffix: Human
   components:
   - type: RandomHumanoidAppearance

@@ -10,8 +10,8 @@
 
 - type: entity
   id: ActionSmite
-  name: "Удар"
-  description: "Зарядіть свою руку нечестивою енергією, котру можна використати проти цілі, яка після доторку жорстоко вибухне."
+  name: Smite
+  description: Charge your hand with an unholy energy that can be used to cause a touched victim to violently explode.
   components:
   - type: Action
     useDelay: 60

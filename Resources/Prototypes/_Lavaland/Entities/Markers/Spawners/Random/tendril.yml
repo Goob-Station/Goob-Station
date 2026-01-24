@@ -40,7 +40,7 @@
       #- id: LavalandTendrilLegion
 
 - type: entity
-  name: "генератор вусиків"
+  name: tendril spawner
   id: SpawnerRandomTendrilLavaland
   parent: MarkerBase
   suffix: Lavaland

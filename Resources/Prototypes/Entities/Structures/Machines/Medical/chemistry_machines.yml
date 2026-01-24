@@ -49,8 +49,8 @@
 - type: entity
   id: MachineElectrolysisUnit
   parent: BaseTabletopChemicalMachine
-  name: "електролізний блок"
-  description: "Новітні технології медичної електротерапії."
+  name: electrolysis unit
+  description: The latest in medicinal electrocution technology.
   components:
   - type: SolutionContainerMixer
     mixDuration: 5
@@ -88,8 +88,8 @@
 - type: entity
   id: MachineCentrifuge
   parent: BaseTabletopChemicalMachine
-  name: "настільна центрифуга"
-  description: "Кругом і навколо нього йде..."
+  name: tabletop centrifuge
+  description: Around and around it goes...
   components:
   - type: SolutionContainerMixer
     mixDuration: 10

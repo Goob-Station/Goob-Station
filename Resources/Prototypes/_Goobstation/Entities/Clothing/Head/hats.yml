@@ -24,8 +24,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretEliteNavyOfficer
-  name: "елітний берет морського офіцера"
-  description: "Темно-синій берет зі срібним щитом сил безпеки NanoTrasen."
+  name: elite navy officer's beret
+  description: A navy blue beret with the silver shield of the Nanotrasen security forces.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/navy_officer_beret.rsi
@@ -58,8 +58,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretNavyOfficer
-  name: "берет морського офіцера"
-  description: "Чорний берет зі срібним щитом сил безпеки NanoTrasen."
+  name: navy officer's beret
+  description: A black beret with the silver shield of the Nanotrasen security forces.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/officer_beret.rsi
@@ -92,8 +92,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretNavyCaptain
-  name: "берет морського капітана"
-  description: "Крохмально-білий берет."
+  name: navy captain's beret
+  description: A starch white beret.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
@@ -126,8 +126,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretBlueshield
-  name: "броньований берет синього щита"
-  description: "Міцний берет, сплетений з дюратканини. Також забезпечує захист."
+  name: blueshield's armored beret
+  description: A durable beret woven out of durathread. Provides protection, too.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/blueshield_beret.rsi
@@ -160,8 +160,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatCowboyBlueshield
-  name: "броньований ковбойський капелюх синього щита"
-  description: "Шериф повернувся в місто, діти."
+  name: blueshield's armored cowboy hat
+  description: Sheriff's back in town, kids.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/cowboyhatbso.rsi
@@ -194,8 +194,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseFoldable, BaseCentcommContraband]
   id: ClothingHeadHatUshankaBlueshield
-  name: "броньована ушанка синього щита"
-  description: "Ідеально для порятунку голів у Сибіру, так?"
+  name: blueshield's armored ushanka
+  description: Perfect for saving heads in Siberia, da?
   components:
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/blueshield_ushanka.rsi
@@ -238,8 +238,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadMailCarrier
-  name: "капелюх листоноші"
-  description: "Пахне хорошою пенсією."
+  name: mail carrier's hat
+  description: Smells like a good pension.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
@@ -249,8 +249,8 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatPropeller
-  name: "капелюх із пропелером"
-  description: "Ох ти ж лишенько!"
+  name: propeller hat
+  description: Aw gee willickers!
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/propeller.rsi
@@ -273,8 +273,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatImam
-  name: "головний убір імама"
-  description: "Хвала Аллаху."
+  name: imam head wrap
+  description: Praise Allah.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/imam.rsi
@@ -291,8 +291,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTrainer
-  name: "капелюх NCT"
-  description: "Капелюх, що видається кар'єрним тренерам NanoTrasen. Додає відчуття стилю."
+  name: NCT's hat
+  description: A hat issued to Nanotrasen Career Trainers. Makes you feel stylish.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/trainer.rsi
@@ -302,8 +302,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadBeretTrainer
-  name: "берет NCT"
-  description: "Берет, що видається кар'єрним тренерам NanoTrasen. Додає відчуття стилю."
+  name: NCT's beret
+  description: A beret issued to Nanotrasen Career Trainers. Makes you feel stylish.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
@@ -313,8 +313,8 @@
 - type: entity
   parent: ClothingHeadHatBeretHoS
   id: ClothingHeadHatBeretHeadOfSecurityAdvanced
-  name: "парадний берет голови служби безпеки"
-  description: "Особливо позолочений берет, розроблений для голови служби безпеки."
+  name: head of security's parade beret
+  description: A particularly gilded beret, designed for the Head of Security.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
@@ -328,8 +328,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSeniorBotanist
-  name: "ботанічний берет"
-  description: "Зелений берет з маленькою синьою квіткою, що видається досвідченим ботанікам."
+  name: botanical beret
+  description: A green beret featuring a small blue flower given to experienced botanists.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/beret_botany.rsi
@@ -339,8 +339,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSanabi
-  name: "капелюх бригадного генерала"
-  description: "Пахне сталлю."
+  name: brigadier general hat
+  description: Smells like steel.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
@@ -350,9 +350,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadLehmin
-  name: "головний убір головного лікаря"
+  name: top CMO headgear
   suffix: ADMIN
-  description: "Хімія. Адміністрування. Ще щось."
+  description: Chemistry. Adminning. Something else.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/lehmin.rsi
@@ -362,8 +362,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseJanitorContraband ]
   id: ClothingHeadHatJanitorCap
-  name: "кепка прибиральника"
-  description: "Екстравагантна фіолетова кепка лише для НАЙКРАЩИХ прибиральників."
+  name: janitorial cap
+  description: An extravagant purple cap for only the BEST of janitorial workers.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/janitor_cap.rsi
@@ -381,8 +381,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTinfoilHat
-  name: "капелюх з фольги"
-  description: "Високотехнологічний шолом, виготовлений з алюмінієвої фольги."
+  name: tinfoil hat
+  description: A high tech helmet crafted from aluminum foil.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/tinfoil_hat.rsi

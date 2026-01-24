@@ -59,8 +59,8 @@
 - type: entity
   parent: [LavalandWeaponKineticBase, BaseSecurityCargoContraband]
   id: LavalandWeaponKineticSpear
-  name: "кінетичний спис"
-  description: "Зброя ближнього бою з великою дальністю. Завдає менше шкоди, ніж звичайний подрібнювач, але має більшу дальність атаки."
+  name: kinetic spear
+  description: A long-ranged melee weapon. Deals less damage than a normal crusher, but has longer attack range.
   components:
   - type: Tag
     tags:
@@ -118,8 +118,8 @@
 - type: entity
   parent: LavalandWeaponKineticBase
   id: LavalandWeaponKineticHammer
-  name: "кінетичний молот"
-  description: "Потужна дворучна зброя, яка відкидає та завдає більшої шкоди, ніж подрібнювач."
+  name: kinetic hammer
+  description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer.rsi
@@ -162,8 +162,8 @@
 - type: entity
   parent: [LavalandWeaponKineticBase, ClothingHandsBase]
   id: LavalandWeaponKineticClaws
-  name: "кінетичні кігті"
-  description: "Дайте волю своєму внутрішньому еджлорду за допомогою цих одноручних кігтів, достатньо малих, щоб поміститися у вашому рюкзаку. Завдає набагато більше шкоди при ударах у спину поміченим цілям."
+  name: kinetic claws
+  description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack. Deals a lot more damage when backstabbing marked targets.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws.rsi
@@ -204,8 +204,8 @@
 - type: entity
   parent: LavalandWeaponKineticBase
   id: LavalandWeaponKineticMachete
-  name: "кінетичне мачете"
-  description: "Менший, одноручний варіант подрібнювача, який дозволяє блокувати атаки."
+  name: kinetic machete
+  description: A smaller, one-handed variant of the crusher which allows you to block attacks.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete.rsi

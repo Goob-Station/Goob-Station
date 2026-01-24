@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseItem
   id: ArmClawChangeling
-  name: "ручний кіготь"
-  description: "Гротескний кіготь, зроблений з кістки та плоті, що впорскує небезпечну отруту при ударах."
+  name: hand claw
+  description: A grotesque claw made out of bone and flesh that injects dangerous poison on hits.
   suffix: Unremoveable
   components:
   - type: Sprite

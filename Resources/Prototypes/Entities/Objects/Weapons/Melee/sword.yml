@@ -168,10 +168,10 @@
 
 #Shortswords
 - type: entity
-  name: "шабля"
+  name: cutlass
   parent: [ BaseSword, BaseMajorContraband ]
   id: Cutlass
-  description: "Зловісно вигнуте лезо, яке часто можна побачити в руках космічних піратів."
+  description: A wickedly curved blade, often seen in the hands of space pirates.
   components:
   - type: Tag
     tags:
@@ -195,10 +195,10 @@
   - type: DisarmMalus
 
 - type: entity
-  name: "мачете"
+  name: machete
   parent: [ BaseSword, BaseMajorContraband ]
   id: Machete
-  description: "Велике, злісне на вигляд лезо."
+  description: A large, vicious looking blade.
   components:
   - type: Tag
     tags:
@@ -223,10 +223,10 @@
 
 #Longswords
 - type: entity
-  name: "шабля капітана"
+  name: captain's sabre
   parent: [ BaseSword, BaseCommandContraband ]
   id: CaptainSabre
-  description: "Церемоніальна зброя, що належить капітану станції."
+  description: A ceremonial weapon belonging to the captain of the station.
   components:
   # Goobstation edit start
   - type: EmitSoundOnLand
@@ -264,10 +264,10 @@
     # not putting a BlockMovement component here cause that's funny.
 
 - type: entity
-  name: "катана"
+  name: katana
   parent: [ BaseSword, BaseMajorContraband ]
   id: Katana
-  description: "Старовинний ремісничий виріб із не такої вже й давньої пласталі."
+  description: Ancient craftwork made with not so ancient plasteel.
   components:
   - type: Tag
     tags:
@@ -296,10 +296,10 @@
   - type: DisarmMalus
 
 - type: entity
-  name: "енергетична катана"
+  name: energy katana
   parent: Katana
   id: EnergyKatana
-  description: "Катана, наповнена сильною енергією."
+  description: A katana infused with strong energy.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/energykatana.rsi
@@ -333,10 +333,10 @@
 
 #Greatswords
 - type: entity
-  name: "клеймор"
+  name: claymore
   parent: [ BaseSword, BaseMajorContraband ]
   id: Claymore
-  description: "Стародавній бойовий клинок."
+  description: An ancient war blade.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/claymore.rsi
@@ -364,10 +364,10 @@
 
 #Other/Weird
 - type: entity
-  name: "тронглер"
+  name: throngler
   parent: [ BaseSword, BaseMajorContraband ]
   id: Throngler
-  description: "Якщо Служба Безпеки наважиться забрати його у вас, просто нагадайте їм, що вони смертні."
+  description: If Security dares take it from you, just remind them that they are indeed mortal.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Melee/Throngler2.rsi

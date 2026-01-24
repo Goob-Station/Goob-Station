@@ -11,8 +11,8 @@
 
 - type: entity
   id: StrippingHiddenEntity
-  name: "прихована сутність"
-  description: "У цій кишені щось є." #Or maybe they ar... nah... too obvious a joke.
+  name: hidden entity
+  description: There is something in this pocket. #Or maybe they ar... nah... too obvious a joke.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

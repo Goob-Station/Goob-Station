@@ -25,7 +25,7 @@
 # Empty mags
 - type: entity
   id: BaseMagazineLightRifle
-  name: "магазин (.30 гвинтівковий)"
+  name: "magazine (.30 rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -60,9 +60,9 @@
 # Magazines
 - type: entity
   id: MagazineLightRifleBox
-  name: "коробка з магазином для L6 SAW (.30 гвинтівковий)"
+  name: "L6 SAW magazine box (.30 rifle)"
   parent: BaseMagazineLightRifle
-  description: "Коробка, що містить 100-зарядну стрічку з патронами калібру .30, що використовується в легких кулеметах, таких як L6. Призначена для зберігання кінетичних боєприпасів загального призначення."
+  description: Box containing a 100-round belt of linked .30 rifle rounds, used by light machine guns such as the L6. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: Tag
     tags:
@@ -81,7 +81,7 @@
 
 - type: entity # Goobstation
   id: MagazineLightRifleBoxEmpty
-  name: "коробка з магазинами L6 SAW (.30 гвинтівка будь-яка)"
+  name: "L6 SAW magazine box (.30 rifle any)"
   parent: MagazineLightRifleBox
   components:
   - type: BallisticAmmoProvider
@@ -89,9 +89,9 @@
 
 - type: entity
   id: MagazineLightRifle
-  name: "магазин (.30 гвинтівковий)"
+  name: "magazine (.30 rifle)"
   parent: BaseMagazineLightRifle
-  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок. Призначений для зберігання кінетичних боєприпасів загального призначення."
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifle
@@ -110,10 +110,10 @@
 
 - type: entity
   id: MagazineLightRifleEmpty
-  name: "магазин (.30 гвинтівковий будь-який)"
+  name: "magazine (.30 rifle any)"
   suffix: empty
   parent: MagazineLightRifle
-  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок."
+  description: Curved 30-round double stack magazine for combat rifles.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -132,9 +132,9 @@
 
 - type: entity
   id: MagazineLightRiflePractice
-  name: "магазин (.30 гвинтівковий тренувальний)"
+  name: "magazine (.30 rifle practice)"
   parent: BaseMagazineLightRifle
-  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок. Призначений для зберігання нешкідливих крейдяних боєприпасів."
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRiflePractice
@@ -159,9 +159,9 @@
 
 - type: entity
   id: MagazineLightRifleUranium
-  name: "магазин (.30 гвинтівковий урановий)"
+  name: "magazine (.30 rifle uranium)"
   parent: BaseMagazineLightRifle
-  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок. Призначений для зберігання екзотичних боєприпасів з урановим сердечником."
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleUranium
@@ -186,9 +186,9 @@
 
 - type: entity
   id: MagazineLightRifleIncendiary
-  name: "магазин (.30 гвинтівковий запалювальний)"
+  name: "magazine (.30 rifle incendiary)"
   parent: MagazineLightRifle
-  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок. Призначений для зберігання самозаймистих запалювальних боєприпасів."
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
@@ -213,7 +213,7 @@
 
 - type: entity
   id: MagazineLightRifleMaxim
-  name: "магазин під набій (гвинтівка калібру .30)"
+  name: "pan magazine (.30 rifle)"
   parent: BaseMagazineLightRifle
   components:
   - type: Tag
@@ -227,7 +227,7 @@
 
 - type: entity
   id: MagazineLightRiflePkBox
-  name: "коробочка з набоями PK (гвинтівка калібру .30)"
+  name: "PK munitions box (.30 rifle)"
   parent: BaseMagazineLightRifle
   components:
   - type: Tag

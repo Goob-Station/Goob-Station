@@ -1,5 +1,5 @@
 - type: entity
-  name: "Спавнер NPC карпів"
+  name: NPC Carp Spawner
   id: CarpSpawnerMundane
   parent: MarkerBase
   suffix: No Ghost Takeover
@@ -20,7 +20,7 @@
       rareChance: 0.05
 
 - type: entity
-  name: "Спавнер NPC змій"
+  name: NPC Snake Spawner
   id: SnakeSpawnerMundane
   parent: MarkerBase
   components:
@@ -38,7 +38,7 @@
       rareChance: 0.2
 
 - type: entity
-  name: "Спавнер спостерігачів"
+  name: Watcher Spawner
   id: WatcherAISpawner
   parent: MarkerBase
   components:
@@ -58,7 +58,7 @@
       rareChance: 0.10
 
 - type: entity
-  name: "Спавнер космічних істот"
+  name: Space Creature Spawner
   id: SpaceCreatureAISpawner
   parent: MarkerBase
   components:
@@ -75,7 +75,7 @@
         - MobSpiderSpace
 
 - type: entity
-  name: "Спавнер арени"
+  name: Arena Spawner
   id: ArenaSpawner
   parent: MarkerBase
   components:

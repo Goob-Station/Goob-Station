@@ -1,6 +1,6 @@
 - type: body
   id: Shadowkin
-  name: "вид-назва-shadowkin"
+  name: "Shadowkin"
   root: chest
   slots:
     head:

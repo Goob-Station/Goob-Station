@@ -8,8 +8,8 @@
 
 - type: entity
   id: GuidebookChangelingFluff
-  name: "путівник по ченджлінгам"
-  description: "ви не повинні бачити це в звичайних умовах."
+  name: guidebook changeling
+  description: you shouldn't be seeing this normally.
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite

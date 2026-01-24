@@ -1035,11 +1035,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("real")
                         .HasColumnName("height");
 
-                    b.Property<string>("Lifepath")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("lifepath");
-
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");

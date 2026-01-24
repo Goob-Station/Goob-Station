@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseItem, BaseMagicalContraband]
   id: SpearGreyTide
-  name: "Сіра Хвиля"
-  description: "Здобутий після повстання на оборонному форпості Тета Егіда, під час якого, здавалося, нескінченний потік Асистентів завдав значних втрат військовим силам Нанотрейзен."
+  name: Grey Tide
+  description: Recovered from the aftermath of a revolt aboard Defense Outpost Theta Aegis, in which a seemingly endless tide of Assistants caused heavy casualties among Nanotrasen military forces.
   components:
   - type: EmbeddableProjectile
     offset: -0.15,0.0

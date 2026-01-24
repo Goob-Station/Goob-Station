@@ -1,8 +1,8 @@
 - type: entity
-  name: "EX-12 «Гончак»"
+  name: EX-12 "Foxhound"
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunBulldogLegallyDistinct # """legally distinct"""
-  description: "Абсолютно оригінальна розробка Nanotrasen, яка юридично відрізняється від будь-якої іншої зброї, що може бути на ринку."
+  description: A completely original Nanotrasen design, that is legally distinct from any other weapons that might be on the market.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi

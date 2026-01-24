@@ -1,9 +1,9 @@
 - type: entity
-  name: "Кейс керівника"
+  name: Executive briefcase
   parent: [BaseItem, StorePresetNTR, BaseGrandTheftContraband]
   suffix: Empty
   id: ExecutiveBriefcaseEmpty
-  description: "Стандартний кейс керівника для безпечного доступу до NanoNeT."
+  description: A standard-issue executive briefcase for secure NanoNeT access.
   components:
   - type: Item
     size: Ginormous
@@ -100,7 +100,7 @@
 
 - type: storeCategory
   id: NTREvil
-  name: "Зло"
+  name: Evil
   priority: 3
   evil: true # lol
 

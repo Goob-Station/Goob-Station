@@ -8,8 +8,8 @@
 - type: entity
   id: ClarkeCentralElectronics
   parent: BaseElectronics
-  name: "центральний модуль управління clarke"
-  description: "Електричний центр управління механізмом Кларка."
+  name: clarke central control module
+  description: The electrical control center for the clarke mech.
   components:
     - type: Item
       storedRotation: 0
@@ -26,8 +26,8 @@
 - type: entity
   id: ClarkePeripheralsElectronics
   parent: BaseElectronics
-  name: "модуль керування периферійними пристроями clarke"
-  description: "Електрична периферія керує роботом Кларка."
+  name: clarke peripherals control module
+  description: The electrical peripherals control for the clarke mech.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -44,8 +44,8 @@
 - type: entity
   id: GygaxCentralElectronics
   parent: BaseElectronics
-  name: "центральний модуль управління gygax"
-  description: "Електричний центр управління для gygax mech."
+  name: gygax central control module
+  description: The electrical control center for the gygax mech.
   components:
     - type: Item
       storedRotation: 0
@@ -62,8 +62,8 @@
 - type: entity
   id: GygaxPeripheralsElectronics
   parent: BaseElectronics
-  name: "модуль керування периферійними пристроями gygax"
-  description: "Електричні периферійні пристрої керують роботою gygax-механізму."
+  name: gygax peripherals control module
+  description: The electrical peripherals control for the gygax mech.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -78,8 +78,8 @@
 - type: entity
   id: GygaxTargetingElectronics
   parent: BaseElectronics
-  name: "модуль керування та наведення зброї gygax"
-  description: "Електричне керування наведенням для gygax-механізму."
+  name: gygax weapon control and targeting module
+  description: The electrical targeting control for the gygax mech.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -96,8 +96,8 @@
 - type: entity
   id: DurandCentralElectronics
   parent: BaseElectronics
-  name: "центральний модуль управління durand"
-  description: "Електричний центр управління для механізму Дюранда."
+  name: durand central control module
+  description: The electrical control center for the durand mech.
   components:
     - type: Item
       storedRotation: 0
@@ -114,8 +114,8 @@
 - type: entity
   id: DurandPeripheralsElectronics
   parent: BaseElectronics
-  name: "модуль керування периферійними пристроями durand"
-  description: "Електричні периферійні пристрої керують роботою механізму Дюранда."
+  name: durand peripherals control module
+  description: The electrical peripherals control for the durand mech.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -130,8 +130,8 @@
 - type: entity
   id: DurandTargetingElectronics
   parent: BaseElectronics
-  name: "модуль управління та наведення зброї durand"
-  description: "Електричне керування наведенням для механізму Дюранда."
+  name: durand weapon control and targeting module
+  description: The electrical targeting control for the durand mech.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi

@@ -1,8 +1,8 @@
 - type: entity
   id: BaseSlimeExtract
   parent: BaseItem
-  name: "екстракт слайма"
-  description: "Слиз, видобутий зі слайма. Легенди кажуть, що він має «магічні сили»."
+  name: slime extract
+  description: Goo extracted from a slime. Legends claim these to have "magical powers".
   abstract: true
   components:
   - type: Item

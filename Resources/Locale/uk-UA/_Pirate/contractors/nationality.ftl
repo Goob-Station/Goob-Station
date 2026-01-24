@@ -7,6 +7,8 @@ character-nationality-requirement = Ви повинні{$inverted ->
 
 nationality_name_bieselite = Бізеліт
 
+nationality_name_nralakk = Нралакк
+
 nationality_name_solarian = Соларіанин
 
 nationality_name_valyrian = Валірієць

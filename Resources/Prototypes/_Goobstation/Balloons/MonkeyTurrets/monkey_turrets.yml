@@ -1,8 +1,8 @@
 - type: entity
   parent: [ SimpleSpaceMobBase, BaseWeaponBallisticTurret ] # Using SimpleSpaceMobBase since there is no current way to give them space immunity.
   id: MonkeyTurretDartBase
-  name: "дротикова мавпа"
-  description: "Мавпа, натренована стріляти гострими металевими дротиками по будь-яких зухвалих кульках. Її можна закріпити на місці, тільки не питайте як..."
+  name: dart monkey
+  description: A monkey trained to fire sharp metal darts at any daring balloons. This monkey can be anchored in place, just don't ask how...
   components:
   - type: NpcFactionMember
     factions:

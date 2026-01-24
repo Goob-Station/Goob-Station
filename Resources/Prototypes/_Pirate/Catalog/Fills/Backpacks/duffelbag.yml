@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledAkurra
-  name: "Набір Акурра"
-  description: "Грізна плазмова гвинтівка з рідкими боєприпасами в комплекті з 4 каністрами фірмового палива."
+  name: Akurra bundle
+  description: "A fearsome liquid-ammo plasma rifle, bundled with 4 canisters of its proprietary fuel."
   components:
   - type: StorageFill
     contents:
@@ -13,7 +13,7 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackHolyGrenade
-  name: "комплект святих ручних гранат"
+  name: Набір святих гранат
   description: "Містить святі гранати: 4 відволікаючих, і 1 справжню"
   suffix: DO NOT MAP
   components:

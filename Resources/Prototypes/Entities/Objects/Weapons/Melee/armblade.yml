@@ -54,10 +54,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ручне лезо"
+  name: arm blade
   parent: BaseItem
   id: ArmBlade
-  description: "Гротескне лезо з кістки та плоті, що розтинає людей, як гарячий ніж масло."
+  description: A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter.
   components:
   - type: Sharp
   - type: Execution

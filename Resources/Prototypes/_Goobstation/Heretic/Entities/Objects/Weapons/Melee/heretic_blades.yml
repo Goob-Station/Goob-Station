@@ -22,8 +22,8 @@
   parent: [ BaseItem, BaseMagicalContraband ]
   id: HereticBladeBaseNoTeleport
   abstract: true
-  name: "моторошне лезо"
-  description: "Хворобливо-зелене лезо у формі півмісяця, прикрашене декоративним оком. Ви відчуваєте, ніби за вами стежать..."
+  name: eldritch blade
+  description: A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
   components:
   - type: UnholyItem
   - type: HereticBlade
@@ -73,8 +73,8 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeAsh
-  name: "попелястий клинок"
-  description: "Розплавлений і необроблений шматок металу, спотворений до попелу та шлаку. Незавершений, він прагне бути більшим, ніж є, і завдає рани, повні сажі, тупим лезом."
+  name: ashen blade
+  description: Molten and unwrought, a hunk of metal warped to cinders and slag. Unmade, it aspires to be more than it is, and shears soot-filled wounds with a blunt edge.
   suffix: Ash
   components:
   - type: HereticBlade
@@ -90,8 +90,8 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeBlade
-  name: "розколотий клинок"
-  description: "Хоробрий клинок, розколотий і розірваний. Лютно, клинок ріже. Срібні шрами навіки прив'язують його до його темної мети."
+  name: sundered blade
+  description: A galliant blade, sundered and torn. Furiously, the blade cuts. Silver scars bind it forever to its dark purpose.
   suffix: Blade
   components:
   - type: HereticBlade
@@ -129,8 +129,8 @@
 - type: entity
   parent: HereticBladeBaseNoTeleport
   id: HereticBladeFleshGhoul
-  name: "лезо гуля"
-  description: "Лезо у формі півмісяця, народжене з викривленої плоті істоти. Гостро усвідомлюючи, воно прагне поширити на інших страждання, яких зазнало через своє жахливе походження."
+  name: ghoul blade
+  description: A crescent blade born from a fleshwarped creature. Keenly aware, it seeks to spread to others the suffering it has endured from its dreadful origins.
   suffix: Flesh ghoul
   components:
   - type: HereticBlade
@@ -144,14 +144,14 @@
 - type: entity
   parent: [HereticBladeFleshGhoul, BaseRandomTeleportBlade]
   id: HereticBladeFlesh
-  name: "закривавлений клинок"
+  name: bloody blade
   suffix: Flesh
 
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeLock
-  name: "клинок-ключ"
-  description: "Клинок і ключ, ключ до чого? Які великі ворота він відкриває?"
+  name: key blade
+  description: A blade and a key, a key to what? What grand gates does it open?
   suffix: Lock
   components:
   - type: HereticBlade
@@ -165,8 +165,8 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeRust
-  name: "іржавий клинок"
-  description: "Цей серповидний клинок занепалий, марніє від іржі. Проте він все ще кусає, розриваючи плоть і кістки зазубреними, гнилими зубами."
+  name: rusted blade
+  description: This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten teeth.
   suffix: Rust
   components:
   - type: HereticBlade
@@ -180,8 +180,8 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeVoid
-  name: "порожній клинок"
-  description: "Позбавлений будь-якої субстанції, цей клинок відображає порожнечу. Це справжнє зображення чистоти та хаосу, що настає після його застосування."
+  name: void blade
+  description: Devoid of any substance, this blade reflects nothingness. It is a real depiction of purity, and chaos that ensues after its implementation.
   suffix: Void
   components:
   - type: HereticBlade
@@ -195,8 +195,8 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeCosmos
-  name: "космічний клинок"
-  description: "Частинка небесного резонансу, викувана в зірковий клинок. Райдужний вигнанець, що вирізає сяючі сліди, відчайдушно прагнучи до об'єднання."
+  name: cosmic blade
+  description: A mote of celestial resonance, shaped into a star-woven blade. An iridescent exile, carving radiant trails, desperately seeking unification.
   suffix: Cosmos
   components:
   - type: HereticBlade

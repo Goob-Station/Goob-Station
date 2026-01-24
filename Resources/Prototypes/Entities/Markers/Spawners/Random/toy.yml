@@ -39,7 +39,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "спавнер іграшки"
+  name: Toy Spawner
   id: ToySpawner
   parent: MarkerBase
   components:
@@ -98,7 +98,7 @@
       offset: 0.2
 
 - type: entity
-  name: "спавнер призової статуетки"
+  name: Prize Figurine Spawner
   id: FigureSpawner
   parent: MarkerBase
   components:
@@ -133,7 +133,7 @@
       offset: 0.2
 
 - type: entity
-  name: "спавнер мініфігурки"
+  name: Spacemen Minifigure Spawner
   suffix: Librarian only, map with care!
   id: SpacemenFigureSpawner
   parent: MarkerBase

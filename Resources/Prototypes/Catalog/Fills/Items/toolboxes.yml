@@ -93,7 +93,7 @@
 
 - type: entity
   id: ToolboxEmergencyFilled
-  name: "аварійний набір інструментів"
+  name: emergency toolbox
   parent: ToolboxEmergency
   suffix: Filled
   components:
@@ -118,7 +118,7 @@
 
 - type: entity
   id: ToolboxElectricalFilled
-  name: "електричний ящик для інструментів"
+  name: electrical toolbox
   suffix: Filled
   parent: ToolboxElectrical
   components:
@@ -139,7 +139,7 @@
 
 - type: entity
   id: ToolboxElectricalTurretFilled
-  name: "електричний ящик для інструментів"
+  name: electrical toolbox
   suffix: Syndicate, Turret, Filled
   parent: ToolboxElectricalTurret
   components:
@@ -160,7 +160,7 @@
 
 - type: entity
   id: ToolboxArtisticFilled
-  name: "ящик з художніми приладдями"
+  name: artistic toolbox
   suffix: Filled
   parent: ToolboxArtistic
   components:
@@ -181,7 +181,7 @@
 
 - type: entity
   id: ToolboxMechanicalFilled
-  name: "ящик для інструментів механіка"
+  name: mechanical toolbox
   suffix: Filled
   parent: ToolboxMechanical
   components:
@@ -200,7 +200,7 @@
 
 - type: entity
   id: ToolboxMechanicalFilledAllTools
-  name: "ящик для інструментів механіка"
+  name: mechanical toolbox
   suffix: Filled, all tools
   parent: ToolboxMechanical
   components:
@@ -233,7 +233,7 @@
 
 - type: entity
   id: ToolboxGoldFilled
-  name: "золотий ящик для інструментів"
+  name: golden toolbox
   parent: ToolboxGolden
   suffix: Filled
   components:

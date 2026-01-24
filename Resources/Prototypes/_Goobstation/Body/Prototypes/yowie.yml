@@ -19,7 +19,7 @@
 
 - type: body
   id: Yowie
-  name: "йові"
+  name: yowie
   root: chest
   slots:
     head:

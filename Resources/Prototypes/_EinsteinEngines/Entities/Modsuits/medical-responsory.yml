@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryMedical
-  name: "Медичний блок керування модкостюмом \"Респонсорій"
-  description: "Головний контролер для медичного модкостюма \"Респонсорій\"."
+  name: Medical Responsory modsuit control unit
+  description: The main controller for a Medical Responsory modsuit.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/medical-responsory.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsResponsoryMedical
-  name: "Медичні рукавиці модкостюма \"Респонсорій"
-  description: "Пара рукавиць, створених для медичного скафандра \"Респонсорій\"."
+  name: Medical Responsory modsuit gauntlets
+  description: A pair of gauntlets made for the Medical Responsory hardsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -62,8 +62,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetResponsoryMedical
-  name: "Медичний шолом модкостюма \"Респонсорій"
-  description: "Сучасний шолом, розроблений Нанотрейзен для медичного модкостюма \"Респонсорій\". Він має вбудований HUD."
+  name: Medical Responsory modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Medical Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -108,8 +108,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsoryMedical
-  name: "Медичний нагрудник модкостюма \"Респонсорій"
-  description: "Сучасний нагрудник, розроблений Нанотрейзен для медичного модкостюма \"Респонсорій\". Він містить сервоприводи для зменшення навантаження від обладнання."
+  name: Medical Responsory modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Medical Responsory modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -146,8 +146,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryMedical
-  name: "Медичні черевики модкостюма \"Респонсорій"
-  description: "Сучасна пара магнітних черевиків для медичного модкостюма \"Респонсорій\"."
+  name: Medical Responsory modsuit boots
+  description: A state-of-the-art pair of magboots for the Medical Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

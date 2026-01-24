@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: BrbSign
-  name: "знак brb"
-  description: "Дає іншим знати, що ви у від'їзді."
+  name: brb sign
+  description: Lets others know you are away.
   components:
   - type: Sprite
     sprite: Objects/Misc/brbsign.rsi

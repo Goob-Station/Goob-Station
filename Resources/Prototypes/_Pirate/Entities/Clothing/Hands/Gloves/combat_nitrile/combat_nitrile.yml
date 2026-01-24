@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingHandsGlovesColorBlack, BaseSecurityContraband] #Pirate, was parented to BaseSecurityContraband
   id: ClothingHandsGlovesCombatNitrile
-  name: "бойові нітрилові рукавиці"
-  description: "Високоякісні нітрилові бойові рукавиці. Забезпечують хороший захист від порізів та ударів струмом, залишаючись при цьому достатньо гнучкими для виконання завдань, що вимагають спритності."
+  name: combat nitrile gloves
+  description: High-quality nitrile combat gloves. Provides good protection against cuts and shocks, while still being flexible enough for dexterous tasks.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Hands/Gloves/combat_nitrile.rsi

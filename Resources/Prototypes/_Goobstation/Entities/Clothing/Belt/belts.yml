@@ -22,8 +22,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCommandContraband ]
   id: ClothingBeltMilitaryWebbingCMO
-  name: "розгрузка головного лікаря"
-  description: "Медична розгрузка з глибокими кишенями для використання медичними працівниками."
+  name: chief medical officer's chest rig
+  description: A medical chest rig with deep pockets, for use by health professionals.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
@@ -51,6 +51,7 @@
         - MedicalPatch # Goobstation
         - AutoinjectorCartridge # Goobstation
         - HandheldCrewMonitor # Goobstation
+        - SyringeCase # Goobstation
       components:
         - Hypospray
         - Injector
@@ -66,8 +67,8 @@
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
   id: ClothingBeltDeathsquadWebbing
   suffix: DO NOT MAP
-  name: "нагрудник оперативника загону смерті"
-  description: "Міцний і довговічний нагрудник, що містить все необхідне, щоб ви залишалися в бою. Ймовірно, вам не доведеться його використовувати."
+  name: deathsquad operative chestrig
+  description: A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
@@ -80,8 +81,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
   id: ClothingBeltSecurityWebbingMedical
-  name: "нагрудник лікаря ШРТ"
-  description: "Медичний нагрудник з глибокими кишенями для використання оперативниками ШРТ."
+  name: ert doctor's chest rig
+  description: "A medical chest rig with deep pockets, for use by ERT operatives."
   components:
   - type: Sprite
     sprite: Clothing/Belt/securitywebbing.rsi
@@ -97,8 +98,8 @@
 - type: entity
   parent: ClothingBeltSecurity
   id: ClothingBeltCorporateJudo
-  name: "Пояс корпоративного дзюдо"
-  description: "Навчає власника корпоративному дзюдо NT."
+  name: Corporate Judo Belt
+  description: Teaches the wearer NT Corporate Judo.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/judobelt.rsi
@@ -139,8 +140,8 @@
 - type: entity
   parent: [ ChemBag, BaseSyndicateContraband ]
   id: ClothingBeltChemBagSyndi
-  name: "медична сумка синдикату"
-  description: "Міцна сумка для медичних припасів, яку носять оперативники \"Мародерів Горлекса\". Пахне дезоксиефедрином."
+  name: syndicate medical pouch
+  description: A robust pouch for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
@@ -174,8 +175,8 @@
 - type: entity
   parent: ClothingBeltSheath
   id: ClothingBeltSheathHeadOfSecurity
-  name: "піхви голови служби безпеки"
-  description: "Міцні піхви, призначені для носіння власного енергетичного меча голови служби безпеки."
+  name: head of security's sheath
+  description: A rugged sheath, designed to hold the Head of Security's custom energy sword.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/hossheath.rsi
@@ -206,8 +207,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband ]
   id: ClothingBeltMilitaryRigGrenadier # Rig instead of webbing to distinguish it from the upstream counterpart
-  name: "пояс гранатометника"
-  description: "Спеціалізований поясний ремінь для носіння такої кількості гранат, що ваша рука втомиться їх кидати. Також може зберігати пістолет і магазини до нього."
+  name: grenadier belt
+  description: A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
@@ -244,8 +245,8 @@
 - type: entity
   parent: ChemBag
   id: ClothingBeltChemBagXenobiology
-  name: "ксенобіологічний підсумок"
-  description: "Слаймостійкий підсумок, призначений для ксенобіологів. Пахне.. плазмою?"
+  name: xenobiology pouch
+  description: A slime-resistant pouch intended for use by Xenobiologists. Smells of.. plasma?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/xenobag.rsi
@@ -265,8 +266,8 @@
 - type: entity
   parent: ClothingBeltChemBagXenobiology
   id: ClothingBeltChemBagXenobiologyHolding
-  name: "ксенобіологічна сумка бездоння"
-  description: "Більша слизостійка сумка, призначена для ксенобіологів. Пахне блюспейс-екстрактом і мавпячою шерстю."
+  name: xenobiology pouch of holding
+  description: A larger slime-resistant pouch intended for use by Xenobiologists. Smells of bluespace extract and monkey hair.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
@@ -279,8 +280,8 @@
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
   id: ClothingBeltMilitaryWebbingBSOFilled
-  name: "розгрузка Синього Щита"
-  description: "Комплект тактичного спорядження, який носять підрозділи підтримки Центрального Командування."
+  name: blueshield chest rig
+  description: A set of tactical webbing worn by Central Command support units.
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbing.rsi

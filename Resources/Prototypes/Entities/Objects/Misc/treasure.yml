@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseItem
   id: TreasureDatadiskEncrypted
-  name: "зашифрований диск з даними"
-  description: "Старий диск з даними. Хтось розумніший за вас міг би розшифрувати його і дізнатися щось цікаве. Все, що ви можете зробити, це продати його."
+  name: encrypted datadisk
+  description: An old data disk. Someone savvier than you could unencrypt it and learn something juicy. All you can do is sell it.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -29,8 +29,8 @@
 - type: entity
   parent: BaseItem
   id: TreasureHardDiskDrive
-  name: "жорсткий диск"
-  description: "Дисковод, розроблений для старих земних технологій, приблизно 1980 року. Напевно, знайдеться якийсь колекціонер, який захоче дістати його."
+  name: hard disk drive
+  description: A disk drive designed for old Earth technology, circa 1980. There's probably some kind of collector who might want to get their paws on this.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -51,8 +51,8 @@
 - type: entity
   parent: BaseItem
   id: TreasureFlopDiskDrive
-  name: "дисковод для дискет"
-  description: "Дисковод для зчитування інформації з дискет. Шкода, що зараз на них зберігаються лише операції з ядерними бомбами."
+  name: floppy disk drive
+  description: A drive for reading off info off of floppy disks. Shame that the only things stored on them nowadays are nuclear bomb operations.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -66,8 +66,8 @@
 - type: entity
   parent: BaseItem
   id: TreasureCDDrive
-  name: "CD-привід"
-  description: "Пристрій для зчитування даних з компакт-дисків. Зараз це не найкорисніша річ, хіба що ви плануєте кудись летіти."
+  name: CD drive
+  description: A piece of tech for reading data off of CDs. Nowadays that's not the most useful thing, unless you plan on flying somewhere.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseItem
   id: TreasureCPUSupercharged
-  name: "надпотужний процесор"
-  description: "Якась супер інопланетна космічна технологія. Шкода, що всі комп'ютери зараз вже йдуть з процесорами."
+  name: supercharged CPU
+  description: Some kind of super alien space tech. Shame all the computers already come with CPUs nowadays.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -96,8 +96,8 @@
 - type: entity
   parent: BaseItem
   id: TreasureSampleTube
-  name: "пробірка для зразків"
-  description: "Скляна пробірка з якоюсь липкою речовиною. Виглядає схильною до поломки."
+  name: sample tube
+  description: A glass tube with some sort of goop in it. Looks prone to breaking.
   components:
   - type: Sprite
     sprite: Objects/Misc/sample_tubes.rsi
@@ -149,8 +149,8 @@
 - type: entity
   parent: BaseItem
   id: TreasureCoinIron
-  name: "залізна монета"
-  description: "Плоский шматок металу. Якби вона все ще була в обігу, інфляція зробила б її нікчемною. Оскільки це не так, вона коштує достатньо, щоб зберігати її в книзі."
+  name: coin
+  description: A flat bit of metal. If it was still in circulation, inflation would've made it worthless. Since it isn't, it's worth enough to keep in a book.
   components:
   - type: Sprite
     sprite: Objects/Misc/coins.rsi

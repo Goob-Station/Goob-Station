@@ -20,8 +20,8 @@
 - type: entity
   id: ActionEvolution
   parent: BaseAction
-  name: "Еволюціонувати"
-  description: "Еволюціонувати у вищу касту ксеноморфів."
+  name: Evolve
+  description: Evolve into a higher xenomorph caste.
   components:
   - type: Action
     checkCanInteract: false
@@ -34,8 +34,8 @@
 - type: entity
   id: ActionEvolutionPraetorian
   parent: ActionEvolution
-  name: "Еволюціонувати в преторіанця (500)"
-  description: "Еволюціонувати в головного захисника вулика."
+  name: Evolve to praetorian (500)
+  description: Evolve into the main defender of the hive.
   components:
   - type: Action
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_praetorian }
@@ -45,8 +45,8 @@
 - type: entity
   id: ActionEvolutionQueen
   parent: ActionEvolutionPraetorian
-  name: "Еволюціонувати в королеву (500)"
-  description: "Створити внутрішній яйцевий мішок, здатний породжувати дітей. Одночасно може існувати лише одна королева."
+  name: Evolve to queen (500)
+  description: Produce an internal egg sac capable of spawning children. Only one queen can exist at a time.
   components:
   - type: Action
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_queen }
@@ -55,8 +55,8 @@
 - type: entity
   id: ActionSpawnResinWeedNode
   parent: BaseAction
-  name: "Посадити зарості (50)"
-  description: "Висаджує ксеноморфські зарості."
+  name: Plant weeds (50)
+  description: Plants some xenomorph weeds.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -76,8 +76,8 @@
 
 - type: entity
   id: ActionSpawnXenomorphEgg
-  name: "Відкласти яйце (75)"
-  description: "Відкладає яйце для створення лицехватів, щоб запліднювати ними здобич."
+  name: Lay egg (75)
+  description: Lay an egg to produce facehuggers to impregnate prey with.
   components:
   - type: Action
     checkCanInteract: false
@@ -99,8 +99,8 @@
 - type: entity
   id: ActionSpawnWallResin
   parent: BaseAction
-  name: "Збудувати смоляну стіну (50)"
-  description: "Виділяє міцну, пластичну смолу."
+  name: Build a resin wall (50)
+  description: Secrete tough malleable resin.
   components:
   - type: Action
     useDelay: 2 # Goobstation
@@ -145,8 +145,8 @@
 - type: entity # Goobstation - new action
   id: ActionSpawnResinDoor
   parent: BaseAction
-  name: "Побудувати смоляні двері (75)"
-  description: "Виділяє міцну, пластичну смолу."
+  name: Build a resin door (75)
+  description: Secrete tough malleable resin.
   components:
   - type: Action
     useDelay: 2
@@ -170,8 +170,8 @@
 - type: entity
   id: ActionSpawnResinNest
   parent: BaseAction
-  name: "Збудувати смоляне гніздо (50)"
-  description: "Виділяє міцну, пластичну смолу."
+  name: Build a resin nest (50)
+  description: Secrete tough malleable resin.
   components:
   - type: Action
     useDelay: 1
@@ -195,8 +195,8 @@
 - type: entity
   id: ActionTailLash
   parent: BaseAction
-  name: "Удар хвостом"
-  description: "Вдарте супротивника своїм хвостом."
+  name: Tail lash
+  description: Hit your opponent with your tail.
   components:
   - type: Action
     useDelay: 11
@@ -232,8 +232,8 @@
 - type: entity
   id: ActionJumpXenomorph
   parent: BaseAction
-  name: "Стрибок"
-  description: "Приголомшіть ворогів швидким стрибком."
+  name: Jump
+  description: Stun your enemies with a quick jump.
   components:
   - type: Action
     priority: 0
@@ -249,8 +249,8 @@
 - type: entity
   id: ActionTransferPlasma
   parent: BaseAction
-  name: "Передати плазму (50)"
-  description: "Передає плазму вашому союзнику."
+  name: Transfer plasma (50)
+  description: Passes plasma to your friend.
   components:
   - type: Action
     priority: 0
@@ -266,8 +266,8 @@
 - type: entity
   id: ActionXenomorphPromotion
   parent: BaseAction
-  name: "Підвищити до Преторіанця (500)" # Goobstation
-  description: "Безпосередньо підвищує ксеноморфа до статусу Преторіанця." # Goobstation
+  name: Promote to Praetorian (500) # Goobstation
+  description: Directly promote a xenomorph to Praetorian status. # Goobstation
   components:
   - type: Action
     itemIconStyle: BigAction

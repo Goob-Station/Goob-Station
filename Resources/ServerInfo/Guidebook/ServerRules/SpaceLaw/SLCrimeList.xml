@@ -43,7 +43,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Створення небезпеки на робочому місці
+        Створення небезпеки
       </Box>
     </ColorBox>
     <ColorBox>
@@ -128,7 +128,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Зберігання наркотиків
+        Зловживання активами
       </Box>
     </ColorBox>
     <ColorBox>
@@ -138,7 +138,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Контрабанда (A)
+        Контрабанда
       </Box>
     </ColorBox>
     <ColorBox>
@@ -148,7 +148,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Контрабанда (S)
+        Вороже спорядження
       </Box>
     </ColorBox>
     <ColorBox>
@@ -158,7 +158,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Зловживання обладнанням
+        Н/Д
       </Box>
     </ColorBox>
     <ColorBox>
@@ -238,7 +238,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Викрад. секр. док./яд. обл.
+        Викрадення секр. док./яд. уст.
       </Box>
     </ColorBox>
     <ColorBox>

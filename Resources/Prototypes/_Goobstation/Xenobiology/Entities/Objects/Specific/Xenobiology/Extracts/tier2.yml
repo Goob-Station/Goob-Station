@@ -1,7 +1,7 @@
 - type: entity
   id: YellowSlimeExtract
   parent: BaseSlimeExtract
-  name: "жовтий екстракт слайма"
+  name: yellow slime extract
   components:
   - type: Sprite
     layers:
@@ -49,7 +49,7 @@
 - type: entity
   id: DarkPurpleSlimeExtract
   parent: BaseSlimeExtract
-  name: "темно-фіолетовий екстракт слайма"
+  name: dark purple slime extract
   components:
   - type: Sprite
     layers:
@@ -99,7 +99,7 @@
 - type: entity
   id: DarkBlueSlimeExtract
   parent: BaseSlimeExtract
-  name: "темно-синій екстракт слайма"
+  name: dark blue slime extract
   components:
   - type: Sprite
     layers:
@@ -152,7 +152,7 @@
 - type: entity
   id: SilverSlimeExtract
   parent: BaseSlimeExtract
-  name: "срібний екстракт слайма"
+  name: silver slime extract
   components:
   - type: Sprite
     layers:
@@ -212,7 +212,7 @@
 - type: entity
   id: BluespaceSlimeExtract
   parent: BaseSlimeExtract
-  name: "блюспейсовий екстракт слайма"
+  name: bluespace slime extract
   components:
   - type: Sprite
     layers:
@@ -264,7 +264,7 @@
 - type: entity
   id: SepiaSlimeExtract
   parent: BaseSlimeExtract
-  name: "сепієвий екстракт слайма"
+  name: sepia slime extract
   components:
   - type: Sprite
     layers:
@@ -322,7 +322,7 @@
 - type: entity
   id: CeruleanSlimeExtract
   parent: BaseSlimeExtract
-  name: "церулеановий екстракт слайма"
+  name: cerulean slime extract
   components:
   - type: Sprite
     layers:
@@ -372,7 +372,7 @@
 - type: entity
   id: PyriteSlimeExtract
   parent: BaseSlimeExtract
-  name: "піритовий екстракт слайма"
+  name: pyrite slime extract
   components:
   - type: Sprite
     layers:

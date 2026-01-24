@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltMantis
-  name: "пояс мантіса"
-  description: "Ідеально підходить для зберігання всього вашого обладнання."
+  name: mantis' belt
+  description: Perfect for storing all of your equipment.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Belt/mantis_belt.rsi

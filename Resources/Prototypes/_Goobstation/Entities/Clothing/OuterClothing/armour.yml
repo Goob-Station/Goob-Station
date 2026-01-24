@@ -27,8 +27,8 @@
 - type: entity
   parent: ClothingOuterVestWeb
   id: ClothingOuterVestWebDurathread
-  name: "розвантажувальний жилет з дюратканини"
-  description: "Імпровізований броньований розвантажувальний жилет з дюратканини з пластиковими пластинами. Він напрочуд легкий, незважаючи на значне бронювання."
+  name: durathread web vest
+  description: An improvised armored web vest made from durathread with plasteel plates. It's surprisingly light, despite formidable armor plating.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/durathread_web_vest.rsi
@@ -55,8 +55,8 @@
 - type: entity
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
   id: ClothingOuterArmourDurathread
-  name: "броня з дюратканини"
-  description: "Броньований жилет, створений з пластикових пластин, переплетених дюратканиною. Він напрочуд гнучкий і легкий, незважаючи на значне бронювання."
+  name: durathread armor
+  description: An armored vest created from plasteel plates woven with durathread. It's surprisingly flexible and light, despite formidable armor plating.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/durathread_armour.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: [ ClothingOuterArmorRaid, GeigerCounterClothing ]
   id: ClothingOuterArmorHelldiver
-  name: "тактичний скафандр NT-01"
-  description: "Ця броня є стандартною для NanoTrasen, виготовлена з того ж титанового сплаву, що й корпус \"Голіафа\"."
+  name: salvage NT-01 tactical hardsuit
+  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi
@@ -111,8 +111,8 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterArmorHoSVestWeb
-  name: "розвантажувальний жилет голови служби безпеки"
-  description: "Високоякісний броньований жилет, виготовлений з твердого синтетичного матеріалу. Він напрочуд гнучкий і легкий, незважаючи на значне бронювання."
+  name: head of security's web vest
+  description: A high-quality armored vest made from a hard synthetic material. It is surprisingly flexible and light, despite formidable armor plating.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_hos.rsi
@@ -123,8 +123,8 @@
 - type: entity
   parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase ]
   id: ClothingOuterCapJacket
-  name: "броньована куртка капітана"
-  description: "Надзвичайно дорога куртка з додатковим захистом з дюратканини на грудях."
+  name: captain's armored jacket
+  description: An extremely expensive jacket with extra durathread protection at the chest.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/captain_jacket.rsi
@@ -144,8 +144,8 @@
 - type: entity
   parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterWinterCoatToggleable ]
   id: ClothingOuterWinterCapArmored
-  name: "вишукана зимова куртка капітана"
-  description: "Вишукана зимова куртка з балістичною пластиною, створена для найкращих на станції."
+  name: captain's fancy winter coat
+  description: An ornate winter coat with a ballistic plate made for the station's finest.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
@@ -169,8 +169,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterArmorCaptainCarapace ]
   id: ClothingBlueshieldArmourVest
-  name: "бронежилет синього щита"
-  description: "Бронежилет зі значком синього щита. Використовує технологію блюспейс, щоб бути більш компактним."
+  name: blueshield's security armour
+  description: An armoured vest with the badge of the blueshield. Utilizes bluespace technology to be more compact.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
@@ -182,8 +182,8 @@
 - type: entity
   parent: ClothingBlueshieldArmourVest
   id: ClothingBlueshieldArmoredJacket
-  name: "бронежилет Blueshield"
-  description: "Куртка з вшитими підсилювальними шарами."
+  name: blueshield's armored jacket
+  description: A jacket with sewn-in reinforcement layers.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
@@ -193,8 +193,8 @@
 - type: entity
   parent: ClothingBlueshieldArmourVest
   id: ClothingBlueshieldArmoredCowboyJacket
-  name: "броньована ковбойська куртка Blueshield"
-  description: "Куртка для захисту важливих людей у дикій природі."
+  name: blueshield's armored cowboy jacket
+  description: A jacket to protect important people in wild areas.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
@@ -204,8 +204,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterWinterCapArmored ]
   id: ClothingOuterWinterBlueshield
-  name: "броньоване зимове пальто синього щита"
-  description: "Синє зимове пальто, посилене кевларом в області грудей."
+  name: blueshield's armored winter coat
+  description: A blue winter coat reinforced with kevlar in the chest area.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
@@ -220,8 +220,8 @@
 - type: entity
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband]
   id: ClothingOuterArmourInvisible # I'll be real, this is just invisible armor so it doesn't ruin how fucking AWESOME navy officers look. Bite me.
-  name: "броня з синьопросторовою технологією"
-  description: "Броньований жилет, що використовує синьопросторову технологію, згинаючи світло і стаючи невидимим для неозброєного ока при носінні."
+  name: bluespace assisted armor
+  description: An armored vest that utilizes bluespace technology, bending light and becoming invisible to the naked eye when worn.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
@@ -251,8 +251,8 @@
 - type: entity
   parent: ClothingOuterArmourInvisible
   id: ClothingOuterArmourInvisibleChameleon
-  name: "прихована броня"
-  description: "Броньований жилет, що використовує синьопросторову технологію. Здатний бути повністю невидимим або виглядати як будь-який інший верхній одяг."
+  name: covert armor
+  description: An armored vest that utilizes bluespace technology. Capable of being completely invisible, or appearing as any other outer clothing.
   components:
   - type: ChameleonClothing
     slot: [ outerClothing ]
@@ -265,8 +265,8 @@
 - type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseSyndicateContraband ]
   id: ClothingOuterArmorCloakSith
-  name: "плащ темного лорда"
-  description: "Те, що починалося як простий косплей-плащ, було незаконно посилено броньованими пластинами, перетворивши його на функціональний елемент броні. Схоже, він навіть здатний захистити користувача від відсутності тиску в космосі."
+  name: dark lord cloak
+  description: What began as a simple cosplay cloak was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
@@ -308,8 +308,8 @@
 - type: entity
   parent: [BaseSyndicateContraband, ClothingOuterArmourInvisible]
   id: ClothingOuterArmourInvisibleSyndie
-  name: "броня з червонопросторовою технологією"
-  description: "Броньований жилет, що використовує червонопросторову технологію, щоб виглядати невидимим і не псувати ваш діловий стиль."
+  name: redspace assisted armor
+  description: An armored vest that utilizes redspace technology to appear invisible and not mess with your business style.
   components:
   - type: Sprite
     state: icon-evil
@@ -325,8 +325,8 @@
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorQueenCarapace
-  name: "панцир королеви"
-  description: "Череп древньої королеви ксеноморфів, перекований у величний нагрудник, що перетворює її колишню загрозу на непохитний захист."
+  name: queen's carapace
+  description: The skull of the ancient Xeno Queen, reforged into an imposing chestpiece that turns her former menace into unyielding protection.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/queen_carapace.rsi
@@ -367,8 +367,8 @@
 - type: entity
   parent: [ClothingOuterPonchoClassic, BaseMajorContraband]
   id: ClothingOuterPonchoClassicRobust
-  name: "справжнє ковбойське пончо"
-  description: "Пончо, зроблене для справжніх ковбоїв."
+  name: authentic cowboys poncho
+  description: A poncho made for real cowboy's.
   components:
   - type: Armor
     coverage:
@@ -398,8 +398,8 @@
 - type: entity
   parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing ]
   id: ClothingOuterArmorTemplar
-  name: "обладунки хрестоносця"
-  description: "Бог цього бажає!"
+  name: crusader armour
+  description: God wills it!
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/templar.rsi
@@ -430,8 +430,8 @@
 - type: entity
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorStudent
-  name: "мантія студента"
-  description: "Уніформа давнього навчального закладу."
+  name: student robe
+  description: The uniform of a bygone institute of learning.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/student.rsi
@@ -441,8 +441,8 @@
 - type: entity
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorWitchhunter
-  name: "вбрання мисливця на відьом"
-  description: "Цей зношений одяг багато використовувався в минулому."
+  name: witch hunter garb
+  description: This worn outfit saw much use back in the day.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/witchhunter.rsi
@@ -452,8 +452,8 @@
 - type: entity
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorAncient
-  name: "стародавні обладунки"
-  description: "Захищай скарб..."
+  name: ancient armour
+  description: Defend the treasure...
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/ancient.rsi
@@ -463,8 +463,8 @@
 - type: entity
   parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
   id: ClothingOuterArmorAdept
-  name: "мантія адепта"
-  description: "Ідеальний одяг для спалювання невірних."
+  name: adept robes
+  description: The ideal outfit for burning the unfaithful.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/adept.rsi
@@ -478,8 +478,8 @@
 - type: entity
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorClock
-  name: "забуті обладунки"
-  description: "Звучить як шипіння пари, цокіт шестерень, що затихли. Виглядає як мертва машина, що намагається тікати з життям."
+  name: forgotten armour
+  description: It sounds like hissing steam, ticking cogs, gone silent, It looks like a dead machine, trying to tick with life.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/clock.rsi
@@ -489,8 +489,8 @@
 - type: entity
   parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
   id: ClothingOuterArmorMonk
-  name: "ряса монаха"
-  description: "На кілька кроків вище від розірваної дерюги."
+  name: monk's habit
+  description: A few steps above rended sackcloth.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
@@ -504,8 +504,8 @@
 - type: entity
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorBishop
-  name: "мантія єпископа"
-  description: "Радий бачити, що зібрана вами десятина була витрачена з користю."
+  name: bishop's robes
+  description: Glad to see the tithes you collected were well spent.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi

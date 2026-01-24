@@ -1,8 +1,8 @@
 - type: entity
   id: CameraElectronics
   parent: BaseElectronics
-  name: "електроніка камери"
-  description: "Електронна плата для камер."
+  name: camera electronics
+  description: An electronics board used in cameras.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

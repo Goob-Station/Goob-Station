@@ -6,8 +6,8 @@
 - type: entity
   id: ExperimentalCircuitBoard
   parent: BaseElectronics
-  name: "експериментальна плата законів"
-  description: "Електронна плата, що містить експериментальний набір законів. При встановленні дасть кілька очок дослідження через деякий час."
+  name: experimental law board
+  description: An electronics board containing experimental lawset. When installed, will give some research points after time has passed.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -19,9 +19,9 @@
 - type: entity
   id: ExperimentalCircuitBoardDebug
   parent: ExperimentalCircuitBoard
-  name: "експериментальна експериментальна плата законів" # Lol
+  name: experimental experimental law board # Lol
   suffix: DEBUG
-  description: "Електронна плата, що містить експериментальний набір законів. При встановленні дасть кілька очок дослідження через деякий час."
+  description: An electronics board containing experimental lawset. When installed, will give some research points after time has passed.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

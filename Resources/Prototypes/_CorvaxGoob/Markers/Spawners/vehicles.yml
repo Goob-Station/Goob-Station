@@ -1,5 +1,5 @@
 - type: entity
-  name: "спавнер мотобайка"
+  name: Motobike Spawner
   id: SpawnVehicleMotobike
   parent: MarkerBase
   components:

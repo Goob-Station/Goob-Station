@@ -1,8 +1,8 @@
 - type: entity
   id: XenobioVolatileOrgan
   parent: [ BaseHumanOrgan, BasePowerCell ]
-  name: "нестабільний орган"
-  description: "Пульсуюча маса слайма; схоже, реагує на пристрої поблизу."
+  name: volatile organ
+  description: A pulsating mass of slime, it seems to react to nearby devices.
   suffix: Full
   components:
   - type: Sprite
@@ -53,11 +53,11 @@
     metabolizerTypes: [ Cybernetic ]
     groups:
     - id: Medicine
-      rateModifier: 2.50
+      rateModifier: 0.4
     - id: Poison
-      rateModifier: 0.25
+      rateModifier: 4.0
     - id: Narcotic
-      rateModifier: 1.75
+      rateModifier: 0.55
   - type: Tag
     tags:
     - PowerCell
@@ -65,10 +65,10 @@
     - Organ
 
 - type: entity
-  name: "кулька слизу"
+  name: goop ball
   parent: [ BaseItem, ItemHeftyBase ]
   id: XenobioGoopBall
-  description: "Не така вже й слизька, як здається. Доведено: гасить пожежі на рівні голофана. Крики — у комплекті!"
+  description: Not as goopy as it looks. Proven to capture fires on the same level as the holofan. Screaming included!
   components:
   - type: Sprite
     layers:
@@ -121,7 +121,7 @@
 
 - type: entity
   parent: FloorTileItemBase
-  name: "припасований квадрат блюспейс-килима"
+  name: fitted bluespace carpet square
   id: FloorTileItemBluespace
   components:
   - type: Sprite
@@ -142,7 +142,7 @@
 
 - type: entity
   parent: FloorTileItemBase
-  name: "припасований квадрат сепієвого килима"
+  name: fitted sepia carpet square
   id: FloorTileItemSepia
   components:
   - type: Sprite
@@ -164,8 +164,8 @@
 - type: entity
   parent: BaseItem
   id: XenobioVolatileRedExtractJelly
-  name: "вибухонебезпечне червоне слаймове желе"
-  description: "Застосування цього на одязі, схоже, прибирає будь-які можливі сповільнення. Однак піддослідні, які носили такий одяг, згоріли дотла після того, як науковець підпалив цигарку."
+  name: volatile red slime jelly
+  description: Using this on a piece of clothing seems to remove any potential slowdowns. Hovewer, subjects wearing such clothing were burnt to a crisp after a scientist lit his cigarette.
   components:
   - type: Sprite
     layers:
@@ -181,8 +181,8 @@
 - type: entity
   parent: BaseItem
   id: XenobioAdamantineBar
-  name: "адамантиновий брусок"
-  description: "Теоретично, якби ви продали кілька таких, вам би більше не довелося працювати на станції. Він, мабуть, має якесь застосування, адже коштує шалені гроші. Але де?"
+  name: adamantine bar
+  description: Theoretically, if you sold a couple of these, you wouldn't need to work on the station any more. It must have it's use, since it costs a fortune to get one of these. But where?
   components:
   - type: Sprite
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/adamantine_bar.rsi

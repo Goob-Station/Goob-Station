@@ -5,8 +5,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckPonchoBlack
-  name: "чорне зимове пончо"
-  description: "Зимове пончо, що рекламується як шедевр захисту від стихій. Правда в тому, що воно колюче, задушливе і трохи мішкувате - але принаймні в ньому не холодно. Це чорне."
+  name: black cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold. This one is black.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Ponchos/black.rsi
@@ -21,8 +21,8 @@
 - type: entity
   parent: ClothingNeckPonchoBlack
   id: ClothingNeckPonchoArctic
-  name: "зимове пончо"
-  description: "Зимове пончо, що рекламується як шедевр захисту від стихій. Правда в тому, що воно колюче, задушливе і трохи мішкувате - але принаймні в ньому не холодно."
+  name: cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Ponchos/arctic.rsi
@@ -32,8 +32,8 @@
 - type: entity
   parent: ClothingNeckPonchoBlack
   id: ClothingNeckPonchoSyndicate
-  name: "чорно-червоне зимове пончо"
-  description: "Зимове пончо, що рекламується як шедевр захисту від стихій. Правда в тому, що воно колюче, задушливе і трохи мішкувате - але принаймні в ньому не холодно. Це виглядає трохи зловісно..."
+  name: black and red cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold. This one seems vaguely sinister...
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Ponchos/syndicate.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: ClothingNeckPonchoBlack
   id: ClothingNeckPonchoSmallPink
-  name: "маленьке рожеве зимове пончо"
-  description: "Зимове пончо, що рекламується як шедевр захисту від стихій. Ця стильна версія має менший розмір. Це рожево-біле."
+  name: small pink cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size. This one is pink and white.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Ponchos/pinksmall.rsi
@@ -54,8 +54,8 @@
 - type: entity
   parent: ClothingNeckPonchoBlack
   id: ClothingNeckPonchoSmallRed
-  name: "маленьке червоне зимове пончо"
-  description: "Зимове пончо, що рекламується як шедевр захисту від стихій. Ця стильна версія має менший розмір і миліший дизайн. Це червоно-чорне."
+  name: small red cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size with a cuter design. This one is red and black.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Ponchos/redsmall.rsi
@@ -65,8 +65,8 @@
 - type: entity
   parent: ClothingNeckPonchoBlack
   id: ClothingNeckPonchoSmallPurple
-  name: "маленьке фіолетове зимове пончо"
-  description: "Зимове пончо, що рекламується як шедевр захисту від стихій. Ця стильна версія має менший розмір і миліший дизайн. Це фіолетове з наклейкою риби."
+  name: small purple cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size with a cuter design. This one is purple with a fish decal.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Ponchos/purplesmall.rsi
@@ -76,8 +76,8 @@
 - type: entity
   parent: ClothingNeckPonchoBlack
   id: ClothingNeckPonchoSmallBlack
-  name: "маленьке чорне зимове пончо"
-  description: "Зимове пончо, що рекламується як шедевр захисту від стихій. Ця версія має менший розмір. Це чорне."
+  name: small black cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This rendition comes in a smaller size. This one is black.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Ponchos/blacksmall.rsi
@@ -87,8 +87,8 @@
 - type: entity
   parent: ClothingNeckPonchoBlack
   id: ClothingNeckPonchoSmallWhite
-  name: "маленьке зимове пончо"
-  description: "Зимове пончо, що рекламується як шедевр захисту від стихій. Ця версія має менший розмір."
+  name: small cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This rendition comes in a smaller size.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Ponchos/whitesmall.rsi

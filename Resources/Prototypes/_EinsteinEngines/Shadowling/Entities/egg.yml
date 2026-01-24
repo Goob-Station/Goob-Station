@@ -1,7 +1,7 @@
 - type: entity
   id: SlingEgg
-  name: "Яйце Тіньовика"
-  description: "Незвичайна грудка органічної матерії, її потріскана поверхня час від часу сіпається." # yes
+  name: Shadowling Egg
+  description: An irregular lump of organic matter, its cracked surface twitching now and then. # yes
   components:
   - type: Transform
     noRot: true
@@ -51,7 +51,7 @@
 - type: entity
   parent: SlingEgg
   id: SlingEggAscension
-  description: "Темний, броньований кокон, що пульсує моторошною енергією, сповіщаючи про вознесіння тіньовика."
+  description: A dark, armored cocoon pulsing with eerie energy, heralding the shadowling’s ascension.
   components:
   - type: Sprite
     noRot: true
@@ -99,8 +99,8 @@
 
 - type: entity
   id: AscensionEggShadowlingInside
-  name: "Тіньовик"
-  description: "Страхітливе створіння, що, схоже, сформувалося на верхівці яйця. Чи воно живе?"
+  name: The Shadowling
+  description: A terryfing creature that appears to have formed on top of the egg. Is it alive?
   components:
   - type: Transform
     noRot: true

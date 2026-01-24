@@ -61,10 +61,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "BaseWeaponRevolver"
+  name: BaseWeaponRevolver
   parent: BaseItem
   id: BaseWeaponRevolver
-  description: "Корінцевий зубастий і пагонистий."
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -135,10 +135,10 @@
   # Goobstation edit end
 
 - type: entity
-  name: "Декард"
+  name: Deckard
   parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
   id: WeaponRevolverDeckard
-  description: "Прекрасно виготовлений, створений на замовлення револьвер. Використовується, коли немає часу на тест Войта-Кампфа. Заряджається 5 патронами .45 magnum."
+  description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
@@ -163,10 +163,10 @@
     price: 1500
 
 - type: entity
-  name: "Інспектор"
+  name: Inspector
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
   id: WeaponRevolverInspector
-  description: "Револьвер одинарної дії, що виробляється різними компаніями. Він легкодоступний на цивільному ринку, що робить його популярним вибором серед приватних детективів. Тримаючи його, ви відчуваєте себе щасливчиком. Заряджається 6 патронами .45 magnum."
+  description: A single-action revolver manufactured by various companies. It is readily available on the civilian market, making it a popular choice among private investigators. You feel lucky just holding it. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
@@ -178,10 +178,10 @@
     ammoSlots: [ null, null, null, null, null, null ]
 
 - type: entity
-  name: "Матеба"
+  name: Mateba
   parent: [BaseWeaponRevolver, BaseCentcommContraband]
   id: WeaponRevolverMateba
-  description: "Сучасний револьвер, що використовується елітним, майже міфічним загоном Nanotrasen \"Загін Смерті\". Його унікальний спусковий механізм та розташування ствола забезпечують високу скорострільність з мінімальним підкиданням дула. Багато хто дивився в це дуло, але мало хто вижив, щоб розповісти про це. Заряджається 6 патронами .45 magnum."
+  description: A modern revolver used by Nanotrasen’s elite, near mythical ‘Death Squad’ task force. Its unique trigger action and barrel placement enable a high fire rate with minimal muzzle flip. Many have looked down this barrel, but few have lived to tell of it. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
@@ -214,10 +214,10 @@
     proto: CartridgeMagnumAP
 
 - type: entity
-  name: "Пітон"
+  name: Python
   parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponRevolverPython
-  description: "Потужний револьвер подвійної дії, вироблений Синдикатом. Гучний і ефектний, ідеально підходить для будь-якого агента, який хоче заявити про себе. Заряджається 6 патронами .45 magnum."
+  description: A powerful double-action revolver manufactured by the Syndicate. Loud and flashy, perfect for any agent looking to make a statement. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
@@ -249,10 +249,10 @@
 
 
 - type: entity
-  name: "піратський револьвер"
+  name: pirate revolver
   parent: [BaseWeaponRevolver, BaseMajorContraband]
   id: WeaponRevolverPirate
-  description: "Грубий револьвер одинарної дії, зроблений власноруч космічним піратом. Старий і вкритий іржею, він якимось дивом досі працює. Заряджається 5 патронами .45 magnum."
+  description: A crude single-action revolver handmade by a space pirate. Old and covered in rust, it somehow still works. Loads 5 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi

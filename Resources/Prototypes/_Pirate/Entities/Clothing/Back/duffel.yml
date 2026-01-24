@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelInterdyne
-  name: "Спортивна сумка Інтердайну"
-  description: "Велика сумочка вмістить усі хірургічні інструменти, для ваших злих та геніальних експериментів."
+  name: Спортивна сумка інтердайна
+  description: Велика сумочка вмістить усі хірургічні інструменти, для ваших злих та геніальних експериментів.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Back/Duffels/interdyne.rsi
@@ -10,8 +10,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelHOP
-  name: "Спортивна сумка ГП"
-  description: "Вміщує трішки більше предметів, завдяки своїм розмірам. Не погана альтернатива для тих хто носить з собою весь інвентар бюрократії, та інструменти. Улюблена лежанка для Іана."
+  name: Спортивна сумка ГП
+  description: Вміщує трішки більше предметів, завдяки своїм розмірам. Не погана альтернатива для тих хто носить з собою весь інвентар бюрократії, та інструменти. Улюблена лежанка для Іана.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Back/Duffels/hop.rsi

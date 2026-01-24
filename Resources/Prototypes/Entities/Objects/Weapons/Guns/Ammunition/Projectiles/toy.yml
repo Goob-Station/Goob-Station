@@ -50,8 +50,8 @@
 
 - type: entity
   id: BulletFoam
-  description: "Сподіваюся, ви носите захисні окуляри."
-  name: "пінопластовий дротик"
+  description: I hope you're wearing eye protection.
+  name: foam dart
   parent: BaseItem
   components:
   - type: Fixtures

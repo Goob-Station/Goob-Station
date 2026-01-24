@@ -76,7 +76,7 @@
 
 - type: entity
   id: ChristmasLightsWhite1
-  description: "Кілька білих різдвяних вогників."
+  description: Some white Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -92,7 +92,7 @@
 
 - type: entity
   id: ChristmasLightsWhite2
-  description: "Кілька білих різдвяних вогників."
+  description: Some white Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -108,7 +108,7 @@
 
 - type: entity
   id: ChristmasLightsWhite3
-  description: "Кілька білих різдвяних вогників."
+  description: Some white Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -124,7 +124,7 @@
 
 - type: entity
   id: ChristmasLightsWhite4
-  description: "Кілька білих різдвяних вогників."
+  description: Some white Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -140,7 +140,7 @@
 
 - type: entity
   id: ChristmasLightsWhite5
-  description: "Кілька білих різдвяних вогників."
+  description: Some white Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -156,7 +156,7 @@
 
 - type: entity
   id: ChristmasLightsWhite6
-  description: "Кілька білих різдвяних вогників."
+  description: Some white Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -172,7 +172,7 @@
 
 - type: entity
   id: ChristmasLightsRed1
-  description: "Кілька червоних різдвяних вогників."
+  description: Some red Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -189,7 +189,7 @@
 
 - type: entity
   id: ChristmasLightsRed2
-  description: "Кілька червоних різдвяних вогників."
+  description: Some red Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -206,7 +206,7 @@
 
 - type: entity
   id: ChristmasLightsRed3
-  description: "Кілька червоних різдвяних вогників."
+  description: Some red Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -223,7 +223,7 @@
 
 - type: entity
   id: ChristmasLightsRed4
-  description: "Кілька червоних різдвяних вогників."
+  description: Some red Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -240,7 +240,7 @@
 
 - type: entity
   id: ChristmasLightsRed5
-  description: "Кілька червоних різдвяних вогників."
+  description: Some red Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -257,7 +257,7 @@
 
 - type: entity
   id: ChristmasLightsRed6
-  description: "Кілька червоних різдвяних вогників."
+  description: Some red Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -274,7 +274,7 @@
 
 - type: entity
   id: ChristmasLightsBlue1
-  description: "Кілька синіх різдвяних вогників."
+  description: Some blue Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -291,7 +291,7 @@
 
 - type: entity
   id: ChristmasLightsBlue2
-  description: "Кілька синіх різдвяних вогників."
+  description: Some blue Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -308,7 +308,7 @@
 
 - type: entity
   id: ChristmasLightsBlue3
-  description: "Кілька синіх різдвяних вогників."
+  description: Some blue Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -325,7 +325,7 @@
 
 - type: entity
   id: ChristmasLightsBlue4
-  description: "Кілька синіх різдвяних вогників."
+  description: Some blue Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -342,7 +342,7 @@
 
 - type: entity
   id: ChristmasLightsBlue5
-  description: "Кілька синіх різдвяних вогників."
+  description: Some blue Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -359,7 +359,7 @@
 
 - type: entity
   id: ChristmasLightsBlue6
-  description: "Кілька синіх різдвяних вогників."
+  description: Some blue Christmas lights.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

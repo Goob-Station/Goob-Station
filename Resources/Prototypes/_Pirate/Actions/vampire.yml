@@ -1,7 +1,7 @@
 - type: entity
   id: ActionVampireOpenMutationsMenu
-  name: "Меню мутацій"
-  description: "Відкриває меню з мутаціями вампіра."
+  name: Mutations menu
+  description: "Opens menu with vampires mutations."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -32,8 +32,8 @@
 
 - type: entity
   id: ActionVampireGlare
-  name: "Спалах"
-  description: "Випускає засліплювальний спалах з очей, приголомшуючи незахищеного смертного на 10 секунд. Вартість активації: 20 есенції. Перезарядка: 60 секунд"
+  name: Glare
+  description: "Release a blinding flash from your eyes, stunning a unprotected mortal for 10 seconds. Activation Cost: 20 Essence. Cooldown: 60 Seconds"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -55,8 +55,8 @@
 
 - type: entity
   id: ActionVampireHypnotise
-  name: "Гіпноз"
-  description: "Впитайтеся поглядом у очі смертного, змушуючи його заснути на 60 секунд. Вартість активації: 20 есенції. Затримка активації: 5 секунд. Перезарядка: 5 хвилин"
+  name: Hypnotise
+  description: "Stare deeply into a mortals eyes, forcing them to sleep for 60 seconds. Activation Cost: 20 Essence. Activation Delay: 5 Seconds. Cooldown: 5 Minutes"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -77,8 +77,8 @@
 
 - type: entity
   id: ActionVampireScreech
-  name: "Вереск"
-  description: "Видати пронизливий крик, приголомшуючи незахищених смертних і розбиваючи крихкі предмети поблизу. Вартість активації: 20 есенції. Затримка активації: 5 секунд. Перезарядка: 5 хвилин"
+  name: Screech
+  description: "Release a piercing scream, stunning unprotected mortals and shattering fragile objects nearby. Activation Cost: 20 Essence. Activation Delay: 5 Seconds. Cooldown: 5 Minutes"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -94,8 +94,8 @@
 
 - type: entity
   id: ActionVampireBloodSteal
-  name: "Крадіжка крові"
-  description: "Вириває кров з усіх тіл поблизу — живих чи мертвих. Вартість активації: 20 есенції. Перезарядка: 60 секунд"
+  name: Blood Steal
+  description: "Wrench the blood from all bodies nearby - living or dead. Activation Cost: 20 Essence. Cooldown: 60 Seconds"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -112,8 +112,8 @@
 
 - type: entity
   id: ActionVampireUnholyStrength
-  name: "Нечестива міць"
-  description: "Ви отримуєте +10 різальної шкоди до беззбройних атак. Працює, доки не вимкнете. Перезарядка: 60 секунд"
+  name: Unholy Strength
+  description: "You get +10 slash damage to unarmed attacks.s Its works untill you off it Cooldown: 60 Seconds"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -128,8 +128,8 @@
 
 - type: entity
   id: ActionVampireSupernaturalStrength
-  name: "Надприродна міць"
-  description: "Ви можете віджимати двері голими руками, а також отримуєте +15 різальної шкоди до беззбройних атак. Працює, доки не вимкнете. Перезарядка: 60 секунд"
+  name: SuperNatural Strength
+  description: "You can pry doors with hands, and additionally +15 slash damage to unarmed attacks.s Its works untill you off it Cooldown: 60 Seconds"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -144,8 +144,8 @@
 
 - type: entity
   id: ActionVampireBatform
-  name: "Форма кажана"
-  description: "Прийміть форму кажана. Швидка, важко влучити, полюбляє фрукти. Вартість активації: 20 есенції. Перезарядка: 30 секунд"
+  name: Bat Form
+  description: "Assume for form of a bat. Fast, Hard to Hit, Likes fruit. Activation Cost: 20 Essence. Cooldown: 30 Seconds"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -161,8 +161,8 @@
 
 - type: entity
   id: ActionVampireMouseform
-  name: "Форма миші"
-  description: "Прийміть форму миші. Швидка, маленька, імунна до дверей. Вартість активації: 20 есенції. Перезарядка: 30 секунд"
+  name: Mouse Form
+  description: "Assume for form of a mouse. Fast, Small, Immune to doors. Activation Cost: 20 Essence. Cooldown: 30 Seconds"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -178,8 +178,8 @@
 
 - type: entity
   id: ActionVampireCloakOfDarkness
-  name: "Плащ темряви"
-  description: "Сховайтеся від очей смертних, стаючи невидимими під час нерухомості. Вартість активації: 30 есенції. Підтримка: 1 есенція/сек. Перезарядка: 10 секунд"
+  name: Cloak of Darkness
+  description: "Cloak yourself from mortal eyes, rendering you invisible while stationary. Activation Cost: 30 Essence. Upkeep: 1 Essence/Second Cooldown: 10 Seconds"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -193,8 +193,8 @@
 
 - type: entity
   id: ActionVampireSire
-  name: "Породити"
-  description: "Перетворіть смертного на вампіра. Не працює проти цілей із майндшилдом. Вартість активації: 200 есенції."
+  name: Sire
+  description: "Turn a mortal into a vampire. Fails on mindshielded targets. Activation Cost: 200 Essence."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -215,8 +215,8 @@
 
 - type: entity
   id: ActionVampireDarkGift
-  name: "Темний дар"
-  description: "Зцілює або оживляє наверненого вампіра. Вартість активації: 100 есенції."
+  name: Dark Gift
+  description: "Heal or revive a turned vampire. Activation Cost: 100 Essence."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

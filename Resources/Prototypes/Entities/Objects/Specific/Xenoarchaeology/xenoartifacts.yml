@@ -8,8 +8,8 @@
 - type: entity
   id: BaseXenoArtifact
   parent: BaseMob # we use this since it can technically get inhabited
-  name: "артефакт"
-  description: "Дивний артефакт з невідомих часів. Схоже, буде весело."
+  name: artifact
+  description: A strange artifact from time unknown. Looks like a good time.
   abstract: true
   noSpawn: true
   components:
@@ -60,8 +60,8 @@
 - type: entity
   parent: BaseAction
   id: ActionArtifactActivate
-  name: "Активувати артефакт"
-  description: "Активуйте себе, створюючи хаос для тих, хто поруч."
+  name: Activate Artifact
+  description: Activate yourself, causing chaos to those near you.
   components:
   - type: Action
     icon:

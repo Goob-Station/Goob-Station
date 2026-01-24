@@ -1,6 +1,6 @@
 - type: body
   id: XenomorphDrone
-  name: "ксеноморф-трутень"
+  name: xenomorph drone
   root: chest
   slots:
     head:

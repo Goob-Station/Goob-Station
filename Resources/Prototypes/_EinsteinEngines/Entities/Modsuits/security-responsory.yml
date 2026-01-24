@@ -13,8 +13,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsorySecurity
-  name: "Блок керування мод-костюмом \"Сек'юріті Респонсорі"
-  description: "Основний контролер для мод-костюма \"Сек'юріті Респонсорі\"."
+  name: Security Responsory modsuit control unit
+  description: The main controller for a Security Responsory modsuit.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/security-responsory.rsi
@@ -44,8 +44,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsResponsorySecurity
-  name: "Рукавиці мод-костюма \"Сек'юріті Респонсорі"
-  description: "Пара рукавиць, створених для мод-костюма \"Сек'юріті Респонсорі\"."
+  name: Security Responsory modsuit gauntlets
+  description: A pair of gauntlets made for the Security Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -61,8 +61,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetResponsorySecurity
-  name: "Шолом мод-костюма \"Сек'юріті Респонсорі"
-  description: "Найсучасніший шолом, розроблений NanoTrasen для мод-костюма \"Сек'юріті Респонсорі\". Він має вбудований HUD."
+  name: Security Responsory modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Security Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -107,8 +107,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsorySecurity
-  name: "Нагрудник мод-костюма \"Сек'юріті Респонсорі"
-  description: "Найсучасніший нагрудник, розроблений NanoTrasen для мод-костюма \"Сек'юріті Респонсорі\". Він містить силові сервоприводи для зменшення навантаження від обладнання."
+  name: Security Responsory modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Security Responsory modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -145,8 +145,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsorySecurity
-  name: "Чоботи мод-костюма \"Сек'юріті Респонсорі"
-  description: "Найсучасніша пара магнітних черевиків для мод-костюма \"Сек'юріті Респонсорі\"."
+  name: Security Responsory modsuit boots
+  description: A state-of-the-art pair of magboots for the Security Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

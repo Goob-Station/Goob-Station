@@ -1,8 +1,8 @@
 - type: entity
   parent: MobSiliconBase
   id: MobMineBot
-  name: "майнебот"
-  description: "Найкращий друг шахтаря!"
+  name: minebot
+  description: A miner's best friend!
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Silicon/Bots/minebot.rsi

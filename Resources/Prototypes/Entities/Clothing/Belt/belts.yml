@@ -152,8 +152,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltUtility
-  name: "поясний ремінь"
-  description: "Може вміщати різні речі."
+  name: utility belt
+  description: Can hold various things.
   components:
   - type: Sprite
     sprite: Clothing/Belt/utility.rsi
@@ -244,8 +244,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltChiefEngineer
-  name: "пояс головного інженера"
-  description: "Тримає інструменти, виглядає шикарно."
+  name: chief engineer's toolbelt
+  description: Holds tools, looks snazzy.
   components:
   - type: Sprite
     sprite: Clothing/Belt/ce.rsi
@@ -329,8 +329,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltAssault
-  name: "штурмовий пояс"
-  description: "Тактичний штурмовий пояс."
+  name: assault belt
+  description: A tactical assault belt.
   components:
   - type: Sprite
     sprite: Clothing/Belt/assault.rsi
@@ -374,8 +374,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltJanitor
-  name: "прибиральницький пояс"
-  description: "Ремінь, на якому тримається більшість прибиральницького приладдя."
+  name: janibelt
+  description: A belt used to hold most janitorial supplies.
   components:
   - type: Sprite
     sprite: Clothing/Belt/janitor.rsi
@@ -424,8 +424,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltMedical
-  name: "медичний пояс"
-  description: "Може вміщати різне медичне обладнання."
+  name: medical belt
+  description: Can hold various medical equipment.
   components:
   - type: Sprite
     sprite: Clothing/Belt/medical.rsi
@@ -498,8 +498,8 @@
 - type: entity
   parent: ClothingBeltMedical
   id: ClothingBeltMedicalEMT
-  name: "Пояс EMT"
-  description: "Ідеально підходить для зберігання різного обладнання для екстреної медичної допомоги."
+  name: EMT belt
+  description: Perfect for holding various equipment for medical emergencies.
   components:
   - type: Sprite
     sprite: Clothing/Belt/emt.rsi
@@ -509,8 +509,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltPlant
-  name: "ботанічний пояс"
-  description: "Ремінь, який використовується для зберігання більшості матеріалів для гідропоніки. Дивно, але не зелений."
+  name: botanical belt
+  description: A belt used to hold most hydroponics supplies. Suprisingly, not green.
   components:
   - type: Sprite
     sprite: Clothing/Belt/plant.rsi
@@ -568,8 +568,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltChef
-  name: "пояс шеф-кухаря"
-  description: "Ремінь, який використовується для швидкого доступу до кухонних ножів і приправ."
+  name: chef belt
+  description: A belt used to hold kitchen knives and condiments for quick access.
   components:
   - type: Sprite
     sprite: Clothing/Belt/chef.rsi
@@ -645,8 +645,8 @@
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSecurityContraband]
   id: ClothingBeltSecurity
-  name: "ремінь безпеки"
-  description: "Містить засоби захисту, такі як наручники та спалахи."
+  name: security belt
+  description: Can hold security gear like handcuffs and flashes.
   components:
   - type: Sprite
     sprite: Clothing/Belt/security.rsi
@@ -702,8 +702,8 @@
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
   id: ClothingBeltSheath
-  name: "піхви для шаблі"
-  description: "Витіюваті піхви, призначені для носіння офіцерського клинка."
+  name: sabre sheath
+  description: An ornate sheath designed to hold an officer's blade.
   components:
   - type: Sprite
     sprite: Clothing/Belt/sheath.rsi
@@ -734,8 +734,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltHolster
-  name: "наплічна кобура"
-  description: "Кобура для носіння пістолета та набоїв. Попередження: тільки для крутих."
+  name: shoulder holster
+  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
   components:
   - type: Sprite
     sprite: Clothing/Belt/holster.rsi
@@ -767,8 +767,8 @@
 - type: entity
   parent: [ClothingBeltHolster, BaseSyndicateContraband] # Goobstation
   id: ClothingBeltSyndieHolster
-  name: "синдикатна наплічна кобура"
-  description: "Глибока наплічна кобура, здатна вмістити багато видів балістики."
+  name: syndicate shoulder holster
+  description: A deep shoulder holster capable of holding many types of ballistics.
   components:
   - type: Sprite
     sprite: Clothing/Belt/syndieholster.rsi
@@ -799,8 +799,8 @@
 - type: entity
   parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
   id: ClothingBeltBandolier
-  name: "бандольє"
-  description: "Бандольєр для зберігання набоїв до дробовика."
+  name: bandolier
+  description: A bandolier for holding shotgun ammunition.
   components:
   - type: Sprite
     sprite: Clothing/Belt/bandolier.rsi
@@ -817,8 +817,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltChampion
-  name: "чемпіонський пояс"
-  description: "Довести світові, що ти найсильніший!"
+  name: championship belt
+  description: Proves to the world that you are the strongest!
   components:
   - type: Sprite
     sprite: Clothing/Belt/champion.rsi
@@ -832,8 +832,8 @@
 - type: entity
   parent: ClothingBeltSecurity
   id: ClothingBeltSecurityWebbing
-  name: "розвантажувальний жилет служби безпеки"
-  description: "Унікальний та універсальний нагрудний жилет, може вміщувати спорядження служби безпеки."
+  name: security carrier
+  description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
     sprite: Clothing/Belt/securitywebbing.rsi
@@ -843,8 +843,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]
   id: ClothingBeltMercWebbing
-  name: "найманська павутина"
-  description: "Ідеально підходить для зберігання всього, від боєприпасів до зброї та предметів першої необхідності."
+  name: mercenary webbing
+  description: Ideal for storing everything from ammo to weapons and combat essentials.
   components:
   - type: Sprite
     sprite: Clothing/Belt/mercwebbing.rsi
@@ -854,8 +854,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltSalvageWebbing
-  name: "утилізаційна установка"
-  description: "Універсальна розвантажувальна система для роботи в космосі."
+  name: salvage rig
+  description: Universal unloading system for work in space.
   components:
   - type: Sprite
     sprite: Clothing/Belt/salvagewebbing.rsi
@@ -865,8 +865,8 @@
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
   id: ClothingBeltMilitaryWebbing
-  name: "військовий розвантажувальний жилет"
-  description: "Набір тактичних ременів, які носять абордажні групи Синдикату."
+  name: chest rig
+  description: A set of tactical webbing worn by Syndicate boarding parties.
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbing.rsi
@@ -880,8 +880,8 @@
 - type: entity
   parent: ClothingBeltMilitaryWebbing
   id: ClothingBeltMilitaryWebbingMed
-  name: "медичний нагрудний каркас"
-  description: "Набір тактичних ремінців, які носять спецпризначенці Gorlex Marauder."
+  name: medical chest rig
+  description: A set of tactical webbing worn by Gorlex Marauder medic operatives.
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbingmed.rsi
@@ -895,8 +895,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltSuspendersRed
-  name: "червоні підтяжки"
-  description: "Щоб штани не спадали."
+  name: red suspenders
+  description: For holding your pants up.
   components:
   - type: Tag
     tags:
@@ -911,7 +911,7 @@
 - type: entity
   parent: ClothingBeltSuspendersRed
   id: ClothingBeltSuspendersBlack
-  name: "чорні підтяжки"
+  name: black suspenders
   components:
   - type: Sprite
     sprite: Clothing/Belt/suspenders_black.rsi
@@ -921,8 +921,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltWand
-  name: "ремінь для паличок"
-  description: "Пояс, призначений для зберігання різноманітних енергетичних жезлів. Справжня поясна сумка екзотичної магії."
+  name: wand belt
+  description: A belt designed to hold various rods of power. A veritable fanny pack of exotic magic.
   components:
   - type: Sprite
     sprite: Clothing/Belt/wand.rsi

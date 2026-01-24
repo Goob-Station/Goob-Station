@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseStorageItem
   id: ConstructionBag
-  name: "сумка для будівництва"
-  description: "Міцна сумка для будівельників та інженерів, що дозволяє носити велику кількість будівельних матеріалів. Примагнічує будь-які будівельні матеріали поблизу, коли прикріплена до пояса."
+  name: construction bag
+  description: A robust bag for construction specialists and engineers alike to carry large amounts of construction materials. Magnetises any nearby construction materials when attached to a belt.
   components:
   - type: MagnetPickup
   - type: Sprite
@@ -66,8 +66,8 @@
 - type: entity
   parent: ConstructionBag
   id: ConstructionBagOfHolding
-  name: "сумка-гаманець для будівництва"
-  description: "Міцна сумка-гаманець для багатих будівельників та інженерів, що дозволяє носити велику кількість будівельних матеріалів. Примагнічує будь-які будівельні матеріали поблизу, коли прикріплена до пояса."
+  name: construction bag of holding
+  description: A robust bag of holding for rich construction specialists and engineers alike to carry large amounts of construction materials. Magnetises any nearby construction materials when attached to a belt.
   components:
     - type: MagnetPickup
       range: 2

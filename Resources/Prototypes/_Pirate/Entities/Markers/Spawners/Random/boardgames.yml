@@ -1,5 +1,5 @@
 - type: entity
-  name: "спавнер настільних ігор"
+  name: Board Game Spawner
   id: BoardGameSpawner
   parent: MarkerBase
   components:
@@ -19,7 +19,7 @@
       offset: 0.0
 
 - type: entity
-  name: "спавнер дощок бойової мапи"
+  name: Battlemap Board Spawner
   id: BattlemapBoardSpawner
   parent: MarkerBase
   components:

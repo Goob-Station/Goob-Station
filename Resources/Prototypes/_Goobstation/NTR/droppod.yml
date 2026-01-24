@@ -1,7 +1,7 @@
 # creds to the great yamldozer @killangenifer
 - type: entity
   id: SpawnSupplyEmpty
-  name: "SpawnSupplyEmpty"
+  name: SpawnSupplyEmpty
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn

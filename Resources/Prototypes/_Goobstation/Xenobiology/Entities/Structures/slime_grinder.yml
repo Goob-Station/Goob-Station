@@ -1,8 +1,8 @@
 - type: entity
   id: SlimeGrinder
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: "слаймоподрібнювач"
-  description: "Виробляє екстракти з трупа слайма."
+  name: slime grinder
+  description: Produces extracts from a slimes corpse.
   placement:
     mode: SnapgridCenter
   components:

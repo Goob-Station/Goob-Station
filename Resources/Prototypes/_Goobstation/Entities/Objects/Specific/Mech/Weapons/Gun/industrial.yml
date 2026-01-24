@@ -9,8 +9,8 @@
 
 - type: entity
   id: WeaponMechIndustrialKineticAccelerator
-  name: "прото-кінетична пускова установка"
-  description: "Стріляє кінетичними снарядами з величезною шкодою на середній дистанції."
+  name: proto-kinetic launcher
+  description: Fires huge damage kinetic bolts at a medium range.
   suffix: Mech Weapon, Gun, Industrial, Kinetic Accelerator
   parent: [ BaseMechWeaponRange, IndustrialMechEquipment ]
   components:

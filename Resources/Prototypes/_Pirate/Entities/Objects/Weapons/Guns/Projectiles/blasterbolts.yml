@@ -1,5 +1,5 @@
 - type: entity
-  name: "плазмовий болт гадюки"
+  name: adder plasma bolt
   id: BulletPlasmaAdder
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
@@ -22,7 +22,7 @@
     forceSound: true
 
 - type: entity
-  name: "плазмовий болт акурри"
+  name: akurra plasma bolt
   id: BulletPlasmaAkurra
   parent: BulletPlasmaAdder
   categories: [ HideSpawnMenu ]

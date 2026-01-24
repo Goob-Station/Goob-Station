@@ -5,7 +5,7 @@
 
 - type: palette
   id: Advanced
-  name: "Розширене"
+  name: Advanced
   colors:
     #light: "#000000"
     #medium: "#000000"

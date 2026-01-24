@@ -7,7 +7,7 @@
 - type: entity
   parent: BaseMobSpeciesOrganic
   id: BaseMobBananaMen
-  name: "Уріст Маккалій"
+  name: Urist McPotassium
   abstract: true
   components:
   - type: Hunger

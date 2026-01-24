@@ -5,10 +5,10 @@
 
 
 - type: entity
-  name: "живе прокляття"
+  name: living curse
   id: MobLivingCurse
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: "Надзвичайно повільне, але невразливе до всіх видів шкоди, окрім святої."
+  description: Exceedingly slow, but is immune to all forms of damage, except holy.
   components:
   - type: Bloodstream
     bloodMaxVolume: 5
@@ -82,10 +82,10 @@
     loot: AnomalyCoreShadow
 
 - type: entity
-  name: "???"
+  name: ???
   id: MobSpookyGhost1
   parent: MobLivingCurse
-  description: "Ви гадки не маєте, що це!"
+  description: You have no idea what this is!
   components:
   - type: PointLight
     radius: 1.5
@@ -117,10 +117,10 @@
     loot: DiamondOre1Unprocessed
 
 - type: entity
-  name: "ненажера"
+  name: glutton
   parent: [ SimpleSpaceMobBase, MobCombat ]
   id: BaseMobGlutton
-  description: "Щось, що колись було клоуном."
+  description: Something that was once a clown.
   components:
     - type: HTN
       rootTask:
@@ -204,10 +204,10 @@
 
 
 - type: entity
-  name: "повзун з безодні"
+  name: abyss crawler
   parent: [ SimpleSpaceMobBase, MobCombat ]
   id: MobAbyssCrawler
-  description: "Бліда маса тремтячої плоті, що нишпорить у темряві. Здається, у нього немає очей."
+  description: A pale mass of heaving flesh that gropes around in the gloom. It doesn't appear to have any eyes.
   components:
     - type: HTN
       rootTask:

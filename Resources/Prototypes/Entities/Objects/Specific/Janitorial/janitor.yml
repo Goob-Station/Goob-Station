@@ -137,9 +137,9 @@
 
 - type: entity
   parent: BaseItem
-  name: "швабра"
+  name: mop
   id: MopItem
-  description: "Швабра, яку неможливо зупинити, чекає детальне очищення нутрощів."
+  description: A mop that can't be stopped, viscera cleanup detail awaits.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -198,9 +198,9 @@
 
 - type: entity
   parent: BaseItem
-  name: "вдосконалена швабра"
+  name: advanced mop
   id: AdvMopItem
-  description: "Моторизована швабра, яка має більший резервуар і швидко замінює реагенти всередині водою. Автоматична протидія клоунам не входить до комплекту."
+  description: Motorized mop that has a bigger reservoir and quickly replaces reagents inside with water. Automatic Clown Countermeasure not included.
   components:
     - type: Sprite
       sprite: Objects/Specific/Janitorial/advmop.rsi
@@ -270,10 +270,10 @@
       cleanDelay: 6
 
 - type: entity
-  name: "знак мокрої підлоги"
+  name: wet floor sign
   id: WetFloorSign
   parent: ClothingOuterBase
-  description: "Обережно! Мокра підлога!"
+  description: Caution! Wet Floor!
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/wet_floor_sign.rsi
@@ -351,10 +351,10 @@
       - WetFloorSign
 
 - type: entity
-  name: "вантуз"
+  name: plunger
   id: Plunger
   parent: BaseItem
-  description: "Вантуз з червоною пластиковою присоскою та дерев'яною ручкою. Використовується для прочищення зливів."
+  description: A plunger with a red plastic suction-cup and a wooden handle. Used to unclog drains.
   components:
   - type: Tag
     tags:
@@ -416,10 +416,10 @@
       Wood: 100
 
 - type: entity
-  name: "золотий вантуз"
+  name: golden plunger
   id: GoldenPlunger
   parent: Plunger
-  description: "Вантуз з пластиковою присоскою, покритою тонким шаром золота, що вручається як знак вдячності за роки служби. Все ще використовується для прочищення стоків."
+  description: A plunger with a plastic suction cup coated in a thin layer of gold given as a token of appreciation for years of service. Still used to unclog drains.
   components:
   - type: Tag
     tags:
@@ -460,9 +460,9 @@
 
 - type: entity
   parent: BaseItem
-  name: "волога ганчірка"
+  name: damp rag
   id: RagItem
-  description: "Для прибирання безладу, напевно."
+  description: For cleaning up messes, you suppose.
   components:
     - type: Sprite
       sprite: Objects/Specific/Janitorial/rag.rsi
@@ -513,8 +513,8 @@
 - type: entity
   parent: BaseItem
   id: WireBrush
-  name: "дротяна щітка"
-  description: "Щітка зі сталевого дроту з жорсткою щетиною, ідеально підходить для видалення навіть найстійкіших плям іржі."
+  name: wire brush
+  description: A bristly steel wire brush, perfect for scraping away even the toughest patches of rust.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/wirebrush.rsi

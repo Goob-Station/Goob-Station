@@ -14,11 +14,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ручка"
+  name: pen
   suffix: Exploding
   # Goobstation - Return pen embeddability
   parent: Pen
-  description: "Ручка з темним чорнилом."
+  description: A dark ink pen.
   id: PenExploding
   components:
   - type: OnUseTimerTrigger
@@ -42,8 +42,8 @@
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: PenExplodingBox
-  name: "вибухнула скринька з ручкою"
-  description: "Невеличка коробочка з вибуховою ручкою. Упаковка розпадається при відкритті, не залишаючи після себе жодних доказів."
+  name: exploding pen box
+  description: A small box containing an exploding pen. Packaging disintegrates when opened, leaving no evidence behind.
   components:
   - type: Item
     size: Tiny

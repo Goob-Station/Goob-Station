@@ -258,7 +258,6 @@ namespace Content.Client.Lobby.UI
         // Pirate edit start - port EE contractors
         private List<NationalityPrototype> _nationalies = new();
         private List<EmployerPrototype> _employers = new();
-        private List<LifepathPrototype> _lifepaths = new();
         // Pirate edit end - port EE contractors
 
         private List<(string, RequirementsSelector)> _jobPriorities = new();
@@ -418,7 +417,6 @@ namespace Content.Client.Lobby.UI
 
             RefreshNationalities();
             RefreshEmployers();
-            RefreshLifepaths();
 
             NationalityButton.OnItemSelected += args =>
             {
@@ -434,14 +432,6 @@ namespace Content.Client.Lobby.UI
                     return;
                 EmployerButton.SelectId(args.Id);
                 SetEmployer(_employers[args.Id].ID);
-            };
-
-            LifepathButton.OnItemSelected += args =>
-            {
-                if (_suppressSelectors)
-                    return;
-                LifepathButton.SelectId(args.Id);
-                SetLifepath(_lifepaths[args.Id].ID);
             };
 
             #endregion Contractors
@@ -1360,77 +1350,6 @@ namespace Content.Client.Lobby.UI
             }
         }
 
-        public void RefreshLifepaths()
-        {
-            LifepathButton.Clear();
-            _lifepaths.Clear();
-
-            var prof = Profile ?? HumanoidCharacterProfile.DefaultWithSpecies();
-
-            if (Profile != null && _prototypeManager.TryIndex(Profile.Lifepath, out LifepathPrototype? currentLife))
-            {
-                if (!CheckRequirementsValid(currentLife.Requirements, prof))
-                {
-                    Profile = Profile.WithLifepath(SharedHumanoidAppearanceSystem.DefaultLifepath);
-                    prof = Profile;
-                    SetDirty();
-                }
-            }
-
-            _lifepaths.AddRange(_prototypeManager.EnumeratePrototypes<LifepathPrototype>()
-                .Where(o =>
-                {
-                    var prof = Profile ?? HumanoidCharacterProfile.DefaultWithSpecies();
-                    return CheckRequirementsValid(o.Requirements, prof);
-                }));
-
-            _suppressSelectors = true;
-            try
-            {
-                // Preserve saved lifepath if filtered out.
-                if (Profile != null && !_lifepaths.Any(l => l.ID == Profile.Lifepath)
-                    && _prototypeManager.TryIndex(Profile.Lifepath, out LifepathPrototype? savedLife))
-                {
-                    _lifepaths.Insert(0, savedLife);
-                }
-
-                var selectedLifepath = -1;
-                for (var i = 0; i < _lifepaths.Count; i++)
-                {
-                    LifepathButton.AddItem(Loc.GetString(_lifepaths[i].NameKey), i);
-                    if (selectedLifepath < 0 && Profile?.Lifepath == _lifepaths[i].ID)
-                        selectedLifepath = i;
-                }
-                if (selectedLifepath >= 0)
-                    LifepathButton.SelectId(selectedLifepath);
-            }
-            finally
-            {
-                _suppressSelectors = false;
-            }
-        }
-
-        private void UpdateLifepathDescription()
-        {
-            if (Profile == null)
-            {
-                LifepathDescriptionLabel.SetMessage("");
-                return;
-            }
-
-            var lifepathId = Profile.Lifepath;
-
-            if (string.IsNullOrEmpty(lifepathId))
-            {
-                LifepathDescriptionLabel.SetMessage("");
-                return;
-            }
-
-            var descriptionKey = $"lifepath_description_{lifepathId}";
-
-            LifepathDescriptionLabel.SetMessage(Loc.GetString(descriptionKey));
-        }
-
         private bool CheckRequirementsValid(IReadOnlyCollection<JobRequirement>? requirements, HumanoidCharacterProfile profile)
         {
             if (requirements == null || requirements.Count == 0)
@@ -1617,8 +1536,6 @@ namespace Content.Client.Lobby.UI
             RefreshSpecies();
             RefreshNationalities(); // Pirate - port EE contractors
             RefreshEmployers(); // Pirate - port EE contractors
-            RefreshLifepaths(); // Pirate - port EE contractors
-            UpdateLifepathDescription(); // Pirate - port EE contractors
             RefreshTraits();
             RefreshFlavorText();
             ReloadPreview();
@@ -2117,8 +2034,6 @@ namespace Content.Client.Lobby.UI
             UpdateSpeciesGuidebookIcon();
             RefreshNationalities(); // Pirate - port EE contractors
             RefreshEmployers(); // Pirate - port EE contractors
-            RefreshLifepaths(); // Pirate - port EE contractors
-            UpdateLifepathDescription();
             ReloadPreview();
             UpdateBarkVoice(); // Goob Station - Barks
             // begin Goobstation: port EE height/width sliders
@@ -2148,22 +2063,11 @@ namespace Content.Client.Lobby.UI
             ReloadClothes();
         }
 
-        private void SetLifepath(string newLifepath)
-        {
-            Profile = Profile?.WithLifepath(newLifepath);
-            UpdateCharacterRequired();
-            IsDirty = true;
-            ReloadProfilePreview();
-            ReloadClothes();
-            UpdateLifepathDescription();
-        }
-
         private void UpdateCharacterRequired()
         {
             // Refresh requirement-gated UI after profile changes that may affect availability.
             RefreshNationalities();
             RefreshEmployers();
-            RefreshLifepaths();
             RefreshJobs();
         }
 

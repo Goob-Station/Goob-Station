@@ -1,6 +1,6 @@
 - type: entity
   id: LockerInterdyne
-  name: "Шафка персоналу Interdyne"
+  name: Шафка персоналу Інтердайна
   parent: LockerBaseSecure
   components:
   - type: Appearance
@@ -15,7 +15,7 @@
 
 - type: entity
   id: LockerInterdyneCommand
-  name: "Шафка просунутого персоналу Interdyne"
+  name: Шафка просунутого персоналу Інтердайна
   parent: LockerBaseSecure
   components:
   - type: Appearance
@@ -31,7 +31,7 @@
 - type: entity
   id: LockerBartender
   parent: LockerBase
-  name: "шафка бармена"
+  name: Шафка бармена
   components:
   - type: Appearance
   - type: EntityStorageVisuals

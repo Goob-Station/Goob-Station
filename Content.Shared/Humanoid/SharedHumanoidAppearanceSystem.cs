@@ -87,8 +87,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     public static readonly ProtoId<NationalityPrototype> DefaultNationality = "Bieselite"; // Pirate - port EE contractors
 
-    public static readonly ProtoId<LifepathPrototype> DefaultLifepath = "Spacer"; // Pirate - port EE contractors
-
     public override void Initialize()
     {
         base.Initialize();

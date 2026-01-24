@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseLogicItem
   id: SignalTimerItem
-  name: "таймер"
-  description: "Відправляє сигнал через визначений час після отримання сигналу."
+  name: timer
+  description: Sends a signal after a specified time after receiving a signal.
   components:
   - type: Sprite
     layers:

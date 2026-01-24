@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitInquisitory
-  name: "Блок керування мод-костюмом \"Інквізитор"
-  description: "Основний контролер для мод-костюма \"Інквізитор\"."
+  name: Inquisitory modsuit control unit
+  description: The main controller for a Inquisitory modsuit.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/inquisitory.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsInquisitory
-  name: "Рукавиці мод-костюма \"Інквізитор"
-  description: "Пара рукавиць, створених для мод-костюма \"Інквізитор\"."
+  name: Inquisitory modsuit gauntlets
+  description: A pair of gauntlets made for the Inquisitory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -60,8 +60,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetInquisitory
-  name: "Шолом мод-костюма \"Інквізитор"
-  description: "Найсучасніший шолом, розроблений NanoTrasen для мод-костюма \"Інквізитор\". Він має вбудований HUD."
+  name: Inquisitory modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Inquisitory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -103,8 +103,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateInquisitory
-  name: "Нагрудник мод-костюма \"Інквізитор"
-  description: "Найсучасніший нагрудник, розроблений NanoTrasen для мод-костюма \"Інквізитор\". Він містить силові сервоприводи для зменшення навантаження від обладнання."
+  name: Inquisitory modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Inquisitory modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -140,8 +140,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsInquisitory
-  name: "Чоботи мод-костюма \"Інквізитор"
-  description: "Найсучасніша пара магнітних черевиків для мод-костюма \"Інквізитор\"."
+  name: Inquisitory modsuit boots
+  description: A state-of-the-art pair of magboots for the Inquisitory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

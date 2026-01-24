@@ -1,7 +1,7 @@
 - type: entity
   id: OilSlimeExtract
   parent: BaseSlimeExtract
-  name: "нафтовий екстракт слайма"
+  name: oil slime extract
   components:
   - type: Sprite
     layers:
@@ -58,7 +58,7 @@
 - type: entity
   id: LightPinkSlimeExtract
   parent: BaseSlimeExtract
-  name: "світло-рожевий екстракт слайма"
+  name: light pink slime extract
   components:
   - type: Sprite
     layers:
@@ -119,7 +119,7 @@
 - type: entity
   id: BlackSlimeExtract
   parent: BaseSlimeExtract
-  name: "чорний екстракт слайма"
+  name: black slime extract
   components:
   - type: Sprite
     layers:
@@ -166,7 +166,7 @@
 - type: entity
   id: AdamantineSlimeExtract
   parent: BaseSlimeExtract
-  name: "адамантиновий екстракт слайма"
+  name: adamantine slime extract
   components:
   - type: Sprite
     layers:

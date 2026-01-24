@@ -9,9 +9,9 @@
 
 - type: entity
   id: Jukebox
-  name: "музичний автомат"
+  name: jukebox
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  description: "Машина, здатна відтворювати найрізноманітніші мелодії. Задоволення не гарантується."
+  description: A machine capable of playing a wide variety of tunes. Enjoyment not guaranteed.
   components:
   - type: StationAiWhitelist
   - type: Sprite

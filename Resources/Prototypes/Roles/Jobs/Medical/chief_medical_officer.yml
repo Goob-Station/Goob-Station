@@ -162,15 +162,6 @@
       - NanoTrasen
       - ZengHuPharmaceuticals
       - Interdyne
-    - !type:CharacterLifepathRequirement
-      inverted: true
-      lifepaths:
-      - Cultist
-      - Smuggler
-      - ExCriminal
-      - Enforcer
-      - Hacker
-      - ConArtist
     # Pirate contractor end
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"

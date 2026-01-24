@@ -6,8 +6,8 @@
 
 - type: entity
   id: Acidifier
-  name: "кислота"
-  description: "Перетворить вас на калюжу гидоти!"
+  name: acid
+  description: Melts you into a puddle of yuck!
   components:
   - type: Transform
     anchored: True

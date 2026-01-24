@@ -86,8 +86,8 @@
 - type: entity
   parent: BaseItem
   id: NotekeeperCartridge
-  name: "картридж для нотаток"
-  description: "Програма для ведення нотаток."
+  name: notekeeper cartridge
+  description: A program for keeping notes.
   components:
   - type: Sprite
     sprite: Objects/Devices/cartridge.rsi
@@ -105,8 +105,8 @@
 - type: entity
   parent: BaseItem
   id: NanoTaskCartridge
-  name: "картридж NanoTask"
-  description: "Програма, що дозволяє вести список справ."
+  name: NanoTask cartridge
+  description: A program that allows you to keep a list of tasks to do.
   components:
   - type: Sprite
     sprite: Objects/Devices/cartridge.rsi
@@ -123,8 +123,8 @@
 - type: entity
   parent: BaseItem
   id: NewsReaderCartridge
-  name: "картридж новин"
-  description: "Програма для читання новин."
+  name: news cartridge
+  description: A program for reading news.
   components:
   - type: Sprite
     sprite: Objects/Devices/cartridge.rsi
@@ -141,8 +141,8 @@
 - type: entity
   parent: BaseItem
   id: CrewManifestCartridge
-  name: "картридж зі списком екіпажу"
-  description: "Програма для перегляду списку ваших колег по екіпажу."
+  name: crew manifest cartridge
+  description: A program for listing your fellow crewmembers.
   components:
     - type: Sprite
       sprite: Objects/Devices/cartridge.rsi
@@ -159,8 +159,8 @@
 - type: entity
   parent: BaseItem
   id: NetProbeCartridge
-  name: "картридж NetProbe"
-  description: "Програма для отримання адреси та частоти мережевих пристроїв."
+  name: NetProbe cartridge
+  description: A program for getting the address and frequency of network devices.
   components:
     - type: Sprite
       sprite: Objects/Devices/cartridge.rsi
@@ -177,8 +177,8 @@
 - type: entity
   parent: BaseItem
   id: LogProbeCartridge
-  name: "картридж LogProbe"
-  description: "Програма для отримання журналів доступу з пристроїв."
+  name: LogProbe cartridge
+  description: A program for getting access logs from devices.
   components:
     - type: Sprite
       sprite: Objects/Devices/cartridge.rsi
@@ -201,8 +201,8 @@
 - type: entity
   parent: BaseItem
   id: WantedListCartridge
-  name: "картридж зі списком розшукуваних"
-  description: "Програма для отримання списку розшукуваних осіб."
+  name: Wanted list cartridge
+  description: A program to get a list of wanted persons.
   components:
   - type: Sprite
     sprite: Objects/Devices/cartridge.rsi
@@ -224,8 +224,8 @@
 - type: entity
   parent: BaseItem
   id: MedTekCartridge
-  name: "картридж MedTek"
-  description: "Програма, яка надає медичні діагностичні інструменти."
+  name: MedTek cartridge
+  description: A program that provides medical diagnostic tools.
   components:
     - type: Sprite
       sprite: Objects/Devices/cartridge.rsi
@@ -243,8 +243,8 @@
 - type: entity
   parent: BaseItem
   id: AstroNavCartridge
-  name: "картридж AstroNav"
-  description: "Програма для навігації, яка надає GPS-координати."
+  name: AstroNav cartridge
+  description: A program for navigation that provides GPS coordinates.
   components:
     - type: Sprite
       sprite: Objects/Devices/cartridge.rsi

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
-  name: "бланк станційного звіту"
+  name: station report paper
   id: NanoRepStationReport
-  description: "Документ зроблений із золота, але якимось чином на ньому все ще можна писати."
+  description: The document is made out of gold, but somehow you are still able to write on it.
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi

@@ -6,8 +6,8 @@
 
 - type: entity
   id: HisGrace
-  name: "його милість"
-  description: "Потойбічна сутність, ув'язнена в межах звичайної скриньки з інструментами. Нагодуй її, перш ніж вона нагодує тебе."
+  name: his grace
+  description: An otherworldly entity bound within the confines of a seemingly ordinary toolbox. Feed it, before it feeds on you.
   parent: [BaseItem, BaseSyndicateContraband]
   components:
   - type: HisGrace # easily editable for you YAML warriors

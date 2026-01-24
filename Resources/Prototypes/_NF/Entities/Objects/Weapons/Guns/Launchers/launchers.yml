@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "пошта RPDS"
+  name: mail RPDS
   parent: [BaseCargoContraband, WeaponImprovisedPneumaticCannon] #Goob Edit - Modified so we do not need gastanks to operate it.
   id: WeaponMailLake
-  description: "Система Швидкої (?) Доставки Посилок. Логіка \"Останній зайшов - перший вийшов\"."
+  description: Rap(b?)id Parcel Delivery System. Last-In-First-Out Logic.
   components:
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Launchers/mail.rsi

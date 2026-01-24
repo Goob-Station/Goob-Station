@@ -1,9 +1,9 @@
 - type: entity
   id: MountainRock
   parent: BaseStructure
-  name: "Гірська порода"
+  name: Гірська порода
   suffix: Un-mineable
-  description: "Скеляста гірська стіна. Її надто важко видобути."
+  description: Скеляста гірська стіна. Її надто важко видобути.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Walls/mountain_rock.rsi
@@ -39,9 +39,9 @@
 - type: entity
   id: AsteroidAltRock
   parent: BaseStructure
-  name: "камінь астероїда"
+  name: asteroid rock
   suffix: Low Ore Yield
-  description: "Кам’янистий астероїд."
+  description: A rocky asteroid.
   components:
   - type: Gatherable
     toolWhitelist:
@@ -84,9 +84,9 @@
 - type: entity
   id: MountainRockMining
   parent: AsteroidAltRock
-  name: "гірська порода"
+  name: mountain rock
   suffix: Low Yield/Higher Value Ore
-  description: "Скеляста гірська стіна."
+  description: A craggy mountain wall.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Walls/mountain_rock_ore.rsi

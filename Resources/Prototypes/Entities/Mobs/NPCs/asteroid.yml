@@ -63,8 +63,8 @@
 - type: entity
   id: MobGoliath
   parent: [ BaseMobAsteroid, MobBloodstream ]
-  name: "голіаф"
-  description: "Масивний звір, який використовує довгі щупальця, щоб схопити свою здобич, погрожуючи їй, не рекомендується за жодних обставин."
+  name: goliath
+  description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
   - type: Body # Shitmed Change
     prototype: Goliath
@@ -139,7 +139,7 @@
   parent: BaseAction
   id: ActionGoliathTentacle
   name: "[color=red]Tentacle Slam[/color]"
-  description: "Використовуйте щупальця, щоб схопити та оглушити цільового гравця!"
+  description: Use your tentacles to grab and stun a target player!
   components:
   - type: Action
     raiseOnUser: true
@@ -159,7 +159,7 @@
 
 - type: entity
   id: GoliathTentacle
-  name: "щупальце"
+  name: tentacle
   components:
   - type: Transform
     anchored: True
@@ -194,7 +194,7 @@
 - type: entity
   id: BaseEffectGoliathTentacleSpawn
   categories: [ HideSpawnMenu ]
-  name: "щупальце"
+  name: tentacle
   abstract: true
   components:
   - type: Transform
@@ -212,7 +212,7 @@
   id: EffectGoliathTentacleSpawn
   parent: BaseEffectGoliathTentacleSpawn
   categories: [ HideSpawnMenu ]
-  name: "щупальце"
+  name: tentacle
   components:
     - type: Sprite
       state: goliath_tentacle_spawn
@@ -232,8 +232,8 @@
 - type: entity
   id: MobHivelord
   parent: [ BaseMobAsteroid, FlyingMobBase ]
-  name: "повелитель рою"
-  description: "Справді чужорідна істота, це маса невідомого органічного матеріалу, що постійно коливається. Під час атаки її частини відокремлюються і атакують разом з оригіналом."
+  name: hivelord
+  description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
   - type: WeatherImmune 
   - type: Sprite
@@ -294,8 +294,8 @@
 - type: entity
   id: MobHivelordBrood
   parent: [ BaseMobAsteroid, FlyingMobBase ]
-  name: "виводок повелителя рою"
-  description: "Фрагмент оригінального повелителя рою, що згуртувався навколо свого оригіналу. Один не становить великої загрози, але..."
+  name: hivelord brood
+  description: A fragment of the original hivelord, rallying behind its original. One isn't much of a threat, but...
   components:
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/hivelord.rsi
@@ -347,8 +347,8 @@
 - type: entity
   id: FoodHivelordRemains
   parent: FoodBase
-  name: "рештки повелителя рою"
-  description: "Все, що залишилося від повелителя рою, здається, це те, що дозволяє йому відламувати від себе шматки без шкоди... його цілющі властивості скоро стануть інертними, якщо не використати їх швидко. Намагайтеся не думати про те, що ви їсте."
+  name: hivelord remains
+  description: All that remains of a hivelord, it seems to be what allows it to break pieces of itself off without being hurt... its healing properties will soon become inert if not used quickly. Try not to think about what you're eating.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -378,8 +378,8 @@
 - type: entity
   id: FoodHivelordRemainsInert
   parent: BaseItem
-  name: "інертні рештки повелителя рою"
-  description: "Все, що залишилося від повелителя рою... Тепер все справді втрачено."
+  name: inert hivelord remains
+  description: All that remains of a hivelord... Now all is truly lost.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/rorocore.rsi
@@ -398,8 +398,8 @@
 - type: entity
   id: MobBasilisk
   parent: [ BaseMobAsteroid, MobBloodstream ]
-  name: "василіск"
-  description: "Територіальний звір, вкритий товстим панциром, що поглинає енергію. Його погляд змушує жертв замерзати зсередини."
+  name: basilisk
+  description: A territorial beast, covered in a thick shell that absorbs energy. Its stare causes victims to freeze from the inside.
   components:
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/basilisk.rsi

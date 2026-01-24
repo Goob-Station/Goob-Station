@@ -20,7 +20,7 @@
 
 - type: entity
   save: false
-  name: "Уріст МакКукі"
+  name: Urist McCookie
   parent: BaseMobSpeciesOrganic
   id: BaseMobGingerbread
   abstract: true

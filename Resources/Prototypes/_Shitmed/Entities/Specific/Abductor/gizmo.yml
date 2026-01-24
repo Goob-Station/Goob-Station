@@ -10,8 +10,8 @@
 - type: entity
   id: AbductorGizmo
   parent: [BaseItem, BaseMajorContraband]
-  name: "штуковина"
-  description: "Пристрій, що вставляє нанотрекер, який можна використовувати для націлювання телепортаційного променя."
+  name: gizmo
+  description: A device that inserts a nano tracker, which can be used to target a teleportation beam.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Misc/gizmo.rsi

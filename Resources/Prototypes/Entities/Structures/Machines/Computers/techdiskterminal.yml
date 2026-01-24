@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseComputer
   id: ComputerTechnologyDiskTerminal
-  name: "технічний дисковий термінал"
-  description: "Термінал для друку технологічних дисків."
+  name: tech disk terminal
+  description: A terminal used to print out technology disks.
   components:
   - type: Sprite
     noRot: true

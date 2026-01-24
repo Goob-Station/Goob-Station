@@ -10,8 +10,8 @@
   id: CrystalGreen
   parent: BaseStructure
   suffix: green
-  name: "кришталь"
-  description: "Кристалічна тверда речовина."
+  name: crystal
+  description: A crystaline solid.
   components:
     - type: Sprite
       sprite: Structures/Decoration/crystal.rsi

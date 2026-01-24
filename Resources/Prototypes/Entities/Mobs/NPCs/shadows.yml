@@ -43,10 +43,10 @@
       80: 0.5
 
 - type: entity
-  name: "тіньовий кіт"
+  name: shadow cat
   parent: BaseShadowMob
   id: MobCatShadow
-  description: "Милий шматочок темряви. Сподіваюся, він не принесе тобі прокляття."
+  description: A lovely piece of darkness. Hope he doesn't bring you a curse.
   components:
   - type: Sprite
     drawdepth: Mobs

@@ -171,9 +171,9 @@
 # https://academo.org/demos/colour-temperature-relationship/
 - type: entity
   parent: BaseLightbulb
-  name: "лампа розжарювання"
+  name: incandescent light bulb
   id: LightBulb
-  description: "Лампочка."
+  description: A light bulb.
   components:
   - type: LightBulb
     bulb: Bulb
@@ -188,9 +188,9 @@
 
 - type: entity
   parent: BaseLightbulb
-  name: "світлодіодна лампочка"
+  name: led light bulb
   id: LedLightBulb
-  description: "Енергоефективна лампочка."
+  description: A power efficient light bulb.
   components:
   - type: LightBulb
     bulb: Bulb
@@ -207,9 +207,9 @@
 
 - type: entity
   parent: BaseLightbulb
-  name: "тьмяна лампочка"
+  name: dim light bulb
   id: DimLightBulb
-  description: "Тьмяна лампочка для освітлення темряви технічних приміщень."
+  description: A dim light bulb for populating the darkness of maintenance.
   components:
   - type: LightBulb
     bulb: Bulb
@@ -224,9 +224,9 @@
 
 - type: entity
   parent: BaseLightbulb
-  name: "лампа теплого світла"
+  name: warm light bulb
   id: WarmLightBulb
-  description: "Лампочка теплого світла для більш затишної атмосфери."
+  description: A warm light bulb for a more cozy atmosphere.
   components:
   - type: LightBulb
     bulb: Bulb
@@ -241,9 +241,9 @@
 
 - type: entity
   parent: LightBulb
-  name: "стара лампа розжарювання"
+  name: old incandescent light bulb
   id: LightBulbOld
-  description: "Старіюча лампочка."
+  description: An aging light bulb.
   components:
   - type: LightBulb
     bulb: Bulb
@@ -255,9 +255,9 @@
 - type: entity
   suffix: Broken
   parent: BaseLightbulb
-  name: "лампа розжарювання"
+  name: incandescent light bulb
   id: LightBulbBroken
-  description: "Лампочка."
+  description: A light bulb.
   components:
   - type: LightBulb
     startingState: Broken
@@ -265,9 +265,9 @@
 
 - type: entity
   parent: BaseLightbulb
-  name: "сервісна лампочка"
+  name: service light bulb
   id: ServiceLightBulb
-  description: "Зелена лампочка низької яскравості, що використовується в ліхтарях для прибиральників."
+  description: A low-brightness green lightbulb used in janitorial service lights.
   components:
   - type: LightBulb
     bulb: Bulb
@@ -282,9 +282,9 @@
 
 - type: entity
   parent: BaseLightTube
-  name: "люмінесцентна лампа"
+  name: fluorescent light tube
   id: LightTube
-  description: "Світильник."
+  description: A light fixture.
   components:
   - type: LightBulb
     color: "#FFE4CE" # 5000K color temp
@@ -295,9 +295,9 @@
 
 - type: entity
   parent: LightTube
-  name: "стара люмінесцентна лампа"
+  name: old fluorescent light tube
   id: LightTubeOld
-  description: "Старіючий світильник."
+  description: An aging light fixture.
   components:
   - type: LightBulb
     color: "#FFDABB" # old fluorescents are yellower-4500K temp
@@ -309,17 +309,17 @@
 - type: entity
   suffix: Broken
   parent: BaseLightTube
-  name: "люмінесцентна лампа"
+  name: fluorescent light tube
   id: LightTubeBroken
-  description: "Світильник."
+  description: A light fixture.
   components:
   - type: LightBulb
     startingState: Broken
 
 - type: entity
   parent: BaseLightTube
-  name: "світлодіодна лампа"
-  description: "Високопотужна високоенергетична лампочка."
+  name: led light tube
+  description: A high power high energy bulb.
   id: LedLightTube
   components:
   - type: LightBulb
@@ -332,8 +332,8 @@
 
 - type: entity
   parent: BaseLightTube
-  name: "лампа зовнішнього освітлення"
-  description: "Потужна високоенергетична лампа для глибин космосу. Може містити ртуть."
+  name: exterior light tube
+  description: A high power high energy bulb for the depths of space. May contain mercury.
   id: ExteriorLightTube
   components:
   - type: LightBulb
@@ -346,8 +346,8 @@
 
 - type: entity
   parent: BaseLightTube
-  name: "натрієва лампа"
-  description: "Потужна високоенергетична лампа для глибин космосу. Солона."
+  name: sodium light tube
+  description: A high power high energy bulb for the depths of space. Salty.
   id: SodiumLightTube
   components:
   - type: LightBulb
@@ -360,8 +360,8 @@
 
 - type: entity
   parent: BaseLightTube
-  name: "кристалічна світлова трубка"
-  description: "Потужна, енергоефективна лампа, всередині якої знаходиться маленький кольоровий кристал."
+  name: crystal light tube
+  description: A high power high energy bulb which has a small colored crystal inside.
   id: BaseLightTubeCrystal
   abstract: true
   components:
@@ -374,7 +374,7 @@
 
 - type: entity
   parent: BaseLightTubeCrystal
-  name: "блакитна кришталева люмінесцентна лампа"
+  name: cyan crystal light tube
   id: LightTubeCrystalCyan
   components:
   - type: LightBulb
@@ -389,7 +389,7 @@
 
 - type: entity
   parent: BaseLightTubeCrystal
-  name: "блакитна кришталева лампочка"
+  name: blue crystal light tube
   id: LightTubeCrystalBlue
   components:
   - type: LightBulb
@@ -404,7 +404,7 @@
 
 - type: entity
   parent: BaseLightTubeCrystal
-  name: "жовта кристалічна світлова трубка"
+  name: yellow crystal light tube
   id: LightTubeCrystalYellow
   components:
   - type: LightBulb
@@ -419,7 +419,7 @@
 
 - type: entity
   parent: BaseLightTubeCrystal
-  name: "рожева кришталева лампочка"
+  name: pink crystal light tube
   id: LightTubeCrystalPink
   components:
   - type: LightBulb
@@ -434,7 +434,7 @@
 
 - type: entity
   parent: BaseLightTubeCrystal
-  name: "помаранчева кришталева лампочка"
+  name: orange crystal light tube
   id: LightTubeCrystalOrange
   components:
   - type: LightBulb
@@ -449,8 +449,8 @@
 
 - type: entity
   parent: BaseLightTubeCrystal
-  name: "чорна кристалічна світлова трубка"
-  description: "Потужна, енергоефективна лампа, всередині якої знаходиться маленький кольоровий кристал. Вона не дуже яскрава."
+  name: black crystal light tube
+  description: A high power high energy bulb which has a small colored crystal inside. It isn't very bright.
   id: LightTubeCrystalBlack
   components:
   - type: LightBulb
@@ -467,7 +467,7 @@
 
 - type: entity
   parent: BaseLightTubeCrystal
-  name: "червона кришталева лампочка"
+  name: red crystal light tube
   id: LightTubeCrystalRed
   components:
   - type: LightBulb
@@ -482,7 +482,7 @@
 
 - type: entity
   parent: LightTubeCrystalCyan
-  name: "зелена кришталева лампочка"
+  name: green crystal light tube
   id: LightTubeCrystalGreen
   components:
   - type: LightBulb
@@ -498,8 +498,8 @@
 
 - type: entity
   parent: BaseLightbulb
-  name: "кристалічна лампочка"
-  description: "Потужна, енергоефективна лампа, всередині якої знаходиться маленький кольоровий кристал."
+  name: crystal light bulb
+  description: A high power high energy bulb which has a small colored crystal inside.
   id: BaseLightbulbCrystal
   abstract: true
   components:
@@ -514,7 +514,7 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
-  name: "блакитна кристалічна лампочка"
+  name: cyan crystal light bulb
   id: LightBulbCrystalCyan
   components:
   - type: LightBulb
@@ -529,7 +529,7 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
-  name: "синя кристалічна лампочка"
+  name: blue crystal light bulb
   id: LightBulbCrystalBlue
   components:
   - type: LightBulb
@@ -544,7 +544,7 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
-  name: "жовта кристалічна лампочка"
+  name: yellow crystal light bulb
   id: LightBulbCrystalYellow
   components:
   - type: LightBulb
@@ -559,7 +559,7 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
-  name: "рожева кристалічна лампочка"
+  name: pink crystal light bulb
   id: LightBulbCrystalPink
   components:
   - type: LightBulb
@@ -574,7 +574,7 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
-  name: "помаранчева кристалічна лампочка"
+  name: orange crystal light bulb
   id: LightBulbCrystalOrange
   components:
   - type: LightBulb
@@ -589,8 +589,8 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
-  name: "чорна кристалічна лампочка"
-  description: "Потужна, енергоефективна лампа, всередині якої знаходиться маленький кольоровий кристал. Вона не дуже яскрава."
+  name: black crystal light bulb
+  description: A high power high energy bulb which has a small colored crystal inside. It isn't very bright.
   id: LightBulbCrystalBlack
   components:
   - type: LightBulb
@@ -608,7 +608,7 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
-  name: "червона кристалічна лампочка"
+  name: red crystal light bulb
   id: LightBulbCrystalRed
   components:
   - type: LightBulb
@@ -623,7 +623,7 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
-  name: "зелена кристалічна лампочка"
+  name: green crystal light bulb
   id: LightBulbCrystalGreen
   components:
   - type: LightBulb

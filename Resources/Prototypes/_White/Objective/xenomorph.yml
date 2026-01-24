@@ -13,7 +13,7 @@
 - type: entity
   parent: [BaseXenomorphObjective, BaseSurviveObjective]
   id: XenomorphSurviveObjective
-  name: "Вижити та розвивати вулик."
+  name: Survive and advance the hive.
   components:
   - type: Objective
     icon:

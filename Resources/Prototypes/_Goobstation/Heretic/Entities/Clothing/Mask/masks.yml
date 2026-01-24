@@ -8,8 +8,8 @@
 - type: entity
   parent: [ ClothingMaskBase, BaseMagicalContraband ]
   id: ClothingMaskMadHeretic
-  name: "абісальна маска"
-  description: "Маска, створена зі страждань. Коли ти дивишся їй в очі, вона озирається."
+  name: abyssal mask
+  description: A mask created from suffering. When you look into its eyes, it looks back.
   components:
   - type: UnholyItem
   - type: MadnessMask

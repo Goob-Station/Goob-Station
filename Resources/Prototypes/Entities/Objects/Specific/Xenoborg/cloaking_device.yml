@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseItem, BaseXenoborgContraband ]
   id: CloakingDevice
-  name: "маскувальний пристрій"
-  description: "Пристрій, що дозволяє ксеноборгам ставати невидимими."
+  name: cloaking device
+  description: A device that allows xenoborgs to go invisible.
   components:
   - type: Sprite
     sprite: Objects/Specific/Research/anomalyscanner.rsi

@@ -47,7 +47,7 @@
 
 - type: story
   id: Relaxed
-  description: "Невеликий напад"
+  description: A small attack
   beats:
     - Peace
     - AttackMild
@@ -55,7 +55,7 @@
 
 - type: story
   id: Science
-  description: "Проблеми з наукою та інженерією"
+  description: Science and engineering issues
   minPlayers: 30
   beats:
     - Peace
@@ -66,7 +66,7 @@
 
 - type: story
   id: RelaxedAttack
-  description: "Переважно спокійно з кількома незначними проблемами."
+  description: Mostly calm with a couple of minor problems.
   beats:
     - Peace
     - AttackMild
@@ -74,7 +74,7 @@
 
 - type: story
   id: ScienceAttack
-  description: "Наука, незначний напад, а потім проблеми з інженерією"
+  description: Science, minor attack and then engineering issues
   minPlayers: 30
   beats:
     - Peace
@@ -86,7 +86,7 @@
 
 - type: story
   id: MajorCombat
-  description: "Незначний, а потім великий напад"
+  description: A minor and then major attack
   minPlayers: 40
   beats:
     - Peace
@@ -99,7 +99,7 @@
 
 - type: storyBeat
   id: Peace
-  description: "Незначний хаос у широкому діапазоні"
+  description: Minor Chaos across a wide range
   goal: # Try to achieve a wide range of different moderate values.
     Combat: -200 # Friendly forces should have the upper hand
     Anomaly: 100
@@ -112,7 +112,7 @@
 
 - type: storyBeat
   id: PowerIssues
-  description: "Створити високий інженерний хаос"
+  description: Create high engineering chaos
   goal:   # Annoying engineering issues
     Atmos: 400
     Power: 400
@@ -120,7 +120,7 @@
 
 - type: storyBeat
   id: MadScience
-  description: "Створити високий науковий хаос"
+  description: Create high Science chaos
   goal:
     Anomaly: 400
     Power: 100
@@ -135,7 +135,7 @@
 
 - type: storyBeat
   id: Attackers
-  description: "Спричинити високий рівень бойових дій"
+  description: Drive high combat
   goal:
     Hostile: 100  # Quite a few hostiles
   endIfAnyWorse:
@@ -147,7 +147,7 @@
 
 - type: storyBeat
   id: AttackMild
-  description: "Спричинити середній рівень бойових дій"
+  description: Drive medium combat
   goal:
     Hostile: 40  # Perhaps 4 hostiles
   endIfAnyWorse:
@@ -159,7 +159,7 @@
 
 - type: storyBeat
   id: RestoreOrder
-  description: "Надіслати допомогу для придушення безладів на станції"
+  description: Send help to quell disorder on the station
   goal:
     # Traitors: 0  # Try to drive down hostiles and engineering issues
     Hostile: 10
@@ -172,7 +172,7 @@
 
 - type: storyBeat
   id: RepairStation
-  description: "Відремонтувати цю станцію"
+  description: Repair that station
   goal:
     Atmos: 0
     Power: 0

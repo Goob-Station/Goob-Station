@@ -6,7 +6,7 @@
 - type: entity
   parent: MobArachnid
   id: MobArachnidRandom
-  name: "Уріст МакВеб"
+  name: Urist McWeb
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -19,7 +19,7 @@
 - type: entity
   parent: MobIPC
   id: MobIPCRandom
-  name: "Уріст МакПозітронік"
+  name: Urist McPositronic
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -30,7 +30,7 @@
 - type: entity
   parent: MobOni
   id: MobOniRandom
-  name: "Уріст Маконі"
+  name: Urist McOni
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance

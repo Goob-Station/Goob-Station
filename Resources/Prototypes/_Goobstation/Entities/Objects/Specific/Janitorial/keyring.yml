@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "зв'язка ключів прибиральника"
+  name: janitor's key ring
   id: KeyRingJanitor
   parent: [BaseItem, BaseJanitorContraband]
-  description: "Найкращий друг прибиральника — його вірна стара зв'язка ключів. Ви ніколи не можете пригадати, який ключ куди підходить."
+  description: A janitor's best friend; their trusty old key ring. You can never quite remember which key goes where.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Janitorial/keyring.rsi

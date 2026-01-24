@@ -5,7 +5,7 @@
 
 - type: palette
   id: KoboldColors
-  name: "KoboldColors"
+  name: KoboldColors
   colors:
     ForestA: "#71a457"
     ForestB: "#536f18"
@@ -41,7 +41,7 @@
 
 - type: palette
   id: KoboldHornColors
-  name: "KoboldHornColors"
+  name: KoboldHornColors
   colors:
     HornA: "#d4c8bf"
     hornB: "#eec7ab"
@@ -49,7 +49,7 @@
 
 - type: palette
   id: ScurretColors
-  name: "Кольори Скаррета"
+  name: ScurretColors
   colors:
     Normal: "#ffffff" # Sluggy
     Innocent: "#f6f439" # Monky

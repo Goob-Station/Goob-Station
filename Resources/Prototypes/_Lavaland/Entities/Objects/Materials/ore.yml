@@ -23,7 +23,7 @@
 - type: entity
   parent: OreBase
   id: ArtifactFragmentOre
-  name: "руда з уламками артефактів"
+  name: artifact fragment ore
   suffix: Full
   components:
   - type: Stack
@@ -64,7 +64,7 @@
 - type: entity
   parent: GoldOre
   id: GoldOreUnprocessed
-  name: "необроблена золота руда"
+  name: unprocessed gold ore
   suffix: Full
   components:
   - type: Stack
@@ -75,7 +75,7 @@
 - type: entity
   parent: GoldOreUnprocessed
   id: GoldOre1Unprocessed
-  name: "необроблена золота руда"
+  name: unprocessed gold ore
   suffix: Single
   components:
   - type: Stack
@@ -84,7 +84,7 @@
 - type: entity
   parent: DiamondOre
   id: DiamondOreUnprocessed
-  name: "необроблена алмазна руда"
+  name: unprocessed diamond ore
   suffix: Full
   components:
   - type: Stack
@@ -95,7 +95,7 @@
 - type: entity
   parent: DiamondOreUnprocessed
   id: DiamondOre1Unprocessed
-  name: "необроблена алмазна руда"
+  name: unprocessed diamond ore
   suffix: Single
   components:
   - type: Stack
@@ -104,8 +104,8 @@
 - type: entity
   parent: SteelOre
   id: SteelOreUnprocessed
-  name: "необроблена залізна руда"
-  suffix: Full
+  name: unprocessed iron ore
+  suffix: Thirty
   components:
   - type: Stack
     stackType: SteelOreUnprocessed
@@ -115,16 +115,34 @@
 - type: entity
   id: SteelOre1Unprocessed
   parent: SteelOreUnprocessed
-  name: "необроблена залізна руда"
+  name: unprocessed iron ore
   suffix: Single
   components:
   - type: Stack
     count: 1
 
 - type: entity
+  id: SteelOre60Unprocessed
+  parent: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  id: SteelOre90Unprocessed
+  parent: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
+
+- type: entity
   parent: PlasmaOre
   id: PlasmaOreUnprocessed
-  name: "необроблена плазмова руда"
+  name: unprocessed plasma ore
   suffix: Full
   components:
   - type: Stack
@@ -135,7 +153,7 @@
 - type: entity
   parent: PlasmaOreUnprocessed
   id: PlasmaOre1Unprocessed
-  name: "необроблена плазмова руда"
+  name: unprocessed plasma ore
   suffix: Single
   components:
   - type: Stack
@@ -144,7 +162,7 @@
 - type: entity
   parent: SilverOre
   id: SilverOreUnprocessed
-  name: "необроблена срібна руда"
+  name: unprocessed silver ore
   suffix: Full
   components:
   - type: Stack
@@ -155,7 +173,7 @@
 - type: entity
   parent: SilverOreUnprocessed
   id: SilverOre1Unprocessed
-  name: "необроблена срібна руда"
+  name: unprocessed silver ore
   suffix: Single
   components:
   - type: Stack
@@ -164,8 +182,8 @@
 - type: entity
   parent: SpaceQuartz
   id: SpaceQuartzUnprocessed
-  name: "необроблений космічний кварц"
-  suffix: Full
+  name: unprocessed space quartz
+  suffix: Thirty
   components:
   - type: Stack
     stackType: SpaceQuartzUnprocessed
@@ -175,16 +193,34 @@
 - type: entity
   parent: SpaceQuartzUnprocessed
   id: SpaceQuartz1Unprocessed
-  name: "необроблений космічний кварц"
+  name: unprocessed space quartz
   suffix: Single
   components:
   - type: Stack
     count: 1
 
 - type: entity
+  parent: SpaceQuartzUnprocessed
+  id: SpaceQuartz60Unprocessed
+  name: unprocessed space quartz
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  parent: SpaceQuartzUnprocessed
+  id: SpaceQuartz90Unprocessed
+  name: unprocessed space quartz
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
+
+- type: entity
   parent: UraniumOre
   id: UraniumOreUnprocessed
-  name: "необроблена уранова руда"
+  name: unprocessed uranium ore
   suffix: Full
   components:
   - type: Stack
@@ -195,7 +231,7 @@
 - type: entity
   parent: UraniumOreUnprocessed
   id: UraniumOre1Unprocessed
-  name: "необроблена уранова руда"
+  name: unprocessed uranium ore
   suffix: Single
   components:
   - type: Stack
@@ -204,7 +240,7 @@
 - type: entity
   parent: BananiumOre
   id: BananiumOreUnprocessed
-  name: "необроблена бананієва руда"
+  name: unprocessed bananium ore
   suffix: Full
   components:
   - type: Stack
@@ -215,7 +251,7 @@
 - type: entity
   parent: BananiumOreUnprocessed
   id: BananiumOre1Unprocessed
-  name: "необроблена бананієва руда"
+  name: unprocessed bananium ore
   suffix: Single
   components:
   - type: Stack
@@ -224,8 +260,8 @@
 - type: entity
   parent: Coal
   id: CoalUnprocessed
-  name: "необроблене вугілля"
-  suffix: Full
+  name: unprocessed coal
+  suffix: Thirty
   components:
   - type: Stack
     stackType: CoalUnprocessed
@@ -235,7 +271,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal1Unprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Single
   components:
   - type: Stack
@@ -244,7 +280,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal5Unprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Five
   components:
   - type: Stack
@@ -253,7 +289,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal10Unprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Ten
   components:
   - type: Stack
@@ -262,16 +298,34 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal15Unprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Fifteen
   components:
   - type: Stack
     count: 15
 
 - type: entity
+  parent: CoalUnprocessed
+  id: Coal60Unprocessed
+  name: unprocessed coal
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal90Unprocessed
+  name: unprocessed coal
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
+
+- type: entity
   parent: ArtifactFragmentOre
   id: ArtifactFragmentOreUnprocessed
-  name: "необроблена руда з уламками артефактів"
+  name: unprocessed artifact fragment ore
   suffix: Full
   components:
   - type: Stack
@@ -282,7 +336,7 @@
 - type: entity
   parent: ArtifactFragmentOreUnprocessed
   id: ArtifactFragmentOre1Unprocessed
-  name: "необроблена руда з уламками артефактів"
+  name: unprocessed artifact fragment ore
   suffix: Single
   components:
   - type: Stack

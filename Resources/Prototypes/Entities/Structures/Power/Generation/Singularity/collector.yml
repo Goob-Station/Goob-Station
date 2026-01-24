@@ -33,9 +33,9 @@
 - type: entity
   id: RadiationCollector
   parent: ConstructibleMachine # Goobstation
-  name: "колектор радіації"
+  name: radiation collector
   suffix: Empty tank
-  description: "Машина, яка збирає випромінювання і перетворює його на енергію. Для роботи потрібен плазмовий газ."
+  description: A machine that collects radiation and turns it into power. Requires plasma gas to function.
   placement:
     mode: SnapgridCenter
   components:

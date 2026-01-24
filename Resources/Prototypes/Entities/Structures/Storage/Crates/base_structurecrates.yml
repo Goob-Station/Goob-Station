@@ -59,8 +59,8 @@
   parent: BaseStructureDynamic
   id: CrateGeneric
   categories: [ HideSpawnMenu ]
-  name: "ящик"
-  description: "Великий контейнер для речей."
+  name: crate
+  description: A large container for items.
   components:
   - type: Animateable
   - type: Transform

@@ -18,13 +18,6 @@ namespace Content.Server.Database.Migrations.Postgres
                 defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
-                name: "lifepath",
-                table: "profile",
-                type: "text",
-                nullable: false,
-                defaultValue: "");
-
-            migrationBuilder.AddColumn<string>(
                 name: "nationality",
                 table: "profile",
                 type: "text",
@@ -37,10 +30,6 @@ namespace Content.Server.Database.Migrations.Postgres
         {
             migrationBuilder.DropColumn(
                 name: "employer",
-                table: "profile");
-
-            migrationBuilder.DropColumn(
-                name: "lifepath",
                 table: "profile");
 
             migrationBuilder.DropColumn(

@@ -17,7 +17,7 @@
 - type: entity
   parent: BaseWeaponBallisticTurret
   id: WeaponTurretSyndicateDisposable
-  name: "одноразова балістична турель"
+  name: disposable ballistic turret
   suffix: Syndicate, Disposable
   components:
   - type: NpcFactionMember
@@ -94,9 +94,9 @@
 - type: entity
   parent: BaseWeaponBallisticTurret
   id: WeaponTurretXeno
-  name: "ксено-турель"
+  name: xeno turret
   suffix: Xeno
-  description: "Стріляє кислотними снарядами 9мм."
+  description: Shoots 9mm acid projectiles.
   components:
   - type: NpcFactionMember
     factions:

@@ -6,7 +6,7 @@
 
 - type: body
   id: Rat
-  name: "щур"
+  name: "animal"
   root: chest
   slots:
     chest:

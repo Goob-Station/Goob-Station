@@ -35,7 +35,7 @@
 
 - type: entity
   id: BaseMagazineMagnum
-  name: "пістолетний магазин (.45 magnum)"
+  name: pistol magazine (.45 magnum)
   parent: [ BaseMagazinePistol, BaseSecurityContraband ]
   abstract: true
   components:
@@ -51,7 +51,7 @@
 
 - type: entity
   id: BaseMagazineMagnumSubMachineGun
-  name: "магазин для пістолета-кулемета (.45 магнум)"
+  name: SMG magazine (.45 magnum)
   parent: BaseItem
   abstract: true
   components:
@@ -84,10 +84,10 @@
 
 - type: entity
   id: MagazineMagnumEmpty
-  name: "пістолетний магазин (.45 magnum будь-який)"
+  name: pistol magazine (.45 magnum any)
   suffix: empty
   parent: BaseMagazineMagnum
-  description: "7-зарядний однорядний пістолетний магазин."
+  description: 7-round single stack pistol magazine.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -106,9 +106,9 @@
 
 - type: entity
   id: MagazineMagnum
-  name: "пістолетний магазин (.45 magnum)"
+  name: pistol magazine (.45 magnum)
   parent: BaseMagazineMagnum
-  description: "7-зарядний однорядний пістолетний магазин. Призначений для кінетичних боєприпасів загального призначення."
+  description: 7-round single stack pistol magazine. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
@@ -127,9 +127,9 @@
 
 - type: entity
   id: MagazineMagnumPractice
-  name: "пістолетний магазин (.45 magnum тренувальний)"
+  name: pistol magazine (.45 magnum practice)
   parent: BaseMagazineMagnum
-  description: "7-зарядний однорядний пістолетний магазин. Призначений для безпечних крейдяних боєприпасів."
+  description: 7-round single stack pistol magazine. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -154,9 +154,9 @@
 
 - type: entity
   id: MagazineMagnumUranium
-  name: "пістолетний магазин (.45 magnum урановий)"
+  name: pistol magazine (.45 magnum uranium)
   parent: BaseMagazineMagnum
-  description: "7-зарядний однорядний пістолетний магазин. Призначений для екзотичних боєприпасів з урановим осердям."
+  description: 7-round single stack pistol magazine. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
@@ -181,9 +181,9 @@
 
 - type: entity
   id: MagazineMagnumAP
-  name: "пістолетний магазин (.45 magnum бронебійний)"
+  name: pistol magazine (.45 magnum armor-piercing)
   parent: BaseMagazineMagnum
-  description: "7-зарядний однорядний пістолетний магазин. Призначений для рідкісних бронебійних боєприпасів."
+  description: 7-round single stack pistol magazine. Intended to hold rare armor-piercing ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP
@@ -208,7 +208,7 @@
 
 - type: entity
   id: MagazineMagnumSubMachineGunEmpty
-  name: "магазин для ПП (.45 магнум будь-який)"
+  name: SMG magazine (.45 magnum any)
   suffix: empty
   parent: BaseMagazineMagnumSubMachineGun
   components:
@@ -229,7 +229,7 @@
 
 - type: entity
   id: MagazineMagnumSubMachineGun
-  name: "магазин для пістолета-кулемета (.45 магнум)"
+  name: SMG magazine (.45 magnum)
   parent: BaseMagazineMagnumSubMachineGun
   components:
   - type: BallisticAmmoProvider
@@ -249,7 +249,7 @@
 
 - type: entity
   id: MagazineMagnumSubMachineGunPractice
-  name: "магазин для пістолета-кулемета (.45 магнум тренувальний)"
+  name: SMG magazine (.45 magnum practice)
   parent: BaseMagazineMagnumSubMachineGun
   components:
   - type: BallisticAmmoProvider
@@ -275,7 +275,7 @@
 
 - type: entity
   id: MagazineMagnumSubMachineGunUranium
-  name: "магазин для пістолета-кулемета (.45 магнум урановий)"
+  name: SMG magazine (.45 magnum uranium)
   parent: BaseMagazineMagnumSubMachineGun
   components:
   - type: BallisticAmmoProvider
@@ -301,7 +301,7 @@
 
 - type: entity
   id: MagazineMagnumSubMachineGunPiercing
-  name: "магазин для пістолета-кулемета (.45 магнум бронебійний)"
+  name: SMG magazine (.45 magnum armour-piercing)
   parent: BaseMagazineMagnumSubMachineGun
   components:
   - type: BallisticAmmoProvider

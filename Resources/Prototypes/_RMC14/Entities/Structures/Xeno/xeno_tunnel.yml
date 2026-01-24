@@ -1,7 +1,7 @@
 - type: entity
   id: XenoTunnel
-  name: "Тунель"
-  description: "Вхід у тунель. Схоже, його вирила якась пазуриста тварюка."
+  name: Tunnel
+  description: A tunnel entrance. Looks like it was dug by some kind of clawed beast.
   placement:
     mode: SnapgridCenter
   components:
@@ -17,8 +17,8 @@
 - type: entity
   parent: XenoTunnel
   id: XenoTunnelMaint
-  name: "Технічний люк"
-  description: "Вхід у технічний тунель. Видно шматки слизу та смоли. Уламки не дають роздивитися ближче."
+  name: Maintenance Hatch
+  description: An entrance to a maintenance tunnel. You can see bits of slime and resin within. Pieces of debris keep you from getting a closer look.
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_tunnel.rsi
@@ -27,12 +27,12 @@
 - type: entity
   parent: XenoTunnelMaint
   id: XenoTunnelMaintNoXenoDesc
-  description: "Вхід у технічний тунель. Уламки не дають роздивитися ближче."
+  description: An entrance to a maintenance tunnel. Pieces of debris keep you from getting a closer look.
 
 - type: entity
   parent: XenoTunnelMaint
   id: XenoTunnelMaintHybrisa
-  name: "Каналізаційний люк"
+  name: Sewer Manhole
   components:
   - type: Sprite
     state: wymanhole
@@ -40,7 +40,7 @@
 - type: entity
   parent: XenoTunnelMaintNoXenoDesc
   id: XenoTunnelMaintHybrisaNoXenoDesc
-  name: "Каналізаційний люк"
+  name: Sewer Manhole
   components:
   - type: Sprite
     state: wymanhole

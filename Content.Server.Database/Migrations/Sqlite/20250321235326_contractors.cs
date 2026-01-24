@@ -18,13 +18,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                 defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
-                name: "lifepath",
-                table: "profile",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "");
-
-            migrationBuilder.AddColumn<string>(
                 name: "nationality",
                 table: "profile",
                 type: "TEXT",
@@ -37,10 +30,6 @@ namespace Content.Server.Database.Migrations.Sqlite
         {
             migrationBuilder.DropColumn(
                 name: "employer",
-                table: "profile");
-
-            migrationBuilder.DropColumn(
-                name: "lifepath",
                 table: "profile");
 
             migrationBuilder.DropColumn(
