@@ -10,27 +10,28 @@ using Content.Shared.Mind;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
 using Robust.Shared.Map;
-using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;
 using System.Numerics;
 
 namespace Content.Goobstation.Server.Doodons;
 
 /// <summary>
-/// Server logic for Papa Doodon:
-/// - Cycles warrior orders with command action
+/// Server logic for Papa Doodon (RatKing-style orders):
+/// - Grants 4 separate order actions (Stay/Follow/Attack/Loose), each sets mode directly
+/// - Uses SharedActionsSystem.SetToggled to drive iconOn for the active order (Rat King pattern)
 /// - Point-to-attack target when in AttackTarget order
-/// - Grants two actions when controlled:
-///   - Establish Town Hall (one-time)
-///   - Toggle Town Hall influence radius display (toggles nearest hall)
+/// - Grants Establish Town Hall action until used (one-time)
+///
+/// IMPORTANT:
+/// Do NOT call StartUseDelay in a periodic Update loop, or the icons will "flash" by constantly restarting cooldown.
 /// </summary>
-public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
+public sealed class PapaDoodonSystem : EntitySystem
 {
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     private const float CheckInterval = 1.0f;
     private float _accum;
@@ -39,7 +40,7 @@ public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PapaDoodonComponent, PapaDoodonCommandActionEvent>(OnCommand);
+        SubscribeLocalEvent<PapaDoodonComponent, DoodonSetWarriorModeEvent>(OnSetMode);
         SubscribeLocalEvent<PapaDoodonComponent, AfterPointedAtEvent>(OnPointedAt);
         SubscribeLocalEvent<PapaDoodonComponent, DoodonEstablishTownHallEvent>(OnEstablishTownHall);
     }
@@ -54,76 +55,103 @@ public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
 
         _accum = 0f;
 
-        // Give actions once Papa is actually controlled (has a mind).
         var query = EntityQueryEnumerator<PapaDoodonComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            // Only give actions to a controlled Papa (prevents wild Papas from getting hotbar actions)
+            // Only give actions to a controlled Papa
             if (!_mind.TryGetMind(uid, out _, out _))
                 continue;
 
+            EnsureAction(uid, ref comp.OrderStayActionEntity, comp.OrderStayAction);
+            EnsureAction(uid, ref comp.OrderFollowActionEntity, comp.OrderFollowAction);
+            EnsureAction(uid, ref comp.OrderAttackActionEntity, comp.OrderAttackAction);
+            EnsureAction(uid, ref comp.OrderLooseActionEntity, comp.OrderLooseAction);
+
+            // IMPORTANT: only SetToggled here (no StartUseDelay)
+            UpdateOrderToggles(comp);
+
             // Establish hall is one-time.
             if (!comp.HallPlaced)
-            {
-                if (comp.EstablishHallActionEntity == null || !Exists(comp.EstablishHallActionEntity.Value))
-                    _actions.AddAction(uid, ref comp.EstablishHallActionEntity, comp.EstablishHallAction);
-            }
+                EnsureAction(uid, ref comp.EstablishHallActionEntity, comp.EstablishHallAction);
             else
-            {
-                if (comp.EstablishHallActionEntity != null && Exists(comp.EstablishHallActionEntity.Value))
-                    _actions.RemoveAction(comp.EstablishHallActionEntity.Value);
-
-                comp.EstablishHallActionEntity = null;
-            }
+                RemoveAction(uid, ref comp.EstablishHallActionEntity);
 
             Dirty(uid, comp);
         }
     }
 
-    private static DoodonOrderType Next(DoodonOrderType cur)
+    private void EnsureAction(EntityUid owner, ref EntityUid? actionEnt, EntProtoId proto)
     {
-        return cur switch
-        {
-            DoodonOrderType.Stay => DoodonOrderType.Follow,
-            DoodonOrderType.Follow => DoodonOrderType.AttackTarget,
-            DoodonOrderType.AttackTarget => DoodonOrderType.Loose,
-            _ => DoodonOrderType.Stay
-        };
+        if (actionEnt == null || !Exists(actionEnt.Value))
+            _actions.AddAction(owner, ref actionEnt, proto);
     }
 
-    private void OnCommand(EntityUid uid, PapaDoodonComponent comp, PapaDoodonCommandActionEvent args)
+    private void RemoveAction(EntityUid owner, ref EntityUid? actionEnt)
     {
-        if (args.Handled)
+        if (actionEnt is { } ent && Exists(ent))
+            _actions.RemoveAction(owner, ent);
+
+        actionEnt = null;
+    }
+
+    /// <summary>
+    /// Drives iconOn for the active order.
+    /// SAFE to call often.
+    /// </summary>
+    private void UpdateOrderToggles(PapaDoodonComponent comp)
+    {
+        _actions.SetToggled(comp.OrderStayActionEntity, comp.CurrentOrder == DoodonOrderType.Stay);
+        _actions.SetToggled(comp.OrderFollowActionEntity, comp.CurrentOrder == DoodonOrderType.Follow);
+        _actions.SetToggled(comp.OrderAttackActionEntity, comp.CurrentOrder == DoodonOrderType.AttackTarget);
+        _actions.SetToggled(comp.OrderLooseActionEntity, comp.CurrentOrder == DoodonOrderType.Loose);
+    }
+
+    /// <summary>
+    /// Optional UX: start use delay ONLY when the player clicks a command.
+    /// </summary>
+    private void StartOrderUseDelays(PapaDoodonComponent comp)
+    {
+        _actions.StartUseDelay(comp.OrderStayActionEntity);
+        _actions.StartUseDelay(comp.OrderFollowActionEntity);
+        _actions.StartUseDelay(comp.OrderAttackActionEntity);
+        _actions.StartUseDelay(comp.OrderLooseActionEntity);
+    }
+
+    private void OnSetMode(EntityUid uid, PapaDoodonComponent comp, ref DoodonSetWarriorModeEvent args)
+    {
+        if (comp.CurrentOrder == args.Order)
             return;
 
-        args.Handled = true;
-
-        comp.CurrentOrder = Next(comp.CurrentOrder);
+        comp.CurrentOrder = args.Order;
         Dirty(uid, comp);
-        UpdateCommandAction(uid, comp);
 
-        var papaFollowCoords = new EntityCoordinates(uid, Vector2.Zero);
+        ApplyOrderToWarriors(uid, comp);
+
+        // Update iconOn highlight
+        UpdateOrderToggles(comp);
+
+        // OPTIONAL: match Rat King "button press" feel, but only on real click
+        StartOrderUseDelays(comp);
+    }
+
+    private void ApplyOrderToWarriors(EntityUid papaUid, PapaDoodonComponent comp)
+    {
+        var papaFollowCoords = new EntityCoordinates(papaUid, Vector2.Zero);
 
         var query = EntityQueryEnumerator<DoodonWarriorComponent, HTNComponent>();
         while (query.MoveNext(out var warriorUid, out var warrior, out var htnComp))
         {
-            if (warrior.Papa != uid)
+            if (warrior.Papa != papaUid)
                 continue;
 
-            // 1) Set the HTN order (what HasOrdersPrecondition reads)
             _npc.SetBlackboard(warriorUid, NPCBlackboard.CurrentOrders, comp.CurrentOrder);
 
-            // 2) Keep component field in sync (so VV shows the real order)
             warrior.Orders = comp.CurrentOrder;
             Dirty(warriorUid, warrior);
 
-            // 3) Clear ordered target unless we’re in AttackTarget mode
             if (comp.CurrentOrder != DoodonOrderType.AttackTarget)
                 _npc.SetBlackboard(warriorUid, NPCBlackboard.CurrentOrderedTarget, EntityUid.Invalid);
 
-            // 4) FollowTarget policy:
-            // Follow + AttackTarget: keep a follow anchor to papa
-            // Stay + Loose: clear it so Loose won’t “shadow-follow”
             if (comp.CurrentOrder == DoodonOrderType.Follow || comp.CurrentOrder == DoodonOrderType.AttackTarget)
                 _npc.SetBlackboard(warriorUid, NPCBlackboard.FollowTarget, papaFollowCoords);
             else
@@ -150,11 +178,9 @@ public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
             if (warrior.Papa != uid)
                 continue;
 
-            // Force them into attack mode and set ordered target
             _npc.SetBlackboard(warriorUid, NPCBlackboard.CurrentOrders, DoodonOrderType.AttackTarget);
             _npc.SetBlackboard(warriorUid, NPCBlackboard.CurrentOrderedTarget, args.Pointed);
 
-            // Keep component field in sync for VV/debugging
             warrior.Orders = DoodonOrderType.AttackTarget;
             Dirty(warriorUid, warrior);
 
@@ -163,6 +189,9 @@ public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
 
             _htn.Replan(htnComp);
         }
+
+        // UI highlight should already be AttackTarget, but harmless
+        UpdateOrderToggles(comp);
     }
 
     private void OnEstablishTownHall(EntityUid uid, PapaDoodonComponent comp, DoodonEstablishTownHallEvent args)
@@ -178,17 +207,12 @@ public sealed class PapaDoodonSystem : SharedPapaDoodonSystem
             return;
         }
 
-        // Spawn at Papa’s feet
         var coords = Transform(uid).Coordinates;
         Spawn(comp.TownHallPrototype, coords);
 
         comp.HallPlaced = true;
 
-        // Remove the one-time action
-        if (comp.EstablishHallActionEntity != null && Exists(comp.EstablishHallActionEntity.Value))
-            _actions.RemoveAction(comp.EstablishHallActionEntity.Value);
-
-        comp.EstablishHallActionEntity = null;
+        RemoveAction(uid, ref comp.EstablishHallActionEntity);
 
         _popup.PopupEntity("You establish a Doodon Town Hall.", uid, uid);
         Dirty(uid, comp);

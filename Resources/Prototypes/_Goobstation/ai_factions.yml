@@ -63,3 +63,25 @@
   - AllHostile
   friendly:
   - Doodon
+  
+- type: npcFaction
+  id: DoodonFeral
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - Xenoborg
+  - Heretic
+  - Blob
+  - PirateFaction
+  - Lavafauna
+  - SimpleHostile
+  - AllHostile
+  friendly:
+  - Doodon
+  - DoodonFighter

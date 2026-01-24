@@ -1,5 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Doodons;
 using Content.Server.NPC;
+using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Stack;
 using Content.Shared.Examine;
@@ -10,9 +14,16 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Doodons;
 
+/// <summary>
+/// Production machines for the Doodon village.
+/// FIXED: Warriors spawned by machines now immediately inherit Papa's CURRENT ORDER
+/// (blackboard + component sync + follow policy + ordered target clearing + HTN replan),
+/// so they behave correctly even if they spawn after Papa already chose an order.
+/// </summary>
 public sealed class DoodonMachineSystem : EntitySystem
 {
     [Dependency] private readonly StackSystem _stackSystem = default!;
@@ -20,6 +31,7 @@ public sealed class DoodonMachineSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _soundSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
 
     public override void Initialize()
     {
@@ -99,7 +111,6 @@ public sealed class DoodonMachineSystem : EntitySystem
         // Must be able to produce BEFORE we eat resin
         if (!CanProduce(uid, machine))
         {
-            // Optional: add an ftl key for "no housing/cap reached"
             _popup.PopupEntity(Loc.GetString("doodon-machine-cannot-produce"), uid, args.User);
             return;
         }
@@ -165,11 +176,10 @@ public sealed class DoodonMachineSystem : EntitySystem
         };
     }
 
-
     private void GetHousingStats(
-     EntityUid hallUid, DoodonTownHallComponent hall,
-     out int workerCap, out int warriorCap, out int moodonCap,
-     out int workerPop, out int warriorPop, out int moodonPop)
+        EntityUid hallUid, DoodonTownHallComponent hall,
+        out int workerCap, out int warriorCap, out int moodonCap,
+        out int workerPop, out int warriorPop, out int moodonPop)
     {
         workerCap = warriorCap = moodonCap = 0;
         workerPop = warriorPop = moodonPop = 0;
@@ -218,23 +228,52 @@ public sealed class DoodonMachineSystem : EntitySystem
         }
     }
 
-
     private void Produce(EntityUid machineUid, DoodonMachineComponent machine)
     {
         var coords = Transform(machineUid).Coordinates;
         var spawned = Spawn(machine.OutputPrototype, coords);
 
-        // If warrior: wire follow + orders from nearest papa
+        // If warrior: wire follow + orders from nearest papa (FULL SYNC)
         if (TryComp<DoodonWarriorComponent>(spawned, out var warriorComp))
         {
             if (TryGetPapaForMachine(machineUid, out var papaUid))
             {
                 warriorComp.Papa = papaUid;
 
-                _npc.SetBlackboard(spawned, NPCBlackboard.FollowTarget, Transform(papaUid).Coordinates);
-
                 if (TryComp<PapaDoodonComponent>(papaUid, out var papaComp))
+                {
+                    // 1) Orders: blackboard + component sync
                     _npc.SetBlackboard(spawned, NPCBlackboard.CurrentOrders, papaComp.CurrentOrder);
+                    warriorComp.Orders = papaComp.CurrentOrder;
+                    Dirty(spawned, warriorComp);
+
+                    // 2) Clear ordered target unless AttackTarget
+                    if (papaComp.CurrentOrder != DoodonOrderType.AttackTarget)
+                        _npc.SetBlackboard(spawned, NPCBlackboard.CurrentOrderedTarget, EntityUid.Invalid);
+
+                    // 3) Follow policy identical to Papa system
+                    var papaFollowCoords = new EntityCoordinates(papaUid, Vector2.Zero);
+
+                    if (papaComp.CurrentOrder == DoodonOrderType.Follow ||
+                        papaComp.CurrentOrder == DoodonOrderType.AttackTarget)
+                        _npc.SetBlackboard(spawned, NPCBlackboard.FollowTarget, papaFollowCoords);
+                    else
+                        _npc.SetBlackboard(spawned, NPCBlackboard.FollowTarget, default(EntityCoordinates));
+                }
+                else
+                {
+                    // Fallback: at least follow papa
+                    _npc.SetBlackboard(spawned, NPCBlackboard.FollowTarget, new EntityCoordinates(papaUid, Vector2.Zero));
+                }
+
+                // 4) Force HTN to select correct branch immediately
+                if (TryComp<HTNComponent>(spawned, out var htnComp))
+                {
+                    if (htnComp.Plan != null)
+                        _htn.ShutdownPlan(htnComp);
+
+                    _htn.Replan(htnComp);
+                }
             }
         }
     }

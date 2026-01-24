@@ -1,0 +1,33 @@
+<Document>
+  ## The Doodons
+  <GuideEntityEmbed Entity="WorkerDoodon" Caption="a standard worker doodon"/>
+  The doodons are small, industrial creatures, known for their ability to establish colony villages on many a station.
+  They have a sort of ant-like caste system, with there being 3 main types:
+  - Papa
+  - Worker
+  - Warrior
+
+
+
+  ## Papa Doodon
+  <GuideEntityEmbed Entity="PapaDoodon" Caption="The central hivemind node of the group"/>
+  Papa Doodon is the ruler of the doodon village. The papa's main job is to establish the village and command the warriors.
+  Starting out, it is the papa who must find an suitable location for the village.
+  The papa is the only starting doodon, and must populate the village.
+  Papa doodon is the only village member that can speak Tau-Ceti basic, which he can use to orchastrate trade deals with the natives of the station.
+
+  ## Worker Doodons
+  <GuideEntityEmbed Entity="WorkerDoodon" Caption=""/>
+  The worker doodon is responible for foraging for food, and generally being a second pair of hands for the papa doodon.
+  While a part of the hive, the worker possess rudimentary sentience and is able to make descisions independent of the papa.
+  They can retaliate if provoked.
+
+  ## Warrior Doodons
+  <GuideEntityEmbed Entity="WarriorDoodon" Caption=""/>
+  The warrior doodon is the main defense for the village. They respond to the papa directly, and do not have the mental capacity for independent descision making.
+  The papa can command them using 4 directives:
+  - Stay: Stay at their current location
+  - Follow: Follow the papa doodon
+  - Attack Target: Attack a target that the papa points at
+  - Loose: Makes the warriors feral, attacking anyone who isn't doodon.
+</Document>

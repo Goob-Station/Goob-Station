@@ -1,0 +1,31 @@
+- type: htnCompound
+  id: DoodonWorkerCompound
+  branches:
+
+  # 1) If hall is feral -> go feral
+  - preconditions:
+    - !type:DoodonHallFeralPrecondition
+      feral: true
+    tasks:
+    - !type:HTNCompoundTask
+      task: SimpleHostileCompound
+
+  # 2) If outside influence radius -> go back in
+  - preconditions:
+    - !type:DoodonOutsideHallRadiusPrecondition
+    tasks:
+    - !type:HTNCompoundTask
+      task: FollowCompound
+
+  # 3) Normal behavior
+  - tasks:
+    - !type:HTNCompoundTask
+      task: DoodonWorkerNormalCompound
+
+
+- type: htnCompound
+  id: DoodonWorkerNormalCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound

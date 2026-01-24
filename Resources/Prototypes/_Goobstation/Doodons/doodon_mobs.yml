@@ -110,6 +110,11 @@
     - DoodonMind
   - type: VentCrawler
     allowInventory: false
+  - type: GuideHelp
+    guides:
+    - Doodon
+    
+    
 - type: entity      # Papa
   parent: BaseDoodon
   id: PapaDoodon
@@ -129,7 +134,6 @@
     productionLength: 1
     hungerCost: 5
   - type: PapaDoodon
-    commandAction: PapaDoodonCommand
   - type: MindContainer
     showObjectives: true
     showAntagIcons: false
@@ -183,6 +187,10 @@
       - ActionDoodonBuildSelect
       - ActionDoodonBuildPlace
   - type: DoodonBuildMenu
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: GroupRetaliation
+    range: 8
     
 - type: entity      # Worker
   parent: BaseDoodon
@@ -212,11 +220,9 @@
       - Doodon
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
-   
+      task: DoodonWorkerCompound
   - type: Doodon
     requiredHousing: Worker
-    
   - type: Physics
     bodyType: KinematicController
   - type: CombatMode

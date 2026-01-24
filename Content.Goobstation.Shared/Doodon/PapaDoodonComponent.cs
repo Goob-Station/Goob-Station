@@ -9,8 +9,17 @@ namespace Content.Goobstation.Shared.Doodons;
 [AutoGenerateComponentState]
 public sealed partial class PapaDoodonComponent : Component
 {
-    [DataField("commandAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string CommandAction = "PapaDoodonCommand";
+    [DataField] public EntProtoId OrderStayAction = "ActionPapaDoodonOrderStay";
+    [DataField] public EntityUid? OrderStayActionEntity;
+
+    [DataField] public EntProtoId OrderFollowAction = "ActionPapaDoodonOrderFollow";
+    [DataField] public EntityUid? OrderFollowActionEntity;
+
+    [DataField] public EntProtoId OrderAttackAction = "ActionPapaDoodonOrderAttack";
+    [DataField] public EntityUid? OrderAttackActionEntity;
+
+    [DataField] public EntProtoId OrderLooseAction = "ActionPapaDoodonOrderLoose";
+    [DataField] public EntityUid? OrderLooseActionEntity;
 
     [DataField("commandActionEntity")]
     public EntityUid? CommandActionEntity;

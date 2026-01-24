@@ -15,41 +15,37 @@ public abstract partial class SharedPapaDoodonSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, PapaDoodonComponent comp, ref MapInitEvent args)
     {
-        _actions.AddAction(uid, ref comp.CommandActionEntity, comp.CommandAction);
+        _actions.AddAction(uid, ref comp.OrderStayActionEntity, comp.OrderStayAction);
+        _actions.AddAction(uid, ref comp.OrderFollowActionEntity, comp.OrderFollowAction);
+        _actions.AddAction(uid, ref comp.OrderAttackActionEntity, comp.OrderAttackAction);
+        _actions.AddAction(uid, ref comp.OrderLooseActionEntity, comp.OrderLooseAction);
 
-        // Set correct icon/text immediately
-        UpdateCommandAction(uid, comp);
+        UpdateOrderToggles(uid, comp);
     }
 
     private void OnShutdown(EntityUid uid, PapaDoodonComponent comp, ref ComponentShutdown args)
     {
-        if (comp.CommandActionEntity is { } actionEnt)
-            _actions.RemoveAction(uid, actionEnt);
+        Remove(uid, comp.OrderStayActionEntity);
+        Remove(uid, comp.OrderFollowActionEntity);
+        Remove(uid, comp.OrderAttackActionEntity);
+        Remove(uid, comp.OrderLooseActionEntity);
 
-        comp.CommandActionEntity = null;
+        comp.OrderStayActionEntity = null;
+        comp.OrderFollowActionEntity = null;
+        comp.OrderAttackActionEntity = null;
+        comp.OrderLooseActionEntity = null;
     }
 
-    protected void UpdateCommandAction(EntityUid uid, PapaDoodonComponent comp)
+    private void Remove(EntityUid uid, EntityUid? act)
     {
-        // Use the ACTION ENTITY, not the prototype
-        if (comp.CommandActionEntity is not { } actionEnt)
-            return;
+        if (act is { } a)
+            _actions.RemoveAction(uid, a);
+    }
 
-        var (iconState, name, desc) = comp.CurrentOrder switch
-        {
-            DoodonOrderType.Stay =>
-                ("stay", "Order: Stay", "Servants hold position."),
-            DoodonOrderType.Follow =>
-                ("follow", "Order: Follow", "Servants follow you."),
-            DoodonOrderType.AttackTarget =>
-                ("attack", "Order: Attack", "Point at a target to attack."),
-            _ =>
-                ("loose", "Order: Loose", "Servants attack enemies freely."),
-        };
-
-        _actions.SetIcon(actionEnt,
-            new SpriteSpecifier.Rsi(
-                new ResPath("_Goobstation/Interface/DoodonActions/doodon_orders.rsi"),
-                iconState));
+    protected void UpdateOrderToggles(EntityUid uid, PapaDoodonComponent comp)
+    {
+        // This is optional. If your action system automatically uses iconOn when “toggled”,
+        // you’ll want to set the toggled state. If not, you can ignore this and just rely on the click.
+        // (Exact API differs by fork.)
     }
 }

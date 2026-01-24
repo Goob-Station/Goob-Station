@@ -1,15 +1,78 @@
 - type: entity
   parent: BaseAction
-  id: PapaDoodonCommand
-  name: Command Doodons
+  id: ActionPapaDoodonOrderStay
+  name: Stay
+  description: Command your warriors to hold position.
   components:
   - type: Action
+    useDelay: 0.3
     icon:
       sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
-      state: follow
-    useDelay: 0.3
+      state: stayOff
+    iconOn:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: stay
+    priority: 5
   - type: InstantAction
-    event: !type:PapaDoodonCommandActionEvent
+    event: !type:DoodonSetWarriorModeEvent
+      order: Stay
+
+- type: entity
+  parent: BaseAction
+  id: ActionPapaDoodonOrderFollow
+  name: Follow
+  description: Command your warriors to follow you.
+  components:
+  - type: Action
+    useDelay: 0.3
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: followOff
+    iconOn:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: follow
+    priority: 6
+  - type: InstantAction
+    event: !type:DoodonSetWarriorModeEvent
+      order: Follow
+
+- type: entity
+  parent: BaseAction
+  id: ActionPapaDoodonOrderAttack
+  name: Attack
+  description: Command your warriors to attack a target you indicate.
+  components:
+  - type: Action
+    useDelay: 0.3
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: attackOff
+    iconOn:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: attack
+    priority: 7
+  - type: InstantAction
+    event: !type:DoodonSetWarriorModeEvent
+      order: AttackTarget
+
+- type: entity
+  parent: BaseAction
+  id: ActionPapaDoodonOrderLoose
+  name: Loose
+  description: Command your warriors to act on their own.
+  components:
+  - type: Action
+    useDelay: 0.3
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: looseOff
+    iconOn:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: loose
+    priority: 8
+  - type: InstantAction
+    event: !type:DoodonSetWarriorModeEvent
+      order: Loose
 
 - type: entity
   parent: BaseAction

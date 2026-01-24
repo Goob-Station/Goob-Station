@@ -24,12 +24,12 @@ ghost-role-information-doodon-name = Worker Doodon
 ghost-role-information-doodon-information = You are a worker doodon, forage for food, make resin, build, and expand.
 ghost-role-information-doodon-rules = Listen to your Papa doodon, do not attack unless provoked or told to.
 
-papa-objective-keep-workers-alive-title = [color=white]Keep Workers Alive[/color]
+papa-objective-keep-workers-alive-title = Keep Workers Alive
 papa-objective-keep-workers-alive-desc = To raise a village, one must populate it. Make sure to keep at least {$count} workers safe
 
 objective-issuer-papa-doodon =[color=lime]Papa Doodon[/color]
 
-papa-objective-build-buildings-title = [color=white]Build the village[/color]
+papa-objective-build-buildings-title = Build the village
 papa-objective-build-buildings-desc = Construct and keep at least {$count} doodon buildings.
 
 collective-mind-doodon = Doomind
@@ -45,3 +45,5 @@ papa-doodon-round-end-agent-name = Papa Doodon
 papa-doodon-role-greeting = Lead your Doodons to victory. Build, trade, and fight to survive.
 
 doodon-machine-cannot-produce = This machine cannot produce. Do you have enough housing?
+
+guide-entry-doodons = Doodons
