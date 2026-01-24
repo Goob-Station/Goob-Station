@@ -240,6 +240,7 @@
   id: ClothingHeadHatBeretHoSNoArmor # (NoArmor) for uniform printer
   name: head of security's beret
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
+  suffix: No armor
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_hos.rsi
@@ -258,6 +259,7 @@
   id: ClothingHeadHatHoshatNoArmor
   name: head of security cap
   description: A stylish cap worn by the Head of Security. Shows the officers who's in charge.
+  suffix: No armor
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/hoshat.rsi
@@ -276,6 +278,7 @@
   id: ClothingHeadHatBeretWardenNoArmor
   name: warden's beret
   description: A corporate-blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
+  suffix: No armor
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_warden.rsi
@@ -291,6 +294,7 @@
   id: ClothingHeadHatWardenNoArmor
   name: warden's cap
   description: This hat emphasizes that you are THE LAW.
+  suffix: No armor
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/warden.rsi
@@ -306,6 +310,7 @@
   id: ClothingHeadHatBeretBrigmedicNoArmor
   name: brigmedical beret
   description: A white beret for brigmedics.
+  suffix: No armor
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
@@ -324,6 +329,7 @@
   id: ClothingHeadHatBeretSecurityNoArmor
   name: security beret
   description: A beret with the security department's insignia. For officers that are more inclined towards style than safety.
+  suffix: No armor
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_security.rsi
