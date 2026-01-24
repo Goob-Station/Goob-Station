@@ -108,8 +108,6 @@
         Genetic: -25
         Metaphysical: -25
     doAfterDelay: 2
-  - type: BloodCrawl
-    requiredReagentAmount: 15 # 15u of puddle is required to jaunt
   - type: DemonicWhisper # allows the demon to demonic whisper
   - type: DemonicAccent # the accent
   - type: Puller
