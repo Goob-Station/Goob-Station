@@ -1,12 +1,12 @@
 
 - type: emagType
   id: Interaction
-  name: Interaction Emag
+  name: {emag-type-interaction-name}
   
 - type: emagType
   id: Access
-  name: Access Emag
+  name: {emag-type-access-name}
   
 - type: emagType
   id: All
-  name: Universal Emag
+  name: {emag-type-all-name}

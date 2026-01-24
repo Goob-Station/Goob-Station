@@ -16,5 +16,5 @@ public sealed partial class EmagTypePrototype : IPrototype
     /// Optional display name for UI purposes.
     /// </summary>
     [DataField]
-    public string? LocId { get; set; }
+    public LocId? Name { get; set; }
 }
