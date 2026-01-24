@@ -18,13 +18,10 @@ using Prometheus;
 namespace Content.Goobstation.Server.StationEvents.Metric;
 
 /// <summary>
-///   Measure crew's hunger and thirst
-///
+///   Measure crew's hunger, thirst and charge
 /// </summary>
 public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
 {
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-
     private static readonly Gauge HungerThresholdCount = Metrics.CreateGauge(
         "game_director_metric_food_hunger_threshold_count",
         "Number of entities at a specific hunger threshold.",
@@ -53,8 +50,7 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
         "Calculated chaos value contributed by silicon charge levels.");
 
 
-    public override ChaosMetrics CalculateChaos(EntityUid metric_uid, FoodMetricComponent component,
-        CalculateChaosEvent args)
+    protected override ChaosMetrics CalculateChaos(EntityUid metricUid, FoodMetricComponent component, CalculateChaosEvent args)
     {
         // Gather hunger and thirst scores
         var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent>();
@@ -78,28 +74,9 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
 
             if (mobState.CurrentState != MobState.Alive)
                 continue;
-
-            if (thirstQ.TryGetComponent(uid, out var thirst))
-            {
-                var threshold = thirst.CurrentThirstThreshold;
-                thirstSc += component.ThirstScores.GetValueOrDefault(threshold).Double();
-                thirstCounts[threshold] = thirstCounts.GetValueOrDefault(threshold) + 1;
-            }
-
-            if (hungerQ.TryGetComponent(uid, out var hunger))
-            {
-                var threshold = hunger.CurrentThreshold;
-                hungerSc += component.HungerScores.GetValueOrDefault(threshold).Double();
-                hungerCounts[threshold] = hungerCounts.GetValueOrDefault(threshold) + 1;
-            }
-
-            if (siliconQ.TryGetComponent(uid, out var silicon))
-            {
-                var chargeStateValue = GetChargeState(silicon.ChargeState);
-                var chargeStateLabel = GetChargeStateLabel(chargeStateValue); // Get string label
-                chargeSc += component.ChargeScores.GetValueOrDefault(chargeStateValue).Double();
-                chargeCounts[chargeStateLabel]++;
-            }
+            thirstSc = CalculateThirst(component, thirstQ, uid, thirstSc, thirstCounts);
+            hungerSc = CalculateHunger(component, hungerQ, uid, hungerSc, hungerCounts);
+            chargeSc = CalculateCharge(component, siliconQ, uid, chargeSc, chargeCounts);
         }
 
         foreach (var threshold in Enum.GetValues<HungerThreshold>())
@@ -123,32 +100,73 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
         return chaos;
     }
 
-    private float GetChargeState(short chargeState)
+    private double CalculateCharge(FoodMetricComponent component,
+        EntityQuery<SiliconComponent> siliconQ,
+        EntityUid uid,
+        double chargeSc,
+        Dictionary<string, int> chargeCounts)
     {
-        var mid = 0.5f;
-        var low = 0.25f;
-        var critical = 0.1f;
+        if (!siliconQ.TryGetComponent(uid, out var silicon))
+            return chargeSc;
+        var chargeStateValue = GetChargeState(silicon.ChargeState);
+        var chargeStateLabel = GetChargeStateLabel(chargeStateValue); // Get string label
+        chargeSc += component.ChargeScores.GetValueOrDefault(chargeStateValue).Double();
+        chargeCounts[chargeStateLabel]++;
+
+        return chargeSc;
+    }
+
+    private static double CalculateHunger(FoodMetricComponent component, EntityQuery<HungerComponent> hungerQ, EntityUid uid,
+        double hungerSc, Dictionary<HungerThreshold, int> hungerCounts)
+    {
+        if (!hungerQ.TryGetComponent(uid, out var hunger))
+            return hungerSc;
+        var threshold = hunger.CurrentThreshold;
+        hungerSc += component.HungerScores.GetValueOrDefault(threshold).Double();
+        hungerCounts[threshold] = hungerCounts.GetValueOrDefault(threshold) + 1;
+        return hungerSc;
+    }
+
+    private static double CalculateThirst(FoodMetricComponent component,
+        EntityQuery<ThirstComponent> thirstQ,
+        EntityUid uid, double thirstSc,
+        Dictionary<ThirstThreshold, int> thirstCounts)
+    {
+        if (!thirstQ.TryGetComponent(uid, out var thirst))
+            return thirstSc;
+        var threshold = thirst.CurrentThirstThreshold;
+        thirstSc += component.ThirstScores.GetValueOrDefault(threshold).Double();
+        thirstCounts[threshold] = thirstCounts.GetValueOrDefault(threshold) + 1;
+
+        return thirstSc;
+    }
+
+    private static float GetChargeState(short chargeState)
+    {
+        const float mid = 0.5f;
+        const float low = 0.25f;
+        const float critical = 0.1f;
 
         var normalizedCharge = chargeState / 10f; // Assuming ChargeState is from 0-10
 
-        if (normalizedCharge <= critical)
-            return critical;
-        if (normalizedCharge <= low)
-            return low;
-
-        return mid;
+        return normalizedCharge switch
+        {
+            <= critical => critical,
+            <= low => low,
+            _ => mid,
+        };
     }
 
-    private string GetChargeStateLabel(float chargeStateValue)
+    private static string GetChargeStateLabel(float chargeStateValue)
     {
-        var low = 0.25f;
-        var critical = 0.1f;
+        const float low = 0.25f;
+        const float critical = 0.1f;
 
-        if (chargeStateValue <= critical)
-            return "Critical";
-        if (chargeStateValue <= low)
-            return "Low";
-
-        return "Mid";
+        return chargeStateValue switch
+        {
+            <= critical => "Critical",
+            <= low => "Low",
+            _ => "Mid",
+        };
     }
 }
