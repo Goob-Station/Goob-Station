@@ -32,6 +32,7 @@ namespace Content.Shared._Lavaland.Body;
 [AutoGenerateComponentState]
 public sealed partial class CursedHeartComponent : Component
 {
+    [DataField]
     public EntProtoId PumpActionEntity = "ActionPumpCursedHeart";
 
     [AutoNetworkedField]
