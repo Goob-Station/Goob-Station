@@ -317,7 +317,7 @@
 
 - type: entity
   name: svalinn laser pistol
-  parent: [BaseWeaponPowerCellSmall, BaseSecurityContraband]
+  parent: [BaseWeaponCustomCellSmall, BaseSecurityContraband] # goob edit - svalinn buff fix
   id: WeaponLaserSvalinn
   description: A cheap and widely used laser pistol.
   components:
@@ -346,6 +346,18 @@
     materialComposition:
       Steel: 500
       Gold: 125
+  - type: ItemSlots # goob edit - let svalinns use potato batteries
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PowerCellMedium
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - PowerCell
+            - PowerCellSmall
+            - PotatoBattery
 
 - type: entity
   name: retro laser blaster
@@ -1185,11 +1197,12 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 24
-    autoRechargePause: true
-    autoRechargePauseTime: 30
+  # Goob - remove self recharge
+  # - type: BatterySelfRecharger
+  #   autoRecharge: true
+  #   autoRechargeRate: 24
+  #   autoRechargePause: true
+  #   autoRechargePauseTime: 30
 
 - type: entity
   name: temperature gun

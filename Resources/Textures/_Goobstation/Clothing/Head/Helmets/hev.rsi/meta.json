@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Paradise220 - https://github.com/ss220club/Paradise-SS220/commit/d457f2037b894b2677e88aa4652965e3b599e367",
+  "copyright": "Taken from Paradise220 - https://github.com/ss220club/Paradise-SS220/commit/d457f2037b894b2677e88aa4652965e3b599e367, vulp sprites edited by YERO",
   "size": {
     "x": 32,
     "y": 32
@@ -18,8 +18,12 @@
       "name": "equipped-HELMET-resomi",
       "directions": 4
     },
-	{
+    {
       "name": "equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-vulpkanin",
       "directions": 4
     }
   ]

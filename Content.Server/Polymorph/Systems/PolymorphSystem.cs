@@ -356,20 +356,6 @@ public sealed partial class PolymorphSystem : EntitySystem
         MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
         // Goob edit end
 
-        // Einstein Engines - Language begin
-        // Copy specified components over
-        foreach (var compName in configuration.CopiedComponents)
-        {
-            if (!_compFact.TryGetRegistration(compName, out var reg)
-                || !EntityManager.TryGetComponent(uid, reg.Idx, out var comp))
-                continue;
-
-            var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
-            copy.Owner = child;
-            AddComp(child, copy, true);
-        }
-        // Einstein Engines - Language end
-
         var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
         polymorphedComp.Configuration = configuration;
@@ -485,16 +471,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             foreach (var data in configuration.ComponentsToTransfer)
             {
-                Type type;
-                try
-                {
-                    type = _compFact.GetRegistration(data.Component).Type;
-                }
-                catch (UnknownComponentException e)
-                {
-                    Log.Error(e.Message);
+                if (!_compFact.TryGetRegistration(data.Component, out var registration))
                     continue;
-                }
+
+                var type = registration.Type;
 
                 if (!EntityManager.TryGetComponent(uid, type, out var component))
                     continue;
@@ -708,4 +688,43 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (actions.TryGetValue(id, out var action))
             _actions.RemoveAction(target.Owner, action);
     }
+
+    // goob edit
+    // it makes more sense for it to be here than anywhere.
+    // if anywhere it should be embedded in the engine but we can't afford that :P
+    public T? CopyPolymorphComponent<T>(EntityUid old, EntityUid @new, bool transfer = true) where T : Component
+        => CopyPolymorphComponent(old, @new, typeof(T), transfer) as T;
+
+    // don't use transfer if you have component references like EE languages
+    // ideally you shouldn't use comp references at all
+    public IComponent? CopyPolymorphComponent(EntityUid old, EntityUid @new, string componentRegistration, bool transfer = true)
+    {
+        if (!_compFact.TryGetRegistration(componentRegistration, out var reg))
+            return null;
+
+        return CopyPolymorphComponent(old, @new, reg.Type, transfer);
+    }
+
+    public IComponent? CopyPolymorphComponent(EntityUid old, EntityUid @new, Type compType, bool transfer = true)
+    {
+        if (old == @new)
+            return null;
+
+        if (!EntityManager.TryGetComponent(old, compType, out var comp))
+            return null;
+
+        if (transfer)
+        {
+            var newComp = (Component) _compFact.GetComponent(compType);
+            var temp = (object) newComp;
+            _serialization.CopyTo(comp, ref temp, notNullableOverride: true);
+            EntityManager.AddComponent(@new, (Component) temp!, true);
+            return temp as IComponent;
+        }
+
+        var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
+        AddComp(@new, copy, true);
+        return copy;
+    }
+    // goob edit end
 }

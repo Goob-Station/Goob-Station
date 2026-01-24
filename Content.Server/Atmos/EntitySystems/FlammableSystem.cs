@@ -134,10 +134,12 @@ using Content.Server.Temperature.Systems;
 using Content.Server.Damage.Components;
 using Content.Goobstation.Common.CCVar;
 using Content.Shared._Goobstation.Wizard.Spellblade;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.IgnitionSource;
@@ -153,7 +155,6 @@ using Content.Shared.Timing;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Hands;
 using Robust.Server.Audio;
 using Robust.Shared.Maths;
 using Robust.Shared.Physics.Components;
@@ -161,6 +162,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
+using Content.Goobstation.Common.Flammability;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -182,6 +184,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
+        [Dependency] private readonly SharedBodySystem _body = default!; // Goobstation
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
@@ -640,6 +643,11 @@ namespace Content.Server.Atmos.EntitySystems
 
                 _alertsSystem.ShowAlert(uid, flammable.FireAlert);
 
+                // goob edit - fire immunity
+                if (HasComp<FireImmunityComponent>(uid))
+                    continue;
+                // goob edit end
+
                 if (flammable.FireStacks > 0)
                 {
                     var air = _atmosphereSystem.GetContainingMixture(uid);
@@ -666,9 +674,10 @@ namespace Content.Server.Atmos.EntitySystems
                         _inventory.RelayEvent((uid, inv), ref ev);
 
                     multiplier = Math.Clamp(ev.Multiplier + flammable.FireProtectionPenetration, 0f, 1f); // Goostation
+                    multiplier *= _body.GetVitalBodyPartRatio(uid); // Goobstation
 
                     if (multiplier > 0f && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
-                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * multiplier, interruptsDoAfters: false, partMultiplier: 2f); // Lavaland: Nerf fire delimbing
+                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * multiplier, interruptsDoAfters: false, targetPart: TargetBodyPart.All, partMultiplier: 2f); // Lavaland: Nerf fire delimbing
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
                 }

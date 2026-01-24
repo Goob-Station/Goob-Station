@@ -65,6 +65,8 @@ using Content.Shared.Roles;
 using Content.Shared.Species.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Polymorph;
+using Content.Server.Polymorph.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -87,6 +89,7 @@ public sealed class GhoulSystem : EntitySystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
@@ -165,8 +168,11 @@ public sealed class GhoulSystem : EntitySystem
         if (hasMind)
         {
             _mind.UnVisit(mindId, mind);
-            SendBriefing(ent);
-            _role.MindAddRole(mindId, GhoulRole, mind);
+            if (!_role.MindHasRole<GhoulRoleComponent>(mindId))
+            {
+                SendBriefing(ent);
+                _role.MindAddRole(mindId, GhoulRole, mind);
+            }
         }
         else
         {

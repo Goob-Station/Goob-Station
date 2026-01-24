@@ -24,6 +24,7 @@
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -305,12 +306,6 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 
-uplink-second-skin-name = Second Skin
-uplink-second-skin-desc =
-    An improved version of Nanotrasen security second skin device that doesn't cause disgust and doesn't corrode silicon matter.
-    Attached directly to your armor vest, this device can encover your body with protective liquid-like substance that reduces incoming damage and traumas.
-    Doesn't cover your head.
-
 uplink-guerrilla-gloves-name = Guerrilla Gloves
 uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
 
@@ -364,3 +359,9 @@ uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded cloth
 
 uplink-customboard-name = Custom Syndicate Lawboard
 uplink-customboard-desc = A modified lawboard that allows the user to change the laws to anything they want. Comes with Antimov pre-installed.
+
+uplink-cddisksyndicate-name = Syndicate Advertisement CD
+uplink-cddisksyndicate-desc = 102.9 Syndicate radio
+
+uplink-cddisknumber-name = Number Station CD
+uplink-cddisknumber-desc = Call in a threat to distract the station... good luck playing the whole thing.

@@ -12,6 +12,7 @@ using Content.Shared.Actions;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
+using Content.Shared.Mind;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -22,25 +23,32 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly HereticRitualSystem _ritual = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
 
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
         => _proto.Index(id);
 
     public void AddKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = true)
     {
+        if (comp.ResearchedKnowledge.Contains(id))
+            return;
+
         var data = GetKnowledge(id);
 
         if (data.Event != null)
-            RaiseLocalEvent(uid, (object) data.Event, true);
+            RaiseLocalEvent(uid, data.Event, true);
+
+        var hasMind = _mind.TryGetMind(uid, out var mind, out _);
 
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
         {
             foreach (var act in data.ActionPrototypes)
             {
-                if (_action.AddAction(uid, act) is {} action)
-                    comp.ProvidedActions.Add(action);
+                if (hasMind)
+                    _actionContainer.AddAction(mind, act);
                 else
-                    Log.Error($"Failed to give heretic {ToPrettyString(uid)} action {act}!");
+                    _action.AddAction(uid, act);
             }
         }
 
@@ -61,36 +69,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (data.Stage > comp.PathStage && data.Path == comp.CurrentPath)
             comp.PathStage = data.Stage;
 
-        if (!silent)
-            _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
-    }
-    public void RemoveKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = false)
-    {
-        var data = GetKnowledge(id);
-
-        if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
-        {
-            foreach (var act in data.ActionPrototypes)
-            {
-                comp.ProvidedActions.RemoveAll(action =>
-                {
-                    // goida
-                    if (Prototype(action)?.ID is not {} id || id != act)
-                        return false;
-
-                    _action.RemoveAction(action);
-                    return true;
-                });
-            }
-        }
-
-        if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
-            foreach (var ritual in data.RitualPrototypes)
-                comp.KnownRituals.Remove(_ritual.GetRitual(ritual));
-
-        Dirty(uid, comp);
-
-        if (!silent)
-            _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), uid, uid);
+        if (!silent) _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
+        comp.ResearchedKnowledge.Add(id);
     }
 }
