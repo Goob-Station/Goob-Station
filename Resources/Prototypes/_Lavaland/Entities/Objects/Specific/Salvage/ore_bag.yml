@@ -1,5 +1,5 @@
 - type: entity
-  name: magnetic ore bag
+  name: high-capacity ore bag
   description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
   id: OreBagMagnetic
   parent: OreBag
@@ -15,6 +15,7 @@
     slots:
     - belt
   - type: MagnetPickup # Lavaland TODO: rewrite this component's logic when porting to Reforged
+    range: 1.5
   - type: ItemToggle
     soundActivate:
       collection: sparks
@@ -33,4 +34,4 @@
           False: { state: orebag_off }
   - type: Storage
     grid:
-    - 0,0,9,5
+    - 0,0,9,7

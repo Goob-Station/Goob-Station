@@ -100,7 +100,7 @@
           !type:PhysShapeCircle
           radius: 0.3
         # very not dense to make it easy to pull
-        density: 20
+        density: 50 # Lavaland Change - make it heavier: 20 -> 50
         mask:
         - MachineMask
         layer:

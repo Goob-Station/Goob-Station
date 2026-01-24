@@ -30,12 +30,14 @@
   name: ore bag
   id: OreBag
   parent: BaseStorageItem
-  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. # Magnetises any nearby ores when attached to a belt. # Lavaland Change - no longer magnetises anything
+  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
   components:
-  #- type: MagnetPickup # Lavaland Change: No longer works without ItemToggle
+  - type: MagnetPickup
   - type: Sprite
     sprite: Objects/Specific/Mining/ore_bag.rsi
-    state: icon
+    layers: # Lavaland Change
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: Objects/Specific/Mining/ore_bag.rsi
     quickEquip: false
@@ -59,11 +61,28 @@
         - ArtifactFragment
         - Ore
   - type: Dumpable
-    multiplier: 0.1 # Lavaland Change
-  - type: OreBag # Lavaland Change
+  # Lavaland Change start
+  - type: OreBag
+  - type: ItemToggle
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: orebag_on }
+          False: { state: icon }
+  # Lavaland Change end
 
 - type: entity
-  parent: OreBagMagnetic # Lavaland Change
+  parent: OreBag
   id: BorgOreBag
   name: integrated ore bag
   description: A large ore bag built into the frame of a mining cyborg.
