@@ -100,6 +100,15 @@ public sealed class DoodonBuildSystem : EntitySystem
 
     private bool TryConsumeResin(EntityUid builder, int amount)
     {
+        if (amount <= 0)
+            return true;
+
+        // Pass 1: count without consuming
+        var total = CountResin(builder);
+        if (total < amount)
+            return false;
+
+        // Pass 2: consume now that we know we can pay
         var remaining = amount;
 
         foreach (var held in _hands.EnumerateHeld(builder))
@@ -114,13 +123,14 @@ public sealed class DoodonBuildSystem : EntitySystem
             while (slots.MoveNext(out var slot))
             {
                 if (remaining <= 0) break;
+
                 var item = slot.ContainedEntity;
                 if (item is { } itemUid)
                     TryConsumeFromStackEntity(itemUid, ref remaining);
             }
         }
 
-        return remaining <= 0;
+        return true; // guaranteed by CountResin
     }
 
     private void TryConsumeFromStackEntity(EntityUid uid, ref int remaining)
@@ -145,5 +155,34 @@ public sealed class DoodonBuildSystem : EntitySystem
             QueueDel(uid);
 
         remaining -= take;
+    }
+
+    private int CountResin(EntityUid builder)
+    {
+        var total = 0;
+
+        foreach (var held in _hands.EnumerateHeld(builder))
+            total += CountResinInEntity(held);
+
+        var slots = _inventory.GetSlotEnumerator(builder);
+        while (slots.MoveNext(out var slot))
+        {
+            var item = slot.ContainedEntity;
+            if (item is { } itemUid)
+                total += CountResinInEntity(itemUid);
+        }
+
+        return total;
+    }
+
+    private int CountResinInEntity(EntityUid uid)
+    {
+        if (!TryComp<StackComponent>(uid, out var stack))
+            return 0;
+
+        if (!string.Equals(stack.StackTypeId, ResinStackTypeId, StringComparison.Ordinal))
+            return 0;
+
+        return Math.Max(0, stack.Count);
     }
 }

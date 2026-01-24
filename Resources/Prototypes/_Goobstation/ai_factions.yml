@@ -40,3 +40,26 @@
   - Zombie
   - Blob
   - AllHostile
+  friendly:
+  - DoodonFighter
+  
+- type: npcFaction
+  id: DoodonFighter
+  hostile:
+  - NanoTrasen  # Simp Hostile
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - AllHostile
+  - Xenoborg
+  - Heretic #
+  - Blob 
+  - PirateFaction 
+  - Lavafauna 
+  - AllHostile
+  friendly:
+  - Doodon

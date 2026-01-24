@@ -199,6 +199,7 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    - id: PapaDoodonMidround # Goobstation - Doodon
     #- id: WraithMidround # Goobstation - Wraith
     #TODO When Slasher is ready- id: SlasherSpawn # Goobstation - The Slasher
 

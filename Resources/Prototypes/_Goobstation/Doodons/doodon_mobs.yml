@@ -86,8 +86,9 @@
   - type: Inventory    # just hands
     templateId: doodon
   - type: PressureImmunity      # Space fairing creatures
-  - type: Speech
-    speechVerb: SmallMob
+  - type: Speech    # Unique Speech Sounds and Verbs
+    speechVerb: Doodon
+    speechSounds: Doodon
   - type: TypingIndicator
     proto: alien
   - type: Temperature       # No icey doodons
@@ -107,7 +108,8 @@
     defaultChannel: DoodonMind
     channels:
     - DoodonMind
-      
+  - type: VentCrawler
+    allowInventory: false
 - type: entity      # Papa
   parent: BaseDoodon
   id: PapaDoodon
@@ -263,7 +265,7 @@
   - type: DoodonWarrior
   - type: NpcFactionMember
     factions:
-    - Doodon
+    - DoodonFighter
   - type: HTN
     rootTask:
       task: DoodonWarriorCompound

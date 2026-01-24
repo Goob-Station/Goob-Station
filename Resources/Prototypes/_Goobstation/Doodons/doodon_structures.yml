@@ -105,6 +105,7 @@
     state: warriorhut
   - type: DoodonBuilding
     housingType: Warrior
+    housingCapacity: 1 
     resinCost: 6
     buildIcon:
       sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
@@ -171,7 +172,7 @@
   parent: BaseDoodonStructure
   id: DoodonPasture
   name: doodon pasture
-  description: The doodon pasture, makes moodons which can be milked for doodomnizine or juiced for omnizine.
+  description: The doodon pasture, makes moodons which can be milked or juiced for omnizine.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
