@@ -23,16 +23,18 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Body;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class CursedHeartComponent : Component
 {
-    [DataField]
     public EntProtoId PumpActionEntity = "ActionPumpCursedHeart";
 
+    [AutoNetworkedField]
     public TimeSpan LastPump = TimeSpan.Zero;
 
     /// <summary>

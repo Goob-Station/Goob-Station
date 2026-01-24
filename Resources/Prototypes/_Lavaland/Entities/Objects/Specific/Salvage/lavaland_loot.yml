@@ -39,9 +39,10 @@
       Destroyed: 0
     onAdd:
     - type: CursedHeart
+      maxDelay: 10
       pumpHarm:
-        groups:
-          Airloss: 50
+        types:
+          Asphyxiation: 50
       pumpHeal:
         groups:
           Brute: -5
