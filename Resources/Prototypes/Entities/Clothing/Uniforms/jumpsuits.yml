@@ -313,28 +313,6 @@
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitHoSBlue
-  name: head of security's blue jumpsuit
-  description: A blue jumpsuit of Head of Security.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitHoSGrey
-  name: head of security's grey jumpsuit
-  description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSParadeMale
   name: head of security's parade uniform
   description: A male head of security's luxury-wear, for special occasions.
@@ -376,17 +354,6 @@
       sprite: Clothing/Uniforms/Jumpsuit/qmformal.rsi
     - type: Clothing
       sprite: Clothing/Uniforms/Jumpsuit/qmformal.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitResearchDirector
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/rnd.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/rnd.rsi
 
 - type: entity
   parent: ClothingUniformBase
