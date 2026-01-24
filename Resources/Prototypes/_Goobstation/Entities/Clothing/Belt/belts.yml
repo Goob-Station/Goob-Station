@@ -51,6 +51,7 @@
         - MedicalPatch # Goobstation
         - AutoinjectorCartridge # Goobstation
         - HandheldCrewMonitor # Goobstation
+        - SyringeCase # Goobstation
       components:
         - Hypospray
         - Injector
