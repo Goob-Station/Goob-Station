@@ -54,7 +54,7 @@ public sealed class CursedHeartSystem : EntitySystem
 
     private void OnStartup(Entity<CursedHeartComponent> ent, ref ComponentStartup args)
     {
-        _actions.AddAction(ent.Owner, ent.Comp.PumpActionEntity);
+        _actions.AddAction(ent.Owner, ent.Comp.PumpAction);
         _audio.PlayGlobal(ent.Comp.Heartbeat, ent.Owner);
         ent.Comp.LastPump = _timing.CurTime;
     }
