@@ -71,5 +71,7 @@ public sealed partial class CursedHeartComponent : Component
     [ViewVariables]
     public SoundSpecifier Heartbeat = new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg");
 }
-
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;
+
+[RegisterComponent, NetworkedComponent, Access(typeof(CursedHeartSystem))]
+public sealed partial class CursedHeartOrganComponent : Component;

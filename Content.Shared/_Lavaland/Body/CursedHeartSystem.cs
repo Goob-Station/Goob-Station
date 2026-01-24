@@ -49,7 +49,7 @@ public sealed class CursedHeartSystem : EntitySystem
 
         SubscribeLocalEvent<CursedHeartComponent, PumpHeartActionEvent>(OnPump);
         SubscribeLocalEvent<CursedHeartComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<CursedHeartComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
+        SubscribeLocalEvent<CursedHeartOrganComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
     }
 
     private void OnStartup(Entity<CursedHeartComponent> ent, ref ComponentStartup args)
@@ -97,7 +97,7 @@ public sealed class CursedHeartSystem : EntitySystem
         ent.Comp.LastPump = _timing.CurTime;
     }
 
-    private void OnTryRemoveOrgan(Entity<CursedHeartComponent> ent, ref TryRemoveOrganEvent args)
+    private void OnTryRemoveOrgan(Entity<CursedHeartOrganComponent> ent, ref TryRemoveOrganEvent args)
     {
         args.Cancelled = true;
     }
