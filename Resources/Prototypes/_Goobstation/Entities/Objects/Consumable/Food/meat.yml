@@ -143,17 +143,8 @@
           Quantity: 5
         - ReagentId: Ammonia
           Quantity: 5
-#  - type: FoodSequenceElement //todo marty see - PR 31012
-#    sprite:
-#      sprite: Objects/Consumable/Food/meat.rsi
-#      state: chicken-fried
-#    entries:
-#      burger:
-#        name: food-sequence-content-chicken
-#      taco:
-#        name: food-sequence-content-chicken
-#      skewer:
-#        name: food-sequence-content-chicken
-#        sprite:
-#          sprite: Objects/Consumable/Food/skewer.rsi
-#          state: skewer-meat
+  - type: FoodSequenceElement
+    entries:
+      burger: FSE_FoodMeatVoxFried
+      taco: FSE_FoodMeatVoxFried
+      skewer: FSE_FoodMeatVoxFriedSkewer

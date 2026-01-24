@@ -2919,15 +2919,10 @@
   - type: Tag
     tags:
     - Fruit
-#  - type: FoodSequenceElement //todo marty see - PR 31012
-#    sprite:
-#      sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
-#      state: produce
-#    entries:
-#      burger:
-#        name: food-sequence-content-anomaly-berry
-#      taco:
-#        name: food-sequence-content-anomaly-berry
+  - type: FoodSequenceElement
+    entries:
+      Taco: AnomalyBerry
+      Burger: AnomalyBerryBurger
 
 - type: entity
   name: bloonion bulb

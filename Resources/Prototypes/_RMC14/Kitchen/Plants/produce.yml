@@ -31,13 +31,8 @@
   - type: Tag
     tags:
     - Fruit
-#  - type: FoodSequenceElement //todo marty see - PR 31012
-#    sprite:
-#      sprite: _RMC14/Objects/Kitchen/Plants/mango.rsi
-#      state: produce
-#    # TODO: Sequence sprites are to be scaled by 0.8x.
-#    entries:
-#      taco:
-#        name: food-sequence-content-mango
-#      burger:
-#        name: food-sequence-burger-content-mango
+  - type: FoodSequenceElement
+    # TODO: Sequence sprites are to be scaled by 0.8x.
+    entries:
+      Taco: FSE_Mango
+      Burger: FSE_MangoBurger
