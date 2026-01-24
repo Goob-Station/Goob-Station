@@ -234,7 +234,7 @@
     state: bluespace_research
   discipline: Arsenal
   tier: 3
-  cost: 50000
+  cost: 25000
   recipeUnlocks:
   - PowerCellBluespaceRevolver
   - PowerCellBluespaceSMG
