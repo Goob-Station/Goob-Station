@@ -25,12 +25,29 @@
   id: BaseRoboticsRecipe
   categories:
   - Robotics
-  completetime: 2
-
-# Recipes
+  completetime: 3
 
 - type: latheRecipe
+  abstract: true
   parent: BaseRoboticsRecipe
+  id: BaseBorgLimbRecipe
+  completetime: 2
+  materials:
+    Steel: 250
+    Glass: 100
+
+- type: latheRecipe
+  abstract: true
+  id: BaseRoboticsPartRecipe
+  categories:
+  - Parts
+  completetime: 2
+
+## Recipes
+
+# Parts
+- type: latheRecipe
+  parent: BaseRoboticsPartRecipe
   id: ProximitySensor
   result: ProximitySensor
   materials:
@@ -38,7 +55,7 @@
     Glass: 300
 
 - type: latheRecipe
-  parent: BaseRoboticsRecipe
+  parent: BaseRoboticsPartRecipe
   id: SciFlash
   result: SciFlash
   materials:
@@ -46,13 +63,49 @@
     Plastic: 200
     Steel: 100
 
-# Parts
+# Cyborg body
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: CyborgEndoskeleton
+  result: CyborgEndoskeleton
+  materials:
+    Steel: 1500
 
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: LeftArmBorg
+  result: LeftArmBorg
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: RightArmBorg
+  result: RightArmBorg
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: LeftLegBorg
+  result: LeftLegBorg
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: RightLegBorg
+  result: RightLegBorg
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: LightHeadBorg
+  result: LightHeadBorg
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: TorsoBorg
+  result: TorsoBorg
+
+# Brains
 - type: latheRecipe
   parent: BaseRoboticsRecipe
   id: MMI
   result: MMI
-  completetime: 3
   icon:
     sprite: Objects/Specific/Robotics/mmi.rsi
     state: mmi_off
@@ -66,7 +119,6 @@
   parent: BaseRoboticsRecipe
   id: PositronicBrain
   result: PositronicBrain
-  completetime: 3
   materials:
     Steel: 500
     Plastic: 500
