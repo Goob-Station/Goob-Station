@@ -1649,9 +1649,10 @@
   id: UplinkBoxXenobio
   name: uplink-box-xenobio-name
   description: uplink-box-xenobio-desc
+  icon: { sprite: _Goobstation/Objects/Misc/syndiecubes.rsi, state: box }
   productEntity: SlimeCubeBoxSyndie
   cost:
-    Telecrystal: 75
+    Telecrystal: 150
   categories:
     - UplinkDisruption
   conditions:
