@@ -1651,7 +1651,7 @@
   description: uplink-box-xenobio-desc
   productEntity: SlimeCubeBoxSyndie
   cost:
-    Telecrystal: 75
+    Telecrystal: 150
   categories:
     - UplinkDisruption
   conditions:
