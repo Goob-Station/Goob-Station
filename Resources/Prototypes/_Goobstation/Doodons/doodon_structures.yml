@@ -80,7 +80,7 @@
     state: dwelling
   - type: DoodonBuilding
     housingType: Worker
-    housingCapacity: 1
+    housingCapacity: 2
     resinCost: 3 # Resin cost for the Building itself
     buildIcon:
       sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
@@ -181,7 +181,7 @@
   - type: DoodonBuilding
     housingType: Moodon
     housingCapacity: 3
-    resinCost: 4
+    resinCost: 3
     buildIcon:
       sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
       state: pasture

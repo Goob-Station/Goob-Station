@@ -47,3 +47,4 @@ papa-doodon-role-greeting = Lead your Doodons to victory. Build, trade, and figh
 doodon-machine-cannot-produce = This machine cannot produce. Do you have enough housing?
 
 guide-entry-doodons = Doodons
+guide-entry-doodon-buildings = Doodon Buildings

@@ -22,6 +22,9 @@
     {
         "name": "moodon",
         "directions": 4
+    },
+    {
+        "name": "papa_dead"
     }
   ]
 }

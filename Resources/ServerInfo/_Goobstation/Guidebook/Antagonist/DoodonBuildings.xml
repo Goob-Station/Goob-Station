@@ -1,0 +1,62 @@
+<Document>
+  # Doodon Buildings
+  <Box>
+    <GuideEntityEmbed Entity="DoodonTownHall" Caption=""/>
+    <GuideEntityEmbed Entity="PapaDoodon" Caption=""/>
+  </Box>
+  ## Town Hall
+  The doodon town hall is the heart of the doodon village. It keeps track of population, buildings, and housing capacity. Without the town hall, doodon buildings will cease to function.
+  [color=yellow]Housing capacity[/color] is the limiting factor of how many doodons can live in the village. If there are more houses than a specific doodon, then you can spend resin at a house to respawn that doodon.
+  If there are greater or equal doodons to houses, then no more doodons can spawn.
+
+  ## Houses:
+  <Box>
+    <GuideEntityEmbed Entity="DoodonDwelling" Caption="+2 Worker Housing"/>
+    <GuideEntityEmbed Entity="WorkerDoodon" Caption="Uses 1 Worker Housing"/>
+  </Box>
+  ### Dwelling
+  Dwellings serve as housing for workers. Each dwelling provides two housing for workers, and spawns one when built. Respawning one worker costs 1 resin.
+  <Box>
+    <GuideEntityEmbed Entity="DoodonWarriorHut" Caption="+1 Warrior Housing"/>
+    <GuideEntityEmbed Entity="WarriorDoodon" Caption="Uses 1 Warrior Housing"/>
+  </Box>
+  ### Warrior Hut
+  Huts provide housing for warriors, and produce one when built. Each hut provides one housing for warriors. Respawning one warrior costs 3 resin.
+  <Box>
+    <GuideEntityEmbed Entity="DoodonPasture" Caption="+3 Moodon Housing"/>
+    <GuideEntityEmbed Entity="Moodon" Caption="Uses 1 Moodon Housing"/>
+  </Box>
+  ### Pasture
+  Pastures house three moodons, and spawn one when built. Moodons can milked or grinded for omnizine, and can serve as good trade material. Spawning one moodon costs 1 resin.
+
+  ## Refiners:
+  <Box>
+    <GuideEntityEmbed Entity="DoodonMetalRefiner" Caption="3 Steel = 1 Resin"/>
+    <GuideEntityEmbed Entity="DoodonGlassRefiner" Caption="3 Glass = 1 Resin"/>
+  </Box>
+  Refiners provide another source of resin. Refiners take time, so it might be wise to build multiple of each.
+
+  ## Workshops:
+
+  ### Gem Cutter:
+  <Box>
+    <GuideEntityEmbed Entity="DoodonGemCutter" Caption="5 Resin = 1 Gem"/>
+    <GuideEntityEmbed Entity="DoodonGem" Caption="$$$"/>
+  </Box>
+  Refines resin into a valuable gem. This gem has no use to the doodons, but can serve as trade material.
+
+  ### Shieldsmith:
+  <Box>
+    <GuideEntityEmbed Entity="DoodonShieldsmith" Caption="3 Resin = 1 Shield"/>
+    <GuideEntityEmbed Entity="DoodonShield" Caption=""/>
+  </Box>
+  Presses resin into a cruddy shield.
+
+  ### Swordsmith:
+  <Box>
+    <GuideEntityEmbed Entity="DoodonSwordsmith" Caption="3 Resin = 1 Sword"/>
+    <GuideEntityEmbed Entity="DoodonSword" Caption=""/>
+  </Box>
+  Smiths resin into a surprisingly sharp sword
+  
+</Document>

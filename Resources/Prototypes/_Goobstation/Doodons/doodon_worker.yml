@@ -28,4 +28,4 @@
   branches:
   - tasks:
     - !type:HTNCompoundTask
-      task: IdleCompound
+      task: SimpleHostileCompound

@@ -1,26 +1,25 @@
 <Document>
-  ## The Doodons
-  <GuideEntityEmbed Entity="WorkerDoodon" Caption="a standard worker doodon"/>
-  The doodons are small, industrial creatures, known for their ability to establish colony villages on many a station.
+  # The Doodons
+  <GuideEntityEmbed Entity="DoodonTownHall" Caption=""/>
+  The doodons are small, industrial creatures known for their ability to establish colonies on space stations and shuttles.
   They have a sort of ant-like caste system, with there being 3 main types:
   - Papa
   - Worker
   - Warrior
 
-
-
   ## Papa Doodon
-  <GuideEntityEmbed Entity="PapaDoodon" Caption="The central hivemind node of the group"/>
+  <GuideEntityEmbed Entity="PapaDoodon" Caption=""/>
   Papa Doodon is the ruler of the doodon village. The papa's main job is to establish the village and command the warriors.
   Starting out, it is the papa who must find an suitable location for the village.
   The papa is the only starting doodon, and must populate the village.
   Papa doodon is the only village member that can speak Tau-Ceti basic, which he can use to orchastrate trade deals with the natives of the station.
+  [color=red] NOTE: All workers and warriors will go feral if the papa is dead [/color]
 
   ## Worker Doodons
   <GuideEntityEmbed Entity="WorkerDoodon" Caption=""/>
   The worker doodon is responible for foraging for food, and generally being a second pair of hands for the papa doodon.
   While a part of the hive, the worker possess rudimentary sentience and is able to make descisions independent of the papa.
-  They can retaliate if provoked.
+  They are passive, but can retaliate if provoked.
 
   ## Warrior Doodons
   <GuideEntityEmbed Entity="WarriorDoodon" Caption=""/>
@@ -30,4 +29,38 @@
   - Follow: Follow the papa doodon
   - Attack Target: Attack a target that the papa points at
   - Loose: Makes the warriors feral, attacking anyone who isn't doodon.
+
+  ## Playing as the Doodons:
+  Doodons always start with just the papa doodon.
+  Doodons can communicate through a collective mind with the key: [color=green] +l [/color]
+
+  ### As the Papa Doodon:
+  - Find a secure location for the village.
+  - Prioritize your safety, there is only [color=red]one[/color] of you.
+  - Defend the village from threats using warriors.
+  - Negotiate with the crew to secure safety, or to justify your place on the station.
+  - Tell workers what to do.
+  - Keep your workers safe.
+  - build village buildings using resin.
+  - Arm your warriors with swords and shields
+
+  ### As a Worker:
+  - [color=red]DO NOT START FIGHTS UNPROVOKED[/color]
+  - Listen to your papa doodon
+  - Collect resources to turn into resin (food, metal, glass).
+  - Build village buildings using resin.
+  - Don't do anything to harm the village or its inhabitants
+
+  ### Notes:
+  - Starting off you may want to build a metal or glass refiner as another source of resin.
+  - It is recomended that you shouldn't build workshops (Swordsmith, Gemcutter, etc) until you have a solid foundation.
+  - You may want to start with a dwelling, since an extra pair of hands is always helpful.
+  - Getting a warrior or two early wouldn't hurt either.
+  - Finding a silo-connected lathe means you're set for life. As long as you don't take too much to anger the crew.
+  - Pissing off the crew early on could mean certain death, as you are fairly weak starting out.
+
+  ## Playing Against the Doodons:
+  - Assess the situation first, not all doodons are openly hostile.
+  - If they are hostile, deal with them how you would deal with any other pest.
+  - If they are friendly, see what they have. Maybe you can shake them down for a couple of doodon gems or moodons.
 </Document>

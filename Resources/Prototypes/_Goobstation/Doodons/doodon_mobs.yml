@@ -102,8 +102,6 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: Item
-    size: Small
   - type: CollectiveMind        # The Collective mind
     defaultChannel: DoodonMind
     channels:
@@ -123,8 +121,15 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    map: ["enum.DamageStateVisualLayers.Base"]
     state: papa
     drawdepth: SmallMobs
+  - type: Appearance
+  - type: MobThresholds     # Papa Doodon health
+    thresholds:
+      0: Alive
+      100: Critical
+      150: Dead
   - type: Hands
     slots: 2
     names: ["left hand", "right hand"]
@@ -191,6 +196,25 @@
     attackMemoryLength: 10
   - type: GroupRetaliation
     range: 8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip
+      - !type:PlaySoundBehavior
+        sound:
+          collection: DoodonDeath
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: papa
+      Critical:
+        Base: papa_dead
+      Dead:
+        Base: papa_dead
     
 - type: entity      # Worker
   parent: BaseDoodon
@@ -214,7 +238,6 @@
     attackMemoryLength: 10
   - type: GroupRetaliation
     range: 8
-  - type: FactionException
   - type: NpcFactionMember
     factions:
       - Doodon
@@ -309,8 +332,6 @@
       types:
         Blunt: 8
     animation: WeaponArcFist
-  - type: Item
-    size: Normal
    
 - type: entity              # Moodon
   name: moodon
@@ -360,3 +381,5 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
+  - type: Item
+    size: Small
