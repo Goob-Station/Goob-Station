@@ -100,8 +100,9 @@
             state: head
   - type: Carriable # Frontier: Carrying system from nyanotrasen.
   - type: Speech
-    speechSounds: Lizard
+    speechSounds: Hydrakin
     speechVerb: Reptilian
+    allowedEmotes: ['Trill', 'Wurble',]
   - type: Vocal
     sounds:
       Male: UnisexHydrakin

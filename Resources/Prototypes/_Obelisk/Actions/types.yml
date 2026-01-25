@@ -9,6 +9,6 @@
   categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: InstantAction
-    icon: { sprite: Structures/Piping/Atmospherics/heatexchanger.rsi, state: heStraight }
+    icon: { sprite: _Obelisk/Actions/hydrakin_cooldown.rsi, state: hydra_cooldown }
     useDelay: 5
     event: !type:HydrakinCoolOffActionEvent

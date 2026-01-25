@@ -1,51 +1,55 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites by Zethine (discord: synthetic_086)",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "hydra_face_mask",
-      "directions": 4
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprites by Zethine (discord: synthetic_086)",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "hydra_mantle_maw",
-      "directions": 4
-    },
-    {
-      "name": "hydra_seer_arm_left",
-      "directions": 4
-    },
-    {
-      "name": "hydra_seer_arm_right",
-      "directions": 4
-    },
-    {
-      "name": "hydra_seer_ears",
-      "directions": 4
-    },
-    {
-      "name": "hydra_seer_leg_left",
-      "directions": 4
-    },
-	{
-      "name": "hydra_seer_leg_right",
-      "directions": 4
-    },
-	{
-      "name": "hydra_seer_marking",
-      "directions": 4
-    },
-	{
-      "name": "hydra_seer_tail_feathers",
-      "directions": 4
-    },
-	{
-      "name": "hydra_underbelly",
-      "directions": 4
-    }
-  ]
+    "states": [
+        {
+            "name": "hydra_face_mask",
+            "directions": 4
+        },
+        {
+            "name": "hydra_mantle_maw",
+            "directions": 4
+        },
+        {
+            "name": "hydra_seer_arm_left",
+            "directions": 4
+        },
+        {
+            "name": "hydra_seer_arm_right",
+            "directions": 4
+        },
+        {
+            "name": "hydra_seer_ears",
+            "directions": 4
+        },
+        {
+            "name": "hydra_seer_leg_left",
+            "directions": 4
+        },
+        {
+            "name": "hydra_seer_leg_right",
+            "directions": 4
+        },
+        {
+            "name": "hydra_seer_marking",
+            "directions": 4
+        },
+        {
+            "name": "hydra_seer_tail_feathers",
+            "directions": 4
+        },
+        {
+            "name": "hydra_underbelly",
+            "directions": 4
+        },
+        {
+            "name": "hydra_seer_tail_feathers_overlay",
+            "directions": 4
+        }
+    ]
 }

@@ -13,6 +13,25 @@
     Sigh:
       collection: HydrakinSigh
     Gasp:
-      collection: MaleGasp
+      collection: HydrakinGasp
+    Trill:
+      collection: HydrakinTrill
+    Wurble:
+      collection: HydrakinWurble
+    Cough:
+      collection: HydrakinCough
+    Yawn:
+      collection: HydrakinYawn
+    Whistle:
+      collection: HydrakinWhistle
     DefaultDeathgasp:
-      collection: DeathGasp
+      collection: HydrakinDeathgasp
+
+- type: speechSounds
+  id: Hydrakin
+  saySound:
+    collection: HydrakinSay
+  askSound:
+    collection: HydrakinAsk
+  exclaimSound:
+    collection: HydrakinExclaim

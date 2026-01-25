@@ -6,7 +6,7 @@ marking-HydrakinEyesRing = Ring Eyes
 marking-HydrakinEyesSaint = Saint Eyes
 
 marking-HydrakinTailDefault = Tail
-marking-HydrakinTailBig = Big
+marking-HydrakinTailNub = Nub
 marking-HydrakinTailFeathers = Feathered
 marking-HydrakinTailSpiny = Spiny
 marking-HydrakinTailFins = Fins
