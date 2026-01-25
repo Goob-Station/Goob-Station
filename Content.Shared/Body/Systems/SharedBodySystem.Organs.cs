@@ -106,6 +106,7 @@ public partial class SharedBodySystem
     {
         SubscribeLocalEvent<OrganComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<OrganComponent, OrganEnableChangedEvent>(OnOrganEnableChanged);
+        SubscribeLocalEvent<UnremovableOrganComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
     }
 
     private void OnMapInit(Entity<OrganComponent> ent, ref MapInitEvent args)
@@ -409,5 +410,9 @@ public partial class SharedBodySystem
         return RemoveOrgan(organId, organ);
     }
 
+    private void OnTryRemoveOrgan(Entity<UnremovableOrganComponent> ent, ref TryRemoveOrganEvent args)
+    {
+        args.Cancelled = true;
+    }
     // Shitmed Change End
 }

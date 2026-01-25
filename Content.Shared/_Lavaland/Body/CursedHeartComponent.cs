@@ -30,12 +30,13 @@ namespace Content.Shared._Lavaland.Body;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
+[AutoGenerateComponentPause]
 public sealed partial class CursedHeartComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntProtoId PumpAction = "ActionPumpCursedHeart";
 
-    [AutoNetworkedField]
+    [AutoNetworkedField, AutoPausedField]
     public TimeSpan LastPump = TimeSpan.Zero;
 
     /// <summary>
@@ -68,10 +69,7 @@ public sealed partial class CursedHeartComponent : Component
     [DataField]
     public FixedPoint2 BloodHarmMissedPump = FixedPoint2.New(-50);
 
-    [ViewVariables]
-    public SoundSpecifier Heartbeat = new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg");
+    [DataField]
+    public SoundSpecifier? Heartbeat = new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg");
 }
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;
-
-[RegisterComponent, NetworkedComponent, Access(typeof(CursedHeartSystem))]
-public sealed partial class CursedHeartOrganComponent : Component;

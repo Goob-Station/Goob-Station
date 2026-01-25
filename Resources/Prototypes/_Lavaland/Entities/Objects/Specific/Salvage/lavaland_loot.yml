@@ -49,7 +49,7 @@
           Burn: -5
           Toxin: -5
           Airloss: -5
-  - type: CursedHeartOrgan #This organ can't be removed
+  - type: UnremovableOrgan
   - type: StaticPrice
     price: 10000
 

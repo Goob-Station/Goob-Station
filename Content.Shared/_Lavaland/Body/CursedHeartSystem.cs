@@ -49,7 +49,6 @@ public sealed class CursedHeartSystem : EntitySystem
 
         SubscribeLocalEvent<CursedHeartComponent, PumpHeartActionEvent>(OnPump);
         SubscribeLocalEvent<CursedHeartComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<CursedHeartOrganComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
     }
 
     private void OnStartup(Entity<CursedHeartComponent> ent, ref ComponentStartup args)
@@ -95,10 +94,5 @@ public sealed class CursedHeartSystem : EntitySystem
         _damage.TryChangeDamage(ent.Owner, ent.Comp.PumpHeal, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
         _bloodstream.TryModifyBloodLevel(ent.Owner, ent.Comp.BloodHealPerPump);
         ent.Comp.LastPump = _timing.CurTime;
-    }
-
-    private void OnTryRemoveOrgan(Entity<CursedHeartOrganComponent> ent, ref TryRemoveOrganEvent args)
-    {
-        args.Cancelled = true;
     }
 }
