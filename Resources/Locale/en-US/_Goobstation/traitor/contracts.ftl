@@ -23,7 +23,7 @@ contract-menu-no-active = You have no active contracts.
 contract-menu-no-completed = You haven't completed any contracts yet.
 contract-menu-no-contracts = No contracts to display.
 
-contract-menu-footer = Complete contracts to earn additional TC. Abandoned contracts cannot be retaken.
+contract-menu-footer = Complete contracts to earn additional TC.
 
 
 contract-category-kill = Assassination
