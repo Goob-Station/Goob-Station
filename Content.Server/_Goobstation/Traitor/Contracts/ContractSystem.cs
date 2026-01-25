@@ -101,16 +101,10 @@ public sealed class ContractSystem : EntitySystem
             return;
 
         if (component.ActiveContracts.Count >= component.MaxActiveContracts)
-        {
-            Log.Warning($"Cannot accept contract: max active contracts reached");
             return;
-        }
 
         if (!proto.Repeatable && component.ActiveContracts.Any(c => c.PrototypeId == proto.ID))
-        {
-            Log.Warning($"Cannot accept contract: already active and not repeatable");
             return;
-        }
 
         EntityUid? mindId = null;
         MindComponent? mindComp = null;
@@ -128,17 +122,11 @@ public sealed class ContractSystem : EntitySystem
         }
 
         if (mindId == null || mindComp == null)
-        {
-            Log.Warning($"Cannot accept contract: no mind found");
             return;
-        }
 
         var objectiveUid = _objectives.TryCreateObjective(mindId.Value, mindComp, proto.ObjectivePrototype);
         if (objectiveUid == null)
-        {
-            Log.Warning($"Cannot accept contract: failed to create objective {proto.ObjectivePrototype}");
             return;
-        }
 
         _mind.AddObjective(mindId.Value, mindComp, objectiveUid.Value);
 
@@ -161,7 +149,6 @@ public sealed class ContractSystem : EntitySystem
         Dirty(uid, component);
 
         UpdateUi(uid, component);
-        Log.Info($"Contract accepted: {proto.ID} (Instance: {contractData.ContractId})");
     }
 
     private void OnContractAbandon(EntityUid uid, ContractsComponent component, ContractAbandonMessage args)
@@ -184,7 +171,6 @@ public sealed class ContractSystem : EntitySystem
 
         Dirty(uid, component);
         UpdateUi(uid, component);
-        Log.Info($"Contract abandoned: {contract.PrototypeId} (Instance: {contract.ContractId})");
     }
 
     private void OnContractClaimReward(EntityUid uid, ContractsComponent component, ContractClaimRewardMessage args)
@@ -214,7 +200,6 @@ public sealed class ContractSystem : EntitySystem
 
         Dirty(uid, component);
         UpdateUi(uid, component);
-        Log.Info($"Contract reward claimed: {contract.PrototypeId} (Instance: {contract.ContractId}) - {reward} TC");
     }
 
     private void OnContractRequestUpdate(EntityUid uid, ContractsComponent component, ContractRequestUpdateMessage args)
@@ -248,7 +233,6 @@ public sealed class ContractSystem : EntitySystem
                 contract.Status = ContractStatus.Completed;
                 contract.CompletedTime = _timing.CurTime;
                 changed = true;
-                Log.Info($"Contract completed: {contract.PrototypeId} (Instance: {contract.ContractId})");
             }
             else if (Math.Abs(oldProgress - contract.Progress) > 0.01f)
             {
