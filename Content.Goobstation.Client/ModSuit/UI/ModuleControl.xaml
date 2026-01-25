@@ -1,0 +1,69 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+         xmlns:adt="clr-namespace:Content.Goobstation.Client.UserInterface.FancyButton">
+    <PanelContainer Margin="0"
+                HorizontalExpand="True"
+                VerticalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#00000000" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4">
+            <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                <BoxContainer Orientation="Horizontal"
+                            HorizontalExpand="True"
+                            VerticalExpand="True"
+                            VerticalAlignment="Center"
+                            SizeFlagsStretchRatio="1">
+                    <SpriteView
+                        Name="EquipmentView"
+                        OverrideDirection="South"
+                        MinSize="48 48"
+                        SetSize="48 48"
+                        Scale="2 2"
+                        RectClipContent="True"/>
+                    <RichTextLabel Name="EquipmentName"
+                                VerticalAlignment="Center"
+                                Margin="5 0 0 0"
+                                MaxWidth="100"/>
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal"
+                            HorizontalExpand="True"
+                            VerticalExpand="True"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0 0 10 0"
+                            SizeFlagsStretchRatio="3">
+                    <BoxContainer Orientation="Vertical"
+                                Margin="0 0 10 0">
+                        <adt:FancyButton Name="ActivateButton"
+                              VerticalExpand="True"
+                              Margin="0 0 0 5"
+                              SetHeight="32"
+                              SetWidth="128"
+                              Access="Public"/>
+                        <adt:FancyButton Name="DeactivateButton"
+                              VerticalExpand="True"
+                              Margin="0 0 0 5"
+                              SetHeight="32"
+                              SetWidth="128"
+                              Access="Public"/>
+                    </BoxContainer>
+                    <adt:FancyButton Name="EjectButton"
+                          VerticalExpand="True"
+                          VerticalAlignment="Top"
+                          SetWidth="100"
+                          SetHeight="32"
+                          Access="Public"/>
+                </BoxContainer>
+            </BoxContainer>
+            <customControls:HSeparator Name="Separator"
+                                     StyleClasses="LowDivider"
+                                     Visible="False"/>
+            <BoxContainer Name="CustomControlContainer"
+                         Margin="0 10 0 0"
+                         HorizontalExpand="True"
+                         VerticalExpand="True"/>
+        </BoxContainer>
+    </PanelContainer>
+</Control>

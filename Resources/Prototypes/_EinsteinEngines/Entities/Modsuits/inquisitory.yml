@@ -19,12 +19,18 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/inquisitory.rsi
-    - type: ToggleableClothing
+    - type: ModSuit # Goobstation
       clothingPrototypes:
         head: ClothingModsuitHelmetInquisitory
         gloves: ClothingModsuitGauntletsInquisitory
         outerClothing: ClothingModsuitChestplateInquisitory
         shoes: ClothingModsuitBootsInquisitory
+    # Goobstation start
+      startingModules:
+        - ModsuitModStorage
+        - ModsuitModLight
+        - ModsuitModEmpProtection
+    # Goobstation end
     - type: ItemSlots
       slots:
         cell_slot:
@@ -33,14 +39,14 @@
           whitelist:
             components:
               - PowerCell
-    - type: Storage
-      grid:
-        - 0,0,10,3
-    - type: SealableClothingVisuals
-      spriteLayer: sealed
-      clothingVisuals:
-        back:
-        - state: equipped-BACKPACK-sealed
+    # - type: Storage
+    #   grid:
+    #     - 0,0,10,3
+    # - type: SealableClothingVisuals # Goob commented
+    #   spriteLayer: sealed
+    #   clothingVisuals:
+    #     back:
+    #     - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
