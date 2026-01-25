@@ -20269,3 +20269,9 @@ Entries:
       message: BSO's battle syringe now deals 1 damage instead of 5 on inject.
   id: 2296
   time: '2026-01-15T07:04:53.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: 'Demon can no longer jaunt with small amount of blood '
+  id: 2297
+  time: '2026-01-25T07:54:12.0000000+00:00'
