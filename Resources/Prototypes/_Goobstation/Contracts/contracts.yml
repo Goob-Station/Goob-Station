@@ -1,0 +1,159 @@
+
+
+- type: contract
+  id: ContractKillRandom
+  name: contract-kill-random-name
+  description: contract-kill-random-desc
+  reward: 8
+  difficulty: 2
+  objectivePrototype: KillRandomPersonObjective
+  category: ContractKill
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+
+- type: contract
+  id: ContractKillHead
+  name: contract-kill-head-name
+  description: contract-kill-head-desc
+  reward: 14
+  difficulty: 4
+  objectivePrototype: KillRandomHeadObjective
+  category: ContractKill
+  icon:
+    sprite: Clothing/Head/Hats/centcom.rsi
+    state: icon
+
+
+- type: contract
+  id: ContractStealCaptainID
+  name: contract-steal-captain-id-name
+  description: contract-steal-captain-id-desc
+  reward: 10
+  difficulty: 4
+  objectivePrototype: CaptainIDStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Objects/Misc/id_cards.rsi
+    state: gold
+
+- type: contract
+  id: ContractStealCaptainGun
+  name: contract-steal-captain-gun-name
+  description: contract-steal-captain-gun-desc
+  reward: 12
+  difficulty: 4
+  objectivePrototype: CaptainGunStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/antiquelasergun.rsi
+    state: icon
+
+- type: contract
+  id: ContractStealNukeDisk
+  name: contract-steal-nuke-disk-name
+  description: contract-steal-nuke-disk-desc
+  reward: 20
+  difficulty: 5
+  objectivePrototype: NukeDiskStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Objects/Misc/nukedisk.rsi
+    state: icon
+
+- type: contract
+  id: ContractStealHypospray
+  name: contract-steal-hypospray-name
+  description: contract-steal-hypospray-desc
+  reward: 6
+  difficulty: 2
+  objectivePrototype: CMOHyposprayStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: hypo
+
+- type: contract
+  id: ContractStealHandTeleporter
+  name: contract-steal-hand-teleporter-name
+  description: contract-steal-hand-teleporter-desc
+  reward: 10
+  difficulty: 3
+  objectivePrototype: HandTeleporterStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Objects/Devices/hand_teleporter.rsi
+    state: hand_tele
+
+- type: contract
+  id: ContractStealRDHardsuit
+  name: contract-steal-rd-hardsuit-name
+  description: contract-steal-rd-hardsuit-desc
+  reward: 10
+  difficulty: 4
+  objectivePrototype: RDHardsuitStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    state: icon
+
+- type: contract
+  id: ContractStealMagboots
+  name: contract-steal-magboots-name
+  description: contract-steal-magboots-desc
+  reward: 5
+  difficulty: 2
+  objectivePrototype: MagbootsStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Clothing/Shoes/Boots/magboots.rsi
+    state: icon
+
+- type: contract
+  id: ContractStealEnergyShotgun
+  name: contract-steal-energy-shotgun-name
+  description: contract-steal-energy-shotgun-desc
+  reward: 8
+  difficulty: 3
+  objectivePrototype: EnergyShotgunStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/energyshotgun.rsi
+    state: icon
+
+- type: contract
+  id: ContractStealClipboard
+  name: contract-steal-clipboard-name
+  description: contract-steal-clipboard-desc
+  reward: 5
+  difficulty: 2
+  objectivePrototype: ClipboardStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Objects/Misc/clipboard.rsi
+    state: qm_clipboard
+
+- type: contract
+  id: ContractStealJetpack
+  name: contract-steal-jetpack-name
+  description: contract-steal-jetpack-desc
+  reward: 8
+  difficulty: 3
+  objectivePrototype: CaptainJetpackStealObjective
+  category: ContractSteal
+  icon:
+    sprite: Objects/Tanks/Jetpacks/captain.rsi
+    state: icon
+
+
+- type: contract
+  id: ContractHijackShuttle
+  name: contract-hijack-shuttle-name
+  description: contract-hijack-shuttle-desc
+  reward: 25
+  difficulty: 5
+  objectivePrototype: HijackShuttleObjective
+  category: ContractEscape
+  icon:
+    sprite: Objects/Tools/emag.rsi
+    state: icon

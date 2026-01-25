@@ -1,0 +1,64 @@
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'contract-menu-title'}"
+    MinSize="550 450"
+    SetSize="550 450">
+    <BoxContainer Orientation="Vertical" Margin="5">
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+            <RichTextLabel
+                Name="StatsLabel"
+                HorizontalAlignment="Left"
+                HorizontalExpand="True" />
+            <RichTextLabel
+                Name="ActiveCountLabel"
+                HorizontalAlignment="Right" />
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+            <Button
+                Name="AvailableTabButton"
+                Text="{Loc 'contract-menu-tab-available'}"
+                ToggleMode="True"
+                Pressed="True"
+                MinWidth="120"
+                StyleClasses="OpenRight" />
+            <Button
+                Name="ActiveTabButton"
+                Text="{Loc 'contract-menu-tab-active'}"
+                ToggleMode="True"
+                MinWidth="120"
+                StyleClasses="OpenBoth" />
+            <Button
+                Name="CompletedTabButton"
+                Text="{Loc 'contract-menu-tab-completed'}"
+                ToggleMode="True"
+                MinWidth="120"
+                StyleClasses="OpenLeft" />
+        </BoxContainer>
+
+        <PanelContainer VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a" />
+            </PanelContainer.PanelOverride>
+            <ScrollContainer
+                Name="ContractScroll"
+                HScrollEnabled="False"
+                VerticalExpand="True">
+                <BoxContainer
+                    Name="ContractListContainer"
+                    Orientation="Vertical"
+                    Margin="5" />
+            </ScrollContainer>
+        </PanelContainer>
+
+        <BoxContainer Orientation="Vertical" Margin="0 5 0 0">
+            <PanelContainer StyleClasses="LowDivider" />
+            <Label
+                Name="FooterLabel"
+                Text="{Loc 'contract-menu-footer'}"
+                StyleClasses="WindowFooterText"
+                Margin="0 2 0 0" />
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

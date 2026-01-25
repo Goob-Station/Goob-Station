@@ -79,15 +79,11 @@
       - RoundstartAntag
 
 - type: entity
-  parent: BaseTraitorRule
+  parent: BaseTraitorRuleNoObjectives
   id: CorporateAgent
   components:
   - type: TraitorRule
     objectiveIssuers: CorporateFlavor
-  - type: AntagRandomObjectives
-    sets:
-    - groups: CorporateObjectiveGroups
-    maxDifficulty: 8 # Very rare antag so they should get a lot of objectives
   - type: GameRule
     minPlayers: 30
     delay:
@@ -111,7 +107,7 @@
       - MindRoleTraitor
 
 - type: entity
-  parent: BaseTraitorRule
+  parent: BaseTraitorRuleNoObjectives
   id: CalmTraitor # For Dual Antag Gamemodes
   components:
   - type: GameRule

@@ -1,0 +1,11 @@
+
+- type: entity
+  id: ContractUplinkPreset
+  abstract: true
+  components:
+  - type: Contracts
+    maxActiveContracts: 3
+  - type: UserInterface
+    interfaces:
+      enum.ContractUiKey.Key:
+        type: ContractBoundUserInterface

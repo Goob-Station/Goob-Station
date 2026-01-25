@@ -363,7 +363,7 @@
       - MindRoleTraitorReinforcement
 
 - type: entity
-  parent: BaseTraitorRule
+  parent: BaseTraitorRuleNoObjectives
   id: Traitor
   components:
   - type: GameRule

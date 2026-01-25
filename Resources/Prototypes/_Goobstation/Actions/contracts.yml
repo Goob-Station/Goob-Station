@@ -1,0 +1,13 @@
+
+- type: entity
+  parent: BaseAction
+  id: ActionOpenContracts
+  name: action-open-contracts
+  description: action-open-contracts-desc
+  components:
+  - type: Action
+    icon: Interface/Actions/shop.png
+    itemIconStyle: BigAction
+    priority: -20
+  - type: InstantAction
+    event: !type:OpenContractsActionEvent
