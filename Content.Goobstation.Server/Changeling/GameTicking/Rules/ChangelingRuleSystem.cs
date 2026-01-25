@@ -12,7 +12,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text;
-using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Server.Changeling.Roles;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Antag;
@@ -91,11 +90,8 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, ChangelingFactionId);
 
-        // TODO move these to a MapInitEvent for ChangelingComp
-        EnsureComp<ChangelingIdentityComponent>(target);
+        // make them a changeling
         EnsureComp<ChangelingComponent>(target);
-        EnsureComp<ChangelingRegenerateComponent>(target);
-        EnsureComp<ChangelingStasisComponent>(target);
 
         // add store
         var store = EnsureComp<StoreComponent>(target);
@@ -116,7 +112,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         var mostAbsorbed = 0f;
         var mostStolen = 0f;
 
-        foreach (var ling in EntityQuery<ChangelingIdentityComponent>())
+        foreach (var ling in EntityQuery<ChangelingIdentityComponent>()) // TODO make a ChangelingAbsorbComponent to store data about absorbed DNA and entities
         {
             if (!_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
                 continue;
