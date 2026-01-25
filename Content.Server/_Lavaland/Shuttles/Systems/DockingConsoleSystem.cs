@@ -257,8 +257,8 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
                 continue;
 
             if (TryComp<StationMemberComponent>(gridUid, out var stationMember) &&
-                TryComp<StationDataComponent>(stationMember.Station, out var stationData))
-                return _station.GetLargestGrid(stationData);
+                TryComp<StationDataComponent>(stationMember.Station, out _))
+                return _station.GetLargestGrid(stationMember.Station);
 
             if (HasComp<LavalandStationComponent>(gridUid))
                 return gridUid;

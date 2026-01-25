@@ -63,13 +63,19 @@
   id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
-    shoes: ClothingShoesBootsJackFilled # Change this if you want, I don't really care.
+    shoes: ClothingShoesBootsCombatFilled
+    outerClothing: ClothingOuterArmorCentcommCarapace
+    # Goob edit start
+#    head: ClothingHeadHatCentcom # <- goob - These are upstream btw
+#    eyes: ClothingEyesGlassesCommand
+#    gloves: ClothingHandsGlovesColorBlack
+
     head: ClothingHeadHatCentcomcap # Lets be real, the other hat looks like steaming ASS.
     eyes: ClothingEyesGlassesCentComm # Goobstation
     gloves: ClothingHandsGlovesHeavyGoldenTrim # Goobstation
     back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
-    outerClothing: ClothingOuterArmorCentcommCarapace # Officials shouldn't use shitty armor, Nanotrasen is richer than that.
     neck: ExecutiveIDCard # Executive Access!
+    # Goob edit end
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltHolsterFilledCentComm # Death to secbelts

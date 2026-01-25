@@ -61,6 +61,9 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
+#  Goob disabled due to h/w slider probably. todo goobstream test
+#  - type: ScaleVisuals
+#    scale: 1, 0.8
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -125,8 +128,9 @@
   id: MobDwarfDummy
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-#    scale: 1, 0.8
+  - type: Sprite #goob edit todo goobstream test - is this even needed
+  - type: ScaleVisuals
+#    scale: 1, 0.8 #goob sliders
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

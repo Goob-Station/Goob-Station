@@ -157,6 +157,7 @@ public sealed class TemperatureSystem : EntitySystem
         SubscribeLocalEvent<SpecialLowTempImmunityComponent, TemperatureImmunityEvent>(OnCheckLowTemperatureImmunity); // Goob edit
         SubscribeLocalEvent<SpecialHighTempImmunityComponent, TemperatureImmunityEvent>(OnCheckHighTemperatureImmunity); // Goob edit
         SubscribeLocalEvent<TemperatureComponent, GetTemperatureThresholdsEvent>(OnGetTemperatureThresholds); // goob edit
+        SubscribeLocalEvent<TemperatureComponent, GetCurrentTemperatureEvent>(OnGetCurrentTemperature); // Goob edit
 
         // Allows overriding thresholds based on the parent's thresholds.
         SubscribeLocalEvent<TemperatureComponent, EntParentChangedMessage>(OnParentChange);
@@ -239,6 +240,11 @@ public sealed class TemperatureSystem : EntitySystem
         args.HeatDamageThreshold = ent.Comp.HeatDamageThreshold;
         args.ColdDamageThreshold = ent.Comp.ColdDamageThreshold;
     }
+    private void OnGetCurrentTemperature(Entity<TemperatureComponent> ent, ref GetCurrentTemperatureEvent args)
+    {
+        args.CurrentTemperature = ent.Comp.CurrentTemperature;
+    }
+
     // Goob end
 
     public void ForceChangeTemperature(EntityUid uid, float temp, TemperatureComponent? temperature = null)

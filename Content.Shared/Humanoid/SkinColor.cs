@@ -11,6 +11,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+
+using System.Numerics;
+using System.Security.Cryptography;
+using Microsoft.VisualBasic.CompilerServices;
+
 namespace Content.Shared.Humanoid;
 
 public static class SkinColor

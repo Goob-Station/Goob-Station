@@ -110,7 +110,7 @@ public sealed class ShadowlingCollectiveMindSystem : EntitySystem
             if (!HasComp<StatusEffectsComponent>(thrall))
                 return;
 
-            _stun.TryParalyze(thrall, TimeSpan.FromSeconds(comp.BaseStunTime * abiltiesAddedCount + 1), false);
+            _stun.TryUpdateParalyzeDuration(thrall, TimeSpan.FromSeconds(comp.BaseStunTime * abiltiesAddedCount + 1));
         }
 
         args.Handled = true;

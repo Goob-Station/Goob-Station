@@ -115,7 +115,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
             DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
 
-            _stun.TryStun(ent, ent.Comp.SecondWarnStun, false);
+            _stun.TryUpdateStunDuration(ent, ent.Comp.SecondWarnStun);
         }
         else if (ent.Comp.Biomass > ent.Comp.SecondWarnThreshold)
             ent.Comp.SecondWarnReached = false;
@@ -128,13 +128,13 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
             DoPopup(ent, ent.Comp.ThirdWarnPopup, PopupType.LargeCaution);
 
-            _stun.TryStun(ent, ent.Comp.ThirdWarnStun, false);
+            _stun.TryUpdateStunDuration(ent, ent.Comp.ThirdWarnStun);
 
             // do the blood cough
             if (!_blood.TryModifyBloodLevel(ent.Owner, -ent.Comp.BloodCoughAmount)
                 || !_bloodQuery.TryComp(ent, out var bloodComp))
             {
-                _stun.TryKnockdown(ent, ent.Comp.ThirdWarnStun, false);
+                _stun.TryKnockdown(ent.Owner, ent.Comp.ThirdWarnStun, false);
                 return;
             }
 

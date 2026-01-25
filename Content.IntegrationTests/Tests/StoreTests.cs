@@ -131,22 +131,15 @@ public sealed class StoreTests
 
     //                var buyMsg = new StoreBuyListingMessage(discountedListingItem.ID){Actor = human};
     //                server.EntMan.EventBus.RaiseComponentEvent(pda, storeComponent, buyMsg);
-
-    //                var newBalance = storeComponent.Balance[UplinkSystem.TelecrystalCurrencyPrototype];
-    //                Assert.That(newBalance.Value, Is.EqualTo((originalBalance - plainDiscountedCost).Value), $"Expected to have balance reduced by discounted cost: {discountedListingItem.Name}"); // Goobstation
-    //                Assert.That(
-    //                    discountedListingItem.IsCostModified,
-    //                    Is.False,
-    //                    $"Expected item cost of {discountedListingItem.Name} to not be modified after Buying discounted item." // Goobstation
-    //                );
-    //                var costAfterBuy = discountedListingItem.Cost[UplinkSystem.TelecrystalCurrencyPrototype];
-    //                Assert.That(costAfterBuy.Value, Is.EqualTo(prototypeCost.Value), "Expected cost after discount refund to be equal to prototype cost.");
-
-    //                var refundMsg = new StoreRequestRefundMessage { Actor = human };
-    //                server.EntMan.EventBus.RaiseComponentEvent(pda, storeComponent, refundMsg);
-
-    //                // get refreshed item after refund re-generated items
-    //                discountedListingItem = storeComponent.FullListingsCatalog.First(x => x.ID == itemId);
+    //
+    //                 var buyMsg = new StoreBuyListingMessage(discountedListingItem.ID){Actor = human};
+    //                 server.EntMan.EventBus.RaiseLocalEvent(pda, buyMsg);
+    //
+    //                 var refundMsg = new StoreRequestRefundMessage { Actor = human };
+    //                 server.EntMan.EventBus.RaiseComponentEvent(pda, storeComponent, refundMsg);
+    //
+    //                 var refundMsg = new StoreRequestRefundMessage { Actor = human };
+    //                 server.EntMan.EventBus.RaiseLocalEvent(pda, refundMsg);
 
     //                var afterRefundBalance = storeComponent.Balance[UplinkSystem.TelecrystalCurrencyPrototype];
     //                Assert.That(afterRefundBalance.Value, Is.EqualTo(originalBalance.Value), "Expected refund to return all discounted cost value.");

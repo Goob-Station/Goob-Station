@@ -76,7 +76,7 @@ using Content.Shared.Item;
 using Content.Shared.Tag;
 using Content.Goobstation.Shared.Teleportation.Systems;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {
@@ -242,7 +242,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (distance2 < minRange2)
                 continue;
 
-            Stun.TryParalyze(entity, ev.StunTime, true);
+            Stun.TryUpdateParalyzeDuration(entity, ev.StunTime);
 
             Spawn(ev.EffectProto, TransformSystem.GetMapCoordinates(entity, xform));
 

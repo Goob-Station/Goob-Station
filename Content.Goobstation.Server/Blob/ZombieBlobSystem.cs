@@ -36,6 +36,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
+using Content.Shared.Trigger.Systems;
 using Content.Shared.Zombies;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;

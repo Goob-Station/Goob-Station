@@ -28,17 +28,22 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    
+
     private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
     private SimpleRadialMenu? _menu;
 
-    private static readonly Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)> EmoteGroupingInfo
-        = new Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)>
-    {
-        [EmoteCategory.General] = ("emote-menu-category-general", new SpriteSpecifier.Texture(new ResPath("/Textures/Clothing/Head/Soft/mimesoft.rsi/icon.png"))),
-        [EmoteCategory.Hands] = ("emote-menu-category-hands", new SpriteSpecifier.Texture(new ResPath("/Textures/Clothing/Hands/Gloves/latex.rsi/icon.png"))),
-        [EmoteCategory.Vocal] = ("emote-menu-category-vocal", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Emotes/vocal.png"))),
-        [EmoteCategory.Farts] = ("emote-menu-category-farts", new SpriteSpecifier.Texture(new ResPath("/Textures/_Goobstation/Interface/Emotes/fart.png"))), // Goobstation (obviously)
+    private static readonly Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)> EmoteGroupingInfo =
+        new()
+        {
+            [EmoteCategory.General] = ("emote-menu-category-general",
+                new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Head/Soft/mimesoft.rsi"), "icon")),
+            [EmoteCategory.Hands] = ("emote-menu-category-hands",
+                new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Hands/Gloves/latex.rsi"), "icon")),
+            [EmoteCategory.Vocal] = ("emote-menu-category-vocal",
+                new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Emotes/vocal.png"))),
+
+            [EmoteCategory.Farts] = ("emote-menu-category-farts",
+                new SpriteSpecifier.Texture(new ResPath("/Textures/_Goobstation/Interface/Emotes/fart.png"))), // Goobstation (obviously)
     };
 
     public void OnStateEntered(GameplayState state)
@@ -143,7 +148,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         var whitelistSystem = EntitySystemManager.GetEntitySystem<EntityWhitelistSystem>();
         var player = _playerManager.LocalSession?.AttachedEntity;
 
-        Dictionary<EmoteCategory, List<RadialMenuOption>> emotesByCategory = new(); 
+        Dictionary<EmoteCategory, List<RadialMenuOption>> emotesByCategory = new();
         foreach (var emote in emotePrototypes)
         {
             if(emote.Category == EmoteCategory.Invalid)

@@ -105,6 +105,6 @@ public sealed class ShadowlingIcyVeinsSystem : EntitySystem
         if (!TryComp<StatusEffectsComponent>(target, out var statusEffectsComponent))
             return;
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(component.ParalyzeTime), false, statusEffectsComponent);
+        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(component.ParalyzeTime));
     }
 }

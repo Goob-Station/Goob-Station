@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -22,6 +23,7 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly MovementModStatusSystem _movemod = default!;
 
     public override void Initialize()
     {
@@ -57,7 +59,7 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
             if (!_interact.InRangeUnobstructed(uid, targetUid, comp.Range))
                 continue;
 
-            _stun.TrySlowdown(targetUid, TimeSpan.FromSeconds(comp.SlowDuration), true, comp.SlowMultiplier, comp.SlowMultiplier);
+            _movemod.TryUpdateMovementSpeedModDuration(targetUid,  SharedStunSystem.StunId, TimeSpan.FromSeconds(comp.SlowDuration), comp.SlowMultiplier, comp.SlowMultiplier);
 
             // Show popup to the victim
             if (_net.IsServer)

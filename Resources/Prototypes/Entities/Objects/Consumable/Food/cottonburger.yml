@@ -100,12 +100,8 @@
         - ReagentId: Fiber
           Quantity: 1.665
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/cottonburger.rsi
-      state: cottonbun_top
     entries:
-      cotton_burger:
-        final: true
+      CottonBurger: CottonBunTopBurger
   - type: Tag
     tags:
     - ClothMade
