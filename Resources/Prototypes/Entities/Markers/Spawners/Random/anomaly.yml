@@ -41,7 +41,8 @@
     - id: RandomRockAnomalySpawner
     - id: AnomalyLiquid
     - id: AnomalyFlora
-    - id: AnomalyShadow
+    # - id: AnomalyShadow   
+    # Goobstation: removed from spawning
     - id: AnomalyTech
     - id: AnomalySanta
       weight: .4 #  Make more common in december
