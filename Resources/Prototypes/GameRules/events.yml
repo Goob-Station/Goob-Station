@@ -890,7 +890,7 @@
     alwaysUseSpeciesOverride: true
 
 - type: entity
-  parent: BaseTraitorRule
+  parent: BaseTraitorRuleNoObjectives
   id: SleeperAgents
   components:
   - type: StationEvent

@@ -35,7 +35,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Store.Systems;
+using Content.Server._Goobstation.Traitor.Contracts;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Goobstation.Traitor.Contracts;
+using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
@@ -57,6 +60,8 @@ public sealed class UplinkSystem : EntitySystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly ContractSystem _contracts = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public static readonly ProtoId<CurrencyPrototype> TelecrystalCurrencyPrototype = "Telecrystal";
     private static readonly EntProtoId FallbackUplinkImplant = "UplinkImplant";
@@ -71,8 +76,6 @@ public sealed class UplinkSystem : EntitySystem
     /// <returns>Whether or not the uplink was added successfully</returns>
     public bool AddUplink(EntityUid user, FixedPoint2 balance, EntityUid? uplinkEntity = null)
     {
-        // Try to find target item if none passed
-
         uplinkEntity ??= FindUplinkTarget(user);
 
         if (uplinkEntity == null)
@@ -82,9 +85,6 @@ public sealed class UplinkSystem : EntitySystem
 
         SetUplink(user, uplinkEntity.Value, balance);
 
-        // TODO add BUI. Currently can't be done outside of yaml -_-
-        // ^ What does this even mean?
-
         return true;
     }
 
@@ -93,16 +93,20 @@ public sealed class UplinkSystem : EntitySystem
     /// </summary>
     private void SetUplink(EntityUid user, EntityUid uplink, FixedPoint2 balance)
     {
-        if (!_mind.TryGetMind(user, out var mind, out _))
-            return;
-
         var store = EnsureComp<StoreComponent>(uplink);
 
-        store.AccountOwner = mind;
+        if (_mind.TryGetMind(user, out var mind, out _))
+            store.AccountOwner = mind;
 
         store.Balance.Clear();
         var bal = new Dictionary<string, FixedPoint2> { { TelecrystalCurrencyPrototype, balance } };
         _store.TryAddCurrency(bal, uplink, store);
+
+        var contracts = EnsureComp<ContractsComponent>(uplink);
+        contracts.LinkedUplink = uplink;
+        _contracts.LinkUplink(uplink, uplink, contracts);
+
+        _actions.AddAction(user, "ActionOpenContracts");
     }
 
     /// <summary>
@@ -116,7 +120,7 @@ public sealed class UplinkSystem : EntitySystem
         if (!catalog.Cost.TryGetValue(TelecrystalCurrencyPrototype, out var cost))
             return false;
 
-        if (balance < cost) // Can't use Math functions on FixedPoint2
+        if (balance < cost)
             balance = 0;
         else
             balance = balance - cost;
@@ -136,7 +140,6 @@ public sealed class UplinkSystem : EntitySystem
     /// </summary>
     public EntityUid? FindUplinkTarget(EntityUid user)
     {
-        // Try to find PDA in inventory
         if (_inventorySystem.TryGetContainerSlotEnumerator(user, out var containerSlotEnumerator))
         {
             while (containerSlotEnumerator.MoveNext(out var pdaUid))
@@ -149,7 +152,6 @@ public sealed class UplinkSystem : EntitySystem
             }
         }
 
-        // Also check hands
         foreach (var item in _handsSystem.EnumerateHeld(user))
         {
             if (HasComp<PdaComponent>(item) || HasComp<StoreComponent>(item))

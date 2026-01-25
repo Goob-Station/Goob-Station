@@ -1,0 +1,20 @@
+
+- type: contractCategory
+  id: ContractKill
+  name: contract-category-kill
+  priority: 0
+
+- type: contractCategory
+  id: ContractSteal
+  name: contract-category-steal
+  priority: 1
+
+- type: contractCategory
+  id: ContractSabotage
+  name: contract-category-sabotage
+  priority: 2
+
+- type: contractCategory
+  id: ContractEscape
+  name: contract-category-escape
+  priority: 3

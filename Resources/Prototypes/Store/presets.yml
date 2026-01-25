@@ -51,6 +51,12 @@
       minItems: 4
       maxItems: 8
       salesCategory: UplinkSales
+  - type: Contracts
+    maxActiveContracts: 3
+  - type: UserInterface
+    interfaces:
+      enum.ContractUiKey.Key:
+        type: ContractBoundUserInterface
 
 - type: entity
   id: StorePresetSpellbook

@@ -282,6 +282,8 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+      enum.ContractUiKey.Key:
+        type: ContractBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -1700,6 +1702,8 @@
         type: HealthAnalyzerBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+      enum.ContractUiKey.Key:
+        type: ContractBoundUserInterface
 
 - type: entity
   parent: BaseWidePDA
