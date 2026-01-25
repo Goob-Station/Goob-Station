@@ -1,6 +1,6 @@
 - type: entity
   id: XenobioVolatileOrgan
-  parent: [ BaseHumanOrgan, BasePowerCell ]
+  parent: [ OrganHumanHeart, BasePowerCell ]
   name: volatile organ
   description: A pulsating mass of slime, it seems to react to nearby devices.
   suffix: Full
@@ -47,7 +47,6 @@
       Normal: 32
       Damaged: 9
       Destroyed: 0
-    slotId: heart
   - type: Metabolizer
     maxPoisonsProcessable: 2
     metabolizerTypes: [ Cybernetic ]
