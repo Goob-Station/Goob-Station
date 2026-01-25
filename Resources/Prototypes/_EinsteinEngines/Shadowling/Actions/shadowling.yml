@@ -6,7 +6,7 @@
   parent: BaseAction
   id: ActionHatch
   name: Hatch
-  description: Engages the hatching progress.
+  description: Engages the hatching progress, there is no going back after this and you will be vulnrable for a while.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -24,7 +24,7 @@
   parent: BaseAction
   id: ActionEnthrall
   name: Enthrall
-  description: Shatters their will, forging a thrall.
+  description: Shatters their will, forging a thrall, does not work on mindshielded people or silicons.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -43,7 +43,7 @@
   parent: BaseAction
   id: ActionGlare
   name: Glare
-  description: A dark glare that stuns, silences, and slows your target.
+  description: A dark glare that stuns, silences, and slows a single target.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -63,15 +63,17 @@
   parent: BaseAction
   id: ActionVeil
   name: Veil
-  description: A pulse of darkness that silences every light.
+  description: A pulse of darkness that destroys electrical lights in a large area.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     itemIconStyle: NoItem
-    useDelay: 60
+    useDelay: 30
     icon:
       sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
       state: veil
+    checkCanInteract: false
+    checkConsciousness: false
   - type: InstantAction
     event: !type:VeilEvent { }
 
@@ -109,7 +111,7 @@
 - type: entity
   id: ActionIcyVeins
   name: Icy Veins
-  description: Send frost through their veins.
+  description: Disarms and freezes nearby creatures in an area around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -223,7 +225,7 @@
   parent: BaseAction
   id: ActionEmpoweredEnthrall
   name: Empowered Enthrall
-  description: Shatters their will, forging a Thrall. Faster and stronger.
+  description: Shatters their will, forging a Thrall. Faster and stronger, works on mindshields.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -258,7 +260,7 @@
 - type: entity
   id: ActionAscendance
   name: Ascendance
-  description: Forge your ascension egg and walk the path of a god.
+  description: Forge your ascension egg and walk the path of a god, your thralls will need to defend the egg for a long time; be prepared.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -278,7 +280,7 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    useDelay: 45
+    useDelay: 1
     icon:
       sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
       state: annihilate
@@ -298,7 +300,7 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    useDelay: 30
+    useDelay: 1
     icon:
       sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
       state: enthrall

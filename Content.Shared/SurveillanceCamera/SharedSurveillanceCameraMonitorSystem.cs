@@ -26,13 +26,16 @@ public sealed class SurveillanceCameraMonitorUiState : BoundUserInterfaceState
     public string ActiveAddress;
 
     // Known cameras, by address and name.
-    public Dictionary<string, (NetEntity, NetCoordinates)> Cameras { get; } // Goobstation
+    public Dictionary<string, (string, (NetEntity, NetCoordinates))> Cameras { get; } // Goobstation
 
-    public SurveillanceCameraMonitorUiState(NetEntity? activeCamera, string activeAddress, Dictionary<string, (NetEntity, NetCoordinates)> cameras) // Goobstation
+    public Dictionary<string, (string, (NetEntity, NetCoordinates))> MobileCameras { get; } // Goobstation
+
+    public SurveillanceCameraMonitorUiState(NetEntity? activeCamera, string activeAddress, Dictionary<string, (string, (NetEntity, NetCoordinates))> cameras, Dictionary<string, (string, (NetEntity, NetCoordinates))> mobileCameras) // Goobstation
     {
         ActiveCamera = activeCamera;
         ActiveAddress = activeAddress;
         Cameras = cameras;
+        MobileCameras = mobileCameras; // Goobstation
     }
 }
 

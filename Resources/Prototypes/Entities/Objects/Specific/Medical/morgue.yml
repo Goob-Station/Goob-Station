@@ -185,6 +185,7 @@
   - type: Tag
     tags:
     - Trash
+    - Ash # Goobstation
   - type: SolutionContainerManager
     solutions:
       food:

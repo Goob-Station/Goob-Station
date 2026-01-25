@@ -17,6 +17,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     checkConsciousness: false
     useDelay: 15
@@ -38,6 +39,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem

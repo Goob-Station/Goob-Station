@@ -440,9 +440,9 @@ namespace Content.Server.Database
 
         Task SetNTShoutout(Guid player, string name);
 
-        Task<(string Message, string User)?> GetRandomLobbyMessage();
+        Task<List<(string, string)>> GetLobbyMessages();
 
-        Task<string?> GetRandomShoutout();
+        Task<List<string>> GetShoutouts();
 
         #endregion
 
@@ -451,6 +451,22 @@ namespace Content.Server.Database
         Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score);
         Task<IPIntelCache?> GetIPIntelCache(IPAddress ip);
         Task<bool> CleanIPIntelCache(TimeSpan range);
+
+        #endregion
+
+        #region Goob Polls
+
+        Task<int> CreatePollAsync(Poll poll);
+        Task<Poll?> GetPollAsync(int pollId, CancellationToken cancel = default);
+        Task<List<Poll>> GetActivePollsAsync(CancellationToken cancel = default);
+        Task<List<Poll>> GetAllPollsAsync(bool includeInactive = true, CancellationToken cancel = default);
+        Task UpdatePollStatusAsync(int pollId, bool active, CancellationToken cancel = default);
+        Task<bool> AddPollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default);
+        Task<bool> RemovePollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default);
+        Task<List<PollVote>> GetPollVotesAsync(int pollId, CancellationToken cancel = default);
+        Task<List<PollVote>> GetPlayerVotesAsync(int pollId, NetUserId userId, CancellationToken cancel = default);
+        Task<bool> HasPlayerVotedAsync(int pollId, NetUserId userId, CancellationToken cancel = default);
+        Task<Dictionary<int, int>> GetPollResultsAsync(int pollId, CancellationToken cancel = default);
 
         #endregion
 
@@ -1225,16 +1241,16 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SetNTShoutout(player, name));
         }
 
-        public Task<(string Message, string User)?> GetRandomLobbyMessage()
+        public Task<List<(string, string)>> GetLobbyMessages()
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomLobbyMessage());
+            return RunDbCommand(() => _db.GetLobbyMessages());
         }
 
-        public Task<string?> GetRandomShoutout()
+        public Task<List<string>> GetShoutouts()
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomShoutout());
+            return RunDbCommand(() => _db.GetShoutouts());
         }
 
         #endregion
@@ -1255,6 +1271,76 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
+
+        #region Goob Polls
+
+        public Task<int> CreatePollAsync(Poll poll)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.CreatePollAsync(poll));
+        }
+
+        public Task<Poll?> GetPollAsync(int pollId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPollAsync(pollId, cancel));
+        }
+
+        public Task<List<Poll>> GetActivePollsAsync(CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetActivePollsAsync(cancel));
+        }
+
+        public Task<List<Poll>> GetAllPollsAsync(bool includeInactive = true, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllPollsAsync(includeInactive, cancel));
+        }
+
+        public Task UpdatePollStatusAsync(int pollId, bool active, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdatePollStatusAsync(pollId, active, cancel));
+        }
+
+        public Task<bool> AddPollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddPollVoteAsync(pollId, optionId, userId, cancel));
+        }
+
+        public Task<bool> RemovePollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemovePollVoteAsync(pollId, optionId, userId, cancel));
+        }
+
+        public Task<List<PollVote>> GetPollVotesAsync(int pollId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPollVotesAsync(pollId, cancel));
+        }
+
+        public Task<List<PollVote>> GetPlayerVotesAsync(int pollId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerVotesAsync(pollId, userId, cancel));
+        }
+
+        public Task<bool> HasPlayerVotedAsync(int pollId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.HasPlayerVotedAsync(pollId, userId, cancel));
+        }
+
+        public Task<Dictionary<int, int>> GetPollResultsAsync(int pollId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPollResultsAsync(pollId, cancel));
+        }
+
+        #endregion
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)
         {

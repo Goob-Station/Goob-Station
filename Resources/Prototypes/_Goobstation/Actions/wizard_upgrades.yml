@@ -485,7 +485,7 @@
   name: Lesser Summon Bees II
   components:
   - type: Action
-    useDelay: 40
+    useDelay: 30
 
 - type: entity
   parent: ActionLesserSummonBees
@@ -493,7 +493,7 @@
   name: Lesser Summon Bees III
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 10
 
 # Sanguine Strike
 - type: entity
@@ -722,7 +722,7 @@
   components:
   - type: Action
     useDelay: 10
-  - type: InstantAction  
+  - type: InstantAction
     event: !type:PolymorphSpellEvent
       protoId: WizardRodV
 

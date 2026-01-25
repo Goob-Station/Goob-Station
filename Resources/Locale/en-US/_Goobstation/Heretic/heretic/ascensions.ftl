@@ -37,4 +37,10 @@ heretic-ascension-rust =
     There are hills ahead, draped in rust. Rust that rots your heat. Mouth parched, soul weak, your tongue begins to bleed.
     I am decay incarnate. INEVITABLE AS A DYING STAR; IMPASSIVE AS THE WATERS. WITNESS MY ASCENSION!
 
+heretic-ascension-cosmos =
+    The Beast held out its hand, I grabbed hold and they pulled me to them. Their body was towering, but it seemed so small and feeble after all their tales compiled in my head.
+    I clung on to them, they would protect me, and I would protect it.
+    I closed my eyes with my head laid against their form. I was safe.
+    WITNESS MY ASCENSION!
+
 heretic-ascension-bingle = bungle

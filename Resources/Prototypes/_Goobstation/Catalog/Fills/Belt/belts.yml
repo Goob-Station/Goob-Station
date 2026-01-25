@@ -172,6 +172,14 @@
       - WeaponPistolCasul
       item2:
       - WeaponPistolJackal
+  - type: DivineIntervention
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Magic
+  - type: Tag
+    tags:
+    - ChaplainsHolster
 
 - type: entityTable
   id: BeltAssaultBSOEntityTable
@@ -220,6 +228,7 @@
     - id: LargeBeaker
     - id: OmnimedToolSyndie
     - id: DartGun
+    - id: CigPackMedical
     - id: ChemistryBottleEpinephrine
       amount: 2
     - id: ChemistryBottleEphedrine
@@ -227,6 +236,8 @@
     - id: ChemistryBottleOmnizine
     - id: ChemistryBottleTramadol
     - id: ChemistryBottleOxycodone
+    - id: MedicalPatchBasic
+      amount: 3
 
 - type: entity
   id: ClothingBeltHolsterFilledBlueshield

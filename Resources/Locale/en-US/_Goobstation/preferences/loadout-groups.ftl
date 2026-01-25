@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -35,6 +36,14 @@ loadout-group-nct-shoes = Nanotrasen Career Trainer shoes
 
 loadout-group-reporter-outerclothing = Reporter outer clothing
 
+loadout-group-roboticist-head = Roboticist head
+loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
+loadout-group-roboticist-backpack = Roboticist backpack
+loadout-group-roboticist-outerclothing = Roboticist outer clothing
+loadout-group-roboticist-gloves = Roboticist gloves
+loadout-group-roboticist-shoes = Roboticist shoes
+loadout-group-roboticist-id = Roboticist ID
+
 loadout-group-security-neck = Security neck
 
 loadout-group-captain-mask = Captain Mask
@@ -53,3 +62,12 @@ loadout-group-brigmedic-backpack = Brigmedic backpack
 loadout-group-security-melee = Security melee weapon
 
 loadout-group-animals = Animals
+
+# Virology
+loadout-group-virologist-jumpsuit = Virologist jumpsuit
+loadout-group-virologist-backpack = Virologist backpack
+loadout-group-virologist-outerclothing = Virologist outer clothing
+loadout-group-virologist-id = Virologist ID
+
+#RadioHost
+loadout-group-radiohost-jumpsuit = Shirt

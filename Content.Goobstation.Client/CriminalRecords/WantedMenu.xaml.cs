@@ -71,7 +71,9 @@ public sealed partial class WantedMenu : FancyWindow
     {
         _access = _player.LocalSession?.AttachedEntity is {} player
                   && _accessReader.IsAllowed(player, _uid);
-        StatusOptionButton.Disabled = !_access;
+        if (!_access)
+            return;
+
         if (state is { CriminalRecord: not null, StationRecord: not null })
         {
             PopulateRecordContainer(state.StationRecord, state.CriminalRecord);

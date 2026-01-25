@@ -8,6 +8,8 @@ possession-fail-target-dead = There's no mind for you to possess!
 possession-fail-target-shielded = A pesky shield prevents you from prying at their mind!
 possession-fail-target-already-possessed = Someone else has already taken over this mind...
 possession-fail-target-chaplain = A holy force prevents you from possessing this target!
+possession-fail-target-immune = An unusual barrier blocks your possession attempt!
+possession-fail-target-polymorphed = This form is too unstable to possess!
 
 possession-popup-others = {$target}'s limbs contort in a strange way, {POSS-ADJ($target)} eyes rolling back in {POSS-ADJ($target)} head.
 possession-popup-self = Your soul is forced out of your body!

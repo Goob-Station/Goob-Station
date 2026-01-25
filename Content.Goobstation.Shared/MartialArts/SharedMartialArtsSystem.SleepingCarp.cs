@@ -54,7 +54,7 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        if (HasComp<ChangelingIdentityComponent>(args.User))
+        if (HasComp<ChangelingComponent>(args.User))
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), args.User, args.User);
             return;
@@ -186,7 +186,7 @@ public partial class SharedMartialArtsSystem
         var dir = hitPos - mapPos;
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage, proto.DropHeldItemsBehavior);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

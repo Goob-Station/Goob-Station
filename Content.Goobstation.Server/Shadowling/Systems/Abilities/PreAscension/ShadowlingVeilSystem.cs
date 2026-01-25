@@ -6,7 +6,9 @@ using Content.Shared.Actions;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
+using Robust.Shared.Spawners;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 
@@ -21,9 +23,25 @@ public sealed class ShadowlingVeilSystem : EntitySystem
     [Dependency] private readonly SharedHandheldLightSystem _handheld = default!;
     [Dependency] private readonly UnpoweredFlashlightSystem _unpowered = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    private EntityQuery<PointLightComponent> _pointLightQuery;
+    private EntityQuery<PoweredLightComponent> _poweredLightQuery;
+    private EntityQuery<HandheldLightComponent> _handheldLightQuery;
+    private EntityQuery<UnpoweredFlashlightComponent> _unpoweredFlashlightQuery;
+    private EntityQuery<ExpendableLightComponent> _expendableLightQuery;
+    private EntityQuery<TimedDespawnComponent> _timedDespawnQuery;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _pointLightQuery = GetEntityQuery<PointLightComponent>();
+        _poweredLightQuery = GetEntityQuery<PoweredLightComponent>();
+        _handheldLightQuery = GetEntityQuery<HandheldLightComponent>();
+        _unpoweredFlashlightQuery = GetEntityQuery<UnpoweredFlashlightComponent>();
+        _expendableLightQuery = GetEntityQuery<ExpendableLightComponent>();
+        _timedDespawnQuery = GetEntityQuery<TimedDespawnComponent>();
 
         SubscribeLocalEvent<ShadowlingVeilComponent, VeilEvent>(OnVeilActivate);
         SubscribeLocalEvent<ShadowlingVeilComponent, MapInitEvent>(OnStartup);
@@ -41,37 +59,45 @@ public sealed class ShadowlingVeilSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // todo: handle visuals here
-
         // its just emp but better
         foreach (var light in _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(args.Performer), component.Range))
         {
-            TryDisableLights(light);
+            TryDisableLights(light, component);
         }
 
         args.Handled = true;
     }
 
-    private void TryDisableLights(EntityUid uid)
+    private void TryDisableLights(EntityUid uid, ShadowlingVeilComponent component)
     {
-        if (!HasComp<PointLightComponent>(uid))
+        if (!_pointLightQuery.HasComp(uid))
             return;
 
-        if (TryComp<PoweredLightComponent>(uid, out var light))
+        if (_poweredLightQuery.TryComp(uid, out var light))
             _light.TryDestroyBulb(uid, light); // listen, this will make janitor a good role during slings
 
-        if (TryComp<HandheldLightComponent>(uid, out var handheldLight))
-        {
+        if (_handheldLightQuery.TryComp(uid, out var handheldLight))
             _handheld.SetActivated(uid, false, handheldLight);
-        }
 
         // mostly for pdas
-        if (TryComp<UnpoweredFlashlightComponent>(uid, out var unpoweredFlashlight))
+        if (_unpoweredFlashlightQuery.TryComp(uid, out var unpoweredFlashlight))
         {
             if (!unpoweredFlashlight.LightOn)
                 return;
 
             _unpowered.TryToggleLight(uid, unpoweredFlashlight.ToggleActionEntity);
         }
+
+        if (_expendableLightQuery.TryComp(uid, out var expendableLight)
+            && !_tag.HasTag(uid, component.TorchTag))
+        {
+            expendableLight.CurrentState = ExpendableLightState.Fading;
+            expendableLight.StateExpiryTime = 0;
+            return;
+        }
+
+        // flare guns
+        if (_timedDespawnQuery.TryComp(uid, out var timedDespawn))
+            timedDespawn.Lifetime = 0;
     }
 }

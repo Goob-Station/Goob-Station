@@ -68,9 +68,9 @@
     description: cargo-gift-pizza-small
     dest: cargo-gift-dest-bar
     gifts:
-      FoodPizza: 1              # 4 pizzas
+      FoodPizza: 2              # 8 pizzas
       FoodBarSupply: 1
-      FoodSoftdrinks: 1
+      FoodSoftdrinks: 2
       CrateVendingMachineRestockRobustSoftdrinks: 1
 
 - type: entity
@@ -93,9 +93,9 @@
     description: cargo-gift-pizza-large
     dest: cargo-gift-dest-bar
     gifts:
-      FoodPizza: 4              # 16 pizzas
+      FoodPizzaLarge: 1              # 16 pizzas
       FoodBarSupply: 1
-      FoodSoftdrinks: 2         # 32 sodas
+      FoodSoftdrinksLarge: 1
 
 - type: entity
   id: GiftsEngineering

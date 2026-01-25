@@ -101,6 +101,7 @@ public abstract class SharedWeatherSystem : EntitySystem
             if (weather.EndTime != null)
                 weather.EndTime = weather.EndTime.Value + args.PausedTime;
         }
+        component.NextUpdate += args.PausedTime; // DeltaV
     }
 
     public bool CanWeatherAffect(EntityUid uid, MapGridComponent grid, TileRef tileRef, RoofComponent? roofComp = null)
@@ -204,6 +205,10 @@ public abstract class SharedWeatherSystem : EntitySystem
                     {
                         SetState(uid, WeatherState.Starting, comp, weather, weatherProto);
                     }
+                    // Begin DeltaV: Set state to Running when it finishes the starting time
+                    else
+                        SetState(uid, WeatherState.Running, comp, weather, weatherProto);
+                    // End DeltaV
                 }
 
                 // Run whatever code we need.

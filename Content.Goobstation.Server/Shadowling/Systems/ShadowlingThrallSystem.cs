@@ -1,10 +1,14 @@
+using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Overlays;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 using Content.Server.Antag;
 using Content.Server.Mind;
 using Content.Server.Roles;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Examine;
+using Content.Shared.IdentityManagement;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Shadowling.Systems;
 
@@ -17,7 +21,6 @@ public sealed class ShadowlingThrallSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly ShadowlingSystem _shadowling = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -27,6 +30,7 @@ public sealed class ShadowlingThrallSystem : EntitySystem
         SubscribeLocalEvent<ThrallComponent, ExaminedEvent>(OnExamined);
     }
 
+    public ProtoId<CollectiveMindPrototype> ShadowMind = "Shadowmind";
     private void OnStartup(EntityUid uid, ThrallComponent component, ComponentStartup args)
     {
         // antag stuff
@@ -35,6 +39,8 @@ public sealed class ShadowlingThrallSystem : EntitySystem
 
         if (!_roles.MindHasRole<ShadowlingRoleComponent>(mindId))
             _roles.MindAddRole(mindId, "MindRoleThrall");
+
+        EnsureComp<CollectiveMindComponent>(uid).Channels.Add(ShadowMind);
 
         _antag.SendBriefing(uid, Loc.GetString("thrall-role-greeting"), Color.MediumPurple, component.ThrallConverted);
     }
@@ -48,6 +54,9 @@ public sealed class ShadowlingThrallSystem : EntitySystem
         RemComp<ThrallGuiseComponent>(uid);
         RemComp<LesserShadowlingComponent>(uid);
 
+        if (TryComp<CollectiveMindComponent>(uid, out var collective))
+            collective.Channels.Remove(ShadowMind);
+
         if (component.Converter == null)
             return;
 
@@ -59,10 +68,16 @@ public sealed class ShadowlingThrallSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, ThrallComponent component, ExaminedEvent args)
     {
-        if (!HasComp<ShadowlingComponent>(args.Examiner)
-            || component.Converter != args.Examiner)
+        if (HasComp<ShadowlingComponent>(args.Examiner)
+            && component.Converter == args.Examiner)
+            args.PushMarkup($"[color=red]{Loc.GetString("shadowling-thrall-examined")}[/color]"); // Indicates that it is your Thrall
+
+        var ev = new IsEyesCoveredCheckEvent();
+        RaiseLocalEvent(uid, ev);
+
+        if (ev.IsEyesProtected)
             return;
 
-        args.PushMarkup($"[color=red]{Loc.GetString("shadowling-thrall-examined")}[/color]"); // Indicates that it is your Thrall
+        args.PushMarkup($"[color=pink]{Loc.GetString("shadowling-thrall-other-examined", ("target", Identity.Entity(uid, EntityManager)))}[/color]");
     }
 }

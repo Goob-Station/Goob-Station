@@ -53,13 +53,13 @@
     - Other
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
-        Heat: 0.55
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.65
         Caustic: 0.55
   - type: FireProtection
-    reduction: 0.65 # made to help protect changelings against fire. gives it a real purpose to use over regular armor
+    reduction: -0.25 # Ling armor should be counterable given you get this for eating two tiders
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1

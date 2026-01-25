@@ -9,6 +9,8 @@
   count: 5
   addComponents:
   - type: ShadowlingNullCharge
+    nullChargeToComplete: 4
+
 
 - type: shadowlingAbilityUnlock
   id: BlackRecuperation

@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -76,6 +77,7 @@
   parent: CratePlastic
   name: disaster pizza delivery
   description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+  suffix: "bombs"
   components:
   - type: StorageFill
     contents:     #to avoid them from being easily identifiable (8 pizza bomb + 8 regular pizzas)
@@ -120,6 +122,7 @@
     - state: icon
   - type: SetSelector
     possibleSets:
+    - SyndicateWesternSet
     - SyndicateSpySet
     - SyndicateHitmanSet
     - SyndicateImplantsSet
@@ -153,3 +156,27 @@
         - MachineLayer
   - type: StaticPrice
     price: 5000
+
+- type: entity
+  parent: CrateSyndicate
+  id: CrateSyndicateStarterKit
+  suffix: Filled
+  name: basic operative bundle
+  description: "Contains everything an operative needs to wreak havoc."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunC20r
+      - id: MagazinePistolSubMachineGun
+        amount: 5
+      - id: SyndicateJawsOfLife
+      - id: C4
+        amount: 2
+      - id: MedkitCombatFilled
+      - id: EmpImplanter
+      - id: ClothingShoesChameleonNoSlips
+      - id: ClothingOuterHardsuitSyndie
+      - id: ScramImplanter
+      - id: EnergySword
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled

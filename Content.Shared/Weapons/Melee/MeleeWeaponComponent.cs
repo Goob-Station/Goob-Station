@@ -224,13 +224,17 @@ public sealed partial class MeleeWeaponComponent : Component
     ///     Shitmed Change: Part damage is multiplied by this amount for heavy swings
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeavyPartDamageMultiplier = 0.75f;
+    public float HeavyPartDamageMultiplier = 1.00f;
 
     // Shitmed Change End
 
     // Goobstation
     [DataField, AutoNetworkedField]
     public bool CanWideSwing = true;
+
+    // Goobstation
+    [DataField, AutoNetworkedField]
+    public float HeavyAttackWoundMultiplier = 0.5f;
 }
 
 /// <summary>

@@ -27,7 +27,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Access.Systems;
-using Content.Server.Forensics;
 using Content.Shared.Access.Components;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
@@ -61,7 +60,7 @@ namespace Content.Server.StationRecords.Systems;
 ///     depend on this general record being created. This is subject
 ///     to change.
 /// </summary>
-public sealed class StationRecordsSystem : SharedStationRecordsSystem
+public sealed partial class StationRecordsSystem : SharedStationRecordsSystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly StationRecordKeyStorageSystem _keyStorage = default!;
@@ -436,10 +435,13 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         };
     }
 
+    /* Goobstation - Criminal Records Wildcard
+    // Refer to StationRecordsSystem.Goob.cs for implementation
     private bool IsFilterWithSomeCodeValue(string value, string filter)
     {
         return !value.ToLower().StartsWith(filter);
     }
+    */
 
     /// <summary>
     /// Build a record listing of id to name for a station and filter.

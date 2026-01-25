@@ -24,6 +24,8 @@
         color: "#743474"
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+  - type: Damageable # Shitmed 
+    damageModifierSet: Plasmaman
 
 - type: entity
   id: ChestPlasmaman

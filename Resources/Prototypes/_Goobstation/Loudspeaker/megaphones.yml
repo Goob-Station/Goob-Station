@@ -1,0 +1,66 @@
+- type: entity
+  parent: BaseItem
+  id: Megaphone
+  name: megaphone
+  description: Testing!
+  components:
+  - type: Loudspeaker
+    isActive: true
+    worksInHand: true
+    affectChat: true
+    speechSounds: Loudspeaker
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/megaphones/generic.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/megaphones/generic.rsi
+
+- type: entity
+  parent: Megaphone
+  id: CargoMegaphone
+  name: cargo megaphone
+  description: Make money in silence and let the hustle make noise. Or something like that.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/megaphones/cargo.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/megaphones/cargo.rsi
+
+- type: entity
+  parent: Megaphone
+  id: CommandMegaphone
+  name: command megaphone
+  description: Turn shallow authority into loud shallow authority.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/megaphones/command.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/megaphones/command.rsi
+
+- type: entity
+  parent: Megaphone
+  id: SecurityMegaphone
+  name: security megaphone
+  description: Use to make suspects aware you're after them. Or to yell at prisoners you don't like.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/megaphones/security.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/megaphones/security.rsi
+
+- type: entity
+  parent: Megaphone
+  id: ClownMegaphone
+  name: clown megaphone
+  description: A comedian has to make their voice known.
+  components:
+  - type: Loudspeaker
+    affectRadio: true # :trollface:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/megaphones/clown.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/megaphones/clown.rsi

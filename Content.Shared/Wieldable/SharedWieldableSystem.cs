@@ -96,7 +96,7 @@ public abstract class SharedWieldableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand, 
+        SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand,
             before: [typeof(SharedGunSystem), typeof(BatteryWeaponFireModesSystem), typeof(ItemToggleSystem)]); // Goob - before item toogle for hardlight bow
         SubscribeLocalEvent<WieldableComponent, ItemUnwieldedEvent>(OnItemUnwielded);
         SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);
@@ -414,7 +414,7 @@ public abstract class SharedWieldableSystem : EntitySystem
         _item.SetHeldPrefix(uid, component.OldInhandPrefix);
 
         var user = args.User;
-        _virtualItem.DeleteInHandsMatching(user, uid);
+        _virtualItem.DeleteInHandsMatching(user, uid, false); // Goob edit
 
         if (!args.Force) // don't play sound/popup if this was a forced unwield
         {

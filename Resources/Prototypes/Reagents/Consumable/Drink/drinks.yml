@@ -20,7 +20,6 @@
 # SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
 # SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Veritius <veritiusgaming@gmail.com>
@@ -41,6 +40,15 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Jajsha <101492056+Zap527@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -130,7 +138,7 @@
 - type: reagent
   id: Cream
   name: reagent-name-cream
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-cream
   physicalDesc: reagent-physical-desc-creamy
   flavor: creamy
@@ -291,7 +299,7 @@
   id: JuiceBerryPoison
   parent: BaseJuice
   name: reagent-name-juice-berry-poison
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-juice-berry-poison
   physicalDesc: reagent-physical-desc-sickly
   flavor: bitter
@@ -315,7 +323,7 @@
   id: Lemonade
   parent: BaseJuice
   name: reagent-name-lemonade
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-lemonade
   physicalDesc: reagent-physical-desc-tart
   flavor: sweet
@@ -335,7 +343,7 @@
 - type: reagent
   id: Milk
   name: reagent-name-milk
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-milk
   physicalDesc: reagent-physical-desc-opaque
   flavor: milk
@@ -372,7 +380,7 @@
 - type: reagent
   id: MilkOat
   name: reagent-name-milk-oat
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-milk-oat
   physicalDesc: reagent-physical-desc-refreshing
   flavor: oats
@@ -396,7 +404,7 @@
 - type: reagent
   id: MilkSpoiled
   name: reagent-name-milk-spoiled
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-milk-spoiled
   physicalDesc: reagent-physical-desc-putrid
   flavor: terrible
@@ -411,7 +419,7 @@
   id: Nothing
   name: reagent-name-nothing
   desc: reagent-desc-nothing
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   physicalDesc: reagent-physical-desc-nothing
   metabolisms:
     Drink:
@@ -424,7 +432,7 @@
   id: NuclearCola
   parent: BaseSoda
   name: reagent-name-nuclear-cola
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-nuclear-cola
   physicalDesc: reagent-physical-desc-fizzy
   flavor: atomiccola
@@ -549,7 +557,7 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-    Gas:
+    Gas: # DeltaV - Feroxi get to breathe with this too!
       effects:
       - !type:HealthChange
         scaleByQuantity: true
@@ -561,6 +569,39 @@
         damage:
           types:
             Heat: 3
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+        factor: 2
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+        factor: 2
+      # DeltaV Converts H2O into CO2 for Feroxi
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+        ratios: # DeltaV no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+        ratios: # DeltaV no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
 
 - type: reagent
   id: Ice

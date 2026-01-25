@@ -101,6 +101,12 @@ namespace Content.Shared.Research.Prototypes
         public LocId? Name;
 
         /// <summary>
+        ///     Goobstation - Subname displayed in brackets near name. Used for recipes that should have same name, but have some difference.
+        /// </summary>
+        [DataField("subname")]
+        public LocId? SubName;
+
+        /// <summary>
         ///     Short description displayed in the lathe GUI.
         /// </summary>
         [DataField]
