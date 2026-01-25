@@ -119,6 +119,11 @@ public sealed class MoverController : SharedMoverController
 
     private void InsertMover(Entity<InputMoverComponent> source)
     {
+        // Already added
+        // Goob-Station - Surely there wasnt a reason this check was after the if statement, and nothing will break, right?
+        if (!_moverAdded.Add(source.Owner))
+            return;
+
         if (TryComp(source, out MovementRelayTargetComponent? relay))
         {
             if (TryComp(relay.Source, out InputMoverComponent? relayMover))
@@ -126,10 +131,6 @@ public sealed class MoverController : SharedMoverController
                 InsertMover((relay.Source, relayMover));
             }
         }
-
-        // Already added
-        if (!_moverAdded.Add(source.Owner))
-            return;
 
         _movers.Add(source);
     }
