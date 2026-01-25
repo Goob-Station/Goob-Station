@@ -20275,3 +20275,11 @@ Entries:
       message: 'Demon can no longer jaunt with small amount of blood '
   id: 2297
   time: '2026-01-25T07:54:12.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Add
+      message: >-
+        Added a popup message when it's possible to exit regenerative stasis as
+        a Changeling.
+  id: 2298
+  time: '2026-01-25T21:39:11.0000000+00:00'
