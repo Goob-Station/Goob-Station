@@ -36,7 +36,7 @@ public sealed partial class ChangelingStasisComponent : Component
     public LocId ExitPopup = "changeling-stasis-exit";
 
     [DataField]
-    public LocId ExitDefibPopup = "changeling-stasis-exit-defib";
+    public LocId ExitDefibPopup = "changeling-stasis-defib";
 
     [DataField]
     public LocId SelfReviveFailPopup = "self-revive-fail";
