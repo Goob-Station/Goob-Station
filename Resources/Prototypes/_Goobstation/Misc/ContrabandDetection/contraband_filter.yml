@@ -1,0 +1,12 @@
+- type: contrabandFilter
+  id: ContrabandFilter
+  whitelistedSeverity:
+    - Minor
+  requiresPermitSeverity:
+    - Restricted
+    - GrandTheft
+  blacklistedSeverity:
+    - Major
+    - Syndicate
+    - Magical
+    - Honkraband
