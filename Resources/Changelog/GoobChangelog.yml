@@ -20289,3 +20289,9 @@ Entries:
       message: CC plushies and other additions are no longer immediately lethal.
   id: 2299
   time: '2026-01-25T22:28:53.0000000+00:00'
+- author: lightwar_j9
+  changes:
+    - type: Tweak
+      message: buffed biomass reclaimer's processing speed
+  id: 2300
+  time: '2026-01-26T00:47:44.0000000+00:00'
