@@ -229,6 +229,9 @@
     delay: 1
   - type: Prying
   - type: GrabbingItem
+    blacklist:
+      tags:
+        - MobXenomorph
 
 - type: entity
   parent: BaseNullrod

@@ -156,7 +156,6 @@
     groups:
     - XenomorphAccess
 
-
 - type: entity
   parent: [BaseMobXenomorph, StripableInventoryBase]
   id: BaseMobXenomorphAdult
@@ -192,6 +191,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+    - MobXenomorph
   - type: XenomorphShoveTracker
 
 - type: entity
