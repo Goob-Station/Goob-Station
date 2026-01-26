@@ -193,6 +193,7 @@
     weight: 5
     duration: 1
     minimumPlayers: 15
+    maxOccurrences: 2
     chaos:
       Hostile: 40
       Medical: 40
