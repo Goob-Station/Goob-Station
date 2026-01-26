@@ -20,6 +20,7 @@
   - type: Unremoveable
   - type: Item
   - type: UnholyItem
+  - type: AlwaysHot
   - type: MansusGrasp
     blacklist:
       components:
