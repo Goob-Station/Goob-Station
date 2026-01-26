@@ -154,9 +154,6 @@ public sealed class EmagSystem : EntitySystem
         if (!EmagType.ContainsKey(protoId))
             return false;
 
-        if (comp.EmagType.Contains(_emagAll))
-            return true;
-
         return comp.EmagType.Contains(protoId);
     }
 
@@ -170,10 +167,7 @@ public sealed class EmagSystem : EntitySystem
     {
         if (!EmagType.ContainsKey(protoId))
             return false;
-
-        if (target == _emagAll)
-            return true;
-
+        
         return target.Id == protoId;
     }
     // Gigantic goob edit end

@@ -17,5 +17,5 @@ public sealed partial class DecayComponent : Component
     /// What emag interaction to use
     /// </summary>
     [DataField]
-    public ProtoId<EmagTypePrototype> EmagType = "All";
+    public List<ProtoId<EmagTypePrototype>> EmagType = ["Access", "Interaction"];
 }
