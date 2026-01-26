@@ -20301,3 +20301,17 @@ Entries:
       message: mediguns recharge fix
   id: 2301
   time: '2026-01-26T01:11:20.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Add
+      message: Hand of God now is considered hot, so it can light cigarettes
+    - type: Add
+      message: >-
+        Mansus Grasp can now light things on fire, since you can use it as a
+        cautery tool.
+    - type: Tweak
+      message: >-
+        Lighter in thief syndicate bundle is now a novelty syndicate lighter box
+        instead.
+  id: 2302
+  time: '2026-01-26T08:18:43.0000000+00:00'
