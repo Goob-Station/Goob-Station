@@ -187,7 +187,7 @@
       - QuantumSpinInverter # grinder gonna glitch blah-blah
   - type: ToolOpenable
     openToolQualityNeeded: Slicing
-    closeToolQualityNeeded: Slicing #//[Cutting,[Cutting,
+    closeToolQualityNeeded: Slicing
     name: secret-stash-book
   - type: ContainerContainer
     containers:
@@ -248,7 +248,7 @@
       - QuantumSpinInverter # grinder gonna glitch blah-blah
   - type: ToolOpenable
     openToolQualityNeeded: Slicing
-    closeToolQualityNeeded: Slicing #//[Cutting,[Cutting,
+    closeToolQualityNeeded: Slicing
     name: secret-stash-book
   - type: ContainerContainer
     containers:
