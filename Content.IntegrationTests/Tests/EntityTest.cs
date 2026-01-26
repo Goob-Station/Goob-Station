@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 // SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Javier Guardia Fern�ndez <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
@@ -28,19 +29,22 @@
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -279,83 +283,94 @@ namespace Content.IntegrationTests.Tests
                 .Select(p => p.ID)
                 .ToList();
 
-            await server.WaitPost(() =>
+            // Goob start run this test in batches of 10k because fuck you. we got too much shit.
+            const int batchSize = 10000;
+
+            for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
-                foreach (var protoId in protoIds)
+                var batchProtoIds = protoIds
+                    .Skip(batchStart)
+                    .Take(batchSize)
+                    .ToList();
+
+                await server.WaitPost(() =>
                 {
-                    mapSys.CreateMap(out var mapId);
-                    var grid = mapManager.CreateGridEntity(mapId);
-                    var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
-                    foreach (var (_, component) in sEntMan.GetNetComponents(ent))
+                    foreach (var protoId in batchProtoIds) // goob Batchprotoids
                     {
-                        sEntMan.Dirty(ent, component);
+                        mapSys.CreateMap(out var mapId);
+                        var grid = mapManager.CreateGridEntity(mapId);
+                        var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
+                        foreach (var (_, component) in sEntMan.GetNetComponents(ent))
+                        {
+                            sEntMan.Dirty(ent, component);
+                        }
                     }
-                }
-            });
+                });
 
-            // Goobstation Edit Start  (this test isn't even worth the effort tbh)
-            // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
-            // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on this test
-            // Goob gets to about 15GB, if we reach 16 GB on integrationtests we'll time out from github
-            //
-            // This area on my local testing is where most of the memory builds up, so run it as long as we can within reason.
-            // i mean yeah you could run the test in batches of entities but its not really a stress test then is it.
+                // Goobstation Edit Start  (this test isn't even worth the effort tbh)
+                // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
+                // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on this test
+                // Goob gets to about 15GB, if we reach 16 GB on integrationtests we'll time out from github
+                //
+                // This area on my local testing is where most of the memory builds up, so run it as long as we can within reason.
+                // i mean yeah you could run the test in batches of entities but its not really a stress test then is it.
 
-            const int maxTicks = 15; // (default wizden)
-            const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB
+                const int maxTicks = 15; // (default wizden)
+                const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB
 
-            var warninglog = true; // if we stop caring about this test turn this off.
+                var warninglog = true; // if we stop caring about this test turn this off.
 
-            for (var tick = 0; tick < maxTicks; tick++)
-            {
-                await pair.RunTicksSync(1);
-
-                var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
-
-                // debug logging but tbh just use debugger
-                // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDirtyAllEntities] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
-
-                if (memoryUsed < memoryLimitBytes)
-                    continue;
-                if (warninglog)
-                    await TestContext.Progress.WriteLineAsync(
-                        "Warning:\n"+
-                        $"[SpawnAndDirtyAllEntities] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks}\n" +
-                        "Stopping early (limit: 13 GB)." +
-                        $"\nWe spawned and dirtied {protoIds.Count} entities and held on for {tick+1} ticks. We're probably fine."
-                    );
-
-                break; // stop ticking early
-            }
-            // Goobstation Edit End
-
-            // Make sure the client actually received the entities
-            // 500 is completely arbitrary. Note that the client & sever entity counts aren't expected to match.
-            Assert.That(client.ResolveDependency<IEntityManager>().EntityCount, Is.GreaterThan(500));
-
-            await server.WaitPost(() =>
-            {
-                static IEnumerable<(EntityUid, TComp)> Query<TComp>(IEntityManager entityMan)
-                    where TComp : Component
+                for (var tick = 0; tick < maxTicks; tick++)
                 {
-                    var query = entityMan.AllEntityQueryEnumerator<TComp>();
-                    while (query.MoveNext(out var uid, out var meta))
+                    await pair.RunTicksSync(1);
+
+                    var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
+
+                    // debug logging but tbh just use debugger
+                    // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDirtyAllEntities] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
+
+                    if (memoryUsed < memoryLimitBytes)
+                        continue;
+                    if (warninglog)
+                        await TestContext.Progress.WriteLineAsync(
+                            "Warning:\n" +
+                            $"[SpawnAndDirtyAllEntities] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks}\n" +
+                            "Stopping early (limit: 13 GB)." +
+                            $"\nWe spawned and dirtied {protoIds.Count} entities and held on for {tick + 1} ticks. We're probably fine."
+                        );
+
+                    break; // stop ticking early
+                }
+                // Goobstation Edit End
+
+                // Make sure the client actually received the entities
+                // 500 is completely arbitrary. Note that the client & sever entity counts aren't expected to match.
+                Assert.That(client.ResolveDependency<IEntityManager>().EntityCount, Is.GreaterThan(500));
+
+                await server.WaitPost(() =>
+                {
+                    static IEnumerable<(EntityUid, TComp)> Query<TComp>(IEntityManager entityMan)
+                        where TComp : Component
                     {
-                        yield return (uid, meta);
+                        var query = entityMan.AllEntityQueryEnumerator<TComp>();
+                        while (query.MoveNext(out var uid, out var meta))
+                        {
+                            yield return (uid, meta);
+                        }
                     }
-                }
 
-                var entityMetas = Query<MetaDataComponent>(sEntMan).ToList();
-                foreach (var (uid, meta) in entityMetas)
-                {
-                    if (!meta.EntityDeleted)
-                        sEntMan.DeleteEntity(uid);
-                }
+                    var entityMetas = Query<MetaDataComponent>(sEntMan).ToList();
+                    foreach (var (uid, meta) in entityMetas)
+                    {
+                        if (!meta.EntityDeleted)
+                            sEntMan.DeleteEntity(uid);
+                    }
 
-                // goob edit - repalce is0 with atmost1.
-                // i can't believe you've done this.
-                Assert.That(sEntMan.EntityCount, Is.AtMost(1));
-            });
+                    // goob edit - repalce is0 with atmost1.
+                    // i can't believe you've done this.
+                    Assert.That(sEntMan.EntityCount, Is.AtMost(1));
+                });
+            } // Goob end, yeah im putting the whole test in a for loop.
 
             await pair.CleanReturnAsync();
         }
@@ -391,6 +406,9 @@ namespace Content.IntegrationTests.Tests
 
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
+
+                "PendingSlimeSpawn", // shut the fuck up please
+                "Slime" // please
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
@@ -424,9 +442,6 @@ namespace Content.IntegrationTests.Tests
             {
                 foreach (var protoId in protoIds)
                 {
-                    if (protoId == "LavalandHierophantTelepad") // TODO Lavaland Change: fix telepad
-                        continue;
-
                     var count = Count(server.EntMan);
                     var clientCount = Count(client.EntMan);
                     var serverEntities = new HashSet<EntityUid>(Entities(server.EntMan));

@@ -74,10 +74,13 @@
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Body; // goob
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -100,8 +103,6 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Movement.Pulling.Components; // Goobstation
-using Content.Shared.Movement.Pulling.Systems; // Goobstation
-using Content.Goobstation.Shared.Body.Components;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 // Shitmed Change
@@ -149,9 +150,15 @@ public sealed class RespiratorSystem : EntitySystem
     }
 
     // Goobstation start
-    // Can breathe check for grab
+    // Can breathe check for grab or if they need air
     public bool CanBreathe(EntityUid uid, RespiratorComponent respirator)
     {
+        var airEv = new CheckNeedsAirEvent();
+        RaiseLocalEvent(uid, ref airEv);
+
+        if (airEv.Cancelled)
+            return true;
+
         if (respirator.Saturation < respirator.SuffocationThreshold)
             return false;
         if (TryComp<PullableComponent>(uid, out var pullable)
@@ -186,7 +193,7 @@ public sealed class RespiratorSystem : EntitySystem
             var multiplier = -1f;
             foreach (var (_, lung, _) in organs)
             {
-                multiplier *= lung.SaturationLoss;
+                multiplier *= lung.SaturationLoss * respirator.SaturationLoss; // Goob Edit - In a DeltaV Edit :o
             }
             // End DeltaV Code
             UpdateSaturation(uid,  multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
@@ -575,6 +582,14 @@ public sealed class RespiratorSystem : EntitySystem
     {
         if (!Resolve(uid, ref respirator, false))
             return;
+
+        // Goob start
+        var airEv = new CheckNeedsAirEvent();
+        RaiseLocalEvent(uid, ref airEv);
+
+        if (airEv.Cancelled)
+            return;
+        // Goob end
 
         respirator.Saturation += amount;
         respirator.Saturation =

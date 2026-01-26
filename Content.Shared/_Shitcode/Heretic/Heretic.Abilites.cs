@@ -154,6 +154,9 @@ public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent
     public float FireStacks = 3f;
 
     [DataField]
+    public float FireProtectionPenetration = 0.5f;
+
+    [DataField]
     public float HealAmount = -10f;
 }
 public sealed partial class EventHereticFlames : InstantActionEvent { }
@@ -170,7 +173,12 @@ public sealed partial class EventHereticFleshSurgery : InstantActionEvent, ITouc
 public sealed partial class EventHereticFleshPassive : EntityEventArgs;
 
 // void (+ upgrades)
-[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class HereticAristocratWayEvent : EntityEventArgs
+{
+    [DataField]
+    public bool GrantBreathingImmunity;
+}
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
 
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent
@@ -180,7 +188,7 @@ public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent
     {
         DamageDict =
         {
-            {"Cold", 40},
+            {"Cold", 20},
         },
     };
 
@@ -212,16 +220,22 @@ public sealed partial class HereticVoidPullEvent : InstantActionEvent
     public TimeSpan KnockDownTime = TimeSpan.FromSeconds(3);
 
     [DataField]
-    public float Radius = 7f;
-
-    [DataField]
-    public float StunRadius = 4f;
-
-    [DataField]
-    public float DamageRadius = 1.5f;
+    public float Radius = 3f;
 
     [DataField]
     public EntProtoId InEffect = "EffectVoidBlinkIn";
+}
+
+public sealed partial class HereticVoidPrisonEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public ProtoId<PolymorphPrototype> Polymorph = "VoidPrison";
+}
+
+public sealed partial class HereticVoidConduitEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId VoidConduit = "VoidConduit";
 }
 
 public sealed partial class HereticVoidVisionEvent : EntityEventArgs { } // done only via void's ascension

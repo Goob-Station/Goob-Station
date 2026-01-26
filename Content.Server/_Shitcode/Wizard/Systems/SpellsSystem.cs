@@ -14,7 +14,6 @@ using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
-using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
@@ -31,7 +30,6 @@ using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -76,6 +74,7 @@ using Content.Shared.Construction.Components;
 using Content.Shared.Friction;
 using Content.Shared.Item;
 using Content.Shared.Tag;
+using Content.Goobstation.Shared.Teleportation.Systems;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -95,7 +94,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
@@ -168,13 +167,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
             false,
             session.Channel,
             args.MessageColor);
-    }
-
-    protected override void MakeMime(EntityUid uid)
-    {
-        base.MakeMime(uid);
-
-        EnsureComp<MimePowersComponent>(uid).CanBreakVow = false;
     }
 
     protected override void Emp(DisableTechEvent ev)

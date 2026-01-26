@@ -25,7 +25,7 @@ selectable-set-thief-syndie-description =
     Trinkets from a disavowed past, or stolen from a careless agent?
     You've made some connections. Whiskey, echo...
     Includes: An Emag, Access Breaker, Interdyne cigs, a Syndicate codeword,
-    a Radio Jammer, a lighter and some strange red crystals.
+    a Radio Jammer, a novelty lighter box and some strange red crystals.
 
 selectable-set-thief-sleeper-name = Sleeper Kit
 selectable-set-thief-sleeper-description =
@@ -75,7 +75,7 @@ selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
     A bundle with everything you need to hack into and disrupt the Station itself,
     the station AI, its cyborgs and the Security team. HACK THE PLANET!
-    Contains: Antimov law board, authentication disruptor, EMAG,
+    Contains: A custom law board, authentication disruptor, EMAG,
     radio jammer, filled toolbox, experimental syndicate teleporter,
     cool glasses, binary decoder implanter and a syndicate encryption key.
 

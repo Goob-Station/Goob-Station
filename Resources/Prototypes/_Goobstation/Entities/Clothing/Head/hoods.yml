@@ -47,3 +47,55 @@
     sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase ]
+  id: ClothingHeadHatHoodHereticCostume
+  name: occult hood
+  description: A torn, dust-caked hood. Smudgy eyes line the inside.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHereticCostume
+  id: ClothingHeadHatHoodHereticVoidCostume
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/void_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/void_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHereticCostume
+  id: ClothingHeadHatHoodHereticAshCostume
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/ashen_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/ashen_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHereticCostume
+  id: ClothingHeadHatHoodHereticFleshCostume
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/flesh_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/flesh_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHereticCostume
+  id: ClothingHeadHatHoodHereticBladeCostume
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi

@@ -1,0 +1,67 @@
+# threats called in by playing the Number Station CD
+- type: weightedRandom
+  id: NumberStationThreats
+  weights:
+    LoneOperative: 1
+    ShuttleInstigator: 0.8
+    VoxRaiders: 0.8
+    GreyTide: 0.65
+    #TODO When Slasher is ready Slasher: 0.6 # Goobstation
+    Blob: 0.5
+    Dragon: 0.3
+    SlaughterDemon: 0.3
+    LaughterDemon: 0.3
+    Revolutionary: 0.2
+
+# Threats
+
+- type: ninjaHackingThreat
+  id: SlaughterDemon
+  announcement: terror-slaughter-demon
+  rule: SlaughterDemonMidround
+
+- type: ninjaHackingThreat
+  id: LoneOperative
+  announcement: terror-lone-operative
+  rule: LoneOpsSpawn
+
+- type: ninjaHackingThreat
+  id: Blob
+  announcement: terror-blob
+  rule: BlobSpawn
+
+- type: ninjaHackingThreat
+  id: VoxRaiders
+  announcement: terror-vox
+  rule: VoxRaidersMidround
+
+- type: ninjaHackingThreat
+  id: LaughterDemon
+  announcement: terror-slaughter-demon
+  rule: LaughterDemonSummon
+
+- type: ninjaHackingThreat
+  id: ShuttleInstigator
+  announcement: terror-lone-operative
+  rule: UnknownShuttleInstigator
+
+- type: ninjaHackingThreat
+  id: GreyTide
+  announcement: terror-grey-tide
+  rule: GreyTideAntagMidround
+
+- type: ninjaHackingThreat
+  id: Revolutionary
+  announcement: terror-lone-operative
+  rule: RevolutionaryMidround
+
+#- type: ninjaHackingThreat
+#  id: Wraith
+#  announcement: terror-wraith
+#  rule: WraithMidround
+
+# TODO When Slasher is Ready
+#- type: ninjaHackingThreat
+#  id: Slasher
+#  announcement: terror-slasher
+#  rule: SlasherSpawn

@@ -31,13 +31,8 @@ public sealed class EntryPoint : GameServer
 
         IoCManager.Resolve<IJoinQueueManager>().Initialize();
 
-        _curr = IoCManager.Resolve<ICommonCurrencyManager>(); // Goobstation
-        _curr.Initialize(); // Goobstation
-    }
-
-    public override void PostInit()
-    {
-        base.PostInit();
+        _curr = IoCManager.Resolve<ICommonCurrencyManager>();
+        _curr.Initialize();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)

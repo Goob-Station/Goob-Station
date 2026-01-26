@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -922,6 +923,7 @@
   loadouts:
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
+  - NanotrasenRepresentativeFancyJumpsuit
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBelt
@@ -1443,6 +1445,8 @@
   name: loadout-group-security-melee
   loadouts:
   - SecurityMeleeKnife
+  - SecurityMeleePolyBaton
+  - SecurityMeleeSpear
 
 # Zookeeper
 
@@ -1512,3 +1516,71 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesPlasma
+
+# Virologist
+
+- type: loadoutGroup
+  id: VirologistJumpsuit
+  name: loadout-group-virologist-jumpsuit
+  loadouts:
+   - VirologistJumpsuit
+   - VirologistJumpskirt
+   - VirologistMJ # goobin
+
+- type: loadoutGroup
+  id: VirologistBackpack
+  name: loadout-group-virologist-backpack
+  loadouts:
+   - VirologistBackpack
+   - VirologistSatchel
+   - VirologistDuffel
+
+- type: loadoutGroup
+  id: VirologistOuterClothing
+  name: loadout-group-virologist-outerclothing
+  minLimit: 0
+  loadouts:
+   - VirologistLabCoat
+   - VirologistWintercoat
+
+- type: loadoutGroup
+  id: VirologistPDA
+  name: loadout-group-virologist-id
+  loadouts:
+   - VirologistPDA
+
+- type: loadoutGroup
+  id: VirologyEnvirohelm
+  name: loadout-group-virology-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - VirologistEnvirohelm
+
+- type: loadoutGroup
+  id: VirologyEnvirosuit
+  name: loadout-group-virology-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - VirologistEnvirosuit
+
+- type: loadoutGroup
+  id: VirologyEnvirogloves
+  name: loadout-group-virology-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - NitrileEnvirogloves
+
+# Radio Host
+
+- type: loadoutGroup
+  id: RadioHostJumpsuit
+  name: loadout-group-radiohost-jumpsuit
+  loadouts:
+  - JumpsuitHawaiBlack
+  - JumpsuitHawaiBlue
+  - JumpsuitHawaiRed
+  - JumpsuitHawaiYellow

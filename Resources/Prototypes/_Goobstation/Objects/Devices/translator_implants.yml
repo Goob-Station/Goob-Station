@@ -14,20 +14,20 @@
   components:
   - type: TranslatorImplant
     spoken:
-      - TauCetiBasic
+      - TauCetiBasic # Common Languages -
       - SolCommon
       - Elyran
       - Freespeak
       - NovuNederic
       - Tradeband
       - Sign
-      - SpaceItalian
-      - Bubblish
+      - SpaceItalian # Job Specific -
+      - Bubblish # Species Languages -
       - Calcic
       - Canilunzt
       - Chittin
       - Gruntish
-      - NewKinPidgin #Ka'rakk
+      - NewKinPidgin # = Ka'rakk
       - Marish
       - Moffic
       - Nehina
@@ -35,35 +35,36 @@
       - RobotTalk
       - RootSpeak
       - SiikMaas
-      - Draconic     #Sinta'Unathi
+      - Draconic # = Sinta'Unathi
       - Schechi
       - ValyrianStandard
-      - Azaziba
+      - YowKriol
+      - Azaziba # Depricated Languages -
+      - Delvahii
+      - Eldritch
       - NalRasan
       - SiikTajr
       - YaSsa
-      - Delvahii
-      - Eldritch
+      - Cheval # Animal Languages -
       - Mouse
       - Monkey
       - Kobold
-      - Cheval
 
     understood:
-      - TauCetiBasic
+      - TauCetiBasic # Common Languages -
       - SolCommon
       - Elyran
       - Freespeak
       - NovuNederic
       - Tradeband
       - Sign
-      - SpaceItalian
-      - Bubblish
+      - SpaceItalian # Job Specific -
+      - Bubblish # Species Languages -
       - Calcic
       - Canilunzt
       - Chittin
       - Gruntish
-      - NewKinPidgin #Ka'rakk
+      - NewKinPidgin # = Ka'rakk
       - Marish
       - Moffic
       - Nehina
@@ -71,19 +72,22 @@
       - RobotTalk
       - RootSpeak
       - SiikMaas
-      - Draconic     #Sinta'Unathi
+      - Draconic # = Sinta'Unathi
       - Schechi
       - ValyrianStandard
-      - Azaziba
+      - YowKriol
+      - Azaziba # Depricated Languages -
+      - Delvahii
+      - Eldritch
       - NalRasan
       - SiikTajr
       - YaSsa
-      - Delvahii
-      - Eldritch
+      - Cheval # Animal Languages -
       - Mouse
       - Monkey
       - Kobold
-      - Cheval
+
+
 
 
 
@@ -123,3 +127,18 @@
     - SpaceItalian
     spoken:
     - SpaceItalian
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: YowKriolTranslatorImplant
+  name: Yow Kriol translator implant
+  description: An implant giving the ability to understand and speak Yow Kriol.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - YowKriol
+    spoken:
+    - YowKriol
+    requires:
+    - TauCetiBasic
