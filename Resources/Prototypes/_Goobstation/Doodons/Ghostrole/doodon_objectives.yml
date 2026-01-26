@@ -4,7 +4,6 @@
   - type: Objective
     difficulty: 1
     issuer: objective-issuer-papa-doodon
-    requiresAntag: false   
     icon:
       sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
       state: worker
@@ -25,7 +24,6 @@
   - type: Objective
     difficulty: 1
     issuer: objective-issuer-papa-doodon
-    requiresAntag: false
     icon:
       sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
       state: dwelling

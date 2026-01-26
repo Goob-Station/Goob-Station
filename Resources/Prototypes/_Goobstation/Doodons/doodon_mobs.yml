@@ -121,7 +121,6 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
-    map: ["enum.DamageStateVisualLayers.Base"]
     state: papa
     drawdepth: SmallMobs
   - type: Appearance
@@ -131,8 +130,6 @@
       100: Critical
       150: Dead
   - type: Hands
-    slots: 2
-    names: ["left hand", "right hand"]
   - type: Sericulture
     entityProduced: MaterialDoodonResin1
     action: ActionDoodonResin
@@ -140,22 +137,17 @@
     hungerCost: 5
   - type: PapaDoodon
   - type: MindContainer
-    showObjectives: true
-    showAntagIcons: false
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    jobRequired: false
     name: ghost-role-information-papa-doodon-name
     description: ghost-role-information-papa-doodon-information
     rules: ghost-role-information-papa-doodon-rules
     mindRoles:
       - MindRoleGhostRoleFreeAgent
       - MindRolePapaDoodon
-    raffle:
-    settings: default
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -227,8 +219,6 @@
     state: worker
     drawdepth: SmallMobs
   - type: Hands
-    slots: 1
-    names: ["hand"]
   - type: Sericulture
     entityProduced: MaterialDoodonResin1
     action: ActionDoodonResin
@@ -249,7 +239,6 @@
   - type: Physics
     bodyType: KinematicController
   - type: CombatMode
-    combatEnabled: true
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -289,8 +278,6 @@
     state: warrior
     drawdepth: SmallMobs
   - type: Hands     # Equip Them With swords and shields
-    slots: 2
-    names: ["left hand", "right hand"]
   - type: DoodonWarrior
   - type: NpcFactionMember
     factions:
@@ -345,7 +332,7 @@
     drawdepth: SmallMobs
   - type: Doodon
     requiredHousing: Moodon
-    countsTowardsPopulation: false      # Moodons are cattle, and do not count towards city population. They do still require pastures though
+    countsTowardPopulation: false      # Moodons are cattle, and do not count towards city population. They do still require pastures though
   - type: SolutionContainerManager
     solutions:
       juice:
@@ -354,14 +341,14 @@
         - ReagentId: Omnizine
           Quantity: 20
       udder:
-        maxVol: 50
+        maxVol: 100
         reagents:
         - ReagentId: Omnizine
           Quantity: 10
   - type: Udder
-    reagentId: Milk
-    quantityPerUpdate: 5
-    growthDelay: 30
+    reagentId: Omnizine
+    quantityPerUpdate: 10
+    growthDelay: 25
   - type: ExaminableHunger
   - type: Extractable
     grindableSolutionName: juice

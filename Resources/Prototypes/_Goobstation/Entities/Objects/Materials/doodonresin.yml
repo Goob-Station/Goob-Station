@@ -1,7 +1,7 @@
 
 - type: stack
   id: DoodonResin
-  name: doodon resin
+  name: doodon-resin-name
   spawn: MaterialDoodonResin1
   maxCount: 30
   icon: 

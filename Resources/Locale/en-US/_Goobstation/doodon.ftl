@@ -48,3 +48,5 @@ doodon-machine-cannot-produce = This machine cannot produce. Do you have enough 
 
 guide-entry-doodons = Doodons
 guide-entry-doodon-buildings = Doodon Buildings
+
+doodon-resin-name = doodon resin
