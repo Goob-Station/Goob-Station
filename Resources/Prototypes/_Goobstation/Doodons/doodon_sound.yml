@@ -18,7 +18,7 @@
   id: DoodonQuestion
   files:
   - /Audio/_Goobstation/Doodon/doodonquestion1.ogg
-  - /Audio/_Goobstation/Doodon/doodonquestion2.ogg
+  - /Audio/_Goobstation/Doodon/DoodonQuestion2.ogg
   
 - type: soundCollection
   id: DoodonExclaim
