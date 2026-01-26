@@ -86678,7 +86678,6 @@ entities:
       pos: 64.5,15.5
       parent: 2
     - type: DeviceNetwork
-      
       deviceLists:
       - 28791
   - uid: 28793
@@ -86687,7 +86686,6 @@ entities:
       pos: 67.5,9.5
       parent: 2
     - type: DeviceNetwork
-      
       deviceLists:
       - 28791
   - uid: 28794
@@ -86696,7 +86694,6 @@ entities:
       pos: 60.5,11.5
       parent: 2
     - type: DeviceNetwork
-      
       deviceLists:
       - 28791
 - proto: Fireplace
@@ -112524,7 +112521,6 @@ entities:
       pos: 64.5,11.5
       parent: 2
     - type: DeviceNetwork
-      
       deviceLists:
       - 28791
 - proto: GasVentPumpVox
@@ -114360,7 +114356,6 @@ entities:
       pos: 64.5,13.5
       parent: 2
     - type: DeviceNetwork
-      
       deviceLists:
       - 28791
 - proto: GasVentScrubberVox
