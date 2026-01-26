@@ -343,8 +343,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
 
         if (comp.IsInStasis && comp.StasisTime > 0f)
+        {
             comp.StasisTime -= 1f;
 
+            if (comp.StasisTime == 0f) // If this tick finished the stasis timer
+                _popup.PopupEntity(Loc.GetString("changeling-stasis-finished"), uid, uid);
+        }
     }
 
     private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens passively
