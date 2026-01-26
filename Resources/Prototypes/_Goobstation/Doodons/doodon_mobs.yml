@@ -304,7 +304,6 @@
         layer:
         - MobLayer
   - type: CombatMode
-    combatEnabled: true
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 3.5
