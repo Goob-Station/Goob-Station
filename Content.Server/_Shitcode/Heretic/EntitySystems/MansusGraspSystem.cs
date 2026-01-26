@@ -81,6 +81,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         SubscribeLocalEvent<MansusGraspComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<MansusGraspComponent, MeleeHitEvent>(OnMelee);
+        SubscribeLocalEvent<BookCicatrixComponent, MeleeHitEvent>(OnBookMelee);
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<RustGraspComponent, AfterInteractEvent>(OnRustInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
@@ -225,9 +226,32 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             return;
         var target = args.HitEntities.First();
         // no fumbling!
+
+        if (HasComp<HereticRitualRuneComponent>(target))
+        {
+            args.Handled = true;
+            QueueDel(target);
+            return;
+        }
+
         if (target == args.User)
             return;
-        args.Handled = GraspTarget(ent, args.User,target);
+        args.Handled = GraspTarget(ent, args.User, target);
+    }
+
+    private void OnBookMelee(Entity<BookCicatrixComponent> ent, ref MeleeHitEvent args)
+    {
+        if (args.HitEntities.Count == 0)
+            return;
+        if (args.HitEntities.Count > 1)
+            return;
+        var target = args.HitEntities.First();
+        if (HasComp<HereticRitualRuneComponent>(target))
+        {
+            args.Handled = true;
+            QueueDel(target);
+            return;
+        }
     }
 
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
@@ -238,7 +262,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         if (args.Target == null || args.Target == args.User)
             return;
 
-        args.Handled = GraspTarget(ent, args.User,args.Target.Value);
+        args.Handled = GraspTarget(ent, args.User, args.Target.Value);
     }
 
     public void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent>? ent)

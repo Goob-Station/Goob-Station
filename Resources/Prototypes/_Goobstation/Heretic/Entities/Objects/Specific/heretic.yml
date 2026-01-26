@@ -49,6 +49,13 @@
   - type: Tag
     tags:
     - HereticItem
+  - type: BookCicatrix #for hitting rune
+  - type: MeleeWeapon
+    canHeavyAttack: false
+    damage:
+      types:
+        Blunt: 1 #for hitting rune
+
 
 - type: entity
   parent: [ DrinkBase, BaseMagicalContraband ]
