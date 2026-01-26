@@ -102,6 +102,7 @@ The Null Rod is the chaplain's trusty tool, With it the chaplain is one of the m
 
   Why go through all the trouble of catching them when you can just shoot them.
   Comes in a pair of 2 pistols that can only be shot together, They may be reloaded by whispering a prayer into them.
+  They do not block magical attacks.
 
   Each pistol does low damage, and comes in a special holster, deals (5 piercing and 4 holy per shot)
 
@@ -133,6 +134,7 @@ The Null Rod is the chaplain's trusty tool, With it the chaplain is one of the m
   ### Bulwark [Blue Altar]
 
   Big shield not much to say here.
+  Gives you the ability to dash, and knocks the target on hit back by 5 tiles.
 
   It blocks 15% of all damage unless planted, then its 100%. It does low damage (5 slash and 10 holy) at a slow speed.
 
