@@ -20315,3 +20315,9 @@ Entries:
         instead.
   id: 2302
   time: '2026-01-26T08:18:43.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Bluespace anomaly can't teleport Blob tiles anymore
+  id: 2303
+  time: '2026-01-26T20:15:49.0000000+00:00'
