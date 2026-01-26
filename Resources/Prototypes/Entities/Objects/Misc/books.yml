@@ -177,6 +177,22 @@
     ignoreReagents:
     - Fiber
   # Goobstation Edit End
+  #Goobstation start
+  - type: SecretStash
+    secretStashName: secret-stash-book
+    blacklist:
+      components:
+      - SecretStash #no recursion
+      tags:
+      - QuantumSpinInverter # grinder gonna glitch blah-blah
+  - type: ToolOpenable
+    openToolQualityNeeded: Slicing
+    closeToolQualityNeeded: Slicing #//[Cutting,[Cutting,
+    name: secret-stash-book
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
+  #Goobstation end
 
 - type: entity
   parent: BaseItem
@@ -222,6 +238,22 @@
     ignoreReagents:
     - Fiber
   # Goobstation Edit End
+  #Goobstation start
+  - type: SecretStash
+    secretStashName: secret-stash-book
+    blacklist:
+      components:
+      - SecretStash #no recursion
+      tags:
+      - QuantumSpinInverter # grinder gonna glitch blah-blah
+  - type: ToolOpenable
+    openToolQualityNeeded: Slicing
+    closeToolQualityNeeded: Slicing #//[Cutting,[Cutting,
+    name: secret-stash-book
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
+  #Goobstation end
 
 - type: entity
   id: BookSpaceEncyclopedia

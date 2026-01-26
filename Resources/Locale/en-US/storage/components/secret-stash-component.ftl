@@ -38,3 +38,4 @@ secret-stash-plant = plant
 secret-stash-toilet = toilet cistern
 secret-stash-plushie = plushie
 secret-stash-cake = cake
+secret-stash-book = book
