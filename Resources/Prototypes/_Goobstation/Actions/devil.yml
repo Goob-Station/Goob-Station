@@ -159,6 +159,19 @@
       machetePrototype: DevilPitchfork
 
 - type: entity
+  id: ActionDevilHellstep
+  name: Hellstep
+  description: Creates a trail of fire where your metaphysical tail meets the ground.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 90
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/devil.rsi, state: hellstep }
+  - type: InstantAction
+    event: !type:DevilHellstepEvent
+
+- type: entity
   id: ActionSmallFavor
   name: Small favor
   description: As a small favor, bring a lesser slaughter demon from Hell for two minutes.

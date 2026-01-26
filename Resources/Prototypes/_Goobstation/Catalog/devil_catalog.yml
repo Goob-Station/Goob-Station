@@ -25,6 +25,19 @@
     stock: 1
 
 - type: listing
+  id: Hellstep
+  name: Hellstep
+  description: devil-hellstep-desc
+  productAction: ActionDevilHellstep
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SmallFavor
   name: Small favor
   description: devil-small-favor-desc

@@ -1,0 +1,59 @@
+- type: entity
+  name: devilish pitchfork
+  parent: [BaseItem, BaseMinorContraband]
+  id: DevilPitchfork
+  description: More of an annoyance, really. Used to poke sinners with it, or anyone, really.
+  components:
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Tag
+    tags:
+    - Spear
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.08,-0.06
+            - -0.06,-0.08
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Sharp
+  - type: Sprite
+    sprite: _Goobstation/Devil/spear.rsi
+    state: pítchfork1
+  - type: MeleeWeapon
+    canWideSwing: false
+    range: 2.5
+    attackRate: 0.8
+    animationRotation: -135
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 10
+        Heat: 6
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 20
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,8,0
+    storedRotation: 45
+  - type: UseDelay
+  - type: Appearance
+  - type: ThrowableBlocked
+  - type: UndetectableContraband

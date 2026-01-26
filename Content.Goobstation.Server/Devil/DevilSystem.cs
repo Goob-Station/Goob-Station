@@ -13,6 +13,7 @@ using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.CrematorImmune;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Devil.Components;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
@@ -117,6 +118,12 @@ public sealed partial class DevilSystem : EntitySystem
         RemComp<TemperatureSpeedComponent>(devil);
         RemComp<CondemnedComponent>(devil);
         RemComp<DestructibleComponent>(devil);
+
+        // All skills
+        //EnsureComp<DevilHeresyActionComponent>(devil);
+        EnsureComp<HellstepActionComponent>(devil);
+        //EnsureComp<FireImmunityActionComponent>(devil);
+        //EnsureComp<DevilAuthorityComponent>(devil);
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);
