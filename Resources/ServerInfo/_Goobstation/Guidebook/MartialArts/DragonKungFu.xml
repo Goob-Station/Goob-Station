@@ -37,7 +37,6 @@
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
-    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
   Deals Blunt and Stamina damage. Knocks the opponent down if they are standing, and applies a short stun otherwise.
@@ -46,7 +45,6 @@
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
-    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
