@@ -120,7 +120,7 @@ public sealed partial class DevilSystem : EntitySystem
         RemComp<DestructibleComponent>(devil);
 
         // All skills
-        //EnsureComp<DevilHeresyActionComponent>(devil);
+        EnsureComp<DevilHeresyComponent>(devil);
         EnsureComp<HellstepActionComponent>(devil);
         //EnsureComp<FireImmunityActionComponent>(devil);
         //EnsureComp<DevilAuthorityComponent>(devil);

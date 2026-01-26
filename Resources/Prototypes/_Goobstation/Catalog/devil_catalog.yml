@@ -4,7 +4,20 @@
   description:  devil-pitchfork-desc
   productAction: ActionSummonPitchfork
   cost:
-    SoulsStored: 1
+    SoulsStored: 0
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilHellfire
+  name: Hellfire
+  description:  devil-hellfire-desc
+  productAction: ActionHellFire
+  cost:
+    SoulsStored: 0
   categories:
   - DevilAbilities
   conditions:
@@ -17,7 +30,24 @@
   description: devil-grip-desc
   productAction: ActionDevilGrip
   cost:
-    SoulsStored: 1
+    SoulsStored: 0
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilFireImmunity
+  name: Ignis Immunitas
+  description: devil-fire-immune-desc
+  productEvent: !type:DevilFireImmuneEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Actions/devil.rsi
+    state: fireimmune
+  cost:
+    SoulsStored: 0
   categories:
   - DevilAbilities
   conditions:
@@ -30,7 +60,20 @@
   description: devil-hellstep-desc
   productAction: ActionDevilHellstep
   cost:
-    SoulsStored: 1
+    SoulsStored: 0
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: Heresy
+  name: Heresy
+  description: devil-heresy-desc
+  productAction: ActionDevilHeresy
+  cost:
+    SoulsStored: 0
   categories:
   - DevilAbilities
   conditions:
@@ -43,7 +86,7 @@
   description: devil-small-favor-desc
   productAction: ActionSmallFavor
   cost:
-    SoulsStored: 1
+    SoulsStored: 0
   categories:
   - DevilAbilities
   conditions:

@@ -25,6 +25,7 @@ using Content.Shared.Heretic.Prototypes; // Goob
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using static Robust.Shared.Prototypes.EntityPrototype; // Goob
 
 namespace Content.Shared.Store;
 

@@ -209,13 +209,26 @@
     event: !type:SlasherSummonMacheteEvent
 
 - type: entity
+  id: ActionDevilHeresy
+  name: Heresy
+  description: Draw a rune below your feet to heal any unholy damage taken over time.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: heresy
+  - type: InstantAction
+    event: !type:DevilHeresyEvent
+
+- type: entity
   parent: ActionFireball
   id: ActionHellFire
   name: Hellfire
-  description: This spell launches hellfire at the target.
+  description: This spell launches hellfire at the target. Causes a small explosion and sets living creatures ablaze.
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 180
     itemIconStyle: BigAction
     raiseOnUser: true
     sound: !type:SoundPathSpecifier
