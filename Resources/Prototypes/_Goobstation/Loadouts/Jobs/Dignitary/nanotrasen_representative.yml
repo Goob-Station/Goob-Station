@@ -86,15 +86,6 @@
   equipment:
     head: ClothingHeadHatBowlerHat
 
-# Goobstation - For Ensembles
-- type: loadoutEffectGroup
-  id: GrandMasterNTR
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobNanotrasenRepresentative
-      time: 360000 # 100 hrs
 
 - type: loadout
   id: NanotrasenRepresentativeTop
@@ -141,14 +132,6 @@
   id: ClothingNeckScarfStripedCentcom
   equipment:
     neck: ClothingNeckScarfStripedCentcom
-
-- type: loadout
-  id: NanotrasenRepresentativeEnsemble
-  equipment:
-    neck: ClothingNeckEnsembleNanotrasenRepresentative
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: GrandMasterNTR
 
 # Backpacks
 - type: loadout
