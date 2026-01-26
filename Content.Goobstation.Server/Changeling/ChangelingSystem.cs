@@ -33,11 +33,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Actions;
+using Content.Goobstation.Common.Body;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Conversion;
+using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Medical;
+using Content.Goobstation.Common.Mind;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goobstation.Shared.Changeling;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
@@ -161,7 +167,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ChangelingIdentityComponent, MapInitEvent>(OnIdentityMapInit);
+        SubscribeLocalEvent<ChangelingComponent, MapInitEvent>(OnChangelingMapInit);
+
         SubscribeLocalEvent<ChangelingIdentityComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, UpdateMobStateEvent>(OnUpdateMobState);
         SubscribeLocalEvent<ChangelingIdentityComponent, DamageChangedEvent>(OnDamageChange);
@@ -169,7 +177,14 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
         SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<ChangelingIdentityComponent, PolymorphedEvent>(OnPolymorphed);
+
         SubscribeLocalEvent<ChangelingComponent, PolymorphedEvent>(OnPolymorphedTakeTwo);
+        SubscribeLocalEvent<ChangelingComponent, BeforeAmputationDamageEvent>(OnLimbAmputation);
+        SubscribeLocalEvent<ChangelingComponent, GetAntagSelectionBlockerEvent>(OnGetAntagBlocker);
+        SubscribeLocalEvent<ChangelingComponent, BeforeMindSwappedEvent>(OnMindswapAttempt);
+        SubscribeLocalEvent<ChangelingComponent, BeforeConversionEvent>(OnConversionAttempt);
+        SubscribeLocalEvent<ChangelingComponent, BeforeBrainRemovedEvent>(OnBrainRemoveAttempt);
+        SubscribeLocalEvent<ChangelingComponent, BeforeBrainAddedEvent>(OnBrainAddAttempt);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
@@ -185,9 +200,40 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnPolymorphed(Entity<ChangelingIdentityComponent> ent, ref PolymorphedEvent args)
         => _polymorph.CopyPolymorphComponent<ChangelingIdentityComponent>(ent, args.NewEntity);
 
-    // we really should get rid of it.
     private void OnPolymorphedTakeTwo(Entity<ChangelingComponent> ent, ref PolymorphedEvent args)
         => _polymorph.CopyPolymorphComponent<ChangelingComponent>(ent, args.NewEntity);
+
+    private void OnLimbAmputation(Entity<ChangelingComponent> ent, ref BeforeAmputationDamageEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    private void OnGetAntagBlocker(Entity<ChangelingComponent> ent, ref GetAntagSelectionBlockerEvent args)
+    {
+        args.IsChangeling = true;
+    }
+
+    private void OnMindswapAttempt(Entity<ChangelingComponent> ent, ref BeforeMindSwappedEvent args)
+    {
+        args.Message = ent.Comp.MindswapText;
+        args.Cancelled = true;
+    }
+
+    private void OnConversionAttempt(Entity<ChangelingComponent> ent, ref BeforeConversionEvent args)
+    {
+        args.Blocked = true;
+    }
+
+    // stop the changeling from losing control over the body
+    private void OnBrainRemoveAttempt(Entity<ChangelingComponent> ent, ref BeforeBrainRemovedEvent args)
+    {
+        args.Blocked = true;
+    }
+
+    private void OnBrainAddAttempt(Entity<ChangelingComponent> ent, ref BeforeBrainAddedEvent args)
+    {
+        args.Blocked = true;
+    }
 
     private void OnDartHit(Entity<ChangelingDartComponent> ent, ref ProjectileHitEvent args)
     {
@@ -297,8 +343,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
 
         if (comp.IsInStasis && comp.StasisTime > 0f)
+        {
             comp.StasisTime -= 1f;
 
+            if (comp.StasisTime == 0f) // If this tick finished the stasis timer
+                _popup.PopupEntity(Loc.GetString("changeling-stasis-finished"), uid, uid);
+        }
     }
 
     private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens passively
@@ -770,32 +820,50 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     #region Event Handlers
 
-    private void OnStartup(EntityUid uid, ChangelingIdentityComponent comp, ref ComponentStartup args)
+    private void OnIdentityMapInit(Entity<ChangelingIdentityComponent> ent, ref MapInitEvent args)
     {
-        RemComp<HungerComponent>(uid);
-        RemComp<ThirstComponent>(uid);
-        RemComp<CanHostGuardianComponent>(uid);
-        RemComp<MartialArtsKnowledgeComponent>(uid);
-        RemComp<CanPerformComboComponent>(uid);
-        EnsureComp<ZombieImmuneComponent>(uid);
+        RemComp<HungerComponent>(ent);
+        RemComp<ThirstComponent>(ent);
+        RemComp<CanHostGuardianComponent>(ent);
+        RemComp<MartialArtsKnowledgeComponent>(ent);
+        RemComp<CanPerformComboComponent>(ent);
+        EnsureComp<ZombieImmuneComponent>(ent);
 
         // add actions
-        foreach (var actionId in comp.BaseChangelingActions)
-            _actions.AddAction(uid, actionId);
-
-        // making sure things are right in this world
-        comp.Chemicals = comp.MaxChemicals;
+        foreach (var actionId in ent.Comp.BaseChangelingActions)
+            _actions.AddAction(ent, actionId);
 
         // make sure its set to the default
-        comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
+        ent.Comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
 
         // don't want instant stasis
-        comp.StasisTime = comp.DefaultStasisTime;
+        ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
 
         // show alerts
-        UpdateChemicals(uid, comp, 0);
+        UpdateChemicals(ent, ent.Comp, 0);
         // make their blood unreal
-        _blood.ChangeBloodReagent(uid, "BloodChangeling");
+        _blood.ChangeBloodReagent(ent.Owner, "BloodChangeling");
+    }
+
+    // in the future ChangelingIdentity should have its own system and be ONLY used for holding stored DNA and handling transformations.
+    private void OnChangelingMapInit(Entity<ChangelingComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.EvolutionsAssigned) // this is solely because polymorph will cause mega errors otherwise
+            return;
+
+        if (!_proto.TryIndex(ent.Comp.EvolutionsProto, out var evoProto))
+            return;
+
+        foreach (var startingComp in evoProto.Components)
+        {
+            var startCompType = startingComp.Value.Component.GetType();
+            var startComp = Factory.GetComponent(startCompType);
+
+            if (!HasComp(ent, startCompType)) // don't overwrite the starting components if you already have them (somehow)
+                AddComp(ent, startComp, true);
+        }
+
+        ent.Comp.EvolutionsAssigned = true;
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingIdentityComponent comp, ref MobStateChangedEvent args)
