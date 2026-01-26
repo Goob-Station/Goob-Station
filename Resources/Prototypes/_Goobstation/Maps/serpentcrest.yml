@@ -31,7 +31,7 @@
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 3 ]
             Chef: [ 2, 2 ]
-            Janitor: [ 3, 3 ]
+            Janitor: [ 4, 4 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 3 ]
@@ -68,6 +68,8 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
+	    RadioHost: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 3, 3 ]
