@@ -50,3 +50,6 @@ guide-entry-doodons = Doodons
 guide-entry-doodon-buildings = Doodon Buildings
 
 doodon-resin-name = doodon resin
+
+chat-language-Doodon-name = Doodon
+language-Doodon-description = A language made up of a series of Do's, sentences end with don.

@@ -329,6 +329,8 @@
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
     state: moodon
     drawdepth: SmallMobs
+  - type: Puller
+    needsHands: false
   - type: Doodon
     requiredHousing: Moodon
     countsTowardPopulation: false      # Moodons are cattle, and do not count towards city population. They do still require pastures though
