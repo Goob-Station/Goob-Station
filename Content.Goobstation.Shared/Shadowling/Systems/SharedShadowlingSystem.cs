@@ -1,9 +1,9 @@
+using Content.Goobstation.Common.Conversion;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Goobstation.Shared.Mindcontrol;
 using Content.Goobstation.Shared.Shadowling.Components;
-using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -33,7 +33,6 @@ public abstract class SharedShadowlingSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
     public override void Initialize()
     {
@@ -210,11 +209,15 @@ public abstract class SharedShadowlingSystem : EntitySystem
 
     public bool CanGlare(EntityUid target)
     {
+        var convEv = new BeforeConversionEvent(target);
+        RaiseLocalEvent(target, ref convEv, true);
+
+        if (convEv.Blocked) // make all the shit below to use the event in the future tm
+            return false;
+
         return HasComp<MobStateComponent>(target)
                && !HasComp<ShadowlingComponent>(target)
-               && !HasComp<ThrallComponent>(target)
-               && !HasComp<ChangelingIdentityComponent>(target)
-               && !_heretic.TryGetHereticComponent(target, out _, out _);
+               && !HasComp<ThrallComponent>(target);
     }
 
     public void DoEnthrall(EntityUid uid, EntProtoId components, SimpleDoAfterEvent args)

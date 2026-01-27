@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Common.Conversion;
 using Content.Goobstation.Common.Heretic;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
@@ -17,9 +18,16 @@ public abstract class SharedHereticSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticCheckEvent>(OnCheck);
+        SubscribeLocalEvent<BeforeConversionEvent>(OnBeforeConversion);
 
         _hereticQuery = GetEntityQuery<HereticComponent>();
         _ghoulQuery = GetEntityQuery<GhoulComponent>();
+    }
+
+    private void OnBeforeConversion(ref BeforeConversionEvent ev)
+    {
+        if (TryGetHereticComponent(ev.Uid, out _, out _))
+            ev.Blocked = true;
     }
 
     private void OnCheck(ref HereticCheckEvent ev)

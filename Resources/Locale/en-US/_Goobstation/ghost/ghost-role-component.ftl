@@ -196,3 +196,8 @@ ghost-role-information-santa-name = Santa Claus
 ghost-role-information-santa-description = Spread christmas cheer around the station!
 
 ghost-role-information-slasher-token = The Slasher (Token)
+
+ghost-role-information-contractor-name = Syndicate Contractor
+ghost-role-information-contractor-token = Syndicate Contractor (Token)
+ghost-role-information-contractor-description = GET DA... tider..?
+contractor-role-greeting = You are a [color=#611b2b]Syndicate Contractor[/color], a bounty hunter, you are tasked with retreving targets from the station, dead or alive.

@@ -126,6 +126,7 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseMajorContraband]
   id: ClothingShoesRealJordans
+  suffix: Magboots
   name: air jordans
   description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
   components:
@@ -210,6 +211,7 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseMajorContraband]
   id: ClothingShoesRealJordansAutographed
+  suffix: Devil
   name: air jordans
   description: These aren't just any Jordans, these were signed my Micheal Jordan himself. These must be worth a FORTUNE.
   components:
