@@ -20405,3 +20405,11 @@ Entries:
       message: Suit sensors will now scramble if you get shocked.
   id: 2315
   time: '2026-01-27T09:21:25.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cult vote bug if the chosen is deleted after vote is
+        finished
+  id: 2316
+  time: '2026-01-27T09:23:33.0000000+00:00'
