@@ -33,7 +33,7 @@ public sealed partial class MeleeSpeechComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("MaxBattlecryLength")]
     [AutoNetworkedField]
-    public int MaxBattlecryLength = 12;
+    public int MaxBattlecryLength = 24;
 
     [DataField] public EntProtoId  ConfigureAction = "ActionConfigureMeleeSpeech";
 
