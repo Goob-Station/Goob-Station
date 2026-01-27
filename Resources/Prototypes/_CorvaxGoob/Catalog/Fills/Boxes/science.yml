@@ -1,0 +1,16 @@
+- type: entity
+  name: box of grey extracts
+  parent: BoxCardboard
+  id: BoxCardboardGreyExtracts
+  description: A box full of grey extracts. Sticky...
+  components:
+  - type: Sprite
+    layers:
+      - state: box_science
+      - sprite: _CorvaxGoob/Objects/Storages/boxes.rsi
+        state: slime_extract
+        color: "#828282"
+  - type: StorageFill
+    contents:
+      - id: GreySlimeExtract
+        amount: 3

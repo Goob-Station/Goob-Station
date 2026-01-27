@@ -1,0 +1,10 @@
+- type: cargoProduct
+  id: ScienceGreyExtracts
+  icon:
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+    state: core
+    color: "#828282"
+  product: CrateScienceGreyExtract
+  cost: 1500
+  category: cargoproduct-category-name-science
+  group: market
