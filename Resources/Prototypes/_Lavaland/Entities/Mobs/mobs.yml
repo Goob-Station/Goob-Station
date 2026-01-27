@@ -1,0 +1,285 @@
+- type: entity
+  id: MobLavalandGoliath
+  parent: MobGoliath
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Mobs/goliath.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: goliath
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goliath
+      Dead:
+        Base: goliath_dead
+  - type: WeatherImmune
+
+- type: entity
+  id: MobLavalandGoliathAncient
+  parent: MobGoliath
+  name: ancient goliath
+  suffix: Lavaland
+  components:
+  - type: WeatherImmune
+  - type: Sprite
+    sprite: _Lavaland/Mobs/goliath.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: goliath_ancient
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goliath_ancient
+      Dead:
+        Base: goliath_ancient_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Piercing: 10
+        Slash: 15
+  #- type: MobThresholds
+  #  thresholds:
+  #    0: Alive
+  #    400: Dead
+  - type: HTN
+    constantlyReplan: false
+    rootTask:
+      task: GoliathCompound
+    blackboard:
+      VisionRadius: !type:Single
+        6
+      AggroVisionRadius: !type:Single
+        10
+      NavSmash: !type:Bool
+        true
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatGoliath
+      amount: 3
+    - id: MaterialGoliathHide1
+      amount: 3
+
+- type: entity
+  name: Ash Whelp
+  id: LavalandMobAshWhelp
+  parent: LavalandMobBase
+  description: The offspring of an ash drake, weak in comparison but still terrifying.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/lavaland_monsters.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: ash_whelp
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: ash_whelp
+      Dead:
+        Base: ash_whelp_dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    animation: WeaponArcBite
+    damage:
+        types:
+          Slash: 15
+          Structural: 25
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: CombatPower # Goobstation
+    factor: 4 # times more dangerous than a crew-member
+
+- type: entity
+  name: Brimdemon
+  id: LavalandMobBrimdemon
+  parent: LavalandMobBase
+  description: A volatile creature resembling an enormous horned skull. Its response to almost any stimulus is to unleash a beam of infernal energy.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/lavaland_monsters.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: brimdemon
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: brimdemon
+      Dead:
+        Base: brimdemon_dead
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectileFireball
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 7
+    fireRate: 0.1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    animation: WeaponArcBite
+    damage:
+        types:
+          Slash: 15
+          Structural: 25
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: CombatPower # Goobstation
+    factor: 4 # times more dangerous than a crew-member
+
+- type: entity
+  name: Rabble
+  id: LavalandMobLegionMonkey
+  parent: LavalandMobBase
+  description: You can see what was once a monkey under the shifting mass of corruption. It doesn't have enough biomass to reproduce.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/lavaland_monsters.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: legion_monkey
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    animation: WeaponArcBite
+    damage:
+        types:
+          Slash: 5
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/gib1.ogg
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: CombatPower # Goobstation
+    factor: 4 # times more dangerous than a crew-member

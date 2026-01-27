@@ -33,6 +33,7 @@
       types:
         Blunt: 0 # idk
   - type: TouchSpell
+  - type: AlwaysHot
 
 - type: entity
   abstract: true
