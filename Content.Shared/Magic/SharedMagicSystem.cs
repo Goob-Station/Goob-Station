@@ -112,6 +112,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Lock;

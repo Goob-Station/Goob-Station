@@ -46,10 +46,10 @@ public abstract partial class SharedHereticAbilitySystem
         PredictedSpawnAtPosition(args.Effect, coords);
 
         if (heretic is null or {Ascended: true, CurrentPath: "Cosmos"})
-            return;
-
-        _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.North, -4, 4, 3, strength);
-        _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.East, -4, 4, 3, strength);
+        {
+            _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.North, -4, 4, 3, strength);
+            _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.East, -4, 4, 3, strength);
+        }
     }
 
     private void OnStarBlast(EventHereticStarBlast args)
