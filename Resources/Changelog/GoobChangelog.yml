@@ -20371,3 +20371,9 @@ Entries:
       message: Contractor ghostrole(WIP admin spawn playtest)
   id: 2310
   time: '2026-01-27T09:16:49.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: All gun descriptions have been tweaked.
+  id: 2311
+  time: '2026-01-27T09:18:01.0000000+00:00'
