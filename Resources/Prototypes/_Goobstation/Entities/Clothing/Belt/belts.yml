@@ -310,3 +310,28 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
+  id: ClothingBeltSecurityWebbingNCT
+  name: nct chest rig
+  description: A set of tactical webbing worn by Central Command support units.
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+  - type: StorageFill
+    contents:
+    - id: JawsOfLife
+    - id: PowerDrill
+    - id: WelderExperimental
+    - id: Multitool
+    - id: trayScanner
+    - id: FoodSnackLollypopWrappedCentComm
+      amount: 2
+    - id: Dinkystar
+      amount: 2

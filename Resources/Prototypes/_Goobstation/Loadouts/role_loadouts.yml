@@ -135,16 +135,17 @@
   groups:
   - GroupTankHarness
   - NanotrasenTrainerHead
+  - NanotrasenTrainerNeck
+  - NanotrasenTrainerMask
   - NanotrasenTrainerJumpsuit
   - NanotrasenTrainerOuterClothing
-  - NanotrasenTrainerBackpack
   - NanotrasenTrainerShoes
   - NanotrasenTrainerGloves
   - NanotrasenTrainerBelt
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - Survival
+  - SurvivalExtended
   # Goobstation - EE Plasmeme Change.
   - CentComOfficerEnvirohelm
   - CentComOfficerEnvirosuit
