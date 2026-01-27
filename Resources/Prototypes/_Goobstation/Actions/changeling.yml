@@ -75,7 +75,7 @@
     whitelist:
       components:
       - Body
-    canTargetSelf: false    
+    canTargetSelf: false
     event: !type:AbsorbDNAEvent {}
   - type: ChangelingAction
     chemicalCost: 25
@@ -347,7 +347,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 10
+    useDelay: 15 #Do not make spammable
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -578,7 +578,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 1
+    useDelay: 5
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -679,7 +679,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 1
+    useDelay: 15 #it lasts 10 seconds
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
