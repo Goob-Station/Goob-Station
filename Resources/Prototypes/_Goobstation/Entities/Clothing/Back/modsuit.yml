@@ -97,6 +97,75 @@
     walkModifier: 0.95
 
 - type: entity
+  parent: Clothing
+  id: ClothingModsuitStandardNoStorage
+  name: standard modsuit control unit
+  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/standard.rsi
+    layers:
+    - state: control
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      toggleable-clothing: !type:Container
+      cell_slot: !type:ContainerSlot
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ToggleableClothing
+    requiredSlot: back
+    blockUnequipWhenAttached: false # easier to use and now its fixed
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingModsuitHelmetStandard
+      gloves: ClothingModsuitGauntletsStandard
+      outerClothing: ClothingModsuitChestplateStandard
+      shoes: ClothingModsuitBootsStandard
+  - type: WiresPanel
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        whitelist:
+          components:
+            - PowerCell
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+  - type: PowerCellDraw
+    drawRate: 0.8 # Sealed draw rate
+    useRate: 4 # Draw rate for sealing
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: DoAfter
+  - type: SealableClothingControl
+  - type: SealableClothingRequiresPower
+  - type: Construction
+    graph: Modsuit
+    node: standard
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.95
+    walkModifier: 0.95
+
+- type: entity
   parent: ClothingModsuitStandard
   id: ClothingModsuitStandardPowerCell
   suffix: High-Capacity Battery

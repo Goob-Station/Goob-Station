@@ -1,0 +1,88 @@
+- type: entity
+  name: Colossus
+  id: LavalandBossColossus
+  parent: LavalandMobBase
+  description: A monstrous creature protected by heavy shielding.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: eva
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletKineticShuttle
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 20
+    fireRate: 0.65
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    damage:
+      types:
+        Blunt: 20
+        Slash: 15
+        Structural: 150
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: Advertise
+    pack: ColossusWords
+    minimumWait: 15
+    maximumWait: 40
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Lavaland/Effects/meteorimpact.ogg
+      params:
+        volume: 5
+  - type: TileMovement
+  - type: BossMusic
+    soundId: Colossus
+  - type: CombatPower # Goobstation
+    factor: 25 # times more dangerous than a crew-member
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
