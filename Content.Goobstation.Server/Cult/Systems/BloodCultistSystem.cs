@@ -52,7 +52,7 @@ public sealed partial class BloodCultistSystem : EntitySystem
 
         if (TryComp<BloodMagicProviderComponent>(ent, out var bmp))
             foreach (var spell in bmp.LeaderSpells)
-                _bloodMagic.TryGrantSpell((ent, bmp), spell, false);
+                _bloodMagic.GrantSpell((ent, bmp), spell, false);
     }
 
     private void OnLeaderComponentShutdown(Entity<BloodCultistLeaderComponent> ent, ref ComponentShutdown args)

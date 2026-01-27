@@ -56,7 +56,7 @@ public sealed partial class BloodMagicSystem : EntitySystem
 
     private void OnDoAfter(Entity<BloodMagicProviderComponent> ent, ref EventActionCultPrepareBloodMagicDoAfter args)
     {
-        TryGrantSpell(ent, args.SpellId, true);
+        GrantSpell(ent, args.SpellId, true);
     }
 
     private void OnActionComponentStartup(Entity<BloodCultActionComponent> ent, ref ComponentStartup args)
@@ -81,7 +81,7 @@ public sealed partial class BloodMagicSystem : EntitySystem
 
         ent.Comp.Uses = ent.Comp.UnlimitedUses ? ent.Comp.Uses : ent.Comp.Uses - 1;
         if (!ent.Comp.UnlimitedUses && ent.Comp.Uses <= 0)
-            _actions.RemoveAction(args.Performer, ent.Owner);
+            RemoveSpell(args.Performer, ent.Owner);
     }
 
     private void OnActionRemoved(Entity<BloodCultActionComponent> ent, ref ActionRemovedFromUIControllerEvent args)
@@ -93,16 +93,16 @@ public sealed partial class BloodMagicSystem : EntitySystem
         || !TryComp(ent, out MetaDataComponent? metadata))
             return;
 
-        // so if a player right clicks the action it just gets removed outright.
-        // mango
+        // so if a player right clicks the action it gets removed instead of being hidden.
+        // it's very convenient this way imo
         var performer = action.AttachedEntity.Value;
-        _actions.RemoveAction(performer, ent.Owner);
+        RemoveSpell(performer, ent.Owner, popup: true);
         _popup.PopupEntity(Loc.GetString("cult-magic-loss", ("spell", metadata.EntityName)), performer, performer);
     }
 
     private void OnComponentStartup(Entity<BloodMagicProviderComponent> ent, ref ComponentStartup args)
     {
-        TryGrantSpell(ent, ent.Comp.SpellsProviderActionId, false);
+        GrantSpell(ent, ent.Comp.SpellsProviderActionId, false);
     }
 
     #endregion
@@ -110,7 +110,7 @@ public sealed partial class BloodMagicSystem : EntitySystem
     #region API
 
     // todo make generic in case any more expendable spell systems are made
-    public void TryGrantSpell(Entity<BloodMagicProviderComponent> ent, EntProtoId spellId, bool takeSlot = true)
+    public void GrantSpell(Entity<BloodMagicProviderComponent> ent, EntProtoId spellId, bool takeSlot = true)
     {
         if (_actions.TryGetActionById(ent, ent.Comp.SpellsProviderActionId, out var _))
             return;
@@ -132,20 +132,20 @@ public sealed partial class BloodMagicSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cult-magic-gain", ("spell", metadata.EntityName)), ent, ent);
     }
 
-    public void RemoveSpell(Entity<BloodMagicProviderComponent> ent, EntProtoId spellId)
+    public void RemoveSpell(Entity<BloodMagicProviderComponent?> ent, EntityUid id, bool popup = false)
+    {
+        _actions.RemoveAction(ent.Owner, id);
+
+        if (popup && TryComp(id, out MetaDataComponent? metadata))
+            _popup.PopupEntity(Loc.GetString("cult-magic-loss", ("spell", metadata.EntityName)), ent, ent);
+    }
+
+    public void RemoveSpell(Entity<BloodMagicProviderComponent?> ent, EntProtoId spellId, bool popup = false)
     {
         if (!_actions.TryGetActionById(ent, spellId, out var action))
             return;
 
-        RemoveSpell(ent, action.Value);
-    }
-
-    public void RemoveSpell(Entity<BloodMagicProviderComponent> ent, EntityUid id)
-    {
-        _actions.RemoveAction(ent.Owner, id);
-
-        if (TryComp(id, out MetaDataComponent? metadata))
-            _popup.PopupEntity(Loc.GetString("cult-magic-loss", ("spell", metadata.EntityName)), ent, ent);
+        RemoveSpell(ent, action.Value, popup: popup);
     }
 
     #endregion

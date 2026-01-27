@@ -115,7 +115,7 @@
       - ClothingOuterArmorCult
       - ClothingHeadHelmetCult
       - ClothingShoesCult
-      #- BolaCult
+      #- BolaCult # someone add it here if you're not lazy enough
       - RitualDagger
 
 - type: entity
