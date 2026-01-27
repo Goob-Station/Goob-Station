@@ -174,7 +174,7 @@
   name: AKM
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
-  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
+  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 Rifle magazines.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
@@ -220,10 +220,10 @@
   - type: Appearance
 
 - type: entity
-  name: M-90gl
+  name: M-90GL # Goobstation
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90GrenadeLauncher
-  description: An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses .20 rifle ammo.
+  description: A bullpup Waffle Corporation assault rifle with an integrated grenade launcher. Feeds from .20 Rifle magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
@@ -269,7 +269,7 @@
   name: Lecter
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleLecter
-  description: A high end military grade assault rifle. Uses .20 rifle ammo.
+  description: A military-grade assault rifle that's seen more wars than you can remember. The full-size package and steady recoil of the Lecter help it excel at one thing—pinpoint accuracy. Feeds from .20 Rifle magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
@@ -317,7 +317,7 @@
   name: Estoc # goob
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A designated assault rifle with a scope, favored for medium-to-long range engagements. Uses .20 rifle ammo. # goob
+  description: A now defunct military burst-fire DMR, the Estoc quickly found its way into paramilitary and boarding party hands. Boasts an expensive tritium sight for faster target acquisition. Feeds from .20 Rifle magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
