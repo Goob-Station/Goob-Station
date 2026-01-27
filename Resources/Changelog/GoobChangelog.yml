@@ -20343,3 +20343,9 @@ Entries:
       message: More words to mobster accent. Fuggedaboutit.
   id: 2306
   time: '2026-01-27T09:14:16.0000000+00:00'
+- author: NorwayFox
+  changes:
+    - type: Add
+      message: Added a Shadowkin entry to the GuideBook.
+  id: 2307
+  time: '2026-01-27T09:14:48.0000000+00:00'
