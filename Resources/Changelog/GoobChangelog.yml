@@ -20405,3 +20405,31 @@ Entries:
       message: Suit sensors will now scramble if you get shocked.
   id: 2315
   time: '2026-01-27T09:21:25.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cult vote bug if the chosen is deleted after vote is
+        finished
+  id: 2316
+  time: '2026-01-27T09:23:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Mice and rodentia now have an ability letting them call other mice
+        nearby.
+  id: 2317
+  time: '2026-01-27T09:24:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Animals now understand Tau Ceti Basic.
+  id: 2318
+  time: '2026-01-27T09:26:25.0000000+00:00'
+- author: ZOXELON
+  changes:
+    - type: Add
+      message: Added tutus to the autodrobe!
+  id: 2319
+  time: '2026-01-27T09:36:25.0000000+00:00'
