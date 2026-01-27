@@ -177,6 +177,7 @@
     - sekrit
   name: secret-title
   showInVote: true # Goob - Game Director
+  maxPlayers: 80 # Goob
   description: secret-description
   rules:
     - Secret
