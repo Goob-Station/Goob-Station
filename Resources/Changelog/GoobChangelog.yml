@@ -20557,3 +20557,9 @@ Entries:
       message: Xenovac tank can now be broken and escaped from.
   id: 2321
   time: '2026-01-27T11:45:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix mansus grasp not working on interact.
+  id: 2322
+  time: '2026-01-27T11:53:42.0000000+00:00'
