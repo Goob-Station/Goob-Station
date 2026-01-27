@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Cult;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -33,98 +34,43 @@ public sealed partial class BloodCultRuleComponent : Component
     /// <summary>
     ///     Current tier of the cult.
     /// </summary>
-    [DataField] public CultTier CurrentTier;
+    [DataField] public BloodCultTier CurrentTier;
 
-    [DataField] public CultTier? ScheduledTier;
+    [DataField] public BloodCultTier? ScheduledTier;
 
+    /// <summary>
+    ///     Percentage of crew converted needed to trigger a tier change.
+    /// </summary>
     [DataField]
-    public Dictionary<float, CultTier> TierPercentageRatio = new()
+    public Dictionary<float, BloodCultTier> TierPercentageRatio = new()
     {
-        { 0, CultTier.None },
-        { 0.2f, CultTier.Eyes },
-        { 0.4f, CultTier.Halos }
+        { 0, BloodCultTier.None },
+        { 0.2f, BloodCultTier.Eyes }, // 20%
+        { 0.4f, BloodCultTier.Halos } // 40%
     };
 
     /// <summary>
     ///     Used in debugging with no mind check since you can't just start 10 clients at once.
     /// </summary>
     [DataField]
-    public Dictionary<int, CultTier> DebugCultistsTierRatio = new()
+    public Dictionary<int, BloodCultTier> DebugCultistsTierRatio = new()
     {
-        { 0, CultTier.None },
-        { 4, CultTier.Eyes },
-        { 9, CultTier.Halos },
+        { 0, BloodCultTier.None },
+        { 4, BloodCultTier.Eyes },
+        { 9, BloodCultTier.Halos },
     };
 
     [ViewVariables(VVAccess.ReadOnly)] public int ReviveRuneCharges = 0;
 
-    public Dictionary<CultTier, CultTierData> TierData = new()
+    public Dictionary<BloodCultTier, CultTierData> TierData = new()
     {
         {
-            CultTier.Eyes,
+            BloodCultTier.Eyes,
             new("cult-tier-eyes", new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/bloodcult_eyes.ogg"))
         },
         {
-            CultTier.Halos,
+            BloodCultTier.Halos,
             new("cult-tier-halos", new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/bloodcult_halos.ogg"))
         },
     };
-
-    public struct CultTierData
-    {
-        public LocId Announcement;
-        public SoundSpecifier Sound;
-
-        public CultTierData(string announcement, SoundSpecifier gainSound)
-        {
-            Announcement = announcement;
-            Sound = gainSound;
-        }
-    }
-
-    public enum CultTier
-    {
-        /// <summary>
-        ///     No visual changes
-        /// </summary>
-        None = 0,
-
-        /// <summary>
-        ///     Grr kitten... *eyes glow red* *and valid*
-        /// </summary>
-        Eyes = 1,
-
-        /// <summary>
-        ///     VERY VALID halos start appearing
-        /// </summary>
-        Halos = 2
-    }
-
-    public enum WinType : byte
-    {
-        /// <summary>
-        ///     NarSie got summoned.
-        /// </summary>
-        CultMajor,
-
-        /// <summary>
-        ///    Round ended, but all cult winning conditions were met.
-        /// </summary>
-        CultMinor,
-
-        /// <summary>
-        ///     Neutral. Cult didn't reach halos and/or escaped with the crew.
-        /// </summary>
-        Neutral,
-
-        /// <summary>
-        ///     All cultists were marooned and halos did not appear.
-        /// </summary>
-        CrewMinor,
-
-        /// <summary>
-        ///     All cultists were killed/deconverted.
-        /// </summary>
-        CrewMajor
-    }
 }

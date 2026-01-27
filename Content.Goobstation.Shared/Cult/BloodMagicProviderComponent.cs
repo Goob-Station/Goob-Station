@@ -17,19 +17,40 @@ public sealed partial class BloodMagicProviderComponent : Component
 
     [DataField] public int MaxEnhancedSpells = 5;
 
+    // either this can be defined somewhere in yaml
+    // or it's staying this way and i pray that all entprotoids get past linter
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public List<EntProtoId> Spells = new()
+    public Dictionary<BloodCultTier, List<EntProtoId>> Spells = new()
     {
-        "ActionCultTouchSpellStun",
-        "ActionCultTouchSpellTeleport",
-        "ActionCultEmp",
-        "ActionCultTouchSpellShackles",
-        "ActionCultTouchSpellConstruction",
-        "ActionCultTouchSpellEquipment",
-        "ActionCultDagger",
-        "ActionCultTouchSpellManipulation",
-        // todo add more here
+        {
+            BloodCultTier.None,
+            new List<EntProtoId>()
+            {
+                "ActionCultTouchSpellStun",
+                "ActionCultTouchSpellTeleport",
+                "ActionCultEmp",
+                "ActionCultTouchSpellShackles"
+            }
+        },
+        {
+            BloodCultTier.Eyes,
+            new List<EntProtoId>()
+            {
+                "ActionCultTouchSpellConstruction",
+                "ActionCultTouchSpellEquipment",
+                "ActionCultDagger",
+            }
+        },
+        {
+            BloodCultTier.Halos,
+            new List<EntProtoId>()
+            {
+                // just the blood rites because it's usually lategame and cool
+                "ActionCultTouchSpellManipulation"
+            }
+        },
     };
+    [ViewVariables] public List<EntProtoId> KnownSpells;
 
     /// <summary>
     ///     Automatically gets added and removed on leader gain / loss.

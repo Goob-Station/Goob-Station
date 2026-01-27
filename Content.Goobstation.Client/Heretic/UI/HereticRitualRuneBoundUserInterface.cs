@@ -17,7 +17,7 @@ namespace Content.Goobstation.Client.Heretic.UI;
 
 public sealed class HereticRitualRuneBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly EntityManager _ent = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 

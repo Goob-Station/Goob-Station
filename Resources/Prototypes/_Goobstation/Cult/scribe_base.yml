@@ -1,6 +1,7 @@
 - type: entity
   id: RuneScribeCult
   components:
+  - type: UnholyItem
   - type: UserInterface
     interfaces:
       enum.EntityRadialMenuKey.Key:
@@ -8,13 +9,16 @@
   - type: BloodCultRuneScribe
     malfRune: CultRuneMalf
     runes:
-    - CultRuneOffer
-    - CultRuneEmpower
-    - CultRuneTeleport
-    - CultRuneRevive
-    - CultRuneBarrier
-    - CultRuneSummon
-    - CultRuneBloodboil
-    - CultRuneSpirit
-    - CultRuneApocalypse
-    - CultRuneNarsie
+      enum.BloodCultTier.None:
+        - CultRuneOffer
+        - CultRuneEmpower
+        - CultRuneTeleport
+        - CultRuneSpirit
+      enum.BloodCultTier.Eyes: # yeah you don't get everything from the start
+        - CultRuneRevive
+        - CultRuneSummon
+        - CultRuneApocalypse
+      enum.BloodCultTier.Halos:
+        - CultRuneBarrier
+        - CultRuneBloodboil
+        - CultRuneNarsie

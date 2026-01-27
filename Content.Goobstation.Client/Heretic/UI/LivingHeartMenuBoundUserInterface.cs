@@ -21,7 +21,7 @@ namespace Content.Goobstation.Client.Heretic.UI;
 
 public sealed partial class LivingHeartMenuBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly EntityManager _ent = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;

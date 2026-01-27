@@ -1,4 +1,5 @@
 using Content.Goobstation.Server.Cult.Actions;
+using Content.Goobstation.Server.Cult.GameTicking;
 using Content.Goobstation.Shared.Actions;
 using Content.Goobstation.Shared.Cult.Events;
 using Content.Goobstation.Shared.Cult.Magic;
@@ -8,12 +9,14 @@ using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Goobstation.Server.Cult.Systems;
 public sealed partial class BloodMagicSystem : EntitySystem
@@ -23,6 +26,8 @@ public sealed partial class BloodMagicSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
+    [Dependency] private readonly SharedChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -43,6 +48,14 @@ public sealed partial class BloodMagicSystem : EntitySystem
 
     private void OnPrepareBloodMagic(Entity<BloodMagicProviderComponent> ent, ref EventActionCultPrepareBloodMagic args)
     {
+        if (!_bloodCultRule.TryGetRule(out var rule))
+            return;
+
+        var tiers = ent.Comp.Spells.Where(q => q.Key >= rule!.Value.Comp.CurrentTier).ToList();
+        var spells = new List<EntProtoId>();
+        foreach (var tier in tiers) spells.AddRange(tier.Value);
+        ent.Comp.KnownSpells = spells;
+
         _ui.TryOpenUi(args.Action.Owner, EntityRadialMenuKey.Key, ent);
     }
 
@@ -78,6 +91,10 @@ public sealed partial class BloodMagicSystem : EntitySystem
     private void OnActionPerformed(Entity<BloodCultActionComponent> ent, ref ActionPerformedEvent args)
     {
         if (!string.IsNullOrWhiteSpace(ent.Comp.InvocationLoc))
+        {
+            var message = Loc.GetString(ent.Comp.InvocationLoc);
+            _chat.TrySendInGameICMessage(args.Performer, message, InGameICChatType.Speak, true, hideLog: true);
+        }
 
         ent.Comp.Uses = ent.Comp.UnlimitedUses ? ent.Comp.Uses : ent.Comp.Uses - 1;
         if (!ent.Comp.UnlimitedUses && ent.Comp.Uses <= 0)

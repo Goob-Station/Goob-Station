@@ -24,7 +24,7 @@ public sealed partial class CultRuneScribeBUI : EntityRadialMenuBUI
         if (!_ent.TryGetComponent<BloodCultRuneScribeComponent>(owner, out var scribe))
             yield break;
 
-        foreach (var rune in scribe.Runes)
+        foreach (var rune in scribe.KnownRunes)
         {
             if (!_prot.TryIndex(rune, out var ent))
                 continue;

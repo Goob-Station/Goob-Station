@@ -10,7 +10,7 @@ namespace Content.Goobstation.Client.Heretic.UI;
 
 public sealed class HereticShapeshiftBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly EntityManager _ent = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
 
     public HereticShapeshiftBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)

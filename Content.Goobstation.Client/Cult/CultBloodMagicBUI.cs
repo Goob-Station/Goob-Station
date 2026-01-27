@@ -20,7 +20,7 @@ public sealed partial class CultBloodMagicBUI : EntityRadialMenuBUI
         if (!_ent.TryGetComponent<BloodMagicProviderComponent>(owner, out var magic))
             yield break;
 
-        var models = base.CreateModels(magic.Spells);
+        var models = base.CreateModels(magic.KnownSpells);
         foreach (var model in models)
             yield return model;
     }

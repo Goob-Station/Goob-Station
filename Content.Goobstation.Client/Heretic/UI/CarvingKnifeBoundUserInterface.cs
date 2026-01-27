@@ -16,7 +16,7 @@ namespace Content.Goobstation.Client.Heretic.UI;
 
 public sealed class CarvingKnifeBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly EntityManager _ent = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
 
     public CarvingKnifeBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)

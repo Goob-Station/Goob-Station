@@ -28,5 +28,5 @@ public sealed partial class BloodCultActionComponent : Component
 
     [DataField] public bool UnlimitedUses = false;
 
-    [DataField] public string InvocationLoc = string.Empty;
+    [DataField] public LocId InvocationLoc = string.Empty;
 }

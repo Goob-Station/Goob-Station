@@ -1,3 +1,4 @@
+using Content.Goobstation.Server.Cult.GameTicking;
 using Content.Goobstation.Shared.Cult;
 using Content.Goobstation.Shared.Cult.Events;
 using Content.Goobstation.Shared.Cult.Runes;
@@ -11,6 +12,8 @@ using Content.Shared.Interaction.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
+using System.Linq;
 using System.Numerics;
 
 namespace Content.Goobstation.Server.Cult.Systems;
@@ -22,6 +25,7 @@ public sealed partial class BloodCultRuneScribeSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 
     // placeholder
     public static readonly SoundSpecifier ScribeSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/bloodcult_scribe.ogg");
@@ -48,6 +52,14 @@ public sealed partial class BloodCultRuneScribeSystem : EntitySystem
         if (!HasComp<BloodCultistComponent>(args.User)
         || HasComp<ActiveDoAfterComponent>(args.User))
             return;
+
+        if (!_bloodCultRule.TryGetRule(out var rule))
+            return;
+
+        var tiers = ent.Comp.Runes.Where(q => q.Key >= rule!.Value.Comp.CurrentTier).ToList();
+        var runes = new List<EntProtoId>();
+        foreach (var tier in tiers) runes.AddRange(tier.Value);
+        ent.Comp.KnownRunes = runes;
 
         _ui.TryOpenUi(ent.Owner, EntityRadialMenuKey.Key, args.User);
     }

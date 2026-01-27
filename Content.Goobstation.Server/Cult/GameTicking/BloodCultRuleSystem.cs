@@ -14,7 +14,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
-using static Content.Goobstation.Server.Cult.GameTicking.BloodCultRuleComponent;
 
 namespace Content.Goobstation.Server.Cult.GameTicking;
 public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
@@ -158,7 +157,7 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
         // this could've been done directly
         // but in case there's 70% of players converted and somehow the tier is still None
         // it would get freaky
-        CultTier? scheduledTier = null;
+        BloodCultTier? scheduledTier = null;
 #if DEBUG
         foreach (var tier in ent.Comp.DebugCultistsTierRatio)
             if (cultists >= tier.Key && (int) ent.Comp.CurrentTier < (int) tier.Value)
@@ -174,7 +173,7 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
 
     }
 
-    public void ScheduleTierUpdate(Entity<BloodCultRuleComponent> ent, CultTier newTier)
+    public void ScheduleTierUpdate(Entity<BloodCultRuleComponent> ent, BloodCultTier newTier)
     {
         if (ent.Comp.TierChangeCountdown.HasValue) // scheduled already
             return;
@@ -188,7 +187,7 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
         DoCultAnnouncement(ent, Loc.GetString(data.Announcement), data.Sound);
     }
 
-    public void UpdateTier(Entity<BloodCultRuleComponent> ent, CultTier? newTier)
+    public void UpdateTier(Entity<BloodCultRuleComponent> ent, BloodCultTier? newTier)
     {
         if (!newTier.HasValue) return;
 
@@ -198,12 +197,12 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
             ApplyTierEffects(cultist, newTier.Value);
     }
 
-    public void ApplyTierEffects(EntityUid ent, CultTier tier)
+    public void ApplyTierEffects(EntityUid ent, BloodCultTier tier)
     {
-        if (tier >= CultTier.Eyes)
+        if (tier >= BloodCultTier.Eyes)
             EnsureComp<BloodCultVisualEyesComponent>(ent);
 
-        if (tier >= CultTier.Halos)
+        if (tier >= BloodCultTier.Halos)
             EnsureComp<BloodCultVisualHaloComponent>(ent);
     }
 
