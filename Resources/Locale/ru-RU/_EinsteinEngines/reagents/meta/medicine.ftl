@@ -1,2 +1,2 @@
-reagent-name-artiplates = artiplates
-reagent-desc-artiplates = A highly advanced form of artificial blood that expands rapidly when introduced to the bloodstream. Due to its expansive properties, it can cause severe internal hemorrhaging in large doses.
+reagent-name-artiplates = артиплейтс
+reagent-desc-artiplates = Продвинутая форма искусственной крови, которая быстро распространяется при введении. Может вызывать сильное внутреннее кровотечение при передозировке.
