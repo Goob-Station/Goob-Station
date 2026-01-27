@@ -85,10 +85,6 @@
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
-  - type: DamageBoostOnMarker
-    boost:
-      types:
-        Holy: 15
   - type: LeechOnMarker
     leech:
       groups:
@@ -213,6 +209,7 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Unremoveable
+  - type: AlwaysHot
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -563,7 +560,6 @@
       params:
         volume: 1
   - type: MeleeRequiresWield
-    fumbleOnAttempt: true
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -610,7 +606,7 @@
 
 # Casul & Jackal
 - type: entity
-  name: casul
+  name: Casul
   parent: BaseItem
   id: WeaponPistolCasul
   description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
@@ -668,7 +664,7 @@
     prayDoAfterDuration: 3.5
 
 - type: entity
-  name: jackal
+  name: Jackal
   parent: WeaponPistolCasul
   id: WeaponPistolJackal
   description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
