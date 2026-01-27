@@ -20529,3 +20529,31 @@ Entries:
         will improve immersion, trust)
   id: 2320
   time: '2026-01-27T11:08:52.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Tweak
+      message: Made extracts produce less reagents. Goodbye 100 omnizine.
+    - type: Tweak
+      message: Made extracts produce enough mutation toxin for a single injection.
+    - type: Tweak
+      message: >-
+        All extract products are now unrecognizable and can be inhaled through
+        foam.
+    - type: Tweak
+      message: >-
+        Advanced mutation toxin cannot transform you into an undead, silicon or
+        any other special specie anymore.
+    - type: Tweak
+      message: >-
+        Certain cerulean extract reaction now produces pluoxium gas instead of
+        oxygenating nearby stuff.
+    - type: Tweak
+      message: And specific dark purple extract reaction now produces plasma gas.
+    - type: Tweak
+      message: >-
+        (for c*derbus) Moved all extracts to separate files. You should do that
+        too if you plan on adding more.
+    - type: Tweak
+      message: Xenovac tank can now be broken and escaped from.
+  id: 2321
+  time: '2026-01-27T11:45:43.0000000+00:00'
