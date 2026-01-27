@@ -20377,3 +20377,9 @@ Entries:
       message: All gun descriptions have been tweaked.
   id: 2311
   time: '2026-01-27T09:18:01.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Made shadowkudzu (Shadow anom shadows) spread way slower
+  id: 2312
+  time: '2026-01-27T09:19:26.0000000+00:00'
