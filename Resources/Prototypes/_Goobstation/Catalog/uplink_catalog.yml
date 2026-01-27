@@ -801,6 +801,20 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: AncientToolboxUplink
+  name: uplink-ancient-toolbox-name
+  description: uplink-ancient-toolbox-desc
+  productEntity: AncientToolboxFilled
+  cost:
+    Telecrystal: 10 
+  categories:
+    - UplinkJob
+  conditions:
+    - !type:BuyerJobCondition
+      whitelist:
+        - Passenger
+    
 # chemicals
 
 - type: listing
@@ -1644,3 +1658,5 @@
   - !type:BuyerJobCondition
     whitelist:
     - RadioHost
+
+

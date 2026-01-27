@@ -90,6 +90,9 @@ uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your prot
 uplink-grey-tide-name = Grey Tide
 uplink-grey-tide-desc = An antient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is an Assistant.
 
+uplink-ancient-toolbox-name = Ancient Toolbox
+uplink-ancient-toolbox-desc = A toolbox specially preserved and modified for your robusting needs, comes with normal tools and Insulated Gloves, but its special feature is having its damage increased the more telecrystals you have inside it!
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
