@@ -19,7 +19,7 @@ maximum_width = 26
 [game]
 lobbyduration = 240
 map_pool = "CorvaxMapPool"
-round_restart_time = 240
+round_restart_time = 180
 fallbackpreset = "secret"
 defaultpreset = "secret"
 
