@@ -20433,3 +20433,99 @@ Entries:
       message: Added tutus to the autodrobe!
   id: 2319
   time: '2026-01-27T09:36:25.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Fully reworked and rebalanced all salvage and shaft miner weapons. All
+        weapons now become x2 times stronger while between 20-50 kPa.
+    - type: Add
+      message: >-
+        Added Legions: the skull abominations that drop legion skulls and bones
+        when defeated. They've replaced hivelords on lavaland.
+    - type: Add
+      message: >-
+        Shaft miners were added as a role separate from salvage specialists!
+        They still have the same access, but shaft miners take their equipment
+        from lavaland and work on its surface, while salvage specialists gear up
+        on the station and explore space. They are already available on most
+        stations.
+    - type: Add
+      message: >-
+        Added 3 types of watcher wings as materials for crafting some of the
+        blade crusher upgrades.
+    - type: Add
+      message: >-
+        Added weapon selectors for Shaft miners and Salvage specialist. Shaft
+        miners can select crushers and PKAs, while salvage specialist can only
+        select PKAs with pre-installed space upgrades.
+    - type: Add
+      message: >-
+        Added space PKA upgrades - they make PKA x1.5 stronger in depressurised
+        enviroments.
+    - type: Add
+      message: >-
+        Added 8 new crusher upgrades with special abilities and effects, that
+        are split 3 types: main, blade and handle upgrades. You can attach one
+        of each type to a single crusher.
+    - type: Add
+      message: >-
+        Added all types of proto-kinetic ranged weapons to the cargo techfab
+        after researching a technology.
+    - type: Tweak
+      message: >-
+        PKAs now don't use capacity system, and instead take individual slots.
+        All PKA types have 3 upgrade slots, shotgun has 2.
+    - type: Tweak
+      message: >-
+        Crusher weapons no longer have built-in kinetic marker, now you have to
+        craft and install an upgrade to get it.
+    - type: Tweak
+      message: >-
+        Kinetic machete and kinetic claws are now obtainable from a salvage
+        vendor or mining voucher Combat kit. They are no longer crushers, and
+        instead they are simple melee weapons without any gimmiks, but only for
+        now ;)
+    - type: Tweak
+      message: >-
+        Salvage specialist lockers are now separate from shaft miner lockers,
+        and have diffirent equipment for enviroments they work in.
+    - type: Tweak
+      message: >-
+        Mining Voucher kits were reworked, now there are 4 of them and each has
+        contents that evaluate to ~2000 mining points.
+    - type: Tweak
+      message: >-
+        Inserting or removing upgrades from weapons now can take a small amount
+        of time.
+    - type: Tweak
+      message: >-
+        PKA Damage upgrades now multiply damage by x1.25 instead of adding more
+        to bullets.
+    - type: Tweak
+      message: Lavaland ruins now have more useful loot in them and spawn closer.
+    - type: Fix
+      message: Fixed flashlight attached to PKAs not draining their battery.
+    - type: Fix
+      message: Fixed knives attached to PKAs not doing proper damage.
+    - type: Fix
+      message: >-
+        GPS UI now doesn't flicker every second, and long labels that are cut
+        off are now displayed fully when you hover over them.
+    - type: Remove
+      message: >-
+        Removed the ability to buy new PKAs and crusher weapons from the salvage
+        vendor, you should find or craft them instead.
+    - type: Remove
+      message: Removed PKA's Light upgrade. (just attach a flashlight)
+    - type: Remove
+      message: >-
+        Removed some small lavaland ruins (they didn't have any loot and were
+        too boring).
+    - type: Remove
+      message: >-
+        You no longer receive red messages when an ashstorm starts or stops,
+        just use your eyes and ears to see if it's going to storm soon. (This
+        will improve immersion, trust)
+  id: 2320
+  time: '2026-01-27T11:08:52.0000000+00:00'

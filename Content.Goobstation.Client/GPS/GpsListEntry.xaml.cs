@@ -10,11 +10,14 @@ public sealed partial class GpsListEntry : Button
 {
     public NetEntity TrackedEntity;
 
-    public GpsListEntry(string label,NetEntity trackedEntity, IRsiStateLike? icon, Color? iconColor)
+    public GpsListEntry(string text, NetEntity trackedEntity, IRsiStateLike? icon, Color? iconColor)
     {
         RobustXamlLoader.Load(this);
 
-        NameableLabel.Text = label;
+        const int maxLength = 10;
+
+        ToolTip = text;
+        NameableLabel.Text = text.Length > maxLength ? text.Substring(0, maxLength) : text;
         EntryIcon.Texture = icon?.Default;
         TrackedEntity = trackedEntity;
 
