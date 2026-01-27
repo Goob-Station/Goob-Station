@@ -7,7 +7,7 @@
   name: ER-5 Torrent
   parent: [ BaseWeaponCustomCell, BaseSecurityContraband ]
   id: WeaponLaserCellSMG
-  description: A high-tech laser SMG, compatible with specialized SMG power cells.
+  description: A specialized laser SMG, designed to put down suppressive fire through cover and be reloaded on the fly. Takes SMG power cells.
   components:
   - type: Item
     size: Large
@@ -64,7 +64,7 @@
   name:  ES-7 Multilens
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponLaserCellSniper
-  description: A high-tech burst laser sniper rifle, compatible with specialized sniper power cells.
+  description: A burst-fire laser sniper rifle that retains its power across extreme distances. Fitted with a standard magnifying scope. Takes sniper power cells.
   components:
   - type: Item
     size: Huge
@@ -131,7 +131,7 @@
   name: EG-1 Taro
   parent: [ BaseWeaponCustomCellSmall, BaseSecurityContraband ]
   id: WeaponLaserCellRevolver
-  description: A high-tech laser revolver, compatible with specialized revolver power cells.
+  description: Originally designed as a sidearm for NanoTrasen security teams, the Taro is an obscure break action laser revolver platform. It was quickly scrapped due to an annoying firerate cap included to prevent overheating. Takes revolver power cells.
   components:
   - type: Item
     size: Small
@@ -205,7 +205,7 @@
   name: EL-20 HAMRR
   parent: [BaseItem, BaseSecurityContraband]
   id: WeaponLaserLMG
-  description: A high-tech laser LMG, that draws power from specialized backpack.
+  description: An unwieldy laser LMG that draws power from its dedicated backpack storage rig. The compromises taken to allow for its overwhelming firerate and onboard cooling system make it both heavy and inaccurate.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
