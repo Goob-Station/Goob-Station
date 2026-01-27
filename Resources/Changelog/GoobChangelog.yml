@@ -20329,3 +20329,11 @@ Entries:
         Unknown large life signatures detected. 
   id: 2304
   time: '2026-01-27T02:29:05.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Missing lavaland mobs have been implemented, though not functional, only
+        to facilitate future work on Lavaland.
+  id: 2305
+  time: '2026-01-27T08:47:35.0000000+00:00'
