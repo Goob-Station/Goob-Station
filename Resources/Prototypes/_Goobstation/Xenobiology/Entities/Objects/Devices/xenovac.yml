@@ -87,6 +87,7 @@
     entityWhitelist:
       components:
       - Slime
+      - Skinnable # only monkeys have it as far as im aware, if not, skin john poland
   - type: UseDelay
     delays:
       release:

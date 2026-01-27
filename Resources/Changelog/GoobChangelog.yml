@@ -20141,3 +20141,295 @@ Entries:
       message: Handheld mass scanners were added back into the game.
   id: 2278
   time: '2026-01-10T19:21:35.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Emagged xenovac can no longer suck alive guys. (But still can suck
+        crit/dead people)
+    - type: Tweak
+      message: Xenovac can now suck on monkeys.
+  id: 2279
+  time: '2026-01-12T13:22:04.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Fixed some CC mapping issues
+    - type: Fix
+      message: fixed temp protection and added breathmask comp to CC modsuits
+  id: 2280
+  time: '2026-01-12T19:48:19.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Ephedrine Overdose by mrjajkes to nuke music
+  id: 2281
+  time: '2026-01-12T19:50:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: Removed Prison station and air plants.
+  id: 2282
+  time: '2026-01-12T19:50:55.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Wound visuals are back, rejoice!
+  id: 2283
+  time: '2026-01-12T19:51:52.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Fix
+      message: >-
+        RD's Experimental Lab Coat now has the same resistances as the regular
+        one.
+  id: 2284
+  time: '2026-01-12T19:53:13.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Bluespace Extract Slime interaction with blood also teleport your
+        positronic brain as an IPC
+  id: 2285
+  time: '2026-01-13T02:37:18.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Cluster has a proper xenobio lab now.
+  id: 2286
+  time: '2026-01-13T07:29:11.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Loop station has a proper xenobio lab now.
+  id: 2287
+  time: '2026-01-13T07:29:59.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: The syndicate monkey cube box has been readded to the nukie planet.
+  id: 2288
+  time: '2026-01-13T07:30:53.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Submarine has a xenobio lab now.
+  id: 2289
+  time: '2026-01-13T07:33:12.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: >-
+        Omega, Packed and Saltern actually have proper xenobio equipment and
+        slimes roundstart.
+  id: 2290
+  time: '2026-01-13T07:33:40.0000000+00:00'
+- author: Stupid fuck
+  changes:
+    - type: Fix
+      message: Fixed xenovac not working.
+    - type: Remove
+      message: Emag interaction with xenovac.
+  id: 2291
+  time: '2026-01-13T17:47:26.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: ERT, DS, and CBURN are back to being human only
+  id: 2292
+  time: '2026-01-13T22:59:14.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: Moths now say mango while zombified.
+  id: 2293
+  time: '2026-01-13T23:07:12.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Blob will no longer stall round, If the shuttle has already arrived to
+        the station.
+  id: 2294
+  time: '2026-01-13T23:11:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More bounties for xenobiology
+    - type: Add
+      message: Xenobiology bag of holding
+    - type: Tweak
+      message: Increased the point amount of some xenobiology bounties
+  id: 2295
+  time: '2026-01-14T02:59:22.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: BSO's battle syringe now deals 1 damage instead of 5 on inject.
+  id: 2296
+  time: '2026-01-15T07:04:53.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: 'Demon can no longer jaunt with small amount of blood '
+  id: 2297
+  time: '2026-01-25T07:54:12.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Add
+      message: >-
+        Added a popup message when it's possible to exit regenerative stasis as
+        a Changeling.
+  id: 2298
+  time: '2026-01-25T21:39:11.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Remove
+      message: CC plushies and other additions are no longer immediately lethal.
+  id: 2299
+  time: '2026-01-25T22:28:53.0000000+00:00'
+- author: lightwar_j9
+  changes:
+    - type: Tweak
+      message: buffed biomass reclaimer's processing speed
+  id: 2300
+  time: '2026-01-26T00:47:44.0000000+00:00'
+- author: xPressed
+  changes:
+    - type: Fix
+      message: mediguns recharge fix
+  id: 2301
+  time: '2026-01-26T01:11:20.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Add
+      message: Hand of God now is considered hot, so it can light cigarettes
+    - type: Add
+      message: >-
+        Mansus Grasp can now light things on fire, since you can use it as a
+        cautery tool.
+    - type: Tweak
+      message: >-
+        Lighter in thief syndicate bundle is now a novelty syndicate lighter box
+        instead.
+  id: 2302
+  time: '2026-01-26T08:18:43.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Bluespace anomaly can't teleport Blob tiles anymore
+  id: 2303
+  time: '2026-01-26T20:15:49.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Warning, entering biological dead zone at 2000m from the station.
+        Unknown large life signatures detected. 
+  id: 2304
+  time: '2026-01-27T02:29:05.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Missing lavaland mobs have been implemented, though not functional, only
+        to facilitate future work on Lavaland.
+  id: 2305
+  time: '2026-01-27T08:47:35.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More words to mobster accent. Fuggedaboutit.
+  id: 2306
+  time: '2026-01-27T09:14:16.0000000+00:00'
+- author: NorwayFox
+  changes:
+    - type: Add
+      message: Added a Shadowkin entry to the GuideBook.
+  id: 2307
+  time: '2026-01-27T09:14:48.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        Fixed changeling void adaption not transferring from changing
+        identities.
+  id: 2308
+  time: '2026-01-27T09:15:29.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Blob's split core ability. Now you can't accidentally split your
+        own core and make you ghosted
+  id: 2309
+  time: '2026-01-27T09:15:54.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Contractor ghostrole(WIP admin spawn playtest)
+  id: 2310
+  time: '2026-01-27T09:16:49.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: All gun descriptions have been tweaked.
+  id: 2311
+  time: '2026-01-27T09:18:01.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Made shadowkudzu (Shadow anom shadows) spread way slower
+  id: 2312
+  time: '2026-01-27T09:19:26.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Add
+      message: 3 new Vox species sounds
+    - type: Add
+      message: Vox can now wag their tails
+    - type: Tweak
+      message: Changed the Vox cry and sigh noises
+  id: 2313
+  time: '2026-01-27T09:20:43.0000000+00:00'
+- author: ZOXELON
+  changes:
+    - type: Add
+      message: Added zombie accent for dwarves!
+  id: 2314
+  time: '2026-01-27T09:21:01.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Suit sensors will now scramble if you get shocked.
+  id: 2315
+  time: '2026-01-27T09:21:25.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cult vote bug if the chosen is deleted after vote is
+        finished
+  id: 2316
+  time: '2026-01-27T09:23:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Mice and rodentia now have an ability letting them call other mice
+        nearby.
+  id: 2317
+  time: '2026-01-27T09:24:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Animals now understand Tau Ceti Basic.
+  id: 2318
+  time: '2026-01-27T09:26:25.0000000+00:00'
+- author: ZOXELON
+  changes:
+    - type: Add
+      message: Added tutus to the autodrobe!
+  id: 2319
+  time: '2026-01-27T09:36:25.0000000+00:00'
