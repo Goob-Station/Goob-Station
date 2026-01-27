@@ -1,0 +1,149 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "forge",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "forge_off"
+        },
+        {
+            "name": "talismanaltar",
+            "delays": [
+                [
+                    0.3,
+                    0.2,
+                    0.3,
+                    0.2,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "talismanaltar_off"
+        },
+        {
+            "name": "tomealtar",
+            "delays": [
+                [
+                    0.3,
+                    0.2,
+                    0.3,
+                    0.2,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "tomealtar_off",
+            "delays": [
+                [
+                    0.3,
+                    0.2,
+                    0.3,
+                    0.2,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "pylon",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pylon_off"
+        },
+        {
+            "name": "cultgirder"
+        },
+        {
+            "name": "hole",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "altar"
+        },
+        {
+            "name": "altar_off"
+        },
+        {
+            "name": "altar_pants1",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "altar_pants2",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "altar_pants3",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2
+                ]
+            ]
+        }
+    ]
+}

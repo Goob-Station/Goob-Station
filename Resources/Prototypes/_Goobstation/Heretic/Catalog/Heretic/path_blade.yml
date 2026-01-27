@@ -55,7 +55,7 @@
   id: HereticBladePath2
   name: knowledge-path-blade-s2-name
   description: knowledge-path-blade-s2-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: mansus_grasp }
   productHereticKnowledge: GraspOfBlade
   cost:
     KnowledgePoint: 1
@@ -92,7 +92,7 @@
   id: HereticBladePath4
   name: knowledge-path-blade-s4-name
   description: knowledge-path-blade-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: mansus_grasp }
   productHereticKnowledge: MarkOfBlade
   cost:
     KnowledgePoint: 2

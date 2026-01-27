@@ -177,9 +177,24 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
     }
 
+    /// <summary>
+    ///     Determines if the entity is allowed to use heretic abilities.
+    /// </summary>
+    public bool IsValid(EntityUid uid)
+    {
+        // doesn't have any roles that allow heretic abilities
+        // this is mostly a barrier for idiots who want to brain swap into heretic bodies.
+        if (_mind.TryGetMind(uid, out var mindId, out var mind)
+        && mind.MindRoles.Where(q => HasComp<HereticRoleComponent>(q)).ToList().Count == 0)
+            return false;
+
+        return true;
+    }
+
     public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
         if (args.Handled
+        || !IsValid(ent)
         || HasComp<RustChargeComponent>(ent) // no abilities while charging
         || !TryComp<HereticActionComponent>(args.Action, out var actionComp))
             return false;

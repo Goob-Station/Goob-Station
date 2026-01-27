@@ -13,9 +13,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# goob edit - this file now belongs to the IDF.
+
 - type: entity
   name: ritual dagger
-  parent: BaseItem
+  parent: [ BaseItem, RuneScribeCult ]
   id: RitualDagger
   description: A strange dagger used by sinister groups for rituals and sacrifices.
   components:
@@ -44,7 +46,7 @@
 
 - type: entity
   name: eldritch blade
-  parent: BaseItem
+  parent: [ BaseItem, RuneScribeCult ]
   id: EldritchBlade
   description: A sword humming with unholy energy.
   components:
@@ -54,10 +56,10 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 0.75
+    attackRate: 1
     damage:
       types:
-        Slash: 16
+        Slash: 30
     soundHit: # Goobstation
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -70,7 +72,7 @@
 
 - type: entity
   name: unholy halberd
-  parent: BaseItem
+  parent: [ BaseItem, RuneScribeCult ]
   id: UnholyHalberd
   description: A poleaxe that seems to be linked to its wielder.
   components:
@@ -88,16 +90,16 @@
       types:
         Blunt: 10
         Slash: 10
-        Structural: 5
+        Structural: 10
     soundHit:
       collection: MetalThud
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 5
-        Slash: 5
-        Structural: 10
+        Blunt: 10
+        Slash: 10
+        Structural: 20
   - type: Item
     size: Ginormous
   - type: Clothing
