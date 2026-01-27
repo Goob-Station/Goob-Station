@@ -70,3 +70,79 @@
     forgiveRange: 20.0
   - type: CombatPower # Goobstation
     factor: 25 # times more dangerous than a crew-member
+  - type: DamageOnCollide
+    inverted: true
+    damage:
+      types:
+        Structural: 5000
+        Blunt: 40
+    targetWhitelist:
+      components:
+        - HumanoidAppearance
+
+- type: entity
+  name: Bubblegum
+  id: BubblegumChargeTest
+  parent: LavalandMobBase
+  suffix: No AI
+  description: In what passes for a hierarchy among slaughter demons, this one is king.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bubblegum
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - FootstepSound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BossImpactFootstep
+      params:
+        volume: -5
+  - type: TileMovement
+  - type: BossMusic
+    soundId: Bubblegum
+  - type: DamageOnCollide
+    inverted: true
+    damage:
+      types:
+        Structural: 5000
+        Blunt: 40
+    targetWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: LavalandCharge
+    targetWhitelist:
+      components:
+        - HumanoidAppearance
+
+
+
