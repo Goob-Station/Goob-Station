@@ -1,0 +1,70 @@
+- type: entity
+  id: MobLavalandGoliath
+  parent: MobGoliath
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Mobs/goliath.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: goliath
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goliath
+      Dead:
+        Base: goliath_dead
+
+- type: entity
+  id: MobLavalandGoliathAncient
+  parent: MobGoliath
+  name: ancient goliath
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Mobs/goliath.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: goliath_ancient
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goliath_ancient
+      Dead:
+        Base: goliath_ancient_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Piercing: 10
+        Slash: 15
+  #- type: MobThresholds
+  #  thresholds:
+  #    0: Alive
+  #    400: Dead
+  - type: HTN
+    constantlyReplan: false
+    rootTask:
+      task: GoliathCompound
+    blackboard:
+      VisionRadius: !type:Single
+        6
+      AggroVisionRadius: !type:Single
+        10
+      NavSmash: !type:Bool
+        true
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatGoliath
+      amount: 3
+    - id: MaterialGoliathHide1
+      amount: 3
+    - id: MaterialBones1
+      amount: 3
