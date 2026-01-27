@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/26/2026 06:47:16
-  entityCount: 28920
+  time: 01/27/2026 02:44:54
+  entityCount: 28929
 maps:
 - 1
 grids:
@@ -18813,6 +18813,11 @@ entities:
     - type: Transform
       pos: 31.389069,-47.482044
       parent: 2
+  - uid: 28923
+    components:
+    - type: Transform
+      pos: -19.466728,-56.34622
+      parent: 2
 - proto: BooksBag
   entities:
   - uid: 135
@@ -19281,7 +19286,7 @@ entities:
   - uid: 6626
     components:
     - type: Transform
-      pos: -13.951984,-59.359737
+      pos: -13.372978,-59.37747
       parent: 2
   - uid: 10231
     components:
@@ -19293,7 +19298,7 @@ entities:
   - uid: 6627
     components:
     - type: Transform
-      pos: -13.084797,-59.453487
+      pos: -12.466728,-58.736843
       parent: 2
 - proto: BoxShotgunFlare
   entities:
@@ -73477,27 +73482,27 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 12362
           - 4788
-          - 8559
-          - 10301
-          - 12353
-          - 24548
-          - 6063
-          - 22939
-          - 4789
-          - 4787
-          - 12361
-          - 12360
-          - 12351
-          - 12352
-          - 12354
-          - 12355
-          - 12356
-          - 12357
-          - 12358
-          - 12359
           - 24551
+          - 12359
+          - 12358
+          - 12357
+          - 12356
+          - 12355
+          - 12354
+          - 12352
+          - 12351
+          - 12360
+          - 12361
+          - 4787
+          - 4789
+          - 22939
+          - 6063
+          - 24548
+          - 12353
+          - 10301
+          - 8559
+          - 12362
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -74124,7 +74129,7 @@ entities:
   - uid: 6630
     components:
     - type: Transform
-      pos: -12.569172,-58.351925
+      pos: -14.622978,-54.361843
       parent: 2
 - proto: CryoxadoneBeakerSmall
   entities:
@@ -115932,6 +115937,11 @@ entities:
     - type: Transform
       pos: 55.5,35.5
       parent: 2
+  - uid: 6632
+    components:
+    - type: Transform
+      pos: -14.5,-53.5
+      parent: 2
   - uid: 6719
     components:
     - type: Transform
@@ -120933,6 +120943,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 40.5,38.5
       parent: 2
+  - uid: 26261
+    components:
+    - type: Transform
+      pos: -15.5,-53.5
+      parent: 2
   - uid: 26288
     components:
     - type: Transform
@@ -122418,6 +122433,13 @@ entities:
     - type: Transform
       pos: 5.5,-46.5
       parent: 2
+- proto: HolopadMedicalVirology
+  entities:
+  - uid: 28921
+    components:
+    - type: Transform
+      pos: -14.5,-57.5
+      parent: 2
 - proto: HolopadSecurityLawyer
   entities:
   - uid: 21666
@@ -122532,6 +122554,16 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,2.5
+      parent: 2
+  - uid: 28927
+    components:
+    - type: Transform
+      pos: -15.5,-53.5
+      parent: 2
+  - uid: 28928
+    components:
+    - type: Transform
+      pos: -14.5,-53.5
       parent: 2
 - proto: HospitalCurtainsOpen
   entities:
@@ -141484,11 +141516,6 @@ entities:
     - type: Transform
       pos: -16.5,3.5
       parent: 2
-  - uid: 26261
-    components:
-    - type: Transform
-      pos: -13.5,-58.5
-      parent: 2
   - uid: 26262
     components:
     - type: Transform
@@ -141574,6 +141601,11 @@ entities:
     components:
     - type: Transform
       pos: 29.5,-45.5
+      parent: 2
+  - uid: 28924
+    components:
+    - type: Transform
+      pos: -15.5,-58.5
       parent: 2
 - proto: RandomVending
   entities:
@@ -141863,6 +141895,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,8.5
+      parent: 2
+  - uid: 1373
+    components:
+    - type: Transform
+      pos: -15.5,-53.5
       parent: 2
   - uid: 1780
     components:
@@ -145511,6 +145548,11 @@ entities:
     components:
     - type: Transform
       pos: 15.5,13.5
+      parent: 2
+  - uid: 28926
+    components:
+    - type: Transform
+      pos: -14.5,-53.5
       parent: 2
 - proto: ReinforcedPlasmaWindowDiagonal
   entities:
@@ -149713,6 +149755,11 @@ entities:
     - type: Transform
       pos: -16.5,-60.5
       parent: 2
+  - uid: 28929
+    components:
+    - type: Transform
+      pos: -16.5,-53.5
+      parent: 2
 - proto: SignVox
   entities:
   - uid: 21803
@@ -153313,6 +153360,11 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-25.5
+      parent: 2
+  - uid: 28925
+    components:
+    - type: Transform
+      pos: -13.5,-58.5
       parent: 2
 - proto: SpawnVehicleChairOfficeLight
   entities:
@@ -157278,12 +157330,12 @@ entities:
   - uid: 6628
     components:
     - type: Transform
-      pos: -12.381672,-59.383175
+      pos: -14.372978,-54.25247
       parent: 2
   - uid: 6629
     components:
     - type: Transform
-      pos: -12.569172,-59.031612
+      pos: -14.310478,-54.330593
       parent: 2
   - uid: 7439
     components:
@@ -158444,6 +158496,11 @@ entities:
     - type: Transform
       pos: -14.5,-45.5
       parent: 2
+  - uid: 1370
+    components:
+    - type: Transform
+      pos: -13.5,-54.5
+      parent: 2
   - uid: 2245
     components:
     - type: Transform
@@ -158490,11 +158547,6 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-54.5
-      parent: 2
-  - uid: 6632
-    components:
-    - type: Transform
-      pos: -13.5,-54.5
       parent: 2
   - uid: 6754
     components:
@@ -162387,6 +162439,13 @@ entities:
     components:
     - type: Transform
       pos: -37.65084,-26.53542
+      parent: 2
+- proto: VirologyServer
+  entities:
+  - uid: 28922
+    components:
+    - type: Transform
+      pos: -12.5,-55.5
       parent: 2
 - proto: WaffleCoFlippo
   entities:
@@ -173753,11 +173812,6 @@ entities:
     - type: Transform
       pos: -13.5,-53.5
       parent: 2
-  - uid: 1370
-    components:
-    - type: Transform
-      pos: -15.5,-53.5
-      parent: 2
   - uid: 1371
     components:
     - type: Transform
@@ -173767,11 +173821,6 @@ entities:
     components:
     - type: Transform
       pos: -17.5,-53.5
-      parent: 2
-  - uid: 1373
-    components:
-    - type: Transform
-      pos: -14.5,-53.5
       parent: 2
   - uid: 1377
     components:
