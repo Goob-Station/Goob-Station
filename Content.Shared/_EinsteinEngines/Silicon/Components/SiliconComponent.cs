@@ -1,5 +1,8 @@
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -8,6 +11,7 @@ using Content.Shared._EinsteinEngines.Silicon.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Prototypes;
 using Content.Shared.Alert;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._EinsteinEngines.Silicon.Components;
 
@@ -116,4 +120,12 @@ public sealed partial class SiliconComponent : Component
     /// </summary>
     [DataField]
     public bool DoSiliconsDreamOfElectricSheep;
+
+    /// <summary>
+    /// Goobstation
+    /// Sound that is played for the victim of cyberdeck hacking.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier VictimHackedSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/hack_victim.ogg", AudioParams.Default.WithVolume(6f));
 }

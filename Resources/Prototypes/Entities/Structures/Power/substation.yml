@@ -241,6 +241,9 @@
     requirePower: true
     highVoltageNode: input
     mediumVoltageNode: output
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    cost: 6 # da boom goes hard
+    delay: 16
 
 # Compact Wall Substation Base
 - type: entity
@@ -315,6 +318,9 @@
     intensitySlope: 2
     totalIntensity: 100
   - type: WallMount
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    cost: 5 # da boom goes hard
+    delay: 15
 
 # Substations in use
 

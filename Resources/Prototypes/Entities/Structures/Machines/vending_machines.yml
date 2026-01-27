@@ -280,6 +280,8 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    cost: 2
   - type: LanguageSpeaker # Einstein Engines - Languages
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:

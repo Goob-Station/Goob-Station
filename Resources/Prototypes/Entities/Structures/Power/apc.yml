@@ -211,6 +211,8 @@
     - Power
   - type: BatteryDrinkerSource # EE IPCs
     maxAmount: 10000
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    delay: 5
 
 # APC under construction
 - type: entity

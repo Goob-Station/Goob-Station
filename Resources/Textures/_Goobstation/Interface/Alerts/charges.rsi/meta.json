@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Roudenn (Github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "charge_0"
+        },
+        {
+            "name": "charge_1"
+        },
+        {
+            "name": "charge_2"
+        },
+        {
+            "name": "charge_3"
+        },
+        {
+            "name": "charge_4"
+        },
+        {
+            "name": "charge_5"
+        },
+        {
+            "name": "charge_6"
+        },
+        {
+            "name": "charge_7"
+        },
+		{
+            "name": "charge_8"
+        }
+    ]
+}

@@ -128,6 +128,16 @@
     newPartProto: OrganHeartSandevistan
 
 - type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonCyberdeck
+  name: syndicate autosurgeon (cyberdeck)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Head
+    targetOrgan: Eyes
+    newPartProto: OrganCyberdeckEyes
+
+- type: entity
   parent: BaseAutosurgeonSyndicateMultiple
   id: AutosurgeonSmartLink
   name: syndicate autosurgeon (smartlink arms)

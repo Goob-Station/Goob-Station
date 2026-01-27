@@ -1010,6 +1010,27 @@
       tags:
       - LoneOpsUplink
 
+- type: listing
+  id: UplinkAutosurgeonCyberdeck
+  name: uplink-autosurgeon-cyberdeck-name
+  description: uplink-autosurgeon-cyberdeck-desc
+  icon:
+    sprite: _EinsteinEngines/Mobs/Species/IPC/organs.rsi
+    state: eyes
+  productEntity: AutosurgeonCyberdeck
+  cost:
+    Telecrystal: 66 # The urge to make it 65...
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle # too strong to be here
 
 - type: listing
   id: UplinkClothingOuterDavidsJacketValid

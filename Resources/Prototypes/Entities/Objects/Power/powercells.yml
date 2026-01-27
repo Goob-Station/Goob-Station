@@ -57,6 +57,7 @@
 # SPDX-FileCopyrightText: 2025 Entvari <195642967+Entvari@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Kirus59 <145689588+Kirus59@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -104,6 +105,8 @@
   - type: Riggable
   - type: StealTarget #Goobstation - IPC steal
     stealGroup: Battery
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    cost: 2
   - type: BatteryDrinkerSource # Goobstation - Energycrit
     maxAmount: 360
 

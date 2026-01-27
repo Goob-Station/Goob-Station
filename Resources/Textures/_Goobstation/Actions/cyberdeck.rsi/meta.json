@@ -1,0 +1,20 @@
+{
+	"version": 1,
+	"license": "CC-BY-SA-3.0",
+	"copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/blob/c473a8bcc28fbd80827dfca5660d81ca6e833e2c/icons/hud/screen_ai.dmi , some sprites updated by ScarKy0(Discord), modified by Roudenn (Github). hack state emag taken from tgstation wiki at https://tgstation13.org/wiki/File:Emag.png",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+	"states": [
+		{
+			"name": "hack"
+		},
+		{
+			"name": "vision"
+		},
+		{
+			"name": "return"
+		}
+	]
+}

@@ -129,7 +129,7 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
             || _bossMusicStream == null)
             return;
 
-        if (_musicProto.FadeIn)
+        if (_musicProto.FadeOut)
             FadeOut(_bossMusicStream, duration: _musicProto.FadeOutTime);
         else
             _audio.Stop(_bossMusicStream);

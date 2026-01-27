@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -27,7 +29,7 @@
       components:
       - Transform
       - MobState
-    canTargetSelf: false 
+    canTargetSelf: false
     event: !type:SwapSpellEvent
       sound:
         path: /Audio/Effects/Lightning/lightningbolt.ogg
@@ -56,3 +58,53 @@
       - Body
     event: !type:NaniteMendEvent
 
+# Cyberdeck
+- type: entity
+  id: ActionCyberdeckHack
+  parent: BaseAction
+  name: Hack Device
+  description: "Hack anything in your field of view using your Cyberdeck implant! Warning: some hacking effects can be dangerously explosive."
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: /Textures/_Goobstation/Actions/cyberdeck.rsi
+      state: hack
+    priority: -24
+  - type: TargetAction
+    range: 30
+  - type: EntityTargetAction
+    event: !type:CyberdeckHackActionEvent
+    rotateOnUse: false # sneaky
+
+- type: entity
+  id: ActionCyberdeckVision
+  parent: BaseMentalAction
+  name: Activate Cyber Vision
+  description: "Connects your brain directly to station's net, letting you to see through station cameras!"
+  components:
+  - type: Action
+    useDelay: 2
+    startDelay: true
+    icon:
+      sprite: /Textures/_Goobstation/Actions/cyberdeck.rsi
+      state: vision
+    priority: -25
+  - type: InstantAction
+    event: !type:CyberdeckVisionEvent
+
+- type: entity
+  id: ActionCyberdeckVisionReturn
+  parent: BaseMentalAction
+  name: Return Back
+  description: Returns you back into your body.
+  components:
+  - type: Action
+    useDelay: 2
+    startDelay: true
+    icon:
+      sprite: /Textures/_Goobstation/Actions/cyberdeck.rsi
+      state: return
+    priority: -25
+  - type: InstantAction
+    event: !type:CyberdeckVisionReturnEvent

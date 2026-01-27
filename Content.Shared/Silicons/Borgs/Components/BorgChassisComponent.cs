@@ -11,6 +11,7 @@
 
 using Content.Shared.Alert;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -89,6 +90,21 @@ public sealed partial class BorgChassisComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
+
+    /// <summary>
+    /// Goobstation
+    /// For how long this borg will delay cyberdeck's hacking
+    /// </summary>
+    [DataField]
+    public TimeSpan CyberdeckPenaltyTime = TimeSpan.FromSeconds(4);
+
+    /// <summary>
+    /// Goobstation
+    /// Sound that is played for the victim of cyberdeck hacking.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier VictimHackedSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/hack_victim.ogg", AudioParams.Default.WithVolume(6f));
 }
 
 [Serializable, NetSerializable]

@@ -152,6 +152,9 @@
     guides:
     - AirAlarms
     - DeviceMonitoringAndControl
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    cost: 2
+    delay: 4
 
 - type: entity
   id: AirAlarmAssembly

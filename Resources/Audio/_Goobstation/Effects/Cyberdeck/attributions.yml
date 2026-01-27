@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["counterhack_ai.ogg", "dive_exit.ogg", "dive_intro.ogg", "hack_user.ogg", "hack_victim.ogg", "dive_loop.ogg"]
+  license: "CC0-1.0"
+  copyright: "Stock sounds from Pixabay"
+  source: "https://pixabay.com/"

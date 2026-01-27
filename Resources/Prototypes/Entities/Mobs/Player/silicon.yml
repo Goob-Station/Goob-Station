@@ -95,6 +95,7 @@
 # SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -447,10 +448,15 @@
   - type: NoFTL
   - type: WarpPoint
     follow: true
+  # Goob edit start
   - type: Eye
     pvsScale: 1.5
+    visMask:
+    - Normal
+    - StationAiNetwork
   - type: Visibility
-    layer: 2
+    layer: 128
+  # Goob edit end
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
     layers:
