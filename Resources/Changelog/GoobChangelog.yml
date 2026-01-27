@@ -20365,3 +20365,9 @@ Entries:
         own core and make you ghosted
   id: 2309
   time: '2026-01-27T09:15:54.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Contractor ghostrole(WIP admin spawn playtest)
+  id: 2310
+  time: '2026-01-27T09:16:49.0000000+00:00'
