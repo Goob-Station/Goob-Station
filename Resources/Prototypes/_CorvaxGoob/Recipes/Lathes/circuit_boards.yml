@@ -59,6 +59,11 @@
   result: NutimovCircuitBoard
 
 - type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: GambamovCircuitBoard
+  result: GambamovCircuitBoard
+
+- type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
   id: QuantumTelepadMachineCircuitboard
   result: QuantumTelepadMachineCircuitboard

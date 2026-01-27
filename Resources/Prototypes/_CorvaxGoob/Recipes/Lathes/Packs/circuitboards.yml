@@ -23,6 +23,7 @@
   - GameMasterCircuitBoard
   - ArtistCircuitBoard
   - NutimovCircuitBoard
+  - GambamovCircuitBoard
 
 - type: latheRecipePack
   id: Cloning

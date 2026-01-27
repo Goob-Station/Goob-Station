@@ -23,6 +23,7 @@
   - GameMasterCircuitBoard
   - ArtistCircuitBoard
   - NutimovCircuitBoard
+  - GambamovCircuitBoard
   # Goobstation R&D Console rework start
   position: -4, 0
   technologyPrerequisites:
