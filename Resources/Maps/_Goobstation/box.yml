@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/30/2025 15:22:17
-  entityCount: 27564
+  time: 01/22/2026 10:31:35
+  entityCount: 27566
 maps:
 - 1
 grids:
@@ -11576,7 +11576,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -45501.97
+      secondsUntilStateChange: -45570.87
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15419,6 +15419,21 @@ entities:
     - type: Transform
       pos: -40.5,-12.5
       parent: 2
+- proto: Autolathe
+  entities:
+  - uid: 27565
+    components:
+    - type: Transform
+      pos: -42.5,1.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+    - type: SiloUtilizer
+      silo: 18819
 - proto: BackgammonBoard
   entities:
   - uid: 933
@@ -83001,7 +83016,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -39690.508
+      secondsUntilStateChange: -39759.41
       state: Closing
   - uid: 13064
     components:
@@ -83494,7 +83509,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31438.244
+      secondsUntilStateChange: -31507.146
       state: Closing
   - uid: 13162
     components:
@@ -123275,6 +123290,12 @@ entities:
         18941:
         - - MaterialSilo
           - MaterialSiloUtilizer
+        27565:
+        - - MaterialSilo
+          - MaterialSiloUtilizer
+        27566:
+        - - MaterialSilo
+          - MaterialSiloUtilizer
 - proto: MaterialWoodPlank1
   entities:
   - uid: 18820
@@ -130965,6 +130986,21 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -9.5,-43.5
       parent: 2
+- proto: Protolathe
+  entities:
+  - uid: 27566
+    components:
+    - type: Transform
+      pos: -41.5,1.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+    - type: SiloUtilizer
+      silo: 18819
 - proto: PsychBed
   entities:
   - uid: 19946
