@@ -1,10 +1,8 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.InternalResources.Data;
-using Content.Shared.Alert;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Changeling.Components;
 

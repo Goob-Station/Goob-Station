@@ -19,7 +19,7 @@ public record struct InternalResourcesRegenModifierEvent(EntityUid Uid, Internal
 }
 
 [ByRefEvent]
-public record struct InternalResourcesThresholdMetEvent(EntityUid Uid, InternalResourcesData Data, InternalResourcesThreshold Threshold);
+public record struct InternalResourcesThresholdMetEvent(EntityUid Uid, InternalResourcesData Data, string Threshold);
 
 public record struct InternalResourcesAmountChangedEvent(EntityUid Uid, InternalResourcesData Data, float PreviousAmount, float NewAmount, float Delta);
 

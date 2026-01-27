@@ -25,6 +25,12 @@ public sealed class InternalResourcesPrototype : IPrototype
     public ProtoId<AlertPrototype> AlertPrototype;
 
     /// <summary>
+    /// The thresholds proto used for raising InternalResourcesThresholdMetEvent.
+    /// </summary>
+    [DataField("thresholds")]
+    public ProtoId<InternalResourcesThresholdsPrototype>? ThresholdsProto;
+
+    /// <summary>
     /// Base resource regeneration amount per update tick
     /// </summary>
     [DataField("regenerationRate")]
@@ -43,9 +49,8 @@ public sealed class InternalResourcesPrototype : IPrototype
     public float BaseStartingAmount = 100f;
 
     /// <summary>
-    /// The thresholds used for raising InternalResourcesThresholdMetEvent.
-    /// Float is the percentage, bool is if the threshold was met.
+    /// Used for action popups when the resource amount is not high enough.
     /// </summary>
     [DataField]
-    public Dictionary<InternalResourcesThreshold, (float, bool)>? Thresholds;
+    public LocId DeficitPopup = "internal-resources-action-generic-deficit";
 }

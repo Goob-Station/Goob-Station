@@ -363,8 +363,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
 
         if (comp.IsInStasis && comp.StasisTime > 0f)
+        {
             comp.StasisTime -= 1f;
 
+            if (comp.StasisTime == 0f) // If this tick finished the stasis timer
+                _popup.PopupEntity(Loc.GetString("changeling-stasis-finished"), uid, uid);
+        }
     }
 
     #region Helper Methods
@@ -736,8 +740,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             typeof(FlashImmunityComponent),
             typeof(EyeProtectionComponent),
             typeof(Shared.Overlays.NightVisionComponent),
-            typeof(Shared.Overlays.ThermalVisionComponent),
-            typeof(VoidAdaptionComponent),
+            typeof(Shared.Overlays.ThermalVisionComponent)
         };
         foreach (var type in types)
             _polymorph.CopyPolymorphComponent(uid, newEnt, nameof(type));

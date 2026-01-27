@@ -92,7 +92,6 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
         // make them a changeling
         EnsureComp<ChangelingComponent>(target);
-        EnsureComp<ChangelingChemicalComponent>(target);
 
         // add store
         var store = EnsureComp<StoreComponent>(target);

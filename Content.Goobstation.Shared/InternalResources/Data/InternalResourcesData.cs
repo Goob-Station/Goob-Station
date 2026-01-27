@@ -1,6 +1,5 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Goobstation.Shared.InternalResources.Data;
 
@@ -33,7 +32,7 @@ public sealed partial class InternalResourcesData
     /// The thresholds at which InternalResourcesThresholdMetEvent will be raised.
     /// </summary>
     [DataField]
-    public Dictionary<InternalResourcesThreshold, (float, bool)>? Thresholds = new();
+    public Dictionary<string, (float, bool)>? Thresholds;
 
     /// <summary>
     /// Prototype with visual information of internal resources
@@ -45,7 +44,7 @@ public sealed partial class InternalResourcesData
         float maxAmount,
         float regenerationRate,
         float startingAmount,
-        Dictionary<InternalResourcesThreshold, (float, bool)>? thresholds,
+        Dictionary<string, (float, bool)>? thresholds,
         string protoId)
     {
         CurrentAmount = startingAmount;
@@ -54,14 +53,4 @@ public sealed partial class InternalResourcesData
         Thresholds = thresholds;
         InternalResourcesType = protoId;
     }
-}
-
-// this feels kinda shit but it'll do for now
-// add more thresholds when needed.
-public enum InternalResourcesThreshold : byte
-{
-    Threshold1,
-    Threshold2,
-    Threshold3,
-    Threshold4,
 }

@@ -2,7 +2,6 @@ using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
-using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Shared._Shitmed.Damage;
@@ -76,48 +75,55 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         if (args.Data.InternalResourcesType != ent.Comp.ResourceData.InternalResourcesType)
             return;
 
-        // threshold 1
-        if (args.Threshold == InternalResourcesThreshold.Threshold1)
-            DoPopup(ent, ent.Comp.FirstWarnPopup, PopupType.SmallCaution);
-
-        // threshold 2
-        if (args.Threshold == InternalResourcesThreshold.Threshold2)
+        switch (args.Threshold)
         {
-            _stun.TryStun(ent, ent.Comp.SecondWarnStun, false);
+            case "First":
 
-            DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
-        }
+                DoPopup(ent, ent.Comp.FirstWarnPopup, PopupType.SmallCaution);
 
-        // threshold 3
-        if (args.Threshold == InternalResourcesThreshold.Threshold3)
-        {
-            _stun.TryStun(ent, ent.Comp.ThirdWarnStun, false);
+                break;
 
-            if (!_blood.TryModifyBloodLevel(ent.Owner, -ent.Comp.BloodCoughAmount)
-                || !_bloodQuery.TryComp(ent, out var bloodComp))
-            {
-                _stun.TryKnockdown(ent, ent.Comp.ThirdWarnStun, false); // knockdown if there isnt any blood to cough up
+            case "Second":
+
+                _stun.TryStun(ent, ent.Comp.SecondWarnStun, false);
+                DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
+
+                break;
+
+            case "Third":
+
+                _stun.TryStun(ent, ent.Comp.ThirdWarnStun, false);
+
+                if (!_blood.TryModifyBloodLevel(ent.Owner, -ent.Comp.BloodCoughAmount)
+                    || !_bloodQuery.TryComp(ent, out var bloodComp))
+                {
+                    _stun.TryKnockdown(ent, ent.Comp.ThirdWarnStun, false); // knockdown if there isnt any blood to cough up
+                    return;
+                }
+
+                var cough = new Solution();
+                cough.AddReagent(bloodComp.BloodReagent, ent.Comp.BloodCoughAmount);
+
+                _puddle.TrySpillAt(Transform(ent).Coordinates, cough, out _, false);
+
+                if (!_mob.IsDead(ent)) // i guess you... drool it out otherwise
+                    DoCough(ent);
+
+                DoPopup(ent, ent.Comp.ThirdWarnPopup, PopupType.LargeCaution);
+
+                break;
+
+            case "Death":
+
+                if (!_absorbQuery.HasComp(ent))
+                    KillChangeling(ent);
+
+                DoPopup(ent, ent.Comp.NoBiomassPopup, PopupType.LargeCaution);
+
+                break;
+
+            default:
                 return;
-            }
-
-            var cough = new Solution();
-            cough.AddReagent(bloodComp.BloodReagent, ent.Comp.BloodCoughAmount);
-
-            _puddle.TrySpillAt(Transform(ent).Coordinates, cough, out _, false);
-
-            if (!_mob.IsDead(ent)) // i guess you... drool it out otherwise
-                DoCough(ent);
-
-            DoPopup(ent, ent.Comp.ThirdWarnPopup, PopupType.LargeCaution);
-        }
-
-        // threshold 4 (point of no return)
-        if (args.Threshold == InternalResourcesThreshold.Threshold4)
-        {
-            if (!_absorbQuery.HasComp(ent))
-                KillChangeling(ent);
-
-            DoPopup(ent, ent.Comp.NoBiomassPopup, PopupType.LargeCaution);
         }
     }
 

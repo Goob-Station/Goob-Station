@@ -1,15 +1,13 @@
-using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public sealed partial class ChangelingEquipmentSystem : EntitySystem
+public sealed class ChangelingEquipmentSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 

@@ -3,7 +3,6 @@ using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Shared.Alert;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
@@ -116,10 +115,8 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TryUpdateResourcesCapacity(EntityUid uid, string protoId, float amount, InternalResourcesComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        if (!component.HasResourceData(protoId, out var data))
+        if (!Resolve(uid, ref component)
+            || !component.HasResourceData(protoId, out var data))
             return false;
 
         return TryUpdateResourcesCapacity(uid, data, amount, component);
@@ -131,10 +128,8 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TryUpdateResourcesCapacity(EntityUid uid, InternalResourcesData data, float amount, InternalResourcesComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        if (!component.CurrentInternalResources.Contains(data))
+        if (!Resolve(uid, ref component)
+            || !component.CurrentInternalResources.Contains(data))
             return false;
 
         var currentCapacity = data.MaxAmount;
@@ -155,10 +150,8 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TrySetResourcesCapacity(EntityUid uid, string protoId, float capacity, InternalResourcesComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        if (!component.HasResourceData(protoId, out var data))
+        if (!Resolve(uid, ref component)
+            || !component.HasResourceData(protoId, out var data))
             return false;
 
         return TrySetResourcesCapacity(uid, data, capacity, component);
@@ -169,19 +162,16 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TrySetResourcesCapacity(EntityUid uid, InternalResourcesData data, float capacity, InternalResourcesComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        if (!component.CurrentInternalResources.Contains(data))
+        if (!Resolve(uid, ref component)
+            || !component.CurrentInternalResources.Contains(data))
             return false;
 
         var currentCapacity = data.MaxAmount;
-        var newCapacity = capacity;
-        var delta = newCapacity - currentCapacity;
+        var delta = capacity - currentCapacity;
 
-        data.MaxAmount = newCapacity;
+        data.MaxAmount = capacity;
 
-        var capEv = new InternalResourcesCapacityChangedEvent(uid, data, currentCapacity, newCapacity, delta);
+        var capEv = new InternalResourcesCapacityChangedEvent(uid, data, currentCapacity, capacity, delta);
         RaiseLocalEvent(uid, capEv);
 
         Dirty(uid, component);
@@ -237,8 +227,15 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
         if (resourcesComp.HasResourceData(proto.ID, out data))
             return true;
 
+        _protoMan.TryIndex(proto.ThresholdsProto, out var threshProto);
+
         var startingAmount = Math.Clamp(proto.BaseStartingAmount, 0f, proto.BaseMaxAmount);
-        data = new InternalResourcesData(proto.BaseMaxAmount, proto.BaseRegenerationRate, startingAmount, proto.Thresholds, proto.ID);
+        data = new InternalResourcesData(
+            proto.BaseMaxAmount,
+            proto.BaseRegenerationRate,
+            startingAmount,
+            threshProto?.Thresholds,
+            proto.ID);
 
         resourcesComp.CurrentInternalResources.Add(data);
         Dirty(uid, resourcesComp);
