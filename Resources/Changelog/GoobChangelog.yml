@@ -20421,3 +20421,9 @@ Entries:
         nearby.
   id: 2317
   time: '2026-01-27T09:24:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Animals now understand Tau Ceti Basic.
+  id: 2318
+  time: '2026-01-27T09:26:25.0000000+00:00'
