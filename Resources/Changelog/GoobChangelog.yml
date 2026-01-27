@@ -20413,3 +20413,11 @@ Entries:
         finished
   id: 2316
   time: '2026-01-27T09:23:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Mice and rodentia now have an ability letting them call other mice
+        nearby.
+  id: 2317
+  time: '2026-01-27T09:24:52.0000000+00:00'
