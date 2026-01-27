@@ -226,8 +226,8 @@
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
   - type: MeleeWeapon
-    canWideSwing: false
-    heavyStaminaCost: 10
+    canWideSwing: true
+    heavyStaminaCost: 9
     damage:
       types:
         Blunt: 19
