@@ -20349,3 +20349,11 @@ Entries:
       message: Added a Shadowkin entry to the GuideBook.
   id: 2307
   time: '2026-01-27T09:14:48.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        Fixed changeling void adaption not transferring from changing
+        identities.
+  id: 2308
+  time: '2026-01-27T09:15:29.0000000+00:00'
