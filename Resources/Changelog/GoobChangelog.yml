@@ -20399,3 +20399,9 @@ Entries:
       message: Added zombie accent for dwarves!
   id: 2314
   time: '2026-01-27T09:21:01.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Suit sensors will now scramble if you get shocked.
+  id: 2315
+  time: '2026-01-27T09:21:25.0000000+00:00'
