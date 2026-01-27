@@ -76,7 +76,7 @@
       types:
         Structural: 5000
         Blunt: 40
-    targetWhitelist:
+    whitelist:
       components:
         - HumanoidAppearance
 
@@ -136,7 +136,7 @@
       types:
         Structural: 5000
         Blunt: 40
-    targetWhitelist:
+    whitelist:
       components:
         - HumanoidAppearance
   - type: LavalandCharge
