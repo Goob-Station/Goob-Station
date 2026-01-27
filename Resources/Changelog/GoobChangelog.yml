@@ -20269,3 +20269,117 @@ Entries:
       message: BSO's battle syringe now deals 1 damage instead of 5 on inject.
   id: 2296
   time: '2026-01-15T07:04:53.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: 'Demon can no longer jaunt with small amount of blood '
+  id: 2297
+  time: '2026-01-25T07:54:12.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Add
+      message: >-
+        Added a popup message when it's possible to exit regenerative stasis as
+        a Changeling.
+  id: 2298
+  time: '2026-01-25T21:39:11.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Remove
+      message: CC plushies and other additions are no longer immediately lethal.
+  id: 2299
+  time: '2026-01-25T22:28:53.0000000+00:00'
+- author: lightwar_j9
+  changes:
+    - type: Tweak
+      message: buffed biomass reclaimer's processing speed
+  id: 2300
+  time: '2026-01-26T00:47:44.0000000+00:00'
+- author: xPressed
+  changes:
+    - type: Fix
+      message: mediguns recharge fix
+  id: 2301
+  time: '2026-01-26T01:11:20.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Add
+      message: Hand of God now is considered hot, so it can light cigarettes
+    - type: Add
+      message: >-
+        Mansus Grasp can now light things on fire, since you can use it as a
+        cautery tool.
+    - type: Tweak
+      message: >-
+        Lighter in thief syndicate bundle is now a novelty syndicate lighter box
+        instead.
+  id: 2302
+  time: '2026-01-26T08:18:43.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Bluespace anomaly can't teleport Blob tiles anymore
+  id: 2303
+  time: '2026-01-26T20:15:49.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Warning, entering biological dead zone at 2000m from the station.
+        Unknown large life signatures detected. 
+  id: 2304
+  time: '2026-01-27T02:29:05.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Missing lavaland mobs have been implemented, though not functional, only
+        to facilitate future work on Lavaland.
+  id: 2305
+  time: '2026-01-27T08:47:35.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More words to mobster accent. Fuggedaboutit.
+  id: 2306
+  time: '2026-01-27T09:14:16.0000000+00:00'
+- author: NorwayFox
+  changes:
+    - type: Add
+      message: Added a Shadowkin entry to the GuideBook.
+  id: 2307
+  time: '2026-01-27T09:14:48.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        Fixed changeling void adaption not transferring from changing
+        identities.
+  id: 2308
+  time: '2026-01-27T09:15:29.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Blob's split core ability. Now you can't accidentally split your
+        own core and make you ghosted
+  id: 2309
+  time: '2026-01-27T09:15:54.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Contractor ghostrole(WIP admin spawn playtest)
+  id: 2310
+  time: '2026-01-27T09:16:49.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: All gun descriptions have been tweaked.
+  id: 2311
+  time: '2026-01-27T09:18:01.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Made shadowkudzu (Shadow anom shadows) spread way slower
+  id: 2312
+  time: '2026-01-27T09:19:26.0000000+00:00'
