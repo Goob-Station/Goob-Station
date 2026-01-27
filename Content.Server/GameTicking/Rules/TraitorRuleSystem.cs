@@ -216,7 +216,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                     case UplinkPreference.Pen:
                         var spinEv = new GeneratePenSpinCodeEvent();
                         RaiseLocalEvent(uplinkTarget.Value, ref spinEv);
-                        spinCode = _goobUplink.GetPenUplinkCode(uplinkTarget.Value);
+                        spinCode = spinEv.Code;
                         break;
                 }
             }

@@ -1,6 +1,7 @@
 using Content.Goobstation.Common.Traitor;
 using Content.Goobstation.Server.Traitor.PenSpin;
 using Content.Goobstation.Shared.Traitor.PenSpin;
+using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.Hands.EntitySystems;
@@ -12,17 +13,17 @@ using Robust.Shared.Map;
 
 namespace Content.IntegrationTests.Tests.Goobstation;
 
-/*
- * Content.Goobstation.IntegrationTests 2027
- */
-
 [TestFixture]
+[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 public sealed class UplinkPreferenceTests
 {
-    [Test]
-    public async Task TestFindPdaUplinkTarget()
+    private TestPair _pair = default!;
+    private EntityUid _player;
+
+    [SetUp]
+    public async Task Setup()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        _pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Dirty = true,
             DummyTicker = false,
@@ -30,9 +31,7 @@ public sealed class UplinkPreferenceTests
             InLobby = true,
         });
 
-        var server = pair.Server;
-        var entMan = server.EntMan;
-        var uplinkSys = server.System<UplinkSystem>();
+        var server = _pair.Server;
         var ticker = server.System<GameTicker>();
 
         await server.WaitPost(() =>
@@ -40,96 +39,80 @@ public sealed class UplinkPreferenceTests
             ticker.ToggleReadyAll(true);
             ticker.StartRound();
         });
-        await pair.RunTicksSync(10);
+        await _pair.RunTicksSync(10);
 
-        var player = pair.Player!.AttachedEntity!.Value;
+        _player = _pair.Player!.AttachedEntity!.Value;
+    }
+
+    [TearDown]
+    public async Task TearDown()
+    {
+        await _pair.CleanReturnAsync();
+    }
+
+    private async Task<EntityUid> SpawnPenInHand()
+    {
+        var server = _pair.Server;
+        var entMan = server.EntMan;
+        var handsSys = server.System<SharedHandsSystem>();
+
+        EntityUid pen = default;
+        await server.WaitPost(() =>
+        {
+            var coords = entMan.GetComponent<TransformComponent>(_player).Coordinates;
+            pen = entMan.SpawnEntity("Pen", coords);
+            handsSys.TryPickupAnyHand(_player, pen);
+        });
+        await _pair.RunTicksSync(5);
+
+        return pen;
+    }
+
+    [Test]
+    public async Task TestFindPdaUplinkTarget()
+    {
+        var server = _pair.Server;
+        var entMan = server.EntMan;
+        var uplinkSys = server.System<UplinkSystem>();
 
         await server.WaitAssertion(() =>
         {
-            var pdaTarget = uplinkSys.FindPdaUplinkTarget(player);
+            var pdaTarget = uplinkSys.FindPdaUplinkTarget(_player);
             Assert.That(pdaTarget, Is.Not.Null, "Player should have a PDA");
             Assert.That(entMan.HasComponent<PdaComponent>(pdaTarget!.Value), Is.True);
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestFindPenUplinkTarget()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-            DummyTicker = false,
-            Connected = true,
-            InLobby = true,
-        });
-
-        var server = pair.Server;
-        var entMan = server.EntMan;
-        var uplinkSys = server.System<GoobCommonUplinkSystem>();
+        var server = _pair.Server;
+        var goobUplinkSys = server.System<GoobCommonUplinkSystem>();
         var tagSys = server.System<TagSystem>();
-        var handsSys = server.System<SharedHandsSystem>();
-        var ticker = server.System<GameTicker>();
 
-        await server.WaitPost(() =>
-        {
-            ticker.ToggleReadyAll(true);
-            ticker.StartRound();
-        });
-        await pair.RunTicksSync(10);
-
-        var player = pair.Player!.AttachedEntity!.Value;
-
-        EntityUid pen = default;
-        await server.WaitPost(() =>
-        {
-            pen = entMan.SpawnEntity("Pen", entMan.GetComponent<TransformComponent>(player).Coordinates);
-            handsSys.TryPickupAnyHand(player, pen);
-        });
-        await pair.RunTicksSync(5);
+        await SpawnPenInHand();
 
         await server.WaitAssertion(() =>
         {
-            var penTarget = uplinkSys.FindPenUplinkTarget(player);
+            var penTarget = goobUplinkSys.FindPenUplinkTarget(_player);
             Assert.That(penTarget, Is.Not.Null, "Player should have a pen");
             Assert.That(tagSys.HasTag(penTarget!.Value, "Pen"), Is.True);
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestAddUplinkPdaPreference()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-            DummyTicker = false,
-            Connected = true,
-            InLobby = true,
-        });
-
-        var server = pair.Server;
+        var server = _pair.Server;
         var entMan = server.EntMan;
         var uplinkSys = server.System<UplinkSystem>();
-        var ticker = server.System<GameTicker>();
-
-        await server.WaitPost(() =>
-        {
-            ticker.ToggleReadyAll(true);
-            ticker.StartRound();
-        });
-        await pair.RunTicksSync(10);
-
-        var player = pair.Player!.AttachedEntity!.Value;
 
         await server.WaitAssertion(() =>
         {
-            var pdaTarget = uplinkSys.FindPdaUplinkTarget(player);
+            var pdaTarget = uplinkSys.FindPdaUplinkTarget(_player);
             Assert.That(pdaTarget, Is.Not.Null, "Player should have a PDA");
 
-            var result = uplinkSys.AddUplink(player, 20, UplinkPreference.Pda);
+            var result = uplinkSys.AddUplink(_player, 20, UplinkPreference.Pda);
             Assert.That(result, Is.True);
 
             Assert.That(entMan.HasComponent<StoreComponent>(pdaTarget!.Value), Is.True);
@@ -137,51 +120,24 @@ public sealed class UplinkPreferenceTests
             Assert.That(store.Balance.ContainsKey("Telecrystal"), Is.True);
             Assert.That((int) store.Balance["Telecrystal"], Is.EqualTo(20));
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestAddUplinkPenPreference()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-            DummyTicker = false,
-            Connected = true,
-            InLobby = true,
-        });
-
-        var server = pair.Server;
+        var server = _pair.Server;
         var entMan = server.EntMan;
         var uplinkSys = server.System<UplinkSystem>();
         var goobUplinkSys = server.System<GoobCommonUplinkSystem>();
-        var handsSys = server.System<SharedHandsSystem>();
-        var ticker = server.System<GameTicker>();
 
-        await server.WaitPost(() =>
-        {
-            ticker.ToggleReadyAll(true);
-            ticker.StartRound();
-        });
-        await pair.RunTicksSync(10);
-
-        var player = pair.Player!.AttachedEntity!.Value;
-
-        EntityUid pen = default;
-        await server.WaitPost(() =>
-        {
-            pen = entMan.SpawnEntity("Pen", entMan.GetComponent<TransformComponent>(player).Coordinates);
-            handsSys.TryPickupAnyHand(player, pen);
-        });
-        await pair.RunTicksSync(5);
+        await SpawnPenInHand();
 
         await server.WaitAssertion(() =>
         {
-            var penTarget = goobUplinkSys.FindPenUplinkTarget(player);
+            var penTarget = goobUplinkSys.FindPenUplinkTarget(_player);
             Assert.That(penTarget, Is.Not.Null, "Player should have a pen");
 
-            var result = uplinkSys.AddUplink(player, 20, UplinkPreference.Pen);
+            var result = uplinkSys.AddUplink(_player, 20, UplinkPreference.Pen);
             Assert.That(result, Is.True);
 
             Assert.That(entMan.HasComponent<PenSpinComponent>(penTarget!.Value), Is.True);
@@ -192,54 +148,24 @@ public sealed class UplinkPreferenceTests
             Assert.That(store.Balance.ContainsKey("Telecrystal"), Is.True);
             Assert.That((int) store.Balance["Telecrystal"], Is.EqualTo(20));
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestPenUplinkCodeGeneration()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-            DummyTicker = false,
-            Connected = true,
-            InLobby = true,
-        });
-
-        var server = pair.Server;
+        var server = _pair.Server;
         var entMan = server.EntMan;
         var uplinkSys = server.System<UplinkSystem>();
         var goobUplinkSys = server.System<GoobCommonUplinkSystem>();
-        var handsSys = server.System<SharedHandsSystem>();
-        var ticker = server.System<GameTicker>();
 
-        await server.WaitPost(() =>
-        {
-            ticker.ToggleReadyAll(true);
-            ticker.StartRound();
-        });
-        await pair.RunTicksSync(10);
+        await SpawnPenInHand();
 
-        var player = pair.Player!.AttachedEntity!.Value;
-
-        EntityUid pen = default;
-        await server.WaitPost(() =>
-        {
-            pen = entMan.SpawnEntity("Pen", entMan.GetComponent<TransformComponent>(player).Coordinates);
-            handsSys.TryPickupAnyHand(player, pen);
-        });
-        await pair.RunTicksSync(5);
-
-        await server.WaitPost(() =>
-        {
-            uplinkSys.AddUplink(player, 20, UplinkPreference.Pen);
-        });
-        await pair.RunTicksSync(5);
+        await server.WaitPost(() => uplinkSys.AddUplink(_player, 20, UplinkPreference.Pen));
+        await _pair.RunTicksSync(5);
 
         await server.WaitAssertion(() =>
         {
-            var penTarget = goobUplinkSys.FindPenUplinkTarget(player);
+            var penTarget = goobUplinkSys.FindPenUplinkTarget(_player);
             Assert.That(penTarget, Is.Not.Null);
 
             var spinComp = entMan.GetComponent<PenSpinComponent>(penTarget!.Value);
@@ -260,51 +186,29 @@ public sealed class UplinkPreferenceTests
                 Assert.That(degree, Is.LessThanOrEqualTo(359));
             }
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestAddUplinkImplantPreference()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-            DummyTicker = false,
-            Connected = true,
-            InLobby = true,
-        });
-
-        var server = pair.Server;
+        var server = _pair.Server;
         var uplinkSys = server.System<UplinkSystem>();
-        var ticker = server.System<GameTicker>();
-
-        await server.WaitPost(() =>
-        {
-            ticker.ToggleReadyAll(true);
-            ticker.StartRound();
-        });
-        await pair.RunTicksSync(10);
-
-        var player = pair.Player!.AttachedEntity!.Value;
 
         await server.WaitAssertion(() =>
         {
-            var result = uplinkSys.AddUplink(player, 20, UplinkPreference.Implant);
+            var result = uplinkSys.AddUplink(_player, 20, UplinkPreference.Implant);
             Assert.That(result, Is.True);
         });
-
-        await pair.CleanReturnAsync();
     }
+}
 
+[TestFixture]
+public sealed class UplinkFallbackTests
+{
     [Test]
     public async Task TestAddUplinkFallbackToImplant()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-        });
-
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
         var server = pair.Server;
         var entMan = server.EntMan;
         var uplinkSys = server.System<UplinkSystem>();

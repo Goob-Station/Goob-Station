@@ -90,7 +90,16 @@ public sealed class GoobUplinkSystem : GoobCommonUplinkSystem
 
     private void OnGenerateCode(Entity<PenSpinComponent> ent, ref GeneratePenSpinCodeEvent ev)
     {
-        ev.Code = GenerateSpinCode(ent);
+        var code = new int[ent.Comp.CombinationLength];
+        for (var i = 0; i < ent.Comp.CombinationLength; i++)
+        {
+            code[i] = _random.Next(ent.Comp.MinDegree, ent.Comp.MaxDegree + 1);
+        }
+
+        if (TryComp<PenSpinUplinkComponent>(ent.Owner, out var uplink))
+        {
+            uplink.Code = code;
+        }
     }
 
     private void OnCurrencyInsert(Entity<PenSpinUplinkComponent> ent, ref CurrencyInsertAttemptEvent args)
@@ -198,24 +207,5 @@ public sealed class GoobUplinkSystem : GoobCommonUplinkSystem
     private static bool IsValidDegree(PenSpinComponent comp, int degree)
     {
         return degree >= comp.MinDegree && degree <= comp.MaxDegree;
-    }
-
-    public int[] GenerateSpinCode(EntityUid pen)
-    {
-        if (!TryComp<PenSpinComponent>(pen, out var comp))
-            return Array.Empty<int>();
-
-        var code = new int[comp.CombinationLength];
-        for (var i = 0; i < comp.CombinationLength; i++)
-        {
-            code[i] = _random.Next(comp.MinDegree, comp.MaxDegree + 1);
-        }
-
-        if (TryComp<PenSpinUplinkComponent>(pen, out var uplink))
-        {
-            uplink.Code = code;
-        }
-
-        return code;
     }
 }
