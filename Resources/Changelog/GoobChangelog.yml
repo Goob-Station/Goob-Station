@@ -20383,3 +20383,13 @@ Entries:
       message: Made shadowkudzu (Shadow anom shadows) spread way slower
   id: 2312
   time: '2026-01-27T09:19:26.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Add
+      message: 3 new Vox species sounds
+    - type: Add
+      message: Vox can now wag their tails
+    - type: Tweak
+      message: Changed the Vox cry and sigh noises
+  id: 2313
+  time: '2026-01-27T09:20:43.0000000+00:00'
