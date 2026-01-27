@@ -22,3 +22,8 @@ public record struct BloodCrawlExitEvent(bool Cancelled = false);
 /// </summary>
 [ByRefEvent]
 public record struct BloodCrawlEnterEvent(bool Cancelled = false);
+
+/// <summary>
+/// Used to force the Slaughter demon out of jaunt for any given reason by other systems.
+/// </summary>
+public sealed class ForceExitBloodCrawlEvent : EntityEventArgs;

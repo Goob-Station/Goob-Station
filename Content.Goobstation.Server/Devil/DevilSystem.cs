@@ -72,7 +72,6 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
@@ -84,7 +83,6 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
 
     private static readonly Regex WhitespaceAndNonWordRegex = new(@"[\s\W]+", RegexOptions.Compiled);
 
@@ -123,7 +121,7 @@ public sealed partial class DevilSystem : EntitySystem
         EnsureComp<DevilHeresyComponent>(devil);
         EnsureComp<HellstepActionComponent>(devil);
         //EnsureComp<FireImmunityActionComponent>(devil);
-        //EnsureComp<DevilAuthorityComponent>(devil);
+        EnsureComp<DevilAuthorityComponent>(devil);
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);

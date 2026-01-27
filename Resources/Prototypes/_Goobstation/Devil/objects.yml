@@ -38,8 +38,8 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 10
-        Heat: 6
+        Piercing: 3
+        Heat: 7
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -47,7 +47,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 20
+        Heat: 20
   - type: Item
     size: Large
     shape:

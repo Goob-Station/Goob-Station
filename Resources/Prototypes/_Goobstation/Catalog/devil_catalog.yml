@@ -2,7 +2,7 @@
   id: DevilPitchfork
   name: Summon pitchfork
   description:  devil-pitchfork-desc
-  productAction: ActionSummonPitchfork
+  productAction: ActionDevilSummonPitchfork
   cost:
     SoulsStored: 0
   categories:
@@ -29,6 +29,57 @@
   name: Devil grip
   description: devil-grip-desc
   productAction: ActionDevilGrip
+  cost:
+    SoulsStored: 0
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilGripUpgrade1
+  name: Cursed Grip
+  description: The Devil's grip now applies a curse on the target that makes them sick and unable to eat until healed by a chaplain. This effect stacks with other upgrades.
+  productEvent: !type:DevilGripCurseRotPurchasedEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Actions/devil.rsi
+    state: griprot
+  cost:
+    SoulsStored: 0
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilGripUpgrade2
+  name: Twisted Grip
+  description: The Devil's grip now stuns for longer and slightly heals you. This effect stacks with other upgrades.
+  productEvent: !type:DevilGripEnhancedPurchasedEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Actions/devil.rsi
+    state: gripstun
+  cost:
+    SoulsStored: 0
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilGripUpgrade3
+  name: Damning Grip
+  description: The Devil's grip can now steal souls of targets that are dead, taking them to hell immediately. Can only be used while in Lesser form or above. This effect stacks with other upgrades.
+  productEvent: !type:DevilGripCondemnPurchasedEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Actions/devil.rsi
+    state: grippoach
   cost:
     SoulsStored: 0
   categories:
@@ -72,6 +123,32 @@
   name: Heresy
   description: devil-heresy-desc
   productAction: ActionDevilHeresy
+  cost:
+    SoulsStored: 0
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: CheatDeath
+  name: Cheat death
+  description:  devil-cheatdeath-desc
+  productAction: ActionCheatDeath
+  cost:
+    SoulsStored: 0
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 99
+
+- type: listing
+  id: Authority
+  name: Authority
+  description: devil-authority-desc
+  productAction: ActionDevilAuthority
   cost:
     SoulsStored: 0
   categories:

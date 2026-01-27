@@ -38,6 +38,9 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
         SubscribeLocalEvent<BloodCrawlComponent, ComponentStartup>(OnStartup);
 
         SubscribeLocalEvent<BloodCrawlComponent, BloodCrawlEvent>(OnBloodCrawl);
+
+        SubscribeLocalEvent<BloodCrawlComponent, ForceExitBloodCrawlEvent>(OnForceExit);
+
     }
 
     private void OnStartup(EntityUid uid, BloodCrawlComponent component, ComponentStartup args)
@@ -75,6 +78,21 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
 
         args.Handled = true;
     }
+
+    private void OnForceExit(EntityUid uid, BloodCrawlComponent component, ForceExitBloodCrawlEvent args)
+    {
+        component.IsCrawling = false;
+        Dirty(uid, component);
+
+        PolymorphDemon(uid, component.Jaunt);
+
+        _popup.PopupPredicted(
+            Loc.GetString("slaughter-blood-jaunt-forced-exit"),
+            uid,
+            uid
+        );
+    }
+
 
     #region Helper Functions
 
