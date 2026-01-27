@@ -1,0 +1,13 @@
+- type: marking
+  id: FaceNoseclip
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Yowie] # goob edit - yowies
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _CorvaxGoob/Mobs/Customization/human_face.rsi
+    state: noseclip

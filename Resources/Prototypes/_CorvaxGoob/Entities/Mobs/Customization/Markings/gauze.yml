@@ -1,0 +1,13 @@
+- type: marking
+  id: GauzeBandagedHead
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Human, Arachnid, Felinid, Vulpkanin, Rodentia, Tajaran, Feroxi, Yowie] # Delta V - Felinid, Vulpkanin, Rodentia; Goob - Tajaran, Yowies
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _CorvaxGoob/Mobs/Customization/gauze.rsi
+    state: bandagedhead
