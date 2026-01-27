@@ -17,15 +17,15 @@ using Content.Goobstation.Shared.Emoting;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
-using Content.Shared.Atmos;
+using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Camera;
 using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Goobstation.Server.Emoting;
@@ -35,163 +35,145 @@ public sealed partial class FartSystem : SharedFartSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _rng = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoilSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-
-
-    private readonly string[] _fartSounds = [
-        "/Audio/Effects/Emotes/parp1.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart2.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4.ogg",
-    ];
-    private readonly string[] _fartInhaleSounds = [
-        "/Audio/_Goobstation/Voice/Human/fart2-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/parp1-reverse.ogg",
-    ];
-    private readonly string[] _superFartSounds = [
-        "/Audio/_Goobstation/Voice/Human/fart2-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/parp1-long.ogg",
-    ];
+    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly GunSystem _gun = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<FartComponent, EmoteEvent>(OnEmote);
         SubscribeLocalEvent<FartComponent, PostFartEvent>(OnBibleFart);
     }
-
-    private void OnEmote(EntityUid uid, FartComponent component, ref EmoteEvent args)
+    private void OnEmote(Entity<FartComponent> ent, ref EmoteEvent args)
     {
         if (args.Handled)
             return;
 
-        if (args.Emote.ID == "Fart")
+        var uid = ent.Owner;
+        var comp = ent.Comp;
+
+        switch (args.Emote.ID)
         {
-            args.Handled = true;
+            case "Fart":
+                args.Handled = true;
 
-            if (component.SuperFarted)
-            {
-                _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
+                if (ent.Comp.SuperFarted)
+                {
+                    _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
+                    return;
+                }
+
+                if (ent.Comp.FartTimeout)
+                {
+                    _popup.PopupEntity(Loc.GetString("emote-fart-out-of-farts"), uid, uid);
+                    return;
+                }
+
+                if (comp.FartInhale)
+                {
+                    comp.FartInhale = false;
+                    _popup.PopupEntity(Loc.GetString("emote-fart-inhale-disarm-notice"), uid, uid);
+                }
+
+                comp.FartTimeout = true;
+                _audio.PlayEntity(comp.FartSounds, Filter.Pvs(uid), uid, true);
+                break;
+
+            case "FartInhale":
+                args.Handled = true;
+
+                if (comp.SuperFarted)
+                {
+                    _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
+                    return;
+                }
+
+                if (comp.FartInhale)
+                {
+                    _popup.PopupEntity(Loc.GetString("emote-fart-already-loaded"), uid, uid);
+                }
+
+                comp.FartInhale = true;
+
+                //Play fart sound and give notification
+                _audio.PlayEntity(comp.FartInhaleSounds, Filter.Pvs(uid), uid, true);
+                _popup.PopupEntity(Loc.GetString("emote-fart-inhale-notice"), uid, uid);
                 return;
-            }
 
-            // Make sure we aren't in timeout
-            if (component.FartTimeout)
-            {
-                _popup.PopupEntity(Loc.GetString("emote-fart-out-of-farts"), uid, uid);
+            case "FartSuper":
+                args.Handled = true;
+
+                if (comp.SuperFarted)
+                {
+                    _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
+                    return;
+                }
+
+                if (!comp.FartInhale)
+                {
+                    _popup.PopupEntity(Loc.GetString("emote-fart-not-loaded"), uid, uid);
+                    return;
+                }
+
+                //Make fart impossible
+                comp.FartTimeout = true;
+                comp.FartInhale = false;
+                comp.SuperFarted = true;
+
+                _audio.PlayEntity(comp.SuperFartSounds, Filter.Pvs(uid), uid, true, AudioParams.Default.WithVolume(0f));
+
+                // Screen shake
+                var xformSystem = _entMan.System<SharedTransformSystem>();
+                CameraShake(10f, xformSystem.GetMapCoordinates(uid), 0.75f);
+
+                _entMan.SpawnEntity("Butt", xformSystem.GetMapCoordinates(uid));
+                _popup.PopupEntity(Loc.GetString("emote-fart-super-fart"), uid, uid);
+                break;
+
+            case "AbnormalFart":
+                args.Handled = true;
+
+                if (comp.FartTimeout)
+                {
+                    _popup.PopupEntity(Loc.GetString("emote-fart-out-of-farts"), uid, uid);
+                    return;
+                }
+
+                comp.FartTimeout = true;
+                _audio.PlayEntity(comp.FartSounds, Filter.Pvs(uid), uid, true);
+
+                if (comp.GasAnimation is null)
+                    return;
+
+                DoFartAnimation(uid, comp.GasAnimation, comp.FartAnimationSpeed);
+                break;
+
+            default:
                 return;
-            }
-
-            // Handle our bools
-            component.FartTimeout = true;
-
-            if (component.FartInhale)
-            {
-                component.FartInhale = false;
-                _popup.PopupEntity(Loc.GetString("emote-fart-inhale-disarm-notice"), uid, uid);
-            }
-
-            // Shuffle the fart sounds
-            _rng.Shuffle(_fartSounds);
-
-            // Play a fart sound
-            _audio.PlayEntity(_fartSounds[0], Filter.Pvs(uid), uid, true);
-
-            // Release ammonia into the air
-            var tileMix = _atmos.GetTileMixture(uid, excite: true);
-            tileMix?.AdjustMoles(component.GasToFart, component.MolesAmmoniaPerFart);
-
-            // One minute timeout for ammonia release (60000MS = 60S)
-            Timer.Spawn(60000, () =>
-            {
-                component.FartTimeout = false;
-            });
-            var ev = new PostFartEvent(uid);
-            RaiseLocalEvent(uid, ev);
         }
-        else if (args.Emote.ID == "FartInhale")
+
+        //Just in case
+        if (!comp.FartTimeout)
+            return;
+
+        //Give random ammonia moles to tile
+        var tileMix = _atmos.GetTileMixture(uid, excite: true);
+        tileMix?.AdjustMoles(comp.GasToFart, comp.MolesAmmoniaPerFart);
+
+        //Limit the amount of fart spam
+        Timer.Spawn(comp.FartTimeoutDuration, () =>
         {
-            args.Handled = true;
+            comp.FartTimeout = false;
+        });
 
-            if (component.SuperFarted)
-            {
-                _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
-                return;
-            }
-
-            if (component.FartInhale)
-            {
-                _popup.PopupEntity(Loc.GetString("emote-fart-already-loaded"), uid, uid);
-            }
-
-            component.FartInhale = true;
-
-            // Shuffle the fart sounds
-            _rng.Shuffle(_fartInhaleSounds);
-
-            // Play a fart sound
-            _audio.PlayEntity(_fartInhaleSounds[0], Filter.Pvs(uid), uid, true);
-
-            _popup.PopupEntity(Loc.GetString("emote-fart-inhale-notice"), uid, uid);
-        }
-        else if (args.Emote.ID == "FartSuper")
-        {
-            args.Handled = true;
-
-            if (component.SuperFarted)
-            {
-                _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
-                return;
-            }
-
-            if (!component.FartInhale)
-            {
-                _popup.PopupEntity(Loc.GetString("emote-fart-not-loaded"), uid, uid);
-                return;
-            }
-
-            // Handle bools
-            component.FartTimeout = true;
-            component.FartInhale = false;
-            component.SuperFarted = true;
-
-            // Shuffle the fart sounds
-            _rng.Shuffle(_superFartSounds);
-
-            // Play a fart sound
-            _audio.PlayEntity(_superFartSounds[0], Filter.Pvs(uid), uid, true, AudioParams.Default.WithVolume(0f));
-
-            // Screen shake
-            var xformSystem = _entMan.System<SharedTransformSystem>();
-            CameraShake(10f, xformSystem.GetMapCoordinates(uid), 0.75f);
-
-            // Release ammonia into the air
-            var tileMix = _atmos.GetTileMixture(uid, excite: true);
-            tileMix?.AdjustMoles(component.GasToFart, component.MolesAmmoniaPerFart * 2);
-
-            _entMan.SpawnEntity("Butt", xformSystem.GetMapCoordinates(uid));
-
-            _popup.PopupEntity(Loc.GetString("emote-fart-super-fart"), uid, uid);
-
-            // One minute timeout for ammonia release (60000MS = 60S)
-            Timer.Spawn(60000, () =>
-            {
-                component.FartTimeout = false;
-            });
-            var ev = new PostFartEvent(uid, true);
-            RaiseLocalEvent(uid, ev);
-        }
+        var ev = new PostFartEvent(uid);
+        RaiseLocalEvent(uid, ev);
     }
 
     private void CameraShake(float range, MapCoordinates epicenter, float totalIntensity)
@@ -233,17 +215,26 @@ public sealed partial class FartSystem : SharedFartSystem
             _audio.PlayEntity(ent.Comp.BibleSmiteSnd, Filter.Pvs(near), near, true);
             if (!ent.Comp.SuperFarted)
             {
-                _rng.Shuffle(_fartSounds);
-                _audio.PlayEntity(_fartSounds[0], Filter.Pvs(near), near, true); // Must replay it because gib body makes the original fart sound stop immediately
+                _audio.PlayEntity(ent.Comp.FartSounds, Filter.Pvs(near), near, true); // Must replay it because gib body makes the original fart sound stop immediately
             }
             else
             {
-                _rng.Shuffle(_superFartSounds);
-                _audio.PlayEntity(_superFartSounds[0], Filter.Pvs(near), near, true, AudioParams.Default.WithVolume(0f));
+                _audio.PlayEntity(ent.Comp.SuperFartSounds, Filter.Pvs(near), near, true, AudioParams.Default.WithVolume(0f));
             }
             var xformSystem = _entMan.System<SharedTransformSystem>();
             CameraShake(10f, xformSystem.GetMapCoordinates(near), 1.5f);
             return;
         }
+    }
+    private void DoFartAnimation(EntityUid uid, string? protoName, float speed)
+    {
+        var xform = Transform(uid);
+        var (pos, rot) = _transform.GetWorldPositionRotation(xform);
+
+        var dir = -rot.ToWorldVec();
+        var mapPos = new MapCoordinates(pos + dir * 3f, xform.MapID);
+
+        var plume = _entMan.Spawn(protoName, mapPos);
+        _gun.ShootProjectile(plume, dir, Vector2.Zero, uid, uid, speed);
     }
 }

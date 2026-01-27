@@ -8,13 +8,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: soundCollection
-  id: Fart
-  files:
-    - /Audio/_Goobstation/Voice/Human/fart2.ogg
-    - /Audio/_Goobstation/Voice/Human/fart3.ogg
-    - /Audio/_Goobstation/Voice/Human/fart4.ogg
-
-- type: soundCollection
   id: Jump
   files:
     - /Audio/_Goobstation/Voice/sound_items_weapons_thudswoosh.ogg
@@ -64,5 +57,29 @@
   id: Dionasigh
   files:
   - /Audio/_Goobstation/Voice/Diona/dionasigh.ogg
+
+- type: soundCollection
+  id: FartSounds
+  files:
+    - /Audio/Effects/Emotes/parp1.ogg
+    - /Audio/_Goobstation/Voice/Human/fart2.ogg
+    - /Audio/_Goobstation/Voice/Human/fart3.ogg
+    - /Audio/_Goobstation/Voice/Human/fart4.ogg
+
+- type: soundCollection
+  id: FartInhaleSounds
+  files:
+    - /Audio/_Goobstation/Voice/Human/fart2-reverse.ogg
+    - /Audio/_Goobstation/Voice/Human/fart3-reverse.ogg
+    - /Audio/_Goobstation/Voice/Human/fart4-reverse.ogg
+    - /Audio/_Goobstation/Voice/Human/parp1-reverse.ogg
+
+- type: soundCollection
+  id: SuperFartSounds
+  files:
+    - /Audio/_Goobstation/Voice/Human/fart2-long.ogg
+    - /Audio/_Goobstation/Voice/Human/fart3-long.ogg
+    - /Audio/_Goobstation/Voice/Human/fart4-long.ogg
+    - /Audio/_Goobstation/Voice/Human/parp1-long.ogg
 
 

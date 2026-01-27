@@ -8,7 +8,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos;
-using Content.Shared.Atmos.Prototypes;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -42,11 +41,36 @@ public sealed partial class FartComponent : Component
     public Gas GasToFart = Gas.Ammonia;
 
     /// <summary>
-    ///     Path to the sound when you get bible smited
+    /// Animation for the abnormal fart gas
     /// </summary>
     [DataField]
+    public EntProtoId? GasAnimation = "AbnormalFartGas";
+
+    /// <summary>
+    /// Duration of all farts timeouts
+    /// </summary>
+    public TimeSpan FartTimeoutDuration = TimeSpan.FromSeconds(60);
+
+    /// <summary>
+    /// Determine how fast the abnormal fart animation plays
+    /// </summary>
+    [DataField]
+    public float FartAnimationSpeed = 5;
+
+    /// <summary>
+    ///     Path to the sound when you get bible smited
+    /// </summary>
     [Access(Other = AccessPermissions.ReadWriteExecute)]
     public SoundSpecifier BibleSmiteSnd = new SoundPathSpecifier("/Audio/_Goobstation/Effects/thunder_clap.ogg");
+
+    [ViewVariables]
+    public SoundSpecifier FartSounds = new SoundCollectionSpecifier("FartSounds");
+
+    [ViewVariables]
+    public SoundSpecifier FartInhaleSounds = new SoundCollectionSpecifier("FartInhaleSounds");
+
+    [ViewVariables]
+    public SoundSpecifier SuperFartSounds = new SoundCollectionSpecifier("SuperFartSounds");
 }
 
 [Serializable, NetSerializable]

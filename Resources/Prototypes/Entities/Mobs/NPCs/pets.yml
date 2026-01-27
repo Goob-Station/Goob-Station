@@ -783,12 +783,21 @@
     tags:
     - CannotSuicide
     - VimPilot
+    - Pig
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Pig
     understands:
     - Pig
     - TauCetiBasic
+  - type: GhostRole # Goobstation
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-alexander-name
+    description: ghost-role-information-alexander-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable # Goobstation
 
 - type: entity
   name: Renault
