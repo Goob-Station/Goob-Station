@@ -20321,3 +20321,11 @@ Entries:
       message: Bluespace anomaly can't teleport Blob tiles anymore
   id: 2303
   time: '2026-01-26T20:15:49.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Warning, entering biological dead zone at 2000m from the station.
+        Unknown large life signatures detected. 
+  id: 2304
+  time: '2026-01-27T02:29:05.0000000+00:00'
