@@ -27,6 +27,7 @@
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -250,6 +251,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> AutoGetUp =
         CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
 
+    /// <summary>
+    ///     Sets the size of the hitbox where projectile/laser will hit any entity regardless of crawling
+    /// </summary>
+    public static readonly CVarDef<float> CrawlHitzoneSize =
+        CVarDef.Create("goob.crawl_hitzone_size", 0.4f, CVar.SERVER | CVar.REPLICATED);
+
     #region Blob
     public static readonly CVarDef<int> BlobMax =
         CVarDef.Create("blob.max", 3, CVar.SERVERONLY);
@@ -285,13 +292,23 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    public static readonly CVarDef<string> PatronSupportLastShown =
+        CVarDef.Create("patron.support_last_shown", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> PatronAskSupport =
+        CVarDef.Create("patron.ask_support", 7, CVar.REPLICATED | CVar.SERVER);
+
+    #region Xenobiology
+
+    public static readonly CVarDef<float> BreedingInterval =
+        CVarDef.Create("xenobiology.breeding.interval", 1f, CVar.REPLICATED | CVar.SERVER);
+
+    #endregion
+
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
         CVarDef.Create("servercurrency.per_player", 10, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> GoobcoinsPerGreentext =
-        CVarDef.Create("servercurrency.per_greentext", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
         CVarDef.Create("servercurrency.non_antag_multiplier", 1, CVar.SERVERONLY);
@@ -415,7 +432,7 @@ public sealed partial class GoobCVars
     /// How much should the mass difference affect shove range & speed.
     /// </summary>
     public static readonly CVarDef<float> ShoveMassFactor =
-        CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("game.shove_mass_factor", 3f, CVar.SERVER | CVar.ARCHIVE);
     #endregion
 
     #region Chat
@@ -431,6 +448,18 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> CoalesceIdenticalMessages =
          CVarDef.Create("chat.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /// <summary>
+    /// Set to true to enable voice barks and disable default speech sounds.
+    /// </summary>
+    public static readonly CVarDef<bool> BarksEnabled =
+        CVarDef.Create("voice.barks_enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Client volume setting for barks.
+    /// </summary>
+    public static readonly CVarDef<float> BarksVolume =
+        CVarDef.Create("voice.barks_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
 
@@ -558,7 +587,31 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    # region Explosions
+
+    /// <summary>
+    /// Random variation to limb damage on explosion
+    /// 0 means no variation - all limbs are damaged the same
+    /// </summary>
+    public static readonly CVarDef<float> ExplosionLimbDamageVariation =
+        CVarDef.Create("explosion.damage_variation", 2f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Multiplier to wounds caused by explosion damage
+    /// Applies to Brute and Burn damage
+    /// </summary>
+    public static readonly CVarDef<float> ExplosionWoundMultiplier =
+        CVarDef.Create("explosion.wounding_multiplier", 8f, CVar.SERVERONLY);
+
+    #endregion
+
     #region Misc
+
+    /// <summary>
+    /// Whether or not to automatically focus the search bar when opening the build menu.
+    /// </summary>
+    public static readonly CVarDef<bool> AutoFocusSearchOnBuildMenu =
+        CVarDef.Create("ui.auto_focus_search_on_build_menu", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Whether or not to show detailed examine text.
@@ -578,5 +631,52 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> UseDynamicHostname =
         CVarDef.Create("hub.use_dynamic_hostname", false, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Determines minimum amount of solution you have to step into for footprints to be created.
+    /// </summary>
+    public static readonly CVarDef<float> MinimumPuddleSizeForFootprints =
+        CVarDef.Create("footprints.minimum_puddle_size", 6f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Should heretic ascension ritual be cancelled if heretic hasn't completed their objectives.
+    /// </summary>
+    public static readonly CVarDef<bool> AscensionRequiresObjectives =
+        CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// A multiplier for bloodloss damage and heal.
+    /// </summary>
+    public static readonly CVarDef<float> BleedMultiplier =
+        CVarDef.Create("medical.bloodloss_multiplier", 4.0f, CVar.SERVER);
+
+    /// <summary>
+    /// Enable admin notification sounds
+    /// </summary>
+    public static readonly CVarDef<float> AdminNotificationVolume =
+        CVarDef.Create("admin.notification_volume", 1f, CVar.CLIENT | CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Whether or not to spawn space whales if the entity is too far away from the station
+    /// </summary>
+    public static readonly CVarDef<bool> SpaceWhaleSpawn =
+        CVarDef.Create("misc.space_whale_spawn", true, CVar.SERVER);
+
+    /// <summary>
+    /// The distance to spawn a space whale from the station
+    /// </summary>
+    public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
+        CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
+
     #endregion
+    /// <summary>
+    /// Enables or disables contraband icons.
+    /// </summary>
+    public static readonly CVarDef<bool> ContrabandIconsEnabled =
+        CVarDef.Create("contraband.icons_enabled", false, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Controls how often GPS updates.
+    /// </summary>
+    public static readonly CVarDef<float> GpsUpdateRate =
+        CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
 }

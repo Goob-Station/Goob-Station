@@ -25,7 +25,7 @@ selectable-set-thief-syndie-description =
     Trinkets from a disavowed past, or stolen from a careless agent?
     You've made some connections. Whiskey, echo...
     Includes: An Emag, Access Breaker, Interdyne cigs, a Syndicate codeword,
-    a Radio Jammer, a lighter and some strange red crystals.
+    a Radio Jammer, a novelty lighter box and some strange red crystals.
 
 selectable-set-thief-sleeper-name = Sleeper Kit
 selectable-set-thief-sleeper-description =
@@ -75,7 +75,7 @@ selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
     A bundle with everything you need to hack into and disrupt the Station itself,
     the station AI, its cyborgs and the Security team. HACK THE PLANET!
-    Contains: Antimov law board, authentication disruptor, EMAG,
+    Contains: A custom law board, authentication disruptor, EMAG,
     radio jammer, filled toolbox, experimental syndicate teleporter,
     cool glasses, binary decoder implanter and a syndicate encryption key.
 
@@ -108,6 +108,14 @@ selectable-set-syndicate-carp-description =
     Grr! Rrrr! Grr... Grrow?! KOWABUNGA!
     Contains: a scroll of the Way of The Sleeping Carp, 10 dehydrated carp
     (half of which are holo), a carp hardsuit and a syndicate encryption key.
+
+selectable-set-syndicate-western-name = Western Bundle
+selectable-set-syndicate-western-description =
+    Light the western holo-cigar, tip the hat, and let the music play.
+    Contains: western holo-cigar, syndicate encryption key,
+    resonant jumpsuit, sunglasses, classic poncho,
+    cowboy hat and boots, two Python revolvers, six AP speedloaders,
+    and two advanced combat medipens.
 
 selectable-set-syndicate-sus-name = Suspicion Bundle
 selectable-set-syndicate-sus-description =

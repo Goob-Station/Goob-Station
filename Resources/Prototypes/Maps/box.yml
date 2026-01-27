@@ -117,6 +117,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             Reporter: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
@@ -145,6 +146,7 @@
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
+            ShaftMiner: [ 4, 4 ]
             CargoTechnician: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]

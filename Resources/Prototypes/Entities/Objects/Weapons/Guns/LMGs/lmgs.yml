@@ -41,7 +41,9 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -138,7 +140,7 @@
   name: L6 SAW
   id: WeaponLightMachineGunL6
   parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband]
-  description: Developed by Waffle Corp, the L6 Squad Automatic Weapon is a deadly light machine gun often used by the Gorlex Marauders. Although bulky and cumbersome, its heavy barrel and high ammo capacity make it perfect for suppressing combatants with a hail of bullets. Feeds from .30 ammo belts.
+  description: Developed by the Waffle Corporation, the L6 Squad Automatic Weapon is a deadly light machine gun often used by Gorlex boarding parties. Although bulky and cumbersome, its heavy barrel and high ammo capacity make it perfect for suppressing combatants with a hail of bullets. Feeds from .30 Rifle box magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi
@@ -151,6 +153,13 @@
     magState: mag
     steps: 4
     zeroVisible: true
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: Appearance
   - type: StaticPrice
     price: 10000
@@ -159,7 +168,7 @@
   name: L6C ROW
   id: WeaponLightMachineGunL6C
   parent: BaseItem
-  description: A L6 SAW for use by cyborgs. Creates .30 rifle ammo on the fly from an internal ammo fabricator, which slowly self-charges.
+  description: A cyborg-mounted weapon system based on the L6 SAW platform. Creates ammunition on the fly from an internal fabricator, which slowly self-charges. # Goobstation
   components:
     - type: Gun
       minAngle: 4
@@ -192,6 +201,13 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+    - type: RestrictGunshotsByUserTag # Goobstation
+      doesntContain:
+      - Oni
+      messages:
+      - oni-cannot-shoot-guns-1
+      - oni-cannot-shoot-guns-2
+      - oni-cannot-shoot-guns-3
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 25

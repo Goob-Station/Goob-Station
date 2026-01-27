@@ -247,3 +247,18 @@
     id: InspectorPDA
     ears: ClothingHeadsetAltCentCom
     belt: BoxFolderCentComClipboard
+
+# Nerfed CentComm Space Salvage Gear
+- type: startingGear
+  id: MobRandomCommandCorpseCentComm
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatCentcomcap
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterArmorCentcommCarapace
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    pocket1: BoxFolderCentCom

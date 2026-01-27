@@ -645,6 +645,7 @@
     - BananaPeel
     - WhitelistChameleon
     - HamsterWearable
+    - RotHulkTrash # Goobstation - Wraith
   - type: SolutionContainerManager
     solutions:
       food:

@@ -14,7 +14,7 @@
 
 - type: entity
   id: PowerSink
-  parent: [BaseMachine, BaseSyndicateContraband]
+  parent: [BaseMachine, BaseSyndicateAnchoredContraband]
   name: power sink
   description: Drains immense amounts of electricity from the grid.
   components:

@@ -100,10 +100,6 @@
     baseSprintSpeed : 4
   - type: Stamina
     critThreshold: 120
-  - type: StaminaDamageOnHit # from stunbaton
-    damage: 15
-    overtime: 40
-    sound: /Audio/Weapons/egloves.ogg
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Bingle
@@ -120,7 +116,8 @@
   - type: LanguageKnowledge
     speaks:
     - Bingle
-    understands: []
+    understands:
+    - TauCetiBasic
   - type: CollectiveMind
     defaultChannel: Binglemind
     respectAccents: true

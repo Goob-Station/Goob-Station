@@ -377,6 +377,10 @@
         damage:
           types:
             Radiation: 3
+    Narcotic:
+      effects:
+      - !type:MutateDiseases
+        mutationRate: 0.08 # 5u equivalent to one normal disease hop
 
 - type: reagent
   id: HeartbreakerToxin
@@ -540,9 +544,19 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType # Goob, Vox are stinky
+            type: Vox
+            shouldHave: false
           damage:
             types:
               Poison: 2
+    Food:
+     effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType # Goob, Vox are stinky
+          type: Vox
+          shouldHave: true
 
 - type: reagent
   id: Romerol
@@ -676,8 +690,8 @@
     Poison:
       metabolismRate: 0.05
       effects:
-      - !type:Polymorph
-        prototype: Bananamen
+      - !type:SpeciesChange
+        newSpecies: BananaMen
         conditions:
         - !type:ReagentThreshold
           min: 30

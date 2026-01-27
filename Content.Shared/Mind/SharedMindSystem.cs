@@ -61,7 +61,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Common.Changeling; // Goobstation
+using Content.Goobstation.Common.Mind;
 using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -78,6 +78,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Mind;
@@ -95,6 +96,8 @@ public abstract partial class SharedMindSystem : EntitySystem
 
     [ViewVariables]
     protected readonly Dictionary<NetUserId, EntityUid> UserMinds = new();
+
+    private readonly EntProtoId _mindProto = "MindBase";
 
     public override void Initialize()
     {
@@ -281,7 +284,7 @@ public abstract partial class SharedMindSystem : EntitySystem
 
     public Entity<MindComponent> CreateMind(NetUserId? userId, string? name = null)
     {
-        var mindId = Spawn(null, MapCoordinates.Nullspace);
+        var mindId = Spawn(_mindProto, MapCoordinates.Nullspace);
         _metadata.SetEntityName(mindId, name == null ? "mind" : $"mind ({name})");
         var mind = EnsureComp<MindComponent>(mindId);
         mind.CharacterName = name;
@@ -713,13 +716,14 @@ public abstract partial class SharedMindSystem : EntitySystem
             if (!TryGetMind(uid, out var mind, out var mindComp) || mind == exclude || !_mobState.IsAlive(uid, mobState))
                 continue;
 
-            // Goobstation: Skip IPCs from selections
-            if (excludeSilicon && HasComp<SiliconComponent>(uid))
-                continue;
+            // goob edit start - selection blocker event
+            var blockEv = new GetAntagSelectionBlockerEvent();
+            RaiseLocalEvent(uid, ref blockEv);
 
-            // Goobstation: Skip changelings from selections
-            if (excludeChangeling && HasComp<ChangelingComponent>(uid))
+            if (excludeSilicon && blockEv.IsSilicon
+                || excludeChangeling && blockEv.IsChangeling)
                 continue;
+            // goob edit end
 
             allHumans.Add(new Entity<MindComponent>(mind, mindComp));
         }

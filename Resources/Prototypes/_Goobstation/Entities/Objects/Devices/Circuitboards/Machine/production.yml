@@ -103,3 +103,35 @@
         Steel: 5
         CableHV: 10
         Plasma: 5
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: PlumbingPumpCircuitboard
+  name: liquid pump board
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: PlumbingPump
+    stackRequirements:
+      Manipulator: 4
+      Steel: 5
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: TelecomTransmitterCircuitboard
+  parent: BaseMachineCircuitboard
+  name: telecommunication transmitter machine board
+  description: A machine printed circuit board for an telecommunication transmitter.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: TelecomTransmitter
+    stackRequirements:
+      Uranium: 15
+      Steel: 15
+      Cable: 5

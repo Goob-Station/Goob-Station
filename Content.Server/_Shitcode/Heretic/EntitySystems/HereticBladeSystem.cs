@@ -1,27 +1,12 @@
-using System.Linq;
-using System.Text;
-using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
-using Content.Server.Heretic.Components;
-using Content.Server.Teleportation;
-using Content.Server.Temperature.Components;
-using Content.Server.Temperature.Systems;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Examine;
-using Content.Shared.Heretic;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Teleportation;
-using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
+using Content.Server.Fluids.EntitySystems;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Goobstation.Shared.Teleportation.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -29,36 +14,40 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
 {
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly TemperatureSystem _temp = default!;
-    [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _sol = default!;
+    [Dependency] private readonly PuddleSystem _puddle = default!;
 
     protected override void ApplyAshBladeEffect(EntityUid target)
     {
         base.ApplyAshBladeEffect(target);
 
-        _flammable.AdjustFireStacks(target, 2.5f, ignite: true);
+        _flammable.AdjustFireStacks(target, 2.5f, null, true, 0.5f);
     }
 
     protected override void ApplyFleshBladeEffect(EntityUid target)
     {
         base.ApplyFleshBladeEffect(target);
 
-        _blood.TryModifyBleedAmount(target, 1.5f);
-    }
+        if (!TryComp(target, out BloodstreamComponent? bloodStream))
+            return;
 
-    protected override void ApplyVoidBladeEffect(EntityUid target)
-    {
-        base.ApplyVoidBladeEffect(target);
+        _blood.TryModifyBleedAmount((target, bloodStream), 2f);
 
-        if (TryComp<TemperatureComponent>(target, out var temp))
-            _temp.ForceChangeTemperature(target, temp.CurrentTemperature - 5f, temp);
+        if (!_sol.ResolveSolution(target,
+                bloodStream.BloodSolutionName,
+                ref bloodStream.BloodSolution,
+                out var bloodSolution))
+            return;
+
+        _puddle.TrySpillAt(target, bloodSolution.SplitSolution(10), out _);
     }
 
     protected override void RandomTeleport(EntityUid user, EntityUid blade, RandomTeleportComponent comp)
     {
         base.RandomTeleport(user, blade, comp);
 
-        _teleport.RandomTeleport(user, comp, false, true);
+        _teleport.RandomTeleport(user, comp, false);
         QueueDel(blade);
     }
 }

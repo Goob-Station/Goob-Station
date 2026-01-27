@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Blitz <73762869+BlitzTheSquishy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: localizedDataset
+  id: NamesFeroxiFirstFemale
+  values:
+    prefix: names-feroxi-first-female-dataset-
+    count: 41

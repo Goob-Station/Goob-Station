@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: DeathRattleLavalandImplant
+  name: lavaland death rattle implant
+  description: This implant will inform the Supply radio channel should the user die. Works only on lavaland surface and tells exact coordinates of death.
+  components:
+  # TODO turn it into a tracker implant too
+  - type: SubdermalImplant
+    permanent: true
+    whitelist:
+      components:
+      - MobState
+  - type: MansusGraspBlockTrigger
+  - type: TriggerBlocker
+    mapWhitelist:
+      components:
+      - LavalandMap
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: Rattle
+    radioChannel: Supply
+    reportCoordinates: true
+
+- type: entity
+  id: DeathRattleLavalandImplanter
+  suffix: Lavaland Death Rattle
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: DeathRattleLavalandImplant

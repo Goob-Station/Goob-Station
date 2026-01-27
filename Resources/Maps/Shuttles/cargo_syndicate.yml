@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/18/2025 05:48:33
-  entityCount: 197
+  time: 10/21/2025 01:22:46
+  entityCount: 201
 maps: []
 grids:
 - 1
@@ -57,7 +57,12 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
-    - type: Shuttle
+    - type: CargoShuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: ImplicitRoof
     - type: GridPathfinding
@@ -127,9 +132,72 @@ entities:
     - type: GridAtmosphere
       version: 2
       data:
+        tiles:
+          0,0:
+            0: 6135
+          0,-1:
+            0: 63283
+            1: 8
+          -1,0:
+            0: 3308
+          0,1:
+            0: 887
+            1: 32768
+          -1,1:
+            0: 2252
+            1: 8192
+          0,-2:
+            0: 12544
+            1: 32832
+          -1,-2:
+            0: 32768
+            1: 8256
+          -1,-1:
+            0: 60552
+            1: 2
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          immutable: True
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: FTLDrive
 - proto: AirCanister
   entities:
   - uid: 140
@@ -178,6 +246,32 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,-2.5
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 199
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,1.5
+      parent: 1
+  - uid: 200
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-0.5
+      parent: 1
+  - uid: 201
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-0.5
+      parent: 1
+  - uid: 202
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,1.5
       parent: 1
 - proto: BlastDoor
   entities:
@@ -646,7 +740,7 @@ entities:
     - type: Transform
       pos: -0.5,6.5
       parent: 1
-- proto: ComputerShuttleCargo
+- proto: ComputerShuttle
   entities:
   - uid: 87
     components:

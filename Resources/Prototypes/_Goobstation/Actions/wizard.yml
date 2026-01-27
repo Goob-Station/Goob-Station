@@ -231,6 +231,15 @@
       5: ActionRepulseV
 
 - type: entity
+  parent: ActionRepulse
+  id: ActionRepulseNoRobes
+  components:
+  - type: Magic
+    requiresClothes: false
+    requiresSpeech: true
+    school: Evocation
+
+- type: entity
   parent: BaseAction
   id: ActionStopTime
   name: Stop Time
@@ -370,6 +379,7 @@
     sentence: action-speech-spell-bind-soul
   - type: Magic
     requiresSpeech: true
+    blockedBySpectral: false
     school: Necromancy
   - type: Tag
     tags:
@@ -1054,7 +1064,7 @@
   - type: Action
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 3
+    useDelay: 10
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/summon_magic.ogg

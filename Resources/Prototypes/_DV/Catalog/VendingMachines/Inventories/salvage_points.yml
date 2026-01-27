@@ -28,7 +28,6 @@
 - type: shopInventory
   id: SalvageVendorInventory
   listings:
-  # TODO: marker beacons 1/10/30 for 10 each
   - id: DrinkWhiskeyBottleFull
     cost: 100
   - id: DrinkAbsintheBottleFull
@@ -43,6 +42,8 @@
     cost: 250
   # TODO: laser pointer 300, toy facehugger 300
   # TODO: stabilizing serum for 400
+  - id: BoxMarkerBeacons
+    cost: 300
   - id: Fulton
     cost: 400
   - id: FultonBeacon
@@ -52,8 +53,6 @@
   - id: ClothingEyesGlassesGarMeson
     cost: 500
   - id: ClothingBeltSalvageWebbing
-    cost: 500
-  - id: PKAUpgradeLight
     cost: 500
   - id: ClothingShoesBootsJack
     cost: 550
@@ -67,13 +66,12 @@
     cost: 650
   - id: DoubleEmergencyNitrogenTankFilled
     cost: 650
+  - id: DeathRattleLavalandImplanter
+    cost: 700
+    overrideName: shop-listing-deathrattle-implant-lavaland # stupid implanter structure raagh
   - id: ClothingMaskWeldingGas
     cost: 750
   - id: LavalandJaunter
-    cost: 750
-  - id: WeaponCrusher
-    cost: 750
-  - id: WeaponProtoKineticAccelerator
     cost: 750
   - id: SpaceCash5000
     cost: 750
@@ -87,27 +85,18 @@
     cost: 1000
   - id: LavalandEquipmentExplorerSuit
     cost: 1000
+  - id: LavalandWeaponKineticMachete
+    cost: 1050
+  - id: LavalandWeaponKineticClaws
+    cost: 1050
+  - id: WeaponCrusherDagger
+    cost: 1050
   - id: AdvancedMineralScanner
     cost: 1100
   - id: PKAUpgradeDamage
     cost: 1200
-  # TODO: lazarus injector for 1k
-  - id: LavalandWeaponKineticHammer
-    cost: 1250
-  - id: LavalandWeaponKineticMachete
-    cost: 1250
-  - id: LavalandWeaponKineticSpear
-    cost: 1250
-  - id: LavalandWeaponKineticClaws
-    cost: 1250
-  - id: WeaponProtoKineticRepeater
-    cost: 1250
-  - id: WeaponProtoKineticPistol
-    cost: 1250
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
-  - id: WeaponProtoKineticShotgun
-    cost: 1500
   - id: LuxuryMedipen
     cost: 1500
   - id: WeaponPlasmaCutter
@@ -124,7 +113,7 @@
     cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
-    #TODO:  super resonator for 2500
+    #TODO: super resonator for 2500
   - id: ClothingShoesBootsJump
     cost: 2500
   - id: ClothingOuterHardsuitLuxury

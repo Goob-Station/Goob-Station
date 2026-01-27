@@ -24,6 +24,7 @@
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -64,7 +65,7 @@ uplink-miniature-energy-crossbow-name = Miniature Energy Crossbow
 uplink-miniature-energy-crossbow-desc = The syndicate's energy crossbow, small, silent and deadly.
 
 uplink-hardlight-bow-name = Hardlight Bow
-uplink-hardlight-bow-desc = A modern bow that can fabricate hardlight arrows, designed for silent takedowns of targets. Has 8 different firing modes. Can be folded.
+uplink-hardlight-bow-desc = This folding bow can generate a multitude of arrow types to fit the user's needs.
 
 # Job-specific
 
@@ -86,43 +87,46 @@ uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. 
 uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 
+uplink-grey-tide-name = Grey Tide
+uplink-grey-tide-desc = An antient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is an Assistant.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
-uplink-weapon-burner-name = Burner Heavy Rifle
-uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
+uplink-weapon-burner-name = Burner
+uplink-weapon-burner-desc = A fully-automatic anti-materiel rifle that slings .50 downrange as long as you can shoulder it. Feeds from .50 Anti-Materiel magazines.
 
-uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
-uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
+uplink-weapon-heavy-shotgun-name = NZ CSG-242
+uplink-weapon-heavy-shotgun-desc = A portable human rights violation. Burst fire, high explosive, and will literally push you back six feet when fired. Feeds from 2 Gauge drum magazines.
 
 uplink-WSPR-name = WSPR
-uplink-WSPR-desc = This rifle operates silently and uses 9.5mm caseless magnum hollow-point bullets, which are more effective against flesh but less effective against armor.
+uplink-WSPR-desc = A silenced, subsonic, and caseless rifle for the operative that leaves no trace. More effective against unarmoured targets. Feeds from 9.5mm SMG magazines.
 
-uplink-c20r-name = C-20r
-uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
+uplink-c20r-name = C-20R
+uplink-c20r-desc = A one-handed, bullpup SMG that sacrifices accuracy for pure firerate. Feeds from .35 Auto SMG magazines.
 
 uplink-buldog-name = Bulldog
-uplink-buldog-desc = A magazine fed fullauto shotgun.
+uplink-buldog-desc = A fully automatic, bullpup shotgun for when you have three seconds to turn eight people into pasta sauce.
 
-uplink-l6-saw-name = L6 Saw
-uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
+uplink-l6-saw-name = L6 SAW
+uplink-l6-saw-desc = A bulky light machine gun excellent at suppressive, sustained fire. Feeds from .30 Rifle box magazines.
 
 uplink-m90-name = M-90
-uplink-m90-desc = An M-90 combat rifle.
+uplink-m90-desc = A cheaper revision of the M-90GL that omits the integrated grenade launcher. Feeds from .20 Rifle magazines.
 
 uplink-estoc-name = Estoc
-uplink-estoc-desc = A designated assault rifle, fitted with a mid-range optic for longer-range combat.
+uplink-estoc-desc = A burst-fire designated marksman rifle fitted with an expensive tritium optic. Feeds from .20 Rifle magazines.
 
 uplink-syndicate-disabler-name = Syndicate Disabler
-uplink-syndicate-disabler-desc = An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+uplink-syndicate-disabler-desc = A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
 
 uplink-dualetta-bundle-name = Dualetta Bundle
 uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
 
 uplink-anaconda-name = Anaconda
-uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
+uplink-anaconda-desc = A bulky hand cannon with an ammo fabricator built into the grip. Prints ammunition for itself over time.
 
 uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
@@ -130,11 +134,11 @@ uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your ca
 uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
 uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
 
-uplink-m7s-name = M7S "Ventilator"
-uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
+uplink-m7s-name = M7S Ventilator
+uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Feeds from side-loading 5x23mm magazines.
 
-uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
-uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
+uplink-combat-shotgun-name = Bojevic
+uplink-combat-shotgun-desc = A pump action shotgun when you need to repel targets that are behind two plasteel walls, a fridge, and a car door. Loads 5 rounds of 8 Gauge.
 
 uplink-he1sg8-bundle-name = HE1S-G8 Bundle
 uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
@@ -279,6 +283,18 @@ uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan
 uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
 
+uplink-autosurgeon-smartlink-name = Smartlink Autosurgeon
+uplink-autosurgeon-smartlink-desc = Modifies the user's arms to include smartlink cyberware, improving aim with ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-recoil-absorbing-name = Recoil Absorbing Arms Autosurgeon
+uplink-autosurgeon-recoil-absorbing-desc = Modifies the user's arms to include recoil absorbing cyberware, drastically reducing recoil when firing ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-berserker-heart-name = Berserker Heart Autosurgeon
+uplink-autosurgeon-berserker-heart-desc = Replaces the user's heart with a berserker implant, that allows them to enter a berserk state, greatly increasing their melee damage, speed and preventing from critical damage. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-jumpstarter-heart-name = Jumpstarter Heart Autosurgeon
+uplink-autosurgeon-jumpstarter-heart-desc = Replaces the user's heart with a jumpstarter implant, that injects enough omnizine to get up once you got critical damage. Has a 3 minutes cooldown. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
@@ -289,6 +305,9 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+
+uplink-guerrilla-gloves-name = Guerrilla Gloves
+uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
 
 # Deception
 
@@ -332,8 +351,17 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
 
-uplink-bloodred-casette-name = Bloodred Casette Player
-uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
+uplink-bloodred-cassette-name = Bloodred Casette Player
+uplink-bloodred-cassette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
 
 uplink-syndiedrobe-name = Syndiedrobe
 uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded clothing. Simple, sharp, and unmistakably red-and-black, it offers operatives a way to dress with Syndicate style.
+
+uplink-customboard-name = Custom Syndicate Lawboard
+uplink-customboard-desc = A modified lawboard that allows the user to change the laws to anything they want. Comes with Antimov pre-installed.
+
+uplink-cddisksyndicate-name = Syndicate Advertisement CD
+uplink-cddisksyndicate-desc = 102.9 Syndicate radio
+
+uplink-cddisknumber-name = Number Station CD
+uplink-cddisknumber-desc = Call in a threat to distract the station... good luck playing the whole thing.

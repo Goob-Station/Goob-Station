@@ -44,4 +44,6 @@ public enum TargetBodyPart : ushort
     FullLegsGroin = FullLegs | Groin,
 
     All = Head | Chest | Groin | LeftArm | LeftHand | RightArm | RightHand | LeftLeg | LeftFoot | RightLeg | RightFoot,
+
+    Vital = Head | Chest | Groin, // Goobstation
 }

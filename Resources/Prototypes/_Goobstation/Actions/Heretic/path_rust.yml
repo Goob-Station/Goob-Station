@@ -13,6 +13,7 @@
   components:
   - type: Action
     checkCanInteract: false
+    raiseOnUser: true
     useDelay: 8
     itemIconStyle: NoItem
     icon:
@@ -36,6 +37,7 @@
   components:
   - type: Action
     checkCanInteract: false
+    raiseOnUser: true
     predicted: false
     useDelay: 30
     itemIconStyle: NoItem
@@ -62,6 +64,7 @@
   components:
   - type: Action
     checkCanInteract: false
+    raiseOnUser: true
     predicted: false
     useDelay: 30
     itemIconStyle: NoItem
@@ -78,6 +81,29 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionHereticRustCharge
+  name: Rust Charge
+  description: A charge that must be started on a rusted tile and will destroy any rusted objects you come into contact with, will deal high damage to others and rust around you during the charge. As it is the rust that empowers you with this ability, no focus is needed.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true
+    useDelay: 45
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: rust_charge
+  - type: TargetAction
+    range: 0
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:EventHereticRustCharge
+  - type: HereticAction
+    requireMagicItem: false
+
+- type: entity
+  parent: BaseAction
   id: ActionHereticRustWave
   name: Patron's Reach
   description: Release a toxic wave of rust.
@@ -85,6 +111,7 @@
   components:
   - type: Action
     checkCanInteract: true
+    raiseOnUser: true
     useDelay: 35
     itemIconStyle: NoItem
     sound:

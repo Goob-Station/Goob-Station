@@ -46,13 +46,13 @@ namespace Content.Server.Medical.BiomassReclaimer
         public float CurrentExpectedYield = 0f;
 
         /// <summary>
-        /// The reagent that will be spilled while processing a mob.
+        /// The reagents that will be spilled while processing.
         /// </summary>
         [ViewVariables]
-        public string? BloodReagent;
+        public List<string> BloodReagents = new(); // Goobstation, updated to List.
 
         /// <summary>
-        /// Entities that can be randomly spawned while processing a mob.
+        /// Entities that can be randomly spawned while processing.
         /// </summary>
         public List<EntitySpawnEntry> SpawnedEntities = new();
 
@@ -66,7 +66,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         /// How many seconds to take to insert an entity per unit of its mass.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public float BaseInsertionDelay = 0.1f;
+        public float BaseInsertionDelay = 0.05f; // GoobStation
 
         /// <summary>
         /// How much to multiply biomass yield from botany produce.
@@ -78,7 +78,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         /// The time it takes to process a mob, per mass.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public float ProcessingTimePerUnitMass = 0.5f;
+        public float ProcessingTimePerUnitMass = 0.25f; // GoobStation
 
         /// <summary>
         /// Will this refuse to gib a living mob?

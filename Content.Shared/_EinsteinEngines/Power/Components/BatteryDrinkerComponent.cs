@@ -11,11 +11,14 @@ namespace Content.Shared._EinsteinEngines.Power.Components;
 [RegisterComponent]
 public sealed partial class BatteryDrinkerComponent : Component
 {
+    // Goobstation - Energycrit: Remove DrinkAll
+    /*
     /// <summary>
     ///     Is this drinker allowed to drink batteries not tagged as <see cref="BatteryDrinkSource"/>?
     /// </summary>
     [DataField]
     public bool DrinkAll;
+    */
 
     /// <summary>
     ///     How long it takes to drink from a battery, in seconds.
@@ -31,11 +34,14 @@ public sealed partial class BatteryDrinkerComponent : Component
     [DataField]
     public float DrinkMultiplier = 5f;
 
+    // Goobstation - Energycrit: Remove DrinkAll
+    /*
     /// <summary>
     ///     The multiplier for how long it takes to drink a non-source battery, if <see cref="DrinkAll"/> is true.
     /// </summary>
     [DataField]
     public float DrinkAllMultiplier = 2.5f;
+    */
 
     // Goobstation - Energycrit: BatteryDrinker blacklist.
     /// <summary>

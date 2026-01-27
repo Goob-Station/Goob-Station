@@ -60,6 +60,7 @@
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 3 ]
             Reporter: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]
@@ -85,7 +86,8 @@
             Lawyer: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 2, 3 ]
+            SalvageSpecialist: [ 3, 3 ]
+            ShaftMiner: [ 3, 3 ]
             CargoTechnician: [ 2, 3 ]
             #civilian
             Passenger: [ -1, -1 ]

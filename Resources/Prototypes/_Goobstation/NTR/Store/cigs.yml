@@ -1,0 +1,19 @@
+- type: vendingMachineInventory
+  id: CigaretteMachineInventoryDeluxe
+  startingInventory:
+    CigPackGreen: 4
+    CigPackBlue: 4
+    CigPackMixed: 4
+    CigarCase: 2
+    FlippoLighter: 2
+    NanotrasenFlippo: 2
+    FlippoEngravedLighter: 1
+    CigPackBlueshield: 1
+  contrabandInventory:
+    CentCommFlippo: 1
+
+- type: localizedDataset
+  id: CigaretteMachineAdsDLC
+  values:
+    prefix: advertisement-cigs-deluxe-
+    count: 12
