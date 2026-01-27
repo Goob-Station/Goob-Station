@@ -73,7 +73,7 @@
     damageModifierSet: Slime
   - type: Bloodstream
     bloodReagent: Slime
-    smokeImmune: true  #Goob edit - no more 50000 slime extracts midshift
+    smokeImmune: true  #No more 50000 slime extracts midshift
     bloodlossDamage:
       types:
         Bloodloss:
