@@ -215,7 +215,8 @@
     - chaos
   name: secretplus-admeme-title
   description: secretplus-admeme-description
-  showInVote: false # 1984
+  showInVote: true
+  minPlayers: 87 # :trollface:
   rules:
     - SecretPlusAdmeme
 
