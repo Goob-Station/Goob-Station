@@ -134,6 +134,12 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+using Content.Server.Database;
+using Content.Shared.Clumsy;
+using Content.Server.Popups;
+using Content.Shared.CCVar;
+using Content.Goobstation.Common.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -153,6 +159,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+    [Dependency] private readonly PopupSystem _popup = default!; // goob edit
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // goob edit
 
     public override void Initialize()
     {
@@ -213,7 +221,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         if (component.GiveBriefing)
         {
-            _antag.SendBriefing(traitor, GenerateBriefing(codewords, code, issuer), null, component.GreetSoundNotification);
+            // goob edit - new traitor briefing
+            _antag.SendBriefing(traitor, GenerateBriefing(codewords, code, issuer), Color.Crimson, component.GreetSoundNotification);
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Sent the Briefing");
         }
 
@@ -241,50 +250,71 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         _npcFaction.RemoveFaction(traitor, component.NanoTrasenFaction, false);
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
 
+        // goob edit - clumsy antag no more
+        var shouldRemoveClumsy = _cfg.GetCVar(GoobCVars.RemoveClumsyOnAntag);
+        if (TryComp<ClumsyComponent>(traitor, out var clumsy) && shouldRemoveClumsy)
+        {
+            // if not for the clown car i would've nuked it off the planet
+            clumsy.ClumsyCatching = false;
+            clumsy.ClumsyDefib = false;
+            clumsy.ClumsyGuns = false;
+            clumsy.ClumsyVaulting = false;
+            clumsy.ClumsyHypo = false;
+
+            _popup.PopupEntity(Loc.GetString("antag-gain-remove-clumsy"), traitor, traitor, Shared.Popups.PopupType.Medium);
+        }
+
         return true;
     }
 
     // TODO: AntagCodewordsComponent
     private void OnObjectivesTextPrepend(EntityUid uid, TraitorRuleComponent comp, ref ObjectivesTextPrependEvent args)
     {
-        if(comp.GiveCodewords)
+        if (comp.GiveCodewords)
             args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", _codewordSystem.GetCodewords(comp.CodewordFactionPrototypeId))));
     }
 
     // TODO: figure out how to handle this? add priority to briefing event?
+    // goob edit - new traitor briefing
     private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string objectiveIssuer)
     {
+        var issuer = objectiveIssuer.Replace(" ", "").ToLower();
         var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
-        if (codewords != null)
-            sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
-        if (uplinkCode != null)
-            sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
-        else
-            sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
+        sb.AppendLine(Loc.GetString($"traitor-{issuer}-intro"));
 
+        if (uplinkCode != null)
+        {
+            sb.AppendLine("\n" + Loc.GetString($"traitor-{issuer}-uplink"));
+            sb.AppendLine("\n" + Loc.GetString($"traitor-role-uplink-code-short", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
+        }
+        else sb.AppendLine("\n" + Loc.GetString("traitor-role-uplink-implant"));
+
+        if (codewords != null)
+            sb.AppendLine("\n" + Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
+
+        sb.AppendLine("\n" + Loc.GetString("traitor-role-moreinfo"));
 
         return sb.ToString();
     }
 
-    // Goobstation Change - Readd the character briefing text.
+    // goob edit - new traitor briefing
     private string GenerateBriefingCharacter(string[]? codewords, Note[]? uplinkCode, string objectiveIssuer)
     {
+        var issuer = objectiveIssuer.Replace(" ", "").ToLower();
         var sb = new StringBuilder();
-        sb.AppendLine("\n" + Loc.GetString($"traitor-{objectiveIssuer.Replace(" ", "").ToLower()}-intro"));
+        sb.AppendLine("\n" + Loc.GetString($"traitor-{issuer}-intro"));
 
         if (uplinkCode != null)
-            sb.AppendLine(Loc.GetString($"traitor-role-uplink-code-short", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
-        else sb.AppendLine("\n" + Loc.GetString($"traitor-role-nouplink"));
+            sb.AppendLine("\n" + Loc.GetString($"traitor-role-uplink-code-short-nocolor", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
 
         if (codewords != null)
-            sb.AppendLine(Loc.GetString($"traitor-role-codewords-short", ("codewords", string.Join(", ", codewords))));
+            sb.AppendLine("\n" + Loc.GetString($"traitor-role-codewords-short", ("codewords", string.Join(", ", codewords))));
 
         sb.AppendLine("\n" + Loc.GetString($"traitor-role-allegiances"));
-        sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer.Replace(" ", "").ToLower()}-allies"));
+        sb.AppendLine(Loc.GetString($"traitor-{issuer}-allies"));
 
         sb.AppendLine("\n" + Loc.GetString($"traitor-role-notes"));
-        sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer.Replace(" ", "").ToLower()}-goal"));
+        sb.AppendLine(Loc.GetString($"traitor-{issuer}-goal"));
 
         return sb.ToString();
     }

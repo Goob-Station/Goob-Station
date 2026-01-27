@@ -53,8 +53,7 @@ traitor-role-greeting =
 traitor-role-codewords =
     The codewords are: [color = lightgray]
     {$codewords}.[/color]
-    Codewords can be used in regular conversation to identify yourself discreetly to other syndicate agents.
-    Listen for them, and keep them secret.
+    Codewords can be used in regular conversation to identify yourself discreetly to other traitors.
 traitor-role-uplink-code =
     Set your ringtone to the notes [color = lightgray]{$code}[/color] to lock or unlock your uplink.
     Remember to lock it after, or the stations crew will easily open it too!
@@ -66,18 +65,19 @@ traitor-role-uplink-implant =
 traitor-role-codewords-short =
     The codewords are:
     {$codewords}.
-traitor-role-uplink-code-short = Your uplink code is {$code}. Set it as your PDA ringtone to access uplink.
+traitor-role-uplink-code-short = Your uplink code is [color=white]{$code}[/color]. Set it as your PDA ringtone to access the black market.
+traitor-role-uplink-code-short-nocolor = Your uplink code is {$code}. Set it as your PDA ringtone to access the black market.
 traitor-role-uplink-implant-short = Your uplink was implanted. Access it from your hotbar.
 
 traitor-role-moreinfo =
     Find more information about your role in the character menu.
 
 traitor-role-nouplink =
-    You do not have a syndicate uplink. Make it count.
+    You do not have a syndicate uplink.
 
 traitor-role-allegiances =
     Your allegiances:
 
 traitor-role-notes =
-    Notes from your employer:
+    Additional notes:
 
