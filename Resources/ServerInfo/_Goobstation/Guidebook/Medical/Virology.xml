@@ -1,97 +1,100 @@
 <Document>
-# Virology
-This is a guide to diseases and how to handle them.
+# Вирусология
+Это руководство по болезням и способам борьбы с ними.
 
-## Infection
-Diseases initially come from a specific source. Most often, it's a plague mouse.
+## Заражение
+Заражения возникают из-за определённых источников, чаще всего это чумная мышь.
 
-<GuideEntityEmbed Entity="MobMousePlague" Caption="plague mouse"/>
+<GuideEntityEmbed Entity="MobMousePlague" Caption="чумная мышь"/>
 
-If you're bitten by a plague mouse, there's a significant chance you get infected with a disease. The disease is random and can be anything, but will generally be weak. Alternatively, someone can cough near you, and you will get infected if not wearing protective gear.
+Если вас укусит чумная мышь, существует высокая вероятность заражения. Болезнь выбирается случайно и может быть какой угодно, но, как правило, она будет протекать в легкой форме. Также инфекция может передаться, если кто-то покашляет рядом с вами, а на вас не будет средств защиты.
 
-Infections can also affect monkeys and other mice, but diseases do not have any effect in mice, so they act as disease spread vectors. However, non-plague mice have a smaller chance to infect on bite.
+Инфекции также могут поражать обезьян и других мышей. Однако на самих мышей болезни никак не влияют, поэтому они служат переносчиками. При этом у обычных, не чумных мышей, шанс заразить при укусе значительно ниже.
 
-## Disease lifecycle
-Once you're infected, the disease gains infection progress while inside of you. The only way to tell you're infected at this point is to use a health analyzer or a swab. Additionally, you gain permanent immunity to that disease's genotype, as if you've taken a vaccine, so one disease can't infect you twice.
+## Жизненный цикл болезни
+После заражения болезнь начинает прогрессировать внутри вас. На этом этапе единственные способы узнать о наличии инфекции — это использовать анализатор здоровья или взять мазок. Кроме того, вы постепенно вырабатываете иммунитет к генотипу этой болезни, как будто бы вам вкололи вакцину. Поэтому повторно заразиться одной и той же болезнью невозможно.
 
-Symptoms will begin showing up once the infection progress crosses certain thresholds. The more infection progress, the stronger the effects. Eventually it will hit its full force and stop progressing.
+Симптомы начнут проявляться, как только уровень прогресса инфекции преодолеет определённый порог. Чем больше прогресса, тем сильнее выражены симптомы. В конечном итоге болезнь достигнет пика своей силы, и её развитие остановится.
 
-At that time, immunity progress will also start catching up, if not suppressed by the disease. Immunity progress will make the infection progress slow down and eventually reverse. For most diseases, this will make you eventually lose the disease on your own.
+В это же время начнет расти уровень прогресса иммунитета, если только болезнь его не подавляет. Прогресс иммунитета замедляет развитие инфекции и, в конечном итоге, обращает его вспять. В случае с большинством болезней это приведет к тому, что со временем вы излечитесь самостоятельно.
 
-Disease effects can be varied. Most diseases will have some effect that makes it obvious you are sick, but rarely they will simply silently damage you. Some diseases will fight back against your immunity, not going away on their own.
+Симптомы болезней могут быть самыми разными. Большинство заболеваний имеют явные признаки, по которым сразу можно понять, что вы больны, но в редких случаях они будут скрытно наносить урон. Некоторые болезни способны подавлять ваш иммунитет и в таком случае они не пройдут сами по себе
 
-Once the infection progress hits 0, you lose the disease.
+Как только прогресс инфекции достигает 0, болезнь полностью проходит.
 
-## Treatment
-There's several ways to treat diseases.
+## Лечение
+Существует несколько способов лечения болезней.
 
-The first and most important, of course, is simply not getting infected:
-- Avoid mice, especially if it's trying to bite you.
-- If you see someone coughing, keep away.
-- Wear sterile masks and other protective gear. Wear a biosuit for full protection. They can be ordered at cargo.
-- Wear a MedHUD to see who is infected.
-- Vaccines. If the virologist has gotten their hands on a disease, they might have a vaccine that will make you permanently immune.
+Первый и самый важный способ — это, конечно же, просто не дать себя заразить:
+- Избегайте мышей, особенно если они пытаются вас укусить.
+- Держитесь подальше от кашляющих людей.
+- Носите стерильные маски и другие средства защиты. Для полной безопасности используйте костюм биозащиты — их можно заказать в отделе снабжения.
+- Используйте медицинский визор, чтобы увидеть, кто из окружающих заражён.
+- Вакцинация. Если вирусологу удалось заполучить образец болезни, он может создать вакцину, которая даст вам иммунитет к данному генотипу болезни.
 
-If that didn't work, you'll have to cure the disease, and not even vaccines will work. This can be done in several ways:
-- Immurin. It's a chemical that boosts your immunity, causing the disease to go away on its own much quicker.
-- Specialised anti-disease-type chemicals, such as devirate or spaceacilin.
-- Additionally, pay a visit to the virologist and let them swab you so they may analyze the disease and make vaccines against it.
+Если профилактика не помогла, вам придётся лечить саму болезнь — на этом этапе даже вакцины будут бессильны. Это можно сделать несколькими способами:
+- Иммурин — это химикат, усиливающий эффективность вашего иммунитета. Благодаря нему, вы излечитесь от болезни гораздо быстрее.
+- Специализированные препараты против определенных типов болезней, такие как девирейт и космоцилин.
+- Кроме того, посетите вирусолога, чтобы он взял у вас мазок. Так он сможет проанализировать болезнь и изготовить вакцины для остального экипажа.
 
-## Disease specifics and mutation
-Diseases aren't static, and they mutate every time they spread. Just about everything about a disease can mutate, even mutation rate itself, but not the disease type. Bacteria aren't going to mutate into viruses.
+## Особенности болезней и мутации
+Болезни мутируют при каждой передаче новому носителю. Мутировать может практически любая характеристика болезни, даже сам темп мутации, но только не её тип. Бактерии никогда не мутируют в вирусы.
 
-The main properties of a disease are its genotype and its effects.
+Основными характеристиками болезни являются её генотип и её симптомы.
 
-The genotype is relevant for immunity against this disease. If the disease mutates its genotype, the resulting mutated disease will be able to infect even people who have been sick with the original disease.
+Генотип определяет невосприимчивость к данной болезни. Если генотип болезни мутирует, то полученный штамм сможет заразить даже тех людей, которые уже переболели его исходной формой.
 
-The disease effects are self-explanatory. It's what the disease does, such as coughing, damage, immunity suppression, vomiting, or positive effects such as speeding you up.
+Симптомы болезни говорят сами за себя. Это то, что болезнь делает с организмом: например, кашель, нанесение урона, подавление иммунитета, рвота или даже положительные эффекты, такие как увеличение скорости движения.
 
-Diseases can be mutated by drinking unstable mutagen.
+Болезни могут мутировать, если выпить нестабильный мутаген.
 
-# Virologist
-This is a sub-guide on how to be the virologist.
+# Вирусолог
+Как быть вирусологом? Это руководство ответит на этот вопрос.
 
-## The job
-As a virologist, your job is both to combat disease and to use it to your advantage.
+## Работа
+Ваша работа как вирусолога заключается в эффективном противодействии болезням и одновременном поиске выгоды от их свойств.
 
-You have many tools you can use for that purpose.
+Для реализации этих целей в вашем распоряжении имеется широкий арсенал инструментов.
 
-## Your toolkit
-- Your ViroHUD. It's significantly more avanced than the MedHUD at spotting who is infected, and can tell the rough severity.
-- Disease-related chemicals. Ask chemistry to make some.
-- Your biosuit, which will protect you from infection. Plague mice can't infect you through it.
-- Swabs, which let you take samples of disease from infected people.
-- A health analyzer, which can see what people are infected with.
-- And of course, your virology machinery.
+## Ваш набор инструментов
+- Ваш вирусологический визор — это специализированное устройство, которое значительно превосходит стандартный медицинский визор в вопросах диагностики болезней.
+- Химические реагенты для работы с вирусами. Попросите химиков их вам сварить.
+- Костюм биологическиой защиты спасёт вас от инфекций. Чумные мыши не могут заражать через него.
+- Стерильные палочки, позволяющие брать мазки образцов болезней у заражённых людей.
+- Анализатор здоровья, позволяющий видеть, чем именно заражены люди.
+- И, конечно же, ваши вирусологические установки.
 
 <Box>
-<GuideEntityEmbed Entity="ClothingEyesHudViro" Caption="viro HUD"/>
+<GuideEntityEmbed Entity="ClothingEyesHudViro" Caption="вирусологический визор"/>
 <GuideEntityEmbed Entity="VirologistPDA"/>
-<GuideEntityEmbed Entity="ClothingOuterBioVirology" Caption="biosuit"/>
+<GuideEntityEmbed Entity="ClothingOuterBioVirology" Caption="костюм биологической защиты"/>
 <GuideEntityEmbed Entity="Syringe"/>
 <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
 </Box>
 
-## Virology machines
-The disease analyzer and vaccinator are necessary to be able to properly handle disease. To use both of the machines, you will need a swab with disease on it. To get one, take a sterile swab and use it on someone who is infected.
+## Вирусологические установки
+Анализатор болезней и вакцинатор необходимы для правильной борьбы с инфекцией. Для работы обоих аппаратов вам понадобится мазок с образцом болезни. Чтобы получить его, возьмите стерильную палочку и используйте её на ком-то заражённом.
 
-<GuideEntityEmbed Entity="DiseaseSwab" Caption="swab"/>
+<GuideEntityEmbed Entity="DiseaseSwab" Caption="стерильная палочка"/>
 
-The disease analyzer is a machine that can tell the specifics of a disease. It's important for triage and deciding what to do about the disease.
+Анализатор болезней — это аппарат, позволяющий узнать специфику заболевания. Он незаменим для принятия решения о том, как бороться с инфекцией.
 
-<GuideEntityEmbed Entity="DiseaseDiagnoser" Caption="disease analyzer"/>
+<GuideEntityEmbed Entity="DiseaseDiagnoser" Caption="анализатор болезней"/>
 
-The vaccinator has 2 modes. Vaccine mode, and live injector mode. In vaccine mode, when inserted a swab, it will output a vaccine against the genotype of the disease on the swab. Vaccines make it so that people they are applied to gain permanent immunity to the disease's genotype. In live injector mode, the vaccinator will instead output an injector that infects whoever it's applied to with the source disease.
+У вакцинатора есть два режима: "Вакцина" и "Инъектор".
+В режиме вакцины, если вставить в аппарат мазок, он создаст вакцину против конкретного генотипа болезни, обнаруженной в пробе. Вакцины дают людям, которым они введены, иммунитет к данному генотипу.
+В режиме инъектора аппарат выдаст медипен, который способен заразить исходной болезнью любого, на ком он будет использован.
 
 <Box>
-<GuideEntityEmbed Entity="Vaccine" Caption="vaccine"/>
-<GuideEntityEmbed Entity="LiveInjector" Caption="injector"/>
-<GuideEntityEmbed Entity="Vaccinator" Caption="vaccinator"/>
+<GuideEntityEmbed Entity="Vaccine" Caption="вакцина"/>
+<GuideEntityEmbed Entity="LiveInjector" Caption="инъектор"/>
+<GuideEntityEmbed Entity="Vaccinator" Caption="вакцинатор"/>
 </Box>
 
-## Experimentation
-And now, on why the live injector mode is needed, other than purposes not condoned by Nanotrasen.
+## Экспериментирование
+А теперь о том, зачем нужен режим инъектора, помимо целей, не одобряемых Nanotrasen.
 
-Diseases work on monkeys, so you can infect them and try to get the disease to mutate. Eventually, this might result in a positive effect, getting you a helpful disease. Additionally, if you get lucky, you might get a disease with the same genotype but way weaker. People sick with the weaker disease will gain immunity against the original disease. There's more usages that this guide won't go through.
+Болезни действуют на обезьян, поэтому вы можете заражать их, пытаясь добиться мутации вируса. Со временем это может привести к положительному симптому и получению полезной болезни.
+Кроме того, если вам повезет, вы можете получить штамм с идентичным генотипом, который гораздо слабее. Люди, переболевшие слабой формой, приобретут иммунитет к оригинальному заболеванию. Существуют и другие способы применения, которые не будут рассмотрены в данном руководстве.
 
 </Document>
