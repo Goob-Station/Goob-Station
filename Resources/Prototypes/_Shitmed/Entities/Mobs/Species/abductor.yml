@@ -13,16 +13,17 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+ # Corvax-Goob-GreySpecies-start
 - type: entity
   save: false
-  name: Urist McAlien
+  abstract: true
+  id: BaseMobAbductor
   parent:
   - MobBloodstream
   - MobFlammable
   - BaseMobSpecies
   - MobAtmosStandard # Corvax-Goob-GreySpecies
   - BaseMobDisgust # Goobstation
-  id: MobAbductor
   components:
   - type: Absorbable # BLOOD FOR THE BLOOD GOD
   # - type: GlorpAccent # GoobStation - Glorpshit # Removed for EE - Languages
@@ -40,22 +41,54 @@
     alternateState: Standing
   - type: Damageable
     damageContainer: Biological
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - Abductor # CorvaxGoob-Species
-  - type: CollectiveMind
-    defaultChannel: Abductormind
-    channels:
-    - Abductormind
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Xeeplian
     understands:
     - TauCetiBasic # Can understand, but cannot speak it.
     - Xeeplian
+  - type: Targeting
+  - type: SurgeryTarget
+  - type: Bloodstream
+    bloodReagent: AlienBlood
+  - type: Temperature
+    heatDamageThreshold: 320
+    currentTemperature: 310.15
+    specificHeat: 46
+    heatDamage:
+      types:
+        Heat: 2
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.07
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - Abductor
+  - type: Inventory
+    speciesId: abductor
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Shitmed/Mobs/Species/Abductor/displacement.rsi
+            state: jumpsuit
+  - type: OfferItem # CorvaxGoob-Offer
+
+- type: entity
+  save: false
+  name: Urist McAlien
+  parent:
+  - BaseMobAbductor
+  id: MobAbductor
+  components:
+  - type: CollectiveMind
+    defaultChannel: Abductormind
+    channels:
+    - Abductormind
 #  - type: DamageVisuals
 #    damageOverlayGroups:
 #      Brute:
@@ -72,35 +105,16 @@
 #        Heat: -0.14
 #      groups:
 #        Brute: -0.14
-  - type: Targeting
-  - type: SurgeryTarget
-  - type: Bloodstream
-    bloodReagent: AlienBlood
-  # Corvax-Goob-GreySpecies-start
+
   - type: Flammable
     damage:
       types:
         Heat: 1
-  - type: Temperature
-    heatDamageThreshold: 320
-    currentTemperature: 310.15
-    specificHeat: 46
-    heatDamage:
-      types:
-        Heat : 2
-  - type: Barotrauma
-    damage:
-      types:
-        Blunt: 0.07
-  - type: Inventory
-    speciesId: abductor
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Shitmed/Mobs/Species/Abductor/displacement.rsi
-            state: jumpsuit
-  # Corvax-Goob-GraysResprite-end
+  - type: Hunger
+  - type: Thirst
+  - type: FootprintOwner
+  - type: WraithAbsorbable # Goobstation - wraith
+# Corvax-Goob-GreySpecies-end
 
 - type: entity
   parent: BaseSpeciesDummy
