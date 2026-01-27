@@ -5,7 +5,7 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "alcoholic made by discord:DenLemp#2965",
+  "copyright": "alcoholic made by discord:DenLemp#2965; rune ported from ss13, modified by Dezzzix",
   "states": [
     {
       "name": "alcoholic",
@@ -24,6 +24,56 @@
           0.5
         ]
       ]
-    }
+    },
+	{
+	  "name": "rune",
+	  "delays": [
+		[
+		  2,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  2
+        ]
+      ]
+	}
   ]
 }

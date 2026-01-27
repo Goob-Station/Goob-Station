@@ -6,3 +6,12 @@
   components:
   - type: BarSign
     current: AlcoholicSign
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRune
+  name: The Rune
+  description: Collection of unknown symbols, they remind you of days long gone...
+  components:
+  - type: BarSign
+    current: RuneSign

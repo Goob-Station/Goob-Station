@@ -5,3 +5,11 @@
     sprite: _CorvaxGoob/Structures/Wallmounts/barsign.rsi
     state: alcoholic
   description: barsign-prototype-description-alcoholic
+  
+- type: barSign
+  id: RuneSign
+  name: barsign-prototype-name-rune
+  icon:
+    sprite: _CorvaxGoob/Structures/Wallmounts/barsign.rsi
+    state: rune
+  description: barsign-prototype-description-rune
