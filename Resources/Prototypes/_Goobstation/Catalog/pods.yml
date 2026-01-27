@@ -97,5 +97,5 @@
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
-    table: !type:AllSelector
-      - id: ClothingOuterArmorDragon
+    table:
+      id: ClothingOuterArmorDragon
