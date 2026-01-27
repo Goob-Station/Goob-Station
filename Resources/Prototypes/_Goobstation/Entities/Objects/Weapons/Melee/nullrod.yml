@@ -611,7 +611,7 @@
 
 # Casul & Jackal
 - type: entity
-  name: casul
+  name: Casul
   parent: BaseItem
   id: WeaponPistolCasul
   description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
@@ -669,7 +669,7 @@
     prayDoAfterDuration: 3.5
 
 - type: entity
-  name: jackal
+  name: Jackal
   parent: WeaponPistolCasul
   id: WeaponPistolJackal
   description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
@@ -709,7 +709,7 @@
         Slash: 25
         Piercing: 15
         Holy: 10
-       
+
 - type: entity
   parent: BaseNullrod
   id: RatvarianSpear
