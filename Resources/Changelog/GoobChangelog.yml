@@ -20393,3 +20393,9 @@ Entries:
       message: Changed the Vox cry and sigh noises
   id: 2313
   time: '2026-01-27T09:20:43.0000000+00:00'
+- author: ZOXELON
+  changes:
+    - type: Add
+      message: Added zombie accent for dwarves!
+  id: 2314
+  time: '2026-01-27T09:21:01.0000000+00:00'
