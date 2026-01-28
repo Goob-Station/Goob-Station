@@ -20719,3 +20719,13 @@ Entries:
       message: Biodegrade breaks you out of welded containers
   id: 2343
   time: '2026-01-28T21:42:38.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Bingles do stam damage again. Now they do enough to stamcrit you in
+        three hits, unless you're wearing armor, in which case its 4-5.
+    - type: Remove
+      message: NTR rep cant scan prime bingles for points anymore
+  id: 2344
+  time: '2026-01-28T21:43:28.0000000+00:00'
