@@ -20687,3 +20687,9 @@ Entries:
         baton when you have judo on.
   id: 2338
   time: '2026-01-28T21:24:26.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Bojevic's firerate has been doubled and the spread has been reduced.
+  id: 2339
+  time: '2026-01-28T21:25:07.0000000+00:00'
