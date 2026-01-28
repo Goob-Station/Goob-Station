@@ -20768,3 +20768,9 @@ Entries:
       message: Fixes the hand unshaded sprite for Vox BSO modsuit
   id: 2348
   time: '2026-01-28T22:59:47.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: Radiation enters terminal decay past 15 tiles.
+  id: 2349
+  time: '2026-01-28T23:00:27.0000000+00:00'
