@@ -20693,3 +20693,9 @@ Entries:
       message: The Bojevic's firerate has been doubled and the spread has been reduced.
   id: 2339
   time: '2026-01-28T21:25:07.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The shotgun cocking sound has been tweaked.
+  id: 2340
+  time: '2026-01-28T21:25:39.0000000+00:00'
