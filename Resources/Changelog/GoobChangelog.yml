@@ -20679,3 +20679,11 @@ Entries:
       message: slasher machete now has its own unique sound
   id: 2337
   time: '2026-01-28T21:23:37.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Judo belts made 2x2 item slots smaller because you dont carry a stun
+        baton when you have judo on.
+  id: 2338
+  time: '2026-01-28T21:24:26.0000000+00:00'
