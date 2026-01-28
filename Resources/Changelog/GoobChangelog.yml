@@ -20563,3 +20563,17 @@ Entries:
       message: Fix mansus grasp not working on interact.
   id: 2322
   time: '2026-01-27T11:53:42.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: >-
+        Traitor loadout is enabled, and allows you to set your preferred uplink
+        location
+    - type: Add
+      message: >-
+        Pen uplink, twist the pen in a correct way to see your store! Locks
+        automatically, very easy to lose.
+    - type: Add
+      message: You can opt in to use an uplink implant by default.
+  id: 2323
+  time: '2026-01-28T11:05:25.0000000+00:00'
