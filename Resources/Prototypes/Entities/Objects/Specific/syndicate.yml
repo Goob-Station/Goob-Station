@@ -201,7 +201,9 @@
     sprite: _Goobstation/Objects/Devices/contractoruplink.rsi
     layers:
     - state: icon
+      scale: .75,.75
     - state: assign
+      scale: .75,.75
   - type: Item
     sprite: _Goobstation/Objects/Devices/contractoruplink.rsi
   - type: UserInterface
