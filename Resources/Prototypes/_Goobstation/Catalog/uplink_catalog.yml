@@ -1239,11 +1239,6 @@
     Telecrystal: 5
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
 
 - type: listing
   id: UplinkMagazineShotgunSlug
@@ -1255,11 +1250,6 @@
     Telecrystal: 4 # So little total damage
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
 
 - type: listing
   id: UplinkMagazineLightRifleBox
@@ -1488,6 +1478,11 @@
     Telecrystal: 10
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
 
 - type: listing
   id: UplinkBox8GaugeSlug
@@ -1499,6 +1494,11 @@
     Telecrystal: 8
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
 
 - type: listing
   id: UplinkBox8GaugeFlash
@@ -1510,6 +1510,11 @@
     Telecrystal: 1
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
 
 - type: listing
   id: UplinkBox8GaugeSarin
@@ -1521,6 +1526,11 @@
     Telecrystal: 12
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
 
 # Mechs
 
