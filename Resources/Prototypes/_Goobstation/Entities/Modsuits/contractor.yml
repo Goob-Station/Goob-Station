@@ -81,7 +81,6 @@
   id: ClothingModsuitHelmetContractor
   name: Contractor modsuit helmet
   description: A state-of-the-art helmet designed by the Syndicate for the Contractor modsuit. It includes a built-in HUD.
-  categories: [HideSpawnMenu]
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/contractor.rsi
