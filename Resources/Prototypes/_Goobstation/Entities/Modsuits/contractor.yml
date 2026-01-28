@@ -110,8 +110,8 @@
       reduction: 0.2
     - type: FlashImmunity
     - type: FlashSoundSuppression
-    - type: EyeProtection
       protectionRange: 0
+    - type: EyeProtection
     - type: ShowHealthBars
       damageContainers:
         - Biological
