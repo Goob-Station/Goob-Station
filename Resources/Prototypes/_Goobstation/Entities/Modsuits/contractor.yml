@@ -108,8 +108,9 @@
           Radiation: 0.0
     - type: FireProtection
       reduction: 0.2
-    - type: FlashImmunity # Goobstation
-    - type: FlashSoundSuppression # Goobstation
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: EyeProtection
       protectionRange: 0
     - type: ShowHealthBars
       damageContainers:
@@ -130,9 +131,9 @@
         - state: equipped-HEAD-sealed-unshaded
           shader: unshaded
     - type: ActivatableUI
-      inHandsOnly: false # Goobstation
+      inHandsOnly: false
       singleUser: true
-      requireActiveHand: false # Goobstation
+      requireActiveHand: false
       verbText: verb-instrument-openui
       key: enum.InstrumentUiKey.Key
     - type: UserInterface
@@ -262,8 +263,3 @@
     - type: ClothingSpeedModifier
       walkModifier: 1.1
       sprintModifier: 1.1
-
-- type: entity
-  id: SuitStorageContractor
-  parent: SuitStorageBase
-  suffix: Contractor Modsuit
