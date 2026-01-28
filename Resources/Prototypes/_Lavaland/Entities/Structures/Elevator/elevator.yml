@@ -16,7 +16,7 @@
         prototype: ElevatorSpawnBunkerAlfaFloor1
     - id: 2
       name: "Bunker Alfa – Floor 2"
-      mapPath: /Maps/_Goobstation/Dungeons/bunker_alfa_floor2.yml
+      mapPath: /Maps/_Lavaland/Dungeons/bunker_alfa_floor2.yml
       target:
         prototype: ElevatorSpawnBunkerAlfaFloor2
 #    - id: 3
