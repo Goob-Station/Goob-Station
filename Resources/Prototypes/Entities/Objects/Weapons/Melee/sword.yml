@@ -243,10 +243,11 @@
     damage:
       types:
         Slash: 19 #cmon, it has to be at least BETTER than the rest. # Goob edit
-      woundSeverityMultipliers:
-        Slash: 3
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect 
+    reflectProb: .3 # Goobstation
+    spread: 90 
   - type: Item
     storedSprite:
       state: storage
