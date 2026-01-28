@@ -20627,3 +20627,9 @@ Entries:
       message: Meat floors are no longer slippery.
   id: 2330
   time: '2026-01-28T20:42:16.0000000+00:00'
+- author: bobbble
+  changes:
+    - type: Add
+      message: Swatting as BSO
+  id: 2331
+  time: '2026-01-28T20:45:28.0000000+00:00'
