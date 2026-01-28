@@ -20713,3 +20713,9 @@ Entries:
       message: 'Wizard spellbook apprentice limited stock removed. '
   id: 2342
   time: '2026-01-28T21:27:19.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Tweak
+      message: Biodegrade breaks you out of welded containers
+  id: 2343
+  time: '2026-01-28T21:42:38.0000000+00:00'
