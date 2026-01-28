@@ -100,6 +100,8 @@ public sealed class GoobUplinkSystem : GoobCommonUplinkSystem
         {
             uplink.Code = code;
         }
+
+        ev.Code = code;
     }
 
     private void OnCurrencyInsert(Entity<PenSpinUplinkComponent> ent, ref CurrencyInsertAttemptEvent args)
