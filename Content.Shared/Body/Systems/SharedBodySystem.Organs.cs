@@ -106,7 +106,7 @@ public partial class SharedBodySystem
     {
         SubscribeLocalEvent<OrganComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<OrganComponent, OrganEnableChangedEvent>(OnOrganEnableChanged);
-        SubscribeLocalEvent<UnremovableOrganComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
+        SubscribeLocalEvent<UnremovableOrganComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan); // Lavaland Change
     }
 
     private void OnMapInit(Entity<OrganComponent> ent, ref MapInitEvent args)
@@ -409,8 +409,8 @@ public partial class SharedBodySystem
 
         return RemoveOrgan(organId, organ);
     }
-
-    private void OnTryRemoveOrgan(Entity<UnremovableOrganComponent> ent, ref TryRemoveOrganEvent args)
+    // Lavaland Change
+    private void OnTryRemoveOrgan(Entity<UnremovableOrganComponent> ent, ref TryRemoveOrganEvent args)  
     {
         args.Cancelled = true;
     }
