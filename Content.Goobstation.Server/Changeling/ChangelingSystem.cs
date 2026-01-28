@@ -747,8 +747,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             typeof(FlashImmunityComponent),
             typeof(EyeProtectionComponent),
             typeof(Shared.Overlays.NightVisionComponent),
-            typeof(Shared.Overlays.ThermalVisionComponent),
-            typeof(VoidAdaptionComponent),
+            typeof(Shared.Overlays.ThermalVisionComponent)
         };
         foreach (var type in types)
             _polymorph.CopyPolymorphComponent(uid, newEnt, nameof(type));
