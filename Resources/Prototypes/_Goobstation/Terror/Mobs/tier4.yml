@@ -1,0 +1,84 @@
+# =========================================================
+# QUEEN OF TERROR
+# =========================================================
+- type: entity
+  id: TerrorSpiderQueen
+  parent: TerrorSpiderBaseT1
+  name: queen of terror
+  description: An enormous, terrifying spider. Its egg sac is almost as big as its body, and teeming with spider eggs!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: queen
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: queen
+      Dead:
+        Base: queen_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletToxicTerror
+    fireCost: 50
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+  - type: Gun
+    fireRate: 1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: TerrorQueen
+  - type: TerrorQueenSense
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 0.3
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 4 # Fast but not as fast as the brown blur
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+      types:
+        Structural: 300
+        Ion: 30 # Fuck them clankas trying to act as secborgs
+  - type: TerrorVentSmash
+  - type: ActionGrant
+    actions:
+      - ActionTerrorAirtightWeb
+      - ActionTerrorLayEggs
+      - ActionTerrorSummonSpiderlings
+      - ActionTerrorQueenSense
+      - ActionTerrorVentSmash
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-queen-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: VentCrawler
+
