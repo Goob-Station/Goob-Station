@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "license": "CC-BY-3.0",
+  "copyright": "https://github.com/goonstation/goonstation/blob/f28563cc0a2f7cffa6fcbecf0d18c3de6b19ac85/icons/obj/decoration.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "gannets_machine10"
+    },
+    {
+      "name": "gannets_machine11",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "gannets_machine20"
+    },
+    {
+      "name": "gannets_machine21",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "gannets_machine30"
+    },
+    {
+      "name": "gannets_machine31",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rung"
+    },
+    {
+      "name": "lever0-locked"
+    },
+    {
+      "name": "lever0"
+    },
+    {
+      "name": "lever1-locked"
+    },
+    {
+      "name": "lever1"
+    },
+    {
+      "name": "radar",
+      "directions": 4
+    },
+    {
+      "name": "toiletholder",
+      "directions": 4
+    },
+    {
+      "name": "junctionbox"
+    },
+    {
+      "name": "junctionbox2"
+    },
+    {
+      "name": "junctionbox3"
+    },
+    {
+      "name": "junctionbox_open"
+    },
+    {
+      "name": "junctionbox2_open"
+    },
+    {
+      "name": "junctionbox3_open"
+    },
+    {
+      "name": "seccorpse1"
+    },
+    {
+      "name": "seccorpse2"
+    },
+    {
+      "name": "seccorpse3"
+    },
+    {
+      "name": "seccorpse4"
+    },
+    {
+      "name": "seccorpse5"
+    },
+    {
+      "name": "seccorpse6"
+    },
+    {
+      "name": "seccorpse7"
+    },
+    {
+      "name": "syndcorpse1"
+    },
+    {
+      "name": "syndcorpse2"
+    },
+    {
+      "name": "syndcorpse3"
+    },
+    {
+      "name": "syndcorpse4"
+    },
+    {
+      "name": "syndcorpse5"
+    },
+    {
+      "name": "syndcorpse6"
+    },
+    {
+      "name": "syndcorpse7"
+    },
+    {
+      "name": "syndcorpse8"
+    },
+    {
+      "name": "syndcorpse9"
+    },
+    {
+      "name": "syndcorpse10"
+    },
+    {
+      "name": "syndcorpse11"
+    },
+    {
+      "name": "handscanner"
+    },
+    {
+      "name": "ntcrate",
+      "directions": 4
+    },
+    {
+      "name": "weirdmark",
+      "directions": 4
+    },
+    {
+      "name": "frontwalldamage",
+      "directions": 4
+    },
+    {
+      "name": "sidewalldamage",
+      "directions": 4
+    },
+    {
+      "name": "scornerwalldamage"
+    },
+    {
+      "name": "plasma-bhole",
+      "directions": 4
+    },
+    {
+      "name": "keypad"
+    },
+    {
+      "name": "target_paper"
+    },
+    {
+      "name": "occupancy-0"
+    },
+    {
+      "name": "occupancy-1"
+    },
+    {
+      "name": "gold_bee"
+    },
+    {
+      "name": "antagscanner"
+    },
+    {
+      "name": "antagscanner-u",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

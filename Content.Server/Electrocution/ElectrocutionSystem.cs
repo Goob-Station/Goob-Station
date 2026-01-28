@@ -50,6 +50,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Effects;
+using Content.Goobstation.Shared.Hazards;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Beam.Components;
@@ -447,6 +448,13 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     private bool DoCommonElectrocutionAttempt(EntityUid uid, EntityUid? sourceUid, ref float siemensCoefficient, bool ignoreInsulation = false)
     {
+        // Goobstation - If an entity has Insulation AND HazardImmune, then it does not get shocked, even by IgnoreInsulation sources.
+        if (ignoreInsulation &&
+            HasComp<HazardImmuneComponent>(uid) &&
+            HasComp<InsulatedComponent>(uid))
+        {
+            return false;
+        }
 
         var attemptEvent = new ElectrocutionAttemptEvent(uid, sourceUid, siemensCoefficient,
             ignoreInsulation ? SlotFlags.NONE : ~SlotFlags.POCKET & ~SlotFlags.HEAD); // Goobstation - insulated mouse can't be worn

@@ -1,0 +1,59 @@
+- type: entity
+  parent: BaseWeaponBallisticTurret
+  id: BaseWeaponHeavyBallisticTurret
+  name: Heavy ballistic turret
+  description: A heavy ballistic auto-turret.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - sprite: _Lavaland/Objects/Weapons/Guns/turrets.rsi
+      state: turret_base
+      renderingStrategy: NoRotation
+    - sprite: _Lavaland/Objects/Weapons/Guns/turrets.rsi
+      state: heavy_turret
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Gun
+    fireRate: 12
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifle
+    capacity: 5000
+  - type: NpcFactionMember
+    factions:
+    - AllHostile
+
+- type: entity
+  parent: BaseWeaponTurret
+  id: BaseWeaponHeavyEnergyTurret
+  name: Heavy laser turret
+  description: A heavy auto-turret armed with an especially dense battery.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - sprite: _Lavaland/Objects/Weapons/Guns/turrets.rsi
+      state: mining_base
+      renderingStrategy: NoRotation
+    - sprite: _Lavaland/Objects/Weapons/Guns/turrets.rsi
+      state: mining_turret
+  - type: Gun
+    projectileSpeed: 15
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyTurretLaser
+    fireCost: 1
+  - type: Battery
+    maxCharge: 9999
+    startingCharge: 9999
+  - type: NpcFactionMember
+    factions:
+    - AllHostile
