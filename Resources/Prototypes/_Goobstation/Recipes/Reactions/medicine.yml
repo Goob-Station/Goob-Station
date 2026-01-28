@@ -424,17 +424,19 @@
 
 # Wraith
 - type: reaction
-  minTemp: 424
   id: Formaldehyde
+  minTemp: 357 # trauma - temp, reactants, and products adjusted with explosives PR
   reactants:
-    Ethanol:
+    Methanol:
       amount: 1
-    Iron:
+    Oxygen:
       amount: 1
     Silver:
       amount: 1
+      catalyst: true
   products:
-    Formaldehyde: 2
+    Formaldehyde: 1
+    Water: 1
 
 # Viro
 - type: reaction

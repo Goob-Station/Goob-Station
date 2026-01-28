@@ -20627,3 +20627,83 @@ Entries:
       message: Meat floors are no longer slippery.
   id: 2330
   time: '2026-01-28T20:42:16.0000000+00:00'
+- author: bobbble
+  changes:
+    - type: Add
+      message: Swatting as BSO
+  id: 2331
+  time: '2026-01-28T20:45:28.0000000+00:00'
+- author: DeusMaldPR porting from Speebro who was porting from TryDed
+  changes:
+    - type: Add
+      message: Added three new explosives and a long list of chemicals to make them!
+    - type: Tweak
+      message: >-
+        Formaldehyde's recipe is more difficult, to make creating the new
+        explosives harder
+    - type: Tweak
+      message: >-
+        In exchange, formaldehyde is ~60% longer lasting in corpses, and no
+        longer deals poison damage to the dead
+  id: 2332
+  time: '2026-01-28T21:15:32.0000000+00:00'
+- author: wyvernrer, Crenissis
+  changes:
+    - type: Add
+      message: Readded the Command 'Ensemble' Cosmetics.
+  id: 2333
+  time: '2026-01-28T21:18:25.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Add
+      message: added radio host to serpentcrest
+    - type: Fix
+      message: door accesses, xenobio mapping.
+  id: 2334
+  time: '2026-01-28T21:19:55.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Remove
+      message: derotated loop station
+  id: 2335
+  time: '2026-01-28T21:21:55.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Harpies can fly longer
+  id: 2336
+  time: '2026-01-28T21:23:00.0000000+00:00'
+- author: caoimhan2008
+  changes:
+    - type: Tweak
+      message: slasher machete now has its own unique sound
+  id: 2337
+  time: '2026-01-28T21:23:37.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Judo belts made 2x2 item slots smaller because you dont carry a stun
+        baton when you have judo on.
+  id: 2338
+  time: '2026-01-28T21:24:26.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Bojevic's firerate has been doubled and the spread has been reduced.
+  id: 2339
+  time: '2026-01-28T21:25:07.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The shotgun cocking sound has been tweaked.
+  id: 2340
+  time: '2026-01-28T21:25:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'New mime exclusive traitor item: guide to advanced mimery.'
+    - type: Fix
+      message: Fixed mime invisible walls having wrong rotation.
+  id: 2341
+  time: '2026-01-28T21:26:54.0000000+00:00'
