@@ -1,0 +1,34 @@
+- type: listing
+  id: WerewolfDirewolf
+  name: werewolf-store-choose-direwolf-name
+  description: werewolf-store-choose-direwolf-desc
+  icon:
+    sprite: _Goobstation/Werewolf/Mutations/direwolf.rsi
+    state: icon
+  productAction: ActionWerewolfMutateDire
+  cost:
+    Fury: 2
+  categories:
+  - WerewolfChoose
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: WerewolfHowlUpgrade
+  name: werewolf-store-howl-direwolf-name
+  description: werewolf-store-howl-direwolf-desc
+  icon:
+    sprite: _Goobstation/Actions/werewolf.rsi
+    state: howl-red
+  productAction: ActionWerewolfHowlUpgrade
+  cost:
+    Fury: 2
+  categories:
+  - WerewolfDire
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - WerewolfDirewolf

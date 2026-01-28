@@ -99,6 +99,23 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-shadowling"),
         };
         args.Verbs.Add(shadowling);
+
+        Verb wolodya = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-werewolf"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Actions/werewolf.rsi"), "howl"),
+            Act = () =>
+            {
+                if (!HasComp<SiliconComponent>(args.Target))
+                    _antag.ForceMakeAntag<ChangelingRuleComponent>(targetPlayer, "Werewolf");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-werewolf"),
+        };
+        if (!HasComp<SiliconComponent>(args.Target))
+            args.Verbs.Add(wolodya);
+
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)
