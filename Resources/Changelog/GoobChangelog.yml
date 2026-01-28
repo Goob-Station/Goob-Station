@@ -20737,3 +20737,13 @@ Entries:
         sentience events. Kobolds not affected.
   id: 2345
   time: '2026-01-28T21:45:11.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Procenyl Lazide and Syriniver have been buffed.
+    - type: Tweak
+      message: >-
+        Aranesp now passively heals all damage, though its stimulating effect
+        has been slightly reduced.
+  id: 2346
+  time: '2026-01-28T22:42:39.0000000+00:00'
