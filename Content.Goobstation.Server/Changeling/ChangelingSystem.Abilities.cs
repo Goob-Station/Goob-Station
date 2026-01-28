@@ -73,6 +73,8 @@ using Content.Shared.Traits.Assorted;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Components;
+using Content.Shared.Tools.Components;
+using Content.Shared.Tools.Systems;
 using Content.Goobstation.Shared.Devour.Events;
 
 namespace Content.Goobstation.Server.Changeling;
@@ -81,6 +83,7 @@ public sealed partial class ChangelingSystem
 {
     #region Dependencies
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly WeldableSystem _weldable = default!; //for biodegrade unweld
     #endregion
 
     public void SubscribeAbilities()
@@ -726,6 +729,18 @@ public sealed partial class ChangelingSystem
             _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, 0, new EnsnareableDoAfterEvent(), uid, uid, bola));
             QueueDel(bola);
         }
+
+        // Goobstation start unwelds containers containing changelling.
+        var parent = Transform(uid).ParentUid;
+
+        if (parent != null && TryComp<WeldableComponent>(parent, out var weldable))
+        {
+            if (weldable.IsWelded)
+            {
+            _weldable.SetWeldedState(parent, false);
+            }
+        }
+        // Goobstation end
 
         var soln = new Solution();
         soln.AddReagent("PolytrinicAcid", 10f);

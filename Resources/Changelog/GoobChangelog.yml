@@ -20707,3 +20707,70 @@ Entries:
       message: Fixed mime invisible walls having wrong rotation.
   id: 2341
   time: '2026-01-28T21:26:54.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Remove
+      message: 'Wizard spellbook apprentice limited stock removed. '
+  id: 2342
+  time: '2026-01-28T21:27:19.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Tweak
+      message: Biodegrade breaks you out of welded containers
+  id: 2343
+  time: '2026-01-28T21:42:38.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Bingles do stam damage again. Now they do enough to stamcrit you in
+        three hits, unless you're wearing armor, in which case its 4-5.
+    - type: Remove
+      message: NTR rep cant scan prime bingles for points anymore
+  id: 2344
+  time: '2026-01-28T21:43:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Monkeys can no longer be affected by sentience outside of random
+        sentience events. Kobolds not affected.
+  id: 2345
+  time: '2026-01-28T21:45:11.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Procenyl Lazide and Syriniver have been buffed.
+    - type: Tweak
+      message: >-
+        Aranesp now passively heals all damage, though its stimulating effect
+        has been slightly reduced.
+  id: 2346
+  time: '2026-01-28T22:42:39.0000000+00:00'
+- author: zagreastyas
+  changes:
+    - type: Add
+      message: 'Added a new ghostrole type, Sentient Animals. '
+    - type: Tweak
+      message: >-
+        Changed ghostrole type of monkeys, kobolds, mouse (excluding plague
+        mouse), squackroach, space goldfish, moproach, hamster, kangaroo, snail,
+        snoth, Hamlet, Willow, Smile, and Tropico to be a Sentient Animal.
+  id: 2347
+  time: '2026-01-28T22:57:38.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Resprites the unused ERT modsuits for Vox
+    - type: Tweak
+      message: Unused ERT modsuits actually have insulation now
+    - type: Fix
+      message: Fixes the hand unshaded sprite for Vox BSO modsuit
+  id: 2348
+  time: '2026-01-28T22:59:47.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: Radiation enters terminal decay past 15 tiles.
+  id: 2349
+  time: '2026-01-28T23:00:27.0000000+00:00'
