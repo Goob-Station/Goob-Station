@@ -310,3 +310,47 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband ]
+  id: ClothingBeltSecurityWebbingContractorFilled
+  name: contractor's chest rig
+  description: "A chest rig with deep pockets, often used by contractors and bounty hunters."
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,6,2
+  - type: ChameleonClothing
+    slot: [belt]
+    default: ClothingBeltSecurityWebbingContractorFilled
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+  - type: StorageFill
+    contents:
+    - id: SyndicateJawsOfLife
+      amount: 1
+    - id: PowerDrill
+      amount: 1
+    - id: WelderExperimental
+      amount: 1
+    - id: Multitool
+      amount: 1
+    - id: MedkitCombatFilled
+      amount: 1
+    - id: ContractorBaton
+      amount: 1
+    - id: Zipties
+      amount: 4
+    - id: SyndicateBusinessCard
+      amount: 1

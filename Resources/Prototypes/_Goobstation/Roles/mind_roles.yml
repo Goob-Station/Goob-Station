@@ -75,3 +75,15 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-slasher
+
+#contractor
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleContractor
+  name: Contractor Role
+  components:
+  - type: MindRole
+    antagPrototype: Contractor
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-contractor
