@@ -52,7 +52,7 @@
   id: ContractorGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
-    eyes: ClothingEyesHudSyndicate
+    eyes: ClothingEyesHudContractor
     mask: ClothingMaskNeckGaiter
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesCombat

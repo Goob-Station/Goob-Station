@@ -403,6 +403,14 @@
         Heat: 0.8
         Radiation: 0.6
         Caustic: 0.5
+  - type: ClothingGrantComponent
+    component:
+    - type: IntrinsicUI
+      uis:
+        enum.RadarConsoleUiKey.Key:
+          toggleAction: ActionGhostShowRadar
+    - type: RadarConsole
+      followEntity: true
   - type: FlashImmunity
   - type: FlashSoundSuppression
   - type: EyeProtection

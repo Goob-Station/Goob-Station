@@ -52,7 +52,7 @@
 - type: entity
   id: ComputerContractor
   parent: [BaseComputer, StorePresetUplink, BaseSyndicateContraband]
-  name: Contractor uplink computer
+  name: contractor uplink computer
   description: A terminal providing access to the guild store. Spend your hard earned TC on exclusive gear and upgrades to aid you in your freelancer endeavors.
   components:
   - type: UserInterface

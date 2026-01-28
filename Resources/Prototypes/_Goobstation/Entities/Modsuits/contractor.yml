@@ -85,10 +85,6 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/contractor.rsi
-    - type: ThermalVision
-      isEquipment: true
-      color: "#05570a"
-      lightRadius: 15
     - type: PointLight
       color: "#18f324"
     - type: Armor # mostly the same stats as HoS modsuit
@@ -111,7 +107,6 @@
     - type: FlashImmunity
     - type: FlashSoundSuppression
       protectionRange: 0
-    - type: EyeProtection
     - type: ShowHealthBars
       damageContainers:
         - Biological
@@ -146,8 +141,17 @@
       - Snout
       - HeadTop
       - HeadSide
+    - type: ClothingGrantComponent
+      component:
+      - type: IntrinsicUI
+        uis:
+          enum.RadarConsoleUiKey.Key:
+            toggleAction: ActionGhostShowRadar
+      - type: RadarConsole
+        followEntity: true
     - type: ComponentToggler
       components:
+      - type: EyeProtection
       - type: Instrument
         program: 62
       - type: SwappableInstrument
