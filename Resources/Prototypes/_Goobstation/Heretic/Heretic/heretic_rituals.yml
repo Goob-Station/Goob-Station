@@ -465,3 +465,17 @@
     Knife: 1
   output:
     CarvingKnife: 1
+
+## stage 8
+
+- type: hereticRitual
+  id: GreavesOfTheProphet
+  locName: knowledge-path-side-s8-greaves-name
+  locDesc: knowledge-path-side-s8-greaves-desc
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: rune_carver
+  requiredTags: # TODO: Ritual ingredient refactor
+    Silver: 2
+  output:
+    ClothingShoesGreavesHeretic: 1

@@ -90,6 +90,19 @@ knowledge-path-side-s6-knife-desc =
     The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead.
     Also makes for a handy throwing weapon.
 
+knowledge-path-side-s6-space-phase-name = Greaves Of The Prophet
+knowledge-path-side-s6-space-phase-desc =
+    Gristle churns into joint, a pop, and the fool twists a blackened foot from the jaws of another.
+    At their game for centuries, this mangled tree of limbs twists,
+    thrashing snares buried into snarling gums, seeking to shred the weight of grafted neighbors.
+    Weighed down by lacerated feet, this canopy of rancid idiots ever seeks the undoing of its own bonds.
+    I dread the thought of walking in their wake, but I must press on all the same.
+    Their rhythms keep the feud fresh with indifference to barrier or border.
+    Pulling more into their turmoil as they waltz.
+
+    Allows you to combine a pair of magboots and 2 bars of silver into a pair of Armored Greaves,
+    they confer to the user full immunity to slips and act as magboots.
+
 ## stage 7
 knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =

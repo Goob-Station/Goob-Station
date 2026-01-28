@@ -127,6 +127,10 @@
         reagents:
         - ReagentId: Silver
           Quantity: 10
+  - type: Tag # Goobstation
+    tags:
+    - Ingot
+    - SilverBar
 
 - type: entity
   parent: IngotSilver

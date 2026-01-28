@@ -1,0 +1,35 @@
+- type: entity
+  parent: [ClothingShoesBase, BaseMagicalContraband]
+  id: ClothingShoesGreavesHeretic
+  name: joint-snap sabatons
+  description: Sabatons made out of rugged, worn iron. Feels more stable than the ground they tread on. They're caked in a thin layer of rust - and yet, the sight of it fills you with odd relief.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Shoes/greaves.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Shoes/greaves.rsi
+  - type: Item
+    sprite: _Goobstation/Heretic/Clothing/Shoes/greaves.rsi
+  - type: Magboots
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - HereticItem
+    - WhitelistChameleon
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ModifyStandingUpTime
+    multiplier: 0.5
+  - type: UnholyItem
+  - type: Armor
+    coverage:
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.5
+        Holy: 1.25

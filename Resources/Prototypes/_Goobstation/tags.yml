@@ -570,6 +570,9 @@
   id: ShellShotgunHeavy
 
 - type: Tag
+  id: SilverBar
+
+- type: Tag
   id: SyringeArmor
 
 - type: Tag
