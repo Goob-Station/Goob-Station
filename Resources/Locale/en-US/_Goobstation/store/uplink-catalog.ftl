@@ -65,7 +65,7 @@ uplink-miniature-energy-crossbow-name = Miniature Energy Crossbow
 uplink-miniature-energy-crossbow-desc = The syndicate's energy crossbow, small, silent and deadly.
 
 uplink-hardlight-bow-name = Hardlight Bow
-uplink-hardlight-bow-desc = A modern bow that can fabricate hardlight arrows, designed for silent takedowns of targets. Has 8 different firing modes. Can be folded.
+uplink-hardlight-bow-desc = This folding bow can generate a multitude of arrow types to fit the user's needs.
 
 # Job-specific
 
@@ -95,38 +95,38 @@ uplink-grey-tide-desc = An antient artifact with magical properties. Identical t
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
-uplink-weapon-burner-name = Burner Heavy Rifle
-uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
+uplink-weapon-burner-name = Burner
+uplink-weapon-burner-desc = A fully-automatic anti-materiel rifle that slings .50 downrange as long as you can shoulder it. Feeds from .50 Anti-Materiel magazines.
 
-uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
-uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
+uplink-weapon-heavy-shotgun-name = NZ CSG-242
+uplink-weapon-heavy-shotgun-desc = A portable human rights violation. Burst fire, high explosive, and will literally push you back six feet when fired. Feeds from 2 Gauge drum magazines.
 
 uplink-WSPR-name = WSPR
-uplink-WSPR-desc = This rifle operates silently and uses 9.5mm caseless magnum hollow-point bullets, which are more effective against flesh but less effective against armor.
+uplink-WSPR-desc = A silenced, subsonic, and caseless rifle for the operative that leaves no trace. More effective against unarmoured targets. Feeds from 9.5mm SMG magazines.
 
-uplink-c20r-name = C-20r
-uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
+uplink-c20r-name = C-20R
+uplink-c20r-desc = A one-handed, bullpup SMG that sacrifices accuracy for pure firerate. Feeds from .35 Auto SMG magazines.
 
 uplink-buldog-name = Bulldog
-uplink-buldog-desc = A magazine fed fullauto shotgun.
+uplink-buldog-desc = A fully automatic, bullpup shotgun for when you have three seconds to turn eight people into pasta sauce.
 
-uplink-l6-saw-name = L6 Saw
-uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
+uplink-l6-saw-name = L6 SAW
+uplink-l6-saw-desc = A bulky light machine gun excellent at suppressive, sustained fire. Feeds from .30 Rifle box magazines.
 
 uplink-m90-name = M-90
-uplink-m90-desc = An M-90 combat rifle.
+uplink-m90-desc = A cheaper revision of the M-90GL that omits the integrated grenade launcher. Feeds from .20 Rifle magazines.
 
 uplink-estoc-name = Estoc
-uplink-estoc-desc = A designated assault rifle, fitted with a mid-range optic for longer-range combat.
+uplink-estoc-desc = A burst-fire designated marksman rifle fitted with an expensive tritium optic. Feeds from .20 Rifle magazines.
 
 uplink-syndicate-disabler-name = Syndicate Disabler
-uplink-syndicate-disabler-desc = An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+uplink-syndicate-disabler-desc = A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
 
 uplink-dualetta-bundle-name = Dualetta Bundle
 uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
 
 uplink-anaconda-name = Anaconda
-uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
+uplink-anaconda-desc = A bulky hand cannon with an ammo fabricator built into the grip. Prints ammunition for itself over time.
 
 uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
@@ -134,11 +134,11 @@ uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your ca
 uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
 uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
 
-uplink-m7s-name = M7S "Ventilator"
-uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
+uplink-m7s-name = M7S Ventilator
+uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Feeds from side-loading 5x23mm magazines.
 
-uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
-uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
+uplink-combat-shotgun-name = Bojevic
+uplink-combat-shotgun-desc = A pump action shotgun when you need to repel targets that are behind two plasteel walls, a fridge, and a car door. Loads 5 rounds of 8 Gauge.
 
 uplink-he1sg8-bundle-name = HE1S-G8 Bundle
 uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.

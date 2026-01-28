@@ -10,3 +10,4 @@ role-subtype-slaughter-demon = Slaughter Demon
 role-subtype-slasher = The Slasher
 role-subtype-immortal-snail = Immortal Snail
 role-subtype-immortal-snail-target = Immortal
+role-subtype-contractor = Contractor
