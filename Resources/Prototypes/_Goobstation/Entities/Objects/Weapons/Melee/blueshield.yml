@@ -38,6 +38,12 @@
     layers:
     - state: icon-off
       map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_mace.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
   - type: ItemToggle
     soundActivate:
       collection: sparks

@@ -92,6 +92,7 @@
   - type: AmmoCounter
   - type: Gun
     fireRate: 2
+    projectileSpeed: 20 # Goobstation: another speed for bullets
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -168,6 +169,7 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3 # Goobstation edit
+    projectileSpeed: 20 # Goobstation: another speed for bullets
     selectedMode: FullAuto
     availableModes:
     - FullAuto

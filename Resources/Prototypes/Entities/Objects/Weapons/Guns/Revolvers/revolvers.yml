@@ -87,6 +87,7 @@
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 2 # Goobstation
+    projectileSpeed: 20 # Goobstation: another speed for bullets
     availableModes:
     - SemiAuto
     soundGunshot:

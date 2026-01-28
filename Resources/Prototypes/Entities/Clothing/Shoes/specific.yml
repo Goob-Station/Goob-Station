@@ -191,8 +191,8 @@
   - type: Magboots # always have gravity because le suction cups
   - type: ClothingSpeedModifier
     # ninja are masters of sneaking around relatively quickly, won't break cloak
-    walkModifier: 1.3 # Goob Edit
-    #sprintModifier: 1.3 They can sprint so this is kinda op.
+    walkModifier: 1.1
+    sprintModifier: 1.2 # Goob edit: And officers can sprint
   - type: FootstepModifier
     footstepSoundCollection: null
 

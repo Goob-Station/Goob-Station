@@ -38,6 +38,7 @@
       quickEquip: false
       slots:
       - Belt
+      - suitStorage
     - type: ComponentToggler
       components:
       - type: DisarmMalus

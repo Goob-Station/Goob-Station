@@ -175,6 +175,7 @@
   - type: AmmoCounter
   - type: Gun
     fireRate: 1
+    projectileSpeed: 20 # Goobstation: another speed for bullets
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto

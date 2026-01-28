@@ -89,6 +89,7 @@
   - type: AmmoCounter
   - type: Gun
     fireRate: 0.75
+    projectileSpeed: 40 # Goobstation: another speed for bullets
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -154,6 +155,7 @@
   - type: AmmoCounter
   - type: Gun
     fireRate: 0.75
+    projectileSpeed: 40 # Goobstation: another speed for bullets
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

@@ -242,7 +242,8 @@
       sprite: _Goobstation/Objects/Shields/riotbulletshield.rsi # Goobstation
       state: ballistic-icon
     - type: Item
-      heldPrefix: ballistic
+      sprite: _Goobstation/Objects/Shields/riotbulletshield.rsi # Goobstation
+      heldPrefix: ballistic # Goob edit
     - type: Blocking
       passiveBlockModifier:
         coefficients:
@@ -318,7 +319,7 @@
   components:
     - type: Tag #goobstation
       tags:
-       - MakeshiftShield
+      - MakeshiftShield
     - type: Sprite
       state: makeshift-icon
     - type: Item

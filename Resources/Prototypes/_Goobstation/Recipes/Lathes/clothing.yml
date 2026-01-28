@@ -59,6 +59,36 @@
   result: ClothingUniformJumpsuitHoSSummer
 
 - type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretHoSNoArmor
+  result: ClothingHeadHatBeretHoSNoArmor
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatHoshatNoArmor
+  result: ClothingHeadHatHoshatNoArmor
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretWardenNoArmor
+  result: ClothingHeadHatBeretWardenNoArmor
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatWardenNoArmor
+  result: ClothingHeadHatWardenNoArmor
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretBrigmedicNoArmor
+  result: ClothingHeadHatBeretBrigmedicNoArmor
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretSecurityNoArmor
+  result: ClothingHeadHatBeretSecurityNoArmor
+
+- type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitRDSummer
   result: ClothingUniformJumpsuitRDSummer

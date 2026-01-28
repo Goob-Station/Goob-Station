@@ -95,7 +95,6 @@
   storage:
     back:
     - Flash
-    - ClothingMaskGasSecurity
     - CombatKnife
 
 - type: chameleonOutfit
