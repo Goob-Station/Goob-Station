@@ -371,7 +371,7 @@
     radius: 4
 
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [BaseItem, ClothingHeadHardsuitWithLightBase]
   id: ClothingHeadHelmetHardsuitContractor
   name: contractor hardsuit helmet
   description: A well-built faceplate attached to the contractor hardsuit.
