@@ -3,6 +3,8 @@
   id: BaseDoodon
   abstract: true
   components:
+  - type: MobState
+  - type: Damageable
   - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
     speaks:
     - Doodon
@@ -10,6 +12,7 @@
     - TauCetiBasic
     - Doodon
   - type: Emoting
+  - type: Strippable
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
   - type: Destructible
@@ -84,7 +87,7 @@
         maxDistance: 5
         variation: 0.10
   - type: Inventory    # just hands
-    templateId: doodon
+    templateId: Doodon
   - type: PressureImmunity      # Space fairing creatures
   - type: Speech    # Unique Speech Sounds and Verbs
     speechVerb: Doodon
@@ -111,7 +114,10 @@
   - type: GuideHelp
     guides:
     - Doodon
-    
+  - type: Consciousness
+    hasPainScreams: false
+    threshold: 70
+    cap: 140
     
 - type: entity      # Papa
   parent: BaseDoodon
@@ -120,9 +126,17 @@
   description: The patriarch of the Doodon village.
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
-    state: papa
     drawdepth: SmallMobs
+    layers: 
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+      state: papa
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Cuffable # Arrest the doodon
   - type: Appearance
   - type: MobThresholds     # Papa Doodon health
     thresholds:
@@ -179,6 +193,9 @@
     interfaces:
       enum.Content.Goobstation.Shared.Doodon.Building.DoodonBuildUiKey.Key:
         type: DoodonBuildMenuBoundUserInterface
+      enum.StrippingUiKey.Key:  # Needed due to UI interference 
+        type: StrippableBoundUserInterface
+      
   - type: ActionGrant
     actions:
       - ActionDoodonBuildSelect
@@ -215,10 +232,18 @@
   description: The backbone of the Doodon village.
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
-    state: worker
     drawdepth: SmallMobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+      state: worker
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
   - type: Hands
+  - type: Cuffable # Arrest the doodon
   - type: Sericulture
     entityProduced: MaterialDoodonResin1
     action: ActionDoodonResin
@@ -260,8 +285,27 @@
       - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
-      
-    
+  - type: DoodonBuilder
+    buildables:
+    - DoodonDwelling
+    - DoodonWarriorHut
+    - DoodonPasture
+    - DoodonMetalRefiner
+    - DoodonGlassRefiner
+    - DoodonShieldsmith
+    - DoodonSwordsmith
+    - DoodonGemCutter
+  - type: UserInterface     # access the build menu
+    interfaces:
+      enum.Content.Goobstation.Shared.Doodon.Building.DoodonBuildUiKey.Key:
+        type: DoodonBuildMenuBoundUserInterface
+      enum.StrippingUiKey.Key:  # Strip the doodon
+        type: StrippableBoundUserInterface
+  - type: ActionGrant
+    actions:
+      - ActionDoodonBuildSelect
+      - ActionDoodonBuildPlace
+  - type: DoodonBuildMenu
     
 - type: entity          # Warrior
   parent: BaseDoodon
@@ -274,10 +318,18 @@
   - type: Doodon
     requiredHousing: Warrior
   - type: Sprite
-    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
-    state: warrior
     drawdepth: SmallMobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+      state: warrior
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
   - type: Hands     # Equip Them With swords and shields
+  - type: Cuffable # Arrest the doodon
   - type: DoodonWarrior
   - type: NpcFactionMember
     factions:
@@ -309,8 +361,6 @@
     baseSprintSpeed: 3.5
   - type: InputMover
   - type: MobMover
-  - type: MobState
-  - type: Damageable
   - type: MeleeWeapon
     soundHit:
       collection: Punch
