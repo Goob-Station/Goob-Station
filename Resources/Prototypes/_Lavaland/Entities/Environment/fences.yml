@@ -32,6 +32,9 @@
       collection: FenceRattle
     finishClimbSound:
       collection: FenceRattle
+  - type: Penetratable
+    penetrateDamage: 9999 # Can't do it
+    damagePenalty: 0.1
 
 - type: entity
   id: BaseFenceMetalReinforcedVisual
@@ -81,7 +84,8 @@
         density: 2000
         mask: [ FullTileMask ]
         layer:
-        - HighImpassable
+        - LowImpassable
+        - BulletImpassable
 
 - type: entity
   id: FenceMetalReinforcedCorner
@@ -104,17 +108,17 @@
           !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.5"
         density: 2000
-        mask: [ TableMask ]
-        layer: [ TableLayer ]
+        mask: [ FullTileMask ]
+        layer: [ FullTileLayer ]
       fix2:
         shape:
           !type:PhysShapeAabb
           bounds: "-0.5,-0.1,-0.1,0.1"
         density: 2000
-        mask: [ TableMask ]
+        mask: [ FullTileMask ]
         layer:
-        - MidImpassable
         - LowImpassable
+        - BulletImpassable
 
 - type: entity
   id: FenceMetalReinforcedGate
@@ -134,8 +138,8 @@
         density: 2000
         mask: [ TableMask ]
         layer:
-        - MidImpassable
         - LowImpassable
+        - BulletImpassable
   - type: InteractionOutline
   - type: Door
     openSpriteState: door_opened
