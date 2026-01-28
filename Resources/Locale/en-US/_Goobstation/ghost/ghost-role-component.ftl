@@ -33,6 +33,9 @@ ghost-role-information-lootbug-description = Try not to be butchered by tiders.
 ghost-role-information-homunculus-name = homunculus
 ghost-role-information-homunculus-description = Obey the one who has created you, if there are nowhere to be found, do as you will.
 
+ghost-role-information-fillbot-name = fillbot
+ghost-role-information-fillbot-description = Serve the one who has created you, if there are nowhere to be found, do as you will.
+
 ghost-role-information-huborg-name = Urist McBorg
 ghost-role-information-huborg-description = You are a disgusting abomination of a cyborg.
 
@@ -193,3 +196,8 @@ ghost-role-information-santa-name = Santa Claus
 ghost-role-information-santa-description = Spread christmas cheer around the station!
 
 ghost-role-information-slasher-token = The Slasher (Token)
+
+ghost-role-information-contractor-name = Syndicate Contractor
+ghost-role-information-contractor-token = Syndicate Contractor (Token)
+ghost-role-information-contractor-description = GET DA... tider..?
+contractor-role-greeting = You are a [color=#611b2b]Syndicate Contractor[/color], a bounty hunter, you are tasked with retreving targets from the station, dead or alive.
