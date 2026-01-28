@@ -93,7 +93,6 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
-using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
 using Robust.Server.Audio;
@@ -468,52 +467,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         return (TryComp<FlammableComponent>(uid, out var fire) && fire.OnFire);
     }
 
-    public bool TryUseAbility(EntityUid uid,
-        ChangelingIdentityComponent comp,
-        BaseActionEvent action,
-        float? chemCostOverride = null,
-        bool fireAffected = true)
-    {
-        if (action.Handled)
-            return false;
-
-        if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
-            return false;
-
-        if (CheckFireStatus(uid) && fireAffected) // checks if the changeling is on fire, and if the ability is affected by fire
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
-            return false;
-        }
-
-
-        if ((!lingAction.UseInLesserForm && comp.IsInLesserForm) || (!lingAction.UseInLastResort && comp.IsInLastResort))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
-            return false;
-        }
-
-        var chemCost = chemCostOverride ?? lingAction.ChemicalCost;
-
-        if (comp.Chemicals < chemCost)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), uid, uid);
-            return false;
-        }
-
-        if (lingAction.RequireAbsorbed > comp.TotalAbsorbedEntities)
-        {
-            var delta = lingAction.RequireAbsorbed - comp.TotalAbsorbedEntities;
-            _popup.PopupEntity(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), uid, uid);
-            return false;
-        }
-
-        UpdateChemicals(uid, comp, -chemCost);
-
-        action.Handled = true;
-
-        return true;
-    }
     public bool TrySting(EntityUid uid, ChangelingIdentityComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)
     {
         var target = action.Target;
@@ -531,9 +484,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-ling"), target, target);
             return false;
         }
-
-        if (!TryUseAbility(uid, comp, action))
-            return false;
 
         if (!overrideMessage)
             _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
