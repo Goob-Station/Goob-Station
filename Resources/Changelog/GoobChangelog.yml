@@ -20647,3 +20647,9 @@ Entries:
         longer deals poison damage to the dead
   id: 2332
   time: '2026-01-28T21:15:32.0000000+00:00'
+- author: wyvernrer, Crenissis
+  changes:
+    - type: Add
+      message: Readded the Command 'Ensemble' Cosmetics.
+  id: 2333
+  time: '2026-01-28T21:18:25.0000000+00:00'
