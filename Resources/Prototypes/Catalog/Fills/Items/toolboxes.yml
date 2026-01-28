@@ -242,18 +242,3 @@
       - id: IngotGold
       - id: DrinkGoldenCup
         prob: 0.05
-
-- type: entity  #goobstation
-  parent: AncientToolbox
-  id: AncientToolboxFilled
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-    - id: Crowbar
-    - id: Wrench
-    - id: Screwdriver
-    - id: Wirecutter
-    - id: Welder
-    - id: Multitool
-    - id: ClothingHandsGlovesColorYellow
