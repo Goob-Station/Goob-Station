@@ -371,10 +371,11 @@
     radius: 4
 
 - type: entity
-  parent: [BaseItem, ClothingHeadHardsuitWithLightBase]
+  parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitContractor
   name: contractor hardsuit helmet
   description: A well-built faceplate attached to the contractor hardsuit.
+  categories: [HideSpawnMenu]
   components:
   - type: BreathMask
   - type: Sprite
