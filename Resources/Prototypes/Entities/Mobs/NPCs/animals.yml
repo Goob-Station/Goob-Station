@@ -1819,7 +1819,8 @@
     understands:
     - Monkey
     - Kobold
-    - TauCetiBasic
+  #- type: SentienceTarget   # Goobstation - monkeys no longer randomly sentient outside of events
+  #  - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible

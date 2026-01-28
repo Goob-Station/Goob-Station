@@ -20713,3 +20713,27 @@ Entries:
       message: 'Wizard spellbook apprentice limited stock removed. '
   id: 2342
   time: '2026-01-28T21:27:19.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Tweak
+      message: Biodegrade breaks you out of welded containers
+  id: 2343
+  time: '2026-01-28T21:42:38.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Bingles do stam damage again. Now they do enough to stamcrit you in
+        three hits, unless you're wearing armor, in which case its 4-5.
+    - type: Remove
+      message: NTR rep cant scan prime bingles for points anymore
+  id: 2344
+  time: '2026-01-28T21:43:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Monkeys can no longer be affected by sentience outside of random
+        sentience events. Kobolds not affected.
+  id: 2345
+  time: '2026-01-28T21:45:11.0000000+00:00'
