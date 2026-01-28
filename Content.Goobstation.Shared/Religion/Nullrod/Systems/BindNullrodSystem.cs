@@ -3,6 +3,7 @@ using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
 public sealed partial class BindNullrodSystem : EntitySystem
@@ -36,7 +37,7 @@ public sealed partial class BindNullrodSystem : EntitySystem
                 bibleComp.NullRod = ent.Owner;
                 Dirty(ent);
 
-                _popup.PopupPredicted(Loc.GetString("nullrod-recall-verb-bind-done"), user, user);
+                _popup.PopupPredicted(Loc.GetString("nullrod-recall-verb-bind-done", ("nullrod", bibleComp.NullRod)), user, user);
             }
         };
 

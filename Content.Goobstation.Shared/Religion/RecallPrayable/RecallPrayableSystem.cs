@@ -4,6 +4,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Religion.RecallPrayable;
 
@@ -32,12 +33,11 @@ public sealed partial class RecallPrayableSystem : EntitySystem
         var recallVerb = new ActivationVerb
         {
             Text = Loc.GetString(ent.Comp.Verb),
-
             Act = () =>
             {
                 if (bibleUserComp.NullRod == null)
                 {
-                    _popup.PopupEntity(Loc.GetString("chaplain-recall-no-nullrod"), user.User, user.User);
+                    _popup.PopupPredicted(Loc.GetString("chaplain-recall-no-nullrod"), user.User, user.User);
                     return;
                 }
                 StartRecallPrayDoAfter(user, altar);
@@ -70,12 +70,17 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
         var nullrod = comp.NullRod.Value;
 
+        if (TerminatingOrDeleted(nullrod))
+        {
+            _popup.PopupClient(Loc.GetString("chaplain-recall-nullrod-gone", ("nullrod", nullrod)), args.User, args.User);
+            return;
+        }
         var xform = Transform(nullrod);
 
-        if (xform.GridUid == null || TerminatingOrDeleted(nullrod))
+        if (xform.GridUid == null)
             return;
 
         var message = _hands.TryPickupAnyHand(args.User, nullrod) ? "chaplain-recall-nullrod-recalled" : "chaplain-recall-hands-full";
-        _popup.PopupPredicted(Loc.GetString(message), args.User, args.User);
+        _popup.PopupPredicted(Loc.GetString(message, ("nullrod", nullrod)), args.User, args.User);
     }
 }
