@@ -801,6 +801,23 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: UplinkAdvMimery
+  name: uplink-adv-mimery-name
+  description: uplink-adv-mimery-desc
+  icon: { sprite: _Goobstation/Objects/Misc/bookmime.rsi, state: icon }
+  productEntity: BoxAdvMimery
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # chemicals
 
 - type: listing
