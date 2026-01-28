@@ -20597,3 +20597,9 @@ Entries:
         progress
   id: 2325
   time: '2026-01-28T20:26:35.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Xenobio slime can no longer metabolize foam.
+  id: 2326
+  time: '2026-01-28T20:27:11.0000000+00:00'
