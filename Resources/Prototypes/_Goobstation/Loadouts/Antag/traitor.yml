@@ -1,0 +1,21 @@
+- type: loadoutGroup
+  id: TraitorUplink
+  name: loadout-group-traitor-uplink
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TraitorUplinkPDA
+  - TraitorUplinkPen
+  - TraitorUplinkImplant
+
+- type: loadout
+  id: TraitorUplinkPDA
+  dummyEntity: LoadoutDummyTraitorPda
+
+- type: loadout
+  id: TraitorUplinkPen
+  dummyEntity: LoadoutDummyTraitorPen
+
+- type: loadout
+  id: TraitorUplinkImplant
+  dummyEntity: LoadoutDummyTraitorImplant
