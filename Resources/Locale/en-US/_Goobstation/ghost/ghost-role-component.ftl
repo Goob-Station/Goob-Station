@@ -192,6 +192,13 @@ ghost-role-information-clown-goblin-description = A terrible creature, born out 
 ghost-role-information-santa-name = Santa Claus
 ghost-role-information-santa-description = Spread christmas cheer around the station!
 
+ghost-role-information-slasher-token = The Slasher (Token)
+
+ghost-role-information-contractor-name = Syndicate Contractor
+ghost-role-information-contractor-token = Syndicate Contractor (Token)
+ghost-role-information-contractor-description = GET DA... tider..?
+contractor-role-greeting = You are a [color=#611b2b]Syndicate Contractor[/color], a bounty hunter, you are tasked with retreving targets from the station, dead or alive.
+
 # Lavaland
 
 ghost-role-information-syndicate-researcher-name = Syndicate Researcher
@@ -225,3 +232,4 @@ ghost-role-information-ash-walker-rules = You are an [color=yellow][bold]Ash Wal
                                           You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                           You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                           You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+

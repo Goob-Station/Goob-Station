@@ -83,3 +83,5 @@
   - type: IconSmooth
     key: walls
     base: necropolis
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust

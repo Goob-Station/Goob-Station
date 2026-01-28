@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from fluffy frontier at commit https://github.com/Fluffy-Frontier/FluffySTG/pull/3293/commits/498811256ce8f64609c8c4195cec08801aed6147",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-lit"
+    },
+    {
+      "name": "icon-uncharged",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "flashlight"
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+	  {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "upgrade-marker",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-rude-buster",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-lava-aspect"
+    },
+    {
+      "name": "upgrade-ice-frost"
+    },
+    {
+      "name": "upgrade-sharpness",
+      "delays": [
+        [
+          6,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-handle-weights"
+    },
+    {
+      "name": "upgrade-handle-range"
+    },
+    {
+      "name": "upgrade-handle-lightweight"
+    }
+  ]
+}
