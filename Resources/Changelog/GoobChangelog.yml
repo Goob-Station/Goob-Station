@@ -20577,3 +20577,13 @@ Entries:
       message: You can opt in to use an uplink implant by default.
   id: 2323
   time: '2026-01-28T11:05:25.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Heads (the body part) now have more integrity, this means decapping them
+        will be harder.
+    - type: Tweak
+      message: Cap sword reflects and doesn't delimb anymore, again.
+  id: 2324
+  time: '2026-01-28T13:21:44.0000000+00:00'
