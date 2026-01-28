@@ -20758,3 +20758,13 @@ Entries:
         snoth, Hamlet, Willow, Smile, and Tropico to be a Sentient Animal.
   id: 2347
   time: '2026-01-28T22:57:38.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Resprites the unused ERT modsuits for Vox
+    - type: Tweak
+      message: Unused ERT modsuits actually have insulation now
+    - type: Fix
+      message: Fixes the hand unshaded sprite for Vox BSO modsuit
+  id: 2348
+  time: '2026-01-28T22:59:47.0000000+00:00'
