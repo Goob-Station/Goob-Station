@@ -116,10 +116,10 @@
       collection: MetalThud # Goobstation ^
 
 - type: entity
-  name: miniature energy crossbow
+  name: Miniature Energy Crossbow
   parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
   id: MiniatureEnergyCrossbow
-  description: The syndicate's energy crossbow, small, silent and deadly.
+  description: A signature design from Donk Co., this crossbow fires a thin dart loaded with sedatives and depressants designed to pierce even the heaviest of armor.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
@@ -207,7 +207,7 @@
   name: EG-4 Equalizer
   parent: [ BaseWeaponCustomCellSmall, BaseCentcommContraband ]
   id: WeaponEnergyRevolver
-  description: A highly advanced energy revolver capable of firing various bolts depending on the power cell.
+  description: In the face of death, everyone is equal. The right arm of the Blueshield corps, the Equalizer is a modular energy revolver platform designed for lethal and non-lethal target neutralization. Takes energy speedloaders.
   components:
   - type: Item
     heldPrefix: lethal
@@ -256,10 +256,10 @@
             - EnergySpeedloader
 
 - type: entity
-  name: centcomm disabler
+  name: advanced disabler
   parent: [ WeaponDisablerPractice, BaseCentcommContraband ]
   id: WeaponDisablerAdvanced
-  description: A non-lethal self-defense weapon for agents not trustable with traditional lethals. Recharges over time.
+  description: A self-defense weapon for corporate execs with money to burn. Slim, sturdy, and self-recharging for your convenience.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
@@ -287,7 +287,7 @@
   name: syndicate disabler
   parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
   id: WeaponDisablerSyndicate
-  description: An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+  description: A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
   components:
     - type: Gun
       fireRate: 3
@@ -326,7 +326,7 @@
   name: advanced pulse carbine
   parent: WeaponPulseCarbine
   id: WeaponPulseCarbineAdvanced
-  description: A state-of-the-art pulse carbine. This particular one has an experimental recharging cell.
+  description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Expensive, though favoured by the Emergency Response corps due to its ability to self-recharge.
   components:
   - type: Tag
     tags:
@@ -336,10 +336,10 @@
     autoRechargeRate: 80
 
 - type: entity
-  name: CR-2 energy assault rifle
+  name: CR-2 Hera
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponEnergyRifle
-  description: An advanced energy rifle capable of firing various bolts depending on the powercell magazine.
+  description: A versatile plasma assault rifle, iterated off of the now defunct energy gun. Loads from energy rifle magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
@@ -386,10 +386,10 @@
             - EnergyMagAmmo
 
 - type: entity
-  name: DT-12 "Lawbringer"
+  name: DT-12 Lawbringer
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunLawbringer
-  description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
+  description: Sometimes rank is a function of firepower. A versatile energy gun with a myriad of firing modes designed for the Head of Security. Self-recharges after a 40 second delay.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
@@ -482,9 +482,9 @@
     autoRechargePauseTime: 40
 
 - type: entity
-  name: ion rifle
+  name: Ion Rifle
   id: WeaponEnergyIonRifle
-  description: An energy rifle that shoots ionized energy bolts designed to destroy mechanical targets.
+  description: A rifle that fires ion bolts designed to degrade mechanical targets. Ideal against combat mechs and silicons, though useless against pretty much everything else.
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   components:
   - type: Sprite

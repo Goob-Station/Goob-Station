@@ -11,14 +11,12 @@
 # Abilities
 changeling-biomass-deficit = Not enough biomass!
 changeling-chemicals-deficit = Not enough chemicals!
-changeling-action-fail-lesserform = Can't use it while in lesser form!
 
 changeling-biomass-warn-first = We begin to hunger...
 changeling-biomass-warn-second = Our hunger causes a bout of pain...
 changeling-biomass-warn-third = Our hunger is taking a toll on our form...
 changeling-biomass-warn-death = Our cells begin to consume themselves. There is no return.
 
-changeling-action-fail-absorbed = Need to absorb {$number} more organisms to use it!
 changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(THE($target))}'s DNA!
 changeling-absorb-fail-incapacitated = We can't absorb them until they're incapacitated.
 changeling-absorb-fail-absorbed = They've already been absorbed.
@@ -80,6 +78,11 @@ changeling-passive-activate = Activated ability
 changeling-passive-activate-fail = Failed to activate the ability
 changeling-passive-active = Already active!
 
+changeling-action-fail-onfire = Our cells writhe with agony, failing to perform the action!
+changeling-action-fail-lesserform = Can't perform this action while in a lesser form!
+changeling-action-fail-absorbed = Need to absorb {$number} more organisms to use it!
+changeling-action-fail-not-changeling = Bruh. You aren't supposed to have this action. Report this as a bug.
+
 changeling-fleshmend = We begin to seal our wounds and regenerate dead cells.
 changeling-panacea = We begin to reconstruct our cellular structure and immune system.
 changeling-adrenaline = We inject highly potent adrenaline into our body.
@@ -91,12 +94,10 @@ changeling-voidadapt-lowpressure-start = We adapt to the surrounding low pressur
 changeling-voidadapt-lowpressure-end = The surrounding pressure is no longer low. We cast off our adaption.
 changeling-voidadapt-lowtemperature-start = We adapt to the surrounding freezing temperature.
 changeling-voidadapt-lowtemperature-end = The surrounding temperature is warmer. We cast off our adaption.
+changeling-voidadapt-onfire = Our adaptions become too painful to maintain on fire! We cast them off!
 
 changeling-hivemind-start = We tune our brainwaves to match the hivemind frequency
 
 changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to confirm.
-
-changeling-onfire = Our cells writhe with agony, failing to perform the action!
-changeling-voidadapt-onfire = Our adaptions become too painful to maintain on fire! We cast them off!
 
 changeling-rejuvenate = An strange energy pulses through our body, rejuvenating our cells and restoring our chemicals!

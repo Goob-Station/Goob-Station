@@ -31,9 +31,20 @@
   - type: Appearance
   - type: AmmoCounter
   - type: PressureDamageChange
-  - type: UpgradeableGun
+  - type: UpgradeableWeapon
     maxUpgradeCapacity: 40
-    whitelist:
-      tags:
-      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrade_slot_1: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false # can't use the swap...
+        priority: 1
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
 # TODO: Plasma Cutter
