@@ -20633,3 +20633,17 @@ Entries:
       message: Swatting as BSO
   id: 2331
   time: '2026-01-28T20:45:28.0000000+00:00'
+- author: DeusMaldPR porting from Speebro who was porting from TryDed
+  changes:
+    - type: Add
+      message: Added three new explosives and a long list of chemicals to make them!
+    - type: Tweak
+      message: >-
+        Formaldehyde's recipe is more difficult, to make creating the new
+        explosives harder
+    - type: Tweak
+      message: >-
+        In exchange, formaldehyde is ~60% longer lasting in corpses, and no
+        longer deals poison damage to the dead
+  id: 2332
+  time: '2026-01-28T21:15:32.0000000+00:00'
