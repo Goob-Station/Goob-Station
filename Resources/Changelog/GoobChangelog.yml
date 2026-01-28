@@ -20667,3 +20667,9 @@ Entries:
       message: derotated loop station
   id: 2335
   time: '2026-01-28T21:21:55.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Harpies can fly longer
+  id: 2336
+  time: '2026-01-28T21:23:00.0000000+00:00'
