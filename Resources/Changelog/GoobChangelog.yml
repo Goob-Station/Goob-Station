@@ -20747,3 +20747,14 @@ Entries:
         has been slightly reduced.
   id: 2346
   time: '2026-01-28T22:42:39.0000000+00:00'
+- author: zagreastyas
+  changes:
+    - type: Add
+      message: 'Added a new ghostrole type, Sentient Animals. '
+    - type: Tweak
+      message: >-
+        Changed ghostrole type of monkeys, kobolds, mouse (excluding plague
+        mouse), squackroach, space goldfish, moproach, hamster, kangaroo, snail,
+        snoth, Hamlet, Willow, Smile, and Tropico to be a Sentient Animal.
+  id: 2347
+  time: '2026-01-28T22:57:38.0000000+00:00'
