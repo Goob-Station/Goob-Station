@@ -307,3 +307,19 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     layers: {}
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseMinorContraband, ClothingHeadHelmetArmoredBase ]
+  id: ClothingHeadHatGladiatorReal
+  name: gladiator helmet
+  description: Protects the head from harsh ash winds and spears.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/gladiator.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/gladiator.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD

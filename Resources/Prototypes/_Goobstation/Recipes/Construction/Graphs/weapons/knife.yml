@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: BoneDaggerConstructionGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: dagger
+          steps:
+            - material: Bones
+              amount: 2
+              doAfter: 2
+    - node: dagger
+      entity: BoneDagger

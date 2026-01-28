@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss220 at https://github.com/ss220-space/Paradise/blob/master220/icons/mob/nest.dmi",
+    "size": {
+        "x": 32,
+        "y": 43
+    },
+    "states": [
+        {
+            "name": "nest"
+        }
+    ]
+}

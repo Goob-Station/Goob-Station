@@ -35,23 +35,23 @@
   - CorporateAgents # Goobstation - Corporate Agents
   - Changelings # Goobstation - changelings
   - Heretics # Goobstation - heretics
-  - Blob # Goobstation - Blob
+#  - Blob # Goobstation - Blob # Moved to Ghost Roles
   - Wizard # Goobstation - Wizard
   - CosmicCult # DeltaV - Cosmic Cult
   - NuclearOperatives
   - Zombies
   - Revolutionaries
-  - MinorAntagonists
-  - SpaceNinja
+#  - MinorAntagonists # Goob - Moved to Ghost Roles
+#  - SpaceNinja # Goob - Moved to Ghost Roles
   - Thieves
-  - Abductors # Shitmed - Abductors
-  - Bingle # Goob content
+#  - Abductors # Shitmed - Abductors # Moved to Ghost Roles
+#  - Bingle # Goob content # Moved to Ghost Roles
   - Devil # Goob content
   - Shadowlings # Einstein Engines - Shadowlings
-  - SlaughterDemon # Goob content
-  - Xenomorphs # WD - Xenomorphs
-  - Wraith
-  - Slasher # Goob content
+#  - SlaughterDemon # Goob content # Moved to Ghost Roles
+#  - Xenomorphs # WD - Xenomorphs # Goob - Moved to Ghost Roles
+#  - Wraith # Moved to Ghost Roles
+#  - Slasher # Goob content # Moved to Ghost Roles
 
 - type: guideEntry
   id: Traitors

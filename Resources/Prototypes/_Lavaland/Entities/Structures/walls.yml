@@ -72,7 +72,8 @@
 - type: entity
   parent: BaseWall
   id: WallNecropolisIndestructible
-  name: stone wall
+  name: necropolis wall
+  description: A seemingly impenetrable wall.
   suffix: Indestructible
   components:
   - type: Sprite
@@ -82,6 +83,5 @@
   - type: IconSmooth
     key: walls
     base: necropolis
-  - type: Destructible
   - type: RustRequiresPathStage
     pathStage: 11 # Can't rust

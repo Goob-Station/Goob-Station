@@ -11,6 +11,17 @@
   indestructible: true
 
 - type: tile
+  id: FloorBasaltBlockWeather
+  name: tiles-basalt-floor-blocks-weather
+  sprite: /Textures/Tiles/Planet/basalt.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: false
+  indestructible: true
+
+- type: tile
   id: FloorPlanetAsh
   name: tiles-ash-planet-floor
   sprite: /Textures/_Lavaland/Tiles/Planet/Ash/ash.png

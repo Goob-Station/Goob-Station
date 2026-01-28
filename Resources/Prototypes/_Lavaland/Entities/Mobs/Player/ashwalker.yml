@@ -1,0 +1,25 @@
+- type: entity
+  save: false
+  name: Urist McAsh
+  parent: BaseMobAshWalker
+  id: MobAshWalker
+
+- type: entity
+  parent: MobAshWalker
+  id: AshWalker
+  name: ash walker
+  suffix: Ghost Role
+  components:
+  - type: Loadout
+    prototypes: [AshWalkerGear]
+  - type: GhostRole
+    name: ghost-role-information-ash-walker-name
+    description: ghost-role-information-ash-walker-description
+    rules: ghost-role-information-ash-walker-rules
+    raffle:
+      settings: default
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    hair: HairBald
+  - type: RandomMetadata
+    nameSegments: [ NamesReptilianMale ]

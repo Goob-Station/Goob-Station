@@ -24,6 +24,13 @@
   patchToPlanet: false
 
 - type: lavalandGridRuin
+  id: AshwalkerNest
+  name: lavaland-ruin-ash-walker
+  path: /Maps/_Lavaland/Lavaland/ashwalker_nest.yml
+  priority: -1 # highest priority
+  patchToPlanet: false
+
+- type: lavalandGridRuin
   id: BiodomeSnow
   name: lavaland-ruin-biodome
   path: /Maps/_Lavaland/Lavaland/ruin_snow_biodome.yml

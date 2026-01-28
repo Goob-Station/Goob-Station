@@ -1,0 +1,32 @@
+<Document>
+  # Ash Walkers
+
+  <Box>
+    [color=#999999][italic]"Glory to the Necropolis!"[/italic][/color]
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AshWalker"/>
+  </Box>
+
+  A subspecies of Reptilians that fiercly protect their land, and usually attack any miners who tresspass their terriroty. By using a Necropolis Tendril, the Ash Walkers are able to grow and hatch their eggs through the sacrifice of dead bodies.
+  Due to them being tribals, they are mostly incapable of using more advanced technology.
+
+  Due to living on a more harsh enviorment, they prove to be slightly quicker and more resilient then most other species typically encountered.
+  Their claws are also more sharp then a Reptilians, dealing extra damage, although they will still likely rely on their usual weapons.
+
+  ## Necropolis Nest
+
+  <Box>
+    <GuideEntityEmbed Entity="AshWalkerNecropolisNest" Caption="A Necropolis Nest"/>
+  </Box>
+
+  Typically found only in the nests of Ash Walkers, the Nest is a growth of the Necropolis.
+  Dragging a body near the nest will absorb the body. Once enough bodies are absorbed, a egg with hatch.
+
+  <Box>
+    <GuideEntityEmbed Entity="AshWalkerEgg" Caption="Ashwalker Egg"/>
+  </Box>
+
+  If the Ash Walkers fail to properly defend their tendril from hostile miners, it will collapse, and the Ash Walkers will be doomed.
+
+</Document>

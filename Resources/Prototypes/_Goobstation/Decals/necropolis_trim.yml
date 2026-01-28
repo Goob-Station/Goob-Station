@@ -1,0 +1,818 @@
+- type: decal
+  id: NecropolisPristineTile1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile1
+
+- type: decal
+  id: NecropolisPristineTile2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile2
+
+- type: decal
+  id: NecropolisPristineTile3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile3
+
+- type: decal
+  id: NecropolisPristineTile4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile4
+
+- type: decal
+  id: NecropolisPristineTile5
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile5
+
+- type: decal
+  id: NecropolisPristineTile6
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile6
+
+- type: decal
+  id: NecropolisPristineTile7
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile7
+
+- type: decal
+  id: NecropolisPristineTile8
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile8
+
+- type: decal
+  id: NecropolisPristineTile9
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile9
+
+- type: decal
+  id: NecropolisPristineTile10
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile10
+
+- type: decal
+  id: NecropolisPristineTile11
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile11
+
+- type: decal
+  id: NecropolisPristineTile12
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile12
+
+- type: decal
+  id: NecropolisPristineTile13
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile13
+
+- type: decal
+  id: NecropolisPristineTile14
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile14
+
+- type: decal
+  id: NecropolisPristineTile15
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile15
+
+- type: decal
+  id: NecropolisPristineTile16
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile16
+
+- type: decal
+  id: NecropolisPristineTile17
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile17
+
+- type: decal
+  id: NecropolisPristineTile18
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile18
+
+- type: decal
+  id: NecropolisPristineTile19
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile19
+
+- type: decal
+  id: NecropolisPristineTile20
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile20
+
+- type: decal
+  id: NecropolisPristineTile21
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile21
+
+- type: decal
+  id: NecropolisPristineTile22
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile22
+
+- type: decal
+  id: NecropolisPristineTile23
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile23
+
+- type: decal
+  id: NecropolisPristineTile24
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_tile24
+
+- type: decal
+  id: NecropolisPristineSlab1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_slab1
+
+- type: decal
+  id: NecropolisPristineSlab2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_slab2
+
+- type: decal
+  id: NecropolisPristineSlab3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_slab3
+
+- type: decal
+  id: NecropolisPristineSlab4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_slab4
+
+- type: decal
+  id: NecropolisPristineBlock1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_block1
+
+- type: decal
+  id: NecropolisPristineBlock2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_block2
+
+- type: decal
+  id: NecropolisPristineBlock3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_block3
+
+- type: decal
+  id: NecropolisPristineBlock4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_block4
+
+- type: decal
+  id: NecropolisPristineCenter1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_center1
+
+- type: decal
+  id: NecropolisPristineCenter2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_center2
+
+- type: decal
+  id: NecropolisPristineCenter3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_center3
+
+- type: decal
+  id: NecropolisPristineCenter4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_center4
+
+- type: decal
+  id: NecropolisPristineSurrounding1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_surrounding1
+
+- type: decal
+  id: NecropolisPristineSurrounding2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_surrounding2
+
+- type: decal
+  id: NecropolisPristineSurroundingTile1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_surrounding_tile1
+
+- type: decal
+  id: NecropolisPristineSurroundingTile2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: pristine_surrounding_tile2
+
+- type: decal
+  id: NecropolisCrackedTile1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile1
+
+- type: decal
+  id: NecropolisCrackedTile2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile2
+
+- type: decal
+  id: NecropolisCrackedTile3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile3
+
+- type: decal
+  id: NecropolisCrackedTile4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile4
+
+- type: decal
+  id: NecropolisCrackedTile5
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile5
+
+- type: decal
+  id: NecropolisCrackedTile6
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile6
+
+- type: decal
+  id: NecropolisCrackedTile7
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile7
+
+- type: decal
+  id: NecropolisCrackedTile8
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile8
+
+- type: decal
+  id: NecropolisCrackedTile9
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile9
+
+- type: decal
+  id: NecropolisCrackedTile10
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile10
+
+- type: decal
+  id: NecropolisCrackedTile11
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile11
+
+- type: decal
+  id: NecropolisCrackedTile12
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile12
+
+- type: decal
+  id: NecropolisCrackedTile13
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile13
+
+- type: decal
+  id: NecropolisCrackedTile14
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile14
+
+- type: decal
+  id: NecropolisCrackedTile15
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile15
+
+- type: decal
+  id: NecropolisCrackedTile16
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile16
+
+- type: decal
+  id: NecropolisCrackedTile17
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile17
+
+- type: decal
+  id: NecropolisCrackedTile18
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile18
+
+- type: decal
+  id: NecropolisCrackedTile19
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile19
+
+- type: decal
+  id: NecropolisCrackedTile20
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile20
+
+- type: decal
+  id: NecropolisCrackedTile21
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile21
+
+- type: decal
+  id: NecropolisCrackedTile22
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile22
+
+- type: decal
+  id: NecropolisCrackedTile23
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile23
+
+- type: decal
+  id: NecropolisCrackedTile24
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_tile24
+
+- type: decal
+  id: NecropolisCrackedSlab1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_slab1
+
+- type: decal
+  id: NecropolisCrackedBlock1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_block1
+
+- type: decal
+  id: NecropolisCrackedBlock2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_block2
+
+- type: decal
+  id: NecropolisCrackedBlock3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_block3
+
+- type: decal
+  id: NecropolisCrackedBlock4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_block4
+
+- type: decal
+  id: NecropolisCrackedCenter1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_center1
+
+- type: decal
+  id: NecropolisCrackedCenter2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_center2
+
+- type: decal
+  id: NecropolisCrackedCenter3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_center3
+
+- type: decal
+  id: NecropolisCrackedCenter4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_center4
+
+- type: decal
+  id: NecropolisCrackedSurrounding1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_surrounding1
+
+- type: decal
+  id: NecropolisCrackedSurroundingTile1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_surrounding_tile1
+
+- type: decal
+  id: NecropolisCrackedSurroundingTile2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: cracked_surrounding_tile2
+
+- type: decal
+  id: NecropolisBurntTile1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile1
+
+- type: decal
+  id: NecropolisBurntTile2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile2
+
+- type: decal
+  id: NecropolisBurntTile3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile3
+
+- type: decal
+  id: NecropolisBurntTile4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile4
+
+- type: decal
+  id: NecropolisBurntTile5
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile5
+
+- type: decal
+  id: NecropolisBurntTile6
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile6
+
+- type: decal
+  id: NecropolisBurntTile7
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile7
+
+- type: decal
+  id: NecropolisBurntTile8
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile8
+
+- type: decal
+  id: NecropolisBurntTile9
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile9
+
+- type: decal
+  id: NecropolisBurntTile10
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile10
+
+- type: decal
+  id: NecropolisBurntTile11
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile11
+
+- type: decal
+  id: NecropolisBurntTile12
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile12
+
+- type: decal
+  id: NecropolisBurntTile13
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile13
+
+- type: decal
+  id: NecropolisBurntTile14
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile14
+
+- type: decal
+  id: NecropolisBurntTile15
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile15
+
+- type: decal
+  id: NecropolisBurntTile16
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile16
+
+- type: decal
+  id: NecropolisBurntTile17
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile17
+
+- type: decal
+  id: NecropolisBurntTile18
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile18
+
+- type: decal
+  id: NecropolisBurntTile19
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile19
+
+- type: decal
+  id: NecropolisBurntTile20
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile20
+
+- type: decal
+  id: NecropolisBurntTile21
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile21
+
+- type: decal
+  id: NecropolisBurntTile22
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile22
+
+- type: decal
+  id: NecropolisBurntTile23
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile23
+
+- type: decal
+  id: NecropolisBurntTile24
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_tile24
+
+- type: decal
+  id: NecropolisBurntBlock1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_block1
+
+- type: decal
+  id: NecropolisBurntBlock2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_block2
+
+- type: decal
+  id: NecropolisBurntBlock3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_block3
+
+- type: decal
+  id: NecropolisBurntBlock4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_block4
+
+- type: decal
+  id: NecropolisBurntSlab1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_slab1
+
+- type: decal
+  id: NecropolisBurntSlab2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_slab2
+
+- type: decal
+  id: NecropolisBurntSlab3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_slab3
+
+- type: decal
+  id: NecropolisBurntSlab4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_slab4
+
+- type: decal
+  id: NecropolisBurntCenter1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_center1
+
+- type: decal
+  id: NecropolisBurntCenter2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_center2
+
+- type: decal
+  id: NecropolisBurntCenter3
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_center3
+
+- type: decal
+  id: NecropolisBurntCenter4
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_center4
+
+- type: decal
+  id: NecropolisBurntSurrounding1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_surrounding1
+
+- type: decal
+  id: NecropolisBurntSurrounding2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_surrounding2
+
+- type: decal
+  id: NecropolisBurntSurroundingTile1
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_surrounding_tile1
+
+- type: decal
+  id: NecropolisBurntSurroundingTile2
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: burnt_surrounding_tile2
+
+- type: decal
+  id: NecropolisBoss
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: _Goobstation/Decals/necropolis_tiles.rsi
+    state: boss

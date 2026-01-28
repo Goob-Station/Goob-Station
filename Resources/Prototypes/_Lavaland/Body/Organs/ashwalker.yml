@@ -1,0 +1,16 @@
+- type: entity
+  id: OrganAshWalkerLungs
+  parent: OrganHumanLungs
+  name: AshWalker Lungs
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi # it fits sprite wise
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Lung
+    alert: LowOxygen
+  - type: Organ
+    slotId: lungs
+    onAdd:
+    - type: BreathingImmunity # i dont want to bother learning how to make them only need a low oxygen amount. this will work, THEY'RE MEANT TO LIVE IN LAVALAND ONLY

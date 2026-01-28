@@ -1,0 +1,65 @@
+- type: entity
+  save: false
+  name: Urissst McAsssh
+  parent: BaseMobReptilian # they're reptilians but tribal :godo:
+  id: BaseMobAshWalker
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: AshWalker
+    hideLayersOnEquip:
+    - Snout
+    - HeadSide
+  - type: Body
+    prototype: AshWalker
+    requiredLegs: 2
+  - type: LanguageKnowledge
+    speaks:
+    - Draconic
+    understands:
+    - Draconic
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 8 # I'd imagine living on lavaland makes you stronger evolution wise.
+  - type: MovementSpeedModifier # slightly faster
+    baseWalkSpeed : 0.95
+    baseSprintSpeed : 0.95
+  - type: Inventory
+    speciesId: AshWalker
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+  - type: Clumsy
+    gunShootFailDamage:
+      types: #literally just picked semi random valus. i tested this once and tweaked it.
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1

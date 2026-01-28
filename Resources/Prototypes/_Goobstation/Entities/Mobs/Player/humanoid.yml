@@ -585,3 +585,29 @@
       raffle:
         settings: short
       requirements:
+
+# Syndicate
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanSyndicateResearcher
+  name: syndicate researcher
+  suffix: Ghost Role
+  components:
+  - type: Loadout
+    prototypes: [SyndicateResearcherGear]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: GhostRole
+    name: ghost-role-information-syndicate-researcher-name
+    description: ghost-role-information-syndicate-researcher-description
+    rules: ghost-role-information-antagonist-offstation-rules
+    raffle:
+      settings: default
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    hair: HairBald
+  - type: RandomMetadata
+    nameSegments: [ NamesDeathCommando ]
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
