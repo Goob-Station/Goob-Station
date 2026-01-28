@@ -28,26 +28,8 @@
   - type: Store
     name: store-preset-name-uplink
     categories:
-    - UplinkWeaponry
-    - UplinkAmmo
-    - UplinkExplosives
-    - UplinkChemicals
-    - UplinkDeception
-    - UplinkDisruption
-    - UplinkImplants
-    - UplinkAllies
-    - UplinkWearables
-    - UplinkJob
-    - UplinkPointless
-    - UplinkSales # WD EDIT
+    - UplinkContractor
     currencyWhitelist:
     - Telecrystal
     balance:
       Telecrystal: 0
-    sales: # WD EDIT
-      enabled: true
-      minMultiplier: 0.2
-      maxMultiplier: 0.8
-      minItems: 4
-      maxItems: 8
-      salesCategory: UplinkSales

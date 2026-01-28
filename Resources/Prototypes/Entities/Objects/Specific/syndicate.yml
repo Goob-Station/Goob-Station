@@ -191,7 +191,7 @@
       Telecrystal: 999999
 
 - type: entity
-  parent: [BaseItem, StorePresetUplink, BaseSyndicateContraband]
+  parent: [BaseItem, StorePresetContractor, BaseSyndicateContraband]
   id: BaseUplinkContractor
   name: contractor uplink
   description: A handheld terminal providing access to the guild store and bounty board.
