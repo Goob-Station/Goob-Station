@@ -20699,3 +20699,11 @@ Entries:
       message: The shotgun cocking sound has been tweaked.
   id: 2340
   time: '2026-01-28T21:25:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'New mime exclusive traitor item: guide to advanced mimery.'
+    - type: Fix
+      message: Fixed mime invisible walls having wrong rotation.
+  id: 2341
+  time: '2026-01-28T21:26:54.0000000+00:00'
