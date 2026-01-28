@@ -69,7 +69,7 @@ class FluentFile(File):
             if not isinstance(body_element, ast.Term) and not isinstance(body_element, ast.Message):
                 continue
 
-            if not len(body_element.value.elements):
+            if not body_element.value or not body_element.value.elements:
                 continue
 
             first_element = body_element.value.elements[0]
