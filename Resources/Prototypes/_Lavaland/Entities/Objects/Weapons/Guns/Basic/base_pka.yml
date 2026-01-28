@@ -1,0 +1,135 @@
+- type: entity
+  id: WeaponProtoKineticAcceleratorBase
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: PressureDamageChange
+    applyToMelee: false
+  - type: UpgradeableWeapon
+  - type: MeleeWeaponRelay # Used for the bayonet to work
+  - type: ContainerContainer
+    containers:
+      bayonet: !type:ContainerSlot
+      flashlight: !type:ContainerSlot
+      upgrade_slot_1: !type:ContainerSlot
+      upgrade_slot_2: !type:ContainerSlot
+      upgrade_slot_3: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      bayonet:
+        name: weapon-upgrade-slot-name-bayonet
+        priority: 6
+        insertDelay: 2.0
+        ejectDelay: 1.2
+        ejectOnBreak: true
+        whitelist:
+          components:
+          - GunUpgradeBayonet
+      flashlight:
+        name: weapon-upgrade-slot-name-flashlight
+        priority: 5
+        insertDelay: 0.8
+        ejectDelay: 0.4
+        ejectOnBreak: true
+        occludesLight: false
+        whitelist:
+          components:
+          - GunUpgradeFlashlight
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false
+        priority: 4
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_2:
+        name: weapon-upgrade-slot-name-second
+        swap: false
+        priority: 3
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_3:
+        name: weapon-upgrade-slot-name-third
+        swap: false
+        priority: 2
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+  - type: ItemMapper
+    mapLayers:
+      bayonet:
+        whitelist:
+          components:
+          - GunUpgradeBayonet
+      flight:
+        whitelist:
+          components:
+          - GunUpgradeFlashlight
+      upgrade-space:
+        whitelist:
+          tags:
+          - PKAUpgradeSpace
+  - type: Gun
+    fireRate: 0.8
+    selectedMode: SemiAuto
+    minAngle: 1
+    maxAngle: 5
+    projectileSpeed: 25 # Fast Bullet Change
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: AmmoCounter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }
+        #todo: add other 'empty' animations
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletKinetic
+    capacity: 1
+    count: 1
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: UseDelay
+    delay: 1
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 250
+      Glass: 125
+      Silver: 25
+  - type: MeleeWeapon
+    wideAnimationRotation: 270
+    attackRate: 1
+    angle: 0
+    range: 1.1
+    damage:
+      types:
+        Blunt: 5
+  - type: AltFireMelee
+    attackType: Heavy
