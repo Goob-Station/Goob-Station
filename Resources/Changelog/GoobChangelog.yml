@@ -20707,3 +20707,9 @@ Entries:
       message: Fixed mime invisible walls having wrong rotation.
   id: 2341
   time: '2026-01-28T21:26:54.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Remove
+      message: 'Wizard spellbook apprentice limited stock removed. '
+  id: 2342
+  time: '2026-01-28T21:27:19.0000000+00:00'
