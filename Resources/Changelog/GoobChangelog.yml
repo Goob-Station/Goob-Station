@@ -20603,3 +20603,9 @@ Entries:
       message: Xenobio slime can no longer metabolize foam.
   id: 2326
   time: '2026-01-28T20:27:11.0000000+00:00'
+- author: BeanyBoi69
+  changes:
+    - type: Add
+      message: Handheld mass scanner to Salvage and Shaft Miner lockers
+  id: 2327
+  time: '2026-01-28T20:34:38.0000000+00:00'
