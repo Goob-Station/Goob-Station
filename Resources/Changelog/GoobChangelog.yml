@@ -20587,3 +20587,13 @@ Entries:
       message: Cap sword reflects and doesn't delimb anymore, again.
   id: 2324
   time: '2026-01-28T13:21:44.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Add
+      message: Added Gas Condenser to Engineer Techfab
+    - type: Tweak
+      message: >-
+        Adjusted Teach A Lesson objective. Now cyro'd target count toward your
+        progress
+  id: 2325
+  time: '2026-01-28T20:26:35.0000000+00:00'
