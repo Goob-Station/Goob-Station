@@ -20621,3 +20621,9 @@ Entries:
       message: Swabs can be attached to disease reports now.
   id: 2329
   time: '2026-01-28T20:41:07.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Meat floors are no longer slippery.
+  id: 2330
+  time: '2026-01-28T20:42:16.0000000+00:00'
