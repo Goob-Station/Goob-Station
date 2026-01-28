@@ -127,7 +127,7 @@
 - type: storeCategory
   id: UplinkPointless
   name: store-category-pointless
-  priority: 11
+  priority: 10
 
 #revenant
 - type: storeCategory
