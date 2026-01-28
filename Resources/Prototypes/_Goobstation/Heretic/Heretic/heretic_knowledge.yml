@@ -563,3 +563,10 @@
   stage: 8
   actionPrototypes:
   - ActionHereticCleave
+
+- type: hereticKnowledge
+  id: SpacePhase
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticSpacePhase

@@ -121,6 +121,13 @@ knowledge-path-side-s8-cleave-desc =
 
     Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
 
+knowledge-path-side-s8-space-phase-name = Space Phase
+knowledge-path-side-s8-space-phase-desc =
+    You feel like your body can move through space as if you where dust.
+
+    Grants you Space Phase, a spell that allows you to move freely through space.
+    You can only phase in and out when you are in space or outdoor low pressure area like lavaland.
+
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin
 knowledge-path-side-s9-coin-desc =

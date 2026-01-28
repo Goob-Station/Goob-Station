@@ -18,6 +18,7 @@ heretic-ability-fail-tile-occupied = Targeted tile is occupied!
 heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this surface!
 heretic-ability-fail-target-ghoul = Target is ghoul already!
 heretic-ability-fail-target-no-mind = Target has no soul!
+heretic-ability-fail-space-phase-not-space = You must stand in space, or an outdoor area with low pressure!
 
 heretic-cosmic-rune-fail-star-mark = Blocked by star mark!
 heretic-cosmic-rune-fail-unlinked = No linked rune!

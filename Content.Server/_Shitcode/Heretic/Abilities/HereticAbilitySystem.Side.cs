@@ -8,7 +8,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Polymorph.Components;
+using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
+using Content.Shared.Ghost;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 
@@ -21,6 +24,36 @@ public sealed partial class HereticAbilitySystem
         base.SubscribeSide();
 
         SubscribeLocalEvent<HereticComponent, EventHereticCleave>(OnCleave);
+        SubscribeLocalEvent<EventHereticSpacePhase>(OnSpacePhase);
+    }
+
+    private void OnSpacePhase(EventHereticSpacePhase args)
+    {
+        var uid = args.Performer;
+
+        var xform = Transform(uid);
+        var mapCoords = _transform.GetMapCoordinates(uid, xform);
+
+        if (_mapMan.TryFindGridAt(mapCoords, out var gridUid, out var mapGrid) &&
+            _map.TryGetTileRef(gridUid, mapGrid, xform.Coordinates, out var tile) &&
+            (!_weather.CanWeatherAffect(gridUid, mapGrid, tile) ||
+             _atmos.GetTileMixture(gridUid, xform.MapUid, tile.GridIndices)?.Pressure is
+                 > Atmospherics.WarningLowPressure))
+        {
+            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-space-phase-not-space"), uid, uid);
+            return;
+        }
+
+        if (TryComp(uid, out PolymorphedEntityComponent? morphed) && HasComp<SpectralComponent>(uid))
+            _poly.Revert((uid, morphed));
+        else if (TryUseAbility(uid, args))
+            _poly.PolymorphEntity(uid, args.Polymorph);
+        else
+            return;
+
+        Spawn(args.Effect, mapCoords);
+
+        args.Handled = true;
     }
 
     private void OnCleave(Entity<HereticComponent> ent, ref EventHereticCleave args)

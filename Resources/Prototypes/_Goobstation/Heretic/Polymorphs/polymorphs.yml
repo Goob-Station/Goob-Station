@@ -26,6 +26,14 @@
     attachToGridOrMap: true
 
 - type: polymorph
+  id: SpaceJaunt
+  configuration:
+    entity: PolymorphSpaceJaunt
+    forced: true
+    attachToGridOrMap: true
+    showPopup: false
+
+- type: polymorph
   id: EldritchHorror
   configuration:
     entity: MobHereticFleshAscend

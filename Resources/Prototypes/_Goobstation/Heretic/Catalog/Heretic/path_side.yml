@@ -170,3 +170,19 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+
+- type: listing
+  id: HereticSidePath8SpacePhase
+  name: knowledge-path-side-s8-space-phase-name
+  description: knowledge-path-side-s8-space-phase-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: space_phase }
+  productHereticKnowledge: SpacePhase
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
