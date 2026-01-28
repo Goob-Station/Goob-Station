@@ -20609,3 +20609,9 @@ Entries:
       message: Handheld mass scanner to Salvage and Shaft Miner lockers
   id: 2327
   time: '2026-01-28T20:34:38.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Ai turret damage nerfed, 28 > 20
+  id: 2328
+  time: '2026-01-28T20:39:20.0000000+00:00'
