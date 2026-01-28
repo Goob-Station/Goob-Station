@@ -20587,3 +20587,43 @@ Entries:
       message: Cap sword reflects and doesn't delimb anymore, again.
   id: 2324
   time: '2026-01-28T13:21:44.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Add
+      message: Added Gas Condenser to Engineer Techfab
+    - type: Tweak
+      message: >-
+        Adjusted Teach A Lesson objective. Now cyro'd target count toward your
+        progress
+  id: 2325
+  time: '2026-01-28T20:26:35.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Xenobio slime can no longer metabolize foam.
+  id: 2326
+  time: '2026-01-28T20:27:11.0000000+00:00'
+- author: BeanyBoi69
+  changes:
+    - type: Add
+      message: Handheld mass scanner to Salvage and Shaft Miner lockers
+  id: 2327
+  time: '2026-01-28T20:34:38.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Ai turret damage nerfed, 28 > 20
+  id: 2328
+  time: '2026-01-28T20:39:20.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Swabs can be attached to disease reports now.
+  id: 2329
+  time: '2026-01-28T20:41:07.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Meat floors are no longer slippery.
+  id: 2330
+  time: '2026-01-28T20:42:16.0000000+00:00'

@@ -5,6 +5,7 @@
     children:
     - id: RadioHandheld
     - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
     - id: FlashlightSeclite
     - id: OreBag
     - id: Pickaxe
