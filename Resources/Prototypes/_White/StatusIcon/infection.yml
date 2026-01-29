@@ -9,6 +9,7 @@
   showTo:
     components:
     - Xenomorph
+    - LarvaInfestationVision # Goobstation
   icon:
     sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
     state: xenomorph_0
@@ -22,6 +23,7 @@
   showTo:
     components:
     - Xenomorph
+    - LarvaInfestationVision # Goobstation
   icon:
     sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
     state: xenomorph_1
@@ -35,6 +37,7 @@
   showTo:
     components:
     - Xenomorph
+    - LarvaInfestationVision # Goobstation
   icon:
     sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
     state: xenomorph_2
@@ -48,6 +51,7 @@
   showTo:
     components:
     - Xenomorph
+    - LarvaInfestationVision # Goobstation
   icon:
     sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
     state: xenomorph_3
@@ -61,6 +65,7 @@
   showTo:
     components:
     - Xenomorph
+    - LarvaInfestationVision # Goobstation
   icon:
     sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
     state: xenomorph_4
@@ -74,6 +79,7 @@
   showTo:
     components:
     - Xenomorph
+    - LarvaInfestationVision # Goobstation
   icon:
     sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
     state: xenomorph_5
@@ -87,6 +93,7 @@
   showTo:
     components:
     - Xenomorph
+    - LarvaInfestationVision # Goobstation
   icon:
     sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
     state: xenomorph_6

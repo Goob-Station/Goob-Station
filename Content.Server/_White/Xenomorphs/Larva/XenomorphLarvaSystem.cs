@@ -11,6 +11,7 @@ using Content.Shared.Popups;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Content.Shared.Mind.Components; // Goobstation
 
 namespace Content.Server._White.Xenomorphs.Larva;
 
@@ -26,8 +27,9 @@ public sealed class XenomorphLarvaSystem : EntitySystem
     {
         SubscribeLocalEvent<XenomorphLarvaComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<XenomorphLarvaComponent, EntGotRemovedFromContainerMessage>(OnGotRemovedFromContainer);
-        SubscribeLocalEvent<XenomorphLarvaComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
+        // SubscribeLocalEvent<XenomorphLarvaComponent, TakeGhostRoleEvent>(OnTakeGhostRole); // Goobstation - Removed. Changed the check to OnMindAdded instead for sentient facehuggers.
         SubscribeLocalEvent<XenomorphLarvaComponent, LarvaBurstDoAfterEvent>(OnLarvaBurstDoAfter);
+        SubscribeLocalEvent<XenomorphLarvaComponent, MindAddedMessage>(OnMindAdded); // Goobstation
     }
 
     private void OnShutdown(EntityUid uid, XenomorphLarvaComponent component, ComponentShutdown args)
@@ -42,7 +44,23 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             RemComp<XenomorphLarvaVictimComponent>(component.Victim.Value);
     }
 
+    /* Goobstation - Removed. Changed the check to OnMindAdded instead for sentient facehuggers.
     private void OnTakeGhostRole(EntityUid uid, XenomorphLarvaComponent component, TakeGhostRoleEvent args)
+    {
+    */
+
+    // Goobstation - Handle sentient facehugger larva burst
+    private void OnMindAdded(EntityUid uid, XenomorphLarvaComponent component, MindAddedMessage args)
+    {
+        if (component.Victim.HasValue
+            && _container.TryGetContainingContainer((uid, null, null), out _))
+        {
+            StartBurst(uid, component);
+        }
+    }
+    // Goobstation end
+
+    private void StartBurst(EntityUid uid, XenomorphLarvaComponent component)
     {
         if (component.Victim is not {} victim)
             return;

@@ -105,12 +105,11 @@
         types:
           Caustic: 20
           Heat: 20 # Goobstation
-  # <Goobstation>
+  # <Goobstation> begin
   - type: AcidGland
-  # - type: OrganActions
-  #   actions:
-  #   - ActionAcid
-  # </Goobstation> commented until acid if fixed
+  - type: OrganActions
+    actions:
+    - ActionAcid
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -123,19 +122,19 @@
   - type: Organ
     slotId: neurotoxin_gland
     onAdd:
-    - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 0.75
-    - type: PlasmaAmmoProvider
-      fireCost: 55
-      proto: BulletNeurotoxin
-    - type: Gun
-      fireRate: 0.75
-      useKey: false
-      selectedMode: FullAuto
-      availableModes:
-      - FullAuto
-      soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: NeurotoxinGland # Goobstation
+#    - type: RechargeBasicEntityAmmo # Goobstation - Removed and added to NeurotoxinGlandComponent
+#      rechargeCooldown: 0.75
+#    - type: PlasmaAmmoProvider
+#      fireCost: 55
+#      proto: BulletNeurotoxin
+#    - type: Gun
+#      fireRate: 0.75
+#      useKey: false
+#      selectedMode: FullAuto
+#      availableModes:
+#      - FullAuto
+#      soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+    - type: NeurotoxinGland # Goobstation
 
 - type: entity
   parent: BaseXenomorphOrgan

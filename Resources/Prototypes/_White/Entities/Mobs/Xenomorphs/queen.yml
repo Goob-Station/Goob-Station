@@ -16,6 +16,7 @@
   - type: Xenomorph
     caste: Queen
   - type: XenomorphQueen
+  - type: QueenRoar # Goobstation
   - type: TailLash
     tailDamage:
       groups:
@@ -48,16 +49,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      735: Critical
-      750: Dead
+      400: Critical # Goobstation - 735 to 400
+      425: Dead # Goobstation - 750 to 425
   - type: SlowOnDamage
     speedModifierThresholds:
-      600: 0.9
-      645: 0.7
-      690: 0.6
+      375: 0.9 # Goobstation - 600 to 375
+#      645: 0.7
+#      690: 0.6
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2.5
+    baseWalkSpeed: 3 # Goobstation - 2 to 3
+    baseSprintSpeed: 3 # Goobstation - 2.5 to 3
   - type: MeleeWeapon
     damage:
       groups:
