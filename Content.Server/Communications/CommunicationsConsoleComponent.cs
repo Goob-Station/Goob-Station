@@ -107,5 +107,11 @@ namespace Content.Server.Communications
         /// </summary>
         [DataField]
         public bool AnnounceSentBy = true;
+
+        /// <summary>
+        /// Goobstation
+        /// What alert level to set it to if the console is emagged.
+        /// </summary>
+        [DataField] public string AlertLevelOnEmag = "honk";
     }
 }
