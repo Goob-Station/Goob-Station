@@ -180,12 +180,15 @@ public sealed class ToolOpenableSystem : EntitySystem
 
         string msg;
         var name = GetName(entity);
+        //goobstation start
         if (entity.Comp.IsOpen)
+        {
             msg = Loc.GetString("tool-openable-component-examine-opened", ("name", name));
-        else
-            msg = Loc.GetString("tool-openable-component-examine-closed", ("name", name));
-
-        args.PushMarkup(msg);
+            args.PushMarkup(msg);
+        }
+        //else
+        //msg = Loc.GetString("tool-openable-component-examine-closed", ("name", name));
+        //goobstation end
     }
 
     private void OnGetVerb(Entity<ToolOpenableComponent> entity, ref GetVerbsEvent<InteractionVerb> args)
