@@ -70,10 +70,10 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TryUpdateResourcesAmount(EntityUid uid, string protoId, float amount, InternalResourcesComponent? component = null)
     {
-        if (!Resolve(uid, ref component) || amount == 0)
-            return false;
-
-        if (!component.HasResourceData(protoId, out var data))
+        if (!_gameTiming.IsFirstTimePredicted
+            || !Resolve(uid, ref component)
+            || !component.HasResourceData(protoId, out var data)
+            || amount == 0)
             return false;
 
         return TryUpdateResourcesAmount(uid, data, amount, component);
@@ -115,7 +115,8 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TryUpdateResourcesCapacity(EntityUid uid, string protoId, float amount, InternalResourcesComponent? component = null)
     {
-        if (!Resolve(uid, ref component)
+        if (!_gameTiming.IsFirstTimePredicted
+            || !Resolve(uid, ref component)
             || !component.HasResourceData(protoId, out var data))
             return false;
 
@@ -150,7 +151,8 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TrySetResourcesCapacity(EntityUid uid, string protoId, float capacity, InternalResourcesComponent? component = null)
     {
-        if (!Resolve(uid, ref component)
+        if (!_gameTiming.IsFirstTimePredicted
+            || !Resolve(uid, ref component)
             || !component.HasResourceData(protoId, out var data))
             return false;
 

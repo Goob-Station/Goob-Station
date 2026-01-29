@@ -42,8 +42,7 @@ public sealed class SharedInternalResourcesActionSystem : EntitySystem
 
     private void OnActionPerformed(Entity<InternalResourcesActionComponent> action, ref ActionPerformedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted
-            || !_internalResources.TryGetResourceType(args.Performer, action.Comp.ResourceProto, out var data))
+        if (!_internalResources.TryGetResourceType(args.Performer, action.Comp.ResourceProto, out var data))
             return;
 
         var toggled = Comp<ActionComponent>(action).Toggled;
