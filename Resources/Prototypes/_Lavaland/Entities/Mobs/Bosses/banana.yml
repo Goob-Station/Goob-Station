@@ -18,7 +18,7 @@
         - MobLayer
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Lavaland/Mobs/Bosses/banana.rsi
+    sprite:  /Textures/_Lavaland/Mobs/Bosses/banana.rsi
     noRot: true
     state: childish-oni
   - type: Clickable
@@ -70,6 +70,18 @@
       0:    1
       1000: 2
       1500: 3
+  - type: MobPhaseSprite
+    phases:
+      2:
+        rsi: /Textures/_Lavaland/Mobs/Bosses/banana.rsi
+        changeSprite: true
+        state: phase2
+        layer: 0
+      3:
+        rsi: /Textures/_Lavaland/Mobs/Bosses/banana3.rsi
+        changeSprite: true
+        state: phase3
+        layer: 0
   - type: BossMusic
     soundId: ChildishOni
   - type: SpawnLootOnDeath

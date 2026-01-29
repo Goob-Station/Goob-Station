@@ -3,16 +3,12 @@
   "license": "CC-BY-SA-3.0",
   "copyright": "Sprited by OnsenCapy @NamelessName338 on Discord",
   "size": {
-    "x": 32,
-    "y": 32
+    "x": 128,
+    "y": 98
   },
   "states": [
     {
-        "name": "childish-oni",
-        "directions": 4
-    },
-    {
-        "name": "phase2",
+        "name": "phase3",
         "directions": 4
     }
   ]
