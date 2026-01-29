@@ -23,12 +23,14 @@
   - type: Speech
     speechSounds: Tenor
     speechVerb: Feroxi
-    allowedEmotes: [ "Gnash" ]
+    allowedEmotes: [ "Gnash", "Thump" ] #goob edit
   - type: Vocal
     sounds:
       Male: MaleFeroxi
       Female: FemaleFeroxi
       Unsexed: MaleFeroxi
+  - type: BodyEmotes #goob edit
+    soundsId: FeroxiBodyEmotes
   - type: Sprite
     netsync: false
     noRot: true
