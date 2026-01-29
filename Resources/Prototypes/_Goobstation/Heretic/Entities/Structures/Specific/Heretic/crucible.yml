@@ -1,0 +1,46 @@
+- type: entity
+  id: MawedCrucible
+  parent: BaseStructure
+  name: mawed crucible
+  description: A deep basin made of cast iron, immortalized by steel-like teeth holding it in place. Staring at the vile extract within fills your mind with terrible ideas.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/items.rsi
+    layers:
+    - state: crucible
+      map: [ "base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.CrucibleVisuals.Empty:
+        base:
+          True: { state: crucible_empty }
+          False: { state: crucible }
+  - type: Appearance
+  - type: MawedCrucible
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#329a00"
+  - type: UserInterface
+    interfaces:
+      enum.MawedCrucibleUiKey.Key:
+        type: MawedCrucibleBoundUserInterface
+  - type: ActivatableUI
+    key: enum.MawedCrucibleUiKey.Key
+  - type: ActivatableUiUserWhitelist
+    whitelist:
+      components:
+      - Heretic
+      - Ghoul
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Heretic/wail.ogg

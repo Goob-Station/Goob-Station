@@ -25,3 +25,60 @@
   name: alerted
   components:
   - type: CarvingAlertedStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCrucibleSoul
+  name: crucible soul
+  components:
+  - type: StatusEffectAlert
+    alert: CrucibleSoul
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: NoClip
+  - type: StatusEffectsOnStatusRemove
+    statusEffects:
+      StatusEffectCrucibleSoulCooldown: 120
+  - type: CrucibleSoulStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCrucibleSoulCooldown
+  name: crucible soul cooldown
+  components:
+  - type: StatusEffectAlert
+    alert: CrucibleSoulCooldown
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectDuskAndDawn
+  name: dusk and dawn
+  components:
+  - type: StatusEffectAlert
+    alert: DuskAndDawn
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: XRayVision
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectWoundedSoldier
+  name: wounded soldier
+  components:
+  - type: StatusEffectAlert
+    alert: WoundedSoldier
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: WoundedSoldier
+    - type: IgnoreSlowOnDamage
+  - type: StatusEffectsOnStatusRemove
+    statusEffects:
+      StatusEffectWoundedSoldierCooldown: 90
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectWoundedSoldierCooldown
+  name: wounded soldier cooldown
+  components:
+  - type: StatusEffectAlert
+    alert: WoundedSoldierCooldown

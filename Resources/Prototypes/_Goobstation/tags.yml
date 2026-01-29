@@ -59,6 +59,9 @@
   id: AthiestsFedora
 
 - type: Tag
+  id: AnchorHereticStructure
+
+- type: Tag
   id: AntagGateway
 
 - type: Tag
@@ -186,6 +189,9 @@
 
 - type: Tag
   id: DurandTargetingControlModule
+
+- type: Tag
+  id: EldritchFlask
 
 - type: Tag
   id: EmergencyMedipen

@@ -491,4 +491,17 @@
     GlovesLatex: 1
   limit: 1
 
+- type: hereticRitual
+  id: MawedCrucible
+  locName: knowledge-path-side-s6-crucible-name
+  locDesc: knowledge-path-side-s6-crucible-desc
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: crucible
+  requiredTags:
+    WaterTank: 1
+    Table: 1
+  output:
+    MawedCrucible: 1
+
 ## stage 8

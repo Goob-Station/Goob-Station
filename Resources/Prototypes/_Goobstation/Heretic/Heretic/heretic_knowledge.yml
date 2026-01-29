@@ -570,6 +570,13 @@
   ritualPrototypes:
   - ShatteredRitual
 
+- type: hereticKnowledge
+  id: MawedCrucible
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - MawedCrucible
+
 ## stage 8
 - type: hereticKnowledge
   id: Cleave

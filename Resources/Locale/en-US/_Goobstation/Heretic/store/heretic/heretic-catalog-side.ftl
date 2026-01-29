@@ -114,24 +114,8 @@ knowledge-path-side-s6-shattered-ritual-desc =
     instead having two brutal weapons for hands.
     You can only create one at a time.
 
-## stage 7
-knowledge-path-side-s7-uncuff-name = Wave of Desperation
-knowledge-path-side-s7-uncuff-desc =
-    My shackles undone in dark fury, their feeble bindings crumble before my power.
-
-    Grants you Wave Of Desperation, a spell which can only be cast while restrained.
-    It removes your restraints, repels and knocks down adjacent people, and applies the Mansus Grasp to everything nearby.
-    However, you will fall unconscious a short time after casting this spell.
-
-knowledge-path-side-s7-siphon-name = Blood Siphon
-knowledge-path-side-s7-siphon-desc =
-    No matter the man, we bleed all the same. That's what the Marshal told me.
-
-    Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
-    Additionally, you have a chance of transferring wounds you are experiencing to the target.
-
-knowledge-path-side-s7-crucible-name = Mawed Crucible
-knowledge-path-side-s7-crucible-desc =
+knowledge-path-side-s6-crucible-name = Mawed Crucible
+knowledge-path-side-s6-crucible-desc =
     This is pure agony. I wasn't able to summon the figure of the Aristocrat,
     but with the Priest's attention I stumbled upon a different recipe...
 
@@ -151,18 +135,3 @@ knowledge-path-side-s8-space-phase-desc =
 
     Grants you Space Phase, a spell that allows you to move freely through space.
     You can only phase in and out when you are in space or outdoor low pressure area like lavaland.
-
-## stage 9
-knowledge-path-side-s9-coin-name = Eldritch Coin
-knowledge-path-side-s9-coin-desc =
-    The Mansus is a place of all sorts of sins. But greed held a special role.
-
-    Transmute a sheet of plasma, a diamond and eyes into an Eldritch Coin.
-    The coin will open nearby airlocks if it lands on heads and bolt nearby airlocks if it lands on tails.
-    Using it on an airlock consumes the coin and permanently opens the airlock.
-    Attempting to flip or use the coin as a non-heretic will deal brute and/or burn damage, depending on the side it lands on.
-
-knowledge-path-side-s9-ashman-name = Ashen Ritual
-knowledge-path-side-s9-ashman-desc =
-    Transmute a pile of ash, a brain and a book to summon an Ashman.
-    Ashmen can jaunt, cause bleeding wounds, and can release large waves of fire.
