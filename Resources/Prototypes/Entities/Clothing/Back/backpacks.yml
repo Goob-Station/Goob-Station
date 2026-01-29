@@ -395,7 +395,7 @@
   - type: Storage
     maxItemSize: Huge
     grid:
-    - 0,0,19,9
+    - 0,0,14,5 #Goob
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 500
