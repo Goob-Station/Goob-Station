@@ -262,6 +262,9 @@ uplink-combat-medkit-pills-desc = Contains most medicines you need to recover fr
 uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
 uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
 
+uplink-injectionsaw-name = Injection Saw
+uplink-injectionsaw-desc = Modified saw outfitted with both a long needle and knife underneath, capable of storing reagents inside. Seems to inject chemicals fast. Starts empty.
+
 # Implants
 
 uplink-smoke-implant-name = Smoke Implant

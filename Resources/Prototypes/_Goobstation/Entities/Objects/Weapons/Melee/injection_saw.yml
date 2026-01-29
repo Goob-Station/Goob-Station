@@ -1,0 +1,58 @@
+﻿- type: entity
+  name: injection saw
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: InjectionSaw
+  description: Modified saw outfitted with both a long needle and knife underneath. Perfect for "practicing medicine".
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/injection_saw.rsi
+    layers:
+    - state: injection_saw
+      map: ["enum.SolutionContainerLayers.Base"]
+    - state: injection_saw-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: MeleeWeapon
+    canWideSwing: true
+    range: 1.5
+    attackRate: 1.5
+    animationRotation: -90
+    wideAnimationRotation: -90
+    damage:
+      types:
+        Piercing: 5
+        Slash: 5
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/hyposlash1.ogg
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 30 # Same as dart gun
+  - type: Injector
+    delay: 1
+    maxTransferAmount: 10
+    minTransferAmount: 5
+    injectOnly: false
+  - type: MeleeChemicalInjector
+    transferAmount: 5
+    solution: injector
+    pierceArmor: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: injection_saw-
+    inHandsFillBaseName: -fill-
+    inHandsMaxFillLevels: 3
+  - type: Appearance
+  - type: Scalpel
+    speed: 0.65    # 65
+  - type: BoneSaw
+    speed: 0.65    # 65
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
