@@ -50,3 +50,16 @@
   - type: KnockdownOnHit
     duration: 0
     knockdownOnHeavyAttack: false
+
+- type: entity
+  parent: ArmHammerChangeling
+  id: ArmHammerShattered
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/hammer.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Heretic/Entities/hammer.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: GlassBreak

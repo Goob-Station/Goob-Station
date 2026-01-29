@@ -1,0 +1,48 @@
+- type: body
+  id: Shattered
+  name: Shattered
+  root: chest
+  slots:
+    head:
+      part: HeadShattered
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestShattered
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
+    groin:
+      part: GroinShattered
+      connections:
+      - right leg
+      - left leg
+    right arm:
+      part: RightArmShattered
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmShattered
+      connections:
+      - left hand
+    right hand:
+      part: RightHandShattered
+    left hand:
+      part: LeftHandShattered
+    right leg:
+      part: RightLegShattered
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegShattered
+      connections:
+      - left foot
+    right foot:
+      part: RightFootShattered
+    left foot:
+      part: LeftFootShattered

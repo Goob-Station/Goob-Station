@@ -1,0 +1,133 @@
+- type: species
+  id: Shattered
+  name: species-name-shattered
+  roundStart: false
+  prototype: MobShattered
+  sprites: MobShatteredSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: MobShatteredDummy
+  skinColoration: NoColor
+
+- type: speciesBaseSprites
+  id: MobShatteredSprites
+  sprites:
+    Head: MobShatteredHead
+    Chest: MobShatteredChest
+    Groin: MobShatteredGroin
+    Eyes: MobShatteredEyes
+    LArm: MobShatteredLArm
+    RArm: MobShatteredRArm
+    LHand: MobShatteredLHand
+    RHand: MobShatteredRHand
+    LLeg: MobShatteredLLeg
+    RLeg: MobShatteredRLeg
+    LFoot: MobShatteredLFoot
+    RFoot: MobShatteredRFoot
+
+- type: humanoidBaseSprite
+  id: MobShatteredEyes
+  baseSprite:
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobShatteredHead
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShatteredHeadMale
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShatteredHeadFemale
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobShatteredChest
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobShatteredChestMale
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobShatteredChestFemale
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobShatteredGroin
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobShatteredGroinMale
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobShatteredGroinFemale
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobShatteredLLeg
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobShatteredLArm
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobShatteredLHand
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobShatteredLFoot
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobShatteredRLeg
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobShatteredRArm
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobShatteredRHand
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobShatteredRFoot
+  baseSprite:
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: r_foot

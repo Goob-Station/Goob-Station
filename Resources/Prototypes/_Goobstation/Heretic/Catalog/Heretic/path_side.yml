@@ -172,6 +172,22 @@
     stage: 5
 
 - type: listing
+  id: HereticSidePath6Shattered
+  name: knowledge-path-side-s6-shattered-ritual-name
+  description: knowledge-path-side-s6-shattered-ritual-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ghoul_shattered }
+  productHereticKnowledge: ShatteredRitual
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
   id: HereticSidePath8Cleave
   name: knowledge-path-side-s8-cleave-name
   description: knowledge-path-side-s8-cleave-desc

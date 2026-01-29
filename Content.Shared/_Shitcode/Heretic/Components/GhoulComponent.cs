@@ -45,6 +45,9 @@ public sealed partial class GhoulComponent : Component
     public bool GiveBlade;
 
     [DataField]
+    public bool ChangeHumanoidAppearance = true;
+
+    [DataField]
     public LocId? ExamineMessage = "examine-system-cant-see-entity";
 
     [DataField]

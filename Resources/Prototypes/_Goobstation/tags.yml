@@ -799,6 +799,12 @@
   id: GreenGloves
 
 - type: Tag
+  id: GlovesLatex
+
+- type: Tag
+  id: GlovesNitrile
+
+- type: Tag
   id: WaterBottle
 
 - type: Tag
@@ -806,9 +812,9 @@
 
 - type: Tag
   id: HereticCostume
-  
+
 - type: Tag
-  id: VinylSleeveFit  
+  id: VinylSleeveFit
 
 - type: Tag
   id: CD
