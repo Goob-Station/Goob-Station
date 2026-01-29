@@ -81,6 +81,9 @@
     knockdownTimeDelta: -1.5
   - type: StaminaResistance
     damageCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.9
+
 
 #blue ward coat
 - type: entity
@@ -116,7 +119,6 @@
       coefficients:
         Caustic: 0.6
         Radiation: 0.6
-
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]

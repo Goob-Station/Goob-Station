@@ -130,6 +130,8 @@
         Caustic: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.75
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
   - type: StaminaResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
