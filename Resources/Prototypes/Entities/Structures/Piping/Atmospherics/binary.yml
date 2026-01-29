@@ -86,6 +86,7 @@
     priority: 1
   - type: ApcPowerReceiver
     powerLoad: 200
+  - type: StationAiWhitelist
   - type: Rotatable
   - type: Transform
     noRot: false
@@ -156,6 +157,7 @@
       priority: 1
     - type: ApcPowerReceiver
       powerLoad: 200
+    - type: StationAiWhitelist
     - type: Rotatable
     - type: Transform
       noRot: false

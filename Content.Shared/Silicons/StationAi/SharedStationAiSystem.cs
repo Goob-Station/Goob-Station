@@ -64,6 +64,7 @@ using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.Utility;
 using Content.Shared._CorvaxNext.Silicons.Borgs;
+using Content.Shared.Examine;
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -142,6 +143,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         SubscribeLocalEvent<StationAiCoreComponent, ComponentShutdown>(OnAiShutdown);
         SubscribeLocalEvent<StationAiCoreComponent, PowerChangedEvent>(OnCorePower);
         SubscribeLocalEvent<StationAiCoreComponent, GetVerbsEvent<Verb>>(OnCoreVerbs);
+        SubscribeLocalEvent<StationAiWhitelistComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnCoreVerbs(Entity<StationAiCoreComponent> ent, ref GetVerbsEvent<Verb> args)
@@ -233,7 +235,13 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             }
         }
     }
+    private void OnExamined(EntityUid uid, StationAiWhitelistComponent component, ExaminedEvent args)
+    {
+        if (!component.Enabled)
+            return;
 
+        args.PushMarkup(Loc.GetString("station-ai-whitelist-examine"));
+    }
     private void OnAiInRange(Entity<StationAiOverlayComponent> ent, ref InRangeOverrideEvent args)
     {
         args.Handled = true;
