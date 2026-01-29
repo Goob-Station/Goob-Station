@@ -20842,3 +20842,11 @@ Entries:
       message: Radio host "Number" cd can no longer summon headrevs.
   id: 2356
   time: '2026-01-29T11:58:57.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: >-
+        Resprite Agent Pistol, Annie, Burner, Cell Revolver/SMG/LMG/Sniper, M7S,
+        HE1S-G8.
+  id: 2357
+  time: '2026-01-29T15:49:23.0000000+00:00'
