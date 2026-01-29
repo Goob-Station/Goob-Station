@@ -879,6 +879,10 @@
           weight: 1.0
         - id: MobCarpHolo
           weight: 1.0
+        - id: MobDragonDungeon
+          weight: 0.01
+        - id: MobShark
+          weight: 0.25
 
 - type: entity
   id: XenoArtifactFaunaSpawn
