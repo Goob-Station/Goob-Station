@@ -84,7 +84,7 @@ public sealed partial class ResearchSystem
         if (!UnlockTechnology(uid, args.Id, act))
             return;
 
-        if (!_emag.CheckFlag(uid, EmagType.Interaction))
+        if (!_emag.CheckProtoId(uid, "Interaction")) // goob edit
         {
             var getIdentityEvent = new TryGetIdentityShortInfoEvent(uid, act);
             RaiseLocalEvent(getIdentityEvent);
@@ -175,10 +175,10 @@ public sealed partial class ResearchSystem
 
     private void OnEmagged(Entity<ResearchConsoleComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckFlag(ent, EmagType.Interaction))
+        if (_emag.CheckProtoId(ent, "Interaction")) // goob edit
             return;
 
         args.Handled = true;

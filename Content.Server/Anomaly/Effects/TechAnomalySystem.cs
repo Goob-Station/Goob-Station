@@ -6,12 +6,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Emag.Prototypes; // Goob edit
 using Content.Server.Anomaly.Components;
 using Content.Server.Beam;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Emag.Systems;
+using Robust.Shared.Prototypes; // Goob edit
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -24,7 +26,10 @@ public sealed class TechAnomalySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly BeamSystem _beam = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
+    [Dependency] private readonly IPrototypeManager _prototype = default!; // goob edit
+    
+    private readonly ProtoId<EmagTypePrototype> _emagIdInteraction = "Interaction"; // goob edit
+    private readonly ProtoId<EmagTypePrototype> _emagIdAccess = "Access"; // goob edit
     public override void Initialize()
     {
         base.Initialize();
@@ -123,11 +128,20 @@ public sealed class TechAnomalySystem : EntitySystem
 
             if (_random.Prob(tech.Comp.EmagSupercritProbability))
             {
-                var sourceEv = new GotEmaggedEvent(tech, EmagType.Access | EmagType.Interaction);
-                RaiseLocalEvent(source, ref sourceEv);
+                // Goob edit start - separate events for each emag type can't combine prototypes 
+                EmagTypePrototype emagTypeInteraction = _prototype.Index(_emagIdInteraction); 
+                EmagTypePrototype emagTypeAccess = _prototype.Index(_emagIdAccess); 
+                
+                var sourceEvAccess = new GotEmaggedEvent(tech, emagTypeAccess);
+                RaiseLocalEvent(source, ref sourceEvAccess);
+                var sourceEvInteraction = new GotEmaggedEvent(tech, emagTypeInteraction);
+                RaiseLocalEvent(source, ref sourceEvInteraction);
 
-                var sinkEv = new GotEmaggedEvent(tech, EmagType.Access | EmagType.Interaction);
-                RaiseLocalEvent(sink, ref sinkEv);
+                var sinkEvAccess = new GotEmaggedEvent(tech, emagTypeAccess);
+                RaiseLocalEvent(sink, ref sinkEvAccess);
+                var sinkEvInteraction = new GotEmaggedEvent(tech, emagTypeInteraction);
+                RaiseLocalEvent(sink, ref sinkEvInteraction);
+                // Goob edit end
             }
 
             CreateNewLink(tech, source, sink);
