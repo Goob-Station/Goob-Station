@@ -1,0 +1,26 @@
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: body
+  id: SharkMinnow
+  name: sharkminnow
+  root: chest
+  slots:
+    chest:
+      part: ChestAnimal
+      connections:
+      - groin
+      organs:
+        lungs: OrganSpaceAnimalLungs # Immunity to natural Aspyx
+        heart: OrganSpaceAnimalHeart # Immunity to pressure
+    groin:
+      part: GroinAnimal
+      connections:
+      - tail
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    tail:
+      part: TailCarp
+
