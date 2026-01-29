@@ -341,7 +341,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
   productEntity: WeaponRifleEstoc # goob unbundle
   cost:
-    Telecrystal: 55 # goob unbundle
+    Telecrystal: 60 # goob unbundle
   categories:
   - UplinkWeaponry
 
@@ -712,7 +712,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 9 # goob
+    Telecrystal: 14 # goob
   categories:
   - UplinkAmmo
 
@@ -721,9 +721,9 @@
   id: UplinkEstocAmmo
   name: uplink-estoc-ammo-name
   description: uplink-estoc-ammo-desc
-  productEntity: MagazineRifle
+  productEntity: MagazineLightRifle
   cost:
-    Telecrystal: 5 # goob - on par with c20
+    Telecrystal: 7 # goob - higher ammo cost due to .30 rifle's 40% armour piercing
   categories:
   - UplinkAmmo
 
