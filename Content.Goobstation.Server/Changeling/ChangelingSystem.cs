@@ -336,7 +336,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void UpdateChemicals(Entity<ChangelingIdentityComponent> ent, float amount, ChangelingChemicalComponent? chemComp = null)
     {
-        if (!Resolve(ent, ref chemComp))
+        if (!Resolve(ent, ref chemComp)
+            || chemComp.ResourceData == null)
             return;
 
         _resources.TryUpdateResourcesAmount(ent, chemComp.ResourceData, amount);
@@ -344,7 +345,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void UpdateBiomass(Entity<ChangelingIdentityComponent> ent, float amount, ChangelingBiomassComponent? bioComp = null)
     {
-        if (!Resolve(ent, ref bioComp))
+        if (!Resolve(ent, ref bioComp)
+            || bioComp.ResourceData == null)
             return;
 
         _resources.TryUpdateResourcesAmount(ent, bioComp.ResourceData, amount);

@@ -21,10 +21,15 @@ public sealed partial class ChangelingChemicalSystem : SharedChangelingChemicalS
         _polymorph.CopyPolymorphComponent<ChangelingChemicalComponent>(ent, args.NewEntity);
 
         // have to manually copy over the InternalResourcesData stuff
-        var oldData = Comp<ChangelingChemicalComponent>(args.OldEntity).ResourceData;
+        var oldComp = Comp<ChangelingChemicalComponent>(args.OldEntity);
+        var oldData = oldComp.ResourceData;
 
         var newComp = Comp<ChangelingChemicalComponent>(args.NewEntity);
         var newData = newComp.ResourceData;
+
+        if (oldData == null
+            || newData == null)
+            return;
 
         newData.CurrentAmount = oldData.CurrentAmount;
         newData.MaxAmount = oldData.MaxAmount;

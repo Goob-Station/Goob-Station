@@ -72,7 +72,8 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void OnThresholdMetEvent(Entity<ChangelingBiomassComponent> ent, ref InternalResourcesThresholdMetEvent args)
     {
-        if (args.Data.InternalResourcesType != ent.Comp.ResourceData.InternalResourcesType)
+        if (ent.Comp.ResourceData == null
+            || args.Data.InternalResourcesType != ent.Comp.ResourceData.InternalResourcesType)
             return;
 
         switch (args.Threshold)
@@ -137,7 +138,8 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void OnRejuvenate(Entity<ChangelingBiomassComponent> ent, ref RejuvenateEvent args)
     {
-        if (_lingQuery.TryComp(ent, out var ling)
+        if (ent.Comp.ResourceData == null
+            || _lingQuery.TryComp(ent, out var ling)
             && ling.IsInStasis)
             return;
 

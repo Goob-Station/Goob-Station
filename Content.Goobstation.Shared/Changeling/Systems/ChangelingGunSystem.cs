@@ -30,7 +30,8 @@ public sealed class ChangelingGunSystem : EntitySystem
 
         var parent = Transform(uid).ParentUid;
 
-        if (!TryComp<ChangelingChemicalComponent>(parent, out var chemComp))
+        if (!TryComp<ChangelingChemicalComponent>(parent, out var chemComp)
+            || chemComp.ResourceData == null)
             return;
 
         if (component.FireCost == 0)
@@ -50,7 +51,8 @@ public sealed class ChangelingGunSystem : EntitySystem
 
         var parent = Transform(uid).ParentUid;
 
-        if (!TryComp<ChangelingChemicalComponent>(parent, out var chemComp))
+        if (!TryComp<ChangelingChemicalComponent>(parent, out var chemComp)
+            || chemComp.ResourceData == null)
             return;
 
         for (var i = 0; i < args.Shots; i++)

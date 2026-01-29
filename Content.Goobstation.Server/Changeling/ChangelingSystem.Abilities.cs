@@ -194,8 +194,7 @@ public sealed partial class ChangelingSystem
 
         if (args.Cancelled
             || HasComp<AbsorbedComponent>(target)
-            || (!IsIncapacitated(target) && !IsHardGrabbed(target))
-            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp))
+            || !IsIncapacitated(target) && !IsHardGrabbed(target))
             return;
 
         PlayMeatySound(args.User, comp);
@@ -208,26 +207,31 @@ public sealed partial class ChangelingSystem
         EnsureComp<AbsorbedComponent>(target);
         EnsureComp<UnrevivableComponent>(target);
 
+        TryComp<ChangelingChemicalComponent>(uid, out var chemComp); // user's chemical component
         var popup = string.Empty;
         var bonusChemicals = 0f;
         var bonusEvolutionPoints = 0f;
         var bonusChangelingAbsorbs = 0;
 
-        var userBiomass = TryComp<ChangelingBiomassComponent>(uid, out var bioComp);
+        TryComp<ChangelingBiomassComponent>(uid, out var bioComp); // user's biomass component
         var biomassMaxIncrease = 0f;
         var biomassValid = false;
 
-        if (TryComp<ChangelingIdentityComponent>(target, out var targetComp)
-            && TryComp<ChangelingChemicalComponent>(target, out var targetChemComp))
+        if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
         {
-            popup = Loc.GetString("changeling-absorb-end-self-ling");
-            bonusChemicals += targetChemComp.ResourceData.MaxAmount / 2;
-            bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
-            bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
+            if (TryComp<ChangelingChemicalComponent>(target, out var targetChemComp)
+                && targetChemComp.ResourceData != null)
+            {
+                popup = Loc.GetString("changeling-absorb-end-self-ling");
+                bonusChemicals += targetChemComp.ResourceData.MaxAmount / 2;
+                bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
+                bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
+            }
 
             biomassValid = true;
 
-            if (bioComp != null)
+            if (bioComp != null
+                && bioComp.ResourceData != null)
                 biomassMaxIncrease = bioComp.ResourceData.MaxAmount / 2;
 
             if (!TryComp<HumanoidAppearanceComponent>(target, out var targetForm)
@@ -257,7 +261,6 @@ public sealed partial class ChangelingSystem
         TryStealDNA(uid, target, comp, objBool);
 
         _popup.PopupEntity(popup, args.User, args.User);
-        _resources.TryUpdateResourcesCapacity(uid, chemComp.ResourceData, bonusChemicals);
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
@@ -276,10 +279,16 @@ public sealed partial class ChangelingSystem
                 lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
         }
 
-        UpdateChemicals((uid, comp), chemComp.ResourceData.MaxAmount, chemComp); // refill chems to max
+        if (chemComp != null
+            && chemComp.ResourceData != null)
+        {
+            _resources.TryUpdateResourcesCapacity(uid, chemComp.ResourceData, bonusChemicals);
+            UpdateChemicals((uid, comp), chemComp.ResourceData.MaxAmount, chemComp); // refill chems to max
+        }
 
         // modify biomass if the changeling uses it
         if (bioComp != null
+            && bioComp.ResourceData != null
             && biomassValid)
         {
             _resources.TryUpdateResourcesCapacity(uid, bioComp.ResourceData, biomassMaxIncrease);

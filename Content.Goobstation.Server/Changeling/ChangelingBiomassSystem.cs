@@ -31,10 +31,15 @@ public sealed partial class ChangelingBiomassSystem : SharedChangelingBiomassSys
         _polymorph.CopyPolymorphComponent<ChangelingBiomassComponent>(ent, args.NewEntity);
 
         // have to manually copy over the InternalResourcesData stuff
-        var oldData = Comp<ChangelingBiomassComponent>(args.OldEntity).ResourceData;
+        var oldComp = Comp<ChangelingBiomassComponent>(args.OldEntity);
+        var oldData = oldComp.ResourceData;
 
         var newComp = Comp<ChangelingBiomassComponent>(args.NewEntity);
         var newData = newComp.ResourceData;
+
+        if (oldData == null
+            || newData == null)
+            return;
 
         newData.CurrentAmount = oldData.CurrentAmount;
         newData.MaxAmount = oldData.MaxAmount;
