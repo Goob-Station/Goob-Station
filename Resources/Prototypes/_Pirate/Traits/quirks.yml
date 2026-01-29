@@ -154,6 +154,9 @@
     - IPC
     - Plasmaman
     - Shadowkin
+  blacklist:
+    components:
+      - BorgChassis
   components:
     - type: Psionic
     - type: InnatePsionicPowers
