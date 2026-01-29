@@ -1,0 +1,42 @@
+- type: entity
+  id: ActionBaseBanana
+  parent: BaseAction
+  name: childish oni action
+  abstract: true
+  components:
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Mobs/Bosses/banana.rsi
+      state: childish-oni
+    itemIconStyle: NoItem
+  - type: TargetAction
+    checkCanAccess: false
+    range: 20
+  - type: WorldTargetAction
+
+- type: entity
+  id: ActionDemonicHandSpiral
+  parent: ActionBaseBanana
+  name: Expanding Box
+  description: Spawns a giant demonic hand which spirals outward, dealing heat damage to anything it touches.
+  components:
+  - type: AngerDelayAction
+    minDelay: 3
+    maxDelay: 10
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: BananaSpawnArea
+
+- type: entity
+  id: ActionOniRampage
+  parent: ActionBaseBanana
+  name: Rampage
+  description: Jumps towards the target, dealing damage in an area and spawning a ring of fire.
+  components:
+  - type: AngerDelayAction
+    minDelay: 2.0
+    maxDelay: 6
+  - type: WorldTargetAction
+    event: !type:OniRampageEvent

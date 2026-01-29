@@ -1,0 +1,29 @@
+- type: entity
+  parent: WallFlockBase
+  id: WallMagma
+  name: magma wall
+  description: Spicy walls.
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/firewall.rsi
+    state: ai-firewall
+  - type: Destructible
+  - type: PointLight
+    color: Orange
+    radius: 5.0
+    energy: 1.5
+    softness: 1
+    castShadows: false
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust
+  - type: DamageOnCollide
+    whitelist:
+      components:
+        - HumanoidAppearance
+    inverted: true
+    damage:
+      types:
+        Heat: 25
