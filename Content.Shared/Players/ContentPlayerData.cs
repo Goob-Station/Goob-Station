@@ -47,6 +47,15 @@ public sealed class ContentPlayerData
     /// </summary>
     public bool Stealthed { get; set; }
 
+    // Goobstation Start
+    /// <summary>
+    /// If true, the player joined as an observer through the lobby.
+    /// This is used by DenyObserverRequirement to block observers from taking certain ghost roles.
+    /// </summary>
+    [ViewVariables]
+    public bool JoinedAsObserver { get; set; }
+    // Goobstation End
+
     public ContentPlayerData(NetUserId userId, string name)
     {
         UserId = userId;
