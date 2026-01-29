@@ -679,4 +679,32 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> GpsUpdateRate =
         CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
+
+    #region Cramming Pressure
+
+    public static readonly CVarDef<bool> CrammingEnabled =
+        CVarDef.Create("cramming.enabled", true, CVar.SERVER);
+
+    public static readonly CVarDef<int> CrammingMinMobThreshold =
+        CVarDef.Create("cramming.min_mob_threshold", 3, CVar.SERVER);
+
+    public static readonly CVarDef<float> CrammingBaseDamage =
+        CVarDef.Create("cramming.base_damage", 4.0f, CVar.SERVER);
+
+    public static readonly CVarDef<float> CrammingReferenceMass =
+        CVarDef.Create("cramming.reference_mass", 80.0f, CVar.SERVER);
+
+    public static readonly CVarDef<float> CrammingBuildupDelay =
+        CVarDef.Create("cramming.buildup_delay", 2.0f, CVar.SERVER);
+
+    public static readonly CVarDef<float> CrammingDirectionTolerance =
+        CVarDef.Create("cramming.direction_tolerance", 0.2f, CVar.SERVER);
+
+    public static readonly CVarDef<int> CrammingBurstThreshold =
+        CVarDef.Create("cramming.burst_threshold", 6, CVar.SERVER);
+
+    public static readonly CVarDef<float> CrammingBurstImpulse =
+        CVarDef.Create("cramming.burst_impulse", 100.0f, CVar.SERVER);
+
+    #endregion
 }
