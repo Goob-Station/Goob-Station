@@ -79,13 +79,13 @@ public sealed partial class FleshmendComponent : Component
     public bool WorkWhileDead = false;
 
     [DataField]
-    public float BruteHeal = -10f;
+    public float BruteHeal = -9f;
 
     [DataField]
     public float BurnHeal = -5f;
 
     [DataField]
-    public float AsphyxHeal = -2f;
+    public float AsphyxHeal = -4f;
 
     [DataField]
     public float BleedingAdjust = -2.5f;

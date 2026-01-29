@@ -65,10 +65,4 @@ public sealed partial class DamageMarkerOnCollideComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("sound"), AutoNetworkedField]
     public SoundSpecifier? Sound; //= new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg");
-
-    /// <summary>
-    ///     Lavaland Change: Whether the marker can only be applied to fauna.
-    /// </summary>
-    [DataField]
-    public bool OnlyWorkOnFauna = false;
 }

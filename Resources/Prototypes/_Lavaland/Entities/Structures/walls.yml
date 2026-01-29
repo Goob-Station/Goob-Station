@@ -68,3 +68,20 @@
     enabled: false
   - type: RustRequiresPathStage
     pathStage: 11 # Can't rust
+
+- type: entity
+  parent: BaseWall
+  id: WallNecropolisIndestructible
+  name: stone wall
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/necropolis.rsi
+  - type: Icon
+    sprite: Structures/Walls/necropolis.rsi
+  - type: IconSmooth
+    key: walls
+    base: necropolis
+  - type: Destructible
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust

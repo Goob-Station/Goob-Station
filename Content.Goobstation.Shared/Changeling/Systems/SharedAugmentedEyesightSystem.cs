@@ -51,6 +51,8 @@ public abstract partial class SharedAugmentedEyesightSystem : EntitySystem
         Dirty(ent);
 
         SetVision(ent);
+
+        args.Handled = true;
     }
 
     private void OnFlashVulnerableCheck(Entity<AugmentedEyesightComponent> ent, ref CheckFlashVulnerable args)
