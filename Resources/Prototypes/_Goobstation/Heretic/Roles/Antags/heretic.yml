@@ -27,9 +27,3 @@
   setPreference: false
   objective: roles-antag-ghoul-description
   guides: [ Heretics ]
-
-- type: startingGear
-  id: Heretictmidround
-  storage:
-    back:
-    - Inkofimaginination
