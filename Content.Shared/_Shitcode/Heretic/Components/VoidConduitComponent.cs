@@ -14,6 +14,13 @@ public sealed partial class VoidConduitComponent : Component
     public int Range = 8;
 
     [DataField]
+
+    public float stacksEverySeconds = 0.25f;
+
+    [DataField]
+    public float maxStacksGiven = 2.5f;
+
+    [DataField]
     public Vector2 MinMaxWindowDamageMultiplier = new(1f, 2f);
 
     [DataField]
