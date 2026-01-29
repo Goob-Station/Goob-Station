@@ -1,0 +1,103 @@
+- type: entity
+  parent: BladedFlatcapGrey
+  id: BladedPlasmaFlatcapGrey
+  name: grey flatcap
+  description: "Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim."
+  suffix: Bladed Plasma
+  components:
+  - type: Construction
+    graph: BladedPlasmaFlatcapGrey
+    node: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 10
+
+- type: entity
+  parent: BladedFlatcapBrown
+  id: BladedPlasmaFlatcapBrown
+  name: brown flatcap
+  description: "\"Stupid clown! You made me look bad!\" It has glass shards hidden in the brim."
+  suffix: Bladed Plasma
+  components:
+  - type: Construction
+    graph: BladedPlasmaFlatcapBrown
+    node: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 10
+        
+- type: entity
+  parent: BladedFlatcapGrey
+  id: BladedReinforcedFlatcapGrey
+  name: grey flatcap
+  description: "Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim."
+  suffix: Bladed Reinforced
+  components:
+  - type: Construction
+    graph: BladedReinforcedFlatcapGrey
+    node: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 8
+
+- type: entity
+  parent: BladedFlatcapBrown
+  id: BladedReinforcedFlatcapBrown
+  name: brown flatcap
+  description: "\"Stupid clown! You made me look bad!\" It has glass shards hidden in the brim."
+  suffix: Bladed Reinforced
+  components:
+  - type: Construction
+    graph: BladedReinforcedFlatcapBrown
+    node: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 8
+        
+- type: entity
+  parent: BladedFlatcapGrey
+  id: BladedUraniumFlatcapGrey
+  name: grey flatcap
+  description: "Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim."
+  suffix: Bladed Uranium
+  components:
+  - type: Construction
+    graph: BladedUraniumFlatcapGrey
+    node: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 6
+        Radiation: 4
+
+- type: entity
+  parent: BladedFlatcapBrown
+  id: BladedUraniumFlatcapBrown
+  name: brown flatcap
+  description: "\"Stupid clown! You made me look bad!\" It has glass shards hidden in the brim."
+  suffix: Bladed Uranium
+  components:
+  - type: Construction
+    graph: BladedUraniumFlatcapBrown
+    node: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 6
+        Radiation: 4
