@@ -23,7 +23,6 @@ using Content.Server.Revolutionary.Components;
 using Content.Shared.Mind;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
-using Content.Shared.Gibbing.Events;
 using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Server.Heretic.Ritual;

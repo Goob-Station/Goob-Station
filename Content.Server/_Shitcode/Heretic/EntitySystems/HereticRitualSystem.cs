@@ -71,15 +71,32 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (rit.Limit > 0)
             limited = hereticComp.LimitedTransmutations.GetOrNew(ritualId, out exists);
 
+        if (limited != null && exists)
+            limited.RemoveAll(x => !Exists(x));
+
+        var ritData = new RitualData(performer, platform, ritualId, EntityManager, limited, rit.Limit);
+        var behaviors = rit.CustomBehaviors ?? new();
+
         if (limited != null)
         {
-            if (exists)
-                limited.RemoveAll(x => !Exists(x));
-
             if (limited.Count >= rit.Limit)
             {
-                _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-limit"), platform, performer);
-                return false;
+                var playAnimation = false;
+                var skip = true;
+                foreach (var behavior in behaviors)
+                {
+                    skip &= behavior.LimitExceeded(ritData, out var success);
+                    playAnimation |= success;
+                }
+
+                if (skip)
+                {
+                    if (playAnimation)
+                        return true;
+
+                    _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-limit"), platform, performer);
+                    return false;
+                }
             }
         }
 
@@ -91,13 +108,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         // check for all conditions
         // this is god awful but it is that it is
-        var behaviors = rit.CustomBehaviors ?? new();
         var requiredTags = rit.RequiredTags?.ToDictionary(e => e.Key, e => e.Value) ?? new();
 
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager, limited, rit.Limit);
-
             if (!behavior.Execute(ritData, out var missingStr))
             {
                 if (missingStr != null)
@@ -169,7 +183,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // finalize all of the custom ones
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager, limited, rit.Limit);
             behavior.Finalize(ritData);
         }
 
