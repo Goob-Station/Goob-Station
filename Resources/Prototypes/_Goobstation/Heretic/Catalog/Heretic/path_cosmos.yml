@@ -5,7 +5,7 @@
   icon: { sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi, state: icon }
   productHereticKnowledge: EternalGate
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathCosmos
   conditions:
@@ -30,7 +30,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfCosmos
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathCosmos
   conditions:
@@ -42,13 +42,13 @@
     - Cosmos
 
 - type: listing
-  id: HereticCosmosPath3
+  id: HereticCosmosPath4
   name: knowledge-path-cosmos-s3-name
   description: knowledge-path-cosmos-s3-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cosmic_rune }
-  productHereticKnowledge: CosmicRunes
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfCosmos
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathCosmos
   conditions:
@@ -60,11 +60,11 @@
     - Cosmos
 
 - type: listing
-  id: HereticCosmosPath4
+  id: HereticCosmosPath3
   name: knowledge-path-cosmos-s4-name
   description: knowledge-path-cosmos-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfCosmos
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cosmic_rune }
+  productHereticKnowledge: CosmicRunes
   cost:
     KnowledgePoint: 2
   categories:
@@ -102,7 +102,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: star_blast }
   productHereticKnowledge: StarBlast
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathCosmos
   conditions:
@@ -138,7 +138,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cosmic_domain }
   productHereticKnowledge: CosmicExpansion
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathCosmos
   conditions:
@@ -156,7 +156,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: stargazer }
   productHereticKnowledge: AscensionCosmos
   cost:
-    KnowledgePoint: 3
+    KnowledgePoint: 2
   categories:
   - HereticPathCosmos
   conditions:
