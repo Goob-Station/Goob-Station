@@ -283,4 +283,17 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
 
         return allSpawned;
     }
+
+    // Goobstation edit start
+    public bool TryChangeStorageLimit(
+        EntityUid uid,
+        int value,
+        MaterialStorageComponent? storage = null)
+    {
+        if (!Resolve(uid, ref storage) || value < 0)
+            return false;
+
+        storage.StorageLimit = value;
+        return true;
+    }    // Goobstation edit end
 }
