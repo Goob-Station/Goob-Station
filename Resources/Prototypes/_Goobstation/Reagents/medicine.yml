@@ -10,8 +10,10 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 #
@@ -230,6 +232,7 @@
   physicalDesc: reagent-physical-desc-alkaline
   flavor: medicine
   color: "#97e239"
+  worksOnTheDead: true
   plantMetabolism:
     - !type:PlantAdjustToxins
       amount: -30
@@ -240,10 +243,10 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -18
+            Poison: -36 # if you're going to make the t4 only heal poison, at least make it good
       - !type:AdjustReagent
         reagent: Musiver
-        amount: 3
+        amount: 6
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -277,20 +280,21 @@
   physicalDesc: reagent-physical-desc-nondescript
   flavor: medicine
   color: "#e1d758"
+  worksOnTheDead: true
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
+      metabolismRate: 0.5
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -1
+          groups:
+            Toxin: -6
       - !type:ChemCleanBloodstream
-        cleanseRate: 1
+        cleanseRate: 6 # POWERFUL cleansing effect
       - !type:HealthChange
         damage:
           groups:
-            Brute: 0.1
+            Brute: 0.5 # increased overtime brute to compensate for buff
         conditions:
         - !type:OrganType
           type: Yowie
@@ -412,9 +416,9 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -24
-            Blunt: -24
-            Piercing: -24
+            Slash: -30
+            Piercing: -30
+            Blunt: -30
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3
@@ -459,14 +463,6 @@
         damage:
           groups:
             Brute: -1 # intentionally slow
-      - !type:HealthChange
-        damage:
-          types:
-            Radiation: 0.05 # very slight side effect
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
