@@ -305,17 +305,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             args.ModifySpeed(1f, 1f);
     }
 
-    // TODO nuke this in the future and have this handled by systems for each relevant ability, like biomass does
-    public readonly ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
-    private void OnChemicalRegen(Entity<ChangelingIdentityComponent> ent, ref InternalResourcesRegenModifierEvent args)
-    {
-        if (args.Data.InternalResourcesType != ResourceType)
-            return;
-
-        if (ent.Comp.ChameleonActive)
-            args.Modifier -= 0.25f;
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
