@@ -21,12 +21,14 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract partial class SharedChangelingStasisSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly MobThresholdSystem _mob = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
@@ -97,6 +99,8 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
             EnterStasis(ent);
         else
             ExitStasis(ent);
+
+        args.Handled = true;
     }
 
     private void OnMobStateChange(Entity<ChangelingStasisComponent> ent, ref MobStateChangedEvent args)
@@ -171,9 +175,10 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
         SetPreventGhosting(ent, true); // prevent ghosting
 
-        // set the cooldown and change icon state
+        // set the action cooldown and change toggle state
         _actions.SetToggled(ent.Comp.ActionEnt, true);
-        _actions.SetCooldown(ent.Comp.ActionEnt, ent.Comp.StasisTime);
+        _actions.SetUseDelay(ent.Comp.ActionEnt, ent.Comp.StasisTime);
+        _actions.StartUseDelay(ent.Comp.ActionEnt);
 
         Dirty(ent);
     }
@@ -219,8 +224,9 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
         ent.Comp.IsInStasis = false;
 
-        // change icon state back
+        // change action cooldown and toggle state back
         _actions.SetToggled(ent.Comp.ActionEnt, false);
+        _actions.SetUseDelay(ent.Comp.ActionEnt, TimeSpan.FromSeconds(0));
 
         Dirty(ent);
     }

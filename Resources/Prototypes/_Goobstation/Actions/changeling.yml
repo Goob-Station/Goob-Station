@@ -34,7 +34,8 @@
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# abilities
+
+## abilities
 
 # starting
 - type: entity
@@ -52,6 +53,7 @@
   - type: InstantAction
     event: !type:OpenEvolutionMenuEvent {}
   - type: ChangelingAction
+    useOnFire: true
     useInLesserForm: true
     useInLastResort: true
 
@@ -77,8 +79,10 @@
     canTargetSelf: false
     event: !type:AbsorbDNAEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
     useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
 
 - type: entity
   parent: BaseAction
@@ -102,8 +106,10 @@
     canTargetSelf: false
     event: !type:StingExtractDNAEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
     useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
 
 - type: entity
   parent: BaseAction
@@ -121,6 +127,7 @@
   - type: InstantAction
     event: !type:ChangelingTransformCycleEvent {}
   - type: ChangelingAction
+    useOnFire: true
     useInLesserForm: true
 
 - type: entity
@@ -140,8 +147,10 @@
   - type: InstantAction
     event: !type:ChangelingTransformEvent {}
   - type: ChangelingAction
-    chemicalCost: 5
     useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 5
 
 - type: entity
   parent: BaseAction
@@ -163,8 +172,11 @@
   - type: InstantAction
     event: !type:ChangelingStasisEvent {}
   - type: ChangelingAction
+    useOnFire: true
     useInLesserForm: true
-    useInLastResort: false
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
 
 - type: entity
   parent: BaseAction
@@ -174,9 +186,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 1
     checkCanInteract: false
-    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -184,8 +194,9 @@
   - type: InstantAction
     event: !type:ChangelingRegenerateEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
-    useInLastResort: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
 
 # combat
 - type: entity
@@ -204,7 +215,9 @@
   - type: InstantAction
     event: !type:ToggleArmbladeEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
 
 - type: entity
   parent: BaseAction
@@ -222,7 +235,9 @@
   - type: InstantAction
     event: !type:ToggleArmHammerEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
 
 - type: entity
   parent: BaseAction
@@ -240,7 +255,9 @@
   - type: InstantAction
     event: !type:ToggleArmClawEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
 
 - type: entity
   parent: BaseAction
@@ -258,7 +275,9 @@
   - type: InstantAction
     event: !type:ToggleDartGunEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
 
 - type: entity
   parent: BaseAction
@@ -276,7 +295,9 @@
   - type: InstantAction
     event: !type:CreateBoneShardEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
 
 - type: entity
   parent: BaseAction
@@ -294,8 +315,10 @@
   - type: InstantAction
     event: !type:ToggleChitinousArmorEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
     requireAbsorbed: 2
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
 
 - type: entity
   parent: BaseAction
@@ -313,8 +336,10 @@
   - type: InstantAction
     event: !type:ToggleOrganicShieldEvent {}
   - type: ChangelingAction
-    chemicalCost: 20
     requireAbsorbed: 1
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 20
 
 - type: entity
   parent: BaseAction
@@ -333,9 +358,12 @@
   - type: InstantAction
     event: !type:ShriekDissonantEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    useOnFire: true
     useInLesserForm: true
     requireAbsorbed: 1
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
@@ -354,9 +382,12 @@
   - type: InstantAction
     event: !type:ShriekResonantEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    useOnFire: true
     useInLesserForm: true
     requireAbsorbed: 1
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
@@ -375,7 +406,7 @@
   - type: InstantAction
     event: !type:ToggleStrainedMusclesEvent {}
   - type: ChangelingAction
-    chemicalCost: 0
+    useOnFire: true
     useInLesserForm: true
 
 # stings
@@ -401,11 +432,13 @@
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 20
     useInLesserForm: true
   - type: ChangelingReagentSting
     configuration: StingBlind
     dartGunAmmo: StingBlind
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
 
 - type: entity
   parent: BaseAction
@@ -429,11 +462,13 @@
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 20
     useInLesserForm: true
   - type: ChangelingReagentSting
     configuration: StingCryo
     dartGunAmmo: StingCryo
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
 
 - type: entity
   parent: BaseAction
@@ -457,11 +492,13 @@
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
     useInLesserForm: true
   - type: ChangelingReagentSting
     configuration: StingLethargic
     dartGunAmmo: StingLethargic
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
@@ -485,11 +522,13 @@
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 20
     useInLesserForm: true
   - type: ChangelingReagentSting
     configuration: StingMute
     dartGunAmmo: StingMute
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
 
 - type: entity
   parent: BaseAction
@@ -513,8 +552,10 @@
     canTargetSelf: false
     event: !type:StingFakeArmbladeEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
     useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
@@ -538,8 +579,10 @@
     canTargetSelf: false
     event: !type:StingTransformEvent {}
   - type: ChangelingAction
-    chemicalCost: 75
     useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 75
 
 - type: entity
   parent: BaseAction
@@ -562,7 +605,6 @@
     canTargetSelf: false
     event: !type:StingLayEggsEvent {}
   - type: ChangelingAction
-    chemicalCost: 0
     useInLastResort: true
 
 # utility
@@ -584,8 +626,10 @@
   - type: InstantAction
     event: !type:ActionAnatomicPanaceaEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
     useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
@@ -603,6 +647,10 @@
       state: augmented_eyesight
   - type: InstantAction
     event: !type:ToggleThermalVisionEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+    useInLastResort: true
 
 - type: entity
   parent: BaseAction
@@ -622,7 +670,10 @@
   - type: InstantAction
     event: !type:ActionBiodegradeEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    useOnFire: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
@@ -642,7 +693,9 @@
   - type: InstantAction
     event: !type:ActionChameleonSkinEvent {}
   - type: ChangelingAction
-    chemicalCost: 20
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
 
 - type: entity
   parent: BaseAction
@@ -662,8 +715,11 @@
   - type: InstantAction
     event: !type:ActionAdrenalineReservesEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    useOnFire: true
     useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
@@ -683,8 +739,10 @@
   - type: InstantAction
     event: !type:ActionFleshmendEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
     useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 35
 
 - type: entity
   parent: BaseAction
@@ -705,9 +763,12 @@
   - type: InstantAction
     event: !type:ActionLastResortEvent {}
   - type: ChangelingAction
-    chemicalCost: 20
+    useOnFire: true
     useInLesserForm: true
     requireAbsorbed: 1
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 20
 
 - type: entity
   parent: BaseAction
@@ -726,7 +787,9 @@
   - type: InstantAction
     event: !type:ActionLesserFormEvent {}
   - type: ChangelingAction
-    chemicalCost: 20
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 20
 
 - type: entity
   parent: BaseAction
@@ -745,7 +808,7 @@
   - type: InstantAction
     event: !type:ActionHivemindAccessEvent {}
   - type: ChangelingAction
-    chemicalCost: 0
+    useOnFire: true
     useInLesserForm: true
 
 - type: entity
@@ -769,6 +832,5 @@
     canTargetSelf: false
     event: !type:AbsorbBiomatterEvent {}
   - type: ChangelingAction
-    chemicalCost: 0
     useInLesserForm: true
     useInLastResort: true

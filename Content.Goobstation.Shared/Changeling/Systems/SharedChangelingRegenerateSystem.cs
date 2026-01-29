@@ -70,6 +70,8 @@ public abstract partial class SharedChangelingRegenerateSystem : EntitySystem
             _audio.PlayPredicted(ent.Comp.RegenSound, ent, ent);
 
         _popup.PopupClient(Loc.GetString(missingLimbs ? ent.Comp.LimbRegenPopup : ent.Comp.RegenPopup), ent, ent);
+
+        args.Handled = true;
     }
 
     protected virtual void RegenerateChangelingBody(Entity<ChangelingRegenerateComponent> ent, BodyComponent bodyComp)
