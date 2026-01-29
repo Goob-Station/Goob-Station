@@ -1,0 +1,38 @@
+# Root selector
+- type: megafaunaSelector
+  id: Banana
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: BananaActions
+
+# Actions
+- type: megafaunaSelector
+  id: BananaActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionDemonicHandSpiralSelector
+    - id: ActionOniRampageSelector
+
+- type: megafaunaSelector
+  id: ActionDemonicHandSpiralSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: true
+    actionId: ActionDemonicHandSpiral
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionDemonicHandSpiral
+
+- type: megafaunaSelector
+  id: ActionOniRampageSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: true
+    actionId: ActionOniRampage
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionOniRampage
+

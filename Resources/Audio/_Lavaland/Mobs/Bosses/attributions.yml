@@ -53,3 +53,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by Bolgarich"
   source: "https://www.youtube.com/watch?v=SRbHDwLaGKY"
+
+- files: ["childishoni.ogg"]
+  license: "Custom"
+  copyright: "Made by Sonican"
+  source: "https://pixabay.com/music/upbeat-action-fight-239712/"

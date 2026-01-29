@@ -1,0 +1,101 @@
+- type: entity
+  id: MobChildishOni
+  name: Childish oni
+  description: The oni of the demonic capital.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.6,0.35,0.6"
+        density: 10000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/banana.rsi
+    noRot: true
+    state: childish-oni
+  - type: Clickable
+  - type: InteractionOutline
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: LagCompensation
+  - type: MobMover
+  - type: Actions
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: RequireProjectileTarget
+    active: False
+  - type: CombatMode
+  - type: MobState
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant # Should use a more generic name, Rounded. This works for all bosses tbh
+  - type: NoSlip
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2000: Dead
+  - type: Tag
+    tags:
+    - CannotSuicide
+  # Actual boss from here
+  - type: ActionGrant
+    actions:
+    - ActionDemonicHandSpiral
+    - ActionOniRampage
+  - type: Fauna
+  - type: Anger
+    totalHp: 2000
+  - type: Aggressive
+    forgiveRange: 25
+  - type: MobPhases
+    phaseThresholds:
+      0:    1
+      1000: 2
+      1500: 3
+  - type: BossMusic
+    soundId: ChildishOni
+  - type: SpawnLootOnDeath
+    table: !type:AllSelector
+      children:
+      - id: LavalandHierophantClub
+    deleteOnDeath: true
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: Banana
+  - type: AngerPlayerScaling
+    angerScale: 1.3
+    hpScale: 1.2
+  - type: MegafaunaFieldGenerator
+    wallId: WallMagma
+    wallShape: !type:NestedEntityShape
+      id: BoxHollow
+      size: 15 # Radius of the arena
+  - type: OniRampage
+    landDamageRange: 1
+    shouldSpeak: true
+    damage:
+      types:
+        Blunt: 1
+        Heat: 1
+  - type: MegafaunaAnchor
+  - type: MegafaunaGodmode
+  - type: MegafaunaRejuvenate
