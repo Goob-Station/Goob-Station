@@ -14,6 +14,16 @@
         {
             "name": "shadowkin_medium",
             "directions": 4
+        },
+        {
+            "name": "shadowkin_shorter_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
+        },
+        {
+            "name": "shadowkin_medium_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
         }
     ]
 }

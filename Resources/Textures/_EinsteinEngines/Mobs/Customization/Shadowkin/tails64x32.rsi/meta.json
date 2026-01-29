@@ -18,6 +18,21 @@
         {
             "name": "shadowkin_big_fluff",
             "directions": 4
+        },
+        {
+            "name": "shadowkin_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
+        },
+        {
+            "name": "shadowkin_big_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
+        },
+        {
+            "name": "shadowkin_big_fluff_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
         }
     ]
 }
