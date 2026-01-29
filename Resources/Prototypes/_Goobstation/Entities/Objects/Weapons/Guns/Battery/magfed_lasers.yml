@@ -68,6 +68,7 @@
   description: A burst-fire laser sniper rifle that retains its power across extreme distances. Fitted with a standard magnifying scope. Takes sniper power cells.
   components:
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
     size: Huge
     shape:
     - 0,0,6,1
@@ -90,7 +91,7 @@
           tags:
           - MilitaryPowerCellSniper
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper_icon_48x.rsi
     layers:
     - state: icon
       visible: false
@@ -209,7 +210,7 @@
   description: An unwieldy laser LMG that draws power from its dedicated backpack storage rig. The compromises taken to allow for its overwhelming firerate and onboard cooling system make it both heavy and inaccurate.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg_icon_48x.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -217,6 +218,7 @@
       shader: unshaded
       map: ["enum.GunVisualLayers.BaseUnshaded"]
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
     size: Huge
     shape:
     - 0,0,4,3
