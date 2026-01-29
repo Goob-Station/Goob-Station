@@ -95,13 +95,9 @@
   name: inquisitor armour
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingHeadHatHelmetInquisitor
-    - ClothingOuterArmorInquisitor
-    - ClothingNeckCloakInquisitor
   - type: SpawnTableOnDespawn
     table: !type:AllSelector
       children:
-      - id: ClothingOuterArmorBishop
-      - id: ClothingHeadHatHelmetBishop
+      - id: ClothingHeadHatHelmetInquisitor
+      - id: ClothingOuterArmorInquisitor
+      - id: ClothingNeckCloakInquisitor
