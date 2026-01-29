@@ -59,16 +59,15 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
             _stun.TrySlowdown(targetUid, TimeSpan.FromSeconds(comp.SlowDuration), true, comp.SlowMultiplier, comp.SlowMultiplier);
 
-            // Show popup to the victim
+            // Show popup to the victim only
             if (_net.IsServer)
                 _popup.PopupEntity(Loc.GetString("slasher-staggerarea-victim"), targetUid, targetUid, PopupType.MediumCaution);
         }
 
         _audio.PlayPredicted(comp.StaggerSound, uid, uid);
 
-        // Show popup to the user
-        if (_net.IsServer)
-            _popup.PopupEntity(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
+        // Show popup to the slasher only
+        _popup.PopupClient(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
 
         args.Handled = true;
     }

@@ -125,7 +125,10 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         }
 
         // check if target is downed, incapacitated, or dead
-        if (!CanStartSoulSteal(target))
+        if (!_mobState.IsCritical(target)
+            && !_mobState.IsIncapacitated(target)
+            && !_standing.IsDown(target)
+            && !_mobState.IsDead(target))
         {
             _popup.PopupEntity(Loc.GetString("slasher-soulsteal-fail-not-down"), user, user);
             args.Handled = true;
@@ -153,15 +156,6 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         // Popup for victim only
         _popup.PopupEntity(Loc.GetString("slasher-soulsteal-start-victim", ("user", user)), target, target, PopupType.MediumCaution);
         args.Handled = true;
-    }
-
-    // Checks to ensure our target is valid (alive & not downed, incapacitated, or dead)
-    private bool CanStartSoulSteal(EntityUid target)
-    {
-        return _mobState.IsCritical(target)
-               || _mobState.IsIncapacitated(target)
-               || _standing.IsDown(target)
-               || _mobState.IsDead(target);
     }
 
     /// <summary>
@@ -196,7 +190,6 @@ public sealed class SlasherSoulStealSystem : EntitySystem
 
         // Update absorb souls objective progress
         if (_mindSystem.TryGetMind(user, out var mindId, out var mind))
-        {
             foreach (var objUid in mind.Objectives)
             {
                 if (!TryComp<SlasherAbsorbSoulsConditionComponent>(objUid, out var absorbObj))
@@ -206,7 +199,6 @@ public sealed class SlasherSoulStealSystem : EntitySystem
                 Dirty(objUid, absorbObj);
                 break;
             }
-        }
 
         // Apply devil clause downside
         _devilContractSystem.AddRandomNegativeClauseSlasher(target);
@@ -218,9 +210,24 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         ApplyArmorBonus(user, armorBonus, comp);
         ApplyMacheteBonus(user, bruteBonus, comp);
 
-        // Check for ascendance at 15 total souls
         var totalSouls = comp.AliveSouls + comp.DeadSouls;
-        if (!comp.HasAscended && totalSouls >= comp.AscendanceSoulThreshold)
+
+        var specialUnlockHappened = false;
+
+        // Check for possession unlock at 10 souls
+        if (!comp.HasUnlockedPossession
+            && totalSouls >= comp.PossessionSoulThreshold)
+        {
+            comp.HasUnlockedPossession = true;
+            EnsureComp<SlasherPossessionComponent>(user);
+
+            _popup.PopupEntity(Loc.GetString("slasher-soulsteal-unlock-possession"), user, user, PopupType.LargeCaution);
+            specialUnlockHappened = true;
+        }
+
+        // Check for ascendance at 15 total souls
+        if (!comp.HasAscended
+            && totalSouls >= comp.AscendanceSoulThreshold)
         {
             comp.HasAscended = true;
 
@@ -253,14 +260,16 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         // Grant a soul for regenerate
         _regenerate.GrantSoul(user);
 
-        // Popup for user
-        _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success", ("target", target)), user, user, PopupType.LargeCaution);
+        // Popup for user only
+        if (!specialUnlockHappened)
+            _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success", ("target", target)), user, user, PopupType.LargeCaution);
+
         // Popup for victim only
         _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success-victim", ("user", user)), target, target, PopupType.LargeCaution);
         Dirty(user, comp);
     }
 
-    private void ApplyArmorBonus(EntityUid user, float percent, SlasherSoulStealComponent comp)
+    private static void ApplyArmorBonus(EntityUid user, float percent, SlasherSoulStealComponent comp)
     {
         if (percent <= 0f)
             return;
@@ -429,18 +438,16 @@ public sealed class SlasherSoulStealSystem : EntitySystem
 
             // For powered lights, 50/50 chance to either flicker or destroy the bulb
             if (TryComp<PoweredLightComponent>(entity, out var lightComp) && _random.Prob(0.5f))
-            {
                 // Destroy the light bulb
                 if (_light.TryDestroyBulb(entity, lightComp))
                     handled = true;
-            }
-            else
-            {
-                // Flicker the light via ghost boo event
-                var ev = new GhostBooEvent();
-                RaiseLocalEvent(entity, ev);
-                handled = ev.Handled;
-            }
+                else
+                {
+                    // Flicker the light via ghost boo event
+                    var ev = new GhostBooEvent();
+                    RaiseLocalEvent(entity, ev);
+                    handled = ev.Handled;
+                }
 
             if (handled)
                 flickerCounter++;

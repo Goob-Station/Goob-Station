@@ -15,6 +15,9 @@ using Content.Shared.Light.EntitySystems;
 using Content.Shared.Atmos;
 using Robust.Server.GameObjects;
 using Robust.Shared.Spawners;
+using Content.Server.Explosion.Components;
+using Robust.Shared.Physics.Events;
+using Content.Goobstation.Shared.Contraband;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -52,9 +55,11 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealCameraCheckEvent>(OnCameraCheck);
         SubscribeLocalEvent<SlasherIncorporealComponent, EventHorizonAttemptConsumeEntityEvent>(OnSingularityAttemptConsume);
         SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealEnteredEvent>(OnIncorporealEntered);
-
         SubscribeLocalEvent<SlasherIncorporealComponent, IgnitedEvent>(OnIgnited);
         SubscribeLocalEvent<SlasherIncorporealComponent, TileFireEvent>(OnTileFire);
+
+        SubscribeLocalEvent<TriggerOnProximityComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<ContrabandDetectorComponent, PreventCollideEvent>(OnContrabandDetectorPreventCollide);
     }
 
     private void OnCameraCheck(ref SlasherIncorporealCameraCheckEvent args)
@@ -92,9 +97,7 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
     {
         // Extinguish any fires on the slasher
         if (TryComp<FlammableComponent>(ent, out var flammable))
-        {
             _flammable.Extinguish(ent, flammable);
-        }
 
         DisableLightsInArea(ent);
     }
@@ -105,9 +108,7 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
 
         // Get all entities in range and disable their lights
         foreach (var light in _lookup.GetEntitiesInRange(mapCoords, ent.Comp.LightDisableRange))
-        {
             TryDisableLight(light);
-        }
     }
 
     private void TryDisableLight(EntityUid uid)
@@ -156,26 +157,28 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
 
     private void OnIgnited(EntityUid uid, SlasherIncorporealComponent comp, ref IgnitedEvent args)
     {
-        // If incorporeal, immediately extinguish any fire that was just applied
         if (comp.IsIncorporeal)
-        {
             if (TryComp<FlammableComponent>(uid, out var flammable))
-            {
                 _flammable.Extinguish(uid, flammable);
-            }
-        }
     }
 
     private void OnTileFire(EntityUid uid, SlasherIncorporealComponent comp, ref TileFireEvent args)
     {
-        // Prevent tile fires from adding fire stacks to incorporeal slashers
         if (comp.IsIncorporeal)
-        {
-            // Set firestacks to 0 if they were just modified
             if (TryComp<FlammableComponent>(uid, out var flammable) && flammable.FireStacks > 0)
-            {
                 _flammable.SetFireStacks(uid, 0, flammable);
-            }
-        }
+    }
+    private void OnPreventCollide(EntityUid uid, TriggerOnProximityComponent component, ref PreventCollideEvent args)
+    {
+        if (TryComp<SlasherIncorporealComponent>(args.OtherEntity, out var slasherComp) &&
+            slasherComp.IsIncorporeal)
+            args.Cancelled = true;
+    }
+
+    private void OnContrabandDetectorPreventCollide(EntityUid uid, ContrabandDetectorComponent component, ref PreventCollideEvent args)
+    {
+        if (TryComp<SlasherIncorporealComponent>(args.OtherEntity, out var slasherComp) &&
+            slasherComp.IsIncorporeal)
+            args.Cancelled = true;
     }
 }
