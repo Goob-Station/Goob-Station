@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -16,6 +17,9 @@ public sealed partial class DarknessAdaptionComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> AlertId = "DarknessAdaption";
+
+    [DataField]
+    public ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
 
     /// <summary>
     /// To save on performance (stops ShowAlert/ClearAlert from being called over and over)

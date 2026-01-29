@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Actions;
@@ -31,7 +32,7 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         SubscribeLocalEvent<DarknessAdaptionComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<DarknessAdaptionComponent, ActionDarknessAdaptionEvent>(OnToggleAbility);
-        //SubscribeLocalEvent<DarknessAdaptionComponent, ChangelingChemicalRegenEvent>(OnChangelingChemicalRegenEvent); soon tm
+        SubscribeLocalEvent<DarknessAdaptionComponent, InternalResourcesRegenModifierEvent>(OnChangelingChemicalRegenEvent);
 
         _nvgQuery = GetEntityQuery<NightVisionComponent>();
         _stealthOnMoveQuery = GetEntityQuery<StealthOnMoveComponent>();
@@ -81,14 +82,18 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
             EnsureComp<LightDetectionComponent>(ent);
 
         DoPopup(ent, popup);
+
+        args.Handled = true;
     }
 
-    //private void OnChangelingChemicalRegenEvent(Entity<DarknessAdaptionComponent> ent, ref ChangelingChemicalRegenEvent args) soon tm
-    //{
-    //    if (ent.Comp.Active
-    //        && ent.Comp.Adapting)
-    //        args.Modifier -= ent.Comp.ChemicalModifier;
-    //}
+    private void OnChangelingChemicalRegenEvent(Entity<DarknessAdaptionComponent> ent, ref InternalResourcesRegenModifierEvent args)
+    {
+        if (args.Data.InternalResourcesType != ent.Comp.ResourceType
+            || !ent.Comp.Adapting)
+            return;
+
+        args.Modifier -= ent.Comp.ChemicalModifier;
+    }
     #endregion
 
     #region Helper Methods
