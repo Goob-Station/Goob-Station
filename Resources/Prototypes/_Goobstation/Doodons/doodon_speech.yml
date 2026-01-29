@@ -1,0 +1,16 @@
+- type: speechSounds
+  id: Doodon
+  saySound:
+    collection: Doodon
+  askSound:
+    collection: DoodonQuestion
+  exclaimSound:
+    collection: DoodonExclaim
+    
+
+- type: speechVerb
+  id: Doodon
+  name: chat-speech-verb-name-doodon
+  speechVerbStrings:
+  - chat-speech-verb-doodon-1
+  - chat-speech-verb-doodon-2

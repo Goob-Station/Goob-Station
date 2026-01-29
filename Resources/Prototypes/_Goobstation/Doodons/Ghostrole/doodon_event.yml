@@ -1,0 +1,62 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostPapaDoodon
+  components:
+  - type: GhostRole
+    name: ghost-role-information-papa-doodon-name
+    description: ghost-role-information-papa-doodon-information
+    rules: ghost-role-information-papa-doodon-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    - MindRolePapaDoodon
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hours (match Slaughter Demon; tweak if you want)
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: papa
+    
+    
+- type: entity
+  parent: BaseGameRule
+  id: PapaDoodonMidround
+  components:
+  - type: AntagSelection
+    agentName: papa-doodon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostPapaDoodon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRolePapaDoodon
+      briefing:
+        text: papa-doodon-role-greeting
+        color: Green
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: PapaDoodon
+  - type: StationEvent
+    weight: 1
+    earliestStart: 25
+    minimumPlayers: 20
+    duration: null
+    maxOccurrences: 1
+    chaos:
+      Hostile: 40
+      Friend: 120
+      Medical: 40
+      Death: 20
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 450
+  - type: Tag
+    tags:
+    - MidroundAntag
+  - type: AntagObjectives
+    objectives:
+      - PapaKeepWorkersAliveObjective
+      - PapaBuildBuildingsObjective
