@@ -17,6 +17,7 @@
   id: ExperimentalScienceGoob
   recipes:
   - ExperimentalCircuitBoard
+  - NTCustomLawboard
 
 - type: latheRecipePack
   id: XenobioPack
@@ -26,5 +27,5 @@
 
 - type: latheRecipePack
   id: XenobagHoldingPack
-  recipes: 
+  recipes:
   - ClothingBeltChemBagXenobiologyHolding

@@ -32,3 +32,24 @@
     key: enum.CustomLawboardUiKey.Key
   - type: StaticPrice
     price: 10000
+
+- type: entity
+  id: NTCustomLawboard
+  parent: [BaseElectronics, BaseCommandContraband]
+  name: freeform law board
+  description: A freeform lawboard, accepts any custom laws.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/CustomLawboard/custom_lawboard_NT.rsi
+    state: icon
+  - type: SiliconLawProvider
+  - type: UserInterface
+    interfaces:
+      enum.CustomLawboardUiKey.Key:
+        type: CustomLawboardBoundInterface
+  - type: CustomLawboard
+  - type: ActivatableUI
+    inHandsOnly: false
+    key: enum.CustomLawboardUiKey.Key
+  - type: StaticPrice
+    price: 10000
