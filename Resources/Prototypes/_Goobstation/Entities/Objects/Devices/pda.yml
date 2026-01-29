@@ -355,3 +355,33 @@
   components:
   - type: Pda
     id: RadioHostIDCard
+
+- type: entity
+  parent: CentcomPDA
+  id: OuterCommandPDA
+  name: outer command PDA
+  description: Purple pda for outer command members.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-outcom
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-outcom
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-outcom"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: OuterCommandIDCard
