@@ -184,6 +184,7 @@
         Heat: 0
     heatDamageThreshold: 666
     coldDamageThreshold: 66
+  - type: SyringeEmbedImmunity
 
 # laughter demon
 - type: entity

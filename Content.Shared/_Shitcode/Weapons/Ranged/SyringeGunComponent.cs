@@ -27,4 +27,10 @@ public sealed partial class SyringeGunComponent : Component
     /// </summary>
     [DataField]
     public float InjectionSpeedMultiplier = 1f;
+
+    /// <summary>
+    ///     If true, fired syringes can bypass SyringeEmbedImmunity on entities with IsPenetrable set to true.
+    /// </summary>
+    [DataField]
+    public bool AffectsImmune = false;
 }

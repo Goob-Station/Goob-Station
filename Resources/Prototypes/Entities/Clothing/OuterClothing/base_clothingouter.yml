@@ -360,10 +360,12 @@
       path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
       params:
         volume: -4
-  # Goobstation edit end
-  - type: HideClothingLayerClothing # Goobstation
+  - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+  - type: SyringeEmbedImmunity
+    isPenetrable: True
+    # Goobstation edit end
 
 - type: entity
   abstract: true
