@@ -15,6 +15,7 @@ construction-graph-tag-blue = makeshift shield
 construction-graph-tag-budget-insuls = budget insuls
 construction-graph-tag-nun-hood = nun hood
 construction-graph-tag-toolbox = toolbox
+construction-graph-tag-plushie-carp = carp plushie
 construction-graph-tag-contraband-detector-circuitboard = contraband detector electronics
 construction-graph-tag-clarke-central-control-module = clarke central control module
 construction-graph-tag-clarke-peripherals-control-module = clarke peripherals control module
