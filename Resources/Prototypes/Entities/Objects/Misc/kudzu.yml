@@ -114,7 +114,7 @@
     - type: AtmosExposed
     - type: Kudzu
       growthTickChance: 0.3
-      spreadChance: 0.2
+      spreadChance: 0.2 #goob
     - type: SpeedModifierContacts
       walkSpeedModifier: 0.2
       sprintSpeedModifier: 0.2
@@ -140,7 +140,7 @@
   suffix: Weak
   components:
     - type: Kudzu
-      spreadChance: 0.1
+      spreadChance: 0.1 #goob
 
 - type: entity
   id: KudzuFlowerFriendly
@@ -184,7 +184,7 @@
   parent: KudzuFlowerFriendly
   components:
     - type: Kudzu
-      spreadChance: 0.1
+      spreadChance: 0.1 #goob
     - type: RandomSpawner
       chance: 0.05
       rarePrototypes:
@@ -244,7 +244,7 @@
         - Flesh
     - type: Kudzu
       growthTickChance: 0.1
-      spreadChance: 0.2
+      spreadChance: 0.2 #goob
       # Heals each time it manages to do a growth tick:
       damageRecovery:
         types:
@@ -313,7 +313,7 @@
         map: [base]
     - type: Kudzu
       growthTickChance: 0.2
-      spreadChance: 0.99
+      spreadChance: 0.4 #Goob, i lowkirkenely hate sci
     - type: RandomSpawner
       deleteSpawnerAfterSpawn: false
       rareChance: 0.05
