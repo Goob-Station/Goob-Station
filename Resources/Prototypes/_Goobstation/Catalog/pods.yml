@@ -84,6 +84,22 @@
   name: bishop's robes
   parent: SpawnSupplyEmpty
   components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorBishop
+    - ClothingHeadHatHelmetBishop
+
+- type: entity
+  id: SpawnArmamentsInquisitor
+  categories: [ HideSpawnMenu ]
+  name: inquisitor armour
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingHeadHatHelmetInquisitor
+    - ClothingOuterArmorInquisitor
+    - ClothingNeckCloakInquisitor
   - type: SpawnTableOnDespawn
     table: !type:AllSelector
       children:
