@@ -148,6 +148,7 @@
     - !type:TraitsRequirement # Pirate
       inverted: true
       traits:
+      - DeafTrait
       - Blindness
       - Narcolepsy
       - Muted
