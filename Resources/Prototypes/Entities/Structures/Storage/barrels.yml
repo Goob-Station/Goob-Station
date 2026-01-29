@@ -62,7 +62,6 @@
     state: radbarrel
   - type: RadiationSource
     intensity: 1.0
-    slope: 0.25
 
 - type: entityTable
   id: RandomChemicalBarrel

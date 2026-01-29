@@ -1,0 +1,92 @@
+- type: reagent
+  id: Methanol
+  name: reagent-name-methanol
+  group: Pyrotechnic
+  desc: reagent-desc-methanol
+  physicalDesc: reagent-physical-desc-pungent
+  color: "#c4f5ff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # methanol is bad for your health
+            Poison: 3
+
+- type: reagent
+  id: Hexamine
+  name: reagent-name-hexamine
+  group: Pyrotechnic
+  desc: reagent-desc-hexamine
+  flavor: sweet
+  physicalDesc: reagent-physical-desc-crystalline
+# we havent upstreamed yet contrabandSeverity: Major # not explosive, but it's only use is for explosives
+  color: white
+
+- type: reagent
+  id: Cyclonite
+  name: reagent-name-cyclonite
+  group: Pyrotechnic
+  desc: reagent-desc-cyclonite
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-crystalline
+#contrabandSeverity: Major # you probably aren't making this or the other explosives with permission from HOS
+  color: "#e0c009"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # do not eat C4
+            Poison: 3
+
+- type: reagent
+  id: AmmoniumNitrateFuelOil
+  name: reagent-name-ammonium-nitrate-fuel-oil
+  group: Pyrotechnic
+  desc: reagent-desc-ammonium-nitrate-fuel-oil
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-odorless
+#  contrabandSeverity: Major
+  color: white
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # Oil is not good
+            Poison: 1
+
+- type: reagent
+  id: Octogen
+  name: reagent-name-octogen
+  group: Pyrotechnic
+  desc: reagent-desc-octogen
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-crystalline
+#contrabandSeverity: Major
+  color: white
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # do not eat C4's bigger brother
+            Poison: 2
