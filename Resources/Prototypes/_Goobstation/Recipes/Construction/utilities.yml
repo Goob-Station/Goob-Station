@@ -41,3 +41,14 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
+
+- type: construction
+  id: FloorDrain
+  graph: FloorDrainGraph
+  targetNode: FloorDrainNode
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+

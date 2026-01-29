@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: FloorDrainGraph
+  graph:
+  - node: start
+    actions:
+    - !type:DeleteEntity
+    edges:
+    - to: FloorDrainNode
+      completed:
+      - !type:SnapToGrid
+      steps:
+      - material: MetalRod
+        amount: 30
+        doAfter: 10
+      - material: Steel
+        amount: 15
+        doAfter: 5
+  - node: FloorDrainNode
+    entity: FloorDrain
+    edges:
+    - to: start
+      steps:
+      - tool: Cutting
+        doAfter: 5
+      - tool: Welding
+        doAfter: 10
