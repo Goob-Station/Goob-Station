@@ -73,6 +73,8 @@
   id: AlertChangelingBiomassSpriteView
   categories: [ HideSpawnMenu ]
   components:
+  - type: ValueRelatedAlert
+    maxSeverity: 16
   - type: Sprite
     sprite: /Textures/_Goobstation/Changeling/changeling_biomass.rsi
     layers:
