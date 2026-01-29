@@ -20774,3 +20774,27 @@ Entries:
       message: Radiation enters terminal decay past 15 tiles.
   id: 2349
   time: '2026-01-28T23:00:27.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added Shaft Miner's SOP (it's almost the same as Salvage Specialist
+        SOP).
+    - type: Tweak
+      message: >-
+        Salvage specialist's SOP was updated, they mustn't take locker equipment
+        from Shaft Miners (and vice versa)
+    - type: Tweak
+      message: Mining shuttle now travels much faster.
+    - type: Tweak
+      message: All crushers can now break rocks.
+    - type: Fix
+      message: Fixed lavaland watchers dropping wrong wing types when butchered.
+    - type: Fix
+      message: Fixed wielded kinetic hammer sprite.
+    - type: Fix
+      message: >-
+        Fixed pressure buffs not applying to wielded damage. (This makes
+        crushers stronger in low pressure)
+  id: 2350
+  time: '2026-01-29T01:15:33.0000000+00:00'
