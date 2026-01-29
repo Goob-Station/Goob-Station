@@ -20810,3 +20810,11 @@ Entries:
       message: Now organs can be stored in SmartFridge
   id: 2352
   time: '2026-01-29T06:47:51.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Nerfed bag of holding storage sized by slightly over half. 200 > 90
+        inventory slots, it wont take up half your screen now, at least.
+  id: 2353
+  time: '2026-01-29T06:52:57.0000000+00:00'
