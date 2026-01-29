@@ -1661,3 +1661,19 @@
   - !type:BuyerJobCondition
     whitelist:
     - RadioHost
+
+- type: listing
+  id: UplinkBoxXenobio
+  name: uplink-box-xenobio-name
+  description: uplink-box-xenobio-desc
+  icon: { sprite: _Goobstation/Objects/Misc/syndiecubes.rsi, state: box }
+  productEntity: SlimeCubeBoxSyndie
+  cost:
+    Telecrystal: 250
+  categories:
+    - UplinkDisruption
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
