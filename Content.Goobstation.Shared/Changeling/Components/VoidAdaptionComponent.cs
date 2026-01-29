@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -12,6 +13,9 @@ public sealed partial class VoidAdaptionComponent : Component
 {
     [DataField]
     public ProtoId<AlertPrototype> Alert = "VoidAdaption";
+
+    [DataField]
+    public ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
 
     [DataField, AutoNetworkedField]
     public bool FirePopupSent;
@@ -34,5 +38,4 @@ public sealed partial class VoidAdaptionComponent : Component
 
     [DataField, AutoNetworkedField]
     public float ChemModifierValue = 0.25f;
-
 }

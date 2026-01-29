@@ -31,6 +31,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Projectiles;
+using Content.Shared.Wieldable;
 
 namespace Content.Server._Lavaland.Pressure;
 
@@ -44,7 +45,7 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PressureDamageChangeComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<PressureDamageChangeComponent, GetMeleeDamageEvent>(OnGetDamage);
+        SubscribeLocalEvent<PressureDamageChangeComponent, GetMeleeDamageEvent>(OnGetDamage, after: new []{typeof(SharedWieldableSystem)});
         SubscribeLocalEvent<PressureDamageChangeComponent, GunShotEvent>(OnGunShot);
         SubscribeLocalEvent<PressureDamageChangeComponent, ProjectileShotEvent>(OnProjectileShot);
 
