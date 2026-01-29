@@ -910,8 +910,8 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
+        Blunt: 0.5 #goob, was 0.45
+        Slash: 0.5 #goob, was 0.45
         Piercing: 0.45
         Heat: 0.45
         Radiation: 0.45
@@ -1039,8 +1039,8 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35
+        Blunt: 0.45 #goob, was 0.35
+        Slash: 0.45 #ditto
         Piercing: 0.3
         Heat: 0.45
         Radiation: 0.2
@@ -1088,8 +1088,8 @@
       NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.2
-        Slash: 0.2
+        Blunt: 0.3 #goob, was 0.2, wont reallly matter but slight niche tweak
+        Slash: 0.3 #goob, was 0.2
         Piercing: 0.2
         Heat: 0.2
         Radiation: 0.2

@@ -61,8 +61,8 @@
     - Groin
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
+        Blunt: 0.55 #goob, was 0.4, elite web vest niche
+        Slash: 0.55 #goob, was 0.4
         Piercing: 0.2
         Heat: 0.8
   - type: ExplosionResistance
