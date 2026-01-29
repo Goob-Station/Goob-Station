@@ -23,7 +23,7 @@ public sealed partial class DevilComponent : Component
     {
         "ActionCreateContract",
         "ActionShadowJaunt",
-        "ActionDevilGrip",
+        "ActionDevilOpenShop"
     };
 
     [DataField]
@@ -92,6 +92,19 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan ParalyzeDurationOnTrueName = TimeSpan.FromSeconds(4);
+
+    /// <summary>
+    /// How many times the Devil has already been exorcised.
+    /// </summary>
+    [DataField]
+    public int TimesExorcised = 0;
+
+    /// <summary>
+    /// How many times the Devil can exorcised before the next time is permanent.
+    /// </summary>
+    [DataField]
+    public const int MaxBanishedBeforePermanent = 2;
+
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? DevilGrip;

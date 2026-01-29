@@ -330,7 +330,17 @@ public sealed partial class DevilContractSystem : EntitySystem
             var targetKey = match.Groups["target"].Value.Trim().ToLowerInvariant().Replace(" ", "");
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
+            //var locId = _targetResolvers.Keys.FirstOrDefault(id => Loc.GetString(id).Equals(targetKey, StringComparison.OrdinalIgnoreCase));
+            //var resolver = _targetResolvers[locId];
+
             var locId = _targetResolvers.Keys.FirstOrDefault(id => Loc.GetString(id).Equals(targetKey, StringComparison.OrdinalIgnoreCase));
+
+            if (locId == "devil-contract-contractor")
+            {
+                _sawmill.Info($"Skipping clause {clauseKey} because it targets the contractor.");
+                continue;
+            }
+
             var resolver = _targetResolvers[locId];
 
             if (resolver(contract.Comp) == null)

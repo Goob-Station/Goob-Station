@@ -30,6 +30,11 @@
   displayName: store-currency-display-wizcoin
   canWithdraw: false
 
+- type: currency
+  id: SoulsStored
+  displayName: store-currency-display-soulpoints
+  canWithdraw: false
+
 #debug
 - type: currency
   id: DebugDollar
