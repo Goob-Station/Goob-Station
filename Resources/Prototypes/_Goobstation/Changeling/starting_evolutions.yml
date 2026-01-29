@@ -5,15 +5,15 @@
 - type: changelingStartingEvolution
   id: DefaultChangeling
   components:
-    - type: ChangelingIdentity
-    - type: ChangelingChemical
-    ## todo - handle starting currency here rather than in changelingrulesystem (??)
+  - type: ChangelingIdentity
+  - type: ChangelingChemical
+  ## todo - handle starting currency here rather than in changelingrulesystem (??)
 
 ## unused for now
 - type: changelingStartingEvolution
   id: MeteorChangeling # Those Who Know
   components:
-    - type: ChangelingIdentity
-    - type: ChangelingChemical
-    - type: VoidAdaption
-    ## todo: component that has all of the changeling arms (this will start with an armblade)
+  - type: ChangelingIdentity
+  - type: ChangelingChemical
+  - type: VoidAdaption
+  ## todo: component that has all of the changeling arms (this will start with an armblade)

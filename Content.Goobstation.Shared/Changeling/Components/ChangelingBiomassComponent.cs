@@ -22,7 +22,7 @@ public sealed partial class ChangelingBiomassComponent : Component
     /// The InternalResourcesData of the prototype.
     /// </summary>
     [DataField]
-    public InternalResourcesData? ResourceData = new();
+    public InternalResourcesData? ResourceData;
 
     /// <summary>
     /// The ProtoID of the changeling chemicals.
