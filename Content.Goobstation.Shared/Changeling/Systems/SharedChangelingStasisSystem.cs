@@ -21,14 +21,12 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract partial class SharedChangelingStasisSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly MobThresholdSystem _mob = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
@@ -135,10 +133,8 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
     #region Helper Methods
     private void EnterStasis(Entity<ChangelingStasisComponent> ent)
     {
-        if (!_dmgQuery.TryComp(ent, out var dmgComp))
-            return;
-
-        if (ent.Comp.IsInStasis)
+        if (ent.Comp.IsInStasis
+            || !_dmgQuery.TryComp(ent, out var dmgComp))
             return;
 
         if (_absorbQuery.HasComp(ent))
@@ -185,10 +181,8 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
     private void ExitStasis(Entity<ChangelingStasisComponent> ent, bool heal = true)
     {
-        if (!_dmgQuery.TryComp(ent, out var dmgComp))
-            return;
-
-        if (!ent.Comp.IsInStasis)
+        if (!ent.Comp.IsInStasis
+            || !_dmgQuery.TryComp(ent, out var dmgComp))
             return;
 
         if (_absorbQuery.HasComp(ent))
