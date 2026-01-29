@@ -475,7 +475,7 @@
   id: UplinkWeaponHE1SG8
   name: uplink-he1sg8-bundle-name
   description: uplink-he1sg8-bundle-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi, state: base }
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate_icon_48x.rsi, state: base }
   productEntity: ClothingBackpackDuffelSyndicateFilledHE1SG8
   cost:
     Telecrystal: 130

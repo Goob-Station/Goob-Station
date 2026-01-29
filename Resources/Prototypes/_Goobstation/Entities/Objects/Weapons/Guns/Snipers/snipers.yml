@@ -11,7 +11,7 @@
   description: High Energy One-Shell rifle. On its side, "leading us on and on" is written using a cheap black marker. Takes Gauss-8 cartridges.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate_icon_48x.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -23,6 +23,7 @@
     - suitStorage
   - type: Appearance
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi
     size: Huge
     shape:
       - 0,0,8,2 # Comically large
