@@ -879,6 +879,8 @@
     - GrenadeTriggersStatic
     # Einstein Engines Packs
     - SyringeCase
+    # DeltaV Packs
+    - AACTablet
     dynamicPacks:
     - Chemistry
     # Goobstation Packs
