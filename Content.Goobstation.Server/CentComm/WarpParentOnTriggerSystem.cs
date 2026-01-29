@@ -1,6 +1,7 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Mind;
+using Content.Server.Popups;
 using Content.Server.Warps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -8,40 +9,46 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.CentComm;
-public sealed partial class BSOLifelineSystem : EntitySystem
+public sealed partial class WarpParentOnTriggerSystem : EntitySystem
 {
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BSOLifelineComponent, TriggerEvent>(OnTrigger);
+        SubscribeLocalEvent<WarpParentOnTriggerComponent, TriggerEvent>(OnTrigger);
     }
-
-    public void OnTrigger(Entity<BSOLifelineComponent> ent, ref TriggerEvent args)
+    public void OnTrigger(Entity<WarpParentOnTriggerComponent> ent, ref TriggerEvent args)
     {
-        WarpParent(ent);
+        if (!WarpParent(ent))
+        {
+            _popup.PopupEntity(Loc.GetString("lifeline-trigger-fail"), ent.Owner, PopupType.Medium);
+            EntityManager.QueueDeleteEntity(Transform(ent.Owner).ParentUid);
+            args.Handled = true;
+            return;
+        }
         args.Handled = true;
     }
 
-    private void WarpParent(Entity<BSOLifelineComponent> ent)
+    private bool WarpParent(Entity<WarpParentOnTriggerComponent> ent)
     {
         var location = FindWarpPoint(ent.Comp.WarpLocation);
 
         if (location == null)
-            return;
+            return false;
 
         var transform = Transform(ent.Owner);
-
         var parentUid = transform.ParentUid;
 
         if (parentUid == EntityUid.Invalid || !HasComp<MobStateComponent>(parentUid))
-            return;
+            return false;
 
         // Reset mind - can be considered if greentext is a concern
         if (_config.GetCVar(GoobCVars.LifeLineResetMind))
@@ -65,7 +72,9 @@ public sealed partial class BSOLifelineSystem : EntitySystem
         }
 
         QueueDel(ent.Owner);
+        return true;
     }
+
     private EntityUid? FindWarpPoint(string location)
     {
         var query = EntityQueryEnumerator<WarpPointComponent, TransformComponent>();
@@ -75,7 +84,6 @@ public sealed partial class BSOLifelineSystem : EntitySystem
             if (warp.Location == location)
                 return entity;
         }
-
         return null;
     }
 }

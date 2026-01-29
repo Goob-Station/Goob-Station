@@ -45,6 +45,8 @@
       shader: unshaded
   - type: SpawnOnDespawn
     prototype: Telecrystal1
+  - type: WarpParentOnTrigger
+    warpLocation: CentComm
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
