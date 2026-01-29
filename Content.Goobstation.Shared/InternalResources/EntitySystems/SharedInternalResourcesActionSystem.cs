@@ -5,6 +5,7 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.InternalResources.EntitySystems;
 
@@ -12,6 +13,7 @@ public sealed class SharedInternalResourcesActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedInternalResourcesSystem _internalResources = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
@@ -40,7 +42,8 @@ public sealed class SharedInternalResourcesActionSystem : EntitySystem
 
     private void OnActionPerformed(Entity<InternalResourcesActionComponent> action, ref ActionPerformedEvent args)
     {
-        if (!_internalResources.TryGetResourceType(args.Performer, action.Comp.ResourceProto, out var data))
+        if (!_timing.IsFirstTimePredicted
+            || !_internalResources.TryGetResourceType(args.Performer, action.Comp.ResourceProto, out var data))
             return;
 
         var toggled = Comp<ActionComponent>(action).Toggled;
