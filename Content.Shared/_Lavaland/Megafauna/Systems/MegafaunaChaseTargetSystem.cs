@@ -1,6 +1,8 @@
 using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Whitelist;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;
 
@@ -12,6 +14,7 @@ public sealed class MegafaunaChaseTargetSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Update(float frameTime)
     {
@@ -50,10 +53,16 @@ public sealed class MegafaunaChaseTargetSystem : EntitySystem
         if (chase.StopWhenNear && distance <= chase.StopDistance)
             return;
 
-        var direction = delta.Normalized();
-        var movement = direction * chase.MovementSpeed * frameTime;
+        // Magic number is just an offset for the rotation to follow Robust Toolbox directions.
+        _xform.SetWorldRotation(uid, delta.ToAngle() + Angle.FromDegrees(90));
 
-        _xform.SetWorldPosition(uid, ourPos + movement);
+        var direction = delta.Normalized();
+
+        _physics.SetLinearVelocity(uid, direction * chase.MovementSpeed);
+
+        // Outdated. Keeping for now just in case new way bugs out.
+        //var movement = direction * chase.MovementSpeed * frameTime;
+        //_xform.SetWorldPosition(uid, ourPos + movement);
     }
     private bool TryGetTarget(EntityUid owner, MegafaunaChaseTargetComponent chase, TransformComponent ownerXform, out EntityUid target)
     {

@@ -23,11 +23,7 @@
     state: childish-oni
   - type: Clickable
   - type: InteractionOutline
-  - type: InputMover
-  - type: Input
-    context: "human"
   - type: LagCompensation
-  - type: MobMover
   - type: Actions
   - type: Appearance
   - type: RotationVisuals
@@ -113,9 +109,9 @@
       components:
         - HumanoidAppearance
     chaseNow: true
-    movementSpeed: 3
-    stopDistance: 1
-    stopWhenNear: true
+    movementSpeed: 6
+    stopDistance: 2
+    stopWhenNear: false
   - type: MegafaunaAnchor
   - type: MegafaunaGodmode
   - type: MegafaunaRejuvenate
