@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "created by Cormorant",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "graphite_damaged_0"
+        },
+        {
+            "name": "graphite_damaged_0_mirrored"
+        },
+        {
+            "name": "graphite_damaged_1"
+        },
+        {
+            "name": "graphite_damaged_1_mirrored"
+        },
+        {
+            "name": "graphite_damaged_2"
+        },
+        {
+            "name": "graphite_damaged_2_mirrored"
+        },
+        {
+            "name": "graphite_damaged_3"
+        },
+        {
+            "name": "graphite_damaged_3_mirrored"
+        },
+        {
+            "name": "graphite_damaged_4"
+        },
+        {
+            "name": "graphite_damaged_4_mirrored"
+        }
+    ]
+}

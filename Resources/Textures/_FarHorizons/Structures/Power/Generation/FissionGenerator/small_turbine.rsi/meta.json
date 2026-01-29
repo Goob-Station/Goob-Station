@@ -1,0 +1,81 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/obj/large/96x160.dmi by Jhrushbe, modified by Cormorant",
+    "size": {
+        "x": 96,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "static"
+        },
+        {
+            "name": "turbine"
+        },
+        {
+            "name": "turbinebroken"
+        },
+        {
+            "name": "turbine_sparks"
+        },
+        {
+            "name": "turbine_smoke"
+        },
+        {
+            "name": "turbinerun",
+            "delays": [
+                [
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05
+                ]
+            ]
+        },
+        {
+            "name": "turbinerun_00"
+        },
+        {
+            "name": "turbinerun_01"
+        },
+        {
+            "name": "turbinerun_02"
+        },
+        {
+            "name": "turbinerun_03"
+        },
+        {
+            "name": "turbinerun_04"
+        },
+        {
+            "name": "turbinerun_05"
+        },
+        {
+            "name": "turbinerun_06"
+        },
+        {
+            "name": "turbinerun_07"
+        },
+        {
+            "name": "turbinerun_08"
+        },
+        {
+            "name": "turbinerun_09"
+        },
+        {
+            "name": "turbinerun_10"
+        },
+        {
+            "name": "turbinerun_11"
+        }
+    ]
+}

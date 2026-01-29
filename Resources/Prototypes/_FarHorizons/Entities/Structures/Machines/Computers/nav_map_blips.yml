@@ -1,0 +1,13 @@
+- type: navMapBlip
+  id: NuclearReactor
+  scale: 2.75
+  color: LightGray
+  texturePaths:
+  - "/Textures/Interface/NavMap/beveled_hexagon.png"
+
+- type: navMapBlip
+  id: GasTurbine
+  scale: 1.75
+  color: LightGray
+  texturePaths:
+  - "/Textures/Interface/NavMap/beveled_hexagon.png"

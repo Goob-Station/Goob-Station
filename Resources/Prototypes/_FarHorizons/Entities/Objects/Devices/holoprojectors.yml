@@ -1,0 +1,22 @@
+- type: entity
+  parent: Holoprojector
+  id: RadiationBlockingProjector
+  name: radiation barrier projector
+  description: Stop the deadly radiation from a delamination or meltdown, at least for a little while.
+  components:
+  - type: HolosignProjector
+    signProto: HolosignRadiationBlocking
+    chargeUse: 60
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Devices/Holoprojectors/radiation.rsi
+    state: icon
+  - type: Tag
+    tags:
+      - HolofanProjector
+  # - type: StaticPrice
+  #   price: 50
+  # - type: GuideHelp
+  #   guides:
+  #   - AtmosTools
+  #   - Fires
+  #   - Spacing

@@ -1,0 +1,23 @@
+  # Nuclear Reactor
+- type: sourcePort
+  id: NuclearReactorDataSender
+  name: signal-port-name-nuclear-reactor-data-sender
+  description: signal-port-description-nuclear-reactor-data-sender
+  defaultLinks: [ NuclearReactorDataReceiver ]
+
+  # Gas Turbine
+- type: sourcePort
+  id: TurbineSpeedHigh
+  name: signal-port-name-gas-turbine-speed-high
+  description: signal-port-description-gas-turbine-speed-high
+
+- type: sourcePort
+  id: TurbineSpeedLow
+  name: signal-port-name-gas-turbine-speed-low
+  description: signal-port-description-gas-turbine-speed-low
+
+- type: sourcePort
+  id: GasTurbineDataSender
+  name: signal-port-name-gas-turbine-data-sender
+  description: signal-port-description-gas-turbine-data-sender
+  defaultLinks: [ GasTurbineDataReceiver ]
