@@ -1,0 +1,46 @@
+- type: entity
+  id: OreBoxAshwood
+  name: ashwood ore box
+  description: An even larger storage container for holding unprocessed ores.
+  parent: OreBox
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Structures/Storage/orebox.rsi
+    layers:
+    - state: orebox
+    - state: orebox-top
+      map: [ top ]
+      visible: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Ashwood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialAshwoodPlank1:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 750
+  - type: Storage
+    grid:
+    - 0,0,15,9
+  - type: Construction
+    graph: OreBoxAshwood
+    node: crate
+    containers:
+    - entity_storage

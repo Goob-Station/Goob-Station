@@ -1,0 +1,57 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialAshwoodPlank
+  name: ashwood
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Ashwood: 100
+  - type: Stack
+    stackType: AshwoodPlank
+    baseLayer: base
+    layerStates:
+    - wood
+    - wood_2
+    - wood_3
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/ashwood.rsi
+    state: wood
+    layers:
+    - state: wood
+      map: ["base"]
+  - type: Appearance
+  - type: Item
+    heldPrefix: wood
+  - type: Tag
+    tags:
+    - Wooden
+    - RawMaterial
+    - DroneUsable # Goobstation
+  - type: Extractable
+    grindableSolutionName: wood
+  - type: SolutionContainerManager
+    solutions:
+      wood:
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 5
+        - ReagentId: Ash
+          Quantity: 5
+
+- type: entity
+  parent: MaterialAshwoodPlank
+  id: MaterialAshwoodPlank10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialAshwoodPlank
+  id: MaterialAshwoodPlank1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
