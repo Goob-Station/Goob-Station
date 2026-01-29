@@ -35,7 +35,7 @@
     mobState:
     - Dead
   - type: TriggerImplantAction
-  - type: DeleteParentOnTrigger
+  - type: BSOLifeline
   - type: SpawnOnTrigger
     proto: BluespaceLifelineSpawnCore
   - type: Tag

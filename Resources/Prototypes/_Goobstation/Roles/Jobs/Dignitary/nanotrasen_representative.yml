@@ -140,7 +140,7 @@
   - NanotrasenRepresentative
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplant, BluespaceLifelineImplant]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
