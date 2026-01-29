@@ -85,10 +85,6 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/contractor.rsi
-    - type: ThermalVision
-      isEquipment: true
-      color: "#05570a"
-      lightRadius: 15
     - type: PointLight
       color: "#18f324"
     - type: Armor # mostly the same stats as HoS modsuit
@@ -108,8 +104,8 @@
           Radiation: 0.0
     - type: FireProtection
       reduction: 0.2
-    - type: FlashImmunity # Goobstation
-    - type: FlashSoundSuppression # Goobstation
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
       protectionRange: 0
     - type: ShowHealthBars
       damageContainers:
@@ -126,13 +122,13 @@
         - state: equipped-HEAD-sealed-unshaded-vox
           shader: unshaded
         head-vulpkanin: #TODO: add vulp sprites
-        - state: equipped-HEAD-sealed
-        - state: equipped-HEAD-sealed-unshaded
+        - state: equipped-HEAD-sealed-vulpkanin
+        - state: equipped-HEAD-sealed-unshaded-vulpkanin
           shader: unshaded
     - type: ActivatableUI
-      inHandsOnly: false # Goobstation
+      inHandsOnly: false
       singleUser: true
-      requireActiveHand: false # Goobstation
+      requireActiveHand: false
       verbText: verb-instrument-openui
       key: enum.InstrumentUiKey.Key
     - type: UserInterface
@@ -145,8 +141,17 @@
       - Snout
       - HeadTop
       - HeadSide
+    - type: ClothingGrantComponent
+      component:
+      - type: IntrinsicUI
+        uis:
+          enum.RadarConsoleUiKey.Key:
+            toggleAction: ActionGhostShowRadar
+      - type: RadarConsole
+        followEntity: true
     - type: ComponentToggler
       components:
+      - type: EyeProtection
       - type: Instrument
         program: 62
       - type: SwappableInstrument
@@ -262,8 +267,3 @@
     - type: ClothingSpeedModifier
       walkModifier: 1.1
       sprintModifier: 1.1
-
-- type: entity
-  id: SuitStorageContractor
-  parent: SuitStorageBase
-  suffix: Contractor Modsuit

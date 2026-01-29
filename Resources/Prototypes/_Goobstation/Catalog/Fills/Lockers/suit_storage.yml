@@ -31,3 +31,24 @@
         tableId: FillLockerDetectiveHardsuit
   - type: AccessReader
     access: [["Detective"]]
+
+#Contractor
+- type: entity
+  id: SuitStorageHardsuitContractor
+  parent: SuitStorageBase
+  suffix: Contractor Hardsuit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStorageHardsuitContractor
+
+- type: entityTable
+  id: FillSuitStorageHardsuitContractor
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: WaterVaporTankFilled
+    - id: ClothingOuterHardsuitContractor
+    - id: ClothingMaskGasSyndicate
