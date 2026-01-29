@@ -134,7 +134,7 @@
   - type: DisposalUnit
   - type: ThrowInsertContainer
     containerId: disposals
-    probability: 0.67
+    probability: 1.0 # Goob
   - type: UserInterface
     interfaces:
       enum.DisposalUnitUiKey.Key:
