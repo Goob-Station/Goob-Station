@@ -20834,3 +20834,11 @@ Entries:
         this.
   id: 2355
   time: '2026-01-29T09:44:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed midround heretics and lings
+    - type: Remove
+      message: Radio host "Number" cd can no longer summon headrevs.
+  id: 2356
+  time: '2026-01-29T11:58:57.0000000+00:00'
