@@ -12,13 +12,14 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.Grab;
 
 public sealed class GrabbingItemSystem : EntitySystem
 {
     [Dependency] private readonly PullingSystem _pulling = default!;
-
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -87,6 +88,9 @@ public sealed class GrabbingItemSystem : EntitySystem
 
         var hitEntity = args.HitEntities[0];
 
+        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, hitEntity))
+            return;
+
         if (puller.Pulling != null)
         {
             if (puller.Pulling.Value != ent.Comp.ActivelyGrabbingEntity)
@@ -104,6 +108,7 @@ public sealed class GrabbingItemSystem : EntitySystem
             return;
 
         ent.Comp.ActivelyGrabbingEntity = hitEntity;
+
         if (!_pulling.TryStartPull(args.User,
                 hitEntity,
                 puller,
