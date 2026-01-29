@@ -1,0 +1,40 @@
+- type: job
+  id: PhoneMerchant
+  name: job-name-phonemerchant
+  description: job-name-phonemerchant
+  playTimeTracker: JobPhoneMerchant
+  startingGear: PhoneMerchantGear
+  icon: "JobIconPhoneMerchant"
+  supervisors: job-supervisors-hop
+  setPreference: false
+  access:
+  - Service
+  - Maintenance
+
+- type: startingGear
+  id: PhoneMerchantGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerBlack
+    id: PhoneMerchantPDA
+    ears: ClothingHeadsetService
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesColorBlack
+    back: ClothingBackpack
+  storage:
+    back:
+    - RotaryPhoneFlatPack
+    - RotaryPhoneFlatPack
+    - RotaryPhoneFlatPack
+    - RotaryPhoneFlatPack
+    - RotaryPhoneFlatPack
+    - RotaryPhoneFlatPack
+    - Multitool
+
+- type: chameleonOutfit
+  id: PhoneMerchantChameleonOutfit
+  job: PhoneMerchant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerBlack
+    ears: ClothingHeadsetService
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesColorBlack

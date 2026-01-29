@@ -1,0 +1,72 @@
+<controls1:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Goobstation.Client.Phones.UI"
+    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="Telephone" MinSize="135 90" Resizable="False">
+    <GridContainer Columns="2">
+    <BoxContainer Orientation="Vertical">
+        <controls1:StripeBack>
+            <BoxContainer Orientation="Horizontal" Align="Center">
+                <GridContainer Columns="3"
+                               Name="KeypadGrid">
+                    <!-- Keypad is filled by code -->
+                </GridContainer>
+            </BoxContainer>
+        </controls1:StripeBack>
+        <RichTextLabel Name="DialNumber" Text="" Access="Public" HorizontalAlignment="Center"></RichTextLabel>
+    </BoxContainer>
+<!-- phonebook is filled by code -->
+    <ScrollContainer MinSize="250 90">
+        <BoxContainer MinSize="100 90" Orientation="Vertical">
+            <Collapsible>
+                <CollapsibleHeading Title="Command"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="CommandHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Security"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="SecurityHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Engineering"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="EngineeringHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Cargo"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="CargoHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Medical"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="MedicalHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Science"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="ScienceHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Service"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="ServiceHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Uncategorized"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="UncategorizedHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+        </BoxContainer>
+    </ScrollContainer>
+    </GridContainer>
+</controls1:FancyWindow>

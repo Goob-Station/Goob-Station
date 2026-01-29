@@ -367,3 +367,15 @@
     - state: idvirologist
   - type: PresetIdCard
     job: Virologist
+
+- type: entity
+  parent: IDCardStandard
+  id: PhoneMerchantIDCard
+  name: phone merchant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idphonemerchant
+  - type: PresetIdCard
+    job: PhoneMerchant

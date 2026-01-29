@@ -1,0 +1,18 @@
+<controls1:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Goobstation.Client.Phones.UI"
+    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="Phone Options" MinSize="300 70">
+    <BoxContainer Orientation="Vertical">
+        <Label Text="Phone Name"></Label>
+        <LineEdit Name="MessageEdit"
+                  HorizontalExpand="True"
+                  Access="Public" />
+        <Label Text="Phone Category"></Label>
+        <OptionButton
+            Name="CategoryOption"
+            MinWidth="100"
+            StyleClasses="ButtonSquare"
+            Access="Public"/>
+    </BoxContainer>
+</controls1:FancyWindow>

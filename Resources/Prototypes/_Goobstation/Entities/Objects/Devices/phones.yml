@@ -1,0 +1,311 @@
+- type: entity
+  parent: BaseItem
+  id: RotaryPhone
+  name: phone
+  categories: [ HideSpawnMenu ]
+  description: it's a phone
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/phone/phone.rsi
+    state: icon
+  - type: RotaryPhone
+  - type: ActiveListener
+    range: 2
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: RMCPhoneSpeakSounds
+  - type: UserInterface
+    interfaces:
+      enum.PhoneUiKey.Key:
+        type: PhoneBoundUserInterface
+      enum.PhoneUiKey.NameChange:
+        type: PhoneNameChangeUI
+  - type: ActivatableUI
+    key: enum.PhoneUiKey.Key
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+
+- type: entity
+  parent: BaseStructure
+  id: RotaryPhoneStand
+  name: phone stand
+  description: it's a phone stand
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/phone/rotary_phone.rsi
+    layers:
+      - state: rotary_phone
+        map: [ "base" ]
+    drawdepth: SmallObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
+  - type: Anchorable
+  - type: RotaryPhoneHolder
+  - type: InteractionOutline
+  - type: Animateable
+  - type: ContainerContainer
+    containers:
+      phone: !type:ContainerSlot
+  - type: DeviceLinkSource
+    ports:
+    - PhoneRingPort
+    - PhoneOutgoingPort
+    - PhonePickupPort
+    - PhoneHangupPort
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhone
+        ejectOnInteract: true
+        whitelist:
+          components:
+          - RotaryPhone
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.RotaryPhoneLayers.Layer:
+        base:
+          Base: { state: rotary_phone }
+          Ring: { state: rotary_phone_ring }
+          Ear: { state: rotary_phone_ear }
+
+- type: entity
+  parent: RotaryPhoneStand
+  id: RMCRotaryPhoneWallmount
+  name: wall-mounted phone
+  description: "It is a wall mounted telephone. The fine text reads: To log your details with the mainframe please insert your keycard into the slot below. Unfortunately the slot is jammed. You can still use the phone, however."
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/wallmount_phone.rsi
+    layers:
+    - state: wall_phone
+      map: [ "base" ]
+  - type: WallMount
+  - type: GenericVisualizer
+    visuals:
+      enum.RotaryPhoneLayers.Layer:
+        base:
+          Base: { state: wall_phone }
+          Ring: { state: wall_phone_ring }
+          Ear: { state: wall_phone_ear }
+
+# Different category's for mappers
+
+# Phones
+
+- type: entity
+  parent: RotaryPhone
+  suffix: Command
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneCommand
+  components:
+  - type: RotaryPhone
+    category: Command
+
+- type: entity
+  parent: RotaryPhone
+  suffix: Security
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneSecurity
+  components:
+  - type: RotaryPhone
+    category: Security
+
+- type: entity
+  parent: RotaryPhone
+  suffix: Security
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneSecurity911
+  components:
+  - type: RotaryPhone
+    category: Security
+    phoneNumber: 911
+
+- type: entity
+  parent: RotaryPhone
+  suffix: Engineering
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneEngineering
+  components:
+  - type: RotaryPhone
+    category: Engineering
+
+- type: entity
+  parent: RotaryPhone
+  suffix: Cargo
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneCargo
+  components:
+  - type: RotaryPhone
+    category: Cargo
+
+- type: entity
+  parent: RotaryPhone
+  suffix: Medical
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneMedical
+  components:
+  - type: RotaryPhone
+    category: Medical
+
+- type: entity
+  parent: RotaryPhone
+  suffix: Science
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneScience
+  components:
+  - type: RotaryPhone
+    category: Science
+
+- type: entity
+  parent: RotaryPhone
+  suffix: Service
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneService
+  components:
+  - type: RotaryPhone
+    category: Service
+
+# Stands
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Command
+  id: RotaryPhoneStandCommand
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneCommand
+        ejectOnInteract: true
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Security
+  id: RotaryPhoneStandSecurity
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneSecurity
+        ejectOnInteract: true
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Security (911)
+  id: RotaryPhoneStandSecurity911
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneSecurity911
+        ejectOnInteract: true
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Medical
+  id: RotaryPhoneStandMedical
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneMedical
+        ejectOnInteract: true
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Engineering
+  id: RotaryPhoneStandEngineering
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneEngineering
+        ejectOnInteract: true
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Cargo
+  id: RotaryPhoneStandCargo
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneCargo
+        ejectOnInteract: true
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Science
+  id: RotaryPhoneStandScience
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneScience
+        ejectOnInteract: true
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Service
+  id: RotaryPhoneStandService
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneService
+        ejectOnInteract: true
