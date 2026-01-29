@@ -49,6 +49,7 @@
     inHandsOnly: true
     key: enum.CarvingKnifeUiKey.Key
   - type: ActivatableUiUserWhitelist
+    checkMind: true
     whitelist:
       components:
       - Heretic

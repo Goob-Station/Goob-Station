@@ -48,7 +48,7 @@ public sealed class CosmosComboSystem : EntitySystem
     }
 
     // Hell
-    public void ComboProgress(Entity<HereticComponent> uid, IReadOnlyList<EntityUid> hitEntities)
+    public void ComboProgress(EntityUid uid, HereticComponent heretic, IReadOnlyList<EntityUid> hitEntities)
     {
         if (_net.IsClient)
             return;
@@ -86,7 +86,7 @@ public sealed class CosmosComboSystem : EntitySystem
             return;
         }
 
-        if (uid.Comp.Ascended)
+        if (heretic.Ascended)
         {
             combo.ComboIncreaseTime = 3f;
             combo.MaxComboDuration = 30f;
@@ -140,6 +140,6 @@ public sealed class CosmosComboSystem : EntitySystem
         combo.ComboTimer = combo.ComboDuration;
 
         if (combo.ComboCounter >= 3)
-            EnsureComp<CosmicTrailComponent>(uid).Strength = uid.Comp.PathStage;
+            EnsureComp<CosmicTrailComponent>(uid).Strength = heretic.PathStage;
     }
 }

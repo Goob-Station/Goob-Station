@@ -28,6 +28,7 @@ public abstract partial class RitualCustomBehavior
 public readonly record struct RitualData(
     EntityUid Performer,
     EntityUid Platform,
+    Entity<HereticComponent> Mind,
     ProtoId<HereticRitualPrototype> RitualId,
     IEntityManager EntityManager,
     List<EntityUid>? Limited,

@@ -18,6 +18,8 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RiposteeComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     [DataField]
     public Dictionary<string, RiposteData> Data = new();
 }

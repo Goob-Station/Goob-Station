@@ -95,6 +95,7 @@
       component: PressureImmunity
       conditions:
       - !type:HasComponentCondition
+        checkMind: true
         components:
           - Heretic
           - Ghoul

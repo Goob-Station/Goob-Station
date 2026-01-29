@@ -80,9 +80,6 @@
     - NamesFirst
     - NamesLast
     nameFormat: name-format-standard
-  - type: AutoImplant
-    implants:
-    - AntagImplantHeretic
 
 - type: entity
   categories:

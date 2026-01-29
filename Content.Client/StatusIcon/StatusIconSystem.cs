@@ -73,8 +73,8 @@ public sealed class StatusIconSystem : SharedStatusIconSystem
         if (meta.EntityLifeStage >= EntityLifeStage.Terminating)
             return list;
 
-        var ev = new GetStatusIconsEvent(list);
-        RaiseLocalEvent(uid, ref ev);
+        var ev = new GetStatusIconsEvent(uid, list); // Goob edit
+        RaiseLocalEvent(uid, ref ev, true); // Goob - broadcast
         return ev.StatusIcons;
     }
 

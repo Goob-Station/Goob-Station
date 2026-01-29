@@ -23,7 +23,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Pulling.Systems;
@@ -56,6 +55,8 @@ public sealed class CarvingKnifeSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
+
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
@@ -111,7 +112,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (!args.InHands)
             return;
 
-        if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+        if (!_heretic.IsHereticOrGhoul(args.User))
             return;
 
         args.AddAction(ent.Comp.RunebreakActionEntity);
@@ -203,7 +204,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private void OnExamine(Entity<CarvingKnifeComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner) && !HasComp<GhoulComponent>(args.Examiner))
+        if (!_heretic.IsHereticOrGhoul(args.Examiner))
             return;
 
         UpdateRunes(ent);
@@ -217,7 +218,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (args.Target == null || !_tag.HasTag(args.Target.Value, CarvingTag))
             return;
 
-        if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+        if (!_heretic.IsHereticOrGhoul(args.User))
             return;
 
         QueueDel(args.Target.Value);
@@ -253,6 +254,11 @@ public sealed class CarvingKnifeSystem : EntitySystem
             return;
 
         trap.IgnoredMinds.Add(mind);
+
+        if (TryComp(args.User, out HereticMinionComponent? minion) && Exists(minion.BoundHeretic) &&
+            _mind.TryGetMind(minion.BoundHeretic.Value, out var masterMind, out _))
+            trap.IgnoredMinds.Add(masterMind);
+
         Dirty(rune, trap);
     }
 
@@ -292,7 +298,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (!comp.Carvings.Contains(args.ProtoId))
             return;
 
-        if (!HasComp<HereticComponent>(args.Actor) && !HasComp<GhoulComponent>(args.Actor))
+        if (!_heretic.IsHereticOrGhoul(args.Actor))
             return;
 
         UpdateRunes(ent);
@@ -339,6 +345,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         _audio.PlayPvs(comp.Sound, xform.Coordinates);
     }
 }
+
 
 [ByRefEvent]
 public readonly record struct RuneCarvedEvent(EntityUid User);

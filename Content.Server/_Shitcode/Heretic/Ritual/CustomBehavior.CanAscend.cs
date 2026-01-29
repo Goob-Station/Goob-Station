@@ -12,9 +12,7 @@ public sealed partial class RitualCanAscend : RitualCustomBehavior
     public override bool Execute(RitualData args, out string? outstr)
     {
         outstr = null;
-        var entMan = args.EntityManager;
-        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return false;
+        var heretic = args.Mind.Comp;
 
         if (heretic.Ascended)
         {
@@ -31,7 +29,7 @@ public sealed partial class RitualCanAscend : RitualCustomBehavior
         if (!CheckObjectives)
             return true;
 
-        if (!args.EntityManager.System<HereticSystem>().ObjectivesAllowAscension((args.Performer, heretic)))
+        if (!args.EntityManager.System<HereticSystem>().ObjectivesAllowAscension(args.Mind))
         {
             outstr = Loc.GetString("heretic-ritual-fail-cannot-ascend-objectives");
             return false;
