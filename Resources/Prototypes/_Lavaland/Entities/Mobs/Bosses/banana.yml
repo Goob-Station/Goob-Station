@@ -96,6 +96,14 @@
       types:
         Blunt: 1
         Heat: 1
+  - type: MegafaunaChaseTarget
+    whitelist:
+      components:
+        - HumanoidAppearance
+    chaseNow: true
+    movementSpeed: 3
+    stopDistance: 1
+    stopWhenNear: true
   - type: MegafaunaAnchor
   - type: MegafaunaGodmode
   - type: MegafaunaRejuvenate
