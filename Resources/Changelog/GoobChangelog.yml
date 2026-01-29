@@ -20804,3 +20804,9 @@ Entries:
       message: supermatter console handheld and board in CE's locker.
   id: 2351
   time: '2026-01-29T06:46:03.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Now organs can be stored in SmartFridge
+  id: 2352
+  time: '2026-01-29T06:47:51.0000000+00:00'
