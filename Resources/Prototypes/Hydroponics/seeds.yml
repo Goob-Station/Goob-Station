@@ -986,6 +986,8 @@
   packetPrototype: ChanterelleSeeds
   productPrototypes:
     - FoodMushroom
+  mutationPrototypes:
+    - massMushroomOrganism
   lifespan: 35
   maturation: 10
   production: 7

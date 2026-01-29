@@ -38,3 +38,9 @@ chat-speech-verb-chitinid-1 = clicks
 chat-speech-verb-chitinid-2 = chitters
 chat-speech-verb-chitinid-3 = hisses
 chat-speech-verb-chitinid-4 = buzzes
+
+chat-speech-verb-name-massmushroomorganism = Mass mushroom organism
+chat-speech-verb-massmushroomorganism-1 = rustles
+chat-speech-verb-massmushroomorganism-2 = rasps
+chat-speech-verb-massmushroomorganism-3 = hisses
+chat-speech-verb-massmushroomorganism-4 = huffs
