@@ -65,6 +65,8 @@ public abstract partial class SharedChameleonSkinSystem : EntitySystem
         Dirty(ent);
 
         DoPopup(ent, popup);
+
+        args.Handled = true;
     }
 
     private void OnIgnite(Entity<ChameleonSkinComponent> ent, ref IgnitedEvent args)
