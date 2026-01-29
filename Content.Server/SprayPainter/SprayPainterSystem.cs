@@ -93,7 +93,8 @@ using Content.Shared.SprayPainter;
 using Content.Shared.SprayPainter.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
+using System.Linq; // Goob
+using System.Numerics; // Goob
 
 namespace Content.Server.SprayPainter;
 
@@ -126,8 +127,19 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
     /// </summary>
     private void OnFloorAfterInteract(Entity<SprayPainterComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target != null)
+        // Goob START - Moved `CanReach` check, added Colour picker
+        if (args.Handled || args.Target != null)
             return;
+
+        if (ent.Comp.ColorPickerEnabled)
+        {
+            PickColor(ent, ref args);
+            return;
+        }
+
+        if (!args.CanReach)
+            return;
+        // Goob END
 
         // Includes both off and all other don't cares
         if (ent.Comp.DecalMode != DecalPaintMode.Add && ent.Comp.DecalMode != DecalPaintMode.Remove)
@@ -266,5 +278,28 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
         };
 
         args.Handled = DoAfter.TryStartDoAfter(doAfterEventArgs);
+    }
+
+    private void PickColor(Entity<SprayPainterComponent> ent, ref AfterInteractEvent args) // Goob
+    {
+        if (!args.ClickLocation.IsValid(EntityManager) || _transform.GetGrid(args.ClickLocation) is not { } grid)
+            return;
+
+        var clickPos = args.ClickLocation.Position;
+        // If the decal counts as removable then it's valid for the colour picker.
+        var decals = _decals.GetDecalsInRange(grid, clickPos, validDelegate: IsDecalRemovable);
+        if (decals.Count == 0)
+        {
+            _popup.PopupEntity(Loc.GetString("spray-painter-interact-no-color"), args.User, args.User);
+            return;
+        }
+
+        var closestDecal = decals.MinBy(d => Vector2.Distance(d.Decal.Coordinates, clickPos)).Decal;
+
+        _popup.PopupEntity(Loc.GetString("spray-painter-interact-color-picked", ("id", closestDecal.Id)), args.User, args.User);
+
+        ent.Comp.SelectedDecalColor = closestDecal.Color;
+        ent.Comp.ColorPickerEnabled = false;
+        Dirty(ent);
     }
 }
