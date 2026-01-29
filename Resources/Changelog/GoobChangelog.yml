@@ -20826,3 +20826,11 @@ Entries:
       message: new ammo type for magfed lasers
   id: 2354
   time: '2026-01-29T09:43:37.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Tweak
+      message: >-
+        Triclor now requires Aluite and Amatoxin, it is higher yield due to
+        this.
+  id: 2355
+  time: '2026-01-29T09:44:27.0000000+00:00'
