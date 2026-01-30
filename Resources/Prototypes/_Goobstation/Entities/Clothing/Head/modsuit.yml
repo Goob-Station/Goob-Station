@@ -134,6 +134,7 @@
       coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
+      blockSmokeIngestion: True
     - type: HideLayerClothing
       slots:
       - Hair
@@ -716,6 +717,8 @@
         Shock: 0.75
         Caustic: 0.25
         Radiation: 0.01
+  - type: EyeProtection
+  - type: FlashImmunity
   - type: ComponentToggler
     components:
     - type: BreathMask

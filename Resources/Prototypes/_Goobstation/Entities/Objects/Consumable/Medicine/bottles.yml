@@ -1,0 +1,869 @@
+- type: entity
+  id: RandomChemistryBottleMedicalSpawner
+  name: random medical chemistry bottle spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Chemistry/bottle.rsi
+      state: bottle
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTable
+
+- type: entity
+  id: RandomChemistryBottleMedicalTier1Spawner
+  name: random medical chemistry bottle (tier 1)
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Objects/Specific/Chemistry/bottle.rsi
+      state: bottle
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier1
+
+- type: entity
+  id: RandomChemistryBottleMedicalTier2Spawner
+  name: random medical chemistry bottle (tier 2)
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: blue
+    - sprite: Objects/Specific/Chemistry/bottle.rsi
+      state: bottle
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier2
+
+- type: entity
+  id: RandomChemistryBottleMedicalTier3Spawner
+  name: random medical chemistry bottle (tier 3)
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: blue
+    - sprite: Objects/Specific/Chemistry/bottle.rsi
+      state: bottle
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomChemistryBottleMedicalTier3
+
+- type: entityTable
+  id: RandomChemistryBottleAnyTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 90
+      children:
+      - !type:NestedSelector
+        tableId: RandomChemistryBottleMedicalTable
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - !type:NestedSelector
+        tableId: RandomChemistryBottleToxinTable
+
+- type: entityTable
+  id: RandomChemistryBottleMedicalTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: ChemistryBottleDylovene
+      #- id: ChemistryBottleEthylredoxrazine
+      #- id: ChemistryBottleCryptobiolin
+      - id: ChemistryBottleArithrazine
+      - id: ChemistryBottleBicaridine
+      - id: ChemistryBottleCryoxadone
+      #- id: ChemistryBottleDoxarubixadone
+      - id: ChemistryBottleEpinephrine
+      - id: ChemistryBottleDermaline
+      - id: ChemistryBottleDexalin
+      - id: ChemistryBottleDexalinPlus
+      - id: ChemistryBottleHyronalin
+      - id: ChemistryBottleInaprovaline
+      - id: ChemistryBottleIpecac
+      - id: ChemistryBottleTranexamicAcid
+      - id: ChemistryBottleKelotane
+      - id: ChemistryBottleLeporazine
+      - id: ChemistryBottlePhalanximine
+      #- id: ChemistryBottleAmbuzol
+      #- id: ChemistryBottleAmbuzolPlus
+      #- id: ChemistryBottleSynaptizine
+      - id: ChemistryBottleTricordrazine
+      #- id: ChemistryBottleUltravasculine
+      - id: ChemistryBottleOculine
+      - id: ChemistryBottleSiderlac
+      - id: ChemistryBottleCognizine
+      - id: ChemistryBottleSigynate
+      - id: ChemistryBottleSaline
+      - id: ChemistryBottleLacerinol
+      - id: ChemistryBottlePuncturase
+      - id: ChemistryBottleBruizine
+
+- type: entityTable
+  id: RandomChemistryBottleMedicalTier1
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottleSaline
+    - id: ChemistryBottleInaprovaline
+    - id: ChemistryBottleKelotane
+    - id: ChemistryBottleBicaridine
+    - id: ChemistryBottleHyronalin
+
+- type: entityTable
+  id: RandomChemistryBottleMedicalTier2
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottleDexalin
+    - id: ChemistryBottleDermaline
+    - id: ChemistryBottleBruizine
+    - id: ChemistryBottleLacerinol
+    - id: ChemistryBottlePuncturase
+    - id: ChemistryBottleDylovene
+    - id: ChemistryBottleEpinephrine
+    - id: ChemistryBottleTricordrazine
+    - id: ChemistryBottleIpecac
+    - id: ChemistryBottleOculine
+
+- type: entityTable
+  id: RandomChemistryBottleMedicalTier3
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottleDexalinPlus
+    - id: ChemistryBottleCryoxadone
+    - id: ChemistryBottleTranexamicAcid
+    - id: ChemistryBottleLeporazine
+    - id: ChemistryBottleSiderlac
+    - id: ChemistryBottleUltravasculine
+    - id: ChemistryBottleSynaptizine
+    - id: ChemistryBottleEthylredoxrazine
+    - id: ChemistryBottleCryptobiolin
+    - id: ChemistryBottleDoxarubixadone
+
+- type: entityTable
+  id: RandomChemistryBottleToxinTable
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryBottleHeartbreakerToxin
+    - id: ChemistryBottleMindbreakerToxin
+    - id: ChemistryBottleImpedrezene
+    - id: ChemistryBottleLexorin
+    - id: ChemistryBottleSpaceDrugs
+    - id: ChemistryBottleLipolicide
+    - id: ChemistryBottlePsicodine
+    - id: ChemistryBottleNecrosol
+    - id: ChemistryBottleOpporozidone
+    - id: ChemistryBottleHaloperidol
+
+- type: entity
+  id: ChemistryBottleDylovene
+  suffix: dylovene
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-dylovene
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dylovene
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleEthylredoxrazine
+  suffix: ethylredoxrazine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-ethylredoxrazine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ethylredoxrazine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleCryptobiolin
+  suffix: cryptobiolin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-cryptobiolin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Cryptobiolin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleArithrazine
+  suffix: arithrazine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-arithrazine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Arithrazine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleBicaridine
+  suffix: bicaridine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-bicaridine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleCryoxadone
+  suffix: cryoxadone
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-cryoxadone
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Cryoxadone
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleDoxarubixadone
+  suffix: doxarubixadone
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-doxarubixadone
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Doxarubixadone
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleDermaline
+  suffix: dermaline
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-dermaline
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dermaline
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleDexalin
+  suffix: dexalin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-dexalin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dexalin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleDexalinPlus
+  suffix: dexalinplus
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-dexalinplus
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DexalinPlus
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleHyronalin
+  suffix: hyronalin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-hyronalin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Hyronalin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleInaprovaline
+  suffix: inaprovaline
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-inaprovaline
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleIpecac
+  suffix: ipecac
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-ipecac
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ipecac
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleTranexamicAcid
+  suffix: tranexamicacid
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-tranexamicacid
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TranexamicAcid
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleKelotane
+  suffix: kelotane
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-kelotane
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Kelotane
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleLeporazine
+  suffix: leporazine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-leporazine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Leporazine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottlePhalanximine
+  suffix: phalanximine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-phalanximine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Phalanximine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleAmbuzol
+  suffix: ambuzol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-ambuzol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ambuzol
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleAmbuzolPlus
+  suffix: ambuzolplus
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-ambuzolplus
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AmbuzolPlus
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleSynaptizine
+  suffix: synaptizine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-synaptizine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Synaptizine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleTricordrazine
+  suffix: tricordrazine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-tricordrazine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleHeartbreakerToxin
+  suffix: heartbreakertoxin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-heartbreakertoxin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HeartbreakerToxin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleImpedrezene
+  suffix: impedrezene
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-impedrezene
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Impedrezene
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleLexorin
+  suffix: lexorin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-lexorin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lexorin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleMannitol
+  suffix: mannitol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-mannitol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Mannitol
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleMindbreakerToxin
+  suffix: mindbreakertoxin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-mindbreakertoxin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleSpaceDrugs
+  suffix: spacedrugs
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-spacedrugs
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleUltravasculine
+  suffix: ultravasculine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-ultravasculine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ultravasculine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleOculine
+  suffix: oculine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-oculine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Oculine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleSiderlac
+  suffix: siderlac
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-siderlac
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Siderlac
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleSigynate
+  suffix: sigynate
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-sigynate
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Sigynate
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleSaline
+  suffix: saline
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-saline
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Saline
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleLacerinol
+  suffix: lacerinol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-lacerinol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lacerinol
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottlePuncturase
+  suffix: puncturase
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-puncturase
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Puncturase
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleBruizine
+  suffix: bruizine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-bruizine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bruizine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleRazorium
+  suffix: razorium
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-razorium
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Razorium
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleDiphenhydramine
+  suffix: diphenhydramine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-diphenhydramine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Diphenhydramine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottlePyrazine
+  suffix: pyrazine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-pyrazine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Pyrazine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleInsuzine
+  suffix: insuzine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-insuzine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Insuzine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleOpporozidone
+  suffix: opporozidone
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-opporozidone
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Opporozidone
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleNecrosol
+  suffix: necrosol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-necrosol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Necrosol
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleAloxadone
+  suffix: aloxadone
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-aloxadone
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Aloxadone
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottlePsicodine
+  suffix: psicodine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-psicodine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Psicodine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleLipolicide
+  suffix: lipolicide
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-lipolicide
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lipolicide
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleHappiness
+  suffix: happiness
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-happiness
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Happiness
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottlePotassiumIodide
+  suffix: potassiumiodide
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-potassiumiodide
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PotassiumIodide
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleHaloperidol
+  suffix: haloperidol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-haloperidol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 30
