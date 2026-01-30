@@ -1134,6 +1134,11 @@
     Telecrystal: 40
   categories:
   - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
 
 - type: listing
   id: UplinkAutosurgeonBerserkerHeart
@@ -1145,6 +1150,11 @@
     Telecrystal: 66
   categories:
   - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
 
 - type: listing
   id: UplinkAutosurgeonJumpstarter
@@ -1623,6 +1633,7 @@
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
+      - ContractorUplink
       - NukeOpsUplink
 
 # Explosives

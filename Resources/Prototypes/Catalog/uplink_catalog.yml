@@ -1478,6 +1478,7 @@
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
+      - ContractorUplink
       - NukeOpsUplink
 
 
@@ -1496,7 +1497,6 @@
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
-      - ContractorUplink
       - NukeOpsUplink
       - ContravendUplink
 
