@@ -197,6 +197,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 uplinkBriefing = setupEvent.Value.BriefingEntry;
                 uplinkBriefingShort = setupEvent.Value.BriefingEntryShort;
             }
+            else // Fallback ooplink
+            {
+                uplinkBriefing = Loc.GetString("traitor-role-uplink-implant");
+                uplinkBriefingShort = Loc.GetString("traitor-role-uplink-implant-short");
+            }
         }
 
         string[]? codewords = null;
