@@ -20904,3 +20904,17 @@ Entries:
       message: Made the firing sound of proto-kinetic weapons quieter.
   id: 2364
   time: '2026-01-30T05:00:18.0000000+00:00'
+- author: IrisTheAmped, SlopsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Energy Chemical Dispensers. They use station power to dispense reagents
+        as opposed to pulling from a jug in their inventory.
+    - type: Tweak
+      message: >-
+        Energy Chem Dispensers replace the normal dispensers on all maps shift
+        start. Jug Dispensers are still able to be built from the machine board.
+    - type: Remove
+      message: Wizden E Chem 1984!
+  id: 2365
+  time: '2026-01-30T05:04:35.0000000+00:00'
