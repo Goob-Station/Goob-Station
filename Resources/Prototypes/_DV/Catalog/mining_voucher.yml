@@ -20,52 +20,52 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: thiefBackpackSet
-  id: MiningCrusher
-  name: mining-voucher-crusher-name
-  description: mining-voucher-crusher-description
-  sprite:
-    sprite: Objects/Weapons/Melee/crusher.rsi
-    state: icon
-  content:
-  - WeaponCrusher
-  - FireExtinguisherMini
-
-- type: thiefBackpackSet
   id: MiningExtraction
   name: mining-voucher-extraction-name
   description: mining-voucher-extraction-description
   sprite:
-    sprite: Objects/Tools/fulton.rsi
-    state: extraction_pack
+    sprite: Clothing/Belt/salvagewebbing.rsi
+    state: icon
   content:
   - Fulton
   - Fulton
   - FultonBeacon
   - BoxMarkerBeacons
-
-# TODO: resonator
-#- type: thiefBackpackSet
-#  id: MiningResonator
-#  name: mining-voucher-resonator-name
-#  description: mining-voucher-resonator-description
-#  sprite:
-#    sprite: _DV/Objects/Weapons/Ranged/resonator.rsi
-#    state: icon
-#  content:
-#  - Resonator
-#  - FireExtinguisherMini
+  - ClothingBeltSalvageWebbing
 
 - type: thiefBackpackSet
   id: MiningSurvival
   name: mining-voucher-survival-name
   description: mining-voucher-survival-description
   sprite:
-    sprite: Clothing/Belt/salvagewebbing.rsi
-    state: icon
+    sprite: _Lavaland/Objects/Specific/Salvage/capsule.rsi
+    state: capsule
   content:
-  - ClothingBeltSalvageWebbing
   - ShelterCapsule
   - DeathRattleLavalandImplanter
+
+- type: thiefBackpackSet
+  id: MiningCombat
+  name: mining-voucher-combat-name
+  description: mining-voucher-combat-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_machete.rsi
+    state: icon
+  content:
+  - LavalandWeaponKineticMachete
+  - WeaponCrusherDagger
+
+- type: thiefBackpackSet
+  id: MiningMedical
+  name: mining-voucher-medical-name
+  description: mining-voucher-medical-description
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: brutekit
+  content:
+  - MedkitBruteFilled
+  - MedkitBurnFilled
+  - SurvivalMedipen
 
 # TODO: mining drone
 #- type: thiefBackpackSet
@@ -80,13 +80,3 @@
 #  - WelderIndustrial
 #  - ClothingHeadHatWelding
 #  - drone passthrough ka modkit
-
-- type: thiefBackpackSet
-  id: MiningConscription
-  name: mining-voucher-conscription-name
-  description: mining-voucher-conscription-description
-  sprite:
-    sprite: Clothing/Back/Duffels/salvage.rsi
-    state: icon
-  content:
-  - ClothingBackpackDuffelSalvageConscription
