@@ -35,7 +35,7 @@
   description: Jumps towards the target, dealing damage in an area and spawning a ring of fire.
   components:
   - type: AngerDelayAction
-    minDelay: 2.0
+    minDelay: 2
     maxDelay: 6
   - type: WorldTargetAction
     event: !type:OniRampageEvent
@@ -67,3 +67,56 @@
     event: !type:RingOfFireEvent
       ringDistance: 2
       skullPrototype: BananaSmallSkullTemporary
+
+- type: entity
+  parent: ActionBaseBanana
+  id: ActionFlamingSlash
+  name: Flaming slash
+  description: Sends a flaming slash towards the target. Deals damage on contact.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 1
+    maxDelay: 8
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: FlamingSlashProjectileTemporary
+      speed: 12
+
+- type: entity
+  parent: ActionBaseBanana
+  id: ActionClawSlash
+  name: Claw slash
+  description: Sends a very short lived claw towards the target. Has extremely short range.
+  components:
+  - type: TargetAction
+    checkCanAccess: false
+    range: 2
+  - type: AngerDelayAction
+    minDelay: 1
+    maxDelay: 3
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: ClawSlashProjectile
+
+- type: entity
+  id: ActionFlurryOfSlashes
+  parent: ActionBaseBanana
+  name: Flurry of slashes
+  description: Sends flaming slashes at random in every direction.
+  components:
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Mobs/Bosses/banana.rsi
+      state: childish-oni
+    itemIconStyle: NoItem
+  - type: AngerDelayAction
+    minDelay: 4
+    maxDelay: 12
+  - type: InstantAction
+    event: !type:MegafaunaProjectileFlurryEvent

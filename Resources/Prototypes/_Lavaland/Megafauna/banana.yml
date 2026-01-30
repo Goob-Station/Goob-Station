@@ -15,13 +15,16 @@
     - id: ActionOniRampageSelector
     - id: ActionRingOfFireCloseSelector
     - id: ActionRingOfFireWideSelector
+    - id: ActionFlamingSlashSelector
+    - id: ActionClawSlashSelector
+    - id: ActionFlurryOfSlashesSelector
 
 - type: megafaunaSelector
   id: ActionDemonicHandSpiralSelector
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: true
+      inverse: false
     actionId: ActionDemonicHandSpiral
     conditions:
     - !type:ActionAvailableCondition
@@ -32,7 +35,7 @@
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: true
+      inverse: false
     actionId: ActionOniRampage
     conditions:
     - !type:ActionAvailableCondition
@@ -43,7 +46,7 @@
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: true
+      inverse: false
     actionId: ActionRingOfFireWide
     conditions:
     - !type:ActionAvailableCondition
@@ -54,9 +57,49 @@
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: true
+      inverse: false
     actionId: ActionRingOfFireClose
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionRingOfFireClose
+    - !type:MegafaunaPhaseCondition
+      phases: [2, 3]
 
+- type: megafaunaSelector
+  id: ActionFlamingSlashSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionFlamingSlash
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionFlamingSlash
+    - !type:MegafaunaPhaseCondition
+      phases: [2, 3]
+
+- type: megafaunaSelector
+  id: ActionClawSlashSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionClawSlash
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionClawSlash
+    - !type:MegafaunaPhaseCondition
+      phases: [1]
+
+- type: megafaunaSelector
+  id: ActionFlurryOfSlashesSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionFlurryOfSlashes
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionFlurryOfSlashes
+    - !type:MegafaunaPhaseCondition
+      phases: [3]

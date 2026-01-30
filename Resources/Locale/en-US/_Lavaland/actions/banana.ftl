@@ -1,3 +1,3 @@
 childish-oni-rampage = Kahahaha!
 
-childish-oni-stage3 = Prepare to witness the form of a true oni!
+childish-oni-flurry = Hehe! Try to counter this!

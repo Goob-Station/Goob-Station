@@ -1,0 +1,96 @@
+- type: entity
+  id: FlamingSlashProjectile
+  name: Flaming slash
+  description: Looks radic-OH SHIT!
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/projectiles.rsi
+    state: flaming_slash
+    drawdepth: Effects
+    noRot: false
+  - type: Physics
+    bodyType: Kinematic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1, -0.2, 1, 0.1"
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+  - type: AmbientSound
+    volume: -6
+    range: 8
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: Orange
+    castShadows: false
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - ChildishOni
+    inverted: true
+    damage:
+      types:
+        Heat: 10
+        Structural: 100
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Weapons/Melee/slashermachetehit.ogg
+    params:
+      volume: -12
+
+- type: entity
+  id: FlamingSlashProjectileTemporary
+  parent: FlamingSlashProjectile
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 8
+    fadeOutTime: 2
+
+- type: entity
+  id: ClawSlashProjectile
+  name: Claw slash
+  description: Looks sharp.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/attacks.rsi
+    state: slash
+    drawdepth: Effects
+    noRot: false
+  - type: Physics
+    bodyType: Kinematic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5, -0.5, 0.5, 0.5"
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - ChildishOni
+    inverted: true
+    damage:
+      types:
+        Slash: 10
+        Structural: 100
+  - type: FadingTimedDespawn
+    lifetime: 0.5
+    fadeOutTime: 0.5
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: AlienClaw

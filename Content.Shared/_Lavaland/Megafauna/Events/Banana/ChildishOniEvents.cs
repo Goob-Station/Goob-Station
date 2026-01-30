@@ -14,3 +14,5 @@ public sealed partial class RingOfFireEvent : InstantActionEvent
     [DataField]
     public EntProtoId SkullPrototype;
 }
+
+public sealed partial class MegafaunaProjectileFlurryEvent : InstantActionEvent;

@@ -3,6 +3,18 @@
   name: Childish oni
   description: The oni of the demonic capital.
   components:
+  - type: Vocal
+    sounds:
+      Female: FemaleHuman # No oni sadge
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
+  - type: Speech
+    speechVerb: Oni
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -44,10 +56,18 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
+  - type: DamageOnCollide # To prevent getting stuck on objects.
+    ignoreWhitelist:
+      components:
+        - ChildishOni
+    inverted: true
+    damage:
+      types:
+        Structural: 1000
   - type: MobThresholds
     thresholds:
       0: Alive
-      2000: Dead
+      2400: Dead
   - type: Tag
     tags:
     - CannotSuicide
@@ -58,16 +78,19 @@
     - ActionOniRampage
     - ActionRingOfFireClose
     - ActionRingOfFireWide
+    - ActionFlamingSlash
+    - ActionClawSlash
+    - ActionFlurryOfSlashes
   - type: Fauna
   - type: Anger
-    totalHp: 2000
+    totalHp: 2400
   - type: Aggressive
     forgiveRange: 25
   - type: MobPhases
     phaseThresholds:
       0:    1
-      1000: 2
-      1500: 3
+      800: 2
+      1600: 3
   - type: MobPhaseSprite
     phases:
       2:
@@ -92,7 +115,7 @@
     selector: !type:NestedMegafaunaSelector
       id: Banana
   - type: AngerPlayerScaling
-    angerScale: 1.3
+    angerScale: 1.5
     hpScale: 1.2
   - type: MegafaunaFieldGenerator
     wallId: WallMagma
@@ -108,14 +131,51 @@
       types:
         Blunt: 1
         Heat: 1
+  - type: MegafaunaProjectileFlurry
+    projectileNumber: 8
+    speed: 10
+    spawnDelay: 0.2
+    shouldSpeak: true
   - type: MegafaunaChaseTarget
     whitelist:
       components:
         - HumanoidAppearance
     chaseNow: true
-    movementSpeed: 6
-    stopDistance: 2
-    stopWhenNear: false
+    movementSpeed: 7
   - type: MegafaunaAnchor
   - type: MegafaunaGodmode
   - type: MegafaunaRejuvenate
+  - type: MegafaunaPhaseSpeech
+    phases:
+      1:
+        speech:
+          - oni-taunt-1
+          - oni-taunt-2
+          - oni-taunt-3
+          - oni-taunt-4
+          - oni-taunt-5
+          - oni-taunt-6
+          - oni-taunt-7
+          - oni-taunt-8
+      2:
+        speechOnPhaseChange: oni-change-2
+        speech:
+          - oni-rage-1
+          - oni-rage-2
+          - oni-rage-3
+          - oni-rage-4
+          - oni-rage-5
+          - oni-rage-6
+          - oni-rage-7
+      3:
+        speechOnPhaseChange: oni-change-3
+        speech:
+          - oni-true-1
+          - oni-true-2
+          - oni-true-3
+          - oni-true-4
+          - oni-true-5
+          - oni-true-6
+          - oni-true-7
+          - oni-true-8
+          - oni-true-9
