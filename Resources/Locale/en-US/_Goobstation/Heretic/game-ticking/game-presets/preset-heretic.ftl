@@ -7,7 +7,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-heretic-roundend-name = heretic
+heretic-roundend-name = a heretic
 
 roundend-prepend-heretic-ascension-success = {$name}, [color=green] has Ascended![/color]
 roundend-prepend-heretic-ascension-fail = {$name}, [color=red] has failed![/color]
