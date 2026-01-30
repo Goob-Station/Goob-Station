@@ -12,5 +12,5 @@ public sealed partial class WarpParentOnTriggerComponent : Component
     /// Location for the warp
     /// </summary>
     [DataField]
-    public string WarpLocation { get; set; }
+    public string WarpLocation;
 }

@@ -10,6 +10,7 @@ using Content.Shared.Standing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Content.Shared.Popups;
+using Content.Goobstation.Shared.Lifeline;
 
 namespace Content.Goobstation.Server.CentComm;
 public sealed partial class WarpParentOnTriggerSystem : EntitySystem
@@ -31,9 +32,8 @@ public sealed partial class WarpParentOnTriggerSystem : EntitySystem
         {
             _popup.PopupEntity(Loc.GetString("lifeline-trigger-fail"), ent.Owner, PopupType.Medium);
             EntityManager.QueueDeleteEntity(Transform(ent.Owner).ParentUid);
-            args.Handled = true;
-            return;
         }
+
         args.Handled = true;
     }
 
