@@ -31,7 +31,9 @@ public abstract class CommonMomentumSteeringSystem : EntitySystem
             return false;
 
         var speedFactor = MathHelper.Clamp(
-            (speed - comp.SpeedThreshold) / (comp.MaxSpeed - comp.SpeedThreshold), 0f, 1f);
+            (speed - comp.SpeedThreshold) / (comp.MaxSpeed - comp.SpeedThreshold),
+            0f,
+            1f);
         var steeringPenalty = MathHelper.Lerp(1f, comp.MinSteeringFactor, speedFactor);
 
         var velNorm = velocity.Normalized();
@@ -39,10 +41,10 @@ public abstract class CommonMomentumSteeringSystem : EntitySystem
         var forwardDir = velNorm * forwardDot;
         var perpDir = wishDir - forwardDir;
 
-        if (forwardDot >= 0f)
+        if (forwardDot > 0f)
             adjustedWishDir = forwardDir + perpDir * steeringPenalty;
         else
-            adjustedWishDir = forwardDir * comp.BrakingFactor + perpDir * steeringPenalty;
+            adjustedWishDir = forwardDir * comp.BrakingFactor + perpDir * comp.BrakingFactor;
 
         return true;
     }
