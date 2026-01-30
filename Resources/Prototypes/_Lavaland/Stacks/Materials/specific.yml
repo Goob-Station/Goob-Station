@@ -1,0 +1,35 @@
+- type: stack
+  id: WatcherWing
+  name: stack-watcher-wing
+  icon:
+    sprite: _Lavaland/Objects/Materials/watcher.rsi
+    state: wing
+  spawn: MaterialWatcherWing1
+  maxCount: 10
+
+- type: stack
+  id: WatcherMagmaWing
+  name: stack-magma-wing
+  icon:
+    sprite: _Lavaland/Objects/Materials/watcher.rsi
+    state: magmawing
+  spawn: MaterialWatcherMagmaWing1
+  maxCount: 10
+
+- type: stack
+  id: WatcherIceWing
+  name: stack-ice-wing
+  icon:
+    sprite: _Lavaland/Objects/Materials/watcher.rsi
+    state: icewing
+  spawn: MaterialWatcherIceWing1
+  maxCount: 10
+
+- type: stack
+  id: LegionSkull
+  name: stack-legion-skull
+  icon:
+    sprite: _Lavaland/Objects/Materials/legion.rsi
+    state: skull
+  spawn: MaterialLegionSkull1
+  maxCount: 10

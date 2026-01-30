@@ -29,7 +29,6 @@
     - AlienBlood
     - BlackBlood
     - BloodChangeling
-    requiredReagentAmount: 15
   - type: DemonicWhisper
   - type: Visibility
     layer: 2

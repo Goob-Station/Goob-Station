@@ -378,7 +378,7 @@ public abstract class SharedMagicSystem : EntitySystem
     ///     Gets spawn positions listed on <see cref="InstantSpawnSpellEvent"/>
     /// </summary>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    private List<EntityCoordinates> GetInstantSpawnPositions(TransformComponent casterXform, MagicInstantSpawnData data)
+    public List<EntityCoordinates> GetInstantSpawnPositions(TransformComponent casterXform, MagicInstantSpawnData data) // Goob edit - made public
     {
         switch (data)
         {
@@ -493,7 +493,7 @@ public abstract class SharedMagicSystem : EntitySystem
     // End World Spawn Spells
     #endregion
     #region Projectile Spells
-    private void OnProjectileSpell(ProjectileSpellEvent ev)
+    public void OnProjectileSpell(ProjectileSpellEvent ev) // Goob edit - made public
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer)) // Goob edit
             return;
