@@ -34,8 +34,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Traitor;
 using Content.Server.Store.Systems;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
@@ -43,6 +45,7 @@ using Content.Shared.Mind;
 using Content.Shared.PDA;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traitor.Uplink;
@@ -57,33 +60,62 @@ public sealed class UplinkSystem : EntitySystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly GoobCommonUplinkSystem _goobUplink = default!;
 
     public static readonly ProtoId<CurrencyPrototype> TelecrystalCurrencyPrototype = "Telecrystal";
     private static readonly EntProtoId FallbackUplinkImplant = "UplinkImplant";
     private static readonly ProtoId<ListingPrototype> FallbackUplinkCatalog = "UplinkUplinkImplanter";
 
     /// <summary>
-    /// Adds an uplink to the target
+    /// Adds an uplink to the target based on their preference (PDA, Pen, or Implant).
     /// </summary>
     /// <param name="user">The person who is getting the uplink</param>
-    /// <param name="balance">The amount of currency on the uplink. If null, will just use the amount specified in the preset.</param>
-    /// <param name="uplinkEntity">The entity that will actually have the uplink functionality. Defaults to the PDA if null.</param>
+    /// <param name="balance">The amount of currency on the uplink.</param>
+    /// <param name="preference">The preferred uplink location. Defaults to PDA.</param>
     /// <returns>Whether or not the uplink was added successfully</returns>
-    public bool AddUplink(EntityUid user, FixedPoint2 balance, EntityUid? uplinkEntity = null)
+    public bool AddUplink(EntityUid user, FixedPoint2 balance, UplinkPreference preference = UplinkPreference.Pda)
     {
-        // Try to find target item if none passed
+        EntityUid? uplinkEntity = null;
+        var isPenUplink = false;
 
+        switch (preference)
+        {
+            case UplinkPreference.Pda:
+                uplinkEntity = FindPdaUplinkTarget(user);
+                break;
+            case UplinkPreference.Pen:
+                uplinkEntity = _goobUplink.FindPenUplinkTarget(user);
+                isPenUplink = uplinkEntity != null;
+                break;
+            case UplinkPreference.Implant:
+                return ImplantUplink(user, balance);
+        }
+
+        if (uplinkEntity == null)
+            return ImplantUplink(user, balance);
+
+        EnsureComp<UplinkComponent>(uplinkEntity.Value);
+        SetUplink(user, uplinkEntity.Value, balance);
+
+        if (isPenUplink)
+            _goobUplink.SetupPenUplink(uplinkEntity.Value);
+
+        return true;
+    }
+
+    /// <summary>
+    /// Legacy method for backwards compatibility.
+    /// Adds an uplink to the target, auto-detecting location (prefers PDA).
+    /// </summary>
+    public bool AddUplinkAutoDetect(EntityUid user, FixedPoint2 balance, EntityUid? uplinkEntity = null)
+    {
         uplinkEntity ??= FindUplinkTarget(user);
 
         if (uplinkEntity == null)
             return ImplantUplink(user, balance);
 
         EnsureComp<UplinkComponent>(uplinkEntity.Value);
-
         SetUplink(user, uplinkEntity.Value, balance);
-
-        // TODO add BUI. Currently can't be done outside of yaml -_-
-        // ^ What does this even mean?
 
         return true;
     }
@@ -136,23 +168,29 @@ public sealed class UplinkSystem : EntitySystem
     /// </summary>
     public EntityUid? FindUplinkTarget(EntityUid user)
     {
+        return FindPdaUplinkTarget(user) ?? _goobUplink.FindPenUplinkTarget(user); // Goob - selfexplanatory
+    }
+
+    // Goob - pegged from FindUplinkTarget to FindPda
+    public EntityUid? FindPdaUplinkTarget(EntityUid user)
+    {
         // Try to find PDA in inventory
         if (_inventorySystem.TryGetContainerSlotEnumerator(user, out var containerSlotEnumerator))
         {
-            while (containerSlotEnumerator.MoveNext(out var pdaUid))
+            while (containerSlotEnumerator.MoveNext(out var slot))
             {
-                if (!pdaUid.ContainedEntity.HasValue)
+                if (!slot.ContainedEntity.HasValue)
                     continue;
 
-                if (HasComp<PdaComponent>(pdaUid.ContainedEntity.Value) || HasComp<StoreComponent>(pdaUid.ContainedEntity.Value))
-                    return pdaUid.ContainedEntity.Value;
+                if (HasComp<PdaComponent>(slot.ContainedEntity.Value))
+                    return slot.ContainedEntity.Value;
             }
         }
 
         // Also check hands
         foreach (var item in _handsSystem.EnumerateHeld(user))
         {
-            if (HasComp<PdaComponent>(item) || HasComp<StoreComponent>(item))
+            if (HasComp<PdaComponent>(item))
                 return item;
         }
 
