@@ -44,7 +44,7 @@ public sealed class GoobUplinkSystem : GoobCommonUplinkSystem
         SubscribeLocalEvent<PenSpinUplinkComponent, BoundUIClosedEvent>(OnStoreClosed);
         SubscribeLocalEvent<PenComponent, PenSpinSubmitDegreeMessage>(OnSubmitDegree);
         SubscribeLocalEvent<PenComponent, PenSpinResetMessage>(OnReset);
-        SubscribeLocalEvent<PenComponent, GeneratePenSpinCodeEvent>(OnGenerateCode);
+        SubscribeLocalEvent<PenComponent, GenerateUplinkCodeEvent<int[]>>(OnGenerateCode);
 
         SubscribeLocalEvent<PdaComponent, SetupUplinkEvent>(OnSetupPdaUplink);
         SubscribeLocalEvent<PenComponent, SetupUplinkEvent>(OnSetupPenUplink);
@@ -54,7 +54,7 @@ public sealed class GoobUplinkSystem : GoobCommonUplinkSystem
     {
         EnsureComp<RingerUplinkComponent>(ent.Owner);
 
-        var ringerEv = new GenerateUplinkCodeEvent();
+        var ringerEv = new GenerateUplinkCodeEvent<Note[]>();
         RaiseLocalEvent(ent.Owner, ref ringerEv);
 
         var code = Comp<RingerUplinkComponent>(ent.Owner).Code;
@@ -72,7 +72,7 @@ public sealed class GoobUplinkSystem : GoobCommonUplinkSystem
     {
         EnsureComp<PenSpinUplinkComponent>(ent.Owner);
 
-        var spinEv = new GeneratePenSpinCodeEvent();
+        var spinEv = new GenerateUplinkCodeEvent<int[]>();
         RaiseLocalEvent(ent.Owner, ref spinEv);
 
         if (spinEv.Code != null)
@@ -140,7 +140,7 @@ public sealed class GoobUplinkSystem : GoobCommonUplinkSystem
         return null;
     }
 
-    private void OnGenerateCode(Entity<PenComponent> ent, ref GeneratePenSpinCodeEvent ev)
+    private void OnGenerateCode(Entity<PenComponent> ent, ref GenerateUplinkCodeEvent<int[]> ev)
     {
         var code = new int[ent.Comp.CombinationLength];
         for (var i = 0; i < ent.Comp.CombinationLength; i++)
