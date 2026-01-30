@@ -794,6 +794,11 @@
     Telecrystal: 30
   categories:
     - UplinkAllies
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
 
 - type: listing
   id: uplinkBeeNades    #goob - bee update
@@ -1948,6 +1953,23 @@
     Telecrystal: 15
   categories:
   - UplinkWearables
+  - UplinkContractor
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - ContractorUplink
+
+- type: listing
+  id: UplinkContractorCuffs
+  name: uplink-cuffs-contractor-name
+  description: uplink-cuffs-contractor-desc
+  icon: { sprite: /Textures/Objects/Misc/handcuffs.rsi, state: handcuff }
+  productEntity: Handcuffs
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
   - UplinkContractor
   conditions:
   - !type:StoreWhitelistCondition

@@ -379,3 +379,6 @@ uplink-webbing-contractor-desc = A chest rig with deep pockets and explosion res
 
 uplink-jetpack-contractor-name = Contractor Jetpack
 uplink-jetpack-contractor-desc = This Jetpack was made specifically for The Guild! Boasts high maneuverability and a decent fuel capacity, perfect for quick getaways. Has built-in straps for suit storage compatibility.
+
+uplink-cuffs-contractor-name = Handcuffs
+uplink-cuffs-contractor-desc = Used to detain criminals and other assholes.
