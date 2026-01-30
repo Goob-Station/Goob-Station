@@ -101,18 +101,19 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedEnergyReagentDispenser.OutputSlotName);
             var outputContainerInfo = BuildOutputContainerInfo(outputContainer);
             var inventory = GetInventory(reagentDispenser.Comp);
-
             var batteryCharge = 0f;
             var batteryMaxCharge = 0f;
+            var currentReceivingEnergy = 0f;
+            var usingBattery = false;
+            var idleUse = 0f;
+            var hasPower = false;
+
             if (TryComp<BatteryComponent>(reagentDispenser, out var battery))
             {
                 batteryCharge = battery.CurrentCharge;
                 batteryMaxCharge = battery.MaxCharge;
             }
 
-            var currentReceivingEnergy = 0f;
-            var usingBattery = false;
-            var idleUse = 0f;
             if (TryComp<ApcPowerReceiverBatteryComponent>(reagentDispenser, out var apcPower))
             {
                 currentReceivingEnergy = apcPower.BatteryRechargeRate;
@@ -120,7 +121,6 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 idleUse = apcPower.IdleLoad;
             }
 
-            var hasPower = false;
             if (TryComp<ApcPowerReceiverComponent>(reagentDispenser, out var apc))
                 hasPower = apc.Powered;
 

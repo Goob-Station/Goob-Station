@@ -135,7 +135,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
             });
         }
 
-        public void UpdateContainerInfo(EnergyReagentDispenserBoundUserInterfaceState state)
+        private void UpdateContainerInfo(EnergyReagentDispenserBoundUserInterfaceState state)
         {
             ContainerInfo.Children.Clear();
 
@@ -188,11 +188,10 @@ namespace Content.Goobstation.Client.Chemistry.UI
 
                 var totalCost = card.PowerCostPerUnit * _selectedAmount;
                 var shouldBeDisabled = totalCost > _batteryCharge;
-                if (card.IsDisabled != shouldBeDisabled)
-                {
-                    stateChanged = true;
-                    break;
-                }
+                if (card.IsDisabled == shouldBeDisabled)
+                    continue;
+                stateChanged = true;
+                break;
             }
 
             if (!stateChanged && _lastBatteryCharge == _batteryCharge)
@@ -200,21 +199,18 @@ namespace Content.Goobstation.Client.Chemistry.UI
 
             _lastBatteryCharge = _batteryCharge;
             _cardsNeedUpdate = false;
+            HandleToggle();
+        }
 
+        private void HandleToggle()
+        {
             foreach (var child in ReagentList.Children)
             {
                 if (child is not EnergyReagentCardControl card)
                     continue;
 
                 var totalCost = card.PowerCostPerUnit * _selectedAmount;
-                if (totalCost > _batteryCharge)
-                {
-                    card.SetDisabled(true, "Insufficient energy");
-                }
-                else
-                {
-                    card.SetDisabled(false);
-                }
+                card.SetDisabled(totalCost > _batteryCharge, "Insufficient energy");
             }
         }
 
@@ -229,19 +225,14 @@ namespace Content.Goobstation.Client.Chemistry.UI
             /// We check if ApcPowerReceiverBatteryComponent is enabled, aka the machine is using the battery for idle power as APC is off/disconnected
             /// If you touch this expect the indicator to go fucking whack or the UI to become problematic. UI suck moment. This seriously caused issues for so long because braindead
             /// We add a check for if Powered is false because when the battery hits 0, usingBattery becomes false despite no APC power still, otherwise it will start to tick back up the second it hits 0
-            if (_usingBattery || _hasPower == false)
-            {
+            if (_usingBattery || !_hasPower)
                 _batteryCharge = Math.Clamp(_batteryCharge - _idleUse * args.DeltaSeconds, 0, _batteryMaxCharge);
-            }
             else
-            {
                 _batteryCharge = Math.Clamp(_batteryCharge + _currentReceiving * args.DeltaSeconds, 0, _batteryMaxCharge);
-            }
 
             if ((int) oldCharge != (int) _batteryCharge)
-            {
                 UpdateBatteryPercent();
-            }
+
             CheckEnergyThresholds(oldCharge, _batteryCharge);
         }
 
@@ -256,11 +247,11 @@ namespace Content.Goobstation.Client.Chemistry.UI
                     continue;
 
                 var threshold = card.PowerCostPerUnit * _selectedAmount;
-                if (oldEnergy < threshold && newEnergy >= threshold || oldEnergy >= threshold && newEnergy < threshold)
-                {
-                    _cardsNeedUpdate = true;
-                    break;
-                }
+                if ((!(oldEnergy < threshold) || !(newEnergy >= threshold)) &&
+                    (!(oldEnergy >= threshold) || !(newEnergy < threshold)))
+                    continue;
+                _cardsNeedUpdate = true;
+                break;
             }
             UpdateCardStates();
         }
