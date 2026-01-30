@@ -1,0 +1,14 @@
+- files: ["fleshtostone.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/effects/magic/fleshtostone.ogg"
+
+- files: ["invoke_general.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/effects/magic/clockwork/invoke_general.ogg"
+
+- files: ["meteorimpact.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/effects/meteorimpact.ogg"
