@@ -108,7 +108,7 @@
   - type: SpawnLootOnDeath
     table: !type:AllSelector
       children:
-      - id: LavalandHierophantClub
+      - id: BananaBoneSword
     deleteOnDeath: true
   - type: MegafaunaAi
     actionDelay: 0.5

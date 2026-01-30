@@ -108,15 +108,8 @@
   name: Flurry of slashes
   description: Sends flaming slashes at random in every direction.
   components:
-  - type: Action
-    priority: -21
-    useDelay: 2
-    icon:
-      sprite: _Lavaland/Mobs/Bosses/banana.rsi
-      state: childish-oni
-    itemIconStyle: NoItem
   - type: AngerDelayAction
     minDelay: 4
-    maxDelay: 12
+    maxDelay: 10
   - type: InstantAction
     event: !type:MegafaunaProjectileFlurryEvent

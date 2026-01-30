@@ -40,7 +40,7 @@
     damage:
       types:
         Heat: 10
-        Structural: 100
+        Structural: 10
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Goobstation/Weapons/Melee/slashermachetehit.ogg
@@ -52,7 +52,7 @@
   parent: FlamingSlashProjectile
   components:
   - type: FadingTimedDespawn
-    lifetime: 8
+    lifetime: 4
     fadeOutTime: 2
 
 - type: entity
