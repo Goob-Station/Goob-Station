@@ -20563,3 +20563,358 @@ Entries:
       message: Fix mansus grasp not working on interact.
   id: 2322
   time: '2026-01-27T11:53:42.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: >-
+        Traitor loadout is enabled, and allows you to set your preferred uplink
+        location
+    - type: Add
+      message: >-
+        Pen uplink, twist the pen in a correct way to see your store! Locks
+        automatically, very easy to lose.
+    - type: Add
+      message: You can opt in to use an uplink implant by default.
+  id: 2323
+  time: '2026-01-28T11:05:25.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Heads (the body part) now have more integrity, this means decapping them
+        will be harder.
+    - type: Tweak
+      message: Cap sword reflects and doesn't delimb anymore, again.
+  id: 2324
+  time: '2026-01-28T13:21:44.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Add
+      message: Added Gas Condenser to Engineer Techfab
+    - type: Tweak
+      message: >-
+        Adjusted Teach A Lesson objective. Now cyro'd target count toward your
+        progress
+  id: 2325
+  time: '2026-01-28T20:26:35.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Xenobio slime can no longer metabolize foam.
+  id: 2326
+  time: '2026-01-28T20:27:11.0000000+00:00'
+- author: BeanyBoi69
+  changes:
+    - type: Add
+      message: Handheld mass scanner to Salvage and Shaft Miner lockers
+  id: 2327
+  time: '2026-01-28T20:34:38.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Ai turret damage nerfed, 28 > 20
+  id: 2328
+  time: '2026-01-28T20:39:20.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Swabs can be attached to disease reports now.
+  id: 2329
+  time: '2026-01-28T20:41:07.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Meat floors are no longer slippery.
+  id: 2330
+  time: '2026-01-28T20:42:16.0000000+00:00'
+- author: bobbble
+  changes:
+    - type: Add
+      message: Swatting as BSO
+  id: 2331
+  time: '2026-01-28T20:45:28.0000000+00:00'
+- author: DeusMaldPR porting from Speebro who was porting from TryDed
+  changes:
+    - type: Add
+      message: Added three new explosives and a long list of chemicals to make them!
+    - type: Tweak
+      message: >-
+        Formaldehyde's recipe is more difficult, to make creating the new
+        explosives harder
+    - type: Tweak
+      message: >-
+        In exchange, formaldehyde is ~60% longer lasting in corpses, and no
+        longer deals poison damage to the dead
+  id: 2332
+  time: '2026-01-28T21:15:32.0000000+00:00'
+- author: wyvernrer, Crenissis
+  changes:
+    - type: Add
+      message: Readded the Command 'Ensemble' Cosmetics.
+  id: 2333
+  time: '2026-01-28T21:18:25.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Add
+      message: added radio host to serpentcrest
+    - type: Fix
+      message: door accesses, xenobio mapping.
+  id: 2334
+  time: '2026-01-28T21:19:55.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Remove
+      message: derotated loop station
+  id: 2335
+  time: '2026-01-28T21:21:55.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Harpies can fly longer
+  id: 2336
+  time: '2026-01-28T21:23:00.0000000+00:00'
+- author: caoimhan2008
+  changes:
+    - type: Tweak
+      message: slasher machete now has its own unique sound
+  id: 2337
+  time: '2026-01-28T21:23:37.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Judo belts made 2x2 item slots smaller because you dont carry a stun
+        baton when you have judo on.
+  id: 2338
+  time: '2026-01-28T21:24:26.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Bojevic's firerate has been doubled and the spread has been reduced.
+  id: 2339
+  time: '2026-01-28T21:25:07.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The shotgun cocking sound has been tweaked.
+  id: 2340
+  time: '2026-01-28T21:25:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'New mime exclusive traitor item: guide to advanced mimery.'
+    - type: Fix
+      message: Fixed mime invisible walls having wrong rotation.
+  id: 2341
+  time: '2026-01-28T21:26:54.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Remove
+      message: 'Wizard spellbook apprentice limited stock removed. '
+  id: 2342
+  time: '2026-01-28T21:27:19.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Tweak
+      message: Biodegrade breaks you out of welded containers
+  id: 2343
+  time: '2026-01-28T21:42:38.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Bingles do stam damage again. Now they do enough to stamcrit you in
+        three hits, unless you're wearing armor, in which case its 4-5.
+    - type: Remove
+      message: NTR rep cant scan prime bingles for points anymore
+  id: 2344
+  time: '2026-01-28T21:43:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Monkeys can no longer be affected by sentience outside of random
+        sentience events. Kobolds not affected.
+  id: 2345
+  time: '2026-01-28T21:45:11.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Procenyl Lazide and Syriniver have been buffed.
+    - type: Tweak
+      message: >-
+        Aranesp now passively heals all damage, though its stimulating effect
+        has been slightly reduced.
+  id: 2346
+  time: '2026-01-28T22:42:39.0000000+00:00'
+- author: zagreastyas
+  changes:
+    - type: Add
+      message: 'Added a new ghostrole type, Sentient Animals. '
+    - type: Tweak
+      message: >-
+        Changed ghostrole type of monkeys, kobolds, mouse (excluding plague
+        mouse), squackroach, space goldfish, moproach, hamster, kangaroo, snail,
+        snoth, Hamlet, Willow, Smile, and Tropico to be a Sentient Animal.
+  id: 2347
+  time: '2026-01-28T22:57:38.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Resprites the unused ERT modsuits for Vox
+    - type: Tweak
+      message: Unused ERT modsuits actually have insulation now
+    - type: Fix
+      message: Fixes the hand unshaded sprite for Vox BSO modsuit
+  id: 2348
+  time: '2026-01-28T22:59:47.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: Radiation enters terminal decay past 15 tiles.
+  id: 2349
+  time: '2026-01-28T23:00:27.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added Shaft Miner's SOP (it's almost the same as Salvage Specialist
+        SOP).
+    - type: Tweak
+      message: >-
+        Salvage specialist's SOP was updated, they mustn't take locker equipment
+        from Shaft Miners (and vice versa)
+    - type: Tweak
+      message: Mining shuttle now travels much faster.
+    - type: Tweak
+      message: All crushers can now break rocks.
+    - type: Fix
+      message: Fixed lavaland watchers dropping wrong wing types when butchered.
+    - type: Fix
+      message: Fixed wielded kinetic hammer sprite.
+    - type: Fix
+      message: >-
+        Fixed pressure buffs not applying to wielded damage. (This makes
+        crushers stronger in low pressure)
+  id: 2350
+  time: '2026-01-29T01:15:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: supermatter console handheld and board in CE's locker.
+  id: 2351
+  time: '2026-01-29T06:46:03.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Now organs can be stored in SmartFridge
+  id: 2352
+  time: '2026-01-29T06:47:51.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Nerfed bag of holding storage sized by slightly over half. 200 > 90
+        inventory slots, it wont take up half your screen now, at least.
+  id: 2353
+  time: '2026-01-29T06:52:57.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: magfed lasers balance
+    - type: Add
+      message: new ammo type for magfed lasers
+  id: 2354
+  time: '2026-01-29T09:43:37.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Tweak
+      message: >-
+        Triclor now requires Aluite and Amatoxin, it is higher yield due to
+        this.
+  id: 2355
+  time: '2026-01-29T09:44:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed midround heretics and lings
+    - type: Remove
+      message: Radio host "Number" cd can no longer summon headrevs.
+  id: 2356
+  time: '2026-01-29T11:58:57.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: >-
+        Resprite Agent Pistol, Annie, Burner, Cell Revolver/SMG/LMG/Sniper, M7S,
+        HE1S-G8.
+  id: 2357
+  time: '2026-01-29T15:49:23.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Increased quantity of flour cheese and eggs in Chefvend and added a few
+        tomatoes, onions and garlic.
+    - type: Tweak
+      message: Chefbelt can now store most foods, including Crayons.
+  id: 2358
+  time: '2026-01-30T02:55:38.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed Mob Call on rat having no cooldown
+  id: 2359
+  time: '2026-01-30T03:17:30.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: Void Conduit now applies 0.25 stacks per second instead of 1
+    - type: Tweak
+      message: Void Conduit can now only apply up to 2.5 stacks of void curse.
+    - type: Tweak
+      message: Void Mark now gives 5 stacks of Void Curse instead of 3
+  id: 2360
+  time: '2026-01-30T03:19:49.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: >-
+        Changeling arm claw no longer hard grabs on hits, now is back to
+        injecting Amatoxin and Mute toxin
+  id: 2361
+  time: '2026-01-30T03:20:53.0000000+00:00'
+- author: '401523941'
+  changes:
+    - type: Add
+      message: Added a new alert level obtainable by emagging a communications console.
+  id: 2362
+  time: '2026-01-30T03:27:39.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Added slime cube box
+    - type: Remove
+      message: Free slimes from nukie planet
+  id: 2363
+  time: '2026-01-30T04:59:27.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Made the firing sound of proto-kinetic weapons quieter.
+  id: 2364
+  time: '2026-01-30T05:00:18.0000000+00:00'
+- author: IrisTheAmped, SlopsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Energy Chemical Dispensers. They use station power to dispense reagents
+        as opposed to pulling from a jug in their inventory.
+    - type: Tweak
+      message: >-
+        Energy Chem Dispensers replace the normal dispensers on all maps shift
+        start. Jug Dispensers are still able to be built from the machine board.
+    - type: Remove
+      message: Wizden E Chem 1984!
+  id: 2365
+  time: '2026-01-30T05:04:35.0000000+00:00'
