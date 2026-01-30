@@ -20890,3 +20890,11 @@ Entries:
       message: Added a new alert level obtainable by emagging a communications console.
   id: 2362
   time: '2026-01-30T03:27:39.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Added slime cube box
+    - type: Remove
+      message: Free slimes from nukie planet
+  id: 2363
+  time: '2026-01-30T04:59:27.0000000+00:00'
