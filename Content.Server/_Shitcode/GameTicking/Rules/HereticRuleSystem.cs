@@ -117,18 +117,6 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
 
         rule.Minds.Add(mindId);
 
-        if (TryComp<ClumsyComponent>(target, out var clumsy))
-        {
-            // if not for the clown car i would've nuked it off the planet
-            clumsy.ClumsyCatching = false;
-            clumsy.ClumsyDefib = false;
-            clumsy.ClumsyGuns = false;
-            clumsy.ClumsyVaulting = false;
-            clumsy.ClumsyHypo = false;
-
-            _popup.PopupEntity(Loc.GetString("antag-gain-remove-clumsy"), target, target, Shared.Popups.PopupType.Medium);
-        }
-
         return true;
     }
 
