@@ -20884,3 +20884,9 @@ Entries:
         injecting Amatoxin and Mute toxin
   id: 2361
   time: '2026-01-30T03:20:53.0000000+00:00'
+- author: '401523941'
+  changes:
+    - type: Add
+      message: Added a new alert level obtainable by emagging a communications console.
+  id: 2362
+  time: '2026-01-30T03:27:39.0000000+00:00'
