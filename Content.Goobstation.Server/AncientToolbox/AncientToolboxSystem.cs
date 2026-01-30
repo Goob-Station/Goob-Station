@@ -26,20 +26,12 @@ public sealed class AncientToolboxSystem : EntitySystem
 
     private void OnContainerChanged(EntityUid uid, AncientToolboxComponent comp, ref EntInsertedIntoContainerMessage args)
     {
-        if (_tag.HasTag(args.Entity, _telecrystal))
-        {
-            RecalculateBonusDamage(uid, comp);
-            //Logger.Info("added");
-        }
+        RecalculateBonusDamage(uid, comp);
     }
 
     private void OnContainerChanged(EntityUid uid, AncientToolboxComponent comp, ref EntRemovedFromContainerMessage args)
     {
-        if (_tag.HasTag(args.Entity, _telecrystal))
-        {
-            RecalculateBonusDamage(uid, comp);
-            //Logger.Info("removed");
-        }
+        RecalculateBonusDamage(uid, comp);
     }
 
     private void RecalculateBonusDamage(EntityUid uid, AncientToolboxComponent comp)
