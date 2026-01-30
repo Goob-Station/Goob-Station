@@ -20876,3 +20876,11 @@ Entries:
       message: Void Mark now gives 5 stacks of Void Curse instead of 3
   id: 2360
   time: '2026-01-30T03:19:49.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: >-
+        Changeling arm claw no longer hard grabs on hits, now is back to
+        injecting Amatoxin and Mute toxin
+  id: 2361
+  time: '2026-01-30T03:20:53.0000000+00:00'
