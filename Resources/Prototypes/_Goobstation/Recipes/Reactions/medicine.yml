@@ -3,9 +3,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Kresny <krzeszny@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -103,7 +105,7 @@
       amount: 2
     Diphenhydramine: # check 2
       amount: 2
-    Fluorine:
+    Calomel:
       amount: 1
     Aluite:
       amount: 5
@@ -424,17 +426,19 @@
 
 # Wraith
 - type: reaction
-  minTemp: 424
   id: Formaldehyde
+  minTemp: 357 # trauma - temp, reactants, and products adjusted with explosives PR
   reactants:
-    Ethanol:
+    Methanol:
       amount: 1
-    Iron:
+    Oxygen:
       amount: 1
     Silver:
       amount: 1
+      catalyst: true
   products:
-    Formaldehyde: 2
+    Formaldehyde: 1
+    Water: 1
 
 # Viro
 - type: reaction
