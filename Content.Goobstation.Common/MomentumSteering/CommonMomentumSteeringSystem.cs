@@ -42,7 +42,7 @@ public abstract class CommonMomentumSteeringSystem : EntitySystem
         if (forwardDot >= 0f)
             adjustedWishDir = forwardDir + perpDir * steeringPenalty;
         else
-            adjustedWishDir = (forwardDir + perpDir) * steeringPenalty;
+            adjustedWishDir = forwardDir * comp.BrakingFactor + perpDir * steeringPenalty;
 
         return true;
     }

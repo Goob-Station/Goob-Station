@@ -21,6 +21,9 @@ public sealed partial class MomentumSteeringComponent : Component
     public float FrictionReductionAtSpeed = 0.3f;
 
     [DataField, AutoNetworkedField]
+    public float BrakingFactor = 0.125f;
+
+    [DataField, AutoNetworkedField]
     public float JitterSpeedThreshold = 5.0f;
 
     [DataField, AutoNetworkedField]
