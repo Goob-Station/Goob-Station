@@ -31,5 +31,6 @@ public sealed partial class MobCallSystem : EntitySystem
             if (_whitelist.IsWhitelistPass(ent.Comp.Whitelist, uid))
                 _npc.SetBlackboard(uid, ent.Comp.Key, entCoord);
         }
+        args.Handled = true;
     }
 }

@@ -368,3 +368,6 @@ uplink-cddisksyndicate-desc = 102.9 Syndicate radio
 
 uplink-cddisknumber-name = Number Station CD
 uplink-cddisknumber-desc = Call in a threat to distract the station... good luck playing the whole thing.
+
+uplink-box-xenobio-name = Xenobiology slimes box
+uplink-box-xenobio-desc = Slimes for your xenobiology needs. Contains 9 random T1 slimes.

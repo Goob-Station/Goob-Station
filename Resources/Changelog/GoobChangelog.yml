@@ -20850,3 +20850,71 @@ Entries:
         HE1S-G8.
   id: 2357
   time: '2026-01-29T15:49:23.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Increased quantity of flour cheese and eggs in Chefvend and added a few
+        tomatoes, onions and garlic.
+    - type: Tweak
+      message: Chefbelt can now store most foods, including Crayons.
+  id: 2358
+  time: '2026-01-30T02:55:38.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed Mob Call on rat having no cooldown
+  id: 2359
+  time: '2026-01-30T03:17:30.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: Void Conduit now applies 0.25 stacks per second instead of 1
+    - type: Tweak
+      message: Void Conduit can now only apply up to 2.5 stacks of void curse.
+    - type: Tweak
+      message: Void Mark now gives 5 stacks of Void Curse instead of 3
+  id: 2360
+  time: '2026-01-30T03:19:49.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: >-
+        Changeling arm claw no longer hard grabs on hits, now is back to
+        injecting Amatoxin and Mute toxin
+  id: 2361
+  time: '2026-01-30T03:20:53.0000000+00:00'
+- author: '401523941'
+  changes:
+    - type: Add
+      message: Added a new alert level obtainable by emagging a communications console.
+  id: 2362
+  time: '2026-01-30T03:27:39.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Added slime cube box
+    - type: Remove
+      message: Free slimes from nukie planet
+  id: 2363
+  time: '2026-01-30T04:59:27.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Made the firing sound of proto-kinetic weapons quieter.
+  id: 2364
+  time: '2026-01-30T05:00:18.0000000+00:00'
+- author: IrisTheAmped, SlopsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Energy Chemical Dispensers. They use station power to dispense reagents
+        as opposed to pulling from a jug in their inventory.
+    - type: Tweak
+      message: >-
+        Energy Chem Dispensers replace the normal dispensers on all maps shift
+        start. Jug Dispensers are still able to be built from the machine board.
+    - type: Remove
+      message: Wizden E Chem 1984!
+  id: 2365
+  time: '2026-01-30T05:04:35.0000000+00:00'
