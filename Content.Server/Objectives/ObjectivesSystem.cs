@@ -54,7 +54,9 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.Administration.Logs;
-using Robust.Shared.Network; //Goobstation
+using Robust.Shared.Network;
+using Content.Shared.Roles;
+using Content.Server.Roles; //Goobstation
 
 namespace Content.Server.Objectives;
 
@@ -71,6 +73,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedRoleSystem _roles = default!;
 
     private IEnumerable<string>? _objectives;
 
@@ -114,7 +117,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             if (info.Minds.Count == 0)
                 continue;
 
-            // first group the gamerules by their agents, for example 2 different dragons
+            // first group the gamerules by their factions, for example 2 different dragons
             var agent = info.Faction ?? info.AgentName;
             if (!summaries.ContainsKey(agent))
                 summaries[agent] = new Dictionary<string, Dictionary<string, List<(EntityUid, string)>>>();
@@ -155,10 +158,10 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                 }
 
                 var result = new StringBuilder();
-                result.AppendLine(Loc.GetString("objectives-round-end-result", ("count", total), ("agent", agent)));
+                result.AppendLine(Loc.GetString("objectives-round-end-result", ("count", total), ("agent", faction)));
                 if (agent == Loc.GetString("traitor-round-end-agent-name"))
                 {
-                    result.AppendLine(Loc.GetString("objectives-round-end-result-in-custody", ("count", total), ("custody", totalInCustody), ("agent", agent)));
+                    result.AppendLine(Loc.GetString("objectives-round-end-result-in-custody", ("count", total), ("custody", totalInCustody), ("agent", faction)));
                 }
                 // next add all the players with its own prepended text
                 foreach (var (prepend, minds) in summary)
@@ -190,6 +193,19 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var userid = mind.OriginalOwnerUserId;
             var title = GetTitle((mindId, mind), name);
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
+
+            // goobstation - traitor flavor
+            // TODO: the entirety of roundend methods are shitcode
+            // if we were to add changeling/heretic/bloodbrother/antag flavor
+            // (something like "Timmy Turner was the Ashbringer" or "Grey Maria was from Gami Hive")
+            // we'd need to make a type check on every mind role or raise a separate event for each game rule/role
+            // and i can't be assed to do it!
+            // regards
+            if (_roles.MindHasRole<TraitorRoleComponent>(mindId, out var traitorRole))
+            {
+                var issuer = traitorRole.Value.Comp2.ObjectiveIssuer.Replace(" ", "").ToLower();
+                agent = Loc.GetString($"traitor-{issuer}-roundend");
+            }
 
             var objectives = mind.Objectives;
             if (objectives.Count == 0)

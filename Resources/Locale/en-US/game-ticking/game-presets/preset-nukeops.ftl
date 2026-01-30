@@ -53,4 +53,4 @@ nukeops-role-commander = Commander
 nukeops-role-agent = Corpsman
 nukeops-role-operator = Operator
 
-nukeops-roundend-name = nuclear operative
+nukeops-roundend-name = a nuclear operative

@@ -255,6 +255,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         _roleSystem.MindHasRole<TraitorRoleComponent>(mindId, out var traitorRole);
         if (traitorRole is not null)
         {
+            // goob edit - traitor flavor.
+            traitorRole.Value.Comp2.ObjectiveIssuer = issuer;
+
             EnsureComp<RoleBriefingComponent>(traitorRole.Value.Owner, out var briefingComp);
             // Goobstation Change - If you remove this, we lose ringtones and flavor in char menu. Upstream's version sucks.
             briefingComp.Briefing = GenerateBriefingCharacter(codewords, code, spinCode, issuer);
@@ -304,13 +307,13 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         if (uplinkCode != null || penSpinCode != null)
             sb.AppendLine("\n" + Loc.GetString($"traitor-{issuer}-uplink"));
-        
+
         if (uplinkCode != null)
             sb.AppendLine("\n" + Loc.GetString($"traitor-role-uplink-code-short", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
-            
+
         else if (penSpinCode != null)
-          sb.AppendLine(Loc.GetString($"traitor-role-uplink-pen-code-short", ("code", string.Join("-", penSpinCode))));
-          
+            sb.AppendLine(Loc.GetString($"traitor-role-uplink-pen-code-short", ("code", string.Join("-", penSpinCode))));
+
         else sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
 
         if (codewords != null)

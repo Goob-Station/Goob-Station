@@ -80,7 +80,7 @@ traitor-postal-intro = You have Gone Postal.
 traitor-postal-goal = The preparations are finally complete. Today is the day you go postal. You're going to hijack the emergency shuttle and live a new life free of Nanotrasen.
 traitor-postal-allies = If the syndicate learns of your plan, they're going to kill you and take your uplink. Take no chances.
 traitor-postal-uplink = You've actually managed to steal a full uplink a month ago. This should certainly help accomplish your goals.
-traitor-postal-roundend = [color=red]simply went completely postal![/color]
+traitor-postal-roundend = [color=white]simply going completely Postal[/color]
 
 traitor-evilchampion-intro = You are the Champion of Evil!
 traitor-evilchampion-goal = You've got some napkin-note-plans for some EVIL to do today. On the side, the Champions of Evil are always looking for more morally malodorous malefactors! Get some recruiting done!
