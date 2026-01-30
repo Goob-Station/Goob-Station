@@ -20860,3 +20860,9 @@ Entries:
       message: Chefbelt can now store most foods, including Crayons.
   id: 2358
   time: '2026-01-30T02:55:38.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed Mob Call on rat having no cooldown
+  id: 2359
+  time: '2026-01-30T03:17:30.0000000+00:00'
