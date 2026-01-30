@@ -116,16 +116,3 @@ public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
 
 #endregion
-
-#region Events - Misc
-
-[DataDefinition]
-public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
-
-[DataDefinition]
-public sealed partial class AwakenedInstinctPurchasedEvent : EntityEventArgs;
-
-[DataDefinition]
-public sealed partial class VoidAdaptionPurchasedEvent : EntityEventArgs;
-
-#endregion
