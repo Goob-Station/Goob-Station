@@ -15,14 +15,20 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
 
-    private readonly TimeSpan _systemUpdateRate = TimeSpan.FromSeconds(1);
-    private TimeSpan _systemNextUpdate = TimeSpan.Zero;
-
     public override void Initialize()
     {
+        SubscribeLocalEvent<InternalResourcesComponent, MapInitEvent>(OnMapInit);
+
         SubscribeLocalEvent<InternalResourcesComponent, InternalResourcesAmountChangedEvent>(OnInternalResourcesAmountChanged);
         SubscribeLocalEvent<InternalResourcesComponent, InternalResourcesCapacityChangedEvent>(OnInternalResourcesCapacityChanged);
         SubscribeLocalEvent<InternalResourcesComponent, GetValueRelatedAlertValuesEvent>(OnAlertGetValues);
+    }
+
+    private void OnMapInit(Entity<InternalResourcesComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.NextUpdate = ent.Comp.UpdateDelay + _gameTiming.CurTime;
+
+        Dirty(ent);
     }
 
     private void OnInternalResourcesAmountChanged(Entity<InternalResourcesComponent> entity, ref InternalResourcesAmountChangedEvent args)
@@ -70,10 +76,10 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TryUpdateResourcesAmount(EntityUid uid, string protoId, float amount, InternalResourcesComponent? component = null)
     {
-        if (!_gameTiming.IsFirstTimePredicted
-            || !Resolve(uid, ref component)
-            || !component.HasResourceData(protoId, out var data)
-            || amount == 0)
+        if (!Resolve(uid, ref component) || amount == 0)
+            return false;
+
+        if (!component.HasResourceData(protoId, out var data))
             return false;
 
         return TryUpdateResourcesAmount(uid, data, amount, component);
@@ -115,8 +121,7 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TryUpdateResourcesCapacity(EntityUid uid, string protoId, float amount, InternalResourcesComponent? component = null)
     {
-        if (!_gameTiming.IsFirstTimePredicted
-            || !Resolve(uid, ref component)
+        if (!Resolve(uid, ref component)
             || !component.HasResourceData(protoId, out var data))
             return false;
 
@@ -151,8 +156,7 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public bool TrySetResourcesCapacity(EntityUid uid, string protoId, float capacity, InternalResourcesComponent? component = null)
     {
-        if (!_gameTiming.IsFirstTimePredicted
-            || !Resolve(uid, ref component)
+        if (!Resolve(uid, ref component)
             || !component.HasResourceData(protoId, out var data))
             return false;
 
@@ -280,14 +284,20 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// </summary>
     public override void Update(float frameTime)
     {
-        if (_systemNextUpdate > _gameTiming.CurTime)
-            return;
+        base.Update(frameTime);
 
-        _systemNextUpdate += _systemUpdateRate;
+        var curTime = _gameTiming.CurTime;
 
         var query = EntityQueryEnumerator<InternalResourcesComponent>();
         while (query.MoveNext(out var uid, out var resourcesComp))
         {
+            if (resourcesComp.NextUpdate > curTime)
+                continue;
+
+            resourcesComp.NextUpdate += resourcesComp.UpdateDelay;
+
+            Dirty(uid, resourcesComp);
+
             foreach (var resourceData in resourcesComp.CurrentInternalResources)
             {
                 var modEv = new InternalResourcesRegenModifierEvent(
