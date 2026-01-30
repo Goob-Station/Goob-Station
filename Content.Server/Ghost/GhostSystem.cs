@@ -400,7 +400,8 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).ToList());
+            var response = new GhostWarpsResponseEvent(
+                GetLocationWarps().Concat(GetPlayerWarps(entity)).ToList());
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
@@ -462,7 +463,7 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
+                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), GhostWarpType.Location, _followerSystem.GetGhostFollowerCount(uid));
             }
         }
 
@@ -481,7 +482,7 @@ namespace Content.Server.Ghost
                 var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
 
                 if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))
-                    yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);
+                    yield return new GhostWarp(GetNetEntity(attached), playerInfo, GhostWarpType.Player, _followerSystem.GetGhostFollowerCount(attached));
             }
         }
 

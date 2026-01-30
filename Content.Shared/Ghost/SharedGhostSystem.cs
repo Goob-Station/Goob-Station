@@ -160,6 +160,14 @@ namespace Content.Shared.Ghost
     {
     }
 
+    [Serializable, NetSerializable]
+    public enum GhostWarpType : byte
+    {
+        Location,
+        Player,
+        Mob
+    }
+
     /// <summary>
     /// An individual place a ghost can warp to.
     /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
@@ -171,7 +179,16 @@ namespace Content.Shared.Ghost
         {
             Entity = entity;
             DisplayName = displayName;
-            IsWarpPoint = isWarpPoint;
+            Type = isWarpPoint ? GhostWarpType.Location : GhostWarpType.Player;
+            ObserverCount = 0;
+        }
+
+        public GhostWarp(NetEntity entity, string displayName, GhostWarpType type, int observerCount = 0)
+        {
+            Entity = entity;
+            DisplayName = displayName;
+            Type = type;
+            ObserverCount = observerCount;
         }
 
         /// <summary>
@@ -188,7 +205,14 @@ namespace Content.Shared.Ghost
         /// <summary>
         /// Whether this warp represents a warp point or a player
         /// </summary>
-        public bool IsWarpPoint { get;  }
+        public bool IsWarpPoint => Type == GhostWarpType.Location;
+
+        public GhostWarpType Type { get; }
+
+        /// <summary>
+        /// Number of non-admin ghosts currently following this entity.
+        /// </summary>
+        public int ObserverCount { get; }
     }
 
     /// <summary>

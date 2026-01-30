@@ -30,7 +30,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
     [GenerateTypedNameReferences]
     public sealed partial class GhostTargetWindow : DefaultWindow
     {
-        private List<(string, NetEntity)> _warps = new();
+        private List<(string Name, NetEntity Entity, GhostWarpType Type, int ObserverCount)> _warps = new();
+        private readonly List<GhostWarpType> _buttonTypes = new();
         private string _searchText = string.Empty;
 
         public event Action<NetEntity>? WarpClicked;
@@ -40,24 +41,27 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         {
             RobustXamlLoader.Load(this);
             SearchBar.OnTextChanged += OnSearchTextChanged;
+            FilterPlaces.OnToggled += _ => { UpdateVisibleButtons(); GhostScroll.SetScrollValue(Vector2.Zero); };
+            FilterPlayers.OnToggled += _ => { UpdateVisibleButtons(); GhostScroll.SetScrollValue(Vector2.Zero); };
 
             GhostnadoButton.OnPressed += _ => OnGhostnadoClicked?.Invoke();
         }
 
         public void UpdateWarps(IEnumerable<GhostWarp> warps)
         {
-            // Server COULD send these sorted but how about we just use the client to do it instead
             _warps = warps
-                .OrderBy(w => w.IsWarpPoint)
+                .OrderBy(w => w.Type)
                 .ThenBy(w => w.DisplayName, Comparer<string>.Create(
                     (x, y) => string.Compare(x, y, StringComparison.Ordinal)))
                 .Select(w =>
                 {
-                    var name = w.IsWarpPoint
+                    var name = w.Type == GhostWarpType.Location
                         ? Loc.GetString("ghost-target-window-current-button", ("name", w.DisplayName))
                         : w.DisplayName;
-
-                    return (name, w.Entity);
+                    var withObservers = w.ObserverCount > 0
+                        ? $"{name} {Loc.GetString("ghost-target-window-observers-count", ("count", w.ObserverCount))}"
+                        : name;
+                    return (withObservers, w.Entity, w.Type, w.ObserverCount);
                 })
                 .ToList();
         }
@@ -65,12 +69,13 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         public void Populate()
         {
             ButtonContainer.DisposeAllChildren();
+            _buttonTypes.Clear();
             AddButtons();
         }
 
         private void AddButtons()
         {
-            foreach (var (name, warpTarget) in _warps)
+            foreach (var (name, warpTarget, type, _) in _warps)
             {
                 var currentButtonRef = new Button
                 {
@@ -84,23 +89,36 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 };
 
                 currentButtonRef.OnPressed += _ => WarpClicked?.Invoke(warpTarget);
-                currentButtonRef.Visible = ButtonIsVisible(currentButtonRef);
+                _buttonTypes.Add(type);
+                currentButtonRef.Visible = ButtonIsVisible(currentButtonRef.Text, type);
 
                 ButtonContainer.AddChild(currentButtonRef);
             }
         }
 
-        private bool ButtonIsVisible(Button button)
+        private bool IsTypeFiltered(GhostWarpType type)
         {
-            return string.IsNullOrEmpty(_searchText) || button.Text == null || button.Text.Contains(_searchText, StringComparison.OrdinalIgnoreCase);
+            return type switch
+            {
+                GhostWarpType.Location => FilterPlaces.Pressed,
+                GhostWarpType.Player => FilterPlayers.Pressed,
+                _ => true
+            };
+        }
+
+        private bool ButtonIsVisible(string? text, GhostWarpType type)
+        {
+            if (!IsTypeFiltered(type))
+                return false;
+            return string.IsNullOrEmpty(_searchText) || text == null || text.Contains(_searchText, StringComparison.OrdinalIgnoreCase);
         }
 
         private void UpdateVisibleButtons()
         {
-            foreach (var child in ButtonContainer.Children)
+            for (var i = 0; i < ButtonContainer.ChildCount; i++)
             {
-                if (child is Button button)
-                    button.Visible = ButtonIsVisible(button);
+                if (ButtonContainer.GetChild(i) is Button button && i < _buttonTypes.Count)
+                    button.Visible = ButtonIsVisible(button.Text, _buttonTypes[i]);
             }
         }
 

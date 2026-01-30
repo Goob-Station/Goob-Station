@@ -10,6 +10,9 @@ ghost-gui-toggle-hearing-popup-off = Тепер ви можете чути ли�
 
 ghost-target-window-title = Телепорт Привида
 ghost-target-window-current-button = Переміститися: {$name}
+ghost-target-window-filter-places = Місця
+ghost-target-window-filter-players = Гравці
+ghost-target-window-observers-count = ({$count})
 
 ghost-roles-window-title = Ролі Привидів
 ghost-roles-window-request-role-button = Подати Заявку

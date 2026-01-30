@@ -338,6 +338,25 @@ public sealed class FollowerSystem : EntitySystem
     }
 
     /// <summary>
+    /// Gets the number of non-admin ghosts currently following the given entity.
+    /// </summary>
+    public int GetGhostFollowerCount(EntityUid entity)
+    {
+        if (!TryComp<FollowedComponent>(entity, out var followed))
+            return 0;
+        var count = 0;
+        foreach (var follower in followed.Following)
+        {
+            if (!HasComp<GhostComponent>(follower) || !TryComp<ActorComponent>(follower, out var actor))
+                continue;
+            if (_adminManager.IsAdmin(actor.PlayerSession))
+                continue;
+            count++;
+        }
+        return count;
+    }
+
+    /// <summary>
     /// Gets the entity with the most non-admin ghosts following it.
     /// </summary>
     public EntityUid? GetMostGhostFollowed()
