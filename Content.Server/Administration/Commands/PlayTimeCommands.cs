@@ -69,7 +69,7 @@ public sealed class PlayTimeCommandUtilities
             return result;
         }
 
-        MatchCollection timeRegex = Regex.Matches(timeString, "(\\d+)([A-Za-z]+)");
+        MatchCollection timeRegex = Regex.Matches(timeString, "(-?\\d+)([A-Za-z]+)"); // CorvaxGoob-Changes : added "-?" to expression
 
         foreach (Match match in timeRegex)
         {

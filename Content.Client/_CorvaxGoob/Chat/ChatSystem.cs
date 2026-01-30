@@ -1,7 +1,6 @@
 using Content.Shared._CorvaxGoob.CCCVars;
 using Content.Shared._CorvaxGoob.Chat;
 using Robust.Client.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -32,10 +31,7 @@ public sealed class ChatSystem : EntitySystem
     {
         if (_playerManager.LocalSession is not null)
         {
-            var audioParams =
-                ev.AudioParams.HasValue
-                ? ev.AudioParams.Value.WithVolume(SharedAudioSystem.GainToVolume(_announcementsVolume))
-                : AudioParams.Default.WithVolume(SharedAudioSystem.GainToVolume(_announcementsVolume));
+            var audioParams = ev.SoundSpecifier.Params.WithVolume(SharedAudioSystem.GainToVolume(_announcementsVolume));
 
             _audio.PlayGlobal(_audio.ResolveSound(ev.SoundSpecifier), Filter.Local(), false, audioParams);
 

@@ -51,7 +51,8 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         if (_announcer.TryGetAnnouncerToday(out var announcerPrototype) && stationEvent.AnnouncersStartAudio.ContainsKey(announcerPrototype.ID))
             startAudio = stationEvent.AnnouncersStartAudio[announcerPrototype.ID];
 
-        _audio.PlayGlobal(startAudio, allPlayersInGame, true);
+        if (startAudio is not null)
+            _chat.SendGlobalSound(startAudio, allPlayersInGame);
         // CorvaxGoob-CustomAnnouncers-End
     }
 
@@ -127,6 +128,7 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         if (_announcer.TryGetAnnouncerToday(out var announcerPrototype) && stationEvent.AnnouncersEndAudio.ContainsKey(announcerPrototype.ID))
             endAudio = stationEvent.AnnouncersEndAudio[announcerPrototype.ID];
 
-        _audio.PlayGlobal(endAudio, allPlayersInGame, true);
+        if (endAudio is not null)
+            _chat.SendGlobalSound(endAudio, allPlayersInGame);
     }
 }

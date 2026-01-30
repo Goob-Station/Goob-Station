@@ -128,6 +128,7 @@
     handheld: false
     bank: 1
     program: 2
+  - type: VentCrawler # CorvaxGoob-Features
   - type: Loadout # imp special. this replaces the InnateTool component.
     prototypes:
     - StartingGearDroneTools

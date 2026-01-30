@@ -27,7 +27,7 @@ cargo-console-menu-order-row-button-approve = Одобрить
 cargo-console-menu-order-row-button-cancel = Отменить
 cargo-console-menu-order-row-alerts-reason-absent = Причина не указана
 cargo-console-menu-order-row-alerts-requester-unknown = Неизвестно
-cargo-console-menu-populate-orders-cargo-order-row-product-name-text = { $productName } (x{ $orderAmount }) от { $orderRequester } со счёта [color={ $accountColor }]{ $account }[/color]
+cargo-console-menu-populate-orders-cargo-order-row-product-name-text = Заказ от {$orderRequester} со счёта [color={$accountColor}]{$account}[/color]
 cargo-console-menu-tab-title-orders = Заказы
 cargo-console-menu-account-action-transfer-limit-amount = ${ $amount }
 cargo-console-menu-tab-title-funds = Переводы
@@ -93,7 +93,7 @@ cargo-acquisition-slip-body = [head=3]Детали актива[/head]
     { "[bold]Цена за единицу:[/bold" }] ${ $unit }
     { "[bold]Количество:[/bold]" } { $amount }
     { "[bold]Сумма:[/bold]" } ${ $cost }
-    
+
     { "[head=3]Детали покупки[/head]" }
     { "[bold]Заказчик:[/bold]" } { $orderer }
     { "[bold]Причина:[/bold]" } { $reason }

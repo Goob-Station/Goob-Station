@@ -7,11 +7,9 @@ namespace Content.Shared._CorvaxGoob.Chat;
 public sealed class PlayGlobalSoundEvent : EntityEventArgs
 {
     public SoundSpecifier SoundSpecifier { get; }
-    public AudioParams? AudioParams { get; }
 
-    public PlayGlobalSoundEvent(SoundSpecifier soundSpecifier, AudioParams? audioParams)
+    public PlayGlobalSoundEvent(SoundSpecifier soundSpecifier)
     {
         this.SoundSpecifier = soundSpecifier;
-        this.AudioParams = audioParams;
     }
 }

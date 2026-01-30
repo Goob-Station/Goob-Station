@@ -929,7 +929,7 @@ namespace Content.Server.GameTicking
                 _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
 
             if (proto.Sound != null)
-                _audio.PlayGlobal(proto.Sound, Filter.Broadcast(), true);
+                _chatSystem.SendGlobalSound(proto.Sound, Filter.Broadcast());
         }
 
         private async void SendRoundStartedDiscordMessage()

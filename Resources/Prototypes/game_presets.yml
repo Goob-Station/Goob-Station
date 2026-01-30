@@ -180,7 +180,7 @@
   description: secret-description
   rules:
     - Secret
-    - BasicStationEventScheduler
+    # - BasicStationEventScheduler CorvaxGoob : Fixes double spawn BasicStationEventScheduler
 
 - type: gamePreset
   id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.

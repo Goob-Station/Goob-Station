@@ -247,7 +247,7 @@ namespace Content.Server.RoundEnd
             if (_announcer.TryGetAnnouncerToday(out var announcerPrototype) && announcerPrototype.ShuttleCallSound is not null)
                 shuttleCalledSound = announcerPrototype.ShuttleCallSound;
 
-            _audio.PlayGlobal(shuttleCalledSound, Filter.Broadcast(), true);
+            _chatSystem.SendGlobalSound(shuttleCalledSound, Filter.Broadcast());
             // CorvaxGoob-CustomAnnouncers-End
 
             LastCountdownStart = _gameTiming.CurTime;
