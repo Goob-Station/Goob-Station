@@ -523,7 +523,7 @@
   id: UplinkWeaponHE1SG8
   name: uplink-he1sg8-bundle-name
   description: uplink-he1sg8-bundle-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi, state: base }
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate_icon_48x.rsi, state: base }
   productEntity: ClothingBackpackDuffelSyndicateFilledHE1SG8
   cost:
     Telecrystal: 130
@@ -871,6 +871,23 @@
   - !type:BuyerJobCondition
     whitelist:
     - Passenger
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkAdvMimery
+  name: uplink-adv-mimery-name
+  description: uplink-adv-mimery-desc
+  icon: { sprite: _Goobstation/Objects/Misc/bookmime.rsi, state: icon }
+  productEntity: BoxAdvMimery
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
   - !type:ListingLimitedStockCondition
     stock: 1
 

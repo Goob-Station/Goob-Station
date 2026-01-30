@@ -88,7 +88,10 @@ uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 
 uplink-grey-tide-name = Grey Tide
-uplink-grey-tide-desc = An antient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is an Assistant.
+uplink-grey-tide-desc = An ancient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is an Assistant.
+
+uplink-adv-mimery-name = Guide to Advanced Mimery Series
+uplink-adv-mimery-desc = The classical two part series on how to further hone your mime skills. Upon studying the series, the user should be able to make 3x1 invisible walls, and shoot bullets out of their fingers.
 
 # Weapons
 
