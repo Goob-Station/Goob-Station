@@ -1,4 +1,3 @@
-
 namespace Content.Goobstation.Server.CentComm;
 
 /// <summary>

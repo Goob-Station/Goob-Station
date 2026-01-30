@@ -4,13 +4,10 @@ using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Warps;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Standing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Content.Shared.Popups;
-using Content.Goobstation.Shared.Lifeline;
 
 namespace Content.Goobstation.Server.CentComm;
 public sealed partial class WarpParentOnTriggerSystem : EntitySystem
