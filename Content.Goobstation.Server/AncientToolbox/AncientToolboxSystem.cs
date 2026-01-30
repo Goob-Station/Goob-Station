@@ -5,14 +5,16 @@ using Content.Shared.Damage;
 using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
+using Content.Goobstation.Shared.AncientToolbox;
 
 namespace Content.Goobstation.Server.AncientToolbox;
 
 public sealed class AncientToolboxSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [ValidatePrototypeId<TagPrototype>]
-    private readonly ProtoId<TagPrototype> TC = "Telecrystal";
+    private readonly ProtoId<TagPrototype> _telecrystal = "Telecrystal";
 
     public override void Initialize()
     {
@@ -24,22 +26,30 @@ public sealed class AncientToolboxSystem : EntitySystem
 
     private void OnContainerChanged(EntityUid uid, AncientToolboxComponent comp, ref EntInsertedIntoContainerMessage args)
     {
-        RecalculateBonus(uid, comp);
+        if (_tag.HasTag(args.Entity, _telecrystal))
+        {
+            RecalculateBonusDamage(uid, comp);
+            //Logger.Info("added");
+        }
     }
 
     private void OnContainerChanged(EntityUid uid, AncientToolboxComponent comp, ref EntRemovedFromContainerMessage args)
     {
-        RecalculateBonus(uid, comp);
+        if (_tag.HasTag(args.Entity, _telecrystal))
+        {
+            RecalculateBonusDamage(uid, comp);
+            //Logger.Info("removed");
+        }
     }
 
-    private void RecalculateBonus(EntityUid uid, AncientToolboxComponent comp)
+    private void RecalculateBonusDamage(EntityUid uid, AncientToolboxComponent comp)
     {
         var totalCrystals = 0;
         if (TryComp(uid, out StorageComponent? storage))
         {
             foreach (var item in storage.Container.ContainedEntities)
             {
-                if (_tag.HasTag(item, TC))
+                if (_tag.HasTag(item, _telecrystal))
                 {
                     if (TryComp<StackComponent>(item, out var stack))
                         totalCrystals += stack.Count;
@@ -48,7 +58,7 @@ public sealed class AncientToolboxSystem : EntitySystem
                 }
             }
         }
-        comp.BonusDamage = comp.CrystalsPerDamageBonus == 0 ? 0 : totalCrystals / comp.CrystalsPerDamageBonus;
+        comp.BonusDamage = comp.CrystalsPerDamageBonus == 0 ? 0 : (int) Math.Floor(totalCrystals / comp.CrystalsPerDamageBonus);
     }
 
     private void OnMeleeHit(Entity<AncientToolboxComponent> ent, ref MeleeHitEvent args)
