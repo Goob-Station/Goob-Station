@@ -13,6 +13,8 @@
     children:
     - id: ActionDemonicHandSpiralSelector
     - id: ActionOniRampageSelector
+    - id: ActionRingOfFireCloseSelector
+    - id: ActionRingOfFireWideSelector
 
 - type: megafaunaSelector
   id: ActionDemonicHandSpiralSelector
@@ -35,4 +37,26 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionOniRampage
+
+- type: megafaunaSelector
+  id: ActionRingOfFireWideSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: true
+    actionId: ActionRingOfFireWide
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionRingOfFireWide
+
+- type: megafaunaSelector
+  id: ActionRingOfFireCloseSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: true
+    actionId: ActionRingOfFireClose
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionRingOfFireClose
 

@@ -1,0 +1,59 @@
+- type: entity
+  id: BananaSmallSkull
+  name: Oni skull
+  description: It looks like it is laughing at you...
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/32x32.rsi
+    state: oni-skull
+    drawdepth: Effects
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5, -0.5, 0.5, 0.5"
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+  - type: AmbientSound
+    volume: -6
+    range: 8
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: Orange
+    castShadows: false
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - ChildishOni
+    inverted: true
+    damage:
+      types:
+        Heat: 2
+
+- type: entity
+  id: BananaSmallSkullTemporary
+  parent: BananaSmallSkull
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 8
+    fadeOutTime: 2
+
+- type: entity
+  id: BananaSmallSkullTemporaryLong
+  parent: BananaSmallSkull
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 16
+    fadeOutTime: 2
+

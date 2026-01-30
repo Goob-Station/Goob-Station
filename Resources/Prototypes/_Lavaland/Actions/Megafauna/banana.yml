@@ -14,7 +14,6 @@
   - type: TargetAction
     checkCanAccess: false
     range: 20
-  - type: WorldTargetAction
 
 - type: entity
   id: ActionDemonicHandSpiral
@@ -40,3 +39,31 @@
     maxDelay: 6
   - type: WorldTargetAction
     event: !type:OniRampageEvent
+
+- type: entity
+  id: ActionRingOfFireClose
+  parent: ActionBaseBanana
+  name: Close Ring of Fire
+  description: Spawns a ring of flaming skulls at close range.
+  components:
+  - type: AngerDelayAction
+    minDelay: 14
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:RingOfFireEvent
+      ringDistance: 1
+      skullPrototype: BananaSmallSkullTemporaryLong
+
+- type: entity
+  id: ActionRingOfFireWide
+  parent: ActionBaseBanana
+  name: Wide Ring of Fire
+  description: Spawns a ring of flaming skulls at long range.
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:RingOfFireEvent
+      ringDistance: 2
+      skullPrototype: BananaSmallSkullTemporary

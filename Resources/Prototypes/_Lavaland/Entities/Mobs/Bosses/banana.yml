@@ -56,6 +56,8 @@
     actions:
     - ActionDemonicHandSpiral
     - ActionOniRampage
+    - ActionRingOfFireClose
+    - ActionRingOfFireWide
   - type: Fauna
   - type: Anger
     totalHp: 2000
@@ -97,8 +99,10 @@
     wallShape: !type:NestedEntityShape
       id: BoxHollow
       size: 15 # Radius of the arena
+  - type: RingOfFire
   - type: OniRampage
     landDamageRange: 1
+    growDistance: 1
     shouldSpeak: true
     damage:
       types:

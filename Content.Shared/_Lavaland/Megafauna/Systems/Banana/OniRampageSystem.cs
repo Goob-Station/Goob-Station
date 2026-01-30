@@ -6,6 +6,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Network;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems.Banana;
 
@@ -21,6 +22,7 @@ public sealed class OniRampageSystem : EntitySystem
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -58,7 +60,7 @@ public sealed class OniRampageSystem : EntitySystem
             comp.JumpThrowSpeed
         );
 
-        if (comp.ShouldSpeak)
+        if (comp.ShouldSpeak && _net.IsServer)
         {
             _chat.TrySendInGameICMessage(
                 args.Performer,
