@@ -20798,3 +20798,55 @@ Entries:
         crushers stronger in low pressure)
   id: 2350
   time: '2026-01-29T01:15:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: supermatter console handheld and board in CE's locker.
+  id: 2351
+  time: '2026-01-29T06:46:03.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Now organs can be stored in SmartFridge
+  id: 2352
+  time: '2026-01-29T06:47:51.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Nerfed bag of holding storage sized by slightly over half. 200 > 90
+        inventory slots, it wont take up half your screen now, at least.
+  id: 2353
+  time: '2026-01-29T06:52:57.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: magfed lasers balance
+    - type: Add
+      message: new ammo type for magfed lasers
+  id: 2354
+  time: '2026-01-29T09:43:37.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Tweak
+      message: >-
+        Triclor now requires Aluite and Amatoxin, it is higher yield due to
+        this.
+  id: 2355
+  time: '2026-01-29T09:44:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed midround heretics and lings
+    - type: Remove
+      message: Radio host "Number" cd can no longer summon headrevs.
+  id: 2356
+  time: '2026-01-29T11:58:57.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: >-
+        Resprite Agent Pistol, Annie, Burner, Cell Revolver/SMG/LMG/Sniper, M7S,
+        HE1S-G8.
+  id: 2357
+  time: '2026-01-29T15:49:23.0000000+00:00'
