@@ -37,7 +37,7 @@
   - type: TriggerImplantAction
 # - type: DeleteParentOnTrigger # Enable if you hate CC
   - type: WarpParentOnTrigger
-    warpLocation: CentComm
+    warpLocation: CentCom
   - type: SpawnOnTrigger
     proto: BluespaceLifelineSpawnCore
   - type: Tag
