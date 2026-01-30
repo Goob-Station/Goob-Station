@@ -20866,3 +20866,13 @@ Entries:
       message: Fixed Mob Call on rat having no cooldown
   id: 2359
   time: '2026-01-30T03:17:30.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: Void Conduit now applies 0.25 stacks per second instead of 1
+    - type: Tweak
+      message: Void Conduit can now only apply up to 2.5 stacks of void curse.
+    - type: Tweak
+      message: Void Mark now gives 5 stacks of Void Curse instead of 3
+  id: 2360
+  time: '2026-01-30T03:19:49.0000000+00:00'
