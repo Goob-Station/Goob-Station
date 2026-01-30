@@ -48,6 +48,7 @@
     - id: LavalandCursedHeart
     - id: ClothingOuterArmorCult
     - id: LavalandVampirismCrystal
+    - id: LavalandBookOfGreentext # CorvaxGoob-BookOfGreentext
     # TODO add more interesting obtain methods for crusher upgrades (from megafauna, ruins, etc.)
     - id: CrusherUpgradeMainRudeBuster
 

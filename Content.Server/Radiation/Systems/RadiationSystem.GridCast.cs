@@ -164,7 +164,7 @@ public partial class RadiationSystem
             return null;
 
         // will it even reach destination considering distance penalty
-        var rads = source.Intensity - source.Slope * dist;
+        var rads = source.Intensity / dist;
         if (rads < MinIntensity)
             return null;
 
