@@ -35,7 +35,9 @@
     mobState:
     - Dead
   - type: TriggerImplantAction
-  - type: DeleteParentOnTrigger
+# - type: DeleteParentOnTrigger # Enable if you hate CC
+  - type: WarpParentOnTrigger
+    warpLocation: CentCom
   - type: SpawnOnTrigger
     proto: BluespaceLifelineSpawnCore
   - type: Tag

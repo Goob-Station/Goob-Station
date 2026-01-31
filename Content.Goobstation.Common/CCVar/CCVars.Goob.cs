@@ -667,6 +667,18 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
         CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
 
+    /// <summary>
+    /// Should the bluespace lifeline rejuvenate on teleport.
+    /// </summary>
+    public static readonly CVarDef<bool> LifeLineRejuvenate =
+        CVarDef.Create("lifeline.rejuvenate", false, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Should the bluespace lifeline reset mind on teleport.
+    /// </summary>
+    public static readonly CVarDef<bool> LifeLineResetMind =
+        CVarDef.Create("lifeline.reset_mind", true, CVar.SERVERONLY);
+
     #endregion
     /// <summary>
     /// Enables or disables contraband icons.
