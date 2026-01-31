@@ -242,3 +242,14 @@
   components:
   - type: Flatpack
     entity: Vaccinator
+
+- type: entity
+  parent: BaseFlatpack
+  id: RotaryPhoneFlatPack
+  name: phone flat pack
+  description: A flatpack used for constructing a Rotary Phone.
+  components:
+  - type: Flatpack
+    entity: RotaryPhoneStand
+  - type: Item
+    size: Normal

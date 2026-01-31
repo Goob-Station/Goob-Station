@@ -60,12 +60,13 @@ namespace Content.Shared.Chat
         public string? AudioPath;
         public float AudioVolume;
         public bool CanCoalesce; // Goobstation Edit
+        public bool HidePopup; // Goobstation - phones
 
         [NonSerialized]
         public bool Read;
 
-        // Goobstation Edit - Coalescing Chat
-        public ChatMessage(ChatChannel channel, string message, string wrappedMessage, NetEntity source, int? senderKey, bool hideChat = false, Color? colorOverride = null, string? audioPath = null, float audioVolume = 0, bool canCoalesce = true)
+        // Goobstation Edit - Coalescing Chat & Phones
+        public ChatMessage(ChatChannel channel, string message, string wrappedMessage, NetEntity source, int? senderKey, bool hideChat = false, Color? colorOverride = null, string? audioPath = null, float audioVolume = 0, bool canCoalesce = true, bool hidePopup = false)
         {
             Channel = channel;
             Message = message;
@@ -77,6 +78,7 @@ namespace Content.Shared.Chat
             AudioPath = audioPath;
             AudioVolume = audioVolume;
             CanCoalesce = canCoalesce; // Goobstation Edit
+            HidePopup = hidePopup; // Goobstation phones
         }
     }
 
