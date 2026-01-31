@@ -36,6 +36,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Weather;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -84,6 +85,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 

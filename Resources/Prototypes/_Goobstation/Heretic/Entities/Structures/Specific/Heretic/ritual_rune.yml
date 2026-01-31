@@ -21,7 +21,7 @@
   components:
   - type: HereticRitualRune
   - type: Sprite
-    drawdepth: WallMountedItems
+    drawdepth: FloorEffects
     sprite: _Goobstation/Heretic/ritual_rune.rsi
     layers:
     - state: overlay # Required so that you don't miss the rune when clicking on it
@@ -69,7 +69,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    drawdepth: WallMountedItems
+    drawdepth: FloorEffects
     sprite: _Goobstation/Heretic/ritual_rune.rsi
     state: icon_drawanim
 
@@ -95,6 +95,6 @@
   - type: TimedDespawn
     lifetime: 1
   - type: Sprite
-    drawdepth: WallMountedItems
+    drawdepth: HighFloorObjects
     sprite: _Goobstation/Heretic/ritual_rune.rsi
     state: icon_ritualanim

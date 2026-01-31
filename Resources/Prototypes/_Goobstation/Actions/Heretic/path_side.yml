@@ -54,3 +54,24 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-cleave
+
+- type: entity
+  id: ActionHereticSpacePhase
+  name: Space Phase
+  description: Allows you to phase in and out of existence while in space or a low-pressure, outdoor area.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    predicted: false
+    checkCanInteract: false
+    useDelay: 3
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: space_phase
+  - type: InstantAction
+    event: !type:EventHereticSpacePhase
+  - type: HereticAction
+    requireMagicItem: true

@@ -1,0 +1,90 @@
+- type: entity
+  parent: [ DrinkBase, BaseMagicalContraband ]
+  id: CruciblePotionBase
+  abstract: true
+  components:
+  - type: UnholyItem
+  - type: Item
+    size: Tiny
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Icon
+    state: icon
+  - type: Sprite
+    layers:
+    - state: closed
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: potion
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: potion1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: potion
+    metamorphic: false
+
+- type: entity
+  parent: CruciblePotionBase
+  id: PotionCrucibleSoul
+  name: brew of the crucible soul
+  description: The Wood grows around the walls of the Mansus. As any student of Histories knows, the Mansus has no walls.
+  components:
+  - type: Icon
+    sprite: _Goobstation/Heretic/Entities/Potions/crucible_soul.rsi
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/Potions/crucible_soul.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: CrucibleSoul
+          Quantity: 5
+
+- type: entity
+  parent: CruciblePotionBase
+  id: PotionDuskDawn
+  name: brew of dusk and dawn
+  description: The higher I rise. The more I see.
+  components:
+  - type: Icon
+    sprite: _Goobstation/Heretic/Entities/Potions/clarity.rsi
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/Potions/clarity.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: DuskAndDawn
+          Quantity: 5
+
+- type: entity
+  parent: CruciblePotionBase
+  id: PotionWoundedSoldier
+  name: brew of the wounded soldier
+  description: Not all doors are wounds, but all wounds are doors.
+  components:
+  - type: Icon
+    sprite: _Goobstation/Heretic/Entities/Potions/marshal.rsi
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/Potions/marshal.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: WoundedSoldier
+          Quantity: 5

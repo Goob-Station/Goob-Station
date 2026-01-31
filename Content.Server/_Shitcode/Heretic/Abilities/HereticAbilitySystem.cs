@@ -80,6 +80,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
+using Content.Shared.Weather;
 using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Abilities;
@@ -126,6 +127,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
+    [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
 
     private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 

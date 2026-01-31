@@ -67,6 +67,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Polymorph;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Hands;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -105,6 +107,71 @@ public sealed class GhoulSystem : EntitySystem
         SubscribeLocalEvent<GhoulRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
         SubscribeLocalEvent<GhoulWeaponComponent, ExaminedEvent>(OnWeaponExamine);
+
+        SubscribeLocalEvent<ShatteredRisenComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ShatteredRisenComponent, HandCountChangedEvent>(OnHandCountChanged);
+    }
+
+    private void OnHandCountChanged(Entity<ShatteredRisenComponent> ent, ref HandCountChangedEvent args)
+    {
+        RefreshShatteredHands(ent);
+    }
+
+    private void OnMapInit(Entity<ShatteredRisenComponent> ent, ref MapInitEvent args)
+    {
+        RefreshShatteredHands(ent);
+    }
+
+    private void RefreshShatteredHands(Entity<ShatteredRisenComponent> ent)
+    {
+        if (!TryComp(ent, out HandsComponent? hands) || hands.Count == 0)
+            return;
+
+        var handsEnt = (ent, hands);
+
+        var hasWeapon1 = false;
+
+        var weaponCount = 0;
+        foreach (var held in _hands.EnumerateHeld(handsEnt))
+        {
+            var proto = Prototype(held);
+            if (proto == null)
+            {
+                DropOrDelete();
+                continue;
+            }
+
+            if (proto == ent.Comp.Weapon1)
+                hasWeapon1 = true;
+            else if (proto != ent.Comp.Weapon2)
+                DropOrDelete();
+
+            continue;
+
+            void DropOrDelete()
+            {
+                if (!_hands.TryDrop(handsEnt, held, null, false, false))
+                    QueueDel(held);
+            }
+        }
+
+        var coords = Transform(ent).Coordinates;
+
+        foreach (var hand in _hands.EnumerateHands(handsEnt))
+        {
+            if (_hands.TryGetHeldItem(handsEnt, hand, out _))
+                continue;
+
+            var toSpawn = ent.Comp.Weapon1;
+            if (!hasWeapon1)
+                hasWeapon1 = true;
+            else
+                toSpawn = ent.Comp.Weapon2;
+
+            var weapon = Spawn(toSpawn, coords);
+            if (!_hands.TryForcePickup(handsEnt, weapon, hand, false, false, hands))
+                QueueDel(weapon);
+        }
     }
 
     private void OnGetBriefing(Entity<GhoulRoleComponent> ent, ref GetBriefingEvent args)
@@ -181,7 +248,7 @@ public sealed class GhoulSystem : EntitySystem
             _htn.Replan(htn);
         }
 
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+        if (ent.Comp.ChangeHumanoidAppearance && TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
             // make them "have no eyes" and grey
             // this is clearly a reference to grey tide

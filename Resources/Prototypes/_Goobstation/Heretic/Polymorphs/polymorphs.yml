@@ -26,6 +26,27 @@
     attachToGridOrMap: true
 
 - type: polymorph
+  id: SpaceJaunt
+  configuration:
+    entity: PolymorphSpaceJaunt
+    forced: true
+    attachToGridOrMap: true
+    showPopup: false
+
+- type: polymorph
+  id: ShatteredRisen
+  configuration:
+    entity: MobShattered
+    forced: true
+    transferName: true
+    transferDamage: false
+    revertOnCrit: false
+    revertOnDeath: false
+    transferHumanoidAppearance: false
+    inventory: Drop
+    allowRepeatedMorphs: true
+
+- type: polymorph
   id: EldritchHorror
   configuration:
     entity: MobHereticFleshAscend

@@ -48,6 +48,9 @@
       path: /Audio/_Goobstation/Heretic/crack2.ogg
     endSound:
       path: /Audio/Items/welder.ogg
+  - type: Tag
+    tags:
+    - AnchorHereticStructure
   # Used for extracting organs
   - type: Hemostat
     speed: 1.5

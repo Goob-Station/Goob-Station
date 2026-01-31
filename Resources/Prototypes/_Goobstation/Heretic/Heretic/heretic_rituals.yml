@@ -465,3 +465,43 @@
     Knife: 1
   output:
     CarvingKnife: 1
+
+- type: hereticRitual
+  id: GreavesOfTheProphet
+  locName: knowledge-path-side-s6-greaves-name
+  locDesc: knowledge-path-side-s6-greaves-desc
+  icon:
+    sprite: _Goobstation/Heretic/Clothing/Shoes/greaves.rsi
+    state: icon
+  requiredTags: # TODO: Ritual ingredient refactor
+    SilverBar: 2
+  output:
+    ClothingShoesGreavesHeretic: 1
+
+- type: hereticRitual
+  id: ShatteredRitual
+  locName: knowledge-path-side-s6-shattered-ritual-name
+  locDesc: knowledge-path-side-s6-shattered-ritual-desc
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: ghoul_shattered
+  customBehaviors:
+  - !type:RitualShatteredBehavior
+  requiredTags: # TODO: Ritual ingredient refactor
+    GlovesLatex: 1
+  limit: 1
+
+- type: hereticRitual
+  id: MawedCrucible
+  locName: knowledge-path-side-s6-crucible-name
+  locDesc: knowledge-path-side-s6-crucible-desc
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: crucible
+  requiredTags:
+    WaterTank: 1
+    Table: 1
+  output:
+    MawedCrucible: 1
+
+## stage 8

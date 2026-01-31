@@ -204,6 +204,23 @@
       - HideContextMenu
 
 - type: entity
+  id: EffectSpaceExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Goobstation/Heretic/Effects/effects64x64.rsi
+      state: space_explosion
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
   id: EffectCosmicDomain
   categories: [ HideSpawnMenu ]
   components:

@@ -156,11 +156,75 @@
     stage: 5
 
 - type: listing
+  id: HereticSidePath6Greaves
+  name: knowledge-path-side-s6-greaves-name
+  description: knowledge-path-side-s6-greaves-desc
+  icon: { sprite: _Goobstation/Heretic/Clothing/Shoes/greaves.rsi, state: icon }
+  productHereticKnowledge: GreavesOfTheProphet
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath6Shattered
+  name: knowledge-path-side-s6-shattered-ritual-name
+  description: knowledge-path-side-s6-shattered-ritual-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ghoul_shattered }
+  productHereticKnowledge: ShatteredRitual
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath6Crucible
+  name: knowledge-path-side-s6-crucible-name
+  description: knowledge-path-side-s6-crucible-desc
+  icon: { sprite: _Goobstation/Heretic/items.rsi, state: crucible }
+  productHereticKnowledge: MawedCrucible
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
   id: HereticSidePath8Cleave
   name: knowledge-path-side-s8-cleave-name
   description: knowledge-path-side-s8-cleave-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cleave }
   productHereticKnowledge: Cleave
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+
+- type: listing
+  id: HereticSidePath8SpacePhase
+  name: knowledge-path-side-s8-space-phase-name
+  description: knowledge-path-side-s8-space-phase-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: space_phase }
+  productHereticKnowledge: SpacePhase
   cost:
     KnowledgePoint: 1
   categories:

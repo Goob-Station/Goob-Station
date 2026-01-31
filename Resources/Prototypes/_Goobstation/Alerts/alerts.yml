@@ -56,6 +56,47 @@
   description: alerts-shadow-cloak-desc
 
 - type: alert
+  id: CrucibleSoul
+  icons:
+  - sprite: /Textures/_Goobstation/Heretic/Interface/Alerts/crucible.rsi
+    state: crucible
+  name: alerts-crucible-soul-name
+  description: alerts-crucible-soul-desc
+  clickEvent: !type:CrucibleSoulRecallEvent
+
+- type: alert
+  id: CrucibleSoulCooldown
+  icons:
+  - sprite: /Textures/_Goobstation/Heretic/Interface/Alerts/crucible.rsi
+    state: crucible_cooldown
+  name: alerts-crucible-soul-name
+  description: alerts-crucible-soul-cooldown-desc
+
+- type: alert
+  id: DuskAndDawn
+  icons:
+  - sprite: /Textures/_Goobstation/Heretic/Interface/Alerts/duskndawn.rsi
+    state: duskndawn
+  name: alerts-clarity-name
+  description: alerts-clarity-desc
+
+- type: alert
+  id: WoundedSoldier
+  icons:
+  - sprite: /Textures/_Goobstation/Heretic/Interface/Alerts/wounded_soldier.rsi
+    state: wounded_soldier
+  name: alerts-marshal-name
+  description: alerts-marshal-desc
+
+- type: alert
+  id: WoundedSoldierCooldown
+  icons:
+  - sprite: /Textures/_Goobstation/Heretic/Interface/Alerts/wounded_soldier.rsi
+    state: wounded_soldier_cooldown
+  name: alerts-marshal-name
+  description: alerts-marshal-cooldown-desc
+
+- type: alert
   id: Centered
   category: TileMovement
   icons:

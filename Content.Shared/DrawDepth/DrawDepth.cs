@@ -72,13 +72,13 @@ namespace Content.Shared.DrawDepth
         /// </summary>
         Puddles = DrawDepthTag.Default - 10,
 
+        FloorEffects = DrawDepthTag.Default - 6, // Goobstation
+
         // There's a gap for subfloor entities to retain relative draw depth when revealed by a t-ray scanner.
         /// <summary>
         //     Objects that are on the floor, but should render above puddles. This includes kudzu, holopads, telepads and levers.
         /// </summary>
         HighFloorObjects = DrawDepthTag.Default - 5,
-
-        FloorEffects = DrawDepthTag.Default - 5, // Goobstation
 
         BlobTiles = DrawDepthTag.Default - 4, // Goobstation - Blob
 

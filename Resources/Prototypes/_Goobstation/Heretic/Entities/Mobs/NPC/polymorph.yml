@@ -50,6 +50,20 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 3
 
+- type: entity
+  id: PolymorphSpaceJaunt
+  name: Unknown
+  description: You can't figure out what that is.
+  parent: BaseMobJaunt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Actions
+  - type: ActionsContainer
+  - type: Muted
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/Cores/gravity_core.rsi
+    state: core
+
 # heretic ascend flesh form
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]

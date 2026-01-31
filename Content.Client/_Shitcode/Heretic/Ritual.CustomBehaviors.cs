@@ -24,6 +24,8 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior { 
 public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior { }
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior { }
 
+public sealed partial class RitualShatteredBehavior : RitualSacrificeBehavior { }
+
 public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior { }
 
 public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior { }

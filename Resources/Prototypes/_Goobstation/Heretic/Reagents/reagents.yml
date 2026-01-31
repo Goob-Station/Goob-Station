@@ -10,6 +10,21 @@
   flavorType: Complex
   description: flavor-complex-eldritch
 
+- type: flavor
+  id: crucibleSoul
+  flavorType: Complex
+  description: flavor-complex-crucible-soul
+
+- type: flavor
+  id: clarity
+  flavorType: Complex
+  description: flavor-complex-clarity
+
+- type: flavor
+  id: marshal
+  flavorType: Complex
+  description: flavor-complex-marshal
+
 - type: reagent
   id: EldritchEssence
   parent: BaseDrink
@@ -104,3 +119,90 @@
           invert: true
   tileReactions:
   - !type:ChangeTileReaction # Rusts tile
+
+- type: reagent
+  id: CrucibleSoul
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-crucible-soul
+  desc: reagent-desc-crucible-soul
+  physicalDesc: reagent-physical-desc-crucible-soul
+  flavor: crucibleSoul
+  color: "#fb793a"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Heretic
+            - Ghoul
+          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+        - !type:HasStatusEffect
+          effectProto: StatusEffectCrucibleSoul
+          invert: true
+        - !type:HasStatusEffect
+          effectProto: StatusEffectCrucibleSoulCooldown
+          invert: true
+        - !type:ReagentThreshold
+          min: 5
+        effectProto: StatusEffectCrucibleSoul
+        time: 40
+        type: Set
+
+- type: reagent
+  id: DuskAndDawn
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-clarity
+  desc: reagent-desc-clarity
+  physicalDesc: reagent-physical-desc-clarity
+  flavor: clarity
+  color: "#d5dc1d"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Heretic
+            - Ghoul
+          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+        - !type:ReagentThreshold
+          min: 5
+        effectProto: StatusEffectDuskAndDawn
+        time: 90
+        type: Set
+
+- type: reagent
+  id: WoundedSoldier
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-marshal
+  desc: reagent-desc-marshal
+  physicalDesc: reagent-physical-desc-marshal
+  flavor: marshal
+  color: "#5e718e"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Heretic
+            - Ghoul
+          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+        - !type:HasStatusEffect
+          effectProto: StatusEffectWoundedSoldier
+          invert: true
+        - !type:HasStatusEffect
+          effectProto: StatusEffectWoundedSoldierCooldown
+          invert: true
+        - !type:ReagentThreshold
+          min: 5
+        effectProto: StatusEffectWoundedSoldier
+        time: 60
+        type: Set

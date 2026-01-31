@@ -339,6 +339,15 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
     public EntProtoId TileRune = "TileHereticRustRune";
 }
 
+public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
+{
+    [DataField]
+    public float Distance = 10f;
+
+    [DataField]
+    public float Speed = 10f;
+}
+
 // cosmos
 public sealed partial class EventHereticCosmicRune : InstantActionEvent
 {
@@ -417,13 +426,13 @@ public sealed partial class EventHereticCleave : WorldTargetActionEvent
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg");
 }
 
-public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
+public sealed partial class EventHereticSpacePhase : InstantActionEvent
 {
     [DataField]
-    public float Distance = 10f;
+    public ProtoId<PolymorphPrototype> Polymorph = "SpaceJaunt";
 
     [DataField]
-    public float Speed = 10f;
+    public EntProtoId Effect = "EffectSpaceExplosion";
 }
 
 // ascensions
