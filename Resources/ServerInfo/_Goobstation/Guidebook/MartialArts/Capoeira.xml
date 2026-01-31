@@ -41,7 +41,8 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Knocks down and pushes opponent away from the user. Doesn't force to drop held items.
+  Disarms the opponent, pushes them away, as well as knocking them down causing them to be more vulnerable to unarmed melee attacks while they're down.
+  Only works on standing opponents.
 
   ### Circle Kick
 

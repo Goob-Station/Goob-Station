@@ -30,9 +30,14 @@
     staminaToHeal: -30
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  extraDamage: 5
-  paralyzeTime: 1
-  dropHeldItemsBehavior: NoDrop
+    modifierSet:
+      coefficients:
+        Blunt: 1.25
+        Slash: 1.25
+        Piercing: 1.25
+      ignoreArmorPierceFlags: All
+  paralyzeTime: 4
+  dropHeldItemsBehavior: AlwaysDrop # doesn't work on downed opps anyway so DropIfStanding is just redundant checks
   canDoWhileProne: false
 
 - type: combo
