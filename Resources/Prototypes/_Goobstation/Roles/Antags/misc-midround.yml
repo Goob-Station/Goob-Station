@@ -41,6 +41,7 @@
     gloves: ClothingHandsGlovesColorYellow
     back: ClothingBackpackSatchelLeather
     belt: ClothingBeltUtilityFilled
+    suitstorage: OxygenTankFilled
   inhand:
   - SingulothsHammer
   storage:
@@ -72,6 +73,7 @@
     belt: ClothingBeltAssaultFilled
     id: CentcomPDA
   inhand:
+  - PinpointerDarkLord
   - EnergySwordBlue
 
 - type: startingGear
@@ -131,7 +133,7 @@
     gloves: ClothingHandsChameleonThief
     outerClothing: ClothingOuterHardsuitVoxRaiderStealth
     suitstorage: ExtendedEmergencyNitrogenTankFilled
-    back: ClothingBackpack
+    back: ClothingBackpackHolding
   storage:
     back:
     - BoxSurvivalSlotsNitrogen
