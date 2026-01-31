@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: Doodon
+  name: guide-entry-doodons
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Doodon.xml"
+  children:
+  - DoodonBuildings
+  
+- type: guideEntry
+  id: DoodonBuildings
+  name: guide-entry-doodon-buildings
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/DoodonBuildings.xml"

@@ -29,3 +29,59 @@
   - Lavafauna
   - AllHostile
   - Xenoborg
+
+- type: npcFaction
+  id: Doodon
+  hostile:
+  - Dragon
+  - SimpleHostile
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Blob
+  - AllHostile
+  friendly:
+  - DoodonFighter
+  
+- type: npcFaction
+  id: DoodonFighter
+  hostile:
+  - NanoTrasen  # Simp Hostile
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - AllHostile
+  - Xenoborg
+  - Heretic #
+  - Blob 
+  - PirateFaction 
+  - Lavafauna 
+  - AllHostile
+  friendly:
+  - Doodon
+  
+- type: npcFaction
+  id: DoodonFeral
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - Xenoborg
+  - Heretic
+  - Blob
+  - PirateFaction
+  - Lavafauna
+  - SimpleHostile
+  - AllHostile
+  friendly:
+  - Doodon
+  - DoodonFighter

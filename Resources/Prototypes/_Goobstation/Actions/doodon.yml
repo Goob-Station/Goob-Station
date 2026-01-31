@@ -1,0 +1,146 @@
+- type: entity
+  parent: BaseAction
+  id: ActionPapaDoodonOrderStay
+  name: Stay
+  description: Command your warriors to hold position.
+  components:
+  - type: Action
+    useDelay: 0.3
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: stayOff
+    iconOn:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: stay
+    priority: 5
+  - type: InstantAction
+    event: !type:DoodonSetWarriorModeEvent
+      order: Stay
+
+- type: entity
+  parent: BaseAction
+  id: ActionPapaDoodonOrderFollow
+  name: Follow
+  description: Command your warriors to follow you.
+  components:
+  - type: Action
+    useDelay: 0.3
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: followOff
+    iconOn:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: follow
+    priority: 6
+  - type: InstantAction
+    event: !type:DoodonSetWarriorModeEvent
+      order: Follow
+
+- type: entity
+  parent: BaseAction
+  id: ActionPapaDoodonOrderAttack
+  name: Attack
+  description: Command your warriors to attack a target you indicate.
+  components:
+  - type: Action
+    useDelay: 0.3
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: attackOff
+    iconOn:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: attack
+    priority: 7
+  - type: InstantAction
+    event: !type:DoodonSetWarriorModeEvent
+      order: AttackTarget
+
+- type: entity
+  parent: BaseAction
+  id: ActionPapaDoodonOrderLoose
+  name: Loose
+  description: Command your warriors to act on their own.
+  components:
+  - type: Action
+    useDelay: 0.3
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: looseOff
+    iconOn:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_orders.rsi
+      state: loose
+    priority: 8
+  - type: InstantAction
+    event: !type:DoodonSetWarriorModeEvent
+      order: Loose
+
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonResin
+  name: Fabricate Resin
+  description: Condense the contents of your stomach into doodon resin.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Objects/Materials/materials.rsi
+      state: doodon_resin
+    useDelay: 1
+  - type: InstantAction
+    event: !type:SericultureActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonEstablishTownHall
+  name: Establish Town Hall
+  description: Place down the Doodon Town Hall. You can only do this once.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/town_hall_actions.rsi
+      state: build
+    useDelay: 5
+  - type: InstantAction
+    event: !type:DoodonEstablishTownHallEvent
+    
+- type: entity
+  parent: BaseAction
+  id: ActionToggleTownHallRadius
+  name: Toggle Influence Radius
+  description: Show or hide the Town Hall influence area.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/town_hall_actions.rsi
+      state: sight
+    useDelay: 0.2
+  - type: InstantAction
+    event: !type:ToggleTownHallRadiusEvent
+    
+    
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonBuildSelect
+  name: Select Structure
+  components:
+  - type: Action
+    useDelay: 0.2
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_build.rsi
+      state: select
+  - type: InstantAction
+    event: !type:DoodonOpenBuildMenuActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonBuildPlace
+  name: Build Structure
+  components:
+  - type: Action
+    useDelay: 0.5
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/doodon_build.rsi
+      state: build
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:DoodonBuildWorldActionEvent

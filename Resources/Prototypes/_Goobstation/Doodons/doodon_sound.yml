@@ -1,0 +1,26 @@
+
+- type: soundCollection
+  id: Doodon
+  files:
+  - /Audio/_Goobstation/Doodon/doodon1.ogg
+  - /Audio/_Goobstation/Doodon/doodon2.ogg
+  - /Audio/_Goobstation/Doodon/doodon3.ogg
+  - /Audio/_Goobstation/Doodon/doodon4.ogg
+
+
+- type: soundCollection
+  id: DoodonDeath
+  files:
+  - /Audio/_Goobstation/Doodon/doodondeath1.ogg
+  - /Audio/_Goobstation/Doodon/doodondeath2.ogg
+  
+- type: soundCollection
+  id: DoodonQuestion
+  files:
+  - /Audio/_Goobstation/Doodon/doodonquestion1.ogg
+  - /Audio/_Goobstation/Doodon/DoodonQuestion2.ogg
+  
+- type: soundCollection
+  id: DoodonExclaim
+  files:
+  - /Audio/_Goobstation/Doodon/doodonexclaim1.ogg

@@ -1,0 +1,109 @@
+## =========================
+# Doodon Warrior Root
+# =========================
+
+- type: htnCompound
+  id: DoodonWarriorCompound
+  branches:
+
+  # 1) Stay
+  - preconditions:
+    - !type:DoodonHasOrderPrecondition
+      order: Stay
+    tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+  # 2) Follow
+  - preconditions:
+    - !type:DoodonHasOrderPrecondition
+      order: Follow
+    tasks:
+    - !type:HTNCompoundTask
+      task: FollowCompound
+
+  # 3) AttackTarget (Papa points; ordered target list)
+  - preconditions:
+    - !type:DoodonHasOrderPrecondition
+      order: AttackTarget
+    tasks:
+    - !type:HTNCompoundTask
+      task: DoodonWarriorCombatCompound
+
+  # 4) Loose (free attack)
+  - preconditions:
+    - !type:DoodonHasOrderPrecondition
+      order: Loose
+    tasks:
+    - !type:HTNCompoundTask
+      task: DoodonMeleeCombatCompound
+
+
+# =========================
+# Ordered target combat (Papa "point at target")
+# =========================
+
+- type: htnCompound
+  id: DoodonWarriorCombatCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: OrderedTargets
+        - !type:HTNCompoundTask
+          task: MeleeAttackOrderedTargetCompound
+
+
+# =========================
+# Loose combat: find nearby enemies and attack
+# (Uses doodon-safe "before melee" that doesn't require holding a weapon)
+# =========================
+
+- type: htnCompound
+  id: DoodonMeleeCombatCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: NearbyMeleeTargets
+        - !type:HTNCompoundTask
+          task: DoodonBeforeMeleeAttackTargetCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
+
+# =========================
+# Before-attack safety checks WITHOUT pickup-melee logic
+# (Doodons have innate MeleeWeapon on the mob, not in-hand.)
+# =========================
+
+- type: htnCompound
+  id: DoodonBeforeMeleeAttackTargetCompound
+  branches:
+    - preconditions:
+        - !type:BuckledPrecondition
+          isBuckled: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnbuckleOperator
+            shutdownState: TaskFinished
+
+    - preconditions:
+        - !type:PulledPrecondition
+          isPulled: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnPullOperator
+            shutdownState: TaskFinished
+
+    - preconditions:
+        - !type:InContainerPrecondition
+          isInContainer: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: EscapeCompound
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MeleeAttackTargetCompound
