@@ -120,7 +120,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                 break;
 
             case "Void":
-                _voidcurse.DoCurse(target, 3);
+                _voidcurse.DoCurse(target, 5);
                 break;
 
             case "Cosmos":

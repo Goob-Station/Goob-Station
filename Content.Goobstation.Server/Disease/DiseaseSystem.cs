@@ -8,12 +8,14 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Goobstation.Shared.Disease.Systems;
+using Robust.Server.Containers;
 
 namespace Content.Goobstation.Server.Disease;
 
 public sealed partial class DiseaseSystem : SharedDiseaseSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -142,10 +144,8 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
             return false;
 
         if (TryComp<DiseaseComponent>(disease, out var diseaseComp))
-        {
             foreach (var effect in diseaseComp.Effects.ContainedEntities)
                 CleanupEffect((disease, diseaseComp), effect);
-        }
 
         QueueDel(disease);
         Dirty(ent);
@@ -160,9 +160,9 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        while (ent.Comp.Diseases.Count != 0)
+        foreach (var disease in ent.Comp.Diseases.ContainedEntities.ToList())
         {
-            if (!TryCure((ent, ent.Comp), ent.Comp.Diseases.ContainedEntities[0]))
+            if (!TryCure((ent, ent.Comp), disease))
                 return false;
         }
 

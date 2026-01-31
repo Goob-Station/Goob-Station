@@ -591,6 +591,15 @@
         - Skewer
         - MonkeyCube
         - Mayo
+        - Meat #Goobstation start
+        - Mouse
+        - Vegetable
+        - Fruit
+        - Slice
+        - Cake
+        - Pie
+        - Crayon #Its edible
+        - Bread #Goobstation end
       components:
         - Mousetrap
         - Smokable

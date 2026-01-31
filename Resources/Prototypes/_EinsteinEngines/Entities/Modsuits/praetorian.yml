@@ -71,6 +71,8 @@
           shader: unshaded
         gloves-vox:
         - state: equipped-HAND-sealed-vox
+        - state: equipped-HAND-sealed-unshaded-vox
+          shader: unshaded
     - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
@@ -88,15 +90,10 @@
         - state: equipped-HEAD-resomi
         head-vox:
         - state: equipped-HEAD-vox
+        head-vulpkanin:
+        - state: equipped-HEAD-vulpkanin
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
-    - type: HideLayerClothing # Goobstation
-      slots:
-        - Hair
-        - Snout
-        - HeadTop
-        - HeadSide
-      hideOnToggle: true
     - type: PressureProtection
       highPressureMultiplier: 0.05
       lowPressureMultiplier: 1000
@@ -131,6 +128,10 @@
         head-vox:
         - state: equipped-HEAD-sealed-vox
         - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
+        head-vulpkanin:
+        - state: equipped-HEAD-sealed-vulpkanin
+        - state: equipped-HEAD-sealed-unshaded-vulpkanin
           shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard
