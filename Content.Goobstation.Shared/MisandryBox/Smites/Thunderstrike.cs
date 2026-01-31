@@ -13,6 +13,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared.Inventory;
 
 namespace Content.Goobstation.Shared.MisandryBox.Smites;
 
@@ -24,6 +25,7 @@ public sealed class ThunderstrikeSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedElectrocutionSystem _elect = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private const string Sound = "/Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg";
     private const string God = "/Textures/_Goobstation/MisandryBox/For he does not need no fucking rsi.png";
@@ -67,8 +69,19 @@ public sealed class ThunderstrikeSystem : EntitySystem
         var text = new SpriteSpecifier.Texture(new ResPath(God));
         _jumpscare.Jumpscare(text, sesh);
 
+        var freaky = false;
+        if (_inventory.TryGetSlotEntity(mumu, "shoes", out var shoes))
+        {
+            if (_inventory.TryUnequip(mumu, "shoes", true, true))
+                freaky = true;
+        }
+
         QueueDel(mumu);
-        Spawn("Ash", transform.Coordinates);
+        if (!freaky)
+        {
+            Spawn("Ash", transform.Coordinates);
+            _popup.PopupEntity(Loc.GetString("admin-smite-turned-ash-other", ("name", mumu)), mumu, PopupType.LargeCaution);
+        }
         _popup.PopupEntity(Loc.GetString("admin-smite-turned-ash-other", ("name", mumu)), mumu, PopupType.LargeCaution);
     }
 
