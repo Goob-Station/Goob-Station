@@ -301,7 +301,7 @@ public sealed partial class GoobCVars
     #region Xenobiology
 
     public static readonly CVarDef<float> BreedingInterval =
-        CVarDef.Create("xenobiology.breeding.interval", 1f, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("xenobiology.breeding.interval", 5f, CVar.REPLICATED | CVar.SERVER);
 
     #endregion
 
