@@ -1,0 +1,6 @@
+- type: polymorph
+  id: AdminFuelRodSmite
+  configuration:
+    entity: MeatReactorFuelRod
+    forced: true
+    inventory: Drop

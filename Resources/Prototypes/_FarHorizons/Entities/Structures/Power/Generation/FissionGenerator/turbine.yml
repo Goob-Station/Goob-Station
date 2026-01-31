@@ -1,0 +1,207 @@
+- type: entity
+  id: Turbine
+  parent: BaseStructure
+  name: gas turbine
+  description: A large turbine used for generating power using hot gas.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/turbine.rsi
+    layers:
+    - state: turbine
+      visible: true
+      map: [ "enum.TurbineVisualLayers.TurbineSpeed" ]
+    - state: turbinebroken
+      visible: false
+      map: [ "enum.TurbineVisualLayers.TurbineRuined" ]
+    - state: turbine_sparks
+      visible: false
+      map: [ "enum.TurbineVisualLayers.DamageSpark" ]
+    - state: turbine_smoke
+      visible: false
+      map: [ "enum.TurbineVisualLayers.DamageSmoke" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.TurbineVisuals.TurbineRuined:
+        enum.TurbineVisualLayers.TurbineRuined:
+          True: { visible: true }
+          False: { visible: false }
+      enum.TurbineVisuals.DamageSpark:
+        enum.TurbineVisualLayers.DamageSpark:
+          True: { visible: true }
+          False: { visible: false }
+      enum.TurbineVisuals.DamageSmoke:
+        enum.TurbineVisualLayers.DamageSmoke:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-2.5,1.5,2.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      output:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: PowerMonitoringDevice
+    group: Generator
+    loadNode: output
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/turbine.rsi
+    state: static
+  - type: PowerSupplier
+    supplyRampRate: 75000
+    supplyRampTolerance: 5000
+  - type: AtmosDevice
+  - type: AtmosMonitoringConsoleDevice
+    navMapBlip: Thermoregulator
+  - type: Electrified
+    enabled: false
+    requirePower: false
+  - type: Turbine
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    range: 50
+    ports:
+      - TurbineSpeedHigh
+      - TurbineSpeedLow
+      - GasTurbineDataSender
+  - type: DeviceLinkSink
+    ports:
+      - IncreaseStatorLoad
+      - DecreaseStatorLoad
+  - type: ActivatableUI
+    key: enum.TurbineUiKey.Key
+  - type: ActivatableUIRequiresAnchor
+  - type: UserInterface
+    interfaces:
+      enum.TurbineUiKey.Key:
+        type: TurbineBoundUserInterface
+  - type: AccessReader # Keeps some random tider from blowing up the turbine
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
+  - type: GuideHelp
+    guides:
+    - NuclearReactor
+    - Power
+
+- type: entity
+  id: TurbineSmall
+  parent: Turbine
+  name: small gas turbine
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_turbine.rsi
+    offset: 0, -0.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,0.5,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: PowerMonitoringDevice
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_turbine.rsi
+  - type: Turbine
+    turbineMass: 400
+    powerMultiplier: 0.4
+    inletPos: 1, -1
+    inletRot: 0 
+    outletPos: -1, -1
+    outletRot: 0 
+    arrowPrototype: TurbineSmallFlowArrow
+  
+# Arrow to indicate flow
+- type: entity
+  id: TurbineFlowArrow
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: Markers/teg_arrow.rsi
+      color: "#FFFFFFBB"
+      layers:
+        - state: arrow
+          rotation: 90
+          offset: 2, -1
+        - state: arrow
+          rotation: 90
+          offset: -2, -1
+    - type: TimedDespawn
+      lifetime: 2
+    - type: Tag
+      tags:
+        - HideContextMenu
+
+- type: entity
+  id: TurbineSmallFlowArrow
+  parent: TurbineFlowArrow
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      layers:
+        - state: arrow
+          rotation: 180
+          offset: 1, -2
+        - state: arrow
+          rotation: 0
+          offset: -1, -2
+
+# Pipes the turbine uses to connect to the pipe network
+- type: entity
+  id: TurbineGasPipe
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+        volume: 1000
+        pipeLayer: 0
+      pipe1:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+        volume: 1000
+        pipeLayer: 1
+      pipe2:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+        volume: 1000
+        pipeLayer: 2
+  - type: GasPipeManifold
+    inlets:
+    - pipe1
+    - pipe2
+    outlets:
+    - pipe
+  - type: PipeRestrictOverlap
+  - type: Tag
+    tags:
+      - HideContextMenu

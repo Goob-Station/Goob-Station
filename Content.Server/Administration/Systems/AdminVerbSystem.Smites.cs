@@ -1062,5 +1062,23 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", omniaccentName, Loc.GetString("admin-smite-omni-accent-description"))
         };
         args.Verbs.Add(omniaccent);
+
+        // Far Horizons - Start
+        var fuelRodifyName = Loc.GetString("admin-smite-become-fuelrod-name").ToLowerInvariant();
+        Verb fuelRodify = new()
+        {
+            Text = fuelRodifyName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi"), "default_rod"),
+            Act = () =>
+            {
+                _bodySystem.GibBody(args.Target);
+                _polymorphSystem.PolymorphEntity(args.Target, "AdminFuelRodSmite");
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", fuelRodifyName, Loc.GetString("admin-smite-become-fuelrod-description"))
+        };
+        args.Verbs.Add(fuelRodify);
+        // Far Horizons - End
     }
 }

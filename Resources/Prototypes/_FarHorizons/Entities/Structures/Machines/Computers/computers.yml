@@ -1,0 +1,87 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: NuclearReactorMonitor
+  name: nuclear reactor monitor
+  description: A device that monitors the state of a connected nuclear reactor.
+  components:
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#c9c042"
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerScreen"]
+      state: power_monitor
+  - type: NuclearReactorMonitor
+  - type: ActivatableUI
+    key: enum.NuclearReactorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.NuclearReactorUiKey.Key:
+        type: NuclearReactorBoundUserInterface
+  - type: AccessReader # You got a permit for that meltdown?
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: DeviceLinkSink
+    ports:
+      - NuclearReactorDataReceiver
+  - type: Computer
+    board: NuclearReactorMonitorComputerCircuitboard
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: GasTurbineMonitor
+  name: gas turbine monitor
+  description: A device that monitors the state of a connected gas turbine.
+  components:
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#c9c042"
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerScreen"]
+      state: turbinecomp
+  - type: GasTurbineMonitor
+  - type: ActivatableUI
+    key: enum.TurbineUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.TurbineUiKey.Key:
+        type: TurbineBoundUserInterface
+  - type: AccessReader # Keeps some random tider from blowing up the turbine
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: DeviceLinkSink
+    ports:
+      - GasTurbineDataReceiver
+  - type: Computer
+    board: GasTurbineMonitorComputerCircuitboard
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
