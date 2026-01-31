@@ -1,0 +1,6 @@
+- type: construction
+  id: CritterBallConstruction
+  graph: CritterBallGraph
+  targetNode: end
+  category: construction-category-utilities
+  objectType: Item
