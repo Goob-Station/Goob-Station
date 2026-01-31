@@ -3,6 +3,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Player;
+using Content.Goobstation.Common.Physics.Cramming; // Goob
 
 namespace Content.Server.Movement.Systems;
 
@@ -47,5 +48,10 @@ public sealed class MobCollisionSystem : SharedMobCollisionSystem
             Direction = direction,
             SpeedModifier = speedMod,
         });
+
+        // Goob start - Cramming
+        var ev = new MobPushDirectionEvent { Mob = uid, Direction = direction };
+        RaiseLocalEvent(uid, ref ev);
+        // Goob end
     }
 }
