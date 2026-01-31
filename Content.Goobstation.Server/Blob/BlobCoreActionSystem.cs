@@ -16,7 +16,6 @@ using Content.Goobstation.Shared.Blob;
 using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
@@ -33,6 +32,7 @@ using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -88,52 +88,93 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         Entity<BlobCoreComponent> core,
         BlobCoreActionSystem system,
         InteractEvent args,
+        bool spendPoints,
         double maxTime,
         CancellationToken cancellation = default)
         : Job<object>(maxTime, cancellation)
     {
         protected override async Task<object?> Process()
         {
-            system.BlobInteract(ent, core, args);
+            system.BlobInteract(ent, core, args, spendPoints);
             return null;
         }
     }
 
-    private void BlobInteract(Entity<BlobObserverComponent> observer, Entity<BlobCoreComponent> core, InteractEvent args)
+    private void BlobInteract(Entity<BlobObserverComponent> observer, Entity<BlobCoreComponent> core, InteractEvent args, bool spendPoints)
     {
-        if (TerminatingOrDeleted(observer) || TerminatingOrDeleted(core))
+        if (TerminatingOrDeleted(observer)
+            || TerminatingOrDeleted(core)
+            || !args.ClickLocation.IsValid(EntityManager))
             return;
 
         var location = args.ClickLocation.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
-
-        if (!location.IsValid(EntityManager))
-            return;
-
         var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
+            return;
+
+        var fromTile = FindNearBlobTile(location, (gridUid.Value, grid));
+        if (fromTile == null)
+            return;
+
+        var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+
+        var node = _blobCoreSystem.GetNearNode(location, core.Comp.TilesRadiusLimit);
+
+        if (node == null)
         {
+            _popup.PopupCoordinates(Loc.GetString("blob-target-nearby-not-node"),
+                location,
+                args.User,
+                PopupType.Large);
             return;
         }
 
-        var fromTile = FindNearBlobTile(location, (gridUid.Value, grid));
+        bool growTile = true;
 
-        #region OnTarget
-        if (args.Target != null && !HasComp<BlobMobComponent>(args.Target))
+        // First we try to attack some structure on that tile.
+        var anchored = _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices);
+        EntityUid? anchoredTarget = null;
+        foreach (var targetEntity in anchored)
         {
-            if (_tileQuery.TryComp(args.Target.Value, out var tileComp) && tileComp.Core != null)
-                return;
+            if (TryComp<PhysicsComponent>(targetEntity, out var physics)
+                && physics is { Hard: true, CanCollide: true }
+                && HasComp<DamageableComponent>(targetEntity)
+                && !HasComp<SubFloorHideComponent>(args.Target)
+                && !_tileQuery.HasComp(targetEntity))
+                anchoredTarget = targetEntity;
 
-            var target = args.Target;
-            if (fromTile != null && HasComp<DestructibleComponent>(target) && !HasComp<ItemComponent>(target) && !HasComp<SubFloorHideComponent>(target))
-            {
-                BlobTargetAttack(core, fromTile.Value, target.Value);
-                return;
-            }
+            // If there's a blob tile here, we can't grow new tiles on top
+            if (_tileQuery.HasComp(targetEntity))
+                growTile = false;
         }
-        #endregion
 
-        var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+        if (anchoredTarget != null)
+        {
+            BlobTargetAttack(core, fromTile.Value, anchoredTarget.Value);
+            return;
+        }
+
+        // Handle target attack on an entity.
+        // Only hard objects should be attacked.
+        if (args.Target != null
+            && TryComp<PhysicsComponent>(args.Target, out var physicsTarget)
+            && physicsTarget is { Hard: true, CanCollide: true })
+        {
+            // Things that we can't attack, including our own tiles.
+            if (!HasComp<DamageableComponent>(args.Target)
+                || HasComp<ItemComponent>(args.Target)
+                || HasComp<BlobMobComponent>(args.Target)
+                || _tileQuery.TryComp(args.Target, out var targetComp)
+                && targetComp.Core != null)
+                return;
+
+            BlobTargetAttack(core, fromTile.Value, args.Target.Value);
+            return;
+        }
+
+        if (!growTile)
+            return;
 
         var targetTileEmpty = false;
         if (targetTile.Tile.IsEmpty)
@@ -143,64 +184,6 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 
             targetTileEmpty = true;
         }
-
-        if (_mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices).Any(_tileQuery.HasComponent))
-        {
-            return;
-        }
-
-        var node = _blobCoreSystem.GetNearNode(location, core.Comp.TilesRadiusLimit);
-
-        if (fromTile != null && node == null)
-            _popup.PopupCoordinates(Loc.GetString("blob-target-nearby-not-node"), location, args.User, PopupType.Large);
-
-        if (fromTile == null || node == null)
-            return;
-
-        // This code doesn't work.
-        // If you can debug this, please do and fix it.
-
-        /*if (targetTileEmpty)
-        {
-            var mapPos = _transform.ToMapCoordinates(location);
-            var adjacentPos = new[]
-            {
-                Direction.East,
-                Direction.West,
-                Direction.North,
-                Direction.South
-            };
-
-            var tiles = new HashSet<Entity<BlobTileComponent>>();
-            foreach (var dir in adjacentPos)
-            {
-                tiles.Clear();
-
-                _lookup.GetEntitiesIntersecting(pos.MapId,
-                    new Box2(pos.Position, pos.Position),
-                    tiles,
-                    LookupFlags.Static);
-
-                if (tiles.Count == 0)
-                    continue;
-
-                var tile = tiles.First();
-                var tilePos = Transform(tile);
-
-                if (tilePos.GridUid == gridUid || tilePos.GridUid == null ||
-                    !TryComp<MapGridComponent>(tilePos.GridUid, out var tileGrid))
-                    continue;
-
-                var locPos = _mapSystem.WorldToLocal(tilePos.GridUid.Value,
-                    tileGrid,
-                    mapPos.Position + dir.GetOpposite().ToVec());
-
-                _gridFixture.Merge(tilePos.GridUid.Value,
-                    gridUid.Value,
-                    (Vector2i)locPos,
-                    Transform(gridUid.Value).LocalRotation);
-            }
-        }*/
 
         var cost = core.Comp.BlobTileCosts[BlobTileType.Normal];
         if (targetTileEmpty)
@@ -212,8 +195,11 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             _mapSystem.SetTile(gridUid.Value, grid, location, platingTile);
         }
 
-        if (!_blobCoreSystem.TryUseAbility(core, cost, location))
-            return;
+        if (spendPoints)
+        {
+            if (!_blobCoreSystem.TryUseAbility(core, cost, location))
+                return;
+        }
 
         _blobCoreSystem.TransformBlobTile(null,
             core,
@@ -291,7 +277,8 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
     }
 
     private static readonly TimeSpan GCd = TimeSpan.FromMilliseconds(333); // GCD?
-    private void OnInteract(EntityUid uid, BlobObserverComponent observerComponent, AfterInteractEvent args)
+
+    public void OnInteract(EntityUid uid, BlobObserverComponent observerComponent, AfterInteractEvent args, bool spendPoints = true)
     {
         if (args.Target == args.User)
             return;
@@ -315,6 +302,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             (observerComponent.Core.Value, blobCoreComponent),
             this,
             args,
+            spendPoints,
             ActionJobTime
         ));
     }
