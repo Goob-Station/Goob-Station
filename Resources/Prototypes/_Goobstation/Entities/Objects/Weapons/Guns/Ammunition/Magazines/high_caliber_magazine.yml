@@ -122,3 +122,54 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel
+
+- type: entity  
+  id: BaseMagazineM1Garand  
+  name: "en-bloc clip (.30 rifle)"  
+  parent: [ BaseItem, BaseSecurityContraband ]  
+  abstract: true  
+  components:  
+  - type: Tag  
+    tags:  
+      - MagazineM1Garand  
+  - type: BallisticAmmoProvider  
+    mayTransfer: true  
+    whitelist:  
+      tags:  
+        - CartridgeLightRifle  
+    proto: CartridgeLightRifle  
+    capacity: 8  
+  - type: Item  
+    size: Small  
+  - type: ContainerContainer  
+    containers:  
+      ballistic-ammo: !type:Container  
+  - type: Sprite  
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/garand_mag.rsi
+    layers:  
+    - state: base  
+      map: ["enum.GunVisualLayers.Base"]  
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]  
+  - type: MagazineVisuals  
+    magState: mag  
+    steps: 5 
+    zeroVisible: false  
+  - type: Appearance  
+  
+- type: entity  
+  id: MagazineM1Garand  
+  name: "en-bloc clip (.30 rifle)"  
+  parent: BaseMagazineM1Garand    
+  components:  
+  - type: BallisticAmmoProvider  
+    proto: CartridgeLightRifle  
+  
+- type: entity  
+  id: MagazineM1GarandEmpty  
+  name: "en-bloc clip (.30 rifle any)"  
+  suffix: empty  
+  parent: MagazineM1Garand  
+  components:  
+  - type: BallisticAmmoProvider  
+    proto: null    

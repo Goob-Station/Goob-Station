@@ -63,3 +63,68 @@
     pvsIncrease: 0.5
   - type: StaticPrice
     price: 1000
+
+- type: entity  
+  name: M1 Garand  
+  parent: [ BaseWeaponRifle, BaseGunWieldable, BaseSecurityContraband ]  
+  id: WeaponRifleM1Garand
+  description: A classic semi-automatic rifle, renowned for its reliability and distinctive sound of empty clip ejection. Be careful when loading - many newcomers learned about this rifle at the cost of their fingers. Uses .30 en-bloc clips.  
+  components:  
+  - type: Sprite  
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/m1_garand.rsi
+    layers:  
+    - state: base  
+      map: ["enum.GunVisualLayers.Base"]  
+  - type: Clothing  
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/m1_garand.rsi 
+  - type: ItemSlots  
+    slots:  
+      gun_magazine:  
+        startingItem: MagazineM1Garand
+        insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg 
+        priority: 2  
+        whitelist:  
+          tags:  
+          - MagazineM1Garand  
+        whitelistFailPopup: gun-magazine-whitelist-fail  
+      gun_chamber:  
+        priority: 1  
+        whitelist:  
+          tags:  
+          - CartridgeLightRifle  
+  - type: Gun  
+    fireRate: 2.5  
+    soundGunshot:  
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg  
+  - type: ChamberMagazineAmmoProvider  
+    autoCycle: true  
+    autoEject: true  
+    soundAutoEject:  
+      path: /Audio/_Goobstation/Weapons/Guns/MagOut/garand_eject.ogg  
+    soundRack:  
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg  
+      params:  
+        volume: -3  
+    soundBoltClosed:  
+      path: /Audio/Weapons/Guns/Bolt/lever_bolt_closed.ogg  
+      params:  
+        volume: -3  
+    soundBoltOpened:  
+      path: /Audio/Weapons/Guns/Bolt/lever_bolt_opened.ogg  
+      params:  
+        volume: -3  
+  - type: GunRequiresWield  
+  - type: MagazineVisuals  
+    magState: mag  
+    steps: 1  
+    zeroVisible: true  
+  - type: Appearance  
+  - type: UseDelay  
+    delay: 0.1  
+  - type: UseDelayBlockShoot  
+  - type: Item  
+    size: Large  
+    shape:  
+    - 0,0,4,1  
+    storedRotation: 45
