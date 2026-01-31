@@ -31,7 +31,5 @@
       max: 4
       pickPlayer: false
       briefing:
-        text: xenomorph-role-greeting
-        color: "#8c3986"
-      mindRoles:
-      - MindRoleXenomorph
+        text: terror-queen-briefing
+        color: "#8b0000"
