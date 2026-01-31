@@ -121899,11 +121899,6 @@ entities:
       parent: 2
 - proto: KitchenElectricGrill
   entities:
-  - uid: 18561
-    components:
-    - type: Transform
-      pos: 29.5,-10.5
-      parent: 2
   - uid: 18686
     components:
     - type: Transform
