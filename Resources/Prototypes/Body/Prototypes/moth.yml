@@ -25,7 +25,7 @@
     chest:
       part: ChestMoth
       organs:
-        heart: OrganAnimalHeart
+        heart: OrganMothMangoHeart # Goobstation
         lungs: OrganHumanLungs
       connections:
       - right arm

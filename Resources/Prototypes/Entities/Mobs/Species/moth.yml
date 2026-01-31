@@ -315,8 +315,7 @@
         - MobMask
         layer:
         - MobLayer
-  - type: DashAction # Goobstation - dark souls moths
-    actionProto: ActionDashMoth
+
 
 - type: entity
   parent: BaseSpeciesDummy
