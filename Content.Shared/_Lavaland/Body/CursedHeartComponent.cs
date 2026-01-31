@@ -19,22 +19,57 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Actions;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Body;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
+[AutoGenerateComponentPause]
 public sealed partial class CursedHeartComponent : Component
 {
-    [AutoNetworkedField]
-    public EntityUid? PumpActionEntity;
+    [DataField]
+    public EntProtoId PumpAction = "ActionPumpCursedHeart";
 
+    [AutoNetworkedField, AutoPausedField]
     public TimeSpan LastPump = TimeSpan.Zero;
 
+    /// <summary>
+    /// How long the heart deals damage after not being pumped
+    /// </summary>
     [DataField]
     public float MaxDelay = 5f;
-}
 
+    /// <summary>
+    /// How much heal per pump
+    /// </summary> 
+    [DataField(required: true)]
+    public DamageSpecifier PumpHeal = new();
+
+    /// <summary>
+    /// How much damage dealt per missed pump
+    /// </summary>
+    [DataField(required: true)]
+    public DamageSpecifier PumpHarm = new();
+
+    /// <summary>
+    /// How much blood heal per pump
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BloodHealPerPump = FixedPoint2.New(20);
+
+    /// <summary>
+    /// How much blood is lost per missed pump
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BloodHarmMissedPump = FixedPoint2.New(-50);
+
+    [DataField]
+    public SoundSpecifier? Heartbeat = new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg");
+}
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;
