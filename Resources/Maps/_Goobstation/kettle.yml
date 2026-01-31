@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/23/2025 10:01:33
-  entityCount: 26941
+  time: 01/10/2026 15:46:00
+  entityCount: 26946
 maps:
 - 1
 grids:
@@ -12072,6 +12072,16 @@ entities:
     - type: Transform
       pos: 39.5,20.5
       parent: 2
+  - uid: 179
+    components:
+    - type: Transform
+      pos: 45.5,31.5
+      parent: 2
+  - uid: 19464
+    components:
+    - type: Transform
+      pos: 44.5,31.5
+      parent: 2
 - proto: AirlockCargoLocked
   entities:
   - uid: 127
@@ -14081,18 +14091,6 @@ entities:
     components:
     - type: Transform
       pos: 16.5,64.5
-      parent: 2
-- proto: AirlockSalvageGlassLocked
-  entities:
-  - uid: 486
-    components:
-    - type: Transform
-      pos: 45.5,31.5
-      parent: 2
-  - uid: 487
-    components:
-    - type: Transform
-      pos: 44.5,31.5
       parent: 2
 - proto: AirlockScienceGlassLocked
   entities:
@@ -144408,6 +144406,28 @@ entities:
     - type: Transform
       pos: -30.5,-14.5
       parent: 2
+- proto: SpawnPointShaftMiner
+  entities:
+  - uid: 26192
+    components:
+    - type: Transform
+      pos: 38.5,32.5
+      parent: 2
+  - uid: 26942
+    components:
+    - type: Transform
+      pos: 39.5,32.5
+      parent: 2
+  - uid: 26943
+    components:
+    - type: Transform
+      pos: 40.5,32.5
+      parent: 2
+  - uid: 26944
+    components:
+    - type: Transform
+      pos: 41.5,32.5
+      parent: 2
 - proto: SpawnPointStationEngineer
   entities:
   - uid: 21728
@@ -170067,16 +170087,6 @@ entities:
       parent: 2
 - proto: WindoorSecureCargoLocked
   entities:
-  - uid: 179
-    components:
-    - type: Transform
-      pos: 43.5,35.5
-      parent: 2
-  - uid: 19464
-    components:
-    - type: Transform
-      pos: 46.5,35.5
-      parent: 2
   - uid: 26171
     components:
     - type: Transform
@@ -170093,6 +170103,11 @@ entities:
     components:
     - type: Transform
       pos: 36.5,22.5
+      parent: 2
+  - uid: 26945
+    components:
+    - type: Transform
+      pos: 43.5,31.5
       parent: 2
 - proto: WindoorSecureChemistryLocked
   entities:
@@ -170205,10 +170220,15 @@ entities:
       parent: 2
 - proto: WindoorSecureSalvageLocked
   entities:
-  - uid: 26192
+  - uid: 486
     components:
     - type: Transform
-      pos: 43.5,31.5
+      pos: 46.5,35.5
+      parent: 2
+  - uid: 487
+    components:
+    - type: Transform
+      pos: 43.5,35.5
       parent: 2
 - proto: WindoorSecureScienceLocked
   entities:
