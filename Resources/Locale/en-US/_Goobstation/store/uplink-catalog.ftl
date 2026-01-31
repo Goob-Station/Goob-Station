@@ -93,6 +93,9 @@ uplink-grey-tide-desc = An ancient artifact with magical properties. Identical t
 uplink-adv-mimery-name = Guide to Advanced Mimery Series
 uplink-adv-mimery-desc = The classical two part series on how to further hone your mime skills. Upon studying the series, the user should be able to make 3x1 invisible walls, and shoot bullets out of their fingers.
 
+uplink-ancient-toolbox-name = Ancient Toolbox
+uplink-ancient-toolbox-desc = A toolbox specially preserved and modified for your robusting needs, comes with normal tools and Insulated Gloves, but its special feature is having its damage increased the more telecrystals you have inside it!
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
