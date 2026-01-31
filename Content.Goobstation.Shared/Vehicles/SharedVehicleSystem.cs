@@ -249,7 +249,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             return;
 
         vehicleComp.Driver = null;
-        
+
         if (vehicleComp.ActiveOverlay.HasValue)
         {
             EntityManager.QueueDeleteEntity(vehicleComp.ActiveOverlay.Value);
