@@ -20938,3 +20938,11 @@ Entries:
       message: Removed acolyte armor from piety vend.
   id: 2368
   time: '2026-01-31T06:50:26.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        The Estoc has been tweaked to fit more into its role as a designated
+        marksman rifle.
+  id: 2369
+  time: '2026-01-31T06:51:17.0000000+00:00'
