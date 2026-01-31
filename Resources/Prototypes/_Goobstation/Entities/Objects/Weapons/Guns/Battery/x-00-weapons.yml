@@ -45,6 +45,7 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Appearance
 
 - type: entity
   name: X-6 "Threadripper"
@@ -92,6 +93,7 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Appearance
 
 - type: entity
   name: X-12 "Flamberge"
