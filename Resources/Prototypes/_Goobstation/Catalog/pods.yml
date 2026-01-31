@@ -89,3 +89,16 @@
       children:
       - id: ClothingOuterArmorBishop
       - id: ClothingHeadHatHelmetBishop
+
+- type: entity
+  id: SpawnArmamentsInquisitor
+  categories: [ HideSpawnMenu ]
+  name: inquisitor armour
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnTableOnDespawn
+    table: !type:AllSelector
+      children:
+      - id: ClothingHeadHatHelmetInquisitor
+      - id: ClothingOuterArmorInquisitor
+      - id: ClothingNeckCloakInquisitor
