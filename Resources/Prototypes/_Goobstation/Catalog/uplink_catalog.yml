@@ -69,7 +69,7 @@
   cost:
     Telecrystal: 30
   categories:
-    -  UplinkDisruption
+  -  UplinkDisruption
 
 - type: listing
   id: UplinkCarpCaller
@@ -79,7 +79,7 @@
   cost:
     Telecrystal: 40 # you can't really do much with it
   categories:
-    -  UplinkDisruption
+  -  UplinkDisruption
 
 - type: listing
   id: UplinkBoxReagentGrenades
@@ -89,7 +89,7 @@
   cost:
     Telecrystal: 30
   categories:
-    -  UplinkDisruption
+  -  UplinkDisruption
 
 - type: listing
   id: UplinkRemoteSignallerAdvanced
@@ -99,7 +99,7 @@
   cost:
     Telecrystal: 8
   categories:
-    -  UplinkDisruption
+  -  UplinkDisruption
 
 - type: listing
   id: UplinkSarinGasGrenade
@@ -459,7 +459,7 @@
   cost:
     Telecrystal: 25
   categories:
-    - UplinkWeaponry
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponM7S
@@ -469,7 +469,7 @@
   cost:
     Telecrystal: 60
   categories:
-    -  UplinkWeaponry
+  -  UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponHE1SG8
@@ -480,7 +480,7 @@
   cost:
     Telecrystal: 130
   categories:
-    - UplinkWeaponry
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponCombatShotgun
@@ -490,7 +490,7 @@
   cost:
     Telecrystal: 50
   categories:
-    -  UplinkWeaponry
+  -  UplinkWeaponry
 
 # Wearables
 
@@ -662,7 +662,7 @@
   cost:
     Telecrystal: 14
   categories:
-    -  UplinkJob
+  -  UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -678,7 +678,7 @@
   cost:
     Telecrystal: 5
   categories:
-    -  UplinkJob
+  -  UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -725,7 +725,7 @@
   cost:
     Telecrystal: 30
   categories:
-    - UplinkAllies
+  - UplinkAllies
 
 - type: listing
   id: uplinkBeeNades    #goob - bee update
@@ -908,13 +908,13 @@
   cost:
     Telecrystal: 25 # Half the budget #bounty someone want it cheaper.
   categories:
-    - UplinkImplants
+  - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
-          - ContravendUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+      - ContravendUplink
 
 - type: listing
   id: UplinkSmokeImplanter
@@ -925,7 +925,7 @@
   cost:
     Telecrystal: 10
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 - type: listing
   id: UplinkNutrimentImplanter
@@ -960,7 +960,7 @@
   cost:
     Telecrystal: 40
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 - type: listing
   id: UplinkBinaryImplant
@@ -1095,10 +1095,10 @@
   categories:
   - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 # Deception
 
@@ -1603,14 +1603,14 @@
   categories:
   - UplinkWeaponry # Usually the first tab new players look at
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-        - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-        - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkSyndiedrobe
@@ -1663,6 +1663,15 @@
     - RadioHost
 
 - type: listing
+  id: UplinkInjectionSaw
+  name: uplink-injectionsaw-name
+  description: uplink-injectionsaw-desc
+  productEntity: InjectionSaw
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkChemicals # Chemicals because it's more of a chemical weapon than a genuine melee.
+  
   id: UplinkBoxXenobio
   name: uplink-box-xenobio-name
   description: uplink-box-xenobio-desc
