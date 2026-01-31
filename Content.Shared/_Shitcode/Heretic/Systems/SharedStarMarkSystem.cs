@@ -39,6 +39,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
     public static readonly EntProtoId StarMarkStatusEffect = "StatusEffectStarMark";
     public static readonly EntProtoId CosmicField = "WallFieldCosmic";
@@ -155,8 +156,9 @@ public abstract class SharedStarMarkSystem : EntitySystem
     {
         if (args.OurFixture.Hard && (!HasComp<StarMarkComponent>(args.OtherEntity) ||
                                      TryComp(args.OtherEntity, out PullableComponent? pullable) &&
-                                     (HasComp<StarGazerComponent>(pullable.Puller) ||
-                                      TryComp(pullable.Puller, out HereticComponent? heretic) &&
+                                     pullable.Puller is { } puller &&
+                                     (HasComp<StarGazerComponent>(puller) ||
+                                      _heretic.TryGetHereticComponent(puller, out var heretic, out _) &&
                                       heretic.CurrentPath == "Cosmos")))
             args.Cancelled = true;
     }
@@ -243,7 +245,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
     public bool TryApplyStarMark(Entity<MobStateComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp, false) ||
-            TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos" ||
+            _heretic.TryGetHereticComponent(entity, out var heretic, out _) && heretic.CurrentPath == "Cosmos" ||
             HasComp<GhoulComponent>(entity))
             return false;
 

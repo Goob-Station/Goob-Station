@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Mind;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -23,13 +24,21 @@ public sealed partial class HasComponentCondition : EntityEffectCondition
     [DataField]
     public bool Invert;
 
+    [DataField]
+    public bool CheckMind;
+
     public override bool Condition(EntityEffectBaseArgs args)
     {
+        EntityUid? mind = null;
+        if (CheckMind && args.EntityManager.System<MindSystem>().TryGetMind(args.TargetEntity, out var mindId, out _))
+            mind = mindId;
+
         var hasComp = false;
         foreach (var component in Components)
         {
-            hasComp = args.EntityManager.HasComponent(args.TargetEntity,
-                args.EntityManager.ComponentFactory.GetRegistration(component).Type);
+            var comp = args.EntityManager.ComponentFactory.GetRegistration(component).Type;
+            hasComp = args.EntityManager.HasComponent(args.TargetEntity, comp) ||
+                      args.EntityManager.HasComponent(mind, comp);
 
             if (hasComp)
                 break;

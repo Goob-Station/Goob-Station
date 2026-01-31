@@ -17,7 +17,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     checkCanInteract: false
     useDelay: 15
     itemIconStyle: NoItem
@@ -28,7 +27,8 @@
     event: !type:EventHereticAshenShift
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-jaunt
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-jaunt
 
 - type: entity
   parent: ActionHereticJaunt
@@ -49,7 +49,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     checkCanInteract: false
     useDelay: 45
     itemIconStyle: NoItem
@@ -60,7 +59,8 @@
     event: !type:EventHereticVolcanoBlast
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-volcano
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-volcano
   - type: ChangeUseDelayOnAscension
     newUseDelay: 30
     requiredPath: Ash
@@ -73,7 +73,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem
@@ -84,7 +83,8 @@
     event: !type:EventHereticNightwatcherRebirth
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-rebirth
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-rebirth
   - type: ChangeUseDelayOnAscension
     newUseDelay: 10
     requiredPath: Ash
@@ -97,7 +97,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     checkCanInteract: false
     useDelay: 90
     itemIconStyle: NoItem
@@ -108,7 +107,8 @@
     event: !type:EventHereticFlames
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-flame
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-flame
 
 - type: entity
   parent: BaseAction
@@ -118,7 +118,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     checkCanInteract: false
     useDelay: 30
     itemIconStyle: NoItem
@@ -129,4 +128,5 @@
     event: !type:EventHereticCascade
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-cascade
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-cascade

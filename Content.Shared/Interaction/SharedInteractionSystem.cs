@@ -335,6 +335,9 @@ namespace Content.Shared.Interaction
 
         private bool UiRangeCheck(Entity<TransformComponent?> user, Entity<TransformComponent?> target, float range)
         {
+            if (range < 0) // Goobstation
+                return true;
+
             if (!Resolve(target, ref target.Comp))
                 return false;
 

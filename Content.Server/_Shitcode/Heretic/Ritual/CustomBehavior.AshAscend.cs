@@ -26,11 +26,16 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
         if (!base.Execute(args, out outstr))
             return false;
 
-        for (int i = 0; i < Max; i++)
+        foreach (var uid in uids)
         {
-            if (args.EntityManager.TryGetComponent<FlammableComponent>(uids[i], out var flam))
-                if (flam.OnFire)
-                    burningUids.Add(uids[i]);
+            if (!args.EntityManager.TryGetComponent<FlammableComponent>(uid, out var flam))
+                continue;
+
+            if (flam.OnFire)
+                burningUids.Add(uid);
+
+            if (burningUids.Count >= Max)
+                break;
         }
 
         if (burningUids.Count < Min)
