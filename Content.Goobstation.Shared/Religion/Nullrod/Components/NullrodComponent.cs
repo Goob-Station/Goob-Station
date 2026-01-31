@@ -14,58 +14,58 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
 
-    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-    public sealed partial class NullrodComponent : Component
-    {
-        /// <summary>
-        /// Whether non bible-users are able to use null rod
-        /// </summary>
-        [DataField]
-        public bool UntrainedUseRestriction;
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class NullrodComponent : Component
+{
+    /// <summary>
+    /// Whether non bible-users are able to use null rod
+    /// </summary>
+    [DataField]
+    public bool UntrainedUseRestriction;
 
-        /// <summary>
-        /// How much damage is dealt when an untrained user uses it.
-        /// </summary>
-        [DataField("DamageOnUntrainedUse", required: true)]
-        public DamageSpecifier DamageOnUntrainedUse = default!;
+    /// <summary>
+    /// How much damage is dealt when an untrained user uses it.
+    /// </summary>
+    [DataField("DamageOnUntrainedUse", required: true)]
+    public DamageSpecifier DamageOnUntrainedUse = default!;
 
-        /// <summary>
-        /// Which pop-up string to use.
-        /// </summary>
-        [DataField("UntrainedUseString", required: true)]
-        public string UntrainedUseString = default!;
+    /// <summary>
+    /// Which pop-up string to use.
+    /// </summary>
+    [DataField("UntrainedUseString", required: true)]
+    public string UntrainedUseString = default!;
 
-        /// <summary>
-        /// Which sound to play on untrained use.
-        /// </summary>
-        [DataField]
-        public SoundSpecifier UntrainedUseSound = new SoundPathSpecifier("/Audio/Effects/hallelujah.ogg");
+    /// <summary>
+    /// Which sound to play on untrained use.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier UntrainedUseSound = new SoundPathSpecifier("/Audio/Effects/hallelujah.ogg");
 
-        /// <summary>
-        /// How long does the praying do-after take to complete?
-        /// </summary>
-        [DataField]
-        public TimeSpan PrayDoAfterDuration = TimeSpan.FromSeconds(5);
+    /// <summary>
+    /// How long does the praying do-after take to complete?
+    /// </summary>
+    [DataField]
+    public TimeSpan PrayDoAfterDuration = TimeSpan.FromSeconds(5);
 
-        /// <summary>
-        /// Should the prayer be repeated endlessly until cancelled?
-        /// </summary>
-        [DataField]
-        public bool RepeatPrayer;
+    /// <summary>
+    /// Should the prayer be repeated endlessly until cancelled?
+    /// </summary>
+    [DataField]
+    public bool RepeatPrayer;
 
-        /// <summary>
-        ///     When attempting attack against the same entity multiple times,
-        ///     don't spam popups every frame and instead have a cooldown.
-        /// </summary>
-        [DataField]
-        public TimeSpan PopupCooldown = TimeSpan.FromSeconds(3.0);
+    /// <summary>
+    ///     When attempting attack against the same entity multiple times,
+    ///     don't spam popups every frame and instead have a cooldown.
+    /// </summary>
+    [DataField]
+    public TimeSpan PopupCooldown = TimeSpan.FromSeconds(3.0);
 
-        [DataField, AutoNetworkedField]
-        public TimeSpan? NextPopupTime;
+    [DataField, AutoNetworkedField]
+    public TimeSpan? NextPopupTime;
 
-        /// <summary>
-        /// The last entity attacked, used for popup purposes (avoid spam)
-        /// </summary>
-        [DataField]
-        public EntityUid? LastAttackedEntity;
-    }
+    /// <summary>
+    /// The last entity attacked, used for popup purposes (avoid spam)
+    /// </summary>
+    [DataField]
+    public EntityUid? LastAttackedEntity;
+}

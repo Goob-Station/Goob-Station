@@ -11,10 +11,14 @@
 
 using Robust.Shared.GameStates; // Goobstation
 
-namespace Content.Goobstation.Common.Religion
+namespace Content.Goobstation.Common.Religion;
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goobstation - Network that bitch!
+public sealed partial class BibleUserComponent : Component
 {
-    [RegisterComponent, NetworkedComponent] // Goobstation - Network that bitch!
-    public sealed partial class BibleUserComponent : Component
-    {
-    }
+    /// <summary>
+    /// Bound Nullrod
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? NullRod;
 }
