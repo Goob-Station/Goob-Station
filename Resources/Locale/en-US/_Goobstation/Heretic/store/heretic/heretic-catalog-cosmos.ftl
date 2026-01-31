@@ -12,24 +12,24 @@ knowledge-path-cosmos-s2-desc =
 
     Your Mansus Grasp will give people a star mark (cosmic ring) and create a cosmic field where you stand.
     People with a star mark can not pass cosmic fields.
+    Cosmic fields speed you up and regenerate stamina.
 
-knowledge-path-cosmos-s3-name = Cosmic Runes
+knowledge-path-cosmos-s3-name = Mark of Cosmos
 knowledge-path-cosmos-s3-desc =
+    The Beast now whispered to me occasionally, only small tidbits of their circumstances. I can help them, I have to help them.
+
+    Your Mansus Grasp now applies the Mark of Cosmos. The mark is triggered from an attack with your Cosmic Blade.
+    When triggered, the victim is returned to the location where the mark was originally applied to them, leaving a cosmic field in their place.
+    They will then be paralyzed for 2 seconds.
+
+knowledge-path-cosmos-s4-name = Cosmic Runes
+knowledge-path-cosmos-s4-desc =
     The distant stars crept into my dreams, roaring and screaming without reason. I spoke, and heard my own words echoed back.
 
     Grants you Cosmic Runes, a spell that creates two runes linked with each other for easy teleportation.
     Only the entity activating the rune will get transported, and it can be used by anyone without a star mark.
     However, people with a star mark will get transported along with another person using the rune.
     Heathens, who try to teleport using the runes, will be star marked on arrival.
-
-knowledge-path-cosmos-s4-name = Mark of Cosmos
-knowledge-path-cosmos-s4-desc =
-    The Beast now whispered to me occasionally, only small tidbits of their circumstances. I can help them, I have to help them.
-
-    Your Mansus Grasp now applies the Mark of Cosmos. The mark is triggered from an attack with your Cosmic Blade.
-    When triggered, the victim is returned to the location where the mark was originally applied to them, leaving a cosmic field in their place.
-    They will then be paralyzed for 2 seconds.
-    Cosmic fields now speed you up and regenerate stamina.
 
 knowledge-path-cosmos-s5-name = Star Touch
 knowledge-path-cosmos-s5-desc =

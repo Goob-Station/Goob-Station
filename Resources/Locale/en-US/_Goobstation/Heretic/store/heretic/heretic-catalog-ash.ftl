@@ -37,14 +37,8 @@ knowledge-path-ash-s2-desc =
 
     Your Mansus Grasp will burn the eyes of the victim, damaging them and blurring their vision.
 
-knowledge-path-ash-s3-name = Ashen Shift
+knowledge-path-ash-s3-name = Mark of Ash
 knowledge-path-ash-s3-desc =
-    He knew how to walk between the planes.
-
-    Grants you Ashen Passage, a spell that lets you phase out of reality and traverse a very short distance, passing though any walls.
-
-knowledge-path-ash-s4-name = Mark of Ash
-knowledge-path-ash-s4-desc =
     He was a very particular man, always watching in the dead of night.
     But in spite of his duty, he regularly tranced through the Manse with his blazing lantern held high.
     He shone brightly in the darkness, until the blaze begin to die.
@@ -52,6 +46,12 @@ knowledge-path-ash-s4-desc =
     Your Mansus Grasp now applies the Mark of Ash. The mark is triggered from an attack with your Ashen Blade.
     When triggered, the victim takes additional stamina and burn damage, and the mark is transferred to a nearby heathen.
     Damage dealt is decreased with each transfer.
+
+knowledge-path-ash-s4-name = Ashen Shift
+knowledge-path-ash-s4-desc =
+    He knew how to walk between the planes.
+
+    Grants you Ashen Passage, a spell that lets you phase out of reality and traverse a very short distance, passing though any walls.
 
 knowledge-path-ash-s5-name = Volcano Blast
 knowledge-path-ash-s5-desc =
