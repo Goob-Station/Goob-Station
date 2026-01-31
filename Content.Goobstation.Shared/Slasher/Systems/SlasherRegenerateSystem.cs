@@ -2,6 +2,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -28,6 +29,7 @@ public sealed class SlasherRegenerateSystem : EntitySystem
 
         SubscribeLocalEvent<SlasherRegenerateComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherRegenerateComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<SlasherRegenerateComponent, ActionAttemptEvent>(OnActionAttempt);
         SubscribeLocalEvent<SlasherRegenerateComponent, SlasherRegenerateEvent>(OnRegenerate);
     }
 
@@ -41,6 +43,15 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         _actions.RemoveAction(ent.Comp.ActionEnt);
     }
 
+    private void OnActionAttempt(EntityUid uid, SlasherRegenerateComponent comp, ref ActionAttemptEvent args)
+    {
+        if (!comp.HasSoulAvailable)
+        {
+            _popup.PopupPredicted(Loc.GetString("slasher-regenerate-no-soul"), uid, uid);
+            args.Cancelled = true;
+        }
+    }
+
     /// <summary>
     /// Handles the regeneration of the entity/slasher (self) & uncuffing
     /// </summary>
@@ -51,13 +62,6 @@ public sealed class SlasherRegenerateSystem : EntitySystem
     {
         if (args.Handled)
             return;
-
-        // Check if a soul is available to use
-        if (!comp.HasSoulAvailable)
-        {
-            _popup.PopupPredicted(Loc.GetString("slasher-regenerate-no-soul"), uid, uid);
-            return;
-        }
 
         RaiseLocalEvent(uid, new RejuvenateEvent());
 

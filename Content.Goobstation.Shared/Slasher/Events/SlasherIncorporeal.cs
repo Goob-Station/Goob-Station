@@ -16,24 +16,21 @@ public sealed partial class SlasherCorporealizeEvent : InstantActionEvent;
 [ByRefEvent]
 public sealed class SlasherIncorporealEnteredEvent : EntityEventArgs;
 
+/// <summary>
+/// Event raised to check if any players can see the slasher.
+/// </summary>
 [Serializable, NetSerializable]
-public sealed class SlasherIncorporealObserverCheckEvent : EntityEventArgs
+public sealed class SlasherIncorporealObserverCheckEvent(NetEntity slasher, float range) : EntityEventArgs
 {
-    public SlasherIncorporealObserverCheckEvent(NetEntity slasher, float range)
-    {
-        Slasher = slasher;
-        Range = range;
-    }
-
     /// <summary>
     /// The slasher attempting to go incorporeal.
     /// </summary>
-    public NetEntity Slasher { get; }
+    public NetEntity Slasher { get; } = slasher;
 
     /// <summary>
     /// Range to check for observers with line of sight. Takes number from component.
     /// </summary>
-    public float Range { get; }
+    public float Range { get; } = range;
 
     /// <summary>
     /// True if the attempt should be cancelled.
@@ -45,23 +42,17 @@ public sealed class SlasherIncorporealObserverCheckEvent : EntityEventArgs
 /// Event raised to check if any active surveillance cameras can see the slasher.
 /// </summary>
 [ByRefEvent]
-public sealed class SlasherIncorporealCameraCheckEvent : EntityEventArgs
+public sealed class SlasherIncorporealCameraCheckEvent(NetEntity slasher, float range) : EntityEventArgs
 {
-    public SlasherIncorporealCameraCheckEvent(NetEntity slasher, float range)
-    {
-        Slasher = slasher;
-        Range = range;
-    }
-
     /// <summary>
     /// The slasher attempting to go incorporeal.
     /// </summary>
-    public NetEntity Slasher { get; }
+    public NetEntity Slasher { get; } = slasher;
 
     /// <summary>
     /// Range to check for active cameras with line of sight.
     /// </summary>
-    public float Range { get; }
+    public float Range { get; } = range;
 
     /// <summary>
     /// True if a camera can see the slasher.

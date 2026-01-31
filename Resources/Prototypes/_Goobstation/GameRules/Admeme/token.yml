@@ -338,18 +338,25 @@
       - type: Slasher
       - type: SlasherSummonMachete
       - type: SlasherStaggerArea
+      - type: SlasherRelentlessGrab
       - type: SlasherRegenerate
-      - type: SlasherPossession
       - type: SlasherBloodTrail
       - type: SlasherIncorporeal
       - type: SlasherSoulSteal
       - type: SlasherSummonMeatSpike
-      - type: BreathingImmunity
-      - type: GunBlocked
-      - type: WeakToHoly
       - type: NightVision
-        activateSound: null
-        deactivateSound: null
+        color: "#FF0000"
+        toggleAction: ActionSlasherNightVision
+        activateSound: !type:SoundCollectionSpecifier
+          collection: EyeOpen
+        deactivateSound: !type:SoundCollectionSpecifier
+          collection: EyeClose
+      - type: Puller
+        grabThrownSpeed: 10
+        throwingDistance: 8
+        softGrabSpeedModifier: 1
+        hardGrabSpeedModifier: 1
+        chokeGrabSpeedModifier: 1
       - type: Hunger
         baseDecayRate: 0
       - type: Thirst
