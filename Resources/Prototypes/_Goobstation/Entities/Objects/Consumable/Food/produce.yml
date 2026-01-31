@@ -116,3 +116,33 @@
     tags:
     - Fruit
     - Vegetable
+
+- type: entity
+  name: mass mushroom organism
+  parent: [ FoodProduceBase, ClothingHeadBase ]
+  id: FoodMassMushroomOrganism
+  description: A weakly pulsating fungal mass. You feel a strange urge to put it on your head.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism/mass_mushroom_organism.rsi
+    state: produce
+  - type: Item
+    heldPrefix: produce
+  - type: Produce
+    seedId: massMushroomOrganism
+  - type: Tag
+    tags:
+    - Vegetable
+    - Mushroom
+  - type: Clothing
+    slots:
+    - HEAD
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mass_mushroom_organism/mass_mushroom_organism.rsi
+    equipSound: /Audio/_Goobstation/MassMushroomOrganism/equipsound.ogg
+  - type: MassMushroomOrganism

@@ -1,0 +1,111 @@
+- type: body
+  id: MassMushroomOrganism
+  name: "mass mushroom organism"
+  root: chest
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganMassMushroomOrganismEyes
+    chest:
+      part: ChestMassMushroomOrganism
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganMassMushroomOrganismLungs
+    groin:
+      part: GroinMassMushroomOrganism
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganMassMushroomOrganismStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
+
+- type: body
+  id: MassMushroomOrganismAlt
+  name: "mass mushroom organism alt"
+  root: chest
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganMassMushroomOrganismEyes
+    chest:
+      part: ChestMassMushroomOrganismAlt
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganMassMushroomOrganismLungs
+    groin:
+      part: GroinMassMushroomOrganismAlt
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganMassMushroomOrganismStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
