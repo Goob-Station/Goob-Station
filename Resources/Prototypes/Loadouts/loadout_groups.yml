@@ -816,6 +816,17 @@
   - EmergencyWaterVaporMime # Delta-V
   - EmergencySilicon
 
+# CorvaxGoob - Musician's Helmet - Start
+- type: loadoutGroup
+  id: MusicianHelmet
+  name: loadout-group-musician-helmet
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - MusicianHelmetGolden
+  - MusicianHelmetSilver
+# CorvaxGoob - Musician's Helmet - End
+
 - type: loadoutGroup
   id: MusicianJumpsuit
   name: loadout-group-musician-jumpsuit
