@@ -58,3 +58,32 @@
       Min: 1
       Max: 10
       PotencyDivisor: 10
+
+- type: seed
+  id: mangoGland
+  name: seeds-mango-gland-name
+  noun: seeds-noun-seeds
+  displayName: seeds-mango-gland-display-name
+  plantRsi: _Goobstation/Objects/Specific/Hydroponics/mango_gland.rsi
+  packetPrototype: MangoGlandSeeds
+  productPrototypes:
+  - organMangoGland
+  lifespan: 65
+  maturation: 25
+  production: 25
+  yield: 1
+  potency: 10
+  waterConsumption: 1
+  nutrientConsumption: 1
+  idealLight: 6
+  idealHeat: 298
+  seedless: True
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    JuiceMango:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20

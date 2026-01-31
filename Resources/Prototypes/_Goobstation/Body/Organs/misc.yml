@@ -49,3 +49,21 @@
         Omnizine: 75
         TranexamicAcid: 5
         DexalinPlus: 15
+
+- type: entity
+  parent: [OrganAnimalLiver, FoodMango ]
+  id: organMangoGland
+  name: mango gland
+  description: A gland that secretes a sweet, sticky substance similar to mango juice user can at will use the mango juice to dash.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/mango_gland.rsi
+    state: produce
+  - type: Organ
+    onAdd:
+    - type: DashAction
+      actionProto: ActionDashMangoGland
+    - type: InjectOnMobState
+      reagents:
+        JuiceMango: 10
+        Epinephrine: 10
