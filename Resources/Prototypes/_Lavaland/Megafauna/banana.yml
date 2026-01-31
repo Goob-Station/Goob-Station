@@ -1,0 +1,105 @@
+# Root selector
+- type: megafaunaSelector
+  id: Banana
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: BananaActions
+
+# Actions
+- type: megafaunaSelector
+  id: BananaActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionDemonicHandSpiralSelector
+    - id: ActionOniRampageSelector
+    - id: ActionRingOfFireCloseSelector
+    - id: ActionRingOfFireWideSelector
+    - id: ActionFlamingSlashSelector
+    - id: ActionClawSlashSelector
+    - id: ActionFlurryOfSlashesSelector
+
+- type: megafaunaSelector
+  id: ActionDemonicHandSpiralSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionDemonicHandSpiral
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionDemonicHandSpiral
+
+- type: megafaunaSelector
+  id: ActionOniRampageSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionOniRampage
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionOniRampage
+
+- type: megafaunaSelector
+  id: ActionRingOfFireWideSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionRingOfFireWide
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionRingOfFireWide
+
+- type: megafaunaSelector
+  id: ActionRingOfFireCloseSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionRingOfFireClose
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionRingOfFireClose
+    - !type:MegafaunaPhaseCondition
+      phases: [2, 3]
+
+- type: megafaunaSelector
+  id: ActionFlamingSlashSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionFlamingSlash
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionFlamingSlash
+    - !type:MegafaunaPhaseCondition
+      phases: [2, 3]
+
+- type: megafaunaSelector
+  id: ActionClawSlashSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionClawSlash
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionClawSlash
+    - !type:MegafaunaPhaseCondition
+      phases: [1]
+
+- type: megafaunaSelector
+  id: ActionFlurryOfSlashesSelector
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0, 4.0
+      inverse: false
+    actionId: ActionFlurryOfSlashes
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionFlurryOfSlashes
+    - !type:MegafaunaPhaseCondition
+      phases: [3]

@@ -1,0 +1,104 @@
+- type: entity
+  id: BananaOniHand
+  name: Oni hand
+  description: Look out!
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/96x96.rsi
+    state: oni-hand
+    drawdepth: Effects
+    noRot: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1, -1, 1, 1"
+        density: 10000
+        mask:
+        - LargeMobMask
+        layer:
+        - InteractImpassable
+  - type: AmbientSound
+    volume: -6
+    range: 8
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 6
+    energy: 2
+    color: Orange
+    castShadows: true
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - ChildishOni
+    inverted: true
+    damage:
+      types:
+        Structural: 3000
+        Heat: 25
+  - type: Spiraling
+    spiralOutwards: true
+    spiralSpeed: 0.2
+    spiralAcceleration: 1.2
+    spiralDistance: 8
+    spiralMaxSpeed: 10
+    deleteOnEnd: true
+
+- type: entity
+  parent: BananaOniHand
+  id: BananaOniHandCircle
+  suffix: circle
+  components:
+  - type: Spiraling
+    spiralOutwards: false
+    spiralSpeed: 0.2
+    spiralAcceleration: 1.4
+    spiralDistance: 10
+    spiralMaxSpeed: 10
+    deleteOnEnd: true
+
+- type: entity
+  id: BananaSpawnArea # For some reason the first object to get spawned doesn't render so I'm doing this for now.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/32x32.rsi
+    state: oni-marker
+    drawdepth: Effects
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 1.1
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - BananaSpawnIndicator
+    intervalSeconds: 1
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: BananaSpawnIndicator
+  name: Cursed mark
+  description: Something dangerous is about to come out of this!
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/32x32.rsi
+    state: oni-marker
+    drawdepth: Effects
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 1.1
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - BananaOniHand
+    intervalSeconds: 1
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+

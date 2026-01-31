@@ -63,3 +63,12 @@
   positionOnEnd: 0
   sound:
     path: /Audio/_Lavaland/Mobs/Bosses/miniboss_fight.ogg
+
+- type: bossMusic
+  id: ChildishOni
+  fade: true
+  fadeInTime: 2
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/childishoni.ogg
