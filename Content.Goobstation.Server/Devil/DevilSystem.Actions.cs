@@ -11,13 +11,19 @@ using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
+using Content.Server.Store.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mind;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Goobstation.Server.Devil;
 
 public sealed partial class DevilSystem
 {
+    [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+
     private void SubscribeAbilities()
     {
         SubscribeLocalEvent<DevilComponent, CreateContractEvent>(OnContractCreated);
@@ -84,20 +90,19 @@ public sealed partial class DevilSystem
         {
             foreach (var item in _hands.EnumerateHeld(devil.Owner))
             {
-                if (!HasComp<DevilGripComponent>(item))
-                    continue;
-
-                QueueDel(item);
-                return;
+                if (HasComp<DevilGripComponent>(item))
+                    QueueDel(item);
             }
         }
 
         var grasp = Spawn(devil.Comp.GripPrototype, Transform(devil).Coordinates);
+
         if (!_hands.TryPickupAnyHand(devil, grasp))
             QueueDel(grasp);
 
         devil.Comp.DevilGrip = args.Action.Owner;
     }
+
 
     private void OnPossess(Entity<DevilComponent> devil, ref DevilPossessionEvent args)
     {

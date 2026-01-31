@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by SolsticeOfTheWinter",
+  "copyright": "Sprited by SolsticeOfTheWinter and OnsenCapy",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,27 @@
     },
 	{
       "name": "shadow-jaunt"
+    },
+    {
+      "name": "hellfire"
+    },
+    {
+      "name": "pitchfork"
+    },
+    {
+      "name": "lesserform"
+    },
+    {
+      "name": "griprot"
+    },
+    {
+      "name": "gripstun"
+    },
+    {
+      "name": "grippoach"
+    },
+    {
+      "name": "archdevil"
     },
     {
       "name": "summon-contract"
@@ -30,6 +51,24 @@
     },
     {
       "name": "heart-broken"
+    },
+    {
+	  "name": "authority"
+	},
+	{
+      "name": "smallfavor"
+    },
+    {
+      "name": "bigfavor"
+    },
+    {
+      "name": "fireimmune"
+    },
+    {
+	  "name": "hellstep"
+	},
+	{
+      "name": "heresy"
     }
   ]
 }

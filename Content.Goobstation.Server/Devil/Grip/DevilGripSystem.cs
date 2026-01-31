@@ -7,14 +7,22 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.Devil.Condemned;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Components;
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Wraith.Curses;
+using Content.Goobstation.Shared.Wraith.Events;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Whitelist;
@@ -32,6 +40,9 @@ public sealed class DevilGripSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly CondemnedSystem _condemned = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -51,26 +62,69 @@ public sealed class DevilGripSystem : EntitySystem
 
         if (_divineIntervention.ShouldDeny(target))
         {
-            _actions.SetCooldown(devilComp.DevilGrip, ent.Comp.CooldownAfterUse);
-            devilComp.DevilGrip = null;
-            InvokeGrasp(args.User, ent);
-            QueueDel(ent);
+            CleanupGrip(args.User, devilComp, ent);
             args.Handled = true;
             return;
         }
 
-        if (TryComp(target, out StatusEffectsComponent? status))
+        var stunTime = ent.Comp.KnockdownTime;
+
+        // Upgrade: Enhanced stun
+        if (HasComp<GripSidegradeStunComponent>(args.User))
         {
-            _stun.KnockdownOrStun(target, ent.Comp.KnockdownTime, true, status);
-            _stamina.TakeStaminaDamage(target, ent.Comp.StaminaDamage);
-            _language.DoRatvarian(target, ent.Comp.SpeechTime, true, status);
+            stunTime += ent.Comp.KnockdownTimeIncrement;
+            _damageable.TryChangeDamage(args.User, ent.Comp.Healing);
         }
 
+        if (!TryComp(target, out StatusEffectsComponent? status))
+            return;
+
+        _stun.KnockdownOrStun(target, stunTime, true, status);
+        _stamina.TakeStaminaDamage(target, ent.Comp.StaminaDamage);
+        _language.DoRatvarian(target, ent.Comp.SpeechTime, true, status);
+
+        // Upgrade: Rot curse
+        if (HasComp<GripSidegradeRotComponent>(args.User))
+        {
+            var curseHolder = EnsureComp<CurseHolderComponent>(target);
+
+            if (!curseHolder.ActiveCurses.Contains("CurseRot"))
+            {
+                var curseEv = new CurseAppliedEvent("CurseRot", args.User);
+                RaiseLocalEvent(target, ref curseEv);
+            }
+        }
+
+        // Upgrade: Steal soul
+        if (HasComp<GripSidegradePoachComponent>(args.User) && _mobState.IsDead(target))
+        {
+            if (!TryComp<CondemnedComponent>(target, out var condemned)
+                || condemned.SoulOwner != args.User)
+            {
+                condemned = EnsureComp<CondemnedComponent>(target);
+                condemned.SoulOwner = args.User;
+                condemned.SoulOwnedNotDevil = false;
+                condemned.CondemnOnDeath = true;
+
+                _condemned.StartCondemnation(
+                    target,
+                    freezeEntity: true,
+                    doFlavor: true,
+                    behavior: CondemnedBehavior.Delete
+                );
+            }
+        }
+
+        CleanupGrip(args.User, devilComp, ent);
+        args.Handled = true;
+    }
+
+    private void CleanupGrip(EntityUid user, DevilComponent devilComp, Entity<DevilGripComponent> ent)
+    {
         _actions.SetCooldown(devilComp.DevilGrip, ent.Comp.CooldownAfterUse);
         devilComp.DevilGrip = null;
-        InvokeGrasp(args.User, ent);
+        InvokeGrasp(user, ent);
         QueueDel(ent);
-        args.Handled = true;
     }
 
     public void InvokeGrasp(EntityUid user, Entity<DevilGripComponent> ent)

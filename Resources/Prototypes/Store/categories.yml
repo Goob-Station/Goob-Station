@@ -73,6 +73,11 @@
   name: store-caregory-spellbook-bundles
   priority: 7
 
+# Goobstation
+- type: storeCategory
+  id: DevilAbilities
+  name: store-category-abilities
+
 #uplink categoires
 - type: storeCategory
   id: UplinkWeaponry

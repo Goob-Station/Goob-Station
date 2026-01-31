@@ -79,6 +79,14 @@
     transferName: true
 
 - type: polymorph
+  id: MobFrogPolymorphPathetic
+  configuration:
+    entity: MobFrogPathetic
+    forced: true
+    inventory: Transfer
+    transferName: true
+
+- type: polymorph
   id: BinglePolymorph
   configuration:
     entity: MobBingleUpgraded
@@ -111,3 +119,15 @@
     forced: true
     duration: 180
     attachToGridOrMap: true
+
+- type: polymorph
+  id: TimedDevilRat
+  configuration:
+    entity: MobMouse
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: false
+    revertOnCrit: false
+    duration: 600

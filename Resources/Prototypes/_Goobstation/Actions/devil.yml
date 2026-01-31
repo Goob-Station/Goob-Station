@@ -7,6 +7,17 @@
 # Devil Specific
 
 - type: entity
+  parent: BaseMentalAction
+  id: ActionDevilOpenShop
+  name: Soul store
+  description: Use the souls contracted to you to regain the power that you lost.
+  components:
+  - type: Action
+    icon: Interface/Actions/shop.png
+  - type: InstantAction
+    event: !type:DevilOpenStoreEvent
+
+- type: entity
   parent: BaseAction
   id: ActionCreateContract
   name: Summon infernal contract
@@ -98,7 +109,7 @@
 - type: entity
   parent: BaseAction
   id: ActionDevilGrip
-  name: Devils Grip
+  name: Devil's Grip
   description: What little fraction of your power remains in this realm, channeled into your hands.
   categories: [ HideSpawnMenu ]
   components:
@@ -129,3 +140,137 @@
       state: cheat-death
   - type: InstantAction
     event: !type:CheatDeathEvent {}
+
+# Shop
+
+- type: entity
+  parent: ActionSlasherSummonMachete
+  id: ActionDevilSummonPitchfork
+  name: Summon pitchfork
+  description: Summons a stick to poke people with.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/devil.rsi, state: pitchfork }
+  - type: InstantAction
+    event: !type:SlasherSummonMacheteEvent
+      machetePrototype: DevilPitchfork
+
+- type: entity
+  parent: BaseAction
+  id: ActionHellFire
+  name: Hellfire
+  description: This spell launches hellfire at the target. Causes a small explosion and sets living creatures ablaze.
+  components:
+  - type: Action
+    useDelay: 180
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/plasma_cutter.ogg
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: hellfire
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileHellfire
+      speed: 20
+
+- type: entity
+  id: ActionDevilHellstep
+  name: Hellstep
+  description: Creates a trail of fire where your metaphysical tail meets the ground.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 90
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/devil.rsi, state: hellstep }
+  - type: InstantAction
+    event: !type:DevilHellstepEvent
+
+- type: entity
+  id: ActionSmallFavor
+  name: Small favor
+  description: As a small favor, bring a lesser slaughter demon from Hell for two minutes.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
+    useDelay: 1200
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: smallfavor
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SlaughterDemonTimedMidround
+        amount: 1
+      offset: 0, 1
+
+- type: entity
+  id: ActionDevilHeresy
+  name: Heresy
+  description: Draw a rune below your feet to heal any unholy damage taken over time.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: heresy
+  - type: InstantAction
+    event: !type:DevilHeresyEvent
+
+
+# Greater forms
+
+- type: entity
+  id: ActionDevilAuthority
+  name: Authority
+  description: Exert your authority over lesser demons, bringing all currently alive slaughter demons to you. In the process, creates a large pool of blood and stuns any mortals nearby for a short duration.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: authority
+  - type: InstantAction
+    event: !type:DevilAuthorityEvent
+
+- type: entity
+  parent: BaseActionPolymorph
+  id: ActionPolymorphLesserDevil
+  name: Ascend to lesser form
+  description: Return to your lesser form, only a fragment of your true power. Gains new actions in the process. This cannot be undone.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: lesserform
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: MobLesserDevil
+
+- type: entity
+  parent: BaseActionPolymorph
+  id: ActionPolymorphArchDevil
+  name: Ascend to Archdevil
+  description: Return to your true form. Command respect from any other demons.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: archdevil
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: MobArchDevil
