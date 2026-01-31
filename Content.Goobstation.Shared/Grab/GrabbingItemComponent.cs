@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Grab;
@@ -20,4 +21,10 @@ public sealed partial class GrabbingItemComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ActivelyGrabbingEntity;
+
+    /// <summary>
+    /// Entities that are not allowed to be grabbed
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
 }
