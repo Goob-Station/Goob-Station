@@ -1,10 +1,7 @@
 using Content.Shared._White.Xenomorphs;
-using Content.Shared._White.Weapons.Ranged.Components;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Goobstation.Shared.Xenomorph;
 
@@ -12,38 +9,22 @@ public sealed class NeurotoxinGlandSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<NeurotoxinGlandComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<NeurotoxinGlandComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<NeurotoxinGlandComponent, ToggleAcidSpitEvent>(OnToggleAcidSpit);
         SubscribeLocalEvent<NeurotoxinGlandComponent, ShotAttemptedEvent>(OnShotAttempted);
     }
 
-    private void OnMapInit(EntityUid uid, NeurotoxinGlandComponent component, MapInitEvent args)
-    {
+    private void OnMapInit(EntityUid uid, NeurotoxinGlandComponent component, MapInitEvent args) =>
         _actions.AddAction(uid, component.ActionId);
 
-        // Setup gun components
-        var plasma = EnsureComp<PlasmaAmmoProviderComponent>(uid);
-        plasma.FireCost = component.FireCost;
-        plasma.Proto = component.Proto;
-        Dirty(uid, plasma);
-
-        var gun = EnsureComp<GunComponent>(uid);
-        gun.FireRate = component.FireRate;
-        gun.UseKey = false;
-        gun.SelectedMode = SelectiveFire.FullAuto;
-        gun.AvailableModes = SelectiveFire.FullAuto;
-        gun.SoundGunshot = component.SoundGunshot;
-        gun.SoundEmpty = component.SoundEmpty;
-        Dirty(uid, gun);
-
-        _gun.RefreshModifiers((uid, gun));
-    }
+    private void OnComponentShutdown(EntityUid uid, NeurotoxinGlandComponent component, ComponentShutdown args) =>
+        _actions.RemoveAction(uid, component.Action);
 
     private void OnShotAttempted(EntityUid uid, NeurotoxinGlandComponent component, ref ShotAttemptedEvent args)
     {

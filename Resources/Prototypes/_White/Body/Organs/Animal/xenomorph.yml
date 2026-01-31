@@ -122,18 +122,18 @@
   - type: Organ
     slotId: neurotoxin_gland
     onAdd:
-#    - type: RechargeBasicEntityAmmo # Goobstation - Removed and added to NeurotoxinGlandComponent
-#      rechargeCooldown: 0.75
-#    - type: PlasmaAmmoProvider
-#      fireCost: 55
-#      proto: BulletNeurotoxin
-#    - type: Gun
-#      fireRate: 0.75
-#      useKey: false
-#      selectedMode: FullAuto
-#      availableModes:
-#      - FullAuto
-#      soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 0.75
+    - type: PlasmaAmmoProvider
+      fireCost: 20
+      proto: BulletNeurotoxin
+    - type: Gun
+      fireRate: 0.60
+      useKey: false
+      selectedMode: FullAuto
+      availableModes:
+      - FullAuto
+      soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
     - type: NeurotoxinGland # Goobstation
 
 - type: entity

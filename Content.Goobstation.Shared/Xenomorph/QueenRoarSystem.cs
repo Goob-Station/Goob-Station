@@ -6,7 +6,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Xenomorph;
 
@@ -19,7 +19,6 @@ public sealed partial class QueenRoarSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -83,15 +82,9 @@ public sealed partial class QueenRoarSystem : EntitySystem
 
             // Stun
             _stun.TryStun(mob, TimeSpan.FromSeconds(component.RoarStunTime), true);
-
-            // Show popup to the victim
-            if (_net.IsServer)
-                _popup.PopupEntity(Loc.GetString("queen-roar-victim"), mob.Owner, mob.Owner, PopupType.LargeCaution);
         }
 
-        // Show popup to the queen
-        if (_net.IsServer)
-            _popup.PopupEntity(Loc.GetString("queen-roar-complete"), args.User, args.User, PopupType.MediumCaution);
+        _popup.PopupPredicted(Loc.GetString("queen-roar-complete"), uid, args.User, Filter.Entities(args.User), false, PopupType.MediumCaution);
 
         args.Handled = true;
     }

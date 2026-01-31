@@ -28,7 +28,7 @@ xenomorphs-cond-allcrewdead = All crew members have died.
 
 queen-roar-start = You begin to prepare a mighty roar!
 queen-roar-start-others = The queen begins to prepare a mighty roar!
-queen-roar-complete = You unleash a terrifying roar!
+queen-roar-complete = A terrifying roar errupts from the queen!
 queen-roar-victim = A deafening roar fills your ears, stunning you in place!
 
 neurotoxin-gland-activated = You strain your gland.
