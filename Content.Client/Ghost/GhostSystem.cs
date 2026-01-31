@@ -94,6 +94,7 @@ namespace Content.Client.Ghost
         public event Action? PlayerDetached;
         public event Action<GhostWarpsResponseEvent>? GhostWarpsResponse;
         public event Action<GhostUpdateGhostRoleCountEvent>? GhostRoleCountUpdated;
+        public event Action<NetEntity, int>? GhostWarpObserverCountUpdated;
 
         public override void Initialize()
         {
@@ -108,6 +109,7 @@ namespace Content.Client.Ghost
 
             SubscribeNetworkEvent<GhostWarpsResponseEvent>(OnGhostWarpsResponse);
             SubscribeNetworkEvent<GhostUpdateGhostRoleCountEvent>(OnUpdateGhostRoleCount);
+            SubscribeNetworkEvent<GhostWarpObserverCountChangedEvent>(OnGhostWarpObserverCountChanged);
 
             SubscribeLocalEvent<EyeComponent, ToggleLightingActionEvent>(OnToggleLighting);
             SubscribeLocalEvent<EyeComponent, ToggleFoVActionEvent>(OnToggleFoV);
@@ -223,6 +225,11 @@ namespace Content.Client.Ghost
         {
             AvailableGhostRoleCount = msg.AvailableGhostRoles;
             GhostRoleCountUpdated?.Invoke(msg);
+        }
+
+        private void OnGhostWarpObserverCountChanged(GhostWarpObserverCountChangedEvent msg)
+        {
+            GhostWarpObserverCountUpdated?.Invoke(msg.Entity, msg.ObserverCount);
         }
 
         public void RequestWarps()

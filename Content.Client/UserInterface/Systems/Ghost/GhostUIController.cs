@@ -65,6 +65,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         system.PlayerDetached += OnPlayerDetached;
         system.GhostWarpsResponse += OnWarpsResponse;
         system.GhostRoleCountUpdated += OnRoleCountUpdated;
+        system.GhostWarpObserverCountUpdated += OnObserverCountUpdated;
     }
 
     public void OnSystemUnloaded(GhostSystem system)
@@ -75,6 +76,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         system.PlayerDetached -= OnPlayerDetached;
         system.GhostWarpsResponse -= OnWarpsResponse;
         system.GhostRoleCountUpdated -= OnRoleCountUpdated;
+        system.GhostWarpObserverCountUpdated -= OnObserverCountUpdated;
     }
 
     public void UpdateGui()
@@ -121,6 +123,11 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         window.Populate();
     }
 
+    private void OnObserverCountUpdated(NetEntity entity, int count)
+    {
+        Gui?.TargetWindow?.UpdateObserverCount(entity, count);
+    }
+
     private void OnRoleCountUpdated(GhostUpdateGhostRoleCountEvent msg)
     {
         UpdateGui();
@@ -148,6 +155,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.GhostRolesPressed += GhostRolesPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
+        Gui.TargetWindow.RefreshPressed += OnRefreshPressed;
 
         UpdateGui();
     }
@@ -161,6 +169,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
+        Gui.TargetWindow.RefreshPressed -= OnRefreshPressed;
 
         Gui.Hide();
     }
@@ -175,6 +184,11 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         _system?.RequestWarps();
         Gui?.TargetWindow.Populate();
         Gui?.TargetWindow.OpenCentered();
+    }
+
+    private void OnRefreshPressed()
+    {
+        _system?.RequestWarps();
     }
 
     private void GhostRolesPressed()

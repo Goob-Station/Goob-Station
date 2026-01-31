@@ -255,10 +255,11 @@ public sealed class FollowerSystem : EntitySystem
         var xform = Transform(follower);
         _containerSystem.AttachParentToContainerOrGrid((follower, xform));
 
-        // If we didn't get to parent's container.
+        // If we didn't get to parent's container: parent follower to target so it actually follows (moves with target).
         if (xform.ParentUid != Transform(xform.ParentUid).ParentUid)
         {
-            _transform.SetCoordinates(follower, xform, new EntityCoordinates(entity, Vector2.Zero), rotation: Angle.Zero);
+            _transform.SetParent(follower, xform, entity);
+            _transform.SetLocalPosition(follower, Vector2.Zero, xform);
         }
 
         _physicsSystem.SetLinearVelocity(follower, Vector2.Zero);
