@@ -13,6 +13,6 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Changeling.Actions;
 
 [Serializable, NetSerializable]
-public sealed partial class AbsorbDNADoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class AbsorbDNADoAfterEvent : SimpleDoAfterEvent;
 [Serializable, NetSerializable]
-public sealed partial class AbsorbBiomatterDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class AbsorbBiomatterDoAfterEvent : SimpleDoAfterEvent;

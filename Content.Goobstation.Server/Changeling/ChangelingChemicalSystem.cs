@@ -12,7 +12,6 @@ public sealed partial class ChangelingChemicalSystem : SharedChangelingChemicalS
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<ChangelingChemicalComponent, PolymorphedEvent>(OnPolymorphed);
     }
 
