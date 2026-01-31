@@ -8,6 +8,8 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using System.Linq; // Goob
+using Content.Client.Decals.UI; // Goob
 
 namespace Content.Client.SprayPainter.UI;
 
@@ -21,6 +23,9 @@ public sealed partial class SprayPainterDecals : Control
     public Action<Color?>? OnColorChanged;
     public Action<int>? OnAngleChanged;
     public Action<bool>? OnSnapChanged;
+    public Action<bool>? OnColorPickerToggled; // Goob
+
+    private PaletteColorPicker? _palette; // Goob
 
     private SpriteSystem? _sprite;
     private string _selectedDecal = string.Empty;
@@ -30,14 +35,17 @@ public sealed partial class SprayPainterDecals : Control
     {
         RobustXamlLoader.Load(this);
 
-        AddAngleButton.OnButtonUp += _ => AngleSpinBox.Value += 90;
-        SubAngleButton.OnButtonUp += _ => AngleSpinBox.Value -= 90;
+        AddAngleButton.OnButtonUp += _ => AngleSpinBox.Value = (AngleSpinBox.Value + 90) % 360; // Goob - Mod 360
+        SubAngleButton.OnButtonUp += _ => AngleSpinBox.Value = (AngleSpinBox.Value - 90) % 360; // Goob - Mod 360
         SetZeroAngleButton.OnButtonUp += _ => AngleSpinBox.Value = 0;
         AngleSpinBox.ValueChanged += args => OnAngleChanged?.Invoke(args.Value);
 
         UseCustomColorCheckBox.OnPressed += UseCustomColorCheckBoxOnOnPressed;
         SnapToTileCheckBox.OnPressed += SnapToTileCheckBoxOnOnPressed;
         ColorSelector.OnColorChanged += OnColorSelected;
+
+        ColorPalette.OnPressed += ColorPaletteOnPressed; // Goob
+        ColorPicker.OnPressed += args => OnColorPickerToggled?.Invoke(args.Button.Pressed); // Goob
     }
 
     private void UseCustomColorCheckBoxOnOnPressed(BaseButton.ButtonEventArgs _)
@@ -147,6 +155,7 @@ public sealed partial class SprayPainterDecals : Control
     public void SetSelectedDecal(string name)
     {
         _selectedDecal = name;
+        SelectedDecalName.Text = name; // Goob
 
         if (_sprite is null)
             return;
@@ -171,4 +180,36 @@ public sealed partial class SprayPainterDecals : Control
     {
         SnapToTileCheckBox.Pressed = snap;
     }
+
+    // Goob START
+    private void ColorPaletteOnPressed(BaseButton.ButtonEventArgs _)
+    {
+        if (_palette is null)
+        {
+            _palette = new PaletteColorPicker();
+            _palette.OpenCenteredLeft();
+            _palette.PaletteList.OnItemSelected += args =>
+            {
+                var color = (args.ItemList.GetSelected().First().Metadata as Color?)!.Value;
+                ColorSelector.Color = color;
+                OnColorSelected(color);
+            };
+            return;
+        }
+
+        if (_palette.IsOpen)
+        {
+            _palette.Close();
+        }
+        else
+        {
+            _palette.Open();
+        }
+    }
+
+    public void SetColorPicker(bool enabled)
+    {
+        ColorPicker.Pressed = enabled;
+    }
+    // Goob END
 }
