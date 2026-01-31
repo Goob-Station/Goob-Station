@@ -5,7 +5,6 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.InternalResources.EntitySystems;
 
@@ -13,7 +12,6 @@ public sealed class SharedInternalResourcesActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedInternalResourcesSystem _internalResources = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()

@@ -9,26 +9,20 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Content.Goobstation.Shared.InternalResources.EntitySystems;
-public sealed class SharedInternalResourcesSystem : EntitySystem
+public abstract class SharedInternalResourcesSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
 
+    private readonly TimeSpan _systemUpdateRate = TimeSpan.FromSeconds(1);
+    private TimeSpan _systemNextUpdate = TimeSpan.Zero;
+
     public override void Initialize()
     {
-        SubscribeLocalEvent<InternalResourcesComponent, MapInitEvent>(OnMapInit);
-
         SubscribeLocalEvent<InternalResourcesComponent, InternalResourcesAmountChangedEvent>(OnInternalResourcesAmountChanged);
         SubscribeLocalEvent<InternalResourcesComponent, InternalResourcesCapacityChangedEvent>(OnInternalResourcesCapacityChanged);
         SubscribeLocalEvent<InternalResourcesComponent, GetValueRelatedAlertValuesEvent>(OnAlertGetValues);
-    }
-
-    private void OnMapInit(Entity<InternalResourcesComponent> ent, ref MapInitEvent args)
-    {
-        ent.Comp.NextUpdate = ent.Comp.UpdateDelay + _gameTiming.CurTime;
-
-        Dirty(ent);
     }
 
     private void OnInternalResourcesAmountChanged(Entity<InternalResourcesComponent> entity, ref InternalResourcesAmountChangedEvent args)
@@ -286,18 +280,14 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var curTime = _gameTiming.CurTime;
+        if (_systemNextUpdate > _gameTiming.CurTime)
+            return;
+
+        _systemNextUpdate += _systemUpdateRate;
 
         var query = EntityQueryEnumerator<InternalResourcesComponent>();
         while (query.MoveNext(out var uid, out var resourcesComp))
         {
-            if (resourcesComp.NextUpdate > curTime)
-                continue;
-
-            resourcesComp.NextUpdate += resourcesComp.UpdateDelay;
-
-            Dirty(uid, resourcesComp);
-
             foreach (var resourceData in resourcesComp.CurrentInternalResources)
             {
                 var modEv = new InternalResourcesRegenModifierEvent(
@@ -331,6 +321,8 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
 
                     resourceData.Thresholds[key] = threshold;
                 }
+
+                Dirty(uid, resourcesComp);
             }
         }
     }
