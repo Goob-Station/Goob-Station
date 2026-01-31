@@ -1,0 +1,88 @@
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconLavalandRuin
+  suffix: Command
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-command
+    color: "#FFFF00"
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinAbductor
+  suffix: Ruin Abductor
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-abductor
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinArrivals
+  suffix: Ruin Arrivals
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-arrivals
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinBeachBiodome
+  suffix: Ruin Beach Biodome
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-beach-biodome
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinChemistryLab
+  suffix: Ruin Syndicate
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-syndicate # You aren't going to that syndicate base that easily.
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinGolemShuttle
+  suffix: Ruin Golem Shuttle
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-golem-shuttle
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinHierophantArena
+  suffix: Ruin Hierophant Arena
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-hierophant-arena
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinHunterShelter
+  suffix: Ruin Hunter's Shelter
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-hunter-shelter
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinSmallOutpost
+  suffix: Ruin Small Outpost
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-small-outpost
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinRougeAI
+  suffix: Ruin Rouge AI
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-rouge-ai
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinSnowBiodome
+  suffix: Ruin Snow Biodome
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-snow-biodome

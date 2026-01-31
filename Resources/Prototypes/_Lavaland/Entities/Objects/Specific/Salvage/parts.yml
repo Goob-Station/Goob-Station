@@ -1,0 +1,15 @@
+- type: entity
+  id: CrusherUpgradeFrame
+  parent: BaseItem
+  name: crusher upgrade frame
+  description: An empty frame for the main crusher upgrade, can hold essence of dying lavaland creatures to use their energy for upgrades.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi
+    state: base
+  - type: Item
+    size: Small
+
+  - type: Tag
+    tags:
+    - CrusherUpgradeFrame

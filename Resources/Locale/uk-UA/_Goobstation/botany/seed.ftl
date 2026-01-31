@@ -1,2 +1,2 @@
-seeds-bluespace-tomato-name = блюспейс помідор
-seeds-bluespace-tomato-display-name = рослина блюспейс помідора
+seeds-bluespace-tomato-name = блюспейс томат
+seeds-bluespace-tomato-display-name = рослина блюспейс томату

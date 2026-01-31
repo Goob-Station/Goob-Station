@@ -26,6 +26,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._DV.Silicons.Laws; // DOWNSTREAM-TPirates: borg wireless access
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -33,6 +34,7 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Interaction.Components; // DOWNSTREAM-TPirates: borg wireless access
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -190,6 +192,7 @@ public abstract partial class SharedStationAiSystem
 
         if (!args.CanComplexInteract
             || !HasComp<StationAiHeldComponent>(args.User)
+            && !HasComp<RemoteInteractionComponent>(args.User) // DOWNSTREAM-TPirates: borg wireless access
             || !args.CanInteract)
         {
             return;
@@ -269,6 +272,17 @@ public record struct GetStationAiRadialEvent()
     public List<StationAiRadial> Actions = new();
 }
 
+#region DOWNSTREAM-TPirates: borg wireless access
+/// <summary>
+/// Grab actions for a limited airlock control radial (bolts & electrify only).
+/// </summary>
+[ByRefEvent]
+public record struct GetStationAiLimitedAirlockRadialEvent()
+{
+    public List<StationAiRadial> Actions = new();
+}
+
+#endregion
 [Serializable, NetSerializable]
 public enum AiUi : byte
 {

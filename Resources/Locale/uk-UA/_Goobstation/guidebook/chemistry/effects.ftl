@@ -32,5 +32,6 @@ reagent-effect-guidebook-stealth-entities = Маскує живих істот �
 reagent-effect-guidebook-change-faction = Змінює фракцію істоти на {$faction}.
 reagent-effect-guidebook-mutate-plants-nearby = Випадково мутує рослини поблизу.
 reagent-effect-guidebook-dnascramble = Заплутує ДНК людини.
-reagent-effect-guidebook-change-species = Перетворює ціль на {$species}
+reagent-effect-guidebook-change-species = Перетворює ціль на {$species}.
 reagent-effect-guidebook-sex-change = Змінює гендер людини
+reagent-effect-guidebook-change-species-random = Перетворює ціль на абсолютно випадковий вид.

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "pda-shaftminer recolored from original pda-miner by Rouden",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	  {
+      "name": "pda-shaftminer"
+    },
+	  {
+      "name": "id_overlay"
+    },
+	  {
+      "name": "light_overlay"
+    },
+    {
+      "name": "pda",
+      "_comment": "YAML linter appeasement regarding chameleon PDA, removal TODO. Refer to /Resources/Textures/Objects/Devices/pda.rsi/meta.json for licensing information"
+    }
+  ]
+}

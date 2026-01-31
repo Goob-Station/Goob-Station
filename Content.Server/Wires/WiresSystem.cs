@@ -85,6 +85,11 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
+#region DOWNSTREAM-TPirates: borg wireless access
+using Content.Shared.Coordinates; 
+using Content.Shared.Interaction.Components;
+#endregion
+
 namespace Content.Server.Wires;
 
 public sealed class WiresSystem : SharedWiresSystem
@@ -98,7 +103,10 @@ public sealed class WiresSystem : SharedWiresSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ConstructionSystem _construction = default!;
     [Dependency] private readonly TagSystem _tags = default!; // Shitmed Change
-
+    #region DOWNSTREAM-TPirates: borg wireless access
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    #endregion
     private static readonly ProtoId<ToolQualityPrototype> CuttingQuality = "Cutting";
     private static readonly ProtoId<ToolQualityPrototype> PulsingQuality = "Pulsing";
 
@@ -474,6 +482,16 @@ public sealed class WiresSystem : SharedWiresSystem
             return;
         }
 
+        #region DOWNSTREAM-TPirates: borg wireless access
+        // access to wires requires proximity, InRangeUnobstructed will not work because range checks are overridden. ikr it makes the code
+        // tangled too much and there is likely a better way with events, but i don't want to mess with too much code and cause possible conflicts
+        if (TryComp<RemoteInteractionComponent>(player, out var _) && !IsInNormalRange(player, uid))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("wires-component-ui-on-receive-message-cannot-reach"), uid, player);
+            return;
+        }
+        #endregion
+
         if (!_hands.TryGetActiveItem((player, handsComponent), out var heldEntity))
             return;
 
@@ -559,6 +577,24 @@ public sealed class WiresSystem : SharedWiresSystem
 
         UpdateUserInterface(uid);
     }
+
+    #region DOWNSTREAM-TPirates: borg wireless access
+    private bool IsInNormalRange(EntityUid user, EntityUid target)
+    {
+        if (!_entityManager.TryGetComponent<TransformComponent>(user, out var userXForm) ||
+            !_entityManager.TryGetComponent<TransformComponent>(target, out var targetXForm))
+        {
+            return false;
+        }
+
+        return _interactionSystem.InRangeUnobstructed(
+            (user, userXForm),
+            (target, targetXForm),
+            targetXForm.Coordinates,
+            targetXForm.LocalRotation);
+    }
+    #endregion
+
     #endregion
 
     #region Entity API

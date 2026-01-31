@@ -1,0 +1,64 @@
+
+- type: entity
+  parent: BoxCardboard
+  name: slime cube box
+  id: SlimeCubeBox
+  description: Drymate brand slime cubes. Just add water!
+  components:
+  - type: StorageFill
+    contents:
+      - id: SlimeCubeWrapped
+        amount: 9
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: box_variant
+    
+- type: entity
+  parent: BoxCardboard
+  name: syndicate slime cube box
+  id: SlimeCubeBoxSyndie
+  description: Interdyne brand slime cubes. Just add water!
+  components:
+  - type: StorageFill
+    contents:
+      - id: SlimeCubeWrappedSyndie
+        amount: 9
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/syndiecubes.rsi
+    state: box
+
+- type: entity
+  parent: BaseWrappedCube
+  name: slime cube wrapped
+  id: SlimeCubeWrapped
+  description: Unwrap this to get a slime cube.
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: SlimeCube
+  - type: Sprite
+    state: wrapper
+
+- type: entity
+  parent: BaseWrappedCube
+  name: syndicate slime cube wrapped
+  id: SlimeCubeWrappedSyndie
+  description: Unwrap this to get a slime cube.
+  components:
+    - type: SpawnItemsOnUse
+      items:
+        - id: SlimeCube
+    - type: Sprite
+      sprite: _Goobstation/Objects/Misc/syndiecubes.rsi
+      state: wrapper
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: SlimeCube
+  name: slime cube
+  components:
+    - type: Rehydratable
+      possibleSpawns:
+        - MobSlimeXenobioBabyGrey
+        - MobSlimeXenobioBabyPurple
+        - MobSlimeXenobioBabyBlue

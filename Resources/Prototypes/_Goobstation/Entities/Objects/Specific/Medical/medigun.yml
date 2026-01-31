@@ -73,6 +73,7 @@
   - type: RechargeableBlocking
     chargedRechargeRate: 0
     dischargedRechargeRate: 1
+    rechargePercentage: 1
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 0
@@ -115,6 +116,7 @@
   - type: RechargeableBlocking
     chargedRechargeRate: 0
     dischargedRechargeRate: 1.5
+    rechargePercentage: 1
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 0

@@ -113,3 +113,26 @@
   description: An expensive and robust pistol with decent offensive capabilities. Uses .45 magnum ammo.
     The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Non-lethal, Security Loadouts
+
+- type: entity
+  name: M8
+  parent: [BaseWeaponPistol, BaseSecurityContraband, SolAllianceInfo]
+  id: WeaponPistolSol
+  suffix: SAN
+  description: Виготовлений Zavodskoi Interstellar, компактний M8 є стандартним службовим пістолетом Соляріанських збройних сил. Використовує пістолетні магазини .35 калібру.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Pistols/sol_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Pirate/Objects/Weapons/Guns/Pistols/sol_pistol.rsi
+  - type: Gun
+    fireRate: 6
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/pistol.ogg

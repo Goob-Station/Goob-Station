@@ -39,6 +39,11 @@ public sealed partial class StationAiSystem
         SubscribeLocalEvent<DoorBoltComponent, GetStationAiRadialEvent>(OnDoorBoltGetRadial);
         SubscribeLocalEvent<AirlockComponent, GetStationAiRadialEvent>(OnEmergencyAccessGetRadial);
         SubscribeLocalEvent<ElectrifiedComponent, GetStationAiRadialEvent>(OnDoorElectrifiedGetRadial);
+
+        #region DOWNSTREAM-TPirates: borg wireless access
+        SubscribeLocalEvent<DoorBoltComponent, GetStationAiLimitedAirlockRadialEvent>(OnDoorBoltGetLimitedRadial);
+        SubscribeLocalEvent<ElectrifiedComponent, GetStationAiLimitedAirlockRadialEvent>(OnDoorElectrifiedGetLimitedRadial);
+        #endregion
     }
 
     private void OnDoorBoltGetRadial(Entity<DoorBoltComponent> ent, ref GetStationAiRadialEvent args)
@@ -97,4 +102,45 @@ public sealed partial class StationAiSystem
             }
         );
     }
+
+    #region DOWNSTREAM-TPirates: borg wireless access
+    private void OnDoorBoltGetLimitedRadial(Entity<DoorBoltComponent> ent, ref GetStationAiLimitedAirlockRadialEvent args)
+    {
+        args.Actions.Add(
+            new StationAiRadial
+            {
+                Sprite = ent.Comp.BoltsDown
+                    ? new SpriteSpecifier.Rsi(_aiActionsRsi, "unbolt_door")
+                    : new SpriteSpecifier.Rsi(_aiActionsRsi, "bolt_door"),
+                Tooltip = ent.Comp.BoltsDown
+                    ? Loc.GetString("bolt-open")
+                    : Loc.GetString("bolt-close"),
+                Event = new StationAiBoltEvent
+                {
+                    Bolted = !ent.Comp.BoltsDown,
+                }
+            }
+        );
+    }
+
+
+    private void OnDoorElectrifiedGetLimitedRadial(Entity<ElectrifiedComponent> ent, ref GetStationAiLimitedAirlockRadialEvent args)
+    {
+        args.Actions.Add(
+            new StationAiRadial
+            {
+                Sprite = ent.Comp.Enabled
+                    ? new SpriteSpecifier.Rsi(_aiActionsRsi, "door_overcharge_off")
+                    : new SpriteSpecifier.Rsi(_aiActionsRsi, "door_overcharge_on"),
+                Tooltip = ent.Comp.Enabled
+                    ? Loc.GetString("electrify-door-off")
+                    : Loc.GetString("electrify-door-on"),
+                Event = new StationAiElectrifiedEvent
+                {
+                    Electrified = !ent.Comp.Enabled,
+                }
+            }
+        );
+    }
+    #endregion
 }

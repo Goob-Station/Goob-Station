@@ -1081,6 +1081,7 @@
 - type: entity
   parent: BaseItem
   id: ToyMansusGrasp
+  suffix: Toy
   name: green grasp
   description: The power of the Prank Gods, channeled through your grip. Security won't appreciate the prank.
   components:
@@ -1112,6 +1113,7 @@
 - type: entity
   parent: BaseItem
   id: ToyBladeEldritch
+  suffix: Toy
   name: replica eldritch blade
   description: A plastic green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
   components:
@@ -1136,6 +1138,7 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeAsh
+  suffix: Toy
   name: replica ashen blade
   description: Molten and unwrought, a hunk of plastic warped to cinders and slag. Unmade, it aspires to be more than it is.
   components:
@@ -1157,6 +1160,7 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeBlade
+  suffix: Toy
   name: replica sundered blade
   description: A gallant blade, severed and torn. Furiously, the blade cuts. Plastic scars bind it forever to its dark purpose.
   components:
@@ -1178,6 +1182,7 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeFlesh
+  suffix: Toy
   name: replica bloody blade
   description: A crescent blade born from fleshwarped plastic. Keenly aware, it seeks to spread to others the excruciating comedy it has endured from its dreadful origins.
   components:
@@ -1199,6 +1204,7 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeRust
+  suffix: Toy
   name: replica rusted blade
   description: This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten plastic.
   components:
@@ -1220,6 +1226,7 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeVoid
+  suffix: Toy
   name: replica void blade
   description: Devoid of any substance, this blade reflects comedy. It is a real depiction of hilarity, and chaos that ensues after its implementation.
   components:
@@ -1241,6 +1248,7 @@
 - type: entity
   parent: BaseItem
   id: ToyCodexCicatrix
+  suffix: Toy
   name: codex cicatrix
   description: This light tome is full of cryptic scribbles and confusing diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
   components:

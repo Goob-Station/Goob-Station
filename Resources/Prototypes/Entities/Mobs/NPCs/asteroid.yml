@@ -59,6 +59,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: WeatherImmune # Lavaland Change
 
 - type: entity
   id: MobGoliath
@@ -95,6 +96,7 @@
       0: Alive
       350: Dead # Goob - 9 PKA shots, 4 crusher destabilised hits
   - type: MeleeWeapon
+    range: 1.3 # Lavaland Change
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
     angle: 0
@@ -104,7 +106,6 @@
       types:
         Blunt: 35
         Slash: 15
-    range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
     - Lavafauna
@@ -133,6 +134,8 @@
       amount: 3
     - id: MaterialGoliathHide1
       amount: 1
+    - id: MaterialBones1 # Lavaland Change
+      maxAmount: 2
   - type: Fauna # Lavaland Change
 
 - type: entity
@@ -235,7 +238,6 @@
   name: hivelord
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
-  - type: WeatherImmune 
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/hivelord.rsi
     layers:

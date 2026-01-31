@@ -98,7 +98,7 @@
     gloves: ClothingHandsMercGlovesCombat
     shoes: ClothingShoesBootsCombatFilled
     id: SANIdCard
-    pocket1: WeaponPistolViper
+    pocket1: WeaponPistolSol
     pocket2: MagazinePistol
     belt: ClothingBeltMercWebbing
     outerClothing: ClothingOuterVestWebSAN

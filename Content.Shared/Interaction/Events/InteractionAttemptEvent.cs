@@ -69,4 +69,18 @@ namespace Content.Shared.Interaction.Events
         public readonly EntityUid Uid = uid;
         public readonly EntityUid? Target = target;
     }
+
+    #region DOWNSTREAM-TPirates: borg wireless access
+    /// <summary>
+    /// Event raised directed at a user to see if they can perform a generic interaction using an item.
+    /// </summary>
+    [ByRefEvent]
+    public struct InteractionUsingAttemptEvent(EntityUid uid, EntityUid? target, EntityUid? used)
+    {
+        public bool Cancelled;
+        public readonly EntityUid Uid = uid;
+        public readonly EntityUid? Target = target;
+        public readonly EntityUid? Used = used;
+    }
+    #endregion
 }

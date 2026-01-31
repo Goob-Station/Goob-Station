@@ -158,7 +158,7 @@
   - type: CanTakeAim # PIRATE
 
 - type: entity
-  name: china lake
+  name: China Lake
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponLauncherChinaLake
   description: PLOOP.

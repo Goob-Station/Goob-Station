@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/18/2026 16:02:47
+  time: 01/24/2026 13:13:36
   entityCount: 428
 maps: []
 grids:
@@ -17,10 +17,6 @@ tilemap:
   7: FloorDark
   8: FloorDarkMini
   6: FloorDarkMono
-  89: FloorMS13MetalIndustrial
-  108: FloorMS13TileNavy
-  109: FloorMS13TileNavyFull
-  110: FloorMS13TileNavyLarge
   5: FloorMiningDark
   160: FloorReinforced
   215: Lattice
@@ -409,22 +405,6 @@ entities:
       parent: 260
     - type: Physics
       canCollide: False
-- proto: BoxLethalshot
-  entities:
-  - uid: 410
-    components:
-    - type: Transform
-      parent: 406
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 416
-    components:
-    - type: Transform
-      parent: 406
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: Brutepack
   entities:
   - uid: 263
@@ -1753,8 +1733,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -1775,13 +1755,13 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 415
-          - 414
           - 413
-          - 412
-          - 411
           - 410
           - 416
+          - 414
+          - 411
+          - 412
+          - 415
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -1866,6 +1846,22 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
   - uid: 414
+    components:
+    - type: Transform
+      parent: 406
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: MagazinePistolSubMachineGun
+  entities:
+  - uid: 410
+    components:
+    - type: Transform
+      parent: 406
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 413
     components:
     - type: Transform
       parent: 406
@@ -3056,7 +3052,7 @@ entities:
     - type: Transform
       pos: 3.4991298,-11.473295
       parent: 1
-- proto: WeaponRifleSolRifle
+- proto: WeaponRifleSol
   entities:
   - uid: 412
     components:
@@ -3067,14 +3063,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WeaponShotgunKammerer
+- proto: WeaponSubMachineGunSol
   entities:
-  - uid: 413
+  - uid: 416
     components:
     - type: Transform
       parent: 406
-    - type: Gun
-      burstCooldownModified: 0.25
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -3085,8 +3079,4 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-          ents: []
 ...

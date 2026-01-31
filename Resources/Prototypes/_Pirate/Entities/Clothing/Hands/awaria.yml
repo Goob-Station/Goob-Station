@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesAwaria
+  name: Ізольовані шкіряні рукавиці
+  description: Вироблені на замовлення обмеженим тиражем для професіоналів інженерної справи
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/Hands/awagloves.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/Hands/awagloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-leather

@@ -1,0 +1,418 @@
+- type: entity
+  abstract: true
+  name: StandBase
+  id: MobStandBase
+  description: guardian
+  save: false
+  components:
+    - type: LagCompensation
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-information-guardian-name
+      description: ghost-role-information-guardian-description
+      rules: ghost-role-information-familiar-rules
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
+    - type: Input
+      context: "human"
+    - type: MobMover
+    - type: InputMover
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 4
+      baseSprintSpeed: 5.5
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        collection: MetalThud
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Physics
+      bodyType: KinematicController
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 25
+          mask:
+            - FlyingMobMask
+          layer:
+            - Opaque
+    - type: Damageable
+      damageContainer: Biological
+    - type: MobState
+      allowedStates:
+        - Alive
+    - type: CombatMode
+    - type: Internals
+    - type: Examiner
+    - type: Speech
+      speechVerb: Robotic
+    - type: TypingIndicator
+      proto: guardian
+    - type: Pullable
+    - type: MeleeWeapon
+      hidden: false
+      altDisarm: false
+      animation: WeaponArcFist
+      attackRate: 1.8
+      autoAttack: true
+      soundHit:
+        collection: Punch
+      damage:
+        types:
+          Blunt: 20
+          Structural: 20
+    - type: MeleeSpeech
+    - type: UserInterface
+      interfaces:
+        enum.MeleeSpeechUiKey.Key:
+          type: MeleeSpeechBoundUserInterface
+    - type: Actions
+    - type: Guardian
+    - type: Tag
+      tags:
+        - CannotSuicide
+    # <Goobstation>
+    - type: MovementIgnoreGravity
+    - type: ActionGrant
+      actions:
+        - ActionSelfToggleGuardian
+    - type: Targeting
+    # </Goobstation>
+
+- type: entity
+  name: Тауер оф Грей
+  suffix: "Дарт, Івентове"
+  id: MobTowerOfGrayStand
+  parent: MobStandBase
+  description: Тауер оф Грей, швидкий жук, що прошиває ворогів. 
+  components:
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-information-holoparasite-name
+      description: ghost-role-information-holoparasite-description
+      rules: ghost-role-information-familiar-rules
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
+    - type: TypingIndicator
+      proto: holo
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Goobstation/Mobs/Animals/Fermids/fermid64x64.rsi
+      scale: 0.2, 0.2
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: fermid_queen
+      - map: ["enum.DamageStateVisualLayers.BaseUnshaded"]
+        state: fermid_queen
+        shader: unshaded
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.1
+          density: 25
+          mask:
+            - FlyingMobMask
+          layer:
+            - Opaque
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 10
+      baseSprintSpeed: 15
+    - type: MeleeWeapon
+      damage:
+        types:
+          Piercing: 45
+    - type: Guardian
+      damageShare: 0.75
+
+- type: entity
+  name: Стікі Фінгерс
+  suffix: "Дарт, Івентове"
+  id: MobStickyFingersStand
+  parent: MobStandBase
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: tech_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+      color: "#6699cc"
+    - state: tech_flare
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      color: "#ffffff"
+      shader: unshaded
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 7
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15
+        Shock: 10
+  - type: Gun
+    fireRate: 0.2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Effects/Lightning/lightningbolt.ogg
+  - type: BallisticAmmoProvider
+    proto: ProjectileStandLightning
+    capacity: 1000
+
+- type: entity
+  name: Геб
+  suffix: "Дарт, Івентове"
+  id: MobGebStand
+  parent: MobStandBase
+  description: Водна аномалія, що перетворюється на руку для атаки.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_spot.rsi
+    layers:
+    - state: water
+    scale: 0.5, 0.5
+  - type: Guardian
+    distanceAllowed: 4000
+    damageShare: 0.75
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 7
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 20
+        Piercing: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 25
+        mask:
+          - FlyingMobMask
+        layer:
+          - SmallMobLayer
+
+- type: entity
+  name: Стар Платінум
+  suffix: "Дарт, Івентове"
+  id: MobStarPlatinumStand
+  parent: MobStandBase
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: miner_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+      color: "#9933cc"
+    - state: miner_flare
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      color: "#ffcc00"
+      shader: unshaded
+  - type: Guardian
+    distanceAllowed: 4
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 6
+    baseSprintSpeed: 9
+  - type: MeleeWeapon
+    attackRate: 2.5
+    damage:
+      types:
+        Blunt: 50
+        Structural: 50
+
+- type: entity
+  name: Маджішан'с Ред
+  suffix: "Дарт, Івентове"
+  id: MobMagiciansRedStand
+  parent: MobStandBase
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: magic_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+      color: "#ff3300"
+    - state: magic_flare
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      color: "#ffff00"
+      shader: unshaded
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 20
+        Structural: 30
+  - type: Gun
+    fireRate: 0.2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: BallisticAmmoProvider
+    proto: ProjectileFireball
+    capacity: 1000
+
+- type: entity
+  name: Сільвер Черіот
+  suffix: "Дарт, Івентове"
+  id: MobSilverChariotStand
+  parent: [MobStandBase, InventoryBase]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: tech_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+      color: "#cccccc"
+    - state: tech_flare
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      color: "#ffffff"
+      shader: unshaded
+    - state: inhand-right
+      sprite: Objects/Weapons/Melee/katana.rsi
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 7
+    baseSprintSpeed: 11
+  - type: Guardian
+    damageShare: 0.35
+  - type: Hands
+  - type: Loadout
+    prototypes: [SilverChariotGear]
+  - type: Body
+    prototype: Stand
+  - type: Inventory
+    templateId: stand
+
+- type: body
+  id: Stand
+  name: "Стенд"
+  root: chest
+  slots:
+    head: # Shitmed: put pun pun into a humans body
+      part: HeadAnimal
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestAnimal
+      connections:
+      - hands
+      - legs
+      - groin
+      - head # Shitmed
+      organs:
+        lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    hands:
+      part: HandsStand
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal
+
+- type: entity
+  parent: HandsAnimal
+  id: HandsStand
+  categories: [ HideSpawnMenu ]
+  name: "руки Стенда"
+  components:
+  - type: BodyPart
+    partType: Hand
+    #symmetry: Right
+    slotId: hands
+  - type: Sprite
+    visible: false
+
+- type: inventoryTemplate
+  id: stand
+  slots:
+    - name: pocket1
+      slotTexture: pocket
+      fullTextureName: template_small
+      slotFlags: POCKET
+      slotGroup: MainHotbar
+      stripTime: 3
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,4
+      displayName: Pocket 1
+      stripHidden: true
+
+- type: startingGear
+  id: SilverChariotGear
+  inhand:
+  - WeaponKatanaSilverChariot
+
+- type: entity
+  name: Крейзі Даймонд
+  suffix: "Дарт, Івентове"
+  id: MobCrazyDiamondStand
+  parent: MobStandBase
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: miner_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+      color: "#ff6699"
+    - state: miner_flare
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      color: "#33ccff"
+      shader: unshaded
+  - type: Guardian
+    distanceAllowed: 4
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 6
+    baseSprintSpeed: 9
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 50
+        Structural: 50
+  - type: Gun
+    fireRate: 0.2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  - type: BallisticAmmoProvider
+    proto: ProjectileStandHeal
+    capacity: 1000

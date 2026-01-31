@@ -125,3 +125,45 @@
     back:
     - SheetSteel10
   groupBy: "MaterialSheet10"
+
+# Одяг
+
+- type: loadout
+  id: JumpsuitAwaria
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAwaria
+
+- type: loadout
+  id: HatAwaria
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    head: ClothingHeadHatAwaria
+
+- type: loadout
+  id: GlovesAwaria
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    gloves: ClothingHandsGlovesAwaria
+
+- type: loadout
+  id: CoatAwaria
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    outerClothing: ClothingOuterCoatAwaria
+
+- type: loadout
+  id: BootsAwaria
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    shoes: ClothingShoesBootsAwaria

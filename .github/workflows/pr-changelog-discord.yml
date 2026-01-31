@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2026 Goob Station contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: "PR Changelog: Discord"
+
+on:
+  pull_request_target:
+    types: [closed]
+    branches: [master]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout base branch
+        uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pyyaml
+
+      - name: Publish changelog delta (Discord)
+        run: python3 Tools/actions_pr_changelog_to_discord.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_PR_DISCORD_WEBHOOK }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          CHANGELOG_DIR: Resources/Changelog
+          CHANGELOG_EXT: .yml
+          # Optional tuning:
+          DISCORD_MESSAGE_DELAY_SECONDS: "2.0"

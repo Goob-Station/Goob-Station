@@ -24,15 +24,39 @@ using Content.Client.UserInterface.Controls;
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.UserInterface;
 
+#region DOWNSTREAM-TPirates: borg wireless access
+using Content.Shared.Access;
+using Content.Shared.Access.Components;
+using Robust.Client.Player;
+using Robust.Shared.IoC;
+using Robust.Shared.Prototypes;
+#endregion
+
 namespace Content.Client.Silicons.StationAi;
 
 public sealed class StationAiBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     private SimpleRadialMenu? _menu;
 
+    #region DOWNSTREAM-TPirates: borg wireless access
+    private static readonly ProtoId<AccessLevelPrototype> NuclearOperativeAccess = "NuclearOperative";
+    private static readonly ProtoId<AccessLevelPrototype> SyndicateAgentAccess = "SyndicateAgent";
+    private static readonly ProtoId<AccessGroupPrototype> AllAccessGroup = "AllAccess";
+
+    private IPlayerManager? _cachedPlayerManager;
+    private IPlayerManager CachedPlayerManager => _cachedPlayerManager ??= IoCManager.Resolve<IPlayerManager>();
+    #endregion
+
     protected override void Open()
     {
         base.Open();
+
+        #region DOWNSTREAM-TPirates: borg wireless access
+        // Syndicate borgs: open limited (two-action) radial and return.
+        // Everyone else falls through to the normal AI radial below.
+        if (CheckAccess())
+            return;
+        #endregion
 
         var ev = new GetStationAiRadialEvent();
         EntMan.EventBus.RaiseLocalEvent(Owner, ref ev);
@@ -65,4 +89,43 @@ public sealed class StationAiBoundUserInterface(EntityUid owner, Enum uiKey) : B
     {
         SendPredictedMessage(new StationAiRadialMessage { Event = p });
     }
+
+    #region DOWNSTREAM-TPirates: borg wireless access
+    private bool CheckAccess()
+    {
+        var controlled = CachedPlayerManager.LocalPlayer?.ControlledEntity;
+
+        if (controlled is null ||
+            !EntMan.TryGetComponent<AccessComponent>(controlled.Value, out var access))
+        {
+            return false;
+        }
+
+        var tags = access.Tags;
+        var groups = access.Groups;
+
+        var isSyndie =
+            tags.Contains(NuclearOperativeAccess) ||
+            tags.Contains(SyndicateAgentAccess);
+
+        var hasAllAccessGroup =
+            groups.Contains(AllAccessGroup);
+
+        if (!isSyndie || hasAllAccessGroup)
+        {
+            return false;
+        }
+
+        var ev = new GetStationAiLimitedAirlockRadialEvent();
+        EntMan.EventBus.RaiseLocalEvent(Owner, ref ev);
+
+        _menu = this.CreateWindow<SimpleRadialMenu>();
+        _menu.Track(Owner);
+        var buttonModels = ConvertToButtons(ev.Actions);
+        _menu.SetButtons(buttonModels);
+
+        _menu.Open();
+        return true;
+    }
+    #endregion
 }

@@ -336,5 +336,15 @@ namespace Content.Shared.ActionBlocker
             return !ev.Cancelled;
         }
         // Shitmed Change End - Starlight Abductors
+
+        #region DOWNSTREAM-TPirates: borg wireless access
+        public bool CanInteractUsing(EntityUid user, EntityUid? target, EntityUid? used)
+        {
+            var ev = new InteractionUsingAttemptEvent(user, target, used);
+            RaiseLocalEvent(user, ref ev);
+
+            return !ev.Cancelled;
+        }
+        #endregion
     }
 }

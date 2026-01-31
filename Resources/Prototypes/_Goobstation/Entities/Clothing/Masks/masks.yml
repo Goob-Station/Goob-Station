@@ -145,3 +145,36 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: [ ClothingMaskGas, BaseCentcommContraband ]
+  id: ClothingBSOMaskGasSwat
+  name: Blueshield SWAT gas mask
+  description: A standard issue gas mask for BlueShield Officers
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Mask/bsoswat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Mask/bsoswat.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - IPCMaskWearable
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+    hideOnToggle: true
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.9
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true

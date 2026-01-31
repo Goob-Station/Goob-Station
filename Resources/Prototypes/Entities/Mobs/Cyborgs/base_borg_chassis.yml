@@ -294,6 +294,8 @@
     doAfterDelay: 10
     # allowSelfRepair: false # Goobstation
   - type: BorgChassis
+  - type: RemoteInteraction # DOWNSTREAM-TPirates: borg wireless access
+  - type: ShowElectrocutionHUD # DOWNSTREAM-TPirates: borg wireless access
   - type: LockingWhitelist
     blacklist:
       components:

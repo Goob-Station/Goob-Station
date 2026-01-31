@@ -92,7 +92,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.BlockTeleport;
-using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -378,7 +378,7 @@ public abstract class SharedMagicSystem : EntitySystem
     ///     Gets spawn positions listed on <see cref="InstantSpawnSpellEvent"/>
     /// </summary>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    private List<EntityCoordinates> GetInstantSpawnPositions(TransformComponent casterXform, MagicInstantSpawnData data)
+    public List<EntityCoordinates> GetInstantSpawnPositions(TransformComponent casterXform, MagicInstantSpawnData data) // Goob edit - made public
     {
         switch (data)
         {
@@ -493,7 +493,7 @@ public abstract class SharedMagicSystem : EntitySystem
     // End World Spawn Spells
     #endregion
     #region Projectile Spells
-    private void OnProjectileSpell(ProjectileSpellEvent ev)
+    public void OnProjectileSpell(ProjectileSpellEvent ev) // Goob edit - made public
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer)) // Goob edit
             return;
@@ -753,9 +753,12 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
         }
 
+        // raise blocker event (why the fuck was this done as a list lol)
+        var blockEv = new BeforeMindSwappedEvent();
+        RaiseLocalEvent(ev.Target, ref blockEv);
+
         List<(Type, string)> blockers = new()
         {
-            (typeof(ChangelingComponent), "changeling"), // TODO change to ChangelingIdentityComponent
             // You should be able to mindswap with heretics,
             // but all of their data and abilities are not tied to their mind, I'm not making this work.
             (typeof(HereticComponent), "heretic"),
@@ -766,6 +769,13 @@ public abstract class SharedMagicSystem : EntitySystem
             (typeof(TimedDespawnComponent), "temporary"),
             (typeof(FadingTimedDespawnComponent), "temporary"),
         };
+
+        // someone should nuke the list and make all of the components use the event. that someone is not me.
+        if (blockEv.Cancelled)
+        {
+            _popup.PopupClient(Loc.GetString($"spell-fail-mindswap-{blockEv.Message}"), ev.Performer, ev.Performer);
+            return;
+        }
 
         if (blockers.Any(x => CheckMindswapBlocker(x.Item1, x.Item2)))
             return;

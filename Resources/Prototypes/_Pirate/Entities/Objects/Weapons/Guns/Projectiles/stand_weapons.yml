@@ -1,0 +1,18 @@
+- type: entity
+  id: WeaponKatanaSilverChariot
+  name: рапіра Сільвер Черіота
+  parent: Katana
+  components:
+  - type: MeleeWeapon
+    attackRate: 2.5
+    animation: WeaponArcThrust
+    damage:
+      types:
+        Piercing: 35
+        Slash: 10
+  - type: Unremoveable
+  - type: Reflect
+    reflectProb: 0.5
+    reflects: 
+    - Energy
+    - NonEnergy

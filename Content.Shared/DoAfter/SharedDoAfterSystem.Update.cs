@@ -323,7 +323,6 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         if (args.RequireCanInteract && !_actionBlocker.CanInteract(args.User, args.Target) && hasNoSpecificComponents) // Shitmed Change
             return true;
 
-
         return false;
     }
 }

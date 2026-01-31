@@ -128,7 +128,67 @@
   id: WeaponSubMachineGunBRDIR25HoS
   description: Колись цю улюблену гвинтівку тримав невідомий член Іноземного легіону Республіки Бізеля; вона брала участь у боях з Солом в кожних боях Республіки.
   components:
-    - type: StealTarget
-      stealGroup: HoSAntiqueWeapon
     - type: Sprite
       sprite: _Pirate/Objects/Weapons/Guns/SMGs/BRDI_R25_antique.rsi
+
+- type: entity
+  name: M470-L
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband, SolAllianceInfo]
+  id: WeaponSubMachineGunSol
+  suffix: SAN
+  description: Розроблена Zavodskoi Interstellar як зменшена версія їхньої M469, M470-L — це зброя особистого захисту, призначена для використання військовослужбовцями другої ланки всіх родів військ Соляріанської армії, такими як війська підтримки та члени екіпажу ВМС. Використовує магазини .35 калібру.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/SMGs/sol_smg.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Pirate/Objects/Weapons/Guns/SMGs/sol_smg.rsi
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+    boltClosed: null
+  - type: Gun
+    minAngle: 4
+    maxAngle: 20
+    fireRate: 6
+    burstFireRate: 8
+    angleIncrease: 2
+    angleDecay: 16
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/smg.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGun
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Multishot
+    missChance: 0.3
+  - type: Item
+    shape:
+    - 0,0,2,1

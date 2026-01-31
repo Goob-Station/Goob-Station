@@ -344,7 +344,7 @@ public sealed class AristocratSystem : EntitySystem
                     continue;
                 }
 
-                if (_voidcurse.DoCurse(ent))
+                if (_voidcurse.DoCurse(ent, conduit.stacksEverySeconds, conduit.maxStacksGiven))
                 {
                     ignored.Add(ent);
                     affected.Add(ent);

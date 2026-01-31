@@ -83,8 +83,10 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
         }
         finally {
-          Stop-Job $heartbeat -Force | Out-Null
-          Remove-Job $heartbeat -Force | Out-Null
+          if ($null -ne $heartbeat) {
+            Stop-Job -Job $heartbeat -ErrorAction SilentlyContinue | Out-Null
+            Remove-Job -Job $heartbeat -Force -ErrorAction SilentlyContinue | Out-Null
+          }
         }
   ci-success:
     name: Build & Test Debug

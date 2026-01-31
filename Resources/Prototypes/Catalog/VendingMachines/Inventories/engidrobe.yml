@@ -36,6 +36,13 @@
     ClothingOuterWinterEngi: 2
     ClothingNeckScarfStripedOrange: 3
     ClothingShoesBootsWinterEngi: 2
+    # Pirate Start
+    ClothingUniformJumpsuitAwaria: 2
+    ClothingHeadHatAwaria: 2
+    ClothingHandsGlovesAwaria: 4
+    ClothingOuterCoatAwaria: 2
+    ClothingShoesBootsAwaria: 2
+    # Pirate End
   contrabandInventory:
     ToyFigurineEngineer: 1
     ToyFigurineChiefEngineer: 1

@@ -1,8 +1,8 @@
-﻿accent-mobster-prefix-1 = Ехх,
+accent-mobster-prefix-1 = Ехх,
 
 accent-mobster-suffix-boss-1 = , б-бач?
 accent-mobster-suffix-boss-2 = , з-забудь п-про є-єто.
-accent-mobster-suffix-boss-3 = , п-поняв?
+accent-mobster-suffix-boss-3 = , к-капіш?
 
 accent-mobster-suffix-minion-1 = , т-так!
 accent-mobster-suffix-minion-2 = , х-хазяін к-каже!
@@ -57,3 +57,6 @@ accent-mobster-words-replace-16 = бутта
 
 accent-mobster-words-17 = тут
 accent-mobster-words-replace-17 = тут
+
+accent-mobster-suffix-boss-4 = , г-габагул.
+accent-mobster-suffix-boss-5 = , я-як справи?

@@ -356,6 +356,7 @@ public sealed class BodySetupTest
             var entityPrototypes = protoMan.EnumeratePrototypes<EntityPrototype>()
                 .Where(p => !p.Abstract
                             && p.ID != "MobPotyzhnobot" // pure GOIDA
+                            && p.ID != "MobHumanDioBrando" // Pirate івентовий персонаж
                             && p.Components.ContainsKey("MobState")
                             && !p.Components.ContainsKey("Godmode")
                             && !p.Components.ContainsKey("MegafaunaGodmode")) // Lavaland Change

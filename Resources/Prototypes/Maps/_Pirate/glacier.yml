@@ -28,7 +28,6 @@
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            RadioHost: [ 1, 1 ]
           #service
             Bartender: [ 1, 2 ]
             Botanist: [ 2, 3 ]
@@ -38,6 +37,7 @@
             Janitor: [ 2, 2 ]
             Chaplain: [ 2, 2 ]
             Librarian: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
           #engineering
             AtmosphericTechnician: [ 1, 2 ]
             StationEngineer: [ 2, 3 ]

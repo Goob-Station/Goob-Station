@@ -51,3 +51,7 @@ marking-TattooVoxHiveChest-hive_s = Тату Вокса на грудях (рі�
 marking-TattooVoxHiveChest = Тату Вокса на грудях (рій)
 marking-TattooVoxNightlingChest-nightling_s = Тату Вокса на грудях (найтлінг)
 marking-TattooVoxNightlingChest = Тату Вокса на грудях (найтлінг)
+marking-VoxTailSpikes-vox_tail_spikes = Хвіст вокса (з шипами)
+marking-VoxTailSpikes = Хвіст вокса (з шипами)
+marking-VoxTailDocked-vox_tail_docked = Хвіст вокса (рудиментарний)
+marking-VoxTailDocked = Хвіст вокса (рудиментарний)

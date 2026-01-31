@@ -66,7 +66,6 @@ guide-entry-sop-searches = Обшуки
 # - Карго
 guide-entry-sop-cargotech = Технік карго
 guide-entry-sop-salvage = Спеціаліст з утилізації
-# - Командування
 guide-entry-sop-ntr = Представник NT
 guide-entry-sop-bso = Офіцер Синього Щита
 guide-entry-sop-captain = Капітан
@@ -108,3 +107,5 @@ guide-entry-enchanting = Зачарування
 
 # Ґуб СОП
 # - Основні директорії
+guide-entry-sop-shaft-miner = Шахтар
+# - Командування

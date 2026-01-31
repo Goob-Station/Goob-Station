@@ -10,3 +10,7 @@ stack-unprocessed-coal = необроблене вугілля
 
 stack-artifact-fragment-ore = руда фрагментів артефактів
 stack-unprocessed-artifact-fragment-ore = необроблена руда фрагментів артефактів
+stack-watcher-wing = крило спостерігача
+stack-magma-wing = крило магмового спостерігача
+stack-ice-wing = крило крижаного спостерігача
+stack-legion-skull = череп Легіону

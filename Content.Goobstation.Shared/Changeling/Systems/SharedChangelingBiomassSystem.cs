@@ -1,9 +1,11 @@
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.InternalResources.Components;
+using Content.Goobstation.Shared.InternalResources.EntitySystems;
+using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Alert;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
@@ -14,21 +16,18 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Stunnable;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract class SharedChangelingBiomassSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly MobThresholdSystem _mob = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
+    [Dependency] private readonly SharedInternalResourcesSystem _resource = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -36,148 +35,133 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     private EntityQuery<AbsorbedComponent> _absorbQuery;
     private EntityQuery<BloodstreamComponent> _bloodQuery;
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
+    private EntityQuery<InternalResourcesComponent> _resourceQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ChangelingBiomassComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ChangelingBiomassComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<ChangelingBiomassComponent, InternalResourcesThresholdMetEvent>(OnThresholdMetEvent);
+        SubscribeLocalEvent<ChangelingBiomassComponent, InternalResourcesRegenModifierEvent>(OnChangelingChemicalRegenEvent);
+        SubscribeLocalEvent<ChangelingBiomassComponent, RejuvenateEvent>(OnRejuvenate);
+
         _absorbQuery = GetEntityQuery<AbsorbedComponent>();
         _bloodQuery = GetEntityQuery<BloodstreamComponent>();
         _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
-
-        SubscribeLocalEvent<ChangelingBiomassComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<ChangelingBiomassComponent, ComponentRemove>(OnRemoved);
-
-        SubscribeLocalEvent<ChangelingBiomassComponent, RejuvenateEvent>(OnRejuvenate);
+        _resourceQuery = GetEntityQuery<InternalResourcesComponent>();
     }
 
     private void OnMapInit(Entity<ChangelingBiomassComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
+        _resource.TryAddInternalResources(ent, ent.Comp.ResourceProto, out var data);
 
-        ent.Comp.FirstWarnThreshold = ent.Comp.MaxBiomass * 0.75f;
-        ent.Comp.SecondWarnThreshold = ent.Comp.MaxBiomass * 0.5f;
-        ent.Comp.ThirdWarnThreshold = ent.Comp.MaxBiomass * 0.25f;
-
-        if (_lingQuery.TryComp(ent, out var ling))
-            ling.ChemicalRegenMultiplier += ent.Comp.ChemicalBoost;
-
-        Cycle(ent);
+        if (data != null)
+            ent.Comp.ResourceData = data;
     }
 
-    private void OnRemoved(Entity<ChangelingBiomassComponent> ent, ref ComponentRemove args)
+    private void OnShutdown(Entity<ChangelingBiomassComponent> ent, ref ComponentShutdown args)
     {
-        _alerts.ClearAlert(ent, ent.Comp.AlertId);
-
-        if (_lingQuery.TryComp(ent, out var ling))
-            ling.ChemicalRegenMultiplier -= ent.Comp.ChemicalBoost;
+        if (_resourceQuery.TryComp(ent, out var resComp))
+            _resource.TryRemoveInternalResource(ent, ent.Comp.ResourceProto, resComp);
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
+    #region Event Handlers
 
-        if (!_timing.IsFirstTimePredicted)
+    private void OnThresholdMetEvent(Entity<ChangelingBiomassComponent> ent, ref InternalResourcesThresholdMetEvent args)
+    {
+        if (ent.Comp.ResourceData == null
+            || args.Data.InternalResourcesType != ent.Comp.ResourceData.InternalResourcesType)
             return;
 
-        var query = EntityQueryEnumerator<ChangelingBiomassComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        switch (args.Threshold)
         {
-            if (_timing.CurTime < comp.UpdateTimer)
-                continue;
+            case "First":
 
-            comp.UpdateTimer = _timing.CurTime + comp.UpdateDelay;
+                DoPopup(ent, ent.Comp.FirstWarnPopup, PopupType.SmallCaution);
 
-            Cycle((uid, comp));
-        }
-    }
+                break;
 
-    private void Cycle(Entity<ChangelingBiomassComponent> ent)
-    {
-        UpdateBiomass(ent);
+            case "Second":
 
-        // first
-        if (!ent.Comp.FirstWarnReached
-            && ent.Comp.Biomass <= ent.Comp.FirstWarnThreshold)
-        {
-            ent.Comp.FirstWarnReached = true;
+                _stun.TryStun(ent, ent.Comp.SecondWarnStun, false);
+                DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
 
-            DoPopup(ent, ent.Comp.FirstWarnPopup, PopupType.SmallCaution);
-        }
-        else if (ent.Comp.Biomass > ent.Comp.FirstWarnThreshold)
-            ent.Comp.FirstWarnReached = false;
+                break;
 
-        // second
-        if (!ent.Comp.SecondWarnReached
-            && ent.Comp.Biomass <= ent.Comp.SecondWarnThreshold)
-        {
-            ent.Comp.SecondWarnReached = true;
+            case "Third":
 
-            DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
+                _stun.TryStun(ent, ent.Comp.ThirdWarnStun, false);
 
-            _stun.TryStun(ent, ent.Comp.SecondWarnStun, false);
-        }
-        else if (ent.Comp.Biomass > ent.Comp.SecondWarnThreshold)
-            ent.Comp.SecondWarnReached = false;
+                if (!_blood.TryModifyBloodLevel(ent.Owner, -ent.Comp.BloodCoughAmount)
+                    || !_bloodQuery.TryComp(ent, out var bloodComp))
+                {
+                    _stun.TryKnockdown(ent, ent.Comp.ThirdWarnStun, false); // knockdown if there isnt any blood to cough up
+                    return;
+                }
 
-        // third
-        if (!ent.Comp.ThirdWarnReached
-            && ent.Comp.Biomass <= ent.Comp.ThirdWarnThreshold)
-        {
-            ent.Comp.ThirdWarnReached = true;
+                var cough = new Solution();
+                cough.AddReagent(bloodComp.BloodReagent, ent.Comp.BloodCoughAmount);
 
-            DoPopup(ent, ent.Comp.ThirdWarnPopup, PopupType.LargeCaution);
+                _puddle.TrySpillAt(Transform(ent).Coordinates, cough, out _, false);
 
-            _stun.TryStun(ent, ent.Comp.ThirdWarnStun, false);
+                if (!_mob.IsDead(ent)) // i guess you... drool it out otherwise
+                    DoCough(ent);
 
-            // do the blood cough
-            if (!_blood.TryModifyBloodLevel(ent.Owner, -ent.Comp.BloodCoughAmount)
-                || !_bloodQuery.TryComp(ent, out var bloodComp))
-            {
-                _stun.TryKnockdown(ent, ent.Comp.ThirdWarnStun, false);
+                DoPopup(ent, ent.Comp.ThirdWarnPopup, PopupType.LargeCaution);
+
+                break;
+
+            case "Death":
+
+                if (!_absorbQuery.HasComp(ent))
+                    KillChangeling(ent);
+
+                DoPopup(ent, ent.Comp.NoBiomassPopup, PopupType.LargeCaution);
+
+                break;
+
+            default:
                 return;
-            }
-
-            var cough = new Solution();
-            cough.AddReagent(bloodComp.BloodReagent, ent.Comp.BloodCoughAmount);
-
-            _puddle.TrySpillAt(Transform(ent).Coordinates, cough, out _, false);
-            DoCough(ent);
-
         }
-        else if (ent.Comp.Biomass > ent.Comp.ThirdWarnThreshold)
-            ent.Comp.ThirdWarnReached = false;
-
-        // point of no return
-        if (ent.Comp.Biomass <= 0
-            && !_absorbQuery.HasComp(ent))
-            KillChangeling(ent);
-
     }
+
+    private void OnChangelingChemicalRegenEvent(Entity<ChangelingBiomassComponent> ent, ref InternalResourcesRegenModifierEvent args)
+    {
+        if (args.Data.InternalResourcesType != ent.Comp.ChemResourceType)
+            return;
+
+        args.Modifier += ent.Comp.ChemicalBoost;
+    }
+
+    private void OnRejuvenate(Entity<ChangelingBiomassComponent> ent, ref RejuvenateEvent args)
+    {
+        if (ent.Comp.ResourceData == null
+            || _lingQuery.TryComp(ent, out var ling)
+            && ling.IsInStasis)
+            return;
+
+        _resource.TryUpdateResourcesAmount(ent, ent.Comp.ResourceData, ent.Comp.ResourceData.MaxAmount);
+    }
+
+    #endregion
 
     #region Helper Methods
-    private void UpdateBiomass(Entity<ChangelingBiomassComponent> ent)
-    {
-        var newBiomass = ent.Comp.Biomass -= ent.Comp.DrainAmount;
-        ent.Comp.Biomass = Math.Clamp(newBiomass, 0, ent.Comp.MaxBiomass);
-
-        _alerts.ShowAlert(ent, ent.Comp.AlertId);
-    }
 
     public readonly ProtoId<DamageTypePrototype> Genetic = "Cellular";
     private void KillChangeling(Entity<ChangelingBiomassComponent> ent)
     {
         var genetic = _proto.Index(Genetic);
 
-        if (!_mob.TryGetDeadThreshold(ent, out var totalDamage))
+        if (!_mobThreshold.TryGetDeadThreshold(ent, out var totalDamage))
             return;
 
         var damagespec = new DamageSpecifier(genetic, (FixedPoint2) totalDamage);
         _dmg.TryChangeDamage(ent, damagespec, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
 
         EnsureComp<AbsorbedComponent>(ent);
-
-        DoPopup(ent, ent.Comp.NoBiomassPopup, PopupType.LargeCaution);
     }
 
     protected virtual void DoCough(Entity<ChangelingBiomassComponent> ent)
@@ -187,19 +171,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void DoPopup(Entity<ChangelingBiomassComponent> ent, LocId popup, PopupType popupType)
     {
-        if (_net.IsClient)
-            return;
-
         _popup.PopupEntity(Loc.GetString(popup), ent, ent, popupType);
-    }
-
-    #endregion
-
-    #region Event Handlers
-    private void OnRejuvenate(Entity<ChangelingBiomassComponent> ent, ref RejuvenateEvent args)
-    {
-        ent.Comp.Biomass = ent.Comp.MaxBiomass;
-        Dirty(ent, ent.Comp);
     }
 
     #endregion

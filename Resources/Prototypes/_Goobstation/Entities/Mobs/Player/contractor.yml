@@ -1,0 +1,65 @@
+- type: entity
+  parent: MobHuman
+  id: MobContractor
+  name: Syndicate Contractor
+  components:
+  - type: Loadout
+    prototypes: [ ContractorGear ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesContractorPrefix
+    - NamesSyndicateElite
+    nameFormat: name-format-standard
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  name: contractor spawner
+  id: SpawnPointContractor
+  parent: MarkerBase
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: ContractorSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-contractor-name
+    description: ghost-role-information-contractor-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleContractor
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi
+        state: icon
+
+- type: startingGear
+  id: ContractorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    eyes: ClothingEyesHudSyndicate
+    mask: ClothingMaskNeckGaiter
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesCombat
+    id: SyndiPDANukie
+    belt: ClothingBeltSecurityWebbingContractorFilled
+    ears: ClothingHeadsetAltSyndicate
+    back: ClothingModsuitContractor
+    outerClothing: ClothingOuterArmorBasicSlim
+    suitstorage: JetpackContractorFilled
+    pocket1: WeaponDisablerSyndicate

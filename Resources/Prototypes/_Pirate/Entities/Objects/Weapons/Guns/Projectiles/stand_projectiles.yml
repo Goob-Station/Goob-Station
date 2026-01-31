@@ -1,0 +1,47 @@
+- type: entity
+  id: ProjectileStandLightning
+  name: блискавка
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Effects/lightning.rsi
+    layers:
+    - state: lightning_10
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Shock: 20
+        Heat: 5
+  - type: PointLight
+    color: "#66ccff"
+    radius: 3.0
+    energy: 5.0
+
+- type: entity
+  id: ProjectileStandHeal
+  name: відновлююча енергія
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_yellow
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
+        Heat: -20
+        Shock: -20 
+        Cold: -20
+        Poison: -20
+        Radiation: -20
+        Bloodloss: -20
+        Asphyxiation: -20
+        Cellular: -20
+        Caustic: -20
+  - type: TimedDespawn
+    lifetime: 2

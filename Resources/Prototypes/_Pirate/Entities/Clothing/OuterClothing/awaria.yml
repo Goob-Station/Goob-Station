@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatAwaria
+  name: Темна робоча куртка
+  description: Захистить хіба що від легких поривів вітру в лабіринті технічних приміщень
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/OuterClothing/awajacket.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/OuterClothing/awajacket.rsi

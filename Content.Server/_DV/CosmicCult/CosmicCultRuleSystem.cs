@@ -324,10 +324,27 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             EntityUid picked;
 
-            if (args.Winner == null)
-                picked = (EntityUid) _rand.Pick(args.Winners);
-            else
+            //Here to prevent deleted entitiy
+            if (args.Winner != null && !TerminatingOrDeleted((EntityUid) args.Winner))
+            {
                 picked = (EntityUid) args.Winner;
+            }
+            else
+            {
+                var actualWinners = new List<EntityUid>();
+
+                foreach (var winner in args.Winners)
+                {
+                    if (!TerminatingOrDeleted((EntityUid) winner))
+                        actualWinners.Add((EntityUid) winner);
+                }
+
+                //Just in case
+                if (actualWinners.Count == 0)
+                    return;
+
+                picked = _rand.Pick(actualWinners);
+            }
 
             EnsureComp<CosmicCultLeadComponent>(picked);
             RaiseLocalEvent(picked, new CosmicCultLeadChangedEvent());

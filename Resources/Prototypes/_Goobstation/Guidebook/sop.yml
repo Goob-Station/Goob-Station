@@ -99,6 +99,7 @@
   children:
   - CargoTech SOP
   - SalvageSpecialist SOP
+  - ShaftMiner SOP
 
 - type: guideEntry
   id: Command SOP
@@ -311,6 +312,11 @@
   id: SalvageSpecialist SOP
   name: guide-entry-sop-salvage
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/SalvageSpecialistSOP.xml"
+
+- type: guideEntry
+  id: ShaftMiner SOP
+  name: guide-entry-sop-shaft-miner
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/ShaftMinerSOP.xml"
 
 # Command SOP Entries
 - type: guideEntry

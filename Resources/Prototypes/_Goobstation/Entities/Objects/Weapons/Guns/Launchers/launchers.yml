@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: GL-06 riot grenade launcher
+  name: GL-06 RGL
   parent: [WeaponFlareGun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLauncherNonLethal
-  description: Essentially a scaled up flare gun that takes 40mm shells; mechanical safety features prevent the loading and firing of lethal grenades.
+  description: A single shot, break action riot grenade launcher designed for crowd control and law enforcement use. The built in safety prevents the use of lethal grenades.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/riotlauncher.rsi
@@ -38,7 +38,7 @@
   name: M172 LAW
   parent: [ BaseWeaponLauncher, BaseMajorContraband, BaseGunWieldable] # Major contra because it isn't manufactured by the syndicate; NT would use this
   id: WeaponLauncherRocketDisposable
-  description: A single shot 84mm disposable Light Anti-structure Weapon for precisely taking out structures with little collateral damage. can be folded in order to be conveniantly stored. DO NOT ATTEMPT TO REMOVE ROCKET FROM TUBE.
+  description: A single shot 84mm disposable Light Anti-structure Weapon for precisely taking out structures with little collateral damage. Can be folded in order to be conveniantly stored. DO NOT ATTEMPT TO REMOVE ROCKET FROM TUBE.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi
@@ -76,10 +76,10 @@
     delay: 1.5
 
 - type: entity
-  name: RPO-A 'Shmel'
+  name: RPO-A Shmel
   parent: [ BaseWeaponLauncher, BaseMajorContraband, BaseGunWieldable] # Same as above
   id: WeaponLauncherRocketDisposableThermobaric
-  description: A single shot 93mm disposable anti-personnel thermobaric rocket launcher, considered a flamethrower by the manufacturer. can be folded in order to be conveniantly stored.
+  description: A single shot 93mm disposable anti-personnel thermobaric rocket launcher, considered a flamethrower by the manufacturer. Can be folded in order to be conveniantly stored.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi

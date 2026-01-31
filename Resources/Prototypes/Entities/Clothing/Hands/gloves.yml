@@ -543,26 +543,28 @@
   - type: Unremoveable
 
 - type: entity
-  parent: [ClothingHandsButcherable, BaseSyndicateContraband]
+  parent: [ ClothingHandsButcherable, BaseMagicalContraband ] # goob edit - it's now magical contra
   id: ClothingHandsGlovesNorthStar
   name: gloves of the north star
-  description: These gloves allow you to punch incredibly fast.
+  description: Just looking at these fills you with an urge to beat the shit out of people.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/northstar.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/northstar.rsi
   - type: MeleeWeapon
-    autoAttack: true
-    attackRate: 4
+    altDisarm: true
+    attackRate: 10
     damage:
       types:
-       Blunt: 8
+       Blunt: 3
+       Slash: 3
     soundHit:
       collection: Punch
     animation: WeaponArcFist
-    mustBeEquippedToUse: true
-    heavyStaminaCost: 3 # goob edit
+    #mustBeEquippedToUse: true # goob edit
+    heavyStaminaCost: 0 # goob edit
+    canWideSwing: false # goob edit
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-blue

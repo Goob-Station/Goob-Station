@@ -23,7 +23,7 @@
   cost: 15000
   recipeUnlocks:
   - WeaponPistolUniversal
-  position: 7,-1
+  position: 8,-1
   technologyPrerequisites:
   - WeaponOneHandedFirearm
 

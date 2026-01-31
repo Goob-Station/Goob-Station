@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesBootsAwaria
+  name: Робочі черевики
+  description: Черевики що бачили половину відомих станцій. Ви явно не їх перший власник
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/Shoes/awaboots.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/Shoes/awaboots.rsi

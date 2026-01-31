@@ -1,0 +1,4 @@
+- type: roleLoadout
+  id: AntagTraitor
+  groups:
+  - TraitorUplink

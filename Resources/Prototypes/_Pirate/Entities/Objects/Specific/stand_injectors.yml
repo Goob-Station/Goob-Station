@@ -1,0 +1,90 @@
+- type: entity
+  name: ін'єктор Тауер оф Грей
+  id: TowerOfGrayInjector
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: Ін'єктор, що дозволяє користувачеві мати Тауер оф Грей як стенд.
+  suffix: "Дарт, Івентове"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: GuardianCreator
+    guardianProto: MobTowerOfGrayStand
+
+- type: entity
+  name: ін'єктор Стікі Фінгерс
+  id: StickyFingersInjector
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: Ін'єктор, що дозволяє користувачеві мати Стікі Фінгерс як стенд.
+  suffix: "Дарт, Івентове"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: GuardianCreator
+    guardianProto: MobStickyFingersStand
+
+- type: entity
+  name: ін'єктор Геб
+  id: GebInjector
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: Ін'єктор, що дозволяє користувачеві мати Геб як стенд.
+  suffix: "Дарт, Івентове"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: GuardianCreator
+    guardianProto: MobGebStand
+
+- type: entity
+  name: ін'єктор Стар Платінум
+  id: StarPlatinumInjector
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: Ін'єктор, що дозволяє користувачеві мати Стар Платінум як стенд.
+  suffix: "Дарт, Івентове"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: GuardianCreator
+    guardianProto: MobStarPlatinumStand
+
+- type: entity
+  name: ін'єктор Маджішан'с Ред
+  id: MagiciansRedInjector
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: Ін'єктор, що дозволяє користувачеві мати Маджішан'с Ред як стенд.
+  suffix: "Дарт, Івентове"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: GuardianCreator
+    guardianProto: MobMagiciansRedStand
+
+- type: entity
+  name: ін'єктор Сільвер Черіот
+  id: SilverChariotInjector
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: Ін'єктор, що дозволяє користувачеві мати Сільвер Черіот як стенд.
+  suffix: "Дарт, Івентове"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: GuardianCreator
+    guardianProto: MobSilverChariotStand
+
+- type: entity
+  name: ін'єктор Крейзі Даймонд
+  id: CrazyDiamondInjector
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: Ін'єктор, що дозволяє користувачеві мати Крейзі Даймонд як стенд.
+  suffix: "Дарт, Івентове"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: GuardianCreator
+    guardianProto: MobCrazyDiamondStand

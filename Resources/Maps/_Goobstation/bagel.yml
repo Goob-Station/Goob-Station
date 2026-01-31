@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/30/2025 02:58:58
-  entityCount: 25061
+  time: 01/10/2026 16:01:58
+  entityCount: 25065
 maps:
 - 1
 grids:
@@ -14846,6 +14846,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -64.5,-9.5
+      parent: 2
+  - uid: 25065
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 55.5,0.5
       parent: 2
 - proto: AtmosDeviceFanTiny
   entities:
@@ -120130,12 +120136,6 @@ entities:
     - type: Transform
       pos: 5.5,-1.5
       parent: 24729
-  - uid: 25061
-    components:
-    - type: Transform
-      anchored: False
-      pos: 56.95583,1.9283781
-      parent: 1
 - proto: RandomVending
   entities:
   - uid: 18124
@@ -131666,6 +131666,28 @@ entities:
     components:
     - type: Transform
       pos: 21.5,-37.5
+      parent: 2
+- proto: SpawnPointShaftMiner
+  entities:
+  - uid: 25061
+    components:
+    - type: Transform
+      pos: 54.5,-1.5
+      parent: 2
+  - uid: 25062
+    components:
+    - type: Transform
+      pos: 53.5,-1.5
+      parent: 2
+  - uid: 25063
+    components:
+    - type: Transform
+      pos: 52.5,-1.5
+      parent: 2
+  - uid: 25064
+    components:
+    - type: Transform
+      pos: 51.5,-1.5
       parent: 2
 - proto: SpawnPointStationEngineer
   entities:

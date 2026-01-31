@@ -1,0 +1,22 @@
+- type: entity
+  name: M63
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband, SolAllianceInfo]
+  id: WeaponShotgunSol
+  suffix: SAN
+  description: Компактна бойова рушниця виробництва Zavodskoi Interstellar для Соляріанських збройних сил, M63 найчастіше використовується штурмовиками, що воюють у ближньому бою, хоча також рідко використовується як оборонна зброя екіпажами ВМС. Використовує дробь 12 калібру.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Shotguns/sol_shotgun.rsi
+  - type: Clothing
+    sprite: _Pirate/Objects/Weapons/Guns/Shotguns/sol_shotgun.rsi
+  - type: Item
+    sprite: _Pirate/Objects/Weapons/Guns/Shotguns/sol_shotgun.rsi
+    shape:
+    - 0,0,3,1
+  - type: BallisticAmmoProvider
+    capacity: 12
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 2.6
+    soundGunshot:
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/shotgun2.ogg

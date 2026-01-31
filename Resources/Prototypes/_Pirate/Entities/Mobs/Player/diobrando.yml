@@ -1,23 +1,23 @@
+# Діо Брандо
+
 - type: entity
   id: MobHumanDioBrando
   name: "Діо Брандо"
   suffix: Дарт, Івентове
+  parent: MobHuman
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: full
-  - type: RandomHumanoidSpawner
-    settings: DioBrando
-
-- type: randomHumanoidSettings
-  id: DioBrando
-  parent: EventHumanMindShielded
-  components:
   - type: AutoImplant
     implants: [ VaporizeImplant, ShiftImplant, BlinkImplant, FreedomImplant, ScramImplant, DioStopTimeImplant, NutrimentPumpImplant, SpaceProofImplant, StypticStimulatorImplant ]
   - type: RandomHumanoidAppearance
     randomizeName: false
     hair: HumanHairSpiky2
+    facialHair: FacialHairNone
+    hairColor: "#EEDD82"
+    skinColor: "#FFE0BD"
+    sex: Male
     height: 1.11
     width: 0.98
   - type: GhostRole
@@ -169,9 +169,21 @@
 - type: entity
   name: "Зе Ворлд"
   id: MobStandTheWorld
-  parent: MobHoloparasiteGuardian
+  parent: MobStandBase
+  suffix: "Дарт, Івентове"
   description: "Заворожуючий вихор жорстких світлових візерунків виплітає дивовижний, але напрочуд знайомий образ. Він стоїть гордо, підлаштовуючись під життя свого власника, щоб підтримувати себе."
   components:
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: Mobs/Aliens/Guardians/guardians.rsi
+      layers:
+        - state: tech_base
+          map: [ "enum.DamageStateVisualLayers.Base" ]
+          color: "#cca300"
+        - state: tech_flare
+          map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          color: "#ffff00"
+          shader: unshaded
     - type: MeleeWeapon
       hidden: false
       altDisarm: false
@@ -191,6 +203,18 @@
       baseSprintSpeed: 10
     - type: Guardian
       distanceAllowed: 10
+      damageShare: 0.45
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 25
+          mask:
+            - FlyingMobMask
+          layer:
+            - Opaque
       
 - type: entity
   id: TheWorldStopTimeImplant

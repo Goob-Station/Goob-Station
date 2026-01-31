@@ -14,16 +14,16 @@
         - IPC
   passportPrototype: NralakkPassport
 
-#- type: nationality
-#  id: Solarian
-#  nameKey: nationality_name_solarian
-#  requirements:
-#    - !type:SpeciesRequirement
-#      species:
-#        - Human
-#  languages:
-#    - SolCommon
-#  passportPrototype: SolPassport
+- type: nationality
+  id: Solarian
+  nameKey: nationality_name_solarian
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - Human
+  languages:
+    - SolCommon
+  passportPrototype: SolPassport
 
 - type: nationality
   id: Eridanian

@@ -4,10 +4,11 @@
   name: crusader armour
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingOuterArmorTemplar
-    - ClothingHeadHatHelmetTemplar
+  - type: SpawnTableOnDespawn
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorTemplar
+      - id: ClothingHeadHatHelmetTemplar
 
 - type: entity
   id: SpawnArmamentsStudent
@@ -15,10 +16,11 @@
   name: student robe
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingOuterArmorStudent
-    - ClothingHeadHatHelmetCage
+  - type: SpawnTableOnDespawn
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorStudent
+      - id: ClothingHeadHatHelmetCage
 
 - type: entity
   id: SpawnArmamentsAncient
@@ -26,10 +28,11 @@
   name: ancient armour
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingOuterArmorAncient
-    - ClothingHeadHatHelmetAncient
+  - type: SpawnTableOnDespawn
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorAncient
+      - id: ClothingHeadHatHelmetAncient
 
 - type: entity
   id: SpawnArmamentsWitchhunter
@@ -37,10 +40,11 @@
   name: witch hunter garb
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingOuterArmorWitchhunter
-    - ClothingHeadHatHelmetWitchhunter
+  - type: SpawnTableOnDespawn
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorWitchhunter
+      - id: ClothingHeadHatHelmetWitchhunter
 
 - type: entity
   id: SpawnArmamentsAdept
@@ -48,9 +52,9 @@
   name: adept robes
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingOuterArmorAdept
+  - type: SpawnTableOnDespawn
+    table:
+      id: ClothingOuterArmorAdept
 
 - type: entity
   id: SpawnArmamentsClock
@@ -58,10 +62,11 @@
   name: forgotten armour
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingOuterArmorClock
-    - ClothingHeadHatHelmetClock
+  - type: SpawnTableOnDespawn
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorClock
+      - id: ClothingHeadHatHelmetClock
 
 - type: entity
   id: SpawnArmamentsMonk
@@ -69,9 +74,9 @@
   name: monk's habit
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingOuterArmorMonk
+  - type: SpawnTableOnDespawn
+    table:
+      id: ClothingOuterArmorMonk
 
 - type: entity
   id: SpawnArmamentsBishop
@@ -79,7 +84,8 @@
   name: bishop's robes
   parent: SpawnSupplyEmpty
   components:
-  - type: SpawnOnDespawn
-    prototypes:
-    - ClothingOuterArmorBishop
-    - ClothingHeadHatHelmetBishop
+  - type: SpawnTableOnDespawn
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorBishop
+      - id: ClothingHeadHatHelmetBishop

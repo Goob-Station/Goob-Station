@@ -31,7 +31,7 @@
   - type: Item
     size: Tiny
   - type: UseDelay
-    delay: 5 # avoid spamming popups when you know it will fail to spawn a room
+    delay: 2 # avoid spamming popups when you know it will fail to spawn a room
   - type: ShelterCapsule
 
 - type: entity
