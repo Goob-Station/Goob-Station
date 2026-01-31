@@ -38,3 +38,6 @@ admins_count_in_playercount = true
 
 [contraband]
 icons_enabled = true
+
+[misc]
+space_whale_spawn = false
