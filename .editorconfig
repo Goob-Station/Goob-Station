@@ -350,7 +350,7 @@ resharper_csharp_trailing_comma_in_multiline_lists = true
 resharper_csharp_qualified_using_at_nested_scope = false
 resharper_csharp_prefer_qualified_reference = false
 resharper_csharp_allow_alias = false
-
+resharper_arrange_method_or_operator_body_highlighting = none
 [*.{csproj,xml,yml,yaml,dll.config,msbuildproj,targets,props}]
 indent_size = 2
 
