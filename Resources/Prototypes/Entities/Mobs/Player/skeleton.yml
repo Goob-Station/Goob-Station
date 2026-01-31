@@ -132,6 +132,7 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 3600 #1 hour
+    - !type:DenyObserverRequirement
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [LimitedPassengerGear]

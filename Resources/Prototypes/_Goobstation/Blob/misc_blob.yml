@@ -69,6 +69,7 @@
       requirements:
       - !type:OverallPlaytimeRequirement
         time: 54000 #15 hours
+      - !type:DenyObserverRequirement
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:

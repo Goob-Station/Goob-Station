@@ -12,6 +12,7 @@
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 54000 # 15 hours
+    - !type:DenyObserverRequirement
     raffle:
       settings: default
   - type: Sprite
