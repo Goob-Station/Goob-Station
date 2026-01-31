@@ -1,0 +1,65 @@
+<controls:FancyWindow
+    xmlns="https://robust-toolkit.com/robust-xaml"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    xmlns:ui="clr-namespace:Robust.Client.UserInterface.Controls;assembly=Robust.Client"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    x:Class="Content.Goobstation.Client.Keypad.UI.KeypadMenu"
+    Title="Keypad"
+    MinSize="220 300"
+    Resizable="False">
+
+    <ui:BoxContainer Orientation="Vertical" HorizontalExpand="True">
+
+        <!-- Status display panel -->
+        <ui:PanelContainer Margin="10 10 10 5">
+            <ui:PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat
+                    BackgroundColor="#001c00"
+                    BorderColor="#6fff6f"
+                    BorderThickness="2" />
+            </ui:PanelContainer.PanelOverride>
+
+            <ui:Label
+                Name="StatusLabel"
+                Text="____"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="0 6"
+                StyleClasses="ConsoleHeading" />
+        </ui:PanelContainer>
+
+        <!-- Divider -->
+        <ui:PanelContainer Margin="10 2" SetHeight="2">
+            <ui:PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#6fff6f" />
+            </ui:PanelContainer.PanelOverride>
+        </ui:PanelContainer>
+
+        <!-- Keypad container -->
+        <ui:PanelContainer Margin="10 5 10 10" HorizontalExpand="True" VerticalExpand="True">
+            <ui:PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat
+                    BackgroundColor="#1b1f1b"
+                    BorderColor="#6fff6f"
+                    BorderThickness="2" />
+            </ui:PanelContainer.PanelOverride>
+
+            <ui:BoxContainer
+                Orientation="Vertical"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                Margin="6 6">
+
+                <ui:GridContainer
+                    Name="KeypadGrid"
+                    Columns="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+
+            </ui:BoxContainer>
+        </ui:PanelContainer>
+
+    </ui:BoxContainer>
+
+</controls:FancyWindow>
