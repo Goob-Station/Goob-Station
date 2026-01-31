@@ -66,6 +66,7 @@
             Reporter: [ 1, 2 ]
             ServiceWorker: [ 1, 2 ]
             Zookeeper: [ 2, 2 ]
+            RadioHost: [ 1, 1 ]
           #science
             Chaplain: [ 1, 1 ]
             ResearchAssistant: [ 1, 2 ]
