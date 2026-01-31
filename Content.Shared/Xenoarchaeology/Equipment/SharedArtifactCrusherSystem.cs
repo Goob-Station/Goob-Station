@@ -49,10 +49,10 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
 
     private void OnEmagged(Entity<ArtifactCrusherComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckFlag(ent, EmagType.Interaction))
+        if (_emag.CheckProtoId(ent, "Interaction")) // goob edit
             return;
 
         if (ent.Comp.AutoLock)
