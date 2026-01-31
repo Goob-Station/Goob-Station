@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": " Pen_Future Made by BombasterDS - https://github.com/MetalSage/space-stories-archive/commit/26812e79c19c5f998bcbc445afbdceea625bc887, Pen_Devil by SolsticeOfTheWinter",
+  "copyright": " Pen_Future Made by BombasterDS - https://github.com/MetalSage/space-stories-archive/commit/26812e79c19c5f998bcbc445afbdceea625bc887, Pen_Devil by SolsticeOfTheWinter, paper_green_words is a recoloring of Objects/Misc/bureaucracy.rsi/paper_words.png",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,9 @@
     {
       "name": "pen_devil-inhand-right",
       "directions": 4
+    },
+    {
+        "name": "paper_green_words"
     }
     ]
 }
