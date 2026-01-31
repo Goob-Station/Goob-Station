@@ -23,6 +23,18 @@ public abstract partial class RitualCustomBehavior
     /// </summary>
     /// <param name="args"></param>
     public abstract void Finalize(RitualData args);
+
+    /// <summary>
+    /// Invoked on ritual behaviors if ritual limit has exceeded
+    /// </summary>
+    /// <param name="args">Ritual args</param>
+    /// <param name="ritualSuccess">Whether we should play ritual success animation</param>
+    /// <returns>Whether we should skip HereticRitualSystem logic</returns>
+    public virtual bool LimitExceeded(RitualData args, out bool ritualSuccess)
+    {
+        ritualSuccess = false;
+        return true;
+    }
 }
 
 public readonly record struct RitualData(
