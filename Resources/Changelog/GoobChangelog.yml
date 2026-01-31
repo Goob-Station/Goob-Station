@@ -20918,3 +20918,11 @@ Entries:
       message: Wizden E Chem 1984!
   id: 2365
   time: '2026-01-30T05:04:35.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: >-
+        Steering at high speeds in no gravity as a moth person is made
+        significantly worse. Consider braking.
+  id: 2366
+  time: '2026-01-31T06:43:55.0000000+00:00'
