@@ -54,7 +54,7 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        if (HasComp<ChangelingIdentityComponent>(args.User))
+        if (HasComp<ChangelingComponent>(args.User))
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), args.User, args.User);
             return;

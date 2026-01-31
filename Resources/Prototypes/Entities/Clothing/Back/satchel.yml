@@ -213,7 +213,7 @@
   - type: Storage
     maxItemSize: Huge
     grid:
-    - 0,0,19,9
+    - 0,0,14,5 #Goob
 
 - type: entity
   parent: ClothingBackpackSatchelHolding
@@ -225,3 +225,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0
   - type: HideContrabandContent # Goobstation Contraband detector
+  - type: Storage #Goob, nerf to bag of holding storage size
+    maxItemSize: Huge
+    grid:
+    - 0,0,19,9

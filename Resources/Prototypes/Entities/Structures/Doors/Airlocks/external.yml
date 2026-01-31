@@ -40,6 +40,8 @@
     layoutId: AirlockExternal
   - type: Paintable
     group: null
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: -0.5, 0
 
 - type: entity
   parent: AirlockExternal
