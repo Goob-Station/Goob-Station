@@ -110,6 +110,7 @@
     - ChaplainUndeterminedBible
     - RubberStampChaplain
     - Nullrod
+    - Nullrod # Pirate
     - ArmamentsBeacon # Goobstation
 
 - type: chameleonOutfit
