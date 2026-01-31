@@ -32,3 +32,130 @@
           acts: [ "Destruction" ]
 
 
+- type: entity
+  id: Junk_1
+  parent: BaseGoonCorpse
+  name: junk
+  description: A pile of junk. Holds no real value.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_1
+
+- type: entity
+  id: Junk_2
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_2
+
+- type: entity
+  id: Junk_3
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_3
+
+- type: entity
+  id: Junk_4
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_4
+
+- type: entity
+  id: Junk_5
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_5
+
+- type: entity
+  id: Junk_6
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_6
+
+- type: entity
+  id: Junk_7
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_7
+
+- type: entity
+  id: Junk_8
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_8
+
+- type: entity
+  id: Junk_9
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_9
+
+- type: entity
+  id: Junk_10
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_10
+
+- type: entity
+  id: Junk_11
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_11
+
+- type: entity
+  id: Junk_12
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_12
+
+- type: entity
+  id: Junk_13
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_13
+
+- type: entity
+  id: Junk_14
+  parent: Junk_1
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: Junk_14

@@ -108,6 +108,7 @@
     - DoorBumpOpener
   - type: StatusIcon # Goobstation
     bounds: -0.5,-0.5,0.5,0.5
+  - type: HazardImmune # Goobstation - Used to prevent mobs being affected by all sorts of hazards.
 
 - type: entity
   abstract: true

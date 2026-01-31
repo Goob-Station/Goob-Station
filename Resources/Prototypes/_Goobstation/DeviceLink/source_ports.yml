@@ -186,3 +186,15 @@
   id: StationRadioServerPort
   name: signal-port-name-radio-server
   description: signal-port-description-radio-server
+
+# Keypad
+
+- type: sourcePort
+  id: KeypadCorrect
+  name: signal-port-name-keypad-correct
+  description: signal-port-description-keypad-correct
+
+- type: sourcePort
+  id: KeypadIncorrect
+  name: signal-port-name-keypad-incorrect
+  description: signal-port-description-keypad-incorrect
