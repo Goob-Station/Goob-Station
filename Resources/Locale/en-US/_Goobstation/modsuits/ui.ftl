@@ -1,0 +1,16 @@
+mod-module-space = Complexity: {$complexity} ({$maxcomplexity})
+mod-energy-waste = Energy waste: {$energy}
+mod-username = User name:
+mod-all-toggled = Fully enabled
+mod-partly-toggled = Partly enabled
+mod-none-toggled = Disabled
+base-mod-title = MODSuit menu
+mod-activate-active = ⚪Activate
+mod-deactivate-active = ⚪Deactivate
+mod-activate-nonactive = ⚫Activate
+mod-deactivate-nonactive = ⚫Deactivate
+mod-eject = ⚠Eject
+mod-locked = locked🔒
+mod-unlocked = unlocked🔓
+mod-user = User:
+mod-no-user = No user
