@@ -283,6 +283,9 @@
   #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95
+
 
 #Bombsuit Helmet
 - type: entity
