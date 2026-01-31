@@ -115,6 +115,26 @@
       5: ActionBananaTouchV
 
 - type: entity
+  parent: ActionBananaTouch
+  id: ActionBananaTouchNoRobes
+  name: Banana Touch
+  description: It's time to start clowning around.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundCollectionSpecifier
+      collection: BikeHorn
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: clown
+  - type: Magic
+    requiresClothes: false
+    requiresSpeech: false
+    school: Transmutation
+
+- type: entity
   parent: BaseAction
   id: ActionMagicMissile
   name: Magic Missile
