@@ -339,6 +339,7 @@
     - Mouse
     understands:
     - Mouse
+    - TauCetiBasic
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -561,6 +562,7 @@
     - Chicken
     understands:
     - Chicken
+    - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -721,8 +723,11 @@
         recursive: false
   - type: NonSpreaderZombie
   - type: LanguageKnowledge # Einstein Engines - Languages
-    speaks: [Hissing]
-    understands: [Hissing]
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: MeleeWeapon
@@ -779,9 +784,9 @@
     allowMovement: true
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: Fixtures
     fixtures:
       fix1:
@@ -869,6 +874,7 @@
     - Moffic
     understands:
     - Moffic
+    - TauCetiBasic
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
@@ -1017,6 +1023,7 @@
     - Duck
     understands:
     - Duck
+    - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -1297,6 +1304,7 @@
     - Crab
     understands:
     - Crab
+    - TauCetiBasic
   - type: Bloodstream
     bloodMaxVolume: 50
     bloodReagent: CopperBlood
@@ -1563,6 +1571,7 @@
     - Kangaroo
     understands:
     - Kangaroo
+    - TauCetiBasic
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1583,7 +1592,7 @@
     prob: 0.25
     name: ghost-role-information-kangaroo-name
     description: ghost-role-information-kangaroo-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Vocal
     sounds:
@@ -1811,6 +1820,8 @@
     understands:
     - Monkey
     - Kobold
+  #- type: SentienceTarget   # Goobstation - monkeys no longer randomly sentient outside of events
+  #  - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
@@ -1819,9 +1830,9 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
-    rules: ghost-role-information-freeagent-rules # Goobstation - - remove: 1984
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Clumsy
@@ -1910,6 +1921,7 @@
     understands:
     - Kobold
     - Monkey
+    - TauCetiBasic
   # Shitmed Change Start
   - type: HumanoidAppearance
     species: Kobold
@@ -1975,7 +1987,7 @@
     makeSentient: true
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
 
 - type: entity
   name: kobold
@@ -2053,9 +2065,9 @@
     allowMovement: true
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -2171,6 +2183,7 @@
     - Mouse
     understands:
     - Mouse
+    - TauCetiBasic
   - type: Tag
     tags:
     - Trash
@@ -2283,6 +2296,14 @@
       - !type:GibBehavior
         gibContents: Skip
         recursive: false
+  - type: ActionGrant
+    actions:
+    - ActionMouseCall
+  - type: MobCallSource
+    whitelist:
+      tags:
+      - Mouse
+  - type: MobCallable
   # </Goobstation>
 
 - type: entity
@@ -2743,8 +2764,11 @@
       types:
         Heat : 0.2 #per second, scales with temperature & other constants
   - type: LanguageKnowledge # Einstein Engines - Language
-    speaks: [Penguin]
-    understands: [Penguin]
+    speaks:
+    - Penguin
+    understands:
+    - Penguin
+    - TauCetiBasic
 
 - type: entity
   name: grenade penguin
@@ -2867,8 +2891,11 @@
     damageContainer: Biological
     damageModifierSet: Scale
   - type: LanguageKnowledge # Einstein Engines - Language
-    speaks: [Hissing]
-    understands: [Hissing]
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2919,6 +2946,7 @@
     - Xeno
     understands:
     - Xeno
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -3154,6 +3182,7 @@
     - Hissing
     understands:
     - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: possum
@@ -3233,6 +3262,7 @@
     - Hissing
     understands:
     - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: fox
@@ -3316,6 +3346,7 @@
     - Fox
     understands:
     - Fox
+    - TauCetiBasic
 
 - type: entity
   abstract: true
@@ -3381,6 +3412,7 @@
     - Dog
     understands:
     - Dog
+    - TauCetiBasic
   - type: InteractionPopup
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-generic
@@ -3532,6 +3564,7 @@
     - Cat
     understands:
     - Cat
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cat
@@ -3791,6 +3824,7 @@
     - Hissing
     understands:
     - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: ferret
@@ -3850,6 +3884,7 @@
     - Hissing
     understands:
     - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: hamster
@@ -3864,7 +3899,7 @@
     allowMovement: true
     name: ghost-role-information-hamster-name
     description: ghost-role-information-hamster-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
@@ -3956,6 +3991,7 @@
     - Mouse
     understands:
     - Mouse
+    - TauCetiBasic
   - type: Tag
     tags:
     - VimPilot
@@ -4084,6 +4120,7 @@
     - Pig
     understands:
     - Pig
+    - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -4254,6 +4291,7 @@
     - Deer
     understands:
     - Deer
+    - TauCetiBasic
 
 - type: entity
   name: reindeer doe
