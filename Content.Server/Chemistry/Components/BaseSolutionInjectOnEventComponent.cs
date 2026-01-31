@@ -10,6 +10,7 @@
 using Content.Shared.Damage; // Goobstation - Armor resisting syringe gun
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
+using Robust.Shared.Audio; // Goobstation
 
 namespace Content.Server.Chemistry.Components;
 
@@ -89,5 +90,18 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// </summary>
     [ViewVariables]
     public float SpeedMultiplier = 1f;
+
+    /// <summary>
+    /// State: for the next embed, override whether this affects immune entities.
+    /// For setting from other code.
+    /// </summary>
+    [ViewVariables]
+    public bool AffectsImmuneOverride = false;
+
+    /// <summary>
+    /// Sound to play when injection is blocked.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? BlockedSound = new SoundPathSpecifier("/Audio/_Goobstation/Effects/thump.ogg");
     // </Goobstation>
 }

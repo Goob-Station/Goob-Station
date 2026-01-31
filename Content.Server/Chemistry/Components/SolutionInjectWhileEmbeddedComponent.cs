@@ -45,5 +45,11 @@ public sealed partial class SolutionInjectWhileEmbeddedComponent : BaseSolutionI
 
         [DataField]
         public TimeSpan EmbedTime = TimeSpan.Zero;
-        // </Goobstation>
+
+    /// <summary>
+    /// Tracks if we've already played the blocked sound for this embed.
+    /// </summary>
+    [ViewVariables]
+    public bool HasPlayedBlockedSound = false;
+    // </Goobstation>
 }
