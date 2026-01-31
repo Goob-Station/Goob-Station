@@ -165,7 +165,7 @@ evolutionmenu-utility-stims-desc =
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Applies "fleshmend" status effect, rapidly healing brute damage, as well as burn/asphyxiation at a lower amount.
-    Additionally, bleeding will gradually heal and blood volume will slowly be restored.
+    Additionally, bleeding will gradually heal.
     Lasts 10 seconds.
     Effects will cease while on fire or dead.
     Costs 35 chemicals.
