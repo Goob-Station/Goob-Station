@@ -20932,3 +20932,9 @@ Entries:
       message: More fish to artifact node
   id: 2367
   time: '2026-01-31T06:50:00.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: Removed acolyte armor from piety vend.
+  id: 2368
+  time: '2026-01-31T06:50:26.0000000+00:00'
