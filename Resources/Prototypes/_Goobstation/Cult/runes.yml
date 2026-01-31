@@ -1,0 +1,136 @@
+- type: entity
+  abstract: true
+  id: CultRuneBase
+  name: rune
+  desc: An odd collection of symbols drawn in what seems to be blood.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Structures/Magic/Cult/rune.rsi
+    state: cult1 # cult1 - cult7
+    color: "#FF0000"
+  - type: Clickable
+  - type: IgnoresFingerprints
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Fixtures
+    fixtures:
+      rune:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+        mask:
+         - ItemMask
+        layer:
+         - SlipLayer
+  - type: Physics
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Heretic/runebreak.ogg
+  - type: BloodCultRune
+    behaviors:
+    # as in every foreach events above take priority
+    - !type:CultRuneBehaviorBasic
+      requiredInvokers: 1
+      pulseColor: "#FFFFFF"
+      invokeLoc: rune-invoke-basic
+      inspectNameLoc: rune-name-basic
+      inspectDescLoc: rune-desc-basic
+
+- type: entity
+  parent: CultRuneBase
+  id: CultRuneMalf
+  suffix: Malf
+  components:
+  - type: BloodCultRune
+    behaviors:
+    - !type:CultRuneBehaviorBasic
+      requiredInvokers: 1
+      pulseColor: "#AA00AA"
+      invokeLoc: rune-invoke-malf
+      inspectNameLoc: rune-name-malf
+      inspectDescLoc: rune-desc-malf
+      damage:
+        types:
+          Burn: 20
+
+- type: entity
+  parent: CultRuneBase
+  id: CultRuneOffer
+  suffix: Offer
+  components:
+  - type: Sprite
+    state: cult1
+    color: "#FFFFFF"
+  - type: BloodCultRune
+    behaviors:
+    - !type:CultRuneBehaviorOffer
+      requiredInvokers: 2
+      pulseColor: "#FF0000"
+      invokeLoc: rune-invoke-offering
+      inspectNameLoc: rune-name-offering
+      inspectDescLoc: rune-desc-offering
+    - !type:CultRuneBehaviorSacrifice
+      requiredInvokers: 3
+      pulseColor: "#AA0000"
+      invokeLoc: rune-invoke-sacrifice
+      inspectNameLoc: rune-name-sacrifice
+      inspectDescLoc: rune-desc-sacrifice
+
+
+- type: entity
+  parent: CultRuneBase
+  id: CultRuneEmpower
+  suffix: Empower
+  components:
+  - type: Sprite
+    state: cult3
+    color: "#0000FF"
+  - type: UserInterface
+    interfaces:
+      enum.EntityRadialMenuKey.Key:
+        type: CultBloodMagicBUI
+  - type: BloodCultRune
+    behaviors:
+    - !type:CultRuneBehaviorEmpower
+      requiredInvokers: 1
+      pulseColor: "#FF0000"
+      invokeLoc: rune-invoke-empower
+      inspectNameLoc: rune-name-empower
+      inspectDescLoc: rune-desc-empower
+
+- type: entity
+  parent: CultRuneBase
+  id: CultRuneTeleport
+  suffix: Teleport
+  components:
+  - type: Sprite
+    state: cult2
+    color: "#221C35"
+  - type: BloodCultRune
+    behaviors:
+    - !type:CultRuneBehaviorTeleport
+      requiredInvokers: 1
+      pulseColor: "#FF0000"
+      invokeLoc: rune-invoke-teleport
+      inspectNameLoc: rune-name-teleport
+      inspectDescLoc: rune-desc-teleport
+
+# - CultRuneBehaviorRevive
+# - CultRuneBehaviorBarrier
+# - CultRuneBehaviorSummon
+# - CultRuneBehaviorBloodboil
+# - CultRuneBehaviorSpirit
+# - CultRuneBehaviorApocalypse
+# - CultRuneBehaviorNarsie

@@ -19,7 +19,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Text.RegularExpressions;
 using Content.Server.Store.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Eye;

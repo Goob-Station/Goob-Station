@@ -7,6 +7,7 @@ using Robust.Client.GameObjects;
 using Robust.Shared.Timing;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.Input;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.UserInterface.Controls;
 
@@ -112,6 +113,7 @@ public sealed partial class SimpleRadialMenu : RadialMenu
         return thisLayerLinkButton;
     }
 
+    // goob edit - introduce SpriteView
     private RadialMenuTextureButton ConvertToButton(
         RadialMenuOption model,
         SpriteSystem sprites,
@@ -124,7 +126,13 @@ public sealed partial class SimpleRadialMenu : RadialMenu
             : new RadialMenuTextureButton();
         button.SetSize = new Vector2(64f, 64f);
         button.ToolTip = model.ToolTip;
-        if (model.Sprite != null)
+
+        if (model.SpriteView != null)
+        {
+            button.AddChild(model.SpriteView);
+        }
+
+        if (model.Sprite != null && model.SpriteView == null)
         {
             var scale = Vector2.One;
 
@@ -228,12 +236,13 @@ public sealed partial class SimpleRadialMenu : RadialMenu
 
 }
 
-
+// goob edit - introduce SpriteView
 public abstract class RadialMenuOption
 {
     public string? ToolTip { get; init; }
 
     public SpriteSpecifier? Sprite { get; init; }
+    public SpriteView? SpriteView { get; set; }
     public Color? BackgroundColor { get; set; }
     public Color? HoverBackgroundColor { get; set; }
 }
