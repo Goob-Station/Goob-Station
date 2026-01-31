@@ -2,6 +2,7 @@ using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server._Starlight.Objectives;
 
@@ -14,9 +15,11 @@ public sealed class TeachALessonConditionSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<TeachALessonTargetComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<TeachALessonTargetComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<TeachALessonConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
         SubscribeLocalEvent<TeachALessonConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
+
     }
 
     private void OnGetProgress(Entity<TeachALessonConditionComponent> ent, ref ObjectiveGetProgressEvent args)
@@ -43,15 +46,21 @@ public sealed class TeachALessonConditionSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<TeachALessonTargetComponent> ent, ref MobStateChangedEvent args)
     {
-       // Goob - fix teach a lesson
-        if (!TryComp<MindComponent>(ent.Owner, out var targetMind))
-            return;
-        if (args.NewMobState != MobState.Dead && targetMind.OwnedEntity != null)
-        // Goob end
+        if (args.NewMobState != MobState.Dead)
             return;
         foreach (var teacher in ent.Comp.Teachers)
         {
-            if(!TryComp(teacher, out TeachALessonConditionComponent? condition))
+            if (!TryComp(teacher, out TeachALessonConditionComponent? condition))
+                continue;
+            condition.HasDied = true;
+        }
+    }
+
+    private void OnMindRemoved(Entity<TeachALessonTargetComponent> ent, ref MindRemovedMessage args)
+    {
+        foreach (var teacher in ent.Comp.Teachers)
+        {
+            if (!TryComp(teacher, out TeachALessonConditionComponent? condition))
                 continue;
             condition.HasDied = true;
         }
