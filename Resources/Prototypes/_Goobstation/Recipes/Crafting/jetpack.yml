@@ -1,0 +1,7 @@
+- type: construction
+  id: improvisedJetpackGraphConstruction
+  graph: improvisedJetpackGraph
+  startNode: start
+  targetNode: end
+  category: construction-category-misc
+  objectType: Item

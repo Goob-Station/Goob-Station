@@ -1,0 +1,34 @@
+- type: constructionGraph
+  id: improvisedJetpackGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - tag: FireExtinguisher # for releasing gas in space
+        icon:
+          sprite: Objects/Misc/fire_extinguisher.rsi
+          state: fire_extinguisher_closed
+        name: construction-graph-tag-fire-extinguisher 
+      - tag: GasTank  #for flying 
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        name: construction-graph-tag-gas-tank
+      - tag: GasTank  #for extra flying
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        name: construction-graph-tag-gas-tank
+      - material: Cable #this is how you to tie a noose
+        amount: 30
+      - tag: Pipe #so tanks are connected
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeFourway
+        name: construction-graph-tag-pipe
+        doAfter: 5
+
+  - node: end
+    entity: ImprovisedJetpack
