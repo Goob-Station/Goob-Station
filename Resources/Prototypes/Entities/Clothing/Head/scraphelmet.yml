@@ -2,10 +2,10 @@
 # Listed from first step of crafting to the final helmet
 
 - type: entity
-  name: "відро з проводами"
+  name: wired bucket
   parent: BaseItem
   id: WiredBucketBase
-  description: "Відро з прикріпленими проводами, щоб краще слугувати ремінцем для підборіддя."
+  description: A bucket with attached wiring to better serve as a chinstrap.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/scrap_helmet.rsi
@@ -18,10 +18,10 @@
     node: wiredbucket
 
 - type: entity
-  name: "розрізане відро"
+  name: sliced bucket
   parent: BaseItem
   id: SlicedBucketBase
-  description: "Відро з прорізаною збоку щілиною для огляду."
+  description: A bucket with a vision slit cut into the side.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/scrap_helmet.rsi
@@ -34,10 +34,10 @@
     node: slicedbucket
 
 - type: entity
-  name: "сталеве відро"
+  name: steel bucket
   parent: BaseItem
   id: SteelBucketBase
-  description: "Відро, до зовнішньої сторони якого приварена сталь. Воно потребує кращого формування, перш ніж його можна буде зручно носити."
+  description: A bucket that's had steel welded onto it's exterior. It requires better shaping before it can be worn comfortably.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/scrap_helmet.rsi
@@ -53,8 +53,8 @@
 - type: entity
   parent: [ClothingHeadHelmetBase, BaseMajorContraband]
   id: ClothingHeadHelmetScrap #When we get the tech for it this bad boy needs to be given a vision reduction when equipped. 1-2 tiles less than normal should be good.
-  name: "шолом з брухту"
-  description: "Нашвидкуруч зібраний шолом, виготовлений з кабелів, сталі та відра."
+  name: scrap helmet
+  description: A cobbled-together helmet made from cabling, steel, and a bucket.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/scrap_helmet.rsi

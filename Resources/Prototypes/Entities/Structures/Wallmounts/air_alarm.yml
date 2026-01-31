@@ -35,8 +35,8 @@
 
 - type: entity
   id: AirAlarm
-  name: "повітряна сигналізація"
-  description: "Повітряна тривога. Сигналізація... повітря?"
+  name: air alarm
+  description: An air alarm. Alarms... air?
   placement:
     mode: SnapgridCenter
     snap:
@@ -155,8 +155,8 @@
 
 - type: entity
   id: AirAlarmAssembly
-  name: "повітряна сигналізація в зборі"
-  description: "Повітряна тривога. Не схоже, що найближчим часом буде повітряна тривога."
+  name: air alarm assembly
+  description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   placement:
     mode: SnapgridCenter
     snap:

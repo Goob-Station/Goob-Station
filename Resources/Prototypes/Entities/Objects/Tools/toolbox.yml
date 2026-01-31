@@ -101,10 +101,10 @@
       Steel: 125
 
 - type: entity
-  name: "набір аварійних інструментів"
+  name: emergency toolbox
   parent: ToolboxBase
   id: ToolboxEmergency
-  description: "Яскраво-червоний ящик з аварійними інструментами."
+  description: A bright red toolbox, stocked with emergency tools.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
@@ -113,10 +113,10 @@
     sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
 
 - type: entity
-  name: "ящик для інструментів механіка"
+  name: mechanical toolbox
   parent: ToolboxBase
   id: ToolboxMechanical
-  description: "Синій ящик, наповнений механічними інструментами."
+  description: A blue box, stocked with mechanical tools.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
@@ -125,10 +125,10 @@
     sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
 
 - type: entity
-  name: "ящик для інструментів електрика"
+  name: electrical toolbox
   parent: ToolboxBase
   id: ToolboxElectrical
-  description: "Ящик для інструментів, в якому зазвичай зберігаються електричні прилади."
+  description: A toolbox typically stocked with electrical gear.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
@@ -137,11 +137,11 @@
     sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
 
 - type: entity
-  name: "ящик для інструментів електрика"
+  name: electrical toolbox
   suffix: Syndicate, Turret
   parent: ToolboxElectrical
   id: ToolboxElectricalTurret
-  description: "Ящик для інструментів, в якому зазвичай зберігаються електричні прилади."
+  description: A toolbox typically stocked with electrical gear.
   components:
   - type: Damageable
     damageContainer: Inorganic
@@ -168,10 +168,10 @@
     price: 1350
 
 - type: entity
-  name: "ящик для інструментів художника"
+  name: artistic toolbox
   parent: ToolboxBase
   id: ToolboxArtistic
-  description: "Ящик для інструментів, в якому зазвичай зберігаються художні приналежності."
+  description: A toolbox typically stocked with artistic supplies.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
@@ -180,10 +180,10 @@
     sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
 
 - type: entity
-  name: "підозрілий набір інструментів"
+  name: suspicious toolbox
   parent: [ToolboxBase, BaseSyndicateContraband]
   id: ToolboxSyndicate
-  description: "Зловісний на вигляд ящик, наповнений інструментами елітних синдикатів."
+  description: A sinister looking toolbox filled with elite syndicate tools.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_syn.rsi
@@ -202,10 +202,10 @@
         Blunt: 20
 
 - type: entity
-  name: "золотий ящик для інструментів"
+  name: golden toolbox
   parent: ToolboxBase
   id: ToolboxGolden
-  description: "Суцільнозолотий ящик для інструментів. Репер би за таке вбив."
+  description: A solid gold toolbox. A rapper would kill for this.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi

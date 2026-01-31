@@ -271,8 +271,8 @@
 - type: entity
   parent: BaseCosmicVFX
   id: CosmicEchoVfx
-  name: "відлуння лиха"
-  description: "Слід зловісного світла."
+  name: malign echo
+  description: A trace of malign light..
   components:
   - type: TimedDespawn
     lifetime: 50

@@ -68,8 +68,8 @@
           Unprimed: { state: complete }
 
 - type: entity
-  name: "композиція C-4"
-  description: "Використовується для того, щоб продірявити певні ділянки без зайвих отворів. Улюбленець диверсантів."
+  name: composition C-4
+  description: Used to put holes in specific areas without too much extra hole. A saboteur's favorite.
   parent: [BasePlasticExplosive, BaseMajorContraband]
   id: C4
   components:
@@ -141,8 +141,8 @@
     price: 625 # 5000 for a bundle of 8
 
 - type: entity
-  name: "сейсмічний заряд"
-  description: "Фугасна вибухівка призначена для руйнування великих об'ємів гірських порід."
+  name: seismic charge
+  description: Concussion based explosive designed to destroy large amounts of rock.
   parent: [ BasePlasticExplosive, BaseSecurityCargoContraband ]
   id: SeismicCharge
   components:

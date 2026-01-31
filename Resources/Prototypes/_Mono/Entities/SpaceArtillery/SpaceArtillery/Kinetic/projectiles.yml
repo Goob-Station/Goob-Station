@@ -2,7 +2,7 @@
 
 - type: entity
   id: ShipRailgunProjectile
-  name: "280мм 75.25 кг снаряд M381 CHARON"
+  name: M381 CHARON 280mm 75.25 kg slug
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -65,7 +65,7 @@
 
 - type: entity
   id: 20mmBulletArmorPiercing
-  name: "20мм бронебійна куля"
+  name: 20mm AP bullet
   parent: 20mmBulletBase
   categories: [ HideSpawnMenu ]
   components:
@@ -85,7 +85,7 @@
 
 - type: entity
   id: ShipDravonProjectile
-  name: "57мм снаряд DRAVON"
+  name: DRAVON 57mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -123,7 +123,7 @@
 
 - type: entity
   id: 90mmBulletBase
-  name: "снаряд"
+  name: shell
   parent: BaseBulletTrigger
   abstract: true
   categories: [ HideSpawnMenu ]
@@ -180,7 +180,7 @@
 
 - type: entity
   id: ShipTarnyxProjectile
-  name: "150мм снаряд TARNYX"
+  name: TARNYX 150mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -214,7 +214,7 @@
 
 - type: entity
   id: ShipCyrexaProjectile
-  name: "220мм снаряд CYREXA"
+  name: CYREXA 220mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -252,7 +252,7 @@
 
 - type: entity
   id: ShipBoforsProjectile
-  name: "255мм снаряд Bofors"
+  name: Bofors 255mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -290,7 +290,7 @@
 
 - type: entity
   id: ShipKargilProjectile
-  name: "203мм снаряд Kargil"
+  name: Kargil 203mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -328,8 +328,8 @@
 
 - type: entity
   id: ShipHadesProjectile
-  name: "305мм снаряд HADES"
-  description: "Я відчуваю первісний страх. Знамення прийшло за мною."
+  name: HADES 305mm projectile
+  description: I feel a primal fear. The omen comes for me.
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:

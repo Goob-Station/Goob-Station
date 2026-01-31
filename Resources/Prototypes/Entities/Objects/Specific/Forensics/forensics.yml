@@ -14,9 +14,9 @@
 
 - type: entity
   id: ForensicPad
-  name: "криміналістичний папірець"
+  name: forensic pad
   parent: BaseItem
-  description: "Криміналістичний папірець для збору відбитків пальців або волокон."
+  description: A forensic pad for collecting fingerprints or fibers.
   components:
   - type: Item
     size: Tiny

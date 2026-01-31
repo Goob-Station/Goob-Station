@@ -22,7 +22,7 @@
 - type: entity
   parent: BaseSurgeryOpenXenoCavity
   id: SurgeryOpenXenoCavityHiveNode
-  name: "Відкрити порожнину вузла вулика"
+  name: Open Hive Node Cavity
   components:
   - type: SurgeryOrganSlotCondition
     organSlot: hive_node
@@ -30,7 +30,7 @@
 - type: entity
   parent: BaseSurgeryOpenXenoCavity
   id: SurgeryOpenXenoCavityResinSpinner
-  name: "Відкрити порожнину смоляного прядильника"
+  name: Open Resin Spinner Cavity
   components:
   - type: SurgeryOrganSlotCondition
     organSlot: resin_spinner
@@ -38,7 +38,7 @@
 - type: entity
   parent: BaseSurgeryOpenXenoCavity
   id: SurgeryOpenXenoCavityNeurotoxinGland
-  name: "Відкрити порожнину нейротоксинової залози"
+  name: Open Neurotoxin Gland Cavity
   components:
   - type: SurgeryOrganSlotCondition
     organSlot: neurotoxin_gland
@@ -46,7 +46,7 @@
 - type: entity
   parent: BaseSurgeryOpenXenoCavity
   id: SurgeryOpenXenoCavityAcidGland
-  name: "Відкрити порожнину кислотної залози"
+  name: Open Acid Gland Cavity
   components:
   - type: SurgeryOrganSlotCondition
     organSlot: acid_gland
@@ -54,7 +54,7 @@
 - type: entity
   parent: BaseSurgeryOpenXenoCavity
   id: SurgeryOpenXenoCavityPlasmaVessel
-  name: "Відкрити порожнину плазмового міхура"
+  name: Open Plasma Vessel Cavity
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -66,7 +66,7 @@
 - type: entity
   parent: BaseSurgeryOpenXenoCavity
   id: SurgeryOpenXenoCavityEggSack
-  name: "Відкрити порожнину яєчного мішка"
+  name: Open Egg Sack Cavity
   components:
   - type: SurgeryPartCondition
     parts: [ Groin ]
@@ -78,7 +78,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertHiveNode
-  name: "Пересадити вузол вулика"
+  name: Transplant Hive Node
   components:
   - type: Surgery
     steps:
@@ -95,7 +95,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertResinSpinner
-  name: "Пересадити смоляний прядильник"
+  name: Transplant Resin Spinner
   components:
   - type: Surgery
     steps:
@@ -112,7 +112,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertNeurotoxinGland
-  name: "Пересадити нейротоксинову залозу"
+  name: Transplant Neurotoxin Gland
   components:
   - type: Surgery
     steps:
@@ -129,7 +129,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertAcidGland
-  name: "Пересадити кислотну залозу"
+  name: Transplant Acid Gland
   components:
   - type: Surgery
     steps:
@@ -146,7 +146,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertPlasmaVessel
-  name: "Пересадити плазмовий міхур"
+  name: Transplant Plasma Vessel
   components:
   - type: Surgery
     steps:
@@ -165,7 +165,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertEggSack
-  name: "Пересадити яєчний мішок"
+  name: Transplant Egg Sack
   components:
   - type: Surgery
     steps:
@@ -186,7 +186,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveHiveNode
-  name: "Видалити пересаджений вузол вулика"
+  name: Remove Transplanted Hive Node
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -195,7 +195,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveResinSpinner
-  name: "Видалити пересаджений смоляний прядильник"
+  name: Remove Transplanted Resin Spinner
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -204,7 +204,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveNeurotoxinGland
-  name: "Видалити пересаджену нейротоксинову залозу"
+  name: Remove Transplanted Neurotoxin Gland
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -213,7 +213,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveAcidGland
-  name: "Видалити пересаджену кислотну залозу"
+  name: Remove Transplanted Acid Gland
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -222,7 +222,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemovePlasmaVessel
-  name: "Видалити пересаджений плазмовий міхур"
+  name: Remove Transplanted Plasma Vessel
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -235,7 +235,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveEggSack
-  name: "Видалити пересаджений яєчний мішок"
+  name: Remove Transplanted Egg Sack
   components:
   - type: SurgeryPartCondition
     parts: [ Groin ]

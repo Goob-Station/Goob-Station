@@ -109,11 +109,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "пляшка"
+  name: bottle
   parent: BaseItem
   id: BaseChemistryEmptyBottle
   abstract: true
-  description: "Маленька пляшечка."
+  description: A small bottle.
   components:
   - type: Tag
     tags:

@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: MobHumanLoneNuclearOperativeSuit
-  name: "самотній оперативник в костюмі"
+  name: Lone Operative Suit
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -26,7 +26,7 @@
   categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: MobHumanLoneNuclearOperativeSuitElite
-  name: "самотній елітний оперативник в костюмі"
+  name: Lone Operative Suit Elite
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -47,7 +47,7 @@
   categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: MobHumanLoneNuclearOperativeSuitJugg
-  name: "самотній джаггернаут в костюмі"
+  name: Lone Operative Suit Juggernaut
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -68,7 +68,7 @@
   categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: MobHumanLoneNuclearOperativeSuitCommander
-  name: "самотній командир в костюмі"
+  name: Lone Operative Suit Commander
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -89,7 +89,7 @@
   categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: MobHumanLoneNuclearOperativeSuitStealth
-  name: "самотній стелс-оперативник в костюмі"
+  name: Lone Operative Suit Stealth
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -110,7 +110,7 @@
   categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: MobHumanLoneNuclearOperativeSuitMedic
-  name: "самотній медик-оперативник в костюмі"
+  name: Lone Operative Suit Medic
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -131,7 +131,7 @@
   categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: MobHumanLoneNuclearOperativeSuitDread
-  name: "самотній медик-оперативник в костюмі"
+  name: Lone Operative Suit Medic
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false

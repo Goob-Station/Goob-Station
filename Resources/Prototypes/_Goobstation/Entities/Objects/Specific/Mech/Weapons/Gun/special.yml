@@ -8,8 +8,8 @@
   id: WeaponMechSpecialMousetrapMortar
   parent: [ BaseMechWeaponRange, SpecialMechEquipment ]
   suffix: Mech Weapon, Gun, Special, Mortar
-  name: "розчин для мишоловок"
-  description: "Навісна мишоловка-пускова установка."
+  name: mousetrap mortar
+  description: Mounted mousetrap launcher.
   components:
   - type: Sprite
     state: mecha_mousetrapmrtr
@@ -36,8 +36,8 @@
   id: WeaponMechSpecialBananaMortar
   parent: [ BaseMechWeaponRange, SpecialMechEquipment ]
   suffix: Mech Weapon, Gun, Special, Mortar
-  name: "банановий розчин"
-  description: "Навісна пускова установка для бананової шкірки."
+  name: banana mortar
+  description: Mounted banana peel launcher.
   components:
   - type: Sprite
     state: mecha_bananamrtr

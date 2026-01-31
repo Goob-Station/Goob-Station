@@ -22,8 +22,8 @@
 # Hierophant club
 - type: entity
   id: ActionHierophantClubTileMovement
-  name: "Прокляття руху по клітинках"
-  description: "Змушує ціль пересуватися лише по клітинках."
+  name: Curse of Tile Movement
+  description: Makes the target move only by tiles.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -41,8 +41,8 @@
 - type: entity
   id: ActionHierophantClubBlink
   parent: ActionBaseHierophant
-  name: "Блінк"
-  description: "Телепортує вас у будь-яку точку, куди ви можете фізично дістатися."
+  name: Blink
+  description: Teleports you to any position you can physically reach.
   components:
   - type: Action
     raiseOnUser: true

@@ -7,8 +7,8 @@
 - type: entity
   parent: [AirSensorBase, GasBinaryBase]
   id: GasPipeSensor
-  name: "датчик газової труби"
-  description: "Звіти про стан газу в приєднаній трубопровідній мережі."
+  name: gas pipe sensor
+  description: Reports on the status of the gas in the attached pipe network.
   placement:
     mode: AlignAtmosPipeLayers
   components:

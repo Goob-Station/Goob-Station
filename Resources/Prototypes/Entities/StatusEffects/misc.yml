@@ -23,7 +23,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectForcedSleeping
-  name: "примусовий сон"
+  name: forced sleep
   components:
   - type: ForcedSleepingStatusEffect
 
@@ -31,7 +31,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectSSDSleeping
-  name: "примусовий сон"
+  name: forced sleep
   components:
   - type: ForcedSleepingStatusEffect
 
@@ -39,7 +39,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectDrowsiness
-  name: "сонливість"
+  name: drowsiness
   components:
   - type: DrowsinessStatusEffect
 
@@ -47,6 +47,6 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectSeeingRainbow
-  name: "галюцинації"
+  name: hallucinations
   components:
   - type: SeeingRainbowsStatusEffect

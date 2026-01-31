@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseItem
   id: UpgradeKitAutomation
-  name: "набір для покращення автоматизації"
-  description: "Набір для покращення з усіма необхідними деталями для модернізації машини. Цей дозволяє додаткові опції автоматизації шляхом з'єднання роботизованих рук."
+  name: automation upgrade kit
+  description: An upgrade kit with all the parts needed to upgrade a machine. This one allows extra automation options by linking robotic arms.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tools/lathe_upgrade_kit.rsi
@@ -32,8 +32,8 @@
 - type: entity
   parent: BaseItem
   id: AutodocUpgradeKitBluespace
-  name: "комплект покращення для автодока \"Блюспейс"
-  description: "Комплект покращення з усіма деталями, необхідними для модернізації Автодока. Цей дозволяє йому працювати крізь одяг."
+  name: autodoc bluespace upgrade kit
+  description: An upgrade kit with all the parts needed to upgrade an Autodoc. This one allows it to operate through clothing.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tools/lathe_upgrade_kit.rsi

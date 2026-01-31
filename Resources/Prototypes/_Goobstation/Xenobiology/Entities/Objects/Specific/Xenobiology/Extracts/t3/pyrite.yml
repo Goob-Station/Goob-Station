@@ -1,7 +1,7 @@
 - type: entity
   id: PyriteSlimeExtract
   parent: BaseSlimeExtract
-  name: "піритовий екстракт слайма"
+  name: pyrite slime extract
   components:
   - type: Sprite
     layers:

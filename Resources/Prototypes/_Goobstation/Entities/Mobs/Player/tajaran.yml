@@ -8,7 +8,7 @@
 
 - type: entity
   save: false
-  name: "Уріст МакТаджаран"
+  name: Urist McTajaran
   parent: BaseMobTajaran
   id: MobTajaran
   

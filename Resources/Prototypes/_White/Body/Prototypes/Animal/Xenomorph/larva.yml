@@ -1,6 +1,6 @@
 - type: body
   id: XenomorphLarva
-  name: "личинка ксеноморфа"
+  name: xenomorph larva
   root: chest
   slots:
     head:

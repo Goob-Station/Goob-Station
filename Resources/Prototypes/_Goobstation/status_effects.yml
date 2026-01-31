@@ -72,6 +72,6 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectStaminaResistanceModifier
-  name: "модифікатор опору витривалості"
+  name: stamina resistance modifier
   components:
   - type: StaminaResistanceModifierStatusEffect

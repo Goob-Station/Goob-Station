@@ -17,8 +17,8 @@
 - type: entity
   parent: BaseMechAction
   id: ActionMechCycleEquipment
-  name: "Цикл"
-  description: "Цикли вибраного на даний момент обладнання"
+  name: Cycle
+  description: Cycles currently selected equipment
   components:
   - type: Action
     useDelay: 0.5
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseMechAction
   id: ActionMechOpenUI
-  name: "Панель управління"
-  description: "Відкриває панель керування механізмом"
+  name: Control Panel
+  description: Opens the control panel for the mech
   components:
   - type: Action
     useDelay: 1
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseMechAction
   id: ActionMechEject
-  name: "Викидай!"
-  description: "Катапультує пілота з меча"
+  name: Eject
+  description: Ejects the pilot from the mech
   components:
   - type: Action
     icon:

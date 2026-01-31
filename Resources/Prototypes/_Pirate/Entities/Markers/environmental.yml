@@ -1,6 +1,6 @@
 # Weather Blocker
 - type: entity
-  name: "Маркер блокування погоди"
+  name: Marker Weather Blocker
   id: MarkerWeatherblocker
   parent: MarkerBase
   components:

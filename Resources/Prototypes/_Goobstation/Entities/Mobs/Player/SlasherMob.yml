@@ -1,8 +1,8 @@
 - type: entity
-  name: "Уріст МакРізник"
+  name: Urist McSlasher
   parent: MobHuman
   id: MobSlasher
-  description: "Жахливий вбивця з надприродними здібностями."
+  description: A terrifying slasher with supernatural abilities.
   suffix: Debug
   components:
   - type: Loadout

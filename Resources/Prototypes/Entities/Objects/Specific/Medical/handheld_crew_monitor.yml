@@ -25,12 +25,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ручний монітор екіпажу"
+  name: handheld crew monitor
 #  categories: [ DoNotMap ] # Goobstation
   parent: [ BaseHandheldComputer, BaseMedicalContraband ] # Goobstation
   # CMO-only bud, don't add more. # Goobstation - no lmao
   id: HandheldCrewMonitor
-  description: "Ручний монітор екіпажу, що відображає стан датчиків скафандра."
+  description: A hand-held crew monitor displaying the status of suit sensors.
   components:
   - type: Item
     heldPrefix: scanner

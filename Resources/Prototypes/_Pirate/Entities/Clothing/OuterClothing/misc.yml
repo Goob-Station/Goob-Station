@@ -3,8 +3,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatMNKWhiteHoodie
-  name: "Біла худі МНК"
-  description: "Класична біла худі, вироблена МНК."
+  name: MNK white hoodie
+  description: A classic MNK produced white hoodie.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/hoodie_white.rsi
@@ -17,8 +17,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatMNKBlackTopCoat
-  name: "Чорне пальто МНК"
-  description: "Міцне чорне пальто МНК."
+  name: MNK black top coat
+  description: A sturdy MNK black top coat.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/black_top_coat.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatMNKBlackJacket
-  name: "Чорна куртка МНК"
-  description: "Легка чорна куртка МНК."
+  name: MNK black jacket
+  description: A light MNK black jacket.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Misc/black_jacket.rsi

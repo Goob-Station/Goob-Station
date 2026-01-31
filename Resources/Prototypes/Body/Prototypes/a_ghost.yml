@@ -12,7 +12,7 @@
 # Why the fuck are the aghost and human the only ones with snake case body parts?
 - type: body
   id: Aghost
-  name: "а-привид"
+  name: "aghost"
   root: chest
   slots:
     chest:

@@ -39,7 +39,7 @@
 
 - type: combo
   id: SleepingCarpGnashingTeeth
-  name: "Скрегіт зубів"
+  name: Gnashing Teeth
   martialArtsForm: SleepingCarp
   attacks:
   - Harm
@@ -50,7 +50,7 @@
 
 - type: combo
   id: SleepingCarpKneeHaul
-  name: "Удар коліном"
+  name: Knee Haul
   martialArtsForm: SleepingCarp
   attacks:
   - Harm
@@ -62,7 +62,7 @@
 
 - type: combo
   id: SleepingCarpCrashingWaves
-  name: "Бурхливі хвилі"
+  name: Crashing Waves
   martialArtsForm: SleepingCarp
   attacks:
   - Harm

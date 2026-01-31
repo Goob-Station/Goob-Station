@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobPotyzhnobot
-  name: "спавнер потужнобота"
+  name: potyzhnobot spawner
   components:
   - type: Sprite
     layers:

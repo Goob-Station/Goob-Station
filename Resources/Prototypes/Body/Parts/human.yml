@@ -32,7 +32,7 @@
 - type: entity
   id: PartHuman
   parent: [BaseItem, BasePart]
-  name: "частина тіла людини"
+  name: "human body part"
   abstract: true
   components:
   - type: Icon # Shitmed Change
@@ -49,7 +49,7 @@
 
 - type: entity
   id: ChestHuman
-  name: "людські груди"
+  name: "human chest"
   parent: [PartHuman, BaseChest]
   components:
   - type: Sprite
@@ -65,7 +65,7 @@
 
 - type: entity
   id: GroinHuman
-  name: "людський пах"
+  name: "human groin"
   parent: [PartHuman, BaseGroin]
   components:
   - type: Sprite
@@ -81,7 +81,7 @@
 
 - type: entity
   id: HeadHuman
-  name: "людська голова"
+  name: "human head"
   parent: [PartHuman, BaseHead]
   components:
   - type: Sprite
@@ -97,7 +97,7 @@
 
 - type: entity
   id: LeftArmHuman
-  name: "ліва рука людини"
+  name: "left human arm"
   parent: [PartHuman, BaseLeftArm]
   components:
   - type: Sprite
@@ -106,7 +106,7 @@
 
 - type: entity
   id: RightArmHuman
-  name: "права рука людини"
+  name: "right human arm"
   parent: [PartHuman, BaseRightArm]
   components:
   - type: Sprite
@@ -115,7 +115,7 @@
 
 - type: entity
   id: LeftHandHuman
-  name: "ліва долоня людини"
+  name: "left human hand"
   parent: [PartHuman, BaseLeftHand]
   components:
   - type: Sprite
@@ -126,7 +126,7 @@
 
 - type: entity
   id: RightHandHuman
-  name: "права долоня людини"
+  name: "right human hand"
   parent: [PartHuman, BaseRightHand]
   components:
   - type: Sprite
@@ -137,7 +137,7 @@
 
 - type: entity
   id: LeftLegHuman
-  name: "ліва нога людини"
+  name: "left human leg"
   parent: [PartHuman, BaseLeftLeg]
   components:
   - type: Sprite
@@ -146,7 +146,7 @@
 
 - type: entity
   id: RightLegHuman
-  name: "права нога людини"
+  name: "right human leg"
   parent: [PartHuman, BaseRightLeg]
   components:
   - type: Sprite
@@ -155,7 +155,7 @@
 
 - type: entity
   id: LeftFootHuman
-  name: "ліва стопа людини"
+  name: "left human foot"
   parent: [PartHuman, BaseLeftFoot]
   components:
   - type: Sprite
@@ -164,7 +164,7 @@
 
 - type: entity
   id: RightFootHuman
-  name: "права стопа людини"
+  name: "right human foot"
   parent: [PartHuman, BaseRightFoot]
   components:
   - type: Sprite

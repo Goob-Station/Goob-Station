@@ -16,8 +16,8 @@
 - type: entity
   parent: [ ClothingModsuitStandardNoStorage, BaseSyndicateContraband ]
   id: ClothingModsuitContractor
-  name: "блок керування мод-костюмом контрактора"
-  description: "Головний контролер мод-костюма контрактора."
+  name: Contractor modsuit control unit
+  description: The main controller for a Contractor modsuit.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/contractor.rsi
@@ -50,8 +50,8 @@
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsContractor
-  name: "рукавиці мод-костюма контрактора"
-  description: "Пара рукавиць, створених для мод-костюма контрактора."
+  name: Contractor modsuit gauntlets
+  description: A pair of gauntlets made for the Contractor modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -79,8 +79,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseSyndicateContraband]
   id: ClothingModsuitHelmetContractor
-  name: "шолом мод-костюма контрактора"
-  description: "Сучасний шолом, розроблений Синдикатом для мод-костюма контрактора. Має вбудований HUD."
+  name: Contractor modsuit helmet
+  description: A state-of-the-art helmet designed by the Syndicate for the Contractor modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -173,8 +173,8 @@
 - type: entity
   parent: [ClothingModsuitChestplateStandard, BaseSyndicateContraband]
   id: ClothingModsuitChestplateContractor
-  name: "нагрудник мод-костюма контрактора"
-  description: "Сучасний нагрудник, розроблений Синдикатом для мод-костюма контрактора. Має силові серводвигуни, що зменшують навантаження від спорядження."
+  name: Contractor modsuit chestplate
+  description: A state of the art chestplate designed by the Syndicate for the Contractor modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -228,8 +228,8 @@
 - type: entity
   parent: [ClothingModsuitBootsStandard, BaseSyndicateContraband]
   id: ClothingModsuitBootsContractor
-  name: "черевики мод-костюма контрактора"
-  description: "Сучасна пара магчобіт для мод-костюма контрактора. Поки костюм має живлення, вони не уповільнюватимуть носія."
+  name: Contractor modsuit boots
+  description: A state-of-the-art pair of magboots for the Contractor modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

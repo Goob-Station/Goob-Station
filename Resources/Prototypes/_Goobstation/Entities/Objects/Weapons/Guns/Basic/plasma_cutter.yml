@@ -8,10 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "плазмовий різак"
+  name: plasma cutter
   parent: BaseWeaponBatterySmall
   id: WeaponPlasmaCutter
-  description: "Зброя самозахисту, яка виснажує органічні цілі, послаблюючи їх аж до руйнування."
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cutter.rsi

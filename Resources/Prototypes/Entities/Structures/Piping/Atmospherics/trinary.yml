@@ -146,8 +146,8 @@
 - type: entity
   parent: GasFilterBase
   id: GasFilter
-  name: "газовий фільтр"
-  description: "Дуже корисний для фільтрації газів."
+  name: gas filter
+  description: Very useful for filtering gases.
   components:
   - type: Flippable
     mirrorEntity: GasFilterFlipped
@@ -183,8 +183,8 @@
 - type: entity
   parent: GasTrinaryBase
   id: GasMixer
-  name: "газозмішувач"
-  description: "Дуже корисний для змішування газів."
+  name: gas mixer
+  description: Very useful for mixing gases.
   placement:
     mode: SnapgridCenter
   components:
@@ -245,7 +245,7 @@
 - type: entity
   parent: GasMixer
   id: GasMixerFlipped
-  name: "газозмішувач"
+  name: gas mixer
   suffix: Flipped
   placement:
     mode: SnapgridCenter
@@ -298,8 +298,8 @@
 - type: entity
   parent: GasPipeBase
   id: PressureControlledValve
-  name: "пневматичний клапан"
-  description: "Двонаправлений клапан, керований тиском. Відкривається, якщо тиск у вихідній трубі нижчий за тиск у контрольній трубі на 101.325 кПа."
+  name: pneumatic valve
+  description: A bidirectional valve controlled by pressure. Opens if the output pipe is lower than the pressure of the control pipe by 101.325 kPa.
   placement:
     mode: SnapgridCenter
   components:

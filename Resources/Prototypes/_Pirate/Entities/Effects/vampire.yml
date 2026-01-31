@@ -1,5 +1,5 @@
 - type: entity
-  name: "Висмоктування крові"
+  name: Blood Drain
   id: beam_blooddrain
   categories: [ HideSpawnMenu ]
   components:

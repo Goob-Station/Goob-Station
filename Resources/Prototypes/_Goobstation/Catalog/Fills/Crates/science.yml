@@ -11,8 +11,8 @@
 - type: entity
   id: CrateScienceModsuitCoresFilled
   parent: CrateScienceSecure
-  name: "Ящик для сердечників MOD"
-  description: "Містить три ядра MOD всередині."
+  name: MOD cores crate
+  description: Contains three MOD cores inside.
   components:
   - type: StorageFill
     contents:

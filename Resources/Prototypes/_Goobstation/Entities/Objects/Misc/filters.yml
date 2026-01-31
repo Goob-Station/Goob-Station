@@ -8,8 +8,8 @@
   abstract: true
   parent: BaseItem
   id: BaseAutomationFilter
-  name: "фільтр"
-  description: "Фільтр, який можна встановити в заводські машини."
+  name: filter
+  description: A filter that can be installed in factory machines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/filter.rsi
@@ -36,8 +36,8 @@
 - type: entity
   parent: BaseAutomationFilter
   id: AutomationFilterLabel
-  name: "фільтр міток"
-  description: "Фільтр, який можна встановити в заводські машини. Цей сканує мітки прикріплених предметів."
+  name: label filter
+  description: A filter that can be installed in factory machines. This one scans labels of attached items.
   components:
   - type: LabelFilter
   - type: ActivatableUI
@@ -52,8 +52,8 @@
 - type: entity
   parent: BaseAutomationFilter
   id: AutomationFilterName
-  name: "фільтр назв"
-  description: "Фільтр, який можна встановити в заводські машини. Цей використовує складну технологію комп'ютерного зору для ідентифікації предметів."
+  name: name filter
+  description: A filter that can be installed in factory machines. This one uses complex AI vision technology to identify items.
   components:
   - type: NameFilter
   - type: ActivatableUI
@@ -68,8 +68,8 @@
 - type: entity
   parent: BaseAutomationFilter
   id: AutomationFilterStack
-  name: "фільтр стопок"
-  description: "Фільтр, який можна встановити в заводські машини. Цей зважує предмети, щоб порівняти їх з розміром стопки."
+  name: stack filter
+  description: A filter that can be installed in factory machines. This one weighs items to compare it to a stack size.
   components:
   - type: StackFilter
   - type: ActivatableUI
@@ -84,8 +84,8 @@
 - type: entity
   parent: BaseAutomationFilter
   id: AutomationFilterPressure
-  name: "фільтр тиску"
-  description: "Фільтр, який можна встановити в заводські машини. Цей має барометр для перевірки тиску газів."
+  name: pressure filter
+  description: A filter that can be installed in factory machines. This one has a barometer to check the pressure of gases.
   components:
   - type: PressureFilter
   - type: ActivatableUI
@@ -100,8 +100,8 @@
 - type: entity
   parent: BaseAutomationFilter
   id: AutomationFilterCombined
-  name: "комбінований фільтр"
-  description: "Фільтр, який можна встановити в заводські машини. Цей використовує логічний вентиль для комбінування 2 встановлених фільтрів предметів."
+  name: combined filter
+  description: A filter that can be installed in factory machines. This one uses a logic gate to combine 2 installed item filters.
   components:
   - type: CombinedFilter
   - type: ItemSlots
@@ -126,8 +126,8 @@
 - type: entity
   parent: BaseAutomationFilterToggled
   id: AutomationFilterAnchor
-  name: "фільтр якоря"
-  description: "Фільтр, який можна встановити в заводських машинах. Цей виявляє об'єкт, що можна закріпити, і його стан: закріплений чи ні."
+  name: anchor filter
+  description: A filter that can be installed in factory machines. This one detects an anchorable object, and it being anchored or not.
   components:
   - type: AnchorFilter
   - type: ToggleExamine
@@ -139,8 +139,8 @@
 - type: entity
   parent: BaseAutomationFilter
   id: AutomationFilterMob
-  name: "фільтр мобів"
-  description: "Фільтр, який можна встановити в заводських машинах. Цей виявляє живих істот і фільтрує за станами: живий, у критичному стані або мертвий."
+  name: mob filter
+  description: A filter that can be installed in factory machines. This one detects living creatures and filters based on alive, critical or dead states.
   components:
   - type: MobFilter
   - type: ActivatableUI
@@ -155,8 +155,8 @@
 - type: entity
   parent: BaseAutomationFilterToggled
   id: AutomationFilterCuff
-  name: "фільтр наручників"
-  description: "Фільтр, який можна встановити в заводських машинах. Цей виявляє, чи зв'язані люди... хто це зробив!?"
+  name: cuff filter
+  description: A filter that can be installed in factory machines. This one detects whether people are restrained... who made this!?
   components:
   - type: CuffFilter
   - type: ToggleExamine

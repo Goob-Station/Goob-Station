@@ -10,7 +10,7 @@
 - type: entity
   parent: SeatBase
   id: FitnessWeightsBench1
-  name: "гирьова лавка"
+  name: weights bench
   components:
   - type: Transform
     anchored: true
@@ -25,7 +25,7 @@
 - type: entity
   parent: FitnessWeightsBench1
   id: FitnessWeightLifter
-  name: "штанга"
+  name: weight lifter
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -41,8 +41,8 @@
 - type: entity
   id: FitnessPunchingBagBopClown
   parent: BaseStructure
-  name: "клоунська боп-сумка"
-  description: "Сумка для фітнес-тренувань із зображенням клоуна."
+  name: clown bop bag
+  description: A fitness training bag with a clown printed on it.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -51,8 +51,8 @@
 - type: entity
   id: FitnessPunchingBag
   parent: BaseStructure
-  name: "боксерська груша"
-  description: "Фітнес-сумка для тренувань."
+  name: punching bag
+  description: A fitness training bag.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -62,7 +62,7 @@
   id: FitnessPunchingBagCaptain
   parent: FitnessPunchingBag
   suffix: captain
-  description: "Сумка для фітнес-тренувань з надрукованим на ній капітаном."
+  description: A fitness training bag with a captain printed on it.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -72,7 +72,7 @@
   id: FitnessPunchingBagSyndicate
   parent: FitnessPunchingBag
   suffix: syndicate
-  description: "Сумка для фітнес-тренувань, на якій надруковано агента синдикату."
+  description: A fitness training bag with a syndicate agent printed on it.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -82,7 +82,7 @@
   id: FitnessPunchingBagWizard
   parent: FitnessPunchingBag
   suffix: wizard
-  description: "Сумка для фітнес-тренувань з надрукованим на ній майстром."
+  description: A fitness training bag with a wizard printed on it.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi

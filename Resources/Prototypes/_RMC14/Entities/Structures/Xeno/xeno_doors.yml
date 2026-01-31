@@ -1,8 +1,8 @@
 - type: entity
   parent: CMBaseXenoStructure
   id: DoorXenoResin
-  name: "смоляні двері"
-  description: "Це смоляні двері."
+  name: resin door
+  description: That's a resin door.
   placement:
     mode: SnapgridCenter
   components:
@@ -71,8 +71,8 @@
 - type: entity
   parent: DoorXenoResin
   id: DoorXenoResinThick
-  name: "товсті смоляні двері"
-  description: "Товсті смоляні двері, які є більш міцними."
+  name: thick resin door
+  description: A thick resin door, which is more durable.
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_resin_door.rsi

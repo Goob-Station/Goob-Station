@@ -59,7 +59,7 @@
 - type: entity
   parent: PinpointerStationGoob
   id: PinpointerStationUnremoveable
-  description: "Ти - станція. Знайди себе. Натисни E, щоб активувати."
+  description: You are the station. Find yourself. Press E to activate.
   suffix: Unremoveable
   components:
   - type: Unremoveable

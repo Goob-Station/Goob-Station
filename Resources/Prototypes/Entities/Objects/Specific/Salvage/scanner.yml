@@ -7,8 +7,8 @@
 - type: entity
   id: MineralScannerUnpowered
   parent: BaseItem
-  name: "сканер мінералів"
-  description: "Сканер, що перевіряє навколишні породи на наявність корисних мінералів. Він має бути у вашій руці або кишені, щоб працювати."
+  name: mineral scanner
+  description: A scanner that checks surrounding rock for useful minerals. It must be in your hand or pocket to work.
   suffix: Always Powered
   components:
   - type: Sprite
@@ -68,8 +68,8 @@
 - type: entity
   id: AdvancedMineralScannerUnpowered
   parent: MineralScannerUnpowered
-  name: "вдосконалений сканер мінералів"
-  description: "Сканер, що перевіряє навколишні породи на наявність корисних мінералів. Він має бути у вашій руці або кишені, щоб працювати. Цей має розширений радіус дії."
+  name: advanced mineral scanner
+  description: A scanner that checks surrounding rock for useful minerals. It must be in your hand or pocket to work. This one has an extended range.
   suffix: Always Powered
   components:
   - type: Sprite

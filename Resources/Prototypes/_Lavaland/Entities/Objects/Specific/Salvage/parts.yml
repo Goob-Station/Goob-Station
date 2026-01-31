@@ -1,8 +1,8 @@
 - type: entity
   id: CrusherUpgradeFrame
   parent: BaseItem
-  name: "рама покращення дробарки"
-  description: "Порожня рама для основного покращення дробарки; може вміщувати есенцію вмираючих створінь Лаваленду, щоб використовувати їхню енергію для покращень."
+  name: crusher upgrade frame
+  description: An empty frame for the main crusher upgrade, can hold essence of dying lavaland creatures to use their energy for upgrades.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi

@@ -6,7 +6,7 @@
   parent: FoodInjectableBase
   id: FoodBreakfastBase
   abstract: true
-  description: "Повноцінний сніданок, прокидайся та співай!"
+  description: A full breakfast, rise and shine!
   components:
   - type: Item
     storedRotation: -90
@@ -26,10 +26,10 @@
 # Breakfasts
 
 - type: entity
-  name: "повний американський сніданок"
+  name: full american breakfast
   parent: FoodBreakfastBase
   id: FoodBreakfastAmerican
-  description: "Величезна тарілка білків та вуглеводів, яка з більшою ймовірністю поверне вас у ліжко, ніж підніме з нього. О, що це за свіже пекло?"
+  description: A huge plate of protein and carbs, more likely to put you back in bed than get you out of it. Oh, what fresh hell is this?
   components:
   - type: FlavorProfile
     flavors:
@@ -38,10 +38,10 @@
     state: fullamerican
 
 - type: entity
-  name: "повний англійський сніданок"
+  name: full english breakfast
   parent: FoodBreakfastBase
   id: FoodBreakfastEnglish
-  description: "Величезна тарілка білків та вуглеводів, яка з більшою ймовірністю поверне вас у ліжко, ніж підніме з нього. Не згадуйте про війну!"
+  description: A huge plate of protein and carbs, more likely to put you back in bed than get you out of it. Don't mention the war!
   components:
   - type: FlavorProfile
     flavors:

@@ -15,7 +15,7 @@
   parent:
   - BaseMobSpeciesOrganic
   id: MobShadowkinBase
-  name: "Уріст Макшедоу"
+  name: Urist McShadow
   abstract: true
   components:
   - type: LanguageKnowledge # Einstein Engines - Language
@@ -244,7 +244,7 @@
   parent: MobHumanDummy
   id: MobShadowkinDummy
   categories: [ HideSpawnMenu ]
-  description: "Манекен шедовкіна, призначений для використання в налаштуванні персонажа."
+  description: A dummy shadowkin meant to be used in character setup.
   components:
     - type: HumanoidAppearance
       species: Shadowkin

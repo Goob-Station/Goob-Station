@@ -55,8 +55,8 @@
 - type: entity
   parent: BaseRubberToy
   id: ToyRubberDuck
-  name: "гумова качечка"
-  description: "Не принесена сюди океанськими течіями."
+  name: rubber ducky
+  description: Not carried here by ocean currents.
   components:
   - type: Sprite
     sprite: Objects/Fun/ducky.rsi
@@ -90,8 +90,8 @@
 - type: entity
   parent: BaseRubberToy
   id: RubberChicken
-  name: "гумова курка"
-  description: "Стресова пародія на найсмачнішу пташку природи."
+  name: rubber chicken
+  description: A stress inducing parody of nature's most delectable avian.
   components:
   - type: Sprite
     sprite: Objects/Fun/rubber_chicken.rsi
@@ -133,8 +133,8 @@
 - type: entity
   parent: BaseItem
   id: BaseFigurineCheapo
-  name: "статуетка"
-  description: "Маленька мініатюра."
+  name: figurine
+  description: A small miniature.
   abstract: true
   components:
   - type: PhysicalComposition
@@ -149,8 +149,8 @@
 - type: entity
   parent: BaseFigurineCheapo
   id: ToyAi
-  name: "іграшковий ШІ"
-  description: "Зменшене ядро іграшкового АІ."
+  name: AI toy
+  description: A scaled-down toy AI core.
   components:
   - type: Sprite
     sprite: Objects/Fun/AI.rsi
@@ -168,8 +168,8 @@
 - type: entity
   parent: BaseFigurineCheapo
   id: ToyNuke
-  name: "ядерна іграшка"
-  description: "Пластикова модель ядерної бомби. Без урану в складі... напевно."
+  name: nuke toy
+  description: A plastic model of a Nuclear Fission Explosive. No uranium included... probably.
   components:
   - type: Sprite
     sprite: Objects/Fun/toy_nuke.rsi
@@ -210,8 +210,8 @@
 - type: entity
   parent: BasePlushie
   id: ToyIan
-  name: "іграшка Іана"
-  description: "Не може їсти, але такий же пухнастий, як справжній хлопець!"
+  name: ian toy
+  description: Unable to eat, but just as fluffy as the real guy!
   components:
   - type: Sprite
     sprite: Objects/Fun/toy_ian.rsi
@@ -268,8 +268,8 @@
 - type: entity
   parent: FoamWeaponBase
   id: FoamCrossbow
-  name: "пінопластовий арбалет"
-  description: "Спрямувавши його на службу безпеки, ви можете наїстися свинцю."
+  name: foam crossbow
+  description: Aiming this at Security may get you filled with lead.
   components:
   - type: Sprite
     sprite: Objects/Fun/Foam/foam_crossbow.rsi
@@ -299,8 +299,8 @@
 - type: entity
   parent: BaseItem
   id: ToyGunBase
-  name: "ToyGunBase"
-  description: "Корінцевий зубастий і пагонистий."
+  name: ToyGunBase
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -308,8 +308,8 @@
 - type: entity
   parent: ToyGunBase
   id: RevolverCapGun
-  name: "іграшковий пістолет"
-  description: "Виглядає майже як справжній! Від 8 років і старше."
+  name: cap gun
+  description: Looks almost like the real thing! Ages 8 and up.
   components:
   - type: Sprite
     sprite: Objects/Fun/capgun.rsi
@@ -355,9 +355,9 @@
 - type: entity
   parent: RevolverCapGun
   id: RevolverCapGunFake
-  name: "іграшковий пістолет"
+  name: cap gun
   suffix: Fake
-  description: "Виглядає майже як справжній! Від 8 років і старше."
+  description: Looks almost like the real thing! Ages 8 and up.
   components:
   - type: RevolverAmmoProvider
     whitelist:
@@ -371,8 +371,8 @@
 - type: entity
   parent: BaseItem
   id: FoamBlade
-  name: "піноблейд"
-  description: "На ньому написано \"Найвідданійший фанат Жалослава Перевертовича\"."
+  name: foamblade
+  description: It says "Sternside Changs number 1 fan" on it.
   components:
   - type: Sprite
     sprite: Objects/Fun/Foam/foam_blade.rsi
@@ -401,8 +401,8 @@
 - type: entity
   parent: BaseItem
   id: Basketball
-  name: "баскетбольний м'яч"
-  description: "Де знаходяться суди?"
+  name: basketball
+  description: Where dah courts at?
   components:
   - type: Sprite
     sprite: Objects/Fun/Balls/basketball.rsi
@@ -433,8 +433,8 @@
 - type: entity
   parent: BaseItem
   id: Football
-  name: "футбольний м'яч"
-  description: "Інакше відома як гандеґґ."
+  name: football
+  description: Otherwise known as a handegg.
   components:
   - type: Sprite
     sprite: Objects/Fun/Balls/football.rsi
@@ -463,8 +463,8 @@
 - type: entity
   parent: BaseItem
   id: BeachBall
-  name: "пляжний м'яч"
-  description: "Простий пляжний м'яч - один з найпопулярніших продуктів Nanotrasen. \"Чому ми робимо пляжні м'ячі? Тому що ми можемо! (ТМ)\" - Nanotrasen"
+  name: beach ball
+  description: The simple beach ball is one of Nanotrasen's most popular products. 'Why do we make beach balls? Because we can! (TM)' - Nanotrasen
   components:
   - type: Sprite
     sprite: Objects/Fun/Balls/beach_ball.rsi
@@ -496,8 +496,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonSyn
-  name: "повітряна куля Синдикату "
-  description: "Вручається найсміливішим душам, які пережили атракціон \"атомний твістер\" у \"Сінділенді\"."
+  name: syndie balloon
+  description: Handed out to the bravest souls who survived the "atomic twister" ride at Syndieland.
   components:
   - type: Sprite
     sprite: Objects/Fun/Balloons/syndicate.rsi
@@ -516,8 +516,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonNT
-  name: "повітряна куля НаноТрейзену"
-  description: "Спеціально розроблений, щоб завдати максимальної психологічної шкоди оперативникам Синдикату."
+  name: nanotrasen balloon
+  description: Specially designed to inflict maximum psychological damage to Syndicate operatives.
   components:
   - type: Sprite
     sprite: Objects/Fun/Balloons/nanotrasen.rsi
@@ -534,8 +534,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonCorgi
-  name: "повітряна куля коргі"
-  description: "Це як володіти справжнім собакою - але набагато легше."
+  name: corgi balloon
+  description: Just like owning a real dog - but a lot floatier.
   components:
   - type: Sprite
     sprite: Objects/Fun/Balloons/corgi.rsi
@@ -552,8 +552,8 @@
 - type: entity
   parent: BaseItem
   id: SingularityToy
-  name: "сингулярна брендована іграшка"
-  description: "Масове виробництво садистського корпоративного конгломерату!"
+  name: singuloth-brand toy
+  description: Mass-produced by a sadistic corporate conglomerate!
   components:
   - type: Sprite
     sprite: Objects/Fun/toy_singularity.rsi
@@ -577,8 +577,8 @@
 - type: entity
   parent: BaseItem
   id: TeslaToy
-  name: "Тедді Тесла"
-  description: "Улюблена іграшка великого інженера Ніколи Тесли."
+  name: Teddy Tesla
+  description: The favorite toy of the great engineer Nikola Tesla.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
@@ -611,8 +611,8 @@
 - type: entity
   parent: [ BaseItem, BaseMagicalContraband ]
   id: PonderingOrb
-  name: "сфера роздумів"
-  description: "Обтяжливо, чувак... Дійсно обтяжливо."
+  name: pondering orb
+  description: Ponderous, man... Really ponderous.
   components:
   - type: Sprite
     sprite: Objects/Fun/pondering_orb.rsi
@@ -631,8 +631,8 @@
 - type: entity
   parent: BaseItem
   id: ToySword
-  name: "іграшковий меч"
-  description: "Новий пластиковий меч Sandy-Cat! Поставляється з реалістичним звуком і повним кольором! Виглядає майже як справжній!"
+  name: toy sword
+  description: New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
@@ -700,8 +700,8 @@
 - type: entity
   parent: BasePlushie
   id: ToyAmongPequeno
-  name: "амонг маленький"
-  description: "Сус!"
+  name: among pequeño
+  description: Sus!
   components:
   - type: Sprite
     sprite: Objects/Fun/pequeno.rsi
@@ -737,8 +737,8 @@
 - type: entity
   parent: BaseItem
   id: FoamCutlass
-  name: "пінопластовий ніж"
-  description: "Перевдягніться в пірата і змусьте своїх друзів пройтись по дошці."
+  name: foam cutlass
+  description: Cosplay as a pirate and force your friends to walk the plank.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cutlass.rsi
@@ -761,8 +761,8 @@
 - type: entity
   parent: BaseItem
   id: CardSword
-  name: "картонний меч"
-  description: "Картонна трубка, перетворена на меч."
+  name: cardboard sword
+  description: A cardboard tube thats been fashioned into a sword.
   components:
   - type: Sprite
     sprite: Objects/Fun/card_sword.rsi
@@ -799,8 +799,8 @@
 - type: entity
   parent: BaseItem
   id: ClownRecorder
-  name: "клоунський диктофон"
-  description: "Коли ти просто не можеш розсміятися природним чином!"
+  name: clown recorder
+  description: When you just can't get those laughs coming the natural way!
   components:
   - type: Sprite
     sprite: Objects/Fun/clownrecorder.rsi
@@ -830,8 +830,8 @@
 - type: entity
   parent: BaseItem
   id: ToyHammer
-  name: "гумовий молоток"
-  description: "Яскраво забарвлений молоток з гуми."
+  name: rubber hammer
+  description: A brightly colored hammer made of rubber.
   components:
   - type: Sprite
     sprite: Objects/Fun/rubber_hammer.rsi
@@ -867,8 +867,8 @@
 - type: entity
   parent: BaseItem
   id: WhoopieCushion
-  name: "подушка-пустушка"
-  description: "Розіграш, пов'язаний з гумором про метеоризм."
+  name: whoopie cushion
+  description: A practical joke device involving flatulence humour.
   components:
   - type: Sprite
     sprite: Objects/Fun/whoopie.rsi
@@ -940,10 +940,10 @@
         - ItemMask
 
 - type: entity
-  name: "банан"
+  name: banana
   parent: FoodProduceBase
   id: PlasticBanana
-  description: "Пластиковий банан."
+  description: A plastic banana.
   suffix: Plastic
   components:
   - type: Sprite
@@ -965,8 +965,8 @@
 - type: entity
   parent: DrinkBase
   id: CrazyGlue
-  name: "божевільний клей"
-  description: "Пляшка шаленого клею виробництва Honk! Co."
+  name: crazy glue
+  description:  A bottle of crazy glue manufactured by Honk! Co.
   components:
   - type: Sprite
     sprite: Objects/Fun/glue.rsi
@@ -1004,8 +1004,8 @@
 - type: entity
   parent: BaseItem
   id: NewtonCradle
-  name: "ньютонівська колиска"
-  description: "Пристрій, яким користуються нудьгуючі штовхачі паперу, щоб нагадати собі, що час ще не зупинився. Містить гравітацію."
+  name: newton cradle
+  description: A device bored paper pushers use to remind themselves that time did not stop yet. Contains gravity.
   components:
   - type: Sprite
     sprite: Objects/Fun/newton_cradle.rsi

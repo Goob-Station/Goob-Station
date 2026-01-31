@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: MaterialWatcherWing
-  name: "крило спостерігача"
-  description: "Вони міцні й водночас легко зливаються докупи — це має бути чудовим матеріалом для нових інструментів."
+  name: watcher's wing
+  description: They are tough and yet easily merge together, it should be a great material for new tools.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Materials/watcher.rsi
@@ -41,8 +41,8 @@
 - type: entity
   parent: BaseItem
   id: MaterialWatcherMagmaWing
-  name: "крило магмового спостерігача"
-  description: "Крило з магмою, що тече всередині. Вони міцні й водночас легко зливаються докупи — це має бути чудовим матеріалом для нових інструментів."
+  name: watcher's magma wing
+  description: A wing with magma flowing inside. They are tough and yet easily merge together, it should be a great material for new tools.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Materials/watcher.rsi
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseItem
   id: MaterialWatcherIceWing
-  name: "крило крижаного спостерігача"
-  description: "Крило, зроблене з льоду, але якимось чином воно відмовляється танути. Вони міцні й водночас легко зливаються докупи — це має бути чудовим матеріалом для нових інструментів."
+  name: watcher's ice wing
+  description: A wing that is made out of ice, but it somehow refuses to melt. They are tough and yet easily merge together, it should be a great material for new tools.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Materials/watcher.rsi
@@ -123,8 +123,8 @@
 - type: entity
   parent: BaseItem
   id: MaterialLegionSkull
-  name: "череп Легіону"
-  description: "Сірий деформований череп давно загиблого гуманоїда. Лише на мить вам здалося, що він дивиться прямо у вашу душу."
+  name: legion skull
+  description: A grey deformed skull of a long gone humanoid. Just for a brief moment, you felt like it is staring right at your soul.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Materials/legion.rsi

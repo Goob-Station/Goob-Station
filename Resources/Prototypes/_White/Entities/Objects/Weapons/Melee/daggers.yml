@@ -8,8 +8,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ніж зради"
-  description: "Стережись!"
+  name: betrayal knife
+  description: Watch your back!
   parent: [BaseKnife, BaseSyndicateContraband]
   id: BetrayalKnife
   components:

@@ -1,9 +1,9 @@
 - type: entity
   parent: BaseStructure
   id: WallFlockBase
-  name: "дивна скляна стіна"
+  name: strange glass wall
   abstract: true
-  description: "Зсередини чути слабке гудіння."
+  description: You can hear faint humming coming from within.
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -408,8 +408,8 @@
   parent: BaseStructure
   id: WallDiagonalFeatherZone
   suffix: Diagonal
-  name: "дивна скляна стіна"
-  description: "Зсередини чути слабке гудіння."
+  name: strange glass wall
+  description: You can hear faint humming coming from within.
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -491,7 +491,7 @@
 - type: entity
   parent: WallFlockBase
   id: WallFeatherZoneShuttle1
-  name: "дивна стіна шатла"
+  name: strange shuttle wall
   components:
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
@@ -500,7 +500,7 @@
 - type: entity
   parent: WallFlockBase
   id: WallFeatherZoneShuttle2
-  name: "дивна стіна шатла"
+  name: strange shuttle wall
   components:
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi

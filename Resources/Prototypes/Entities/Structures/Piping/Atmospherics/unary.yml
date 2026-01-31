@@ -118,8 +118,8 @@
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
   id: GasVentPump
-  name: "вентиляційний отвір"
-  description: "Накачує газ у кімнату."
+  name: air vent
+  description: Has a valve and a pump attached to it.
   placement:
     mode: SnapgridCenter
   components:
@@ -184,8 +184,8 @@
 - type: entity
   parent: GasUnaryBase
   id: GasPassiveVent
-  name: "пасивна вентиляція"
-  description: "Непривідний вентилятор, який вирівнює гази з обох боків."
+  name: passive vent
+  description: It's an open vent.
   placement:
     mode: SnapgridCenter
   components:
@@ -225,8 +225,8 @@
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
   id: GasVentScrubber
-  name: "очищувач повітря"
-  description: "Всмоктує газ у під'єднані труби."
+  name: air scrubber
+  description: Has a valve and pump attached to it.
   placement:
     mode: SnapgridCenter
   components:
@@ -291,8 +291,8 @@
 - type: entity
   parent: GasUnaryBase
   id: GasOutletInjector
-  name: "інжектор повітря"
-  description: "Всмоктує газ у під'єднані труби."
+  name: air injector
+  description: Has a valve and pump attached to it.
   placement:
     mode: SnapgridCenter
   components:
@@ -343,7 +343,7 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: BaseGasThermoMachine
-  name: "термомашина"
+  name: thermomachine
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -398,8 +398,8 @@
 - type: entity
   parent: BaseGasThermoMachine
   id: GasThermoMachineFreezer
-  name: "охолоджувач"
-  description: "Охолоджує газ у підключених трубах."
+  name: freezer
+  description: Cools gas in connected pipes.
   placement:
     mode: SnapgridCenter
   components:
@@ -443,8 +443,8 @@
 - type: entity
   parent: BaseGasThermoMachine
   id: GasThermoMachineHeater
-  name: "обігрівач"
-  description: "Нагріває газ у з'єднаних трубах."
+  name: heater
+  description: Heats gas in connected pipes.
   placement:
     mode: SnapgridCenter
   components:
@@ -488,8 +488,8 @@
 - type: entity
   parent: GasThermoMachineFreezer
   id: GasThermoMachineHellfireFreezer
-  name: "морозильна камера hellfire"
-  description: "Удосконалена машина, яка охолоджує газ у з'єднаних трубах. Має побічний ефект охолодження навколишнього середовища. Холодно, як у пеклі!"
+  name: hellfire freezer
+  description: An advanced machine that cools gas in connected pipes. Has the side effect of chilling the surrounding area. Cold as Hell!
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi
@@ -503,8 +503,8 @@
 - type: entity
   parent: GasThermoMachineHeater
   id: GasThermoMachineHellfireHeater
-  name: "пекельний обігрівач"
-  description: "Удосконалена машина, яка нагріває газ у під'єднаних трубах. Має побічний ефект витоку тепла в навколишнє середовище. Гаряче, як у пеклі!"
+  name: hellfire heater
+  description: An advanced machine that heats gas in connected pipes. Has the side effect of leaking heat into the surrounding area. Hot as Hell!
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi
@@ -518,8 +518,8 @@
 - type: entity
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
   id: BaseGasCondenser
-  name: "конденсатор"
-  description: "Конденсує гази в рідину. Тепер нам потрібен водопровід."
+  name: condenser
+  description: Condenses gases into liquids. Now we just need some plumbing.
   placement:
     mode: SnapgridCenter
   components:

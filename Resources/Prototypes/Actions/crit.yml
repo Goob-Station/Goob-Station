@@ -20,8 +20,8 @@
 - type: entity
   parent: BaseCritAction
   id: ActionCritSuccumb
-  name: "Піддайся"
-  description: "Прийми свою долю."
+  name: Succumb
+  description: Accept your fate.
   components:
   - type: Action
     startDelay: true
@@ -35,8 +35,8 @@
 - type: entity
   parent: BaseCritAction
   id: ActionCritFakeDeath
-  name: "Фальшива смерть"
-  description: "Уявіть, що ви робите останній вдих, залишаючись при цьому живим."
+  name: Fake Death
+  description: Pretend to take your final breath while staying alive.
   components:
   - type: Action
     useDelay: 30
@@ -49,8 +49,8 @@
 - type: entity
   parent: ActionCritSuccumb # for use delay
   id: ActionCritLastWords
-  name: "Скажи останні слова"
-  description: "Прошепотіть свої останні слова будь-кому, хто знаходиться поруч, а потім віддайтеся на волю долі. У вас є лише 30 символів для цього."
+  name: Say Last Words
+  description: Whisper your last words to anyone nearby, and then succumb to your fate. You only have 30 characters to work with.
   components:
   - type: Action
     icon:

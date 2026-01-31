@@ -7,9 +7,9 @@
 
 - type: entity
   id: BaseTowel
-  name: "базовий рушник"
+  name: base towel
   abstract: true
-  description: "Якщо ви хочете вижити тут, ви повинні знати, де ваш рушник."
+  description: If you want to survive out here, you gotta know where your towel is.
   parent: [ UnsensoredClothingUniformBase, ClothingHeadBase, ClothingBeltBase ]
   components:
   - type: Sprite
@@ -49,7 +49,7 @@
 
 - type: entity
   id: TowelColorWhite
-  name: "білий рушник"
+  name: white towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -80,7 +80,7 @@
 
 - type: entity
   id: TowelColorPurple
-  name: "фіолетовий рушник"
+  name: purple towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -111,7 +111,7 @@
 
 - type: entity
   id: TowelColorRed
-  name: "червоний рушник"
+  name: red towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -142,7 +142,7 @@
 
 - type: entity
   id: TowelColorBlue
-  name: "синій рушник"
+  name: blue towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -173,7 +173,7 @@
     
 - type: entity
   id: TowelColorDarkBlue
-  name: "темно-синій рушник"
+  name: dark blue towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -204,7 +204,7 @@
 
 - type: entity
   id: TowelColorLightBlue
-  name: "світло-блакитний рушник"
+  name: light blue towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -235,7 +235,7 @@
 
 - type: entity
   id: TowelColorTeal
-  name: "чироковий рушник"
+  name: teal towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -266,7 +266,7 @@
 
 - type: entity
   id: TowelColorBrown
-  name: "коричневий рушник"
+  name: brown towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -297,7 +297,7 @@
 
 - type: entity
   id: TowelColorLightBrown
-  name: "світло-коричневий рушник"
+  name: light brown towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -328,7 +328,7 @@
 
 - type: entity
   id: TowelColorGray
-  name: "сірий рушник"
+  name: gray towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -359,7 +359,7 @@
 
 - type: entity
   id: TowelColorGreen
-  name: "зелений рушник"
+  name: green towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -390,7 +390,7 @@
 
 - type: entity
   id: TowelColorDarkGreen
-  name: "темно-зелений рушник"
+  name: dark green towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -421,7 +421,7 @@
 
 - type: entity
   id: TowelColorGold
-  name: "золотий рушник"
+  name: gold towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -454,7 +454,7 @@
 
 - type: entity
   id: TowelColorOrange
-  name: "помаранчевий рушник"
+  name: orange towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -485,7 +485,7 @@
 
 - type: entity
   id: TowelColorBlack
-  name: "чорний рушник"
+  name: black towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -516,7 +516,7 @@
 
 - type: entity
   id: TowelColorPink
-  name: "рожевий рушник"
+  name: pink towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -547,7 +547,7 @@
 
 - type: entity
   id: TowelColorYellow
-  name: "жовтий рушник"
+  name: yellow towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -578,7 +578,7 @@
 
 - type: entity
   id: TowelColorMaroon
-  name: "бордовий рушник"
+  name: maroon towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -609,7 +609,7 @@
 
 - type: entity
   id: TowelColorSilver
-  name: "срібний рушник"
+  name: silver towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -642,7 +642,7 @@
 
 - type: entity
   id: TowelColorMime
-  name: "безшумний рушник"
+  name: silent towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -675,7 +675,7 @@
 
 - type: entity
   id: TowelColorNT
-  name: "Рушник торгової марки NanoTrasen"
+  name: NanoTrasen brand towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -710,7 +710,7 @@
 
 - type: entity
   id: TowelColorCentcom
-  name: "рушник centcom"
+  name: centcom towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -743,7 +743,7 @@
 
 - type: entity
   id: TowelColorSyndicate
-  name: "синдикатський рушник"
+  name: syndicate towel
   parent: [ BaseTowel, BaseSyndicateContraband ]
   components:
   - type: Sprite

@@ -6,8 +6,8 @@
 
 - type: entity
   id: TimelineDisruptor
-  name: "руйнівник часової лінії"
-  description: "Пристрій, здатний витягувати об'єкт, розміщений всередині, з поточної шкали часу."
+  name: timeline disruptor
+  description: A device capable of extracting an object placed inside from the current timeline.
   placement:
     mode: SnapgridCenter
   components:

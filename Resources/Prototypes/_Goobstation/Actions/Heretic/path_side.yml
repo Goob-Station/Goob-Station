@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticIceSpear
-  name: "Таємниці Створення"
-  description: "Активуйте, щоб створити Льодовиковий Спис або викликати вже існуючий."
+  name: Mysteries of Creation
+  description: Activate to create the Glacier Spear or summon already existing spear.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticCleave
-  name: "Розсічення"
-  description: "Спричиняє сильну кровотечу у цілі та кількох цілей навколо неї."
+  name: Cleave
+  description: Causes severe bleeding on a target and several targets around them.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

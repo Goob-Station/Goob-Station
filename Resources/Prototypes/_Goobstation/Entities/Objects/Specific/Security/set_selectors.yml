@@ -11,8 +11,8 @@
 
 - type: entity
   id: HeadOfSecurityWeaponUndetermined
-  name: "Коробка серії X-00"
-  description: "Невеликий пульт, що використовує технологію блюспейс для доставки зброї серії X-00 прямо до вас. Обирайте мудро."
+  name: X-00 Series Box
+  description: A small remote utilizing bluespace technology to drop in a weapon from the X-00 series to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite

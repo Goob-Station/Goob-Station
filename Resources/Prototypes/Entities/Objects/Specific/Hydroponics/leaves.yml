@@ -88,10 +88,10 @@
 # Leaves
 
 - type: entity
-  name: "листя конопель"
+  name: cannabis leaves
   parent: ProduceBase
   id: LeavesCannabis
-  description: "Нещодавно легалізований у більшості галактик."
+  description: "Recently legalized in most galaxies."
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/cannabis.rsi
@@ -116,10 +116,10 @@
 
 
 - type: entity
-  name: "сушене листя конопель"
+  name: dried cannabis leaves
   parent: BaseItem
   id: LeavesCannabisDried
-  description: "Висушене листя конопель, готове до подрібнення."
+  description: "Dried cannabis leaves, ready to be ground."
   components:
   - type: Stack
     stackType: LeavesCannabisDried
@@ -135,10 +135,10 @@
     state: dried
 
 - type: entity
-  name: "мелений канабіс"
+  name: ground cannabis
   parent: BaseItem
   id: GroundCannabis
-  description: "Мелений канабіс, готовий взяти вас у подорож."
+  description: "Ground cannabis, ready to take you on a trip."
   components:
   - type: Stack
     stackType: GroundCannabis
@@ -163,10 +163,10 @@
     size: Tiny
 
 - type: entity
-  name: "райдужні листя канабісу"
+  name: rainbow cannabis leaves
   parent: LeavesCannabis
   id: LeavesCannabisRainbow
-  description: "Вона має так світитися...?"
+  description: "Is it supposed to be glowing like that...?"
   components:
   - type: Sprite
     layers:
@@ -208,10 +208,10 @@
         name: food-sequence-content-rainbow-cannabis
 
 - type: entity
-  name: "сушене листя райдужної коноплі"
+  name: dried rainbow cannabis leaves
   parent: LeavesCannabisDried
   id: LeavesCannabisRainbowDried
-  description: "Висушене райдужне листя канабісу, готове до подрібнення."
+  description: "Dried rainbow cannabis leaves, ready to be ground."
   components:
   - type: Stack
     stackType: LeavesCannabisRainbowDried
@@ -238,10 +238,10 @@
     state: dried
 
 - type: entity
-  name: "мелений райдужний канабіс"
+  name: ground rainbow cannabis
   parent: GroundCannabis
   id: GroundCannabisRainbow
-  description: "Мелений райдужний канабіс, готовий до подорожі."
+  description: "Ground rainbow cannabis, ready to take you on a trip."
   components:
   - type: Stack
     stackType: GroundCannabisRainbow
@@ -271,10 +271,10 @@
     node: groundRainbow
 
 - type: entity
-  name: "чайне листя"
+  name: tea leaves
   parent: ProduceBase
   id: LeavesTea
-  description: "Можна висушити для приготування чаю."
+  description: "Can be dried out to make tea."
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tea_plant.rsi
@@ -288,10 +288,10 @@
           Quantity: 2
 
 - type: entity
-  name: "сушене чайне листя"
+  name: dried tea leaves
   parent: ProduceBase
   id: LeavesTeaDried
-  description: "Сушене чайне листя, готове до подрібнення."
+  description: "Dried tea leaves, ready to be ground."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -304,10 +304,10 @@
     state: dried
 
 - type: entity
-  name: "тютюнове листя"
+  name: tobacco leaves
   parent: ProduceBase
   id: LeavesTobacco
-  description: "Висушіть їх, щоб вийшло трохи диму."
+  description: "Dry them out to make some smokes."
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
@@ -315,10 +315,10 @@
     seedId: tobacco
 
 - type: entity
-  name: "сушене листя тютюну"
+  name: dried tobacco leaves
   parent: BaseItem
   id: LeavesTobaccoDried
-  description: "Висушене листя тютюну, готове до подрібнення."
+  description: "Dried tobacco leaves, ready to be ground."
   components:
   - type: Stack
     stackType: LeavesTobaccoDried
@@ -334,10 +334,10 @@
     state: dried
 
 - type: entity
-  name: "мелений тютюн"
+  name: ground tobacco
   parent: BaseItem
   id: GroundTobacco
-  description: "Мелений тютюн, ідеально підходить для ручного скручування сигарет."
+  description: "Ground tobacco, perfect for hand-rolled cigarettes."
   components:
   - type: Stack
     stackType: GroundTobacco

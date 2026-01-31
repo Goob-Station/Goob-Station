@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: EchionCanister
-  name: "Каністра з Ехіоном"
-  description: "Спеціальний одноразовий контейнер, призначений для швидкої дозаправки плазмової зброї Ехіоном."
+  name: Echion Canister
+  description: A special, disposable containment device designed for quickly refueling Echion plasma weapons.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Ammunition/Magazine/Special/echioncanister.rsi

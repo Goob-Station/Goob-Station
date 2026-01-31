@@ -96,8 +96,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunny
-  name: "кролячі вушка"
-  description: "Милі кролячі вушка."
+  name: bunny ears
+  description: Cute bunny ears.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/bunny.rsi
@@ -107,8 +107,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCake
-  name: "капелюшок для торта"
-  description: "Ти одягаєш торт собі на голову. Геніально."
+  name: cake hat
+  description: You put the cake on your head. Brilliant.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/cake.rsi
@@ -118,8 +118,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatChickenhead
-  name: "куряча голова"
-  description: "Це куряча голова. Бок, бок, бок!"
+  name: chicken head
+  description: "It's a chicken head. Bok bok bok!"
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/chickenhead.rsi
@@ -136,8 +136,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFlowerWreath
-  name: "квітковий вінок"
-  description: "Вінок з різнокольорових квітів. Можна носити як на голові, так і на шиї."
+  name: flower wreath
+  description: A wreath of colourful flowers. Can be worn both on head and neck.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/flower-wreath.rsi
@@ -153,8 +153,8 @@
 - type: entity
   parent: ClothingHeadLightBase
   id: ClothingHeadHatPumpkin
-  name: "гарбузовий капелюх"
-  description: "Ліхтар Джека! Вважається, що він відганяє злих духів."
+  name: pumpkin hat
+  description: A jack o' lantern! Believed to ward off evil spirits.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/pumpkin.rsi
@@ -184,8 +184,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPwig
-  name: "перука"
-  description: "Чесно кажучи, вони виглядають безглуздо."
+  name: pwig
+  description: To be honest, those look ridiculous.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/pwig.rsi
@@ -198,8 +198,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadMirror
-  name: "дзеркало заднього виду"
-  description: "Сумніваюся, що навіть операційний директор знає, як ним користуватися."
+  name: head mirror
+  description: I doubt even the CMO knows how to use this thing.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/head_mirror.rsi
@@ -209,8 +209,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRichard
-  name: "річард"
-  description: "Тобі подобається робити людям боляче?"
+  name: richard
+  description: 'Do you like hurting people?'
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/richard.rsi
@@ -228,8 +228,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSkub
-  name: "скаб-шапка"
-  description: "Найкраще поєднується зі скаб-костюмом."
+  name: skub hat
+  description: 'Best paired with the Skub Suit.'
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/skubhead.rsi
@@ -246,8 +246,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatShrineMaidenWig
-  name: "перука святої дівиці"
-  description: "На бирці написано: \"Всі виручені кошти йдуть до храму Хакурей\""
+  name: shrine maiden's wig
+  description: The tag reads "All proceeds go to the Hakurei Shrine."
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/shrine-maidens-wig.rsi
@@ -266,8 +266,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCone
-  name: "дорожній конус"
-  description: "Цей конус намагається вас про щось попередити!"
+  name: warning cone
+  description: This cone is trying to warn you of something!
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/cone.rsi
@@ -284,8 +284,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFancyCrown
-  name: "вигадлива корона"
-  description: "Смердить дохлим щуром. Дозволяє тобі говорити, як щур!"
+  name: fancy crown
+  description: It smells like dead rat. Lets you speak like one!
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/fancycrown.rsi
@@ -301,8 +301,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHatCatEars
-  name: "котячі вуха"
-  description: "НЯВ!"
+  name: cat ears
+  description: "NYAH!"
   categories: [ DoNotMap ]
   components:
   - type: Tag
@@ -341,14 +341,14 @@
 - type: entity
   parent: BaseToggleAction
   id: ActionBecomeValid
-  name: "Стати дійсним"
-  description: "*Що це?"
+  name: Become Valid
+  description: "*notices your killsign* owo whats this"
 
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatDogEars
-  name: "собачі вушка"
-  description: "Тільки для хороших хлопчиків."
+  name: doggy ears
+  description: Only for good boys.
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -361,8 +361,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSquid
-  name: "кальмарчик"
-  description: "Налякайте своїх друзів цією жахлпивою маскою."
+  name: squiddy
+  description: "Scare your friends with this eldritch mask."
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/squiddy.rsi
@@ -380,8 +380,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRedRacoon
-  name: "шапка червоного єнота"
-  description: "Пухнаста шапка рудого єнота!"
+  name: red racoon hat
+  description: Fluffy hat of red racoon!
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/red_racoon.rsi
@@ -397,8 +397,8 @@
 - type: entity
   parent: Clothing
   id: WaterDropletHat
-  name: "крапля води"
-  description: "Робить 8-оких друзів у 8 разів чарівнішими!"
+  name: water droplet
+  description: Makes 8-eyed friends 8 times more adorable!
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/waterdroplet.rsi
@@ -455,8 +455,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHairflower
-  name: "квітка у волосся"
-  description: "Красива квітка, яку можна вставити між пасмами волосся."
+  name: hairflower
+  description: A beautiful hairflower that can be inserted between locks of hair.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/hairflower.rsi
@@ -466,8 +466,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPerformerWig
-  name: "перука артиста"
-  description: "При ближчому огляді виявляється, що вона зроблена з оптоволокна."
+  name: performer's wig
+  description: On a closer inspection, it appears that it is made from optic fiber.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/performer-wig.rsi

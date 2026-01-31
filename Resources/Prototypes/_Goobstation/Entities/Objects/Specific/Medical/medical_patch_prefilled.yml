@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseMedicalPatch
   id: MedicalPatchPrefilledBase
-  name: "попередньо заповнений медичний пластир"
-  description: "Медичний пластир, заповнений хімікатами"
+  name: prefilled medical patch
+  description: Medical patch filled with chemicals
   abstract: true
   components:
   - type: Sprite
@@ -107,7 +107,7 @@
 - type: entity
   parent: MedicalPatchPrefilledBase
   id: MedicalPatchPrefilledBicaridine
-  name: "пластир від грубої сили"
+  name: brute patch
   suffix: Bicaridine
   components:
   - type: Label
@@ -123,7 +123,7 @@
 - type: entity
   parent: MedicalPatchPrefilledBase
   id: MedicalPatchPrefilledDermaline
-  name: "пластир від опіків"
+  name: burn patch
   suffix: Dermaline
   components:
   - type: Label

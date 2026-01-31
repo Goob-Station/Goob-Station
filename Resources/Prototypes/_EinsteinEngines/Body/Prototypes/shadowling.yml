@@ -1,6 +1,6 @@
 - type: body
   id: Shadowling
-  name: "Тіньовик"
+  name: Shadowling
   root: chest
   slots:
     head:

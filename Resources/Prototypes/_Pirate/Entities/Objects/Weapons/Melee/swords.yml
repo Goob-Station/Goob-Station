@@ -2,9 +2,9 @@
 - type: entity
   parent: [CaptainSabre, SolAllianceInfo]
   id: SANMarineSabre
-  name: "шабля соляріанської морської піхоти"
+  name: Solarian marine sabre
   suffix: SAN
-  description: "Пластитанієва кавалерійська шабля, яку видають кожному випускнику соляріанських військових академій. Офіцер без меча — це офіцер не в однострої."
+  description: A plastitanium cavalry sabre, issued to every graduate from Solarian military academies. An officer without a sword is an officer not in uniform.
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Swords/SAN_marine_officer_sword.rsi
@@ -18,9 +18,9 @@
 - type: entity
   parent: [ClothingBeltSheath, SolAllianceInfo]
   id: ClothingBeltSheathSANMarineFilled
-  name: "піхви для соляріанської шаблі"
+  name: Solarian sabre sheath
   suffix: SAN
-  description: "Вишукані піхви, призначені для офіцерського клинка."
+  description: An ornate sheath designed to hold an officer's blade.
   components:
   - type: ContainerFill
     containers:
@@ -28,10 +28,10 @@
       - SANMarineSabre
 
 - type: entity
-  name: "офіцерська шабля соляріанців"
+  name: Solarian officer sabre
   parent: SANMarineSabre
   id: SANOfficerSabre
-  description: "Пластитанієва фехтувальна шабля, яку видають кожному випускнику соляріанських військових академій. Офіцер без меча — це офіцер не в однострої."
+  description: A plastitanium fencing sabre, issued to every graduate from Solarian military academies. An officer without a sword is an officer not in uniform.
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Swords/SAN_officer_sword.rsi
@@ -43,9 +43,9 @@
 - type: entity
   parent: [ClothingBeltSheath, SolAllianceInfo]
   id: ClothingBeltSheathSANOfficerFilled
-  name: "піхви для соляріанської шаблі"
+  name: Solarian sabre sheath
   suffix: SAN
-  description: "Вишукані піхви, призначені для офіцерського клинка."
+  description: An ornate sheath designed to hold an officer's blade.
   components:
   - type: ContainerFill
     containers:

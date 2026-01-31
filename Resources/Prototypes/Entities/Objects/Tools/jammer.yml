@@ -12,10 +12,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "радіоперешкода"
+  name: radio jammer
   parent: [BaseItem, BaseSyndicateContraband]
   id: RadioJammer
-  description: "Цей пристрій при активації виводить з ладу будь-який вихідний радіозв'язок поблизу, а також датчики костюма."
+  description: This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated.
   components:
   - type: Sprite
     sprite: Objects/Devices/jammer.rsi
@@ -67,7 +67,7 @@
 - type: entity
   parent: [RadioJammer, BaseXenoborgContraband]
   id: XenoborgRadioJammer
-  name: "радіоглушилка ксеноборга"
+  name: xenoborg radio jammer
   components:
   - type: ItemSlots
     slots:

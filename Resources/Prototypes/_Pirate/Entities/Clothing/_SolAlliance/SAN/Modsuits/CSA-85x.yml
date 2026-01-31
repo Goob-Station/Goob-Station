@@ -2,8 +2,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitSANMarine
-  name: "блок керування мод-костюмом CSA-85x «Мазу»"
-  description: "Головний контролер для мод-костюма «Мазу». Рідкісний та неймовірно цінний екземпляр військового обладнання, який зазвичай використовують у спецпідрозділах Соляріанської армії."
+  name: блок керування мод-костюмом CSA-85x "Мазу"
+  description: Головний контролер для мод-костюма "Мазу". Рідкісний та неймовірно цінний екземпляр військового обладнання, який зазвичай використовують у спецпідрозділах Соляріанської армії.
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Modsuits/csa_85x.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsSANMarine
-  name: "рукавиці мод-костюма CSA-85x «Мазу»"
-  description: "Пара рукавиць, призначених для розчавлювання черепів прибульців. Є частиною мод-костюма «Мазу»."
+  name: рукавиці мод-костюма CSA-85x "Мазу"
+  description: Пара рукавиць, призначених для розчавлювання черепів прибульців. Є частиною модного костюма "Мазу".
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -42,8 +42,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, SolAllianceInfo, ShowSecurityIcons, BaseClothingRadio, BaseSyndicateContraband]
   id: ClothingModsuitHelmetSANMarine
-  name: "шолом мод-костюма CSA-85x «Мазу»"
-  description: "Сучасний шолом для мод-костюма «Мазу». Має вбудований проекційний дисплей."
+  name: шолом мод-костюма CSA-85x "Мазу"
+  description: Сучасний шолом для мод-костюма "Мазу". Він має вбудований проекційний дисплей.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -65,8 +65,8 @@
 - type: entity
   parent: [ClothingModsuitChestplateStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitChestplateSANMarine
-  name: "нагрудник мод-костюма CSA-85x «Мазу»"
-  description: "Сучасний нагрудник для мод-костюма «Мазу»."
+  name: нагрудник мод-костюма CSA-85x "Мазу"
+  description: Сучасний нагрудник для мод-костюма "Мазу".
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -99,8 +99,8 @@
 - type: entity
   parent: [ClothingModsuitBootsStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitBootsSANMarine
-  name: "чоботи мод-костюма CSA-85x «Мазу»"
-  description: "Сучасна пара чобіт для мод-костюма «Мазу»."
+  name: чоботи мод-костюма CSA-85x "Мазу"
+  description: Сучасна пара чоботів для мод-костюма "Мазу".
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpskirtAdminAssistant
-  name: "спідниця-комбінезон адміністративного асистента"
-  description: "Костюм, який носить адміністративний асистент. Пахне горілою кавою."
+  name: administrative assistant's jumpskirt
+  description: A suit worn by the Administrative Assistant. Smells of burnt coffee.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHeadMaid
-  name: "Вбрання старшої покоївки"
-  description: "Було випущене обмеженим тиражем під спеціальне замовлення компанії, яка надавала послуги з прибирання станцій після різноманітних катастроф."
+  name: Вбрання старшої покоївки
+  description: Було випущене обмеженим тиражем під спеціальне замовлення компанії, яка надавала послуги з прибирання станцій після різноманітних катастроф.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpskirt/headmaid.rsi

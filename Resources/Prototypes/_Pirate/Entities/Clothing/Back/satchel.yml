@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelInterdyne
-  name: "Сумка Інтердайну"
-  description: "ВИСКОТЕХНОЛОГІЧНА КРУТА СУМКА САМОГО ІНТЕРДАЙНУ!1!1!1. Ну ми сподіваємось що ви такої ж думки?!" # Помилка залишена спеціально, ми вирішили додати жарт в один з описів для сумок
+  name: Сумка інтердайна
+  description: ВИСКОТЕХНОЛОГІЧНА КРУТА СУМКА САМОГО ІНТЕРДАЙНУ!1!1!1. Ну ми сподіваємось що ви такої ж думки?! # Помилка залишена спеціально, ми вирішили додати жарт в один з описів для сумок
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Back/Satchels/interdyne.rsi
@@ -10,8 +10,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelHOP
-  name: "Сумка ГП"
-  description: "Звичайна сумка в кольорах голови персоналу."
+  name: Сумка ГП
+  description: Звичайна сумка в кольорах голови персоналу.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Back/Satchels/hop.rsi

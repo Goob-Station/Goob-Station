@@ -1,6 +1,6 @@
 - type: tile
   id: LatticeDiagonalNW
-  name: "плитки-решітки-діагональ-ПнЗх"
+  name: tiles-lattice-diagonal-NW
   sprite: /Textures/_Goobstation/Tiles/latticeDiagonalNW.png
   baseTurf: Space
   isSubfloor: true
@@ -17,7 +17,7 @@
 
 - type: tile
   id: LatticeDiagonalNE
-  name: "плитки-решітки-діагональ-ПнСх"
+  name: tiles-lattice-diagonal-NE
   sprite: /Textures/_Goobstation/Tiles/latticeDiagonalNE.png
   baseTurf: Space
   isSubfloor: true
@@ -34,7 +34,7 @@
 
 - type: tile
   id: LatticeDiagonalSW
-  name: "плитки-решітки-діагональ-ПдЗх"
+  name: tiles-lattice-diagonal-SW
   sprite: /Textures/_Goobstation/Tiles/latticeDiagonalSW.png
   baseTurf: Space
   isSubfloor: true
@@ -51,7 +51,7 @@
 
 - type: tile
   id: LatticeDiagonalSE
-  name: "плитки-решітки-діагональ-ПдСх"
+  name: tiles-lattice-diagonal-SE
   sprite: /Textures/_Goobstation/Tiles/latticeDiagonalSE.png
   baseTurf: Space
   isSubfloor: true

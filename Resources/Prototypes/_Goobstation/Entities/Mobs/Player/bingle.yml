@@ -22,7 +22,7 @@
 - type: entity
   id: MobBingleRandom
   parent: MarkerBase
-  name: "бінгл"
+  name: bingle
   suffix: Random
   components:
   - type: Sprite
@@ -38,10 +38,10 @@
 
 # Base bingle
 - type: entity
-  name: "бінгл"
+  name: bingle
   id: MobBingle
   parent: MobSpaceBasic
-  description: "бінгл"
+  description: bingle
   components:
   - type: Bingle
     upgradedID: MobBingleUpgraded
@@ -195,10 +195,10 @@
 
 # Skin - turkle
 - type: entity
-  name: "туркл"
+  name: turkle
   id: MobTurkle
   parent: MobBingle
-  description: "Бінгл з далеких земель, загублених у часі. Здається, дуже пишається своєю батьківщиною."
+  description: A bingle from foreign lands lost to time. Seems very proud of their homeland.
   components:
   - type: Bingle
     upgradedID: MobTurkleUpgraded

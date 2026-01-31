@@ -15,8 +15,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitCosmicCult
-  name: "ентропійна броня"
-  description: "Моторошний скафандр, що викликає оніміння на дотик. Він пульсує сяйвом, яке змушує вас відчувати, ніби ви щось забули."
+  name: entropic armor
+  description: An unsettling hardsuit, numbing to the touch. It pulses with a glow that makes you feel like you've forgotten something..
   components:
   - type: CosmicEquipment
   - type: Sprite
@@ -101,8 +101,8 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase ]
   id: ClothingHeadHelmetCosmicCult
-  name: "ентропійний головний убір"
-  description: "Здається, цей головний убір виступає зі скафандра, до якого він прикріплений, ніби матеріал є єдиним, суцільним цілим."
+  name: entropic headgear
+  description: This headpiece seems to extrude from the hardsuit it's attached to as if the material is one single, contiguous whole.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

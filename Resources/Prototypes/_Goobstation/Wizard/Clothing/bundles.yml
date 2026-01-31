@@ -60,7 +60,7 @@
 - type: entity
   parent: ToolboxMechanical
   id: ToolboxTider
-  description: "Ви готові до нового порядку припливів?"
+  description: Are you ready for the new tide order?
   suffix: Tider
   components:
   - type: MeleeWeapon

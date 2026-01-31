@@ -129,7 +129,7 @@
 
 - type: entity
   save: false
-  name: "Уріст Мжанд"
+  name: Urisst' Mzhand
   parent: BaseMobSpeciesOrganic
   id: BaseMobReptilian
   abstract: true
@@ -246,7 +246,7 @@
   parent: BaseSpeciesDummy
   id: MobReptilianDummy
   categories: [ HideSpawnMenu ]
-  description: "Фіктивна рептилія, призначена для використання в налаштуваннях символів."
+  description: A dummy reptilian meant to be used in character setup.
   components:
   - type: HumanoidAppearance
     species: Reptilian

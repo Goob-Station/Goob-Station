@@ -3,7 +3,7 @@
 - type: entity
   id: BlueShieldDeputy
   parent: MobHuman
-  name: "Заступник синього щита"
+  name: Blueshield deputy
   suffix: Human
   components:
   - type: RandomHumanoidAppearance
@@ -56,8 +56,8 @@
 # BSD spawn briefcase
 - type: entity
   id: BlueShieldDeputySpawnBriefcase
-  name: "Кейс телепортації заступника синього щита"
-  description: "Спеціальний пристрій, що відкриває блюспейс-портал, пов'язаний з найближчим офісом заступника NanoTrasen. Коли ваш місцевий заступник синього щита буде готовий, його телепортують у це місце."
+  name: Blueshield Deputy Teleporter briefcase
+  description: A special device, that opens a bluespace portal that is linked to the nearest NanoTrasen Deputy office, when your local blueshield deputy is ready, he will be teleported to this location.
   parent: BaseItem
   components:
   - type: Sprite

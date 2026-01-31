@@ -89,8 +89,8 @@
 
 - type: entity
   id: FloorCosmicDecay
-  name: "ентропійний розпад"
-  description: "Один лише погляд на це викликає озноб по спині."
+  name: entropic decay
+  description: Just one look at this sends a chill running down your spine.
   placement:
     mode: SnapgridCenter
     snap:

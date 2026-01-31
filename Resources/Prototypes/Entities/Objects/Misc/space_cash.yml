@@ -25,8 +25,8 @@
 - type: entity
   parent: BaseItem
   id: SpaceCash
-  name: "спесо"
-  description: "Треба мати гроші."
+  name: spesos
+  description: You gotta have money.
   components:
   - type: Cash
   - type: Item
@@ -126,7 +126,7 @@
 
 - type: material
   id: Credit
-  name: "спесо"
+  name: speso
   unit: materials-unit-bill
   stackEntity: SpaceCash
   icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }

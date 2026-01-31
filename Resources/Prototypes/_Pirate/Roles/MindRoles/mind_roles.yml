@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleVampire
-  name: "Роль вампіра"
+  name: Vampire Role
   components:
   - type: MindRole
     antagPrototype: Vampire

@@ -16,8 +16,8 @@
 - type: entity
   parent: BaseCrossbowBolt
   id: CrossbowBolt
-  name: "болт"
-  description: "Одного з них вистачило, щоб вбити короля Річарда Левине Серце. Має спрацювати і для Королеви Ксеносів."
+  name: bolt
+  description: One of these was enough to put down King Richard the Lionheart. Should do for a Xeno Queen too.
   components:
   - type: Sprite
     layers:
@@ -37,8 +37,8 @@
 - type: entity
   parent: CrossbowBoltPlasmaGlassShard
   id: MagicCrossbowBoltFire
-  name: "вогняний магічний болт"
-  description: "Наносить шкоду та підпалює"
+  name: вогняний магічний болт
+  description: Наносить шкоду та підпалює
   components:
   - type: IgniteOnCollide
     fireStacks: 4
@@ -46,8 +46,8 @@
 - type: entity
   parent: CrossbowBoltGlassShard
   id: MagicCrossbowBoltStun
-  name: "магічний болт"
-  description: "Наносити шкоду та ставати"
+  name: магічний болт
+  description: Наносить шкоду та станить
   components:
   - type: StunOnCollide
     stunAmount: 5
@@ -56,8 +56,8 @@
 - type: entity
   parent: CrossbowBoltUraniumGlassShard
   id: MagicCrossbowBoltPoison
-  name: "магічний болт"
-  description: "Завдає шкоди та отруює"
+  name: магічний болт
+  description: Наносить шкоду та отруює
   components:
   - type: Projectile
     damage:
@@ -70,8 +70,8 @@
 - type: entity
   parent: CrossbowBolt
   id: CrossbowBoltGlassShard
-  name: "болт з осколків скла"
-  description: "Болт з уламком скла в якості наконечника."
+  name: glass shard bolt
+  description: A bolt with a glass shard as a tip.
   components:
   - type: Sprite
     layers:
@@ -95,8 +95,8 @@
 - type: entity
   parent: CrossbowBolt
   id: CrossbowBoltPlasmaGlassShard
-  name: "болт з осколків плазмового скла"
-  description: "Болт з уламком плазмового скла в якості наконечника."
+  name: plasma glass shard bolt
+  description: A bolt with a plasma glass shard as a tip.
   components:
   - type: Sprite
     layers:
@@ -120,8 +120,8 @@
 - type: entity
   parent: CrossbowBolt
   id: CrossbowBoltUraniumGlassShard
-  name: "болт з осколків уранового скла"
-  description: "Болт з уламком уранового скла на кінчику. Нехай Бог помилує твоїх жертв, бо ти цього не зробиш."
+  name: uranium glass shard bolt
+  description: A bolt with a uranium glass shard as a tip. God have mercy on thy victims for you won't.
   components:
   - type: Sprite
     layers:

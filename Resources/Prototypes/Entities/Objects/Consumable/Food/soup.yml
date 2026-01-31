@@ -167,10 +167,10 @@
 # Custom Soup Example
 
 - type: entity
-  name: "гороховий суп"
+  name: pea soup
   parent: FoodBowlBase
   id: FoodSoupPea
-  description: "Скромний гороховий суп."
+  description: A humble split pea soup.
   components:
   - type: FlavorProfile
     flavors:
@@ -195,10 +195,10 @@
 # Salad
 
 - type: entity
-  name: "салат аесір"
+  name: aesir salad
   parent: FoodBowlBase
   id: FoodSaladAesir
-  description: "Напевно, занадто неймовірна для смертних, щоб повністю насолодитися нею."
+  description: Probably too incredible for mortals to fully enjoy.
   components:
   - type: FlavorProfile
     flavors:
@@ -224,10 +224,10 @@
     - Fruit # I don't know what this is but its' a salad so sure
 
 - type: entity
-  name: "трав'яний салат"
+  name: herb salad
   parent: FoodBowlBase
   id: FoodSaladHerb
-  description: "Смачний салат з яблуками зверху."
+  description: A tasty salad with apples on top.
   components:
   - type: FlavorProfile
     flavors:
@@ -252,10 +252,10 @@
     - Soup
 
 - type: entity
-  name: "дійсний салат"
+  name: valid salad
   parent: FoodBowlBase
   id: FoodSaladValid
-  description: "Це просто салат із зелені з фрикадельками та скибочками смаженої картоплі. Нічого підозрілого."
+  description: It's just an herb salad with meatballs and fried potato slices. Nothing suspicious about it.
   components:
   - type: FlavorProfile
     flavors:
@@ -285,10 +285,10 @@
     - Soup
 
 - type: entity
-  name: "капустяний салат"
+  name: coleslaw
   parent: FoodBowlBase
   id: FoodSaladColeslaw
-  description: "Нашатковану капусту і червону цибулю заправляємо вінегретом."
+  description: Shredded cabbage and red onions dressed with a vinaigrette.
   components:
   - type: FlavorProfile
     flavors:
@@ -312,10 +312,10 @@
           Quantity: 3
 
 - type: entity
-  name: "салат цезар"
+  name: caesar salad
   parent: FoodBowlBase
   id: FoodSaladCaesar
-  description: "Простий, але ароматний салат з цибулі, салату, сухариків та шматочків сиру, заправлений олією. Подається зі шматочком лаваша!"
+  description: A simple yet flavorful salad of onions, lettuce, croutons, and shreds of cheese dressed in oil. Comes with a slice of pita bread!
   components:
   - type: FlavorProfile
     flavors:
@@ -338,10 +338,10 @@
           Quantity: 6
 
 - type: entity
-  name: "салат кімчі"
+  name: kimchi salad
   parent: FoodBowlBase
   id: FoodSaladKimchi
-  description: "Насправді це просто гострий салат."
+  description: It really is just a spicy salad.
   components:
   - type: FlavorProfile
     flavors:
@@ -365,10 +365,10 @@
           Quantity: 2
 
 - type: entity
-  name: "фруктовий салат"
+  name: fruit salad
   parent: FoodBowlBase
   id: FoodSaladFruit
-  description: "Ваш стандартний фруктовий салат."
+  description: Your standard fruit salad.
   components:
   - type: FlavorProfile
     flavors:
@@ -392,10 +392,10 @@
     - Soup
 
 - type: entity
-  name: "салат джунглів"
+  name: jungle salad
   parent: FoodBowlBase
   id: FoodSaladJungle
-  description: "Екзотичні фрукти в мисці."
+  description: Exotic fruits in a bowl.
   components:
   - type: FlavorProfile
     flavors:
@@ -420,10 +420,10 @@
     - Soup
 
 - type: entity
-  name: "цитрусовий салат"
+  name: citrus salad
   parent: FoodBowlBase
   id: FoodSaladCitrus
-  description: "Цитрусовий перебір!"
+  description: Citrus overload!
   components:
   - type: FlavorProfile
     flavors:
@@ -448,10 +448,10 @@
     - Soup
 
 - type: entity
-  name: "райський салат"
+  name: salad of eden
   parent: FoodBowlBase
   id: FoodSaladEden
-  description: "Салат, сповнений невикористаного потенціалу."
+  description: A salad brimming with untapped potential.
   components:
   - type: FlavorProfile
     flavors:
@@ -476,10 +476,10 @@
 # Rice
 
 - type: entity
-  name: "відварений рис"
+  name: boiled rice
   parent: FoodBowlBase
   id: FoodRiceBoiled
-  description: "Тепла миска з рисом."
+  description: A warm bowl of rice.
   components:
   - type: FlavorProfile
     flavors:
@@ -490,10 +490,10 @@
     - state: rice
 
 - type: entity
-  name: "рис, смажений в яйці"
+  name: egg-fried rice
   parent: FoodBowlBase
   id: FoodRiceEgg
-  description: "Миска рису зі смаженим яйцем."
+  description: A bowl of rice with a fried egg.
   components:
   - type: FlavorProfile
     flavors:
@@ -518,10 +518,10 @@
     - Soup
 
 - type: entity
-  name: "рис і свинина"
+  name: rice and pork
   parent: FoodBowlBase
   id: FoodRicePork
-  description: "Ну, схоже на свинину..."
+  description: Well, it looks like pork...
   components:
   - type: FlavorProfile
     flavors:
@@ -550,10 +550,10 @@
     - Soup
 
 - type: entity
-  name: "рисовий пудинг"
+  name: rice pudding
   parent: FoodBowlBase
   id: FoodRicePudding
-  description: "Всі люблять рисовий пудинг!"
+  description: Everybody loves rice pudding!
   components:
   - type: FlavorProfile
     flavors:
@@ -578,10 +578,10 @@
           Quantity: 5
 
 - type: entity
-  name: "гумбо з чорними очима"
+  name: black-eyed gumbo
   parent: FoodBowlBase
   id: FoodRiceGumbo
-  description: "Гостра та пікантна страва з м'яса та рису."
+  description: A spicy and savory meat and rice dish.
   components:
   - type: FlavorProfile
     flavors:
@@ -612,10 +612,10 @@
 # Misc
 
 - type: entity
-  name: "вівсянка"
+  name: oatmeal
   parent: FoodBowlBase
   id: FoodOatmeal
-  description: "Гарна миска вівсянки."
+  description: A nice bowl of oatmeal.
   components:
   - type: FlavorProfile
     flavors:
@@ -638,10 +638,10 @@
           Quantity: 10
 
 - type: entity
-  name: "космічна свобода дафф"
+  name: space liberty duff
   parent: FoodBowlBase
   id: FoodJellyDuff
-  description: "Желе з желатину, з кулінарної книги Альфреда Хаббарда."
+  description: Jello gelatin, from Alfred Hubbard's cookbook.
   components:
   - type: FlavorProfile
     flavors:
@@ -653,10 +653,10 @@
     - state: spacelibertyduff
 
 - type: entity
-  name: "желе з аманіту"
+  name: amanita jelly
   parent: FoodInjectableBase
   id: FoodJellyAmanita
-  description: "Це зло, не чіпай його!"
+  description: It's evil, don't touch it!
   components:
   - type: FlavorProfile
     flavors:
@@ -678,10 +678,10 @@
 # Soup
 
 - type: entity
-  name: "суп з фрикадельками"
+  name: meatball soup
   parent: FoodBowlBase
   id: FoodSoupMeatball
-  description: "А ти сміливий, хлопче, сміливий!"
+  description: You've got balls kid, BALLS!
   components:
   - type: FlavorProfile
     flavors:
@@ -707,10 +707,10 @@
     - Soup
 
 - type: entity
-  name: "суп зі слизу"
+  name: slime soup
   parent: FoodBowlBase
   id: FoodSoupSlime
-  description: "Якщо немає води, ви можете замінити її сльозами."
+  description: If no water is available, you may substitute tears.
   components:
   - type: FlavorProfile
     flavors:
@@ -732,10 +732,10 @@
           Quantity: 10
 
 - type: entity
-  name: "томатний суп"
+  name: tomato soup
   parent: FoodBowlBase
   id: FoodSoupTomatoBlood
-  description: "Пахне міддю... це кістка?"
+  description: Smells like copper... is that a bone?
   components:
   - type: FlavorProfile
     flavors:
@@ -762,10 +762,10 @@
     - Soup
 
 - type: entity
-  name: "крилатий фан чу"
+  name: wing fang chu
   parent: FoodBowlBase
   id: FoodSoupWingFangChu
-  description: "Пікантна страва з інопланетного крила ванг у сої."
+  description: A savory dish of alien wing wang in soy.
   components:
   - type: FlavorProfile
     flavors:
@@ -788,10 +788,10 @@
           Quantity: 7
 
 - type: entity
-  name: "сльози клоуна"
+  name: clown's tears
   parent: FoodBowlBase
   id: FoodSoupClown
-  description: "Не дуже смішно."
+  description: Not very funny.
   components:
   - type: FlavorProfile
     flavors:
@@ -813,10 +813,10 @@
           Quantity: 10
 
 - type: entity
-  name: "овочевий суп"
+  name: vegetable soup
   parent: FoodBowlBase
   id: FoodSoupVegetable
-  description: "Справжня веганська їжа."
+  description: A true vegan meal.
   components:
   - type: FlavorProfile
     flavors:
@@ -841,10 +841,10 @@
           Quantity: 1
 
 - type: entity
-  name: "кропив'яний суп"
+  name: nettle soup
   parent: FoodBowlBase
   id: FoodSoupNettle
-  description: "Подумати тільки, ботанік забив би вас такою штукою до смерті."
+  description: To think, the botanist would've beat you to death with one of these.
   components:
   - type: FlavorProfile
     flavors:
@@ -870,10 +870,10 @@
           Quantity: 0.5
 
 - type: entity
-  name: "таємничий суп"
+  name: mystery soup
   parent: FoodBowlBase
   id: FoodSoupMystery
-  description: "Загадка в тому, чому ви його не їсте?"
+  description: The mystery is, why aren't you eating it?
   components:
   - type: FlavorProfile
     flavors:
@@ -884,10 +884,10 @@
     - state: mystery
 
 - type: entity
-  name: "миска гострого чилі"
+  name: bowl of hot chili
   parent: FoodBowlBase
   id: FoodSoupChiliHot
-  description: "Техаський чилі з п'ятьма тривогами!"
+  description: A Texan five-alarm chili!
   components:
   - type: FlavorProfile
     flavors:
@@ -915,10 +915,10 @@
 
 
 - type: entity
-  name: "холодний чилі"
+  name: cold chili
   parent: FoodBowlBase
   id: FoodSoupChiliCold
-  description: "Ця сльота - майже рідина!"
+  description: This slush is barely a liquid!
   components:
   - type: FlavorProfile
     flavors:
@@ -942,10 +942,10 @@
     - ChiliBowl
 
 - type: entity
-  name: "чилі з карнавалом"
+  name: chili con carnival
   parent: FoodBowlBase
   id: FoodSoupChiliClown
-  description: "Смачне рагу з м'яса, перцю чилі та солоних, солоних клоунських сліз."
+  description: A delicious stew of meat, chilies, and salty, salty clown tears.
   components:
   - type: FlavorProfile
     flavors:
@@ -975,10 +975,10 @@
     - ChiliBowl
 
 - type: entity
-  name: "мавпячий захват"
+  name: monkey's delight
   parent: FoodBowlBase
   id: FoodSoupMonkey
-  description: "Смачний суп з шматочками мавпячого м'яса, звареними до готовності, в бульйоні з легким присмаком бананів."
+  description: A delicious soup with hunks of monkey meat simmered to perfection, in a broth that tastes faintly of bananas.
   components:
   - type: FlavorProfile
     flavors:
@@ -1007,10 +1007,10 @@
     - Soup
 
 - type: entity
-  name: "томатний суп"
+  name: tomato soup
   parent: FoodBowlBase
   id: FoodSoupTomato
-  description: "Коли п'єш це, відчуваєш себе вампіром! Томатним вампіром..."
+  description: Drinking this feels like being a vampire! A tomato vampire...
   components:
   - type: FlavorProfile
     flavors:
@@ -1036,10 +1036,10 @@
     - Soup
 
 - type: entity
-  name: "суп з очних яблук"
+  name: eyeball soup
   parent: FoodBowlBase
   id: FoodSoupEyeball
-  description: "Воно дивиться на тебе..."
+  description: It's looking back at you...
   components:
   - type: FlavorProfile
     flavors:
@@ -1064,10 +1064,10 @@
     - Soup
 
 - type: entity
-  name: "місо-суп"
+  name: miso soup
   parent: FoodBowlBase
   id: FoodSoupMiso
-  description: "Солоний, рибний суп, найкраще смакує з раменом."
+  description: Salty, fishy soup, best had with ramen.
   components:
   - type: FlavorProfile
     flavors:
@@ -1097,10 +1097,10 @@
     - Soup
 
 - type: entity
-  name: "грибний суп"
+  name: mushroom soup
   parent: FoodBowlBase
   id: FoodSoupMushroom
-  description: "Смачний і ситний грибний суп."
+  description: A delicious and hearty mushroom soup.
   components:
   - type: FlavorProfile
     flavors:
@@ -1124,10 +1124,10 @@
             Quantity: 5
 
 - type: entity
-  name: "буряковий суп"
+  name: beet soup
   parent: FoodBowlBase
   id: FoodSoupBeet
-  description: "Зачекайте, як це пишеться?"
+  description: Wait, how do you spell it again..?
   components:
   - type: Sprite
     layers:
@@ -1147,10 +1147,10 @@
 # Tastes like borsch, bortsch, borstch, borsh, borshch, borscht.
 
 - type: entity
-  name: "суп з червоного буряка"
+  name: red beet soup
   parent: FoodBowlBase
   id: FoodSoupBeetRed
-  description: "Досить делікатесний."
+  description: Quite a delicacy.
   components:
   - type: Sprite
     layers:
@@ -1168,10 +1168,10 @@
 # Tastes like beet.
 
 - type: entity
-  name: "тушковане м'ясо"
+  name: stew
   parent: FoodBowlBase
   id: FoodSoupStew
-  description: "Смачне і тепле рагу. Здоровий і сильний."
+  description: A nice and warm stew. Healthy and strong.
   components:
   - type: FlavorProfile
     flavors:
@@ -1200,10 +1200,10 @@
     - Soup
 
 - type: entity
-  name: "суп із солодкої картоплі"
+  name: sweet potato soup
   parent: FoodBowlBase
   id: FoodSoupPotato
-  description: "Смачна батат у вигляді супу."
+  description: Delicious sweet potato in soup form.
   components:
   - type: FlavorProfile
     flavors:
@@ -1224,10 +1224,10 @@
 # Tastes like sweet potato.
 
 - type: entity
-  name: "французький цибулевий суп"
+  name: french onion soup
   parent: FoodBowlBase
   id: FoodSoupOnion
-  description: "Досить добре, щоб змусити плакати дорослого міма."
+  description: Good enough to make a grown mime cry.
   components:
   - type: FlavorProfile
     flavors:
@@ -1249,10 +1249,10 @@
             Quantity: 5
 
 - type: entity
-  name: "суп"
+  name: bisque
   parent: FoodBowlBase
   id: FoodSoupBisque
-  description: "Класична страва від Space France."
+  description: A classic entrée from Space France.
   components:
   - type: FlavorProfile
     flavors:
@@ -1277,10 +1277,10 @@
 # Tastes like crab.
 
 - type: entity
-  name: "електронний суп"
+  name: electron soup
   parent: FoodBowlBase
   id: FoodSoupElectron
-  description: "Гастрономічна дивина неземного походження."
+  description: A gastronomic curiosity of ethereal origin.
   components:
   - type: FlavorProfile
     flavors:
@@ -1301,10 +1301,10 @@
             Quantity: 6
 
 - type: entity
-  name: "карі бунго"
+  name: bungo curry
   parent: FoodBowlBase
   id: FoodSoupBungo
-  description: "Гостре овочеве каррі зі скромним фруктом бунго, Екзотика!"
+  description: A spicy vegetable curry made with the humble bungo fruit, Exotic!
   components:
   - type: FlavorProfile
     flavors:
@@ -1331,10 +1331,10 @@
 # Tastes like bungo, hot curry.
 
 - type: entity
-  name: "ескарго"
+  name: escargot
   parent: FoodBowlBase
   id: FoodSoupEscargot
-  description: "Вершкова і насичена тарілка з равликами, приємного апетиту!"
+  description: A creamy and rich bowl of snails, bon appetit!
   components:
   - type: FlavorProfile
     flavors:

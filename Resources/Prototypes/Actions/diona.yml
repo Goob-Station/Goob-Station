@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseSuicideAction
   id: DionaGibAction
-  name: "Подай себе!"
-  description: "Розділіть на 3 німфи."
+  name: Gib Yourself!
+  description: Split apart into 3 nymphs.
   components:
   - type: Action
     icon:
@@ -24,8 +24,8 @@
 - type: entity
   parent: BaseAction
   id: DionaReformAction
-  name: "Реформа"
-  description: "Реформувати назад у цілу Діону."
+  name: Reform
+  description: Reform back into a whole Diona.
   components:
   - type: Action
     useDelay: 600 # Once every 10 minutes. Keep them dead for a fair bit before reforming

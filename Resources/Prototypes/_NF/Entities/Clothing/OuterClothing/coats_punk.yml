@@ -2,8 +2,8 @@
 - type: entity
   id: ClothingOuterCoatBomberPunkRed
   parent: ClothingOuterStorageBase
-  name: "червоний панк-бомбардувальник"
-  description: "На вулицях треба мати стиль."
+  name: red punk bomber
+  description: Ya gotta 'ave style on dem streets.
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/bomber_punk_red.rsi
@@ -13,8 +13,8 @@
 - type: entity
   id: ClothingOuterCoatJacketLeather
   parent: ClothingOuterStorageBase
-  name: "шкіряна куртка"
-  description: "Рок-н-рол, крихітко!"
+  name: leather jacket
+  description: Rock'n'roll, babe!
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/jacket_leather.rsi
@@ -24,8 +24,8 @@
 - type: entity
   id: ClothingOuterCoatJacketBiker
   parent: ClothingOuterStorageBase
-  name: "байкерська куртка"
-  description: "Виготовлений з найміцнішої штучної шкіри для найміцніших поганців."
+  name: biker jacket
+  description: Made out of toughest synthleather for toughest badasses.
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/jacket_biker.rsi
@@ -35,8 +35,8 @@
 - type: entity
   id: ClothingOuterCoatJacketJamrock
   parent: ClothingOuterStorageBase
-  name: "піджак \"джемрок"
-  description: "Ласкаво просимо в \"Джеймрок\"."
+  name: jamrock blazer
+  description: Welcome to jamrock.
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
@@ -46,8 +46,8 @@
 - type: entity
   id: ClothingOuterCoatBomberAerostatic
   parent: ClothingOuterStorageBase
-  name: "аеростатичний бомбардувальник"
-  description: "Коли ви носите його, ви завжди можете почути найкрутіше гітарне соло у вашій голові."
+  name: aerostatic bomber
+  description: When you wear it, you can always hear the sickest guitar solo in your mind.
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi
@@ -57,8 +57,8 @@
 - type: entity
   id: ClothingOuterCoatJacketLettermanBlue
   parent: ClothingOuterStorageBase
-  name: "синя куртка букмекера"
-  description: "Де твоя ключка для лакросу?"
+  name: blue letterman jacket
+  description: Where is your lacrosse stick?
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/jacket_letterman_blue.rsi
@@ -68,8 +68,8 @@
 - type: entity
   id: ClothingOuterCoatJacketLettermanBrown
   parent: ClothingOuterStorageBase
-  name: "коричнева куртка букмекера"
-  description: "Де твоя ключка для лакросу?"
+  name: brown letterman jacket
+  description: Where is your lacrosse stick?
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/jacket_letterman_brown.rsi
@@ -79,8 +79,8 @@
 - type: entity
   id: ClothingOuterCoatJacketLettermanRed
   parent: ClothingOuterStorageBase
-  name: "червона куртка Леттермана"
-  description: "Де твоя ключка для лакросу?"
+  name: red letterman jacket
+  description: Where is your lacrosse stick?
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/jacket_letterman_red.rsi
@@ -90,8 +90,8 @@
 - type: entity
   id: ClothingOuterCoatJacketLettermanMagenta
   parent: ClothingOuterStorageBase
-  name: "пурпурний піджак Леттермана"
-  description: "Де твій джойстик для голокросу?"
+  name: magenta letterman jacket
+  description: Where is your holocrosse joystick?
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/jacket_letterman_magenta.rsi
@@ -101,8 +101,8 @@
 - type: entity
   id: ClothingOuterCoatBomberPinkSleeves
   parent: ClothingOuterStorageBase
-  name: "куртка-бомбер"
-  description: "Агов! Чого витріщився?"
+  name: bomber jacket
+  description: Oi! Whatcha lookin' at?
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Coats/bomber_pinksleeves.rsi

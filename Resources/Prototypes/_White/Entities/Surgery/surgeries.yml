@@ -1,7 +1,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveLarvaEmbryo
-  name: "Видалити ембріон личинки"
+  name: Remove Larva Embryo
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
@@ -38,7 +38,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveLarva
-  name: "Видалити личинку"
+  name: Remove Larva
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery

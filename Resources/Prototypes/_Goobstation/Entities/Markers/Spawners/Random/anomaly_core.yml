@@ -1,6 +1,6 @@
 - type: entity
   id: RandomAnomalyCoreSpawner
-  name: "спавнер випадкових ядер аномалій"
+  name: random anomaly core spawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -15,7 +15,7 @@
 
 - type: entity
   id: RandomAnomalyCoreInertSpawner
-  name: "спавнер випадкових інертних ядер аномалій"
+  name: random inert anomaly core spawner
   parent: MarkerBase
   components:
   - type: Sprite

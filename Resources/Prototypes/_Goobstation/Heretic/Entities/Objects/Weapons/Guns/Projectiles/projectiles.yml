@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseBullet
   id: ProjectileWaveRust
-  name: "дотик покровителя"
-  description: "Токсично."
+  name: patron's reach
+  description: Toxic.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -40,7 +40,7 @@
 - type: entity
   parent: BaseBullet
   id: ProjectileStarBall
-  name: "зоряна куля"
+  name: star ball
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

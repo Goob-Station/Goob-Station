@@ -30,7 +30,7 @@
   abstract: true
   id: DisposalUnitBase
   parent: BaseMachinePowered
-  description: "Пневматична установка для утилізації відходів."
+  description: A pneumatic waste disposal unit.
   placement:
     mode: SnapgridCenter
     snap:
@@ -123,7 +123,7 @@
 - type: entity
   id: DisposalUnit
   parent: DisposalUnitBase
-  name: "утилізаційна установка"
+  name: disposal unit
   components:
   - type: Sprite
     sprite: Structures/Piping/disposal.rsi
@@ -150,8 +150,8 @@
 - type: entity
   id: MailingUnit
   parent: DisposalUnitBase
-  name: "поштовий блок"
-  description: "Пневматичний пристрій для доставки пошти."
+  name: mailing unit
+  description: A pneumatic mail delivery unit.
   components:
   - type: Sprite
     sprite: Structures/Piping/disposal.rsi

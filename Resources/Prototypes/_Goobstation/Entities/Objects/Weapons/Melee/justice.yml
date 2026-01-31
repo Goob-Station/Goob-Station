@@ -10,10 +10,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "DT-2 \"Правосуддя"
+  name: DT-2 'Justice'
   parent: [BaseItem, BaseGrandTheftContraband]
   id: Justice
-  description: "Дорогий енергетичний меч, що самозаряджається, розроблений спеціально для голови служби безпеки. Якби не було несправедливості, людина не знала б правосуддя."
+  description: An expensive & self-recharging energy sword, designed specifically for the Head of Security. If it were not for injustice, man would not know justice.
   components:
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi

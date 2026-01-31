@@ -24,10 +24,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "факел"
+  name: torch
   parent: BaseItem
   id: Torch
-  description: "Смолоскип, зроблений з дерева."
+  description: A torch fashioned from some wood.
   components:
     - type: ExpendableLight
       refuelMaterialID: WoodPlank

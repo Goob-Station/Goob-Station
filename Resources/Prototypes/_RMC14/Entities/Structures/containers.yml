@@ -1,8 +1,8 @@
 - type: entity
   abstract: true
   id: RMCContainerBase
-  name: "вантажний контейнер"
-  description: "Величезний промисловий вантажний контейнер."
+  name: cargo container
+  description: A huge industrial shipping container.
   placement:
     mode: SnapgridCenter
   components:
@@ -103,7 +103,7 @@
 - type: entity
   parent: RMCContainerBase
   id: RMCContainerFujinLeft
-  name: "Вантажний контейнер Fujin"
+  name: Fujin Cargo Container
   description: "A huge industrial shipping container.\nThis one is from Fujin, a manufacturer of a variety of electronical and mechanical products.\nAt least, that is what is says on the container. You have literally never heard of this company before."
   suffix: Fujin, Left
   components:
@@ -121,7 +121,7 @@
 - type: entity
   parent: RMCContainerBase
   id: RMCContainerApocraphyLeft
-  name: "Вантажний контейнер Apocraphy"
+  name: Apocraphy Cargo Container
   description: "A huge industrial shipping container.\nThis one is from The Apocrahpy Corporation, a manufacturer of medical and biotechnological parts.\nYou remember hearing about one of their latest drugs, and how dangerous it was... though they claimed to be close to finding a solution."
   suffix: Apocraphy, Left
   components:
@@ -139,7 +139,7 @@
 - type: entity
   parent: RMCContainerBase
   id: RMCContainerPathosLeft
-  name: "Вантажний контейнер Pathos"
+  name: Pathos Cargo Container
   description: "A huge industrial shipping container.\nThis one is from Pathos, a computer parts and motion detector manufacturer.\nYou still wonder why we have a container of old Motion Detectors, and if they even still work."
   suffix: Pathos, Left
   components:
@@ -157,7 +157,7 @@
 - type: entity
   parent: RMCContainerBase
   id: RMCContainerWeYaLeft
-  name: "Вантажний контейнер Weston-Yamada"
+  name: Weston-Yamada Cargo Container
   description: "A huge industrial shipping container.\nThis one is from The Weston-Yamada Corporation, you have probably heard of them before."
   suffix: WeYa, Left
   components:
@@ -207,7 +207,7 @@
 - type: entity
   parent: RMCContainerBase
   id: RMCContainerTrijentLeft
-  name: "Вантажний контейнер корпорації Trijent"
+  name: Trijent Corporation Cargo Container
   description: "A huge industrial shipping container.\nThis one is from The Trijent Corporation's mining operations.\nIf this breaks open, you figure you probably shouldn't breathe in what's inside."
   suffix: Trijent, Left
   components:
@@ -257,7 +257,7 @@
 - type: entity
   parent: RMCContainerBase
   id: RMCContainerFerretLeft
-  name: "Вантажний контейнер Ferret Heavy Industries"
+  name: Ferret Heavy Industries Cargo Container
   description: "A huge industrial shipping container.\nThis one is from Ferret Heavy Industries, a manufacturer of terrestrial crawlers and powerloaders.\nUnfortunately, the company went bankrupt. Fortunately, these containers are really cheap now."
   suffix: Ferret, Left
   components:
@@ -283,7 +283,7 @@
 - type: entity
   parent: RMCContainerBase
   id: RMCContainerNovarisLeft
-  name: "Вантажний контейнер Novaris"
+  name: Novaris Cargo Container
   description: "A huge industrial shipping containerThis one is from Novaris, they makes just about anything and everything.\nYou notice this container has a peeling note on it, saying all contents were transferred from another station decades ago, how long has it been here?"
   suffix: Novaris, Left
   components:
@@ -309,7 +309,7 @@
 - type: entity
   parent: RMCContainerBase
   id: RMCContainerAICMiddle
-  name: "Вантажний контейнер AIC"
+  name: AIC Cargo Container
   description: "A huge industrial shipping container.\nThis one is from the Asian Industrial Collective, which was absorded into the SPP. Their massive industrial output has ensured that cargo containers bearing their symbols and name won't be disappearing any time soon."
   suffix: AIC, Middle
   components:
@@ -320,7 +320,7 @@
   parent: RMCContainerBase
   id: RMCContainerSPPLeft
   suffix: SPP, Left
-  name: "Вантажний контейнер СПН"
+  name: SPP Cargo Container
   description: "A huge industrial shipping container.\nThis one is from the Socailists Progressive Peoples, as indicated by the massive symbol on the side."
   components:
   - type: Sprite
@@ -370,7 +370,7 @@
   parent: RMCContainerBase
   id: RMCContainerMSPLeft
   suffix: MSP, Left
-  name: "Вантажний контейнер Міністерства Космічного Захисту"
+  name: Ministry of Space Protection Cargo Container
   description: "A huge industrial shipping container.\nThis one belongs to the SPP's Ministry of Space Protection."
   components:
   - type: Sprite
@@ -396,7 +396,7 @@
   parent: RMCContainerBase
   id: RMCContainerUNMCLeft
   suffix: UNMC, Left
-  name: "Вантажний контейнер Корпусу Морської Піхоти Об'єднаних Націй"
+  name: United Nations Marine Corps Cargo Container
   description: "A huge industrial shipping container.\nThis one belongs to the UN's United Nations Marine Corps."
   components:
   - type: Sprite
@@ -422,7 +422,7 @@
   parent: RMCContainerBase
   id: RMCContainerAegisLeft
   suffix: Aegis, Left
-  name: "Вантажний контейнер AEGIS"
+  name: AEGIS Cargo Container
   description: "A huge industrial shipping container.\nThis one is from AEGIS, the defense contractors behind the M54C and other marine weaponry."
   components:
   - type: Sprite

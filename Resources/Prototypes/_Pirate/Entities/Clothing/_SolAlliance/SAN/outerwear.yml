@@ -1,9 +1,9 @@
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, SolAllianceInfo, BaseMajorContraband]
   id: ClothingOuterVestWebSAN
-  name: "розвантажувальний жилет SAN"
+  name: SAN web vest
   suffix: SAN
-  description: "Стандартний бронежилет для соляріанських морпіхів. Хоч решта їхнього спорядження може бути дешево зробленою, броня зверху, схоже, виготовлена тим, хто запропонував найбільшу ціну. Костюм із полімерної тканини вкриває велику пластитанієву пластину. Усередині вишито: «Виготовлено Озброєнням «КіберСан». Лише для соляріанського використання»."
+  description: Standard-issue body armor for Solarian marines. While the rest of their gear may be cheap, the armor worn on top was apparently made by the highest bidder. A suit of polymer fabric encases a large plastitanium plate. The inside is sewn with, "Manufactured by CyberSun Armaments, For Solarian-Use Only".
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/OuterClothing/SAN_web_vest.rsi

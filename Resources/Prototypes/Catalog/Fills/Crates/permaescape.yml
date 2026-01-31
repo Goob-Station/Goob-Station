@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Точка появи ящика для втечі з Перми"
+  name: Perma Escape Crate Spawner
   id: CratePermaEscapeSpawner
   parent: CrateEmptySpawner
   components:

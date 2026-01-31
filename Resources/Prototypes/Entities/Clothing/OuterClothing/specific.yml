@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterChameleon
-  name: "жилет"
-  description: "Товстий жилет з гумовою, водостійкою оболонкою."
+  name: vest
+  description: A thick vest with a rubbery, water-resistant shell.
   suffix: Chameleon
   components:
     - type: Tag

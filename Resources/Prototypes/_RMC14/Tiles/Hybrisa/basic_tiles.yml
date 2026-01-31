@@ -3,7 +3,7 @@
 - type: tile
   parent: CMPlanetBase
   id: RMCPlanetHybrisaDirt
-  name: "ґрунт"
+  name: dirt
   sprite: /Textures/_RMC14/Tiles/hybrisa/hybrisa_0.png
   variants: 8
   placementVariants:
@@ -19,7 +19,7 @@
 - type: tile
   parent: RMCPlanetHybrisaDirt
   id: RMCPlanetHybrisaShale
-  name: "сланці"
+  name: shale
   sprite: /Textures/_RMC14/Tiles/hybrisa/hybrisa_1.png
 
 - type: tile
@@ -45,18 +45,18 @@
 - type: tile
   parent: CMPlanetBase
   id: RMCPlanetHybrisaUndergroundWeedable
-  name: "підлога"
+  name: floor
   sprite: /Textures/_RMC14/Tiles/hybrisa/underground.png
 
 - type: tile
   parent: RMCPlanetHybrisaUndergroundWeedable
   id: RMCPlanetHybrisaUnderground
-  name: "підлога, що не заростає"
+  name: unweedable floor
 
 - type: tile
   parent: RMCPlanetHybrisaDirt
   id: RMCPlanetHybrisaDirtPlating
-  name: "ґрунт, що не заростає"
+  name: unweedable dirt
 
 # Metal
 
@@ -64,18 +64,18 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaBasicBase
-  name: "плитка CM стандартна базова"
+  name: tiles-cm-default-basic
 
 - type: tile
   parent: RMCFloorHybrisaBasicBase
   id: RMCFloorHybrisaCementFlat
-  name: "цемент"
+  name: cement
   sprite: /Textures/_RMC14/Tiles/hybrisa/cementflat.png
 
 - type: tile
   parent: RMCFloorHybrisaBasicBase
   id: RMCFloorHybrisaRampNorth
-  name: "пандус"
+  name: ramp
   sprite: /Textures/_RMC14/Tiles/hybrisa/rampsmaller_north.png
 
 - type: tile
@@ -96,31 +96,31 @@
 - type: tile
   parent: RMCFloorHybrisaBasicBase
   id: RMCFloorHybrisaStripeRedNorth
-  name: "червона смуга"
+  name: red stripe
   sprite: /Textures/_RMC14/Tiles/hybrisa/stripe_red_north.png
 
 - type: tile
   parent: RMCFloorHybrisaBasicBase
   id: RMCFloorHybrisaStripeRedSouth
-  name: "червона смуга"
+  name: red stripe
   sprite: /Textures/_RMC14/Tiles/hybrisa/stripe_red_south.png
 
 - type: tile
   parent: RMCFloorHybrisaBasicBase
   id: RMCFloorHybrisaStripeRedEast
-  name: "червона смуга"
+  name: red stripe
   sprite: /Textures/_RMC14/Tiles/hybrisa/stripe_red_east.png
 
 - type: tile
   parent: RMCFloorHybrisaBasicBase
   id: RMCFloorHybrisaStripeRedWest
-  name: "червона смуга"
+  name: red stripe
   sprite: /Textures/_RMC14/Tiles/hybrisa/stripe_red_west.png
 
 - type: tile
   parent: RMCFloorHybrisaBasicBase
   id: RMCFloorHybrisaNSPAEmblem
-  name: "металева підлога"
+  name: metal floor
   sprite: /Textures/_RMC14/Tiles/hybrisa/NSPAemblem.png
 
 - type: tile
@@ -173,7 +173,7 @@
 - type: tile
   parent: CMPlanetBase
   id: RMCPlanetHybrisaAsphalt
-  name: "асфальт"
+  name: asphalt
   sprite: /Textures/_RMC14/Tiles/hybrisa/asphalt_old.png
 
 - type: tile
@@ -219,7 +219,7 @@
 - type: tile
   parent: CMPlanetBase
   id: RMCPlanetHybrisaCement
-  name: "цемент"
+  name: cement
   sprite: /Textures/_RMC14/Tiles/hybrisa/cement1.png
 
 - type: tile
@@ -235,7 +235,7 @@
 - type: tile
   parent: CMPlanetBase
   id: RMCPlanetHybrisaSidewalk
-  name: "тротуар"
+  name: sidewalk
   sprite: /Textures/_RMC14/Tiles/hybrisa/sidewalkfull.png
 
 - type: tile
@@ -303,7 +303,7 @@
 - type: tile
   parent: RMCFloorHybrisaBasicBase
   id: RMCFloorHybrisaEngineerShip
-  name: "дивна металева підлога"
+  name: strange metal floor
   sprite: /Textures/_RMC14/Tiles/hybrisa/floor.png
 
 - type: tile

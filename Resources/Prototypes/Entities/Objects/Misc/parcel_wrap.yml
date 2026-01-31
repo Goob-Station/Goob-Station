@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: ParcelWrap
-  name: "пакувальний папір"
-  description: "Папір, що використовується для пакування предметів для транспортування."
+  name: parcel wrap
+  description: Paper used contain items for transport.
   components:
   - type: Sprite
     sprite: Objects/Misc/ParcelWrap/parcel_wrap.rsi
@@ -32,8 +32,8 @@
   parent: BaseItem
   id: WrappedParcel
   categories: [ HideSpawnMenu ]
-  name: "загорнутий пакунок"
-  description: "Щось загорнуте в папір. Цікаво, що всередині..."
+  name: wrapped parcel
+  description: Something wrapped up in paper. I wonder what's inside...
   components:
   - type: ContainerContainer
     containers:
@@ -85,8 +85,8 @@
   parent: BaseItem
   id: ParcelWrapTrash
   categories: [ HideSpawnMenu ]
-  name: "пакувальний папір"
-  description: "Сумні залишки розгорнутого пакунка."
+  name: parcel wrap
+  description: The disappointing remnants of an unwrapped parcel.
   components:
   - type: Sprite
     sprite: Objects/Misc/ParcelWrap/parcel_wrap_trash.rsi

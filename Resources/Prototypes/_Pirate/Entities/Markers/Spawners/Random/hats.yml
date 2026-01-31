@@ -1,5 +1,5 @@
 - type: entity
-  name: "Спавнер капелюхів"
+  name: Hat Spawner
   id: HatSpawner
   parent: MarkerBase
   components:

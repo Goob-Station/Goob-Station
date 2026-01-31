@@ -8,9 +8,9 @@
 
 - type: entity
   id: PotatoAIChip
-  name: "надкомпактний ШІ-чіп"
+  name: supercompact AI chip
   parent: BaseItem
-  description: "Майстерно(?) виготовлений ШІ-чип, що потребує такого ж імпровізованого джерела живлення."
+  description: This high-tech AI chip requires a voltage of exactly 1.1V to function correctly.
   components:
     - type: Sprite
       sprite: Objects/Misc/potatoai_chip.rsi

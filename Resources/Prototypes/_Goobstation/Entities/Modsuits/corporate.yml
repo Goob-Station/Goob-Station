@@ -16,8 +16,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitCorporate
-  name: "Корпоративний блок керування модкостюмом"
-  description: "Головний контролер для корпоративного модкостюма."
+  name: Corporate modsuit control unit
+  description: The main controller for a Corporate modsuit.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
@@ -51,8 +51,8 @@
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseCentcommContraband]
   id: ClothingModsuitGauntletsCorporate
-  name: "Корпоративні рукавиці модкостюма"
-  description: "Пара рукавиць, створених для корпоративного модкостюма."
+  name: Corporate modsuit gauntlets
+  description: A pair of gauntlets made for the Corporate modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -80,8 +80,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
   id: ClothingModsuitHelmetCorporate
-  name: "Корпоративний шолом модкостюма"
-  description: "Сучасний шолом, розроблений Нанотрейзен для корпоративного модкостюма. Він має вбудований HUD."
+  name: Corporate modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Corporate modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -168,8 +168,8 @@
 - type: entity
   parent: [ClothingModsuitChestplateStandard, BaseCentcommContraband]
   id: ClothingModsuitChestplateCorporate
-  name: "Корпоративний нагрудник модкостюма"
-  description: "Сучасний нагрудник, розроблений Нанотрейзен для корпоративного модкостюма. Він містить сервоприводи для зменшення навантаження від обладнання."
+  name: Corporate modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Corporate modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -233,8 +233,8 @@
 - type: entity
   parent: [ClothingModsuitBootsStandard, BaseCentcommContraband]
   id: ClothingModsuitBootsCorporate
-  name: "Корпоративні черевики модкостюма"
-  description: "Сучасна пара магнітних черевиків для корпоративного модкостюма. Поки костюм живиться, вони не сповільнюватимуть власника."
+  name: Corporate modsuit boots
+  description: A state-of-the-art pair of magboots for the Corporate modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -303,8 +303,8 @@
 - type: entity
   parent: [ClothingModsuitCorporate, ClothingModsuitStandard, BaseCentcommContraband]
   id: ClothingModsuitTrainer
-  name: "Блок керування модкостюмом Кар'єрного Тренера"
-  description: "Головний контролер для модкостюма Кар'єрного Тренера."
+  name: Career Trainer modsuit control unit
+  description: The main controller for a Career Trainer modsuit.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
@@ -318,8 +318,8 @@
 - type: entity
   parent: [ClothingModsuitGauntletsCorporate, ClothingModsuitGauntletsStandard, BaseCentcommContraband]
   id: ClothingModsuitGauntletsTrainer
-  name: "Корпоративні рукавиці модкостюма"
-  description: "Пара рукавиць, виготовлених для модкостюма Кар'єрного Тренера."
+  name: Corporate modsuit gauntlets
+  description: A pair of gauntlets made for the Career Trainer modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -328,8 +328,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetCorporate, ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
   id: ClothingModsuitHelmetTrainer
-  name: "Корпоративний шолом модкостюма"
-  description: "Найсучасніший шолом, розроблений НаноТрейзен для модкостюма Кар'єрного Тренера. Має вбудований HUD."
+  name: Corporate modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Career Trainer modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -361,8 +361,8 @@
 - type: entity
   parent: [ClothingModsuitChestplateCorporate, ClothingModsuitChestplateStandard, BaseCentcommContraband]
   id: ClothingModsuitChestplateTrainer
-  name: "Нагрудник модкостюма Кар'єрного Тренера"
-  description: "Найсучасніший нагрудник, розроблений НаноТрейзен для модкостюма Кар'єрного Тренера. Має вбудовані сервоприводи для зменшення навантаження від спорядження."
+  name: Career Trainer modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Career Trainer modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -392,8 +392,8 @@
 - type: entity
   parent: [ClothingModsuitBootsCorporate, ClothingModsuitBootsStandard, BaseCentcommContraband]
   id: ClothingModsuitBootsTrainer
-  name: "Черевики модкостюма Кар'єрного Тренера"
-  description: "Найсучасніші магнітні черевики для модкостюма Кар'єрного Тренера. Поки костюм живиться, вони не сповільнюють власника."
+  name: Career Trainer modsuit boots
+  description: A state-of-the-art pair of magboots for the Career Trainer modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

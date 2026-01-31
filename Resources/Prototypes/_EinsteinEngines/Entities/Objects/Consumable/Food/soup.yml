@@ -1,8 +1,8 @@
 - type: entity
-  name: "пилова чаша Усіани"
+  name: ousiana dust bowl
   parent: FoodBowlBase # really dry soup i guess
   id: FoodOusianaDustBowl
-  description: "Комбінація діаметрально протилежних сил,"
+  description: A combination of diametrically opposed forces,
   components:
   - type: FlavorProfile
     flavors:

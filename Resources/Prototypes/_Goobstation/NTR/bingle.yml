@@ -1,8 +1,8 @@
 # cargo bingle
 - type: entity
   id: MobBingleCargo
-  name: "вантажний бінгл"
-  description: "Колись гордий Бінгл, тепер захоплений і змушений працювати з 9 до 5, щоб розплатитися за свої злочини. Ви можете бачити їхні сльози."
+  name: cargo bingle
+  description: Once a proud Bingle, now captured and forced to work 9 to 5 to repay for its crimes, you can see their tears.
   parent: SimpleSpaceMobBase # not being parented from the MobBingle because it breaks a lot of things. maybe change this to a pitless bingle idk
   components:
   - type: GhostTakeoverAvailable
@@ -103,8 +103,8 @@
 
 - type: entity
   id: CargoBingleSpawnCoin
-  name: "дивна монета"
-  description: "Вона світиться тьмяним синім світлом, ви відчуваєте в ній життя."
+  name: strange coin
+  description: It glows with a dim blue light, you can sense life in it.
   parent: BaseItem
   components:
   - type: Sprite

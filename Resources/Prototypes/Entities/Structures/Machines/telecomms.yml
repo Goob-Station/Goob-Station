@@ -15,8 +15,8 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: TelecomServer
-  name: "телекомунікаційний сервер"
-  description: "При увімкненому живленні та заповненому ключами шифрування він забезпечує зв'язок з радіогарнітурою."
+  name: telecommunication server
+  description: When powered and filled with encryption keys it allows radio headset communication.
   components:
   - type: Sprite
     sprite: Structures/Machines/telecomms.rsi

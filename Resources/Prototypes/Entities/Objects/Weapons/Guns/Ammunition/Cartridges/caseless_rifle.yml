@@ -21,7 +21,7 @@
 
 - type: entity
   id: BaseCartridgeCaselessRifle
-  name: "патрон (9.5мм)" # Goob edit
+  name: cartridge (9.5mm) # Goob edit
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -44,18 +44,18 @@
 
 - type: entity
   id: CartridgeCaselessRifle
-  name: "патрон (9.5мм HP)" # Goob edit
+  name: cartridge (9.5mm HP) # Goob edit
   parent: BaseCartridgeCaselessRifle
-  description: "Малокаліберний патрон, що використовує безгільзову технологію, замінюючи звичайну латунну гільзу на затверділий пропелент. Стандартні кінетичні боєприпаси поширені та корисні в більшості ситуацій."
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRifle
 
 - type: entity
   id: CartridgeCaselessRiflePractice
-  name: "патрон (9.5мм тренувальний)" # Goob edit
+  name: cartridge (9.5mm practice) # Goob edit
   parent: BaseCartridgeCaselessRifle
-  description: "Малокаліберний патрон, що використовує безгільзову технологію, замінюючи звичайну латунну гільзу на затверділий пропелент. Крейдяні боєприпаси зазвичай нешкідливі, використовуються для тренувань."
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Chalk ammunition is generally non-harmful, used for practice.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRiflePractice

@@ -13,7 +13,7 @@
 # Markers
 - type: entity
   id: SalvageShuttleMarker
-  name: "маркер шатла утилізації"
+  name: salvage shuttle marker
   parent: FTLPoint
 
 # Biome mods -> at least 1 required

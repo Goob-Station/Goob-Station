@@ -5,7 +5,7 @@
 
 - type: body
   id: SlaughterDemon
-  name: "демон-різник"
+  name: "slaughter demon"
   root: chest
   slots:
     chest:

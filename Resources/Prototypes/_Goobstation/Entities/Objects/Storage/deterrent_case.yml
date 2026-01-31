@@ -1,7 +1,7 @@
 - type: entity
   id: DeterrentCase
-  name: "кейс стримування"
-  description: "Невеликий зелений кейс, наповнений найкращими друзями члена Центрального Командування. Теплий на дотик."
+  name: deterrent case
+  description: A small green case filled with a Central Command members best friends. Warm to the touch.
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseCentcommContraband ]
   components:
   - type: Sprite

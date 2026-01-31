@@ -13,8 +13,8 @@
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: BSOManual
-  name: "Посібник з драконячого кунг-фу Nanotrasen"
-  description: "Посібник з інструкціями з драконячого кунг-фу, схваленого Nanotrasen бойового мистецтва для елітних охоронців."
+  name: Nanotrasen Dragon Kung Fu manual
+  description: A manual with instructions of Dragon Kung Fu, Nanotrasen-approved martial art for elite bodyguards.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/martial_arts.rsi
@@ -32,8 +32,8 @@
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: HandheldCrewMonitorBSO
-  name: "портативний монітор командування"
-  description: "Портативний монітор екіпажу, модифікований для потреб офіцера \"синього щита\". Призначений для введення пристрою відстеження командному персоналу та сповіщення про їхню небезпеку. Працює на вбудованій мікрореакторній комірці."
+  name: handheld command monitor
+  description: A handheld crew monitor modified for blueshield officer's needs. Designed to inject a tracking device into command personnel and alarm you about them being in danger. Works on a built-in microreactor cell.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/bso_monitor.rsi

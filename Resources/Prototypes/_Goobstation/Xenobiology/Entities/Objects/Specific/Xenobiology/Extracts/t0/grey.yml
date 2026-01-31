@@ -1,7 +1,7 @@
 - type: entity
   id: GreySlimeExtract
   parent: BaseSlimeExtract
-  name: "сірий екстракт слайма"
+  name: grey slime extract
   components:
   - type: Sprite
     layers:

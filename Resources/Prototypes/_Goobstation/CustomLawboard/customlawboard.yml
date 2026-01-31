@@ -1,8 +1,8 @@
 - type: entity
   id: SyndicateCustomLawboard
   parent: [BaseElectronics, BaseSyndicateAnchoredContraband]
-  name: "експериментальна плата законів Синдикату"
-  description: "Дивно виглядаюча експериментальна плата законів. Судячи з дисплея Синдикату на ній, вона, ймовірно, використовується для підступних цілей."
+  name: experimental syndicate law board
+  description: A strange looking experimental lawboard. Judging by the Syndicate display on it, it's probaly used for nefarious purposes.
   components:
   - type: Sprite
     sprite: _Goobstation/CustomLawboard/custom_lawboard.rsi

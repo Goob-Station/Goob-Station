@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "льодяник-рубака"
+  name: lollychop
   parent: [BaseItem, BaseSyndicateContraband]
   id: LollyChop
-  description: "Наповніть (розколіть) животи (черепи) ваших друзів цим смачним цукерком (холодною сталлю)."
+  description: Fill (split) your buddies' tummies (skulls) with this delicious candy (cold steel).
   components:
   - type: Tag
     tags:

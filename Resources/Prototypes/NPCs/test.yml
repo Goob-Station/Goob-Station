@@ -19,7 +19,7 @@
 
 - type: entity
   id: MobPathfindDummy
-  name: "манекен для патфайндінгу"
+  name: pathfind dummy
   suffix: NPC
   parent: MobSpiderAngryBase
   components:

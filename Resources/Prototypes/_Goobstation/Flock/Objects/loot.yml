@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: MaterialFlockCube
-  name: "дивний скляний куб"
-  description: "Ви не впевнені, що це, але виглядає дуже цінним!"
+  name: strange glass cube
+  description: You're not sure what it is, but it looks very valuable!
   components:
   - type: Appearance
   - type: StaticPrice
@@ -23,7 +23,7 @@
 - type: entity
   id: MaterialFlockOrb
   parent: MaterialFlockCube
-  name: "дивна скляна куля"
+  name: strange glass orb
   components:
   - type: StaticPrice
     price: 5000

@@ -1,6 +1,6 @@
 - type: entity
   id: ShadowlingGlareEffect
-  name: "ефект сліпучого погляду тіньовика"
+  name: shadowling glare effect
   components:
   - type: TimedDespawn
     lifetime: 0.35
@@ -21,7 +21,7 @@
 
 - type: entity
   id: ShadowlingShadowWalkInEffect
-  name: "ефект входження тіньовика в тіньову ходу"
+  name: shadowling shadow walk in effect
   components:
   - type: TimedDespawn
     lifetime: 0.5
@@ -40,7 +40,7 @@
 
 - type: entity
   id: ShadowlingShadowWalkOutEffect
-  name: "ефект виходу тіньовика з тіньової ходи"
+  name: shadowling shadow walk out effect
   components:
   - type: TimedDespawn
     lifetime: 0.5
@@ -59,7 +59,7 @@
 
 - type: entity
   id: ShadowlingCollectiveMindEffect
-  name: "ефект колективного розуму тіньовика"
+  name: shadowling collective mind effect
   components:
   - type: TimedDespawn
     lifetime: 0.35
@@ -80,7 +80,7 @@
 
 - type: entity
   id: ShadowlingRapidRehatchEffect
-  name: "ефект швидкого переродження тіньовика"
+  name: shadowling rapid rehatch effect
   components:
   - type: TimedDespawn
     lifetime: 0.85
@@ -101,7 +101,7 @@
 
 - type: entity
   id: ShadowlingIcyVeinsEffect
-  name: "ефект крижаних вен тіньовика"
+  name: shadowling icy veins effect
   components:
   - type: TimedDespawn
     lifetime: 0.85
@@ -122,7 +122,7 @@
 
 - type: entity
   id: ShadowlingNullChargeEffect
-  name: "ефект нульового заряду тіньовика"
+  name: shadowling null charge effect
   components:
   - type: TimedDespawn
     lifetime: 0.85
@@ -143,7 +143,7 @@
 
 - type: entity
   id: ShadowlingSonicScreechEffect
-  name: "ефект звукового вереску тіньовика"
+  name: shadowling sonic screech effect
   components:
   - type: TimedDespawn
     lifetime: 1.2
@@ -165,7 +165,7 @@
 
 - type: entity
   id: ShadowlingBlackRecuperationEffect # plays on Thralls
-  name: "ефект чорної рекуперації тіньовика"
+  name: shadowling black recuperation effect
   components:
   - type: TimedDespawn
     lifetime: 0.85
@@ -186,7 +186,7 @@
 
 - type: entity
   id: ShadowlingAscendingEffect
-  name: "ефект вознесіння тіньовика"
+  name: shadowling ascending effect
   components:
   - type: TimedDespawn
     lifetime: 8.02

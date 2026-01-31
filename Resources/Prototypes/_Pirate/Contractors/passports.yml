@@ -1,9 +1,9 @@
 - type: entity
-  name: "паспорт"
+  name: passport
   parent: BaseItem
   id: BasePassport
   abstract: true
-  description: "Паспорт, що підтверджує громадянство та інформацію особи."
+  description: Паспорт, що підтверджує громадянство та інформацію особи.
   components:
     - type: Passport
     - type: Sprite
@@ -29,7 +29,7 @@
           volume: -4
 
 - type: entity
-  name: "паспорт Республіки Бізель"
+  name: паспорт Республіки Бізель
   parent: BasePassport
   id: BieselPassport
   components:
@@ -58,7 +58,7 @@
 #          - Solarian
 
 - type: entity
-  name: "паспорт Федерації Нралакк"
+  name: паспорт Федерації Нралакк
   parent: BasePassport
   id: NralakkPassport
   components:
@@ -69,7 +69,7 @@
       - state: passport_species_human # Todo: make variable via a custom component
 
 - type: entity
-  name: "паспорт Солоріанського Альянсу"
+  name: паспорт Солоріанського Альянсу
   parent: BasePassport
   id: SolPassport
   components:
@@ -98,7 +98,7 @@
 #          - Solarian
 
 - type: entity
-  name: "паспорт Ерідану"
+  name: паспорт Ерідану
   parent: BasePassport
   id: EridanPassport
   components:
@@ -109,7 +109,7 @@
       - state: passport_species_human # Todo: make variable via a custom component
 
 - type: entity
-  name: "паспорт Адхомаі"
+  name: паспорт Адхомаі
   parent: BasePassport
   id: AdhomaiPassport
   components:
@@ -120,7 +120,7 @@
       - state: passport_species_human # Todo: make variable via a custom component
 
 - type: entity
-  name: "паспорт Ізвескі-Гегемонії"
+  name: паспорт Ізвескі-Гегемонії
   parent: BasePassport
   id: IzweskiPassport
   components:
@@ -131,7 +131,7 @@
       - state: passport_species_human # Todo: make variable via a custom component
 
 - type: entity
-  name: "паспорт Золотої Глибини"
+  name: паспорт Золотої Глибини
   parent: BasePassport
   id: GoldenDeepPassport
   components:
@@ -142,7 +142,7 @@
       - state: passport_species_human # Todo: make variable via a custom component
 
 - type: entity
-  name: "гаманець Вокса"
+  name: гаманець Вокса
   parent: BasePassport
   id: VoxWallet
   components:

@@ -7,8 +7,8 @@
 - type: entity
   parent: EggSpider
   id: EggSpiderFertilized
-  name: "яйце павука"
-  description: "Це коштовний камінь? Це яйце? Виглядає дорого."
+  name: spider egg
+  description: Is it a gemstone? Is it an egg? It looks expensive.
   components:
   - type: Timer
   - type: TimedSpawner

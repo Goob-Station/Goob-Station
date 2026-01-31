@@ -14,7 +14,7 @@
 
 - type: body
   id: Felinid
-  name: "вид-назва-фелінід"
+  name: "felinid"
   root: chest
   slots:
     head:

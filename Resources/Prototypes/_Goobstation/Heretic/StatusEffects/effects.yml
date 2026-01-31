@@ -1,27 +1,27 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectFireBlasted
-  name: "обпалений вогнем"
+  name: fire blasted
   components:
   - type: FireBlastedStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectStarMark
-  name: "зіркова мітка"
+  name: star mark
   components:
   - type: StarMarkStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectStarTouched
-  name: "торкнутий зіркою"
+  name: star touched
   components:
   - type: StarTouchedStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: CarvingAlertedStatusEffect
-  name: "стривожений"
+  name: alerted
   components:
   - type: CarvingAlertedStatusEffect

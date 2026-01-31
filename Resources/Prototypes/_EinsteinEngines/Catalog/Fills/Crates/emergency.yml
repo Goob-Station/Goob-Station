@@ -1,8 +1,8 @@
 - type: entity
   id: CratePlasmaInternals
   parent: CrateInternals
-  name: "внутрішній ящик (плазма)"
-  description: "Містить чотири дихальні маски та чотири резервуари для внутрішньої плазми. Призначений для Плазмаменів."
+  name: internals crate (plasma)
+  description: Contains four breath masks and four plasma internals tanks. Intended for Plasmamen.
   components:
   - type: StorageFill
     contents:
@@ -16,8 +16,8 @@
 - type: entity
   id: CratePlasmamanEnvirosuit
   parent: CrateInternals
-  name: "ящик плазмового екокостюму"
-  description: "Містить два повних комплекти аерокостюмів, дві респіраторні маски та два резервуари для плазми. Призначений для плазмаменів."
+  name: plasma envirosuit crate
+  description: Contains two full sets of envirosuits, two breath masks, and two plasma internals tanks. Intended for Plasmamen.
   components:
   - type: StorageFill
     contents:

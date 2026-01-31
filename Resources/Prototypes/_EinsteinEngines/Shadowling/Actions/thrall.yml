@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseAction
   id: ActionGuise
-  name: "Маскування"
-  description: "Стати невидимим у темряві."
+  name: Guise
+  description: Become invisible in the darkness.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

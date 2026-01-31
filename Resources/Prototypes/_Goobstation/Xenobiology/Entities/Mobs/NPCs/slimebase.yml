@@ -2,8 +2,8 @@
   abstract: true
   parent: [ SimpleMobBase, MobCombat ]
   id: BaseMobSlimeXenobio
-  name: "базовий слайм"
-  description: "Воно так схоже на желе. Цікаво, яке воно на смак?"
+  name: basic slime
+  description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Appearance
   - type: Hunger
@@ -154,9 +154,9 @@
   parent: BaseMobSlimeXenobio
   id: MobSlimeXenobioBaby
   categories: [ HideSpawnMenu ]
-  name: "слайм"
+  name: slime
   suffix: Baby
-  description: "Воно так схоже на желе. Цікаво, яке воно на смак?"
+  description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -181,9 +181,9 @@
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioAdult
   categories: [ HideSpawnMenu ]
-  name: "слайм"
+  name: slime
   suffix: Adult
-  description: "Воно так схоже на желе. Цікаво, яке воно на смак?"
+  description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: MobGrowth
     hungerRequired: 75
@@ -201,7 +201,7 @@
   abstract: true
   parent: MarkerBase
   id: MobSlimeXenobioBabyPending
-  name: "невизначений слайм"
+  name: undetermined slime
   components:
   - type: PendingSlimeSpawn
   - type: Sprite

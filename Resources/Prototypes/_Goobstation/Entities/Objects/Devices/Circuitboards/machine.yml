@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: RoboticArmCircuitboard
-  name: "плата роботизованої руки"
-  description: "Друкована плата для роботизованої руки."
+  name: robotic arm machine board
+  description: A machine printed circuit board for a robotic arm.
   components:
   - type: Sprite
     state: engineering
@@ -29,8 +29,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: ConstructorCircuitboard
-  name: "плата конструктора"
-  description: "Друкована плата для конструктора."
+  name: constructor machine board
+  description: A machine printed circuit board for a constructor.
   components:
   - type: Sprite
     state: engineering
@@ -48,8 +48,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StorageBinCircuitboard
-  name: "плата контейнера для зберігання"
-  description: "Друкована плата для контейнера для зберігання."
+  name: storage bin machine board
+  description: A machine printed circuit board for a storage bin.
   components:
   - type: MachineBoard
     prototype: StorageBin
@@ -60,8 +60,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: InteractorCircuitboard
-  name: "плата інтерактора"
-  description: "Друкована плата для інтерактора."
+  name: interactor machine board
+  description: A machine printed circuit board for an interactor.
   components:
   - type: Sprite
     state: engineering
@@ -79,8 +79,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: VinylPlayerCircuitboard
-  name: "плата машини програвача платівок"
-  description: "Друкована плата машини для програвача платівок."
+  name: vinyl player machine board
+  description: A machine printed circuit board for a vinyl player.
   components:
   - type: Sprite
     state: service
@@ -94,8 +94,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: TapeDeckCircuitboard
-  name: "плата машини касетної деки"
-  description: "Друкована плата машини для касетної деки."
+  name: tape deck machine board
+  description: A machine printed circuit board for a tape deck.
   components:
   - type: Sprite
     state: service
@@ -109,8 +109,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StationRadioServerCircuitboard
-  name: "плата машини сервера станційного радіо"
-  description: "Друкована плата машини для сервера станційного радіо."
+  name: station radio server machine board
+  description: A machine printed circuit board for a station radio server.
   components:
   - type: Sprite
     state: service
@@ -126,8 +126,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StationRadioRigCircuitboard
-  name: "плата машини станційного радіо-ріґу"
-  description: "Друкована плата машини для станційного радіо-ріґу."
+  name: station radio rig machine board
+  description: A machine printed circuit board for a station radio rig.
   components:
   - type: Sprite
     state: service
@@ -142,8 +142,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StationRadioCircuitboard
-  name: "плата машини станційного радіо"
-  description: "Друкована плата машини для станційного радіоприймача."
+  name: station radio machine board
+  description: A machine printed circuit board for a station radio receiver.
   components:
   - type: Sprite
     state: service
@@ -156,8 +156,8 @@
 - type: entity
   id: VirologyServerMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата машини сервера вірусології"
-  description: "Друкована плата машини для сервера вірусології."
+  name: virology server machine board
+  description: A machine printed circuit board for a virology server.
   components:
     - type: MachineBoard
       prototype: VirologyServer

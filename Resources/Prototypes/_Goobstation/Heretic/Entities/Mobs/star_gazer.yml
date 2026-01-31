@@ -4,8 +4,8 @@
   - MobCombat
   - FlyingMobBase
   id: MobStarGazer
-  name: "зорегляд"
-  description: "Істота, якій доручено спостерігати за зірками."
+  name: star gazer
+  description: A creature that has been tasked to watch over the stars.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/star_gazer.rsi

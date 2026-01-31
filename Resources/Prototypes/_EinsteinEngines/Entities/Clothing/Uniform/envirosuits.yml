@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuit
-  name: "плазмовий екокостюм"
-  description: "Спеціальний захисний костюм, який дозволяє плазмовим формам життя безпечно існувати в середовищі, насиченому киснем."
+  name: plasma envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/plain.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitAtmos
-  name: "атмосферний екокостюм"
-  description: "Герметичний костюм, призначений для використання плазмоменами, які працюють в якості атмосферних техніків."
+  name: atmospherics envirosuit
+  description: An air-tight suit designed to be used by Plasmamen employed as atmos technicians.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/atmos.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitCargo
-  name: "вантажний технологічний екокостюм"
-  description: "Екокостюм, який використовують вантажні техніки Plasmamen."
+  name: cargo tech envirosuit
+  description: An envirosuit used by Plasmamen cargo technicians.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/cargo.rsi
@@ -34,8 +34,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitCaptain
-  name: "капітанський скафандр"
-  description: "Це блакитний екокостюм із золотими знаками, що позначають звання \"капітан\"."
+  name: captain's envirosuit
+  description: It's a blue envirosuit with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/captain.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitChiefEngineer
-  name: "екокостюм головного інженера"
-  description: "Герметичний костюм, призначений для використання плазмаменами, достатньо божевільними, щоб отримати звання \"головного інженера\"."
+  name: chief engineer's envirosuit
+  description: An air-tight suit designed to be used by Plasmamen insane enough to achieve the rank of "Chief Engineer".
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/ce.rsi
@@ -56,8 +56,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitChaplain
-  name: "костюм капелана"
-  description: "Екокостюм, спеціально розроблений для найблагочестивіших плазмаменів."
+  name: chaplain's envirosuit
+  description: An envirosuit specially designed for only the most pious of Plasmamen.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/chaplain.rsi
@@ -67,8 +67,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitChef
-  name: "костюм шеф-кухаря"
-  description: "Білий енвайронментальний костюм Plasmaman, призначений для кулінарних практик. Здавалося б, навіщо представнику виду, якому не потрібно їсти, ставати шеф-кухарем?"
+  name: chef's envirosuit
+  description: A white Plasmaman envirosuit designed for cullinary practices. One might question why a member of a species that doesn't need to eat would become a chef.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/chef.rsi
@@ -78,8 +78,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitChemist
-  name: "хімічний екокостюм"
-  description: "Екокостюм Plasmaman, розроблений для хіміків."
+  name: chemistry envirosuit
+  description: A Plasmaman envirosuit designed for chemists.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/chemist.rsi
@@ -89,8 +89,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitClown
-  name: "клоунський екокостюм"
-  description: "ГУДОК!"
+  name: clown envirosuit
+  description: HONK!
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/clown.rsi
@@ -100,8 +100,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitCMO
-  name: "костюм головного лікаря"
-  description: "Це захисний костюм, який носять ті, хто має досвід роботи на посаді \"головного лікаря\"."
+  name: chief medical officer's envirosuit
+  description: It's an envirosuit worn by those with the experience to be "Chief Medical Officer".
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/cmo.rsi
@@ -111,8 +111,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitEngineering
-  name: "інженерний екокостюм"
-  description: "Герметичний костюм, призначений для використання плазмаменами, які працюють інженерами, звичайні фіолетові смуги замінені на інженерні помаранчеві."
+  name: engineering envirosuit
+  description: An air-tight suit designed to be used by Plasmamen employed as engineers, the usual purple stripes being replaced by engineering's orange.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/engineering.rsi
@@ -122,14 +122,14 @@
 - type: entity
   parent: ClothingUniformEnvirosuitEnviroslacksColorOrange
   id: ClothingUniformEnvirosuitDetective
-  name: "екокостюм детектива"
-  description: "Улюблений проект особливо розкішного Плазмамена, цей нестандартний костюм був модифікований компанією Nanotrasen для своїх детективів."
+  name: detective envirosuit
+  description: The pet project of a particularly posh Plasmaman, this custom suit was modified by Nanotrasen for its detectives.
 
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitHoP
-  name: "костюм керівника відділу кадрів"
-  description: "Це костюм, який носить людина, що працює на посаді \"Начальник відділу кадрів\"."
+  name: head of personnel's envirosuit
+  description: It's an envirosuit worn by someone who works in the position of "Head of Personnel".
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/hop.rsi
@@ -139,8 +139,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitHoS
-  name: "костюм керівника служби безпеки"
-  description: "Захисний костюм Plasmaman, створений для тих небагатьох, хто прагне зайняти посаду керівника служби безпеки."
+  name: head of security's envirosuit
+  description: A Plasmaman containment suit decorated for those few with the dedication to achieve the position of Head of Security.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/hos.rsi
@@ -150,8 +150,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitHydroponics
-  name: "гідропонічний екокостюм"
-  description: "Зелено-синій екокостюм, призначений для захисту плазмалеми від незначних травм, пов'язаних з рослинами."
+  name: hydroponics envirosuit
+  description: A green and blue envirosuit designed to protect Plasmamen from minor plant-related injuries.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/hydroponics.rsi
@@ -161,8 +161,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitJanitor
-  name: "екокостюм двірника"
-  description: "Сіро-фіолетовий екокостюм, призначений для прибиральників Plasmamen."
+  name: janitor envirosuit
+  description: A grey and purple envirosuit designated for Plasmamen janitors.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/janitor.rsi
@@ -172,8 +172,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitAncientVoid
-  name: "Екокостюм NTSRA"
-  description: "Виготовлений з модифікованого вакцинального костюма NTSRA, цей не придатний для космосу костюм став першим розробленим NanoTrasen енвайронментальним костюмом для Plasmamen."
+  name: NTSRA envirosuit
+  description: Made out of a modified NTSRA vacsuit, this non-spaceworthy suit was NanoTrasen's first designed envirosuit for Plasmamen.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/ancientvoid.rsi
@@ -183,8 +183,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitMedicalDoctor
-  name: "аерокостюм лікаря"
-  description: "Костюм, розроблений для лікарів станції, які більше працюють у плазмі."
+  name: medical doctor's envirosuit
+  description: A suit designed for the station's more plasma-based doctors.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/medical.rsi
@@ -194,8 +194,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitGenetics
-  name: "генетичний екокостюм"
-  description: "Екокостюм Plasmaman, розроблений для генетиків."
+  name: genetics envirosuit
+  description: A Plasmaman envirosuit designed for geneticists.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/genetics.rsi
@@ -205,8 +205,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitMime
-  name: "екокостюм міма"
-  description: "Вона не дуже барвиста."
+  name: mime envirosuit
+  description: It's not very colourful.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/mime.rsi
@@ -216,8 +216,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitParamedic
-  name: "екокостюм парамедика"
-  description: "Костюм, розроблений для парамедиків станції \"Плазмамен\"."
+  name: paramedic envirosuit
+  description: A suit designed for the station's Plasmaman paramedics.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/paramedic.rsi
@@ -227,8 +227,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitPrisoner
-  name: "екокостюм для в'язнів"
-  description: "Помаранчевий екокостюм, що ідентифікує та захищає злочинця Плазмамена."
+  name: prisoner envirosuit
+  description: An orange envirosuit identifying and protecting a criminal Plasmaman.
   components:
   - type: Sprite
     layers:
@@ -281,8 +281,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitResearchDirector
-  name: "скафандр директора з досліджень"
-  description: "Це скафандр, який носять ті, хто має достатньо знань, щоб досягти посади директора з досліджень."
+  name: research director's envirosuit
+  description: It's an envirosuit worn by those with the know-how to achieve the position of Research Director.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/rd.rsi
@@ -292,8 +292,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitRoboticist
-  name: "екокостюм робототехніка"
-  description: "Екокостюм Plasmaman, розроблений для робототехніків."
+  name: roboticist envirosuit
+  description: A Plasmaman envirosuit designed for roboticists.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/roboticist.rsi
@@ -303,8 +303,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitSalvage
-  name: "рятувальний екокостюм"
-  description: "Герметичний костюм кольору хакі, розроблений для рятувальних операцій Plasmamen."
+  name: salvage envirosuit
+  description: An air-tight khaki suit designed for salvage operations by Plasmamen.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/salvage.rsi
@@ -314,8 +314,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitScientist
-  name: "науковий екокостюм"
-  description: "Екокостюм Plasmaman, розроблений для науковців."
+  name: science envirosuit
+  description: A Plasmaman envirosuit designed for scientists.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/scientist.rsi
@@ -325,8 +325,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitSec
-  name: "захисний екокостюм"
-  description: "Захисний костюм Plasmaman, розроблений для співробітників служби безпеки."
+  name: security envirosuit
+  description: A Plasmaman containment suit designed for security officers.
   components:
   - type: Sprite
     layers:
@@ -395,8 +395,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitSecBlue
-  name: "синій захисний екокостюм"
-  description: "Прохолодна блакитна енвайронментальна сорочка поверх вугільних штанів, для спокійного та зібраного офіцера Plasmaman."
+  name: blue security envirosuit
+  description: A cool blue enviroshirt over charcoal trousers, for the calm and collected Plasmaman officer.
   components:
   - type: Sprite
     layers:
@@ -475,8 +475,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitSecGrey
-  name: "сірий захисний екокостюм"
-  description: "Світло-сірі екологічні куртки з яскраво-червоними вставками для відданих та оперативних співробітників служби безпеки."
+  name: grey security envirosuit
+  description: Light grey enviroslacks with bright red highlights, for dedicated and responsive security officers.
   components:
   - type: Sprite
     layers:
@@ -565,8 +565,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitVirology
-  name: "вірусологічний екокостюм"
-  description: "Костюм, який носять найбезпечніші люди на станції, ті, хто має повний імунітет до монстрів, яких вони створюють."
+  name: virology envirosuit
+  description: The suit worn by the safest people on the station, those who are completely immune to the monstrosities they create.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/virology.rsi
@@ -576,8 +576,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitWarden
-  name: "костюм наглядача"
-  description: "Захисний костюм Plasmaman, розроблений для наглядача, з білими смужками, щоб відрізняти його від інших членів охорони."
+  name: warden's envirosuit
+  description: A Plasmaman containment suit designed for the warden, white stripes being added to differentiate them from other members of security.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/warden.rsi
@@ -587,8 +587,8 @@
 - type: entity
   parent: UnsensoredClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitOperative
-  name: "оперативний екокостюм"
-  description: "Зловісний на вигляд екокостюм для найелітніших кістлявих оперативників."
+  name: operative envirosuit
+  description: A sinister looking envirosuit, for the most elite of bony operatives.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/tacticool.rsi
@@ -600,8 +600,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitTacticool
-  name: "екокостюм tacticool"
-  description: "Зловісний на вигляд екокостюм для найміцніших оперативників."
+  name: tacticool envirosuit
+  description: A sinister looking envirosuit, for the boniest of operatives.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/tacticool.rsi
@@ -615,8 +615,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitCentcomAgent
-  name: "Аерокостюм агента CentCom"
-  description: "Екокостюм, пошитий для юридичної команди CentCom. Пахне горілою кавою."
+  name: CentCom agent's envirosuit
+  description: An envirosuit tailored for CentCom's legal team. Smells of burnt coffee.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/centcom_agent.rsi
@@ -626,8 +626,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitCentcomOfficial
-  name: "Захисний костюм чиновника CentCom"
-  description: "Це костюм, який носять співробітники CentCom."
+  name: CentCom official's envirosuit
+  description: It's an envirosuit worn by CentCom's officials.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/centcom_official.rsi
@@ -637,8 +637,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitCentcomOfficer
-  name: "Аерокостюм офіцера CentCom"
-  description: "Це - захисний костюм, який носять офіцери Центрального командування."
+  name: CentCom officer's envirosuit
+  description: It's an envirosuit worn by CentCom Officers.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/centcom_officer.rsi
@@ -648,8 +648,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitBlueshield
-  name: "захисний костюм Блюшильда"
-  description: "Екокостюм, розроблений для плазмоменів, які виконують роль Блакитного Щита."
+  name: blueshield's envirosuit
+  description: An envirosuit designed for Plasmamen employed as the Blueshield.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/blueshield_officer.rsi
@@ -664,8 +664,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitCourier
-  name: "костюм кур'єра - екокостюм"
-  description: "Екокостюм, пошитий для кур'єра."
+  name: courier's envirosuit
+  description: An envirosuit tailored for the courier.
   components:
   - type: Sprite
     layers:
@@ -716,8 +716,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitMailCarrier
-  name: "екокостюм поштового перевізника"
-  description: "Екокостюм, скроєний для листоноші. Кольоровий візерунок доводить пітбулів до сказу."
+  name: mail carrier's envirosuit
+  description: An envirosuit tailored for the mail carrier. The color pattern makes pitbulls go wild.
   components:
   - type: Sprite
     layers:
@@ -794,8 +794,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitMusician
-  name: "костюм музиканта"
-  description: "Костюм, в якому можна грати музику."
+  name: musician's envirosuit
+  description: An envirosuit to play music with.
   components:
   - type: Sprite
     layers:
@@ -840,8 +840,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitReporter
-  name: "репортерський екокостюм"
-  description: "Костюм для плазмомена, орієнтованого на новини."
+  name: reporter envirosuit
+  description: An envirosuit for the news-oriented Plasmamen.
   components:
   - type: Sprite
     layers:
@@ -876,8 +876,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitGladiator
-  name: "гладіаторський комбінезон"
-  description: "Створено для кровожерливих плазмоїдів."
+  name: gladiator envirosuit
+  description: Made for bloodthirsty Plasmamen.
   components:
   - type: Sprite
     layers:
@@ -920,8 +920,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitMantis
-  name: "екокостюм мантіса"
-  description: "Полювання на псіоніків у безпеці цього екокостюма."
+  name: mantis' envirosuit
+  description: Hunting down psionics in the safety of this envirosuit.
   components:
   - type: Sprite
     layers:
@@ -988,8 +988,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitSafari
-  name: "сафарі-костюм"
-  description: "Ідеально підходить для екскурсії в джунглі."
+  name: safari envirosuit
+  description: Perfect for a jungle excursion.
   components:
   - type: Sprite
     layers:
@@ -1024,8 +1024,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitMartialGi
-  name: "екокостюм gi"
-  description: "Струмливий екокостюм, створений спеціально для бойових мистецтв, який не обмежує вашу рухливість."
+  name: gi envirosuit
+  description: A flowy envirosuit tailor-made for martial arts that doesn't restrict your mobility.
   components:
   - type: Sprite
     layers:
@@ -1060,8 +1060,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitQM
-  name: "костюм офіцера логіста"
-  description: "Герметичний костюм, розроблений для використання плазмаменами, які достатньо божевільні, щоб отримати звання \"Офіцер логістики\"."
+  name: logistics officer's envirosuit
+  description: An air-tight suit designed to be used by Plasmamen insane enough to achieve the rank of "Logistics Officer".
   components:
   - type: Sprite
     layers:
@@ -1158,8 +1158,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitBoxing
-  name: "боксерський аерокостюм"
-  description: "Використовується боксерами Plasmamen."
+  name: boxing envirosuit
+  description: Used by Plasmamen boxers.
   components:
   - type: Sprite
     layers:
@@ -1202,8 +1202,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitAdminAssistant
-  name: "костюм адміністративного асистента"
-  description: "Костюм, який носить адміністративна асистентка. Пахне горілою кавою."
+  name: administrative assistant's envirosuit
+  description: An envirosuit worn by the Administrative Assistant. Smells of burnt coffee.
   components:
   - type: Sprite
     layers:
@@ -1270,8 +1270,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitBlackPink
-  name: "чорно-рожевий екокостюм"
-  description: "Чорно-рожевий екокостюм у вашому регіоні!"
+  name: black pink envirosuit
+  description: Black pink envirosuit in your area!
   components:
   - type: Sprite
     layers:
@@ -1322,9 +1322,9 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitBlackPinkAlt
-  name: "чорно-рожевий екокостюм"
+  name: black pink envirosuit
   suffix: Alternative
-  description: "Чорно-рожевий екокостюм у вашому регіоні!"
+  description: Black pink envirosuit in your area!
   components:
   - type: Sprite
     layers:
@@ -1375,8 +1375,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitTrans
-  name: "транс-екокостюм"
-  description: "Фірмовий екокостюм трансильванських плазмаменів."
+  name: trans envirosuit
+  description: The signature envirosuit of Transylvanian Plasmamen.
   components:
   - type: Sprite
     layers:
@@ -1431,8 +1431,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitPrisonGuard
-  name: "костюм тюремного охоронця"
-  description: "Зручний, міцний, івіброкостюм, створений для забезпечення комфорту та безпеки персоналу в'язниці Плазмамен."
+  name: prison guard's envirosuit
+  description: A comfortable, durable, envirosuit made to keep Plasmamen prison staff comfortable and safe.
   components:
   - type: Sprite
     layers:
@@ -1501,8 +1501,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitBrigmedic
-  name: "костюм санітара"
-  description: "Костюм для санітарів Plasmamen."
+  name: corpsman envirosuit
+  description: An envirosuit assigned to corpsmen Plasmamen.
   components:
   - type: Sprite
     layers:
@@ -1589,8 +1589,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitNanotrasenRepresentative
-  name: "скафандр представника нанотрейзен"
-  description: "Чорний скафандр, який носять офіційні особи."
+  name: nanotrasen representative envirosuit
+  description: A black envirosuit worn by officials.
   components:
   - type: Sprite
     layers:
@@ -1661,8 +1661,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitMagistrate
-  name: "судовий позов до магістрату"
-  description: "Костюм, який вершить правосуддя."
+  name: magistrate envirosuit
+  description: The envirosuit that doles out justice.
   components:
   - type: Sprite
     layers:
@@ -1749,8 +1749,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitEnviroslacks
-  name: "enviroslack"
-  description: "Домашній проект особливо шикарного Плазмамена. Професіонал!"
+  name: enviroslacks
+  description: The pet project of a particularly posh Plasmaman. Professional!
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/enviroslacks.rsi
@@ -1760,8 +1760,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksNegative
-  name: "негативні екологічні наслідки"
-  description: "Улюблений проект особливо шикарного Плазмамена, цей варіант має інвертовані кольори. Ошатний!"
+  name: negative enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant has inverted colors. Dapper!
   components:
   - type: Sprite
     layers:
@@ -1828,8 +1828,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksColorRed
-  name: "червоні екошорти"
-  description: "Улюблений проект особливо шикарного Плазмамена, цей варіант має червоні акценти. Вишукано!"
+  name: red enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant comes with red accents. Fancy!
   components:
   - type: Sprite
     layers:
@@ -1896,8 +1896,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksColorOrange
-  name: "помаранчеві екошорти"
-  description: "Улюблений проект особливо розкішного Плазмамена, цей варіант має помаранчеві акценти. Пікантно!"
+  name: orange enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant comes with orange accents. Zesty!
   components:
   - type: Sprite
     layers:
@@ -1964,8 +1964,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksColorGreen
-  name: "зелені екошорти"
-  description: "Улюблений проект особливо розкішного Плазмамена, цей варіант має зелені акценти. Зелений!"
+  name: green enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant comes with green accents. Leafy!
   components:
   - type: Sprite
     layers:
@@ -2032,8 +2032,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksColorBlue
-  name: "сині екошорти"
-  description: "Улюблений проект особливо шикарного Плазмамена, цей варіант має сині акценти. Круто!"
+  name: blue enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant comes with blue accents. Cool!
   components:
   - type: Sprite
     layers:
@@ -2100,8 +2100,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksColorBrown
-  name: "коричневі екошорти"
-  description: "Улюблений проект особливо шикарного Плазмамена, цей варіант має коричневі штани. Нагадує запилені офіси."
+  name: brown enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant has brown pants. Reminds you of dusty offices.
   components:
   - type: Sprite
     layers:
@@ -2176,8 +2176,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksMNK
-  name: "MNK envirolaces"
-  description: "Культові енвайронментальні штани з фірмовою монохромною естетикою MNK. Класика!"
+  name: MNK enviroslacks
+  description: The iconic enviroslacks, with MNK's signature monochrome aesthetic. Classic!
   components:
   - type: Sprite
     layers:
@@ -2244,8 +2244,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksMNKAlt
-  name: "MNK envirolaces"
-  description: "Культові нью-йоркські чорні штани з фірмовою монохромною естетикою MNK. Нуар!"
+  name: MNK enviroslacks
+  description: The iconic enviroslacks, with MNK's signature monochrome aesthetic. Noir!
   suffix: Alternative
   components:
   - type: Sprite
@@ -2313,8 +2313,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitEnviroslacksPsychologist
-  name: "психолог енвірослакс"
-  description: "Улюблений проект особливо шикарного Плазмамена, цей варіант був зроблений для психолога. Запаморочливо!"
+  name: psychologist enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant was made for the psychologist. Mind-boggling!
   components:
   - type: Sprite
     layers:
@@ -2382,8 +2382,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorWhite
-  name: "білий екокостюм"
-  description: "Універсальний білий комбінезон без розпізнавальних знаків."
+  name: white envirosuit
+  description: A generic white jumpsuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2426,8 +2426,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorGrey
-  name: "сірий екокостюм"
-  description: "Зі смаком підібраний сірий екокостюм, що нагадує про старі добрі часи."
+  name: grey envirosuit
+  description: A tasteful grey envirosuit that reminds you of the good old days.
   components:
   - type: Sprite
     layers:
@@ -2470,8 +2470,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorBlack
-  name: "чорний екокостюм"
-  description: "Звичайний чорний комбінезон без розпізнавальних знаків."
+  name: black envirosuit
+  description: A generic black envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2514,8 +2514,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorRed
-  name: "червоний екокостюм"
-  description: "Темно-зелений екокостюм."
+  name: red envirosuit
+  description: A dark green envirosuit.
   components:
   - type: Sprite
     layers:
@@ -2558,8 +2558,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorGreen
-  name: "зелений екокостюм"
-  description: "Загальний зелений екокостюм без маркування звання."
+  name: green envirosuit
+  description: A generic green envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2602,8 +2602,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorDarkGreen
-  name: "темно-зелений екокостюм"
-  description: "Типовий темно-зелений екокостюм без розпізнавальних знаків."
+  name: dark green envirosuit
+  description: A generic dark green envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2646,8 +2646,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorBlue
-  name: "синій екокостюм"
-  description: "Універсальний синій екокостюм без розпізнавальних знаків."
+  name: blue envirosuit
+  description: A generic blue envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2690,8 +2690,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorDarkBlue
-  name: "темно-синій екокостюм"
-  description: "Універсальний темно-синій екокостюм без розпізнавальних знаків."
+  name: dark blue envirosuit
+  description: A generic dark blue envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2734,8 +2734,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorTeal
-  name: "екокостюм чирка"
-  description: "Типовий екокостюм чирка без маркування звання."
+  name: teal envirosuit
+  description: A generic teal envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2778,8 +2778,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorMaroon
-  name: "бордовий екокостюм"
-  description: "Звичайний бордовий екокостюм без розпізнавальних знаків."
+  name: maroon envirosuit
+  description: A generic maroon envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2822,7 +2822,7 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorPink
-  name: "рожевий екокостюм"
+  name: pink envirosuit
   description: >-
     "Plasmamen can't slay" and other jokes you can tell yourself.
   components:
@@ -2867,8 +2867,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorYellow
-  name: "жовтий екокостюм"
-  description: "Універсальний жовтий екокостюм без розпізнавальних знаків."
+  name: yellow envirosuit
+  description: A generic yellow envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2911,8 +2911,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorPurple
-  name: "фіолетовий екокостюм"
-  description: "Універсальний фіолетовий екокостюм без розпізнавальних знаків."
+  name: purple envirosuit
+  description: A generic purple envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -2955,8 +2955,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorOrange
-  name: "помаранчевий екокостюм"
-  description: "Не одягайте це поруч з параноїдальними офіцерами безпеки."
+  name: orange envirosuit
+  description: Don't wear this near paranoid security officers.
   components:
   - type: Sprite
     layers:
@@ -2999,8 +2999,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorLightBrown
-  name: "світло-коричневий екокостюм"
-  description: "Універсальний світло-коричневий екокостюм без розпізнавальних знаків."
+  name: light brown envirosuit
+  description: A generic light brown envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:
@@ -3043,8 +3043,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitColorBrown
-  name: "коричневий екокостюм"
-  description: "Звичайний коричневий екокостюм без розпізнавальних знаків."
+  name: brown envirosuit
+  description: A generic brown envirosuit with no rank markings.
   components:
   - type: Sprite
     layers:

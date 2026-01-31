@@ -106,7 +106,7 @@
 
 - type: entity
   id: BaseShellShotgun
-  name: "патрон (12 калібр)" # Goobstation
+  name: shell (12 Gauge) # Goobstation
   parent: BaseCartridge
   abstract: true
   components:
@@ -127,7 +127,7 @@
 
 - type: entity
   id: ShellShotgunBeanbag
-  name: "патрон (12 калібр гумова куля)" # Goobstation
+  name: shell (12 Gauge beanbag) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityBartenderContraband ]
   components:
   - type: Tag
@@ -146,7 +146,7 @@
 
 - type: entity
   id: ShellShotgunSlug
-  name: "патрон (12 калібр куля)" # Goobstation
+  name: shell (12 Gauge slug) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband]
   components:
   - type: Sprite
@@ -160,7 +160,7 @@
 
 - type: entity
   id: ShellShotgunFlare
-  name: "патрон (12 калібр сигнальний)" # Goobstation
+  name: shell (12 Gauge flare) # Goobstation
   parent: BaseShellShotgun
   components:
   - type: Tag
@@ -179,7 +179,7 @@
 
 - type: entity
   id: ShellShotgun
-  name: "патрон (12 калібр)" # Goobstation
+  name: shell (12 Gauge) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -191,7 +191,7 @@
 
 - type: entity
   id: ShellShotgunIncendiary
-  name: "патрон (12 калібр запалювальний)" # Goobstation
+  name: shell (12 Gauge incendiary) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -205,7 +205,7 @@
 
 - type: entity
   id: ShellShotgunPractice
-  name: "патрон (12 калібр тренувальний)" # Goobstation
+  name: shell (12 Gauge practice) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -219,7 +219,7 @@
 
 - type: entity
   id: ShellTranquilizer
-  name: "патрон (12 калібр транквілізатор)" # Goobstation
+  name: shell (12 Gauge tranquilizer) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityZookeeperContraband ] # Goobstation
   components:
   - type: Tag
@@ -247,8 +247,8 @@
 
 - type: entity
   id: ShellShotgunImprovised
-  name: "імпровізований дробовий снаряд"
-  description: "Саморобний дробовий снаряд, що стріляє болючими скляними осколками. Розліт настільки широкий, що він не міг влучити в широку сторону сараю"
+  name: improvised shotgun shell
+  description: A homemade shotgun shell that shoots painful glass shrapnel. The spread is so wide that it couldn't hit the broad side of a barn.
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Tag
@@ -270,7 +270,7 @@
 
 - type: entity
   id: ShellShotgunUranium
-  name: "урановий дробовий снаряд"
+  name: uranium shotgun shell
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
     - type: Sprite

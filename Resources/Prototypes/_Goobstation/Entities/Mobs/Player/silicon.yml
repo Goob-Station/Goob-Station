@@ -17,8 +17,8 @@
 - type: entity
   id: HelpimovCircuitBoard
   parent: BaseElectronics
-  name: "плата законів (Хелпімов)"
-  description: "Електронна плата, що містить набір законів Хелпімова."
+  name: law board (Helpimov)
+  description: An electronics board containing the Helpimov lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -29,8 +29,8 @@
 - type: entity
   id: GambamovCircuitBoard
   parent: BaseElectronics
-  name: "плата законів (Гамбамов)"
-  description: "Електронна плата, що містить набір законів Гамбамова."
+  name: law board (Gambamov)
+  description: An electronics board containing the Gambamov lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

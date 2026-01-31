@@ -6,8 +6,8 @@
 
 - type: entity
   id: Cobweb1
-  name: "павутиння"
-  description: "Хтось має це прибрати."
+  name: cobweb
+  description: Somebody should remove that.
   placement:
     mode: SnapgridCenter
   components:

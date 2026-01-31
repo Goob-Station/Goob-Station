@@ -1,8 +1,8 @@
 - type: entity
   id: SlimeGrinderMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата машини слаймоподрібнювача"
-  description: "Друкована плата машини для слаймоподрібнювача."
+  name: slime grinder machine board
+  description: A machine printed circuit board for a slime grinder.
   components: # Maybe change this recipe later.
   - type: Sprite
     state: science

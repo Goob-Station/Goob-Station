@@ -9,7 +9,7 @@
 - type: entity
   parent: [ BaseCartridge, BaseMajorContraband ]
   id: CartridgeHighCaliber
-  name: "набій (.50 протиматеріальний)"
+  name: cartridge (.50 anti-materiel)
   components:
   - type: Tag
     tags:
@@ -30,7 +30,7 @@
 - type: entity
   parent: [ BaseCartridge, BaseMajorContraband ]
   id: CartridgeHighCaliberExplosive
-  name: "патрон (.50 фугасно-запалювальний)"
+  name: cartridge (.50 high-explosive incendiary)
   components:
   - type: Tag
     tags:

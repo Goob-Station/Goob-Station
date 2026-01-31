@@ -1,8 +1,8 @@
 - type: diseaseSpread
   id: Aerial
-  name: "Повітряний"
+  name: Aerial
   blockedByInternals: true
 
 - type: diseaseSpread
   id: Blood
-  name: "Кров"
+  name: Blood

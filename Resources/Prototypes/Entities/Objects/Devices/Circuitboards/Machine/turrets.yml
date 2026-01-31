@@ -2,8 +2,8 @@
   abstract: true
   parent: BaseMachineCircuitboard
   id: WeaponEnergyTurretStationMachineCircuitboardBase
-  name: "плата вартової турелі"
-  description: "Друкована плата для вартової турелі."
+  name: sentry turret machine board
+  description: A machine printed circuit board for a sentry turret.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

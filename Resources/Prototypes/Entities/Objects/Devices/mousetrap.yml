@@ -91,10 +91,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "мишоловка"
+  name: mousetrap
   parent: BaseItem
   id: Mousetrap
-  description: "Корисний для відлову гризунів, які прокрадаються на кухню."
+  description: Useful for catching rodents sneaking into your kitchen.
   components:
     - type: Sprite
       sprite: Objects/Devices/mousetrap.rsi
@@ -159,11 +159,11 @@
         - DroneUsable # Goobstation
 
 - type: entity
-  name: "мишоловка"
+  name: mousetrap
   suffix: Armed
   parent: Mousetrap
   id: MousetrapArmed
-  description: "Корисний для відлову гризунів, які прокрадаються на кухню."
+  description: Useful for catching rodents sneaking into your kitchen.
   components:
   - type: Sprite
     layers:

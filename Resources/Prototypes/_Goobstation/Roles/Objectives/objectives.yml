@@ -14,8 +14,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: "Захисти технічні тунелі."
-  description: "Технічні тунелі цієї станції були твоїм домом стільки, скільки ти себе пам’ятаєш. Ховатися від екіпажу в шафках — усе, що ти знав, аж дотепер. Тепер ці станційні мешканці вторглися у твій дім востаннє: убий кожного, хто наважиться порушити спокій твого лігва."
+  name: Protect maintenance.
+  description: This stations maintenance has been your home for as long as you can remember, hiding from the crew in lockers is all that you've known, until now. Thoses station goers have invaded your home for the last time, kill anyone who dares to distrupt your home.
   id: TunnelClownProtectMaintenanceObjective
   components:
   - type: Objective
@@ -28,8 +28,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: "Проповідуй слово лорда Синґулота!"
-  description: "Знайди інженерний відділ цієї станції та наверни тамтешній люд до числа послідовників Синґулота. Якщо відмовляться — страти їх без пощади."
+  name: Preach the word of Lord Singuloth!
+  description: Thou art to locateth this stations engineering department and conv'rt those folk into fellow followeth'rs of singuloth, if 't those gents refuseth those gents art to beest execut'd mercilessly.
   id: SingulothKnightPreachObjective
   components:
   - type: Objective
@@ -42,8 +42,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: "Розшир сингулярність"
-  description: "Зроби ласку лорду Синґулоту: розшир сингулярність (але не випускай її з-під контролю). Чим більша — тим краще!"
+  name: Expand the singularity
+  description: Thee wilt prithee lord singuloth, doth this by expanding (but nay loosing) the singularity, the bigger the better!
   id: SingulothKnightSingularityObjective
   components:
   - type: Objective
@@ -56,8 +56,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: "Знищ усі тесли на станції"
-  description: "Якщо на цій станції є Тесла, ти маєш знищити її будь-якими засобами та стратити її творця за таку образу лорда Синґулота!"
+  name: Remove any tesla's from the station
+  description: If 't be true this station hast a tesla thou art to destroy it by any means and execute it's creator for yond affront to lord singuloth!
   id: SingulothKnightTeslaObjective
   components:
   - type: Objective
@@ -70,8 +70,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: "Влаштуй епічну дуель!"
-  description: "Інші агенти Синдикату не сприймають тебе всерйоз. Доведи, що вони помиляються, перемігши в дуелі гідного суперника!"
+  name: Have an epic duel!
+  description: Those's other syndicate agents don't take you seriously, prove them wrong by winning a duel against a worthy opponent!
   id: DarkLordDuelObjective
   components:
   - type: Objective
@@ -84,8 +84,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: "Убий Темного лорда"
-  description: "Нанотрасен відправила тебе на цю станцію, щоб убити Темного лорда. Не підведи їх!"
+  name: Kill the Dark Lord
+  description: You have been sent to this station by Nanotrasen to kill a Dark Lord, don't let them down!
   id: ChosenOneKillDarkLordObjective
   components:
   - type: Objective
@@ -98,8 +98,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: "Найми учня"
-  description: "Тобі потрібен учень — найми когось! Це не обов’язково має бути людина, яку ти захищаєш!"
+  name: Hire an apprentice
+  description: You are in need of an apprentice hire one! this doesn't have to be the person you are protecting!
   id: DarkPriestHireApprentice
   components:
   - type: Objective
@@ -113,8 +113,8 @@
 - type: entity
   parent: BaseKeepAliveObjective
   id: DarkPriestProtectObjective
-  name: "Захищай члена екіпажу"
-  description: "Захищай члена екіпажу, який привернув твою увагу."
+  name: Protect Crewmember
+  description: Protect a crewmember who has sparked your interest.
   components:
   - type: Objective
     difficulty: 2

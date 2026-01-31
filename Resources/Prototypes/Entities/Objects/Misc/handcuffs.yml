@@ -104,8 +104,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "наручники"
-  description: "Використовується для затримання злочинців та інших покидьків."
+  name: handcuffs
+  description: Used to detain criminals and other assholes.
   id: Handcuffs
   parent: [BaseItem, BaseSecurityCommandContraband]
   components:
@@ -148,8 +148,8 @@
     delay: 3
 
 - type: entity
-  name: "саморобні наручники"
-  description: "Саморобні наручники, виготовлені з запасних кабелів."
+  name: makeshift handcuffs
+  description: Homemade handcuffs crafted from spare cables.
   id: Cablecuffs
   parent: Handcuffs
   components:
@@ -187,8 +187,8 @@
     color: forestgreen
 
 - type: entity
-  name: "застібки-наручники"
-  description: "Міцні одноразові пластикові застібки-блискавки, ідеально підходять для стримування буйних ув'язнених."
+  name: zipties
+  description: Tough single-use plastic zipties, ideal for restraining rowdy prisoners.
   id: Zipties
   parent: Handcuffs
   components:
@@ -230,8 +230,8 @@
       Plastic: 25
 
 - type: entity
-  name: "обірвані застібки-наручники"
-  description: "Ці застібки-блискавки виглядають так, ніби вони намагалися впоратися не з тими кабелями."
+  name: broken zipties
+  description: These zipties look like they tried to manage the wrong cables.
   id: ZiptiesBroken
   parent: BaseHandcuffsBroken
   components:
@@ -240,8 +240,8 @@
     state: cuff-broken
 
 - type: entity
-  name: "обірвані кабелі"
-  description: "Ці кабелі переламані в кількох місцях і не виглядають дуже корисними."
+  name: broken cables
+  description: These cables are broken in several places and don't seem very useful.
   id: CablecuffsBroken
   parent: BaseHandcuffsBroken
   components:
@@ -261,8 +261,8 @@
 - type: entity
   parent: Handcuffs
   id: ClothingOuterStraightjacket
-  name: "гамівна сорочка"
-  description: "Використовується для стримування тих, хто може завдати шкоди собі або іншим."
+  name: straitjacket
+  description: Used to restrain those who may cause harm to themselves or others.
   components:
   - type: Item
     size: Normal

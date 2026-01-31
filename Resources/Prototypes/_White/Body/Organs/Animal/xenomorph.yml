@@ -32,8 +32,8 @@
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanBrain]
   id: OrganXenomorphBrain
-  name: "мозок ксеноморфа"
-  description: "Ми ледве розуміємо мозок земних тварин. Хто знає, що ми можемо знайти в мозку такого просунутого виду?"
+  name: xenomorph brain
+  description: We barely understand the brains of terrestial animals. Who knows what we may find in the brain of such an advanced species?
   components:
   - type: SolutionContainerManager
     solutions:
@@ -50,8 +50,8 @@
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanEyes]
   id: OrganXenomorphEyes
-  name: "очі ксеноморфа"
-  description: "Виявилося, вони все-таки у них є!"
+  name: xenomorph eyes
+  description: It turned out they had them after all!
   components: # Goobstation - eyes give you xeno vision
   - type: Organ
     onAdd:
@@ -67,21 +67,21 @@
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanTongue]
   id: OrganXenomorphTongue
-  name: "язик ксеноморфа"
-  description: "За словами провідних ксенобіологів, еволюційна перевага наявності другого рота у вашому роті полягає в тому, що \"\"це виглядає круто\"\"."
+  name: xenomorph tongue
+  description: According to leading xenobiologists the evolutionary benefit of having a second mouth in your mouth is "that it looks badass".
 
 - type: entity
   parent: [BaseXenomorphOrgan, OrganReptilianStomach]
   id: OrganXenomorphStomach
-  name: "шлунок ксеноморфа"
-  description: "Його стінки здатні як значно розширюватися, так і скорочуватися з величезною силою."
+  name: xenomorph stomach
+  description: Its walls are capable of both significantly expanding and contracting with enormous force.
   # TODO port xeno devouring
 
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanLiver]
   id: OrganXenomorphLiver
-  name: "печінка ксеноморфа"
-  description: "Печінка, яка колись належала інопланетянину-вбивці, хто знає, чим він харчувався."
+  name: xenomorph liver
+  description: A liver that used to belong to a killer alien, who knows what it used to eat.
   components:
   - type: Metabolizer
     metabolizerTypes: [Xenomorph]
@@ -92,8 +92,8 @@
 - type: entity
   parent: BaseXenomorphOrgan
   id: OrganXenomorphAcidGland
-  name: "кислотна залоза"
-  description: "Спеціалізований резервуар з кислотою. Отримана корозійна суміш може розплавити більшість відомих матеріалів."
+  name: acid gland
+  description: A specialized tank with acid. The resulting corrosive mixture can melt most known materials.
   components:
   - type: Sprite
     state: acid_gland
@@ -115,8 +115,8 @@
 - type: entity
   parent: BaseXenomorphOrgan
   id: OrganXenomorphNeurotoxinGland
-  name: "нейротоксинова залоза"
-  description: "Спеціалізований резервуар з нейротоксином. Складається з безлічі мікроскопічних трубок, заповнених прозорою рідиною."
+  name: neurotoxin gland
+  description: A specialized tank with neurotoxin. Сonsists of many microscopic tubes filled with clear liquid.
   components:
   - type: Sprite
     state: neurotoxin_gland
@@ -140,8 +140,8 @@
 - type: entity
   parent: BaseXenomorphOrgan
   id: OrganXenomorphEggSack
-  name: "яйцевий мішок"
-  description: "Призначений для виробництва та зберігання яєць, що містять лицехватів, величезний розмір органу дозволяє королеві ксеноморфів відкладати тисячі яєць за короткий проміжок часу."
+  name: egg sack
+  description: Designed to produce and store eggs containing facehuggers, the organ's enormous size allows the xenomorph queen to lay thousands of eggs in a short period of time.
   components:
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi
@@ -158,8 +158,8 @@
 - type: entity
   parent: BaseXenomorphOrgan
   id: OrganXenomorphResinSpinner
-  name: "смоляний прядильний орган"
-  description: "Призначений для виробництва та виділення смолоподібного біополімеру."
+  name: resin spinner
+  description: Designed for the production and isolation of resin-like biopolymer.
   components:
   - type: Sprite
     state: resin_spinner
@@ -177,8 +177,8 @@
 - type: entity
   parent: BaseXenomorphOrgan
   id: OrganXenomorphHiveNode
-  name: "вузол вулика"
-  description: "Центральний орган ксеноморфів, що забезпечує зв'язок зі спільним розумом."
+  name: hive node
+  description: The central organ of the xenomorphs, providing communication with the common mind.
   components:
   - type: Sprite
     state: hive_node
@@ -190,8 +190,8 @@
 - type: entity
   parent: BaseXenomorphOrgan
   id: OrganXenomorphPlasmaVessel
-  name: "плазмова судина"
-  description: "Резервуар, що містить концентровану та високоактивну плазму - основне джерело енергії та сировини для біологічної зброї ксеноморфа."
+  name: plasma vessel
+  description: A reservoir containing concentrated and highly active plasma - the main source of energy and raw material for the xenomorph's biological weapons.
   components:
   - type: Sprite
     state: plasma_vessel
@@ -210,7 +210,7 @@
 - type: entity
   parent: OrganXenomorphPlasmaVessel
   id: OrganXenomorphPlasmaVesselLarge
-  name: "велика плазмова судина"
+  name: large plasma vessel
   components:
   - type: Sprite
     state: plasma_vessel_large
@@ -237,7 +237,7 @@
 - type: entity
   parent: OrganXenomorphPlasmaVessel
   id: OrganXenomorphPlasmaVesselSmall
-  name: "мала плазмова судина"
+  name: small plasma vessel
   components:
   - type: Sprite
     state: plasma_vessel_small
@@ -252,7 +252,7 @@
 - type: entity
   parent: OrganXenomorphPlasmaVessel
   id: OrganXenomorphPlasmaVesselTiny
-  name: "крихітна плазмова судина"
+  name: tiny plasma vessel
   components:
   - type: Sprite
     state: plasma_vessel_tiny

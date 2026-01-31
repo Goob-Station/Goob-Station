@@ -1,8 +1,8 @@
 - type: entity
   parent: VehicleKeyATV
   id: VehicleKeySkeletonMotorcycle
-  name: "ключі від скелетного мотоцикла"
-  description: "Гарний набір ключів, прикрашений черепом."
+  name: skeleton motorcycle keys
+  description: A beautiful set of keys adorned with a skull.
   components:
     - type: Tag
       tags:

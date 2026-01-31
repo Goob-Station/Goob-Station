@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: BaseMachineCircuitboard
   id: StasisOperatingTableCircuitboard
-  name: "плата стазисного операційного столу"
-  description: "Машинна плата для стазисного операційного столу."
+  name: stasis operating table board
+  description: A machine board for a stasis operating table.
   components:
   - type: Sprite
     state: medical

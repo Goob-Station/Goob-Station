@@ -33,10 +33,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ліхтар"
+  name: lantern
   parent: BaseItem
   id: Lantern
-  description: "Святе світло вказує шлях."
+  description: The holy light guides the way.
   components:
     - type: HandheldLight
       addPrefix: true

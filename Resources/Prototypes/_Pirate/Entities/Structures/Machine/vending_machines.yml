@@ -1,8 +1,8 @@
 - type: entity
   parent: VendingMachine
   id: VendingMachineInterdyne
-  name: "Автомат видачі спорядження Інтердайну"
-  description: "Містить одяг та особливі трав'яні лікарські цигарки власного виробництва"
+  name: Автомат видачі спорядження Інтердайну
+  description: Містить одяг та особливі трав'яні лікарські цигарки власного виробництва
   components:
   - type: VendingMachine
     pack: InterdyneInventory
@@ -29,8 +29,8 @@
 - type: entity
   parent: VendingMachine
   id: VendingMachineInterdynePtech
-  name: "Автомат видачі важливого обладнання Інтердайну"
-  description: "Містить одяг, ключі шифрування, та навушники. З нами вам не треба боятись смерті, дивіться сміло їй в обличчя!"
+  name: Автомат видачі важливого обладнання Інтердайну
+  description: Містить одяг, ключі шифрування, та навушники. З нами вам не треба боятись смерті, дивіться сміло їй в обличчя!
   components:
   - type: VendingMachine
     pack: InterdynePtechCardInventory

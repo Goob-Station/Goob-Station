@@ -25,8 +25,8 @@
 - type: entity
   parent: BaseItem
   id: Skub
-  name: "скаб"
-  description: "Скаб - п'ятий Бог Хаосу."
+  name: skub
+  description: Skub is the fifth Chaos God.
   components:
   - type: Sprite
     sprite: Objects/Misc/skub.rsi

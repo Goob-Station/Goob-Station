@@ -1,8 +1,8 @@
 - type: entity
-  name: "мопроч"
+  name: moproach
   parent: MobMothroach
   id: MobMoproach
-  description: "У цієї маленької молі-таракана на лапках черевички-швабри! Як мило!"
+  description: This little mothroach has mopshoes on its feet! How adorable!
   components:
   - type: GhostRole
     name: ghost-role-information-moproach-name

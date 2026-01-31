@@ -6,8 +6,8 @@
 - type: entity
   id: BaseCrusherUpgradeMain
   parent: [BaseItem, BaseSecurityCargoContraband]
-  name: "капсула покращення дробарки"
-  description: "Модкіт для дробаркової зброї."
+  name: crusher upgrade capsule
+  description: A modkit for crusher weapons.
   abstract: true
   components:
   - type: Sprite
@@ -24,8 +24,8 @@
 - type: entity
   id: CrusherUpgradeMainMarker
   parent: BaseCrusherUpgradeMain
-  name: "капсула покращення дробарки (кінетичний маркер)"
-  description: "Компактний генератор блюспейс-поля, який можна вистрілити в живу ціль, щоб зробити її вразливішою до атак дробарки. Його снаряд також може руйнувати деякі типи породи."
+  name: crusher upgrade capsule (kinetic marker)
+  description: Compact generator of a bluespace field that can be shot on a living target to make it more vulnerable to crusher attacks. Its projectile also can destroy some types of rocks.
   components:
   - type: Sprite
     layers:
@@ -64,8 +64,8 @@
 - type: entity
   id: CrusherUpgradeMainRudeBuster
   parent: BaseCrusherUpgradeMain
-  name: "капсула покращення дробарки (Руд Бастер)"
-  description: "Фокусується рішучість користувача та випромінюється як напівмагічний снаряд. Усередині постійно видно, як щось відскакує."
+  name: crusher upgrade capsule (rude buster)
+  description: Focuses determination of the user in itself and emits it as a half-magical projectile. You can see something constantly bouncing off inside it.
   components:
   - type: Sprite
     layers:
@@ -106,8 +106,8 @@
 - type: entity
   id: BaseCrusherUpgradeBlade
   parent: [BaseItem, BaseSecurityCargoContraband]
-  name: "покращення клинка дробарки"
-  description: "Модкіт для дробаркової зброї."
+  name: crusher blade upgrade
+  description: A modkit for crusher weapons.
   abstract: true
   components:
   - type: Sprite
@@ -124,8 +124,8 @@
 - type: entity
   id: CrusherUpgradeBladeLavaAspect
   parent: BaseCrusherUpgradeBlade
-  name: "покращення клинка дробарки (лавовий аспект)"
-  description: "Кристал із невистиглої лави, через що він постійно гарячий і дуже займистий."
+  name: crusher blade upgrade (lava aspect)
+  description: A crystal made out of uncooling lava, making it constantly hot and highly flammable.
   components:
   - type: Sprite
     state: lava-shard
@@ -154,8 +154,8 @@
 - type: entity
   id: CrusherUpgradeBladeIceFrost
   parent: BaseCrusherUpgradeBlade
-  name: "покращення клинка дробарки (крижаний іній)"
-  description: "Кристал, що випромінює холод, ймовірно, порушуючи закони термодинаміки."
+  name: crusher blade upgrade (ice frost)
+  description: A crystal that emits coldness, probably by violating laws of thermodynamics.
   components:
   - type: Sprite
     state: ice-shard
@@ -180,8 +180,8 @@
 - type: entity
   id: CrusherUpgradeBladeSharpness
   parent: BaseCrusherUpgradeBlade
-  name: "покращення клинка дробарки (гострота)"
-  description: "Простий точильний камінь, що збільшує шкоду дробарки."
+  name: crusher blade upgrade (sharpness)
+  description: A simple grindstone that improves the damage of a crusher.
   components:
   - type: Sprite
     state: black-shard
@@ -203,8 +203,8 @@
 - type: entity
   id: BaseCrusherUpgradeHandle
   parent: [BaseItem, BaseSecurityCargoContraband]
-  name: "покращення руків’я дробарки"
-  description: "Модкіт для дробаркової зброї."
+  name: crusher handle upgrade
+  description: A modkit for crusher weapons.
   abstract: true
   components:
   - type: Sprite
@@ -221,8 +221,8 @@
 - type: entity
   id: CrusherUpgradeHandleWeights
   parent: BaseCrusherUpgradeHandle
-  name: "покращення руків’я дробарки (обважнене)"
-  description: "Набір обважнювачів, які можна прикріпити до руків’я, щоб зброя відштовхувала ворогів ударами."
+  name: crusher handle upgrade (weights)
+  description: A set of weighed loads that can be attached to a handle to make a weapon deal knockback to enemies.
   components:
   - type: Sprite
     state: handle-weights
@@ -242,8 +242,8 @@
 - type: entity
   id: CrusherUpgradeHandleLight
   parent: BaseCrusherUpgradeHandle
-  name: "покращення руків’я дробарки (полегшене)"
-  description: "Полегшена заміна руків’я, що дозволяє атакувати частіше."
+  name: crusher handle upgrade (lightweight)
+  description: A lightweight handle replacement that allows you to make attacks more frequently.
   components:
   - type: Sprite
     state: handle-lightweight
@@ -259,8 +259,8 @@
 - type: entity
   id: CrusherUpgradeHandleRange
   parent: BaseCrusherUpgradeHandle
-  name: "покращення руків’я дробарки (довге)"
-  description: "Довга заміна руків’я, що дозволяє атакувати частіше."
+  name: crusher handle upgrade (range)
+  description: A long handle replacement that allows you to make attacks more frequently.
   components:
   - type: Sprite
     state: handle-spikes # Why spikes improve range? Cuz they're badass.

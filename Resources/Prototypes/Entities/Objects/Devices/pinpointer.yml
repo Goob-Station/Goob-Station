@@ -23,8 +23,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "пінпоінтер"
-  description: "Портативний пристрій стеження. Хоча зазвичай цей пристрій має набагато більше можливостей, він налаштований на фіксацію певних сигналів. Тримайте вертикально, щоб зберегти точність."
+  name: pinpointer
+  description: A handheld tracking device. While typically far more capable, this one has been configured to lock onto certain signals. Keep upright to retain accuracy.
   parent: BaseItem
   id: PinpointerBase
   abstract: true
@@ -64,7 +64,7 @@
   - type: AnimationPlayer
 
 - type: entity
-  name: "пінпоінтер"
+  name: pinpointer
   id: PinpointerNuclear
   parent: [ PinpointerBase, BaseCommandContraband ]
   components:
@@ -75,8 +75,8 @@
     targetName: nuclear authentication disk
 
 - type: entity
-  name: "синдикатський пінпоінтер"
-  description: "Створений спеціально для ядерних оперативних місій, придбайте цей диск!"
+  name: syndicate pinpointer
+  description: Produced specifically for nuclear operative missions, get that disk!
   id: PinpointerSyndicateNuclear
   parent: [ PinpointerBase, BaseSyndicateContraband ]
   components:
@@ -97,8 +97,8 @@
     targetName: nuclear authentication disk
 
 - type: entity
-  name: "універсальна пінпоінтер"
-  description: "Портативний пристрій для відстеження, який фіксує будь-яку фізичну особу у вимкненому стані. Тримайте вертикально, щоб зберегти точність."
+  name: universal pinpointer
+  description: A handheld tracking device that locks onto any physical entity while off. Keep upright to retain accuracy.
   id: PinpointerUniversal
   parent: PinpointerBase
   components:
@@ -118,8 +118,8 @@
 
 - type: entity
   parent: PinpointerBase
-  name: "пеленгатор дослідницького сервера"  # Goob edit
-  description: "Портативний пристрій відстеження, що вказує напрямок до будь-якого найближчого дослідницького сервера."
+  name: research server pinpointer  # Goob edit
+  description: A handheld tracking device that leads to the direction of any nearby research server.
   id: PinpointerStation
   #suffix: Station # Goob edit
   components:
@@ -142,9 +142,9 @@
 - type: entity
   parent: [ PinpointerBase, BaseXenoborgContraband ]
   id: PinpointerMothership
-  name: "пінпоінтер до ядра матері"
+  name: core pinpointer
   suffix: Mothership
-  description: "Ручний пристрій стеження, який вказує напрямок до ядра материнського корабля."
+  description: A handheld tracking device that leads to the direction of the mothership core.
   components:
   - type: Sprite
     layers:

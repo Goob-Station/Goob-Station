@@ -1,6 +1,6 @@
 # Crusher loot
 - type: entity
-  name: "спавнер зброї дробарки"
+  name: crusher weapon spawner
   id: CrusherWeaponLootSpawner
   parent: MarkerBase
   suffix: Lavaland
@@ -16,7 +16,7 @@
       tableId: CrusherWeapons
 
 - type: entity
-  name: "спавнер покращень дробарки"
+  name: crusher upgrade spawner
   id: CrusherUpgradeLootSpawner
   parent: MarkerBase
   suffix: Lavaland
@@ -32,7 +32,7 @@
 
 # PKA loot
 - type: entity
-  name: "спавнер прото-кінетичної зброї"
+  name: proto-kinetic weapon spawner
   id: ProtoKineticWeaponLootSpawner
   parent: MarkerBase
   suffix: Lavaland
@@ -48,7 +48,7 @@
       tableId: ProtoKineticWeapons
 
 - type: entity
-  name: "спавнер космічної прото-кінетичної зброї"
+  name: space proto-kinetic weapon spawner
   id: ProtoKineticWeaponSpaceLootSpawner
   parent: MarkerBase
   suffix: Lavaland, Space Upgrade
@@ -66,7 +66,7 @@
       tableId: ProtoKineticWeaponsSpace
 
 - type: entity
-  name: "спавнер покращень прото-кінетики"
+  name: proto-kinetic upgrade spawner
   id: ProtoKineticUpgradeLootSpawner
   parent: MarkerBase
   suffix: Lavaland
@@ -82,7 +82,7 @@
 
 # Secondaries loot
 - type: entity
-  name: "спавнер вторинної кінетичної зброї"
+  name: secondary kinetic weapon spawner
   id: SecondaryKineticWeaponLootSpawner
   parent: MarkerBase
   suffix: Lavaland
@@ -128,7 +128,7 @@
       tableId: SecondaryKineticWeapons
 
 - type: entity
-  name: "спавнер здобичі зброї Лаваленду"
+  name: lavaland weapons loot spawner
   id: LavalandWeaponLootSpawner
   parent: MarkerBase
   suffix: Lavaland

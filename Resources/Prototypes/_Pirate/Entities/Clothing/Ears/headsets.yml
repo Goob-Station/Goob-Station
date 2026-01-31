@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetAdminAssist
-  name: "гарнітура адміністративного асистента"
-  description: "Гарнітура, якою користується адміністративний асистент."
+  name: adminstrative assistant headset
+  description: A headset used by the administrative assistant.
   components:
   - type: ContainerFill
     containers:
@@ -17,7 +17,7 @@
 - type: entity
   parent: ClothingHeadsetAdminAssist
   id: ClothingHeadsetAltAdminAssist
-  name: "адміністративний асистент навушної гарнітури"
+  name: adminstrative assistant over-ear headset
   components:
   - type: Sprite
     state: icon_alt

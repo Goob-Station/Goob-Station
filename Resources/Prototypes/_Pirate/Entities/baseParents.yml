@@ -1,6 +1,6 @@
 - type: entity
   id: BaseClothingRadio
-  name: "рація на одязі"
+  name: clothing radio
   abstract: true
   categories: [HideSpawnMenu]
   components:

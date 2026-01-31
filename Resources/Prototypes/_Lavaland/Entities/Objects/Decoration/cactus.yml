@@ -1,8 +1,8 @@
 ﻿- type: entity
-  name: "плодоносний кактус"
+  name: fruiting cacti
   parent: BaseStructure
   id: FruitCactus
-  description: "Кілька колючих кактусів, наповнених стиглими плодами та вкритих тонким шаром попелу."
+  description: Several prickly cacti, brimming with ripe fruit and covered in a thin layer of ash.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/fruiting_cactus.rsi

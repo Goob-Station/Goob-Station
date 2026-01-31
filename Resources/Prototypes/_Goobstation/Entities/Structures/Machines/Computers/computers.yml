@@ -1,8 +1,8 @@
 - type: entity
   id: ComputerNTRTasks
   parent: [BaseComputer]
-  name: "комп'ютер завдань NTR"
-  description: "Термінал, що надає доступ до місій NanoNet. Ваша лояльність буде винагороджена — виконуйте завдання, накопичуйте бали лояльності та витрачайте їх на ексклюзивні привілеї NTR."
+  name: NTR tasks computer
+  description: A terminal providing access to NanoNet missions. Your loyalty will be rewarded — complete tasks, accumulate loyalty points, and spend them on exclusive NTR privileges.
   components:
   - type: UserInterface
     interfaces:

@@ -21,8 +21,8 @@
 
 - type: entity
   id: CableTerminal
-  name: "кабельна клема"
-  description: "Вхід для пристроїв типу SMES. Червоні кабелі повинні бути спрямовані до пристрою"
+  name: cable terminal
+  description: You see a small warning on the red cables in grungy black ink. "CONNECT RED TO BATTERY FOR CHARGE."
   placement:
     mode: SnapgridCenter
   components:

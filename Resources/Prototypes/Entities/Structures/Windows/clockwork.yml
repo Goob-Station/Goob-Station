@@ -28,8 +28,8 @@
 
 - type: entity
   id: ClockworkWindow
-  name: "вікно з годинниковим механізмом"
-  description: "Прозорий і міцний, із золотистим відтінком."
+  name: clockwork window
+  description: Don't smudge up the brass down there.
   parent: Window
   components:
   - type: Sprite
@@ -86,8 +86,8 @@
 - type: entity
   id: WindowClockworkDirectional
   parent: WindowDirectional
-  name: "вікно з годинниковим механізмом"
-  description: "Прозорий і міцний, із золотистим відтінком."
+  name: directional clockwork window
+  description: Don't smudge up the brass down there.
   placement:
     mode: SnapgridCenter
     snap:

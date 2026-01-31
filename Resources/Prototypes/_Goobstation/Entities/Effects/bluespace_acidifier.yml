@@ -9,8 +9,8 @@
 - type: entity
   parent: Acidifier
   id: BluespaceLifeline
-  name: "рятувальний круг bluespace"
-  description: "Телепортуйте своє тіло, щоб врятувати життя!"
+  name: bluespace lifeline
+  description: Teleports your body to save your life!
   components:
   - type: Transform
     anchored: True
@@ -32,8 +32,8 @@
 - type: entity
   parent: BluespaceLifeline
   id: BluespaceLifelineSpawnCore
-  name: "рятувальний круг bluespace"
-  description: "Телепортуйте своє тіло, щоб врятувати життя!"
+  name: bluespace lifeline
+  description: Teleports your body to save your life!
   components:
   - type: Transform
     anchored: True

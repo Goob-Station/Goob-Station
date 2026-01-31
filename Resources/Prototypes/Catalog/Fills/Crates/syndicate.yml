@@ -16,9 +16,9 @@
 - type: entity
   id: CrateSyndicateSurplusBundle
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
-  name: "ящик складу Синдикату"
+  name: Syndicate surplus crate
   # Goobstation - Telecrystal rework
-  description: "Містить 250 телекристалів абсолютно випадкових предметів Синдикату. Це може бути як марний мотлох, так і справді хороші речі."
+  description: Contains 250 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
   components:
     - type: SurplusBundle
       totalPrice: 250
@@ -27,8 +27,8 @@
   id: CrateCybersunJuggernautBundle
   suffix: Filled
   parent: CrateSyndicate
-  name: "Набір \"Джаггернаут\" Кіберсана"
-  description: "Містить все, окрім великої гармати, щоб вийти з себе."
+  name: Cybersun juggernaut bundle
+  description: Contains everything except a big gun to go postal.
   components:
   - type: StorageFill
     contents:
@@ -42,9 +42,9 @@
 - type: entity
   id: CrateSyndicateSuperSurplusBundle
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
-  name: "великий ящик складу Синдикату"
+  name: Syndicate super surplus crate
   # Goobstation - Telecrystal rework
-  description: "Містить 625 телекристалів абсолютно випадкових предметів Синдикату на суму 625 телекристалів."
+  description: Contains 625 telecrystals worth of completely random Syndicate items.
   components:
     - type: SurplusBundle
       totalPrice: 625

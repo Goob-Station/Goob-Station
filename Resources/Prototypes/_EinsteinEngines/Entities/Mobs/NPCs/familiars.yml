@@ -1,8 +1,8 @@
 - type: entity
   parent: SimpleSpaceMobBase
   id: MobIfritFamiliar
-  name: "Іфріт"
-  description: "Слуга містагога."
+  name: Ifrit
+  description: The mystagogue's servant.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -129,8 +129,8 @@
 - type: entity
   parent: WelderExperimental
   id: WelderIfrit
-  name: "рука іфриту"
-  description: "Зварювальна рука іфриту."
+  name: ifrit hand
+  description: The welding hand of an ifrit.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Tools/ifrit_hand.rsi

@@ -9,8 +9,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltStorageWaistbag
-  name: "шкіряна поясна сумка"
-  description: "Шкіряна поясна сумка, призначена для носіння дрібних речей."
+  name: leather waist bag
+  description: A leather waist bag meant for carrying small items.
   components:
   - type: Sprite
     sprite: Clothing/Belt/waistbag_leather.rsi

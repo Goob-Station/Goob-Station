@@ -23,7 +23,7 @@
 
 - type: entity
   id: MagazinePistolNeurotoxin
-  name: "пістолетний магазин (.45 нейротоксин)"
+  name: pistol magazine (.45 neurotoxin)
   parent: [BaseMagazineMagnum, BaseCentcommContraband]
   components:
   - type: Tag

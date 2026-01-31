@@ -1,7 +1,7 @@
 - type: entity
   id: TaskVial
   parent: BaseChemistryEmptyVial
-  description: "Спеціальна пробірка, яку можна вставити в консоль завдань NTR."
+  description: A special vial, that could be inserted inside a NTRs task console.
   components:
   - type: Tag
     tags:
@@ -14,7 +14,7 @@
   - type: Tag
     tags:
     - Vial
-  description: "Звичайна пляшка, яку можна вставити в консоль завдань NTR."
+  description: A normal bottle, that could be inserted inside a NTRs task console.
 
 - type: entity
   id: TaskJug
@@ -23,4 +23,4 @@
   - type: Tag
     tags:
     - Vial
-  description: "Звичайний глек для відправки великої кількості хімікатів до ЦентКом."
+  description: A basic jug for sending a large ammount of chemicals to CentComm.

@@ -94,12 +94,12 @@
     - StasiziumAutoInjector
 
 - type: entity
-  name: "Жовто-чорний одяг однієї відомої особи"
+  name: Жовто-Чорний одяг  однієї відомої особи
   id: ClothingUniformJumpsuitMilitaryCargoDio
   parent: ClothingUniformJumpsuitMilitaryCargo
 
 - type: entity
-  name: "Чудові чоботи"
+  name: Чудові чоботи
   id: ClothingShoesBootsJackAdvancedDio
   parent: ClothingShoesBootsJackAdvanced
 

@@ -1,8 +1,8 @@
 - type: entity
   parent: FoodMeatBase
   id: XenoTissueSample
-  name: "зразок тканини"
-  description: "Шматок інопланетної плоті, що сочиться їдкою рідиною."
+  name: tissue sample
+  description: A chunk of alien flesh, leaking a caustic goop.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Misc/tissue_sample.rsi

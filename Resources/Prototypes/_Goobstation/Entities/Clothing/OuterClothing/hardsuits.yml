@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitChronolegioneer
-  name: "футуристичний скафандр"
-  description: "Скафандр, покритий невідомим матеріалом, що захищає від більшості матеріальних та часових пошкоджень."
+  name: futuristic hardsuit
+  description: A hardsuit covered in an unknown material that protects against most material and temporal damage.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitBlueshieldLight
-  name: "ескортний скафандр \"Преторіанець"
-  description: "Скафандр, розроблений для елітного охоронця. Цей конкретний виготовлений з легшого металу, що забезпечує більшу маневреність."
+  name: "'praetorian' escort hardsuit"
+  description: A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
@@ -129,8 +129,8 @@
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitCybersunStealth
   suffix: stealth
-  name: "стелс-скафандр \"Сайберсан"
-  description: "Скафандр з фотореактивним покриттям для таємних операцій, однак екранування не працює, коли ви рухаєтеся! Потрібно надягнути шолом, щоб завершити поле невидимості."
+  name: cybersun stealth hardsuit
+  description: A hardsuit with photo-reactive plating for sneaky operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
@@ -185,8 +185,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateAnchoredContraband ]
   id: ClothingOuterHardsuitCybersunDreadnought
-  name: "костюм \"Дредноут\" від \"Сайберсан"
-  description: "Синдикат покладає свою славу на ваші плечі, не розчаруйте."
+  name: Cybersun dreadnought suit
+  description: The Syndicate places its glory on your shoulders, do not disappoint.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
@@ -246,8 +246,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterVoidsuitSecurity
-  name: "захисний скафандр"
-  description: "Легкий скафандр з вбудованим бронежилетом для забезпечення помірного захисту при збереженні мобільності."
+  name: security hardsuit
+  description: A light hardsuit with an in-built plate carrier to provide moderate protection while remaining mobile.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/security.rsi
@@ -290,8 +290,8 @@
 - type: entity
   parent: ClothingOuterHardsuitSecurityRed
   id: ClothingOuterHardsuitHeadOfSecurityExperimental
-  name: "парадний скафандр \"Почесна варта\" FI-52"
-  description: "Спеціальний скафандр, що захищає від небезпечних середовищ з низьким тиском. Має експериментальну вбудовану систему автоін'єкції стимуляторів."
+  name: FI-52 "Honor Guard" parade hardsuit
+  description: A special hardsuit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
@@ -313,8 +313,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitExperimentalNanorep
-  name: "NTX5-Мірродусс"
-  description: "Грубий, посилений екзокостюм із темних композитних пластин, його поверхню пронизують ледь видні блюспейс-ланцюги, що пульсують тьмяним, мінливим сяйвом"
+  name: "NTX5-Mirrorduss"
+  description: A crude dark exosuit of reinforced plating, etched with faintly glowing Bluespace circuits. You can tell someone attempted to scratch out part of the text — Prototype No. 2
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
@@ -355,8 +355,8 @@
 - type: entity
   parent: [BaseMagicalContraband, ClothingOuterHardsuitEngineeringWhite]
   id: ClothingSingulothArmor
-  name: "обладунок лицаря Синґулота"
-  description: "Церемоніальний обладунок з ордену Лицарів Синґулота. Він зроблений із чистого кованого адамантиту."
+  name: singuloth knight's armor
+  description: A ceremonial armor from the chapter of the Singuloth Knights, It's made of pure forged adamantium.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/singuloth_knight_armor.rsi
@@ -371,8 +371,8 @@
 - type: entity
   parent: ClothingOuterHardsuitCybersunStealth
   id: ClothingOuterHardsuitVoxRaiderStealth
-  name: "стелс-скафандр вокс-рейдера"
-  description: "Стрункий чорний скафандр. Здається, він має хвіст і дуже важкий."
+  name: vox raider stealth suit
+  description: A sleek black suit. It seems to have a tail, and is very heavy.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/vox-raiders-stealth.rsi
@@ -388,8 +388,8 @@
 - type: entity
   parent: [ClothingOuterVoidsuitSecurity, BaseSecurityContraband]
   id: ClothingOuterHardsuitDetective
-  name: "скафандр детектива"
-  description: "Скафандр, виготовлений на замовлення для Детектива. Має сильний запах алкоголю та сигарет."
+  name: detective hardsuit
+  description: A hardsuit custom-made for the Detective. It has a strong smell of alcohol and cigarettes.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/detective.rsi

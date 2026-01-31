@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseHeaterMachine
   id: KitchenElectricGrill
-  name: "електричний гриль"
-  description: "Мікрохвильовка? Ні, справжній чоловік готує стейки на грилі!"
+  name: electric grill
+  description: A microwave? No, a real man cooks steaks on a grill!
   components:
   - type: Sprite
     # TODO: draw a sprite

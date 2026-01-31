@@ -19,7 +19,7 @@
   abstract: true
   # Used to put pressureProtection, layers blocker and etc components into ComponentToggler
   id: BaseClothingModsuitHelmet
-  name: "базовий шолом модкостюму"
+  name: base modsuit helmet
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -70,7 +70,7 @@
   parent: BaseClothingModsuitHelmet
   # Used for helmets that hide your identity even if it's not sealed
   id: BaseClothingModsuitHelmetHideIdentity
-  name: "базовий шолом модкостюму"
+  name: base modsuit helmet
   categories: [ HideSpawnMenu ]
   components:
   - type: IdentityBlocker
@@ -85,8 +85,8 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetStandard
-  name: "стандартний шолом модкостюма"
-  description: "Спеціальний герметичний шолом модульного костюма, розроблений для компактного складання всередині блоку керування модульним костюмом."
+  name: standard modsuit helmet
+  description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -187,8 +187,8 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetSecurity
-  name: "шолом мод-костюма \"Солдат"
-  description: "Міцний казанок для мізків, щоб утримувати ваші мізки на місці достатньо, щоб їх можна було врятувати."
+  name: soldat modsuit helmet
+  description: A robust brain bucket for holding your brain in place just enough for it to be salvageable.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -297,8 +297,8 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetHeadOfSecurity
-  name: "шолом мод-костюма \"Бастіон"
-  description: "Надягається на ГОЛОВУ служби безпеки... Як з нього взагалі щось видно?"
+  name: bulwark modsuit helmet
+  description: Put on the HEAD of security.. How do you see out of this thing?
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -398,8 +398,8 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetParamedic
-  name: "шолом мод-костюма \"Санітар"
-  description: "Міцний казанок для мізків для роботи з ледь врятованими мізками."
+  name: sanitater modsuit helmet
+  description: A robust brain bucket for working on barely salvageable brains.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -481,8 +481,8 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetEngineer
-  name: "шолом мод-костюма \"Сапер"
-  description: "Плоска пластина з камерами, що дозволяють бачити. Перетворює вас на аеро-кака, але в космосі це не має значення."
+  name: sapper modsuit helmet
+  description: A flat plate with cameras allowing your vision. turns you into an aero-cuck, but not like that matters in space.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -568,8 +568,8 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetAtmostech
-  name: "шолом мод-костюма \"Еол"
-  description: "Спеціалізований газовий шолом для більш ефективного постачання кисню."
+  name: aeolus modsuit helmet
+  description: A specialised gas helmet to provide oxygen more efficiently.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -674,8 +674,8 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetResearchDirector
-  name: "шолом мод-костюма \"Мінерва"
-  description: "Дуже темний візор, що захищає ваше дорогоцінне обличчя від шрапнелі та вибухів."
+  name: minerva modsuit helmet
+  description: A dark dark dark visor protecting your precious face from shrap and blast.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -767,8 +767,8 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetCaptain
-  name: "шолом мод-костюма \"Магнат"
-  description: "Візор виготовлено з аметисту віком 10 000 років."
+  name: magnate modsuit helmet
+  description: The visor is made from 10,000 year old amythest.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

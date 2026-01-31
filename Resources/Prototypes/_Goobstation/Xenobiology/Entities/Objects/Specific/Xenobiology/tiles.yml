@@ -1,7 +1,7 @@
 - type: entity
   id: FloorBluespaceEntity
-  name: "блюспейсовий килим"
-  description: "Килими найвищого ґатунку, виготовлені в Лабораторії Апертури Нанотрейзен. На них ви рухаєтеся швидше!"
+  name: bluespace carpet
+  description: State of the art carpets produced in the Nanotrasen Aperture Laboratory. These ones make you faster on them!
   placement:
     mode: SnapgridCenter
   components:
@@ -56,8 +56,8 @@
 
 - type: entity
   id: FloorSepiaEntity
-  name: "сепієвий килим"
-  description: "Килим здається якимось ностальгічним. Настільки, що вам не хочеться зробити й крок з нього."
+  name: sepia carpet
+  description: The carpet feels somehow nostalgic. So nostalgic you don't want to take a step off of it.
   placement:
     mode: SnapgridCenter
   components:

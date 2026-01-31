@@ -17,8 +17,8 @@
 - type: entity
   parent: [BaseSyndicateContraband, ClothingHeadHelmetBase]
   id: ClothingHeadHelmetHelldiver
-  name: "тактичний шолом NT-01"
-  description: "Ця броня є стандартною для NanoTrasen, виготовлена з того ж титанового сплаву, що й корпус \"Голіафа\"."
+  name: salvage NT-01 tactical helmet
+  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
   components:
   - type: Armor
     coverage:
@@ -53,8 +53,8 @@
 - type: entity
   parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetHEV
-  name: "шолом H.E.V"
-  description: "Не входить до комплекту з ломом, модулем довгого стрибка та пристроєм маніпуляції гравітацією."
+  name: H.E.V helmet
+  description: Not included in a set with crowbar, long jump module and gravity manipulation device.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
@@ -88,8 +88,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseMajorContraband ]
   id: ReverseBearTrap
-  name: "зворотний ведмежий капкан"
-  description: "Жахливий набір закритих металевих щелеп, підключених до кухонного таймера і закріплених навісним замком на затискачі, що кріпиться на голову. Щоб застосувати, вдарте ним когось"
+  name: reverse bear trap
+  description: A horrifying set of shut metal jaws, rigged to a kitchen timer and secured by padlock to a head-mounted clamp. To apply, hit someone with it
   components:
   - type: ReverseBearTrap
     countdownDuration: 60
@@ -111,8 +111,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHatHoodCloakSith
-  name: "капюшон темного лорда"
-  description: "Те, що починалося як простий косплей-капюшон, було незаконно посилено броньованими пластинами, перетворивши його на функціональний елемент броні. Схоже, він навіть здатний захистити користувача від відсутності тиску в космосі."
+  name: dark lord hood
+  description: What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/voidcloak.rsi
@@ -154,8 +154,8 @@
 - type: entity
   parent: [ClothingHeadHatCowboyBrown, BaseMajorContraband]
   id: ClothingHeadHatCowboyBrownRobust
-  name: "справжній коричневий ковбойський капелюх"
-  description: "\"Цієї станції недостатньо для нас двох.\""
+  name: authentic brown cowboy hat
+  description: "\"This station ain't big enough for the two of us.\""
   components:
     - type: Armor
       coverage:
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHelmetTemplar
-  name: "шолом хрестоносця"
-  description: "Deus Vult."
+  name: crusader helmet
+  description: Deus Vult.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Head/Misc/templar.rsi
@@ -208,8 +208,8 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetCage
-  name: "клітка"
-  description: "Клітка, що стримує волю власного я, дозволяючи бачити профанний світ таким, яким він є."
+  name: cage
+  description: A cage that restrains the will of the self, allowing one to see the profane world for what it is.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Head/Misc/cage.rsi
@@ -229,8 +229,8 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetAncient
-  name: "стародавній шолом"
-  description: "Ніхто не пройде!"
+  name: ancient helmet
+  description: None may pass!
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Head/Misc/ancient.rsi
@@ -241,8 +241,8 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetWitchhunter
-  name: "капелюх мисливця на відьом"
-  description: "Цей капелюх багато використовувався в минулому."
+  name: witchunter hat
+  description: This hat saw much use back in the day.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Head/Misc/witchhunter.rsi
@@ -258,8 +258,8 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetAdept
-  name: "капюшон адепта"
-  description: "Це єретично лише коли інші це роблять."
+  name: adept hood
+  description: Its only heretical when others do it.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Head/Misc/adept.rsi
@@ -270,8 +270,8 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetClock
-  name: "забутий шолом"
-  description: "Має невблаганний погляд бога, якого вічно забули."
+  name: forgotten helmet
+  description: It has the unyielding gaze of a god eternally forgotten.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Head/Misc/clock.rsi
@@ -282,8 +282,8 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetMonk
-  name: "каптур монаха"
-  description: "Для тих, хто хоче приховати свою тонзуру."
+  name: monk's hood
+  description: For when a man wants to cover up his tonsure.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Head/Misc/monkhood.rsi
@@ -294,8 +294,8 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetBishop
-  name: "митра єпископа"
-  description: "Розкішний капелюх, що функціонує як радіо до Бога. Або як громовідвід, залежно від того, кого запитати."
+  name: bishop mitre
+  description: An opulent hat that functions as a radio to God. Or as a lightning rod, depending on who you ask.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Head/Misc/bishop.rsi

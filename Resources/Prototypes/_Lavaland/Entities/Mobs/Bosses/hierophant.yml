@@ -24,8 +24,8 @@
 
 - type: entity
   id: MobHierophant
-  name: "ієрофант"
-  description: "Величезна металева булава, що висить у повітрі, ніби чекає. Вона змусить вас танцювати під її ритм."
+  name: hierophant
+  description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
   components:
   # Basic stuff
   - type: Physics

@@ -101,10 +101,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "BasePistol"
+  name: BasePistol
   parent: BaseItem
   id: BaseWeaponPistol
-  description: "Корінцевий зубастий і пагонистий."
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -203,10 +203,10 @@
   - type: CanTakeAim # PIRATE
 
 - type: entity
-  name: "Вайпер"
+  name: Viper
   parent: [BaseWeaponPistol, BaseSyndicateContraband]
   id: WeaponPistolViper
-  description: "Витончений машинний пістолет, створений корпорацією Waffle. Маючи перемикач режимів між напівавтоматичним та «рок-н-ролом», Вайпер б’є значно вище своєї вагової категорії, попри габарити й зручність для прихованого носіння. Живиться з пістолетних магазинів .35 Auto." # Goobstation
+  description: A sleek machine pistol designed by the Waffle Corporation. Boasting a selector switch that toggles between semi-auto and rock & roll, the Viper punches high above its weight class given its bulk and concealability. Feeds from .35 Auto pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
@@ -238,10 +238,10 @@
     price: 1000
 
 - type: entity
-  name: "Ехіс"
+  name: Echis
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponPistolEchis
-  description: "Кіборгово-встановлена система озброєння на базі платформи «Вайпер». Створює боєприпаси на льоту з внутрішнього фабрикатора, який повільно самозаряджається." # Goobstation
+  description: A cyborg-mounted weapon system based on the Viper platform. Creates ammunition on the fly from an internal fabricator, which slowly self-charges. # Goobstation
   components:
   - type: Gun
     fireRate: 5
@@ -273,10 +273,10 @@
   - type: AmmoCounter
 
 - type: entity
-  name: "Кобра"
+  name: Cobra
   parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
   id: WeaponPistolCobra
-  description: "Напівавтоматичний пістолет з інтегрованим глушником, що не лишає жодного сліду. Дозвукові набої майже безшумні, але ціною шкоди. Живиться з пістолетних магазинів 9.5mm." # Goobstation
+  description: An integrally suppressed, semi-automatic pistol that leaves no trace. Being subsonic, the rounds are near silent at the cost of damage. Feeds from 9.5mm pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
@@ -325,10 +325,10 @@
     price: 1500
 
 - type: entity
-  name: "MK58"
+  name: MK58
   parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolMk58
-  description: "Цілком стандартний напівавтоматичний пістолет під .35 Auto. Тонкий, простий і точний у вправних руках — одна з перлин NanoTrasen Small Arms та найпоширеніша бічна зброя у вільному світі. Живиться з пістолетних магазинів .35 Auto." # Goobstation
+  description: A bog standard semi-automatic pistol chambered in thirty-five. Slim, simple, and accurate in the right hands, it's one of NanoTrasen Small Arms' crown jewels and the most common sidearm in the free world. Feeds from .35 Auto pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
@@ -347,10 +347,10 @@
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
 
 - type: entity
-  name: "N1984"
+  name: N1984
   parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolN1984
-  description: "Абсурдно переінженерена ручна гармата, що стріляє револьверним набоєм. Хоч її скорострільність вимірюється відмовами за секунду, вона стала своєрідним символом статусу серед еліти NanoTrasen завдяки своїй шаленій потужності та кричущому ціннику. Живиться з пістолетних магазинів .45 Magnum." # Goobstation
+  description: A ridiculously overengineered hand cannon that fires a revolver cartridge. While the firerate is measured in malfunctions per second, it's become a sort of status symbol among the NanoTrasen elite due to its sheer power and gaudy price tag. Feeds from .45 Magnum pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi

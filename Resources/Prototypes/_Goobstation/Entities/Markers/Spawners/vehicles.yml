@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "спавнер секвею"
+  name: Secway Spawner
   id: SpawnVehicleSecway
   parent: MarkerBase
   components:
@@ -22,7 +22,7 @@
       - VehicleSecway
 
 - type: entity
-  name: "спавнер ATV "
+  name: ATV Spawner
   id: SpawnVehicleATV
   parent: MarkerBase
   components:
@@ -36,7 +36,7 @@
       - VehicleATV
 
 - type: entity
-  name: "спавнер дженікарту"
+  name: Janicart Spawner
   id: SpawnVehicleJanicart
   parent: MarkerBase
   components:
@@ -50,7 +50,7 @@
       - VehicleJanicart
 
 - type: entity
-  name: "спавнер світлих офісних крісел"
+  name: light office chair spawner
   id: SpawnVehicleChairOfficeLight
   parent: MarkerBase
   components:
@@ -64,7 +64,7 @@
       - ChairOfficeLight
 
 - type: entity
-  name: "спавнер темних офісних крісел"
+  name: dark office chair spawner
   id: SpawnVehicleChairOfficeDark
   parent: MarkerBase
   components:

@@ -17,8 +17,8 @@
 - type: entity
   parent: BaseItem
   id: AmeJar
-  name: "Каністра пальтого для РАМ"
-  description: "Герметично закрита банка, що містить антиречовину для використання в реакторі антиречовини."
+  name: AME fuel jar
+  description: A hermetically sealed jar containing antimatter for use in an antimatter reactor.
   components:
   - type: Item
     size: Normal

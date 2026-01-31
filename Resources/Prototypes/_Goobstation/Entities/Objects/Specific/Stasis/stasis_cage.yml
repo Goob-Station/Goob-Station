@@ -6,8 +6,8 @@
 
 - type: entity
   id: StasisCage
-  name: "стазисний контейнер"
-  description: "Зовні він менший, ніж всередині."
+  name: stasis container
+  description: It's smaller on the outside than it is on the inside.
   parent: BaseStructureDynamic
   components:
   - type: Sprite

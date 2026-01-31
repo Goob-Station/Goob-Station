@@ -46,7 +46,7 @@
 - type: entity
   parent: BaseNinjaObjective
   id: StealResearchObjective
-  description: "Ваші рукавички можна використовувати для злому дослідницького сервера та крадіжки його дорогоцінних даних. Якщо наука ледарювала, вам доведеться взятися за роботу."
+  description: Your gloves can be used to hack a research server and steal its precious data. If science has been slacking you'll have to get to work.
   components:
   - type: Objective
     icon:
@@ -61,7 +61,7 @@
 - type: entity
   parent: [BaseNinjaObjective, BaseCodeObjective]
   id: SpiderChargeObjective
-  description: "Ця бомба може бути підірвана в певному місці. Зверніть увагу, що в іншому місці бомба не спрацює!"
+  description: This bomb can be detonated in a specific location. Note that the bomb will not work anywhere else!
   components:
   - type: Objective
     icon:
@@ -72,8 +72,8 @@
 - type: entity
   parent: [BaseNinjaObjective, BaseSurviveObjective]
   id: NinjaSurviveObjective
-  name: "Виживіть"
-  description: "Ти не був би хорошим ніндзя, якщо помер, чи не так?"
+  name: Survive
+  description: You wouldn't be a very good ninja if you died, now would you?
   components:
   - type: Objective
     icon:
@@ -83,8 +83,8 @@
 - type: entity
   parent: [BaseNinjaObjective, BaseCodeObjective]
   id: TerrorObjective
-  name: "Викличте загрозу"
-  description: "Використовуйте рукавички на комунікаційній консолі, щоб викликати ще одну загрозу на станцію."
+  name: Call in a threat
+  description: Use your gloves on a communication console in order to bring another threat to the station.
   components:
   - type: Objective
     icon:
@@ -94,8 +94,8 @@
 - type: entity
   parent: [BaseNinjaObjective, BaseCodeObjective]
   id: MassArrestObjective
-  name: "Оголосити всіх у розшук"
-  description: "Використовуйте рукавички, щоб зламати консоль обліку судимостей, оголосивши всю станцію в розшук!"
+  name: Set everyone to wanted
+  description: Use your gloves to hack a criminal records console, setting the entire station to be wanted!
   components:
   - type: Objective
     icon:

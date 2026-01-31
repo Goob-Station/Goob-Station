@@ -7,8 +7,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier - Change to neck
   id: ClothingNeckClassicPonchoWeb
-  name: "класичне павутинне пончо"
-  description: "Увесь шарм пустельних високогір'їв, як його уявили залози павука. Він приємно липкий!"
+  name: classic web poncho
+  description: All of the charm of the desert highlands as imagined by the glands of a spider. It agreeably sticky!
   components:
   - type: Sprite
     sprite: _NF/Clothing/Neck/Misc/classic_poncho_web.rsi
@@ -21,8 +21,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier - Change to neck
   id: ClothingNeckPonchoWeb
-  name: "павутинне пончо"
-  description: "Ніби вас ув'язнили в коконі і зробили отвори для кінцівок. Ви народжені знову для моди."
+  name: web poncho
+  description: It is like you were trapped in a cocoon and they added holes for your extremities. You are born again into fashion.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Neck/Misc/poncho_web.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier - Change to neck
   id: ClothingNeckCloakWeb
-  name: "павутинний плащ"
-  description: "Цей елегантний плащ, безсумнівно, ідентифікує вас як друга павучого роду. Безсумнівно."
+  name: web cloak
+  description: This dapper cloak surely identifies you as a friend of spider kind. Surely.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Neck/Cloaks/cloak_web.rsi

@@ -5,8 +5,8 @@
 
 - type: entity
   id: PolymorphBloodCrawlJaunt
-  name: "Невідомо"
-  description: "Ви не можете зрозуміти, що це таке."
+  name: Unknown
+  description: You can't figure out what that is.
   parent: [ Incorporeal, BaseMob ]
   components:
   - type: Sprite

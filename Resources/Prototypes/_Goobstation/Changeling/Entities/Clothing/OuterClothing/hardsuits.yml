@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ChangelingClothingOuterHardsuit
-  name: "органічний скафандр"
-  description: "Космічна біомаса зі стійкої до тиску та температури тканини."
+  name: organic space suit
+  description: A spaceworthy biomass of pressure and temperature resistant tissue.
   suffix: Unremoveable
   components:
   - type: Sprite

@@ -13,10 +13,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "коробка з трекерами"
+  name: tracker box
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxTracker
-  description: "Коробка з кількома трекерами."
+  description: A box containing a couple trackers.
   components:
   - type: StorageFill
     contents:
@@ -27,10 +27,10 @@
     - state: box
 
 - type: entity
-  name: "коробка зі смертельними ін'єкціями"
+  name: lethal injections box
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxLethalInjection
-  description: "Коробка з кількома шприцами для смертельних ін'єкцій."
+  description: A box containing several lethal injection syringes.
   components:
   - type: StorageFill
     contents:
@@ -41,10 +41,10 @@
     - state: box
 
 - type: entity
-  name: "коробка 40мм гранат з кийками"
+  name: 40mm baton grenade box
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesBaton
-  description: "Коробка з вісьмома 40мм гранатами з кийками для оглушення одиночних цілей."
+  description: A box containing eight 40mm baton grenades for single target stunning.
   components:
   - type: StorageFill
     contents:
@@ -58,10 +58,10 @@
       - Grenade
 
 - type: entity
-  name: "коробка 40мм світлових гранат"
+  name: 40mm flash grenade box
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesFlash
-  description: "Коробка з вісьмома 40мм світловими гранатами для масового оглушення цілей."
+  description: A box containing eight 40mm flashbang grenades for mass target stunning.
   components:
   - type: StorageFill
     contents:
@@ -75,10 +75,10 @@
       - Grenade
 
 - type: entity
-  name: "коробка 40мм гранат зі сльозогінним газом"
+  name: 40mm tear gas grenade box
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesTeargas
-  description: "Коробка з вісьмома 40мм гранатами зі сльозогінним газом для ефективного розгону заворушень."
+  description: A box containing eight 40mm tear gas grenades for efficient riot dispersion.
   components:
   - type: StorageFill
     contents:

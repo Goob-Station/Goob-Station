@@ -1,6 +1,6 @@
 - type: body
   id: Scurret
-  name: "Скуррет"
+  name: "Scurret"
   root: chest
   slots:
     head:

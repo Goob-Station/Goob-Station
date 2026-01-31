@@ -24,7 +24,7 @@
 # Empty mags
 - type: entity
   id: BaseMagazineRifle
-  name: "магазин (гвинтівка калібру .20)"
+  name: "magazine (.20 rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   id: MagazineRifle
-  name: "магазин (гвинтівка калібру .20)"
+  name: "magazine (.20 rifle)"
   parent: BaseMagazineRifle
   components:
   - type: BallisticAmmoProvider
@@ -77,7 +77,7 @@
 
 - type: entity
   id: MagazineRifleEmpty
-  name: "магазин (.20 гвинтівковий будь-який)"
+  name: "magazine (.20 rifle any)"
   suffix: empty
   parent: MagazineRifle
   components:
@@ -98,7 +98,7 @@
 
 - type: entity
   id: MagazineRifleIncendiary
-  name: "магазин (.20 гвинтівковий запальний)"
+  name: "magazine (.20 rifle incendiary)"
   parent: MagazineRifle
   components:
   - type: BallisticAmmoProvider
@@ -124,7 +124,7 @@
 
 - type: entity
   id: MagazineRiflePractice
-  name: "магазин (практична стрільба з гвинтівки калібру .20)"
+  name: "magazine (.20 rifle practice)"
   parent: BaseMagazineRifle
   components:
   - type: BallisticAmmoProvider
@@ -150,7 +150,7 @@
 
 - type: entity
   id: MagazineRifleUranium
-  name: "магазин (.20 гвинтівочний уран)"
+  name: "magazine (.20 rifle uranium)"
   parent: BaseMagazineRifle
   components:
   - type: BallisticAmmoProvider

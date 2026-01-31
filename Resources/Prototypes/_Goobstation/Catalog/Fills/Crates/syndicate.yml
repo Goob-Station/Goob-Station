@@ -16,8 +16,8 @@
   id: CrateCybersunDarkGygaxBundle
   suffix: Filled
   parent: CrateSyndicate
-  name: "Кіберпан-гігакс пучок"
-  description: "Містить набір легких броньованих мехів \"Кіберсан\"."
+  name: Cybersun gygax bundle
+  description: Contains a set of Cybersan light armored mechs.
   components:
   - type: StorageFill
     contents:
@@ -31,8 +31,8 @@
   id: CrateCybersunMaulerBundle
   suffix: Filled
   parent: CrateSyndicate
-  name: "Комплект маулерів Cybersun"
-  description: "Містить набір важких броньованих мехів \"Кіберсан\"."
+  name: Cybersun mauler bundle
+  description: Contains a set of Cybersan heavy armored mechs.
   components:
   - type: StorageFill
     contents:
@@ -46,8 +46,8 @@
   id: CrateSyndicateBulkMosin
   suffix: Filled
   parent: CrateSyndicate
-  name: "Ящик з гвинтівками синдикату"
-  description: "Просто використовуйте більше гвинтівок, товаришу."
+  name: Syndicate bulk rifle crate
+  description: Just use more rifles, comrade.
   components:
     - type: StorageFill
       contents:
@@ -61,8 +61,8 @@
 - type: entity
   parent: CrateSyndicate
   id: CrateSyndicateDreadnought
-  name: "комплект дредноута кіберсонця"
-  description: "Просунутий комплект дредноута кіберсонця."
+  name: cybersun dreadnought bundle
+  description: "An advanced cybersun dreadnought bundle."
   components:
   - type: StorageFill
     contents:
@@ -75,8 +75,8 @@
 - type: entity
   id: CratePizzaParty
   parent: CratePlastic
-  name: "аварійна доставка піци"
-  description: "В крайньому випадку, коли все інше зазнало невдачі, знайдіть розраду в тому, що більше піци вирішує все. Включає 16 піц."
+  name: disaster pizza delivery
+  description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
   suffix: "bombs"
   components:
   - type: StorageFill
@@ -109,8 +109,8 @@
 - type: entity
   parent: [ BaseStructureDynamic, BaseSetSelector, BaseSyndicateContraband ]
   id: CrateSyndicateUndetermined # Not actually a crate, just looks like one
-  name: "невизначений ящик з набором Синдикату"
-  description: "Містить набір Синдикату. Який саме - ще не визначено."
+  name: undetermined Syndicate bundle crate
+  description: Contains a Syndicate bundle. Which one is yet to be determined.
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/syndicate.rsi
@@ -161,8 +161,8 @@
   parent: CrateSyndicate
   id: CrateSyndicateStarterKit
   suffix: Filled
-  name: "базовий набір оперативника"
-  description: "Містить усе необхідне оперативнику для влаштування хаосу."
+  name: basic operative bundle
+  description: "Contains everything an operative needs to wreak havoc."
   components:
   - type: StorageFill
     contents:

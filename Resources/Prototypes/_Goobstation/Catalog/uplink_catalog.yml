@@ -83,8 +83,8 @@
 
 - type: listing
   id: UplinkBoxReagentGrenades
-  name: "Коробка з реагентними гранатами"
-  description: "Містить 2 клейові гранати та 2 гранати з мастилом"
+  name: Box of Reagent Grenades
+  description: Contains 2 Glue grenades and 2 Lube Grenades
   productEntity: BoxReagentGrenades
   cost:
     Telecrystal: 30
@@ -656,8 +656,8 @@
 
 - type: listing
   id: UplinkLubeGrenade
-  name: "Мастильна граната"
-  description: "Робить підлогу слизькою!"
+  name: Lube grenade
+  description: Make the floor slippery!
   productEntity: LubeGrenade
   cost:
     Telecrystal: 14
@@ -672,8 +672,8 @@
 
 - type: listing
   id: UplinkGlueGrenade
-  name: "Клейова граната"
-  description: "Ускладнює пересування по підлозі!"
+  name: Glue grenade
+  description: Make the floor hard to walk in!
   productEntity: GlueGrenade
   cost:
     Telecrystal: 5

@@ -6,8 +6,8 @@
 - type: entity
   id: boomerang
   parent: BaseItem
-  name: "бумеранг"
-  description: "Зроблено з дерева. Варто віддати це мавпі."
+  name: boomerang
+  description: Made from wood. You should give this to a monkey.
   components:
   - type: LandAtCursor
   - type: Sprite
@@ -30,8 +30,8 @@
 - type: entity
   id: boomerangIncomplete
   parent: BaseItem
-  name: "незавершений бумеранг"
-  description: "Застосуйте ніж, щоб отримати новенький бумеранг."
+  name: incomplete boomerang
+  description: Apply knife to get a fresh boomerang.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Throwable/boomerangIncomplete.rsi

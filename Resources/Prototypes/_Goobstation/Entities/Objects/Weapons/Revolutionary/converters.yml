@@ -1,8 +1,8 @@
 - type: entity
-  name: "спалах"
+  name: flash
   id: RevFlash
   parent: [BaseItem, BaseSecurityScienceCommandContraband]
-  description: "Надяскрава фотолампа з детонатором, яка приголомшує жертву та на мить позбавляє її зору. Непридатна до використання, коли перегорить. Схоже, що цю було модифіковано."
+  description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out. This one seems to have been tampered with.
   suffix: Revolutionary
   components:
     - type: RevolutionaryConverter

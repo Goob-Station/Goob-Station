@@ -1,8 +1,8 @@
 - type: entity
   id: RMCCampfire
   parent: Bonfire
-  name: "багаття"
-  description: "Корисний інструмент, щоб перетворити товаришів-морпіхів на друзів на все життя. Підсуньте стілець!"
+  name: campfire
+  description: A useful tool to turn fellow marines into lifelong friends. Pull up a chair!
   components:
   - type: Sprite
     noRot: true

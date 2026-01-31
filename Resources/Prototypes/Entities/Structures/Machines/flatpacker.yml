@@ -13,8 +13,8 @@
 - type: entity
   id: MachineFlatpacker
   parent: [ BaseMachinePowered, ConstructibleMachine, BaseSiloUtilizer ] # Goob edit
-  name: "флатпакер 1001"
-  description: "Промислова машина, що використовується для прискорення будівництва машин на станції."
+  name: Flatpacker 1001
+  description: An industrial machine used for expediting machine construction across the station.
   components:
   - type: Sprite
     sprite: Structures/Machines/flatpacker.rsi

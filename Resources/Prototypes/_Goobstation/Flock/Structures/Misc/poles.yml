@@ -1,8 +1,8 @@
 - type: entity
   id: BaseFlockPole
   parent: BaseStructure
-  name: "волокнистий стовп"
-  description: "Гм. Дивно."
+  name: fibrous pole
+  description: Huh. Weird.
   components:
   - type: Sprite
     drawdepth: Walls

@@ -1,7 +1,7 @@
 - type: entity
   id: ActionSlasherSummonMachete
-  name: "Закликати мачете"
-  description: "Закликає закріплене мачете до твоєї активної руки або створює нове, якщо ти його втратив."
+  name: Summon Machete
+  description: Summon your bound machete to your active hand, or create one if lost.
   components:
   - type: Action
     raiseOnUser: true
@@ -13,8 +13,8 @@
 
 - type: entity
   id: ActionSlasherSummonMeatSpike
-  name: "Кривавий шип"
-  description: "Створює під тобою жахливий кривавий кривавий шип, щоб упіймати твоїх жертв."
+  name: Meat Spike
+  description: Conjure a horrific meat spike beneath you to capture your victims.
   components:
   - type: Action
     raiseOnUser: true
@@ -27,8 +27,8 @@
 
 - type: entity
   id: ActionSlasherIncorporealize
-  name: "Ставати нематеріальним"
-  description: "Робить тебе нематеріальним, дає змогу проходити крізь стіни та бути повністю невидимим, але без можливості взаємодіяти зі світом. Можна використовувати лише тоді, коли тебе ніхто не бачить."
+  name: Incorporealize
+  description: Become incorporeal, capable of moving through walls and being completely invisible, but unable to interact with the world. Can only be used when unseen.
   components:
   - type: Action
     raiseOnUser: true
@@ -40,8 +40,8 @@
 
 - type: entity
   id: ActionSlasherCorporealize
-  name: "Ставати матеріальним"
-  description: "Матеріалізує твою сутність із нематеріального стану. Можна використовувати лише, коли ти нематеріальний."
+  name: Corporealize
+  description: Manifest your being from your incorporeal state. Can only be used when incorporeal.
   components:
   - type: Action
     raiseOnUser: true
@@ -53,8 +53,8 @@
 
 - type: entity
   id: ActionSlasherBloodTrail
-  name: "Кривавий слід"
-  description: "Ти починаєш лишати за собою кривавий слід під дивну музику. Лячно!"
+  name: Blood Trail
+  description: Begin trailing blood in your wake with some funky music. Spooky!
   components:
   - type: Action
     raiseOnUser: true
@@ -67,8 +67,8 @@
 
 - type: entity
   id: ActionSlasherPossession
-  name: "Оволодіння"
-  description: "Використай це на людині, щоб поступово здобути над нею контроль, отримавши тимчасове керування її тілом на 45 секунд. Після завершення обидва тіла повертаються на свої місця."
+  name: Possession
+  description: Use this on a person to begin to exact your control on them, giving you temporary control of their body for 45 seconds. Once time is up, both bodies return.
   components:
   - type: Action
     raiseOnUser: true
@@ -85,8 +85,8 @@
 
 - type: entity
   id: ActionSlasherRegenerate
-  name: "Регенерація"
-  description: "Швидко відновлює твою сутність, повертаючи все втрачене здоров'я, загоюючи рани та знімаючи всі оглушення. Потребує перезарядки шляхом викрадення душі після кожного використання."
+  name: Regenerate
+  description: Quickly regenerate your being, restoring all lost health, repairing wounds, and removing all stuns. Must be recharged by stealing a soul after every use.
   components:
   - type: Action
     raiseOnUser: true
@@ -100,8 +100,8 @@
 
 - type: entity
   id: ActionSlasherStaggerArea
-  name: "Темна аура"
-  description: "Ти випромінюєш темну ауру на всіх у радіусі, тимчасово сповільнюючи їх."
+  name: Stagger Area
+  description: You exert your dark aura to people in range, slowing them down for a short time.
   components:
   - type: Action
     raiseOnUser: true
@@ -114,8 +114,8 @@
 
 - type: entity
   id: ActionSlasherMassacre
-  name: "Різанина"
-  description: "Запускає жорстокий ланцюг атак. Чим більше ударів поспіль ти завдаси, тим більшу шкоду нанесеш. Після тринадцятого удару ти відтинаєш цілі голову."
+  name: Massacre
+  description: Unleach a brutal chain of attacks. The more hits in a row you hit the more damage you deal. You decapitate your target after 13 hits.
   components:
   - type: Action
     raiseOnUser: true
@@ -128,8 +128,8 @@
 
 - type: entity
   id: ActionSlasherSoulSteal
-  name: "Крадіжка душі"
-  description: "Висмоктує душу жертви. Потрібно застосовувати до знерухомленої живої цілі або трупа, щоб викрасти її душу, посиливши мачете та збільшивши запас життєвої сили."
+  name: Soul Steal
+  description: Siphon a victims soul. Must be used on an incapicated living target (or dead body) to steal their soul, empowering your machete and increasing your health.
   components:
   - type: Action
     raiseOnUser: true

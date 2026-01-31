@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponKatanaSilverChariot
-  name: "рапіра Сільвер Черіота"
+  name: рапіра Сільвер Черіота
   parent: Katana
   components:
   - type: MeleeWeapon

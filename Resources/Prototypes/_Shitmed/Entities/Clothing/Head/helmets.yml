@@ -12,8 +12,8 @@
 - type: entity
   parent: [ ClothingHeadHelmetBase, BaseMajorContraband ]
   id: ClothingHeadHelmetAbductor
-  name: "інопланетний шолом"
-  description: "Зіп Глорп!"
+  name: alien helmet
+  description: Zeep Glorp!
   components:
   - type: Armor
     coverage:

@@ -207,8 +207,8 @@
 - type: entity
   id: CratePlants
   parent: CrateGenericSteel
-  name: "ящик з рослинами"
-  description: "Набір різноманітних рослин у горщиках, щоб прикрасити вашу станцію!"
+  name: plant crate
+  description: A variety pack of potted plants to spruce up your station!
   components:
   - type: EntityTableContainerFill
     containers:
@@ -220,8 +220,8 @@
 - type: entity
   id: CrateFunPlushie
   parent: CrateGenericSteel
-  name: "ящик з плюшевими іграшками"
-  description: "Купа м'яких плюшевих іграшок. Розкидайте їх навколо, а потім думайте, як ви поясните цю покупку NT."
+  name: plushie crate
+  description: A buncha soft plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -233,8 +233,8 @@
 - type: entity
   id: CrateFunLizardPlushieBulk
   parent: CrateGenericSteel
-  name: "ящик з плюшевими ящірками"
-  description: "Купа м'яких плюшевих ящірок. Розкидайте їх навколо, а потім думайте, як ви поясните цю покупку NT."
+  name: bulk lizard plushie crate
+  description: A buncha soft lizard plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -250,8 +250,8 @@
 - type: entity
   id: CrateFunSharkPlushieBulk
   parent: CrateGenericSteel
-  name: "ящик з плюшевими акулами"
-  description: "Ящик, наповнений різноманітними улюбленими плавцевими друзями. Рррр!"
+  name: bulk soft toy shark crate
+  description: A crate filled with a variety of everyone's favorite finned friend. Rawr!
   components:
   - type: EntityTableContainerFill
     containers:
@@ -270,8 +270,8 @@
 - type: entity
   id: CrateFunInstrumentsVariety
   parent: CrateGenericSteel
-  name: "колекція різних інструментів"
-  description: "Зробіть свою сумну радіостанцію живою та енергійною за допомогою цього універсального набору! Містить сім різних інструментів."
+  name: variety instrument collection
+  description: Get your sad station movin' and groovin' with this catch-all variety pack! Contains seven different instruments.
   components:
   - type: StorageFill
     contents:
@@ -286,8 +286,8 @@
 - type: entity
   id: CrateFunInstrumentsBrass
   parent: CrateGenericSteel
-  name: "ящик ансамблю мідних духових інструментів"
-  description: "Принесіть трохи джазу на станцію з духовим ансамблем. Містить різноманітні духові інструменти для гри всієї станції."
+  name: brass instrument ensemble crate
+  description: Bring some jazz to the station with the brass ensemble. Contains a variety of brass instruments for the whole station to play.
   components:
   - type: StorageFill
     contents:
@@ -303,8 +303,8 @@
 - type: entity
   id: CrateFunInstrumentsString
   parent: CrateGenericSteel
-  name: "ящик ансамблю струнних інструментів"
-  description: "Щипайте або перебирайте, шльопайте або шматуйте! Заграйте плавну мелодію або розтопіть людські обличчя за допомогою цього набору струнних інструментів."
+  name: string instrument ensemble crate
+  description: Pluck or pick, slap or shred! Play a smooth melody or melt peoples' faces with this package of stringed instruments.
   components:
   - type: StorageFill
     contents:
@@ -321,8 +321,8 @@
 - type: entity
   id: CrateFunInstrumentsWoodwind
   parent: CrateGenericSteel
-  name: "ящик ансамблю дерев'яних духових інструментів"
-  description: "Якщо атмосфера добре справляється зі своєю роботою, використовуйте повітря, щоб грати музику на цих дерев'яних духових інструментах! Справжнє дерево не гарантується з кожною позицією."
+  name: woodwind instrument ensemble crate
+  description: If atmos is good at their job, use air to play music with these woodwind instruments! Real wood not guaranteed with every item.
   components:
   - type: StorageFill
     contents:
@@ -341,8 +341,8 @@
 - type: entity
   id: CrateFunInstrumentsKeyedPercussion
   parent: CrateGenericSteel
-  name: "ящик ансамблю клавішних/ударних інструментів"
-  description: "За допомогою цього ящика для ансамблю клавішних та перкусійних інструментів можна грати на клавішах, паличками або руками."
+  name: keyed/percussion instrument ensemble crate
+  description: Hit some keys with some sticks or your hands, with this Keyed and Percussion instrument ensemble crate.
   components:
   - type: StorageFill
     contents:
@@ -360,8 +360,8 @@
 - type: entity
   id: CrateFunInstrumentsSpecial
   parent: CrateGenericSteel
-  name: "ящик спеціальних інструментів колекціонера"
-  description: "Створіть трохи шуму з цією спеціальною колекцією сумнівних інструментів! ЦК не несе відповідальності за будь-які травми, спричинені вмістом."
+  name: special instrument collector's crate
+  description: Create some noise with this special collection of arguably-instruments! Centcomm is not responsible for any trauma caused by the contents.
   components:
   - type: StorageFill
     contents:
@@ -379,8 +379,8 @@
 - type: entity
   id: CrateFunArtSupplies
   parent: CrateGenericSteel
-  name: "ящик з художнім приладдям"
-  description: "Зробіть кілька маленьких щасливих нещасних випадків з великою кількістю кольорових олівців!"
+  name: art supplies
+  description: Make some happy little accidents with lots of crayons!
   components:
   - type: StorageFill
     contents:
@@ -389,8 +389,8 @@
 - type: entity
   id: CrateFunBoardGames
   parent: CrateGenericSteel
-  name: "ящик з настільними іграми"
-  description: "Доведено, що ігрові вечори або зменшують нудьгу, або збільшують вбивчу лють, залежно від гри."
+  name: board game crate
+  description: Game nights have been proven to either decrease boredom or increase murderous rage depending on the game.
   components:
   - type: StorageFill
     contents:
@@ -411,8 +411,8 @@
 - type: entity
   id: CrateFunSadTromboneImplants
   parent: CrateGenericSteel
-  name: "імпланти сумного тромбону"
-  description: "Смерть ще ніколи не була такою веселою! Імплантуйте їх, щоб зробити вмирання трохи веселішим."
+  name: sad trombone implants
+  description: Death's never been so fun before! Implant these to make dying a bit more happy.
   components:
   - type: StorageFill
     contents:
@@ -422,8 +422,8 @@
 - type: entity
   id: CrateFunLightImplants
   parent: CrateGenericSteel
-  name: "імпланти світла"
-  description: "Засвітіть свою шкіру з цими імплантами!"
+  name: light implants
+  description: Light up your skin with these implants!
   components:
   - type: StorageFill
     contents:
@@ -433,8 +433,8 @@
 - type: entity
   id: CrateFunParty
   parent: CrateGenericSteel
-  name: "ящик для вечірки"
-  description: "Ціла вечірка чекає на те, щоб ви її відкрили. Включає в себе святкові сувеніри, напої і навіть торт."
+  name: party crate
+  description: An entire party just waiting for you to open it. Includes party favors, party beverages, and even a cake.
   components:
   - type: StorageFill
     contents:
@@ -464,8 +464,8 @@
 - type: entity
   id: CrateFunWaterGuns
   parent: CratePlastic
-  name: "ящик з водяними пістолетами"
-  description: "Літня спецпропозиція з різнобарвними водяними пістолетами! (Вода у комплект не входить)"
+  name: water gun crate
+  description: A summer special with a variety of brightly colored water guns. Water not included.
   components:
   - type: StorageFill
     contents:
@@ -477,8 +477,8 @@
 - type: entity
   id: CrateFunFoamGuns
   parent: CratePlastic
-  name: "Ящик \"Пінопластова Сила"
-  description: "Містить чотири гвинтівки \"Пінопластова Сила\", кілька гранат та додаткові боєприпаси. Це [ВИДАЛЕНО] або нічого!"
+  name: Foam Force crate
+  description: Contains four Foam Force rifles, some grenades, and extra ammo. It's [REDACTED] or nothing!
   components:
   - type: StorageFill
     contents:
@@ -492,8 +492,8 @@
 - type: entity
   id: CrateFunBoxing
   parent: CrateGenericSteel
-  name: "ящик для боксу"
-  description: "Хочете створити підпільний бійцівський клуб або провести турнір серед екіпажу станції? Цей ящик для вас!"
+  name: boxing crate
+  description: Want to set up an underground fight club or host a tournament amongst station crew? This crate is for you!
   components:
   - type: StorageFill
     contents:
@@ -553,8 +553,8 @@
 - type: entity
   id: CrateFunBikeHornImplants
   parent: CrateGenericSteel
-  name: "імпланти велосипедного гудка"
-  description: "Тисяча гудків на день тримає офіцерів безпеки подалі! Тепер з велосипедними гудками!"
+  name: bike horn implants
+  description: A thousand honks a day keeps security officers away! Now with bike horns!
   components:
   - type: StorageFill
     contents:
@@ -566,8 +566,8 @@
 - type: entity
   id: CrateFunMysteryFigurines
   parent: CratePlastic
-  name: "ящик із загадковоми фігурками"
-  description: "Колекція з 10 коробочок Mystery Figurine. Дублікати поверненню не підлягають."
+  name: mystery figure crate
+  description: A collection of 10 Mystery Figurine boxes. Duplicates non refundable.
   components:
   - type: StorageFill
     contents:
@@ -578,8 +578,8 @@
         prob: 0.05
 
 - type: entity
-  name: "коробка з дартсом"
-  description: "Коробка з усім необхідним для веселої гри в дартс."
+  name: dartboard box set
+  description: A box with everything you need for a fun game of darts.
   id: CrateFunDartsSet
   parent: CratePlastic
   components:
@@ -594,8 +594,8 @@
         prob: 0.05
 
 - type: entity
-  name: "гідратований скаррет"
-  description: "Стривайте, що?"
+  name: hydrated scurret
+  description: Wait, what?
   id: CrateFunScurret
   parent: CrateLivestock
   components:

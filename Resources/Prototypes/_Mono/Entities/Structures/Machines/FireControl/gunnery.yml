@@ -3,8 +3,8 @@
   id: GunneryServerBase
   parent: BaseMachinePowered
   abstract: true
-  name: "сервер керування зброєю"
-  description: "Керує дистанційною роботою корабельної зброї."
+  name: gunnery control server
+  description: Manages the remote operation of ship weapons.
   components:
   - type: Sprite
     sprite: _Mono/Structures/Machines/tele_bus.rsi
@@ -62,7 +62,7 @@
 - type: entity
   id: GunneryServerLow
   parent: GunneryServerBase
-  name: "малопотужний сервер керування зброєю"
+  name: low-power gunnery control server
   components:
   - type: Machine
     board: MachineGCSLowCircuitboard
@@ -72,7 +72,7 @@
 - type: entity
   id: GunneryServerMedium
   parent: GunneryServerBase
-  name: "сервер керування зброєю середньої потужності"
+  name: medium-power gunnery control server
   components:
   - type: Machine
     board: MachineGCSMediumCircuitboard
@@ -88,7 +88,7 @@
 - type: entity
   id: GunneryServerHigh
   parent: GunneryServerBase
-  name: "потужний сервер керування зброєю"
+  name: high-power gunnery control server
   components:
   - type: Machine
     board: MachineGCSHighCircuitboard
@@ -104,7 +104,7 @@
 - type: entity
   id: GunneryServerUltra
   parent: [GunneryServerBase]
-  name: "надпотужний сервер керування зброєю"
+  name: ultra-high-power gunnery control server
   components:
   - type: Machine
     board: MachineGCSUltraCircuitboard
@@ -122,8 +122,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerGunneryConsole
-  name: "консоль керування зброєю"
-  description: "Взаємодіє з сервером керування зброєю для управління корабельною зброєю."
+  name: gunnery control console
+  description: Interfaces with the gunnery control server to operate ship weapons.
   placement:
     mode: SnapgridCenter
   components:

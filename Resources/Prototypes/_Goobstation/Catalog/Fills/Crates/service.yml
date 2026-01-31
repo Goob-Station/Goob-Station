@@ -6,8 +6,8 @@
 - type: entity
   id: CrateFishingGoodies
   parent: CratePlastic
-  name: "ящик рибальських снастей"
-  description: "Пара вудок, ведмідь та капелюх. Усе, що потрібно, щоб виловити всю рибу на станції!"
+  name: fishing goodies crate
+  description: A couple of fishing rods, a bear, and a hat. Everything you need to catch all fish on the station!
   components:
   - type: StorageFill
     contents:
@@ -19,8 +19,8 @@
 - type: entity
   id: CrateSlotMachine
   parent: CrateGenericSteel
-  name: "ящик з ігровим автоматом"
-  description: "Ящик з ігровим автоматом. Усе, що потрібно, щоб розпочати власну залежність від азартних ігор!"
+  name: slot machine crate
+  description: A crate with a slot machine inside, Everything you need to start your own gambling addiction!
   components:
   - type: StorageFill
     contents:
@@ -29,8 +29,8 @@
 - type: entity
   id: CrateCoinFlipper
   parent: CrateGenericSteel
-  name: "ящик з монетокидом"
-  description: "Ящик з монетокидом всередині, шанси 50/50 — це добре!"
+  name: coin flipper crate
+  description: A crate with a coin flipper inside, 50/50 odds are good!
   components:
   - type: StorageFill
     contents:
@@ -39,8 +39,8 @@
 - type: entity
   id: CrateClawMachine
   parent: CrateGenericSteel
-  name: "ящик з кран-машиною"
-  description: "Ящик з кран-машиною всередині, плюшеві іграшки додаються до кожної покупки!"
+  name: claw machine crate
+  description: A crate with a claw machine inside, plushies included with every purchase!
   components:
   - type: StorageFill
     contents:
@@ -49,8 +49,8 @@
 - type: entity
   id: CrateCargoForklift
   parent: CrateLivestock
-  name: "ящик з навантажувачем"
-  description: "Ідеальний вантажний транспортний засіб для карго."
+  name: Forklift crate
+  description: A perfect utility vehicle for cargo.
   components:
     - type: StorageFill
       contents:
@@ -60,8 +60,8 @@
 - type: entity
   id: CrateRadioStationAds
   parent: CrateGenericSteel
-  name: "ящик з рекламами"
-  description: "Цілий ящик, єдина мета якого — зберігати 6 ексклюзивних реклам. Хіба капіталізм не чудовий?"
+  name: ads crate
+  description: A whole crate which sole purpose is to store 6 exclusive ads, aint capitalism great?
   components:
   - type: EntityTableContainerFill
     containers:
@@ -72,8 +72,8 @@
 - type: entity
   id: CrateRadioStationVinyls
   parent: CrateGenericSteel
-  name: "ящик з платівками"
-  description: "Ящик із 12 платівками, тож ви НІКОЛИ не вмикатимете одну й ту саму пісню двічі. У комплекті — конверти!"
+  name: vinyls crate
+  description: A crate with 12 vinyls so you'll NEVER play the same song twice, they come in sleeves!
   components:
   - type: EntityTableContainerFill
     containers:

@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
   id: ClothingOuterHardsuitAtmosOld
-  name: "атмосферний скафандр" # Pirate
-  description: "Старий атмосферний скафандр. Схоже, він бачив кращі дні, але все ще забезпечує хороший захист від вогню. Важкий на дотик."
+  name: atmos hardsuit # Pirate
+  description: An old atmospheric hardsuit. It looks like it has seen better days, but it still provides good fire protection. Feels heavy.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/OuterClothing/Hardsuits/atmospherics_old.rsi

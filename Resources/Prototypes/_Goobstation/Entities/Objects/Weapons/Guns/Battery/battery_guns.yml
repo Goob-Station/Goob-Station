@@ -116,10 +116,10 @@
       collection: MetalThud # Goobstation ^
 
 - type: entity
-  name: "мініатюрний енергетичний арбалет"
+  name: Miniature Energy Crossbow
   parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
   id: MiniatureEnergyCrossbow
-  description: "Фірмова розробка Donk Co.: цей арбалет стріляє тонким дротиком, зарядженим седативами та депресантами, створеним, щоб пробивати навіть найважчу броню."
+  description: A signature design from Donk Co., this crossbow fires a thin dart loaded with sedatives and depressants designed to pierce even the heaviest of armor.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
@@ -152,10 +152,10 @@
     resetOnHandSelected: false
 
 - type: entity
-  name: "плазмова гвинтівка"
+  name: plasma rifle
   parent: BaseWeaponBattery
   id: WeaponPlasmaRifle
-  description: "Може вибухнути у вас в обличчі, а може й ні."
+  description: It may or may not explode in your face.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
@@ -204,10 +204,10 @@
     startingCharge: 0
 
 - type: entity
-  name: "EG-4 «Еквалайзер»"
+  name: EG-4 Equalizer
   parent: [ BaseWeaponCustomCellSmall, BaseCentcommContraband ]
   id: WeaponEnergyRevolver
-  description: "Перед лицем смерті всі рівні. «Еквалайзер» — права рука корпусу Блюшилд, модульна платформа енергетичного револьвера, створена для летального та нелетального знешкодження цілей. Використовує енергетичні швидкозаряджувачі."
+  description: In the face of death, everyone is equal. The right arm of the Blueshield corps, the Equalizer is a modular energy revolver platform designed for lethal and non-lethal target neutralization. Takes energy speedloaders.
   components:
   - type: Item
     heldPrefix: lethal
@@ -256,10 +256,10 @@
             - EnergySpeedloader
 
 - type: entity
-  name: "удосконалений дизейблер"
+  name: advanced disabler
   parent: [ WeaponDisablerPractice, BaseCentcommContraband ]
   id: WeaponDisablerAdvanced
-  description: "Зброя самозахисту для корпоративних керівників, у яких грошей хоч відбавляй. Тонкий, міцний і самозарядний — для вашої зручності."
+  description: A self-defense weapon for corporate execs with money to burn. Slim, sturdy, and self-recharging for your convenience.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
@@ -284,10 +284,10 @@
     autoRechargeRate: 40
 
 - type: entity
-  name: "дизейблер Синдикату"
+  name: syndicate disabler
   parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
   id: WeaponDisablerSyndicate
-  description: "Витончений дизейблер, створений на основі прототипу NanoTrasen, отриманого шляхом реверс-інжинірингу. Хоч йому бракує зупиняючої дії, він компенсує це самозарядною батареєю."
+  description: A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
   components:
     - type: Gun
       fireRate: 3
@@ -323,10 +323,10 @@
       autoRechargeRate: 50
 
 - type: entity
-  name: "удосконалений імпульсний карабін"
+  name: advanced pulse carbine
   parent: WeaponPulseCarbine
   id: WeaponPulseCarbineAdvanced
-  description: "Сучасний лазерний карабін, що стріляє швидко пульсуючим променем. Дорогий, але його полюбляє Корпус екстреного реагування завдяки здатності самозаряджатися."
+  description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Expensive, though favoured by the Emergency Response corps due to its ability to self-recharge.
   components:
   - type: Tag
     tags:
@@ -336,10 +336,10 @@
     autoRechargeRate: 80
 
 - type: entity
-  name: "CR-2 «Гера»"
+  name: CR-2 Hera
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponEnergyRifle
-  description: "Універсальна плазмова штурмова гвинтівка, створена на базі нині знятої з експлуатації енергетичної гвинтівки. Живиться з магазинів для енергогвинтівки."
+  description: A versatile plasma assault rifle, iterated off of the now defunct energy gun. Loads from energy rifle magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
@@ -386,10 +386,10 @@
             - EnergyMagAmmo
 
 - type: entity
-  name: "DT-12 «Lawbringer»"
+  name: DT-12 Lawbringer
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunLawbringer
-  description: "Іноді звання — це функція вогневої міці. Універсальна енергетична зброя з безліччю режимів стрільби, створена для Голови служби безпеки. Самозаряджається після затримки у 40 секунд."
+  description: Sometimes rank is a function of firepower. A versatile energy gun with a myriad of firing modes designed for the Head of Security. Self-recharges after a 40 second delay.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
@@ -482,9 +482,9 @@
     autoRechargePauseTime: 40
 
 - type: entity
-  name: "іонна гвинтівка"
+  name: Ion Rifle
   id: WeaponEnergyIonRifle
-  description: "Гвинтівка, що стріляє іонними болтами, створеними для виведення з ладу механічних цілей. Ідеальна проти бойових мехів і сіліконів, але майже марна проти всього іншого."
+  description: A rifle that fires ion bolts designed to degrade mechanical targets. Ideal against combat mechs and silicons, though useless against pretty much everything else.
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   components:
   - type: Sprite

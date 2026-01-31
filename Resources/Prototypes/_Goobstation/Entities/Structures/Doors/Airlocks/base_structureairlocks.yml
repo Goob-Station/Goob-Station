@@ -8,8 +8,8 @@
 - type: entity
   id: AirlockSealed
   parent: Airlock
-  name: "герметичний шлюз"
-  description: "Він відкривається, закривається і, можливо, розчавить вас. А тепер він зупиняє і маленьких істот!"
+  name: sealed airlock
+  description: It opens, it closes, and maybe crushes you. Now it stops little creatures too!
   suffix: DO NOT MAP
   components:
   - type: AnimationPlayer
@@ -41,8 +41,8 @@
 - type: entity
   id: AirlockSealedGlass
   parent: AirlockGlass
-  name: "герметичний скляний шлюз"
-  description: "Він відкривається, закривається і, можливо, розчавить вас. А тепер він зупиняє і маленьких істот!"
+  name: sealed glass airlock
+  description: It opens, it closes, and maybe crushes you. Now it stops little creatures too!
   suffix: DO NOT MAP
   components:
   - type: AnimationPlayer

@@ -6,8 +6,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "пеленгатор аномалій"
-  description: "Ручний пристрій стеження, який фіксується на будь-якій аномалії, коли вимкнений. Тримайте вертикально для збереження точності."
+  name: anomaly pinpointer
+  description: A handheld tracking device that locks onto any anomaly while off. Keep upright to retain accuracy.
   id: PinpointerAnomaly
   parent: PinpointerBase
   components:
@@ -29,8 +29,8 @@
       - Anomaly
 
 - type: entity
-  name: "пеленгатор артефактів"
-  description: "Ручний пристрій стеження, який відстежує всі найближчі артефакти. Тримайте вертикально для збереження точності."
+  name: artifact pinpointer
+  description: A handheld tracking device that tracks all near artifacts. Keep upright to retain accuracy.
   id: PinpointerArtifact
   parent: PinpointerBase
   components:
@@ -51,8 +51,8 @@
       - Artifact
 
 - type: entity
-  name: "пеленгатор боргів"
-  description: "Ручний пристрій стеження, який фіксується на будь-якому силіконі, коли вимкнений. Тримайте вертикально для збереження точності."
+  name: borg pinpointer
+  description: A handheld tracking device that locks onto any silicon while off. Keep upright to retain accuracy.
   id: PinpointerBorg
   parent: PinpointerBase
   components:
@@ -74,8 +74,8 @@
       - BorgChassis
 
 - type: entity
-  name: "універсальний пеленгатор"
-  description: "Ручний пристрій стеження, який фіксується на будь-якому предметі, коли вимкнений. Тримайте вертикально для збереження точності."
+  name: generic pinpointer
+  description: A handheld tracking device that locks onto any item while off. Keep upright to retain accuracy.
   id: PinpointerGeneric
   parent: PinpointerBase
   suffix: Admin
@@ -98,8 +98,8 @@
       - Item
 
 - type: entity
-  name: "станційний пеленгатор"
-  description: "Ручний пристрій стеження, який відстежує всі найближчі станції. Тримайте вертикально для збереження точності."
+  name: station pinpointer
+  description: A handheld tracking device that tracks all near stations. Keep upright to retain accuracy.
   id: PinpointerStationGoob
   parent: PinpointerBase
   components:
@@ -121,8 +121,8 @@
       - LavalandStation # Lavaland change
 
 - type: entity
-  name: "злодійський пеленгатор"
-  description: "Ручний пристрій стеження, який може націлюватися на все цінне, включаючи предмети високого ризику та структури, які можна вкрасти, коли вимкнений. Тримайте вертикально для збереження точності."
+  name: thieving pinpointer
+  description: A handheld tracking device that can target anything worthwhile, including high risk items and stealable structures while off. Keep upright to retain accuracy.
   id: PinpointerThief
   parent: [ PinpointerBase, BaseMinorContraband ]
   components:
@@ -144,8 +144,8 @@
       - StealTarget # You can marker your objective with it!
 
 - type: entity
-  name: "пеленгатор ядерної бомби синдикату"
-  description: "Вироблено спеціально для місій ядерних оперативників, дістаньте цю ядерну бомбу!"
+  name: syndicate nuke pinpointer
+  description: Produced specifically for nuclear operative missions, get that nuclear bomb!
   id: PinpointerSyndicateNuclearFission
   parent: [ PinpointerBase, BaseSyndicateContraband ]
   components:

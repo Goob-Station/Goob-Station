@@ -1,7 +1,7 @@
 - type: entity
   id: CosmicVoidspawner
   parent: MarkerBase
-  name: "точка появи іскор"
+  name: wisp spawn point
   components:
     - type: Sprite
       sprite: Markers/cross.rsi

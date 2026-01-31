@@ -1,7 +1,7 @@
 - type: job
   id: InterdyneService
-  name: "сервісний персонал Interdyne"
-  description: "надавайте різноманітні послуги, від прибирання до приготування їжі, для підтримки комфорту оперативників"
+  name: job-name-interdyne-service
+  description: job-description-interdyne-service
   icon: "JobIconInterdyneService"
   canBeAntag: false
   playTimeTracker: JobInterdyneService

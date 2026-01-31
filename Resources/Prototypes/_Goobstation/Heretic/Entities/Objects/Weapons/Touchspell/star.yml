@@ -1,7 +1,7 @@
 - type: entity
   id: TouchSpellStar
-  name: "зірковий дотик"
-  description: "Зловісна аура, що спотворює потік реальності навколо себе. З'єднує людей із зірковою міткою з вами космічним променем і змушує їх заснути на 8 секунд після достатньо довгого з'єднання. Змушує людей без зіркової мітки отримати її."
+  name: star touch
+  description: A sinister looking aura that distorts the flow of reality around it. Connects people with a star mark to you with a cosmic ray and forces them to sleep for 8 seconds after they have been connected for long enough. Causes people without a star mark to get one.
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable

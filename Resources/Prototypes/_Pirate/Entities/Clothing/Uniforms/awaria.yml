@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAwaria
-  name: "Комбінезон компанії Аварія"
-  description: "Дешевий, однак зручний комбінезон створений для непомітної роботи в техах"
+  name: Комбінезон компанії Аварія
+  description: Дешевий, однак зручний комбінезон створений для непомітної роботи в техах
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/awajumpsuit.rsi

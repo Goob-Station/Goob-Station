@@ -1,8 +1,8 @@
 ﻿- type: entity
   id: RMCOverheadLattice
   abstract: true
-  name: "решітка"
-  description: "Опорна решітка."
+  name: lattice
+  description: A support lattice.
   placement:
     mode: SnapgridCenter
     snap:

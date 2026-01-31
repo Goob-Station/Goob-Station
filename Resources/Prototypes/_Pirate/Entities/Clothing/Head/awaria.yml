@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAwaria
-  name: "Кепка компанії Аварія"
-  description: "Стандартна фіолетова кепка з пришитою назвою компанії"
+  name: Кепка компанії Аварія
+  description: Стандартна фіолетова кепка з пришитою назвою компанії
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/awacap.rsi

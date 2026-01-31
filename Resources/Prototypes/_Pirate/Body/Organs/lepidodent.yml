@@ -1,7 +1,7 @@
 - type: entity
   id: OrganLepidodentStomach
   parent: OrganAnimalStomach
-  name: "шлунок"
+  name: stomach
   suffix: Lepidodent
   categories: [ HideSpawnMenu ]
   components:

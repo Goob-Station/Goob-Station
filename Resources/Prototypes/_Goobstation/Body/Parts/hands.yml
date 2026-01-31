@@ -8,7 +8,7 @@
 
 - type: entity
   id: LeftHandDwarf
-  name: "ліва рука дварфа"
+  name: "left dwarf hand"
   parent: [PartHuman, BaseLeftHand]
   components:
   - type: Sprite
@@ -17,7 +17,7 @@
 
 - type: entity
   id: RightHandDwarf
-  name: "права рука дварфа"
+  name: "right dwarf hand"
   parent: [PartHuman, BaseRightHand]
   components:
   - type: Sprite
@@ -26,7 +26,7 @@
 
 - type: entity
   id: LeftHandBananamen
-  name: "ліва рука бананолюдини"
+  name: "left bananamen hand"
   parent: [PartHuman, BaseLeftHand]
   components:
   - type: Sprite
@@ -35,7 +35,7 @@
 
 - type: entity
   id: RightHandBananamen
-  name: "права рука бананолюдини"
+  name: "right bananamen hand"
   parent: [PartHuman, BaseRightHand]
   components:
   - type: Sprite
@@ -45,8 +45,8 @@
 - type: entity
   id: SmartlinkLeftHand
   parent: LeftHandCybernetic
-  name: "ліва рука зі SmartLink"
-  description: "Кібернетична ліва рука, що дозволяє власнику стріляти \"розумними\" кулями з будь-якої зброї."
+  name: SmartLink left hand
+  description: A cybernetic left hand that allows its wearer to shoot "smart" bullets from any weapon.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
@@ -61,8 +61,8 @@
 - type: entity
   id: SmartlinkRightHand
   parent: RightHandCybernetic
-  name: "права рука зі SmartLink"
-  description: "Кібернетична права рука, що дозволяє власнику стріляти \"розумними\" кулями з будь-якої зброї."
+  name: SmartLink right hand
+  description: A cybernetic right hand that allows its wearer to shoot "smart" bullets from any weapon.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
@@ -77,8 +77,8 @@
 - type: entity
   id: RecoilAbsorberLeftHand
   parent: LeftHandCybernetic
-  name: "ліва рука з поглиначем віддачі"
-  description: "Кібернетична ліва рука, яка поглинає більшу частину віддачі від стрілецької зброї."
+  name: recoil absorbing left hand
+  description: A cybernetic left hand that absorbs most of ranged weapons recoil.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
@@ -93,8 +93,8 @@
 - type: entity
   id: RecoilAbsorberRightHand
   parent: RightHandCybernetic
-  name: "права рука з поглиначем віддачі"
-  description: "Кібернетична права рука, яка поглинає більшу частину віддачі від стрілецької зброї."
+  name: recoil absorbing right hand
+  description: A cybernetic right hand that absorbs most of ranged weapons recoil.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi

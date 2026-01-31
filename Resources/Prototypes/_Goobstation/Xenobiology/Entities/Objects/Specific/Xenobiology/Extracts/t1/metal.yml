@@ -1,7 +1,7 @@
 - type: entity
   id: MetalSlimeExtract
   parent: BaseSlimeExtract
-  name: "металевий екстракт слайма"
+  name: metal slime extract
   components:
   - type: Sprite
     layers:

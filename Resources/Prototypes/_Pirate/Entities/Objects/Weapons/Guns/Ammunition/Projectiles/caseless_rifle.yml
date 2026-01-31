@@ -1,6 +1,6 @@
 - type: entity
   id: BulletCaselessRifleStandard
-  name: "куля (9.5мм)"
+  name: bullet (9.5mm)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

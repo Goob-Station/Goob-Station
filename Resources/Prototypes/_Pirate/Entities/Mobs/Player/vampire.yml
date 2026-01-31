@@ -1,8 +1,8 @@
 - type: entity
-  name: "кажан"
+  name: bat
   parent: MobBat
   id: MobBatVampire
-  description: "Для одних культур вони лякають, для інших — хрумкі на зуб."
+  description: Some cultures find them terrifying, others crunchy on the teeth.
   components:
   - type: Tag
     tags:

@@ -1,7 +1,7 @@
 - type: entity
   parent: MobHuman
   id: MobContractor
-  name: "Контрактор Синдикату"
+  name: Syndicate Contractor
   components:
   - type: Loadout
     prototypes: [ ContractorGear ]
@@ -16,7 +16,7 @@
     - Syndicate
 
 - type: entity
-  name: "спавнер контрактора"
+  name: contractor spawner
   id: SpawnPointContractor
   parent: MarkerBase
   components:

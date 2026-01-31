@@ -22,7 +22,7 @@
 
 - type: combo
   id: DropKick
-  name: "Удар у стрибку"
+  name: Flying DropKick
   martialArtsForm: HellRip
   attacks:
   - Disarm
@@ -35,7 +35,7 @@
 
 - type: combo
   id: HeadRip
-  name: "Відрив голови"
+  name: Head Rip
   martialArtsForm: HellRip
   attacks:
   - Harm
@@ -49,7 +49,7 @@
 
 - type: combo
   id: TearDown
-  name: "Знесення"
+  name: Tear Down
   martialArtsForm: HellRip
   attacks:
   - Harm
@@ -61,7 +61,7 @@
 
 - type: combo
   id: Slam
-  name: "Пекельний удар"
+  name: Hellish Slam
   martialArtsForm: HellRip
   attacks:
   - Disarm

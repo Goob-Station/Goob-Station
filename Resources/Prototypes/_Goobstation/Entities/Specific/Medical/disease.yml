@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: BaseItem
   id: LiveInjector
-  name: "живий інжектор"
-  description: "Вводить людям хворобу."
+  name: live injector
+  description: Injects people with a disease.
   components:
   - type: Item
     size: Tiny

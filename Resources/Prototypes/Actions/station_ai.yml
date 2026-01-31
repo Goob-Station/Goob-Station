@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseAction
   id: ActionJumpToCore
-  name: "Перейти до суті"
-  description: "Повертає погляд до суті."
+  name: Jump to core
+  description: Sends your eye back to the core.
   components:
   - type: Action
     priority: -9
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSurvCameraLights
-  name: "Увімкнути підсвічування камери"
-  description: "Увімкніть підсвічування камери спостереження поруч з тим місцем, яке ви переглядаєте."
+  name: Toggle camera lights
+  description: Enable surveillance camera lights near wherever you're viewing.
   components:
   - type: Action
     priority: -5
@@ -51,8 +51,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionAIViewLaws
-  name: "Переглянути закони"
-  description: "Ознайомтеся з законами, яких ви повинні дотримуватися."
+  name: View Laws
+  description: View the laws that you must follow.
   components:
   - type: Action
     priority: -3

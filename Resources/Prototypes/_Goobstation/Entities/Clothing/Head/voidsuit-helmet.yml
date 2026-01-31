@@ -17,8 +17,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitChronolegioneer
-  name: "футуристичний шолом"
-  description: "Шолом бійців майбутнього, розроблений для спеціальних операцій з потоком часу."
+  name: futuristic helmet
+  description: The helmet of the fighters of the future, designed for special timeflow operations.
   components:
   - type: BreathMask
   - type: Sprite
@@ -61,8 +61,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBlueshield
-  name: "шолом скафандра \"Блакитного Щита"
-  description: "Шолом скафандра охоронця капітана."
+  name: blueshield hardsuit helmet
+  description: The helmet of the captain's bodyguard's hardsuit.
   components:
   - type: BreathMask
   - type: Sprite
@@ -101,8 +101,8 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunStealth
   suffix: stealth
-  name: "стелс-шолом скафандра \"Сайберсан"
-  description: "Шолом з фотореактивним покриттям для стелс-операцій."
+  name: cybersun stealth hardsuit helmet
+  description: A helmet with photo-reactive plating for stealth operations.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/cybersunstealth.rsi
@@ -142,8 +142,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitDreadnought
-  name: "шолом костюма \"Дредноут\" від \"Сайберсан"
-  description: "Шолом, дивлячись на який, ви дивуєтеся, чи є хтось живий."
+  name: Cybersun Dreadnought suit helmet
+  description: A helmet, looking at this you wonder if there anyone alive.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/dreadnought.rsi
@@ -178,8 +178,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetVoidsuitSecurity
-  name: "шолом захисного скафандра"
-  description: "Добре зроблена лицьова панель, прикріплена до скафандра служби безпеки."
+  name: security hardsuit helmet
+  description: A well-built faceplate attached to the security hardsuit.
   components:
   - type: BreathMask
   - type: Sprite
@@ -215,8 +215,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
-  name: "покращений шолом скафандра голови служби безпеки"
-  description: "Шолом для скафандра служби безпеки з новітнім цілком таємним програмним забезпеченням NT-HUD. Цей здається міцнішим за стандартні шоломи."
+  name: head of security's advanced hardsuit helmet
+  description: Security hardsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi
@@ -249,8 +249,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitExperimentalNanorep
-  name: "шолом NTX5-Мірродусс"
-  description: "Темно-зелений шолом із яскравими блакитними вузлами, дзеркальним візором і бічним ліхтарем."
+  name: "NTX5-Mirrorduss helmet"
+  description: A dark green helmet with glowing cyan nodes, a mirrored visor, and a mounted side light.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
@@ -298,8 +298,8 @@
 - type: entity
   parent: [ClothingHeadHelmetHardsuitBlueshield, BaseMagicalContraband]
   id: ClothingHeadSinguloth
-  name: "шолом лицаря Синґулота"
-  description: "Адамантитовий шолом з ордену Лицарів Синґулота. Він сяє святою аурою"
+  name: singuloth knight's helm
+  description: An adamantium helmet from the chapter of the Singuloth Knights. It shines with a holy aura
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/singulothhelm.rsi
@@ -332,8 +332,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitCybersunStealth
   id: ClothingHeadHelmetHardsuitVoxRaiderStealth
-  name: "стелс-шолом вокс-рейдера"
-  description: "Плавно окреслений, матово-чорний інопланетний шолом."
+  name: vox raider stealth helmet
+  description: A smoothly contoured, matte-black alien helmet.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/vox-raiders-stealth-head.rsi
@@ -357,8 +357,8 @@
 - type: entity
   parent: ClothingHeadHelmetVoidsuitSecurity
   id: ClothingHeadHelmetHardsuitDetective
-  name: "шолом скафандра детектива"
-  description: "Шолом з вбудованим капелюхом-федорою для скафандра детектива."
+  name: detective hardsuit helmet
+  description: A helmet with a built-in fedora for the detective's hardsuit.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/detective.rsi

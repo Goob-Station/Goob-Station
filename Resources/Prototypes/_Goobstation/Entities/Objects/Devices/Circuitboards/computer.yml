@@ -1,8 +1,8 @@
 - type: entity
   id: XenobiologyBountyComputerCircuitboard
   parent: BaseComputerCircuitboard
-  name: "плата консолі ксенобіологічних винагород"
-  description: "Комп’ютерна друкована плата для консолі ксенобіологічних винагород."
+  name: xenobiological bounty console board
+  description: A computer printed circuit board for a xenobiological bounty console.
   components:
   - type: Sprite
     state: cpu_science
@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: VirologyComputerCircuitboard
-  name: "плата комп’ютера вірусології"
-  description: "Друкована плата комп’ютера для консолі вірусології."
+  name: virology computer board
+  description: A computer printed circuit board for a virology console.
   components:
   - type: Sprite
     state: cpu_medical

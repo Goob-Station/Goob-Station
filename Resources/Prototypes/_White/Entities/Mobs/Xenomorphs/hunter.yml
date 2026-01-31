@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorphAdult
   id: BaseMobXenomorphHunter
-  name: "ксеноморф-мисливець"
-  description: "Спеціалізована особина, чудовий хижак, створений для вистежування та знищення цілей. Надзвичайно небезпечний у ближньому бою."
+  name: xenomorph hunter
+  description: A specialized individual, an excellent predator, created to track down and destroy targets. Extremely dangerous in close combat.
   abstract: true
   components:
   - type: Sprite

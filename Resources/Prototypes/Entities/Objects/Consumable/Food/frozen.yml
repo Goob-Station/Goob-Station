@@ -105,46 +105,46 @@
 # Ice-cream
 
 - type: entity
-  name: "бутерброд з морозивом"
+  name: ice-cream sandwich
   parent: FoodFrozenBase
   id: FoodFrozenSandwich
-  description: "Портативне морозиво у власній упаковці."
+  description: Portable ice-cream in its own packaging.
   components:
   - type: Sprite
     state: sandwich
 
 - type: entity
-  name: "бутерброд з полуничним морозивом"
+  name: strawberry ice-cream sandwich
   parent: FoodFrozenBase
   id: FoodFrozenSandwichStrawberry
-  description: "Порційне морозиво у власній упаковці полуничного сорту."
+  description: Portable ice-cream in its own packaging of the strawberry variety.
   components:
   - type: Sprite
     state: sandwich-strawberry
 
 - type: entity
-  name: "заморожування простору"
+  name: space freezy
   parent: FoodFrozenBase
   id: FoodFrozenFreezy
-  description: "Найкраще морозиво в космосі."
+  description: The best ice-cream in space.
   components:
   - type: Sprite
     state: spacefreezy
 
 - type: entity
-  name: "морозиво сандвіч"
+  name: ice-cream sundae
   parent: FoodFrozenBase
   id: FoodFrozenSundae
-  description: "Класичний десерт."
+  description: A classic dessert.
   components:
   - type: Sprite
     state: spacefreezy
 
 - type: entity
-  name: "корнуто"
+  name: cornuto
   parent: FoodFrozenBase
   id: FoodFrozenCornuto
-  description: "Неаполітанський ріжок ванільно-шоколадного морозива. Погрожує посипкою з карамелізованих горіхів."
+  description: A Neapolitan vanilla and chocolate ice-cream cone. It menaces with a sprinkling of caramelized nuts.
   components:
   - type: Sprite
     state: cornuto
@@ -161,10 +161,10 @@
 # Popsicle
 
 - type: entity
-  name: "апельсинове морозиво"
+  name: orange creamsicle
   parent: FoodFrozenBase
   id: FoodFrozenPopsicleOrange
-  description: "Класичне апельсинове морозиво. Сонячні заморожені ласощі."
+  description: A classic orange creamsicle. A sunny frozen treat.
   components:
   - type: Sprite
     layers:
@@ -181,10 +181,10 @@
     - Creamsicle
 
 - type: entity
-  name: "ягідне морозиво"
+  name: berry creamsicle
   parent: FoodFrozenBase
   id: FoodFrozenPopsicleBerry
-  description: "Яскраве ягідне морозиво. Ягідні ласощі в замороженому вигляді."
+  description: A vibrant berry creamsicle. A berry good frozen treat.
   components:
   - type: Sprite
     layers:
@@ -201,10 +201,10 @@
     - Creamsicle
 
 - type: entity
-  name: "гігантське морозиво"
+  name: jumbo ice-cream
   parent: FoodFrozenBase
   id: FoodFrozenPopsicleJumbo
-  description: "Розкішне морозиво, вкрите насиченим шоколадом. Воно менше, ніж ви пам'ятаєте."
+  description: A luxurious ice-cream covered in rich chocolate. It's smaller than you remember.
   components:
   - type: Sprite
     layers:
@@ -229,11 +229,11 @@
 # layer depending on soda/syrup/waterever. Name and description will also have
 # to be modified.
 - type: entity
-  name: "солодкий сніжок"
+  name: sweet snowcone
   #  name: [Flavor] snowcone
   parent: FoodFrozenBase
   id: FoodFrozenSnowconeBase
-  description: "Лише колотий лід і простий сироп, мінімум зусиль."
+  description: It's just shaved ice and simple syrup, minimum effort.
   #  description: [Liquid] drizzled over a snowball in a paper cup.
   components:
     - type: Sprite
@@ -257,10 +257,10 @@
               Quantity: 2
 
 - type: entity
-  name: "сніжок без смаку"
+  name: flavorless snowcone
   parent: FoodFrozenSnowconeBase
   id: FoodFrozenSnowcone
-  description: "Це просто колотий лід. Все одно весело жувати."
+  description: It's just shaved ice. Still fun to chew on.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -271,10 +271,10 @@
             Quantity: 8
 
 - type: entity
-  name: "ягідний сніжок"
+  name: berry snowcone
   parent: FoodFrozenSnowconeBase
   id: FoodFrozenSnowconeBerry
-  description: "Ягідним сиропом поливаємо сніжок у паперовому стаканчику."
+  description: Berry syrup drizzled over a snowball in a paper cup.
   components:
   - type: Sprite
     layers:
@@ -288,10 +288,10 @@
     - Fruit
 
 - type: entity
-  name: "фруктовий салат сніжок"
+  name: fruit salad snowcone
   parent: FoodFrozenSnowconeBase
   id: FoodFrozenSnowconeFruit
-  description: "Чудова суміш цитрусових сиропів поливає сніжок у паперовому стаканчику."
+  description: A delightful mix of citrus syrups drizzled over a snowball in a paper cup.
   components:
   - type: Sprite
     layers:
@@ -305,10 +305,10 @@
     - Fruit
 
 - type: entity
-  name: "клоунський конус"
+  name: clowncone
   parent: FoodFrozenSnowconeBase
   id: FoodFrozenSnowconeClown
-  description: "Сміх розливався над сніжкою в паперовому стаканчику."
+  description: Laughter drizzled over a snowball in a paper cup.
   components:
   - type: Sprite
     layers:
@@ -319,10 +319,10 @@
     - FoodFrozenSnowconeTrash
 
 - type: entity
-  name: "мім-сніжок"
+  name: mime snowcone
   parent: FoodFrozenSnowconeBase
   id: FoodFrozenSnowconeMime
-  description: "..."
+  description: ...
   components:
   - type: Sprite
     layers:
@@ -333,10 +333,10 @@
     - FoodFrozenSnowconeTrash
 
 - type: entity
-  name: "райдужний сніжок"
+  name: rainbow snowcone
   parent: FoodFrozenSnowconeBase
   id: FoodFrozenSnowconeRainbow
-  description: "Дуже барвистий сніжок у паперовому стаканчику."
+  description: A very colorful snowball in a paper cup.
   components:
   - type: Sprite
     layers:
@@ -349,10 +349,10 @@
 # Trash
 
 - type: entity
-  name: "паперовий конус"
+  name: paper cone
   parent: BaseItem
   id: FoodFrozenSnowconeTrash
-  description: "Зім'ятий паперовий конус, що використовується для льодяників. Нічого не вартий."
+  description: A crumpled paper cone used for an icy treat. Worthless.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/frozen.rsi
@@ -362,10 +362,10 @@
     - Trash
 
 - type: entity
-  name: "паличка для ескімо"
+  name: popsicle stick
   parent: BaseItem
   id: FoodFrozenPopsicleTrash
-  description: "Колись тут було дуже смачно. Тепер це пустка."
+  description: Once held a delicious treat. Now, 'tis barren.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/frozen.rsi

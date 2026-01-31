@@ -13,10 +13,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Дуалетта"
+  name: Dualetta
   parent: [BaseWeaponPistol, BaseSyndicateContraband]
   id: WeaponPistolDualetta
-  description: "Найкрутіший пістолет у секторі. Кажуть, ніхто не має достатньої сили волі, щоб заплямувати репутацію цієї зброї, наважившись стріляти з неї без парного пістолета. Живиться з пістолетних магазинів .35 Auto."
+  description: The coolest pistol in the sector. It is said that nobody is strong enough of will to tarnish this weapon's reputation by daring to fire it without its paired pistol. Feeds from .35 Auto pistol magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponPistolAnaconda
-  name: "Анаконда"
-  description: "Громіздка ручна гармата з вбудованим у руків’я фабрикатором. Повільно друкує набої для себе, але не розраховуйте, що цього вистачить для тривалих перестрілок."
+  name: Anaconda
+  description: A bulky hand cannon with a built in fabricator in its grip. Slowly prints ammo for itself, though don't count on it being fast enough for sustained firefights.
   components:
   - type: Item
     size: Small
@@ -122,10 +122,10 @@
       ballistic-ammo: !type:Container
 
 - type: entity
-  name: "Контрактний термінатор"
+  name: Contract Terminator
   parent: [BaseWeaponPistol, BaseCentcommContraband]
   id: WeaponPistolCentcommAgent
-  description: "Необхідність — мати обману."
+  description: Necessity is the mother of deception.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi

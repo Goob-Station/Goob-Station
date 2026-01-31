@@ -1,9 +1,9 @@
 - type: entity
   id: CigaretteMedical
   suffix: Medical
-  description: "Надабсорбуюча сигарета хімлабораторії, на смак трохи нагадує азбест."
+  description: An extra absorbant chemlab cigarette, tastes kinda like asbestos.
   parent: Cigarette
-  name: "сигарета"
+  name: cigarette
   components:
   - type: SolutionContainerManager
     solutions:

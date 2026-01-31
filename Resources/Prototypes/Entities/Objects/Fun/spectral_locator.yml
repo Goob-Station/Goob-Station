@@ -7,8 +7,8 @@
 - type: entity
   id: SpectralLocatorUnpowered
   parent: BaseItem
-  name: "спектральний локатор"
-  description: "Схоже на модифікований локатор аномалій. Виглядає дуже старим."
+  name: spectral locator
+  description: Appears to be a modified anomaly locator. Seems very old.
   suffix: Always Powered
   components:
   - type: Sprite

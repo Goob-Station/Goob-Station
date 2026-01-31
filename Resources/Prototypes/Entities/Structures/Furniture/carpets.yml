@@ -24,8 +24,8 @@
 - type: entity
   id: CarpetBase
   parent: BaseStructure
-  name: "килим"
-  description: "Чудова доріжка для прогулянок."
+  name: carpet
+  description: "Fancy walking surface."
   abstract: true
   components:
   - type: Sprite
@@ -363,7 +363,7 @@
 - type: entity
   id: CarpetChapel
   parent: BaseStructure
-  name: "килим каплиці"
+  name: "chapel's carpet"
   components:
   - type: Sprite
     sprite: Structures/Furniture/Carpets/chapel_carpet.rsi

@@ -240,10 +240,10 @@
         type: EsColorPickerBUI
 
 - type: entity
-  name: "енергетичний меч"
+  name: energy sword
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
   id: EnergySword
-  description: "Дуже гучний і небезпечний меч з променем з чистої, концентрованої плазми. Розсікає неброньовані цілі як масло."
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
@@ -273,10 +273,10 @@
     price: 2500
 
 - type: entity
-  name: "енергетичний кинджал"
+  name: energy dagger
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
   id: EnergyDaggerLoud
-  description: "Не такий гучний і небезпечний кинджал з лезом із чистої, концентрованої плазми. Цей абсолютно не замаскований."
+  description: A not as loud and dangerous dagger with a beam made of pure, concentrated plasma. This one is completely undisguised.
   components:
   - type: ItemToggle
     soundActivate:
@@ -343,11 +343,11 @@
     reflectProb: .25
 
 - type: entity
-  name: "ручка"
+  name: pen
   parent: BaseMeleeWeaponEnergy
   id: EnergyDagger
   suffix: E-Dagger
-  description: "Ручка з темним чорнилом."
+  description: 'A dark ink pen.'
   components:
   - type: ItemToggle
     soundActivate:
@@ -422,9 +422,9 @@
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: EnergyDaggerBox
-  name: "коробка для електронних кинджалів"
+  name: e-dagger box
   suffix: E-Dagger
-  description: "Невеличка коробочка з електронним кинджалом. Упаковка розпадається при відкритті, не залишаючи жодних доказів."
+  description: A small box containing an e-dagger. Packaging disintegrates when opened, leaving no evidence behind.
   components:
   - type: Item
     size: Tiny
@@ -438,10 +438,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: "енергетичний абордажний меч"
+  name: energy cutlass
   parent: [BaseMeleeWeaponEnergy, BaseMajorContraband]
   id: EnergyCutlass
-  description: "Екзотична енергетична зброя."
+  description: An exotic energy weapon.
   components:
   - type: ItemToggleMeleeWeapon
     activatedDamage:
@@ -468,11 +468,11 @@
         volume: -2
 
 - type: entity
-  name: "дволезовий енергетичний меч"
+  name: double-bladed energy sword
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
   id: EnergySwordDoubleBase # Goob edit
   abstract: true # Goob edit
-  description: "Стажери командування Синдикату вирішили, що одного леза на енергетичному мечі недостатньо. Можна зберігати в кишенях."
+  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
   components:
   - type: ItemToggle
     predictable: false # Goobstation - wielded weapons sound prediction is broken
@@ -612,7 +612,7 @@
   suffix: One-Handed, For Borgs
   parent: EnergySwordDoubleBase # Goob edit
   id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
-  description: "Стажери командування Синдикату вирішили, що одного леза на енергетичному мечі недостатньо. Спеціально розроблено для кіборгів синдикату."
+  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
   components: # could add energy-draining like the L6C
   - type: Wieldable
     freeHandsRequired: 0 # because borg has no off-hand to wield with.  Without this, it will be unable to activate the esword

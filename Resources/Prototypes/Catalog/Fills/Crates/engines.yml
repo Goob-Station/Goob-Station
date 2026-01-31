@@ -28,8 +28,8 @@
 - type: entity
   id: CrateEngineeringAMEShielding
   parent: CrateEngineeringSecure
-  name: "ящик з упакованим реактором на антиматерії"
-  description: "9 частин для основного корпусу реактора на антиматерії або для розширення існуючого."
+  name: packaged antimatter reactor crate
+  description: 9 parts for the main body of an antimatter reactor, or for expanding an existing one.
   components:
   - type: StorageFill
     contents:
@@ -39,8 +39,8 @@
 - type: entity
   id: CrateEngineeringAMEJar
   parent: CrateEngineeringSecure
-  name: "ящик контейнерів для утримання антиматерії"
-  description: "3 банки з антиматерією, для заправки відповідного реактора."
+  name: antimatter containment jar crate
+  description: 3 antimatter jars, for fuelling an antimatter reactor.
   components:
   - type: StorageFill
     contents:
@@ -50,8 +50,8 @@
 - type: entity
   id: CrateEngineeringAMEControl
   parent: CrateEngineeringSecure
-  name: "ящик блоку управління антиматерії"
-  description: "Блок управління реактором антиматерії."
+  name: antimatter control unit crate
+  description: The control unit of an antimatter reactor.
   components:
   - type: StorageFill
     contents:
@@ -62,8 +62,8 @@
 - type: entity
   id: CrateEngineeringSingularityEmitter
   parent: CrateEngineeringSecure
-  name: "ящик випромінювача"
-  description: "Випромінювач, який найкраще використовувати для двигунів сингулярності."
+  name: emitter crate
+  description: An emitter, best used for singularity engines.
   components:
   - type: StorageFill
     contents:
@@ -72,8 +72,8 @@
 - type: entity
   id: CrateEngineeringSingularityCollector
   parent: CrateEngineeringSecure
-  name: "ящик з колектором радіації"
-  description: "Колектор випромінювання, найкраще підходить для сингулярних двигунів. Плазма в комплекті."
+  name: radiation collector crate
+  description: A radiation collector, best used for singularity engines. Plasma is included.
   components:
   - type: StorageFill
     contents:
@@ -83,8 +83,8 @@
 - type: entity
   id: CrateEngineeringSingularityContainment
   parent: CrateEngineeringSecure
-  name: "ящик з генератором поля утримання"
-  description: "Генератор поля стримування, що утримує сингуло в покорі."
+  name: containment field generator crate
+  description: A containment field generator, keeps the singulo in submission.
   components:
   - type: StorageFill
     contents:
@@ -93,8 +93,8 @@
 - type: entity
   id: CrateEngineeringSingularityGenerator
   parent: CrateEngineeringSecure
-  name: "ящик з генератором сингулярності"
-  description: "Генератор сингулярностей, мати звіра."
+  name: singularity generator crate
+  description: A singularity generator, the mother of the beast.
   components:
   - type: StorageFill
     contents:
@@ -105,8 +105,8 @@
 - type: entity
   id: CrateEngineeringParticleAccelerator
   parent: CrateEngineeringSecure
-  name: "ящик з платами для ПЧ"
-  description: "Складно налаштувати, але результат того вартий. Містить плати для всіх компонентів прискорювача частинок."
+  name: PA board crate
+  description: Complex to setup, but rewarding as fuck. Contains boards for all particle accelerator components.
   components:
   - type: StorageFill
     contents:
@@ -134,7 +134,7 @@
 - type: entity
   id: CrateEngineeringGenerator
   parent: CrateEngineering
-  name: "ящик з генератором"
+  name:  generator crate
   suffix: DEBUG
   components:
   - type: StorageFill
@@ -144,8 +144,8 @@
 - type: entity
   id: CrateEngineeringSolar
   parent: CrateEngineering
-  name: "ящик для збірки сонячних батарей"
-  description: "Набір із сонячними пластинами та склом для виготовлення десяти сонячних панелей."
+  name: solar assembly crate
+  description: A kit with solar flatpacks and glass to construct ten solar panels.
   components:
   - type: StorageFill
     contents:
@@ -157,8 +157,8 @@
 - type: entity
   id: CrateEngineeringShuttle
   parent: CrateEngineeringSecure
-  name: "ящик живлення шаттлу"
-  description: "Ящик з усім необхідним для живлення шатлу."
+  name: shuttle powering crate
+  description: A crate containing all needs for shuttle powering.
   components:
   - type: StorageFill
     contents:
@@ -170,8 +170,8 @@
 - type: entity
   id: CrateEngineeringTeslaGenerator
   parent: CrateEngineeringSecure
-  name: "ящик генератора тесла"
-  description: "Генератор тесли. Боже, бережи тебе."
+  name: tesla generator crate
+  description: A tesla generator. God save you.
   components:
   - type: StorageFill
     contents:
@@ -180,8 +180,8 @@
 - type: entity
   id: CrateEngineeringTeslaCoil
   parent: CrateEngineeringSecure
-  name: "ящик котушки тесли"
-  description: "Котушка тесли. Притягує блискавку і генерує з неї енергію."
+  name: tesla coil crate
+  description: Tesla coil. Attracts lightning and generates energy from it.
   components:
   - type: StorageFill
     contents:
@@ -190,8 +190,8 @@
 - type: entity
   id: CrateEngineeringTeslaGroundingRod
   parent: CrateEngineeringSecure
-  name: "ящик з заземлювальним стрижнем тесли"
-  description: "Заземлювач, найкраще для захисту від блискавки."
+  name: tesla grounding rod crate
+  description: Grounding rod, best for lightning protection.
   components:
   - type: StorageFill
     contents:

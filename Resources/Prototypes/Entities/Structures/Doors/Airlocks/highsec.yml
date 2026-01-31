@@ -67,8 +67,8 @@
 - type: entity
   id: HighSecDoor
   parent: BaseStructure
-  name: "двері з високим ступенем захисту"
-  description: "Тримає погане назовні, а хороше - всередині."
+  name: high security door
+  description: Keeps the bad out and keeps the good in.
   placement:
     mode: SnapgridCenter
   components:

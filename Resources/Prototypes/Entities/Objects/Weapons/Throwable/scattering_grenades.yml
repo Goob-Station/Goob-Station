@@ -44,8 +44,8 @@
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSecurityContraband]
   id: ClusterBang
-  name: "кластерний вибух"
-  description: "Може використовуватися тільки з сигнальними ракетами. Вибухає кілька разів."
+  name: clusterbang
+  description: Can be used only with flashbangs. Explodes several times.
   components:
   - type: ScatteringGrenade
     whitelist:
@@ -62,8 +62,8 @@
 - type: entity
   parent: ClusterBang
   id: ClusterBangFull
-  name: "ClusterBang"
-  description: "Запускає три світлошумові гранати після закінчення таймера."
+  name: ClusterBang
+  description: Launches three flashbangs after the timer runs out.
   suffix: Full
   components:
   - type: Sprite
@@ -94,8 +94,8 @@
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
   id: ClusterGrenade
-  name: "кластерна граната"
-  description: "Навіщо використовувати одну гранату, коли можна використати одразу три!"
+  name: clustergrenade
+  description: Why use one grenade when you can use three at once!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/clusterbomb.rsi
@@ -121,8 +121,8 @@
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
   id: ClusterBananaPeel
-  name: "кластерна бананова шкірка"
-  description: "Після кидка розпадається на 6 вибухових бананових шкірок, веселощі гарантовані!"
+  name: cluster banana peel
+  description: Splits into 6 explosive banana peels after throwing, guaranteed fun!
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
@@ -143,8 +143,8 @@
 - type: entity
   parent: [SoapSyndie, ScatteringGrenadeBase, BaseSyndicateContraband]
   id: SlipocalypseClusterSoap
-  name: "slipocalypse clustersoap"
-  description: "Приземлившись на підлогу, розкидає невеликі шматочки синдикативного мила по площі."
+  name: slipocalypse clustersoap
+  description: Spreads small pieces of syndicate soap over an area upon landing on the floor.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/soap.rsi
@@ -170,8 +170,8 @@
 - type: entity
   parent: ScatteringGrenadeBase
   id: GrenadeFoamDart
-  name: "пінопластова світлошумова граната"
-  description: "Випускає неприємний аерозоль з пінопластових дротиків, які викликають сильне роз'їдання."
+  name: foam dart grenade
+  description: Releases a bothersome spray of foam darts that cause severe welching.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/foamdart.rsi

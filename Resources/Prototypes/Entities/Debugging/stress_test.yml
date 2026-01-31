@@ -6,7 +6,7 @@
 
 - type: entity
   id: StressTest
-  name: "стрес-тест"
+  name: stress test
   suffix: DEBUG
   components:
   - type: Tag

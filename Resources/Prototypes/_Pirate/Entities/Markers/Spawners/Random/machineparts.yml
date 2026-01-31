@@ -1,5 +1,5 @@
 - type: entity
-  name: "спавнер деталей утилю"
+  name: Salvage Parts Spawner
   id: SalvagePartsSpawnerMid
   suffix: High
   parent: MarkerBase

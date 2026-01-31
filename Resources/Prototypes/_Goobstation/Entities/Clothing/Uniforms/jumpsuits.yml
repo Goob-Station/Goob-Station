@@ -24,8 +24,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDurathread
-  name: "комбінезон з дюратканини"
-  description: "Вільна сорочка з дюратканини з сірими штанами, її міцні волокна забезпечують деякий захист власнику."
+  name: durathread jumpsuit
+  description: A loose worn durathread shirt with a grey pants, its resilient fibres provide some protection to the wearer.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitResonant
-  name: "резонансний комбінезон"
-  description: "Давай не будемо грати занадто грубо. Ні ти, ні я ще не можемо цього досягти.."
+  name: resonant jumpsuit
+  description: Lets not play too rough. Neither you nor I can reach it just yet…
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/breverb.rsi
@@ -58,8 +58,8 @@
 - type: entity
   parent: [ClothingUniformJumpsuitResonant, BaseMajorContraband]
   id: ClothingUniformJumpsuitWestern
-  name: "справжній ковбойський комбінезон"
-  description: "Покажімо начальнику служби безпеки, як ми робили справи на Дикому Заході."
+  name: authentic cowboy's jumpsuit
+  description: Let's show the head of security how we used to do things out west.
   components:
   - type: Armor
     coverage:
@@ -77,8 +77,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasenRepresentative
-  name: "костюм представника Нанотрейзен"
-  description: "Чорний костюм, який носять офіційні особи."
+  name: nanotrasen representative suit
+  description: A black suit worn by officials.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
@@ -88,8 +88,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
-  name: "вишуканий костюм представника Nanotrasen"
-  description: "Вишуканий чорний костюм, який носять посадовці, прикрашений більшою кількістю золотих ниток, ніж зазвичай."
+  name: fancy nanotrasen representative suit
+  description: A fancy black suit worn by officials, embellished with more golden threads than Normal.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/fancy_nanotrasen_representative.rsi
@@ -99,8 +99,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualSyndicate
-  name: "повсякденний комбінезон синдикату"
-  description: "Короткі рукави, короткий характер."
+  name: casual syndicate jumpsuit
+  description: Short sleeves, short temper.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualsyndicate.rsi
@@ -110,8 +110,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualCentcom
-  name: "повсякденний комбінезон центкому"
-  description: "Паперова робота - це важко."
+  name: casual centcom jumpsuit
+  description: Paperwork's tough.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcentcom.rsi
@@ -121,8 +121,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualCommand
-  name: "повсякденний комбінезон командування"
-  description: "Стривайте, де мій КПК?."
+  name: casual command jumpsuit
+  description: Wait, where's my PDA?.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcommand.rsi
@@ -132,8 +132,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualEngineer
-  name: "повсякденний інженерний комбінезон"
-  description: "Іскри? Скловолокно? А що з ними?"
+  name: casual engineering jumpsuit
+  description: Sparks? Fiberglass? What about 'em?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualengineer.rsi
@@ -143,8 +143,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBlueshieldOfficer
-  name: "офіцерський комбінезон \"Синій щит"
-  description: "Сіро-блакитний комбінезон з короткими рукавами, виготовлений з міцного матеріалу. Стандартна комплектація Blueshield."
+  name: blueshield officer jumpsuit
+  description: A short-sleeved grey and blue jumpsuit, made out of a sturdy material. Blueshield standard issue.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
@@ -154,8 +154,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBlueshieldShirt
-  name: "синя сорочка офіцера синього щита"
-  description: "Офіційна форма служби безпеки. Досить безпечна і досить зайнята."
+  name: blueshield officer blue shirt
+  description: An official security uniform. Pretty safe and pretty busy.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
@@ -165,8 +165,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformMailCarrier
-  name: "уніформа листоноші"
-  description: "Ворог собак скрізь і всюди."
+  name: mail carrier's uniform
+  description: Enemy of dogs everywhere.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
@@ -176,8 +176,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformHecu
-  name: "уніформа HECU"
-  description: "Полювати на Фрімена."
+  name: HECU uniform
+  description: Hunt down the Freeman.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
@@ -187,8 +187,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCentcommContraband]
   id: ClothingUniformJumpsuitNavyGold
-  name: "комбінезон морського офіцера з золотим оздобленням"
-  description: "Костюм, який носять високопоставлені члени Центрального Командування. Решта засекречено."
+  name: navy officer's jumpsuit
+  description: A suit worn by high-ranking Central Command members. The rest is classified.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
@@ -212,8 +212,8 @@
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitSpecOps
-  name: "комбінезон офіцера спецназу"
-  description: "Костюм, який носять високопоставлені офіцери спецназу. Решта засекречено."
+  name: special operations officer's jumpsuit
+  description: A suit worn by high-ranking spec ops officers. The rest is classified.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
@@ -237,8 +237,8 @@
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitDiplomat
-  name: "комбінезон дипломата"
-  description: "Костюм, який носять працівники Центрального Командування, що займаються дипломатією."
+  name: diplomat's jumpsuit
+  description: A suit worn by diplomacy focused Central Command workers.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
@@ -262,8 +262,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingCostumeAbductor
-  name: "Костюм прибульця"
-  description: "На етикетці написано: Donk Co. не несе відповідальності за будь-які розстріли службою безпеки, спричинені цим продуктом."
+  name: Alien Costume
+  description: The tag reads- Donk Co. not responsible for any security shootings caused by this product.
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
@@ -273,8 +273,8 @@
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitTrainer
-  name: "комбінезон NCT"
-  description: "Комбінезон, що видається кар'єрним тренерам NanoTrasen. Наповнює вас почуттям гордості."
+  name: NCT Jumpsuit
+  description: A jumpsuit issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/trainer.rsi
@@ -285,8 +285,8 @@
 - type: entity
   parent: ClothingUniformJumpsuitLawyerBlack # Not contraband. It's just a suit, dude :godo:
   id: ClothingUniformJumpsuitDevil
-  name: "диявольський костюм"
-  description: "Стильний чорний костюм, виготовлений з матеріалів не з цього виміру. Теплий на дотик."
+  name: devilish suit
+  description: A stylish black suit made of materials not from this dimension. Warm to the touch.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
@@ -304,8 +304,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMercer
-  name: "манхеттенський вуличний одяг"
-  description: "Тільки той, хто спробував би втекти з найсмертоноснішою біологічною зброєю Землі, захотів би носити це."
+  name: manhattan streetwear
+  description: Only someone who would try to run away with Earth's deadliest bioweapon would want to wear this.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
@@ -315,8 +315,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSSummer
-  name: "літня сорочка голови служби безпеки"
-  description: "Спеціально замовлений літній одяг голови служби безпеки, на випадок, коли погоня за тайдерами стає спекотною."
+  name: head of security's summer shirt
+  description: The head of security's custom-commissioned summer outfit, for when chasing tiders gets hot.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hos.rsi
@@ -326,8 +326,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitRDSummer
-  name: "літня сорочка наукового керівника"
-  description: "Спеціально замовлений літній одяг наукового керівника, на випадок, коли вогняні аномалії змушують вас потіти."
+  name: research director's summer shirt
+  description: The research director's custom-commissioned summer outfit, for when those fire anomalies are making you sweat.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_rd.rsi
@@ -337,8 +337,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMSummer
-  name: "літня сорочка квартирмейстера"
-  description: "Спеціально замовлений літній одяг квартирмейстера, на випадок, коли ви хочете похизуватися своїми грошима перед іншими відділами."
+  name: quartermaster's summer shirt
+  description: The quartermaster's custom-commissioned summer outfit, for when you want to show off your cash to the other departments.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_qm.rsi
@@ -348,8 +348,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCaptainSummer
-  name: "літня сорочка капітана"
-  description: "Спеціально замовлений літній одяг капітана, на випадок, коли ви вже деякий час у плюсі."
+  name: captain's summer shirt
+  description: The captain's custom-commissioned summer outfit, for when you've been in the green for a while.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_captain.rsi
@@ -359,8 +359,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoPSummer
-  name: "літня сорочка голови персоналу"
-  description: "Спеціально замовлений літній одяг голови персоналу, на випадок, коли ви хочете комфортно займатися паперовою роботою."
+  name: head of personnel's summer shirt
+  description: The head of personnel's custom-commissioned summer outfit, for when you want to comfortably do paperwork.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hop.rsi
@@ -370,8 +370,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCESummer
-  name: "літня сорочка головного інженера"
-  description: "Спеціально замовлений літній одяг головного інженера, на випадок, коли ви просто хочете лягти і подивитися на теслу."
+  name: chief engineer's summer shirt
+  description: The chief engineer's custom-commissioned summer outfit, for when you just want to lay down and look at the tesla.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
@@ -381,8 +381,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPassengerQuarterzip
-  name: "сірий світшот із блискавкою до грудей"
-  description: "Світшот із блискавкою до грудей для витонченого асистента."
+  name: grey quarterzip
+  description: A quarterzip for the sophisticated assistant.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi

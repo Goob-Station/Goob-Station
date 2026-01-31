@@ -129,8 +129,8 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseLivingObjective]
   id: EscapeShuttleObjective
-  name: "Втекти на шатлі живим і на волі."
-  description: "Один із наших таємних агентів проведе з вами бесіду, коли ви прибудете на евакуаційний шатл. Не з'являйтеся в наручниках." # Goobstation
+  name: Escape to centcomm alive and unrestrained.
+  description: One of our undercover agents will debrief you when you arrive on the evacuation shuttle. Don't show up in cuffs. # Goobstation
   components:
   - type: Objective
     difficulty: 1.3
@@ -142,8 +142,8 @@
 - type: entity
   parent: BaseTraitorObjective
   id: DieObjective
-  name: "Померти славною смертю"
-  description: "Здохни."
+  name: Die a glorious death
+  description: Die.
   components:
   - type: Objective
     difficulty: 0.5
@@ -160,8 +160,8 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseLivingObjective]
   id: HijackShuttleObjective
-  name: "Викрасти аварійний шатл"
-  description: "Вийдіть з шатла вільно і без лояльного екіпажу Нанотрасен на борту. Використовуйте БУДЬ-ЯКІ доступні вам методи. На шатлі можуть залишитися живими агенти Синдикату, вороги Нанотрасену та заручники в наручниках. Ігноруйте допомогу від будь-кого, окрім агента підтримки."
+  name: Hijack emergency shuttle
+  description: Leave on the shuttle free and clear of the loyal Nanotrasen crew on board. Use ANY methods available to you. Syndicate agents, Nanotrasen enemies, and handcuffed hostages may remain alive on the shuttle. Ignore assistance from anyone other than a support agent.
   components:
     - type: Objective
       difficulty: 5 # insane, default config max difficulty
@@ -175,7 +175,7 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: KillRandomPersonObjective
-  description: "Зробіть це як завгодно, тільки переконайтеся, що вони не покинуть станцію."
+  description: Do it however you like, just make sure they don't get off the station.
   components:
   - type: Objective
     difficulty: 1.75
@@ -189,7 +189,7 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: KillRandomHeadObjective
-  description: "Нам потрібно, щоб ця голова зникла, і ви, мабуть, знаєте чому. Переконайтеся, що вони не доберуться до ЦентКому, навіть якщо будуть мертві. Хай щастить, агенте."
+  description: We need this head gone and you probably know why. Make sure they don't make it to CentComm, even if they're dead. Good luck, agent.
   components:
   - type: Objective
     # technically its still possible for KillRandomPersonObjective to roll a head but this is guaranteed, so higher difficulty
@@ -210,7 +210,7 @@
 - type: entity
   parent: [BaseTraitorSocialObjective, BaseKeepAliveObjective]
   id: RandomTraitorAliveObjective
-  description: "Ідентифікуйте себе на свій страх і ризик. Він потрібен нам живим."
+  description: Identify yourself at your own risk. We just need them alive.
   components:
   - type: Objective
     difficulty: 1.75
@@ -221,7 +221,7 @@
 - type: entity
   parent: [BaseTraitorSocialObjective, BaseHelpProgressObjective]
   id: RandomTraitorProgressObjective
-  description: "Ідентифікуйте себе на свій страх і ризик. Нам потрібно, щоб він досяг успіху."
+  description: Identify yourself at your own risk. We just need them to succeed.
   components:
   - type: Objective
     difficulty: 2.5

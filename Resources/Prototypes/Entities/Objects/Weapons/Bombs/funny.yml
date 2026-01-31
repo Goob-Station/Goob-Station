@@ -17,8 +17,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "гаряча картопля"
-  description: "Після активації ви не зможете скинути цю бомбу уповільненої дії - вдарте нею когось іншого, щоб врятуватися! Не обпечіть руки!"
+  name: hot potato
+  description: Once activated, you can't drop this time bomb - hit someone else with it to save yourself! Don't burn your hands!
   parent: [BaseItem, BaseSyndicateContraband]
   id: HotPotato
   components:
@@ -88,7 +88,7 @@
   - type: AnimationPlayer
 
 - type: entity
-  name: "бананова шкірка"
+  name: banana peel
   suffix: Explosive
   parent: TrashBananaPeel
   id: TrashBananaPeelExplosive
@@ -129,9 +129,9 @@
 - type: entity
   parent: BaseItem
   id: TrashBananaPeelExplosiveUnarmed
-  name: "банан"
+  name: banana
   suffix: Unarmed
-  description: "У цьому банані є щось незвичайне."
+  description: There's something unusual about this banana.
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi

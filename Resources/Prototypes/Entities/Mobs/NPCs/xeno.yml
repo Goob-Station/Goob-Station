@@ -111,10 +111,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Hacky for the stress test so don't even consider adding to this
 - type: entity
-  name: "просторовий суматор"
+  name: space adder
   parent: SimpleSpaceMobBase
   id: MobPurpleSnake
-  description: "Загрозлива фіолетова змія з Kepler-283c."
+  description: A menacing purple snake from Kepler-283c.
   components:
   - type: Body # Shitmed Change
     prototype: SpaceAdder
@@ -187,11 +187,11 @@
     - FootstepSound
 
 - type: entity
-  name: "просторовий суматор"
+  name: space adder
   parent: MobPurpleSnake
   id: MobSmallPurpleSnake
   suffix: small
-  description: "Зменшена версія загрозливої фіолетової змії з Kepler-283c."
+  description: A smaller version of the menacing purple snake from Kepler-283c.
   components:
   - type: Body # Shitmed Change
     prototype: SpaceAdder

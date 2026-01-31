@@ -14,8 +14,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakHelldiver
-  name: "плащ чистої відданості утилізатора"
-  description: "Символ вдячності нескінченних екіпажів, чиє заможне існування ми прагнемо забезпечити."
+  name: salvage pure loyality cape
+  description: A representation of the thankfulness of those infinite crew whose wealthy existence we strive to ensure.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/helldiver.rsi
@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakResonant
-  name: "резонансний плащ"
-  description: "Сцена кличе нас. Ми повинні з радістю підіграти."
+  name: resonant cape
+  description: The stage calls for us. We should gladly play along.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/breverb.rsi
@@ -36,8 +36,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarp
-  name: "плащ карпа"
-  description: "Займаємося рибними справами, так?"
+  name: carp cloak
+  description: Getting up to some fishy business are we?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloak.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarpAlt
-  name: "плащ карпа"
-  description: "Дозволено лише позаземним істотам. Це означає НЕ вам."
+  name: carp cloak
+  description: Restricted to extraterrestrial entities. That means NOT you.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloakalt.rsi
@@ -58,8 +58,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakSanabi
-  name: "плащ бригадного генерала"
-  description: "Пошарпаний, але грізний плащ, який носять елітні воїни."
+  name: brigadier general cloak
+  description: A tattered, yet imposing cloak, worn by elite warriors.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
@@ -67,8 +67,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakVetCap
-  name: "Плащ капітана-ветерана"
-  description: "Плащ аури капітана"
+  name: Veteran Captain's cloak
+  description: Captains Aura Cloak
   components:
   - type: Item
     size: Small

@@ -14,10 +14,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Честер"
+  name: Chester
   parent: [ BaseWeaponRifle, BaseGunWieldable, BaseCentcommContraband ]
   id: WeaponLeverChester
-  description: "Ефектна рушниця з важільним затвором, створена для корпусу Блюшилд NanoTrasen. Прокручування її для перезаряджання наповнює вас первісною радістю. Живиться з магазинів важільної гвинтівки."
+  description: "A flashy lever-action shotgun designed for NanoTrasen's Blueshield corps. Spinning it to reload fills you with a primal happiness. Feeds from lever rifle magazines."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi

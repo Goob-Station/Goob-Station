@@ -24,8 +24,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "кишенькова рація"
-  description: "Зручна портативна рація."
+  name: handheld radio
+  description: A handy handheld radio.
   parent: BaseItem
   id: RadioHandheld
   components:
@@ -66,8 +66,8 @@
   # Pirate end - Handheld Radios port
 
 - type: entity
-  name: "радіостанція охорони"
-  description: "Зручна охоронна рація."
+  name: security radio
+  description: A handy security radio.
   parent: [ RadioHandheld, BaseSecurityContraband ]
   id: RadioHandheldSecurity
   components:

@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "істота"
+  name: creature
   id: MobCreature
   parent: MobSpaceBasic
-  description: "Потойбічна істота з потойбічного світу, що руйнує здоровий глузд."
+  description: A sanity-destroying otherthing from the netherworld.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -39,17 +39,17 @@
     bloodReagent: Blood
 
 - type: entity
-  name: "Сіммонсе"
+  name: Simmons
   id: MobCreatureWizard
   parent: MobCreature
-  description: "Він голодний."
+  description: He is hungry.
   components:
   - type: NpcFactionMember
     factions:
     - Wizard
 
 - type: entity
-  name: "Спайдер істот"
+  name: Creature Spawner
   id: SpawnMobCreature
   parent: MarkerBase
   components:
@@ -63,7 +63,7 @@
     - MobCreature
 
 - type: entity
-  name: "Зароджувач чарівних істот"
+  name: WIzard Creature Spawner
   id: SpawnMobCreatureWizard
   parent: SpawnMobCreature
   components:
@@ -79,8 +79,8 @@
   - MobAtmosExposed
   - MobPolymorphable
   id: MobStickman
-  name: "злий чоловік з палицею"
-  description: "Істота зі світу, що має лише два виміри. Принаймні, вона намагається триматися обличчям до вас."
+  name: angry stick man
+  description: A being from a realm with only 2 dimensions. At least it's trying to stay faced towards you.
   suffix: AI
   components:
   - type: Sprite

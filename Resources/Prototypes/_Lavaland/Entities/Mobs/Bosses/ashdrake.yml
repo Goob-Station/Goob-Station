@@ -1,8 +1,8 @@
 - type: entity
-  name: "попелястий дрейк"
+  name: ash drake
   id: LavalandBossAshDrake
   parent: LavalandMobBase
-  description: "Охоронець Некрополя."
+  description: Guardian of the Necropolis.
   components:
   - type: Physics
     bodyType: KinematicController

@@ -11,7 +11,7 @@
 
 - type: body
   id: Goliath
-  name: "голіаф"
+  name: "goliath"
   root: chest
   slots:
     chest:

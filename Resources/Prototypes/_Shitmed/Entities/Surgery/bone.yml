@@ -7,8 +7,8 @@
 - type: entity
   id: Bone
   parent: BaseItem
-  name: "кістка"
-  description: "Справжня кістка. Містить кальцій, багато кальцію."
+  name: bone
+  description: A real bone. Contains calcium, a lot of calcium.
   components:
   - type: Bone # backmen: wounding
   - type: Sprite
@@ -27,8 +27,8 @@
 - type: entity
   id: BoneNeck
   parent: Bone
-  name: "шийна кістка"
-  description: "Кістка з шиї. Містить багато кальцію."
+  name: neck bone
+  description: A bone from the neck. Contains a lot of calcium.
   components:
   - type: Bone
     integrityCap: 100 # Goob edit

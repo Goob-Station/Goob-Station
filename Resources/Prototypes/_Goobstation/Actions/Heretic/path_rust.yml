@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustConstruction
-  name: "Формування Іржі"
-  description: "Перетворює іржаву підлогу на суцільну стіну з іржі. Створення стіни під мобом завдасть йому шкоди."
+  name: Rust Formation
+  description: Transforms a rusted floor into a full wall of rust. Creating a wall underneath a mob will harm it.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticAggressiveSpread
-  name: "Агресивне Поширення"
-  description: "Поширює іржу на найближчі поверхні."
+  name: Aggressive Spread
+  description: Spreads rust onto nearby surfaces.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -58,8 +58,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticEntropicPlume
-  name: "Ентропійний Шлейф"
-  description: "Вивергає дезорієнтуючий шлейф, який змушує ворогів атакувати один одного, ненадовго засліплює та отруює їх. Також поширює іржу на шляху шлейфу."
+  name: Entropic Plume
+  description: Spews forth a disorienting plume that causes enemies to strike each other, briefly blinds them and poisons them. Also spreads rust in the path of the plume.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustCharge
-  name: "Іржавий Ривок"
-  description: "Ривок, який потрібно починати на іржавій плитці. Він знищить будь-які іржаві об'єкти, з якими ви зіткнетеся, завдасть великої шкоди іншим і поширить іржу навколо вас під час ривка. Оскільки саме іржа наділяє вас цією здатністю, фокус не потрібен."
+  name: Rust Charge
+  description: A charge that must be started on a rusted tile and will destroy any rusted objects you come into contact with, will deal high damage to others and rust around you during the charge. As it is the rust that empowers you with this ability, no focus is needed.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -105,8 +105,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustWave
-  name: "Дотик Покровителя"
-  description: "Випускає токсичну хвилю іржі."
+  name: Patron's Reach
+  description: Release a toxic wave of rust.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

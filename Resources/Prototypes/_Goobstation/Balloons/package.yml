@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonPackageBasic
-  name: "набір кульок"
-  description: "Пакунок, що містить одну випадкову кульку."
+  name: balloon package
+  description: A package containing one random balloon.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
@@ -52,8 +52,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonPackagePremium
-  name: "преміум-набір кульок"
-  description: "Пакунок, що містить одну випадкову кульку."
+  name: premium balloon package
+  description: A package containing one random balloon.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
@@ -93,10 +93,10 @@
 
 
 - type: entity
-  name: "коробка з пакунками кульок"
+  name: balloon package box
   parent: BoxCardboard
   id: BoxBalloonPackage
-  description: "Коробка, повна майбутніх кульок."
+  description: A box full of soon to be balloons.
   components:
   - type: StorageFill
     contents:
@@ -106,10 +106,10 @@
     sprite: _Goobstation/Objects/Storage/boxes.rsi
 
 - type: entity
-  name: "коробка преміум-набору кульок"
+  name: premium balloon package box
   parent: BoxCardboard
   id: PremiumBoxBalloonPackage
-  description: "Коробка, повна майбутніх кульок."
+  description: A box full of soon to be balloons.
   components:
   - type: StorageFill
     contents:
@@ -122,8 +122,8 @@
 - type: entity
   id: CrateBalloonPackage
   parent: CratePlastic
-  name: "пакунок для лопання кульок"
-  description: "Ящик, що містить 2 повні коробки з кульками та додаткове обладнання для їх лопання."
+  name: balloon popper's package
+  description: A crate containing 2 full balloon boxes and some additional popping equipment.
   components:
   - type: StorageFill
     contents:
@@ -143,8 +143,8 @@
 - type: entity
   id: PremiumCrateBalloonPackage
   parent: CratePirate
-  name: "преміум-набір воїна проти кульок"
-  description: "Містить найелітніші кульки та додаткове спорядження для лускання. УВАГА! НАБЛИЖАЮТЬСЯ КІЛЬКА КУЛЬОК КЛАСУ MOAB!"
+  name: premium balloon warrior's package
+  description: Contains the most elite balloons and some additional popping equipment. WARNING! SEVERAL MOAB CLASS BALLOONS INCOMING!
   components:
   - type: StorageFill
     contents:

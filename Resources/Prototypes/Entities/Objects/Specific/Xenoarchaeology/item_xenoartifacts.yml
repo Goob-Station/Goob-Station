@@ -12,8 +12,8 @@
 - type: entity
   parent: [BaseItem, BaseXenoArtifact]
   id: BaseXenoArtifactItem
-  name: "артефакт"
-  description: "Дивний артефакт з невідомих часів. Схоже, буде весело. Ідеально лежить в руці."
+  name: artifact
+  description: A strange artifact from time unknown. Looks like a good time. Fits in hand perfectly.
   abstract: true
   noSpawn: true
   components:
@@ -86,8 +86,8 @@
 - type: entity
   id: ArtifactFragment
   parent: BaseItem
-  name: "фрагмент артефакту"
-  description: "Зламаний шматок артефакту. Якби у вас було більше, ви б змогли його полагодити."
+  name: artifact fragment
+  description: A broken piece of an artifact. You could probably repair it if you had more.
   components:
   - type: Sprite
     sprite: Objects/Specific/Xenoarchaeology/artifact_fragments.rsi

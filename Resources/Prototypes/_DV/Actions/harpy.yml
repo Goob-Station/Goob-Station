@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHarpyPlayMidi
-  name: "Відтворення MIDI"
-  description: "Співайте від душі! Клацніть правою кнопкою миші на себе, щоб вибрати інструмент."
+  name: Play MIDI
+  description: Sing your heart out! Right click yourself to set an instrument.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -15,8 +15,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSyrinxChangeVoiceMask
-  name: "Назва набору"
-  description: "Змініть ім'я, яке чують інші, на інше."
+  name: Set name
+  description: Change the name others hear to something else.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -28,8 +28,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleFlight
-  name: "Літати"
-  description: "Використовуйте свої крила, щоб літати. Спростуйте звинувачення в нездатності літати."
+  name: Fly
+  description: Make use of your wings to fly. Beat the flightless bird allegations.
   components:
   - type: Action
     checkCanInteract: false

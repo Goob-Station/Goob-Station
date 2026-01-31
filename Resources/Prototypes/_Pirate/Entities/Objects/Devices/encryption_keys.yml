@@ -1,8 +1,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyInterdyne
-  name: "Криптографічний ключ Interdyne"
-  description: "Здається, цей ключ належить робітнику корпорації Interdyne"
+  name: Криптографічний ключ інтердайну
+  description: "Здається цей ключ належить робітнику корпорації Інтердайн"
   components:
   - type: EncryptionKey
     channels:
@@ -20,8 +20,8 @@
 - type: entity 
   parent: EncryptionKey
   id: EncryptionKeyInterdynePrivat
-  name: "Ключ приватного каналу Interdyne"
-  description: "Здається, цей ключ належить корпорації Interdyne, його краще не чіпати"
+  name: Ключ приватного каналу Інтердайну
+  description: "Здається цей ключ належить корпорації Інтердайн, здається його краще не чіпати"
   components:
   - type: EncryptionKey
     channels:

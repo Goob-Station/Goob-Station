@@ -19,9 +19,9 @@
 
 - type: entity
   id: BaseStockPart
-  name: "стокова частина"
+  name: stock part
   parent: BaseItem
-  description: "Що?"
+  description: What?
   abstract: true
   components:
     # Goobstation edit start
@@ -49,9 +49,9 @@
 
 - type: entity
   id: MicroManipulatorStockPart
-  name: "модульна деталь механізму"
+  name: modular machine part
   parent: BaseStockPart
-  description: "Базова деталь механізму, що використовується для створення різноманітних пристроїв."
+  description: A basic machine part used in the construction of a variety of devices.
   suffix: Rating 1
   components:
     - type: Sprite

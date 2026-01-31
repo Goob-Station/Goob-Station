@@ -14,9 +14,9 @@
 - type: entity
   id: WeaponScytheDeath
   suffix: Death
-  name: "Коса Смерті"
+  name: Коса Смерті
   parent: BaseItem
-  description: "Коса, що випромінює загрозу. Лезо вкрите засохлою кров'ю."
+  description: Коса, що випромінює загрозу. Лезо вкрите засохлою кров'ю.
   components:
   - type: Sharp
   - type: Sprite
@@ -90,8 +90,8 @@
 
 - type: entity
   id: MobDeathSkeleton
-  name: "Кістлява смерть"
-  description: "Величезний скелет у рясі, що несе косу смерті."
+  name: Кістлява смерть
+  description: Величезний скелет у рясі, що несе косу смерті.
   parent: BaseMobSkeletonPerson
   suffix: Death
   components:

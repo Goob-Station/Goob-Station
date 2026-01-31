@@ -1,7 +1,7 @@
 - type: job
   id: InterdyneEngineer
-  name: "інженер Interdyne"
-  description: "підтримуйте та ремонтуйте обладнання та системи Interdyne, щоб забезпечити безперебійну роботу"
+  name: job-name-interdyne-engineer
+  description: job-description-interdyne-engineer
   icon: "JobIconInterdyneEngineer"
   canBeAntag: false
   playTimeTracker: JobInterdyneEngineer

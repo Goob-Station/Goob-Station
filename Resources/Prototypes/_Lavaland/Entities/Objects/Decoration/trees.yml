@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseTree
   id: FloraAshtree
-  name: "попелясте дерево"
+  name: ash tree
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/ashtree.rsi

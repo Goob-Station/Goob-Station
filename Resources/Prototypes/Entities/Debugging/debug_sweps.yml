@@ -27,10 +27,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "бах, Дідо-ган"
+  name: bang, ded
   parent: BaseWeaponPistol
   id: WeaponPistolDebug
-  description: "дід. Тікайте хто може!"
+  description: ded
   suffix: DEBUG
   components:
   - type: Tag
@@ -72,7 +72,7 @@
 
 - type: entity
   id: MagazinePistolDebug
-  name: "бац, Дід Маг!"
+  name: bang, ded mag
   parent: BaseMagazinePistol
   suffix: DEBUG
   components:
@@ -87,7 +87,7 @@
 
 - type: entity
   id: BulletDebug
-  name: "бах, куля!"
+  name: bang, ded bullet
   parent: BaseBullet
   categories: [ Debug, HideSpawnMenu ]
   suffix: DEBUG
@@ -102,7 +102,7 @@
 
 - type: entity
   id: CartridgeDebug
-  name: "бах, розряджений патрон"
+  name: bang, ded cartridge
   parent: BaseCartridgePistol
   suffix: DEBUG
   components:
@@ -113,10 +113,10 @@
     proto: BulletDebug
 
 - type: entity
-  name: "палиця для розчленування" # Goobstation edit
+  name: goob stick gibber # Goobstation edit
   parent: BaseItem
   id: MeleeDebugGib
-  description: "бий сильно"
+  description: hit hard ye
   suffix: DEBUG
   components:
   - type: Tag
@@ -134,7 +134,7 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: "палиця 100 шкоди" # Goobstation edit
+  name: goob stick 100dmg # Goobstation edit
   parent: MeleeDebugGib
   id: MeleeDebug100
   components:
@@ -147,7 +147,7 @@
         Blunt: 100
 
 - type: entity
-  name: "палиця 200 шкоди" # Goobstation edit
+  name: goob stick 200dmg # Goobstation edit
   parent: MeleeDebugGib
   id: MeleeDebug200
   components:

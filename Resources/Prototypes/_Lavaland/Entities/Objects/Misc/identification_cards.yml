@@ -1,7 +1,7 @@
 - type: entity
   parent: IDCardStandard
   id: MinerIDCard
-  name: "iD-картка шахтаря"
+  name: miner ID card
   components:
   - type: Sprite
     layers:

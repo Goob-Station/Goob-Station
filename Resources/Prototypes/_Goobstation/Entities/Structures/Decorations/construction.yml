@@ -6,8 +6,8 @@
 - type: entity
   id: ConstructionBarricade
   parent: BaseStructure
-  name: "будівельна барикада"
-  description: "Носіть каску!"
+  name: construction barricade
+  description: Wear your helmet!
   components:
   - type: Anchorable
   - type: Sprite

@@ -59,8 +59,8 @@
 - type: entity
   id: TeslaEnergyBall
   parent: BaseEnergyBall
-  name: "енергетична куля тесла"
-  description: "Гігантська куля чистої енергії. Простір навколо неї гуде і плавиться."
+  name: tesla orb
+  description: A giant ball of pure energy. The space around it is humming and melting.
   components:
   - type: Fixtures
     fixtures:
@@ -147,8 +147,8 @@
 - type: entity
   id: TeslaMiniEnergyBall
   parent: BaseEnergyBall
-  name: "міні енергетична куля тесла"
-  description: "Дитинча руйнівної енергетичної клітки. Не така небезпечна, але все одно не варто торкатися голими руками."
+  name: mini tesla orb
+  description: The cub of a destructive energy cage. Not as dangerous, but still not worth touching with bare hands.
   components:
   - type: ChasingWalk
     minSpeed: 2

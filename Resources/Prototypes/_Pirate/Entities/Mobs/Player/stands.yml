@@ -1,8 +1,8 @@
 - type: entity
   abstract: true
-  name: "База стенда"
+  name: StandBase
   id: MobStandBase
-  description: "охоронець"
+  description: guardian
   save: false
   components:
     - type: LagCompensation
@@ -90,11 +90,11 @@
     # </Goobstation>
 
 - type: entity
-  name: "Тауер оф Грей"
+  name: Тауер оф Грей
   suffix: "Дарт, Івентове"
   id: MobTowerOfGrayStand
   parent: MobStandBase
-  description: "Тауер оф Грей, швидкий жук, що прошиває ворогів."
+  description: Тауер оф Грей, швидкий жук, що прошиває ворогів. 
   components:
     - type: GhostRole
       allowMovement: true
@@ -143,7 +143,7 @@
       damageShare: 0.75
 
 - type: entity
-  name: "Стікі Фінгерс"
+  name: Стікі Фінгерс
   suffix: "Дарт, Івентове"
   id: MobStickyFingersStand
   parent: MobStandBase
@@ -179,11 +179,11 @@
     capacity: 1000
 
 - type: entity
-  name: "Геб"
+  name: Геб
   suffix: "Дарт, Івентове"
   id: MobGebStand
   parent: MobStandBase
-  description: "Водна аномалія, що перетворюється на руку для атаки."
+  description: Водна аномалія, що перетворюється на руку для атаки.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -215,7 +215,7 @@
           - SmallMobLayer
 
 - type: entity
-  name: "Стар Платінум"
+  name: Стар Платінум
   suffix: "Дарт, Івентове"
   id: MobStarPlatinumStand
   parent: MobStandBase
@@ -244,7 +244,7 @@
         Structural: 50
 
 - type: entity
-  name: "Маджішан'с Ред"
+  name: Маджішан'с Ред
   suffix: "Дарт, Івентове"
   id: MobMagiciansRedStand
   parent: MobStandBase
@@ -277,7 +277,7 @@
     capacity: 1000
 
 - type: entity
-  name: "Сільвер Черіот"
+  name: Сільвер Черіот
   suffix: "Дарт, Івентове"
   id: MobSilverChariotStand
   parent: [MobStandBase, InventoryBase]
@@ -380,7 +380,7 @@
   - WeaponKatanaSilverChariot
 
 - type: entity
-  name: "Крейзі Даймонд"
+  name: Крейзі Даймонд
   suffix: "Дарт, Івентове"
   id: MobCrazyDiamondStand
   parent: MobStandBase

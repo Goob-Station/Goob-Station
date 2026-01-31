@@ -5,7 +5,7 @@
     - sekrit
   name: "Секерет"
   showInVote: true # Goob - Game Director
-  description: "Експериментальна версія секрету. Чесно, я сам не впевнений, як воно працює..."
+  description: "Експериментальна версія секрету.Чесно я сам не впевнений, як воно працює..."
   rules:
     - Secret
     - PsionicEventsScheduler # Pirate

@@ -1,8 +1,8 @@
 - type: entity
   id: ProjectilePolyboltMouseTimed
   parent: ProjectilePolyboltBase
-  name: "миша"
-  description: "Ні, я не хочу бути мишою!"
+  name: миша
+  description: Ні, я не хочу бути мишою!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardMouse
@@ -14,8 +14,8 @@
 - type: entity
   id: ProjectilePolyboltCluwneTimed
   parent: ProjectilePolyboltBase
-  name: "клувня"
-  description: "Ні, я не хочу бути клувнею!"
+  name: клувне
+  description: Ні, я не хочу бути клувне!
   components:
   - type: PolymorphOnTrigger
     polymorph: ArtifactCluwne
@@ -27,8 +27,8 @@
 - type: entity
   id: ProjectilePolyboltBreadTimed
   parent: ProjectilePolyboltBase
-  name: "хліб"
-  description: "Ні, я не хочу бути хлібом!"
+  name: хліб
+  description: Ні, я не хочу бути хлібом!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardBread
@@ -40,8 +40,8 @@
 - type: entity
   id: ProjectilePolyboltChickenTimed
   parent: ProjectilePolyboltBase
-  name: "курка"
-  description: "Ні, я не хочу бути мавпою!"
+  name: курка
+  description: Ні, я не хочу бути куркою!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardChicken
@@ -53,8 +53,8 @@
 - type: entity
   id: ProjectilePolyboltMonkeyTimed
   parent: ProjectilePolyboltBase
-  name: "монке"
-  description: "Ні, я не хочу бути мавпою!"
+  name: монке
+  description: Ні, я не хочу бути куркою!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardMonkey
@@ -66,8 +66,8 @@
 - type: entity
   id: ProjectilePolyboltGoatTimed
   parent: ProjectilePolyboltBase
-  name: "коза"
-  description: "Ні, я не хочу бути мавпою!"
+  name: козел
+  description: Ні, я не хочу бути куркою!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardGoat
@@ -79,8 +79,8 @@
 - type: entity
   id: ProjectilePolyboltCowTimed
   parent: ProjectilePolyboltBase
-  name: "корова"
-  description: "Ні, я не хочу бути мавпою!"
+  name: корова
+  description: Ні, я не хочу бути куркою!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardCow
@@ -92,8 +92,8 @@
 - type: entity
   id: ProjectilePolyboltPigTimed
   parent: ProjectilePolyboltBase
-  name: "свиня"
-  description: "Ні, я не хочу бути мавпою!"
+  name: свиня
+  description: Ні, я не хочу бути куркою!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardPig
@@ -104,8 +104,8 @@
 - type: entity
   id: ProjectilePolyboltHamsterTimed
   parent: ProjectilePolyboltBase
-  name: "омак"
-  description: "Ні, я не хочу бути мавпою!"
+  name: омак
+  description: Ні, я не хочу бути куркою!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardHamster
@@ -117,8 +117,8 @@
 - type: entity
   id: ProjectilePolyboltWizardCatTimed
   parent: ProjectilePolyboltBase
-  name: "кіт"
-  description: "Ні, я не хочу бути мавпою!"
+  name: кіт
+  description: Ні, я не хочу бути куркою!
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardCat
@@ -129,8 +129,8 @@
 
 - type: entity
   id: ProjectileIceBurst
-  name: "лід проломився"
-  description: "Бррррр."
+  name: ice burst
+  description: Brrrrr.
   parent: BaseBullet
   components:
   - type: Projectile
@@ -148,8 +148,8 @@
 - type:  entity
   parent: BaseBullet
   id: ProjectileMagicTesla
-  name: "магічна куля тесла"
-  description: "2 баджільйони вольт"
+  name: magic tesla ball
+  description: 2 bajillion volts
   components:
   - type: TimedDespawn
     lifetime: 5
@@ -176,7 +176,7 @@
     requirePower: false
 
 - type: entity
-  name: "болт зачарованого меча"
+  name: spellsword bolt
   id: SpellswordBolt
   parent: BaseBullet
   components:

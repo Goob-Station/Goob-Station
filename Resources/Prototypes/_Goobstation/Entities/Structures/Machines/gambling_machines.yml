@@ -1,9 +1,9 @@
 - type: entity
   id: BaseSlotMachine
   parent: BaseMachinePowered
-  name: "ігровий автомат"
+  name: slot machine
   abstract: true
-  description: "Азартні ігри для асоціалів."
+  description: Gambling for the antisocial.
   components:
   - type: StationAiWhitelist
   - type: AmbientOnPowered
@@ -93,8 +93,8 @@
 - type: entity
   id: SlotMachine
   parent: BaseSlotMachine
-  name: "ігровий автомат"
-  description: "Азартні ігри для асоціалів."
+  name: slot machine
+  description: Gambling for the antisocial.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/slotmachines/slotmachine.rsi
@@ -125,8 +125,8 @@
 - type: entity
   id: SlotMachineHighRoller
   parent: BaseSlotMachine
-  name: "особистий ігровий автомат квартирмейстера"
-  description: "Версія ігрового автомата для хайролерів: бере цілих 100 тис. за оберт, зате з нього можна виграти 1 МІЛЬЙОН!"
+  name: the QM's personal slot machine
+  description: A high roller version of the slot machine, takes a whopping 100k per spin, but you can win 1 MILLION from it!
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/slotmachines/slotmachinehighroller.rsi
@@ -169,8 +169,8 @@
 - type: entity
   id: CoinFlipper
   parent: BaseMachinePowered
-  name: "монетокид"
-  description: "Підкидання монети для асоціальних осіб."
+  name: coin flipper
+  description: Coinflipping for the antisocial.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/slotmachines/coinflipper.rsi
@@ -276,8 +276,8 @@
 - type: entity
   id: ClawMachine
   parent: BaseMachinePowered
-  name: "кран-машина"
-  description: "Звісно, нам урізали медичну страховку, і так, нам не платять за понаднормові у свята, але гей — безкоштовні кран-машини!"
+  name: claw machine
+  description: Sure we got our health insurance benefits cut, and yeah we don't get any overtime on holidays, but hey - free to play claw machines!
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/slotmachines/claw_machine.rsi

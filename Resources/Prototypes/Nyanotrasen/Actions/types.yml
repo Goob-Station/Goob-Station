@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEatMouse
-  name: "З'їсти мишу"
-  description: "З'їжте мишу у вашій руці, отримуючи поживні речовини та заряд шерсті."
+  name: Eat Mouse
+  description: Eat the mouse in your hand, gaining nutriment and a hairball charge.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHairball
-  name: "Викашляти клубок шерсті"
-  description: "Очистіть частину свого хімпотоку та отримайте крутий клубок шерсті, щоб кидати в людей."
+  name: Cough Up Hairball
+  description: Purge some of your chemstream, and gain a cool hairball to throw at people.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -4,8 +4,8 @@
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: Marlen
-  name: "марлен"
-  description: "Стильний витончений сувенір із міцної гіпер-тканої дуратканини від \"NanoFashion\". Виглядає дорого."
+  name: marlen
+  description: A stylish intricate souvenir made from tough hyper-woven durathread by "NanoFashion". Looks expensive.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
@@ -92,8 +92,8 @@
 - type: entity
   parent: VendingMachineCigs
   id: VendingMachineCigsDeluxe
-  name: "ShadyCigs Ultra Premium Pro DLC Deluxe"
-  description: "Якщо у вас немає такого вдома, ви не можете назвати себе курцем."
+  name: ShadyCigs Ultra Premium Pro DLC Deluxe
+  description: If you dont have one of these in your home, you cant call yourself a smoker.
   components:
   - type: Sprite
     noRot: true
@@ -122,8 +122,8 @@
 
 - type: entity
   id: SoapGold
-  name: "золоте мило"
-  description: "Нарешті ви підслизнули тисячу людей і розблокували нове золоте мило. Пахне віскі."
+  name: golden soap
+  description: Finally, you slipped 1000 people and unlocked a new golden soap. Smells like whiskey.
   parent: TrashBananaPeel # because you can eat the soaps for some reason idk
   components:
   - type: Sprite
@@ -143,8 +143,8 @@
 - type: entity
   parent: SoapGold
   id: SoapCentcomm
-  description: "Вони явно мають припинити пхати зелений колір усюди. Пахне мастилом."
-  name: "мило Центкому"
+  description: They clearly should stop with the green theme on everything man. Smells like lube.
+  name: centcomm soap
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/soap.rsi
@@ -152,8 +152,8 @@
 
 - type: entity
   id: WaterCoolerGold
-  name: "керівницький кулер з водою"
-  description: "На це пішли ваші податки..."
+  name: executive water cooler
+  description: Your taxes were spent on this...
   parent: WaterCooler
   suffix: full
   components:

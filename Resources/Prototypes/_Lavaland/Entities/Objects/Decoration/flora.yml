@@ -1,7 +1,7 @@
 - type: entity
-  name: "попелястий кущ"
+  name: dusty bush
   id: AshBush
-  description: "Кущ, вкритий попелом. Може здатися, що він мертвий, але насправді живий!"
+  description: A bush that is covered in ash. It may look like it's dead, but it's actually alive!
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/bush.rsi

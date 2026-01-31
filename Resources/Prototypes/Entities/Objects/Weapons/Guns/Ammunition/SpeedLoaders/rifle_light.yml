@@ -17,9 +17,9 @@
 
 - type: entity
   id: SpeedLoaderLightRifle
-  name: "обойма (.30 гвинтівковий)"
+  name: "speed loader (.30 rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
-  description: "5-зарядна \"обойма\" для швидкого перезаряджання Кардашев-Мосіна. Вміщує 5 патронів калібру .30."
+  description: 5-round 'stripper clip' for quickly reloading the Kardashev-Mosin. Holds 5 rounds of .30 rifle.
   components:
   - type: Tag
     tags:

@@ -10,7 +10,7 @@
 
 - type: entity
   save: false
-  name: "Уріст МакВульп"
+  name: Urist McVulp
   parent: BaseMobVulpkanin
   id: MobVulpkanin
   components:

@@ -88,10 +88,10 @@
 # TODO: Have a seperate lid state that can be popped on and off (not as a seperate item) that changes whether the vial can be spilled or not.
 
 - type: entity
-  name: "флакон"
+  name: vial
   parent: BaseItem
   id: BaseChemistryEmptyVial
-  description: "Маленький пухирець."
+  description: A small vial.
   components:
   - type: Tag
     tags:
@@ -198,8 +198,8 @@
 - type: entity
   parent: BaseItem
   id: BorgVial
-  name: "вбудована пробірка"
-  description: "Внутрішній відсік, встановлений у кіборга. Розрахований на 30 одиниць будь-якої рідини."
+  name: integrated vial
+  description: An internal compartment installed into a cyborg. Rated for 30 units of any liquid.
   components:
   # All this shit is here to avoid inheriting breakable, since borgs can't replace broken vials.
   - type: Sprite

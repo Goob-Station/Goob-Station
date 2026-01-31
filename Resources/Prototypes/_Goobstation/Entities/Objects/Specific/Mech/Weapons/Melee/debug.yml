@@ -7,9 +7,9 @@
 - type: entity
   id: WeaponMechDebugMelle
   parent: [ BaseMechWeaponMelee, DebugMechEquipment ] # Debug equipment does have all whitelist tags.
-  name: "налагодження бам"
+  name: debug bam
   suffix: Mech Weapon, DEBUG, Melee
-  description: "Міцна штука."
+  description: A robust thing.
   components:
   - type: Sprite
     state: paddy_claw

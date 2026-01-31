@@ -72,8 +72,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonOperative
-  name: "оперативна повітряна куля"
-  description: "При ближчому розгляді цей оперативник Синдикату насправді є повітряною кулькою."
+  name: operative balloon
+  description: Upon closer inspection, this Syndicate operative is actually a balloon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/operative_decoy.rsi
@@ -87,8 +87,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonAgent
-  name: "повітряна кулька санітара"
-  description: "При найближчому розгляді цей санітар Синдикату виявляється повітряною кулькою."
+  name: corpsman balloon
+  description: Upon closer inspection, this Syndicate corpsman is actually a balloon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/agent_decoy.rsi
@@ -102,8 +102,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonElite
-  name: "елітна оперативна повітряна куля"
-  description: "При ближчому розгляді цей елітний оперативник Синдикату виявляється насправді повітряною кулькою."
+  name: elite operative balloon
+  description: Upon closer inspection, this Syndicate elite operative is actually a balloon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/elite_decoy.rsi
@@ -119,8 +119,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonJuggernaut
-  name: "повітряна куля-джаггернаут"
-  description: "При ближчому розгляді, цей джаггернаут Синдикату насправді є повітряною кулею."
+  name: juggernaut balloon
+  description: Upon closer inspection, this Syndicate juggernaut is actually a balloon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/juggernaut_decoy.rsi
@@ -134,8 +134,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonCommander
-  name: "командирська куля"
-  description: "При ближчому розгляді цей командир Синдикату насправді є повітряною кулькою."
+  name: commander balloon
+  description: Upon closer inspection, this Syndicate commander is actually a balloon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/commander_decoy.rsi

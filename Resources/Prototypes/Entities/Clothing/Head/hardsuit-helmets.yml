@@ -132,8 +132,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitAtmos
-  name: "шолом атмосферного скафандра" # Goob edit
-  description: "Спеціальний шолом для скафандра, призначений для роботи в умовах низького тиску та високих температур." # Goob edit
+  name: atmospherics hardsuit helmet # Goob edit
+  description: A special hardsuit helmet designed for working in low-pressure and high-temperature environments. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/atmospherics.rsi
@@ -201,8 +201,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineering
-  name: "шолом інженерного скафандра" # Goob edit
-  description: "Інженерний шолом для скафандра, призначений для роботи в умовах низького тиску та високої радіації." # Goob edit
+  name: engineering hardsuit helmet # Goob edit
+  description: An engineering hardsuit helmet designed for working in low-pressure, highly radioactive environments. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/engineering.rsi
@@ -229,8 +229,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSpatio
-  name: "шолом скафандра спейсіонавта" # Goob edit
-  description: "Міцний шолом, призначений для складних промислових операцій у космосі." # Goob edit
+  name: spationaut hardsuit helmet # Goob edit
+  description: A sturdy helmet designed for complex industrial operations in space. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/spatiohelm.rsi
@@ -291,8 +291,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSalvage
-  name: "шолом скафандра утилізатора" # Goob edit
-  description: "Спеціальний шолом, призначений для роботи в небезпечному середовищі з низьким тиском. Має посилене покриття для зустрічей з дикою природою та подвійні прожектори." # Goob edit
+  name: salvage hardsuit helmet # Goob edit
+  description: A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating for wildlife encounters and dual floodlights. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/salvage.rsi
@@ -321,8 +321,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitGoliath
-  name: "шолом скафандра \"Голіаф" # Goob edit
-  description: "Міцний шолом для скафандра, посилений шкірою голіафа і моторошним, немиготливим оком, вирізаним з його маси." # Goob edit
+  name: goliath hardsuit helmet # Goob edit
+  description: A sturdy hardsuit helmet, infused with a goliath's hide and an eerie, unblinking eye cut from its mass. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/goliathhelm.rsi
@@ -384,8 +384,8 @@
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitMaxim
   categories: [ HideSpawnMenu ]
-  name: "шолом скафандра утилізатора Максима"
-  description: "Передчуття занепаду омиває ваш розум."
+  name: salvager maxim helmet
+  description: A predication of decay washes over your mind.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/maxim.rsi
@@ -413,8 +413,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSecurity
-  name: "шолом скафандра слуєби безпеки"
-  description: "Броньований шолом для потреб безпеки."
+  name: security hardsuit helmet
+  description: Armored hardsuit helmet for security needs.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/security.rsi
@@ -450,8 +450,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBrigmedic
-  name: "шолом скафандра бригмедика" # Goob edit
-  description: "Легкий шолом скафандра бригмедика. Захищає від вірусів та клоунів."
+  name: brigmedic hardsuit helmet # Goob edit
+  description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/brigmedic.rsi
@@ -478,8 +478,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitWarden
-  name: "шолом скафандра наглядача" # Goob edit
-  description: "Модифікований штурмовий шолом. Дивно зручний."
+  name: warden's hardsuit helmet # Goob edit
+  description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/security-warden.rsi
@@ -511,8 +511,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCap
-  name: "шолом космічного костюма капітана" # Goob edit
-  description: "Спеціальний шолом для космічного костюма, виготовлений для капітана станції." # Goob edit
+  name: captain's spacesuit helmet # Goob edit
+  description: Special spacesuit helmet, made for the captain of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/capspace.rsi
@@ -547,8 +547,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineeringWhite
-  name: "шолом скафандра головного інженера" # Goob edit
-  description: "Спеціальний шолом для скафандра, створений для головного інженера станції." # Goob edit
+  name: chief engineer's hardsuit helmet # Goob edit
+  description: Special hardsuit helmet, made for the chief engineer of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/engineering-white.rsi
@@ -580,8 +580,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitMedical
-  name: "шолом скафандра головного лікаря" # Goob edit
-  description: "Легкий медичний шолом для скафандра, що не обмежує рухів голови." # Goob edit
+  name: chief medical officer's hardsuit helmet # Goob edit
+  description: Lightweight medical hardsuit helmet that doesn't restrict your head movements. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/medical.rsi
@@ -605,8 +605,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitRd
-  name: "експериментальний дослідницький шолом скафандра" # Goob edit
-  description: "Легкий шолом для скафандра, що не обмежує рухів голови." # Goob edit
+  name: experimental research hardsuit helmet # Goob edit
+  description: Lightweight hardsuit helmet that doesn't restrict your head movements. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/rd.rsi
@@ -637,8 +637,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSecurityRed
-  name: "шолом скафандра голови служби безпеки" # Goob edit
-  description: "Шолом скафандра служби безпеки з новітнім надсекретним програмним забезпеченням NT-HUD. Належить ГСБ." # Goob edit
+  name: head of security's hardsuit helmet # Goob edit
+  description: Security hardsuit helmet with the latest top secret NT-HUD software. Belongs to the HoS. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/security-red.rsi
@@ -671,8 +671,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
-  name: "елітний шахтарський шолом скафандра" # Goob edit
-  description: "Відремонтований шахтарський шолом для скафандра, оснащений атласною підкладкою та додатковою (нефункціональною) антеною, тому що ви такий екстравагантний." # Goob edit
+  name: luxury mining hardsuit helmet # Goob edit
+  description: A refurbished mining hardsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra. # Goob edit
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -699,8 +699,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndie
-  name: "криваво-червоний шолом скафандра" # Goob edit
-  description: "Важкоброньований шолом, призначений для роботи в спеціальних операціях. Власність Gorlex Marauders."
+  name: blood-red hardsuit helmet # Goob edit
+  description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
@@ -737,8 +737,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitSyndie # Goob
   id: ClothingHeadHelmetHardsuitSyndieMedic
-  name: "криваво-червоний медичний шолом скафандра" # Goob edit
-  description: "Удосконалений червоний шолом для скафандра, спеціально розроблений для польових медичних операцій." # Goob edit
+  name: blood-red medic hardsuit helmet # Goob edit
+  description: An advanced red hardsuit helmet specifically designed for field medic operations. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
@@ -749,8 +749,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieElite
-  name: "елітний шолом скафандра синдикату" # Goob edit
-  description: "Елітна версія криваво-червоного шолома для скафандра з покращеною бронею та вогнестійкістю. Власність Gorlex Marauders." # Goob edit
+  name: syndicate elite hardsuit helmet # Goob edit
+  description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
@@ -792,8 +792,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieCommander
-  name: "шолом скафандра командира синдикату" # Goob edit
-  description: "Збільшена версія криваво-червоного шолома для скафандра, спеціально створена для командира оперативного загону синдикату. Має значно покращену броню для смертельних перестрілок на передовій." # Goob edit
+  name: syndicate hardsuit helmet # Goob edit
+  description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
@@ -830,8 +830,8 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitCybersun
-  name: "шолом джаггернаута cybersun"
-  description: "Цей шолом, виготовлений зі спресованої червоної матерії, був розроблений у хромосферній установці Tau."
+  name: cybersun juggernaut helmet
+  description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/cybersun.rsi
@@ -866,8 +866,8 @@
 - type: entity
   parent: [ClothingHeadHardsuitWithLightBase, ClothingHeadHatWizardBaseArmor] # Goob edit
   id: ClothingHeadHelmetHardsuitWizard
-  name: "шолом чаклунського скафандра" # Goob edit
-  description: "Дивний, інкрустований дорогоцінним камінням шолом, що випромінює магічну енергію."
+  name: wizard hardsuit helmet # Goob edit
+  description: A bizarre gem-encrusted helmet that radiates magical energies.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/wizard.rsi
@@ -907,8 +907,8 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitLing
-  name: "органічний космічний шолом"
-  description: "Космічна біомаса зі стійкої до тиску та температури тканини."
+  name: organic space helmet
+  description: A spaceworthy biomass of pressure and temperature resistant tissue.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/lingspacehelmet.rsi
@@ -926,9 +926,9 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitPirateEVA
-  name: "шолом EVA для глибокого космосу"
+  name: deep space EVA helmet
   suffix: Pirate
-  description: "Шолом EVA для глибокого космосу, дуже важкий, але забезпечує хороший захист."
+  description: A deep space EVA helmet, very heavy but provides good protection.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/pirateeva.rsi
@@ -950,9 +950,9 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitPirateCap
-  name: "шолом скафандра капітана піратів" # Goob edit
+  name: pirate captain's hardsuit helmet # Goob edit
   suffix: Pirate
-  description: "Спеціальний шолом для скафандра, створений для капітана піратського корабля." # Goob edit
+  description: A special hardsuit helmet, made for the captain of a pirate ship. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/piratecaptainhelm.rsi
@@ -999,8 +999,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieCommander ]
   id: ClothingHeadHelmetHardsuitERTLeader
-  name: "шолом скафандра лідера КОШ" # Goob edit
-  description: "Спеціальний шолом для скафандра, який носять члени команди оперативного швидкого реагування." # Goob edit
+  name: ERT leader hardsuit helmet # Goob edit
+  description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
@@ -1013,8 +1013,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTChaplain
-  name: "шолом скафандра капелана КШР" # Goob edit
-  description: "Спеціальний шолом для скафандра, який носять члени команди оперативного швидкого реагування." # Goob edit
+  name: ERT chaplain hardsuit helmet # Goob edit
+  description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertchaplain.rsi
@@ -1027,8 +1027,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTEngineer
-  name: "шолом скафандра інженера КОШ" # Goob edit
-  description: "Спеціальний шолом для скафандра, який носять члени команди оперативного швидкого реагування." # Goob edit
+  name: ERT engineer hardsuit helmet # Goob edit
+  description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
@@ -1042,8 +1042,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieElite ]
   id: ClothingHeadHelmetHardsuitERTMedical
-  name: "шолом скафандра медика КОШ" # Goob edit
-  description: "Спеціальний шолом для скафандра, який носять члени команди оперативного швидкого реагування." # Goob edit
+  name: ERT medic hardsuit helmet # Goob edit
+  description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
@@ -1056,8 +1056,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTSecurity
-  name: "шолом скафандра офіцера безпеки КОШ" # Goob edit
-  description: "Спеціальний шолом для скафандра, який носять члени команди оперативного швидкого реагування." # Goob edit
+  name: ERT security hardsuit helmet # Goob edit
+  description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
@@ -1070,8 +1070,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTJanitor
-  name: "шолом скафандра прибиральника КОШ" # Goob edit
-  description: "Спеціальний шолом для скафандра, який носять члени команди оперативного швидкого реагування." # Goob edit
+  name: ERT janitor hardsuit helmet # Goob edit
+  description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
@@ -1084,8 +1084,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetCBURN
-  name: "шолом екзокостюму CBURN"
-  description: "Стійкий до тиску та вогнетривкий капюшон, який одягається спеціальними прибиральними машинами."
+  name: CBURN exosuit helmet
+  description: A pressure resistant and fireproof hood worn by special cleanup units.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/cburn.rsi
@@ -1131,8 +1131,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitDeathsquad
-  name: "шолом скафандра ескадрону смерті" # Goob edit
-  description: "Міцний шолом для спеціальних операцій."
+  name: deathsquad hardsuit helmet # Goob edit
+  description: A robust helmet for special operations.
   components:
   - type: BreathMask
   - type: Sprite
@@ -1184,8 +1184,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitSecurity
   id: ClothingHeadHelmetHardsuitClown
-  name: "шолом клоунського скафандра" # Goob edit
-  description: "Шолом клоунського скафандра." # Goob edit
+  name: clown hardsuit helmet # Goob edit
+  description: A clown hardsuit helmet. # Goob edit
   components:
   - type: BreathMask
   - type: Sprite
@@ -1212,8 +1212,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitSecurity
   id: ClothingHeadHelmetHardsuitMime
-  name: "шолом скафандра міма" # Goob edit
-  description: "Шолом скафандра міма." # Goob edit
+  name: mime hardsuit helmet # Goob edit
+  description: A mime hardsuit helmet. # Goob edit
   components:
   - type: BreathMask
   - type: Sprite
@@ -1238,8 +1238,8 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitSanta
-  name: "шолом скафандра Санти" # Goob edit
-  description: "Святковий на вигляд шолом для скафандра, що забезпечує веселому дарувальнику подарунків захист від середовища з низьким тиском." # Goob edit
+  name: Santa's hardsuit helmet # Goob edit
+  description: A festive-looking hardsuit helmet that provides the jolly gift-giver protection from low-pressure environments. # Goob edit
   components:
   - type: BreathMask
   - type: Sprite

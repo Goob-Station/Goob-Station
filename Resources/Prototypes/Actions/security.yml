@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleKnuckleDustersStun
-  name: "Перемкнути оглушення кастета"
-  description: "Перемикає вбудований у кастет електрошокер."
+  name: Toggle stun knuckle dusters
+  description: Toggles the duster's built in stun baton.
   components:
   - type: InstantAction
     event: !type:ToggleActionEvent

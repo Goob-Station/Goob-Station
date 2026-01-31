@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsStandard
-  name: "стандартні рукавиці модкостюма"
-  description: "Спеціальні рукавиці модульного костюма, що захищають власника від ураження електричним струмом."
+  name: standard modsuit gauntlets
+  description: Special modular suit gloves that protect wearer from electric shock.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -72,8 +72,8 @@
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsSecurity
-  name: "рукавиці мод-костюма \"Солдат"
-  description: "Міцні модульні рукавиці для міцного утримання злочинців та зброї."
+  name: soldat modsuit gauntlets
+  description: Robust modular suit gloves for gripping perps and guns tight.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -109,8 +109,8 @@
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsParamedic
-  name: "рукавиці мод-костюма \"Санітар"
-  description: "Чорно-білі модульні рукавиці для міцного утримання наркотиків та пацієнтів."
+  name: sanitater modsuit gauntlets
+  description: Black and white modular suit gloves for gripping percs and patients tight.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -153,8 +153,8 @@
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsHeadOfSecurity
-  name: "рукавиці мод-костюма \"Бастіон"
-  description: "Міцні модульні рукавиці для міцного утримання злочинців та зброї. Ізольовані."
+  name: bulwark modsuit gauntlets
+  description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -199,8 +199,8 @@
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsEngineer
-  name: "рукавиці мод-костюма \"Сапер"
-  description: "Забруднені мастилом модульні рукавиці для легкого натискання кнопок на RCD."
+  name: sapper modsuit gauntlets
+  description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -247,8 +247,8 @@
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsAtmostech
-  name: "рукавиці мод-костюма \"Еол"
-  description: "Азбестові модульні рукавиці для легкого натискання кнопок на RPD."
+  name: aeolus modsuit gauntlets
+  description: Asbestos-lined modular suit gloves for easily pushing buttons on an RPD.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -296,8 +296,8 @@
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsResearchDirector
-  name: "рукавиці мод-костюма \"Мінерва"
-  description: "Щоб зберегти ваші пальці в кількості 10 штук після того, як артефакт вибухне термоядерним зарядом."
+  name: minerva modsuit gauntlets
+  description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -342,8 +342,8 @@
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsCaptain
-  name: "рукавиці мод-костюма \"Магнат"
-  description: "Має спеціалізовані пази та вирізи для легшого утримання того клятого диска."
+  name: magnate modsuit gauntlets
+  description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

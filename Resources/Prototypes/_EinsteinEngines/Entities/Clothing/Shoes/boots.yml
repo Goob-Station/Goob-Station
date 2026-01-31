@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsMantis
-  name: "черевики мантіса"
-  description: "М'які, зручні та добре підходять для пересіченої місцевості."
+  name: mantis' boots
+  description: Soft, comfortable, and good for rough terrain.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Shoes/Boots/mantis_boots.rsi

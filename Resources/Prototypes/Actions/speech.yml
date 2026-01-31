@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseAction
   id: ActionConfigureMeleeSpeech
-  name: "Встановити Battlecry"
-  description: "Встановіть власний бойовий клич, коли ви атакуєте!"
+  name: Set Battlecry
+  description: Set a custom battlecry for when you attack!
   components:
   - type: Action
     itemIconStyle: BigItem

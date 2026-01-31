@@ -61,10 +61,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "BaseWeaponRevolver"
+  name: BaseWeaponRevolver
   parent: BaseItem
   id: BaseWeaponRevolver
-  description: "Корінцевий зубастий і пагонистий."
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -135,10 +135,10 @@
   # Goobstation edit end
 
 - type: entity
-  name: "Декард"
+  name: Deckard
   parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
   id: WeaponRevolverDeckard
-  description: "Прекрасно виготовлений, створений на замовлення револьвер. Використовується, коли немає часу на тест Войта-Кампфа. Заряджається 5 патронами .45 magnum."
+  description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
@@ -163,10 +163,10 @@
     price: 1500
 
 - type: entity
-  name: "Інспектор"
+  name: Inspector
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
   id: WeaponRevolverInspector
-  description: "Револьвер одинарної дії, відлитий із холодної плазмосталі. Популярний серед цивільних, приватних детективів і правоохоронців — ви відчуваєте себе щасливчиком, просто тримаючи його. Вміщує 6 набоїв .45 Magnum." # Goobstation
+  description: A single-action revolver cast of cold plasma-steel. Popular among civilians, private investigators and law enforcement alike, you feel lucky just holding it. Loads 6 rounds of .45 Magnum. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
@@ -178,10 +178,10 @@
     ammoSlots: [ null, null, null, null, null, null ]
 
 - type: entity
-  name: "Матеба"
+  name: Mateba
   parent: [BaseWeaponRevolver, BaseCentcommContraband]
   id: WeaponRevolverMateba
-  description: "Рідкісний і прекрасний напівавтоматичний револьвер. Надається лише еліті NanoTrasen; Матеба має унікальну конструкцію ствола, що значно зменшує підкидання. Багато хто дивився в ствол цієї зброї, і ще менше вижили, щоб розповісти цю історію. Вміщує 6 набоїв .45 Magnum." # Goobstation
+  description: A rare and beautiful semi-automatic revolver. Provided only to the Nanotrasen elite, the Mateba sports a unique barrel design that greatly reduces muzzle flip. Many have stared down the barrel of this gun, and even fewer have lived to tell the tale. Loads 6 rounds of .45 Magnum. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
@@ -214,10 +214,10 @@
     proto: CartridgeMagnumAP
 
 - type: entity
-  name: "Пайтон"
+  name: Python
   parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponRevolverPython
-  description: "Потужний револьвер подвійної дії, створений корпорацією Waffle. Гучний і ефектний — ідеальний для будь-якого агента, який хоче заявити про себе. Вміщує 6 набоїв .45 Magnum." # Goobstation
+  description: A powerful double-action revolver designed by the Waffle Corporation. Loud and flashy, and perfect for any agent looking to make a statement. Loads 6 rounds of .45 magnum. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
@@ -249,10 +249,10 @@
 
 
 - type: entity
-  name: "піратський револьвер"
+  name: pirate revolver
   parent: [BaseWeaponRevolver, BaseMajorContraband]
   id: WeaponRevolverPirate
-  description: "Грубий револьвер одинарної дії, зроблений власноруч космічним піратом. Старий і вкритий іржею, він якимось дивом досі працює. Заряджається 5 патронами .45 magnum."
+  description: A crude single-action revolver handmade by a space pirate. Old and covered in rust, it somehow still works. Loads 5 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi

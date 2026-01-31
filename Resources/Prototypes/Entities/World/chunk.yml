@@ -11,8 +11,10 @@
 - type: entity
   id: WorldChunk
   parent: MarkerBase
-  name: "фрагмент світу"
-  description: "Нечемно витріщатися.\nТакож трохи дивно, що ви дивитеся на абстрактне представлення сітки реальності.\n"
+  name: world chunk
+  description: |
+    It's rude to stare.
+    It's also a bit odd you're looking at the abstract representation of the grid of reality.
   categories: [ HideSpawnMenu ]
   components:
     - type: WorldChunk

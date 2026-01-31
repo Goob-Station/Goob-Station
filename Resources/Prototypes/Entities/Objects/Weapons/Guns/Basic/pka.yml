@@ -27,10 +27,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "прото-кінетичний прискорювач"
+  name: proto-kinetic accelerator
   id: WeaponProtoKineticAccelerator
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
-  description: "Стріляє кінетичними снарядами високої шкоди на короткій відстані."
+  description: Fires high-damage kinetic bolts at a short range.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi

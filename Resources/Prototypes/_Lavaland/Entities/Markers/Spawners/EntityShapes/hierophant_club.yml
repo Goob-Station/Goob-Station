@@ -2,7 +2,7 @@
 - type: entity
   parent: MarkerBase
   id: HierophantClubShapeExpandingBox
-  name: "спавнер атаки ієрофанта: розширюваний квадрат"
+  name: hierophant attack box expanding spawner
   suffix: Hierophant club
   categories: [ HideSpawnMenu, Spawner ]
   components:
@@ -22,7 +22,7 @@
 - type: entity
   parent: MarkerBase
   id: HierophantClubShapeRandomCross
-  name: "спавнер атаки ієрофанта: послідовність хрестів"
+  name: hierophant attack cross sequence spawner
   suffix: Hierophant club
   categories: [ HideSpawnMenu, Spawner ]
   components:
