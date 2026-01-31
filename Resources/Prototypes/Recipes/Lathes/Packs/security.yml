@@ -28,7 +28,7 @@
   id: SecurityPracticeStatic
   recipes:
   - BoxShotgunPractice
-  # - MagazineBoxLightRiflePractice # Goobstation - remove light rifle
+  - MagazineBoxLightRiflePractice 
   - MagazineBoxMagnumPractice
   - MagazineBoxPistolPractice
   - MagazineBoxRiflePractice
@@ -47,7 +47,7 @@
   recipes:
   - BoxLethalshot
   - BoxShotgunSlug
-  # - MagazineBoxLightRifle # Goobstation - remove light rifle
+  - MagazineBoxLightRifle 
   - MagazineBoxMagnum
   - MagazineBoxPistol
   - MagazineBoxRifle
@@ -67,6 +67,8 @@
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
   - ShrapnelPayload
+  - MagazineM1Garand
+  - MagazineM1GarandEmpty
 
 - type: latheRecipePack
   id: SecurityWeaponsStatic
@@ -116,8 +118,8 @@
   - BoxShotgunIncendiary
   - BoxShotgunUranium
   - BoxShellTranquilizer
-  # - MagazineBoxLightRifleIncendiary # Goobstation - remove light rifle
-  # - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
+  - MagazineBoxLightRifleIncendiary # Goobstation - remove light rifle
+  - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
   - MagazineBoxMagnumIncendiary
   - MagazineBoxMagnumUranium
   - MagazineBoxPistolIncendiary

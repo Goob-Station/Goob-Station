@@ -160,6 +160,20 @@
     Plastic: 600
     Uranium: 600
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineM1GarandEmpty
+  result: MagazineM1GarandEmpty
+  materials:
+    Steel: 25   
+    
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineM1Garand
+  result: MagazineM1Garand
+  materials:
+    Steel: 200    
+
 # .35 Auto
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
