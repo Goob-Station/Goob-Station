@@ -1133,6 +1133,9 @@
 
 - type: Tag
   id: MagazineGrenade
+  
+- type: Tag
+  id: MagazineM1Garand # Goob
 
 # Magazines end
 
