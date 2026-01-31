@@ -341,6 +341,17 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkM90
+  name: uplink-m90-name
+  description: uplink-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: WeaponRifleM90
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkSyndicateDisabler
   name: uplink-syndicate-disabler-name
   description: uplink-syndicate-disabler-desc
@@ -1232,6 +1243,16 @@
   productEntity: MagazineShotgunHeavySlug
   cost:
     Telecrystal: 40
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkM90Ammo
+  name: uplink-m90-ammo-name
+  description: uplink-m90-ammo-desc
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 5
   categories:
   - UplinkAmmo
 
