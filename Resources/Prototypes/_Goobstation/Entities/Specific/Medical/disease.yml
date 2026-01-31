@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseItem
   id: LiveInjector
   name: live injector
@@ -21,3 +21,14 @@
           True: { state: livepen_empty }
           False: { state: livepen }
   # </Goobstation>
+
+- type: entity
+  parent: LiveInjector
+  id: FilledRandomLiveInjector
+  name: filled live injector
+  description: This has been filled with random disease. Use with caution!
+  components:
+  - type: GrantDisease
+    baseDisease: DiseaseBase
+
+    
