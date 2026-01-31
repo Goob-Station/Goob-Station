@@ -8,7 +8,7 @@
       slotGroup: SecondHotbar
       stripTime: 6
       uiWindowPos: 2,1
-      strippingWindowPos: 2,4
+      strippingWindowPos: 1,0
       displayName: ID
     - name: suitstorage
       slotTexture: suit_storage
@@ -16,7 +16,7 @@
       slotGroup: SecondHotbar
       stripTime: 3
       uiWindowPos: 2,0
-      strippingWindowPos: 2,5
+      strippingWindowPos: 1,1
       displayName: Suit Storage
       whitelist:
         components:

@@ -8,20 +8,6 @@ namespace Content.Goobstation.Shared.Vehicles;
 public sealed partial class VehicleEnvironmentComponent : Component, IGasMixtureHolder
 {
     /// <summary>
-    ///     If true, provides external barotrauma immunity to driver.
-    ///     (TO DO: Implement proper pressure modifiers)
-    /// </summary>
-    [DataField]
-    public bool BarotraumaImmunity = true;
-
-    /// <summary>
-    ///     If true, provides external temperature immunity to vehicle environment.
-    ///     (TO DO: Implement proper temperature coefficients)
-    /// </summary>
-    [DataField]
-    public bool TemperatureImmunity = true;
-
-    /// <summary>
     ///     If false, vehicle will generate an infinite (specified) gas environment to its driver.
     /// </summary>
     [DataField]
@@ -37,7 +23,6 @@ public sealed partial class VehicleEnvironmentComponent : Component, IGasMixture
     /// <summary>
     ///     If RequireTank field is false, the volume of gas initilised in the vehicle.
     /// </summary>
-    [DataField]
     public const float GasMixVolume = 70f;
 
     /// <summary>

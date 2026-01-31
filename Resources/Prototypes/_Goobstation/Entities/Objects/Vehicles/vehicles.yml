@@ -455,19 +455,20 @@
     engineRunning: true
     renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
   - type: MovementSpeedModifier
-    acceleration: 1
-    friction: 1
+    baseAcceleration: 1
+    baseFriction: 0.1 # Very slippery
     baseWalkSpeed: 4.5
-    baseSprintSpeed: 10
+    baseSprintSpeed: 6.5
   - type: StaticPrice
     price: 100
   - type: PhysicalComposition
-    materialComposition:
-      Plastic: 125
+    materialComposition: # Returns about half the used construction materials
+      Plastic: 100
+      Glass: 200
+      Steel: 100
   - type: Strap
-    buckleOnInteractHand: true
-    addBuckleverb: true
-    allowOthersToUnbuckle: false
+    buckleOnInteractHand: false
+    selfUnBuckleDelay: 2
     whitelist:
       tags:
         - VimPilot  # Small creatures only
@@ -483,13 +484,23 @@
       suitstorage:
         sizeMaps:
           32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: suitstorage
+            sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+            state: equipped-SUITSTORAGE
+      id:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+            state: equipped-IDCARD
   - type: Construction
     graph: CritterBallGraph
     node: end
   - type: VehicleEnvironment
     requireTank: true
+  - type: Item
+    sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+    size: Large
+    shape:
+    - 0,0,2,2
 
 - type: entity
   parent: BaseItem
