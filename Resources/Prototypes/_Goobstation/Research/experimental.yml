@@ -93,6 +93,7 @@
   cost: 7500
   recipeUnlocks:
   - ExperimentalCircuitBoard
+  - NTCustomLawboard
   position: -4,0
   technologyPrerequisites:
   - AdvancedAnomalyResearch
@@ -121,7 +122,7 @@
   discipline: Experimental
   tier: 2
   cost: 10000
-  recipeUnlocks: 
+  recipeUnlocks:
   - ClothingBeltChemBagXenobiologyHolding
   position: -4,3
   technologyPrerequisites:
