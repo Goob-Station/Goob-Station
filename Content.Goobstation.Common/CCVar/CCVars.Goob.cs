@@ -672,7 +672,8 @@ public sealed partial class GoobCVars
     /// Enables or disables contraband icons.
     /// </summary>
     public static readonly CVarDef<bool> ContrabandIconsEnabled =
-        CVarDef.Create("contraband.icons_enabled", false, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("contraband.icons_enabled", true, CVar.SERVER | CVar.REPLICATED);
+   #endregion
 
     /// <summary>
     /// Controls how often GPS updates.

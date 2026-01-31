@@ -1800,6 +1800,7 @@
     hasPainScreams: false
     threshold: 70
     cap: 140
+  - type: VisibleContraband #Goobstation
   - type: DiseaseCarrier # Goobstation
 
 - type: entity
