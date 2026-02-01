@@ -124,6 +124,7 @@ using Content.Shared.Popups;
 using Content.Shared.StatusIcon;
 using Content.Shared.Storage.Components;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Tag;
 using Content.Shared._White.Xenomorphs.Infection;
 using Robust.Server.GameObjects;
@@ -499,9 +500,14 @@ namespace Content.Server.Ghost
         #region DOWNSTREAM-TPirates: ghost follow menu update
         // Matches ShowJobIconsSystem (job/status icon HUD): default to JobIconNoId when no ID/PDA found.
         private static readonly ProtoId<JobIconPrototype> JobIconNoId = "JobIconNoId";
+        private static readonly ProtoId<JobIconPrototype> JobIconBorg = "JobIconBorg";
 
         private string GetJobIconFor(EntityUid uid)
         {
+            // Borgs and AI don't carry ID/PDA; use shared silicon icon for ghost menu.
+            if (HasComp<BorgChassisComponent>(uid) || HasComp<StationAiHeldComponent>(uid) || HasComp<StationAiOverlayComponent>(uid))
+                return JobIconBorg.Id;
+
             var iconId = JobIconNoId;
             if (_accessReader.FindAccessItemsInventory(uid, out var items))
             {
@@ -523,7 +529,7 @@ namespace Content.Server.Ghost
         }
 
         /// <summary>
-        /// Gets job title from an entity's ID card or PDA (inventory). SS13 get_living_data uses id_card?.get_trim_assignment();
+        /// Gets job title from an entity's ID card or PDA (inventory).
         /// used for dead entities so profession persists after mind leaves (respawn).
         /// </summary>
         private string GetJobTitleFromEntity(EntityUid uid)
@@ -541,7 +547,7 @@ namespace Content.Server.Ghost
         }
 
         /// <summary>
-        /// Gets department prototype ID from an entity's ID card (for department-based chip color). SS13 orbit uses job department.
+        /// Gets department prototype ID from an entity's ID card (for department-based chip color).
         /// </summary>
         private string GetDepartmentIdFromEntity(EntityUid uid)
         {
@@ -624,9 +630,8 @@ namespace Content.Server.Ghost
         }
 
         /// <summary>
-        /// All dead mobs for the "Dead" section. SS13 orbit category: mob_poi.stat == DEAD (before mind check).
-        /// Job/icon from entity's ID card (like SS13 get_living_data: id_card for job/icon) so profession persists
-        /// after respawn when mind leaves the corpse.
+        /// All dead mobs for the "Dead" section.
+        /// Job/icon from entity's ID card so profession persists after respawn when mind leaves the corpse.
         /// </summary>
         private IEnumerable<GhostWarp> GetDeadPlayerWarps(EntityUid except)
         {
@@ -664,7 +669,7 @@ namespace Content.Server.Ghost
         }
 
         /// <summary>
-        /// Other ghost entities for the "Ghosts" section. SS13 orbit category.
+        /// Other ghost entities for the "Ghosts" section.
         /// </summary>
         private IEnumerable<GhostWarp> GetGhostWarps(EntityUid except)
         {
@@ -683,12 +688,12 @@ namespace Content.Server.Ghost
         }
 
         /// <summary>
-        /// Living mobs without a mind (NPCs) for the "Mobs" section. SS13 orbit category: isnull(mind) after dead check.
-        /// Dead mindless mobs are in "Dead" in SS13, so we exclude dead here.
+        /// Living mobs without a mind (NPCs) for the "Mobs" section.
+        /// Dead mindless mobs are in "Dead", so we exclude dead here.
         /// </summary>
         private IEnumerable<GhostWarp> GetMobWarps()
         {
-            const int maxNpcs = 100;
+            var maxNpcs = _configurationManager.GetCVar(CCVars.GhostWarpMaxMobs);
             var count = 0;
             var query = AllEntityQuery<MobStateComponent, MetaDataComponent>();
             while (query.MoveNext(out var uid, out var mobState, out var meta) && count < maxNpcs)

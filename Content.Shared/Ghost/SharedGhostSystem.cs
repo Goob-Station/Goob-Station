@@ -271,7 +271,7 @@ namespace Content.Shared.Ghost
         public GhostWarpHealthState HealthState { get; }
 
         /// <summary>
-        /// Department prototype ID for department-based chip color (SS13 orbit style). Empty when unknown.
+        /// Department prototype ID for department-based chip color. Empty when unknown.
         /// When set, client uses <see cref="Content.Shared.Roles.DepartmentPrototype.Color"/>; language-independent.
         /// </summary>
         public string DepartmentId { get; }
