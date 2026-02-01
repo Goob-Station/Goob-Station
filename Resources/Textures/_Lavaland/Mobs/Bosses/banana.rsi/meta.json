@@ -14,6 +14,15 @@
     {
         "name": "phase2",
         "directions": 4
+    },
+    {
+      "name": "drinking",
+      "delays": [
+        [
+          4.0,
+          2.0
+        ]
+      ]
     }
   ]
 }

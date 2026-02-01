@@ -1,0 +1,99 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterBananaDress
+  name: flowery dress
+  description: Oni are meant to be hunted, I suppose...
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Clothing/OuterClothing/Robes/flower_dress.rsi
+  - type: Clothing
+    sprite: _Lavaland/Clothing/OuterClothing/Robes/flower_dress.rsi
+  - type: Item
+    size: Normal
+  - type: GroupExamine
+  - type: StaticPrice
+    price: 3000
+
+- type: entity
+  parent: [ClothingHandsBase, BaseMinorContraband]
+  id: ClothingHandsBananaClaws
+  name: cursed hands
+  description: The curses of a powerful oni. These go on your hands.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Clothing/Hands/curses.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Lavaland/Clothing/Hands/curses.rsi
+  - type: Insulated
+  - type: MeleeWeapon
+    attackRate: 2 # slower attack speed
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 7 # Same damage as kinetic claws
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    range: 1.1
+    mustBeEquippedToUse: true
+    heavyStaminaCost: 4
+  - type: Sharp
+  - type: Prying
+  - type: UseDelay
+    delay: 1
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Tool
+    qualities:
+    - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Scalpel
+    speed: 0.3
+  - type: StaticPrice
+    price: 3000
+
+- type: entity
+  parent: [ClothingShoesBase, BaseMinorContraband]
+  id: ClothingShoesBananaClaws
+  name: cursed claws
+  description: The curses of a powerful oni. These go on your feet.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Clothing/Shoes/Specific/curses.rsi
+  - type: Clothing
+    sprite: _Lavaland/Clothing/Shoes/Specific/curses.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.8 # Not much
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1 # Small boost in return for contra
+  - type: StaticPrice
+    price: 3000
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltBananaRope
+  name: Obi belt
+  description: Ropes intertwined together in the shape of a butterfly.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Clothing/Belt/oni.rsi
+  - type: Clothing
+    sprite: _Lavaland/Clothing/Belt/oni.rsi
+  - type: StaticPrice
+    price: 3000
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBananaBelt
+  name: zukin
+  description: Traditional cloth hood proving your worth as a hunter of oni.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Clothing/Head/Misc/oni.rsi
+  - type: Clothing
+    sprite: _Lavaland/Clothing/Head/Misc/oni.rsi
+  - type: StaticPrice
+    price: 3000

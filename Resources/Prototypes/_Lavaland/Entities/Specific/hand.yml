@@ -62,24 +62,25 @@
     spiralMaxSpeed: 10
     deleteOnEnd: true
 
-- type: entity
-  id: BananaSpawnArea # For some reason the first object to get spawned doesn't render so I'm doing this for now.
-  components:
-  - type: InteractionOutline
-  - type: Sprite
-    sprite: _Lavaland/Effects/32x32.rsi
-    state: oni-marker
-    drawdepth: Effects
-    noRot: true
-  - type: TimedDespawn
-    lifetime: 1.1
-  - type: Timer
-  - type: TimedSpawner
-    prototypes:
-      - BananaSpawnIndicator
-    intervalSeconds: 1
-    minimumEntitiesSpawned: 1
-    maximumEntitiesSpawned: 1
+# Fuck it
+#- type: entity 
+#  id: BananaSpawnArea # For some reason the first object to get spawned doesn't render so I'm doing this for now.
+#  components:
+#  - type: InteractionOutline
+#  - type: Sprite
+#    sprite: _Lavaland/Effects/32x32.rsi
+#    state: oni-marker
+#    drawdepth: Effects
+#    noRot: true
+#  - type: TimedDespawn
+#    lifetime: 1.1
+#  - type: Timer
+#  - type: TimedSpawner
+#    prototypes:
+#      - BananaSpawnIndicator
+#    intervalSeconds: 1
+#    minimumEntitiesSpawned: 1
+#    maximumEntitiesSpawned: 1
 
 - type: entity
   id: BananaSpawnIndicator

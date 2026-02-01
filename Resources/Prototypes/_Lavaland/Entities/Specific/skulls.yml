@@ -1,7 +1,7 @@
 - type: entity
   id: BananaSmallSkull
   name: Oni skull
-  description: It looks like it is laughing at you...
+  description: It looks like they are laughing at you...
   components:
   - type: InteractionOutline
   - type: Sprite

@@ -74,7 +74,7 @@
     - !type:ActionAvailableCondition
       actionId: ActionRingOfFireClose
     - !type:MegafaunaPhaseCondition
-      phases: [2, 3]
+      phases: [3, 4]
 
 - type: megafaunaSelector
   id: ActionFlamingSlashSelector
@@ -87,7 +87,7 @@
     - !type:ActionAvailableCondition
       actionId: ActionFlamingSlash
     - !type:MegafaunaPhaseCondition
-      phases: [2, 3]
+      phases: [3, 4]
 
 - type: megafaunaSelector
   id: ActionClawSlashSelector
@@ -100,7 +100,7 @@
     - !type:ActionAvailableCondition
       actionId: ActionClawSlash
     - !type:MegafaunaPhaseCondition
-      phases: [1]
+      phases: [1, 2]
 
 - type: megafaunaSelector
   id: ActionFlurryOfSlashesSelector
@@ -113,4 +113,4 @@
     - !type:ActionAvailableCondition
       actionId: ActionFlurryOfSlashes
     - !type:MegafaunaPhaseCondition
-      phases: [3]
+      phases: [4]

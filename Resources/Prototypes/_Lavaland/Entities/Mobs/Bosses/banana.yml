@@ -32,7 +32,7 @@
     drawdepth: Mobs
     sprite:  /Textures/_Lavaland/Mobs/Bosses/banana.rsi
     noRot: true
-    state: childish-oni
+    state: drinking
   - type: Clickable
   - type: InteractionOutline
   - type: LagCompensation
@@ -67,7 +67,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      2400: Dead
+      2600: Dead
   - type: Tag
     tags:
     - CannotSuicide
@@ -83,32 +83,43 @@
     - ActionFlurryOfSlashes
   - type: Fauna
   - type: Anger
-    totalHp: 2400
+    totalHp: 2600
   - type: Aggressive
     forgiveRange: 25
   - type: MobPhases
     phaseThresholds:
       0:    1
-      700: 2
-      1500: 3
+      1:    2
+      700:  3
+      1600: 4
   - type: MobPhaseSprite
     phases:
       2:
         rsi: /Textures/_Lavaland/Mobs/Bosses/banana.rsi
         changeSprite: true
-        state: phase2
+        state: childish-oni
         layer: 0
       3:
+        rsi: /Textures/_Lavaland/Mobs/Bosses/banana.rsi
+        changeSprite: true
+        state: phase2
+        layer: 0
+      4:
         rsi: /Textures/_Lavaland/Mobs/Bosses/banana3.rsi
         changeSprite: true
         state: phase3
         layer: 0
   - type: BossMusic
     soundId: ChildishOni
-  - type: SpawnLootOnDeath
+  - type: SpawnLootOnDeath # Future - make this have weights instead of drop all
     table: !type:AllSelector
       children:
       - id: BananaBoneSword
+      - id: ClothingOuterBananaDress
+      - id: ClothingHandsBananaClaws
+      - id: ClothingShoesBananaClaws
+      - id: ClothingBeltBananaRope
+      - id: ClothingHeadBananaBelt
     deleteOnDeath: true
   - type: MegafaunaAi
     actionDelay: 0.5
@@ -149,6 +160,16 @@
     phases:
       1:
         speech:
+          - oni-idle-1
+          - oni-idle-2
+          - oni-idle-3
+          - oni-idle-4
+          - oni-idle-5
+          - oni-idle-6
+          - oni-idle-7
+      2:
+        speechOnPhaseChange: oni-change-1
+        speech:
           - oni-taunt-1
           - oni-taunt-2
           - oni-taunt-3
@@ -157,7 +178,7 @@
           - oni-taunt-6
           - oni-taunt-7
           - oni-taunt-8
-      2:
+      3:
         speechOnPhaseChange: oni-change-2
         speech:
           - oni-rage-1
@@ -167,7 +188,7 @@
           - oni-rage-5
           - oni-rage-6
           - oni-rage-7
-      3:
+      4:
         speechOnPhaseChange: oni-change-3
         speech:
           - oni-true-1

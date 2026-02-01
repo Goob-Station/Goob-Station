@@ -26,7 +26,7 @@
     maxDelay: 10
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
-      spawn: BananaSpawnArea
+      spawn: BananaSpawnIndicator
 
 - type: entity
   id: ActionOniRampage
@@ -79,6 +79,12 @@
   - type: AngerDelayAction
     minDelay: 1
     maxDelay: 8
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Actions/banana.rsi
+      state: nameless
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: FlamingSlashProjectileTemporary

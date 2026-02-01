@@ -5,7 +5,7 @@
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/temple.rsi
     state: shinglecenter
-    drawdepth: WallMountedItems
+    drawdepth: Overdoors
   - type: SpriteFade
   - type: Transform
     anchored: true
