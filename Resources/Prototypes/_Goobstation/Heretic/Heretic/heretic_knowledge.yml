@@ -31,6 +31,9 @@
   - ActionHereticOpenStore
   - ActionHereticMansusGrasp
   event: !type:HereticStartupEvent
+    addedComponents:
+    - type: CanEnchant
+    - type: WeakToHoly
 
 - type: hereticKnowledge
   id: HeartbeatOfMansus

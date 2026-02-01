@@ -12,4 +12,7 @@ namespace Content.Goobstation.Shared.Enchanting.Components;
 /// Place this on any entity you want to allow to enchant... e.g. Chaplain, Heretic or Wizard.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CanEnchantComponent : Component;
+public sealed partial class CanEnchantComponent : Component
+{
+    public override bool SessionSpecific => true;
+}
