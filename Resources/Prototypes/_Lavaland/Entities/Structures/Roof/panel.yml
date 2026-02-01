@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseRoofTempleShingle
+  id: TemplePanel
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: panel
+    drawdepth: WallMountedItems

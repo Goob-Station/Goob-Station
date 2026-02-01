@@ -52,8 +52,8 @@
   parent: FlamingSlashProjectile
   components:
   - type: FadingTimedDespawn
-    lifetime: 4
-    fadeOutTime: 2
+    lifetime: 1
+    fadeOutTime: 1
 
 - type: entity
   id: ClawSlashProjectile

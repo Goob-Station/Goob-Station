@@ -5,8 +5,9 @@
     children:
     - id: PickTargetSimple
     - id: BananaActions
+    - id: BananaActionsFrequent
 
-# Actions
+# Action groups
 - type: megafaunaSelector
   id: BananaActions
   selector: !type:GroupMegafaunaSelector
@@ -20,11 +21,20 @@
     - id: ActionFlurryOfSlashesSelector
 
 - type: megafaunaSelector
+  id: BananaActionsFrequent
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionFlamingSlashSelector
+    - id: ActionFlurryOfSlashesSelector
+
+# Actions
+
+- type: megafaunaSelector
   id: ActionDemonicHandSpiralSelector
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: false
+      inverse: true
     actionId: ActionDemonicHandSpiral
     conditions:
     - !type:ActionAvailableCondition
@@ -32,10 +42,11 @@
 
 - type: megafaunaSelector
   id: ActionOniRampageSelector
+  weight: 2
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: false
+      inverse: true
     actionId: ActionOniRampage
     conditions:
     - !type:ActionAvailableCondition
@@ -46,7 +57,7 @@
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: false
+      inverse: true
     actionId: ActionRingOfFireWide
     conditions:
     - !type:ActionAvailableCondition
@@ -57,7 +68,7 @@
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: false
+      inverse: true
     actionId: ActionRingOfFireClose
     conditions:
     - !type:ActionAvailableCondition
@@ -70,7 +81,7 @@
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: false
+      inverse: true
     actionId: ActionFlamingSlash
     conditions:
     - !type:ActionAvailableCondition
@@ -83,7 +94,7 @@
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: false
+      inverse: true
     actionId: ActionClawSlash
     conditions:
     - !type:ActionAvailableCondition
@@ -96,7 +107,7 @@
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0
-      inverse: false
+      inverse: true
     actionId: ActionFlurryOfSlashes
     conditions:
     - !type:ActionAvailableCondition

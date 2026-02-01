@@ -22,11 +22,6 @@
         - MobMask
         layer:
         - InteractImpassable
-  - type: AmbientSound
-    volume: -6
-    range: 8
-    sound:
-      path: /Audio/Ambience/Objects/fireplace.ogg
   - type: PointLight
     radius: 3
     energy: 2

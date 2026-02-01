@@ -1,0 +1,38 @@
+- type: entity
+  id: BaseRoofTempleShingle
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: shinglecenter
+    drawdepth: WallMountedItems
+  - type: SpriteFade
+  - type: Transform
+    anchored: true
+
+- type: entity
+  parent: BaseRoofTempleShingle
+  id: RoofShingleCenter
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: shinglecenter
+    drawdepth: WallMountedItems
+
+- type: entity
+  parent: BaseRoofTempleShingle
+  id: RoofShingleEdge
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: shingleedge
+    drawdepth: WallMountedItems
+
+- type: entity
+  parent: BaseRoofTempleShingle
+  id: RoofShingleEdgeAlt
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: shingleedgealt
+    drawdepth: WallMountedItems

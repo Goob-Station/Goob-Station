@@ -89,8 +89,8 @@
   - type: MobPhases
     phaseThresholds:
       0:    1
-      800: 2
-      1600: 3
+      700: 2
+      1500: 3
   - type: MobPhaseSprite
     phases:
       2:
@@ -121,7 +121,7 @@
     wallId: WallMagma
     wallShape: !type:NestedEntityShape
       id: BoxHollow
-      size: 15 # Radius of the arena
+      size: 12 # Radius of the arena
   - type: RingOfFire
   - type: OniRampage
     landDamageRange: 1
@@ -132,9 +132,9 @@
         Blunt: 1
         Heat: 1
   - type: MegafaunaProjectileFlurry
-    projectileNumber: 8
+    projectileNumber: 20
     speed: 10
-    spawnDelay: 0.2
+    spawnDelay: 0.1
     shouldSpeak: true
   - type: MegafaunaChaseTarget
     whitelist:

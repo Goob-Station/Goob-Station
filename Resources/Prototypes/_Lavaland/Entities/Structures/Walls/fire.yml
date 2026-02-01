@@ -1,16 +1,32 @@
 - type: entity
-  parent: WallFlockBase
   id: WallMagma
   name: magma wall
   description: Spicy walls.
   components:
+  - type: Structure
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Airtight
+  - type: SunShadowCast
+  - type: Occluder
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
   - type: Tag
     tags:
       - Wall
   - type: Sprite
     sprite: _Lavaland/Structures/Walls/firewall.rsi
     state: ai-firewall
-  - type: Destructible
   - type: PointLight
     color: Orange
     radius: 5.0
