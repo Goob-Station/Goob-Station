@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -92,7 +93,7 @@ public sealed class MawedCrucibleSystem : EntitySystem
         if (!xform.Anchored)
             return;
 
-        if (_whitelist.IsValid(ent.Comp.FuelWhitelist, args.Used))
+        if (_tag.HasTag(args.Used, ent.Comp.MeatTag) && _whitelist.IsValid(ent.Comp.FuelWhitelist, args.Used))
         {
             RefuelCrucible(ent, ref args);
             return;
@@ -118,7 +119,7 @@ public sealed class MawedCrucibleSystem : EntitySystem
         if (!_sol.TryGetSolution((args.Used, container), "drink", out var sol))
             return;
 
-        if (sol.Value.Comp.Solution.Volume >= sol.Value.Comp.Solution.AvailableVolume)
+        if (sol.Value.Comp.Solution.AvailableVolume == FixedPoint2.Zero)
         {
             _popup.PopupClient(Loc.GetString("mawed-crucible-flask-full-message"), ent, args.User);
             return;

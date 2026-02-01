@@ -21,4 +21,7 @@ public sealed partial class WoundedSoldierComponent : Component
             { "Heat", 3 },
         },
     };
+
+    [DataField]
+    public LocId ExamineLoc = "wounded-solider-effect-examine-message";
 }

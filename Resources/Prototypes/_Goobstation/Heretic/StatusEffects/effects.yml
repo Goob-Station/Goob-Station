@@ -40,6 +40,11 @@
     statusEffects:
       StatusEffectCrucibleSoulCooldown: 120
   - type: CrucibleSoulStatusEffect
+  - type: AddShadersStatusEffect
+    postShaders:
+      SecondSkin:
+        color: "#fb793a"
+        renderOrder: 1
 
 - type: entity
   parent: MobStatusEffectBase
@@ -71,6 +76,9 @@
     components:
     - type: WoundedSoldier
     - type: IgnoreSlowOnDamage
+    - type: Aura
+      auraFarm: 1
+      distortion: 0.03
   - type: StatusEffectsOnStatusRemove
     statusEffects:
       StatusEffectWoundedSoldierCooldown: 90

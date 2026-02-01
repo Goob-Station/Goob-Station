@@ -43,6 +43,9 @@ public sealed partial class MawedCrucibleComponent : Component
     public ProtoId<TagPrototype> AnchorTag = "AnchorHereticStructure";
 
     [DataField]
+    public ProtoId<TagPrototype> MeatTag = "Meat";
+
+    [DataField]
     public EntityWhitelist FuelWhitelist = new()
     {
         Components = new[] { "BodyPart", "Organ" },

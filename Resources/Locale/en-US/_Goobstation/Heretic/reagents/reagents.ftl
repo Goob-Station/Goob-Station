@@ -32,3 +32,11 @@ flavor-complex-eldritch = Ag'hsj'saje'sh
 flavor-complex-crucible-soul = like something between the plains
 flavor-complex-clarity = like eyes
 flavor-complex-marshal = painful
+
+crucible-soul-effect-examine-message =
+    {"["}color=#fb793a]{ CAPITALIZE(SUBJECT($ent)) } { GENDER($ent) ->
+        [epicene] do
+       *[other] does
+    } not seem to be all there.[/color]
+
+wounded-solider-effect-examine-message = [color=#5e718e]{ CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a state on undying frenzy.[/color]

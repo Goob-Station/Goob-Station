@@ -33,6 +33,7 @@
       components:
       - Heretic
       - Ghoul
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:
@@ -41,6 +42,9 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/_Goobstation/Heretic/wail.ogg

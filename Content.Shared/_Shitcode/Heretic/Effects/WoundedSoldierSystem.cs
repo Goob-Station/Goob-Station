@@ -3,6 +3,8 @@ using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Examine;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -33,8 +35,14 @@ public sealed class WoundedSoldierSystem : EntitySystem
 
         SubscribeLocalEvent<WoundedSoldierComponent, MeleeAttackEvent>(OnAttack);
         SubscribeLocalEvent<WoundedSoldierComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
+        SubscribeLocalEvent<WoundedSoldierComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<MeleeHitEvent>(OnHit);
+    }
+
+    private void OnExamine(Entity<WoundedSoldierComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString(ent.Comp.ExamineLoc, ("ent", Identity.Entity(ent, EntityManager))));
     }
 
     private void OnBeforeDamageChanged(Entity<WoundedSoldierComponent> ent, ref BeforeDamageChangedEvent args)
