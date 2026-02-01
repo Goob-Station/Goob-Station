@@ -9,6 +9,7 @@ construction-graph-tag-mod-gauntlets = mod gauntlets
 construction-graph-tag-mod-boots = mod boots
 construction-graph-tag-mod-plating = mod plating
 construction-graph-tag-gas-mask = gas mask
+construction-graph-tag-gas-tank = gas tank
 construction-graph-tag-toy-sword = toy sword
 construction-graph-tag-templar-helmet = templar helmet
 construction-graph-tag-blue = makeshift shield
