@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Pirates;
 using Content.Goobstation.Server.Pirates.GameTicking.Rules;
@@ -19,6 +20,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Mind;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
+using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Chat;
@@ -31,7 +33,7 @@ using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.Pirates.Siphon;
 
-public sealed partial class ResourceSiphonSystem : EntitySystem
+public sealed class ResourceSiphonSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -40,6 +42,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private float TickTimer = 1f;
 
@@ -59,14 +62,14 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         base.Update(frameTime);
 
         var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
-        while (eqe.MoveNext(out var uid, out var siphon))
+        while (eqe.MoveNext(out _, out var siphon))
         {
             siphon.ActivationRewindClock -= frameTime;
-            if (siphon.ActivationRewindClock <= 0)
-            {
-                siphon.ActivationRewindClock = siphon.ActivationRewindTime;
-                siphon.ActivationPhase = 0; // reset
-            }
+            if (siphon.ActivationRewindClock > 0)
+                continue;
+
+            siphon.ActivationRewindClock = siphon.ActivationRewindTime;
+            siphon.ActivationPhase = 0; // reset
         }
 
         TickTimer -= frameTime;
@@ -92,27 +95,27 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
             return;
 
         var bank = nbank!.Value;
+        // linq maints help
+        var account = bank.Comp.Accounts.MaxBy(x => x.Value).Key;
 
-        // Uncomment this if you don't want cargo to go into space debt
-        // :trollface:
-        ;
-        var funds = _cargo.GetBalanceFromAccount(bank.AsNullable(), bank.Comp.PrimaryAccount) - ent.Comp.DrainRate;
-        if (funds > 0)
-        {
-            _cargo.UpdateBankAccount(bank.AsNullable(), (int) -ent.Comp.DrainRate, bank.Comp.PrimaryAccount);
-            UpdateCredits(ent, ent.Comp.DrainRate);
-        }
+        // Comment this out if you want cargo to go into space debt :trollface:
+        if (_cargo.GetBalanceFromAccount(bank.AsNullable(), account) - ent.Comp.DrainRate < 0)
+            return;
+
+        _cargo.UpdateBankAccount(bank.AsNullable(), (int) -ent.Comp.DrainRate, account);
+        UpdateCredits(ent, ent.Comp.DrainRate);
     }
 
     #region Event Handlers
     private void OnInit(Entity<ResourceSiphonComponent> ent, ref ComponentInit args)
     {
-        if (!TryBindRule(ent)) return;
+        TryBindRule(ent);
     }
 
     private void OnInteract(Entity<ResourceSiphonComponent> ent, ref InteractHandEvent args)
     {
-        if (ent.Comp.Active) return;
+        if (ent.Comp.Active)
+            return;
 
         // no station = bad
         if (!GetBank(ent, out var bank))
@@ -123,7 +126,20 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         }
 
         // very far away from station = bad
-        var dist = Vector2.Distance(_xform.GetWorldPosition(bank!.Value), _xform.GetWorldPosition(ent));
+        var siphonPos = _xform.GetWorldPosition(ent);
+        var stationEntry = bank!.Value;
+
+        EntityUid? stationGrid = null;
+        if (TryComp<StationDataComponent>(stationEntry, out var stationData))
+            stationGrid = _station.GetLargestGrid(stationData); // this is probably the station
+
+        // if this is the case we've got bigger problems than handling this
+        if (stationGrid == null)
+            return;
+
+        var stationBox = _lookup.GetWorldAABB(stationGrid.Value);
+        var closest = stationBox.ClosestPoint(siphonPos);
+        var dist = Vector2.Distance(closest, siphonPos);
         if (dist > ent.Comp.MaxSignalRange)
         {
             var loc = Loc.GetString("pirate-siphon-weaksignal");
@@ -132,26 +148,28 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         }
 
         ent.Comp.ActivationPhase += 1;
-        if (ent.Comp.ActivationPhase < 3)
+        if (ent.Comp.ActivationPhase < ResourceSiphonActivationPhase.Armed)
         {
-            var loc = Loc.GetString($"pirate-siphon-activate-{ent.Comp.ActivationPhase}");
+            var loc = Loc.GetString($"pirate-siphon-activate-{(int) ent.Comp.ActivationPhase}");
             _chat.TrySendInGameICMessage(ent, loc, InGameICChatType.Speak, false);
+            return;
         }
-        else ActivateSiphon(ent);
+
+        ActivateSiphon(ent);
     }
 
     private void OnInteractUsing(Entity<ResourceSiphonComponent> ent, ref InteractUsingEvent args)
     {
-        if (HasComp<CashComponent>(args.Used))
-        {
-            var price = _pricing.GetPrice(args.Used);
-            if (price == 0) return;
-
-            UpdateCredits(ent, (float) price);
-            QueueDel(args.Used);
-            args.Handled = true;
+        if (!HasComp<CashComponent>(args.Used))
             return;
-        }
+
+        var price = _pricing.GetPrice(args.Used);
+        if (price == 0)
+            return;
+
+        UpdateCredits(ent, (float) price);
+        QueueDel(args.Used);
+        args.Handled = true;
 
         // add more stuff here if needed
     }
@@ -186,7 +204,8 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     }
     public void DeactivateSiphon(Entity<ResourceSiphonComponent> ent, string reason = "none")
     {
-        if (!ent.Comp.Active) return;
+        if (!ent.Comp.Active)
+            return;
 
         ent.Comp.Active = false;
         if (TryComp<StationAnchorComponent>(ent, out var anchor))
