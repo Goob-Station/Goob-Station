@@ -39,6 +39,7 @@ ghost-target-window-current-button = Warp: {$name}
 ghost-target-window-warp-to-most-followed = Warp to Most Followed
 # DOWNSTREAM-TPirates: ghost follow menu update
 ghost-target-window-refresh-tooltip = Refresh list
+ghost-target-window-search-placeholder = Search
 ghost-target-window-color-mode-label = Color:
 ghost-target-window-color-mode-health = Health
 ghost-target-window-color-mode-department = Dept

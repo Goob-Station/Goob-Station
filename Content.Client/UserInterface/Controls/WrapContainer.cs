@@ -22,7 +22,7 @@ public class WrapContainer : Container
     public int? SeparationOverride { get; set; }
 
     private int ActualSeparation =>
-        TryGetStyleProperty(StylePropertySeparation, out int separation) ? separation : SeparationOverride ?? DefaultSeparation;
+        SeparationOverride ?? (TryGetStyleProperty(StylePropertySeparation, out int separation) ? separation : DefaultSeparation);
 
     /// <summary>Computes row-wrap layout over visible children. Calls onArrange for each (x,y,w,h) when non-null. Returns (total height, true if any child).</summary>
     private (float TotalHeight, bool HadChildren) ComputeLayout(
@@ -61,13 +61,16 @@ public class WrapContainer : Container
     protected override Vector2 MeasureOverride(Vector2 availableSize)
     {
         var sep = ActualSeparation;
-        var visible = Children.Where(c => c.Visible);
+        var visible = Children.Where(c => c.Visible).ToList();
         foreach (var child in visible)
             child.Measure(new Vector2(availableSize.X, float.PositiveInfinity));
-        var (totalHeight, hadChildren) = ComputeLayout(availableSize.X, sep, visible, null);
+        float maxRight = 0f;
+        var (totalHeight, hadChildren) = ComputeLayout(availableSize.X, sep, visible,
+            (child, x, y, w, h) => maxRight = Math.Max(maxRight, x + w));
         if (!hadChildren)
             return Vector2.Zero;
-        return new Vector2(availableSize.X, totalHeight);
+        var desiredWidth = float.IsPositiveInfinity(availableSize.X) ? maxRight : availableSize.X;
+        return new Vector2(desiredWidth, totalHeight);
     }
 
     protected override Vector2 ArrangeOverride(Vector2 finalSize)

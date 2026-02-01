@@ -31,6 +31,7 @@ ghost-return-to-body-text = Вас реанімують! Повернутися 
 ghost-gui-return-to-round-button = Респавн
 ghost-target-window-warp-to-most-followed = Телепорт до Найбільш Відслідковуваного
 ghost-target-window-refresh-tooltip = Оновити список
+ghost-target-window-search-placeholder = Пошук
 ghost-target-window-color-mode-label = Колір:
 ghost-target-window-color-mode-health = Здоров'я
 ghost-target-window-color-mode-department = Відділ

@@ -17,7 +17,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Collections.Generic; // DOWNSTREAM-TPirates: ghost follow menu update
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Ghost;
@@ -32,7 +31,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
     public sealed partial class GhostTargetWindow : DefaultWindow
     {
         private List<(string, NetEntity)> _warps = new();
-        private string _searchText = string.Empty; // DOWNSTREAM-TPirates: ghost follow menu update
+        private string _searchText = string.Empty;
 
         public event Action<NetEntity>? WarpClicked;
         public event Action? OnGhostnadoClicked;
@@ -40,9 +39,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         public GhostTargetWindow()
         {
             RobustXamlLoader.Load(this);
+            SearchBar.OnTextChanged += OnSearchTextChanged;
 
-            SearchBar.OnTextChanged += OnSearchTextChanged; // DOWNSTREAM-TPirates: ghost follow menu update
-            GhostnadoButton.OnPressed += _ => OnGhostnadoClicked?.Invoke(); // DOWNSTREAM-TPirates: ghost follow menu update
+            GhostnadoButton.OnPressed += _ => OnGhostnadoClicked?.Invoke();
         }
 
         public void UpdateWarps(IEnumerable<GhostWarp> warps)
@@ -91,22 +90,27 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             }
         }
 
-        #region DOWNSTREAM-TPirates: ghost follow menu update
         private bool ButtonIsVisible(Button button)
         {
             return string.IsNullOrEmpty(_searchText) || button.Text == null || button.Text.Contains(_searchText, StringComparison.OrdinalIgnoreCase);
         }
 
-        private void OnSearchTextChanged(LineEdit.LineEditEventArgs args)
+        private void UpdateVisibleButtons()
         {
-            _searchText = args.Text;
             foreach (var child in ButtonContainer.Children)
             {
                 if (child is Button button)
                     button.Visible = ButtonIsVisible(button);
             }
+        }
+
+        private void OnSearchTextChanged(LineEdit.LineEditEventArgs args)
+        {
+            _searchText = args.Text;
+
+            UpdateVisibleButtons();
+            // Reset scroll bar so they can see the relevant results.
             GhostScroll.SetScrollValue(Vector2.Zero);
         }
-        #endregion
     }
 }

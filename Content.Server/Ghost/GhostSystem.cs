@@ -235,7 +235,15 @@ namespace Content.Server.Ghost
         private void BroadcastObserverCount(EntityUid followedEntity)
         {
             var count = _followerSystem.GetGhostFollowerCount(followedEntity);
-            RaiseNetworkEvent(new GhostWarpObserverCountChangedEvent(GetNetEntity(followedEntity), count));
+            var ev = new GhostWarpObserverCountChangedEvent(GetNetEntity(followedEntity), count);
+            foreach (var session in _player.Sessions)
+            {
+                if (session.AttachedEntity is not { Valid: true } attached)
+                    continue;
+                if (!_ghostQuery.HasComp(attached))
+                    continue;
+                RaiseNetworkEvent(ev, session.Channel);
+            }
         }
         #endregion
 
@@ -551,6 +559,18 @@ namespace Content.Server.Ghost
             return idCard.JobDepartments[0].Id;
         }
 
+        /// <summary>
+        /// Gets department prototype ID from a mind's job. Returns empty string when mind is null or has no primary department.
+        /// </summary>
+        private string GetDepartmentIdFromMind(EntityUid? mindId)
+        {
+            if (mindId is not { } id)
+                return string.Empty;
+            if (!_jobs.MindTryGetJobId(id, out var jobIdVal) || !jobIdVal.HasValue || !_jobs.TryGetPrimaryDepartment(jobIdVal.Value.Id, out var dept))
+                return string.Empty;
+            return dept.ID;
+        }
+
         // Matches medical HUD / crew monitoring: SuitSensorSystem uses CheckVitalDamage and Critical threshold
         // for DamagePercentage; crew monitor uses index = round(4 * damage/critThreshold) -> 0.25 is first bucket boundary.
         // See Content.Server.Medical.SuitSensors.SuitSensorSystem and Content.Client.Overlays.EntityHealthBarOverlay.
@@ -609,9 +629,7 @@ namespace Content.Server.Ghost
                     var jobIconId = GetJobIconFor(attached);
                     var mobState = TryComp<MobStateComponent>(attached, out var mob) ? mob.CurrentState : MobState.Invalid;
                     var healthState = GetGhostWarpHealthState(attached, mobState);
-                    var departmentId = string.Empty;
-                    if (mind?.Mind is { } mindId && _jobs.MindTryGetJobId(mindId, out var jobIdVal) && jobIdVal.HasValue && _jobs.TryGetPrimaryDepartment(jobIdVal.Value.Id, out var dept))
-                        departmentId = dept.ID;
+                    var departmentId = GetDepartmentIdFromMind(mind?.Mind);
                     yield return new GhostWarp(GetNetEntity(attached), entityName, GhostWarpType.Player, _followerSystem.GetGhostFollowerCount(attached), jobIconId, mobState, jobName, healthState, departmentId);
                 }
             }
@@ -651,10 +669,8 @@ namespace Content.Server.Ghost
                 var jobIconId = GetJobIconFor(uid); // Always from ID on corpse so icon persists when mind leaves
                 var mobState = mobStateComp.CurrentState;
                 var healthState = GhostWarpHealthState.Dead;
-                var departmentId = string.Empty;
-                if (mindContainer != null && mindContainer.HasMind && _jobs.MindTryGetJobId(mindContainer.Mind, out var jobIdVal) && jobIdVal.HasValue && _jobs.TryGetPrimaryDepartment(jobIdVal.Value.Id, out var dept))
-                    departmentId = dept.ID;
-                else
+                var departmentId = GetDepartmentIdFromMind(mindContainer?.HasMind == true ? mindContainer.Mind : null);
+                if (string.IsNullOrEmpty(departmentId))
                     departmentId = GetDepartmentIdFromEntity(uid);
                 yield return new GhostWarp(GetNetEntity(uid), entityName, GhostWarpType.Dead, _followerSystem.GetGhostFollowerCount(uid), jobIconId, mobState, jobName ?? string.Empty, healthState, departmentId);
             }

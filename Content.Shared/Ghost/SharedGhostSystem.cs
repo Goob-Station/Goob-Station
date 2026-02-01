@@ -161,15 +161,17 @@ namespace Content.Shared.Ghost
     {
     }
 
+    #region DOWNSTREAM-TPirates: ghost follow menu update
     [Serializable, NetSerializable]
     public enum GhostWarpType : byte
     {
         Location,
         Player,
-        Dead, // DOWNSTREAM-TPirates: ghost follow menu update
-        Ghost, // DOWNSTREAM-TPirates: ghost follow menu update
+        Dead,
+        Ghost,
         Mob
     }
+    #endregion
 
     #region DOWNSTREAM-TPirates: ghost follow menu update
     /// <summary>
@@ -193,8 +195,8 @@ namespace Content.Shared.Ghost
     [Serializable, NetSerializable]
     public struct GhostWarp
     {
-        public GhostWarp(NetEntity entity, string displayName, bool isWarpPoint)
-            : this(entity, displayName, isWarpPoint ? GhostWarpType.Location : GhostWarpType.Player, 0)
+        public GhostWarp(NetEntity entity, string displayName, bool isWarpPoint) // DOWNSTREAM-TPirates: ghost follow menu update
+            : this(entity, displayName, isWarpPoint ? GhostWarpType.Location : GhostWarpType.Player, 0) // DOWNSTREAM-TPirates: ghost follow menu update
         {
         }
 
