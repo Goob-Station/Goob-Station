@@ -89,8 +89,6 @@
     outputPressure: 21.3
     air:
       volume: 3.5
-  - type: Jetpack
-    moleUsage: 0.00078
   - type: Construction
     graph: improvisedJetpackGraph
     node: end
@@ -108,5 +106,3 @@
       temperature: 293.15
       moles:
         - 1.43596535 # oxygen
-  - type: Jetpack
-    moleUsage: 0.00078

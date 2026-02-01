@@ -28,6 +28,16 @@
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeFourway
         name: construction-graph-tag-pipe
+      - tag: Pipe 
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeFourway
+        name: construction-graph-tag-pipe
+      - tag: Pipe 
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeFourway
+        name: construction-graph-tag-pipe
         doAfter: 5
 
   - node: end
