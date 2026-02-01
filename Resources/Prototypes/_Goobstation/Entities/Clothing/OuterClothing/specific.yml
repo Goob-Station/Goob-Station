@@ -138,6 +138,18 @@
     - HeadSide
 
 - type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitTutu
+  name: tutu
+  description: Why?..
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/tutu.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/tutu.rsi
+    quickEquip: true
+
+- type: entity
   parent: ClothingOuterBaseToggleable
   id: ClothingOuterArmorHereticCostume
   name: occult robes
