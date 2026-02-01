@@ -24,6 +24,7 @@ using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Ghost;
 using Content.Shared.Mobs;
+using Content.Shared.Radio;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
 using Robust.Client.GameObjects;
@@ -49,7 +50,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private List<(string RawName, NetEntity Entity, GhostWarpType Type, int ObserverCount, string JobIconId, MobState MobState, string ProfessionTitle, GhostWarpHealthState HealthState, string DepartmentId)> _warps = new();
         private readonly Dictionary<NetEntity, ChipState> _entityToChip = new();
 
-        private sealed record ChipState(ContainerButton Chip, StyleBoxFlat StyleBox, Label NameLabel, BoxContainer ObserverBlock, Label ObserverCountLabel, string ProfessionTitle, GhostWarpHealthState HealthState, string DepartmentId);
+        private sealed record ChipState(ContainerButton Chip, StyleBoxFlat StyleBox, Label NameLabel, BoxContainer ObserverBlock, Label ObserverCountLabel, string ProfessionTitle, GhostWarpHealthState HealthState, string DepartmentId, string JobIconId);
         private string _searchText = string.Empty;
 
         private enum ViewMode { Health, Department }
@@ -79,6 +80,12 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private const string ObserverIconPath = "/Textures/Interface/VerbIcons/ghost.svg.192dpi.png";
         /// <summary>Size for refresh and observer icons to match profession/job icon scale (job icon wrapper is 24 wide, chip height 26).</summary>
         private const float IconSize = 20f;
+
+        /// <summary>Job icon ID used for borgs and AI; same as server-side JobIconBorg. Used to show Binary channel color in department view.</summary>
+        private const string JobIconBorgId = "JobIconBorg";
+
+        /// <summary>Fallback silicon (cyborg/AI) color when Binary radio channel is not defined; matches Binary channel #5ed7aa.</summary>
+        private static readonly Color SiliconColorFallback = new(0x5e / 255f, 0xd7 / 255f, 0xaa / 255f);
 
         public GhostTargetWindow()
         {
@@ -126,17 +133,27 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             };
         }
 
-        /// <summary>Department color from server-sent DepartmentId via DepartmentPrototype (language-independent). No fallback by profession title to avoid hardcoded strings.</summary>
+        /// <summary>Department color from server-sent DepartmentId via DepartmentPrototype (language-independent). Dimmed for display.</summary>
         private Color GetColorForDepartment(string? departmentId)
         {
             if (!string.IsNullOrWhiteSpace(departmentId) &&
                 PrototypeManager.TryIndex<DepartmentPrototype>(departmentId, out var dept))
-                return dept.Color;
+                return DimForDisplay(dept.Color);
             return new Color(0x73 / 255f, 0x73 / 255f, 0x73 / 255f); // #737373 grey when no department
         }
 
-        private Color GetDisplayColor(ViewMode mode, GhostWarpHealthState healthState, string professionTitle, string departmentId)
+        /// <summary>Color for cyborgs/AI in department view: Binary radio channel color if defined, else fallback teal. Dimmed for display.</summary>
+        private Color GetColorForSilicon()
         {
+            if (PrototypeManager.TryIndex<RadioChannelPrototype>("Binary", out var binary))
+                return DimForDisplay(binary.Color);
+            return DimForDisplay(SiliconColorFallback);
+        }
+
+        private Color GetDisplayColor(ViewMode mode, GhostWarpHealthState healthState, string professionTitle, string departmentId, string? jobIconId)
+        {
+            if (mode == ViewMode.Department && jobIconId == JobIconBorgId)
+                return GetColorForSilicon();
             return mode == ViewMode.Department
                 ? GetColorForDepartment(departmentId)
                 : GetColorForHealthState(healthState);
@@ -148,7 +165,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             UpdateViewModeButtonText();
             foreach (var state in _entityToChip.Values)
             {
-                var color = GetDisplayColor(_viewMode, state.HealthState, state.ProfessionTitle, state.DepartmentId);
+                var color = GetDisplayColor(_viewMode, state.HealthState, state.ProfessionTitle, state.DepartmentId, state.JobIconId);
                 state.StyleBox.BackgroundColor = color;
             }
         }
@@ -158,6 +175,12 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             var key = _viewMode == ViewMode.Health ? "ghost-target-window-color-mode-health" : "ghost-target-window-color-mode-department";
             ViewModeButton.Text = Loc.GetString(key);
             ViewModeButton.TooltipSupplier = _ => new Tooltip { Text = Loc.GetString("ghost-target-window-color-mode-tooltip") };
+        }
+
+        /// <summary>Dim department colors for chip background so they are less bright (prototype values unchanged).</summary>
+        private static Color DimForDisplay(Color color, float factor = 0.78f)
+        {
+            return new Color(color.R * factor, color.G * factor, color.B * factor, color.A);
         }
 
         private static Color LightenForHover(Color color, float factor = 1.2f)
@@ -212,7 +235,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                     if (warpType != type)
                         continue;
 
-                    var bgColor = GetDisplayColor(_viewMode, healthState, professionTitle ?? string.Empty, departmentId ?? string.Empty);
+                    var bgColor = GetDisplayColor(_viewMode, healthState, professionTitle ?? string.Empty, departmentId ?? string.Empty, jobIconId);
                     var entity = warpTarget;
 
                     var styleBox = new StyleBoxFlat
@@ -232,12 +255,12 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                     chip.OnMouseEntered += _ =>
                     {
                         if (_entityToChip.TryGetValue(entity, out var s))
-                            styleBox.BackgroundColor = LightenForHover(GetDisplayColor(_viewMode, s.HealthState, s.ProfessionTitle, s.DepartmentId));
+                            styleBox.BackgroundColor = LightenForHover(GetDisplayColor(_viewMode, s.HealthState, s.ProfessionTitle, s.DepartmentId, s.JobIconId));
                     };
                     chip.OnMouseExited += _ =>
                     {
                         if (_entityToChip.TryGetValue(entity, out var s))
-                            styleBox.BackgroundColor = GetDisplayColor(_viewMode, s.HealthState, s.ProfessionTitle, s.DepartmentId);
+                            styleBox.BackgroundColor = GetDisplayColor(_viewMode, s.HealthState, s.ProfessionTitle, s.DepartmentId, s.JobIconId);
                     };
 
                     var content = new BoxContainer
@@ -314,7 +337,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                     if (!string.IsNullOrEmpty(professionTitle))
                         chip.TooltipSupplier = _ => new Tooltip { Text = professionTitle };
                     chip.Visible = ButtonIsVisible(rawName, professionTitle, departmentId);
-                    _entityToChip[warpTarget] = new ChipState(chip, styleBox, nameLabel, observerBlock, observerCountLabel, professionTitle ?? string.Empty, healthState, departmentId ?? string.Empty);
+                    _entityToChip[warpTarget] = new ChipState(chip, styleBox, nameLabel, observerBlock, observerCountLabel, professionTitle ?? string.Empty, healthState, departmentId ?? string.Empty, jobIconId ?? string.Empty);
                     wrap.AddChild(chip);
                 }
             }
