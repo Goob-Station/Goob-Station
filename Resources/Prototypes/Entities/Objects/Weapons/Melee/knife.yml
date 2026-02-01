@@ -346,7 +346,7 @@
     attackRate: 1.2
     damage:
       types:
-        Slash: 6
+        Slash: 6 #goob - damage matches shiv
   - type: DamageOtherOnHit
     damage:
       types:
