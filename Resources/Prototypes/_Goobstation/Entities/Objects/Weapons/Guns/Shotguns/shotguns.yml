@@ -96,7 +96,9 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
   - type: GunRequiresWield # remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 1
+    fireRate: 2
+  - type: GunSpreadModifier
+    spread: 0.6
   - type: Tag
     tags:
     - WeaponShotgunKammerer

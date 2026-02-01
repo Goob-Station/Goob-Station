@@ -64,10 +64,8 @@ public abstract class SharedVoidCurseSystem : EntitySystem
         comp.Lifetime = comp.MaxLifetime + comp.LifetimeIncreasePerLevel * comp.Stacks;
     }
 
-    public bool DoCurse(EntityUid uid, int stacks = 1, int max = 0)
+    public bool DoCurse(EntityUid uid, float stacks = 1, float max = 0)
     {
-        if (stacks < 1)
-            return false;
 
         if (!HasComp<MobStateComponent>(uid))
             return false; // ignore non mobs because holy shit
@@ -87,7 +85,7 @@ public abstract class SharedVoidCurseSystem : EntitySystem
             return false;
 
         if (max > 0 && curse.Stacks + stacks > max)
-            stacks = Math.Max(0, max - (int) curse.Stacks);
+            stacks = Math.Max(0, max - curse.Stacks);
 
         curse.Stacks = Math.Clamp(curse.Stacks + stacks, 0, curse.MaxStacks);
         RefreshLifetime(curse);
