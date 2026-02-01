@@ -36,7 +36,7 @@
         Slash: 1.25
         Piercing: 1.25
       ignoreArmorPierceFlags: All
-  paralyzeTime: 4
+  paralyzeTime: 2 # this is further multiplied by your movespeed, about 6 seconds if you're running
   dropHeldItemsBehavior: AlwaysDrop # doesn't work on downed opps anyway so DropIfStanding is just redundant checks
   canDoWhileProne: false
 
