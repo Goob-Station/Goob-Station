@@ -255,12 +255,13 @@ public sealed class FollowerSystem : EntitySystem
         var xform = Transform(follower);
         _containerSystem.AttachParentToContainerOrGrid((follower, xform));
 
-        // If we didn't get to parent's container: parent follower to target so it actually follows (moves with target).
+        #region DOWNSTREAM-TPirates: ghost follow menu update
         if (xform.ParentUid != Transform(xform.ParentUid).ParentUid)
         {
             _transform.SetParent(follower, xform, entity);
             _transform.SetLocalPosition(follower, Vector2.Zero, xform);
         }
+        #endregion
 
         _physicsSystem.SetLinearVelocity(follower, Vector2.Zero);
 

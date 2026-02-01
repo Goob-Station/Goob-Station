@@ -37,6 +37,7 @@ ghost-gui-toggle-hearing-popup-off = You can now only hear radio and nearby mess
 ghost-target-window-title = Ghost Warp
 ghost-target-window-current-button = Warp: {$name}
 ghost-target-window-warp-to-most-followed = Warp to Most Followed
+# DOWNSTREAM-TPirates: ghost follow menu update
 ghost-target-window-refresh-tooltip = Refresh list
 ghost-target-window-color-mode-label = Color:
 ghost-target-window-color-mode-health = Health
@@ -49,6 +50,7 @@ ghost-target-window-filter-ghosts = Ghosts
 ghost-target-window-filter-mobs = Mobs
 ghost-target-window-filter-description = Description
 ghost-target-window-observers-count = ({$count})
+# DOWNSTREAM-TPirates: ghost follow menu update (end)
 
 ghost-roles-window-title = Ghost Roles
 ghost-roles-window-available-button = Available ({$rolesCount})

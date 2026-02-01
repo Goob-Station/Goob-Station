@@ -98,6 +98,7 @@ using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
+#region DOWNSTREAM-TPirates: ghost follow menu update
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
@@ -127,6 +128,7 @@ using Content.Shared.Tag;
 using Content.Shared._White.Xenomorphs.Infection;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+#endregion
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -177,8 +179,8 @@ namespace Content.Server.Ghost
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
-        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
+        [Dependency] private readonly AccessReaderSystem _accessReader = default!; // DOWNSTREAM-TPirates: ghost follow menu update
+        [Dependency] private readonly SharedContainerSystem _container = default!; // DOWNSTREAM-TPirates: ghost follow menu update
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -218,6 +220,7 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
 
             SubscribeLocalEvent<GhostComponent, GetVisMaskEvent>(OnGhostVis);
+            #region DOWNSTREAM-TPirates: ghost follow menu update
             SubscribeLocalEvent<EntityStartedFollowingEvent>(ev => OnFollowChanged(ev));
             SubscribeLocalEvent<EntityStoppedFollowingEvent>(ev => OnFollowChanged(ev));
         }
@@ -232,6 +235,7 @@ namespace Content.Server.Ghost
             var count = _followerSystem.GetGhostFollowerCount(followedEntity);
             RaiseNetworkEvent(new GhostWarpObserverCountChangedEvent(GetNetEntity(followedEntity), count));
         }
+        #endregion
 
         private void OnGhostVis(Entity<GhostComponent> ent, ref GetVisMaskEvent args)
         {
@@ -469,9 +473,7 @@ namespace Content.Server.Ghost
         private void WarpTo(EntityUid uid, EntityUid target)
         {
             _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
-
-            // Follow mobs (players, dead, NPCs), other ghosts, and follow-type warp points; only teleport to static locations.
-            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target) || _ghostQuery.HasComp(target))
+            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target) || _ghostQuery.HasComp(target)) // DOWNSTREAM-TPirates: ghost follow menu update
             {
                 _followerSystem.StartFollowingEntity(uid, target);
                 return;
@@ -494,6 +496,7 @@ namespace Content.Server.Ghost
             }
         }
 
+        #region DOWNSTREAM-TPirates: ghost follow menu update
         // Matches ShowJobIconsSystem (job/status icon HUD): default to JobIconNoId when no ID/PDA found.
         private static readonly ProtoId<JobIconPrototype> JobIconNoId = "JobIconNoId";
 
@@ -717,6 +720,7 @@ namespace Content.Server.Ghost
                 yield return new GhostWarp(GetNetEntity(uid), name, GhostWarpType.Mob, _followerSystem.GetGhostFollowerCount(uid), jobIconId, mobStateValue, professionTitle, healthState, departmentId);
             }
         }
+        #endregion
 
         #endregion
 

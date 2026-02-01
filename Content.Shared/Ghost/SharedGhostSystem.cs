@@ -48,7 +48,7 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.InteractionVerbs.Events;
 using Content.Shared.Item;
-using Content.Shared.Mobs;
+using Content.Shared.Mobs; // DOWNSTREAM-TPirates: ghost follow menu update
 using Content.Shared.Popups;
 using Robust.Shared.Serialization;
 
@@ -166,11 +166,12 @@ namespace Content.Shared.Ghost
     {
         Location,
         Player,
-        Dead,
-        Ghost,
+        Dead, // DOWNSTREAM-TPirates: ghost follow menu update
+        Ghost, // DOWNSTREAM-TPirates: ghost follow menu update
         Mob
     }
 
+    #region DOWNSTREAM-TPirates: ghost follow menu update
     /// <summary>
     /// Display-only health state for ghost warp chip color (Healthy=green, Wounded=orange, Critical=red, Dead=grey).
     /// </summary>
@@ -183,6 +184,7 @@ namespace Content.Shared.Ghost
         Critical = 3,
         Dead = 4
     }
+    #endregion
 
     /// <summary>
     /// An individual place a ghost can warp to.
@@ -201,6 +203,7 @@ namespace Content.Shared.Ghost
         {
         }
 
+        #region DOWNSTREAM-TPirates: ghost follow menu update
         public GhostWarp(NetEntity entity, string displayName, GhostWarpType type, int observerCount, string? jobIconId, MobState mobState)
             : this(entity, displayName, type, observerCount, jobIconId, mobState, string.Empty, GhostWarpHealthState.Unknown)
         {
@@ -272,6 +275,7 @@ namespace Content.Shared.Ghost
         /// When set, client uses <see cref="Content.Shared.Roles.DepartmentPrototype.Color"/>; language-independent.
         /// </summary>
         public string DepartmentId { get; }
+        #endregion
     }
 
     /// <summary>
@@ -312,6 +316,7 @@ namespace Content.Shared.Ghost
     [Serializable, NetSerializable]
     public sealed class GhostnadoRequestEvent : EntityEventArgs;
 
+    #region DOWNSTREAM-TPirates: ghost follow menu update
     /// <summary>
     /// Server to client: observer count for a warp target entity has changed.
     /// </summary>
@@ -327,6 +332,7 @@ namespace Content.Shared.Ghost
             ObserverCount = observerCount;
         }
     }
+    #endregion
 
     /// <summary>
     /// A client to server request for their ghost to return to body

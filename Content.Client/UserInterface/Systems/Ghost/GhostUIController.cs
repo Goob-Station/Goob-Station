@@ -65,7 +65,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         system.PlayerDetached += OnPlayerDetached;
         system.GhostWarpsResponse += OnWarpsResponse;
         system.GhostRoleCountUpdated += OnRoleCountUpdated;
-        system.GhostWarpObserverCountUpdated += OnObserverCountUpdated;
+        system.GhostWarpObserverCountUpdated += OnObserverCountUpdated; // DOWNSTREAM-TPirates: ghost follow menu update
     }
 
     public void OnSystemUnloaded(GhostSystem system)
@@ -76,7 +76,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         system.PlayerDetached -= OnPlayerDetached;
         system.GhostWarpsResponse -= OnWarpsResponse;
         system.GhostRoleCountUpdated -= OnRoleCountUpdated;
-        system.GhostWarpObserverCountUpdated -= OnObserverCountUpdated;
+        system.GhostWarpObserverCountUpdated -= OnObserverCountUpdated; // DOWNSTREAM-TPirates: ghost follow menu update
     }
 
     public void UpdateGui()
@@ -123,10 +123,12 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         window.Populate();
     }
 
+    #region DOWNSTREAM-TPirates: ghost follow menu update
     private void OnObserverCountUpdated(NetEntity entity, int count)
     {
         Gui?.TargetWindow?.UpdateObserverCount(entity, count);
     }
+    #endregion
 
     private void OnRoleCountUpdated(GhostUpdateGhostRoleCountEvent msg)
     {

@@ -16,6 +16,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="0.4">
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="4" Margin="0 4">
             <Button Name="GhostnadoButton" Text="{Loc 'ghost-target-window-warp-to-most-followed'}" HorizontalExpand="True" />
+            <!-- DOWNSTREAM-TPirates: ghost follow menu update -->
             <Button Name="RefreshButton" MinSize="14 14" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="4" Margin="0 2" VerticalAlignment="Center">
@@ -26,5 +27,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <ScrollContainer Name="GhostScroll" VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
             <BoxContainer Name="SectionsContainer" Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True" />
         </ScrollContainer>
+        <!-- DOWNSTREAM-TPirates: ghost follow menu update (end) -->
     </BoxContainer>
 </DefaultWindow>
