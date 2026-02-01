@@ -58,7 +58,6 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
     public void Shutdown()
     {
         _playMan.PlayerStatusChanged -= OnStatusChanged;
-        _ent.EventBus.UnsubscribeEvents(this);
     }
 
     public bool CanAfford(NetUserId? userId, int amount, out int balance)
