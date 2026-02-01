@@ -24,7 +24,7 @@ public sealed class PenSpinBoundUserInterface : BoundUserInterface
         _menu.ResetButtonPressed += OnResetPressed;
         _menu.SubmitButtonPressed += OnSubmitPressed;
 
-        if (EntMan.TryGetComponent<PenSpinComponent>(Owner, out var comp))
+        if (EntMan.TryGetComponent<PenComponent>(Owner, out var comp))
         {
             _menu.SetDegreeRange(comp.MinDegree, comp.MaxDegree);
         }
