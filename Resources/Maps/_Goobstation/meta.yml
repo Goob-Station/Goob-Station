@@ -13414,8 +13414,6 @@ entities:
       canCollide: True
       bodyType: Dynamic
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12
   - uid: 603
@@ -171085,8 +171083,6 @@ entities:
       pos: -10.5,16.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 20565
 - proto: WeaponEnergyTurretCommandControlPanel
