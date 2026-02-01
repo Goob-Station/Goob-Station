@@ -214,8 +214,8 @@ uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang
 uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
 uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
-uplink-estoc-ammo-name = Rifle Magazine (.20 rifle)
-uplink-estoc-ammo-desc = Rifle magazine with 25 rounds. Compatable with the Estoc.
+uplink-estoc-ammo-name = Rifle Magazine (.30 rifle)
+uplink-estoc-ammo-desc = Rifle magazine with 30 rounds. Compatible with the Estoc.
 
 # Grenades
 
@@ -371,3 +371,20 @@ uplink-cddisknumber-desc = Call in a threat to distract the station... good luck
 
 uplink-box-xenobio-name = Xenobiology slimes box
 uplink-box-xenobio-desc = Slimes for your xenobiology needs. Contains 9 random T1 slimes.
+
+#Contractor
+
+uplink-moduist-contractor-name = Contractor Modsuit
+uplink-moduist-contractor-desc = This lightweight modsuit was made specifically for The Guild! Made using plastitanium for extreme durability but light-weight, comes packed with servos to to help you grab harder, critical damage detecting injectors, and a built in chameleon tech! To keep it ultra light-weight this modsuit has no storage capabilities.
+
+uplink-hardsuit-contractor-name = Contractor Hardsuit Bundle
+uplink-hardsuit-contractor-desc = This lightweight hardsuit was made specifically for The Guild! Can easily be folded up into backpacks.
+
+uplink-webbing-contractor-name = Contractor Webbing
+uplink-webbing-contractor-desc = A chest rig with deep pockets and explosion resistance, often used by contractors and bounty hunters.
+
+uplink-jetpack-contractor-name = Contractor Jetpack
+uplink-jetpack-contractor-desc = This Jetpack was made specifically for The Guild! Boasts high maneuverability and a decent fuel capacity, perfect for quick getaways. Has built-in straps for suit storage compatibility.
+
+uplink-cuffs-contractor-name = Handcuffs
+uplink-cuffs-contractor-desc = Used to detain criminals and other assholes.
