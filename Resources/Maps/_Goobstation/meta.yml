@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/01/2026 10:51:47
-  entityCount: 27786
+  time: 02/01/2026 11:00:04
+  entityCount: 27785
 maps:
 - 1
 grids:
@@ -10953,7 +10953,7 @@ entities:
       pos: 63.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1723.8853
+      secondsUntilStateChange: -1744.0353
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -11114,7 +11114,7 @@ entities:
       pos: 98.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5439.0483
+      secondsUntilStateChange: -5459.198
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11217,7 +11217,7 @@ entities:
       pos: -8.5,-42.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1753.7185
+      secondsUntilStateChange: -1773.8685
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11438,7 +11438,7 @@ entities:
       pos: -43.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4586.0493
+      secondsUntilStateChange: -4606.199
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -11473,7 +11473,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -32305.51
+      secondsUntilStateChange: -32325.66
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -121856,11 +121856,6 @@ entities:
       parent: 2
 - proto: KitchenElectricGrill
   entities:
-  - uid: 18561
-    components:
-    - type: Transform
-      pos: 29.5,-10.5
-      parent: 2
   - uid: 18686
     components:
     - type: Transform
@@ -171660,7 +171655,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -1398.4855
+      secondsUntilStateChange: -1418.6355
       state: Opening
     - type: Airlock
       autoClose: False
