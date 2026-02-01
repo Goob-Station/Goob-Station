@@ -256,6 +256,7 @@ public sealed class FollowerSystem : EntitySystem
         _containerSystem.AttachParentToContainerOrGrid((follower, xform));
 
         #region DOWNSTREAM-TPirates: ghost follow menu update
+        // If we didn't get to parent's container.
         if (xform.ParentUid != Transform(xform.ParentUid).ParentUid)
         {
             _transform.SetParent(follower, xform, entity);

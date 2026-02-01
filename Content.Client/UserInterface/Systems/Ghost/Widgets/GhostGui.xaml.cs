@@ -57,10 +57,13 @@ public sealed partial class GhostGui : UIWidget
         Visible = false;
     }
 
-    public void Update(int? roles, bool? canReturnToBody, bool? canTakeGhostRoles = true) // DOWNSTREAM-TPirates: ghost follow menu update
+    // Ghoob edit
+    public void Update(int? roles, bool? canReturnToBody, bool? canTakeGhostRoles = true)
     {
         ReturnToBodyButton.Disabled = !canReturnToBody ?? true;
-        GhostRolesButton.Disabled = !canTakeGhostRoles ?? true; // DOWNSTREAM-TPirates: ghost follow menu update
+        // Goobstation start
+        GhostRolesButton.Disabled = !canTakeGhostRoles ?? true;
+        // Goobstation end
 
         if (roles != null)
         {
