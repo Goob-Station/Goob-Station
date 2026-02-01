@@ -32,4 +32,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<int> GhostWarpMaxMobs =
         CVarDef.Create("ghost.warp_max_mobs", 100, CVar.SERVER);
+
+    /// <summary>
+    ///     Maximum number of dead (corpse) warps to include in the ghost follow/orbit menu. Limits server load when many dead entities exist.
+    /// </summary>
+    public static readonly CVarDef<int> GhostWarpMaxDead =
+        CVarDef.Create("ghost.warp_max_dead", 100, CVar.SERVER);
 }

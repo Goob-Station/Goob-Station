@@ -99,6 +99,7 @@ using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
 #region DOWNSTREAM-TPirates: ghost follow menu update
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
@@ -502,30 +503,31 @@ namespace Content.Server.Ghost
         private static readonly ProtoId<JobIconPrototype> JobIconNoId = "JobIconNoId";
         private static readonly ProtoId<JobIconPrototype> JobIconBorg = "JobIconBorg";
 
+        private bool TryGetIdCard(EntityUid uid, [NotNullWhen(true)] out IdCardComponent? idCard)
+        {
+            idCard = null;
+            if (!_accessReader.FindAccessItemsInventory(uid, out var items))
+                return false;
+
+            foreach (var item in items)
+            {
+                if (TryComp(item, out idCard))
+                    return true;
+
+                if (TryComp<PdaComponent>(item, out var pda) && pda.ContainedId is { Valid: true } idUid && TryComp(idUid, out idCard))
+                    return true;
+            }
+
+            return false;
+        }
+
         private string GetJobIconFor(EntityUid uid)
         {
             // Borgs and AI don't carry ID/PDA; use shared silicon icon for ghost menu.
             if (HasComp<BorgChassisComponent>(uid) || HasComp<StationAiHeldComponent>(uid) || HasComp<StationAiOverlayComponent>(uid))
                 return JobIconBorg.Id;
 
-            var iconId = JobIconNoId;
-            if (_accessReader.FindAccessItemsInventory(uid, out var items))
-            {
-                foreach (var item in items)
-                {
-                    if (TryComp<IdCardComponent>(item, out var id))
-                    {
-                        iconId = id.JobIcon;
-                        break;
-                    }
-                    if (TryComp<PdaComponent>(item, out var pda) && pda.ContainedId is { Valid: true } idUid && TryComp<IdCardComponent>(idUid, out id))
-                    {
-                        iconId = id.JobIcon;
-                        break;
-                    }
-                }
-            }
-            return iconId.Id;
+            return TryGetIdCard(uid, out var idCard) ? idCard.JobIcon.Id : JobIconNoId.Id;
         }
 
         /// <summary>
@@ -534,16 +536,7 @@ namespace Content.Server.Ghost
         /// </summary>
         private string GetJobTitleFromEntity(EntityUid uid)
         {
-            if (!_accessReader.FindAccessItemsInventory(uid, out var items))
-                return string.Empty;
-            foreach (var item in items)
-            {
-                if (TryComp<IdCardComponent>(item, out var id))
-                    return id.LocalizedJobTitle ?? string.Empty;
-                if (TryComp<PdaComponent>(item, out var pda) && pda.ContainedId is { Valid: true } idUid && TryComp<IdCardComponent>(idUid, out id))
-                    return id.LocalizedJobTitle ?? string.Empty;
-            }
-            return string.Empty;
+            return TryGetIdCard(uid, out var idCard) ? idCard.LocalizedJobTitle ?? string.Empty : string.Empty;
         }
 
         /// <summary>
@@ -551,16 +544,9 @@ namespace Content.Server.Ghost
         /// </summary>
         private string GetDepartmentIdFromEntity(EntityUid uid)
         {
-            if (!_accessReader.FindAccessItemsInventory(uid, out var items))
+            if (!TryGetIdCard(uid, out var idCard) || idCard.JobDepartments.Count == 0)
                 return string.Empty;
-            foreach (var item in items)
-            {
-                if (TryComp<IdCardComponent>(item, out var id) && id.JobDepartments.Count > 0)
-                    return id.JobDepartments[0].Id;
-                if (TryComp<PdaComponent>(item, out var pda) && pda.ContainedId is { Valid: true } idUid && TryComp<IdCardComponent>(idUid, out id) && id.JobDepartments.Count > 0)
-                    return id.JobDepartments[0].Id;
-            }
-            return string.Empty;
+            return idCard.JobDepartments[0].Id;
         }
 
         // Matches medical HUD / crew monitoring: SuitSensorSystem uses CheckVitalDamage and Critical threshold
@@ -632,11 +618,14 @@ namespace Content.Server.Ghost
         /// <summary>
         /// All dead mobs for the "Dead" section.
         /// Job/icon from entity's ID card so profession persists after respawn when mind leaves the corpse.
+        /// Limited by ghost.warp_max_dead to avoid performance issues when many corpses exist.
         /// </summary>
         private IEnumerable<GhostWarp> GetDeadPlayerWarps(EntityUid except)
         {
+            var maxDead = _configurationManager.GetCVar(CCVars.GhostWarpMaxDead);
+            var count = 0;
             var query = AllEntityQuery<MobStateComponent, MetaDataComponent>();
-            while (query.MoveNext(out var uid, out var mobStateComp, out var meta))
+            while (query.MoveNext(out var uid, out var mobStateComp, out var meta) && count < maxDead)
             {
                 if (uid == except)
                     continue;
@@ -651,6 +640,7 @@ namespace Content.Server.Ghost
                 if (IsBorgBrainInsideChassis(uid))
                     continue;
 
+                count++;
                 var entityName = meta.EntityName;
                 // Prefer mind job name when mind still on corpse; else use ID card so profession persists after respawn.
                 var jobName = TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind
