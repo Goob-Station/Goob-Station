@@ -163,7 +163,6 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
             if (cultists >= tier.Key && (int) ent.Comp.CurrentTier < (int) tier.Value)
                 scheduledTier = tier.Value;
 #else
-        CultTier? scheduledTier = null;
         foreach (var tier in ent.Comp.TierPercentageRatio)
             if (ratio >= tier.Key && (int) ent.Comp.CurrentTier < (int) tier.Value)
                 scheduledTier = tier.Value;
