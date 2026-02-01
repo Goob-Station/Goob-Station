@@ -246,7 +246,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (HasComp<CondemnedComponent>(user)
             || HasComp<SiliconComponent>(user)
             || HasComp<DroneComponent>(user)
-            || HasComp<ChangelingIdentityComponent>(user)
+            || HasComp<ChangelingComponent>(user)
             || HasComp<BorgChassisComponent>(user))
         {
             failReason = Loc.GetString("devil-contract-no-soul-sign-failed");

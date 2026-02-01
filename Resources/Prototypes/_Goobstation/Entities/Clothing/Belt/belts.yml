@@ -51,6 +51,7 @@
         - MedicalPatch # Goobstation
         - AutoinjectorCartridge # Goobstation
         - HandheldCrewMonitor # Goobstation
+        - SyringeCase # Goobstation
       components:
         - Hypospray
         - Injector
@@ -106,6 +107,8 @@
     sprite: _Goobstation/Clothing/Belt/judobelt.rsi
   - type: GrantCorporateJudo
   - type: Storage
+    grid:
+    - 0,0,5,1 #you're not carrying a batong, if you want pure storage go with secbelt
     whitelist:
       tags:
       - CigPack
@@ -261,7 +264,21 @@
       - SurgeryTool
       - SolutionTransfer
       - SlimeExtract
-      
+
+- type: entity
+  parent: ClothingBeltChemBagXenobiology
+  id: ClothingBeltChemBagXenobiologyHolding
+  name: xenobiology pouch of holding
+  description: A larger slime-resistant pouch intended for use by Xenobiologists. Smells of bluespace extract and monkey hair.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
+  - type: Storage
+    grid:
+    - 0,0,19,9
+
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
   id: ClothingBeltMilitaryWebbingBSOFilled
@@ -295,3 +312,54 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband ]
+  id: ClothingBeltSecurityWebbingContractor
+  name: contractor's chest rig
+  description: "A chest rig with deep pockets and explosion resistance, often used by contractors and bounty hunters."
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,6,2
+  - type: ChameleonClothing
+    slot: [belt]
+    default: ClothingBeltSecurityWebbingContractorFilled
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+
+- type: entity
+  parent: ClothingBeltSecurityWebbingContractor
+  id: ClothingBeltSecurityWebbingContractorFilled
+  name: contractor's chest rig
+  description: "A chest rig with deep pockets, often used by contractors and bounty hunters."
+  components:
+  - type: StorageFill
+    contents:
+    - id: SyndicateJawsOfLife
+      amount: 1
+    - id: PowerDrill
+      amount: 1
+    - id: WelderExperimental
+      amount: 1
+    - id: Multitool
+      amount: 1
+    - id: MedkitCombatFilled
+      amount: 1
+    - id: ContractorBaton
+      amount: 1
+    - id: Zipties
+      amount: 4
+    - id: SyndicateBusinessCard
+      amount: 1
