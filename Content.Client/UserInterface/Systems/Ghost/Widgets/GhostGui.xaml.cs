@@ -28,7 +28,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Widgets;
 [GenerateTypedNameReferences]
 public sealed partial class GhostGui : UIWidget
 {
-    public GhostTargetWindow TargetWindow { get; }
+    #region DOWNSTREAM-TPirates: ghost follow menu update
+    public GhostTargetWindowGoob TargetWindow { get; }
+    #endregion
 
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
@@ -39,7 +41,7 @@ public sealed partial class GhostGui : UIWidget
     {
         RobustXamlLoader.Load(this);
 
-        TargetWindow = new GhostTargetWindow();
+        TargetWindow = new GhostTargetWindowGoob(); // DOWNSTREAM-TPirates: ghost follow menu update
 
         MouseFilter = MouseFilterMode.Ignore;
 

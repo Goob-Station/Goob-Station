@@ -339,6 +339,7 @@ public sealed class FollowerSystem : EntitySystem
         }
     }
 
+    #region DOWNSTREAM-TPirates: ghost follow menu update
     /// <summary>
     /// Gets the number of non-admin ghosts currently following the given entity.
     /// </summary>
@@ -357,6 +358,7 @@ public sealed class FollowerSystem : EntitySystem
         }
         return count;
     }
+    #endregion
 
     /// <summary>
     /// Gets the entity with the most non-admin ghosts following it.

@@ -222,11 +222,11 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
 
             SubscribeLocalEvent<GhostComponent, GetVisMaskEvent>(OnGhostVis);
-            #region DOWNSTREAM-TPirates: ghost follow menu update
-            SubscribeLocalEvent<EntityStartedFollowingEvent>(ev => OnFollowChanged(ev));
-            SubscribeLocalEvent<EntityStoppedFollowingEvent>(ev => OnFollowChanged(ev));
+            SubscribeLocalEvent<EntityStartedFollowingEvent>(ev => OnFollowChanged(ev)); // DOWNSTREAM-TPirates: ghost follow menu update
+            SubscribeLocalEvent<EntityStoppedFollowingEvent>(ev => OnFollowChanged(ev)); // DOWNSTREAM-TPirates: ghost follow menu update
         }
 
+        #region DOWNSTREAM-TPirates: ghost follow menu update
         private void OnFollowChanged(FollowEvent ev)
         {
             BroadcastObserverCount(ev.Following);
@@ -427,6 +427,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
+            #region DOWNSTREAM-TPirates: ghost follow menu update
             var response = new GhostWarpsResponseEvent(
                 GetLocationWarps()
                     .Concat(GetPlayerWarps(entity))
@@ -434,6 +435,7 @@ namespace Content.Server.Ghost
                     .Concat(GetGhostWarps(entity))
                     .Concat(GetMobWarps())
                     .ToList());
+            #endregion
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
@@ -494,7 +496,7 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), GhostWarpType.Location, _followerSystem.GetGhostFollowerCount(uid));
+                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), GhostWarpType.Location, _followerSystem.GetGhostFollowerCount(uid)); // DOWNSTREAM-TPirates: ghost follow menu update
             }
         }
 

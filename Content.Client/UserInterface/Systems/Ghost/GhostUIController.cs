@@ -157,7 +157,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.GhostRolesPressed += GhostRolesPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
-        Gui.TargetWindow.RefreshPressed += OnRefreshPressed;
+        Gui.TargetWindow.RefreshPressed += OnRefreshPressed; // DOWNSTREAM-TPirates: ghost follow menu update
 
         UpdateGui();
     }
@@ -171,7 +171,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
-        Gui.TargetWindow.RefreshPressed -= OnRefreshPressed;
+        Gui.TargetWindow.RefreshPressed -= OnRefreshPressed; // DOWNSTREAM-TPirates: ghost follow menu update
 
         Gui.Hide();
     }
@@ -188,10 +188,12 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui?.TargetWindow.OpenCentered();
     }
 
+    #region DOWNSTREAM-TPirates: ghost follow menu update
     private void OnRefreshPressed()
     {
         _system?.RequestWarps();
     }
+    #endregion
 
     private void GhostRolesPressed()
     {

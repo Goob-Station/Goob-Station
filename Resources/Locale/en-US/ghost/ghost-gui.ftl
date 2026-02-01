@@ -50,7 +50,7 @@ ghost-target-window-filter-ghosts = Ghosts
 ghost-target-window-filter-mobs = Mobs
 ghost-target-window-filter-description = Description
 ghost-target-window-observers-count = ({$count})
-# DOWNSTREAM-TPirates: ghost follow menu update (end)
+# DOWNSTREAM-TPirates: ghost follow menu update
 
 ghost-roles-window-title = Ghost Roles
 ghost-roles-window-available-button = Available ({$rolesCount})
