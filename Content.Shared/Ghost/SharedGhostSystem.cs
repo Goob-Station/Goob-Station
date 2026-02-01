@@ -198,8 +198,8 @@ namespace Content.Shared.Ghost
         {
         }
 
-        public GhostWarp(NetEntity entity, string displayName, GhostWarpType type, int observerCount = 0)
-            : this(entity, displayName, type, observerCount, string.Empty, MobState.Invalid, string.Empty, GhostWarpHealthState.Unknown)
+        public GhostWarp(NetEntity entity, string displayName, GhostWarpType type, int observerCount = 0) // DOWNSTREAM-TPirates: ghost follow menu update
+            : this(entity, displayName, type, observerCount, string.Empty, MobState.Invalid, string.Empty, GhostWarpHealthState.Unknown) // DOWNSTREAM-TPirates: ghost follow menu update
         {
         }
 
