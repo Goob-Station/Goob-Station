@@ -36,7 +36,10 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: hand
   - type: InstantAction
-    event: !type:EventTouchSpellInvoke
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-stun
+    invocationType: enum.InGameICChatType.Whisper
   - type: BloodCultAction
     damage:
       types:
@@ -57,7 +60,10 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: tele
   - type: InstantAction
-    event: !type:EventTouchSpellInvoke
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-teleport
+    invocationType: enum.InGameICChatType.Whisper
   - type: BloodCultAction
     damage:
       types:
@@ -98,7 +104,10 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: cuff
   - type: InstantAction
-    event: !type:EventTouchSpellInvoke
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-shackles
+    invocationType: enum.InGameICChatType.Whisper
   - type: BloodCultAction
     damage:
       types:
@@ -119,7 +128,10 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: transmute
   - type: InstantAction
-    event: !type:EventTouchSpellInvoke
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-construction
+    invocationType: enum.InGameICChatType.Whisper
   - type: BloodCultAction
     damage:
       types:
@@ -140,7 +152,10 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: equip
   - type: InstantAction
-    event: !type:EventTouchSpellInvoke
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-dagger
+    invocationType: enum.InGameICChatType.Whisper
   - type: BloodCultAction
   - type: TouchSpellAction
     touchSpell: TouchSpellCultEquipment
@@ -174,10 +189,11 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: manip
   - type: InstantAction
-    event: !type:EventTouchSpellInvoke
+    event: !type:BlankInstantActionEvent
   - type: BloodCultAction
   - type: TouchSpellAction
     touchSpell: TouchSpellCultManipulation
+  - type: BloodRitesData
 
 - type: entity
   parent: BaseAction
@@ -192,7 +208,7 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: bloodspear
   - type: InstantAction
-    #event: !type:Event
+    event: !type:BlankInstantActionEvent # TODO change
   - type: BloodCultAction
 
 - type: entity
@@ -208,7 +224,7 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: pulse
   - type: InstantAction
-    #event: !type:Event
+    event: !type:BlankInstantActionEvent # TODO change
   - type: BloodCultAction
 
 - type: entity
@@ -224,9 +240,10 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: sintouch
   - type: InstantAction
-    #event: !type:Event
+    event: !type:BlankInstantActionEvent # TODO change
   - type: BloodCultAction
 
+# TEMPLATE
 # - type: entity
 #   parent: BaseAction
 #   id: ActionCult

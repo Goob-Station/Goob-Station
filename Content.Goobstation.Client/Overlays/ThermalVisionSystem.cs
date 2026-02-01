@@ -10,13 +10,19 @@ using Content.Client.Overlays;
 using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Mind;
+using Content.Shared.Whitelist;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 
 namespace Content.Goobstation.Client.Overlays;
 
 public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionComponent>
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     private ThermalVisionOverlay _thermalOverlay = default!;
     private BaseSwitchableOverlay<ThermalVisionComponent> _overlay = default!;
@@ -41,7 +47,13 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
     protected override void OnRefreshEquipmentHud(Entity<ThermalVisionComponent> ent,
         ref InventoryRelayedEvent<RefreshEquipmentHudEvent<ThermalVisionComponent>> args)
     {
-        if (ent.Comp.IsEquipment)
+        var mindPass = !_mind.TryGetMind(_player.LocalSession, out var mindId, out var mindComp)
+            || _whitelist.IsWhitelistPassOrNull(ent.Comp.EquipmentWhitelist, mindId);
+
+        var parentPass = !_player.LocalEntity.HasValue
+            || _whitelist.IsWhitelistPassOrNull(ent.Comp.EquipmentWhitelist, _player.LocalEntity.Value);
+
+        if (ent.Comp.IsEquipment && (mindPass || parentPass))
             base.OnRefreshEquipmentHud(ent, ref args);
     }
 

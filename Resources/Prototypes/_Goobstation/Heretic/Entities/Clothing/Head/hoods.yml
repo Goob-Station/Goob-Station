@@ -17,7 +17,7 @@
   name: ominous hood
   description: A torn, dust-caked hood. Strange eyes line the inside.
   components:
-  - type: HereticMagicItem
+  - type: MagicalItem
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
     state: icon
@@ -41,7 +41,6 @@
         Piercing: 0.5
         Heat: 0.5
         Caustic: 0.5
-        # Holy: 1.25
     traumaDeductions:
       Dismemberment: 0.5
       OrganDamage: 0.5
@@ -103,7 +102,7 @@
     sprite: _Goobstation/Heretic/Clothing/Head/cosmos_hood.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseMagicalContraband ]
   id: ClothingHeadHatHoodVoidCloakHeretic
   name: void hood
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
@@ -127,7 +126,6 @@
         Piercing: 0.7
         Heat: 0.7
         Caustic: 0.7
-        # Holy: 1.25
     traumaDeductions:
       Dismemberment: 0.3
       OrganDamage: 0.3

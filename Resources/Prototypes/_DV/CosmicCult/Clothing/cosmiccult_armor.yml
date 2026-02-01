@@ -94,7 +94,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
-  - type: UnholyItem # Goobstation Shitchap
 
 
 # COSMIC CULT HARDSUIT HELMET
@@ -123,6 +122,5 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
-  - type: UnholyItem # Goobstation Shitchap
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation

@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Actions;
-using Content.Shared.Actions;
+using Content.Shared.Actions.Events;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 
@@ -15,9 +15,23 @@ namespace Content.Client.Charges;
 public sealed class ChargesSystem : SharedChargesSystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     private Dictionary<EntityUid, int> _lastCharges = new();
     private Dictionary<EntityUid, int> _tempLastCharges = new();
+
+    // goob edit - minor tweaks. added ActionUpdateEvent handler.
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<LimitedChargesComponent, ActionUpdateEvent>(OnActionUpdate);
+    }
+
+    private void OnActionUpdate(Entity<LimitedChargesComponent> ent, ref ActionUpdateEvent args)
+    {
+        args.QueueDisable = _charges.GetCurrentCharges(ent.Owner) <= 0;
+    }
 
     public override void Update(float frameTime)
     {
@@ -38,9 +52,7 @@ public sealed class ChargesSystem : SharedChargesSystem
             var current = GetCurrentCharges((uid, charges, recharge));
 
             if (!_lastCharges.TryGetValue(uid, out var last) || current != last)
-            {
                 _actions.UpdateAction(action);
-            }
 
             _tempLastCharges[uid] = current;
         }
@@ -48,9 +60,7 @@ public sealed class ChargesSystem : SharedChargesSystem
         _lastCharges.Clear();
 
         foreach (var (uid, value) in _tempLastCharges)
-        {
             _lastCharges[uid] = value;
-        }
 
         _tempLastCharges.Clear();
     }

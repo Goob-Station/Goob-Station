@@ -8,10 +8,8 @@ using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Actions.Components;
-using Content.Shared.Actions.Events;
-using Content.Shared.Chat;
+using Content.Shared.Charges.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -19,7 +17,7 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Goobstation.Server.Cult.Systems;
-public sealed partial class BloodMagicSystem : EntitySystem
+public sealed partial class BloodMagicProviderSystem : EntitySystem
 {
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
@@ -27,7 +25,6 @@ public sealed partial class BloodMagicSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -37,10 +34,6 @@ public sealed partial class BloodMagicSystem : EntitySystem
         SubscribeLocalEvent<BloodMagicProviderComponent, EventActionCultPrepareBloodMagic>(OnPrepareBloodMagic);
         SubscribeLocalEvent<BloodMagicProviderComponent, EntityRadialMenuSelectMessage>(OnEntitySelect);
         SubscribeLocalEvent<BloodMagicProviderComponent, EventActionCultPrepareBloodMagicDoAfter>(OnDoAfter);
-
-        SubscribeLocalEvent<BloodCultActionComponent, ComponentStartup>(OnActionComponentStartup);
-        SubscribeLocalEvent<BloodCultActionComponent, ExaminedEvent>(OnActionExamined);
-        SubscribeLocalEvent<BloodCultActionComponent, ActionPerformedEvent>(OnActionPerformed);
         SubscribeLocalEvent<BloodCultActionComponent, ActionRemovedFromUIControllerEvent>(OnActionRemoved);
     }
 
@@ -72,38 +65,9 @@ public sealed partial class BloodMagicSystem : EntitySystem
         GrantSpell(ent, args.SpellId, true);
     }
 
-    private void OnActionComponentStartup(Entity<BloodCultActionComponent> ent, ref ComponentStartup args)
-    {
-        ent.Comp.Uses = ent.Comp.MaxUses;
-    }
-
-    private void OnActionExamined(Entity<BloodCultActionComponent> ent, ref ExaminedEvent args)
-    {
-        using var _ = args.PushGroup(nameof(BloodCultActionComponent));
-        if (!ent.Comp.UnlimitedUses)
-        {
-            if (ent.Comp.MaxUses > 1)
-                args.PushMarkup(Loc.GetString("cult-magic-examine-uses", ("n", ent.Comp.Uses)));
-            else args.PushMarkup(Loc.GetString("cult-magic-examine-uses-single"));
-        }
-    }
-
-    private void OnActionPerformed(Entity<BloodCultActionComponent> ent, ref ActionPerformedEvent args)
-    {
-        if (!string.IsNullOrWhiteSpace(ent.Comp.InvocationLoc))
-        {
-            var message = Loc.GetString(ent.Comp.InvocationLoc);
-            _chat.TrySendInGameICMessage(args.Performer, message, InGameICChatType.Speak, true, hideLog: true);
-        }
-
-        ent.Comp.Uses = ent.Comp.UnlimitedUses ? ent.Comp.Uses : ent.Comp.Uses - 1;
-        if (!ent.Comp.UnlimitedUses && ent.Comp.Uses <= 0)
-            RemoveSpell(args.Performer, ent.Owner);
-    }
-
     private void OnActionRemoved(Entity<BloodCultActionComponent> ent, ref ActionRemovedFromUIControllerEvent args)
     {
-        if (ent.Comp.UnlimitedUses)
+        if (!HasComp<LimitedChargesComponent>(ent))
             return;
 
         if (!TryComp<ActionComponent>(ent, out var action) || !action.AttachedEntity.HasValue

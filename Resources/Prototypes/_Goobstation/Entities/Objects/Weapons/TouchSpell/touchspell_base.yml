@@ -2,7 +2,7 @@
   abstract: true
   id: TouchSpellBase
   name: basic touch spell
-  description: i'm going to touch you.
+  description: I'm going to touch you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -34,13 +34,3 @@
         Blunt: 0 # idk
   - type: TouchSpell
   - type: AlwaysHot
-
-- type: entity
-  abstract: true
-  parent: TouchSpellBase
-  id: TouchSpellUnholyBase
-  name: unholy touch spell
-  description: i'm going to touch you evil style.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: UnholyItem

@@ -54,6 +54,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Polymorph;
 using Content.Server.Polymorph.Systems;
+using Content.Goobstation.Shared.Magic;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -356,13 +357,15 @@ public sealed class HereticSystem : EntitySystem
     // notify the crew of how good the person is and play the cool sound :godo:
     private void OnAscension(Entity<HereticComponent> ent, ref EventHereticAscension args)
     {
-        // you've already ascended, man.
         if (ent.Comp.Ascended || !ent.Comp.CanAscend)
             return;
 
         ent.Comp.Ascended = true;
         ent.Comp.KnownRituals.Remove("FeastOfOwls");
-        ent.Comp.ChosenRitual = null;
+
+        var mic = EnsureComp<MagicalItemComponent>(ent);
+        mic.Weight = 999; // ultimate spellcasting machine
+
         Dirty(ent);
 
         // how???

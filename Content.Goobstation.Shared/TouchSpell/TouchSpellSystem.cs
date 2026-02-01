@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.EntityEffects;
@@ -15,29 +16,29 @@ namespace Content.Goobstation.Shared.TouchSpell;
 /// <remarks>
 ///     Acts as a relay between actions (action gets called -> spell appears -> spell handles the action).
 /// </remarks>
-// ideally mansus grasp should also be using this one but ehhhhh @aviu @aviu @aviu
 public sealed partial class TouchSpellSystem : EntitySystem
 {
     [Dependency] private readonly EntityEffectSystem _effects = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TouchSpellActionComponent, EventTouchSpellInvoke>(OnInvokeTouchSpell);
+        SubscribeLocalEvent<TouchSpellActionComponent, ActionAttemptEvent>(OnActionAttempt);
 
         SubscribeLocalEvent<TouchSpellComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<TouchSpellComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void OnInvokeTouchSpell(Entity<TouchSpellActionComponent> ent, ref EventTouchSpellInvoke args)
+    private void OnActionAttempt(Entity<TouchSpellActionComponent> ent, ref ActionAttemptEvent args)
     {
-        if (!TryComp<HandsComponent>(ent, out var handsComp))
+        if (!TryComp<HandsComponent>(args.User, out var handsComp))
             return;
 
         // is there any touch spells that we're missing
-        foreach (var held in _hands.EnumerateHeld((ent, handsComp)))
+        foreach (var held in _hands.EnumerateHeld((args.User, handsComp)))
         {
             if (TryComp<TouchSpellComponent>(held, out var tsc) && tsc.AssociatedAction == ent.Owner)
             {
@@ -46,11 +47,11 @@ public sealed partial class TouchSpellSystem : EntitySystem
             }
         }
 
-        if (!_hands.TryGetEmptyHand((ent, handsComp), out var emptyHand))
+        if (!_hands.TryGetEmptyHand((args.User, handsComp), out var emptyHand))
             return;
 
         var ts = Spawn(ent.Comp.TouchSpell, Transform(ent).Coordinates);
-        if (!_hands.TryPickup(ent, ts, emptyHand, animate: false, handsComp: handsComp))
+        if (!_hands.TryPickup(args.User, ts, emptyHand, animate: false, handsComp: handsComp))
         {
             QueueDel(ts);
             return;
@@ -60,10 +61,11 @@ public sealed partial class TouchSpellSystem : EntitySystem
         if (TryComp<TouchSpellComponent>(ts, out var tsComp))
         {
             tsComp.AssociatedAction = ent.Owner;
-            tsComp.AssociatedPerformer = args.Performer;
+            tsComp.AssociatedPerformer = args.User;
         }
 
-        // no args.Handled set because see ProcessAction()
+        // we cancel this one because we process the action manually.
+        args.Cancelled = true;
     }
 
     private void OnAfterInteract(Entity<TouchSpellComponent> ent, ref AfterInteractEvent args)
@@ -105,8 +107,13 @@ public sealed partial class TouchSpellSystem : EntitySystem
 
     private void ProcessAction(Entity<TouchSpellComponent> ent, Entity<ActionsComponent> performer)
     {
-        // manually invoke this shit
-        var performed = new ActionPerformedEvent(performer);
-        RaiseLocalEvent(ent.Comp.AssociatedAction!.Value, ref performed);
+        if (ent.Comp.AssociatedAction == null) // somehow
+            return;
+
+        var action = ent.Comp.AssociatedAction!.Value;
+        if (!TryComp<ActionComponent>(action, out var ac))
+            return;
+
+        _actions.PerformAction(performer.Owner, (action, ac));
     }
 }

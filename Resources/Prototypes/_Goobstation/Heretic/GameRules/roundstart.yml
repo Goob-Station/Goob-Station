@@ -45,7 +45,7 @@
       mindRoles:
       - MindRoleHeretic
       components:
-      - type: WeakToHoly
+      - type: MagicUser
       - type: CanEnchant
   - type: Tag
     tags:
@@ -78,7 +78,7 @@
       mindRoles:
       - MindRoleHeretic
       components:
-      - type: WeakToHoly
+      - type: MagicUser
       - type: CanEnchant
   - type: Tag
     tags:

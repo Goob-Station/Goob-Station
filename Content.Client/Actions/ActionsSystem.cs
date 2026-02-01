@@ -142,6 +142,7 @@ using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
+using Content.Shared.Actions.Events;
 
 namespace Content.Client.Actions
 {
@@ -207,8 +208,12 @@ namespace Content.Client.Actions
 
         public override void UpdateAction(Entity<ActionComponent> ent)
         {
+            var ev = new ActionUpdateEvent(ent);
+            RaiseLocalEvent(ent, (object) ev);
+
             // TODO: Decouple this.
-            ent.Comp.IconColor = _sharedCharges.GetCurrentCharges(ent.Owner) == 0 || !ent.Comp.Enabled ? ent.Comp.DisabledIconColor : ent.Comp.OriginalIconColor; // WD EDIT
+            // goob edit - decoupled?
+            ent.Comp.IconColor = !ent.Comp.Enabled || ev.QueueDisable ? ent.Comp.DisabledIconColor : ent.Comp.OriginalIconColor;
             base.UpdateAction(ent);
             if (_playerManager.LocalEntity != ent.Comp.AttachedEntity)
                 return;

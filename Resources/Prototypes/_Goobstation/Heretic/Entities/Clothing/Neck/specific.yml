@@ -10,26 +10,22 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckAmberFocus
-  name: amber focus
+  name: religious amulet
   description: An amber focusing glass that provides a link to the world beyond. The necklace seems to twitch, but only when you look at it from the corner of your eye.
   suffix: MagicItem
   components:
-  - type: UnholyItem
-  - type: HereticMagicItem
+  - type: MagicalItem
+    weight: 2
   - type: Sprite
     sprite: _Goobstation/Heretic/amber_focus.rsi
     state: icon
   - type: Clothing
     sprite: _Goobstation/Heretic/amber_focus.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Holy: 1.25
 
 - type: entity
   parent: ClothingNeckAmberFocus
   id: ClothingEldritchMedalion
-  name: warm eldritch medallion
+  name: religious amulet
   description: A strange medallion. Peering through the crystalline surface, the world around you melts away. You see your own beating heart, and the pulsing of a thousand others.
   components:
   - type: Sprite
@@ -45,4 +41,6 @@
     drawOverlay: false
     lightRadius: 0
     toggleAction: null
-  - type: HereticClothing
+    whitelist:
+      components:
+      - type: MagicUser

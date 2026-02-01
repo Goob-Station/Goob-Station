@@ -1,5 +1,5 @@
 - type: entity
-  parent: TouchSpellUnholyBase
+  parent: TouchSpellBase
   id: TouchSpellFleshSurgery
   name: knit flesh
   description: Let's go practice medicine.

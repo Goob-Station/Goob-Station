@@ -12,7 +12,7 @@ public sealed partial class BloodCultistSystem : EntitySystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly LanguageSystem _lang = default!;
     [Dependency] private readonly BloodCultRuleSystem _cultRule = default!;
-    [Dependency] private readonly BloodMagicSystem _bloodMagic = default!;
+    [Dependency] private readonly BloodMagicProviderSystem _bloodMagic = default!;
 
     public override void Initialize()
     {

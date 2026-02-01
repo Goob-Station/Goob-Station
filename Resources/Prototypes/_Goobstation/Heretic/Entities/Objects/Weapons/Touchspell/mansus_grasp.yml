@@ -12,7 +12,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: TouchSpellUnholyBase
+  parent: TouchSpellBase
   id: TouchSpellMansus
   name: mansus grasp
   description: The power of the Old Gods, channeled through your grip.

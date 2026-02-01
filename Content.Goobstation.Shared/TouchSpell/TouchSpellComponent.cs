@@ -1,8 +1,9 @@
 using Content.Shared.EntityEffects;
+using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.TouchSpell;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class TouchSpellComponent : Component
 {
     /// <summary>

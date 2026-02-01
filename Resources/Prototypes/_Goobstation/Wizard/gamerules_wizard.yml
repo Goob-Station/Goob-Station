@@ -43,6 +43,7 @@
       roleLoadout:
       - RoleSurvivalEVA
       components:
+      - type: MagicUser
       - type: Wizard
       - type: CanEnchant
       - type: LanguageKnowledge
@@ -105,6 +106,7 @@
       roleLoadout:
       - RoleSurvivalEVA
       components:
+      - type: MagicUser
       - type: Wizard
       - type: RandomMetadata
       - type: CanEnchant
@@ -143,6 +145,7 @@
       mindRoles:
       - MindRoleApprentice
       components:
+      - type: MagicUser
       - type: Apprentice
       - type: CanEnchant
       - type: LanguageKnowledge

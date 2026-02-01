@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -28,6 +29,9 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
     /// </summary>
     [DataField]
     public bool IsEquipment;
+
+    [DataField]
+    public EntityWhitelist? EquipmentWhitelist;
 
     /// <summary>
     /// If it is greater than 0, overlay isn't toggled but pulsed instead
