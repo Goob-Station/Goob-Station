@@ -20966,3 +20966,9 @@ Entries:
       message: Chloris mapping (Too many changes for changelog)
   id: 2372
   time: '2026-02-01T19:51:53.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Entirely removed Submarine station.
+  id: 2373
+  time: '2026-02-02T06:08:58.0000000+00:00'
