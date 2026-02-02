@@ -7,7 +7,7 @@
 - type: species
   id: Shadowkin
   name: species-name-shadowkin
-  roundStart: true
+  roundStart: false
   prototype: MobShadowkin
   sprites: MobShadowkinSprites
   defaultSkinTone: "#FFFFFF"
