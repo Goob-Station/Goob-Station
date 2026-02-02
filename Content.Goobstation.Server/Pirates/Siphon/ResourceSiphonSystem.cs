@@ -160,7 +160,7 @@ public sealed class ResourceSiphonSystem : EntitySystem
 
     private void OnInteractUsing(Entity<ResourceSiphonComponent> ent, ref InteractUsingEvent args)
     {
-        if (!HasComp<CashComponent>(args.Used))
+        if (HasComp<CashComponent>(args.Used))
         {
             var price = _pricing.GetPrice(args.Used);
             if (price == 0)
