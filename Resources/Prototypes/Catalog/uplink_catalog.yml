@@ -402,7 +402,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
   productEntity: WeaponRifleEstoc # goob unbundle
   cost:
-    Telecrystal: 60 # goob unbundle
+    Telecrystal: 70 # goob unbundle
   categories:
   - UplinkWeaponry
   #Goobstation
@@ -834,7 +834,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 14 # goob
+    Telecrystal: 12 # goob, having to manually load each bullet should come with tc savings
   categories:
   - UplinkAmmo
   #Goobstation

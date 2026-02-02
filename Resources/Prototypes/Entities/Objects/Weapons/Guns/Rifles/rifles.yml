@@ -329,6 +329,7 @@
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/estoc.rsi #Goob
   - type: Gun
+    fireRate: 6 #goobstation
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
     minAngle: 30 # Goob
