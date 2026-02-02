@@ -997,11 +997,7 @@
   id: EvilPlushieJvne
   suffix: Evil
 
-- type: entity
-  name: evil Mnwaar plush
-  parent: PlushieMnwaar
-  id: EvilPlushieMnwaar
-  suffix: Evil
+
 
 - type: entity
   name: evil Durk plush
