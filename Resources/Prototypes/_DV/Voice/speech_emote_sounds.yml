@@ -95,8 +95,6 @@
       collection: Trill
     Yip:
       collection: Yip
-    Warble:
-      collection: Warble
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
 
@@ -177,8 +175,6 @@
       collection: Trill
     Yip:
       collection: Yip
-    Warble:
-      collection: Warble
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
 

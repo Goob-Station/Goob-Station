@@ -62,7 +62,7 @@
   - type: Speech
     speechVerb: Parrot
     speechSounds: MaleAvali
-    allowedEmotes: ['Chirp', 'Trill', 'Warble'] #goob
+    allowedEmotes: ['Chirp', 'Trill'] #goob
   - type: Vocal
     sounds:
       Male: MaleAvaliEmote

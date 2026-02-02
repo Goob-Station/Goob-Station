@@ -60,8 +60,6 @@
       collection: Weh
     Trill:
       collection: Trill
-    Warble:
-      collection: Warble
     Chirp:
       collection: ResomiChirp
     Gasp:
@@ -108,8 +106,6 @@
       collection: Weh
     Trill:
       collection: Trill
-    Warble:
-      collection: Warble
     Chirp:
       collection: ResomiChirp
     Gasp:
