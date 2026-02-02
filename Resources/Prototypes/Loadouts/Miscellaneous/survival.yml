@@ -136,7 +136,6 @@
     - Resomi
     - Tajaran
     - Chitinid # DeltaV
-    - Shadowkin
 
 # Goobstation start
 - type: loadoutEffectGroup
@@ -214,7 +213,6 @@
     - Oni
     - Resomi
     - Tajaran
-    - Shadowkin
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth

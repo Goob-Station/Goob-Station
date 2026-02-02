@@ -62,8 +62,6 @@
       collection: Trill
     Warble:
       collection: Warble
-    Wurble:
-      collection: Wurble
     Chirp:
       collection: ResomiChirp
     Gasp:
@@ -112,8 +110,6 @@
       collection: Trill
     Warble:
       collection: Warble
-    Wurble:
-      collection: Wurble
     Chirp:
       collection: ResomiChirp
     Gasp:

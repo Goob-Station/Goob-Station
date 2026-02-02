@@ -45,22 +45,6 @@
     - Silicon
     - BorgChassis
 
-- type: emote
-  id: Mars
-  name: chat-emote-name-mars
-  category: Vocal
-  whitelist:
-    tags:
-    - ShadowkinEmotes
-    - HarpyEmotes
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: ["chat-emote-msg-mars"]
-  chatTriggers:
-    - mars
-    - marsing
-    - marsed
 
 - type: emoteSounds
   id: UnisexPlasmaman

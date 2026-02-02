@@ -24,15 +24,6 @@
     Ion: 0.8
   ignoreArmorPierceFlags: All
 
-- type: damageModifierSet
-  id: Shadowkin
-  coefficients:
-    Blunt: 1.25
-    Slash: 1.25
-    Piercing: 1.25
-    Asphyxiation: 0.50
-    Heat: 1.4
-  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Plasmaman

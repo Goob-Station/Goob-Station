@@ -26,7 +26,6 @@
   - ValyrianStandardTranslator
   - ChittinTranslator
   - SiikMaasTranslator
-  - MarishTranslator
   - ChevalTranslatorImplanter
   - NewKinPidginTranslator
   - SchechiTranslator
@@ -58,7 +57,6 @@
   - ValyrianStandardTranslatorImplanter
   - ChittinTranslatorImplanter
   - SiikMaasTranslatorImplanter
-  - MarishTranslatorImplanter
   - SchechiTranslatorImplanter
   - NewKinPidginTranslatorImplanter
   - AnimalTranslator

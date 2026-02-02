@@ -125,13 +125,6 @@
   - type: Implanter
     implant: SiikMaasTranslatorImplant
 
-- type: entity
-  id: MarishTranslatorImplanter
-  parent: [ BaseTranslatorImplanter ]
-  suffix: Marish
-  components:
-  - type: Implanter
-    implant: MarishTranslatorImplant
 
 - type: entity
   id: SchechiTranslatorImplanter

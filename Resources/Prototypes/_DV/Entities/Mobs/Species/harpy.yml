@@ -160,7 +160,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Mars']
+    allowedEmotes: ['Chirp', 'Trill', 'Warble']
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale

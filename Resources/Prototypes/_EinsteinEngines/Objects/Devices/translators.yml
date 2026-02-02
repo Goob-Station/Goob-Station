@@ -314,22 +314,6 @@
     - TauCetiBasic
     - SiikMaas
 
-- type: entity
-  id: MarishTranslator
-  parent: [ TranslatorPoweredBase ]
-  name: Marish translator
-  description: Translates speech between Marish and Tau-Ceti Basic. For talking to Shadowkin!
-  components:
-  - type: HandheldTranslator
-    spoken:
-    - TauCetiBasic
-    - Marish
-    understood:
-    - TauCetiBasic
-    - Marish
-    requires:
-    - TauCetiBasic
-    - Marish
 
 - type: entity                      # taken from Floofstation
   id: NewKinPidginTranslator

@@ -1,5 +1,0 @@
-- type: entity
-  save: false
-  name: Urist McShadow
-  parent: MobShadowkinBase
-  id: MobShadowkin

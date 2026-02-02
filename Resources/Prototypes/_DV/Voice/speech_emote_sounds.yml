@@ -97,8 +97,6 @@
       collection: Yip
     Warble:
       collection: Warble
-    Wurble:
-      collection: Wurble
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
 
@@ -181,10 +179,6 @@
       collection: Yip
     Warble:
       collection: Warble
-    Wurble:
-      collection: Wurble
-    Mars:
-      collection: Mars
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
 

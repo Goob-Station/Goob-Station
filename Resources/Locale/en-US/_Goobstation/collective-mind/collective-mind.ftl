@@ -12,7 +12,6 @@ collective-mind-abductormind = Glorpmind
 collective-mind-binary = Binary
 collective-mind-mousemind = Piepmind
 collective-mind-dronemind = Dronemind
-collective-mind-empathy = Empathy
 collective-mind-bingle = Binglemind
 collective-mind-shadow-mind = Shadowmind
 collective-mind-xeno = Hivemind

@@ -74,13 +74,6 @@ public sealed partial class SpeechOverrideInfo
     [DataField]
     public bool AllowRadio = true;
 
-    /// <summary>
-    ///     If true, the message will be relayed to the Empathy Chat and
-    ///     anyone with that language will also hear Empathy Chat. (Unless user has ShadowkinBlackeyeComponent)
-    ///     This is mostly only use for "Marish" but... fuckit modularity :p
-    /// </summary>
-    [DataField]
-    public bool EmpathySpeech = false;
 
     /// <summary>
     ///     If false, the entity can use this language even when it's unable to speak (i.e. muffled or muted),
