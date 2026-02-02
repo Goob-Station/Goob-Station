@@ -19,7 +19,7 @@
 
 - type: entity
   parent: BaseRoofTempleShingle
-  id: RoofTempleShingleCenter
+  id: RoofShingleCenter
   components:
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/temple.rsi
@@ -31,7 +31,7 @@
 
 - type: entity
   parent: BaseRoofTempleShingle
-  id: RoofTempleShingleEdge
+  id: RoofShingleEdge
   components:
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/temple.rsi
@@ -43,7 +43,7 @@
 
 - type: entity
   parent: BaseRoofTempleShingle
-  id: RoofTempleShingleEdgeAlt
+  id: RoofShingleEdgeAlt
   components:
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/temple.rsi
