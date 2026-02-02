@@ -42,7 +42,6 @@
 
 - type: megafaunaSelector
   id: ActionOniRampageSelector
-  weight: 2
   selector: !type:PerformActionSelector
     delay: !type:AngerNumberSelector
       range: 1.0, 4.0

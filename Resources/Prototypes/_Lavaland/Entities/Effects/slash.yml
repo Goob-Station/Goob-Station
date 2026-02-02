@@ -44,8 +44,6 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Goobstation/Weapons/Melee/slashermachetehit.ogg
-    params:
-      volume: -12
 
 - type: entity
   id: FlamingSlashProjectileTemporary

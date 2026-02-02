@@ -136,7 +136,6 @@
   - type: RingOfFire
   - type: OniRampage
     landDamageRange: 1
-    growDistance: 1
     shouldSpeak: true
     damage:
       types:

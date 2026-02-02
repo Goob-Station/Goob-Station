@@ -16,7 +16,7 @@ public sealed partial class OniRampageComponent : Component
     /// How far you will jump (in tiles).
     /// </summary>
     [DataField]
-    public float JumpDistance = 5f;
+    public float JumpDistance = 6f;
 
     /// <summary>
     /// Basic “throwing” speed for TryThrow method.

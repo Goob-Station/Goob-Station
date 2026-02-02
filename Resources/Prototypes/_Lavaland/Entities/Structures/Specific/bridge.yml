@@ -22,7 +22,7 @@
       - Catwalk
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: Biologic
+    damageModifierSet: Biological
   - type: Destructible
     thresholds:
     - trigger:

@@ -1,6 +1,8 @@
 - type: entity
   id: BaseRoofTempleShingle
   abstract: true
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/temple.rsi
@@ -9,30 +11,44 @@
   - type: SpriteFade
   - type: Transform
     anchored: true
+  - type: Icon
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: shinglecenter
+  - type: Anchorable
+  - type: Clickable
 
 - type: entity
   parent: BaseRoofTempleShingle
-  id: RoofShingleCenter
+  id: RoofTempleShingleCenter
   components:
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/temple.rsi
     state: shinglecenter
-    drawdepth: WallMountedItems
+    drawdepth: Overdoors
+  - type: Icon
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: shinglecenter
 
 - type: entity
   parent: BaseRoofTempleShingle
-  id: RoofShingleEdge
+  id: RoofTempleShingleEdge
   components:
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/temple.rsi
     state: shingleedge
-    drawdepth: WallMountedItems
+    drawdepth: Overdoors
+  - type: Icon
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: shingleedge
 
 - type: entity
   parent: BaseRoofTempleShingle
-  id: RoofShingleEdgeAlt
+  id: RoofTempleShingleEdgeAlt
   components:
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/temple.rsi
     state: shingleedgealt
-    drawdepth: WallMountedItems
+    drawdepth: Overdoors
+  - type: Icon
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: shingleedgealt

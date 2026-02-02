@@ -38,7 +38,7 @@ public sealed partial class RingOfFireComponent : Component
     /// What the entity says when using this action.
     /// </summary>
     [DataField]
-    public LocId Speech = "childish-oni-ring";
+    public LocId Speech;
 
     /// <summary>
     /// Sound played when the action is used.
