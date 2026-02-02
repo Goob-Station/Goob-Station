@@ -317,17 +317,17 @@
   name: Estoc # Goob
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A now defunct military burst-fire DMR, the Estoc quickly found its way into paramilitary and boarding party hands. Boasts an expensive tritium sight for faster target acquisition. Feeds from .30 Rifle magazines. # Goobstation
+  description: A now defunct military burst-fire DMR, the Estoc quickly found its way into paramilitary and boarding party hands. Feeds from .30 Rifle magazines. # Goobstation
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/estoc.rsi #Goob
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/estoc.rsi #Goob
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
@@ -337,10 +337,11 @@
     selectedMode: Burst
     availableModes:
     - Burst
+    - SemiAuto
     burstFireRate: 10 # Goob
   - type: GunWieldBonus
-    minAngle: -30 # Goob
-    maxAngle: -40 # Goob
+    minAngle: -28 # Goob
+    maxAngle: -37 # Goob
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -360,13 +361,13 @@
         whitelist:
           tags:
           - CartridgeLightRifle # Goob
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.8
-    sprintModifier: 0.8
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 3.5 # Goob
-    pvsIncrease: 0.2
+#  - type: SpeedModifiedOnWield Goobstart, scopeless
+#    walkModifier: 0.8
+#    sprintModifier: 0.8
+#  - type: CursorOffsetRequiresWield
+#  - type: EyeCursorOffset
+#    maxOffset: 3.5 # Goob
+#    pvsIncrease: 0.2 Goobend
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
