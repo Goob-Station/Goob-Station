@@ -95,9 +95,6 @@ public sealed partial class HereticAbilitySystem
     {
         var uid = ent.Owner;
 
-        if (!TryUseAbility(uid, args))
-            return;
-
         args.Handled = true;
 
         var xform = Transform(uid);
@@ -157,9 +154,6 @@ public sealed partial class HereticAbilitySystem
 
     private void OnAggressiveSpread(EntityUid ent, ref EventHereticAggressiveSpread args, float multiplier = 1f)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         args.Handled = true;
 
         var aoeRadius = MathF.Max(args.AoeRadius, args.AoeRadius * multiplier);
@@ -278,9 +272,6 @@ public sealed partial class HereticAbilitySystem
 
     private void OnRustConstruction(Entity<HereticComponent> ent, ref EventHereticRustConstruction args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         if (!IsTileRust(args.Target, out var pos))
         {
             Popup.PopupEntity(Loc.GetString("heretic-ability-fail-tile-not-rusted"), ent, ent);

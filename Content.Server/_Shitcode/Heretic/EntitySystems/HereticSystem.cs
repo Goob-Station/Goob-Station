@@ -363,7 +363,7 @@ public sealed class HereticSystem : EntitySystem
         ent.Comp.Ascended = true;
         ent.Comp.KnownRituals.Remove("FeastOfOwls");
 
-        var mic = EnsureComp<MagicalItemComponent>(ent);
+        var mic = EnsureComp<MagicFocusProviderComponent>(ent);
         mic.Weight = 999; // ultimate spellcasting machine
 
         Dirty(ent);

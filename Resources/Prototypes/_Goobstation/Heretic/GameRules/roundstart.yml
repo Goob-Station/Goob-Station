@@ -45,7 +45,6 @@
       mindRoles:
       - MindRoleHeretic
       components:
-      - type: MagicUser
       - type: CanEnchant
   - type: Tag
     tags:
@@ -78,7 +77,6 @@
       mindRoles:
       - MindRoleHeretic
       components:
-      - type: MagicUser
       - type: CanEnchant
   - type: Tag
     tags:

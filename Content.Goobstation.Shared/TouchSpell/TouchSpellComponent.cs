@@ -22,5 +22,5 @@ public sealed partial class TouchSpellComponent : Component
     /// <summary>
     ///     What effects should it apply on touch?
     /// </summary>
-    [DataField] public List<EntityEffect> Effects = new();
+    [DataField(serverOnly: true)] public List<EntityEffect> Effects = new();
 }

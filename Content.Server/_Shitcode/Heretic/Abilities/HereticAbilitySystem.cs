@@ -162,13 +162,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         QueueDel(ent);
     }
 
-    protected override void SpeakAbility(EntityUid ent, HereticActionComponent actionComp)
-    {
-        // shout the spell out
-        if (!string.IsNullOrWhiteSpace(actionComp.MessageLoc))
-            _chat.TrySendInGameICMessage(ent, Loc.GetString(actionComp.MessageLoc!), InGameICChatType.Speak, false);
-    }
-
     private void OnStore(Entity<HereticComponent> ent, ref EventHereticOpenStore args)
     {
         if (!TryComp<StoreComponent>(ent, out var store))
@@ -178,9 +171,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     }
     private void OnMansusGrasp(Entity<HereticComponent> ent, ref EventHereticMansusGrasp args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         if (!TryComp<HandsComponent>(ent, out var handsComp))
             return;
 
@@ -272,9 +262,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
     private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         if (!TryComp<UserInterfaceComponent>(ent, out var uic))
             return;
 
@@ -336,9 +323,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     public static ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         if (!HasComp<MindContainerComponent>(args.Target))
         {
             Popup.PopupEntity(Loc.GetString("heretic-manselink-fail-nomind"), ent, ent);

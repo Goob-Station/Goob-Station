@@ -32,7 +32,6 @@ public abstract class SharedVoidCloakSystem : EntitySystem
         SubscribeLocalEvent<VoidCloakHoodComponent, EntParentChangedMessage>(OnEntParentChanged);
         SubscribeLocalEvent<VoidCloakHoodComponent, EntityTerminatingEvent>(OnTerminating);
 
-        SubscribeLocalEvent<VoidCloakComponent, InventoryRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
         SubscribeLocalEvent<VoidCloakComponent, InventoryRelayedEvent<ModifyChangedTemperatureEvent>>(OnTemperatureModify);
     }
 
@@ -42,12 +41,6 @@ public abstract class SharedVoidCloakSystem : EntitySystem
             return;
 
         args.Args.TemperatureDelta = 0f;
-    }
-
-    private void OnCheckMagicItem(Entity<VoidCloakComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
-    {
-        if (!ent.Comp.Transparent)
-            args.Args.Handled = true;
     }
 
     private void OnTerminating(Entity<VoidCloakHoodComponent> ent, ref EntityTerminatingEvent args)

@@ -28,9 +28,6 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnVoidConduit(Entity<HereticComponent> ent, ref HereticVoidConduitEvent args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         args.Handled = true;
 
         PredictedSpawnAtPosition(args.VoidConduit, Transform(ent).Coordinates);
@@ -41,9 +38,6 @@ public abstract partial class SharedHereticAbilitySystem
         var ev = new TeleportAttemptEvent();
         RaiseLocalEvent(ent, ref ev);
         if (ev.Cancelled)
-            return;
-
-        if (!TryUseAbility(ent, args))
             return;
 
         var target = _transform.ToMapCoordinates(args.Target);
@@ -81,9 +75,6 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnVoidPull(Entity<HereticComponent> ent, ref HereticVoidPullEvent args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         var path = ent.Comp.CurrentPath;
         var condition = ent.Comp.CurrentPath == "Void";
         var coords = Transform(ent).Coordinates;

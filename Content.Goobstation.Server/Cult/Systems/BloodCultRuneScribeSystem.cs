@@ -59,8 +59,8 @@ public sealed partial class BloodCultRuneScribeSystem : EntitySystem
         var tiers = ent.Comp.Runes.Where(q => q.Key >= rule!.Value.Comp.CurrentTier).ToList();
         var runes = new List<EntProtoId>();
         foreach (var tier in tiers) runes.AddRange(tier.Value);
-        ent.Comp.KnownRunes = runes;
 
+        _ui.SetUiState(ent.Owner, EntityRadialMenuKey.Key, new EntityRadialMenuState(runes));
         _ui.TryOpenUi(ent.Owner, EntityRadialMenuKey.Key, args.User);
     }
 

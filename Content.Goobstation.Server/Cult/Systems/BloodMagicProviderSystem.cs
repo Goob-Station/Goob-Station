@@ -47,8 +47,8 @@ public sealed partial class BloodMagicProviderSystem : EntitySystem
         var tiers = ent.Comp.Spells.Where(q => q.Key >= rule!.Value.Comp.CurrentTier).ToList();
         var spells = new List<EntProtoId>();
         foreach (var tier in tiers) spells.AddRange(tier.Value);
-        ent.Comp.KnownSpells = spells;
 
+        _ui.SetUiState(args.Action.Owner, EntityRadialMenuKey.Key, new EntityRadialMenuState(spells));
         _ui.TryOpenUi(args.Action.Owner, EntityRadialMenuKey.Key, ent);
     }
 

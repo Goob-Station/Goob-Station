@@ -227,8 +227,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
     {
-        if (!TryComp<HereticComponent>(args.User, out var heretic)
-        || !_hereticAbilities.IsValid(ent))
+        if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
         if (heretic.KnownRituals.Count == 0)
@@ -242,8 +241,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnRitualChosenMessage(Entity<HereticRitualRuneComponent> ent, ref HereticRitualMessage args)
     {
-        if (!_hereticAbilities.IsValid(ent)
-        || !TryDoRitual(args.Actor, ent, args.ProtoId))
+        if (!TryDoRitual(args.Actor, ent, args.ProtoId))
             return;
 
         var successAnimation = _proto.Index(args.ProtoId).RuneSuccessAnimation;

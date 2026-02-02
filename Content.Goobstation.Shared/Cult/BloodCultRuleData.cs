@@ -18,7 +18,8 @@ public struct CultTierData
     }
 }
 
-public enum BloodCultTier
+[Serializable, NetSerializable]
+public enum BloodCultTier : int
 {
     /// <summary>
     ///     No visual changes
@@ -36,6 +37,7 @@ public enum BloodCultTier
     Halos = 2
 }
 
+[Serializable, NetSerializable]
 public enum BloodCultWinType : byte
 {
     /// <summary>

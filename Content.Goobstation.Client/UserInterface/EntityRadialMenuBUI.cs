@@ -18,6 +18,17 @@ public abstract class EntityRadialMenuBUI : BoundUserInterface
         IoCManager.InjectDependencies(this);
     }
 
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+        if (state is not EntityRadialMenuState { } menuState)
+            return;
+
+        UpdateMenuState(menuState);
+    }
+
+    protected abstract void UpdateMenuState(EntityRadialMenuState state);
+
     protected override void Open()
     {
         base.Open();

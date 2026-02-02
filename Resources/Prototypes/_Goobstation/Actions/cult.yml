@@ -39,7 +39,7 @@
     event: !type:BlankInstantActionEvent
   - type: MagicAction
     invocationLoc: cult-magic-invoke-stun
-    invocationType: enum.InGameICChatType.Whisper
+    invocationType: Whisper
   - type: BloodCultAction
     damage:
       types:
@@ -63,7 +63,7 @@
     event: !type:BlankInstantActionEvent
   - type: MagicAction
     invocationLoc: cult-magic-invoke-teleport
-    invocationType: enum.InGameICChatType.Whisper
+    invocationType: Whisper
   - type: BloodCultAction
     damage:
       types:
@@ -107,7 +107,7 @@
     event: !type:BlankInstantActionEvent
   - type: MagicAction
     invocationLoc: cult-magic-invoke-shackles
-    invocationType: enum.InGameICChatType.Whisper
+    invocationType: Whisper
   - type: BloodCultAction
     damage:
       types:
@@ -131,7 +131,7 @@
     event: !type:BlankInstantActionEvent
   - type: MagicAction
     invocationLoc: cult-magic-invoke-construction
-    invocationType: enum.InGameICChatType.Whisper
+    invocationType: Whisper
   - type: BloodCultAction
     damage:
       types:
@@ -155,7 +155,7 @@
     event: !type:BlankInstantActionEvent
   - type: MagicAction
     invocationLoc: cult-magic-invoke-dagger
-    invocationType: enum.InGameICChatType.Whisper
+    invocationType: Whisper
   - type: BloodCultAction
   - type: TouchSpellAction
     touchSpell: TouchSpellCultEquipment

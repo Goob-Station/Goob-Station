@@ -52,13 +52,13 @@ public sealed partial class HereticAbilitySystem
 
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent, args.Jaunt))
+        if (TryDoJaunt(ent, args.Jaunt))
             args.Handled = true;
     }
 
     private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent, args.Jaunt))
+        if (TryDoJaunt(ent, args.Jaunt))
             args.Handled = true;
     }
 
@@ -74,9 +74,6 @@ public sealed partial class HereticAbilitySystem
 
     private void OnNWRebirth(Entity<HereticComponent> ent, ref EventHereticNightwatcherRebirth args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         if (ent.Comp is not { Ascended: true, CurrentPath: "Ash" })
             _flammable.Extinguish(ent);
 
@@ -114,9 +111,6 @@ public sealed partial class HereticAbilitySystem
 
     private void OnFlames(Entity<HereticComponent> ent, ref EventHereticFlames args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         EnsureComp<HereticFlamesComponent>(ent);
 
         if (ent.Comp.Ascended)
@@ -127,9 +121,6 @@ public sealed partial class HereticAbilitySystem
 
     private void OnCascade(Entity<HereticComponent> ent, ref EventHereticCascade args)
     {
-        if (!TryUseAbility(ent, args) || !Transform(ent).GridUid.HasValue)
-            return;
-
         CombustArea(ent, 9, false);
 
         if (ent.Comp.Ascended)

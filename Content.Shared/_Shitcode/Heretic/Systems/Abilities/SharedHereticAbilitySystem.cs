@@ -168,11 +168,6 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             return;
         }
 
-        // TryUseAbility only if we are not cloaked so that we can uncloak without focus
-        // Ideally you should uncloak when losing focus but whatever
-        if (!TryUseAbility(ent, args))
-            return;
-
         args.Handled = true;
         Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
     }
@@ -191,45 +186,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         return true;
     }
 
-    public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
-    {
-        if (args.Handled
-        || !IsValid(ent)
-        || HasComp<RustChargeComponent>(ent) // no abilities while charging
-        || !TryComp<HereticActionComponent>(args.Action, out var actionComp))
-            return false;
-
-        // check if any magic items are worn
-        if (!TryComp<HereticComponent>(ent, out var hereticComp) ||
-            !actionComp.RequireMagicItem || hereticComp.Ascended)
-        {
-            SpeakAbility(ent, actionComp);
-            return true;
-        }
-
-        var ev = new CheckMagicItemEvent();
-        RaiseLocalEvent(ent, ev);
-
-        if (ev.Handled)
-        {
-            SpeakAbility(ent, actionComp);
-            return true;
-        }
-
-        // Almost all of the abilites are serverside anyway
-        if (_net.IsServer)
-            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-magicitem"), ent, ent);
-
-        return false;
-    }
-
     private EntityUid? GetTouchSpell<TEvent, TComp>(Entity<HereticComponent> ent, ref TEvent args)
         where TEvent : InstantActionEvent, ITouchSpellEvent
         where TComp : Component
     {
-        if (!TryUseAbility(ent, args))
-            return null;
-
         if (!TryComp(ent, out HandsComponent? hands) || hands.Hands.Count < 1)
             return null;
 
@@ -452,6 +412,4 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     {
         _audio.PlayPredicted(ent.Comp.Sound, user, user);
     }
-
-    protected virtual void SpeakAbility(EntityUid ent, HereticActionComponent args) { }
 }

@@ -13,7 +13,6 @@ public sealed partial class BloodCultRuneScribeComponent : Component
     ///     This is defined in a prototype.
     /// </summary>
     [DataField(required: true)] public Dictionary<BloodCultTier, List<EntProtoId>> Runes;
-    [ViewVariables] public List<EntProtoId> KnownRunes;
 
     [DataField] public EntProtoId? MalfRune;
 

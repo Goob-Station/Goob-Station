@@ -30,7 +30,6 @@ public abstract partial class SharedHandsSystem
         SubscribeLocalEvent<HandsComponent, GetEyeOffsetRelayedEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, GetEyePvsScaleRelayedEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, RefreshMovementSpeedModifiersEvent>(RelayEvent);
-        SubscribeLocalEvent<HandsComponent, CheckMagicItemEvent>(RelayEvent); // goob edit - heretics
         SubscribeLocalEvent<HandsComponent, SurgerySanitizationEvent>(RelayEvent); // goob edit - heretics
         SubscribeLocalEvent<HandsComponent, SurgeryPainEvent>(RelayEvent); // goob edit - heretics
         SubscribeLocalEvent<HandsComponent, SurgeryIgnorePreviousStepsEvent>(RelayEvent); // goob edit - heretics

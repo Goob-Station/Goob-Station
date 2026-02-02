@@ -9,21 +9,25 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.EUI;
+using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Popups;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Actions;
+namespace Content.Server.Actions;
 
 /// <summary>
-/// Handles action priming, confirmation and automatic unpriming.
+///     Handles action priming, confirmation and automatic unpriming.
 /// </summary>
 public sealed class ConfirmableActionSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!; // Goobstation
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EuiManager _eui = default!; // goob edit
 
     public override void Initialize()
     {
@@ -53,6 +57,13 @@ public sealed class ConfirmableActionSystem : EntitySystem
     {
         if (!ent.Comp.ShouldCancel) // Goobstation
             return;
+
+        // goob edit - hooray UI!
+        if (ent.Comp.OpenUI && TryComp(args.User, out ActorComponent? actor))
+        {
+            _eui.OpenEui(new ConfirmableActionEui(ent, args.User, EntityManager), actor.PlayerSession);
+            return;
+        }
 
         if (args.Cancelled)
             return;

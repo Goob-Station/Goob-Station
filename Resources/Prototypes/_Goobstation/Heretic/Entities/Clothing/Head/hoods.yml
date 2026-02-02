@@ -17,7 +17,8 @@
   name: ominous hood
   description: A torn, dust-caked hood. Strange eyes line the inside.
   components:
-  - type: MagicalItem
+  - type: MagicFocusProvider
+    weight: 2
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
     state: icon

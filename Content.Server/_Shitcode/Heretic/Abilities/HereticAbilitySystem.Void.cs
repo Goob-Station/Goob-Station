@@ -82,9 +82,6 @@ public sealed partial class HereticAbilitySystem
 
     private void OnVoidBlast(Entity<HereticComponent> ent, ref HereticVoidBlastEvent args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         var rod = Spawn("ImmovableVoidRod", Transform(ent).Coordinates);
         if (TryComp<ImmovableVoidRodComponent>(rod, out var vrod))
             vrod.User = ent;
@@ -111,9 +108,6 @@ public sealed partial class HereticAbilitySystem
 
         if (!HasComp<PolymorphableComponent>(target) || HasComp<PolymorphedEntityComponent>(target) ||
             HasComp<VoidPrisonComponent>(target))
-            return;
-
-        if (!TryUseAbility(ent, args))
             return;
 
         args.Handled = true;

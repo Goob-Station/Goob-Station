@@ -20,3 +20,9 @@ public sealed partial class EntityRadialMenuUpdateMessage(List<EntProtoId> ids) 
 {
     public List<EntProtoId> IDs = ids;
 }
+
+[Serializable, NetSerializable]
+public sealed partial class EntityRadialMenuState(List<EntProtoId> ids) : BoundUserInterfaceState
+{
+    public List<EntProtoId> IDs = ids;
+}

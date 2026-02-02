@@ -1,10 +1,8 @@
+using Content.Goobstation.Shared.TouchSpell;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Chat;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Inventory;
 using Content.Shared.Popups;
-using Content.Shared.Speech.Muting;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Goobstation.Shared.Magic.Systems;
@@ -12,8 +10,6 @@ namespace Content.Goobstation.Shared.Magic.Systems;
 public sealed partial class SharedGoobMagicSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
 
     public override void Initialize()
@@ -21,7 +17,7 @@ public sealed partial class SharedGoobMagicSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MagicActionComponent, ActionUpdateEvent>(OnActionUpdate);
-        SubscribeLocalEvent<MagicActionComponent, ActionAttemptEvent>(OnActionAttempt);
+        SubscribeLocalEvent<MagicActionComponent, ActionAttemptEvent>(OnActionAttempt, before: [typeof(TouchSpellSystem)]);
         SubscribeLocalEvent<MagicActionComponent, ActionPerformedEvent>(OnActionPerformed);
     }
 
@@ -37,8 +33,11 @@ public sealed partial class SharedGoobMagicSystem : EntitySystem
     {
         if (!CanInvoke(ent, args.User, out var reason))
         {
-            _popup.PopupEntity(reason, args.User, args.User, PopupType.SmallCaution);
             args.Cancelled = true;
+
+            if (reason != null)
+                _popup.PopupEntity(reason, args.User, args.User, PopupType.SmallCaution);
+
             return;
         }
     }
@@ -49,44 +48,21 @@ public sealed partial class SharedGoobMagicSystem : EntitySystem
             _chat.TrySendInGameICMessage(args.Performer, ent.Comp.InvocationLoc.Value, ent.Comp.InvocationType, false);
     }
 
-    public bool CanInvoke(Entity<MagicActionComponent> ent, EntityUid performer, [NotNullWhen(false)] out string? reason)
+    public bool CanInvoke(Entity<MagicActionComponent> ent, EntityUid performer, [NotNullWhen(false)] out string? invalidReason)
     {
-        reason = null;
-        var muted = ent.Comp.InvocationLoc.HasValue && HasComp<MutedComponent>(performer);
-        if (muted)
+        invalidReason = null;
+
+        if (ent.Comp.Requirements == null)
+            return true;
+
+        foreach (var req in ent.Comp.Requirements)
         {
-            reason = Loc.GetString("magic-requirements-muted");
-            return false;
-        }
-
-        if (ent.Comp.RequiredMagicalItemWeight > 0)
-        {
-            var items = 0;
-
-            // in case of an ascended heretic or such.
-            // since they no longer need a focus, why not turn them into one? :D
-            if (TryComp<MagicalItemComponent>(performer, out var pmic))
-                items += pmic.Weight;
-
-            var ise = _inventory.GetSlotEnumerator(performer, SlotFlags.WITHOUT_POCKET);
-            while (ise.MoveNext(out var container))
+            if (!req.Valid(performer, EntityManager, out var reason))
             {
-                var item = container.ContainedEntity;
-                if (!item.HasValue || !TryComp<MagicalItemComponent>(item.Value, out var mic)) continue;
-                items += mic.Weight;
-            }
-
-            var hands = _hands.EnumerateHeld(performer);
-            foreach (var held in hands)
-                items += TryComp<MagicalItemComponent>(held, out var mic) ? mic.Weight : 0;
-
-            if (items <= ent.Comp.RequiredMagicalItemWeight)
-            {
-                reason = Loc.GetString("magic-requirements-items", ("n", ent.Comp.RequiredMagicalItemWeight - items));
+                invalidReason = reason;
                 return false;
             }
         }
-
         return true;
     }
 }

@@ -50,7 +50,6 @@ public sealed partial class BloodMagicProviderComponent : Component
             }
         },
     };
-    [ViewVariables] public List<EntProtoId> KnownSpells;
 
     /// <summary>
     ///     Automatically gets added and removed on leader gain / loss.

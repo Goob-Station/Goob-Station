@@ -21,9 +21,6 @@ public abstract partial class SharedHereticAbilitySystem
         if (!TryComp(ent, out HandsComponent? hands))
             return;
 
-        if (!TryUseAbility(ent, args))
-            return;
-
         args.Handled = true;
 
         if (_net.IsClient)
@@ -60,7 +57,7 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnRustCharge(Entity<HereticComponent> ent, ref EventHereticRustCharge args)
     {
-        if (!args.Target.IsValid(EntityManager) || !TryUseAbility(ent, args))
+        if (!args.Target.IsValid(EntityManager))
             return;
 
         var xform = Transform(ent);

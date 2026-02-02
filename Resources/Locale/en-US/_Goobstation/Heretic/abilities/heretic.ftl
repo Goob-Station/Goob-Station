@@ -23,8 +23,6 @@ heretic-cosmic-rune-fail-star-mark = Blocked by star mark!
 heretic-cosmic-rune-fail-unlinked = No linked rune!
 heretic-cosmic-rune-fail-range = Not close enough!
 
-heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while held or equipped.[/color]
-
 mansus-grasp-trigger-fail = Something prevents you from activating this!
 
 ## blade

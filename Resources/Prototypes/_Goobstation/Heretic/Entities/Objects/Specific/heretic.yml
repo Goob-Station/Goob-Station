@@ -39,7 +39,8 @@
   - type: ItemToggle
   - type: ComponentToggler
     components:
-    - type: HereticMagicItem
+    - type: MagicFocusProvider
+      weight: 2
     - type: EldritchInfluenceDrainer
     - type: TransmutationRuneScriber
   - type: ItemToggleSize

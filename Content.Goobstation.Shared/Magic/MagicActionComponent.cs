@@ -18,7 +18,7 @@ public sealed partial class MagicActionComponent : Component
     [DataField] public InGameICChatType InvocationType = InGameICChatType.Speak;
 
     /// <summary>
-    ///     How much specific clothing pieces/items/focuses are required for the spell to work?
+    ///     Requirements this spell will go through.
     /// </summary>
-    [DataField] public int RequiredMagicalItemWeight = 0;
+    [DataField(serverOnly: true)] public List<IncantationRequirement>? Requirements = new();
 }

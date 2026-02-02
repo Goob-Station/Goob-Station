@@ -7,6 +7,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.TouchSpell;
 
@@ -14,13 +15,18 @@ namespace Content.Goobstation.Shared.TouchSpell;
 ///     Generic system for touch spells.
 /// </summary>
 /// <remarks>
-///     Acts as a relay between actions (action gets called -> spell appears -> spell handles the action).
+///     Acts as a relay.
+///     
+///     Action gets called
+///     -> TouchSpell appears
+///     -> Spell performs the action referencing the user.
 /// </remarks>
 public sealed partial class TouchSpellSystem : EntitySystem
 {
     [Dependency] private readonly EntityEffectSystem _effects = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -28,12 +34,15 @@ public sealed partial class TouchSpellSystem : EntitySystem
 
         SubscribeLocalEvent<TouchSpellActionComponent, ActionAttemptEvent>(OnActionAttempt);
 
-        SubscribeLocalEvent<TouchSpellComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<TouchSpellComponent, InteractEvent>(OnInteract);
         SubscribeLocalEvent<TouchSpellComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
     private void OnActionAttempt(Entity<TouchSpellActionComponent> ent, ref ActionAttemptEvent args)
     {
+        // thank you aviu! *does a squat
+        if (_net.IsClient) return;
+
         if (!TryComp<HandsComponent>(args.User, out var handsComp))
             return;
 
@@ -50,7 +59,7 @@ public sealed partial class TouchSpellSystem : EntitySystem
         if (!_hands.TryGetEmptyHand((args.User, handsComp), out var emptyHand))
             return;
 
-        var ts = Spawn(ent.Comp.TouchSpell, Transform(ent).Coordinates);
+        var ts = PredictedSpawnAtPosition(ent.Comp.TouchSpell, Transform(ent).Coordinates);
         if (!_hands.TryPickup(args.User, ts, emptyHand, animate: false, handsComp: handsComp))
         {
             QueueDel(ts);
@@ -68,7 +77,7 @@ public sealed partial class TouchSpellSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnAfterInteract(Entity<TouchSpellComponent> ent, ref AfterInteractEvent args)
+    private void OnInteract(Entity<TouchSpellComponent> ent, ref InteractEvent args)
     {
         if (!args.Target.HasValue || !args.CanReach)
             return;

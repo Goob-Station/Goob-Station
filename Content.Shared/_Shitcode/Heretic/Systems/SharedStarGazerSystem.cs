@@ -162,9 +162,6 @@ public abstract class SharedStarGazerSystem : EntitySystem
 
     private void OnStarGaze(Entity<StarGazerComponent> ent, ref StarGazeEvent args)
     {
-        if (!_heretic.TryUseAbility(ent, args))
-            return;
-
         var orbEffect = PredictedSpawnAttachedTo(args.OrbEffect, ent.Owner.ToCoordinates());
 
         var doArgs = new DoAfterArgs(EntityManager,

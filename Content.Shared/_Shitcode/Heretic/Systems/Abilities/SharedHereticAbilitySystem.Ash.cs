@@ -12,9 +12,6 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnVolcanoBlast(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         args.Handled = true;
 
         if (!_statusNew.TrySetStatusEffectDuration(ent,

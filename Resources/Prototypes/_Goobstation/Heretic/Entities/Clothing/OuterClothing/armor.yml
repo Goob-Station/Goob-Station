@@ -24,7 +24,6 @@
   name: ominous armor
   description: A ragged, dusty set of robes. Strange eyes line the inside.
   components:
-  - type: UnholyItem
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
@@ -46,7 +45,6 @@
         Piercing: 0.5
         Heat: 0.5
         Caustic: 0.5
-        Holy: 1.25
     traumaDeductions:
       Dismemberment: 0.5
       OrganDamage: 0.5
@@ -148,8 +146,6 @@
   name: void cloak
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
-  # - type: UnholyItem # This should only be active when cloak is visible. Can't simply ensure/remove this component on
-  # cloak toggle due to goobmod. Should be done when heretic is mored to goobmod probably.
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:
@@ -173,7 +169,6 @@
         Piercing: 0.7
         Heat: 0.7
         Caustic: 0.7
-        # Holy: 1.25
     traumaDeductions:
       Dismemberment: 0.3
       OrganDamage: 0.3
@@ -213,7 +208,6 @@
       - HereticBlade
       - CarvingKnife
       - HereticMagicItem
-  - type: HereticClothing
   - type: PressureProtection
   - type: VoidCloak
   - type: Appearance
