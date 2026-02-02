@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseHandheldStationMapSupermatterCe
+  name: handheld supermatter console
+  description: Fine-crafted handheld supermatter console for Chief Engineers. Allows the user to view the supermatter's status.
+  parent: BaseItem
+  components:
+    - type: StationMap
+    - type: Sprite
+      sprite: _Goobstation/Objects/Devices/tablets.rsi
+      layers:
+        - state: tablet
+        - state: supermatterconsole
+          shader: unshaded
+    - type: ActivatableUI
+      inHandsOnly: true
+      singleUser: true
+      key: enum.SupermatterConsoleUiKey.Key
+    - type: SupermatterConsole
+    - type: UserInterface
+      interfaces:
+        enum.SupermatterConsoleUiKey.Key:
+          type: SupermatterConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
