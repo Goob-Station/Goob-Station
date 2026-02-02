@@ -161,16 +161,15 @@ public sealed class ResourceSiphonSystem : EntitySystem
     private void OnInteractUsing(Entity<ResourceSiphonComponent> ent, ref InteractUsingEvent args)
     {
         if (!HasComp<CashComponent>(args.Used))
-            return;
+        {
+            var price = _pricing.GetPrice(args.Used);
+            if (price == 0)
+                return;
 
-        var price = _pricing.GetPrice(args.Used);
-        if (price == 0)
-            return;
-
-        UpdateCredits(ent, (float) price);
-        QueueDel(args.Used);
-        args.Handled = true;
-
+            UpdateCredits(ent, (float) price);
+            QueueDel(args.Used);
+            args.Handled = true;
+        }
         // add more stuff here if needed
     }
 
