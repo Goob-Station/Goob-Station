@@ -10,7 +10,7 @@
 - type: species
   id: Resomi
   name: species-name-resomi
-  roundStart: true
+  roundStart: false
   prototype: MobResomi
   sprites: MobResomiSprites
   defaultSkinTone: "#faf7f7"
