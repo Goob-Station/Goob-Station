@@ -160,6 +160,28 @@ namespace Content.Server.GameTicking
             }
         }
 
+        // Goobstation - PlayerPopRequirement
+        public override bool InLobby => RunLevel == GameRunLevel.PreRoundLobby;
+
+        public override int GetActivePlayerCount()
+        {
+            var targetStatus = InLobby ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.JoinedGame;
+            var count = 0;
+
+            foreach (var (userId, status) in _playerGameStatuses)
+            {
+                if (status != targetStatus)
+                    continue;
+
+                if (!_playerManager.TryGetSessionById(userId, out _))
+                    continue;
+
+                count++;
+            }
+
+            return count;
+        }
+
         /// <summary>
         /// Returns true if the round's map is eligible to be updated.
         /// </summary>
