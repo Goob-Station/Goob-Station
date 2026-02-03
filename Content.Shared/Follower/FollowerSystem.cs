@@ -255,11 +255,14 @@ public sealed class FollowerSystem : EntitySystem
         var xform = Transform(follower);
         _containerSystem.AttachParentToContainerOrGrid((follower, xform));
 
+        #region DOWNSTREAM-TPirates: ghost follow menu update
         // If we didn't get to parent's container.
         if (xform.ParentUid != Transform(xform.ParentUid).ParentUid)
         {
-            _transform.SetCoordinates(follower, xform, new EntityCoordinates(entity, Vector2.Zero), rotation: Angle.Zero);
+            _transform.SetParent(follower, xform, entity);
+            _transform.SetLocalPosition(follower, Vector2.Zero, xform);
         }
+        #endregion
 
         _physicsSystem.SetLinearVelocity(follower, Vector2.Zero);
 
@@ -336,6 +339,27 @@ public sealed class FollowerSystem : EntitySystem
             StopFollowingEntity(player, uid, followed);
         }
     }
+
+    #region DOWNSTREAM-TPirates: ghost follow menu update
+    /// <summary>
+    /// Gets the number of non-admin ghosts currently following the given entity.
+    /// </summary>
+    public int GetGhostFollowerCount(EntityUid entity)
+    {
+        if (!TryComp<FollowedComponent>(entity, out var followed))
+            return 0;
+        var count = 0;
+        foreach (var follower in followed.Following)
+        {
+            if (!HasComp<GhostComponent>(follower) || !TryComp<ActorComponent>(follower, out var actor))
+                continue;
+            if (_adminManager.IsAdmin(actor.PlayerSession))
+                continue;
+            count++;
+        }
+        return count;
+    }
+    #endregion
 
     /// <summary>
     /// Gets the entity with the most non-admin ghosts following it.

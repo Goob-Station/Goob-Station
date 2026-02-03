@@ -98,6 +98,9 @@ using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
+#region DOWNSTREAM-TPirates: ghost follow menu update
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -113,14 +116,21 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.PDA;
+using Content.Shared.Access.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.StatusIcon;
 using Content.Shared.Storage.Components;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Tag;
 using Content.Shared._White.Xenomorphs.Infection;
 using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
+#endregion
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -171,6 +181,8 @@ namespace Content.Server.Ghost
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+        [Dependency] private readonly AccessReaderSystem _accessReader = default!; // DOWNSTREAM-TPirates: ghost follow menu update
+        [Dependency] private readonly SharedContainerSystem _container = default!; // DOWNSTREAM-TPirates: ghost follow menu update
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -210,7 +222,30 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
 
             SubscribeLocalEvent<GhostComponent, GetVisMaskEvent>(OnGhostVis);
+            SubscribeLocalEvent<EntityStartedFollowingEvent>(ev => OnFollowChanged(ev)); // DOWNSTREAM-TPirates: ghost follow menu update
+            SubscribeLocalEvent<EntityStoppedFollowingEvent>(ev => OnFollowChanged(ev)); // DOWNSTREAM-TPirates: ghost follow menu update
         }
+
+        #region DOWNSTREAM-TPirates: ghost follow menu update
+        private void OnFollowChanged(FollowEvent ev)
+        {
+            BroadcastObserverCount(ev.Following);
+        }
+
+        private void BroadcastObserverCount(EntityUid followedEntity)
+        {
+            var count = _followerSystem.GetGhostFollowerCount(followedEntity);
+            var ev = new GhostWarpObserverCountChangedEvent(GetNetEntity(followedEntity), count);
+            foreach (var session in _player.Sessions)
+            {
+                if (session.AttachedEntity is not { Valid: true } attached)
+                    continue;
+                if (!_ghostQuery.HasComp(attached))
+                    continue;
+                RaiseNetworkEvent(ev, session.Channel);
+            }
+        }
+        #endregion
 
         private void OnGhostVis(Entity<GhostComponent> ent, ref GetVisMaskEvent args)
         {
@@ -400,7 +435,15 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).ToList());
+            #region DOWNSTREAM-TPirates: ghost follow menu update
+            var response = new GhostWarpsResponseEvent(
+                GetLocationWarps()
+                    .Concat(GetPlayerWarps(entity))
+                    .Concat(GetDeadPlayerWarps(entity))
+                    .Concat(GetGhostWarps(entity))
+                    .Concat(GetMobWarps())
+                    .ToList());
+            #endregion
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
@@ -442,8 +485,7 @@ namespace Content.Server.Ghost
         private void WarpTo(EntityUid uid, EntityUid target)
         {
             _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
-
-            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target))
+            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target) || _ghostQuery.HasComp(target)) // DOWNSTREAM-TPirates: ghost follow menu update
             {
                 _followerSystem.StartFollowingEntity(uid, target);
                 return;
@@ -462,8 +504,110 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
+                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), GhostWarpType.Location, _followerSystem.GetGhostFollowerCount(uid)); // DOWNSTREAM-TPirates: ghost follow menu update
             }
+        }
+
+        #region DOWNSTREAM-TPirates: ghost follow menu update
+        // Matches ShowJobIconsSystem (job/status icon HUD): default to JobIconNoId when no ID/PDA found.
+        private static readonly ProtoId<JobIconPrototype> JobIconNoId = "JobIconNoId";
+        private static readonly ProtoId<JobIconPrototype> JobIconBorg = "JobIconBorg";
+
+        private bool TryGetIdCard(EntityUid uid, [NotNullWhen(true)] out IdCardComponent? idCard)
+        {
+            idCard = null;
+            if (!_accessReader.FindAccessItemsInventory(uid, out var items))
+                return false;
+
+            foreach (var item in items)
+            {
+                if (TryComp(item, out idCard))
+                    return true;
+
+                if (TryComp<PdaComponent>(item, out var pda) && pda.ContainedId is { Valid: true } idUid && TryComp(idUid, out idCard))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private string GetJobIconFor(EntityUid uid)
+        {
+            // Borgs and AI don't carry ID/PDA; use shared silicon icon for ghost menu.
+            if (HasComp<BorgChassisComponent>(uid) || HasComp<StationAiHeldComponent>(uid) || HasComp<StationAiOverlayComponent>(uid))
+                return JobIconBorg.Id;
+
+            return TryGetIdCard(uid, out var idCard) ? idCard.JobIcon.Id : JobIconNoId.Id;
+        }
+
+        /// <summary>
+        /// Gets job title from an entity's ID card or PDA (inventory).
+        /// used for dead entities so profession persists after mind leaves (respawn).
+        /// </summary>
+        private string GetJobTitleFromEntity(EntityUid uid)
+        {
+            return TryGetIdCard(uid, out var idCard) ? idCard.LocalizedJobTitle ?? string.Empty : string.Empty;
+        }
+
+        /// <summary>
+        /// Gets department prototype ID from an entity's ID card (for department-based chip color).
+        /// </summary>
+        private string GetDepartmentIdFromEntity(EntityUid uid)
+        {
+            if (!TryGetIdCard(uid, out var idCard) || idCard.JobDepartments.Count == 0)
+                return string.Empty;
+            return idCard.JobDepartments[0].Id;
+        }
+
+        /// <summary>
+        /// Gets department prototype ID from a mind's job. Returns empty string when mind is null or has no primary department.
+        /// </summary>
+        private string GetDepartmentIdFromMind(EntityUid? mindId)
+        {
+            if (mindId is not { } id)
+                return string.Empty;
+            if (!_jobs.MindTryGetJobId(id, out var jobIdVal) || !jobIdVal.HasValue || !_jobs.TryGetPrimaryDepartment(jobIdVal.Value.Id, out var dept))
+                return string.Empty;
+            return dept.ID;
+        }
+
+        // Matches medical HUD / crew monitoring: SuitSensorSystem uses CheckVitalDamage and Critical threshold
+        // for DamagePercentage; crew monitor uses index = round(4 * damage/critThreshold) -> 0.25 is first bucket boundary.
+        // See Content.Server.Medical.SuitSensors.SuitSensorSystem and Content.Client.Overlays.EntityHealthBarOverlay.
+        private const float WoundedDamageRatio = 0.25f;
+
+        private GhostWarpHealthState GetGhostWarpHealthState(EntityUid uid, MobState mobState)
+        {
+            switch (mobState)
+            {
+                case MobState.Dead:
+                    return GhostWarpHealthState.Dead;
+                case MobState.Critical:
+                    return GhostWarpHealthState.Critical;
+                case MobState.Alive:
+                    if (!TryComp<DamageableComponent>(uid, out var damageable) ||
+                        !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var critThreshold))
+                        return GhostWarpHealthState.Healthy;
+                    var totalDamage = _mobThresholdSystem.CheckVitalDamage(uid, damageable);
+                    var ratio = (float)(totalDamage / critThreshold).Value;
+                    return ratio >= WoundedDamageRatio ? GhostWarpHealthState.Wounded : GhostWarpHealthState.Healthy;
+                default:
+                    return GhostWarpHealthState.Unknown;
+            }
+        }
+
+        /// <summary>
+        /// Returns true if this entity is a borg brain (e.g. positronic brain) that is currently inside a cyborg chassis.
+        /// Used to hide the brain from the ghost warp list when it is installed so we only show the cyborg.
+        /// When the borg is disassembled and the brain is on its own, this returns false and the brain is shown.
+        /// </summary>
+        private bool IsBorgBrainInsideChassis(EntityUid uid)
+        {
+            if (!HasComp<BorgBrainComponent>(uid))
+                return false;
+            if (!_container.TryGetContainingContainer(uid, out var container))
+                return false;
+            return HasComp<BorgChassisComponent>(container.Owner);
         }
 
         private IEnumerable<GhostWarp> GetPlayerWarps(EntityUid except)
@@ -477,13 +621,119 @@ namespace Content.Server.Ghost
 
                 TryComp<MindContainerComponent>(attached, out var mind);
 
+                var entityName = Comp<MetaDataComponent>(attached).EntityName;
                 var jobName = _jobs.MindTryGetJobName(mind?.Mind);
-                var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
 
                 if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))
-                    yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);
+                {
+                    var jobIconId = GetJobIconFor(attached);
+                    var mobState = TryComp<MobStateComponent>(attached, out var mob) ? mob.CurrentState : MobState.Invalid;
+                    var healthState = GetGhostWarpHealthState(attached, mobState);
+                    var departmentId = GetDepartmentIdFromMind(mind?.Mind);
+                    yield return new GhostWarp(GetNetEntity(attached), entityName, GhostWarpType.Player, _followerSystem.GetGhostFollowerCount(attached), jobIconId, mobState, jobName, healthState, departmentId);
+                }
             }
         }
+
+        /// <summary>
+        /// All dead mobs for the "Dead" section.
+        /// Job/icon from entity's ID card so profession persists after respawn when mind leaves the corpse.
+        /// Limited by ghost.warp_max_dead to avoid performance issues when many corpses exist.
+        /// </summary>
+        private IEnumerable<GhostWarp> GetDeadPlayerWarps(EntityUid except)
+        {
+            var maxDead = _configurationManager.GetCVar(CCVars.GhostWarpMaxDead);
+            var count = 0;
+            var query = AllEntityQuery<MobStateComponent, MetaDataComponent>();
+            while (query.MoveNext(out var uid, out var mobStateComp, out var meta) && count < maxDead)
+            {
+                if (uid == except)
+                    continue;
+
+                if (_ghostQuery.HasComp(uid))
+                    continue;
+
+                if (!_mobState.IsDead(uid))
+                    continue;
+
+                // Don't show positronic brain in list when it's inside a cyborg; show the cyborg only.
+                if (IsBorgBrainInsideChassis(uid))
+                    continue;
+
+                count++;
+                var entityName = meta.EntityName;
+                // Prefer mind job name when mind still on corpse; else use ID card so profession persists after respawn.
+                var jobName = TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind
+                    ? _jobs.MindTryGetJobName(mindContainer.Mind)
+                    : GetJobTitleFromEntity(uid);
+                var jobIconId = GetJobIconFor(uid); // Always from ID on corpse so icon persists when mind leaves
+                var mobState = mobStateComp.CurrentState;
+                var healthState = GhostWarpHealthState.Dead;
+                var departmentId = GetDepartmentIdFromMind(mindContainer?.HasMind == true ? mindContainer.Mind : null);
+                if (string.IsNullOrEmpty(departmentId))
+                    departmentId = GetDepartmentIdFromEntity(uid);
+                yield return new GhostWarp(GetNetEntity(uid), entityName, GhostWarpType.Dead, _followerSystem.GetGhostFollowerCount(uid), jobIconId, mobState, jobName ?? string.Empty, healthState, departmentId);
+            }
+        }
+
+        /// <summary>
+        /// Other ghost entities for the "Ghosts" section.
+        /// </summary>
+        private IEnumerable<GhostWarp> GetGhostWarps(EntityUid except)
+        {
+            var query = AllEntityQuery<GhostComponent, MetaDataComponent>();
+            while (query.MoveNext(out var uid, out var _, out var meta))
+            {
+                if (uid == except)
+                    continue;
+
+                var name = meta.EntityName;
+                if (string.IsNullOrWhiteSpace(name))
+                    continue;
+
+                yield return new GhostWarp(GetNetEntity(uid), name, GhostWarpType.Ghost, _followerSystem.GetGhostFollowerCount(uid));
+            }
+        }
+
+        /// <summary>
+        /// Living mobs without a mind (NPCs) for the "Mobs" section.
+        /// Dead mindless mobs are in "Dead", so we exclude dead here.
+        /// </summary>
+        private IEnumerable<GhostWarp> GetMobWarps()
+        {
+            var maxNpcs = _configurationManager.GetCVar(CCVars.GhostWarpMaxMobs);
+            var count = 0;
+            var query = AllEntityQuery<MobStateComponent, MetaDataComponent>();
+            while (query.MoveNext(out var uid, out var mobState, out var meta) && count < maxNpcs)
+            {
+                if (_ghostQuery.HasComp(uid))
+                    continue;
+
+                if (_mobState.IsDead(uid))
+                    continue;
+
+                if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
+                    continue;
+
+                // Don't show positronic brain in list when it's inside a cyborg; show the cyborg only.
+                if (IsBorgBrainInsideChassis(uid))
+                    continue;
+
+                var name = meta.EntityName;
+                if (string.IsNullOrWhiteSpace(name))
+                    continue;
+
+                count++;
+                var mobStateValue = mobState.CurrentState;
+                var healthState = GetGhostWarpHealthState(uid, mobStateValue);
+                var jobIconId = GetJobIconFor(uid);
+                // Try to get department/job from ID so NPCs with ID cards get department colors.
+                var professionTitle = GetJobTitleFromEntity(uid);
+                var departmentId = GetDepartmentIdFromEntity(uid);
+                yield return new GhostWarp(GetNetEntity(uid), name, GhostWarpType.Mob, _followerSystem.GetGhostFollowerCount(uid), jobIconId, mobStateValue, professionTitle, healthState, departmentId);
+            }
+        }
+        #endregion
 
         #endregion
 

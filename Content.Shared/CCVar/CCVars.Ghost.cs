@@ -26,4 +26,18 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> GhostKillCrit =
         CVarDef.Create("ghost.kill_crit", true, CVar.REPLICATED | CVar.SERVER);
+
+    #region DOWNSTREAM-TPirates: ghost follow menu update
+    /// <summary>
+    ///     Maximum number of mob (NPC) warps to include in the ghost follow/orbit menu. Limits server load when many mobs exist.
+    /// </summary>
+    public static readonly CVarDef<int> GhostWarpMaxMobs =
+        CVarDef.Create("ghost.warp_max_mobs", 150, CVar.SERVER);
+
+    /// <summary>
+    ///     Maximum number of dead (corpse) warps to include in the ghost follow/orbit menu. Limits server load when many dead entities exist.
+    /// </summary>
+    public static readonly CVarDef<int> GhostWarpMaxDead =
+        CVarDef.Create("ghost.warp_max_dead", 100, CVar.SERVER);
+    #endregion
 }

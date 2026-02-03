@@ -48,6 +48,7 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.InteractionVerbs.Events;
 using Content.Shared.Item;
+using Content.Shared.Mobs; // DOWNSTREAM-TPirates: ghost follow menu update
 using Content.Shared.Popups;
 using Robust.Shared.Serialization;
 
@@ -160,6 +161,33 @@ namespace Content.Shared.Ghost
     {
     }
 
+    #region DOWNSTREAM-TPirates: ghost follow menu update
+    [Serializable, NetSerializable]
+    public enum GhostWarpType : byte
+    {
+        Location,
+        Player,
+        Dead,
+        Ghost,
+        Mob
+    }
+    #endregion
+
+    #region DOWNSTREAM-TPirates: ghost follow menu update
+    /// <summary>
+    /// Display-only health state for ghost warp chip color (Healthy=green, Wounded=orange, Critical=red, Dead=grey).
+    /// </summary>
+    [Serializable, NetSerializable]
+    public enum GhostWarpHealthState : byte
+    {
+        Unknown = 0,
+        Healthy = 1,
+        Wounded = 2,
+        Critical = 3,
+        Dead = 4
+    }
+    #endregion
+
     /// <summary>
     /// An individual place a ghost can warp to.
     /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
@@ -167,11 +195,38 @@ namespace Content.Shared.Ghost
     [Serializable, NetSerializable]
     public struct GhostWarp
     {
-        public GhostWarp(NetEntity entity, string displayName, bool isWarpPoint)
+        public GhostWarp(NetEntity entity, string displayName, bool isWarpPoint) // DOWNSTREAM-TPirates: ghost follow menu update
+            : this(entity, displayName, isWarpPoint ? GhostWarpType.Location : GhostWarpType.Player, 0) // DOWNSTREAM-TPirates: ghost follow menu update
+        {
+        }
+
+        public GhostWarp(NetEntity entity, string displayName, GhostWarpType type, int observerCount = 0) // DOWNSTREAM-TPirates: ghost follow menu update
+            : this(entity, displayName, type, observerCount, string.Empty, MobState.Invalid, string.Empty, GhostWarpHealthState.Unknown) // DOWNSTREAM-TPirates: ghost follow menu update
+        {
+        }
+
+        #region DOWNSTREAM-TPirates: ghost follow menu update
+        public GhostWarp(NetEntity entity, string displayName, GhostWarpType type, int observerCount, string? jobIconId, MobState mobState)
+            : this(entity, displayName, type, observerCount, jobIconId, mobState, string.Empty, GhostWarpHealthState.Unknown)
+        {
+        }
+
+        public GhostWarp(NetEntity entity, string displayName, GhostWarpType type, int observerCount, string? jobIconId, MobState mobState, string? professionTitle)
+            : this(entity, displayName, type, observerCount, jobIconId, mobState, professionTitle, GhostWarpHealthState.Unknown)
+        {
+        }
+
+        public GhostWarp(NetEntity entity, string displayName, GhostWarpType type, int observerCount, string? jobIconId, MobState mobState, string? professionTitle, GhostWarpHealthState healthState, string? departmentId = null)
         {
             Entity = entity;
             DisplayName = displayName;
-            IsWarpPoint = isWarpPoint;
+            Type = type;
+            ObserverCount = observerCount;
+            JobIconId = jobIconId ?? string.Empty;
+            MobState = mobState;
+            ProfessionTitle = professionTitle ?? string.Empty;
+            HealthState = healthState;
+            DepartmentId = departmentId ?? string.Empty;
         }
 
         /// <summary>
@@ -188,7 +243,41 @@ namespace Content.Shared.Ghost
         /// <summary>
         /// Whether this warp represents a warp point or a player
         /// </summary>
-        public bool IsWarpPoint { get;  }
+        public bool IsWarpPoint => Type == GhostWarpType.Location;
+
+        public GhostWarpType Type { get; }
+
+        /// <summary>
+        /// Number of non-admin ghosts currently following this entity.
+        /// </summary>
+        public int ObserverCount { get; }
+
+        /// <summary>
+        /// Job icon prototype id for profession display (e.g. in ghost warp menu). Empty for locations/none.
+        /// </summary>
+        public string JobIconId { get; }
+
+        /// <summary>
+        /// Mob state for health-based chip color (Alive=green, Critical=red, Dead/Invalid=grey).
+        /// </summary>
+        public MobState MobState { get; }
+
+        /// <summary>
+        /// Profession/job title for tooltip on the job icon. Empty for locations/none.
+        /// </summary>
+        public string ProfessionTitle { get; }
+
+        /// <summary>
+        /// Display health state for chip color (Healthy=green, Wounded=orange, Critical=red, Dead=grey).
+        /// </summary>
+        public GhostWarpHealthState HealthState { get; }
+
+        /// <summary>
+        /// Department prototype ID for department-based chip color. Empty when unknown.
+        /// When set, client uses <see cref="Content.Shared.Roles.DepartmentPrototype.Color"/>; language-independent.
+        /// </summary>
+        public string DepartmentId { get; }
+        #endregion
     }
 
     /// <summary>
@@ -228,6 +317,24 @@ namespace Content.Shared.Ghost
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class GhostnadoRequestEvent : EntityEventArgs;
+
+    #region DOWNSTREAM-TPirates: ghost follow menu update
+    /// <summary>
+    /// Server to client: observer count for a warp target entity has changed.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class GhostWarpObserverCountChangedEvent : EntityEventArgs
+    {
+        public NetEntity Entity { get; }
+        public int ObserverCount { get; }
+
+        public GhostWarpObserverCountChangedEvent(NetEntity entity, int observerCount)
+        {
+            Entity = entity;
+            ObserverCount = observerCount;
+        }
+    }
+    #endregion
 
     /// <summary>
     /// A client to server request for their ghost to return to body
