@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Grid
   engineVersion: 264.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 01/18/2026 20:07:58
-  entityCount: 11568
+  forkId: syndicate-goob
+  forkVersion: 58e372091a148f4e10deed1f420512cd282e5ca4
+  time: 02/02/2026 19:05:14
+  entityCount: 11578
 maps: []
 grids:
 - 1
@@ -9197,7 +9197,7 @@ entities:
           4,24:
             0: 136
           4,23:
-            0: 33022
+            0: 33006
           5,24:
             0: 64667
           5,25:
@@ -9237,7 +9237,7 @@ entities:
           4,21:
             0: 57582
           4,22:
-            0: 61678
+            0: 57582
           4,19:
             0: 59110
           5,20:
@@ -9719,7 +9719,7 @@ entities:
           20,22:
             0: 36061
           17,16:
-            0: 62399
+            0: 62395
           17,17:
             0: 41215
           17,18:
@@ -9739,9 +9739,9 @@ entities:
           19,17:
             0: 48059
           19,18:
-            0: 48127
+            0: 48059
           19,15:
-            0: 48027
+            0: 48011
           20,16:
             0: 45311
           20,17:
@@ -9826,8 +9826,7 @@ entities:
           22,18:
             0: 65535
           22,15:
-            0: 49136
-            5: 16384
+            0: 65520
           23,16:
             0: 819
           23,17:
@@ -9935,25 +9934,6 @@ entities:
           moles:
           - 27.225372
           - 102.419266
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 21.824806
-          - 82.102844
           - 0
           - 0
           - 0
@@ -11100,7 +11080,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 88.5,67.5
+      pos: 87.5,67.5
       parent: 1
     - type: DeviceList
       devices:
@@ -11225,12 +11205,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 71.5,72.5
-      parent: 1
-  - uid: 97
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 14.5,81.5
       parent: 1
 - proto: AirlockAtmosphericsLocked
   entities:
@@ -11362,16 +11336,6 @@ entities:
     - type: Transform
       pos: 79.5,84.5
       parent: 1
-  - uid: 119
-    components:
-    - type: Transform
-      pos: 78.5,72.5
-      parent: 1
-  - uid: 120
-    components:
-    - type: Transform
-      pos: 78.5,73.5
-      parent: 1
 - proto: AirlockCentralCommandLocked
   entities:
   - uid: 121
@@ -11404,12 +11368,6 @@ entities:
     components:
     - type: Transform
       pos: 27.5,98.5
-      parent: 1
-  - uid: 127
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 70.5,64.5
       parent: 1
   - uid: 128
     components:
@@ -11784,6 +11742,14 @@ entities:
     - type: Transform
       pos: 60.5,64.5
       parent: 1
+- proto: AirlockMaintLocked
+  entities:
+  - uid: 97
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,81.5
+      parent: 1
 - proto: AirlockMedicalGlass
   entities:
   - uid: 191
@@ -11892,7 +11858,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 89.5,81.5
+      pos: 90.5,81.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
@@ -14979,12 +14945,12 @@ entities:
   - uid: 713
     components:
     - type: Transform
-      pos: 84.43927,92.67207
+      pos: 82.3622,90.72502
       parent: 1
   - uid: 714
     components:
     - type: Transform
-      pos: 84.31882,92.75236
+      pos: 82.62997,90.56445
       parent: 1
 - proto: BoxFolderGrey
   entities:
@@ -28961,14 +28927,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: CentcomIDCardNavyOfficer
-  entities:
-  - uid: 3441
-    components:
-    - type: Transform
-      parent: 3440
-    - type: Physics
-      canCollide: False
 - proto: CentcommComputerComms
   entities:
   - uid: 3442
@@ -29960,18 +29918,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 50.971214,102.61326
-      parent: 1
-- proto: ChemDispenser
-  entities:
-  - uid: 3613
-    components:
-    - type: Transform
-      pos: 14.5,70.5
-      parent: 1
-  - uid: 3614
-    components:
-    - type: Transform
-      pos: 44.5,98.5
       parent: 1
 - proto: ChemistryBottleEpinephrine
   entities:
@@ -33974,20 +33920,6 @@ entities:
     - type: Transform
       pos: 88.5,92.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        IdCardConsole-privilegedId: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 3441
-        IdCardConsole-targetId: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 4131
     components:
     - type: Transform
@@ -34902,8 +34834,7 @@ entities:
   - uid: 4247
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 84.140656,92.5874
+      pos: 82.496086,90.12288
       parent: 1
 - proto: CrewMonitoringServer
   entities:
@@ -35041,11 +34972,6 @@ entities:
     components:
     - type: Transform
       pos: 8.5,52.5
-      parent: 1
-  - uid: 4271
-    components:
-    - type: Transform
-      pos: 79.5,84.5
       parent: 1
 - proto: CurtainsBlackOpen
   entities:
@@ -39056,16 +38982,22 @@ entities:
     - type: Transform
       pos: 94.5,71.5
       parent: 1
+    - type: DisposalUnit
+      automaticEngageTime: 3630
   - uid: 4945
     components:
     - type: Transform
       pos: 82.5,75.5
       parent: 1
+    - type: DisposalUnit
+      automaticEngageTime: 3630
   - uid: 4946
     components:
     - type: Transform
       pos: 85.5,85.5
       parent: 1
+    - type: DisposalUnit
+      automaticEngageTime: 3630
   - uid: 4947
     components:
     - type: Transform
@@ -39697,11 +39629,6 @@ entities:
     - type: Transform
       pos: 35.65179,47.853394
       parent: 1
-  - uid: 4999
-    components:
-    - type: Transform
-      pos: 92.69187,86.94596
-      parent: 1
 - proto: DrinkHotCoffee
   entities:
   - uid: 5000
@@ -39935,18 +39862,6 @@ entities:
     - type: Transform
       pos: 29.657482,68.08107
       parent: 1
-  - uid: 5035
-    components:
-    - type: Transform
-      pos: 91.64842,81.14731
-      parent: 1
-  - uid: 5036
-    components:
-    - type: Transform
-      pos: 91.28704,81.2945
-      parent: 1
-    - type: CollisionWake
-      enabled: False
 - proto: DrinkTeapot
   entities:
   - uid: 5037
@@ -40147,6 +40062,18 @@ entities:
       parent: 5060
     - type: Physics
       canCollide: False
+- proto: EnergyChemDispenser
+  entities:
+  - uid: 3613
+    components:
+    - type: Transform
+      pos: 14.5,70.5
+      parent: 1
+  - uid: 3614
+    components:
+    - type: Transform
+      pos: 44.5,98.5
+      parent: 1
 - proto: ERTSpawnerCBURN
   entities:
   - uid: 5065
@@ -44860,7 +44787,7 @@ entities:
   - uid: 5571
     components:
     - type: Transform
-      pos: 84.61828,92.5292
+      pos: 82.496086,90.25669
       parent: 1
   - uid: 5572
     components:
@@ -62948,6 +62875,16 @@ entities:
       parent: 1
 - proto: HighSecCentralCommandLocked
   entities:
+  - uid: 119
+    components:
+    - type: Transform
+      pos: 78.5,72.5
+      parent: 1
+  - uid: 120
+    components:
+    - type: Transform
+      pos: 78.5,73.5
+      parent: 1
   - uid: 7807
     components:
     - type: Transform
@@ -62989,6 +62926,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 34.5,102.5
+      parent: 1
+  - uid: 9279
+    components:
+    - type: Transform
+      pos: 70.5,64.5
       parent: 1
 - proto: HolopadCentComm
   entities:
@@ -66711,7 +66653,7 @@ entities:
   - uid: 8092
     components:
     - type: Transform
-      pos: 84.49281,92.565025
+      pos: 82.62997,90.631355
       parent: 1
 - proto: PaperScrap
   entities:
@@ -69633,64 +69575,6 @@ entities:
     components:
     - type: Transform
       parent: 362
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: PresentRandomCoal
-  entities:
-  - uid: 8554
-    components:
-    - type: Transform
-      parent: 8553
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 8556
-    components:
-    - type: Transform
-      parent: 8555
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 8558
-    components:
-    - type: Transform
-      pos: 74.0323,69.62521
-      parent: 1
-  - uid: 8559
-    components:
-    - type: Transform
-      pos: 74.55429,69.62521
-      parent: 1
-  - uid: 8560
-    components:
-    - type: Transform
-      pos: 52.57577,79.49164
-      parent: 1
-  - uid: 8561
-    components:
-    - type: Transform
-      pos: 51.67902,77.45774
-      parent: 1
-  - uid: 8562
-    components:
-    - type: Transform
-      pos: 51.933323,77.37746
-      parent: 1
-  - uid: 8563
-    components:
-    - type: Transform
-      pos: 51.571945,77.79227
-      parent: 1
-  - uid: 8564
-    components:
-    - type: Transform
-      pos: 52.034294,77.868774
-      parent: 1
-  - uid: 8571
-    components:
-    - type: Transform
-      parent: 8570
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -73997,6 +73881,36 @@ entities:
       parent: 1
 - proto: ShuttersNormal
   entities:
+  - uid: 4999
+    components:
+    - type: Transform
+      pos: 75.5,61.5
+      parent: 1
+  - uid: 5035
+    components:
+    - type: Transform
+      pos: 77.5,61.5
+      parent: 1
+  - uid: 5036
+    components:
+    - type: Transform
+      pos: 76.5,61.5
+      parent: 1
+  - uid: 8568
+    components:
+    - type: Transform
+      pos: 74.5,61.5
+      parent: 1
+  - uid: 8569
+    components:
+    - type: Transform
+      pos: 72.5,61.5
+      parent: 1
+  - uid: 9193
+    components:
+    - type: Transform
+      pos: 73.5,61.5
+      parent: 1
   - uid: 9245
     components:
     - type: Transform
@@ -74167,36 +74081,6 @@ entities:
     components:
     - type: Transform
       pos: 71.5,51.5
-      parent: 1
-  - uid: 9277
-    components:
-    - type: Transform
-      pos: 72.5,61.5
-      parent: 1
-  - uid: 9278
-    components:
-    - type: Transform
-      pos: 73.5,61.5
-      parent: 1
-  - uid: 9279
-    components:
-    - type: Transform
-      pos: 74.5,61.5
-      parent: 1
-  - uid: 9280
-    components:
-    - type: Transform
-      pos: 75.5,61.5
-      parent: 1
-  - uid: 9281
-    components:
-    - type: Transform
-      pos: 77.5,61.5
-      parent: 1
-  - uid: 9282
-    components:
-    - type: Transform
-      pos: 76.5,61.5
       parent: 1
   - uid: 9283
     components:
@@ -74547,22 +74431,22 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        9281:
+        8569:
         - - Pressed
           - Toggle
-        9280:
+        8568:
         - - Pressed
           - Toggle
-        9279:
+        4999:
         - - Pressed
           - Toggle
-        9278:
+        5036:
         - - Pressed
           - Toggle
-        9277:
+        5035:
         - - Pressed
           - Toggle
-        9282:
+        9193:
         - - Pressed
           - Toggle
   - uid: 9326
@@ -76612,14 +76496,10 @@ entities:
       parent: 1
 - proto: StationRadioServer
   entities:
-  - uid: 9542
+  - uid: 9277
     components:
-    - type: MetaData
-      desc: Позволяет транслировать сообщения на частоту 145 независимо от местоположения приёмника в космосе.
-      name: блюспейс сервер радиопередач
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 82.5,90.5
+      pos: 84.5,92.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
@@ -79040,6 +78920,11 @@ entities:
       parent: 1
 - proto: TableReinforced
   entities:
+  - uid: 9195
+    components:
+    - type: Transform
+      pos: 82.5,90.5
+      parent: 1
   - uid: 9820
     components:
     - type: Transform
@@ -79419,11 +79304,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 69.5,95.5
-      parent: 1
-  - uid: 9888
-    components:
-    - type: Transform
-      pos: 84.5,92.5
       parent: 1
   - uid: 9889
     components:
@@ -88616,17 +88496,6 @@ entities:
         - 0
         - 0
         - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 8554
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 8555
     components:
     - type: Transform
@@ -88654,17 +88523,6 @@ entities:
         - 0
         - 0
         - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 8556
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 8570
     components:
     - type: Transform
@@ -88692,17 +88550,6 @@ entities:
         - 0
         - 0
         - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 8571
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: WardrobeWhite
   entities:
   - uid: 11391
@@ -88856,6 +88703,148 @@ entities:
       rot: 3.141592653589793 rad
       pos: 68.553185,87.99265
       parent: 1
+- proto: WeaponEnergyTurretCommand
+  entities:
+  - uid: 127
+    components:
+    - type: Transform
+      pos: 76.5,77.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 3441
+  - uid: 4271
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 68.5,67.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 3441
+  - uid: 9278
+    components:
+    - type: Transform
+      pos: 76.5,68.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 3441
+  - uid: 9280
+    components:
+    - type: Transform
+      pos: 87.5,89.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9281
+  - uid: 9282
+    components:
+    - type: Transform
+      pos: 89.5,81.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9281
+  - uid: 9290
+    components:
+    - type: Transform
+      pos: 89.5,70.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9281
+  - uid: 9291
+    components:
+    - type: Transform
+      pos: 89.5,75.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9281
+  - uid: 9292
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,100.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9378
+  - uid: 9379
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 36.5,92.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9378
+  - uid: 9380
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 30.5,92.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9378
+  - uid: 9381
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 81.5,75.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9281
+  - uid: 9382
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 81.5,70.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 9281
+- proto: WeaponEnergyTurretCommandControlPanel
+  entities:
+  - uid: 3441
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 78.5,76.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 127
+      - 9278
+      - 4271
+  - uid: 9281
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 88.5,67.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 9280
+      - 9282
+      - 9291
+      - 9290
+      - 9381
+      - 9382
+  - uid: 9378
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 39.5,95.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 9292
+      - 9379
+      - 9380
 - proto: WeaponLaserCarbinePractice
   entities:
   - uid: 11412
