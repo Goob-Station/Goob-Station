@@ -243,7 +243,7 @@ namespace Content.IntegrationTests.Tests
             // Corvax-Goob-Maps-start
             "CorvaxAstra",
             "CorvaxBox",
-            //"CorvaxDelta",
+            "CorvaxDelta",
             "CorvaxGlacier",
             "CorvaxPilgrim",
             "CorvaxAmber",
