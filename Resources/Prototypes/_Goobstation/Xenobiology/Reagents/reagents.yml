@@ -161,12 +161,6 @@
       metabolismRate: 5 # hello hypospray users!
       effects:
       - !type:RandomSpeciesChange
-        speciesBlacklist:
-        - Skeleton # if he's dead it's GG
-        - IPC # do i have to explain this one
-        - Cyborg # why the fuck is this a thing?
-        - Shadowling # yeah.
-        # add more here
         conditions:
         - !type:ReagentThreshold
           min: 10
