@@ -20918,3 +20918,57 @@ Entries:
       message: Wizden E Chem 1984!
   id: 2365
   time: '2026-01-30T05:04:35.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: >-
+        Steering at high speeds in no gravity as a moth person is made
+        significantly worse. Consider braking.
+  id: 2366
+  time: '2026-01-31T06:43:55.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More fish to artifact node
+  id: 2367
+  time: '2026-01-31T06:50:00.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: Removed acolyte armor from piety vend.
+  id: 2368
+  time: '2026-01-31T06:50:26.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        The Estoc has been tweaked to fit more into its role as a designated
+        marksman rifle.
+  id: 2369
+  time: '2026-01-31T06:51:17.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Fixed custom theme repeating texture on launch
+  id: 2370
+  time: '2026-02-01T05:20:25.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Added misc contractor items
+    - type: Tweak
+      message: contractor baton recolor
+  id: 2371
+  time: '2026-02-01T05:27:06.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Chloris mapping (Too many changes for changelog)
+  id: 2372
+  time: '2026-02-01T19:51:53.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Entirely removed Submarine station.
+  id: 2373
+  time: '2026-02-02T06:08:58.0000000+00:00'

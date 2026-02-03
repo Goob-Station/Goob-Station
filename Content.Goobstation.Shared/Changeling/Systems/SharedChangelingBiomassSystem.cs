@@ -58,6 +58,8 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
         if (data != null)
             ent.Comp.ResourceData = data;
+
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<ChangelingBiomassComponent> ent, ref ComponentShutdown args)
