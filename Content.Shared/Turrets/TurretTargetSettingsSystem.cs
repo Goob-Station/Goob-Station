@@ -1,4 +1,5 @@
 using Content.Shared.Access;
+using Content.Shared.Access.Components; // goob edit dont target disabled borgs
 using Content.Shared.Access.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -126,7 +127,10 @@ public sealed partial class TurretTargetSettingsSystem : EntitySystem
 
         if (accessLevels.Contains(_accessLevelBasicSilicon))
             return !HasAccessLevelExemption(ent, _accessLevelBasicSilicon);
-
+        
+        if (HasComp<AccessToggleComponent>(target)) // goob edit dont target disabled borgs
+            return !HasAccessLevelExemption(ent, _accessLevelBorg); // goob edit dont target disabled borgs
+        
         return !HasAnyAccessLevelExemption(ent, accessLevels);
     }
 }
