@@ -166,3 +166,28 @@
     # TODO: add a special component to Syndicate nuke, so pinpointers can
     # ignore it and instead track only station nukes
     targetName: nuclear fission explosive
+
+- type: entity
+  name: contractor pinpointer
+  description: A handheld tracking device that points to your ship, and your target. Keep upright to retain accuracy.
+  id: PinpointerContractor
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    noRot: True
+    sprite: _Goobstation/Objects/Devices/contractorpinpointer.rsi
+    layers:
+    - state: pinpointer-contractor
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/contractorpinpointer.rsi
+    state: pinpointer-contractor
+  - type: Item
+    sprite: _Goobstation/Objects/Devices/contractorpinpointer.rsi
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true

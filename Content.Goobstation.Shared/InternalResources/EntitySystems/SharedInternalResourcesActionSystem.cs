@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.InternalResources.EntitySystems;
 
-public sealed class SharedInternalResourcesActionSystem : EntitySystem
+public abstract class SharedInternalResourcesActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedInternalResourcesSystem _internalResources = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
