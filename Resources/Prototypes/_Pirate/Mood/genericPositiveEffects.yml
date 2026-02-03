@@ -1,0 +1,11 @@
+#- type: moodEffect
+#  id: BeingKissed
+#  moodChange: 4
+#  timeout: 660
+#  category: PositiveInteraction
+
+#- type: moodEffect
+#  id: BeingLicked
+#  moodChange: 3
+#  timeout: 120
+#  category: PositiveInteraction
