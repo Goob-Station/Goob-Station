@@ -20972,3 +20972,9 @@ Entries:
       message: Entirely removed Submarine station.
   id: 2373
   time: '2026-02-02T06:08:58.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Omnimed from BSO locker
+  id: 2374
+  time: '2026-02-03T18:43:02.0000000+00:00'
