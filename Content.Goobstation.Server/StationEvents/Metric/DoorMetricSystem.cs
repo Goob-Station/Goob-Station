@@ -68,19 +68,21 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         "Calculated chaos value contributed by power status.");
 
 
-    public override ChaosMetrics CalculateChaos(EntityUid metric_uid, DoorMetricComponent component,
+    protected override ChaosMetrics CalculateChaos(
+        EntityUid metricUid,
+        DoorMetricComponent component,
         CalculateChaosEvent args)
     {
         var firelockQ = GetEntityQuery<FirelockComponent>();
         var airlockQ = GetEntityQuery<AirlockComponent>();
 
-        int doorCounter = 0;
-        int firelockCounter = 0;
-        int airlockCounter = 0;
-        int fireCount = 0;
-        int pressureCount = 0;
+        double doorCounter = 0;
+        double firelockCounter = 0;
+        double airlockCounter = 0;
+        double fireCount = 0;
+        double pressureCount = 0;
         double emagWeightedCount = 0;
-        int powerCount = 0;
+        double powerCount = 0;
 
         // Add up the pain of all the doors
         // Restrict to just doors on the main station
@@ -92,54 +94,24 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
             if (transform.GridUid == null || !stationGrids.Contains(transform.GridUid.Value))
                 continue;
 
-            if (firelockQ.TryGetComponent(uid, out var firelock))
-            {
-                if (firelock.Temperature)
-                {
-                    fireCount += 1;
-                }
-                else if (firelock.Pressure)
-                {
-                    pressureCount += 1;
-                }
-
-                firelockCounter += 1;
-            }
-
-            if (airlockQ.TryGetComponent(uid, out var airlock))
-            {
-                if (door.State == DoorState.Emagging)
-                {
-                    var modifier = GetAccessLevelModifier(uid);
-                    emagWeightedCount += 1 + modifier;
-                }
-
-                airlockCounter += 1;
-            }
-
-            if (power.Recalculate || !power.NeedsPower)
-            {
-                powerCount += 1;
-            }
-
-            doorCounter += 1;
+            fireCount = CalculateFirelock(firelockQ, uid, fireCount, ref pressureCount, ref firelockCounter);
+            emagWeightedCount = CalculateAirlock(airlockQ, uid, door, emagWeightedCount, ref airlockCounter);
+            powerCount = CalculateDoorPower(power, powerCount, ref doorCounter);
         }
 
         double emagChaos = 0;
         double atmosChaos = 0;
         double powerChaos = 0;
         // Calculate each stat as a fraction of all doors in the station.
-        //   That way the metrics do not "scale up"  on large stations.
+        // That way the metrics do not "scale up"  on large stations.
 
         if (airlockCounter > 0)
             emagChaos = Math.Round((emagWeightedCount / airlockCounter) * component.EmagCost);
-
         if (firelockCounter > 0)
-            atmosChaos = Math.Round((fireCount / firelockCounter) * component.FireCost +
-                                    (pressureCount / firelockCounter) * component.PressureCost);
-
+            atmosChaos = Math.Round(fireCount / firelockCounter * component.FireCost
+                                    + pressureCount / firelockCounter * component.PressureCost);
         if (doorCounter > 0)
-            powerChaos = Math.Round((powerCount / doorCounter) * component.PowerCost);
+            powerChaos = Math.Round(powerCount / doorCounter * component.PowerCost);
 
         DoorsTotal.Set(doorCounter);
         FirelocksTotal.Set(firelockCounter);
@@ -162,6 +134,53 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         return chaos;
     }
 
+    private static double CalculateDoorPower(ApcPowerReceiverComponent power, double powerCount, ref double doorCounter)
+    {
+        if (power is { NeedsPower: true, Powered: false })
+            powerCount += 1;
+
+        doorCounter += 1;
+        return powerCount;
+    }
+
+    private double CalculateAirlock(EntityQuery<AirlockComponent> airlockQ,
+        EntityUid uid,
+        DoorComponent door,
+        double emagWeightedCount,
+        ref double airlockCounter)
+    {
+        if (!airlockQ.TryGetComponent(uid, out var airlock))
+            return emagWeightedCount;
+        if (door.State == DoorState.Emagging)
+        {
+            var modifier = GetAccessLevelModifier(uid);
+            emagWeightedCount += 1 + modifier;
+        }
+
+        airlockCounter += 1;
+
+        return emagWeightedCount;
+    }
+
+    private static double CalculateFirelock(EntityQuery<FirelockComponent> firelockQ,
+        EntityUid uid,
+        double fireCount,
+        ref double pressureCount,
+        ref double firelockCounter)
+    {
+        if (!firelockQ.TryGetComponent(uid, out var firelock))
+            return fireCount;
+
+        if (firelock.Temperature)
+            fireCount += 1;
+        else if (firelock.Pressure)
+            pressureCount += 1;
+
+        firelockCounter += 1;
+
+        return fireCount;
+    }
+
     private int GetAccessLevelModifier(EntityUid uid)
     {
         if (!TryComp<AccessReaderComponent>(uid, out var accessReaderComponent))
@@ -171,11 +190,10 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         var accessSet = accessReaderComponent.AccessLists.ElementAt(0);
         foreach (var accessPrototype in accessSet)
         {
+            // TODO: PROTOTYPE
             switch (accessPrototype.Id)
             {
                 case "Security":
-                    modifier += 1;
-                    break;
                 case "Atmospherics":
                     modifier += 1;
                     break;
