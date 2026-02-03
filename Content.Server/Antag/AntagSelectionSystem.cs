@@ -95,6 +95,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.AntagToken;
 using Content.Server._Goobstation.Antag;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -153,6 +154,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly LastRolledAntagManager _lastRolled = default!; // Goobstation
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IAntagTokenManager _antagTokenSystem = default!; // Goobstation - Antag Tokens
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -359,6 +361,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             var lastRoll = (float)(_playTime.GetOverallPlaytime(se) - _lastRolled.GetLastRolled(se.UserId)).TotalSeconds;
             //weight clamped between 5 hours and 20 hours
             weights[se] = float.Clamp(lastRoll, 18000.0f, 72000.0f);
+
+            // Goobstation - Antag Tokens
+            if (_antagTokenSystem.HasActiveToken(se.UserId))
+                weights[se] *= _antagTokenSystem.GetWeightMultiplier();
         }
 
         return weights;
@@ -483,6 +489,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 _lastRolled.SetLastRolled(session.UserId, _playTime.GetOverallPlaytime(session));
             }
             catch { }
+
+            // Goobstation - Antag Tokens: consume token if active
+            if (_antagTokenSystem.HasActiveToken(session.UserId))
+            {
+                var gameTicker = EntityManager.System<GameTicker>();
+                _antagTokenSystem.ConsumeToken(session.UserId, gameTicker.RoundId);
+                _adminLogger.Add(LogType.AntagSelection, LogImpact.High,
+                    $"Player {session} consumed an antag token for {ToPrettyString(ent)}");
+            }
         }
 
         if (onlyPreSelect && session != null)

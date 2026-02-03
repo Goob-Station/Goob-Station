@@ -196,6 +196,9 @@ namespace Content.Server.Database
         public DbSet<PollOption> PollOptions { get; set; } = default!;
         public DbSet<PollVote> PollVotes { get; set; } = default!;
 
+        // Goobstation Antag Tokens
+        public DbSet<PlayerAntagToken> PlayerAntagTokens { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
@@ -610,6 +613,18 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<PollVote>()
                 .HasIndex(v => new { v.PollId, v.PlayerUserId, v.PollOptionId })
+                .IsUnique();
+
+            // Goobstation Antag Tokens
+            modelBuilder.Entity<PlayerAntagToken>()
+                .HasOne(t => t.Player)
+                .WithMany()
+                .HasForeignKey(t => t.PlayerUserId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PlayerAntagToken>()
+                .HasIndex(t => t.PlayerUserId)
                 .IsUnique();
         }
 

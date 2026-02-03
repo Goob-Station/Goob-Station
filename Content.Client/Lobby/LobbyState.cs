@@ -91,13 +91,15 @@ using Content.Client.Message;
 using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
-using Content.Goobstation.Common.ServerCurrency;
+
 using Content.Shared.CCVar;
 using Robust.Client;
 using Robust.Client.Console;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Content.Goobstation.Common.AntagToken;
+using Content.Goobstation.Common.ServerCurrency;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -118,10 +120,13 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IPrototypeManager _protoMan = default!; // Goobstation - credits
         [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
-
+        [Dependency] private readonly IAntagTokenManager _antagTokenManager = default!; // Goobstation - Antag Tokens
         private ISawmill _sawmill = default!; // Goobstation
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
+
+        // Goobstation - Antag Tokens
+        private AntagTokenWindow? _antagTokenWindow;
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -168,6 +173,9 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
 
             _serverCur.ClientBalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
+
+            // Goobstation - Antag Tokens
+            _antagTokenManager.RequestTokenCount();
         }
 
         protected override void Shutdown()
@@ -186,6 +194,10 @@ namespace Content.Client.Lobby
             Lobby.CharacterPreview.PatronPerks.OnPressed -= OnPatronPerksPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+
+            // Goobstation - Antag Tokens
+            _antagTokenWindow?.Close();
+            _antagTokenWindow = null;
 
             Lobby = null;
         }
@@ -391,7 +403,27 @@ namespace Content.Client.Lobby
                 return;
             }
 
-            _consoleHost.ExecuteCommand($"toggleready {newReady}");
+            // Goobstation - Antag Tokens: show popup when readying up
+            if (newReady)
+            {
+                _antagTokenWindow?.Close();
+                _antagTokenWindow = new AntagTokenWindow(_antagTokenManager.TokenCount, _antagTokenManager.OnCooldown);
+                _antagTokenWindow.OnReadyPressed += useToken =>
+                {
+                    if (useToken)
+                        _antagTokenManager.SendActivate();
+                    else
+                        _antagTokenManager.SendDeactivate();
+
+                    _consoleHost.ExecuteCommand("toggleready true");
+                };
+                _antagTokenWindow.OpenCentered();
+                return;
+            }
+
+            // Unreadying - deactivate any token
+            _antagTokenManager.SendDeactivate();
+            _consoleHost.ExecuteCommand("toggleready false");
         }
 
         private void UpdatePlayerBalance() // Goobstation - Goob Coin

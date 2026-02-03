@@ -1,0 +1,13 @@
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    Title="{Loc 'antag-token-window-title'}"
+    MinWidth="300">
+    <BoxContainer Orientation="Vertical" SeparationOverride="10" Margin="10">
+        <Label Name="TokenCountLabel" Text="{Loc 'antag-token-count-zero'}"/>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Button Name="ActivateButton" Text="{Loc 'antag-token-activate'}" HorizontalExpand="True" StyleClasses="Caution" Disabled="True"/>
+            <Control MinWidth="10"/>
+            <Button Name="ReadyWithoutButton" Text="{Loc 'antag-token-ready-without'}" HorizontalExpand="True"/>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

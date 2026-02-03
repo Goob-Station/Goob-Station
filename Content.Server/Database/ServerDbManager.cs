@@ -279,6 +279,11 @@ namespace Content.Server.Database
 
         Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to); // Goobstation
         Task<TimeSpan> GetLastRolledAntag(NetUserId userId); // Goobstation
+
+        Task<int> GetAntagTokenCount(NetUserId userId); // Goobstation
+        Task<int> IncrementAntagTokens(NetUserId userId, int amount, int cap); // Goobstation
+        Task<bool> ConsumeAntagToken(NetUserId userId, int roundId); // Goobstation
+        Task<(int Count, int LastConsumedRound)> GetAntagTokenState(NetUserId userId); // Goobstation
         #endregion
 
         #region Connection Logs
@@ -802,6 +807,30 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.SetLastRolledAntag(userId, to));
+        }
+
+        public Task<int> GetAntagTokenCount(NetUserId userId) // Goobstation
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAntagTokenCount(userId));
+        }
+
+        public Task<int> IncrementAntagTokens(NetUserId userId, int amount, int cap) // Goobstation
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.IncrementAntagTokens(userId, amount, cap));
+        }
+
+        public Task<bool> ConsumeAntagToken(NetUserId userId, int roundId) // Goobstation
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.ConsumeAntagToken(userId, roundId));
+        }
+
+        public Task<(int Count, int LastConsumedRound)> GetAntagTokenState(NetUserId userId) // Goobstation
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAntagTokenState(userId));
         }
 
         public Task<int> AddConnectionLogAsync(

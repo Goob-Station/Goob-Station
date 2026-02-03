@@ -85,3 +85,11 @@ gs-balanceui-remark-token-admin-abuse = Bought an admin abuse token.
 gs-balanceui-remark-token-hat = Bought a hat token.
 gs-balanceui-shop-click-confirm = Click again to confirm
 gs-balanceui-shop-purchased = Purchased {$item}
+
+# Antag Token Lobby UI
+antag-token-window-title = Antag Token
+antag-token-count = You have {$count} antag token(s).
+antag-token-count-zero = You have no antag tokens.
+antag-token-on-cooldown = Your token is on cooldown.
+antag-token-activate = Activate Token
+antag-token-ready-without = Ready Without Token

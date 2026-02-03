@@ -325,6 +325,28 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> GoobcoinShortRoundPenaltyTargetMinutes =
         CVarDef.Create("servercurrency.shortround_penalty_target_minutes", 90, CVar.SERVERONLY);
 
+    #region Antag tokens
+
+    /// <summary>
+    ///     Maximum number of antag tokens a player can hold.
+    /// </summary>
+    public static readonly CVarDef<int> AntagTokenCap =
+        CVarDef.Create("antagtoken.cap", 3, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Multiplier applied to antag selection weight when a token is active.
+    /// </summary>
+    public static readonly CVarDef<float> AntagTokenWeightMultiplier =
+        CVarDef.Create("antagtoken.weight_multiplier", 10.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Number of rounds a player must wait after consuming a token before activating another.
+    /// </summary>
+    public static readonly CVarDef<int> AntagTokenCooldownRounds =
+        CVarDef.Create("antagtoken.cooldown", 0, CVar.SERVERONLY);
+
+    #endregion
+
     #endregion
 
     #region Station Events
