@@ -51,7 +51,7 @@ public sealed class StationAiBoundUserInterface(EntityUid owner, Enum uiKey) : B
         #region DOWNSTREAM-TPirates: borg wireless access
         // Syndicate borgs: open limited (two-action) radial and return.
         // Everyone else falls through to the normal AI radial below.
-        if (CheckAccess())
+        if (ShowLimitedMenu())
             return;
         #endregion
 
@@ -88,7 +88,7 @@ public sealed class StationAiBoundUserInterface(EntityUid owner, Enum uiKey) : B
     }
 
     #region DOWNSTREAM-TPirates: borg wireless access
-    private bool CheckAccess()
+    private bool ShowLimitedMenu()
     {
         var controlled = CachedPlayerManager.LocalPlayer?.ControlledEntity;
 
