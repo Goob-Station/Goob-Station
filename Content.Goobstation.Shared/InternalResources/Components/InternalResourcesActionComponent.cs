@@ -13,6 +13,15 @@ public sealed partial class InternalResourcesActionComponent : Component
     [DataField(required: true)]
     public ProtoId<InternalResourcesPrototype> ResourceProto;
 
+    /// <summary>
+    /// Used instead of the DeficitPopup in ResourceProto when not null.
+    /// </summary>
     [DataField]
-    public float UseAmount = 0;
+    public LocId? DeficitPopup;
+
+    [DataField]
+    public float UseAmount;
+
+    [DataField]
+    public float AltUseAmount;
 }
