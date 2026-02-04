@@ -27,6 +27,7 @@
 - type: vendingMachineInventory
   id: NutriMaxInventory
   startingInventory:
+    PlantAnalyzer: 4 # Goob add
     HydroponicsToolSpade: 4
     HydroponicsToolMiniHoe: 4
     HydroponicsToolClippers: 4
@@ -43,8 +44,6 @@
     Bucket: 3
     BoxMouthSwab: 1
     BoxAgrichem: 1
-    #TO DO:
-    #plant analyzer
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Chainsaw: 1 #Goob
