@@ -21,8 +21,8 @@ namespace Content.Shared.Emag.Components;
 public sealed partial class EmaggedComponent : Component
 {
     /// <summary>
-    /// The EmagType flags that were used to emag this device
+    /// The EmagTypes that were used to emag this device // goob edit
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<ProtoId<EmagTypePrototype>> EmagType = new(); // goob edit
+    public HashSet<ProtoId<EmagTypePrototype>> EmagTypeList = new(); // goob edit
 }

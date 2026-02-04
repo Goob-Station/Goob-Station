@@ -68,13 +68,13 @@ public sealed class EmagSystem : EntitySystem
 
     private void OnAccessOverriderAccessUpdated(Entity<EmaggedComponent> entity, ref OnAccessOverriderAccessUpdatedEvent args)
     {
-        if (entity.Comp.EmagType.Contains("Access")) // goob edit start
+        if (entity.Comp.EmagTypeList.Contains("Access")) // goob edit start
             return;
 
         if (!EmagType.TryGetValue("Access", out var emag))
             return;
 
-        entity.Comp.EmagType.Add(emag); // goob edit end
+        entity.Comp.EmagTypeList.Add(emag); // goob edit end
         Dirty(entity);
     }
     private void OnAfterInteract(EntityUid uid, EmagComponent comp, AfterInteractEvent args)
@@ -133,7 +133,7 @@ public sealed class EmagSystem : EntitySystem
         {
             EnsureComp<EmaggedComponent>(target, out var emaggedComp);
 
-            emaggedComp.EmagType.Add(emagTypeToUse);
+            emaggedComp.EmagTypeList.Add(emagTypeToUse);
             Dirty(target, emaggedComp);
         }
 
@@ -150,11 +150,8 @@ public sealed class EmagSystem : EntitySystem
     {
         if (!TryComp<EmaggedComponent>(target, out var comp))
             return false;
-
-        if (!EmagType.ContainsKey(protoId))
-            return false;
-
-        return comp.EmagType.Contains(protoId);
+        
+        return comp.EmagTypeList.Contains(protoId);
     }
 
     /// <summary>
@@ -165,10 +162,7 @@ public sealed class EmagSystem : EntitySystem
     /// <returns>True if target contains protoId, Otherwise false.</returns>
     public bool CompareProtoId(ProtoId<EmagTypePrototype> target, string protoId)
     {
-        if (!EmagType.ContainsKey(protoId))
-            return false;
-        
-        return target.Id == protoId;
+        return target.Id.Equals(protoId);
     }
     // Gigantic goob edit end
 }
