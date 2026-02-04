@@ -349,6 +349,7 @@
     damageContainers:
     - Biological
     - SiliconRadiation # Goobstation - IPCs
+  - type: SolutionScanner # Goobstation
   - type: ShowJobIcons # Goob
   - type: ShowMindShieldIcons # Goob
   - type: Tag
