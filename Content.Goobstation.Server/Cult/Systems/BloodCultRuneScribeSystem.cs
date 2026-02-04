@@ -60,15 +60,15 @@ public sealed partial class BloodCultRuneScribeSystem : EntitySystem
         var runes = new List<EntProtoId>();
         foreach (var tier in tiers) runes.AddRange(tier.Value);
 
-        _ui.SetUiState(ent.Owner, EntityRadialMenuKey.Key, new EntityRadialMenuState(runes));
         _ui.TryOpenUi(ent.Owner, EntityRadialMenuKey.Key, args.User);
+        _ui.SetUiState(ent.Owner, EntityRadialMenuKey.Key, new EntityRadialMenuState(runes));
     }
 
     private void OnSelectRuneMessage(Entity<BloodCultRuneScribeComponent> ent, ref BloodCultRuneScribeSelectRuneMessage args)
     {
-        _popup.PopupEntity(Loc.GetString("rune-scribe-start"), ent, ent);
-        _aud.PlayPvs(new SoundCollectionSpecifier("ScalpelCut"), ent, AudioParams.Default);
-        var da = new DoAfterArgs(EntityManager, args.Actor, 2.5f, new RuneScribeDoAfter(args.Rune), ent, ent)
+        _popup.PopupEntity(Loc.GetString("rune-scribe-start"), args.Actor, args.Actor);
+        _aud.PlayPvs(new SoundCollectionSpecifier("ScalpelCut"), args.Actor, AudioParams.Default);
+        var da = new DoAfterArgs(EntityManager, args.Actor, 2.5f, new RuneScribeDoAfter(args.Rune), args.Actor, args.Actor)
         {
             BreakOnDamage = true,
             BreakOnDropItem = true,

@@ -16,6 +16,7 @@ public sealed partial class CultBloodMagicBUI : EntityRadialMenuBUI
     protected override void UpdateMenuState(EntityRadialMenuState state)
     {
         _entProtoIDs = state.IDs;
+        RefreshUI(ExistingMenu);
     }
 
     protected override IEnumerable<RadialMenuOption> CreateModels(EntityUid owner)

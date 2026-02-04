@@ -77,7 +77,6 @@
   components:
   - type: ConfirmableAction
     popup: suicide-action-popup
-    openUi: true
 
 - type: entity
   abstract: true

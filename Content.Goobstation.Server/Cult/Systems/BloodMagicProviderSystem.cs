@@ -48,15 +48,15 @@ public sealed partial class BloodMagicProviderSystem : EntitySystem
         var spells = new List<EntProtoId>();
         foreach (var tier in tiers) spells.AddRange(tier.Value);
 
-        _ui.SetUiState(args.Action.Owner, EntityRadialMenuKey.Key, new EntityRadialMenuState(spells));
         _ui.TryOpenUi(args.Action.Owner, EntityRadialMenuKey.Key, ent);
+        _ui.SetUiState(args.Action.Owner, EntityRadialMenuKey.Key, new EntityRadialMenuState(spells));
     }
 
     private void OnEntitySelect(Entity<BloodMagicProviderComponent> ent, ref EntityRadialMenuSelectMessage args)
     {
-        _popup.PopupEntity(Loc.GetString("cult-magic-gain-start"), ent, ent);
-        _aud.PlayPvs(new SoundCollectionSpecifier("ScalpelCut"), ent, AudioParams.Default);
-        var da = new DoAfterArgs(EntityManager, ent, 3.5f, new EventActionCultPrepareBloodMagicDoAfter(args.ID), ent, ent);
+        _popup.PopupEntity(Loc.GetString("cult-magic-gain-start"), args.Actor, args.Actor);
+        _aud.PlayPvs(new SoundCollectionSpecifier("ScalpelCut"), args.Actor, AudioParams.Default);
+        var da = new DoAfterArgs(EntityManager, args.Actor, 3.5f, new EventActionCultPrepareBloodMagicDoAfter(args.ID), args.Actor, args.Actor);
         _doAfter.TryStartDoAfter(da);
     }
 

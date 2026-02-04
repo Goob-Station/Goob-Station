@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.TouchSpell;
@@ -9,4 +10,5 @@ namespace Content.Goobstation.Shared.TouchSpell;
 public sealed partial class TouchSpellActionComponent : Component
 {
     [DataField(required: true)] public EntProtoId TouchSpell;
+    [DataField] public EntityTargetActionEvent? Event;
 }

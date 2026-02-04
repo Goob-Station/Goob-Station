@@ -1,4 +1,5 @@
 using Content.Shared.EntityEffects;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.TouchSpell;

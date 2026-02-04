@@ -13,6 +13,8 @@ public abstract class EntityRadialMenuBUI : BoundUserInterface
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IComponentFactory _compFact = default!;
 
+    protected SimpleRadialMenu? ExistingMenu;
+
     public EntityRadialMenuBUI(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
@@ -36,10 +38,14 @@ public abstract class EntityRadialMenuBUI : BoundUserInterface
         var menu = this.CreateWindow<SimpleRadialMenu>();
         RefreshUI(menu);
         menu.OpenOverMouseScreenPosition();
+        ExistingMenu = menu;
     }
 
-    public void RefreshUI(SimpleRadialMenu menu)
+    public void RefreshUI(SimpleRadialMenu? menu)
     {
+        if (menu == null)
+            return;
+
         menu.Track(Owner);
         menu.SetButtons(CreateModels(Owner));
     }

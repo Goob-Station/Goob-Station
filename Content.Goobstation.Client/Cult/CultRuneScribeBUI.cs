@@ -22,6 +22,7 @@ public sealed partial class CultRuneScribeBUI : EntityRadialMenuBUI
     protected override void UpdateMenuState(EntityRadialMenuState state)
     {
         _entProtoIDs = state.IDs;
+        RefreshUI(ExistingMenu);
     }
 
     protected override IEnumerable<RadialMenuOption> CreateModels(EntityUid owner)
@@ -41,7 +42,8 @@ public sealed partial class CultRuneScribeBUI : EntityRadialMenuBUI
             yield return new RadialMenuActionOption<EntProtoId>(HandleMenuOptionClick, id)
             {
                 Sprite = new SpriteSpecifier.EntityPrototype(id),
-                BackgroundColor = color,
+                BackgroundColor = new Color(color.R, color.G, color.B, .25f),
+                HoverBackgroundColor = new Color(color.R, color.G, color.B, .5f),
                 ToolTip = ent.EditorSuffix, // works
             };
         }

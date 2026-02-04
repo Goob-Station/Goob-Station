@@ -58,12 +58,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         if (!ent.Comp.ShouldCancel) // Goobstation
             return;
 
-        // goob edit - hooray UI!
-        if (ent.Comp.OpenUI && TryComp(args.User, out ActorComponent? actor))
-        {
-            _eui.OpenEui(new ConfirmableActionEui(ent, args.User, EntityManager), actor.PlayerSession);
-            return;
-        }
+        // TODO: make it so that it pops up a confirmation window instead?
 
         if (args.Cancelled)
             return;

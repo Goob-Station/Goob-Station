@@ -6,8 +6,10 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.TouchSpell;
 
@@ -26,6 +28,7 @@ public sealed partial class TouchSpellSystem : EntitySystem
     [Dependency] private readonly EntityEffectSystem _effects = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
@@ -79,7 +82,7 @@ public sealed partial class TouchSpellSystem : EntitySystem
 
     private void OnInteract(Entity<TouchSpellComponent> ent, ref InteractEvent args)
     {
-        if (!args.Target.HasValue || !args.CanReach)
+        if (!args.Target.HasValue || !args.CanReach || args.Target == args.User)
             return;
 
         Touch(ent, args.Target.Value, args.ClickLocation);
@@ -92,7 +95,11 @@ public sealed partial class TouchSpellSystem : EntitySystem
         if (args.HitEntities.Count <= 0)
             return;
 
-        Touch(ent, args.HitEntities[0]);
+        var target = args.HitEntities[0];
+        if (target == args.User)
+            return;
+
+        Touch(ent, target);
 
         args.Handled = true;
     }
@@ -102,27 +109,35 @@ public sealed partial class TouchSpellSystem : EntitySystem
         foreach (var effect in ent.Comp.Effects)
         {
             var baseEffect = new EntityEffectBaseArgs(target, EntityManager);
+            var args = new TouchSpellEffectArgs(baseEffect, ent, clickLocation);
+
+            if (effect.Conditions != null && effect.Conditions.Any(q => !q.Condition(args)))
+                continue;
+
             _effects.Effect(effect, new TouchSpellEffectArgs(baseEffect, ent, clickLocation));
         }
 
         var action = ent.Comp.AssociatedAction;
         var performer = ent.Comp.AssociatedPerformer;
         if (action.HasValue && TryComp<ActionsComponent>(performer, out var actionComp))
-            ProcessAction(ent, (performer.Value, actionComp));
+            ProcessAction(ent, (performer.Value, actionComp), target);
 
         if (ent.Comp.QueueDelete)
             QueueDel(ent);
     }
 
-    private void ProcessAction(Entity<TouchSpellComponent> ent, Entity<ActionsComponent> performer)
+    private void ProcessAction(Entity<TouchSpellComponent> ent, Entity<ActionsComponent> performer, EntityUid target)
     {
         if (ent.Comp.AssociatedAction == null) // somehow
             return;
 
         var action = ent.Comp.AssociatedAction!.Value;
-        if (!TryComp<ActionComponent>(action, out var ac))
+        if (!TryComp<ActionComponent>(action, out var ac)
+        || !TryComp<TouchSpellActionComponent>(action, out var tac)
+        || tac.Event == null)
             return;
 
-        _actions.PerformAction(performer.Owner, (action, ac));
+        tac.Event.Target = target;
+        _actions.PerformAction(performer.Owner, (action, ac), tac.Event);
     }
 }

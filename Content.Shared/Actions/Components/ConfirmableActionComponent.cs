@@ -36,12 +36,6 @@ public sealed partial class ConfirmableActionComponent : Component
     public string Popup = string.Empty;
 
     /// <summary>
-    ///     Goobstation - Should the popup act as a separate confirmation UI?
-    /// </summary>
-    [DataField]
-    public bool OpenUI = false;
-
-    /// <summary>
     /// Type of warning popup - Goobstaiton - Modsuits
     /// </summary>
     [DataField("popupType")]

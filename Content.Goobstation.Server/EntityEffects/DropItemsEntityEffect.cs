@@ -7,12 +7,10 @@
 
 using Content.Shared.EntityEffects;
 using Content.Shared.Standing;
-using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Chemistry;
+namespace Content.Goobstation.Server.EntityEffects;
 
-[UsedImplicitly]
 public sealed partial class DropItemsEntityEffect : EntityEffect
 {
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)

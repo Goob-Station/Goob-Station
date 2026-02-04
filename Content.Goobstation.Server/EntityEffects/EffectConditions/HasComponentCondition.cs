@@ -6,12 +6,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.EntityEffects;
-using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Chemistry;
+namespace Content.Goobstation.Server.EntityEffects.EffectConditions;
 
-[UsedImplicitly]
 public sealed partial class HasComponentCondition : EntityEffectCondition
 {
     [DataField(required: true)]

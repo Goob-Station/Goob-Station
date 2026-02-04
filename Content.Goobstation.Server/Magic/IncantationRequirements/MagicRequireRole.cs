@@ -6,7 +6,7 @@ namespace Content.Goobstation.Server.Magic.IncantationRequirements;
 
 public sealed partial class MagicRequireRole : IncantationRequirement
 {
-    [DataField] public Type RoleType;
+    [DataField(required: true)] public BaseMindRoleComponent? Role;
 
     public override bool Valid(EntityUid ent, IEntityManager entMan, out string reason)
     {
@@ -15,7 +15,8 @@ public sealed partial class MagicRequireRole : IncantationRequirement
         var roleSystem = entMan.System<SharedRoleSystem>();
         var mindSystem = entMan.System<SharedMindSystem>();
 
-        return mindSystem.TryGetMind(ent, out var mindId, out _)
-            && roleSystem.MindHasRole(mindId, RoleType, out _);
+        return Role != null
+            && mindSystem.TryGetMind(ent, out var mindId, out _)
+            && roleSystem.MindHasRole(mindId, Role.GetType(), out _);
     }
 }
