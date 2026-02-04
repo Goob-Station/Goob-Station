@@ -51,8 +51,7 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // goob edit - EmagType prototypes
 
-    public readonly Dictionary<string, ProtoId<EmagTypePrototype>> EmagType = new();
-    private readonly ProtoId<EmagTypePrototype> _emagAll = "All"; // Goob edit
+    public readonly Dictionary<string, ProtoId<EmagTypePrototype>> EmagType = new(); // goob edit
 
     public override void Initialize()
     {
