@@ -279,7 +279,9 @@
     Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter #CorvaxGoob edit
   id: GruntishTranslatorImplanter
+  subname: lathe-recipe-GruntishTranslatorImplanter-subname #CorvaxGoob edit
   result: GruntishTranslatorImplanter
   completetime: 2
   materials:

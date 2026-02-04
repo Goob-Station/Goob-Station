@@ -110,6 +110,7 @@
 
 - type: latheRecipe
   id: XenoCompatibilityImplanter
+  name: lathe-recipe-XenoCompatibilityImplanter #CorvaxGoob edit
   result: XenoCompatibilityImplanter
   completetime: 8
   materials:
