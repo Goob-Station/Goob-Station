@@ -1,6 +1,6 @@
 using Content.Goobstation.Shared.InternalResources.Data;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Goobstation.Shared.InternalResources.Components;
@@ -9,8 +9,7 @@ namespace Content.Goobstation.Shared.InternalResources.Components;
 /// Component that uses for generic internal resources like mana or changeling's chemicals
 /// </summary>
 
-[RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class InternalResourcesComponent : Component
 {
     /// <summary>
