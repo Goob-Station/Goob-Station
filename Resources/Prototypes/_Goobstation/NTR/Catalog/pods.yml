@@ -2,7 +2,7 @@
   id: SpawnPodEvaKit
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyEvaKit
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CrateEvaKit
@@ -11,7 +11,7 @@
   id: SpawnPodSpesos
   categories: [ HideSpawnMenu ]
   name: SpawnSupplySpesosSmall
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: NTRCrateSpesosSmall
@@ -20,7 +20,7 @@
   id: SpawnPodDisks
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyPointDisks
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: NTRCratePointDisks
@@ -29,7 +29,7 @@
   id: SpawnPodEmergencyMed
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyEmergencyMed
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: NTRCrateEmergencyMed
@@ -38,7 +38,7 @@
   id: SpawnPodDisablers
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyDisablers
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: NTRCrateDisablers
@@ -47,7 +47,7 @@
   id: SpawnPodTools
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyTools
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: NTRCrateToolsSmall
@@ -56,7 +56,7 @@
   id: SpawnPodInterns
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyInterns
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: RadioLeadIntern
@@ -65,7 +65,7 @@
   id: SpawnPodDagger
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyDagger
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: PhoronDagger
@@ -74,7 +74,7 @@
   id: SpawnPodCoin
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyInternCoin
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: InternCoin
@@ -83,7 +83,7 @@
   id: SpawnPodBsd
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyBsd
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: BlueShieldDeputySpawnBriefcase
@@ -92,7 +92,7 @@
   id: SpawnPodHardsuitExperimental
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyHardsuit
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: ClothingOuterHardsuitExperimentalNanorep
@@ -101,7 +101,7 @@
   id: SpawnPodGoldCase
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyCigar
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CigarGoldCase # might be an overill but who cares lol
@@ -110,7 +110,7 @@
   id: SpawnPodWhiskey
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyWhiskey
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: DrinkPremiumWhiskeyBottleFull
@@ -119,7 +119,7 @@
   id: SpawnPodCentCommGlasses
   categories: [ HideSpawnMenu ]
   name: SpawnPodCentCommGlasses
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: ClothingEyesGlassesCentCommNoThermal
@@ -128,7 +128,7 @@
   id: SpawnPodSvalinn
   categories: [ HideSpawnMenu ]
   name: SpawnSupplySvallin
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: WeaponLaserSvalinn
@@ -137,7 +137,7 @@
   id: SpawnPodDeckard
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyDeckard
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: WeaponRevolverDeckard
@@ -146,7 +146,7 @@
   id: SpawnPodTelecom
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyTelecom
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: NTRBoardTelecom
@@ -155,7 +155,7 @@
   id: SpawnPodFat
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyFat
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: FatExtractorMachineCircuitboard
@@ -164,7 +164,7 @@
   id: SpawnPodGrav
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyGrav
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: MiniGravityGeneratorCircuitboard
@@ -173,7 +173,7 @@
   id: SpawnPodTeleporter
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyTeleporter
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CargoTelepadMachineCircuitboard
@@ -182,7 +182,7 @@
   id: SpawnPodHolopad
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyHolopad
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: NTRBoardHolopad
@@ -191,7 +191,7 @@
   id: SpawnPodMonitoring
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyMonitoring
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CrewMonitoringServerMachineCircuitboard
@@ -200,7 +200,7 @@
   id: SpawnPodRnd
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyRnd
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: ResearchAndDevelopmentServerMachineCircuitboard
@@ -209,7 +209,7 @@
   id: SpawnPodComms
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyComms
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CommsComputerCircuitboard
@@ -218,7 +218,7 @@
   id: SpawnPodCargo
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyCargo
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CargoSaleComputerCircuitboard
@@ -227,7 +227,7 @@
   id: SpawnPodCargoShuttle
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyCargoShuttle
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CargoShuttleConsoleCircuitboard
@@ -236,7 +236,7 @@
   id: SpawnPodShuttle
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyShuttle
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: NTRBoardShuttle
@@ -245,7 +245,7 @@
   id: SpawnPodMedkit
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyMedkit
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: MedkitCombatFilled
@@ -254,7 +254,7 @@
   id: SpawnPodMindshield
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyMindshield
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CrateMindShieldImplants
@@ -263,7 +263,7 @@
   id: SpawnPodSecHardsuit
   categories: [ HideSpawnMenu ]
   name: SpawnSupplySecHardsuit
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CrateArmoryCombatHardsuit
@@ -272,7 +272,7 @@
   id: SpawnPodTaskFlatpack
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyTaskFlatpack
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: ComputerNTRTasksFlatpack
@@ -281,7 +281,7 @@
   id: SpawnPodMarlen
   categories: [ HideSpawnMenu ]
   name: SpawnPodMarlen
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: Marlen
@@ -290,7 +290,7 @@
   id: SpawnPodNTRCigs
   categories: [ HideSpawnMenu ]
   name: SpawnPodNTRCigs
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: VendingMachineCigsDeluxe
@@ -299,7 +299,7 @@
   id: SpawnPodNTRSoap
   categories: [ HideSpawnMenu ]
   name: SpawnPodNTRSoap
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: SoapCentcomm
@@ -308,7 +308,7 @@
   id: SpawnPodCargoBingle
   categories: [ HideSpawnMenu ]
   name: SpawnPodCargoBingle
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: CargoBingleSpawnCoin
@@ -318,7 +318,7 @@
   id: SpawnPodWaterCoolerGold
   categories: [ HideSpawnMenu ]
   name: SpawnPodWaterCoolerGold
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: WaterCoolerGold
@@ -327,7 +327,7 @@
   id: SpawnPodNTRCassettePlayer
   categories: [ HideSpawnMenu ]
   name: SpawnPodNTRCassettePlayer
-  parent: SpawnSupplyNTREmpty
+  parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
     prototype: ExecutiveCassette
