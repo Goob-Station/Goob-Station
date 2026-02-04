@@ -14,6 +14,8 @@ plant-analyzer-component-unviable = [color=red]UNVIABLE[color]
 plant-analyzer-component-mutating = [color=#00ff5f]MUTATING[color]
 plant-analyzer-component-kudzu = [color=red]KUDZU[color]
 
+plant-analyzer-and = and
+
 plant-analyzer-soil = There is some [color=white]{$chemicals}[/color] in this {$holder} that {$count ->
     [one]has
     *[other]have

@@ -24,7 +24,7 @@ public sealed class PlantAnalyzerLocalizationHelper : EntitySystem
             if (gasIds.Contains(int.Parse(gas.ID)))
                 gasesLoc.Add(Loc.GetString(gas.Name));
 
-        return ContentLocalizationManager.FormatList(gasesLoc);
+        return ContentLocalizationManager.FormatListLocalized(gasesLoc, "plant-analyzer-and");
     }
 
     public string ChemicalsToLocalizedStrings(List<string> ids)
@@ -36,7 +36,7 @@ public sealed class PlantAnalyzerLocalizationHelper : EntitySystem
         foreach (var id in ids)
             locStrings.Add(_prototypeManager.TryIndex<ReagentPrototype>(id, out var prototype) ? prototype.LocalizedName : id);
 
-        return ContentLocalizationManager.FormatList(locStrings);
+        return ContentLocalizationManager.FormatListLocalized(locStrings, "plant-analyzer-and");
     }
 
     public (string Singular, string Plural, string First) ProduceToLocalizedStrings(List<EntProtoId> ids)
