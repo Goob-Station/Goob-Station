@@ -176,6 +176,8 @@ public sealed partial class BotanySystem : EntitySystem
 
     public IEnumerable<EntityUid> GenerateProduct(SeedData proto, EntityCoordinates position, int yieldMod = 1)
     {
+    // Goobstation start
+    /*
         var totalYield = 0;
         if (proto.Yield > -1)
         {
@@ -186,7 +188,9 @@ public sealed partial class BotanySystem : EntitySystem
 
             totalYield = Math.Max(1, totalYield);
         }
-
+    */
+        var totalYield = CalculateTotalYield(proto.Yield, yieldMod);
+    // Goobstation end
         var products = new List<EntityUid>();
 
         if (totalYield > 1 || proto.HarvestRepeat != HarvestType.NoRepeat)
@@ -224,6 +228,23 @@ public sealed partial class BotanySystem : EntitySystem
     {
         return !proto.Ligneous || proto.Ligneous && held != null && HasComp<SharpComponent>(held);
     }
+
+    // Goobstation start
+    public static int CalculateTotalYield(int yield, int yieldMod)
+    {
+        var totalYield = 0;
+        if (yield > -1)
+        {
+            if (yieldMod < 0)
+                totalYield = yield;
+            else
+                totalYield = yield * yieldMod;
+
+            totalYield = Math.Max(1, totalYield);
+        }
+        return totalYield;
+    }
+    // Goobstation end
 
     #endregion
 }
