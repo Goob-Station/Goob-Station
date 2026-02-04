@@ -269,6 +269,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - LatheMiscStatic
+    - HydroponicsStatic # Goob add
     - ChemistryStatic
     - TapeRecorderStatic
     - CondimentStatic

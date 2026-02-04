@@ -1,0 +1,4 @@
+- type: latheRecipe
+  parent: HandheldHealthAnalyzer
+  id: PlantAnalyzer
+  result: PlantAnalyzer

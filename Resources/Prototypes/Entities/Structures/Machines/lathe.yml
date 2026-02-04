@@ -440,6 +440,7 @@
     - GrenadeTriggersStatic
     - TapeRecorderStatic
     - MiscSignallersStatic
+    - HydroponicsStatic # Goob add
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityWeaponsStatic

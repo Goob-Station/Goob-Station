@@ -29,3 +29,13 @@
   recipes:
     - FoodShakerSaltEmpty
     - FoodShakerPepperEmpty
+
+- type: latheRecipePack
+  id: HydroponicsStatic
+  recipes:
+  - HydroponicsToolMiniHoe
+  - HydroponicsToolScythe
+  - HydroponicsToolHatchet
+  - HydroponicsToolSpade
+  - HydroponicsToolClippers
+  - PlantAnalyzer
