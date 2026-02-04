@@ -279,6 +279,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - LatheMiscStatic
+    - HydroponicsStatic # CorvaxGoob
     - ChemistryStatic
     - TapeRecorderStatic
     - CondimentStatic

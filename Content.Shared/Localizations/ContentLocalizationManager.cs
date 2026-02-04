@@ -149,6 +149,23 @@ namespace Content.Shared.Localizations
             };
         }
 
+        // CorvaxGoob-Start
+        /// <summary>
+        /// Formats a list with a localized conjunction (RU e.g., "and" -> "и").
+        /// </summary>
+        public static string FormatListLocalized(List<string> list, string conjunctionLocKey)
+        {
+            var conjunction = Loc.GetString(conjunctionLocKey);
+            return list.Count switch
+            {
+                <= 0 => string.Empty,
+                1 => list[0],
+                2 => $"{list[0]} {conjunction} {list[1]}",
+                _ => $"{string.Join(", ", list.GetRange(0, list.Count - 1))}, {conjunction} {list[^1]}"
+            };
+        }
+        // CorvaxGoob-End
+
         /// <summary>
         /// Formats a list as per english grammar rules, but uses or instead of and.
         /// </summary>

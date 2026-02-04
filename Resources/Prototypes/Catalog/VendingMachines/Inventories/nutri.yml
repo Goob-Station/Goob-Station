@@ -32,6 +32,7 @@
     HydroponicsToolClippers: 4
     HydroponicsToolScythe: 4
     HydroponicsToolHatchet: 4
+    PlantAnalyzer: 4 # CorvaxGoob
     Dropper: 4
     PlantBag: 3
     PlantBGoneSpray: 20
@@ -43,8 +44,6 @@
     Bucket: 3
     BoxMouthSwab: 1
     BoxAgrichem: 1
-    #TO DO:
-    #plant analyzer
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Chainsaw: 1 #Goob

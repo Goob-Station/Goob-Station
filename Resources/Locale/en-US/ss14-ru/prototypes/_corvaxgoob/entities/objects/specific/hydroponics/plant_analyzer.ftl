@@ -1,0 +1,12 @@
+ent-BasePlantAnalyzer = plant analyzer
+    .desc = A scanner used to evaluate a plant's various areas of growth, genetic traits and chemicals.
+ent-PlantAnalyzer = { ent-BasePlantAnalyzer }
+    .desc = { ent-BasePlantAnalyzer.desc }
+ent-PlantAnalyzerEmpty = { ent-PlantAnalyzer }
+    .suffix = Empty
+    .desc = { ent-PlantAnalyzer.desc }
+ent-PlantAnalyzerDebug = { ent-BasePlantAnalyzer }
+    .suffix = Debug
+    .desc = { ent-BasePlantAnalyzer.desc }
+ent-PlantAnalyzerReportPaper = plant analyzer report
+    .desc = A printout from a plant analyzer.
