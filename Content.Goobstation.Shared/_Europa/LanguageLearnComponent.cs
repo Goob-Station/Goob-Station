@@ -1,6 +1,7 @@
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
@@ -10,7 +11,7 @@ namespace Content.Goobstation.Shared._Europa;
 /// This is used for learning languages
 /// </summary>
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class LanguageLearnComponent : Component
 {
     /// <summary>
