@@ -1,0 +1,309 @@
+# Important Note!
+# Crusher upgrade entities have the exact same ID as their respective TagPrototype.
+# Remember to take this into account when adding new upgrades!
+
+# Main Upgrades
+- type: entity
+  id: BaseCrusherUpgradeMain
+  parent: [BaseItem, BaseSecurityCargoContraband]
+  name: crusher upgrade capsule
+  description: A modkit for crusher weapons.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi
+  - type: Item
+    size: Small
+  - type: GunUpgrade
+  - type: StaticPrice
+    price: 750
+  - type: Tag
+    tags:
+    - CrusherUpgradeMain
+
+- type: entity
+  id: CrusherUpgradeMainMarker
+  parent: BaseCrusherUpgradeMain
+  name: crusher upgrade capsule (kinetic marker)
+  description: Compact generator of a bluespace field that can be shot on a living target to make it more vulnerable to crusher attacks. Its projectile also can destroy some types of rocks.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: kinetic-marker
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-kinetic-marker-name
+    uniqueGroup: mainUpgrade
+  - type: GunUpgradeComponents
+    components:
+    - type: AmmoCounter
+    - type: UseDelayOnShoot
+    - type: GunRequiresWield
+    - type: Gun
+      soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+      fireRate: 1
+      useKey: false
+    - type: MapRestrictedGun
+      planetWhitelist:
+        components:
+        - Biome
+      popupOnBlock: gun-lavaland-restricted-message
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 1
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    - type: BasicEntityAmmoProvider
+      proto: BulletCharge
+      capacity: 1
+      count: 1
+  - type: Tag
+    tags:
+    - CrusherUpgradeMain
+    - CrusherUpgradeMainMarker
+
+- type: entity
+  id: CrusherUpgradeMainRudeBuster
+  parent: BaseCrusherUpgradeMain
+  name: crusher upgrade capsule (rude buster)
+  description: Focuses determination of the user in itself and emits it as a half-magical projectile. You can see something constantly bouncing off inside it.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: rude-buster
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-rude-buster-name
+    uniqueGroup: mainUpgrade
+  - type: GunUpgradeComponents
+    components:
+    - type: AmmoCounter
+    - type: UseDelayOnShoot
+    - type: GunRequiresWield
+    - type: Gun # TODO turn it into an action gun and add auto-targeting
+      projectileSpeed: 12 # Needed for the trail to look good
+      soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+      fireRate: 0.125
+      useKey: false
+    - type: MapRestrictedGun
+      planetWhitelist:
+        components:
+        - Biome
+      popupOnBlock: gun-lavaland-restricted-message
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 8
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    - type: BasicEntityAmmoProvider
+      proto: ProjectileRudeBuster
+      capacity: 1
+      count: 1
+  - type: Tag
+    tags:
+    - CrusherUpgradeMain
+    - CrusherUpgradeMainRudeBuster
+
+# Blade upgrades
+- type: entity
+  id: BaseCrusherUpgradeBlade
+  parent: [BaseItem, BaseSecurityCargoContraband]
+  name: crusher blade upgrade
+  description: A modkit for crusher weapons.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi
+  - type: Item
+    size: Small
+  - type: GunUpgrade
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+
+- type: entity
+  id: CrusherUpgradeBladeLavaAspect
+  parent: BaseCrusherUpgradeBlade
+  name: crusher blade upgrade (lava aspect)
+  description: A crystal made out of uncooling lava, making it constantly hot and highly flammable.
+  components:
+  - type: Sprite
+    state: lava-shard
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-lava-aspect
+  - type: WeaponUpgradeDamage
+    bonusDamage:
+      types:
+        Heat: 5
+  - type: WeaponUpgradeEffects
+    effects:
+    - !type:FlammableReaction
+      multiplier: 2
+      multiplierOnExisting: 0.5
+    - !type:Ignite
+    - !type:AdjustTemperature
+      amount: 7500 # thermal energy, not temperature!
+  - type: Construction
+    graph: CrusherUpgradeLavaCrystalConstructionGraph
+    node: crystal
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+    - CrusherUpgradeBladeLavaAspect
+
+- type: entity
+  id: CrusherUpgradeBladeIceFrost
+  parent: BaseCrusherUpgradeBlade
+  name: crusher blade upgrade (ice frost)
+  description: A crystal that emits coldness, probably by violating laws of thermodynamics.
+  components:
+  - type: Sprite
+    state: ice-shard
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-ice-frost
+  - type: WeaponUpgradeDamage
+    bonusDamage:
+      types:
+        Cold: 4 # Less because no armors protect from it
+  - type: WeaponUpgradeEffects
+    effects:
+    - !type:AdjustTemperature
+      amount: -7500 # thermal energy, not temperature! That's not that great actually, but it slows down the target after enough hits
+  - type: Construction
+    graph: CrusherUpgradeIceCrystalConstructionGraph
+    node: crystal
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+    - CrusherUpgradeBladeIceFrost
+
+- type: entity
+  id: CrusherUpgradeBladeSharpness
+  parent: BaseCrusherUpgradeBlade
+  name: crusher blade upgrade (sharpness)
+  description: A simple grindstone that improves the damage of a crusher.
+  components:
+  - type: Sprite
+    state: black-shard
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-sharpness
+  - type: WeaponUpgradeDamage
+    bonusDamage:
+      types:
+        Slash: 7 # Let's just say crusher hammer becomes extra-sharp on the sides
+  - type: Construction
+    graph: CrusherUpgradeCrystalConstructionGraph
+    node: crystal
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+    - CrusherUpgradeBladeSharpness
+
+# Handle upgrades
+- type: entity
+  id: BaseCrusherUpgradeHandle
+  parent: [BaseItem, BaseSecurityCargoContraband]
+  name: crusher handle upgrade
+  description: A modkit for crusher weapons.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi
+  - type: Item
+    size: Small
+  - type: GunUpgrade
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - CrusherUpgradeHandle
+
+- type: entity
+  id: CrusherUpgradeHandleWeights
+  parent: BaseCrusherUpgradeHandle
+  name: crusher handle upgrade (weights)
+  description: A set of weighed loads that can be attached to a handle to make a weapon deal knockback to enemies.
+  components:
+  - type: Sprite
+    state: handle-weights
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-weights
+  - type: GunUpgradeComponents
+    components:
+    - type: FlipOnHit
+    - type: MeleeThrowOnHit
+      distance: 3
+      speed: 3
+  - type: Tag
+    tags:
+    - CrusherUpgradeHandle
+    - CrusherUpgradeHandleWeights
+
+- type: entity
+  id: CrusherUpgradeHandleLight
+  parent: BaseCrusherUpgradeHandle
+  name: crusher handle upgrade (lightweight)
+  description: A lightweight handle replacement that allows you to make attacks more frequently.
+  components:
+  - type: Sprite
+    state: handle-lightweight
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-lightweight
+  - type: WeaponUpgradeSpeed
+    attackRateMultiplier: 1.3 # 30% faster
+  - type: Tag
+    tags:
+    - CrusherUpgradeHandle
+    - CrusherUpgradeHandleLightweight
+
+- type: entity
+  id: CrusherUpgradeHandleRange
+  parent: BaseCrusherUpgradeHandle
+  name: crusher handle upgrade (range)
+  description: A long handle replacement that allows you to make attacks more frequently.
+  components:
+  - type: Sprite
+    state: handle-spikes # Why spikes improve range? Cuz they're badass.
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-range
+  - type: WeaponUpgradeRange
+    rangeMultiplier: 1.2 # 20% longer
+  - type: Tag
+    tags:
+    - CrusherUpgradeHandle
+    - CrusherUpgradeHandleRange
+
+- type: entityTable
+  id: CrusherUpgradesMain
+  table: !type:GroupSelector
+    children:
+    - id: CrusherUpgradeMainMarker
+    - id: CrusherUpgradeMainRudeBuster
+
+- type: entityTable
+  id: CrusherUpgradesBlade
+  table: !type:GroupSelector
+    children:
+    - id: CrusherUpgradeBladeLavaAspect
+    - id: CrusherUpgradeBladeIceFrost
+    - id: CrusherUpgradeBladeSharpness
+
+- type: entityTable
+  id: CrusherUpgradesHandle
+  table: !type:GroupSelector
+    children:
+    - id: CrusherUpgradeHandleWeights
+    - id: CrusherUpgradeHandleLight
+    - id: CrusherUpgradeHandleRange
+
+- type: entityTable
+  id: CrusherUpgrades
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: CrusherUpgradesMain
+    - !type:NestedSelector
+      tableId: CrusherUpgradesBlade
+    - !type:NestedSelector
+      tableId: CrusherUpgradesHandle
+      weight: 2 # They are uncraftable for now so need more chances

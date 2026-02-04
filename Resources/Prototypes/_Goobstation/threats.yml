@@ -11,7 +11,6 @@
     Dragon: 0.3
     SlaughterDemon: 0.3
     LaughterDemon: 0.3
-    Revolutionary: 0.2
 
 # Threats
 
@@ -50,10 +49,6 @@
   announcement: terror-grey-tide
   rule: GreyTideAntagMidround
 
-- type: ninjaHackingThreat
-  id: Revolutionary
-  announcement: terror-lone-operative
-  rule: RevolutionaryMidround
 
 #- type: ninjaHackingThreat
 #  id: Wraith
