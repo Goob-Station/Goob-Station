@@ -21002,3 +21002,11 @@ Entries:
       message: 3 more lobby arts.
   id: 2378
   time: '2026-02-05T11:21:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: >-
+        Removed double sec belts + headsets from security lockers, security
+        locker item cleanup in general
+  id: 2379
+  time: '2026-02-05T11:49:07.0000000+00:00'
