@@ -49,3 +49,5 @@
   - type: Sprite
     sprite: _Goobstation/CustomLawboard/custom_lawboard_NT.rsi
     state: icon
+  - type: SiliconLawProvider
+    laws: Crewsimov
