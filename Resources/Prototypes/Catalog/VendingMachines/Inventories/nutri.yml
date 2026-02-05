@@ -27,13 +27,13 @@
 - type: vendingMachineInventory
   id: NutriMaxInventory
   startingInventory:
-    PlantAnalyzer: 4 # Goob add
     HydroponicsToolSpade: 4
     HydroponicsToolMiniHoe: 4
     HydroponicsToolClippers: 4
     HydroponicsToolScythe: 4
     HydroponicsToolHatchet: 4
     Dropper: 4
+    PlantAnalyzer: 4 # Goob add
     PlantBag: 3
     PlantBGoneSpray: 20
     WeedSpray: 20

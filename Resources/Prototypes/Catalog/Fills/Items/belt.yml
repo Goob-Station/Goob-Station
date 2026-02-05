@@ -244,6 +244,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: PlantAnalyzer
     - id: HydroponicsToolMiniHoe
     - id: HydroponicsToolSpade
     - id: HydroponicsToolClippers
