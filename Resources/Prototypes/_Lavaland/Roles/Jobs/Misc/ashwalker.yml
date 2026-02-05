@@ -1,0 +1,5 @@
+- type: startingGear
+  id: AshWalkerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+    head: ClothingHeadHatGladiatorReal

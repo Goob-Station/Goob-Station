@@ -95,7 +95,7 @@
 - type: entity
   name: watcher
   id: MobWatcherBase
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ SimpleSpaceMobBase, SimpleSpaceMobBase ] # Goob change, the tendril literally cannot absorb the hivelord if it's floating.
   abstract: true
   description: It's like it's staring right through you.
   components:
@@ -140,7 +140,10 @@
       140: Dead
   - type: Butcherable
     spawned:
-    - id: DiamondOre1
+    - id: DiamondOre1 # not unprocessed
+      amount: 1
+    - id: MaterialBones1 # Goobstation
+      amount: 1
     - id: MaterialWatcherWing1
       maxAmount: 2
   - type: MovementSpeedModifier

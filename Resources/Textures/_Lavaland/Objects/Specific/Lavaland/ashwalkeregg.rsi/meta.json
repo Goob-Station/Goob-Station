@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Monkestation at https://github.com/Monkestation/Monkestation2.0/blob/a7bec4f82677baba45ba9baf6ec1c830325f4344/icons/mob/simple/lavaland/lavaland_monsters.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "large-egg"
+        }
+    ]
+}

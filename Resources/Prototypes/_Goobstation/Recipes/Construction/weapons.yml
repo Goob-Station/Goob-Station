@@ -20,3 +20,19 @@
   targetNode: woodenWand
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: BoneAxeConstruction
+  graph: BoneAxeConstructionGraph
+  startNode: start
+  targetNode: axe
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: BoneDaggerConstruction
+  graph: BoneDaggerConstructionGraph
+  startNode: start
+  targetNode: dagger
+  category: construction-category-weapons
+  objectType: Item

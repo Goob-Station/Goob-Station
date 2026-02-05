@@ -1,0 +1,55 @@
+- type: body # Mostly the same as reptilian
+  name: "ash walker"
+  id: AshWalker
+  root: chest
+  slots:
+    head:
+      part: HeadReptilian
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestReptilian
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganAshWalkerLungs
+      connections:
+      - right arm
+      - left arm
+      - groin
+      - head
+    groin:
+      part: GroinReptilian
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganReptilianStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmReptilian
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmReptilian
+      connections:
+      - left hand
+    right hand:
+      part: RightHandReptilian
+    left hand:
+      part: LeftHandReptilian
+    right leg:
+      part: RightLegReptilian
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegReptilian
+      connections:
+      - left foot
+    right foot:
+      part: RightFootReptilian
+    left foot:
+      part: LeftFootReptilian

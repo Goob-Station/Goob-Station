@@ -105,7 +105,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: MeleeWeapon
-    canWideSwing: false # Goob
+    canWideSwing: true
     range: 2.2 # Goob
     attackRate: 0.8 # Goob
     animationRotation: -135 # WWDP

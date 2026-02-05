@@ -1,0 +1,14 @@
+- type: startingGear
+  id: SyndicateResearcherGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ClothingBackpackSyndicate
+    mask: ClothingMaskGasSyndicate
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterCoatLab
+    shoes: ClothingShoesBootsCombatFilled
+    id: SyndiPDA
+    pocket1: WeaponPistolViper
+    pocket2: MagazinePistol

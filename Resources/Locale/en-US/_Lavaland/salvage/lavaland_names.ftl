@@ -42,3 +42,4 @@ lavaland-ruin-generator = Generator graveyard
 lavaland-ruin-mug = Mug factory
 lavaland-ruin-temple = Nar'Sie temple
 lavaland-ruin-flock-large = Strange glass ruins
+lavaland-ruin-ash-walker = Ash Walker Nest

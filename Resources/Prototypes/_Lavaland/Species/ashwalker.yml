@@ -1,0 +1,197 @@
+# Most of this is just reptilians, just a little different.
+- type: species
+  id: AshWalker
+  name: species-name-ash-walker
+  roundStart: false
+  prototype: MobReptilian
+  sprites: MobReptilianSprites
+  defaultSkinTone: "#77501c"
+  markingLimits: MobReptilianMarkingLimits
+  dollPrototype: MobReptilianDummy
+  skinColoration: Hues
+  maleFirstNames: NamesReptilianMale
+  femaleFirstNames: NamesReptilianFemale
+  naming: FirstDashFirst
+
+- type: speciesBaseSprites
+  id: MobAshWalkerSprites
+  sprites:
+    Head: MobReptilianHead
+    Face: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Chest: MobReptilianChest
+    Groin: MobReptilianGroin
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobHumanoidEyes
+    LArm: MobReptilianLArm
+    RArm: MobReptilianRArm
+    LHand: MobReptilianLHand
+    RHand: MobReptilianRHand
+    LLeg: MobReptilianLLegDigi
+    RLeg: MobReptilianRLegDigi
+    LFoot: MobReptilianLFootDigi
+    RFoot: MobReptilianRFootDigi
+
+- type: markingPoints
+  id: MobAshWalkerMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ LizardTailSmooth ]
+    Snout:
+      points: 1
+      required: true
+      defaultMarkings: [ LizardSnoutRound ]
+    HeadTop:
+      points: 3
+      required: false
+    HeadSide:
+      points: 6 # WWDP-Edit
+      required: false
+    Chest:
+      points: 8
+      required: false
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerHead
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerHeadMale
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerHeadFemale
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerChest
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerChestMale
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerChestFemale
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerGroin
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerLLeg
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerLHand
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerLArm
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerLFoot
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerRLeg
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerRHand
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerRArm
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobAshWalkerRFoot
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: r_foot

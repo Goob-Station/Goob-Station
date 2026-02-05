@@ -1,0 +1,454 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Monkestation at github.com/ParadiseSS13/Paradise/blob/master/icons/turf/boss_floors.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pristine_tile1",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile2",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile3",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile4",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile5",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile6",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile7",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile8",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile9",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile10",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile11",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile12",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile13",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile14",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile15",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile16",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile17",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile18",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile19",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile20",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile21",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile22",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile23",
+      "directions": 4
+    },
+    {
+      "name": "pristine_tile24",
+      "directions": 4
+    },
+    {
+      "name": "pristine_slab1"
+    },
+    {
+      "name": "pristine_slab2"
+    },
+    {
+      "name": "pristine_slab3"
+    },
+    {
+      "name": "pristine_slab4"
+    },
+    {
+      "name": "pristine_block1",
+      "directions": 4
+    },
+    {
+      "name": "pristine_block2",
+      "directions": 4
+    },
+    {
+      "name": "pristine_block3",
+      "directions": 4
+    },
+    {
+      "name": "pristine_block4",
+      "directions": 4
+    },
+    {
+      "name": "pristine_center1"
+    },
+    {
+      "name": "pristine_center2"
+    },
+    {
+      "name": "pristine_center3"
+    },
+    {
+      "name": "pristine_center4"
+    },
+    {
+      "name": "pristine_surrounding1"
+    },
+    {
+      "name": "pristine_surrounding2"
+    },
+    {
+      "name": "pristine_surrounding_tile1",
+      "directions": 4
+    },
+    {
+      "name": "pristine_surrounding_tile2",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile1",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile2",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile3",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile4",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile5",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile6",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile7",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile8",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile9",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile10",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile11",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile12",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile13",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile14",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile15",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile16",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile17",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile18",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile19",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile20",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile21",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile22",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile23",
+      "directions": 4
+    },
+    {
+      "name": "cracked_tile24",
+      "directions": 4
+    },
+    {
+      "name": "cracked_slab1",
+      "directions": 8
+    },
+    {
+      "name": "cracked_block1",
+      "directions": 8
+    },
+    {
+      "name": "cracked_block2",
+      "directions": 8
+    },
+    {
+      "name": "cracked_block3",
+      "directions": 8
+    },
+    {
+      "name": "cracked_block4",
+      "directions": 8
+    },
+    {
+      "name": "cracked_center1"
+    },
+    {
+      "name": "cracked_center2"
+    },
+    {
+      "name": "cracked_center3"
+    },
+    {
+      "name": "cracked_center4"
+    },
+    {
+      "name": "cracked_surrounding1",
+      "directions": 8
+    },
+    {
+      "name": "cracked_surrounding_tile1",
+      "directions": 8
+    },
+    {
+      "name": "cracked_surrounding_tile2",
+      "directions": 8
+    },
+    {
+      "name": "burnt_tile1",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile2",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile3",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile4",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile5",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile6",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile7",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile8",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile9",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile10",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile11",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile12",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile13",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile14",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile15",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile16",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile17",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile18",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile19",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile20",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile21",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile22",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile23",
+      "directions": 4
+    },
+    {
+      "name": "burnt_tile24",
+      "directions": 4
+    },
+    {
+      "name": "burnt_block1",
+      "directions": 4
+    },
+    {
+      "name": "burnt_block2",
+      "directions": 4
+    },
+    {
+      "name": "burnt_block3",
+      "directions": 4
+    },
+    {
+      "name": "burnt_block4",
+      "directions": 4
+    },
+    {
+      "name": "burnt_slab1"
+    },
+    {
+      "name": "burnt_slab2"
+    },
+    {
+      "name": "burnt_slab3"
+    },
+    {
+      "name": "burnt_slab4"
+    },
+    {
+      "name": "burnt_center1"
+    },
+    {
+      "name": "burnt_center2"
+    },
+    {
+      "name": "burnt_center3"
+    },
+    {
+      "name": "burnt_center4"
+    },
+    {
+      "name": "burnt_surrounding1"
+    },
+    {
+      "name": "burnt_surrounding2"
+    },
+    {
+      "name": "burnt_surrounding_tile1",
+      "directions": 4
+    },
+    {
+      "name": "burnt_surrounding_tile2",
+      "directions": 4
+    },
+    {
+      "name": "boss"
+    }
+  ]
+}

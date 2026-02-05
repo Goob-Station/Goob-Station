@@ -1,0 +1,82 @@
+- type: entity
+  id: PrimitiveSeedExtractor
+  name: primitive seed extractor
+  parent: BaseMachine
+  description: A primitive version of the Seed Extractor. Extracts seeds from produce.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/primitive_seed_extractor.rsi
+    layers:
+    - state: primitiveseedextractor
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Appearance
+  - type: SeedExtractor
+
+- type: entity
+  parent: BaseMachine
+  id: Furnace
+  name: furnace
+  description: A primitive version of the Ore Processor. It produces sheets and ingots using ores.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/furnace.rsi
+    layers:
+      - state: icon
+        map: ["enum.LatheVisualLayers.IsRunning"]
+  - type: MaterialStorage
+    disallowOreEjection: false
+    ignoreColor: true
+    whitelist:
+     tags:
+     - Ore
+     - Sheet
+     - RawMaterial
+     - Ingot
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    defaultProductionAmount: 10
+    staticPacks:
+    - OreSmelting
+  - type: MaterialStorageMagnetPickup
+  - type: Appearance
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ActivatableUI
+    key: enum.LatheUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.LatheUiKey.Key:
+        type: LatheBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: PointLight
+    radius: 2
+    energy: 1
+    color: "#FFC90C"

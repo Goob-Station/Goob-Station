@@ -207,3 +207,25 @@
     - sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
       state: icon
   - type: MaintsSpawnLocation
+
+- type: entity
+  name: Syndicate Researcher Spawner
+  parent: MarkerBase
+  id: SpawnPointSyndicateResearcher
+  components:
+  - type: GhostRole
+    name: ghost-role-information-syndicate-researcher-name
+    description: ghost-role-information-syndicate-researcher-description
+    rules: ghost-role-information-antagonist-offstation-rules
+    mindRoles:
+    - MindRoleGhostRoleAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Clothing/Mask/gassyndicate.rsi
+      state: icon
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSyndicateResearcher

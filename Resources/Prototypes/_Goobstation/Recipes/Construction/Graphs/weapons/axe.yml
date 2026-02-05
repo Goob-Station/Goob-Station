@@ -1,0 +1,15 @@
+- type: constructionGraph
+  id: BoneAxeConstructionGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: axe
+          steps:
+            - material: Bones
+              amount: 6
+            - material: GoliathHide
+              amount: 2
+              doAfter: 5
+    - node: axe
+      entity: BoneAxe
