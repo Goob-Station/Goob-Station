@@ -21032,3 +21032,11 @@ Entries:
         Shmel, alien pistol, decloner, x-00 guns.
   id: 2382
   time: '2026-02-05T12:59:01.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Tweak
+      message: Bladed flatcap damage
+    - type: Add
+      message: Bladed flatcap variants
+  id: 2383
+  time: '2026-02-05T13:02:58.0000000+00:00'
