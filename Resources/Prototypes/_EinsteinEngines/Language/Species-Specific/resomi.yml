@@ -10,7 +10,8 @@
   isVisibleLanguage: true
   speech:
     color: "#4DBFD9"
-    fontId: Schoolbell
+    # CorvaxGoob - Font do not support russian
+    # fontId: Schoolbell
     fontSize: 14
   obfuscation:
     !type:SyllableObfuscation
