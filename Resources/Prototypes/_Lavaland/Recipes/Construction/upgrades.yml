@@ -1,0 +1,20 @@
+- type: construction
+  id: CrusherUpgradeCrystalConstruction
+  graph: CrusherUpgradeCrystalConstructionGraph
+  category: construction-category-weapons
+  targetNode: crystal
+  objectType: Item
+
+- type: construction
+  id: CrusherUpgradeLavaCrystalConstruction
+  graph: CrusherUpgradeLavaCrystalConstructionGraph
+  category: construction-category-weapons
+  targetNode: crystal
+  objectType: Item
+
+- type: construction
+  id: CrusherUpgradeIceCrystalConstruction
+  graph: CrusherUpgradeIceCrystalConstructionGraph
+  category: construction-category-weapons
+  targetNode: crystal
+  objectType: Item

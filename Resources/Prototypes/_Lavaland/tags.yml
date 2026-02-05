@@ -54,7 +54,58 @@
   id: LavalandInterior7x7
 
 - type: Tag
+  id: LegionSkull
+
+- type: Tag
   id: PKAUpgrade
 
 - type: Tag
+  id: PKAUpgradeSpace
+
+- type: Tag
   id: MarkerBeacon
+
+- type: Tag
+  id: CrusherUpgradeFrame
+
+- type: Tag
+  id: CrusherUpgradeMain
+
+- type: Tag
+  id: CrusherUpgradeMainMarker
+
+- type: Tag
+  id: CrusherUpgradeMainRudeBuster
+
+- type: Tag
+  id: CrusherUpgradeBlade
+
+- type: Tag
+  id: CrusherUpgradeBladeLavaAspect
+
+- type: Tag
+  id: CrusherUpgradeBladeIceFrost
+
+- type: Tag
+  id: CrusherUpgradeBladeSharpness
+
+- type: Tag
+  id: CrusherUpgradeHandle
+
+- type: Tag
+  id: CrusherUpgradeHandleWeights
+
+- type: Tag
+  id: CrusherUpgradeHandleLightweight
+
+- type: Tag
+  id: CrusherUpgradeHandleRange
+
+- type: Tag
+  id: WatcherWing
+
+- type: Tag
+  id: WatcherMagmaWing
+
+- type: Tag
+  id: WatcherIceWing

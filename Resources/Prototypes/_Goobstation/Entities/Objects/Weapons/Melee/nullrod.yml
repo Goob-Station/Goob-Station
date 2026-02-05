@@ -85,10 +85,6 @@
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
-  - type: DamageBoostOnMarker
-    boost:
-      types:
-        Holy: 15
   - type: LeechOnMarker
     leech:
       groups:
@@ -213,6 +209,7 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Unremoveable
+  - type: AlwaysHot
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -563,7 +560,6 @@
       params:
         volume: 1
   - type: MeleeRequiresWield
-    fumbleOnAttempt: true
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -610,7 +606,7 @@
 
 # Casul & Jackal
 - type: entity
-  name: casul
+  name: Casul
   parent: BaseItem
   id: WeaponPistolCasul
   description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
@@ -668,7 +664,7 @@
     prayDoAfterDuration: 3.5
 
 - type: entity
-  name: jackal
+  name: Jackal
   parent: WeaponPistolCasul
   id: WeaponPistolJackal
   description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
@@ -708,7 +704,7 @@
         Slash: 25
         Piercing: 15
         Holy: 10
-       
+
 - type: entity
   parent: BaseNullrod
   id: RatvarianSpear
@@ -794,3 +790,92 @@
   - type: SolutionTransfer
     maxTransferAmount: 2
   - type: ThrowableBlocked # Goobstation
+
+- type: entity
+  id: InquisitorChainSword
+  parent: BaseNullrod
+  name: chain sword
+  description: The perfect weapon for purging the station of all heresy! Activated through prayer.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Slash: 25
+    UntrainedUseString: nullrod-chainsword-untrained-usage-popup
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/chainsword.rsi
+    layers:
+    - state: chainsword
+    - state: chainsword_blade
+      visible: false
+      map: [ "blade" ]
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/chainsword.rsi
+    slots:
+    - belt
+  - type: TimedToggleOnPray
+    duration: 10
+    soundActivate:
+      collection: GeneratorTug
+      params:
+        volume: 3
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/ChainSword/chainEnd.ogg
+      params:
+        volume: 3
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/chainsawidle.ogg
+      params:
+        volume: 3
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
+    - type: Execution
+      doAfterDuration: 4.0
+    - type: BoneSaw # Shitmed
+      speed: 0.65
+    - type: SurgeryTool # Shitmed
+      startSound:
+        path: /Audio/Weapons/chainsawwield.ogg
+      endSound:
+        path: /Audio/Weapons/chainsaw.ogg
+  - type: Item
+    size: Large
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: 3
+    activatedDamage:
+      types:
+        Slash: 20
+        Holy: 15
+        Structural: 20
+      woundSeverityMultipliers:
+        Slash: 2
+  - type: MeleeWeapon
+    animationRotation: -45 
+    autoAttack: true
+    heavyStaminaCost: 10 
+    wideAnimationRotation: -135
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 7
+        Holy: 5
+  - type: UseDelay
+    delay: 180.0
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+      right:
+      - state: inhand-right-blade
+  - type: Tag
+    tags:
+    - InquisitorChainSword
