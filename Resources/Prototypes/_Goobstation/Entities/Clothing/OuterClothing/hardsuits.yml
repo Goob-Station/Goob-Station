@@ -381,8 +381,6 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitVoxRaiderStealth
-  - type: EntityPrototypeRestricted
-    protoId: MobVoxRaider
 
 # Detective's Hardsuit
 

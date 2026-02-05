@@ -99,8 +99,6 @@
     - MagazinePistolCaselessRifle
     - ChemistryBottleNocturine
     - Syringe
-    - DeathAcidifierImplanter
-    - FreedomImplanter
 
 - type: startingGear
   id: DarkPriestAntagGear
@@ -133,7 +131,7 @@
     gloves: ClothingHandsChameleonThief
     outerClothing: ClothingOuterHardsuitVoxRaiderStealth
     suitstorage: ExtendedEmergencyNitrogenTankFilled
-    back: ClothingBackpackHolding
+    back: ClothingBackpack
   storage:
     back:
     - BoxSurvivalSlotsNitrogen

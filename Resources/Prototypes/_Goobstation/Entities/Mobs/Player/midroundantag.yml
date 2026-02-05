@@ -61,6 +61,10 @@
   id: MobHumanMimeAssassin
   name: Mime assassin
   components:
+  - type: AutoImplant
+    implants:
+    - FreedomImplanter
+    - DeathAcidifierImplanter
   - type: MimePowers
     preventWriting: true
   - type: RandomHumanoidAppearance
@@ -83,6 +87,9 @@
   id: MobVoxRaider
   name: Vox Raider
   components:
+  - type: AutoImplant
+    implants:
+    - DeathAcidifierImplant
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
