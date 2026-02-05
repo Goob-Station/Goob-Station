@@ -353,6 +353,17 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkM90
+  name: uplink-m90-name
+  description: uplink-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: WeaponRifleM90
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkSyndicateDisabler
   name: uplink-syndicate-disabler-name
   description: uplink-syndicate-disabler-desc
@@ -1374,6 +1385,16 @@
       tags:
       - ContractorUplink
 
+- type: listing
+  id: UplinkM90Ammo
+  name: uplink-m90-ammo-name
+  description: uplink-m90-ammo-desc
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
+
 # 弾薬
 - type: listing
   id: UplinkCaselessRifleMag
@@ -1695,7 +1716,7 @@
   name: uplink-M172LAW-name
   description: uplink-M172LAW-desc
   productEntity: WeaponLauncherRocketDisposable
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi, state: icon }
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172_icon_48x.rsi, state: icon }
   cost:
     Telecrystal: 6 # Basically a worse C4 but ranged
   categories:
@@ -1730,7 +1751,7 @@
   name: uplink-RPOA-name
   description: uplink-RPOA-desc
   productEntity: WeaponLauncherRocketDisposableThermobaric
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi, state: icon }
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel_icon_48x.rsi, state: icon }
   cost:
     Telecrystal: 6 # one and a half incendiary grenades, takes up the same space as three
   categories:
