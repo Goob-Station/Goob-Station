@@ -20996,3 +20996,9 @@ Entries:
       message: Added chameleon ability for nukies and agents thermal goggles
   id: 2377
   time: '2026-02-05T11:15:04.0000000+00:00'
+- author: LuciferEOS, bloodyspy
+  changes:
+    - type: Add
+      message: 3 more lobby arts.
+  id: 2378
+  time: '2026-02-05T11:21:03.0000000+00:00'
