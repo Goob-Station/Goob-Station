@@ -215,7 +215,7 @@ uplink-estoc-ammo-name = Rifle Magazine (.30 rifle)
 uplink-estoc-ammo-desc = Rifle magazine with 30 rounds. Compatible with the Estoc.
 
 uplink-m90-ammo-name = Rifle Magazine (.20 rifle)
-uplink-m90-ammo-desc = Rifle magazine with 25 rounds. Compatible with the M-90.
+uplink-m90-ammo-desc = Rifle magazine with 25 rounds. Compatible with the M-90 and Lecter.
 
 # Grenades
 
