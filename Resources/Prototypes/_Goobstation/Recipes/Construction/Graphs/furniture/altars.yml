@@ -138,6 +138,15 @@
       - tag: PowerCellSmall
         name: construction-graph-tag-power-cell-small
         doAfter: 3
+    - to: EmpireAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: Book
+        name: construction-graph-tag-book
+        doAfter: 3
+
   #Nullrod Altars
   - node: BananiumAltarNode
     entity: AltarBananium
@@ -278,6 +287,18 @@
       completed:
       - !type:SpawnPrototype
         prototype: PowerCellSmallPrinted
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: EmpireAltarNode
+    entity: AltarEmpire
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: BookRandom
         amount: 1
       steps:
       - tool: Prying

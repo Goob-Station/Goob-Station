@@ -1,0 +1,7 @@
+# Shit added by the SentientAnimal PR by Leguia
+
+- type: roleType 
+  id: SentientAnimal
+  name: role-type-sentient-animal-name
+  color: '#ffff00'
+  symbol: "☯"

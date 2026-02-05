@@ -1,0 +1,114 @@
+- type: entity
+  id: MobLegion
+  parent: BaseMobAsteroid
+  name: legion humanoid
+  description: You can still see what was once a human under the shifting mass of corruption.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Mobs/legion.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: legion
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead # You can't deal more than 200 damage to a simplemob. FUUUUUUUUUUUUUUUUUUUUUUUUUUCK
+  - type: MeleeWeapon
+    range: 1.3
+    angle: 0
+    attackRate: 0.5
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 20 # they don't even attack in melee because their AI is stupid right now
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: Gun
+    fireRate: 0.2
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes:
+    - SemiAuto
+    soundGunshot: null
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 0
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: MobLegionSkull
+    capacity: 1
+    count: 1
+  - type: NpcFactionMember
+    factions:
+    - Lavafauna
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        4
+      AggroVisionRadius: !type:Single
+        7
+      NavSmash: !type:Bool
+        true
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: MaterialBones1
+        rolls: 2, 5
+      - id: MaterialLegionSkull1
+  - type: Fauna # Lavaland Change
+
+- type: entity
+  id: MobLegionSkull
+  parent: [ BaseMobAsteroid, FlyingMobBase ]
+  name: legion skull
+  description: A fragment of the original legion, rallying behind its original. One isn't much of a threat, but...
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Mobs/legion.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: legion-skull
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      5: Dead
+  - type: MeleeWeapon
+    angle: 0
+    attackRate: 0.6
+    range: 0.50
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 9 # Literally collides with you at full speed
+  - type: Ammo
+    muzzleFlash: null
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: NpcFactionMember
+    factions:
+    - Lavafauna
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard: # highly aggressive
+      VisionRadius: !type:Single
+        15
+      AggroVisionRadius: !type:Single
+        15
+      NavSmash: !type:Bool
+        true
+  - type: TimedDespawn
+    lifetime: 45

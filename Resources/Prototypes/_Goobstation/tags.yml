@@ -495,6 +495,9 @@
   id: RatvarianSpear
 
 - type: Tag
+  id: InquisitorChainSword
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
@@ -571,6 +574,9 @@
 
 - type: Tag
   id: SyringeArmor
+
+- type: Tag
+  id: SyringeCase
 
 - type: Tag
   id: Table
@@ -806,3 +812,6 @@
 
 - type: Tag
   id: CD
+
+- type: Tag
+  id: ContractorUplink
