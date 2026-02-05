@@ -498,6 +498,9 @@
   id: DragonsTail
 
 - type: Tag
+  id: InquisitorChainSword
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
