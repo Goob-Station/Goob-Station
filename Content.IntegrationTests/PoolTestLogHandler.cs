@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Collections.Generic;
 using System.IO;
 using Robust.Shared.Log;
 using Robust.Shared.Timing;
@@ -40,6 +41,14 @@ public sealed class PoolTestLogHandler : ILogHandler
 
     public LogLevel? FailureLevel { get; set; }
 
+    /// <summary>
+    /// Sawmills whose messages should never cause test failure, even if they meet the <see cref="FailureLevel"/>.
+    /// </summary>
+    public HashSet<string> IgnoredSawmills { get; } = new()
+    {
+        "cfg",
+    };
+
     public PoolTestLogHandler(string? prefix)
     {
         _prefix = prefix != null ? $"{prefix}: " : "";
@@ -69,6 +78,9 @@ public sealed class PoolTestLogHandler : ILogHandler
         testContext.WriteLine(line);
 
         if (FailureLevel == null || level < FailureLevel)
+            return;
+
+        if (IgnoredSawmills.Contains(sawmillName))
             return;
 
         testContext.Flush();

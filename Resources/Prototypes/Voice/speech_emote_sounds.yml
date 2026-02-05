@@ -390,7 +390,7 @@
     Sneeze:
       path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg
     Cough:
-      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
+      collection: VoxCough #goob
     CatHisses:
       collection: CatHisses
     MonkeyScreeches:
@@ -415,6 +415,14 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Click: #imp
+      collection: VoxClick
+    Chitter: #imp
+      collection: VoxChitter
+    Hiss: #imp
+      collection: VoxHiss
+    Caw:
+      collection: HarpyCaws
   params:
     variation: 0.125
 
@@ -588,7 +596,7 @@
     Buzz:
       path: /Audio/Voice/Moth/moth_scream.ogg
     Scream:
-      collection: MothScreams # Goobstation - Moth scream collection
+      path: /Audio/Voice/Moth/moth_scream.ogg
     Laugh:
       path: /Audio/Voice/Moth/moth_laugh.ogg
     Chitter:
@@ -638,7 +646,7 @@
     Buzz:
       path: /Audio/Voice/Moth/moth_scream.ogg
     Scream:
-      collection: MothScreams # Goobstation - Moth scream collection
+      path: /Audio/Voice/Moth/moth_scream.ogg
     Laugh:
       path: /Audio/Voice/Moth/moth_laugh.ogg
     Chitter:
@@ -688,7 +696,7 @@
     Buzz:
       path: /Audio/Voice/Moth/moth_scream.ogg
     Scream:
-      collection: MothScreams # Goobstation - Moth scream collection
+      path: /Audio/Voice/Moth/moth_scream.ogg
     Laugh:
       path: /Audio/Voice/Moth/moth_laugh.ogg
     Chitter:
