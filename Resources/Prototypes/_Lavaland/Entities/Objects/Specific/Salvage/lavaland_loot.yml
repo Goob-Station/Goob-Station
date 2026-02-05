@@ -86,21 +86,22 @@
 
 - type: entity
   id: LavalandStaffOfHealing
-  parent: [WeaponStaffHealing, OmnimedTool] # works as a healing wand and a surgary tool
+  parent: [MedicalBeamGunBattery, OmnimedTool] # works as a medigun and a surgary tool
   name: rod of asclepius
   description: something about it seems to inspire in you the responsibility and duty to help others.
+  suffix:
   components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi 
+    layers:
+    - state: healing
+  - type: RechargeableBlocking
+    dischargedRechargeRate: 0.5 # 50% slower recharge
   - type: Unremoveable
     deleteOnDrop: false
   - type: HeldGrantComponent
     components:
     - type: Pacified # pick it up you become a pacifist
-  - type: BasicEntityAmmoProvider
-    proto: LavalandStaffOfHealingBolt
-    capacity: 6
-    count: 6
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 10 # slower then staff of healing
   - type: StaticPrice
     price: 5000
 
