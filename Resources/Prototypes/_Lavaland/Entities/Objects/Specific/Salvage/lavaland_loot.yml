@@ -219,10 +219,11 @@
   - type: ClothingGrantComponent
     component:
     - type: ChangeThreshold
-      newCriticalMultiplyer: 1.5
-      newDeadMultiplyer: 1.5
+      newCriticalMultiplyer: 1.1
+      newDeadMultiplyer: 1.1
   - type: Sprite
-    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
-    state: life_force
+    sprite: _Lavaland/Clothing/Neck/life_force_talisman.rsi
+  - type: Clothing
+    sprite: _Lavaland/Clothing/Neck/life_force_talisman.rsi
   - type: StaticPrice
     price: 5000
