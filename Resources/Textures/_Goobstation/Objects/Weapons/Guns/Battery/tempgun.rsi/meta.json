@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from paradise station.",
+  "copyright": "Taken from paradise station, Resprite by RedTerror.",
   "size": {
     "x": 32,
     "y": 32
@@ -15,10 +15,12 @@
           "name": "base"
         },
 		{
-          "name": "mode-cooling"
+          "name": "mode-cooling",
+          "delays": [[ 0.1, 0.1, 0.1, 0.1 ]]
         },
 		{
-          "name": "mode-heating"
+          "name": "mode-heating",
+          "delays": [[ 0.1, 0.1, 0.1, 0.1 ]]
         },
         {
           "name": "mag-unshaded-1"
@@ -33,8 +35,7 @@
           "name": "mag-unshaded-4"
         },
         {
-          "name": "mag-unshaded-0",
-          "delays": [[ 0.3, 0.3 ]]
+          "name": "mag-unshaded-0"
         },
         {
           "name": "heating-inhand-left",
