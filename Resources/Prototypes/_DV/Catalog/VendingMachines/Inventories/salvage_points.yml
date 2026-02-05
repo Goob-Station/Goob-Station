@@ -124,8 +124,6 @@
     cost: 3500
   - id: MiningDrillDiamond
     cost: 4000 #Mostly for flexing
-  - id: PinpointerTendril
-    cost: 10000
   - id: CrateCargoClarkeAssembly
     cost: 12500 #TODO: Make modules real
   # TODO: luxury elite bar capsule for 10k
