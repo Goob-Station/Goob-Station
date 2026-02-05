@@ -50,12 +50,10 @@
   id: ERTAmmoStaticGoob
   recipes:
   - MagazineBoxLightRifle
-  - MagazineBoxCaselessRifle
   - MagazineLightRifleEmpty
   - MagazineLightRifle
   - MagazineMagnumEmpty
   - MagazineMagnum
-  - MagazineShotgunLeverRifleEmpty
   - MagazineBoxShotgunHighCaliber
 
 ## Dynamic
