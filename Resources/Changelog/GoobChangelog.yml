@@ -20984,3 +20984,9 @@ Entries:
       message: Durathread armor now covers groin.
   id: 2375
   time: '2026-02-05T11:13:37.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Goliath hearts are major contraband.
+  id: 2376
+  time: '2026-02-05T11:14:31.0000000+00:00'
