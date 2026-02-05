@@ -112,6 +112,7 @@
     state: vehicle
     noRot: true
   - type: Vehicle
+    renderOver: East, West, South, SouthEast, SouthWest # DOWNSTREAM-TPirates: vehicle overlay fix
     hornSound:
       collection: DeskBell
       params:
