@@ -37,6 +37,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -65,6 +66,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -511,3 +513,14 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
+
+- type: entity
+  parent: ClothingOuterArmorTemplar
+  id: ClothingOuterArmorInquisitor
+  name: inquisitor armor
+  description: Bulky armor adorned with golden chains and patterns. Show heresy your might!
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi

@@ -20946,3 +20946,59 @@ Entries:
         marksman rifle.
   id: 2369
   time: '2026-01-31T06:51:17.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Fixed custom theme repeating texture on launch
+  id: 2370
+  time: '2026-02-01T05:20:25.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Added misc contractor items
+    - type: Tweak
+      message: contractor baton recolor
+  id: 2371
+  time: '2026-02-01T05:27:06.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Chloris mapping (Too many changes for changelog)
+  id: 2372
+  time: '2026-02-01T19:51:53.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Entirely removed Submarine station.
+  id: 2373
+  time: '2026-02-02T06:08:58.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Omnimed from BSO locker
+  id: 2374
+  time: '2026-02-03T18:43:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Durathread armor now covers groin.
+  id: 2375
+  time: '2026-02-05T11:13:37.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Goliath hearts are major contraband.
+  id: 2376
+  time: '2026-02-05T11:14:31.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Add
+      message: Added chameleon ability for nukies and agents thermal goggles
+  id: 2377
+  time: '2026-02-05T11:15:04.0000000+00:00'
+- author: LuciferEOS, bloodyspy
+  changes:
+    - type: Add
+      message: 3 more lobby arts.
+  id: 2378
+  time: '2026-02-05T11:21:03.0000000+00:00'
