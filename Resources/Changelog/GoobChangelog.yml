@@ -20978,3 +20978,9 @@ Entries:
       message: Omnimed from BSO locker
   id: 2374
   time: '2026-02-03T18:43:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Durathread armor now covers groin.
+  id: 2375
+  time: '2026-02-05T11:13:37.0000000+00:00'
