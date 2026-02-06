@@ -1,0 +1,33 @@
+- type: marking
+  id: PirateCollarBasic
+  bodyPart: Tail #(костиль)
+  markingCategory: Face
+  speciesRestriction: [Vulpkanin, Human, Felinid, Tajaran]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/collar.rsi
+    state: collar
+
+
+- type: marking
+  id: PirateCollarBasicBell
+  bodyPart: Tail
+  markingCategory: Face
+  speciesRestriction: [Vulpkanin, Human, Felinid, Tajaran]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/collar.rsi
+    state: collar
+  - sprite: _Pirate/Mobs/Customization/collar.rsi
+    state: bell
+
+
+- type: marking
+  id: PirateCollarBasicLittleBell
+  bodyPart: Tail
+  markingCategory: Face
+  speciesRestriction: [Vulpkanin, Human, Felinid, Tajaran]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/collar.rsi
+    state: collar
+  - sprite: _Pirate/Mobs/Customization/collar.rsi
+    state: little_bell
+
