@@ -62,7 +62,7 @@
 
 - type: entity
   id: WallMountStationRadioReceiverFrame
-  name: station radio frame
+  name: wallmount station radio frame
   description: Unfinished wall-mounted station radio receiver.
   categories: [ HideSpawnMenu ]
   placement:
