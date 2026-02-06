@@ -462,7 +462,7 @@ public sealed partial class VampireSystem
                 //Dont check this time, if we are full - just continue anyway
                 TryIngestBlood(vampire, bloodSolution);
 
-                AddBloodEssence(vampire, volumeToConsume * 2);
+                AddBloodEssence(vampire, volumeToConsume);
 
                 _beam.TryCreateBeam(vampire, entity, "VampireLightning");
 

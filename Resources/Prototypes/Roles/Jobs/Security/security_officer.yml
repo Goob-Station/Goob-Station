@@ -95,6 +95,10 @@
     - !type:TraitsRequirement # Pirate
       inverted: true
       traits:
+      - Foreigner
+      - ForeignerLight
+      - DeafTrait
+      - MovementImpaired
       - Blindness
       - Narcolepsy
       - Muted

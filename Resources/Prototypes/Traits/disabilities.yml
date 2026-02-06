@@ -61,7 +61,10 @@
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
   category: Quirks #Pirate - Traits Rework
-  cost: -5 #Pirate - Traits Rework
+  cost: -5
+  speciesBlacklist:
+    - IPC
+    - Plasmaman # Pirate end - Traits Rework
   components:
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600

@@ -78,7 +78,7 @@ public sealed partial class BloodstreamComponent : Component
     /// What percentage of current blood is necessary to avoid dealing blood loss damage?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float BloodlossThreshold = 0.9f;
+    public float BloodlossThreshold = 0.8f; // Pirate default 80%
 
     /// <summary>
     /// The base bloodloss damage to be incurred if below <see cref="BloodlossThreshold"/>
