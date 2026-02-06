@@ -9,6 +9,11 @@
 using Content.Goobstation.Shared.Vehicles;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+#region DOWNSTREAM-TPirates: vehicle overlay fix
+using Robust.Client.Utility;
+using Robust.Shared.Maths;
+using System;
+#endregion
 
 namespace Content.Goobstation.Client.Vehicles;
 
@@ -17,6 +22,7 @@ public sealed class VehicleSystem : SharedVehicleSystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // DOWNSTREAM-TPirates: vehicle overlay fix
 
     public override void Initialize()
     {
@@ -48,15 +54,27 @@ public sealed class VehicleSystem : SharedVehicleSystem
     private void SpritePos(Entity<VehicleComponent> ent)
     {
         if (!TryComp<SpriteComponent>(ent, out var spriteComp)
-            || !_appearance.TryGetData(ent, VehicleState.DrawOver, out _))
+            || !_appearance.TryGetData(ent, VehicleState.DrawOver, out bool drawOver)) // DOWNSTREAM-TPirates: vehicle overlay fix
             return;
 
         _sprite.SetDrawDepth((ent, spriteComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
 
-        if (ent.Comp.RenderOver == VehicleRenderOver.None)
+        if (!drawOver || ent.Comp.RenderOver == VehicleRenderOver.None) // DOWNSTREAM-TPirates: vehicle overlay fix
             return;
 
-        var dir = (Transform(ent).LocalRotation + _eye.CurrentEye.Rotation).GetCardinalDir();
+        #region DOWNSTREAM-TPirates: vehicle overlay fix
+        // Get the sprite's visual direction using the engine's logic
+        var worldRot = _transform.GetWorldRotation(ent) + _eye.CurrentEye.Rotation;
+        var dir = worldRot.GetDir();
+        if (_sprite.TryGetLayer((ent, spriteComp), 0, out var layer, false) &&
+            layer.ActualRsi is { } rsi &&
+            rsi.TryGetState(layer.State, out var state))
+        {
+            var angle = worldRot.Reduced().FlipPositive();
+            var rsiDir = SpriteComponent.Layer.GetDirection(state.RsiDirections, angle);
+            dir = rsiDir.Convert();
+        }
+        #endregion
         var renderOverFlag = dir switch
         {
             Direction.North => VehicleRenderOver.North,
