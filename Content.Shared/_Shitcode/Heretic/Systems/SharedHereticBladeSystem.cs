@@ -245,7 +245,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 if (targetPart == null)
                     break;
 
-                ApplyLockBladeEffect(targetPart.Value, woundProb);
+                ApplyLockBladeEffect(target, targetPart.Value, woundProb);
                 break;
 
             case "Void":
@@ -411,7 +411,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         }
     }
 
-    protected virtual void ApplyLockBladeEffect(EntityUid target, float probability) { }
+    protected virtual void ApplyLockBladeEffect(EntityUid target, EntityUid targetPart, float probability) { }
 
     protected virtual void ApplyAshBladeEffect(EntityUid target) { }
 

@@ -28,6 +28,7 @@ using Robust.Shared.Prototypes;
 using Content.Server.Gravity;
 using Content.Goobstation.Common.CCVar;
 using Robust.Shared.Configuration;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Footprints;
 
@@ -188,6 +189,20 @@ public sealed class FootprintSystem : EntitySystem
             return;
         }
 
+        var alpha = (float) volume / (standing ? entity.Comp.MaxFootprintVolume : entity.Comp.MaxBodyprintVolume) / 2f;
+        var sprite = new SpriteSpecifier.Rsi(entity.Comp.SpritePath, standing ? "foot" : "body");
+        UpdateFootprint(solution.Value, grid, tile, coordinates, rotation, volume, alpha, sprite);
+    }
+
+    public void UpdateFootprint(Entity<SolutionComponent> solution,
+        Entity<MapGridComponent> grid,
+        Vector2i tile,
+        EntityCoordinates coordinates,
+        Angle rotation,
+        FixedPoint2 volume,
+        float alpha,
+        SpriteSpecifier sprite)
+    {
         if (!TryGetAnchoredEntity<FootprintComponent>(grid, tile, out var footprint))
         {
             var footprintEntity = SpawnAtPosition(FootprintPrototypeId, coordinates);
@@ -198,9 +213,9 @@ public sealed class FootprintSystem : EntitySystem
         if (!_solution.EnsureSolutionEntity(footprint.Value.Owner, FootprintSolution, out _, out var footprintSolution, MaxFootprintVolumeOnTile))
             return;
 
-        var color = solution.Value.Comp.Solution.GetColor(_prototype).WithAlpha((float)volume / (float)(standing ? entity.Comp.MaxFootprintVolume : entity.Comp.MaxBodyprintVolume) / 2f);
+        var color = solution.Comp.Solution.GetColor(_prototype).WithAlpha(alpha);
 
-        _solution.TryTransferSolution(footprintSolution.Value, solution.Value.Comp.Solution, volume);
+        _solution.TryTransferSolution(footprintSolution.Value, solution.Comp.Solution, volume);
 
         if (footprintSolution.Value.Comp.Solution.Volume >= MaxFootprintVolumeOnTile)
         {
@@ -223,14 +238,8 @@ public sealed class FootprintSystem : EntitySystem
         x -= MathF.Floor(x) + halfTileSize;
         y -= MathF.Floor(y) + halfTileSize;
 
-        footprint.Value.Comp.Footprints.Add(new(new(x, y), rotation, color, standing ? "foot" : "body"));
-
+        footprint.Value.Comp.Footprints.Add(new(new(x, y), rotation, color, sprite));
         Dirty(footprint.Value);
-
-        if (!TryGetNetEntity(footprint, out var netFootprint))
-            return;
-
-        RaiseNetworkEvent(new FootprintChangedEvent(netFootprint.Value), Filter.Pvs(footprint.Value));
     }
 
     private void OnMapInit(Entity<PuddleComponent> entity, ref MapInitEvent e)

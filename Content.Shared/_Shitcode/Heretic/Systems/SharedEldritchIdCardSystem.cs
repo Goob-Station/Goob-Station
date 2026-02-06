@@ -14,6 +14,7 @@ using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -65,7 +66,7 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
             return;
         }
 
-        if (!HasComp<DoorComponent>(target))
+        if (!HasComp<DoorComponent>(target) || !TryComp(target, out PhysicsComponent? body) || !body.CanCollide)
             return;
 
         var coords = Transform(target).Coordinates;

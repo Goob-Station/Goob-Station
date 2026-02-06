@@ -10,6 +10,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Teleportation.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 
@@ -154,11 +155,12 @@ public sealed class LockPortalSystem : EntitySystem
         if (ourXform.GridUid == null)
             return null;
 
-        var query = EntityQueryEnumerator<DoorComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<DoorComponent, PhysicsComponent, TransformComponent>();
         List<Entity<DoorComponent, TransformComponent>> possibleDestinations = new();
-        while (query.MoveNext(out var uid, out var door, out var xform))
+        while (query.MoveNext(out var uid, out var door, out var body, out var xform))
         {
-            if (uid == ourAirlock || xform.MapID != ourXform.MapID || xform.GridUid != ourXform.GridUid)
+            if (!body.CanCollide || uid == ourAirlock || xform.MapID != ourXform.MapID ||
+                xform.GridUid != ourXform.GridUid)
                 continue;
 
             possibleDestinations.Add((uid, door, xform));
