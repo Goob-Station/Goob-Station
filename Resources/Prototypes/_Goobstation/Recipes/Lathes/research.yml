@@ -14,3 +14,13 @@
     Gold: 200
     Diamond: 100
 
+- type: latheRecipe
+  id: NTCustomLawboard
+  result: NTCustomLawboard
+  completetime: 7
+  materials:
+    Steel: 100
+    Glass: 500
+    Silver: 200
+    Gold: 200
+    Diamond: 100
