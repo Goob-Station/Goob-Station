@@ -114,6 +114,9 @@ public sealed partial class HereticComponent : Component
     public SoundSpecifier? InfluenceGainSound = new SoundCollectionSpecifier("bloodCrawl");
 
     [DataField]
+    public EntProtoId MansusGraspProto = "TouchSpellMansus";
+
+    [DataField]
     public LocId InfluenceGainBaseMessage = "influence-base-message";
 
     [DataField]

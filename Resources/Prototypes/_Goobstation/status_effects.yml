@@ -64,11 +64,6 @@
   alert: LossOfSurprise
   alwaysAllowed: true
 
-- type: statusEffect
-  id: ShadowCloak
-  alert: ShadowCloak
-  alwaysAllowed: true
-
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectStaminaResistanceModifier

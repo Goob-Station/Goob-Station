@@ -20,13 +20,12 @@ namespace Content.Client._Shitcode.Heretic;
 // regards.
 // - john
 
-public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior { }
-public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior { }
-public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior { }
-
-public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior { }
-
-public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior { }
+public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior;
+public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior;
+public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior;
+public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior;
+public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior;
+public sealed partial class RitualLockAscendBehavior : RitualSacrificeBehavior;
 
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
@@ -141,6 +140,20 @@ public sealed partial class RitualFeastOfOwlsBehavior : RitualCustomBehavior
 }
 
 public sealed partial class RitualCanAscend : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualEldritchIdBehavior : RitualCustomBehavior
 {
     public override bool Execute(RitualData args, out string? outstr)
     {

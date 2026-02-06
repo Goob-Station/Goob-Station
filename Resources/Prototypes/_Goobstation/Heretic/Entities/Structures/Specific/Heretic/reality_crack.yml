@@ -1,0 +1,30 @@
+- type: entity
+  id: RealityCrack
+  name: crack in reality
+  description: A crack in space, impossibly deep and painful to the eyes. Definitely not safe.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Effects/effects.rsi
+    layers:
+    - state: realitycrack
+    drawdepth: OverMobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        layer:
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+        hard: false
+  - type: Physics
+    bodyType: Static
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: LockPortal
+  - type: Clickable

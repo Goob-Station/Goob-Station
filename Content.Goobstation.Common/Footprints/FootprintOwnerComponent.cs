@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Utility;
+
 namespace Content.Goobstation.Common.Footprints;
 
 [RegisterComponent]
@@ -36,4 +38,7 @@ public sealed partial class FootprintOwnerComponent : Component
 
     [DataField]
     public float NextFootOffset = 0.0625f;
+
+    [DataField]
+    public ResPath SpritePath = new("/Textures/_CorvaxNext/Effects/footprint.rsi");
 }

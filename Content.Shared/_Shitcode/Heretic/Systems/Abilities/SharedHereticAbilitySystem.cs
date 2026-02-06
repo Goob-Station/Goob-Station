@@ -57,6 +57,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
     [Dependency] protected readonly SharedVoidCurseSystem Voidcurse = default!;
+    [Dependency] protected readonly ExamineSystemShared Examine = default!;
 
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
@@ -78,7 +79,6 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
@@ -118,8 +118,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeVoid();
         SubscribeFlesh();
         SubscribeSide();
-
-        SubscribeLocalEvent<HereticComponent, EventHereticShadowCloak>(OnShadowCloak);
+        SubscribeLock();
     }
 
     protected List<Entity<MobStateComponent>> GetNearbyPeople(EntityUid ent,
@@ -154,34 +153,15 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         return list;
     }
 
-
-    private void OnShadowCloak(Entity<HereticComponent> ent, ref EventHereticShadowCloak args)
-    {
-        if (!TryComp(ent, out StatusEffectsComponent? status))
-            return;
-
-        if (TryComp(ent, out ShadowCloakedComponent? shadowCloaked))
-        {
-            Status.TryRemoveStatusEffect(ent, args.Status, status, false);
-            RemCompDeferred(ent.Owner, shadowCloaked);
-            args.Handled = true;
-            return;
-        }
-
-        // TryUseAbility only if we are not cloaked so that we can uncloak without focus
-        // Ideally you should uncloak when losing focus but whatever
-        if (!TryUseAbility(ent, args))
-            return;
-
-        args.Handled = true;
-        Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
-    }
-
     public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
-        if (args.Handled
-        || HasComp<RustChargeComponent>(ent) // no abilities while charging
-        || !TryComp<HereticActionComponent>(args.Action, out var actionComp))
+        if (args.Handled || !TryComp<HereticActionComponent>(args.Action, out var actionComp))
+            return false;
+
+        var attemptEv = new HereticMagicCastAttemptEvent(ent, args.Action);
+        RaiseLocalEvent(ent, ref attemptEv);
+        RaiseLocalEvent(args.Action, ref attemptEv);
+        if (attemptEv.Cancelled)
             return false;
 
         // check if any magic items are worn

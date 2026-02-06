@@ -19,9 +19,9 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitcode.Heretic.Components.StatusEffects;
 using Content.Shared.Inventory;
 using Content.Shared.Polymorph;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -96,19 +96,16 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
 
+[ByRefEvent]
+public readonly record struct HereticLostFocusEvent;
+
+[ByRefEvent]
+public record struct HereticMagicCastAttemptEvent(EntityUid User, EntityUid Action, bool Cancelled = false);
+
 // basic
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
 public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // opens ui
-
-public sealed partial class EventHereticShadowCloak : InstantActionEvent
-{
-    [DataField]
-    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
-
-    [DataField]
-    public TimeSpan Lifetime = TimeSpan.FromSeconds(180);
-}
 
 // living heart
 [Serializable, NetSerializable] public sealed partial class EventHereticLivingHeartActivate : BoundUserInterfaceMessage // triggers the logic
@@ -255,8 +252,16 @@ public sealed partial class EventHereticRealignment : InstantActionEvent
 public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 
 // lock
-public sealed partial class EventHereticBulglarFinesse : InstantActionEvent { }
-public sealed partial class EventHereticLastRefugee : InstantActionEvent { }
+public sealed partial class EventHereticBulglarFinesse : EntityTargetActionEvent;
+
+public sealed partial class EventHereticCloak : InstantActionEvent // Used for shadow cloak and last refuge
+{
+    [DataField(required: true)]
+    public EntProtoId<HereticCloakedStatusEffectComponent> Status;
+
+    [DataField]
+    public TimeSpan? Lifetime;
+}
 
 public sealed partial class EventHereticShapeshift : InstantActionEvent;
 
@@ -339,6 +344,15 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
     public EntProtoId TileRune = "TileHereticRustRune";
 }
 
+public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
+{
+    [DataField]
+    public float Distance = 10f;
+
+    [DataField]
+    public float Speed = 10f;
+}
+
 // cosmos
 public sealed partial class EventHereticCosmicRune : InstantActionEvent
 {
@@ -415,15 +429,6 @@ public sealed partial class EventHereticCleave : WorldTargetActionEvent
 
     [DataField]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg");
-}
-
-public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
-{
-    [DataField]
-    public float Distance = 10f;
-
-    [DataField]
-    public float Speed = 10f;
 }
 
 // ascensions

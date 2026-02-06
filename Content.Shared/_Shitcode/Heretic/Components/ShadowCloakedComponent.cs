@@ -2,8 +2,6 @@ using System.Numerics;
 using Content.Shared.Chat.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Speech;
-using Content.Shared.StatusEffect;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -16,9 +14,6 @@ public sealed partial class ShadowCloakedComponent : Component
     public bool WasVisible = true;
 
     [DataField]
-    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
-
-    [DataField]
     public ProtoId<EmoteSoundsPrototype> EmoteSounds = "ShadowCloak";
 
     [DataField]
@@ -29,9 +24,6 @@ public sealed partial class ShadowCloakedComponent : Component
 
     [DataField]
     public EntProtoId ShadowCloakEntity = "ShadowCloakEntity";
-
-    [DataField]
-    public SoundSpecifier Sound = new SoundCollectionSpecifier("Curse");
 
     [DataField]
     public bool DebuffOnEarlyReveal;

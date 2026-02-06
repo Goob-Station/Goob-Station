@@ -89,11 +89,12 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
     private void OnStartup(Entity<ActivatableUIComponent> ent, ref ComponentStartup args)
     {
-        if (ent.Comp.Key == null)
-        {
-            Log.Error($"Missing UI Key for entity: {ToPrettyString(ent)}");
-            return;
-        }
+        // Goob edit
+        // if (ent.Comp.Key == null)
+        // {
+        //     Log.Error($"Missing UI Key for entity: {ToPrettyString(ent)}");
+        //     return;
+        // }
 
         // TODO BUI
         // set interaction range to zero to avoid constant range checks.

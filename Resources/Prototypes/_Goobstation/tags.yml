@@ -507,6 +507,9 @@
   id: RipleyMkII
 
 - type: Tag
+  id: RodMetal
+
+- type: Tag
   id: Rosary
 
 - type: Tag
@@ -671,6 +674,9 @@
 - type: Tag
   id: WizardHat
 
+- type: Tag
+  id: WoodPlank
+
 # XENOBIO - START
 
 - type: Tag
@@ -806,7 +812,7 @@
 
 - type: Tag
   id: HereticCostume
-  
+
 - type: Tag
   id: VinylSleeveFit  
 

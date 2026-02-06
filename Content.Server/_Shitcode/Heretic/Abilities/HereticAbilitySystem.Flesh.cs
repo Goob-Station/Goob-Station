@@ -37,6 +37,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -59,8 +60,7 @@ public sealed partial class HereticAbilitySystem
     private void OnExclude(Entity<FleshPassiveComponent> ent, ref ExcludeMetabolismGroupsEvent args)
     {
         var stomach = ResolveStomach(ent);
-        ent.Comp.FleshStomach = stomach;
-        if (args.Metabolizer == stomach.Owner)
+        if (stomach == null || args.Metabolizer == stomach.Value.Owner)
             return;
 
         args.Groups ??= [];
@@ -138,45 +138,54 @@ public sealed partial class HereticAbilitySystem
     private void OnGetStomach(Entity<FleshPassiveComponent> ent, ref GetBodyOrganOverrideEvent<StomachComponent> args)
     {
         var stomach = ResolveStomach(ent);
-        ent.Comp.FleshStomach = stomach;
-        args.Organ = stomach;
+        if (stomach != null)
+            args.Organ = stomach;
     }
 
     private void OnMapInit(Entity<FleshPassiveComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.FleshStomach = ResolveStomach(ent);
+        ResolveStomach(ent);
     }
 
-    private Entity<StomachComponent, OrganComponent> ResolveStomach(Entity<FleshPassiveComponent> ent)
+    private Entity<StomachComponent, OrganComponent>? ResolveStomach(Entity<FleshPassiveComponent> ent)
     {
-        if (Exists(ent.Comp.FleshStomach) && TryComp(ent.Comp.FleshStomach.Value, out StomachComponent? stomach) &&
-            TryComp(ent.Comp.FleshStomach.Value, out OrganComponent? organ))
-            return (ent.Comp.FleshStomach.Value, stomach, organ);
+        EntityUid? stomach;
+        StomachComponent? stomachComp;
+        OrganComponent? organ;
+        ent.Comp.StomachContainer = _container.EnsureContainer<ContainerSlot>(ent, ent.Comp.StomachContainerId);
+        if (ent.Comp.StomachContainer.ContainedEntity != null)
+        {
+            stomach = ent.Comp.StomachContainer.ContainedEntity.Value;
+            if (TryComp(stomach.Value, out stomachComp) && TryComp(stomach, out organ))
+                return (stomach.Value, stomachComp, organ);
 
-        QueueDel(ent.Comp.FleshStomach);
+            QueueDel(stomach);
+        }
 
         var solName = StomachSystem.DefaultSolutionName;
 
-        var fleshStomach = SpawnAttachedTo(null, ent.Owner.ToCoordinates());
-        var solutionContainer = EnsureComp<SolutionContainerManagerComponent>(fleshStomach);
-        _solution.EnsureSolutionPrototype((fleshStomach, solutionContainer), solName, 1984, null, out _);
-        _solution.EnsureAllSolutions((fleshStomach, solutionContainer));
-        stomach = EnsureComp<StomachComponent>(fleshStomach);
-        stomach.DigestionDelay = TimeSpan.FromSeconds(5);
-        organ = EnsureComp<OrganComponent>(fleshStomach);
+        if (!TrySpawnInContainer(null, ent, ent.Comp.StomachContainerId, out stomach))
+            return null;
+
+        var solutionContainer = EnsureComp<SolutionContainerManagerComponent>(stomach.Value);
+        _solution.EnsureSolutionPrototype((stomach.Value, solutionContainer), solName, 1984, null, out _);
+        _solution.EnsureAllSolutions((stomach.Value, solutionContainer));
+        stomachComp = EnsureComp<StomachComponent>(stomach.Value);
+        stomachComp.DigestionDelay = TimeSpan.FromSeconds(5);
+        organ = EnsureComp<OrganComponent>(stomach.Value);
         organ.IntegrityCap = 1984;
         organ.OrganIntegrity = 1984;
         organ.Body = ent;
-        Dirty(fleshStomach, organ);
-        var metabolizer = EnsureComp<MetabolizerComponent>(fleshStomach);
+        Dirty(stomach.Value, organ);
+        var metabolizer = EnsureComp<MetabolizerComponent>(stomach.Value);
         metabolizer.UpdateInterval = TimeSpan.FromMilliseconds(100);
         metabolizer.MaxPoisonsProcessable = 10;
-        metabolizer.MetabolismGroups = new() { new() { Id = "Food" }, new() { Id = "Drink" } };
-        metabolizer.MetabolizerTypes = new() { "Vox" };
+        metabolizer.MetabolismGroups = [new() { Id = "Food" }, new() { Id = "Drink" }];
+        metabolizer.MetabolizerTypes = ["Vox"];
         metabolizer.SolutionOnBody = false;
         metabolizer.RemoveEmpty = true;
         metabolizer.SolutionName = solName;
-        return (fleshStomach, stomach, organ);
+        return (stomach.Value, stomachComp, organ);
     }
 
     private void OnDamageChanged(Entity<FleshPassiveComponent> ent, ref DamageChangedEvent args)
