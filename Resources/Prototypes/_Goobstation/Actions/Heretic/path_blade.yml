@@ -18,7 +18,7 @@
   components:
   - type: Action
     checkCanInteract: false
-    useDelay: 60
+    useDelay: 50
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -32,7 +32,7 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticFuriousSteel
-  name: Furious steel
+  name: Furious Steel
   description: Summon three orbiting protecting blades around you.
   categories: [ HideSpawnMenu ]
   components:

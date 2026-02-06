@@ -75,7 +75,7 @@ public abstract partial class SharedHereticAbilitySystem
         {
             var bola = ensnareable.Container.ContainedEntities[0];
             // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, ent, 0, new EnsnareableDoAfterEvent(), ent, ent, bola));
+            DoAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, ent, 0, new EnsnareableDoAfterEvent(), ent, ent, bola));
         }
     }
 

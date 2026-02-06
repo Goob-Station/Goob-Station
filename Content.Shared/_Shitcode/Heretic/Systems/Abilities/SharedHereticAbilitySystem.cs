@@ -86,7 +86,6 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
@@ -171,6 +170,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             args.Handled = true;
             return;
         }
+
+        if (HasComp<SacramentsOfPowerComponent>(ent))
+            return;
 
         // TryUseAbility only if we are not cloaked so that we can uncloak without focus
         // Ideally you should uncloak when losing focus but whatever

@@ -55,6 +55,7 @@ public sealed class SacramentsSystem : SharedSacramentsSystem
         ent.Comp.StateUpdateAt = _timing.CurTime + ent.Comp.ActivationTime;
         var appearance = EnsureComp<AppearanceComponent>(ent);
         _appearance.SetData(ent, SacramentsKey.Key, SacramentsState.Opening, appearance);
+        RemCompDeferred<ShadowCloakedComponent>(ent);
         _audio.PlayPvs(ent.Comp.ActivationSound, ent);
     }
 

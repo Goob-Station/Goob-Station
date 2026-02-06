@@ -3,6 +3,8 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
@@ -18,6 +20,20 @@ public abstract class SharedSacramentsSystem : EntitySystem
 
         SubscribeLocalEvent<SacramentsOfPowerComponent, BeforeDamageChangedEvent>(OnBeforeDamageChange);
         SubscribeLocalEvent<SacramentsOfPowerComponent, BeforeStaminaDamageEvent>(OnBeforeStamina);
+        SubscribeLocalEvent<SacramentsOfPowerComponent, ShotAttemptedEvent>(OnShotAttempted);
+        SubscribeLocalEvent<SacramentsOfPowerComponent, AttackAttemptEvent>(OnAttackAttempt);
+    }
+
+    private void OnAttackAttempt(Entity<SacramentsOfPowerComponent> ent, ref AttackAttemptEvent args)
+    {
+        if (ent.Comp.State == SacramentsState.Open)
+            args.Cancel();
+    }
+
+    private void OnShotAttempted(Entity<SacramentsOfPowerComponent> ent, ref ShotAttemptedEvent args)
+    {
+        if (ent.Comp.State == SacramentsState.Open)
+            args.Cancel();
     }
 
     private void OnBeforeStamina(Entity<SacramentsOfPowerComponent> ent, ref BeforeStaminaDamageEvent args)

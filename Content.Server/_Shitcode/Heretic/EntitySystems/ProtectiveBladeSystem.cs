@@ -79,7 +79,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
     {
         if (session?.AttachedEntity is not { Valid: true } player || !Exists(player) ||
             !coords.IsValid(EntityManager) || !HasComp<HereticComponent>(player) ||
-            HasComp<BlockProtectiveBladeShootComponent>(player))
+            HasComp<BlockProtectiveBladeShootComponent>(player) || HasComp<SacramentsOfPowerComponent>(player))
             return false;
 
         var blades = GetBlades(player);
