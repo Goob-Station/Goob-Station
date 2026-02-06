@@ -50,3 +50,4 @@ construction-graph-tag-ash = ash
 construction-graph-tag-ice-bucket = ice bucket
 construction-graph-tag-water-bottle = water bottle
 construction-graph-tag-camera-electronics = surveillance camera electronics
+construction-graph-tag-station-radio-receiver-circuitboard = station radio machine board

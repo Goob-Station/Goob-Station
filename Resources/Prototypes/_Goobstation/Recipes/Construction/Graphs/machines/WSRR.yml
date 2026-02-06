@@ -1,0 +1,77 @@
+- type: constructionGraph
+  id: WSRR
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: wsrrFrame
+          steps:
+            - material: Steel
+              amount: 5
+
+    - node: wsrrFrame
+      entity: WallMountStationRadioReceiverFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 2
+          completed:
+            - !type:GivePrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:DeleteEntity {}
+        - to: manipulator
+          steps:
+          - material: Manipulator
+            amount: 1
+
+    - node: manipulator
+      entity: WallMountStationRadioReceiverFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wired
+          steps:
+          - material: Cable
+            amount: 3
+
+    - node: wired
+      entity: WallMountStationRadioReceiverFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wsrr
+          steps:
+          - tag: StationRadioCircuitboard
+            store: board
+            name: construction-graph-tag-station-radio-receiver-circuitboard
+            icon:
+              sprite: Objects/Misc/module.rsi
+              state: service
+            doAfter: 1
+
+    - node: wsrr
+      entity: WallMountStationRadioReceiver
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wsrrFrame
+          conditions:
+          - !type:ContainerNotEmpty
+            container: board
+          steps:
+          - tool: Prying
+            doAfter: 2
+          completed:
+          - !type:EmptyAllContainers
+            pickup: true
+            emptyAtUser: true
+          - !type:GivePrototype
+            prototype: MicroManipulatorStockPart
+            amount: 1
+          - !type:GivePrototype
+            prototype: CableApcStack1
+            amount: 3

@@ -1,17 +1,39 @@
 - type: entity
-  id: StationRadioReceiver
-  name: station radio
+  abstract: true
   parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: BaseStationRadioReceiver
+  name: station radio
   description: Listen to the top hits of your stations local radio.
   components:
   - type: Appearance
+  - type: RadioSpeaker
+    powerRequired: true
+    speakNormally: true
+    enabled: true
+    channels:
+    - RadioShow
+  - type: Speech
+    speechVerb: Robotic
+  - type: ActiveRadio
+    channels:
+    - RadioShow
+  - type: StationRadioReceiver
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+
+- type: entity
+  parent: BaseStationRadioReceiver
+  id: StationRadioReceiver
+  components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
+    snapCardinals: true
     layers:
     - state: icon
     - state: unlit
       shader: unshaded
-      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ] # Not working for some reason idk why
     drawdepth: SmallObjects
   - type: Fixtures
     fixtures:
@@ -37,15 +59,70 @@
         acts: [ "Destruction" ]
   - type: Machine
     board: StationRadioCircuitboard
-  - type: RadioSpeaker
-    powerRequired: true
-    speakNormally: true
-    enabled: true
-    channels:
-    - RadioShow
-  - type: Speech
-    speechVerb: Robotic
-  - type: ActiveRadio
-    channels:
-    - RadioShow
-  - type: StationRadioReceiver
+
+- type: entity
+  id: WallMountStationRadioReceiverFrame
+  name: station radio frame
+  description: Unfinished wall-mounted station radio receiver.
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Structures/Machines/StationRadio/wallmountstationradio.rsi
+    state: frame_0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          wsrrFrame: { state: frame_0 }
+          manipulator: { state: frame_1 }
+          wired: { state: frame_2 }
+  - type: Construction
+    graph: WSRR
+    node: wsrrFrame
+  - type: WallMount
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  parent: BaseStationRadioReceiver
+  id: WallMountStationRadioReceiver
+  name: wallmount station radio
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Structures/Machines/StationRadio/wallmountstationradio.rsi
+    layers:
+    - state: radio
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: WallMount
+    arc: 175
+  - type: Construction
+    graph: WSRR
+    node: wsrr
+  - type: Fixtures
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Transform
+    noRot: false
