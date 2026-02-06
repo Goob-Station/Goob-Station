@@ -23,7 +23,9 @@ public sealed partial class DevilComponent : Component
     {
         "ActionCreateContract",
         "ActionShadowJaunt",
-        "ActionDevilOpenShop"
+        "ActionDevilOpenShop",
+        "ActionPolymorphLesserDevil",
+        "ActionPolymorphArchDevil"
     };
 
     [DataField]
@@ -34,6 +36,12 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public int Souls;
+
+    /// <summary>
+    /// The amount of souls collected while polymorphed into Lesser form.
+    /// </summary>
+    [DataField]
+    public int SoulsWhileLesser;
 
     [DataField]
     public ProtoId<DevilBranchPrototype> DevilBranchPrototype = "BaseDevilBranch";

@@ -10,6 +10,10 @@ public sealed class DevilBranchPrototype : IPrototype
 
     [DataField("powerActions", required: true)]
     public Dictionary<DevilPowerLevel, List<EntProtoId>> PowerActions = new();
+
+    [DataField("conditionalUnlocks")]
+    public List<DevilConditionalUnlock> ConditionalUnlocks = new();
+
 }
 
 public enum DevilPowerLevel : byte
@@ -18,4 +22,17 @@ public enum DevilPowerLevel : byte
     Weak,
     Moderate,
     Powerful,
+}
+
+[DataDefinition]
+public sealed partial class DevilConditionalUnlock
+{
+    [DataField(required: true)]
+    public string RequiredComponent = default!;
+
+    [DataField(required: true)]
+    public int SoulsRequired;
+
+    [DataField(required: true)]
+    public List<EntProtoId> Actions = new();
 }

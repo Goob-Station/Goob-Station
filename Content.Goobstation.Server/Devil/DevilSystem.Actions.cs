@@ -9,6 +9,7 @@ using Content.Goobstation.Server.Devil.Contract.Revival;
 using Content.Goobstation.Server.Devil.Grip;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Devil.Components;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
 using Content.Server.Store.Systems;
@@ -70,6 +71,9 @@ public sealed partial class DevilSystem
     private void OnShadowJaunt(Entity<DevilComponent> devil, ref ShadowJauntEvent args)
     {
         if (!TryUseAbility(args))
+            return;
+
+        if (HasComp<DevilLesserFormComponent>(devil) || HasComp<ArchdevilComponent>(devil)) // Unable to jaunt while in ascended form.
             return;
 
         Spawn(devil.Comp.JauntAnimationProto, Transform(devil).Coordinates);

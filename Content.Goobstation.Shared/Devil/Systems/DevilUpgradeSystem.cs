@@ -10,7 +10,6 @@ public sealed class DevilGripUpgradeSystem : EntitySystem
     {
         SubscribeLocalEvent<DevilComponent, DevilGripCurseRotPurchasedEvent>(OnCurseRot);
         SubscribeLocalEvent<DevilComponent, DevilGripEnhancedPurchasedEvent>(OnEnhanced);
-        SubscribeLocalEvent<DevilComponent, DevilGripCondemnPurchasedEvent>(OnCondemn);
     }
 
     private void OnCurseRot(EntityUid uid, DevilComponent comp, ref DevilGripCurseRotPurchasedEvent ev)
@@ -21,10 +20,5 @@ public sealed class DevilGripUpgradeSystem : EntitySystem
     private void OnEnhanced(EntityUid uid, DevilComponent comp, ref DevilGripEnhancedPurchasedEvent ev)
     {
         EnsureComp<GripSidegradeStunComponent>(uid);
-    }
-
-    private void OnCondemn(EntityUid uid, DevilComponent comp, ref DevilGripCondemnPurchasedEvent ev)
-    {
-        EnsureComp<GripSidegradePoachComponent>(uid);
     }
 }

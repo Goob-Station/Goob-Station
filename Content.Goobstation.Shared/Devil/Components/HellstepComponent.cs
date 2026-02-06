@@ -13,5 +13,8 @@ public sealed partial class HellstepComponent : Component
 
     [ValidatePrototypeId<EntityPrototype>]
     public EntProtoId FirePrototype = "HereticFireAA";
+
+    [ValidatePrototypeId<EntityPrototype>]
+    public EntProtoId LavaPrototype = "FloorLavaEntity";
 }
 

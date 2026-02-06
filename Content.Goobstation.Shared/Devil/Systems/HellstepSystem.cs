@@ -57,6 +57,11 @@ public sealed class HellstepSystem : EntitySystem
             targetTile
         );
 
+        if (HasComp<ArchdevilComponent>(uid))
+        {
+            Spawn(hellstep.LavaPrototype, worldPos);
+        }
+
         Spawn(hellstep.FirePrototype, worldPos);
     }
 

@@ -41,3 +41,27 @@
   - type: Tag # Goobstation
     tags:
       - FlashIgnoreResistances
+
+- type: entity
+  parent: ProjectileHellfire
+  id: ProjectileHellfireArch
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 25
+  - type: RepeatingTrigger
+    delay: 0.1 # line of fire as well as if it hits something
+  - type: ExplodeOnTrigger
+  - type: TriggerOnProjectileHit
+    explosiveProjectile: true
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 3 # Goob edit
+    intensitySlope: 2 # Goob edit
+    totalIntensity: 5 # Gobo edit
+    maxTileBreak: 0
+    canCreateVacuum: false
+    deleteAfterExplosion: false
+    repeatable: true

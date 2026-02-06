@@ -7,8 +7,9 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Devil.Grip;
+namespace Content.Goobstation.Shared.Devil.Components;
 
 [RegisterComponent]
 public sealed partial class DevilGripComponent : Component

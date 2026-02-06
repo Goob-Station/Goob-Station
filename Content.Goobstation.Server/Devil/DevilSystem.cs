@@ -17,6 +17,7 @@ using Content.Goobstation.Shared.Devil.Components;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
@@ -48,7 +49,6 @@ using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.PAI;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Store.Components;
@@ -59,6 +59,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Content.Goobstation.Server.Devil;
@@ -122,6 +123,8 @@ public sealed partial class DevilSystem : EntitySystem
         EnsureComp<HellstepActionComponent>(devil);
         //EnsureComp<FireImmunityActionComponent>(devil);
         EnsureComp<DevilAuthorityComponent>(devil);
+        EnsureComp<DevilSummonPitchforkComponent>(devil);
+        EnsureComp<DevilTransformComponent>(devil);
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);
@@ -173,6 +176,23 @@ public sealed partial class DevilSystem : EntitySystem
 
         devil.Comp.Souls += args.Amount;
         _popup.PopupEntity(Loc.GetString("contract-soul-added"), args.User, args.User, PopupType.MediumCaution);
+
+        if (_prototype.TryIndex(devil.Comp.DevilBranchPrototype, out var proto))
+        {
+            foreach (var unlock in proto.ConditionalUnlocks)
+            {
+                var compReg = EntityManager.ComponentFactory.GetRegistration(unlock.RequiredComponent);
+
+                if (!EntityManager.HasComponent(devil, compReg.Type))
+                    continue;
+
+                if (devil.Comp.SoulsWhileLesser < unlock.SoulsRequired)
+                    continue;
+
+                foreach (var action in unlock.Actions)
+                    _actions.AddAction(devil, action);
+            }
+        }
 
         // Used for store currency.
         if (TryComp<StoreComponent>(devil, out var store))

@@ -1,5 +1,5 @@
 - type: entity
-  name: lesser devil
+  name: true devil
   id: MobLesserDevil
   parent: [ SimpleSpaceMobBase, MobCombat ]
   description: A pile of infernal energy, taking a vaguely humanoid form.
@@ -29,17 +29,64 @@
     thresholds:
       0: Alive
       350: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    damage:
+      types:
+        Piercing: 10
+  - type: UniversalLanguageSpeaker
+  - type: Speech
+    speechVerb: LargeMob
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - Stutter
+    - TemporaryBlindness
+    - RadiationProtection
+    - Adrenaline
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ManifestedSpirit
+  - type: Puller
+    needsHands: false
+  - type: Inventory
+    templateId: human
   - type: Hands
+  - type: InputMover
   - type: ComplexInteraction
   - type: ReplacementAccent
     accent: genericAggressive
+  - type: Temperature
+    heatDamageThreshold: 9999
+  - type: DevilLesserForm
+  - type: ThermalVision
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+    thermalShader: null
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
 
 - type: entity
   name: archdevil
   id: MobArchDevil
-  parent: MobLesserDevil
+  parent: [ SimpleSpaceMobBase, MobCombat ]
   description: Daemon qui formam ultimam attigit.
   components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Devil/32x64.rsi
@@ -55,9 +102,20 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      5000: Dead
+      2500: Dead # Parity would be 5000 so don't complain
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    damage:
+      types:
+        Piercing: 10
+        Heat: 15
+        Structural: 50
   - type: SpamEmitSound
-    minInterval: 15
+    minInterval: 10
     maxInterval: 45
     sound:
       collection: ArchLaugh
@@ -68,8 +126,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: XenoFootstepLarge
-      params:
-        volume: -1
   - type: EmitSoundOnSpawn
     sound:
       collection: ArchScream
@@ -77,6 +133,53 @@
         volume: 8
         maxDistance: 60
         pitch: 0.2
+  - type: ThermalVision
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+    thermalShader: null
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      2000: 0.7
+      2250: 0.5
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ManifestedSpirit
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Insulated
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - Stutter
+    - TemporaryBlindness
+    - RadiationProtection
+    - Adrenaline
+  - type: UniversalLanguageSpeaker
+  - type: Speech
+    speechVerb: LargeMob
+  - type: Puller
+    needsHands: false
+  - type: Temperature
+    heatDamageThreshold: 9999
+  - type: Inventory
+    templateId: holoclown # Less stuff
+  - type: Hands
+  - type: InputMover
+  - type: ComplexInteraction
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Archdevil
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
 
 - type: entity
   name: frog
@@ -98,3 +201,4 @@
       behaviors:
       - !type:GibBehavior
         recursive: true
+

@@ -1,14 +1,30 @@
 {
   "version": 1,
-  "license": null,
-  "copyright": null,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "https://github.com/tgstation/tgstation/blob/2d8f1504dff7315a0da52bd994668f65c0c36353/icons/obj/weapons/spear.dmi, https://github.com/tgstation/tgstation/blob/2d8f1504dff7315a0da52bd994668f65c0c36353/icons/mob/inhands/weapons/polearms_lefthand.dmi, https://github.com/tgstation/tgstation/blob/2d8f1504dff7315a0da52bd994668f65c0c36353/icons/mob/inhands/weapons/polearms_righthand.dmi",
   "size": {
-    "x": 32,
-    "y": 32
+      "x": 32,
+      "y": 32
   },
   "states": [
     {
-      "name": "pitchfork1"
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
+    },
+	  {
+      "name": "wielded-inhand-right",
+      "directions": 4
     }
   ]
 }

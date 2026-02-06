@@ -2,7 +2,7 @@
   name: devilish pitchfork
   parent: [BaseItem, BaseMinorContraband]
   id: DevilPitchfork
-  description: More of an annoyance, really. Used to poke sinners with it, or anyone, really.
+  description: The preferred tool for poking people's behinds.
   components:
   - type: EmbeddableProjectile
     offset: -0.15,0.0
@@ -29,7 +29,8 @@
   - type: Sharp
   - type: Sprite
     sprite: _Goobstation/Devil/spear.rsi
-    state: pítchfork1
+    state: icon
+  - type: Wieldable
   - type: MeleeWeapon
     canWideSwing: false
     range: 2.5
@@ -57,3 +58,7 @@
   - type: Appearance
   - type: ThrowableBlocked
   - type: UndetectableContraband
+  - type: FadingTimedDespawn
+    lifetime: 15
+    fadeOutTime: 3
+  

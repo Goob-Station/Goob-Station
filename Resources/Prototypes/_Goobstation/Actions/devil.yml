@@ -144,10 +144,9 @@
 # Shop
 
 - type: entity
-  parent: ActionSlasherSummonMachete
   id: ActionDevilSummonPitchfork
   name: Summon pitchfork
-  description: Summons a stick to poke people with.
+  description: Summons a stick to poke people with. Dissapears after a short period.
   components:
   - type: Action
     raiseOnUser: true
@@ -155,8 +154,7 @@
     itemIconStyle: BigAction
     icon: { sprite: _Goobstation/Actions/devil.rsi, state: pitchfork }
   - type: InstantAction
-    event: !type:SlasherSummonMacheteEvent
-      machetePrototype: DevilPitchfork
+    event: !type:DevilSummonPitchforkEvent
 
 - type: entity
   parent: BaseAction
@@ -231,9 +229,6 @@
   - type: InstantAction
     event: !type:DevilHeresyEvent
 
-
-# Greater forms
-
 - type: entity
   id: ActionDevilAuthority
   name: Authority
@@ -247,30 +242,55 @@
   - type: InstantAction
     event: !type:DevilAuthorityEvent
 
+# Greater forms
+
 - type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphLesserDevil
   name: Ascend to lesser form
-  description: Return to your lesser form, only a fragment of your true power. Gains new actions in the process. This cannot be undone.
+  description: Return to your lesser form, only a fragment of your true power, and a necessary step towards becoming an Archdevil. Regains your capability to do harm, but loses on the ability to jaunt into the shadows. This cannot be undone. Collect enough souls in this form to unlock the next stage.
   components:
   - type: Action
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: lesserform
   - type: InstantAction
-    event: !type:PolymorphActionEvent
-      protoId: MobLesserDevil
+    event: !type:BecomeLesserDevilEvent
 
 - type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphArchDevil
   name: Ascend to Archdevil
-  description: Return to your true form. Command respect from any other demons.
+  description: Return to your true form, at last. Most of your actions will become empowered while in Archdevil form.
   components:
   - type: Action
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: archdevil
   - type: InstantAction
-    event: !type:PolymorphActionEvent
-      protoId: MobArchDevil
+    event: !type:BecomeArchdevilEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionHellFireArch
+  name: Archdevil's breath
+  description: Exhale hellfire towards a target, exploding everything in its path.
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/plasma_cutter.ogg
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: archfire
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileHellfireArch
+      speed: 12

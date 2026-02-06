@@ -95,8 +95,8 @@ public sealed class DevilGripSystem : EntitySystem
             }
         }
 
-        // Upgrade: Steal soul
-        if (HasComp<GripSidegradePoachComponent>(args.User) && _mobState.IsDead(target))
+        // As archdevil, steals souls.
+        if (HasComp<ArchdevilComponent>(args.User))
         {
             if (!TryComp<CondemnedComponent>(target, out var condemned)
                 || condemned.SoulOwner != args.User)
