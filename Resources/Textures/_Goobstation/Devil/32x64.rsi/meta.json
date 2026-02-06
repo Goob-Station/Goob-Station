@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": null,
-  "copyright": null,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/austation/austation/blob/71d8e7406d84f8ec8cb79bf153b050e7e09d2a17/icons/mob/32x64.dmi",
   "size": {
     "x": 32,
     "y": 64

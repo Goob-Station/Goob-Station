@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": null,
-  "copyright": null,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/tgstation/tgstation/blob/d04564a94e2c3c5600b2d98ee8582232a5b74726/icons/obj/weapons/guns/projectiles.dmi",
   "size": {
     "x": 32,
     "y": 32

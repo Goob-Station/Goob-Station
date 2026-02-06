@@ -39,8 +39,7 @@
       types:
         Piercing: 10
   - type: UniversalLanguageSpeaker
-  - type: Speech
-    speechVerb: LargeMob
+  - type: Vocal
   - type: StatusEffects
     allowed:
     - SlowedDown
@@ -53,6 +52,7 @@
     damageModifierSet: ManifestedSpirit
   - type: Puller
     needsHands: false
+  - type: InventorySlots
   - type: Inventory
     templateId: human
   - type: Hands
@@ -162,12 +162,14 @@
     - RadiationProtection
     - Adrenaline
   - type: UniversalLanguageSpeaker
+  - type: Vocal
   - type: Speech
     speechVerb: LargeMob
   - type: Puller
     needsHands: false
   - type: Temperature
     heatDamageThreshold: 9999
+  - type: InventorySlots
   - type: Inventory
     templateId: holoclown # Less stuff
   - type: Hands
