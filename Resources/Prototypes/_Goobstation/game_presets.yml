@@ -183,7 +183,7 @@
     - combatdynamic
   name: guide-title
   description: guide-description
-  showInVote: false
+  showInVote: true # Pirate, i think this can be better that secret idk
   minPlayers: 25
   rules:
     - CombatDynamic

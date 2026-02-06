@@ -3,11 +3,13 @@
 /// </summary>
 
 using Content.Server.StationRecords;
+using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.PsionicsRecords;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Psionics;
 using Content.Shared.StationRecords;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
@@ -66,11 +68,15 @@ public sealed partial class PsionicsRecordsConsoleSystem
         key = null;
         mob = null;
 
-        if (!_access.IsAllowed(user, ent))
+        // Check if user has Mantis access
+        var userAccessTags = _access.FindAccessTags(user);
+        var mantisAccess = new ProtoId<AccessLevelPrototype>("Mantis");
+        if (!userAccessTags.Contains(mantisAccess))
         {
             _popup.PopupEntity(Loc.GetString("psionics-records-permission-denied"), ent, user);
             return false;
         }
+
         TryGetTargetRecord(ent, out var targetRecord, out var owningStation);
         if (owningStation is not { } station)
             return false;

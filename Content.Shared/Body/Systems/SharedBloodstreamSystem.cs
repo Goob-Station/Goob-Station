@@ -108,7 +108,12 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
             {
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
-                var amt = bloodstream.BloodlossDamage * (1 - bloodPercentage) * 10f * _bloodlossMultiplier; // Goobstation
+                //var amt = bloodstream.BloodlossDamage * (1 - bloodPercentage) * 10f * _bloodlossMultiplier; // Goobstation
+                // Pirate, Yooo Mr. Void, I cooked up a new bloodloss formula for ya
+                float t = (0.8f - bloodPercentage) / 0.8f;
+                var amt = bloodstream.BloodlossDamage * MathF.Pow(t, 2.1f) * 10f * _bloodlossMultiplier;
+                // Pirate ^^^
+
 
                 // Goobstation start
                 var multiplierEv = new GetBloodlossDamageMultiplierEvent();

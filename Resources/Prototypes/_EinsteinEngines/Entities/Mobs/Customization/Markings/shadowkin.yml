@@ -39,10 +39,13 @@
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   layering: # Pirate, Floof tail layering from Vareniko
-    shadowkin: TailBehind
+    shadowkin: TailOversuit
+    shadowkin_tip: TailBehind
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi # Pirate
+      state: shadowkin_tip # Pirate
 
 - type: marking
   id: TailShadowkinBig
@@ -52,9 +55,12 @@
   forcedColoring: true
   layering: # Pirate, Floof tail layering from Vareniko
     shadowkin_big: TailBehind
+    shadowkin_big_tip: TailOversuit
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin_big
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi # Pirate
+      state: shadowkin_big_tip # Pirate
 
 - type: marking
   id: TailShadowkinBigFluff
@@ -64,9 +70,12 @@
   forcedColoring: true
   layering: # Pirate, Floof tail layering from Vareniko
     shadowkin_big_fluff: TailBehind
+    shadowkin_big_fluff_tip: TailOversuit
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin_big_fluff
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi # Pirate
+      state: shadowkin_big_fluff_tip # Pirate
 
 - type: marking
   id: TailShadowkinShorter
@@ -75,10 +84,13 @@
   speciesRestriction: [Shadowkin]
   layering: # Pirate, Floof tail layering from Vareniko
     shadowkin_shorter: TailBehind
+    shadowkin_shorter_tip: TailOversuit
   forcedColoring: true
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails32x32.rsi
       state: shadowkin_shorter
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails32x32.rsi # Pirate
+      state: shadowkin_shorter_tip # Pirate
 
 - type: marking
   id: TailShadowkinMedium
@@ -87,10 +99,13 @@
   speciesRestriction: [Shadowkin]
   layering: # Pirate, Floof tail layering from Vareniko
     shadowkin_medium: TailBehind
+    shadowkin_medium_tip: TailOversuit
   forcedColoring: true
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails32x32.rsi
       state: shadowkin_medium
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails32x32.rsi # Pirate
+      state: shadowkin_medium_tip # Pirate
 
 - type: marking
   id: EarsShadekinMotley
@@ -690,9 +705,12 @@
   speciesRestriction: [Shadowkin]
   layering: # Pirate, Floof tail layering from Vareniko
     shadekin_shorter: TailBehind
+    shadekin_shorter_tip: TailOversuit
   sprites:
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: shadekin_shorter
+    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi # Pirate
+      state: shadekin_shorter_tip # Pirate
 
 - type: marking
   id: TailShadekinShorterBrush
@@ -701,11 +719,18 @@
   speciesRestriction: [Shadowkin]
   layering: # Pirate, Floof tail layering from Vareniko
     shadekin_shorter: TailBehind
+    shorter_brush: TailBehind
+    shorter_brush_tip: TailOversuit
+    shadekin_shorter_tip: TailOversuit
   sprites:
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: shadekin_shorter
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: shorter_brush
+    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi # Pirate
+      state: shorter_brush_tip
+    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+      state: shadekin_shorter_tip # Pirate end
 
 - type: marking
   id: TailShadekinMedium
@@ -714,9 +739,12 @@
   speciesRestriction: [Shadowkin]
   layering: # Pirate, Floof tail layering from Vareniko
     shadekin_medium: TailBehind
+    shadekin_medium_tip: TailOversuit
   sprites:
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: shadekin_medium
+    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi # Pirate
+      state: shadekin_medium_tip # Pirate
 
 - type: marking
   id: TailShadekinMediumTwoColored
@@ -725,9 +753,16 @@
   speciesRestriction: [Shadowkin]
   layering: # Pirate, Floof tail layering from Vareniko
     shadekin_medium: TailBehind
+    shadekin_medium_tip: TailOversuit
+    medium_twocolored: TailBehind
+    medium_twocolored_tip: TailOversuit
   sprites:
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: shadekin_medium
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: medium_twocolored
+    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi # Pirate
+      state: shadekin_medium_tip
+    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+      state: medium_twocolored_tip  # Pirate end
 

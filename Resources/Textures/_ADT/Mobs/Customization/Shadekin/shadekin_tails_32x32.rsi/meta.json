@@ -22,6 +22,26 @@
         {
             "name": "shorter_brush",
             "directions": 4
+        },
+        {
+            "name": "shadekin_medium_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
+        },
+        {
+            "name": "shadekin_shorter_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
+        },
+        {
+            "name": "medium_twocolored_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
+        },
+        {
+            "name": "shorter_brush_tip",
+            "directions": 4,
+            "_comment": "Added by pirate"
         }
     ]
 }
