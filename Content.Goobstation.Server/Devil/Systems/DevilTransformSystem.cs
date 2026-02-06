@@ -35,20 +35,6 @@ public sealed class DevilTransformSystem : EntitySystem
         SubscribeLocalEvent<DevilComponent, BecomeLesserDevilEvent>(OnBecomeLesser);
         SubscribeLocalEvent<DevilComponent, BecomeArchdevilEvent>(OnBecomeArch);
         SubscribeLocalEvent<DevilTransformComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<DevilTransformComponent, ComponentStartup>(OnStartup);
-    }
-    private void OnStartup(EntityUid uid, DevilTransformComponent comp, ComponentStartup args)
-    {
-        if (comp.LesserForm)
-        {
-            if (comp.HellfireActionEntity == null)
-                _actions.AddAction(uid, ref comp.HellfireActionEntity, comp.HellfireAction);
-        }
-        else
-        {
-            if (comp.JauntActionEntity == null)
-                _actions.AddAction(uid, ref comp.JauntActionEntity, comp.JauntAction);
-        }
     }
 
     private void OnMapInit(EntityUid uid, DevilTransformComponent comp, MapInitEvent args)

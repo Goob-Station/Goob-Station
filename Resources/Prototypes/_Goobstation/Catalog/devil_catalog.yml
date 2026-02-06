@@ -4,7 +4,7 @@
   description:  devil-pitchfork-desc
   productAction: ActionDevilSummonPitchfork
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -17,7 +17,7 @@
   description:  devil-hellfire-desc
   productAction: ActionHellFire
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -30,7 +30,7 @@
   description: devil-grip-desc
   productAction: ActionDevilGrip
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -47,7 +47,7 @@
     sprite: _Goobstation/Actions/devil.rsi
     state: griprot
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -64,7 +64,7 @@
     sprite: _Goobstation/Actions/devil.rsi
     state: gripstun
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -81,7 +81,7 @@
     sprite: _Goobstation/Actions/devil.rsi
     state: fireimmune
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -94,7 +94,7 @@
   description: devil-hellstep-desc
   productAction: ActionDevilHellstep
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -107,7 +107,7 @@
   description: devil-heresy-desc
   productAction: ActionDevilHeresy
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -120,7 +120,7 @@
   description:  devil-cheatdeath-desc
   productAction: ActionCheatDeath
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -133,7 +133,7 @@
   description: devil-authority-desc
   productAction: ActionDevilAuthority
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:
@@ -146,7 +146,7 @@
   description: devil-small-favor-desc
   productAction: ActionSmallFavor
   cost:
-    SoulsStored: 0
+    SoulsStored: 1
   categories:
   - DevilAbilities
   conditions:

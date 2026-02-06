@@ -20,13 +20,12 @@ public sealed partial class ShadowJauntEvent : InstantActionEvent;
 public sealed partial class DevilGripEvent : InstantActionEvent;
 
 [Serializable, NetSerializable]
+[DataDefinition]
 public sealed partial class DevilGripCurseRotPurchasedEvent : EntityEventArgs { }
 
 [Serializable, NetSerializable]
+[DataDefinition]
 public sealed partial class DevilGripEnhancedPurchasedEvent : EntityEventArgs { }
-
-[Serializable, NetSerializable]
-public sealed partial class DevilGripCondemnPurchasedEvent : EntityEventArgs { }
 
 public sealed partial class DevilSummonPitchforkEvent : InstantActionEvent;
 
