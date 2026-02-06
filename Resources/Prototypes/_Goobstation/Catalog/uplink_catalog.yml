@@ -659,6 +659,23 @@
       tags:
       - ContractorUplink
 
+
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrilla
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 - type: listing
   id: UplinkClothingHandsGlovesGuerrillaNukeops
   name: uplink-guerrilla-gloves-name
@@ -666,7 +683,7 @@
   icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
   productEntity: ClothingHandsGlovesGuerrilla
   cost:
-    Telecrystal: 60
+    Telecrystal: 60 #double the price
   categories:
   - UplinkWearables
   conditions:
