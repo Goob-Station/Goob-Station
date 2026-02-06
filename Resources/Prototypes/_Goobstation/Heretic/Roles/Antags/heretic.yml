@@ -18,6 +18,10 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Oni
   guides: [ Heretics ]
 
 - type: antag
