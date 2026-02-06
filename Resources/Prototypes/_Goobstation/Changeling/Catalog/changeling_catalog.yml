@@ -128,19 +128,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-#- type: listing Pirate
-#  id: EvolutionMenuCombatShriekResonant
-#  name: evolutionmenu-combat-shriek-resonant-name
-#  description: evolutionmenu-combat-shriek-resonant-desc
-#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: shriek_resonant }
-#  productAction: ActionShriekResonant
-#  cost:
-#    EvolutionPoint: 2
-#  categories:
-#  - ChangelingAbilityCombat
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1 Pirate end
+- type: listing
+  id: EvolutionMenuCombatShriekResonant
+  name: evolutionmenu-combat-shriek-resonant-name
+  description: evolutionmenu-combat-shriek-resonant-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: shriek_resonant }
+  productAction: ActionShriekResonant
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: EvolutionMenuCombatMuscles
