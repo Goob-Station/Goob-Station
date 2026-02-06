@@ -126,3 +126,5 @@
     - Anchorable
   - type: Transform
     noRot: false
+  - type: Physics
+    canCollide: false
