@@ -11,25 +11,23 @@
 # actions
 - type: entity
   parent: BaseAction
-  id: ActionHereticRealignment
-  name: Realignment
-  description: Recover from all stuns and knockdowns, gaining short term pacifism.
+  id: ActionHereticSacraments
+  name: Sacraments of Power
+  description: Become immune to all damage temporarily, sending it back to attackers.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     checkCanInteract: false
-    checkConsciousness: false
-    useDelay: 15
+    useDelay: 60
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
-      state: realignment
+      state: sacraments
   - type: InstantAction
-    event: !type:EventHereticRealignment
+    event: !type:EventHereticSacraments
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-realignment
+    messageLoc: heretic-speech-blade-sacraments
 
 - type: entity
   parent: BaseAction

@@ -291,7 +291,7 @@ public sealed partial class HereticAbilitySystem
 
         AddComp(clone.Value, ghoul);
 
-        if (_statusEffect.TryGetTime(uid, "KnockedDown", out var knockdownStartEnd))
+        if (Status.TryGetTime(uid, "KnockedDown", out var knockdownStartEnd))
         {
             var time = knockdownStartEnd.Value.Item2 - Timing.CurTime;
             if (time > TimeSpan.Zero)

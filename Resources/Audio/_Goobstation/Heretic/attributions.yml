@@ -19,6 +19,16 @@
   copyright: "Taken from /tg/station, modified by Aviu00"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic/repulse.ogg"
 
+- files: ["ark_deathrattle.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/machines/clockcult/ark_deathrattle.ogg"
+
+- files: ["piano_hit.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/piano_hit.ogg"
+
 - files: ["ice_shovel.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"

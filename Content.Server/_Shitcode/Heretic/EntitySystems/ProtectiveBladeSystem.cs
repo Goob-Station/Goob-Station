@@ -16,21 +16,14 @@ using Content.Shared.Damage;
 using Content.Shared.Follower;
 using Content.Shared.Follower.Components;
 using Content.Shared.Heretic;
-using Content.Shared.Interaction;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
-using System.Linq;
 using System.Numerics;
-using Content.Server.Buckle.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Abilities;
 using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared.Damage.Components;
 using Content.Shared.Input;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Physics;
-using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
@@ -52,14 +45,10 @@ public sealed class ProtectiveBladeSystem : EntitySystem
 {
     [Dependency] private readonly FollowerSystem _follow = default!;
     [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ReflectSystem _reflect = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public static readonly EntProtoId BladePrototype = "HereticProtectiveBlade";
     public static readonly EntProtoId BladeProjecilePrototype = "HereticProtectiveBladeProjectile";
@@ -72,11 +61,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ProtectiveBladeComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<ProtectiveBladeComponent, InteractHandEvent>(OnInteract,
-            after: [typeof(BuckleSystem)]);
 
-        SubscribeLocalEvent<HereticComponent, InteractHandEvent>(OnHereticInteract,
-            after: [typeof(BuckleSystem)]);
         SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnTakeDamage);
         SubscribeLocalEvent<HereticComponent, BeforeHarmfulActionEvent>(OnBeforeHarmfulAction,
             after: [typeof(HereticAbilitySystem), typeof(RiposteeSystem)]);
@@ -102,15 +87,6 @@ public sealed class ProtectiveBladeSystem : EntitySystem
             return false;
 
         return ThrowProtectiveBlade(player, blades[0], uid, _xform.ToWorldPosition(coords));
-    }
-
-    private void OnHereticInteract(Entity<HereticComponent> ent, ref InteractHandEvent args)
-    {
-        if (args.Handled || args.User != ent.Owner)
-            return;
-
-        if (TryThrowProtectiveBlade(ent, null))
-            args.Handled = true;
     }
 
     private void OnProjectileReflectAttempt(Entity<HereticComponent> ent, ref ProjectileReflectAttemptEvent args)
@@ -215,15 +191,6 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnInteract(Entity<ProtectiveBladeComponent> ent, ref InteractHandEvent args)
-    {
-        if (!TryComp<FollowerComponent>(ent, out var follower) || follower.Following != args.User)
-            return;
-
-        if (TryThrowProtectiveBlade(args.User, ent))
-            args.Handled = true;
-    }
-
     public List<Entity<ProtectiveBladeComponent>> GetBlades(EntityUid ent)
     {
         var blades = new List<Entity<ProtectiveBladeComponent>>();
@@ -238,33 +205,6 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         }
 
         return blades;
-    }
-    private EntityUid? GetNearestTarget(EntityUid origin, float range = 10f)
-    {
-        var pos = _xform.GetWorldPosition(origin);
-
-        var lookup = _lookup.GetEntitiesInRange(origin, range, flags: LookupFlags.Dynamic)
-            .Where(e => e != origin && _mobState.IsAlive(e) && _interaction.InRangeUnobstructed(
-                origin,
-                e,
-                range,
-                CollisionGroup.BulletImpassable,
-                x => TryComp(x, out RequireProjectileTargetComponent? requireTargetComp) && requireTargetComp.Active));
-
-        float? nearestPoint = null;
-        EntityUid? ret = null;
-        foreach (var look in lookup)
-        {
-            var distance = (pos - _xform.GetWorldPosition(look)).Length();
-
-            if (distance >= nearestPoint)
-                continue;
-
-            nearestPoint = distance;
-            ret = look;
-        }
-
-        return ret;
     }
 
     public void AddProtectiveBlade(EntityUid ent, bool playSound = true)
@@ -294,33 +234,6 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         QueueDel(blade);
     }
 
-    public bool TryThrowProtectiveBlade(EntityUid origin, Entity<ProtectiveBladeComponent>? pblade, EntityUid? target = null)
-    {
-        if (HasComp<BlockProtectiveBladeShootComponent>(origin))
-            return false;
-
-        if (pblade == null)
-        {
-            var blades = GetBlades(origin);
-            if (blades.Count == 0)
-                return false;
-
-            pblade = blades[0];
-        }
-
-        _follow.StopFollowingEntity(origin, pblade.Value);
-
-        var tgt = target ?? GetNearestTarget(origin);
-
-        if (tgt == null)
-        {
-            _popup.PopupEntity(Loc.GetString("heretic-protective-blade-component-no-targets"), origin, origin);
-            return false;
-        }
-
-        return ThrowProtectiveBlade(origin, pblade, tgt.Value, _xform.GetWorldPosition(tgt.Value));
-    }
-
     public bool ThrowProtectiveBlade(EntityUid origin,
         Entity<ProtectiveBladeComponent>? pblade,
         EntityUid targetEntity,
@@ -339,7 +252,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         var direction = target - pos;
 
         var proj = Spawn(BladeProjecilePrototype, Transform(origin).Coordinates);
-        _gun.ShootProjectile(proj, direction, Vector2.Zero, origin, origin);
+        _gun.ShootProjectile(proj, direction, Vector2.Zero, origin, origin, speed: 6.5f);
         if (targetEntity != EntityUid.Invalid)
             _gun.SetTarget(proj, targetEntity, out _);
 

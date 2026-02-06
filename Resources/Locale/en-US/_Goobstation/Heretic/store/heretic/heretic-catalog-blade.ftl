@@ -49,13 +49,14 @@ knowledge-path-blade-s4-desc =
     Your Mansus Grasp now applies the Mark of the Blade.
     Triggering the mark will summon a knife that will orbit you for a short time.
     The knife will block any attack directed towards you, but is consumed on use.
+    Additionally, you can use throw key with an empty active hand to fire the knife, dealing heavy damage.
 
-knowledge-path-blade-s5-name = Realignment
+knowledge-path-blade-s5-name = Sacraments of Power
 knowledge-path-blade-s5-desc =
-    In the flurry of death, he found peace within himself. Despite insurmountable odds, he forged on.
+    Seven times seven techniques were made in Eternal War. These parts of the doctrine contain enough to crush anyone.
 
-    Grants you Realignment a spell that wil realign your body rapidly for a short period.
-    During this process, you will rapidly regenerate stamina and quickly recover from stuns, however, you will be unable to attack.
+    Grants you Sacraments of Power, a spell that makes you immune to all incoming damage and stamina damage for 5 seconds, the portion of absorbed damage will be sent back to attackers.
+    Takes about 1 second to activate.
 
 knowledge-path-blade-s6-name = Stance of the Torn Champion
 knowledge-path-blade-s6-desc =
@@ -77,7 +78,6 @@ knowledge-path-blade-s8-desc =
     Without thinking, I took the knife of a fallen soldier and threw with all my might. My aim was true! The Torn Champion smiled at their first taste of agony, and with a nod, their blades became my own.
 
     Grants you Furious Steel, a targeted spell. Using it will summon three orbiting blades around you. These blades will protect you from all attacks, but are consumed on use.
-    Additionally, you can click on the blade or on yourself to fire the blades at a nearest target, dealing heavy damage.
 
 knowledge-path-blade-s9-name = Maelstrom of Silver
 knowledge-path-blade-s9-desc =
