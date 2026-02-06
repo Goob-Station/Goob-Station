@@ -38,6 +38,8 @@
     damage:
       types:
         Piercing: 10
+  - type: Body
+    prototype: Human
   - type: UniversalLanguageSpeaker
   - type: Vocal
   - type: StatusEffects
@@ -54,7 +56,7 @@
     needsHands: false
   - type: InventorySlots
   - type: Inventory
-    templateId: human
+    templateId: holoclown
   - type: Hands
   - type: InputMover
   - type: ComplexInteraction
@@ -161,6 +163,8 @@
     - TemporaryBlindness
     - RadiationProtection
     - Adrenaline
+  - type: Body
+    prototype: Human
   - type: UniversalLanguageSpeaker
   - type: Vocal
   - type: Speech
