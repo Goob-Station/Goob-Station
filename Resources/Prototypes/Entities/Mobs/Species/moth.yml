@@ -169,6 +169,8 @@
 #        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: MothAccent
   - type: Vocal
+    wilhelm: "/Audio/_Goobstation/Voice/Moth/moth_sax.ogg" # Goobstation
+    wilhelmProbability: 0.1 # Goobstation
     sounds:
       Male: MaleMoth
       Female: FemaleMoth
@@ -177,6 +179,7 @@
     baseWeightlessAcceleration: 3 # Goobstation value
     baseWeightlessFriction: 1
     baseWeightlessModifier: 1
+  - type: MomentumSteering # Goobstation - No steer
   - type: Flammable
     damage:
       types:

@@ -47,6 +47,7 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Alphabetical order people!
@@ -494,6 +495,9 @@
   id: RatvarianSpear
 
 - type: Tag
+  id: InquisitorChainSword
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
@@ -573,6 +577,9 @@
 
 - type: Tag
   id: SyringeArmor
+
+- type: Tag
+  id: SyringeCase
 
 - type: Tag
   id: Table
@@ -807,4 +814,10 @@
   id: HereticCostume
 
 - type: Tag
-  id: VinylSleeveFit
+  id: VinylSleeveFit  
+
+- type: Tag
+  id: CD
+
+- type: Tag
+  id: ContractorUplink

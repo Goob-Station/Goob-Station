@@ -17,6 +17,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -34,6 +35,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -51,6 +53,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -69,6 +72,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -90,6 +94,7 @@
   components:
   - type: Action
     checkCanInteract: false
+    raiseOnUser: true
     useDelay: 6
     itemIconStyle: NoItem
     icon:
@@ -113,6 +118,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     useDelay: 10
     itemIconStyle: NoItem
     icon:

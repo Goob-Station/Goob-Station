@@ -164,16 +164,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         if (attemptEv.Cancelled)
             return false;
 
-        // doesn't have any roles that allow heretic abilities
-        // this is mostly a barrier for idiots who want to transfer their brains into heretic bodies.
-        if (_mind.TryGetMind(ent, out var mindId, out var mind)
-        && mind.MindRoles.Where(q => HasComp<HereticRoleComponent>(q)).ToList().Count == 0)
-            return false;
-
         // check if any magic items are worn
-        if (!TryComp<HereticComponent>(ent, out var hereticComp)
-        || !actionComp.RequireMagicItem
-        || hereticComp.Ascended)
+        if (!TryComp<HereticComponent>(ent, out var hereticComp) ||
+            !actionComp.RequireMagicItem || hereticComp.Ascended)
         {
             SpeakAbility(ent, actionComp);
             return true;
