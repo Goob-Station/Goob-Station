@@ -105,6 +105,7 @@
 
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Monitor.Components;
 using Content.Server.Atmos.Monitor.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
@@ -126,6 +127,8 @@ namespace Content.Server.Doors.Systems
         [Dependency] private readonly SharedMapSystem _mapping = default!;
         [Dependency] private readonly PointLightSystem _pointLight = default!;
 
+        private EntityQuery<AtmosAlarmableComponent> _atmosAlarmQuery;
+
         private const int UpdateInterval = 30;
         private int _accumulatedTicks;
 
@@ -134,9 +137,9 @@ namespace Content.Server.Doors.Systems
             base.Initialize();
 
             SubscribeLocalEvent<FirelockComponent, AtmosAlarmEvent>(OnAtmosAlarm);
-
             SubscribeLocalEvent<FirelockComponent, PowerChangedEvent>(PowerChanged);
 
+            _atmosAlarmQuery = GetEntityQuery<AtmosAlarmableComponent>();
         }
 
         private void PowerChanged(EntityUid uid, FirelockComponent component, ref PowerChangedEvent args)
@@ -161,6 +164,14 @@ namespace Content.Server.Doors.Systems
             var query = EntityQueryEnumerator<FirelockComponent, DoorComponent>();
             while (query.MoveNext(out var uid, out var firelock, out var door))
             {
+                if (_atmosAlarmQuery.TryComp(uid, out var alarmable)
+                    && alarmable.LastAlarmState == AtmosAlarmType.Danger
+                    && this.IsPowered(uid, EntityManager)
+                    && door.State == DoorState.Open)
+                {
+                    EmergencyPressureStop(uid, firelock, door);
+                }
+
                 // only bother to check pressure on doors that are some variation of closed.
                 if (door.State != DoorState.Closed
                     && door.State != DoorState.Welded
