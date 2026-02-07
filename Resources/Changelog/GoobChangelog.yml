@@ -21046,3 +21046,13 @@ Entries:
       message: Crew sided freeform lawboard
   id: 2384
   time: '2026-02-06T10:30:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: 'Fake heretic gear now has a different sprite '
+    - type: Remove
+      message: >-
+        Fake heretic gear variants, crafting recipe, fake mansus grasp and fake
+        book
+  id: 2385
+  time: '2026-02-07T20:20:16.0000000+00:00'
