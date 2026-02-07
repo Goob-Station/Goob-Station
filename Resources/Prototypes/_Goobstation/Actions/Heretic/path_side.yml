@@ -66,12 +66,29 @@
     checkCanInteract: false
     useDelay: 3
     itemIconStyle: NoItem
-    sound:
-      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: space_phase
   - type: InstantAction
     event: !type:EventHereticSpacePhase
+  - type: HereticAction
+    requireMagicItem: true
+
+- type: entity
+  id: ActionMirrorJaunt
+  name: Mirror Walk
+  description: Allows you to traverse invisibly and freely across the station within the realm of the mirror. You can only enter and exit the realm of mirrors when near reflective items and surfaces, such windows or mirrors.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    predicted: false
+    checkCanInteract: false
+    useDelay: 6
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+      state: maid
+  - type: InstantAction
+    event: !type:EventMirrorJaunt
   - type: HereticAction
     requireMagicItem: true

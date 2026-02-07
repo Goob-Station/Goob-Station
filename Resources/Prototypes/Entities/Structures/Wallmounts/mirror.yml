@@ -51,6 +51,7 @@
     interfaces:
       enum.MagicMirrorUiKey.Key:
         type: MagicMirrorBoundUserInterface
+  - type: ReflectiveSurface # Goob
 
 - type: entity
   parent: Mirror

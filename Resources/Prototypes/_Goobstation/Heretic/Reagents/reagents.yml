@@ -146,6 +146,7 @@
           effectProto: StatusEffectCrucibleSoulCooldown
           invert: true
         - !type:ReagentThreshold
+          reagent: CrucibleSoul
           min: 5
         effectProto: StatusEffectCrucibleSoul
         time: 40
@@ -171,6 +172,7 @@
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
         - !type:ReagentThreshold
+          reagent: DuskAndDawn
           min: 5
         effectProto: StatusEffectDuskAndDawn
         time: 90
@@ -202,6 +204,7 @@
           effectProto: StatusEffectWoundedSoldierCooldown
           invert: true
         - !type:ReagentThreshold
+          reagent: WoundedSoldier
           min: 5
         effectProto: StatusEffectWoundedSoldier
         time: 60

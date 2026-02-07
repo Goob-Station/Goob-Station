@@ -142,6 +142,7 @@
     damage:
       types:
         Blunt: 100
+  - type: ReflectiveSurface # Goob
 
 - type: entity
   parent: ShardBase

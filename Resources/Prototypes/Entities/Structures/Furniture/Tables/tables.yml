@@ -349,6 +349,7 @@
       collection: FootstepTile
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: CosmicTable
+  - type: ReflectiveSurface # Goob
 
 - type: entity
   id: TableReinforcedGlass
@@ -408,6 +409,7 @@
       collection: FootstepTile
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: CosmicTable
+  - type: ReflectiveSurface # Goob
 
 - type: entity
   id: TablePlasmaGlass
@@ -467,6 +469,7 @@
       collection: FootstepTile
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: CosmicTable
+  - type: ReflectiveSurface # Goob
 
 - type: entity
   id: TableBrass

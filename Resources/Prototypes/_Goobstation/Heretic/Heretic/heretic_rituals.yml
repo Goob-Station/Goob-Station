@@ -505,3 +505,15 @@
     MawedCrucible: 1
 
 ## stage 8
+- type: hereticRitual
+  id: MaidInTheMirror
+  locName: knowledge-path-side-s8-maid-name
+  locDesc: knowledge-path-side-s8-maid-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: maid
+  requiredTags: # TODO: Ritual ingredient refactor
+    SheetGlass: 5
+    Lungs: 1
+  output:
+    MobGhoulMirrorMaid: 1

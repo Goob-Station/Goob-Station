@@ -435,6 +435,18 @@ public sealed partial class EventHereticSpacePhase : InstantActionEvent
     public EntProtoId Effect = "EffectSpaceExplosion";
 }
 
+public sealed partial class EventMirrorJaunt : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<PolymorphPrototype> Polymorph = "MirrorJaunt";
+
+    [DataField]
+    public EntProtoId ActionProto = "ActionMirrorJaunt";
+
+    [DataField]
+    public float LookupRange = 1f;
+}
+
 // ascensions
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionAshEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }

@@ -1,0 +1,21 @@
+- type: damageModifierSet
+  id: FireShark
+  coefficients:
+    Heat: 0.25
+    Cold: 0.25
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Cellular: 0.0
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: MirrorMaid
+  coefficients:
+    Blunt: 1.5
+    Slash: 0.75
+    Piercing: 1
+    Heat: 1.5
+    Cold: 0
+    Shock: 0
+  ignoreArmorPierceFlags: All

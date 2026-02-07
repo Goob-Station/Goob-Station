@@ -17,7 +17,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ SimpleMobBase, MobCombat ]
+  parent:
+  - BaseSimpleMob
+  - MobAtmosExposed
+  - MobCombat
+  - MobFlammable
   id: BaseMobGhoul
   abstract: true
   components:
@@ -93,8 +97,26 @@
       NavSmash: !type:Bool
         true
   - type: Targeting
-  - type: Bloodstream
-    maxBleedAmount: 0
+  - type: Climbing
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - TemporaryBlindness
+    - Pacified
+    - StaminaModifier
+    - Flashed
+    - RadiationProtection
+    - Adrenaline
+  - type: FloatingVisuals
+  - type: Body
+    bodyType: Simple
+    prototype: Animal
 
 - type: entity
   parent: BaseMobGhoul
@@ -195,6 +217,98 @@
 
 - type: entity
   parent: [BaseMobGhoul, FlyingMobBase]
+  id: MobGhoulMirrorMaid
+  name: maid in the mirror
+  description: A floating and flowing wisp of chilled air. Glancing at it causes it to shimmer slightly.
+  components:
+  - type: Ghoul
+    spawnOnDeathPrototype: ShardGlass
+    totalHealth: 80
+    ghostRoleName: ghostrole-maid-name
+    ghostRoleDesc: ghostrole-maid-desc
+  - type: Sprite
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: maid
+  - type: GhostRole
+    name: ghostrole-maid-name
+    description: ghostrole-maid-desc
+    mindRoles:
+    - MindRoleGhoul
+  - type: ActionGrant
+    actions:
+    - ActionMirrorJaunt
+  - type: MirrorMaid
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: FlashImmunity
+  - type: NightVision
+    color: aquamarine
+    activateSound: null
+    deactivateSound: null
+  - type: MeleeWeapon
+    animation: WeaponArcPunch
+    soundHit:
+      collection: GlassBreak
+    damage:
+      types:
+        Slash: 10
+        Piercing: 10
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          GlassBreak
+    soundTypes:
+      Heat:
+        collection:
+          MeatLaserImpact
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 25
+        mask:
+          - Opaque # Can go through windows
+        layer:
+          - FlyingMobLayer
+  - type: Body
+    prototype: null
+    gibSound:
+      collection: GlassBreak
+  - type: Reflect # It's a mirror
+    reflectProb: 1
+    reflects:
+      - Energy
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 0
+    damage:
+      types:
+        Blunt: -1
+        Slash: -1
+        Piercing: -1
+        Heat: -1
+        Cold: -1
+        Shock: -1
+        Asphyxiation: -1
+        Bloodloss: -1
+        Caustic: -1
+        Poison: -1
+        Radiation: -1
+        Cellular: -1
+        Holy: -1
+  - type: Insulated
+  - type: Damageable
+    damageContainer: InorganicMetaphysical
+    damageModifierSet: MirrorMaid
+  - type: MovementIgnoreGravity
+
+- type: entity
+  parent: [BaseMobGhoul, FlyingMobBase]
   id: MobGhoulFireShark
   name: fire shark
   description: It is a eldritch dwarf space shark, also known as a fire shark.
@@ -251,6 +365,12 @@
     bloodMaxVolume: 10
     bleedReductionAmount: 0.1
     maxBleedAmount: 0.5
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
 
 - type: entity
   parent:
@@ -356,7 +476,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: InorganicMetaphysical
   - type: HealthExaminable
     examinableTypes:
     - Blunt

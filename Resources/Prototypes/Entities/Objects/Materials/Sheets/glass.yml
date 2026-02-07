@@ -96,6 +96,7 @@
       - SiliconRadiation # Goobstation - Make IPCs take radiation
   - type: StackPrice
     price: 2
+  - type: ReflectiveSurface # Goob
 
 - type: entity
   parent: SheetGlassBase

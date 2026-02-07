@@ -19,6 +19,11 @@
   copyright: "Taken from /tg/station, modified by Aviu00"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic/repulse.ogg"
 
+- files: ["glass_reverse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/glass/glass_reverse.ogg"
+
 - files: ["wail.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"

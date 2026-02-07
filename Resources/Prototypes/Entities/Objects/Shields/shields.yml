@@ -498,6 +498,7 @@
                 SheetGlass:
                   min: 5
                   max: 5
+    - type: ReflectiveSurface # Goob
 
 - type: entity
   name: energy shield

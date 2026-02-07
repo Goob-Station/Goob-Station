@@ -591,3 +591,10 @@
   stage: 8
   actionPrototypes:
   - ActionHereticSpacePhase
+
+- type: hereticKnowledge
+  id: MaidInTheMirror
+  sideKnowledge: true
+  stage: 8
+  ritualPrototypes:
+  - MaidInTheMirror

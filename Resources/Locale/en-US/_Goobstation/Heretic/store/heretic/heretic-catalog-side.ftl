@@ -135,3 +135,12 @@ knowledge-path-side-s8-space-phase-desc =
 
     Grants you Space Phase, a spell that allows you to move freely through space.
     You can only phase in and out when you are in space or outdoor low pressure area like lavaland.
+
+knowledge-path-side-s8-maid-name = Maid in the Mirror
+knowledge-path-side-s8-maid-desc =
+    Within each reflection, lies a gateway into an unimaginable world of colors never seen and people never met.
+    The ascent is glass, and the walls are knives. Each step is blood, if you do not have a guide.
+
+    Allows you to transmute five sheets of glass, any suit with sensors, and a pair of lungs to create a Maid in the Mirror.
+    Maid in the Mirrors are decent combatants that can become incorporeal by phasing in and out of the mirror realm, serving as powerful scouts and ambushers.
+    Their attacks also apply a stack of void chill.

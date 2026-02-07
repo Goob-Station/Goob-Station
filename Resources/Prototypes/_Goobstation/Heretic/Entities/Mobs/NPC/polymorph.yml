@@ -63,6 +63,45 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/gravity_core.rsi
     state: core
+  - type: NightVision
+    color: white
+    activateSound: null
+    deactivateSound: null
+    drawOverlay: false
+  - type: Eye
+    visMask:
+    - Ghost
+    - Normal
+
+- type: entity
+  id: PolymorphMirrorJaunt
+  name: Unknown
+  description: You can't figure out what that is.
+  parent: BaseMobJaunt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Actions
+  - type: ActionsContainer
+  - type: Muted
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/Cores/ice_core.rsi
+    state: core
+  - type: CollectiveMind
+    defaultChannel: MansusLink
+    channels:
+    - MansusLink
+  - type: NightVision
+    color: white
+    activateSound: null
+    deactivateSound: null
+    drawOverlay: false
+  - type: ActionGrant
+    actions:
+    - ActionMirrorJaunt
+  - type: Eye
+    visMask:
+    - Ghost
+    - Normal
 
 # heretic ascend flesh form
 - type: entity

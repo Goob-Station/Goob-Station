@@ -19,6 +19,7 @@ heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this s
 heretic-ability-fail-target-ghoul = Target is ghoul already!
 heretic-ability-fail-target-no-mind = Target has no soul!
 heretic-ability-fail-space-phase-not-space = You must stand in space, or an outdoor area with low pressure!
+heretic-ability-fail-mirror-jaunt-no-mirrors = There are no reflective surfaces nearby!
 
 heretic-cosmic-rune-fail-star-mark = Blocked by star mark!
 heretic-cosmic-rune-fail-unlinked = No linked rune!

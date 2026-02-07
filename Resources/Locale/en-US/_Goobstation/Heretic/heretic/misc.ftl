@@ -50,3 +50,6 @@ mawed-crucible-examine-not-full =
 mawed-crucible-full-message = crucible full!
 mawed-crucible-not-enough-fuel-message = not enough fuel!
 mawed-crucible-flask-full-message = flask is full!
+
+mirror-maid-examine-message-user = {$ent} seems to fade in and out slightly.
+mirror-maid-examine-message-maid = {$user}'s gaze pierces your every being!

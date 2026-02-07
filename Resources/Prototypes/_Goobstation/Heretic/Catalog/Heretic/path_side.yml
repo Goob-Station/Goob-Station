@@ -234,3 +234,19 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+
+- type: listing
+  id: HereticSidePath6Maid
+  name: knowledge-path-side-s8-maid-name
+  description: knowledge-path-side-s8-maid-desc
+  icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: maid }
+  productHereticKnowledge: MaidInTheMirror
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7

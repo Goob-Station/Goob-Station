@@ -90,3 +90,8 @@
   components:
   - type: StatusEffectAlert
     alert: WoundedSoldierCooldown
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ExaminedMirrorMaidStatusEffect
+  name: examined mirror maid
