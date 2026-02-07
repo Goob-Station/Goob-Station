@@ -9,16 +9,12 @@ using Content.Server.Antag.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Zombies;
-using Content.Shared._Lavaland.Chasm;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.CombatMode;
-using Content.Shared.Decals;
 using Content.Shared.Mind;
 using Content.Shared.Shuttles.Components;
-using Content.Shared.Store.Components;
-using Robust.Shared.GameObjects;
 
 namespace Content.Goobstation.Server.Devil.Systems;
 
@@ -75,7 +71,7 @@ public sealed class DevilTransformSystem : EntitySystem
         if (TryComp<ActionsContainerComponent>(uid, out var oldActions) &&
             TryComp<ActionsContainerComponent>(newEntity, out var newActions))
         {
-            _actionContainer.TransferAllActions(uid, newEntity, oldActions, newActions);
+            _actionContainer.TransferAllActionsWithNewAttached(uid, newEntity, newEntity);
 
             // Prevent shutdown systems from trying to remove already-transferred actions
             RemCompDeferred<ActionsContainerComponent>(uid);
@@ -97,17 +93,6 @@ public sealed class DevilTransformSystem : EntitySystem
             Del(uid);
             return;
         }
-
-        ///
-        /// HELP ME GOD HELP ME WHY WONT REMOVE ACTION WORK IVE SPENT LIKE 20 HOURS ON THIS DAY IVE DONE LIKE 10 DIFFERENT ATTEMPS EACH WORSE THAN THE NEXT THERE ARE BANDAIDS ON TOP OF BANDAIDS
-        /// FUCKINGHELPME
-        /// 
-
-        // Copy action entity references from old to new
-        //newComp.JauntActionEntity = comp.JauntActionEntity;
-        //newComp.HellfireActionEntity = comp.HellfireActionEntity;
-        //newComp.ArchFireActionEntity = comp.ArchFireActionEntity;
-       //Dirty(newEntity, newComp);
 
         if (lesser)
         {
@@ -144,9 +129,6 @@ public sealed class DevilTransformSystem : EntitySystem
 
     private void CopyDevilComponents(EntityUid oldUid, EntityUid newUid)
     {
-        // Core components
-        CopyIfExists<StoreComponent>(oldUid, newUid);
-
         // Abilities
         CopyIfExists<DevilAuthorityComponent>(oldUid, newUid);
         CopyIfExists<DevilGripComponent>(oldUid, newUid);

@@ -1,11 +1,12 @@
 <Document>
-  ## Mortality
+<!-- Disabled cause too broken
+ ## Mortality
   <Box>
     [color=#999999][italic]-135 Weight[/italic][/color]
   </Box>
 
   - Grants the target an unlimited amount of self revives.
-
+-->
   ## Weakness
   <Box>
     [color=#999999][italic]-35 Weight[/italic][/color]
@@ -60,7 +61,7 @@
 
   ## Chance
   <Box>
-    [color=#999999][italic]-15 Weight[/italic][/color]
+    [color=#999999][italic]-20 Weight[/italic][/color]
   </Box>
 
   - Grants the contractee a completely random clause. Want to try your luck?
@@ -96,7 +97,7 @@
 
   ## Fear of Clowns
   <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
+    [color=#999999][italic]-15 Weight[/italic][/color]
   </Box>
 
   - Disables the contractees ability to slip.
@@ -117,17 +118,10 @@
 
   ## Buckling
   <Box>
-    [color=#999999][italic]-5 Weight[/italic][/color]
+    [color=#999999][italic]5 Weight[/italic][/color]
   </Box>
 
   - Makes the contractee incapable of being buckled to a chair or bed.
-
-  ## Water
-  <Box>
-    [color=#999999][italic]20 Weight[/italic][/color]
-  </Box>
-
-  - Makes the contractee take considerable damage from water, through both touch and ingestion.
 
   ## Greed
   <Box>
@@ -234,8 +228,8 @@
     [color=#999999][italic]80 Weight[/italic][/color]
   </Box>
 
-  - Turns the contractee into a frog.
-  - This is permanent.
+  - Turns the contractee into a rat.
+  - This lasts 10 minutes. Surviving will return you to normal.
 
   ## Time
   <Box>
@@ -243,4 +237,77 @@
   </Box>
 
   - Kills the contractee after five minutes.
+
+  ## Slaughter
+  <Box>
+    [color=#999999][italic]-200 Weight[/italic][/color]
+  </Box>
+
+  - Gives the contractee a bottle of blood used to summon a slaughter demon.
+
+  ## Mass
+  <Box>
+    [color=#999999][italic]-10 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee unable to be dragged.
+  - Prevents hiding inside containers.
+
+  ## Foreigners
+  <Box>
+    [color=#999999][italic]-10 Weight[/italic][/color]
+  </Box>
+
+  - Allows the contractee to understand and speak all languages.
+
+  ## Intelligence
+  <Box>
+    [color=#999999][italic]5 Weight[/italic][/color]
+  </Box>
+
+  - Permanently lobotomizes the contractee.
+
+  ## Mimes
+  <Box>
+    [color=#999999][italic]-10 Weight[/italic][/color]
+  </Box>
+
+  - Grants the contractee the ability to create an invisible wall.
+
+  ## Diseases
+  <Box>
+    [color=#999999][italic]-15 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee immune to diseases and curses.
+
+  ## Tardiness
+  <Box>
+    [color=#999999][italic]-25 Weight[/italic][/color]
+  </Box>
+
+  - Grants the contractee a slight speed boost.
+
+  ## Weightless
+  <Box>
+    [color=#999999][italic]5 Weight[/italic][/color]
+  </Box>
+
+  - Reduces the contractee’s size significantly.
+  - Prevents them from dragging anything.
+
+  ## Belittling
+  <Box>
+    [color=#999999][italic]10 Weight[/italic][/color]
+  </Box>
+
+  - Greatly increases the contractee’s size.
+  - Changes their footsteps to heavy, booming steps.
+
+  ## Handshakes
+  <Box>
+    [color=#999999][italic]50 Weight[/italic][/color]
+  </Box>
+
+  - Permanently removes both of the contractee’s arms.
 </Document>

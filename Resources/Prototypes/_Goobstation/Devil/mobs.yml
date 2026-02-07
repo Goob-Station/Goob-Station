@@ -76,6 +76,15 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: Store
+    categories:
+    - DevilAbilities
+    currencyWhitelist:
+    - SoulsStored
 
 - type: entity
   name: archdevil
@@ -186,6 +195,16 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+
+  - type: Store
+    categories:
+    - DevilAbilities
+    currencyWhitelist:
+    - SoulsStored
 
 - type: entity
   name: frog
