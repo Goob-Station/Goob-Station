@@ -1115,11 +1115,8 @@
   name: toy blade
   description: A plastic yellow crescent blade, decorated with an ornamental eye. You feel like you're being watched...
   components:
-  - type: Construction
-    graph: ToyBlades
-    node: start
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/eldritch_blade.rsi
+    sprite: _Goobstation/Heretic/Blades/eldrich_blade-toy.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.5
@@ -1131,6 +1128,6 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Small
-    sprite: _Goobstation/Heretic/Blades/eldritch_blade-inhands.rsi
+    sprite: _Goobstation/Heretic/Blades/eldrich_blade-toy-inhands.rsi
 
 
