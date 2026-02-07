@@ -21040,3 +21040,9 @@ Entries:
       message: Bladed flatcap variants
   id: 2383
   time: '2026-02-05T13:02:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Crew sided freeform lawboard
+  id: 2384
+  time: '2026-02-06T10:30:27.0000000+00:00'
