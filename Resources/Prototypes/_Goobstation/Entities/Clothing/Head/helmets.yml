@@ -310,6 +310,30 @@
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetDragon
+  name: dragon hood
+  description: Fireball spewing not included.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/dragonhood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/dragonhood.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.95
+  - type: FireProtection
+    reduction: 0.2
+  - type: FactionClothing
+    faction: Dragon
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetInquisitor
   name: inquisitor cap
   description: A majestic gilded cap. The personification of the punishment that will befall heretics!
