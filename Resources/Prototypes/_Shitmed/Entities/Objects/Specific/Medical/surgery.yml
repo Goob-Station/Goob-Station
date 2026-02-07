@@ -302,16 +302,27 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Hemostat
+    speed: 0.7
   - type: Scalpel
+    speed: 0.7
   - type: Drill
+    speed: 0.7
   - type: BoneSetter
+    speed: 0.7
   - type: Retractor
+    speed: 0.7
   - type: Cautery
+    speed: 0.7
   - type: BoneGel
+    speed: 0.7
   - type: BoneSaw
+    speed: 0.7
   - type: Tweezers
+    speed: 0.7
   - type: Tending
+    speed: 0.7
   - type: Stitches
+    speed: 0.7
 
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]
