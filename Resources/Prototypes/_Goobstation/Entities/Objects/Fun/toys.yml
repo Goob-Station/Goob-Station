@@ -1078,36 +1078,6 @@
   id: EvilPlushiePasha
   suffix: Evil
 
-- type: entity
-  parent: BaseItem
-  id: ToyMansusGrasp
-  name: green grasp
-  description: The power of the Prank Gods, channeled through your grip. Security won't appreciate the prank.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Heretic/mansus_grasp.rsi
-    state: icon
-  - type: MeleeWeapon
-    attackRate: 1.5
-    angle: 0
-    animation: WeaponArcThrust
-    wideAnimationRotation: 90
-    damage:
-      types:
-        Blunt: 0
-    soundHit:
-      path: /Audio/Items/welder.ogg
-  - type: Item
-    size: Small
-    sprite: _Goobstation/Heretic/mansus_grasp.rsi
-  - type: UseDelay
-    delay: 1.5
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/welder.ogg
-  - type: Construction
-    graph: ToyMansusGrasp
-    node: toymansusgrasp
 
 - type: entity
   parent: BaseItem
