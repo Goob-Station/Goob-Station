@@ -30,8 +30,8 @@ public sealed partial class DoodonMachineComponent : Component
     [DataField]
     public DoodonHousingType ProducedHousing = DoodonHousingType.None;
 
-    public bool Processing;
-    public float Accumulator;
+    public bool Processing = false;
+    public float Accumulator = 0f;
 
     [DataField]
     public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/_Goobstation/Doodon/lancer_splat.ogg");

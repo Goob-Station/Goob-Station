@@ -36,8 +36,6 @@ public sealed class DoodonBuildSystem : EntitySystem
         if (!TryComp<DoodonBuilderComponent>(performer, out var builder))
             return;
 
-        _popup.PopupEntity("OnPlaceWorld fired", performer, performer);
-
         var selected = builder.GetSelected();
         if (selected is null)
         {
@@ -67,10 +65,15 @@ public sealed class DoodonBuildSystem : EntitySystem
         args.Handled = true;
 
         var nameOk = _proto.TryIndex<EntityPrototype>(selected.Value, out var pOk)
-            ? pOk.Name
-            : selected.Value.ToString();
+          ? pOk.Name
+          : selected.Value.ToString();
 
-        _popup.PopupEntity(cost > 0 ? $"Built {nameOk} (-{cost} resin)." : $"Built {nameOk}.", performer, performer);
+        var message = Loc.GetString(
+            "doodon-build-success",
+            ("name", nameOk),
+            ("cost", cost));
+
+        _popup.PopupEntity(message, performer, performer);
     }
 
     private bool InRange(EntityUid user, EntityCoordinates target, float range)

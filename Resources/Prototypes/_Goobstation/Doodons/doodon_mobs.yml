@@ -5,6 +5,7 @@
   components:
   - type: MobState
   - type: Damageable
+  - type: Hands
   - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
     speaks:
     - Doodon
@@ -143,7 +144,6 @@
       0: Alive
       100: Critical
       150: Dead
-  - type: Hands
   - type: Sericulture
     entityProduced: MaterialDoodonResin1
     action: ActionDoodonResin
@@ -242,7 +242,6 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-  - type: Hands
   - type: Cuffable # Arrest the doodon
   - type: Sericulture
     entityProduced: MaterialDoodonResin1
@@ -328,7 +327,6 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-  - type: Hands     # Equip Them With swords and shields
   - type: Cuffable # Arrest the doodon
   - type: DoodonWarrior
   - type: NpcFactionMember
@@ -379,8 +377,6 @@
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
     state: moodon
     drawdepth: SmallMobs
-  - type: Puller
-    needsHands: false
   - type: Doodon
     requiredHousing: Moodon
     countsTowardPopulation: false      # Moodons are cattle, and do not count towards city population. They do still require pastures though

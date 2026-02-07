@@ -7,17 +7,14 @@
     icon:
       sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
       state: worker
-
   - type: NumberObjective
     min: 9
     max: 12
     title: papa-objective-keep-workers-alive-title
     description: papa-objective-keep-workers-alive-desc
-
   - type: KeepWorkersAliveCondition
     workerPrototype: WorkerDoodon
-    
-    
+     
 - type: entity
   id: PapaBuildBuildingsObjective
   components:
@@ -27,12 +24,10 @@
     icon:
       sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
       state: dwelling
-
   - type: NumberObjective
     min: 13
     max: 17
     title: papa-objective-build-buildings-title
     description: papa-objective-build-buildings-desc
-
   - type: BuildBuildingsCondition
     

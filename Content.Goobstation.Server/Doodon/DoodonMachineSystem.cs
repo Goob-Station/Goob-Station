@@ -36,15 +36,7 @@ public sealed class DoodonMachineSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<DoodonMachineComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<DoodonMachineComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<DoodonMachineComponent, ExaminedEvent>(OnExamined);
-    }
-
-    private void OnMapInit(EntityUid uid, DoodonMachineComponent machine, ref MapInitEvent args)
-    {
-        machine.InitialSpawnDone = false;
-        machine.Processing = false;
-        machine.Accumulator = 0f;
     }
 
     public override void Update(float frameTime)
