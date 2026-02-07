@@ -33,7 +33,7 @@ public sealed class DoodonWorkerHallAnchorSystem : EntitySystem
                 continue;
 
             // If hall is feral, clear follow anchor so they don’t leash back in
-            if (TryComp<DoodonTownHallFeralComponent>(hallUid, out var feral) && feral.Feral)
+            if (HasComp<DoodonTownHallFeralComponent>(hallUid))
             {
                 _npc.SetBlackboard(uid, NPCBlackboard.FollowTarget, default(EntityCoordinates));
                 continue;

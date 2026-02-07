@@ -227,10 +227,7 @@ public sealed class DoodonTownHallSystem : EntitySystem
         var connectedBuildings = 0;
         foreach (var b in comp.Buildings)
         {
-            if (Deleted(b))
-                continue;
-
-            if (!TryComp<DoodonBuildingComponent>(b, out var building))
+            if (Deleted(b) || !TryComp<DoodonBuildingComponent>(b, out var building))
                 continue;
 
             if (!building.Active)

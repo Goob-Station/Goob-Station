@@ -32,10 +32,7 @@ public sealed class PapaDoodonDeathFeralSystem : EntitySystem
             return;
 
         EnsureComp<DoodonTownHallFeralComponent>(hallUid, out var feral);
-        if (feral.Feral)
-            return;
 
-        feral.Feral = true;
         Dirty(hallUid, feral);
 
         if (!TryComp<DoodonTownHallComponent>(hallUid, out var hall))

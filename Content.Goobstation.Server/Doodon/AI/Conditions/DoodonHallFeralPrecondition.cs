@@ -24,9 +24,6 @@ public sealed partial class DoodonHallFeralPrecondition : HTNPrecondition
         if (doodon.TownHall is not { } hallUid)
             return false;
 
-        if (!entMan.TryGetComponent(hallUid, out DoodonTownHallFeralComponent? feral))
-            return false;
-
-        return feral.Feral == Feral;
+        return entMan.HasComponent<DoodonTownHallFeralComponent>(hallUid);
     }
 }
