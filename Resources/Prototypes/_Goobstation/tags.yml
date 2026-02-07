@@ -796,19 +796,7 @@
   id: Crate
 
 - type: Tag
-  id: GreenGloves
-
-- type: Tag
-  id: WaterBottle
-
-- type: Tag
-  id: IceBucket
-
-- type: Tag
-  id: HereticCostume
-  
-- type: Tag
-  id: VinylSleeveFit  
+  id: VinylSleeveFit
 
 - type: Tag
   id: CD
