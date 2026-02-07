@@ -119,3 +119,59 @@
     maxDelay: 10
   - type: InstantAction
     event: !type:MegafaunaProjectileFlurryEvent
+
+- type: entity
+  id: ActionOniHandFarSide
+  parent: ActionBaseBanana
+  name: Far Side Hand
+  description: Spawns a demonic hand far to the left or right of the target.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 3
+    maxDelay: 8
+  - type: WorldTargetAction
+    event: !type:SpawnFarSideHandEvent
+
+- type: entity
+  id: ActionOniHandCloseSide
+  parent: ActionBaseBanana
+  name: Close Side Hand
+  description: Spawns a demonic hand close to the left or right of the target.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 2
+    maxDelay: 6
+  - type: WorldTargetAction
+    event: !type:SpawnCloseSideHandEvent
+
+- type: entity
+  id: ActionOniHandFarBarrage
+  parent: ActionBaseBanana
+  name: Far Hand Barrage
+  description: Spawns multiple demonic hands at long range from random directions.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 6
+    maxDelay: 10
+  - type: WorldTargetAction
+    event: !type:SpawnFarBarrageEvent
+
+- type: entity
+  id: ActionOniHandCloseBarrage
+  parent: ActionBaseBanana
+  name: Close Hand Barrage
+  description: Spawns multiple demonic hands close to the target from random directions.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 5
+    maxDelay: 10
+  - type: WorldTargetAction
+    event: !type:SpawnCloseBarrageEvent

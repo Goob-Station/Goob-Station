@@ -6,7 +6,7 @@
   - type: InteractionOutline
   - type: Sprite
     sprite: _Lavaland/Effects/96x96.rsi
-    state: oni-hand
+    state: oni-hand-right
     drawdepth: Effects
     noRot: false
   - type: Physics
@@ -16,7 +16,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1, -1, 1, 1"
+          bounds: "-0.5, -0.8, 0.8, 0.8"
         density: 10000
         mask:
         - LargeMobMask
@@ -28,7 +28,7 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: PointLight
-    radius: 6
+    radius: 8
     energy: 2
     color: Orange
     castShadows: true
@@ -41,65 +41,96 @@
       types:
         Structural: 3000
         Heat: 25
-  - type: Spiraling
-    spiralOutwards: true
-    spiralSpeed: 0.2
-    spiralAcceleration: 1.2
-    spiralDistance: 8
-    spiralMaxSpeed: 10
-    deleteOnEnd: true
 
 - type: entity
+  id: BananaOniHandRight
   parent: BananaOniHand
-  id: BananaOniHandCircle
-  suffix: circle
+  suffix: Right
   components:
-  - type: Spiraling
-    spiralOutwards: false
-    spiralSpeed: 0.2
-    spiralAcceleration: 1.4
-    spiralDistance: 10
-    spiralMaxSpeed: 10
+  - type: FadingIn
+    fadeInTime: 2
+  - type: DirectionalMovement
+    direction: 1,0
+    initialSpeed: 0.1
+    acceleration: 4
+    maxSpeed: 30
+    maxDistance: 50
     deleteOnEnd: true
-
-# Fuck it
-#- type: entity 
-#  id: BananaSpawnArea # For some reason the first object to get spawned doesn't render so I'm doing this for now.
-#  components:
-#  - type: InteractionOutline
-#  - type: Sprite
-#    sprite: _Lavaland/Effects/32x32.rsi
-#    state: oni-marker
-#    drawdepth: Effects
-#    noRot: true
-#  - type: TimedDespawn
-#    lifetime: 1.1
-#  - type: Timer
-#  - type: TimedSpawner
-#    prototypes:
-#      - BananaSpawnIndicator
-#    intervalSeconds: 1
-#    minimumEntitiesSpawned: 1
-#    maximumEntitiesSpawned: 1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05
 
 - type: entity
-  id: BananaSpawnIndicator
-  name: Cursed mark
-  description: Something dangerous is about to come out of this!
+  id: BananaOniHandLeft
+  parent: BananaOniHand
+  suffix: Left
   components:
-  - type: InteractionOutline
   - type: Sprite
-    sprite: _Lavaland/Effects/32x32.rsi
-    state: oni-marker
+    sprite: _Lavaland/Effects/96x96.rsi
+    state: oni-hand-left
     drawdepth: Effects
-    noRot: true
-  - type: TimedDespawn
-    lifetime: 1.1
-  - type: Timer
-  - type: TimedSpawner
-    prototypes:
-      - BananaOniHand
-    intervalSeconds: 1
-    minimumEntitiesSpawned: 1
-    maximumEntitiesSpawned: 1
+    noRot: false
+  - type: FadingIn
+    fadeInTime: 2
+  - type: DirectionalMovement
+    direction: -1,0
+    initialSpeed: 0.1
+    acceleration: 4
+    maxSpeed: 30
+    maxDistance: 50
+    deleteOnEnd: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05
 
+- type: entity
+  id: BananaOniHandUp
+  parent: BananaOniHand
+  suffix: Up
+  components:
+  - type: FadingIn
+    fadeInTime: 2
+  - type: DirectionalMovement
+    direction: 0,1
+    initialSpeed: 0.1
+    acceleration: 4
+    maxSpeed: 30
+    maxDistance: 20
+    deleteOnEnd: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05
+
+- type: entity
+  id: BananaOniHandDown
+  parent: BananaOniHand
+  suffix: Down
+  components:
+  - type: FadingIn
+    fadeInTime: 2
+  - type: DirectionalMovement
+    direction: 0,-1
+    initialSpeed: 0.1
+    acceleration: 4
+    maxSpeed: 30
+    maxDistance: 20
+    deleteOnEnd: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05

@@ -52,3 +52,44 @@
     lifetime: 16
     fadeOutTime: 2
 
+- type: entity
+  id: BananaSmallSkullSpiral
+  parent: BananaSmallSkullTemporary
+  components:
+  - type: FadingIn
+    fadeInTime: 2
+  - type: Spiraling
+    spiralOutwards: true
+    spiralSpeed: 0.2
+    spiralAcceleration: 1.2
+    spiralDistance: 8
+    spiralMaxSpeed: 10
+    deleteOnEnd: true
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - BananaSmallSkullTemporary
+    intervalSeconds: 0.2
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: BananaSpawnIndicator
+  name: Cursed mark
+  description: Something dangerous is about to come out of this!
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/32x32.rsi
+    state: oni-marker
+    drawdepth: Effects
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - BananaSmallSkullSpiral
+    intervalSeconds: 0.5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1

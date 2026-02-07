@@ -81,6 +81,8 @@
     - ActionFlamingSlash
     - ActionClawSlash
     - ActionFlurryOfSlashes
+    - ActionOniHandFarSide
+    - ActionOniHandFarBarrage
   - type: Fauna
   - type: Anger
     totalHp: 2600
@@ -152,6 +154,7 @@
         - HumanoidAppearance
     chaseNow: true
     movementSpeed: 7
+  - type: MegafaunaDirectionalSpawn
   - type: MegafaunaAnchor
   - type: MegafaunaGodmode
   - type: MegafaunaRejuvenate

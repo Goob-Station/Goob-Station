@@ -16,3 +16,19 @@ public sealed partial class RingOfFireEvent : InstantActionEvent
 }
 
 public sealed partial class MegafaunaProjectileFlurryEvent : InstantActionEvent;
+
+public sealed partial class SpawnFarSideHandEvent : WorldTargetActionEvent
+{
+}
+
+public sealed partial class SpawnCloseSideHandEvent : WorldTargetActionEvent
+{
+}
+
+public sealed partial class SpawnFarBarrageEvent : WorldTargetActionEvent
+{
+}
+
+public sealed partial class SpawnCloseBarrageEvent : WorldTargetActionEvent
+{
+}
