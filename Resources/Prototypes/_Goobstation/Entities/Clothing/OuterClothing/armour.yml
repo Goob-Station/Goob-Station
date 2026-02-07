@@ -515,6 +515,33 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
 
 - type: entity
+  parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
+  id: ClothingOuterArmorDragon
+  name: dragon suit
+  description: The scales were ethically sourced, promise.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/dragonsuit.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/dragonsuit.rsi
+  - type: ToggleableClothing
+    stripDelay: null
+    clothingPrototypes:
+      head: ClothingHeadHatHelmetDragon
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.8
+
+- type: entity
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorInquisitor
   name: inquisitor armor
