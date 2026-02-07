@@ -55,3 +55,6 @@ chat-language-Doodon-name = Doodon
 language-Doodon-description = A language made up of a series of Do's, sentences end with don.
 
 doodon-build-success = Built { $name } (-{ $cost } resin).
+
+doodon-show-town-hall = Showing town hall radius.
+doodon-hide-town-hall = Hiding town hall radius.

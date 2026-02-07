@@ -70,7 +70,7 @@ public sealed class PapaDoodonDeathFeralSystem : EntitySystem
             {
                 // Workers become hostile via faction system
                 _factions.ClearFactions(d);
-                _factions.AddFaction(d, "DoodonFeral");
+                _factions.AddFaction(d,"DoodonFeral");
             }
 
             // Force HTN refresh

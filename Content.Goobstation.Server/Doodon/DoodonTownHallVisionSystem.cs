@@ -56,7 +56,7 @@ public sealed class DoodonTownHallVisionSystem : EntitySystem
         Dirty(uid, comp);
 
         _popup.PopupEntity(
-            comp.ShowTownHallRadius ? "Showing Town Hall influence." : "Hiding Town Hall influence.",
+            comp.ShowTownHallRadius ? Loc.GetString("doodon-show-town-hall") : Loc.GetString("doodon-hide-town-hall"),
             uid, uid);
     }
 }
