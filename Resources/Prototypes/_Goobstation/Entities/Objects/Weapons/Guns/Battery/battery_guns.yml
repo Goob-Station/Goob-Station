@@ -186,7 +186,7 @@
   - type: MagazineVisuals
     magState: mag
     steps: 5
-    zeroVisible: false
+    zeroVisible: true
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 100
