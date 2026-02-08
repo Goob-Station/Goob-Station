@@ -14432,8 +14432,6 @@ entities:
       pos: 25.5,-29.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 17322
   - uid: 20831
@@ -76967,8 +76965,6 @@ entities:
       pos: 3.5,-52.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1001
 - proto: FirelockEdge
@@ -78350,8 +78346,6 @@ entities:
       pos: 3.5,-47.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1001
   - uid: 27068
@@ -110249,8 +110243,6 @@ entities:
       pos: 24.5,-28.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 17322
     - type: AtmosPipeColor
@@ -112049,8 +112041,6 @@ entities:
       pos: 24.5,-30.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 17322
     - type: AtmosPipeColor
