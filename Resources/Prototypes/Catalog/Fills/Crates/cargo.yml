@@ -95,6 +95,17 @@
     - id: SpaceCash
       prob: 0.01
       orGroup: Money
+    # CorvaxGoob-changes-start:
+    - id: SpaceCashCounterfeit
+      prob: 0.01
+      orGroup: Money
+    - id: SpaceCashCounterfeit10
+      prob: 0.05
+      orGroup: Money
+    - id: SpaceCashCounterfeit50
+      prob: 0.1
+      orGroup: Money
+    # CorvaxGoob-changes-end    
     #junk
     - id: CigaretteSpent
       prob: 0.1
@@ -126,6 +137,98 @@
     - id: TrashBananiumPeel
       prob: 0.1
       orGroup: Junk
+    # CorvaxGoob-changes-start:
+    - id: ShardCrystalRandom
+      prob: 0.1
+      orGroup: Junk
+    - id: ShardGlassClockwork
+      prob: 0.1
+      orGroup: Junk
+    - id: FoodCakeSuppermatterSlice
+      prob: 0.01
+      orGroup: Junk
+    - id: WeaponMeleeNeedle
+      prob: 0.1
+      orGroup: Junk
+    - id: AugmentPowerCellSlotCables
+      prob: 0.05
+      orGroup: Junk
+    - id: ScrapFirelock3
+      prob: 0.1
+      orGroup: Junk
+    - id: ScrapPAIGold
+      prob: 0.1
+      orGroup: Junk
+    - id: PaperScrap
+      prob: 0.1
+      orGroup: Junk
+    - id: CowToolbox
+      prob: 0.09
+      orGroup: Junk
+    - id: CowToolboxFilled
+      prob: 0.06
+      orGroup: Junk
+    - id: PaperAcquisitionSlipService
+      prob: 0.1
+      orGroup: Junk
+    - id: FoodSnackLollypopTrash
+      prob: 0.1
+      orGroup: Junk
+    - id: ParcelWrap
+      prob: 0.1
+      orGroup: Junk
+    - id: Garbage
+      prob: 0.1
+      orGroup: Junk
+    - id: TrashCherryPit
+      prob: 0.1
+      orGroup: Junk
+    - id: ModularGrenade
+      prob: 0.05
+      orGroup: Junk
+    - id: ClothingEyesGlassesBroken
+      prob: 0.1
+      orGroup: Junk
+    - id: DrinkBottleVodka
+      prob: 0.1
+      orGroup: Junk
+    - id: Ash
+      prob: 0.1
+      orGroup: Junk
+    - id: Ashtray
+      prob: 0.1
+      orGroup: Junk
+    - id: MobMouseDead
+      prob: 0.1
+      orGroup: Junk
+    - id: ClothingOuterVestTank
+      prob: 0.1
+      orGroup: Junk
+    - id: ScrapIntercom
+      prob: 0.1
+      orGroup: Junk
+    - id: ScrapMedkit
+      prob: 0.1
+      orGroup: Junk
+    - id: ScrapCamera
+      prob: 0.1
+      orGroup: Junk
+    - id: BrokenEnergyShield
+      prob: 0.05
+      orGroup: Junk
+    - id: VinylDiskBroken
+      prob: 0.1
+      orGroup: Junk
+    - id: ScrapCanister1
+      prob: 0.1
+      orGroup: Junk
+    - id: ScrapGeneratorFuelTank
+      prob: 0.1
+      orGroup: Junk
+    - id: ScrapAirlock1
+      prob: 0.1
+      orGroup: Junk
+    # CorvaxGoob-changes-end
     #canisters
     - id: AirCanister
       prob: 0.001
@@ -157,6 +260,20 @@
     - id: WaterVaporCanister
       prob: 0.001
       orGroup: Canister
+    # CorvaxGoob-changes-start:
+    - id: HealiumCanister
+      prob: 0.0007
+      orGroup: Canister
+    - id: PluoxiumCanister
+      prob: 0.001
+      orGroup: Canister
+    - id: BZCanister
+      prob: 0.0007
+      orGroup: Canister
+    - id: GasCanisterBrokenBase
+      prob: 0.01
+      orGroup: Canister
+    # CorvaxGoob-changes-end
     #weapons
     - id: VehicleClowncarAntag #Goobstation - Clowncar
       prob: 0.01
@@ -221,12 +338,134 @@
     - id: WeaponRifleFoam
       prob: 0.03
       orGroup: Weapons
+# CorvaxGoob-changes-start:
+    - id: WeaponSniperUncleStyopa
+      prob: 0.0001
+      orGroup: Weapons
+    - id: ScalpelShiv
+      prob: 0.05
+      orGroup: Weapons
+    - id: UraniumShiv
+      prob: 0.05
+      orGroup: Weapons
+    - id: IncompleteBaseBallBat
+      prob: 0.05
+      orGroup: Weapons
+    - id: WeaponMechCombatFiredartLaser
+      prob: 0.0006
+      orGroup: Weapons
+    - id: WeaponLauncherTaiwanPond
+      prob: 0.01
+      orGroup: Weapons
+    - id: WeaponTurretAllHostile
+      prob: 0.005
+      orGroup: Weapons
+    - id: ToolboxSyndicate
+      prob: 0.001
+      orGroup: Weapons
+    - id: ToolboxElectricalTurretFilled
+      prob: 0.0003
+      orGroup: Weapons
+    - id: EnergyScalpelAbductor
+      prob: 0.005
+      orGroup: Weapons
+    - id: Chainsaw
+      prob: 0.05
+      orGroup: Weapons
+    - id: WeaponCrusherHammerFilledRandom
+      prob: 0.008
+      orGroup: Weapons
+    - id: HisGrace
+      prob: 0.0001
+      orGroup: Weapons
+    - id: WeaponDislippler
+      prob: 0.0008
+      orGroup: Weapons
+    - id: Stunprod
+      prob: 0.01
+      orGroup: Weapons
+    - id: WeaponDisabler
+      prob: 0.001
+      orGroup: Weapons
+    - id: WeaponDisablerPractice
+      prob: 0.01
+      orGroup: Weapons
+    - id: GrenadeDummy
+      prob: 0.007
+      orGroup: Weapons
+    - id: CleanerGrenade
+      prob: 0.007
+      orGroup: Weapons
+    - id: GlueGrenade
+      prob: 0.003
+      orGroup: Weapons
+    - id: WeaponRevolverDeckard
+      prob: 0.001
+      orGroup: Weapons
+    - id: WeaponProtoKineticAcceleratorSpace
+      prob: 0.01
+      orGroup: Weapons
+    - id: WeaponProtoKineticRepeater
+      prob: 0.005
+      orGroup: Weapons
+    - id: EnergySword
+      prob: 0.0001
+      orGroup: Weapons
+    - id: BananiumSword
+      prob: 0.005
+      orGroup: Weapons
+    - id: ThrowingKnivesKit
+      prob: 0.001
+      orGroup: Weapons
+    - id: ThrowingKnife
+      prob: 0.003
+      orGroup: Weapons
+    - id: GrenadeToy
+      prob: 0.01
+      orGroup: Weapons
+    - id: RubberPig
+      prob: 0.01
+      orGroup: Weapons
+    - id: ClothingHandsKnuckleDusters
+      prob: 0.005
+      orGroup: Weapons
+    - id: ClothingHandsKnuckleDustersBrass
+      prob: 0.005
+      orGroup: Weapons
+    - id: ClothingHandsKnuckleDustersSyndicate
+      prob: 0.001
+      orGroup: Weapons
+    - id: SpearTelescopic
+      prob: 0.003
+      orGroup: Weapons
+    - id: SpearSharkMinnow
+      prob: 0.01
+      orGroup: Weapons
+    - id: Terminus
+      prob: 0.005
+      orGroup: Weapons
+    - id: SyringePistol
+      prob: 0.005
+      orGroup: Weapons
+    - id: WeaponParticleDecelerator
+      prob: 0.01
+      orGroup: Weapons
+    - id: KnifePlastic
+      prob: 0.01
+      orGroup: Weapons
+    - id: BarberScissors
+      prob: 0.01
+      orGroup: Weapons
+    - id: ClothingBeltSheathFilled
+      prob: 0.001
+      orGroup: Weapons
+    - id: SawElectric
+      prob: 0.01
+      orGroup: Weapons
+# CorvaxGoob-changes-end
     #clothing
     - id: ClothingUniformJumpsuitFamilyGuy
       prob: 0.05
-      orGroup: Clothes
-    - id: ClothingBackpackDuffelSalvageSCAF # Corvax-Goob SCAF
-      prob: 0.01
       orGroup: Clothes
     - id: ClothingOuterHardsuitCBURN
       prob: 0.001
@@ -294,6 +533,164 @@
     - id: ClothingShoesWizardSkates #GoobStation - Wizzard Skates
       prob: 0.001
       orGroup: Clothes
+# CorvaxGoob-changes-start:
+    - id: ClothingBackpackDuffelSalvageSCAF
+      prob: 0.003
+      orGroup: Clothes
+    - id: ClothingOuterRobesJudge
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingHeadHatPwig
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingUniformJumpsuitResonant
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingUniformJumpskirtSecGrey
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingHeadHatUshankaBlueshield
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingOuterArmorBasicSlim
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingOuterHardsuitPirateCap
+      prob: 0.001
+      orGroup: Clothes
+    - id: ClothingOuterCoatAMG
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingHeadHelmetPodWars
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingBeltMilitaryWebbingCMO
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingShoesBootsSalvage
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingUniformJumpsuitHawaiBlue
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingUniformJumpsuitHawaiRed
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingShoesBootsMagEmergencyResponseTeam
+      prob: 0.002
+      orGroup: Clothes
+    - id: ClothingMaskGasSwat
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingMaskGasSyndicate
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingBeltSuspendersBlack
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingBeltSuspendersRed
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingOuterArmorScrap
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingHeadHelmetScrap
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingEyesGlassesSunglasses
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingShoeSlippersDuck
+      prob: 0.007
+      orGroup: Clothes
+    - id: ClothingShoeSlippersLizard
+      prob: 0.007
+      orGroup: Clothes
+    - id: ClothingShoesSlippers
+      prob: 0.007
+      orGroup: Clothes
+    - id: ClothingNeckCloakCentcom
+      prob: 0.007
+      orGroup: Clothes
+    - id: BoxPerformer
+      prob: 0.007
+      orGroup: Clothes
+    - id: ClothingNeckCloakWeb
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingNeckCloakHelldiver
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingUniformEnvirosuitColorWhite
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingOuterBioGeneral
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingOuterSuitAtmosFire
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingModsuitCaptain
+      prob: 0.001
+      orGroup: Clothes
+    - id: ClothingModsuitResponsoryJanitorial
+      prob: 0.0005
+      orGroup: Clothes
+    - id: ClothingBackpackMessengerHolding
+      prob: 0.001
+      orGroup: Clothes
+    - id: ClothingBackpackSatchelSmugglerUnanchored
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingUniformJumpsuitLawyerGood
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingHeadsetRD
+      prob: 0.003
+      orGroup: Clothes
+    - id: ClothingUniformJumpsuitFlannel
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingOuterFlannelGreen
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingOuterFlannelRed
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingNeckMantle
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingNeckMantleCMO
+      prob: 0.003
+      orGroup: Clothes
+    - id: ClothingNeckMantleERTLeader
+      prob: 0.001
+      orGroup: Clothes
+    - id: ClothingHeadHatHoodMoth
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingMaskMime
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingMaskMimeSecurity
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingMaskBear
+      prob: 0.01
+      orGroup: Clothes
+    - id: ClothingHeadHatSlasherMask
+      prob: 0.001
+      orGroup: Clothes
+    - id: ClothingEyesGlassesMedDiag
+      prob: 0.007
+      orGroup: Clothes
+    - id: ClothingEyesHudMedSec
+      prob: 0.005
+      orGroup: Clothes
+    - id: ClothingEyesHudMedOnion
+      prob: 0.003
+      orGroup: Clothes
+# CorvaxGoob-changes-end
     #swag
     - id: ClothingNeckBling
       prob: 0.01
@@ -334,6 +731,44 @@
     - id: ClothingBeltChampion
       prob: 0.01
       orGroup: Swag
+    # CorvaxGoob-changes-start:
+    - id: ClothingUniformJumpsuitChameleon
+      prob: 0.0001
+      orGroup: Swag
+    - id: DiamondOre
+      prob: 0.001
+      orGroup: Swag
+    - id: GoldenPersonalAI
+      prob: 0.01
+      orGroup: Swag
+    - id: ClothingHeadHelmetGoldenMusician
+      prob: 0.001
+      orGroup: Swag
+    - id: ClothingHandsGlovesHeavyGoldenTrim
+      prob: 0.01
+      orGroup: Swag
+    - id: GoldSlimeExtract
+      prob: 0.005
+      orGroup: Swag
+    - id: GoldenPlunger
+      prob: 0.01
+      orGroup: Swag
+    - id: ClothingHeadHatFancyCrown
+      prob: 0.01
+      orGroup: Swag
+    - id: ClothingEyesHudFriedOnion
+      prob: 0.01
+      orGroup: Swag
+    - id: ClothingEyesHudOnionBeer
+      prob: 0.01
+      orGroup: Swag
+    - id: MaterialDiamond1
+      prob: 0.005
+      orGroup: Swag
+    - id: MaterialDiamond
+      prob: 0.001
+      orGroup: Swag
+    # CorvaxGoob-changes-end
     #plushies
     - id: PlushieRGBee
       prob: 0.01
@@ -374,6 +809,32 @@
     - id: PlushieThrongler #hehe
       prob: 0.0005
       orGroup: Plushies
+    # CorvaxGoob-changes-start:
+    - id: PlushieBingleSmall
+      prob: 0.01
+      orGroup: Plushies
+    - id: PlushieBingle
+      prob: 0.005
+      orGroup: Plushies
+    - id: PlushieBongle
+      prob: 0.005
+      orGroup: Plushies
+    - id: PlushieAbductor
+      prob: 0.005
+      orGroup: Plushies
+    - id: PlushieHolocarp
+      prob: 0.01
+      orGroup: Plushies
+    - id: PlushieTheHolyCrusader
+      prob: 0.01
+      orGroup: Plushies
+    - id: PlushieSpaceLizard
+      prob: 0.01
+      orGroup: Plushies
+    - id: PlushieNuke
+      prob: 0.01
+      orGroup: Plushies
+    # CorvaxGoob-changes-end
     #useful
     - id: AmeJar
       prob: 0.01
@@ -390,9 +851,9 @@
     - id: MechVim
       prob: 0.01
       orGroup: Useful
-    - id: Chainsaw
-      prob: 0.001
-      orGroup: Useful
+#    - id: Chainsaw # CorvaxGoob-changes: migrate to weapon category
+#      prob: 0.001
+#      orGroup: Useful
     - id: Crowbar
       prob: 0.01
       orGroup: Useful
@@ -414,11 +875,211 @@
     - id: LightTree #Funny mobs maybe
       prob: 0.01
       orGroup: Useful
+   # CorvaxGoob-changes-start:
+    - id: SyndicateJawsOfLife
+      prob: 0.005
+      orGroup: Useful
+    - id: JawsOfLife
+      prob: 0.01
+      orGroup: Useful
+    - id: BasicSpaceItalianTranslatorImplanter
+      prob: 0.01
+      orGroup: Useful
+    - id: MindShieldImplanter
+      prob: 0.01
+      orGroup: Useful
+    - id: NekomimeticTranslatorImplanter
+      prob: 0.01
+      orGroup: Useful
+    - id: XenoCompatibilityImplanter
+      prob: 0.005
+      orGroup: Useful
+    - id: RootSpeakTranslatorImplanter
+      prob: 0.01
+      orGroup: Useful
+    - id: TrackingImplanter
+      prob: 0.01
+      orGroup: Useful
+    - id: LightImplanter
+      prob: 0.01
+      orGroup: Useful
+    - id: RadioImplanterCentcomm
+      prob: 0.001
+      orGroup: Useful
+    - id: MacroBombImplanter
+      prob: 0.0001
+      orGroup: Useful
+    - id: ChameleonControllerImplanter
+      prob: 0.001
+      orGroup: Useful
+    - id: NutrimentImplanter
+      prob: 0.001
+      orGroup: Useful
+    - id: SpeedLoaderPistolPractice
+      prob: 0.01
+      orGroup: Useful
+    - id: GorlexMatchbox
+      prob: 0.001
+      orGroup: Useful
+    - id: SpeedLoaderMagnum
+      prob: 0.01
+      orGroup: Useful
+    - id: SprayBottleSilverSulfadiazine
+      prob: 0.01
+      orGroup: Useful
+    - id: SprayBottleStypticPowder
+      prob: 0.01
+      orGroup: Useful
+    - id: DrinkMilkBottleFull
+      prob: 0.01
+      orGroup: Useful
+    - id: CannonBallGlassshot
+      prob: 0.01
+      orGroup: Useful
+    - id: FoodBakedVulpkaninPlate
+      prob: 0.01
+      orGroup: Useful
+    - id: FoodPumpkin
+      prob: 0.01
+      orGroup: Useful
+    - id: CarvedPumpkinLarge
+      prob: 0.001
+      orGroup: Useful
+    - id: CarvedPumpkinSmall
+      prob: 0.001
+      orGroup: Useful
+    - id: CarvedPumpkin
+      prob: 0.01
+      orGroup: Useful
+    - id: BasicCyberneticHeart
+      prob: 0.001
+      orGroup: Useful
+    - id: UpgradedCyberneticLungs
+      prob: 0.001
+      orGroup: Useful
+    - id: OrganDionaLungs
+      prob: 0.01
+      orGroup: Useful
+    - id: OrganXenomorphEyes
+      prob: 0.001
+      orGroup: Useful
+    - id: DiagnosticCyberneticEyes
+      prob: 0.01
+      orGroup: Useful
+    - id: ClothingBeltMilitaryWebbingMedFilled
+      prob: 0.001
+      orGroup: Useful
+    - id: ClothingBeltSecurityWebbingFilled
+      prob: 0.005
+      orGroup: Useful
+    - id: MachineBluespaceHarvesterCircuitboard
+      prob: 0.005
+      orGroup: Useful
+    - id: MaterialBSCrystal1
+      prob: 0.01
+      orGroup: Useful
+    - id: OreBagOfHolding
+      prob: 0.01
+      orGroup: Useful
+    - id: ConstructionBagOfHolding
+      prob: 0.01
+      orGroup: Useful
+    - id: BanjoInstrument
+      prob: 0.01
+      orGroup: Useful
+    - id: BlueprintSeismicCharge
+      prob: 0.01
+      orGroup: Useful
+    - id: BlueprintFulton
+      prob: 0.01
+      orGroup: Useful
+    - id: BorgModuleCleaning
+      prob: 0.01
+      orGroup: Useful
+    - id: MobCleanBot
+      prob: 0.005
+      orGroup: Useful
+    - id: GygaxCentralElectronics
+      prob: 0.001
+      orGroup: Useful
+    - id: GygaxPeripheralsElectronics
+      prob: 0.001
+      orGroup: Useful
+    - id: GygaxTargetingElectronics
+      prob: 0.001
+      orGroup: Useful
+    - id: MechGygaxSyndieBattery
+      prob: 0.0001
+      orGroup: Useful
+    - id: ScrewdriverAbductor
+      prob: 0.01
+      orGroup: Useful
+    - id: MobSkeletonBiker
+      prob: 0.0005
+      orGroup: Useful
+    - id: BoxMagazineShotgunBeanbag
+      prob: 0.01
+      orGroup: Useful
+    - id: BoxHeadset
+      prob: 0.01
+      orGroup: Useful
+    - id: CrayonBox
+      prob: 0.01
+      orGroup: Useful
+    - id: UplinkLighterBox
+      prob: 0.01
+      orGroup: Useful
+    - id: MysteryLighterBox
+      prob: 0.01
+      orGroup: Useful
+    - id: CardBoxSyndicate
+      prob: 0.005
+      orGroup: Useful
+    - id: MysteryFigureBox
+      prob: 0.01
+      orGroup: Useful
+    - id: BigBox
+      prob: 0.01
+      orGroup: Useful
+    - id: StealthBox
+      prob: 0.001
+      orGroup: Useful
+    - id: FoodSnackEnergy
+      prob: 0.01
+      orGroup: Useful
+    - id: EnergySpeedloaderLethal
+      prob: 0.005
+      orGroup: Useful
+    - id: MechClarke
+      prob: 0.001
+      orGroup: Useful
+    - id: CrateCargoGambling # WTF?!!!!!
+      prob: 0.005
+      orGroup: Useful
+    - id: ResearchDisk
+      prob: 0.01
+      orGroup: Useful
+    - id: ResearchDisk5000
+      prob: 0.005
+      orGroup: Useful
+    - id: ResearchDisk10000
+      prob: 0.003
+      orGroup: Useful
+    - id: TechnologyDiskRare
+      prob: 0.005
+      orGroup: Useful
+    - id: VinylSleeveNukeDisk
+      prob: 0.01
+      orGroup: Useful
+    - id: MicroManipulatorStockPart
+      prob: 0.01
+      orGroup: Useful
+   # CorvaxGoob-changes-end
     #notuseful
     - id: LidSalami
       prob: 0.01
       orGroup: NotUseful
-    - id: MobHamsterHamlet
+    - id: MobHamster # CorvaxGoob-changes: MobHamsterHamlet > MobHamster
       prob: 0.01
       orGroup: NotUseful
     - id: MobLaserRaptor
@@ -469,3 +1130,98 @@
     - id: GrenadeFoamDart
       prob: 0.001
       orGroup: NotUseful
+    # CorvaxGoob-changes-start:
+    - id: MobHellspawn
+      prob: 0.001
+      orGroup: NotUseful
+    - id: BeeChloralHydrate
+      prob: 0.001
+      orGroup: NotUseful
+    - id: DrinkFourteenLokoCan
+      prob: 0.01
+      orGroup: NotUseful
+    - id: DrinkMilkCartonMini
+      prob: 0.01
+      orGroup: NotUseful
+    - id: MiniGravityGeneratorCircuitboard
+      prob: 0.01
+      orGroup: NotUseful
+    - id: TaskBottle
+      prob: 0.01
+      orGroup: NotUseful
+    - id: DrinkVodkaBottleFull
+      prob: 0.01
+      orGroup: NotUseful
+    - id: PrintedDocumentDisposalReport
+      prob: 0.01
+      orGroup: NotUseful
+    - id: MobSkeletonCommander
+      prob: 0.001
+      orGroup: NotUseful
+    - id: LeftLegSkeleton
+      prob: 0.01
+      orGroup: NotUseful
+    - id: GroinSkeleton
+      prob: 0.01
+      orGroup: NotUseful
+    - id: RightFootSkeleton
+      prob: 0.01
+      orGroup: NotUseful
+    - id: HeadSkeleton
+      prob: 0.01
+      orGroup: NotUseful
+    - id: HeadSlime
+      prob: 0.01
+      orGroup: NotUseful
+    - id: DubiousOrganSpawner
+      prob: 0.001
+      orGroup: NotUseful
+    - id: FloorTileItemWhiteMarble
+      prob: 0.01
+      orGroup: NotUseful
+    - id: FloorTileItemBluespace
+      prob: 0.01
+      orGroup: NotUseful
+    - id: FloorTileItemGCircuit4
+      prob: 0.01
+      orGroup: NotUseful
+    - id: FoodBungo
+      prob: 0.01
+      orGroup: NotUseful
+    - id: BoxPillCanister
+      prob: 0.01
+      orGroup: NotUseful
+    - id: GlowstickBlue
+      prob: 0.01
+      orGroup: NotUseful
+    - id: FeetAnimal
+      prob: 0.01
+      orGroup: NotUseful
+    - id: ArrowRegular
+      prob: 0.01
+      orGroup: NotUseful
+    - id: ArrowImprovisedPlasma
+      prob: 0.005
+      orGroup: NotUseful
+    - id: NukeDiskFake
+      prob: 0.002
+      orGroup: NotUseful
+    - id: DiskCase
+      prob: 0.01
+      orGroup: NotUseful
+    - id: FishNukeDisk
+      prob: 0.005
+      orGroup: NotUseful
+    - id: EvidenceMarkerSeven
+      prob: 0.01
+      orGroup: NotUseful
+    - id: OrganXenomorphEggSack
+      prob: 0.007
+      orGroup: NotUseful
+    - id: OrganIPCPump
+      prob: 0.01
+      orGroup: NotUseful
+    - id: MailingUnitElectronics
+      prob: 0.01
+      orGroup: NotUseful
+    # CorvaxGoob-changes-end
