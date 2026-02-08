@@ -21072,3 +21072,11 @@ Entries:
         security belts.
   id: 2387
   time: '2026-02-08T07:04:20.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Police Batons, a stunbaton sidegrade that can be found in detectives
+        closet.
+  id: 2388
+  time: '2026-02-08T07:36:51.0000000+00:00'
