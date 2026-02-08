@@ -21064,3 +21064,11 @@ Entries:
         dragon's tail nullrod and the draconic altar
   id: 2386
   time: '2026-02-07T20:22:48.0000000+00:00'
+- author: RomiGur
+  changes:
+    - type: Tweak
+      message: >-
+        Now you can place energy rifle magazines (all types) into all types of
+        security belts.
+  id: 2387
+  time: '2026-02-08T07:04:20.0000000+00:00'
