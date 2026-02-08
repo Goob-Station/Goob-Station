@@ -21080,3 +21080,11 @@ Entries:
         closet.
   id: 2388
   time: '2026-02-08T07:36:51.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Portable chemical mixer capacity increased by 1.5x and now has a beaker
+        sprite.
+  id: 2389
+  time: '2026-02-08T08:00:14.0000000+00:00'
