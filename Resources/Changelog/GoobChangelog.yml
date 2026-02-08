@@ -21096,3 +21096,9 @@ Entries:
         health and a chemical HUD in visor.
   id: 2390
   time: '2026-02-08T08:21:26.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Reduced mobility in nograv environment for everyone.
+  id: 2391
+  time: '2026-02-08T23:26:27.0000000+00:00'
