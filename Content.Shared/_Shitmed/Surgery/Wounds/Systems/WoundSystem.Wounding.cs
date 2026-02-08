@@ -268,10 +268,14 @@ public sealed partial class WoundSystem
             return;
 
         // Create or update wounds based on damage changes
+        TryComp(uid, out DamageableComponent? damageable);
         foreach (var (damageType, damageValue) in args.UncappedDamage.DamageDict)
         {
             if (damageValue == 0)
                 continue; // Only create wounds for damage or healing
+
+            if (damageable != null && !damageable.Damage.DamageDict.ContainsKey(damageType))
+                continue; // Only create wounds for supported damage types
 
             if (damageValue < 0)
             {
