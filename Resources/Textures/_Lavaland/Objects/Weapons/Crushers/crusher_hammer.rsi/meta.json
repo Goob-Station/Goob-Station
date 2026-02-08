@@ -21,6 +21,68 @@
           0.3
         ]
       ]
+    },
+    {
+      "name": "flashlight"
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+	  {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "upgrade-marker",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-rude-buster",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-lava-aspect"
+    },
+    {
+      "name": "upgrade-ice-frost"
+    },
+    {
+      "name": "upgrade-sharpness",
+      "delays": [
+        [
+          6,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-handle-weights"
+    },
+    {
+      "name": "upgrade-handle-range"
+    },
+    {
+      "name": "upgrade-handle-lightweight"
     }
   ]
 }

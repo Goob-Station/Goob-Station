@@ -80,7 +80,7 @@
   - TraitorCodePaper
   - Emag
   - AccessBreaker
-  - Lighter
+  - MysteryLighterBox
   - CigPackSyndicate
   - Telecrystal50 # The thief cannot use them, but it may induce communication with traitors
 
@@ -399,7 +399,7 @@
   name: selectable-set-blueshield-chester-name
   description: selectable-set-blueshield-chester-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester_icon_48x.rsi
     state: base
   content:
   # Guaranteed items
@@ -589,7 +589,7 @@
   name: selectable-set-hos-sniper-name
   description: selectable-set-hos-sniper-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper_icon_48x.rsi
     state: icon
   content:
   - WeaponHeadOfSecuritySniper

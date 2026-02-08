@@ -1,0 +1,34 @@
+- type: entity
+  id: UndeterminedWeaponShaftMiner
+  name: shaft miner weapon selector
+  description: A small remote utilizing bluespace technology to drop in a weapon of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSalvageContraband ]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/unique_teleporters.rsi
+    state: shaft-miner
+  - type: SetSelector
+    possibleSets:
+    - MinerWeaponSelectorPKA
+    - MinerWeaponSelectorRepeater
+    - MinerWeaponSelectorPistols
+    - MinerWeaponSelectorCrusher
+    - MinerWeaponSelectorGlaive
+    - MinerWeaponSelectorHammer
+    maxSelectedSets: 1
+
+- type: entity
+  id: UndeterminedWeaponSalvageSpecialist
+  name: salvage specialist weapon selector
+  description: A small remote utilizing bluespace technology to drop in a weapon of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSalvageContraband ]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/unique_teleporters.rsi
+    state: salvage
+  - type: SetSelector
+    possibleSets:
+    - MinerWeaponSelectorPKASpace
+    - MinerWeaponSelectorRepeaterSpace
+    - MinerWeaponSelectorPistolsSpace
+    maxSelectedSets: 1

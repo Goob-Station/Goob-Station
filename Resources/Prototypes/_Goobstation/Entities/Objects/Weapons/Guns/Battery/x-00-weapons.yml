@@ -16,7 +16,12 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
-    state: icon
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
     quickEquip: false
@@ -36,6 +41,11 @@
     fireCost: 80
   - type: StaticPrice
     price: 2500
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
 
 - type: entity
   name: X-6 "Threadripper"
@@ -45,7 +55,12 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
-    state: icon
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
     quickEquip: false
@@ -74,6 +89,11 @@
     fireCost: 33
   - type: StaticPrice
     price: 2500
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
 
 - type: entity
   name: X-12 "Flamberge"
@@ -83,7 +103,12 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
-    state: icon
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Appearance
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
@@ -92,7 +117,7 @@
     - Back
     - suitStorage
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun_inhands_64x.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
     shape:
     - 0,0,4,1
   - type: Gun
@@ -105,6 +130,10 @@
     fireCost: 125
   - type: StaticPrice
     price: 2500
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
 
 - type: entity
   name: X-18 "Ranought"
@@ -113,8 +142,13 @@
   description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
-    state: icon
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper_icon_48x.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Appearance
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
@@ -123,6 +157,7 @@
     - Back
     - suitStorage
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
     shape:
     - 0,0,6,1
     storedRotation: 45
@@ -143,3 +178,7 @@
     pvsIncrease: 0.8
   - type: StaticPrice
     price: 2500
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
