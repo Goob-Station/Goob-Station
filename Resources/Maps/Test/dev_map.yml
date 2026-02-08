@@ -24894,7 +24894,7 @@ entities:
     - type: Transform
       pos: 73.5,52.5
       parent: 1
-- proto: WeaponSniperHristov
+- proto: WeaponSniperKirkov
   entities:
   - uid: 2210
     components:

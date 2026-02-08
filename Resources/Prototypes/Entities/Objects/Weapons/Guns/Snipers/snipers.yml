@@ -248,9 +248,9 @@
     points: 2
 
 - type: entity
-  name: Hristov
+  name: kirkov # Goob edit - hristov -> kirkov
   parent: [BaseWeaponSniperMagazine, BaseGunWieldable, BaseSyndicateContraband]
-  id: WeaponSniperHristov
+  id: WeaponSniperKirkov # Goob edit
   description: A portable anti-materiel rifle for when you need to make someone regret their life choices from a safe distance. Comes with an integrated long-range scope. Feeds from .60 Anti-Materiel magazines.
   components:
   - type: Sprite

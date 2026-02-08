@@ -91,7 +91,7 @@
         orGroup: Guns
       - id: WeaponSniperMosin
         orGroup: Guns
-      - id: WeaponSniperHristov
+      - id: WeaponSniperKirkov
         orGroup: Guns
       - id: Musket
         orGroup: Guns

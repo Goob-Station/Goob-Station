@@ -101,7 +101,7 @@
     - 0,0,7,4
   - type: StorageFill
     contents:
-      - id: WeaponSniperHristov
+      - id: WeaponSniperKirkov
       - id: MagazineAntiMateriel # Goobstation
       - id: MagazineBoxAntiMateriel
       - id: ClothingNeckTieRed

@@ -861,9 +861,9 @@
       tags:
       - ContractorUplink
 
-# for the hristov
+# for the Kirkov
 - type: listing
-  id: UplinkHristovAmmo
+  id: UplinkKirkovAmmo
   name: uplink-sniper-ammo-name
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
