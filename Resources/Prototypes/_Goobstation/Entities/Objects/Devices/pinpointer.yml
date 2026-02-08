@@ -24,7 +24,7 @@
   - type: Pinpointer
     updateTargetName: true
     canRetarget: true
-    retargetingWhitelist: # Goob edit: pinpointer whitelist
+    retargetingWhitelist:
       components:
       - Anomaly
 
