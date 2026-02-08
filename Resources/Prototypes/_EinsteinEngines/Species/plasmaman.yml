@@ -1,7 +1,7 @@
 - type: species
   id: Plasmaman
   name: species-name-plasmaman
-  roundStart: true
+  roundStart: false
   prototype: MobPlasmaman
   sprites: MobPlasmamanSprites
   defaultSkinTone: "#a349a4"
