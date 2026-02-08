@@ -107,7 +107,7 @@ public sealed partial class LawboardSiliconLawUi : FancyWindow
     public event Action<List<SiliconLaw>, bool>? LawsChangedEvent;
     public event Action<bool>? LawsSavedEvent;
     public EntityUid Entity;
-    public SiliconLawProviderComponent? LawProvider;
+    public CustomLawboardComponent? LawboardComponent;
 
     public LawboardSiliconLawUi()
     {
@@ -122,9 +122,9 @@ public sealed partial class LawboardSiliconLawUi : FancyWindow
         Import.OnPressed += _ => ImportLaws();
         Export.OnPressed += _ => ExportLaws();
 
-        if (LawProvider != null && LawProvider.Lawset != null)
+        if (LawboardComponent != null && LawboardComponent.Laws != null)
         {
-            SetLaws(LawProvider.Lawset.Laws);
+            SetLaws(LawboardComponent.Laws);
         }
     }
 
