@@ -21088,3 +21088,11 @@ Entries:
         sprite.
   id: 2389
   time: '2026-02-08T08:00:14.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Nuclear Operative's Medic is now more useful for the team, having a
+        health and a chemical HUD in visor.
+  id: 2390
+  time: '2026-02-08T08:21:26.0000000+00:00'
