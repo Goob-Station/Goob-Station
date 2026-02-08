@@ -146,7 +146,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
-        var identity = Identity.Entity(uid, EntityManager);
+		// CorvaxGoob 
+		// Fix for incorrect pronouns PR #564
+        var identity = ("user", Identity.Entity(uid, EntityManager));
         var species = GetSpeciesRepresentation(component.Species).ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
 
@@ -157,8 +159,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             locale += "-selfaware";
 
         // Goob Sanitize Text
-        var escapedIdentity = FormattedMessage.EscapeText(identity.ToString());
-        args.PushText(Loc.GetString(locale, ("user", escapedIdentity), ("age", age), ("species", species)),
+        args.PushText(Loc.GetString(locale, identity, ("age", age), ("species", species)),
             100); // priority for examine
         // WWDP EDIT END
     }
