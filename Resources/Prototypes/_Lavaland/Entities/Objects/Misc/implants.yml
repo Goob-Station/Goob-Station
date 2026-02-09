@@ -3,24 +3,24 @@
   id: DeathRattleLavalandImplant
   name: lavaland death rattle implant
   description: This implant will inform the Supply radio channel should the user die. Works only on lavaland surface and tells exact coordinates of death.
-  categories: [ HideSpawnMenu ]
   components:
-    - type: SubdermalImplant
-      permanent: true
-      whitelist:
-        components:
-        - MobState # admeme implanting a chair with rattle implant needs to give the chair mobstate so it can die first
-    - type: MansusGraspBlockTrigger
-    - type: TriggerBlocker
-      mapWhitelist:
-        components:
-        - LavalandMap
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Dead
-    - type: Rattle
-      radioChannel: Supply
-      reportCoordinates: true
+  # TODO turn it into a tracker implant too
+  - type: SubdermalImplant
+    permanent: true
+    whitelist:
+      components:
+      - MobState
+  - type: MansusGraspBlockTrigger
+  - type: TriggerBlocker
+    mapWhitelist:
+      components:
+      - LavalandMap
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: Rattle
+    radioChannel: Supply
+    reportCoordinates: true
 
 - type: entity
   id: DeathRattleLavalandImplanter

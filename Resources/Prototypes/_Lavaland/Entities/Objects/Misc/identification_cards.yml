@@ -1,0 +1,11 @@
+- type: entity
+  parent: IDCardStandard
+  id: MinerIDCard
+  name: miner ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idshaftminer
+  - type: PresetIdCard
+    job: ShaftMiner

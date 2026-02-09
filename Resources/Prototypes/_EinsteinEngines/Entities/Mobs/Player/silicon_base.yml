@@ -250,6 +250,8 @@
         enum.WizardTeleportUiKey.Key: # Goobstation - wizard
           type: WizardTeleportBoundUserInterface
           requireInputValidation: false
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
     - type: Emoting
     - type: Grammar
       attributes:

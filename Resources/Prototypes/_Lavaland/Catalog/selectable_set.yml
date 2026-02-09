@@ -1,0 +1,94 @@
+# Proto-kinetic weapons
+- type: selectableSet
+  id: MinerWeaponSelectorPKA
+  name: miner-weapon-selector-pka-name
+  description: miner-weapon-selector-pka-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticAccelerator
+
+- type: selectableSet
+  id: MinerWeaponSelectorRepeater
+  name: miner-weapon-selector-repeater-name
+  description: miner-weapon-selector-repeater-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticRepeater
+
+- type: selectableSet
+  id: MinerWeaponSelectorPistols
+  name: miner-weapon-selector-pistols-name
+  description: miner-weapon-selector-pistols-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticPistol
+  - WeaponProtoKineticPistol
+
+# Proto-kinetic weapons with space upgrades
+- type: selectableSet
+  id: MinerWeaponSelectorPKASpace
+  name: miner-weapon-selector-pka-name
+  description: miner-weapon-selector-pka-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticAcceleratorSpace
+
+- type: selectableSet
+  id: MinerWeaponSelectorRepeaterSpace
+  name: miner-weapon-selector-repeater-name
+  description: miner-weapon-selector-repeater-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticRepeaterSpace
+
+- type: selectableSet
+  id: MinerWeaponSelectorPistolsSpace
+  name: miner-weapon-selector-pistols-name
+  description: miner-weapon-selector-pistols-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticPistolSpace
+  - WeaponProtoKineticPistolSpace
+
+# Crushers
+- type: selectableSet
+  id: MinerWeaponSelectorCrusher
+  name: miner-weapon-selector-crusher-name
+  description: miner-weapon-selector-crusher-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher.rsi
+    state: icon
+  content:
+  - WeaponCrusher
+
+- type: selectableSet
+  id: MinerWeaponSelectorGlaive
+  name: miner-weapon-selector-glaive-name
+  description: miner-weapon-selector-glaive-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
+    state: icon
+  content:
+  - WeaponCrusherGlaive
+
+- type: selectableSet
+  id: MinerWeaponSelectorHammer
+  name: miner-weapon-selector-hammer-name
+  description: miner-weapon-selector-hammer-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer.rsi
+    state: icon
+  content:
+  - WeaponCrusherHammer

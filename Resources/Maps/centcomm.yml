@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/10/2026 19:10:57
+  time: 01/23/2026 19:53:11
   entityCount: 6910
 maps: []
 grids:
@@ -27896,7 +27896,7 @@ entities:
       - stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
       content: >-
-        ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ 
+        ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
         ║░██░░░░██░║
 
@@ -27906,7 +27906,7 @@ entities:
 
         ║░██░░░███░║─ Central Field Command
 
-        ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ 
+        ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
         ────────────────────⋆⋅☆⋅⋆──────────────────
 
@@ -28548,29 +28548,11 @@ entities:
       parent: 1668
 - proto: PlushieBrizby
   entities:
-  - uid: 1333
+  - uid: 602
     components:
     - type: Transform
-      pos: 28.622644,7.6318116
+      pos: 28.598928,7.6231136
       parent: 1668
-    - type: Supermatter
-      whitelist: {}
-      dustSound: !type:SoundPathSpecifier
-        path: /Audio/_Goobstation/Wizard/supermatter.ogg
-      delamSound: !type:SoundPathSpecifier
-        path: /Audio/_Goobstation/Supermatter/delamming.ogg
-      delamAlarm: !type:SoundPathSpecifier
-        path: /Audio/Machines/alarm.ogg
-      gasStorage:
-        Oxygen: 0
-        Nitrogen: 0
-        CarbonDioxide: 0
-        Plasma: 0
-        Tritium: 0
-        WaterVapor: 0
-        BZ: 0
-        Healium: 0
-        Pluoxium: 0
 - proto: PlushieDurk
   entities:
   - uid: 1332
@@ -28587,22 +28569,11 @@ entities:
       parent: 1668
 - proto: PlushieJvne
   entities:
-  - uid: 731
+  - uid: 706
     components:
     - type: Transform
-      pos: 26.51506,7.6765947
+      pos: 26.533152,7.758902
       parent: 1668
-    - type: MeleeWeapon
-      attackRate: 10
-      autoAttack: True
-      damage:
-        woundSeverityMultipliers: {}
-        partDamageVariation: -1
-        armorPenetration: 100
-        groups: null
-        types:
-          Blunt: MaxValue
-      heavyStaminaCost: 0
 - proto: PlushieLeguia
   entities:
   - uid: 782
@@ -33515,27 +33486,11 @@ entities:
       parent: 1668
 - proto: Stunprod
   entities:
-  - uid: 602
+  - uid: 2133
     components:
     - type: Transform
-      pos: 3.6560268,-27.939613
+      pos: 3.707485,-27.895144
       parent: 1668
-    - type: MeleeWeapon
-      attackRate: 100
-      autoAttack: True
-      heavyStaminaCost: 0
-    - type: Stunbaton
-      energyPerUse: 0
-    - type: Battery
-      pricePerJoule: 0.03
-      startingCharge: 1E+09
-      maxCharge: 1E+09
-    - type: BatterySelfRecharger
-      autoRechargeRate: 360
-      autoRecharge: True
-    missingComponents:
-    - UseDelayBlockMelee
-    - UseDelay
 - proto: SubstationBasic
   entities:
   - uid: 1130
@@ -35760,38 +35715,11 @@ entities:
       parent: 1668
 - proto: TelescopicBatonAdvanced
   entities:
-  - uid: 706
+  - uid: 1333
     components:
     - type: Transform
-      pos: 16.248018,-2.4318824
+      pos: 16.216768,-2.5219617
       parent: 1668
-    - type: ItemToggleMeleeWeapon
-      deactivatedDamage:
-        woundSeverityMultipliers: {}
-        partDamageVariation: 0
-        armorPenetration: 0
-        groups: null
-        types:
-          Blunt: 1
-    - type: MeleeWeapon
-      attackRate: 100
-      autoAttack: True
-      heavyStaminaCost: 0
-      heavyPartDamageMultiplier: 1
-      heavyAttackWoundMultiplier: 1
-    - type: Item
-      shape:
-      - 0,0,0,1
-      heldPrefix: off
-    - type: ComponentToggler
-      target: 706
-    - type: ItemToggleSize
-      deactivatedShape:
-      - 0,0,0,1
-      deactivatedSize: Small
-    missingComponents:
-    - UseDelay
-    - UseDelayBlockMelee
   - uid: 2557
     components:
     - type: Transform
@@ -42695,7 +42623,7 @@ entities:
       parent: 1668
 - proto: WirecutterAbductor
   entities:
-  - uid: 2133
+  - uid: 731
     mapInit: true
     paused: true
     components:
@@ -42703,35 +42631,8 @@ entities:
       desc: Cuts through limbs like a hot knife through butter.
       name: bolt cutter
     - type: Transform
-      pos: 3.9500012,-28.29291
+      pos: 3.69186,-28.411167
       parent: 1668
-    - type: EmitSoundOnCollide
-      nextSound: -216.84589
-    - type: MeleeWeapon
-      nextAttack: -216.84589
-      damage:
-        woundSeverityMultipliers: {}
-        partDamageVariation: -1
-        armorPenetration: 0
-        groups: null
-        types:
-          Piercing: 0
-          Slash: 5
-    - type: Wieldable
-      wieldSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/thudswoosh.ogg
-    - type: IncreaseDamageOnWield
-      damage:
-        woundSeverityMultipliers:
-          Slash: 20000
-        types:
-          Slash: 95
-    - type: Forensics
-      residues: []
-      dNAs: []
-      fibers:
-      - black insulative fibers
-      fingerprints: []
 - proto: WizardsGrimoire
   entities:
   - uid: 5863

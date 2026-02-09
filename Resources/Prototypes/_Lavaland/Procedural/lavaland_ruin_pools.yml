@@ -32,34 +32,22 @@
     RougeAI: 1
     BiodomeBeach: 2
     BiodomeSnow: 2
-    GolemShuttle: 2
+    GolemShuttle: 1
     ToyShop: 1
-    Chemistry: 2
-    LavaLake: 3
+    Chemistry: 1
     Graveyard: 1
-    SeedVault: 2
-    Hermit: 5
-    WaffleCo: 2
+    SeedVault: 1
+    Hermit: 2
+    WaffleCo: 1
     ArrivalsBack: 1
     ArrivalsFront: 1
-    CargoDebris: 2
     VulpLab: 1
-    Shelter: 4
+    Shelter: 1
     Ratvar: 1
     MiningPost: 3
     AbductorDebris: 1
     CultBase: 1
-    FleshCave: 1
-    FloraCave: 1
-    IceCave: 1
-    RockCave: 1
-    SlimeCave: 1
     Hunter: 1
-    Stash1: 2
-    Stash2: 2
-    Stash3: 2
-    Stash4: 2
-    FlockLarge: 1
 #WIZDEN RUINS (only peak ones, rest are trash) man
     CargoWreck: 1
     Murder: 1

@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/Citadel-Station-13/Citadel-Station-13-RP/blob/817e7c1f225876b45891e3f06908e6d032f0a8bc/icons/obj/mining.dmi and modified by alzore_ (discord). Back/Suit sprites by Redbookcase (github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-lit"
+    },
+    {
+      "name": "icon-uncharged",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "flashlight"
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+	  {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "upgrade-marker",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-rude-buster",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-lava-aspect"
+    },
+    {
+      "name": "upgrade-ice-frost"
+    },
+    {
+      "name": "upgrade-sharpness",
+      "delays": [
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-handle-weights"
+    },
+    {
+      "name": "upgrade-handle-range"
+    },
+    {
+      "name": "upgrade-handle-lightweight"
+    }
+  ]
+}

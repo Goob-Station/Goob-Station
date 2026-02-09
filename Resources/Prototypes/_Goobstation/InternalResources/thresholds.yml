@@ -1,0 +1,7 @@
+- type: internalResourcesThresholds
+  id: ChangelingBiomass
+  thresholds:
+    First: [0.75, false]
+    Second: [0.5, false]
+    Third: [0.25, false]
+    Death: [0, false]

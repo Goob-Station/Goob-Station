@@ -459,6 +459,8 @@
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -501,6 +503,7 @@
   - type: Sprinter # Goobstation
   - type: MindControllable # Goobstation
   - type: VisibleContraband # Goobstation
+  - type: MomentumSteering # Goobstation - No steer
 
 - type: entity
   save: false

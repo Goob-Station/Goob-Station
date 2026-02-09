@@ -38,6 +38,29 @@
   id: Bagawk
   files:
   - /Audio/_Mono/Voice/bagawk.ogg
+  
+- type: soundCollection 
+  id: VoxCough
+  files:
+  - /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
+  - /Audio/_Goobstation/Voice/Vox/vox_cough2.ogg
+  
+- type: soundCollection 
+  id: VoxChitter
+  files:
+  - /Audio/_Goobstation/Voice/Vox/vox_chitter.ogg
+  - /Audio/_Goobstation/Voice/Vox/vox_chitter1.ogg
+  - /Audio/_Goobstation/Voice/Vox/vox_chitter2.ogg
+ 
+- type: soundCollection 
+  id: VoxClick
+  files:
+  - /Audio/_Goobstation/Voice/Vox/vox_click.ogg
+  
+- type: soundCollection 
+  id: VoxHiss
+  files:
+  - /Audio/_Goobstation/Voice/Vox/voxhiss.ogg
 
 - type: soundCollection
   id: Dionacry

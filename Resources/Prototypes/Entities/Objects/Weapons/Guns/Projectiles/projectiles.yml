@@ -589,59 +589,110 @@
   - type: ChangeTemperatureOnCollide
     heat: -50000
 
-- type: entity
-  id: BulletKinetic
-  name: kinetic bolt
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
-  components:
-  - type: Reflective
-    reflective:
-    - NonEnergy
-  - type: Sprite
-    noRot: false
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: chronobolt
-      shader: unshaded
-  - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
-    damage:
-      types:
-        Blunt: 40 # Lavaland Change - TOTAL PKA VICTORY
-  #        Structural: 30 Lavaland Change - No easy break-ins :)
-  # Short lifespan
-  - type: TimedDespawn
-    lifetime: 0.22 # roughly 5.5 tiles
-  - type: GatheringProjectile
+# Lavaland Change start - migrated to _Lavaland folder
+#- type: entity
+#  id: BulletKinetic
+#  name: kinetic bolt
+#  parent: BaseBullet
+#  categories: [ HideSpawnMenu ]
+#  description: Not too bad, but you still don't want to get hit by it.
+#  components:
+#  - type: Reflective
+#    reflective:
+#    - NonEnergy
+#  - type: Sprite
+#    noRot: false
+#    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+#    layers:
+#    - state: chronobolt
+#      shader: unshaded
+#  - type: Projectile
+#    impactEffect: BulletImpactEffectKinetic
+#    damage:
+#      types:
+#        Blunt: 15
+#        Structural: 30
+#  # Short lifespan
+#  - type: TimedDespawn
+#    lifetime: 0.22 # roughly 5.5 tiles
+#  - type: GatheringProjectile
 
+#- type: entity
+#  id: BulletKineticShuttle
+#  parent: BaseBullet
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Sprite
+#    noRot: false
+#    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+#    layers:
+#    - state: chronobolt
+#      shader: unshaded
+#  - type: Projectile
+#    impactEffect: BulletImpactEffectKinetic
+#    damage:
+#      types:
+#        Blunt: 30
+#        Structural: 35
+#  - type: Ammo
+#    muzzleFlash: HitscanEffect
+#  - type: TimedDespawn
+#    lifetime: 1.5
+#  - type: PointLight
+#    radius: 2.5
+#    color: white
+#    energy: 0.5
+#  - type: GatheringProjectile
+
+#- type: entity
+#  id: BulletCharge
+#  name: charge bolt
+#  parent: BaseBullet
+#  categories: [ HideSpawnMenu ]
+#  description: Marks a target for additional damage.
+#  components:
+#  - type: Reflective
+#    reflective:
+#    - NonEnergy
+#  - type: Sprite
+#    noRot: false
+#    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+#    layers:
+#    - state: chronobolt
+#      shader: unshaded
+#  - type: GatheringProjectile
+#  - type: DamageMarkerOnCollide
+#    whitelist:
+#      components:
+#      - MobState
+#    damage:
+#      types:
+#        Blunt: 18
+#        Slash: 4
+#  - type: Projectile
+#    impactEffect: BulletImpactEffectKinetic
+#    damage:
+#      types:
+#        Blunt: 0
+  # Short lifespan
+#  - type: TimedDespawn
+#    lifetime: 0.4
+# Lavaland Change end
+
+# Deals less damage, glaive has better HP recovery
 - type: entity
-  id: BulletKineticShuttle
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  id: BulletChargeGlaive
+  name: leech bolt
+  parent: BulletCharge
   components:
-  - type: Sprite
-    noRot: false
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: chronobolt
-      shader: unshaded
-  - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - MobState
     damage:
       types:
-        Blunt: 80 # Goobstation edit
-        # Structural: 35 # Goobstation edit
-  - type: Ammo
-    muzzleFlash: HitscanEffect
-  - type: TimedDespawn
-    lifetime: 0.3 # Goobstation edit
-  - type: PointLight
-    radius: 2.5
-    color: white
-    energy: 0.5
-  - type: GatheringProjectile
+        Blunt: 1
+        Slash: 5
 
 - type: entity
   parent: BulletRocket
@@ -662,60 +713,6 @@
     totalIntensity: 150
     maxTileBreak: 1
   - type: SmartLinkBlacklist  # Goobstation
-
-- type: entity
-  id: BulletCharge
-  name: charge bolt
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  description: Marks a target for additional damage.
-  components:
-  - type: Reflective
-    reflective:
-    - NonEnergy
-  - type: Sprite
-    noRot: false
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: chronobolt
-      shader: unshaded
-  - type: GatheringProjectile
-  - type: DamageMarkerOnCollide
-    onlyWorkOnFauna: true # Lavaland Change
-    whitelist:
-      components:
-      - MobState
-    damage:
-      types:
-    # Lavaland Change start
-        Blunt: 20 # 18 -> 20
-        Slash: 5 # 4 -> 5
-    effect: { sprite: /Textures/Objects/Weapons/effects.rsi, state: shield2 }
-    sound: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-    # Lavaland change end
-  - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
-    damage:
-      types:
-        Blunt: 0
-  # Short lifespan
-  - type: TimedDespawn
-    lifetime: 0.4
-
-  # Deals less damage, glaive has better HP recovery
-- type: entity
-  id: BulletChargeGlaive
-  name: leech bolt
-  parent: BulletCharge
-  components:
-  - type: DamageMarkerOnCollide
-    whitelist:
-      components:
-        - MobState
-    damage:
-      types:
-        Blunt: 1
-        Slash: 5
 
 - type: entity
   parent: BaseBullet
@@ -1315,7 +1312,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 28
+        Heat: 20 #goob, 28 > 20
 
 - type: entity
   name : disabler bolt

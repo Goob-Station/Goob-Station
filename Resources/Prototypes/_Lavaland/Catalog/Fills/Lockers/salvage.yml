@@ -1,0 +1,107 @@
+# Shared items between all miner-exploration roles - stuff needed for mining.
+- type: entityTable
+  id: FillGeneralMiningExploration
+  table: !type:AllSelector
+    children:
+    - id: RadioHandheld
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+    - id: FlashlightSeclite
+    - id: OreBag
+    - id: Pickaxe
+    - id: MineralScanner
+    - id: Flare
+      prob: 0.3
+      rolls: 3
+
+# Salvage specialist items
+- type: entityTable
+  id: FillSalvageSpecialistHardsuitSpatio
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: ClothingShoesBootsMag
+    - id: ClothingOuterHardsuitSalvage
+    - id: ClothingMaskGasExplorer
+
+- type: entityTable
+  id: LockerFillSalvageSpecialist
+  table: !type:AllSelector
+    children:
+    - id: ClothingBeltUtilityFilled
+    - id: UndeterminedWeaponSalvageSpecialist
+    - id: SurvivalKnife
+    - id: AppraisalTool
+    - id: FireExtinguisher
+    - !type:NestedSelector
+      tableId: FillGeneralMiningExploration
+
+# Shaft miner items
+- type: entityTable
+  id: FillShaftMinerExplorerSuit
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: LavalandEquipmentExplorerSuit
+    - id: ClothingMaskGasExplorer
+
+- type: entityTable
+  id: LockerFillShaftMiner
+  table: !type:AllSelector
+    children:
+    - id: ClothingBeltUtilityFilled
+    - id: UndeterminedWeaponShaftMiner
+    - id: SurvivalKnife
+    - id: LavalandJaunter
+    - !type:NestedSelector
+      tableId: FillGeneralMiningExploration
+
+# Salvage specialist lockers
+- type: entity
+  id: LockerSalvageSpecialistFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerSalvageSpecialist
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillSalvageSpecialistHardsuitSpatio
+        - !type:NestedSelector
+          tableId: LockerFillSalvageSpecialist
+
+- type: entity
+  id: LockerSalvageSpecialistFilled
+  suffix: Filled
+  parent: LockerSalvageSpecialist
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillSalvageSpecialist
+
+# Shaft miner lockers
+- type: entity
+  id: LockerShaftMinerFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerShaftMiner
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillShaftMinerExplorerSuit
+        - !type:NestedSelector
+          tableId: LockerFillShaftMiner
+
+- type: entity
+  id: LockerShaftMinerFilled
+  suffix: Filled
+  parent: LockerShaftMiner
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillShaftMiner
