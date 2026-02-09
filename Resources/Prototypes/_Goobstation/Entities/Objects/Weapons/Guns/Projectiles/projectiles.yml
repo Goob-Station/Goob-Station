@@ -529,3 +529,50 @@
       type: Add
       time: 20
       refresh: true
+
+- type: entity
+  id: HolyArrow
+  name: holy arrow
+  description: an arrow of... light?
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/Bow/arrow.rsi
+    state: base
+    shader: unshaded
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Reflective
+    reflective:
+    - Magic
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.2,0.1,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Holy: 13
+        Piercing: 17
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#fffe51"
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    embedOnThrow: false
+    deleteOnRemove: true
+  - type: ThrowingAngle
+    angle: 0

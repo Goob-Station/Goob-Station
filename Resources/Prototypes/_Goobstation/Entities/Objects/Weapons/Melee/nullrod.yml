@@ -913,3 +913,80 @@
   - type: Tag
     tags:
     - InquisitorChainSword
+
+- type: entity
+  name: divine bow
+  parent: BaseItem
+  id: DivineBow
+  description: The very thing is to kill the enemy of the church with light.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/Bow/light_bow.rsi
+    layers:
+    - state: bow
+      map: [ "base" ]
+    - state: unwielded-arrow
+      map: [ "bowstring" ]
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/Bow/light_bow.rsi
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Items/bow_pull.ogg
+  - type: UseDelay
+    delay: 1.5
+  - type: GunRequiresWield
+  - type: Gun
+    clumsyProof: true
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: UnwieldOnShoot
+  - type: UseDelayBlockShoot
+  - type: BasicEntityAmmoProvider
+    proto: HolyArrow
+  - type: FoldingWeapon
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.5
+    color: "#fffe51"
+    netsync: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bowstring:
+          True: { state: wielded-arrow }
+          False: { state: unwielded-arrow }
+  - type: ToggleableLightWieldable
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 4 
+    pvsIncrease: 0.4
+  - type: DivineIntervention
+  - type: AlternatePrayable
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Magic
+    slotFlags:
+    - NONE
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Burn: 50
+    UntrainedUseString: nullrod-divinebow-untrained-usage-popup
+  - type: Tag
+    tags:
+    - DivineBow
+

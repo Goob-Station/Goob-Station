@@ -501,6 +501,9 @@
   id: InquisitorChainSword
 
 - type: Tag
+  id: DivineBow
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
@@ -806,3 +809,6 @@
 
 - type: Tag
   id: ContractorUplink
+
+- type: Tag
+  id: Bow
