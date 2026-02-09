@@ -21114,3 +21114,9 @@ Entries:
       message: Freeform lawboard is no longer in RD locker/researchable
   id: 2393
   time: '2026-02-09T07:52:24.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: Delta station escape pods
+  id: 2394
+  time: '2026-02-09T07:54:00.0000000+00:00'
