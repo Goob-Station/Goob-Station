@@ -25,8 +25,9 @@
             NanotrasenRepresentative: [ 1, 1 ]
             # cargo
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 2, 2 ]
             CargoTechnician: [ 3, 3 ]
+            ShaftMiner: [ 2, 2 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
