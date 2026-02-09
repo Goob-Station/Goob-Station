@@ -123,6 +123,7 @@
       - BolaEnergy
       - EnergySpeedloader
       - MilitaryPowerCell
+      - EnergyMagAmmo
       - HandGrenade
       components:
       - FlashOnTrigger

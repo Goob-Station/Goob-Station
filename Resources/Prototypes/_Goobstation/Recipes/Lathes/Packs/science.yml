@@ -17,7 +17,6 @@
   id: ExperimentalScienceGoob
   recipes:
   - ExperimentalCircuitBoard
-  - NTCustomLawboard
 
 - type: latheRecipePack
   id: XenobioPack
