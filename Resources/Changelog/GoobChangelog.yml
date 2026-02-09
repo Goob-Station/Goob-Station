@@ -20918,3 +20918,193 @@ Entries:
       message: Wizden E Chem 1984!
   id: 2365
   time: '2026-01-30T05:04:35.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: >-
+        Steering at high speeds in no gravity as a moth person is made
+        significantly worse. Consider braking.
+  id: 2366
+  time: '2026-01-31T06:43:55.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More fish to artifact node
+  id: 2367
+  time: '2026-01-31T06:50:00.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: Removed acolyte armor from piety vend.
+  id: 2368
+  time: '2026-01-31T06:50:26.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        The Estoc has been tweaked to fit more into its role as a designated
+        marksman rifle.
+  id: 2369
+  time: '2026-01-31T06:51:17.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Fixed custom theme repeating texture on launch
+  id: 2370
+  time: '2026-02-01T05:20:25.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Added misc contractor items
+    - type: Tweak
+      message: contractor baton recolor
+  id: 2371
+  time: '2026-02-01T05:27:06.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Chloris mapping (Too many changes for changelog)
+  id: 2372
+  time: '2026-02-01T19:51:53.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Entirely removed Submarine station.
+  id: 2373
+  time: '2026-02-02T06:08:58.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Omnimed from BSO locker
+  id: 2374
+  time: '2026-02-03T18:43:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Durathread armor now covers groin.
+  id: 2375
+  time: '2026-02-05T11:13:37.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Goliath hearts are major contraband.
+  id: 2376
+  time: '2026-02-05T11:14:31.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Add
+      message: Added chameleon ability for nukies and agents thermal goggles
+  id: 2377
+  time: '2026-02-05T11:15:04.0000000+00:00'
+- author: LuciferEOS, bloodyspy
+  changes:
+    - type: Add
+      message: 3 more lobby arts.
+  id: 2378
+  time: '2026-02-05T11:21:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: >-
+        Removed double sec belts + headsets from security lockers, security
+        locker item cleanup in general
+  id: 2379
+  time: '2026-02-05T11:49:07.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: The M-90 has been readded to the uplink.
+  id: 2380
+  time: '2026-02-05T12:55:05.0000000+00:00'
+- author: Thatonestomf
+  changes:
+    - type: Tweak
+      message: >-
+        Backpack water tanks can now be worn on the suitstorage slot in addition
+        to the backslot.
+  id: 2381
+  time: '2026-02-05T12:57:40.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: >-
+        Resprite Ion/Temp/Plasma Rifle, Hardlight Bow, WSPR, Chester, m172,
+        Shmel, alien pistol, decloner, x-00 guns.
+  id: 2382
+  time: '2026-02-05T12:59:01.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Tweak
+      message: Bladed flatcap damage
+    - type: Add
+      message: Bladed flatcap variants
+  id: 2383
+  time: '2026-02-05T13:02:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Crew sided freeform lawboard
+  id: 2384
+  time: '2026-02-06T10:30:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: 'Fake heretic gear now has a different sprite '
+    - type: Remove
+      message: >-
+        Fake heretic gear variants, crafting recipe, fake mansus grasp and fake
+        book
+  id: 2385
+  time: '2026-02-07T20:20:16.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Chaplain has received some new dragon-themed items: dragon suit,
+        dragon's tail nullrod and the draconic altar
+  id: 2386
+  time: '2026-02-07T20:22:48.0000000+00:00'
+- author: RomiGur
+  changes:
+    - type: Tweak
+      message: >-
+        Now you can place energy rifle magazines (all types) into all types of
+        security belts.
+  id: 2387
+  time: '2026-02-08T07:04:20.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Police Batons, a stunbaton sidegrade that can be found in detectives
+        closet.
+  id: 2388
+  time: '2026-02-08T07:36:51.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Portable chemical mixer capacity increased by 1.5x and now has a beaker
+        sprite.
+  id: 2389
+  time: '2026-02-08T08:00:14.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Nuclear Operative's Medic is now more useful for the team, having a
+        health and a chemical HUD in visor.
+  id: 2390
+  time: '2026-02-08T08:21:26.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Reduced mobility in nograv environment for everyone.
+  id: 2391
+  time: '2026-02-08T23:26:27.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The laser rifle and laser cannon have been buffed.
+  id: 2392
+  time: '2026-02-09T02:58:40.0000000+00:00'
