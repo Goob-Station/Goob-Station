@@ -21108,3 +21108,9 @@ Entries:
       message: The laser rifle and laser cannon have been buffed.
   id: 2392
   time: '2026-02-09T02:58:40.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Remove
+      message: Freeform lawboard is no longer in RD locker/researchable
+  id: 2393
+  time: '2026-02-09T07:52:24.0000000+00:00'
