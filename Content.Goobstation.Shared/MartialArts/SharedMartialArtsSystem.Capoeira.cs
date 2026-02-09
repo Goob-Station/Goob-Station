@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -114,6 +115,7 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
+            true,
             proto.DropHeldItemsBehavior);
 
         if (TryComp<PullableComponent>(target, out var pullable))
@@ -144,6 +146,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            true,
             true,
             proto.DropHeldItemsBehavior);
 
@@ -190,6 +193,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            true,
             true,
             proto.DropHeldItemsBehavior);
 

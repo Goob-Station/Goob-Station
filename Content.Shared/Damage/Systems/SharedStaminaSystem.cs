@@ -417,7 +417,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 component.NextUpdate = nextUpdate;
         }
 
-        AdjustStatus(uid); //todo marty goob edit check
+        AdjustStatus(uid); //todo goobstream test
 
         UpdateStaminaVisuals((uid, component));
 

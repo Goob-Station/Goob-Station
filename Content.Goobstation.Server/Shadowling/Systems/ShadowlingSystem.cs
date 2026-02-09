@@ -7,6 +7,7 @@ using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Inventory;
+using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Random;

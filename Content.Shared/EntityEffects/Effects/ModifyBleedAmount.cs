@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.EntityEffects.Effects; //todo marty goob stuff here
+namespace Content.Shared.EntityEffects.Effects;
 
 public sealed partial class ModifyBleedAmount : EventEntityEffect<ModifyBleedAmount>
 {

@@ -168,8 +168,10 @@ public sealed class FoodSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
-    [Dependency] private readonly UtensilSystem _utensil = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Goob
+
+    private static readonly ProtoId<TagPrototype> UnedibleTag = "Unedible"; // Goobstaion
 
     public const float MaxFeedDistance = 1.0f;
 
@@ -302,7 +304,7 @@ public sealed class FoodSystem : EntitySystem
         args.Destroy = true;
     }
 
-    private void OnFoodFullyEaten(Entity<FoodComponent> food, ref FullyEatenEvent args)
+    public void OnFoodFullyEaten(Entity<FoodComponent> food, ref FullyEatenEvent args) // Goobstation made public
     {
         if (food.Comp.Trash.Count == 0)
             return;
@@ -360,9 +362,8 @@ public sealed class FoodSystem : EntitySystem
         if (ent.Comp.RequireDead && _mobState.IsAlive(ent))
             return;
 
-        // todo marty probably put this here
-        // if (_tag.HasTag(food, UnedibleTag)) // Goobstation
-        // return false;
+        if (_tag.HasTag(ent, UnedibleTag)) // Goobstation
+            return;
 
         args.AddDigestible(ent.Comp.RequiresSpecialDigestion);
     }

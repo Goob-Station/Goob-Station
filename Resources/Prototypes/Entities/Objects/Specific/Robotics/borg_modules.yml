@@ -1116,7 +1116,7 @@
     - state: service
     - state: icon-clown-adv
   - type: ItemBorgModule
-    moduleId: AdvancedClowning #todo marty test
+    moduleId: AdvancedClowning
     items:
     - HoloprojectorClownBorg
     - BorgLauncherCreamPie
@@ -1570,7 +1570,7 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-cloak2
   - type: ItemBorgModule
-    moduleId: SuperCloakDevice #todo marty test
+    moduleId: SuperCloakDevice
     items:
     - SuperCloakingDevice
   - type: BorgModuleIcon

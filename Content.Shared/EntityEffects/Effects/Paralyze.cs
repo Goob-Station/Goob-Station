@@ -13,8 +13,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-//using Content.Server.Stunnable; //todo marty??
-using Content.Shared.EntityEffects;
 using Content.Shared.Stunnable;
 using Robust.Shared.Prototypes;
 
@@ -44,7 +42,6 @@ public sealed partial class Paralyze : EntityEffect
         {
             paralyzeTime *= (double)reagentArgs.Scale;
         }
-        //todo marty check below this somehow came in on another patch
         var stunSystem = args.EntityManager.System<SharedStunSystem>();
         _ = Refresh
             ? stunSystem.TryUpdateParalyzeDuration(args.TargetEntity, TimeSpan.FromSeconds(paralyzeTime))

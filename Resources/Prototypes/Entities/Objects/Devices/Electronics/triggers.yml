@@ -153,7 +153,7 @@
       - startTimer
       # use the default trigger key so it can activate any inserted payload
       keyOut: trigger
-      delay: 3 #todo marty doublecheck goobcode here
+      delay: 0 # Goob - signal payloads trigger instantly
       initialBeepDelay: 0
       beepSound:
         path: /Audio/Machines/Nuke/general_beep.ogg

@@ -10,6 +10,7 @@ using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._White.Standing;
 using Content.Shared.Projectiles;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 
 namespace Content.Goobstation.Shared.Knockdown;
@@ -17,6 +18,8 @@ namespace Content.Goobstation.Shared.Knockdown;
 public sealed class KnockdownOnCollideSystem : EntitySystem
 {
     [Dependency] private readonly SharedHulkSystem _hulk = default!;
+    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+
 
     public override void Initialize()
     {
@@ -47,6 +50,6 @@ public sealed class KnockdownOnCollideSystem : EntitySystem
         if (HasComp<RustbringerComponent>(target))
             return;
 
-        //_layingDown.TryLieDown(target, null, null, component.Behavior); todo marty trycrawl
+        _stunSystem.TryCrawling(target); //todo goobstream test
     }
 }

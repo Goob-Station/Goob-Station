@@ -3,7 +3,7 @@ using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Disease.Effects;
+namespace Content.Goobstation.Shared.EntityEffects.Disease;
 
 /// <summary>
 /// Modifies the entity's immunity's strength, with accumulation.

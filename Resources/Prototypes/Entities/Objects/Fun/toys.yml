@@ -249,9 +249,9 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/ian.ogg
-#  - type: FoodSequenceElement #todo marty what the fuck happened here
-#    entries:
-#      CottonBurger: IanPlushie
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: IanPlushie
 
 ## Toyweapons
 
@@ -747,9 +747,9 @@
     available:
     - enum.DamageStateVisualLayers.Base:
         base: Sixteen
-#  - type: FoodSequenceElement - does not work with randomized sprites
-#    entries:
-#      CottonBurger: AmongPequeno
+  - type: FoodSequenceElement - does not work with randomized sprites
+    entries:
+      CottonBurger: AmongPequeno
 
 
 - type: entity

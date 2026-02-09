@@ -58,7 +58,8 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/DropPod/supplypodlandig.ogg
-      maxDistance: 5
+      params:
+        maxDistance: 5
   - type: TriggerOnSpawn
 
 - type: entity

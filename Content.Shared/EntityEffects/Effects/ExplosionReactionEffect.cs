@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Text.Json.Serialization;
 
-namespace Content.Shared.EntityEffects.Effects; //todo marty goobify
+namespace Content.Shared.EntityEffects.Effects;
 
 [DataDefinition]
 public sealed partial class ExplosionReactionEffect : EventEntityEffect<ExplosionReactionEffect>

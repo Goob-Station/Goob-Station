@@ -28,7 +28,7 @@ SOFTWARE.
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace Content.Goobstation.Maths.Vectors //todo marty remove useless shit here.
+namespace Content.Goobstation.Maths.Vectors //todo goobstream clean
 {
     /// <summary>
     /// Represents a 3D vector using three single-precision floating-point numbers.

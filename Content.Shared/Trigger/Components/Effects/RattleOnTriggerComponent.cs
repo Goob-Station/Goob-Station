@@ -27,4 +27,11 @@ public sealed partial class RattleOnTriggerComponent : BaseXOnTriggerComponent
         {MobState.Critical, "rattle-on-trigger-critical-message"},
         {MobState.Dead, "rattle-on-trigger-dead-message"}
     };
+
+    /// <summary>
+    /// Lavaland Change
+    /// If true, reports the coordinates instead of the nearest beacon message.
+    /// </summary>
+    [DataField]
+    public bool ReportCoordinates;
 }

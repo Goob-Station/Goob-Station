@@ -1,9 +1,8 @@
-using Content.Shared.EntityEffects;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.EntityEffects.Effects; // todo marty where did you come from where did you go where the fuck are you in upstream cotton eye joe
+namespace Content.Shared.EntityEffects.Effects;
 
 /// <summary>
 ///     Restores durability in active artefact nodes.

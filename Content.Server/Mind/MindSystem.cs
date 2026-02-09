@@ -435,13 +435,11 @@ public sealed class MindSystem : SharedMindSystem
             return;
         }
 
-        MakeSentient(target);
-        //todo marty start here
         if (mind.OwnedEntity != null) // Goobstation
             _tag.AddTag(mind.OwnedEntity.Value, SharedBindSoulSystem.IgnoreBindSoulTag);
         _tag.AddTag(target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
-        MakeSentientCommand.MakeSentient(target, EntityManager);
+        MakeSentient(target);
         TransferTo(mindId, target, ghostCheckOverride: true, mind: mind);
 
         if (mind.OwnedEntity != null) // Goobstation

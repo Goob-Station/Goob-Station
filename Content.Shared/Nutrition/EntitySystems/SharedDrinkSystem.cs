@@ -6,35 +6,19 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
-using Content.Shared.Database;
-using Content.Shared.DoAfter;
-using Content.Shared.Examine;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
-using Content.Shared.Mobs.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Forensics;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
-using Content.Shared.Examine;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
-using Content.Shared.Popups;
-using Content.Shared.Verbs;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -48,8 +32,6 @@ public abstract partial class SharedDrinkSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
     public override void Initialize()
     {
@@ -95,76 +77,6 @@ public abstract partial class SharedDrinkSystem : EntitySystem
             return true;
 
         return DrinkVolume(uid, component) <= 0;
-    }
-
-    /// <summary>
-    /// Tries to feed the drink item to the target entity
-    /// </summary>
-    protected bool TryDrink(EntityUid user, EntityUid target, DrinkComponent drink, EntityUid item)
-    {
-        if (!HasComp<BodyComponent>(target))
-            return false;
-
-        if (!_body.TryGetBodyOrganEntityComps<StomachComponent>(target, out var stomachs))
-            return false;
-
-        if (_openable.IsClosed(item, user, predicted: true))
-            return true;
-
-        if (!_solutionContainer.TryGetSolution(item, drink.Solution, out _, out var drinkSolution) || drinkSolution.Volume <= 0)
-        {
-            if (drink.IgnoreEmpty)
-                return false;
-
-            _popup.PopupClient(Loc.GetString("drink-component-try-use-drink-is-empty", ("entity", item)), item, user);
-            return true;
-        }
-
-        if (_food.IsMouthBlocked(target, user))
-            return true;
-
-        if (!_interaction.InRangeUnobstructed(user, item, popup: true))
-            return true;
-
-        var forceDrink = user != target;
-
-        if (forceDrink)
-        {
-            var userName = Identity.Entity(user, EntityManager);
-
-            _popup.PopupEntity(Loc.GetString("drink-component-force-feed", ("user", userName)), user, target);
-
-            // logging
-            _adminLogger.Add(LogType.ForceFeed, LogImpact.High, $"{ToPrettyString(user):user} is forcing {ToPrettyString(target):target} to drink {ToPrettyString(item):drink} {SharedSolutionContainerSystem.ToPrettyString(drinkSolution)}");
-        }
-        else
-        {
-            // log voluntary drinking
-            _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(target):target} is drinking {ToPrettyString(item):drink} {SharedSolutionContainerSystem.ToPrettyString(drinkSolution)}");
-        }
-
-        var flavors = _flavorProfile.GetLocalizedFlavorsMessage(user, drinkSolution);
-
-        var doAfterEventArgs = new DoAfterArgs(EntityManager,
-            user,
-            forceDrink ? drink.ForceFeedDelay : drink.Delay,
-            new ConsumeDoAfterEvent(drink.Solution, flavors),
-            eventTarget: item,
-            target: target,
-            used: item)
-        {
-            BreakOnHandChange = false,
-            BreakOnMove = forceDrink,
-            BreakOnDamage = true,
-            MovementThreshold = 0.01f,
-            DistanceThreshold = 1.0f,
-            // do-after will stop if item is dropped when trying to feed someone else
-            // or if the item started out in the user's own hands
-            NeedHand = forceDrink || _hands.IsHolding(user, item),
-        };
-
-        _doAfter.TryStartDoAfter(doAfterEventArgs);
-        return true;
     }
 
     /// <summary>

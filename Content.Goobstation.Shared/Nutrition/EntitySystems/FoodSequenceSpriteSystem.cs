@@ -9,11 +9,16 @@
 using Content.Shared.NameModifier.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Nutrition.EntitySystems;
 
 public class FoodSequenceSpriteSystem : SharedFoodSequenceSystem
 {
+    /*
     private EntityQuery<NameModifierComponent> _modifierQuery;
 
     public override void Initialize()
@@ -27,10 +32,11 @@ public class FoodSequenceSpriteSystem : SharedFoodSequenceSystem
 
     private void OnComponentStartup(Entity<FoodSequenceElementComponent> ent, ref ComponentStartup args)
     {
+        var _protoMan = IoCManager.Resolve<IPrototypeManager>();
         if (ent.Comp.Entries.Count != 0)
             return;
 
-        var defaultEntry = new FoodSequenceElementEntry();
+        var defaultEntry = new FoodSequenceElementEntry(); // todo marty FoodSequenceElementEntry is now FoodSequenceElementPrototype
 
         var meta = MetaData(ent);
         var name = _modifierQuery.CompOrNull(ent)?.BaseName ?? meta.EntityName;
@@ -39,4 +45,5 @@ public class FoodSequenceSpriteSystem : SharedFoodSequenceSystem
 
         ent.Comp.Entries.Add("default", defaultEntry);
     }
+    */
 }

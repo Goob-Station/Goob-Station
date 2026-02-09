@@ -67,6 +67,18 @@
   - Cooked
   - Meat
 
+# Dragon Steak
+
+- type: foodSequenceElement
+  id: DragonSteak
+  name: food-sequence-content-dragon
+  sprites:
+  - sprite: Objects/Consumable/Food/meat.rsi
+    state: dragon-cooked
+  tags:
+  - Cooked
+  - Meat
+
 # Becon
 
 - type: foodSequenceElement
@@ -276,7 +288,7 @@
   tags:
   - Cooked
   - Meat
-  
+
 # Snail meat
 
 - type: foodSequenceElement
@@ -1102,3 +1114,38 @@
   sprites:
   - sprite: Objects/Consumable/Food/Baked/cake.rsi
     state: suppermatter-shard
+
+# Anomaly berries
+
+- type: foodSequenceElement
+  id: AnomalyBerry
+  name: food-sequence-content-anomaly-berry
+  sprites:
+  - sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
+    state: produce
+
+- type: foodSequenceElement
+  id: AnomalyBerryBurger
+  name: food-sequence-burger-content-anomaly-berry
+  sprites:
+  - sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
+    state: produce
+
+- type: foodSequenceElement
+  id: CottonBunTopBurger
+  final: true
+  sprites:
+  - sprite: Objects/Consumable/Food/cottonburger.rsi
+    state: cottonbun_top
+  tags:
+  - Bun
+  - ClothMade
+
+#Ian Toy
+
+- type: foodSequenceElement
+  id: IanPlushie
+  name: food-sequence-cotton-burger-content-plushie-ian
+  sprites:
+  - sprite: Objects/Fun/toy_ian.rsi
+    state: icon

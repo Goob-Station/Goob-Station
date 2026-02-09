@@ -17,6 +17,7 @@ using System.Numerics;
 using Content.Goobstation.Common.Standing;
 using Content.Shared._White.Standing;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Robust.Shared.Physics.Components;
 
 namespace Content.Shared._White.Grab;
@@ -28,6 +29,7 @@ public sealed class GrabThrownSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {
@@ -69,7 +71,7 @@ public sealed class GrabThrownSystem : EntitySystem
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
         _stamina.TakeStaminaDamage(ent, (float) Math.Floor(modNumber / 2));
 
-        //_layingDown.TryLieDown(args.OtherEntity, behavior: DropHeldItemsBehavior.AlwaysDrop); //todo marty goobcode adjust
+        _stun.TryCrawling(args.OtherEntity); // todo goobstation test - dropitembehaviour?
 
         _color.RaiseEffect(Color.Red, new List<EntityUid>() { ent }, Filter.Pvs(ent, entityManager: EntityManager));
     }
@@ -104,7 +106,7 @@ public sealed class GrabThrownSystem : EntitySystem
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 
-        //_layingDown.TryLieDown(uid, behavior: behavior); //todo marty goobcode adjust
+        _stun.TryCrawling(uid); //todo goobstream test dropbehaviour
         _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 }

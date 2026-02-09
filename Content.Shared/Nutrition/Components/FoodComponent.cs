@@ -1,5 +1,3 @@
-using Content.Shared.Body.Components;
-using Content.Goobstation.Maths.FixedPoint;
 // SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 BlueberryShortcake <rubetskoy234@mail.ru>
@@ -122,6 +120,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Body.Components;
 
 namespace Content.Shared.Nutrition.Components;
 [Obsolete("Migration to Content.Shared.Nutrition.Components.EdibleComponent is required")]

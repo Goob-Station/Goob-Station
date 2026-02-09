@@ -77,6 +77,12 @@ public sealed partial class TriggerSystem
                 if (curTime > collidingTime)
                 {
                     triggerOnTimedCollide.Colliding[collidingEntity] += triggerOnTimedCollide.Threshold;
+                    // Goob start
+                    var attemptTriggerEvent = new AttemptTriggerEvent(uid, collidingEntity.ToString());
+                    RaiseLocalEvent(uid, ref attemptTriggerEvent);
+                    if (attemptTriggerEvent.Cancelled)
+                        return;
+                    // Goob end
                     Dirty(uid, triggerOnTimedCollide);
                     Trigger(uid, collidingEntity, triggerOnTimedCollide.KeyOut);
                 }

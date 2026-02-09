@@ -1,4 +1,5 @@
-﻿using Content.Shared.Alert;
+﻿using Content.Goobstation.Common.Standing;
+using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -239,7 +240,7 @@ public abstract partial class SharedStunSystem
 
         if (!Resolve(entity, ref entity.Comp2, false))
         {
-            TryKnockdown(entity.Owner, entity.Comp1.DefaultKnockedDuration, true, false, false);
+            TryKnockdown(entity.Owner, entity.Comp1.DefaultKnockedDuration, true, false, DropHeldItemsBehavior.NoDrop); // Goob - DropHeldItemsBehavior
             return;
         }
 

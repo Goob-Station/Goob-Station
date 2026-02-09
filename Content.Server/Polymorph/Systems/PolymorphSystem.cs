@@ -190,7 +190,6 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
 
         InitializeMap();
-        InitializeTrigger();
     }
 
     public override void Update(float frameTime)
@@ -217,8 +216,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 Revert((uid, comp));
             }
         }
-
-        UpdateTrigger();
     }
 
     private void OnComponentStartup(Entity<PolymorphableComponent> ent, ref ComponentStartup args)
@@ -345,9 +342,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
         var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
-        _mindSystem.MakeSentient(child);
-        //todo marty start here
-        MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
+        _mindSystem.MakeSentient(child, configuration.AllowMovement);
         // Goob edit end
 
         var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();

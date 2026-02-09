@@ -4,7 +4,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 
-namespace Content.Goobstation.Server.NPC;
+namespace Content.Goobstation.Shared.NPC;
 public sealed partial class ChangeFactionStatusEffectSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _status = default!;

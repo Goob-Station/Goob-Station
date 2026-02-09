@@ -11,7 +11,7 @@ namespace Content.Shared.Abilities.Mime;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [AutoGenerateComponentPause]
 public sealed partial class MimePowersComponent : Component
-{ //todo marty fix mimepowers goobstation
+{
     /// <summary>
     /// Whether this component is active or not.
     /// </summarY>

@@ -100,13 +100,6 @@ public sealed partial class OpenStorageImplantEvent : InstantActionEvent
 {
 
 }
-// Goob start
-public sealed partial class UseFreedomImplantEvent : InstantActionEvent
-{
-    [DataField]
-    public float StunTime = 5; // Goobstation - useful freedom
-}
-//goob end
 
 /// <summary>
 /// Used for triggering trigger events on the implant via action

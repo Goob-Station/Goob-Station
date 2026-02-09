@@ -18,7 +18,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
-public abstract partial class SharedGunSystem //todo marty doublecheck goobedit here
+public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
 

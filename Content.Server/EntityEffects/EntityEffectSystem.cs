@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -22,6 +23,9 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
+using Content.Shared._EinsteinEngines.Language.Components;
+using Content.Shared._EinsteinEngines.Language.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Body.Components;
@@ -76,7 +80,7 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
-    [Dependency] private readonly TurfSystem _turf = default!; //todo marty turf?
+    [Dependency] private readonly TurfSystem _turf = default!; //todo Goobstation? The only thing im using this for is meant to be in RT? Fix if you havent
 
     public override void Initialize()
     {
@@ -530,7 +534,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
             }
 
-            if (_spreader.RequiresFloorToSpread(args.Effect.PrototypeId) &&  _turf.IsSpace(tileRef)) //todo marty turf???
+            if (_spreader.RequiresFloorToSpread(args.Effect.PrototypeId) &&  _turf.IsSpace(tileRef)) //todo Goobstation _turf should be tileRef but we dont have the RT for it?
                 return;
 
             var coords = _map.MapToGrid(gridUid, mapCoords);
@@ -711,7 +715,7 @@ public sealed class EntityEffectSystem : EntitySystem
             args.Args.TargetEntity,
             null,
             range,
-            TimeSpan.FromSeconds(args.Effect.Duration * 1000), // this wasnt in timespan todo marty
+            TimeSpan.FromSeconds(args.Effect.Duration * 1000),
             slowTo: args.Effect.SlowTo,
             sound: args.Effect.Sound);
 
@@ -752,6 +756,21 @@ public sealed class EntityEffectSystem : EntitySystem
         RemComp<ReplacementAccentComponent>(uid);
         RemComp<MonkeyAccentComponent>(uid);
 
+        // Einstein Engines - Language begin
+        // Make sure the entity knows at least fallback (Tau-Ceti Basic).
+        var speaker = EntityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
+        var knowledge = EntityManager.EnsureComponent<LanguageKnowledgeComponent>(uid);
+        var fallback = SharedLanguageSystem.FallbackLanguagePrototype;
+
+        if (!knowledge.UnderstoodLanguages.Contains(fallback))
+            knowledge.UnderstoodLanguages.Add(fallback);
+
+        if (!knowledge.SpokenLanguages.Contains(fallback))
+            knowledge.SpokenLanguages.Add(fallback);
+
+        IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>().UpdateEntityLanguages(uid);
+        // Einstein Engines - Language end
+
         // Stops from adding a ghost role to things like people who already have a mind
         if (TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)
         {
@@ -783,7 +802,11 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale.Float();
             }
 
-            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt); // todo marty no blood component passed
+            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt); //todo goobstream test
+
+            // Shitmed Change
+            var woundsSys = args.Args.EntityManager.System<WoundSystem>();
+            woundsSys.TryHealMostSevereBleedingWoundables(args.Args.TargetEntity, -amt, out _);
         }
     }
 
@@ -799,7 +822,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale;
             }
 
-            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt); // todo marty no blood component passed
+            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt); //todo goobstream test
         }
     }
 

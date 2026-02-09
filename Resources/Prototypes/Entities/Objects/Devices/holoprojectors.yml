@@ -152,8 +152,8 @@
 #    slots:
 #      cell_slot:
 #        name: power-cell-slot-component-slot-name-default
-#
-#- type: entity #todo marty doublecheck borg holo
+
+#- type: entity # Goob borgs use the normal one anyway DV holofans
 #  parent: HolofanProjector
 #  id: HolofanProjectorBorg
 #  name: integrated holofan

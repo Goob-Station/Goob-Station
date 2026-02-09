@@ -27,6 +27,8 @@
   - Robotics
   completetime: 3
 
+# Recipes
+
 - type: latheRecipe
   abstract: true
   parent: BaseRoboticsRecipe
@@ -43,7 +45,7 @@
   - Parts
   completetime: 2
 
-## Recipes
+
 
 # Parts
 - type: latheRecipe

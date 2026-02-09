@@ -93,7 +93,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SleepingSystem _sleepingSystem = default!; // Shitmed change - todo marty cryopods got fucked goobify shitmed changes.
+    [Dependency] private readonly SleepingSystem _sleepingSystem = default!; // Shitmed change
 
     public override void Initialize()
     {

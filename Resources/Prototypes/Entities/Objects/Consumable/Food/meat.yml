@@ -2387,12 +2387,9 @@
     graph: DragonCutlet
     node: dragon cutlet
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: dragoncutlet-cooked
     entries:
-      burger:
-        name: food-sequence-content-dragon
+      Burger: DragonSteak
+      Taco: DragonSteak
   - type: Item
     inhandVisuals:
       left:

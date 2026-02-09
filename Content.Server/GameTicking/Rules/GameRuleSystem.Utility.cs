@@ -123,7 +123,7 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
 
     protected Entity<MapGridComponent>? GetStationMainGrid(StationDataComponent station)
     {
-        if ((station.Grids.FirstOrNull(HasComp<BecomesStationComponent>) ?? _station.GetLargestGrid(station)) is not
+        if ((station.Grids.FirstOrNull(HasComp<BecomesStationComponent>) ?? _station.GetLargestGrid(station.Owner)) is not //todo goobstation station.owner obsolete patchup
             { } grid || !TryComp(grid, out MapGridComponent? gridComp))
             return null;
 

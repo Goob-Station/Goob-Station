@@ -199,7 +199,6 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (_entityWhitelist.IsBlacklistPass(ent.Comp.Blacklist, args.OtherEntity))
             return;
-        // Goobstation - todo marty goobstation - 325777eff18552be60aa8d3bb1adfe062db58f40 - updatespriterotation
         TryUpdateStunDuration(args.OtherEntity, ent.Comp.Duration);
         TryKnockdown(args.OtherEntity, ent.Comp.Duration, force: true);
     }
@@ -232,7 +231,7 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     private void OnStunnedSuccessfully(EntityUid uid, TimeSpan? duration)
     {
-        //todo marty check placement of this
+        //todo goobstream test
         // goob edit
         if (duration.HasValue)
         {
@@ -272,7 +271,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (!Resolve(entity, ref entity.Comp, false))
             return false;
 
-        return TryKnockdown(entity, time, refresh, autoStand, drop, force);
+        return TryKnockdown(entity, time, refresh, autoStand, DropHeldItemsBehavior.DropIfStanding, force); // Goob DropHeldItemsBehaviour
     }
 
     /// <inheritdoc cref="TryCrawling(Entity{CrawlerComponent?},TimeSpan?,bool,bool,bool,bool)"/>
@@ -286,49 +285,15 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (!Resolve(entity, ref entity.Comp, false))
             return false;
 
-        return TryKnockdown(entity, entity.Comp.DefaultKnockedDuration, refresh, autoStand, drop, force);
-    }
-
-    /// <summary>
-    ///     Knocks down the entity, making it fall to the ground.
-    /// </summary>
-    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null, bool standOnRemoval = true) // Shitmed Change
-    {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(uid, modifierEv, true);
-        time *= modifierEv.Modifier;
-
-        if (!HasComp<KnockedDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
-            return false;
-
-        if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
-            return false;
-
-        // goob start
-        var ignoreEv = new BeforeKnockdownEvent();
-        RaiseLocalEvent(uid, ref ignoreEv);
-
-        if (ignoreEv.Cancelled)
-            return false;
-        // goob end
-
-        var component = _componentFactory.GetComponent<KnockedDownComponent>();
-        //component.DropHeldItemsBehavior = behavior; //todo marty dropped item behaviour
-        component.StandOnRemoval = standOnRemoval;
-        if (!_status.TryAddStatusEffect(uid, KnockdownId, out _, time))
-            return false;
-
-        var ev = new KnockedDownEvent();
-        RaiseLocalEvent(uid, ref ev);
-        return true;
+        return TryKnockdown(entity, entity.Comp.DefaultKnockedDuration, refresh, autoStand, DropHeldItemsBehavior.DropIfStanding, force); // Goob DropHeldItemsBehaviour
     }
 
     /// <summary>
     ///     Goobstation.
     ///     Try knockdown, if it fails - stun.
+    ///     Refresh true by default on either, statuseffectcomp is handled by each system separately
     /// </summary>
-    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
+    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh = true)
     {
         return TryKnockdown(uid, time, refresh) || TryUpdateStunDuration(uid, time);
     }
@@ -347,8 +312,8 @@ public abstract partial class SharedStunSystem : EntitySystem
         RaiseLocalEvent( entity, modifierEv, true);
         time *= modifierEv.Modifier;
 
-        //if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down //todo marty crawlercomp - also doublecheck the stunmeta shit here
-        //    return false;
+        if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down //todo marty crawlercomp - also doublecheck the stunmeta shit here
+            return false;
 
         if (time <= TimeSpan.Zero)
             return false;
@@ -386,8 +351,31 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// <param name="autoStand">Whether we want to automatically stand when knockdown ends.</param>
     /// <param name="drop">Whether we should drop items.</param>
     /// <param name="force">Should we force the status effect?</param>
-    public bool TryKnockdown(Entity<CrawlerComponent?> entity, TimeSpan? time, bool refresh = true, bool autoStand = true, bool drop = true, bool force = false)
+    public bool TryKnockdown(Entity<CrawlerComponent?> entity, TimeSpan? time, bool refresh = true, bool autoStand = true,
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.DropIfStanding, // Goob custom drop behaviour.
+        bool force = false)
     {
+        //goob start stunmodifiers todo goob these are fucking broke anyway apparently
+        var modifierEv = new GetClothingStunModifierEvent(entity);
+        RaiseLocalEvent(modifierEv);
+        time *= modifierEv.Modifier;
+
+        // Goob - Listen, listen to me. I know this makes more sense as an enum (as it orignally is), but hear me out,
+        // i would rather NOT touch upstream code as much as possible and change 1 (one) method, while keeping our yaml-defined drop behavior,
+        // instead of changing every method down the line to use the enum.
+        // so deadass im just using a switch statement here to turn our behavior into a bool for the methods down the line.
+        // turboshitcode, but hopefully makes upstreaming easier cause they change the stun code like once a month.
+        if (!TryComp<StandingStateComponent>(entity, out var standing))
+            return false;
+        bool drop = behavior switch
+        {
+            DropHeldItemsBehavior.DropIfStanding => standing.Standing,
+            DropHeldItemsBehavior.NoDrop        => false,
+            DropHeldItemsBehavior.AlwaysDrop    => true,
+            _ => standing.Standing //default
+        };
+        //goob end
+
         if (!CanKnockdown(entity.Owner, ref time, ref autoStand, ref drop, force))
             return false;
 
@@ -395,6 +383,8 @@ public abstract partial class SharedStunSystem : EntitySystem
         // Also time shouldn't be null if we're and trying to add time but, we check just in case anyways.
         if (!Resolve(entity, ref entity.Comp, false))
             return refresh || time == null ? TryUpdateParalyzeDuration(entity, time) : TryAddParalyzeDuration(entity, time.Value);
+
+
 
         Knockdown(entity, time, refresh, autoStand, drop);
         return true;

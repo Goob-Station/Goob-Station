@@ -39,7 +39,7 @@ namespace Content.Server.Mind.Commands;
 public sealed class MakeSentientCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!; // todo marty this shit
+    [Dependency] private readonly IEntityManager _entManager = default!;
 
     public override string Command => "makesentient";
 
@@ -58,44 +58,5 @@ public sealed class MakeSentientCommand : LocalizedEntityCommands
         }
 
         _mindSystem.MakeSentient(entId.Value);
-
-        //todo marty start
-            if (!_entManager.EntityExists(entId))
-            {
-                shell.WriteLine("Invalid entity specified!");
-                return;
-            }
-
-            MakeSentient(entId.Value, _entManager, true, true);
         }
-
-        public static void MakeSentient(EntityUid uid, IEntityManager entityManager, bool allowMovement = true, bool allowSpeech = true)
-        {
-            entityManager.EnsureComponent<MindContainerComponent>(uid);
-            if (allowMovement)
-            {
-                entityManager.EnsureComponent<InputMoverComponent>(uid);
-                entityManager.EnsureComponent<MobMoverComponent>(uid);
-                entityManager.EnsureComponent<MovementSpeedModifierComponent>(uid);
-            }
-
-            if (allowSpeech)
-            {
-                entityManager.EnsureComponent<SpeechComponent>(uid);
-                entityManager.EnsureComponent<EmotingComponent>(uid);
-            }
-
-            // Einstein Engines - Language begin
-            var language = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>();
-            var speaker = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
-
-            // If the entity already speaks some language (like monkey or robot), we do nothing else.
-            // Otherwise, we give them the fallback language
-            if (speaker.SpokenLanguages.Count == 0)
-                language.AddLanguage(uid, SharedLanguageSystem.FallbackLanguagePrototype);
-            // Einstein Engines - Language end
-
-            entityManager.EnsureComponent<ExaminerComponent>(uid);
-        }
-
 }
