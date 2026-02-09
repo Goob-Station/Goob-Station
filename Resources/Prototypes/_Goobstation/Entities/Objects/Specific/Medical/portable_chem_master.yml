@@ -60,6 +60,14 @@
       - state: chemical_mixer
   - type: Item
     size: Huge
+  - type: ItemMapper
+    containerWhitelist: [beakerSlot]
+    mapLayers:
+      chemical_mixer_beaker:
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: Appearance
   - type: ChemMaster
     pillDosageLimit: 20
   - type: Destructible
@@ -102,7 +110,7 @@
   - type: SolutionContainerManager
     solutions:
       buffer:
-        maxVol: 400
+        maxVol: 600
         canReact: false     # added becuse there where instances that the chemicals can mix on transfer
   - type: DumpableSolution
     solution: buffer
