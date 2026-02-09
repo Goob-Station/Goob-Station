@@ -504,6 +504,19 @@
   output:
     MawedCrucible: 1
 
+- type: hereticRitual
+  id: ThroughTheBoundary
+  locName: knowledge-path-side-s6-sword-name
+  locDesc: knowledge-path-side-s6-sword-desc
+  icon:
+    sprite: _Goobstation/Heretic/Entities/sword.rsi
+    state: icon
+  requiredTags: # TODO: Ritual ingredient refactor
+    HereticBlade: 2
+    GoldBar: 2
+  output:
+    RaggedSword: 1
+
 ## stage 8
 - type: hereticRitual
   id: MaidInTheMirror

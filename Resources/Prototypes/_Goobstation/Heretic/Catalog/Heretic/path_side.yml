@@ -204,6 +204,22 @@
     stage: 5
 
 - type: listing
+  id: HereticSidePath6Sword
+  name: knowledge-path-side-s6-sword-name
+  description: knowledge-path-side-s6-sword-desc
+  icon: { sprite: _Goobstation/Heretic/Entities/sword.rsi, state: icon }
+  productHereticKnowledge: ThroughTheBoundary
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
   id: HereticSidePath8Cleave
   name: knowledge-path-side-s8-cleave-name
   description: knowledge-path-side-s8-cleave-desc

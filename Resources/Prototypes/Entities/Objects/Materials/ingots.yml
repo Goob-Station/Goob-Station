@@ -82,6 +82,10 @@
         reagents:
         - ReagentId: Gold
           Quantity: 10
+  - type: Tag # Goobstation
+    tags:
+    - Ingot
+    - GoldBar
 
 - type: entity
   parent: IngotGold

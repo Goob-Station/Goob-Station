@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -8,7 +9,13 @@ namespace Content.Shared._Shitcode.Heretic.Components;
 public sealed partial class MirrorMaidComponent : Component
 {
     [DataField]
-    public float ExamineDamagePercent = 0.2f;
+    public DamageSpecifier ExamineDamage = new()
+    {
+        DamageDict =
+        {
+            { "Blunt", 15 },
+        }
+    };
 
     [DataField]
     public TimeSpan ExamineDelay = TimeSpan.FromSeconds(5);

@@ -367,7 +367,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 continue;
 
             if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
-                _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User, hereticComp);
+                _combatMark.ApplyMarkEffect(hit, mark, mark.Path, args.User, hereticComp);
 
             if (hereticComp.PathStage >= 7)
                 ApplySpecialEffect(args.User, hit, args);

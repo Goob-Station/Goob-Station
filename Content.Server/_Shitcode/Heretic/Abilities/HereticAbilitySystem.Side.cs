@@ -76,8 +76,7 @@ public sealed partial class HereticAbilitySystem
 
     private bool TryPerformJaunt(EntityUid uid,
         BaseActionEvent args,
-        ProtoId<PolymorphPrototype> polymorph,
-        out EntityUid? spawned)
+        ProtoId<PolymorphPrototype> polymorph)
     {
         if (TryComp(uid, out PolymorphedEntityComponent? morphed) && HasComp<SpectralComponent>(uid))
             _poly.Revert((uid, morphed));

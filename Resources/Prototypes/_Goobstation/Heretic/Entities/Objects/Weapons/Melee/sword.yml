@@ -1,0 +1,41 @@
+- type: entity
+  name: ragged sword
+  description: This blade feels cold and faintly resonant to the touch. Its surface swims with impossible, fleeting geometries that strain the eye, and it will cut bits off mortals and immortals just fine.
+  parent: [ BaseSword, BaseMagicalContraband ]
+  id: RaggedSword
+  components:
+  - type: UnholyItem
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/sword.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Heretic/Entities/sword-inhands.rsi
+    size: Huge
+    storedRotation: -45
+  - type: MeleeWeapon # Same dps, more wounding and range compared to blade, but no AP
+    damage:
+      types:
+        Slash: 20
+      woundSeverityMultipliers:
+        Slash: 2
+    angle: 90
+    range: 2
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Sharp
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Heretic/Entities/sword.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: HereticCombatMarkOnMeleeHit
+  - type: Multihit
+    damageMultiplier: 1
+    multihitDelay: 1
+    delayPenalty: 1
+    multihitWhitelist:
+      tags:
+      - HereticBlade
+    conditions:
+    - !type:MultihitUserHereticEvent

@@ -260,6 +260,9 @@
   id: GorillaFormAction
 
 - type: Tag
+  id: GoldBar
+
+- type: Tag
   id: Gygax
 
 - type: Tag

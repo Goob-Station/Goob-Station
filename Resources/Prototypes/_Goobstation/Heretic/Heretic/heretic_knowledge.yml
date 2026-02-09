@@ -577,6 +577,13 @@
   ritualPrototypes:
   - MawedCrucible
 
+- type: hereticKnowledge
+  id: ThroughTheBoundary
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - ThroughTheBoundary
+
 ## stage 8
 - type: hereticKnowledge
   id: Cleave

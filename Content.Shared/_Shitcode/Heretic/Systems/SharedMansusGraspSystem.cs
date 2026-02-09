@@ -20,18 +20,19 @@ using Content.Shared.Heretic.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
@@ -40,7 +41,8 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -55,7 +57,44 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<HereticCombatMarkOnMeleeHitComponent, MeleeHitEvent>(OnMelee);
+        SubscribeLocalEvent<HereticCombatMarkOnMeleeHitComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnMapInit(Entity<HereticCombatMarkOnMeleeHitComponent> ent, ref MapInitEvent args)
+    {
+        ResetPath(ent);
+    }
+
+    private void OnMelee(Entity<HereticCombatMarkOnMeleeHitComponent> ent, ref MeleeHitEvent args)
+    {
+        if (!args.IsHit || !HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+            return;
+
+        foreach (var uid in args.HitEntities)
+        {
+            if (uid == args.User)
+                continue;
+
+            ApplyMark(uid, ent.Comp.NextPath);
+        }
+
+        ResetPath(ent);
+    }
+
+    private void ResetPath(Entity<HereticCombatMarkOnMeleeHitComponent> ent)
+    {
+        if (_net.IsClient)
+            return;
+
+        ent.Comp.NextPath = _random.Pick(ent.Comp.Paths);
+        Dirty(ent);
+    }
 
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
@@ -77,23 +116,32 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 return true;
         }
 
-        if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
-        {
-            var markComp = EnsureComp<HereticCombatMarkComponent>(target);
-            markComp.DisappearTime = markComp.MaxDisappearTime;
-            markComp.Path = hereticComp.CurrentPath;
-            markComp.Repetitions = hereticComp.CurrentPath == "Ash" ? 5 : 1;
-            Dirty(target, markComp);
-
-            if (hereticComp.CurrentPath == "Cosmos")
-            {
-                var cosmosMark = EnsureComp<HereticCosmicMarkComponent>(target);
-                cosmosMark.CosmicDiamondUid = Spawn(cosmosMark.CosmicDiamond, Transform(target).Coordinates);
-                _transform.AttachToGridOrMap(cosmosMark.CosmicDiamondUid.Value);
-            }
-        }
+        if (hereticComp.PathStage >= 4)
+            ApplyMark(target, hereticComp.CurrentPath);
 
         return true;
+    }
+
+    public void ApplyMark(EntityUid target, string path)
+    {
+        if (!HasComp<MobStateComponent>(target))
+            return;
+
+        RemComp<HereticCosmicMarkComponent>(target);
+        var markComp = EnsureComp<HereticCombatMarkComponent>(target);
+        markComp.DisappearTime = markComp.MaxDisappearTime;
+        markComp.Path = path;
+        markComp.Repetitions = path == "Ash" ? 5 : 1;
+        Dirty(target, markComp);
+        var ev = new UpdateCombatMarkAppearanceEvent();
+        RaiseLocalEvent(target, ref ev);
+
+        if (_net.IsClient || path != "Cosmos")
+            return;
+
+        var cosmosMark = EnsureComp<HereticCosmicMarkComponent>(target);
+        cosmosMark.CosmicDiamondUid = Spawn(cosmosMark.CosmicDiamond, Transform(target).Coordinates);
+        _transform.AttachToGridOrMap(cosmosMark.CosmicDiamondUid.Value);
     }
 
     public bool ApplyGraspEffect(Entity<HereticComponent> user,

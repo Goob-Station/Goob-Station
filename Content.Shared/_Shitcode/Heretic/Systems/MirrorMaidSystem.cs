@@ -48,7 +48,7 @@ public sealed class MirrorMaidSystem : EntitySystem
 
     private void OnExamine(Entity<MirrorMaidComponent> ent, ref ExaminedEvent args)
     {
-        if (ent.Comp.ExamineDamagePercent <= 0f || args.Examiner == ent.Owner ||
+        if (ent.Comp.ExamineDamage.Empty || args.Examiner == ent.Owner ||
             HasComp<GhostComponent>(args.Examiner) || HasComp<SpectralComponent>(args.Examiner) ||
             HasComp<GhostComponent>(args.Examiner) || HasComp<HereticComponent>(args.Examiner) ||
             HasComp<MirrorMaidComponent>(args.Examiner) ||
@@ -59,16 +59,11 @@ public sealed class MirrorMaidSystem : EntitySystem
             !_threshold.TryGetThresholdForState(ent, MobState.Dead, out threshold))
             return;
 
-        var damage = new DamageSpecifier
-        {
-            DamageDict =
-            {
-                { "Blunt", threshold.Value * ent.Comp.ExamineDamagePercent },
-            }
-        };
-
-        if (_damageable.TryChangeDamage(ent, damage, true, origin: args.Examiner, targetPart: TargetBodyPart.Vital) ==
-            null)
+        if (_damageable.TryChangeDamage(ent,
+                ent.Comp.ExamineDamage,
+                true,
+                origin: args.Examiner,
+                targetPart: TargetBodyPart.Vital) == null)
             return;
 
         _status.TryUpdateStatusEffectDuration(args.Examiner, ent.Comp.ExamineStatus, ent.Comp.ExamineDelay);
