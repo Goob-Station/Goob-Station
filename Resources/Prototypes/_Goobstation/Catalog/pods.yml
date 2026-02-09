@@ -99,6 +99,7 @@
   - type: SpawnTableOnDespawn
     table:
       id: ClothingOuterArmorDragon
+      id: ClothingHeadHatHelmetDragon
 
 - type: entity
   id: SpawnArmamentsInquisitor

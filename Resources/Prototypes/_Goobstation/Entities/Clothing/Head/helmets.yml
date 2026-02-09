@@ -311,26 +311,19 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetDragon
-  name: dragon hood
+  name: dragon skull
   description: Fireball spewing not included.
   components:
   - type: Sprite
-    sprite: _ShitChap/Clothing/Head/Misc/dragonhood.rsi
+    sprite: _ShitChap/Clothing/Head/Misc/dragon.rsi
     state: icon
   - type: Clothing
-    sprite: _ShitChap/Clothing/Head/Misc/dragonhood.rsi
-  - type: TemperatureProtection
-    heatingCoefficient: 0.01
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.95
-  - type: FireProtection
-    reduction: 0.2
-  - type: FactionClothing
-    faction: Dragon
+    sprite: _ShitChap/Clothing/Head/Misc/dragon.rsi
+  - type: HideLayerClothing
+    layers: {}
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
