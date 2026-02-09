@@ -114,9 +114,11 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         start.Comp.RevealedLayers.Clear();
 
         //Add new layers
-        var counter = 0;
-        foreach (var state in start.Comp.FoodLayers)
+        // <Trauma> change it to regular for loop so it can modify layer sprite which is a struct
+        for (int counter = 0; counter < start.Comp.FoodLayers.Count;)
         {
+            var state = start.Comp.FoodLayers[counter];
+            // </Trauma>
             if (state.Sprite is null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers HOLY FUCK THIS IS SO BAD!!! BUT IT WORKS!!
             {
                 if (prototype.TryGetComponent<SpriteComponent>(out var spriteComp))

@@ -174,13 +174,13 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return true;
 
         Metamorf(start, _random.Pick(availableRecipes)); //In general, if there's more than one recipe, the yml-guys screwed up. Maybe some kind of unit test is needed.
-        QueueDel(start);
+        PredictedQueueDel(start.Owner); // trauma
         return true;
     }
 
     private void Metamorf(Entity<FoodSequenceStartPointComponent> start, MetamorphRecipePrototype recipe)
     {
-        var result = SpawnAtPosition(recipe.Result, Transform(start).Coordinates);
+        var result = PredictedSpawnNextToOrDrop(recipe.Result, start); // trauma
 
         //Try putting in container
         _transform.DropNextTo(result, (start, Transform(start)));
@@ -196,11 +196,11 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         _solutionContainer.TryAddSolution(resultSoln.Value, startSolution);
 
         MergeFlavorProfiles(start, result);
-        MergeTrash(start, result);
+        MergeTrash(start.Owner, result); //trauma
         MergeTags(start, result);
     }
 
-    private bool TryAddFoodElement(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent, EdibleComponent?> element, EntityUid? user = null)
+    private bool TryAddFoodElement(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent, EdibleComponent?> element, EntityUid? user = null) // trauma
     {
         // we can't add a live mouse to a burger.
         // <Goob> don't care if the burger accepts anything
@@ -213,19 +213,23 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         }
 
         // </Goob>
+        // <Trauma>
+        // i cba making my own fixes for this
         //looking for a suitable FoodSequence prototype
-        ProtoId<FoodSequenceElementPrototype> elementProto = string.Empty;
-        foreach (var pair in element.Comp1.Entries)
+        ProtoId<FoodSequenceElementPrototype> elementProto = default!;
+        if (!element.Comp1.Entries.TryGetValue(start.Comp.Key, out elementProto) && start.Comp.AcceptAll)
         {
-            if (pair.Key == start.Comp.Key || start.Comp.AcceptAll) // Goobstation anythingburgers
+            // fall back to any entry if the desired one isn't present, with AcceptAll burgers
+            foreach (var pair in element.Comp1.Entries)
             {
                 elementProto = pair.Value;
-                break; // Goobstation - anythingburgers
+                break;
             }
         }
-        if (!_proto.TryIndex(elementProto, out var elementIndexed))
-            return false;
 
+        if (elementProto == default! || !_proto.Resolve(elementProto, out var elementIndexed))
+            return false;
+        // </Trauma>
         //if we run out of space, we can still put in one last, final finishing element.
         if (start.Comp.FoodLayers.Count >= start.Comp.MaxLayers && !elementIndexed.Final || start.Comp.Finished)
         {
@@ -234,11 +238,21 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return false;
         }
 
+        // Fuck it if im taking trauma fixes anyway im taking this too
+        // <Trauma>
+        // Prevents plushies with items hidden in them from being added to prevent deletion of items
+        // If more of these types of checks need to be added, this should be changed to an event or something.
+        if (TryComp<SecretStashComponent>(element, out var stashComponent) && stashComponent.ItemContainer.Count != 0)
+        {
+            return false;
+        }
+        // </Trauma>
+
         //Generate new visual layer
         var flip = start.Comp.AllowHorizontalFlip && _random.Prob(0.5f);
         var layer = new FoodSequenceVisualLayer(elementIndexed,
             _random.Pick(elementIndexed.Sprites),
-            new Vector2(flip ? -1 : 1, 1),
+            new Vector2(flip ? -elementIndexed.Scale.X : elementIndexed.Scale.X, elementIndexed.Scale.Y),
             new Vector2(
                 _random.NextFloat(start.Comp.MinLayerOffset.X, start.Comp.MaxLayerOffset.X),
                 _random.NextFloat(start.Comp.MinLayerOffset.Y, start.Comp.MaxLayerOffset.Y))
@@ -252,19 +266,15 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
         UpdateFoodName(start);
         UpdateFoodSize(start); // Goobstation - anythingburgers
-        MergeFoodSolutions(start, element);
+        MergeFoodSolutions(start.Owner, element.Owner);
         MergeFlavorProfiles(start, element);
-        MergeTrash(start, element);
+        MergeTrash(start.Owner, element.Owner);
         MergeTags(start, element);
 
         var ev = new FoodSequenceIngredientAddedEvent(start, element, elementProto, user);
         RaiseLocalEvent(start, ev);
 
-        QueueDel(element); //goob anything
-
-        if (!IsClientSide(element)) // Goob anythingburger
-            QueueDel(element);
-
+        PredictedQueueDel(element.Owner);
         return true;
     }
 
@@ -403,7 +413,10 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
             _item.SetShape(start, new List<Box2i> { new Box2i(0, 0, 1, increment) });
         }
-        else if (increment >= 8) { // todo marty refactor this or move GravityWellComponent to shared
+        // todo goob refactor this or move GravityWellComponent to shared
+        // This kinda works but the teleport afterwards is kinda ass so replace or kill
+        // you cant do this anyway with most things due to limit on stacking
+        else if (increment >= 8) {
             EnsureComp<SpawnGravityWellComponent>(start, out var gravityWell);
             gravityWell.MaxRange = (float)Math.Sqrt(increment/4);
             gravityWell.BaseRadialAcceleration = (float)Math.Sqrt(increment/4);

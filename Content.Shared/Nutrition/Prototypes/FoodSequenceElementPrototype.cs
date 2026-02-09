@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -17,6 +18,13 @@ public sealed partial class FoodSequenceElementPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<SpriteSpecifier> Sprites { get; private set; } = new();
+
+    /// <summary>
+    /// Traumacode
+    /// Relative size of the sprite displayed in the food sequence.
+    /// </summary>
+    [DataField]
+    public Vector2 Scale { get; private set; } = Vector2.One;
 
     /// <summary>
     /// A localized name piece to build into the item name generator.
