@@ -100,6 +100,11 @@
     Telecrystal: 30
   categories:
     -  UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkRemoteSignallerAdvanced
