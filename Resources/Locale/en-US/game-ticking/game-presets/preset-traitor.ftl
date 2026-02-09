@@ -55,7 +55,7 @@ traitor-role-codewords =
     {$codewords}.[/color]
     Codewords can be used in regular conversation to identify yourself discreetly to other traitors.
 traitor-role-uplink-code =
-    Set your ringtone to the notes [color = lightgray]{$code}[/color] to lock or unlock your uplink.
+    Your uplink code is [color=white]{$code}[/color]. Set it as your PDA ringtone to access the black market.
     Remember to lock it after, or the stations crew will easily open it too!
 traitor-role-uplink-pen-code =
     Spin your pen to the combination [color = lightgray]{$code}[/color] to unlock your uplink.
@@ -69,8 +69,7 @@ traitor-role-codewords-short =
     The codewords are:
     {$codewords}.
 
-traitor-role-uplink-code-short = Your uplink code is [color=white]{$code}[/color]. Set it as your PDA ringtone to access the black market.
-traitor-role-uplink-code-short-nocolor = Your uplink code is {$code}. Set it as your PDA ringtone to access the black market.
+traitor-role-uplink-code-short = Your uplink code is {$code}. Set it as your PDA ringtone to access the black market.
 traitor-role-uplink-pen-code-short = Your pen uplink code is {$code}. Spin the pen to unlock. Locks when closed.
 traitor-role-uplink-implant-short = Your uplink was implanted. Access it from your hotbar.
 
@@ -78,7 +77,7 @@ traitor-role-moreinfo =
     Find more information about your role in the character menu.
 
 traitor-role-nouplink =
-    You do not have a syndicate uplink.
+    Unfortunately you do not have access to the black market.
 
 traitor-role-allegiances =
     Your allegiances:

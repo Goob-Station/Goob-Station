@@ -285,13 +285,12 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString($"traitor-{issuer}-intro"));
 
-        if (uplinkCode != null || penSpinCode != null)
-            sb.AppendLine("\n" + Loc.GetString($"traitor-{issuer}-uplink"));
-
         if (uplinkBriefing != null)
+        {
+            sb.AppendLine("\n" + Loc.GetString($"traitor-{issuer}-uplink"));
             sb.AppendLine(uplinkBriefing);
-
-        else sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
+        }
+        else sb.AppendLine(Loc.GetString("traitor-role-nouplink"));
 
         if (codewords != null)
             sb.AppendLine("\n" + Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
