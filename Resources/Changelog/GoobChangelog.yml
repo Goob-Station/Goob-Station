@@ -21064,3 +21064,47 @@ Entries:
         dragon's tail nullrod and the draconic altar
   id: 2386
   time: '2026-02-07T20:22:48.0000000+00:00'
+- author: RomiGur
+  changes:
+    - type: Tweak
+      message: >-
+        Now you can place energy rifle magazines (all types) into all types of
+        security belts.
+  id: 2387
+  time: '2026-02-08T07:04:20.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Police Batons, a stunbaton sidegrade that can be found in detectives
+        closet.
+  id: 2388
+  time: '2026-02-08T07:36:51.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Portable chemical mixer capacity increased by 1.5x and now has a beaker
+        sprite.
+  id: 2389
+  time: '2026-02-08T08:00:14.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Nuclear Operative's Medic is now more useful for the team, having a
+        health and a chemical HUD in visor.
+  id: 2390
+  time: '2026-02-08T08:21:26.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Reduced mobility in nograv environment for everyone.
+  id: 2391
+  time: '2026-02-08T23:26:27.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The laser rifle and laser cannon have been buffed.
+  id: 2392
+  time: '2026-02-09T02:58:40.0000000+00:00'
