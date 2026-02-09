@@ -1078,7 +1078,13 @@
   id: EvilPlushiePasha
   suffix: Evil
 
+- type: entity
+  name: Evil TwoFish
+  parent: PlushieTwofish
+  id: EvilPlushieTwofish
+  suffix: Evil
 
+  
 - type: entity
   parent: BaseItem
   id: ToyBladeEldritch
@@ -1101,3 +1107,35 @@
     sprite: _Goobstation/Heretic/Blades/eldrich_blade-toy-inhands.rsi
 
 
+- type: entity
+  parent: BasePlushie
+  id: PlushieTwofish
+  name: TwoFish plushie
+  description: At closer look, looks like a chud
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_twofish
+  - type: Item
+    heldPrefix: plushietwofish
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushietwofish
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg

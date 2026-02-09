@@ -93,7 +93,6 @@
   cost: 7500
   recipeUnlocks:
   - ExperimentalCircuitBoard
-  - NTCustomLawboard
   position: -4,0
   technologyPrerequisites:
   - AdvancedAnomalyResearch
