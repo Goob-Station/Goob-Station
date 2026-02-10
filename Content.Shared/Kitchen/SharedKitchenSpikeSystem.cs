@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Common.Changeling;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
@@ -25,6 +26,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
+using Content.Shared.Roles.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -223,6 +225,19 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
     {
         if (args.Handled || args.Cancelled || !args.Target.HasValue)
             return;
+
+        // Goobstation - start
+        if (HasComp<ChangelingRoleComponent>(args.Target.Value)) // todo marty placeholder fix ling here.
+        {
+            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(args.Target.Value, EntityManager)), ("this", args.User)), args.Target.Value, args.User);
+            return ;
+        }
+        if (HasComp<AbsorbedComponent>(args.Target.Value))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-absorbed", ("victim", Identity.Entity(args.Target.Value, EntityManager)), ("this", args.User)), args.Target.Value, args.User);
+            return;
+        }
+        // Goobstation - end
 
         if (_containerSystem.Insert(args.Target.Value, ent.Comp.BodyContainer))
         {
