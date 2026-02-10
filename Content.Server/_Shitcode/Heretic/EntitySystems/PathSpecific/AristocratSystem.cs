@@ -42,6 +42,7 @@ using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Effects;
 using Content.Shared.Heretic;
+using Content.Shared.Light.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Standing;

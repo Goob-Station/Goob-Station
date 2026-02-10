@@ -75,6 +75,7 @@ using Content.Shared.Friction;
 using Content.Shared.Item;
 using Content.Shared.Tag;
 using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Shared._Shitcode.Wizard.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
@@ -326,7 +327,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         Faction.AddFaction(newEntity, WizardRuleSystem.Faction);
         RemCompDeferred<TransferMindOnGibComponent>(newEntity);
         EnsureComp<WizardComponent>(newEntity);
-        if (!Role.MindHasRole<WizardRoleComponent>(mind, out _))
+        if (!Role.MindHasRole<GoobWizardRoleComponent>(mind, out _))
             Role.MindAddRole(mind, WizardRuleSystem.Role.Id, mindComponent, true);
 
         EnsureComp<PhylacteryComponent>(item);

@@ -1,6 +1,7 @@
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 
-namespace Content.Server._DV.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 ///     Added to mind role entities to tag that they are using the rogue ascended systems.
