@@ -22,6 +22,7 @@
 
 using Content.Client.Audio;
 using Content.Shared._Lavaland.Audio;
+using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs;
@@ -72,6 +73,19 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
         SubscribeLocalEvent<ActorComponent, MobStateChangedEvent>(OnPlayerDeath);
         SubscribeLocalEvent<ActorComponent, EntParentChangedMessage>(OnPlayerParentChange);
         SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEnd);
+        SubscribeNetworkEvent<BossFirstDamageEvent>(OnBossFirstDamage);
+    }
+    private void OnBossFirstDamage(BossFirstDamageEvent ev, EntitySessionEventArgs args)
+    {
+        var boss = GetEntity(ev.Boss);
+
+        if (!TryComp<BossMusicComponent>(boss, out var music))
+            return;
+
+        if (_musicProto != null)
+            return;
+
+        StartBossMusic(music.SoundId);
     }
 
     public override void Shutdown()

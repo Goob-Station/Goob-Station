@@ -96,6 +96,11 @@
       1600: 4
   - type: MobPhaseSprite
     phases:
+      1:
+        rsi: /Textures/_Lavaland/Mobs/Bosses/banana.rsi
+        changeSprite: true
+        state: drinking
+        layer: 0
       2:
         rsi: /Textures/_Lavaland/Mobs/Bosses/banana.rsi
         changeSprite: true
@@ -143,22 +148,23 @@
       types:
         Blunt: 1
         Heat: 1
-  - type: MegafaunaProjectileFlurry
+  - type: MegafaunaProjectileFlurry # Special attack comp
     projectileNumber: 20
     speed: 10
     spawnDelay: 0.1
     shouldSpeak: true
-  - type: MegafaunaChaseTarget
+  - type: MegafaunaChaseTarget # Makes the boss chase target when unachored
     whitelist:
       components:
         - HumanoidAppearance
     chaseNow: true
     movementSpeed: 7
-  - type: MegafaunaDirectionalSpawn
-  - type: MegafaunaAnchor
-  - type: MegafaunaGodmode
-  - type: MegafaunaRejuvenate
-  - type: MegafaunaPhaseSpeech
+  - type: MegafaunaDamageTrigger # Triggers phase changes and boss music from non predicted sources
+  - type: MegafaunaDirectionalSpawn # Special attack comp
+  - type: MegafaunaAnchor # Keeps anchored until fight starts
+  - type: MegafaunaGodmode # Godmode against any damage not coming from player
+  - type: MegafaunaRejuvenate # Regens on fight over
+  - type: MegafaunaPhaseSpeech # Boss speaks different lines per phase and on phase change
     phases:
       1:
         speech:
