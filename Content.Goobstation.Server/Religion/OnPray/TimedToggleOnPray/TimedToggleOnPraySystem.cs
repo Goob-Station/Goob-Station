@@ -4,6 +4,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Timing;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Verbs;
 
 namespace Content.Goobstation.Server.Religion.OnPray.TimedToggleOnPray;
 
@@ -24,6 +25,7 @@ public sealed class TimedToggleOnPraySystem : EntitySystem
         SubscribeLocalEvent<TimedToggleOnPrayComponent, AlternatePrayEvent>(OnPray);
         SubscribeLocalEvent<TimedToggleOnPrayComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<TimedToggleOnPrayComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<TimedToggleOnPrayComponent, GetVerbsEvent<ActivationVerb>>(OnActivateVerb);
         SubscribeLocalEvent<TimedToggleOnPrayComponent, ItemToggledEvent>(UpdateActiveSound);
     }
 
@@ -39,6 +41,43 @@ public sealed class TimedToggleOnPraySystem : EntitySystem
 
         var ev = new ItemToggledEvent(Predicted: ent.Comp.Predictable, Activated: ent.Comp.Activated, User: null);
         RaiseLocalEvent(ent, ref ev);
+    }
+
+    private void OnActivateVerb(Entity<TimedToggleOnPrayComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || !ent.Comp.OnActivate)
+            return;
+
+        var user = args.User;
+
+        if (ent.Comp.Activated)
+        {
+            var ev = new ItemToggleActivateAttemptEvent(args.User);
+            RaiseLocalEvent(ent.Owner, ref ev);
+        }
+        else
+        {
+            var ev = new ItemToggleDeactivateAttemptEvent(args.User);
+            RaiseLocalEvent(ent.Owner, ref ev);
+        }
+
+        args.Verbs.Add(new ActivationVerb()
+        {
+            Text = !ent.Comp.Activated ? Loc.GetString(ent.Comp.VerbToggleOn) : Loc.GetString(ent.Comp.VerbToggleOff),
+            Act = () =>
+            {
+                TryActivate((ent.Owner, ent.Comp), user, predicted: ent.Comp.Predictable);
+            }
+        });
+    }
+
+    private void OnActivate(Entity<ItemToggleComponent> ent, ref ActivateInWorldEvent args)
+    {
+        if (args.Handled || !ent.Comp.OnActivate)
+            return;
+
+        args.Handled = true;
+        Toggle((ent.Owner, ent.Comp), args.User, predicted: ent.Comp.Predictable);
     }
 
     private void OnPray(Entity<TimedToggleOnPrayComponent> ent, ref AlternatePrayEvent args)
@@ -74,13 +113,13 @@ public sealed class TimedToggleOnPraySystem : EntitySystem
         var (uid, comp) = ent;
         var soundToPlay = comp.SoundActivate;
 
-        if (!_delay.IsDelayed(ent.Owner))
-            _delay.TryResetDelay(ent.Owner);
-
         if (predicted)
             _audio.PlayPredicted(soundToPlay, uid, user);
         else
             _audio.PlayPvs(soundToPlay, uid);
+
+        if (!_delay.IsDelayed(ent.Owner))
+            _delay.TryResetDelay(ent.Owner);
 
         comp.Activated = true;
         comp.Time = _timing.CurTime + TimeSpan.FromSeconds(comp.Duration);
