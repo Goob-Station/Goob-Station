@@ -537,8 +537,9 @@
   components:
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/Bow/arrow.rsi
-    state: base
-    shader: unshaded
+    layers:
+    - state: base
+      shader: unshaded
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0
