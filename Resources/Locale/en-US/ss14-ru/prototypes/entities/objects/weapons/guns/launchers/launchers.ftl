@@ -1,6 +1,6 @@
 ent-BaseWeaponLauncher = BaseWeaponLauncher
     .desc = A rooty tooty point and shooty.
-ent-WeaponLauncherChinaLake = china lake
+ent-WeaponLauncherChinaLake = China Lake
     .desc = PLOOP.
 ent-WeaponLauncherHydra = hydra
     .desc = PLOOP... FSSSSSS

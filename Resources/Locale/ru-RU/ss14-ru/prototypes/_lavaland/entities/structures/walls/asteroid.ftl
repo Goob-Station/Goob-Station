@@ -1,0 +1,12 @@
+ent-WallRockGibtonite = { ent-BaseRockGibtonite }
+    .desc = { ent-BaseRockGibtonite.desc }
+ent-WallRockBasaltGibtonite = { ent-BaseRockGibtonite }
+    .desc = { ent-BaseRockGibtonite.desc }
+ent-WallRockSnowGibtonite = { ent-BaseRockGibtonite }
+    .desc = { ent-BaseRockGibtonite.desc }
+ent-WallRockSandGibtonite = { ent-BaseRockGibtonite }
+    .desc = { ent-BaseRockGibtonite.desc }
+ent-WallRockChromiteGibtonite = { ent-BaseRockGibtonite }
+    .desc = { ent-BaseRockGibtonite.desc }
+ent-WallRockAndesiteGibtonite = { ent-BaseRockGibtonite }
+    .desc = { ent-BaseRockGibtonite.desc }

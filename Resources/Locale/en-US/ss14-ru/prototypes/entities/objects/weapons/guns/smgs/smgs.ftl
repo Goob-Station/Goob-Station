@@ -1,10 +1,10 @@
 ent-BaseWeaponSubMachineGun = BaseSMG
     .desc = A rooty tooty point and shooty.
 ent-WeaponSubMachineGunAtreides = Atreides
-    .desc = A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from .35 SMG magazines.
-ent-WeaponSubMachineGunC20r = C-20r submachine gun
-    .desc = A classic and widespread submachine gun, infamous for its use by the Gorlex Marauders. One of the first homegrown Waffle Corp. designs, it remains in service today. Feeds from .35 SMG magazines.
+    .desc = A rare, compact machine pistol not often found in the Spinward sector. Being produced during the Corporate Wars and the design specs being long since lost to time, the Atreides excels at CQB due to its overwhelming firerate. Feeds from .35 Auto SMG magazines.
+ent-WeaponSubMachineGunC20r = C-20R
+    .desc = The right hand of those who fight under the three serpents. A one-handed, bullpup SMG from the Waffle Corporation that sacrifices accuracy for pure firerate. Feeds from .35 Auto SMG magazines.
 ent-WeaponSubMachineGunDrozd = Drozd
-    .desc = A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
-ent-WeaponSubMachineGunWt550 = WT550 autorifle
-    .desc = A truly unique firearm, the WT550 was designed by Nanotrasen's Small Arms Division as a compact, cheap, and mass produced submachine gun fully controllable with one hand. It contains an exotic internal recoil buffer and feeds from special top-mounted .35 magazines.
+    .desc = A bullpup SMG designed for the narrow and tight corridors common in station warfare. This law-enforcement model is select fire, but the Drozd's burst focused design throttles its full-auto performance massively. Feeds from .35 Auto SMG magazines.
+ent-WeaponSubMachineGunWt550 = WT550
+    .desc = A truly unique firearm, the WT550 loads from a proprietary top-mounted magazine parallel to the barrel. While the RPM isn't great, the small package and steady recoil make it fully usable one-handed. Feeds from top-mounted .35 Auto SMG magazines.

@@ -1,5 +1,7 @@
 ent-FoodSnackProteinbar = protein bar
     .desc = SwoleMAX brand protein bars, guaranteed to get you feeling perfectly overconfident.
+ent-FoodSnackMothdog = mothdog
+    .desc = He is in his prime.
 ent-FoodSnackLunacakeWrapped = wrapped lunacake
     .desc = Now with 20% less lawsuit enabling rhegolith!
 ent-FoodSnackLunacake = lunacake
@@ -67,6 +69,8 @@ ent-FoodPacketVenusTrash = venus hot cakes trash
     .desc = { ent-FoodPacketLunacakeTrash.desc }
 ent-FoodPacketOortrocksTrash = oort rocks trash
     .desc = { ent-FoodPacketLunacakeTrash.desc }
+ent-FoodSnackMothdogTrash = mothdog stick
+    .desc = He is no longer in his prime.
 ent-FoodPacketRedalertnutsTrash = red alert nuts packet
     .desc = { ent-FoodPacketLunacakeTrash.desc }
 ent-FoodPacketStickTrash = stick

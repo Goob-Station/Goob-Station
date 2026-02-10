@@ -27,6 +27,8 @@ ghost-role-information-lootbug-name = Жук-сборщик
 ghost-role-information-lootbug-description = Постарайтесь не стать жертвой грейтайдов.
 ghost-role-information-homunculus-name = Гомункул
 ghost-role-information-homunculus-description = Подчиняйтесь создателю. Если его нет — действуйте по своей воле.
+ghost-role-information-fillbot-name = Клешнебот
+ghost-role-information-fillbot-description = Подчиняйтесь создателю. Если его нет — действуйте по своей воле.
 ghost-role-information-huborg-name = Урист МакБорг
 ghost-role-information-huborg-description = Вы отвратительный борг.
 ghost-role-information-c4-name = Композиция C-4
@@ -158,3 +160,13 @@ ghost-role-information-clown-goblin-name = Гоблин-клоун
 ghost-role-information-clown-goblin-description = Ужасное создание, гореть ему в Аду.
 ghost-role-information-santa-name = Дед Мороз
 ghost-role-information-santa-description = Одарите станцию новогодним настроением!
+ghost-role-information-sentientanimal-rules =
+    Вы — [color={ role-type-sentient-animal-color }][bold]{ role-type-sentient-animal-name }[/bold][/color]. Нейтральное животное,
+    способное действовать в целях самообороны, но в остальном не должны причинять вред экипажу.
+    Вы не помните ничего из своей прошлой жизни, и не помните ничего, что могли увидеть в виде призрака.
+    Вам разрешено помнить общие знания об игре. Например, как готовить, использовать предметы и т.п.
+    Вам категорически [color=red]ЗАПРЕЩЕНО[/color] помнить имя, внешний вид, и прочее своего прошлого персонажа.
+ghost-role-information-contractor-name = Наёмник Синдиката
+ghost-role-information-contractor-token = Наёмник Синдиката (Токен)
+ghost-role-information-contractor-description = Берите... пассажира?..
+contractor-role-greeting = Вы — [color=#611b2b]Наёмник Синдиката[/color], охотник за головами. Вам необходимо похитить цель со станции, живой или мёртвой.

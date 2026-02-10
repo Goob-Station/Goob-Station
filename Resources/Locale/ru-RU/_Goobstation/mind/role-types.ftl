@@ -8,3 +8,6 @@ role-subtype-changeling = Генокрад
 role-subtype-brainwashed = Порабощённый
 role-subtype-slaughter-demon = Демон резни
 role-subtype-slasher = Мясник
+role-type-sentient-animal-name = Разумное животное
+role-type-sentient-animal-color = #ffff00
+role-subtype-contractor = Наёмник Синдиката

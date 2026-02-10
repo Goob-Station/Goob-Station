@@ -1,11 +1,5 @@
 ent-TraitorMidround = { ent-Traitor }
     .desc = { ent-Traitor.desc }
-ent-ChangelingMidround = { ent-Changeling }
-    .desc = { ent-Changeling.desc }
-ent-HereticMidround = { ent-Heretic }
-    .desc = { ent-Heretic.desc }
-ent-RevolutionaryMidround = { ent-Revolutionary }
-    .desc = { ent-Revolutionary.desc }
 ent-SkeletonMidround = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-BlobMidround = { ent-BaseGameRule }
@@ -34,3 +28,5 @@ ent-SlasherSpawn = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-SantaClausSpawn = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
+ent-ContractorSpawnMidround = { ent-ContractorSpawn }
+    .desc = { ent-ContractorSpawn.desc }

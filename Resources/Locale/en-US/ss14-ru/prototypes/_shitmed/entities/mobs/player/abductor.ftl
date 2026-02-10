@@ -1,5 +1,5 @@
-ent-MobAbductorAntag = { ent-MobAbductor }
-    .desc = { ent-MobAbductor.desc }
+ent-MobAbductorAntag = { ent-BaseMobAbductor }
+    .desc = { ent-BaseMobAbductor.desc }
 ent-MobLoneAbductor = lone abductor
     .desc = { ent-MobAbductorAntag.desc }
 ent-MobAbductorScientist = abductor scientist

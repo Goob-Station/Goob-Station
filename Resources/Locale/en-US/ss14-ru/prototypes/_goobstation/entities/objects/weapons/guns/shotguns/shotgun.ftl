@@ -1,2 +1,2 @@
-ent-WeaponShotgunBulldogLegallyDistinct = EX-12 "Foxhound"
-    .desc = A completely original Nanotrasen design, that is legally distinct from any other weapons that might be on the market.
+ent-WeaponShotgunBulldogLegallyDistinct = Foxhound
+    .desc = A completely original NanoTrasen design, legally distinct from any other weapons that might be on the market. Feeds from 12 Gauge drum magazines.

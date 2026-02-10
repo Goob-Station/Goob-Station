@@ -4,9 +4,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-upgradeable-gun-popup-upgrade-limit = Превышена максимальная ёмкость для улучшений!
-upgradeable-gun-slot-name = Слот для модуля { $value }
-upgradeable-gun-total-remaining-capacity = Всего оставшейся ёмкости: { $value }
 gun-upgrade-examine-text-damage = Содержит улучшение [color=#ec9b2d][bold]урона[/bold][/color].
 gun-upgrade-examine-text-range = Содержит улучшение [color=#2decec][bold]дальности[/bold][/color].
 gun-upgrade-examine-text-reload = Содержит улучшение [color=#bbf134][bold]скорости стрельбы[/bold][/color].

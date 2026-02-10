@@ -1,5 +1,7 @@
 ent-ClothingModsuitStandard = стандартный скафандр MOD
     .desc = Специальный контроллер скафандром, содержащий все необходимые части костюма.
+ent-ClothingModsuitStandardNoStorage = стандартный скафандр MOD
+    .desc = Специальный контроллер скафандром, содержащий все необходимые части костюма.
 ent-ClothingModsuitStandardPowerCell = { ent-ClothingModsuitStandard }
     .suffix = батарея высокой ёмкости
     .desc = { ent-ClothingModsuitStandard.desc }

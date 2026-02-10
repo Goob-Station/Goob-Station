@@ -1,2 +1,2 @@
-ent-WeaponSubMachineGunM7S = M7S "Ventilator" submachine gun
-    .desc = You may or may not be green, but you are still very very mean. Takes proprietary side-loading 5x23mm rifle magazines.
+ent-WeaponSubMachineGunM7S = M7S Ventilator
+    .desc = For when you need to air out an entire hallway, forcibly. Feeds from side-loading 5x23mm magazines.

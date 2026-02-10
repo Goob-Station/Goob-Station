@@ -1,2 +1,2 @@
-ent-FloorFlockZone2 = tiles-flockzone-floor-light
+ent-FloorFlockZone2 = волокнистая светящаяся плита
     .desc = Она гудит от энергии.

@@ -12,5 +12,7 @@ ent-RadiationCollectorCircuitboard = radiation collector board
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-PlumbingPumpCircuitboard = liquid pump board
     .desc = { ent-BaseMachineCircuitboard.desc }
+ent-EnergyChemDispenserMachineCircuitboard = energy chem dispenser machine board
+    .desc = A machine printed circuit board for an energy chem dispenser.
 ent-TelecomTransmitterCircuitboard = telecommunication transmitter machine board
     .desc = A machine printed circuit board for an telecommunication transmitter.

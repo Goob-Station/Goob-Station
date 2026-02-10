@@ -10,3 +10,7 @@ ent-MindRoleBrainwashed = Роль Порабощённого
     .desc = { ent-BaseMindRoleAntag.desc }
 ent-MindRoleSlasher = Роль Мясника
     .desc = { ent-BaseMindRoleAntag.desc }
+ent-MindRoleGhostRoleSentientAnimal = Роль разумного животного
+    .desc = { ent-BaseMindRoleAntag.desc }
+ent-MindRoleContractor = Роль Наёмника Синдиката
+    .desc = { ent-BaseMindRoleAntag.desc }
