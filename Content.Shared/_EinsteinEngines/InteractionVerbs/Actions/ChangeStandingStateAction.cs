@@ -21,27 +21,32 @@ public sealed partial class ChangeStandingStateAction : InteractionAction
         if (!deps.EntMan.TryGetComponent<StandingStateComponent>(args.Target, out var state))
             return false;
 
-        /*if (isBefore)
-            args.Blackboard["standing"] = state.CurrentState;*/ //todo marty goobcode adjust
+        if (isBefore)
+            args.Blackboard["standing"] = state.Standing;
 
-        /*return state.CurrentState == StandingState.Standing && MakeLaying
-               || state.CurrentState == StandingState.Lying && MakeStanding;*/
-        return true; //
+        return (state.Standing && MakeLaying)
+               || (!state.Standing && MakeStanding);
     }
 
     public override bool Perform(InteractionArgs args, InteractionVerbPrototype proto, VerbDependencies deps)
     {
-        var stateSystem = deps.EntMan.System<StandingStateSystem>();
+        var entMan = deps.EntMan;
 
-        // if (!deps.EntMan.TryGetComponent<StandingStateComponent>(args.Target, out var state) //todo marty goobcode adjust
-        //     || args.TryGetBlackboard("standing", out StandingState oldStanding) && oldStanding != state.CurrentState)
-        //     return false;
-        //
-        // // Note: these will get cancelled if the target is forced to stand/lay, e.g. due to a buckle or stun or something else.
-        // if (state.CurrentState == StandingState.Lying && MakeStanding)
-        //     return stateSystem.Stand(args.Target);
-        // else if (state.CurrentState == StandingState.Standing && MakeLaying)
-        //     return stateSystem.Down(args.Target);
+        if (!entMan.TryGetComponent<StandingStateComponent>(args.Target, out var state))
+            return false;
+
+        if (args.TryGetBlackboard("standing", out bool oldStanding)
+            && oldStanding != state.Standing)
+            return false;
+
+        var stateSystem = entMan.System<StandingStateSystem>();
+
+        // Note: these will get cancelled if the target is forced to stand/lay, e.g. due to a buckle or stun or something else.
+        if (!state.Standing && MakeStanding)
+            return stateSystem.Stand(args.Target);
+
+        if (state.Standing && MakeLaying)
+            return stateSystem.Down(args.Target);
 
         return false;
     }

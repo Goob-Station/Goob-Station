@@ -117,12 +117,13 @@ using Content.Shared.DetailExaminable;
 using Content.Shared.DoAfter;
 using Content.Shared.Ensnaring;
 using Content.Shared.Ensnaring.Components;
+using Content.Shared.Implants.Components;
+using Content.Shared.Polymorph;
 using Content.Shared.Store.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Stunnable;
 
-namespace Content.Server.Implants; //todo marty goobify freedomimplant and some heretic shit
-// todo marty // goob edit - implants now transfer on polymorph
+namespace Content.Server.Implants;
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
     [Dependency] private readonly StoreSystem _store = default!;
@@ -132,7 +133,26 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         base.Initialize();
 
         SubscribeLocalEvent<StoreComponent, ImplantRelayEvent<AfterInteractUsingEvent>>(OnStoreRelay);
+
+        SubscribeLocalEvent<ImplantedComponent, PolymorphedEvent>(OnPolymorphed); // goob edit
     }
+
+    // todo goobstation move this to goobmod probably
+    // goob edit - implants now transfer on polymorph
+    private void OnPolymorphed(Entity<ImplantedComponent> ent, ref PolymorphedEvent args)
+    {
+        // copy it to prevent collection modification error
+        var implants = new List<EntityUid>(ent.Comp.ImplantContainer.ContainedEntities);
+        foreach (var implant in implants)
+        {
+            if (!TryComp<SubdermalImplantComponent>(implant, out var sic))
+                continue;
+
+            ForceImplant(args.NewEntity, implant, sic);
+        }
+    }
+    // goob edit end
+
 
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)
     {

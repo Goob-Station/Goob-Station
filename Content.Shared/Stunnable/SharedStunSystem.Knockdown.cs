@@ -1,5 +1,6 @@
 ﻿using Content.Goobstation.Common.Standing;
 using Content.Shared.Alert;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -7,6 +8,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
+using Content.Shared.Interaction;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
@@ -61,6 +63,9 @@ public abstract partial class SharedStunSystem
         // Crawling
         SubscribeLocalEvent<CrawlerComponent, KnockedDownRefreshEvent>(OnKnockdownRefresh);
         SubscribeLocalEvent<CrawlerComponent, DamageChangedEvent>(OnDamaged);
+        // <Goob>
+        SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand);
+        // </Goob>
 
         // Handling Alternative Inputs
         SubscribeAllEvent<ForceStandUpEvent>(OnForceStandup);
@@ -488,6 +493,33 @@ public abstract partial class SharedStunSystem
         args.FrictionModifier *= entity.Comp.FrictionModifier;
         args.SpeedModifier *= entity.Comp.SpeedModifier;
     }
+    // EE Interaction Verbs Begin
+    private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
+    {
+
+        // This is currently disabled in favor of an interaction verb with the same effect, but more obvious usage.
+        //return; // port note: no.
+        // End
+
+        if (args.Handled || knocked.HelpTimer > 0f)
+            return;
+
+        // TODO: This should be an event.
+        if (HasComp<SleepingComponent>(uid))
+            return;
+
+        // Set it to half the help interval so helping is actually useful...
+        knocked.HelpTimer = knocked.HelpInterval / 2f;
+
+        _status.TryGetTime(uid, "StatusEffectStunned", out var timer);
+        _status.TryUpdateStatusEffectDuration(uid, "StatusEffectStunned",  timer.EndEffectTime - TimeSpan.FromSeconds(knocked.HelpInterval));
+        _audio.PlayPredicted(knocked.StunAttemptSound , uid, args.User);
+        Dirty(uid, knocked);
+
+        args.Handled = true;
+    }
+    // EE verbs end
+
 
     #endregion
 

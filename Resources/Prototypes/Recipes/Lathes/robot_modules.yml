@@ -1,4 +1,4 @@
-- type: latheRecipe #todo marty check which one of the modules is the duplicate
+- type: latheRecipe
   abstract: true
   id: BaseBorgModuleRecipe
   categories:

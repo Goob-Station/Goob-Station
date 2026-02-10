@@ -39,10 +39,6 @@
     actions:
     - !type:ChangeStandingStateAction
       makeStanding: true
-    - !type:GenericStatusEffect
-      key: KnockedDown # TODO: probably unnecessary but some systems like slippery sometimes mention it in TODO manner
-      time: -2.5
-      type: Remove
     - !type:ModifyStatusEffectAction
       effect: Stun
       timeAdded: -2.5 # 2 seconds delay to remove 2.5 seconds of stun - should be good enough.

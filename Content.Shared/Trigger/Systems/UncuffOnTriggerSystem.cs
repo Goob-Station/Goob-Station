@@ -38,7 +38,7 @@ public sealed class UncuffOnTriggerSystem : EntitySystem
 
         //Goob start freedom implant buff
 
-        if (TryComp<PullableComponent>(target, out var pullable) && pullable.Puller.HasValue) //todo goobstream test freedom implant
+        if (TryComp<PullableComponent>(target, out var pullable) && pullable.Puller.HasValue)
         {
             _stun.TryUpdateParalyzeDuration(pullable.Puller.Value, TimeSpan.FromSeconds(5)); // fuck it we hardcode
             args.Handled = true;

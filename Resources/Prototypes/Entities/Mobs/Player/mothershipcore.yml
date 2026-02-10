@@ -131,12 +131,16 @@
     channels:
     - Mothership
     - Xenoborg
-    #- Binary #todo marty hivemind?
+    #- Binary # Goobstation binary hivemind
+  - type: CollectiveMind # Goobstation binary hivemind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: ActiveRadio
     channels:
     - Mothership
     - Xenoborg
-    #- Binary
+    #- Binary # Goobstation binary hivemind
   - type: XenoborgMothership
   - type: Tag
     tags:

@@ -16,7 +16,7 @@ using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Shared.EntityEffects.Effects;
 
-public sealed partial class AddReagentToBlood : EntityEffect // TODO MARTY THIS IS FUCKING GOOBSTATION COMPONENT WHY IS IT HERE!!!!!!
+public sealed partial class AddReagentToBlood : EntityEffect // TODO Goobstation move this to goobmod
 {
     private readonly SharedSolutionContainerSystem _solutionContainers;
 

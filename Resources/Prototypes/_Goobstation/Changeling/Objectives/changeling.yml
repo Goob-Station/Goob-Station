@@ -97,13 +97,14 @@
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: blink
-  - type: ImpersonateCondition # todo goob
+  - type: ImpersonateCondition
   - type: TargetObjective
     title: objective-condition-escape-identity-title
   - type: PickRandomPerson
     filters:
     - !type:BodyMindFilter
-      blacklist:
+      inverted: true
+      whitelist:
         components:
         - ChangelingIdentity # if they swap identities its a guarantee fail
         - Silicon # Don't pick IPCs.

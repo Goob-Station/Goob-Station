@@ -57,4 +57,3 @@
         base:
           Primed: { state: primed }
           Unprimed: { state: icon }
-          #Unprimed: { state: complete } #todo marty sprite check

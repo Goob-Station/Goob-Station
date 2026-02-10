@@ -50,6 +50,6 @@ public sealed class KnockdownOnCollideSystem : EntitySystem
         if (HasComp<RustbringerComponent>(target))
             return;
 
-        _stunSystem.TryCrawling(target); //todo goobstream test
+        _stunSystem.TryCrawling(target);
     }
 }

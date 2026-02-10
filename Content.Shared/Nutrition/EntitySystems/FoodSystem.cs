@@ -179,10 +179,13 @@ public sealed class FoodSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FoodComponent, UseInHandEvent>(OnUseFoodInHand, after: new[] { typeof(OpenableSystem), typeof(InventorySystem) }); //todo marty goobedit here
+        SubscribeLocalEvent<FoodComponent, UseInHandEvent>(OnUseFoodInHand,
+            after: new[]
+        {
+            typeof(OpenableSystem), typeof(InventorySystem),
+            typeof(ClothingSystem) // Goob - moths eating things in their hands when quick equipping
+        });
 
-        //SubscribeLocalEvent<FoodComponent, UseInHandEvent>(OnUseFoodInHand, //todo marty goobify
-        //    after: new[] { typeof(OpenableSystem), typeof(ServerInventorySystem), typeof(ClothingSystem) }); // Goob - moths eating things in their hands when quick equipping
         SubscribeLocalEvent<FoodComponent, AfterInteractEvent>(OnFeedFood);
 
         SubscribeLocalEvent<FoodComponent, GetVerbsEvent<AlternativeVerb>>(AddEatVerb);

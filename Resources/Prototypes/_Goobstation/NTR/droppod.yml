@@ -58,8 +58,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/DropPod/supplypodlandig.ogg
-      params:
-        maxDistance: 5
   - type: TriggerOnSpawn
 
 - type: entity
@@ -116,7 +114,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/DropPod/closet_open.ogg
-      maxDistance: 5
   - type: TriggerOnSpawn
   - type: Tag
     tags:
@@ -129,7 +126,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/DropPod/podwoosh.ogg
-      maxDistance: 5
   - type: TriggerOnSpawn
   - type: TimedDespawn
     lifetime: 3

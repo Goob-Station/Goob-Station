@@ -713,7 +713,7 @@ public sealed partial class ShuttleSystem
             {
                 _stuns.TryUpdateParalyzeDuration(child, _hyperspaceKnockdownTime);
 
-                // goob edit - stunmeta // todo goobstream test
+                // goob edit - stunmeta
                 _stuns.KnockdownOrStun(child, _hyperspaceKnockdownTime);
 
                 // If the guy we knocked down is on a spaced tile, throw them too

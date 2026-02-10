@@ -162,7 +162,7 @@
     sprintModifier: 0.8
   - type: HeldSpeedModifier
 
-# Assmos - Extinguisher Nozzle #todo goobstream changelog
+# Assmos - Extinguisher Nozzle
 - type: entity
   parent: Clothing
   id: ClothingBackpackFirefighterTank

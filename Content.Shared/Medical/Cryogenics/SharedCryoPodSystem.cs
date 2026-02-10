@@ -15,6 +15,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Administration.Logs;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry;
@@ -64,6 +65,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ReactiveSystem _reactive = default!;
+    [Dependency] private readonly SleepingSystem _sleep = default!; // Goob shitmed
 
     private EntityQuery<BloodstreamComponent> _bloodstreamQuery;
     private EntityQuery<ItemSlotsComponent> _itemSlotsQuery;
@@ -191,6 +193,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         // Needed to avoid adding/removing components on a deleted entity
         if (Terminating(ent))
             return;
+        var insidePod = ent.Comp.BodyContainer.ContainedEntity; // Shitmed Change
 
         if (args.Powered)
         {
@@ -201,6 +204,8 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         else
         {
             RemComp<ActiveCryoPodComponent>(ent);
+            if (insidePod is { } patient) // Shitmed Change
+                _sleep.TryWaking(patient);
             _ui.CloseUi(ent.Owner, HealthAnalyzerUiKey.Key);
         }
 

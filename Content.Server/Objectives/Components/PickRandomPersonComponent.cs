@@ -34,12 +34,4 @@ public sealed partial class PickRandomPersonComponent : Component
     /// </summary>
     [DataField]
     public List<MindFilter> Filters = new();
-
-    //todo marty deadass just use filters instead of doing this shit and check the goobedits on pickobjectivetargetsystem.cs
-    // PR 36030
-    /*[DataField]
-    public bool NeedsOrganic; // Goobstation: Only pick non-silicon players.
-
-    [DataField]
-    public bool ExcludeChangeling; // Goobstation: Determine if you can get changelings as an objective*/
 }

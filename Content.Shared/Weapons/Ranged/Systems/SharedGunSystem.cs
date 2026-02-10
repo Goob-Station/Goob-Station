@@ -531,7 +531,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (shooterEv.Push || _gravity.IsWeightless(user, userPhysics))
             CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
 
-        // todo goobstream test doubleshooting
         UpdateAmmoCount(gunUid); //GoobStation - Multishot
     }
 

@@ -152,7 +152,7 @@ public sealed class SlipperySystem : EntitySystem
     public bool CanSlip(EntityUid uid, EntityUid toSlip) // Goob edit
     {
         return !_container.IsEntityInContainer(uid)
-                && _status.CanAddStatusEffect(toSlip, SharedStunSystem.StunId); //Should be KnockedDown instead? //todo marty goob edit here
+                && _status.CanAddStatusEffect(toSlip, SharedStunSystem.StunId); //Should be KnockedDown instead?
     }
 
     public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool force = false, bool predicted = true) // Goob edit
@@ -197,7 +197,12 @@ public sealed class SlipperySystem : EntitySystem
                 EnsureComp<SlidingComponent>(other);
         }
 
-        // todo marty - goob edit stunmeta john station PR
+        // goob edit - stunmeta
+        var time = component.SlipData.StunTime;
+        if (hardStun)
+            _stun.TryUpdateParalyzeDuration(other, time);
+        else
+            _stun.KnockdownOrStun(other, time, true);
 
         // Preventing from playing the slip sound and stunning when you are already knocked down.
         if (!knockedDown)

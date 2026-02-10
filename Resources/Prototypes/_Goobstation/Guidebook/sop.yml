@@ -72,10 +72,10 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/LegalSOP.xml"
   priority: 2
   children:
-  - Execution SOP
-  - PermaBrig SOP
-  - Punishments SOP
-  - Searches SOP
+  - ExecutionSOP
+  - PermaBrigSOP
+  - PunishmentsSOP
+  - SearchesSOP
 
 # Jobs Main Directory and Subdirectories
 - type: guideEntry
@@ -93,7 +93,7 @@
   - ServiceSOP
 
 - type: guideEntry
-  id: Cargo SOP
+  id: CargoSOP
   name: guide-entry-sop-cargo
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoSOP.xml"
   children:
@@ -133,7 +133,7 @@
   - ChemistSOP
 
 - type: guideEntry
-  id: Science SOP
+  id: ScienceSOP
   name: guide-entry-sop-science
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScienceSOP.xml"
   children:

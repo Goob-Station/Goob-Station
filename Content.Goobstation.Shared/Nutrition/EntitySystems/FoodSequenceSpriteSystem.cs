@@ -18,6 +18,7 @@ namespace Content.Goobstation.Shared.Nutrition.EntitySystems;
 
 public class FoodSequenceSpriteSystem : SharedFoodSequenceSystem
 {
+    // Yeah nah i agree fuck this.
     /*
     private EntityQuery<NameModifierComponent> _modifierQuery;
 
@@ -36,7 +37,7 @@ public class FoodSequenceSpriteSystem : SharedFoodSequenceSystem
         if (ent.Comp.Entries.Count != 0)
             return;
 
-        var defaultEntry = new FoodSequenceElementEntry(); // todo marty FoodSequenceElementEntry is now FoodSequenceElementPrototype
+        var defaultEntry = new FoodSequenceElementEntry();
 
         var meta = MetaData(ent);
         var name = _modifierQuery.CompOrNull(ent)?.BaseName ?? meta.EntityName;

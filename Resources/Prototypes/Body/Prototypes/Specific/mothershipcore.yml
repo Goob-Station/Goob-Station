@@ -5,16 +5,16 @@
   slots:
     torso:
       part: TorsoBorg
-      connections:
-      - right2hand
-      - right1hand
-      - left1hand
-      - left2hand
-    left1hand:
+      connections: # Goobstation - change this and you get russian fucking build errors.
+      - right arm
+      - right arm 2
+      - left arm
+      - left arm 2
+    left arm: # Goobstation
       part: LeftArmBorg
-    left2hand:
+    left arm 2: # Goobstation
       part: LeftArmBorg
-    right1hand:
+    right arm: # Goobstation
       part: RightArmBorg
-    right2hand:
+    right arm 2: # Goobstation
       part: RightArmBorg

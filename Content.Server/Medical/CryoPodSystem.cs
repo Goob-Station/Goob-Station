@@ -134,7 +134,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             null // Shitmed Change
         ));
     }
-    //todo marty there was a goobchange here in oninteract goobify this
+
     private void OnCryoPodUpdateAtmosphere(Entity<CryoPodComponent> entity, ref AtmosDeviceUpdateEvent args)
     {
         if (!_nodeContainer.TryGetNode(entity.Owner, entity.Comp.PortName, out PortablePipeNode? portNode))

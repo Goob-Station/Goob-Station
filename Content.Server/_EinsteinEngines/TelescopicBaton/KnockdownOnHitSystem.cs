@@ -46,7 +46,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         {
             if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
             {
-                _stun.TryCrawling(target); //todo goobstream test trycrawl - now test, dropitembehaviour
+                _stun.TryCrawling(target);
                     knockedDown.Add(target);
                 continue;
             }

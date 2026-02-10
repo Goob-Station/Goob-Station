@@ -112,7 +112,7 @@
       fixtureID: floortrap
       maxTriggers: 1
     - type: SpawnOnTrigger
-      proto: MobXenoDrone
+      proto: CMMobXenoDrone # goob CM xenos
     - type: DeleteOnTrigger
 
 - type: entity
@@ -124,5 +124,5 @@
       fixtureID: floortrap
       maxTriggers: 1
     - type: SpawnOnTrigger
-      proto: MobXeno
+      proto: CMMobXenoDrone # goob CM xenos
     - type: DeleteOnTrigger

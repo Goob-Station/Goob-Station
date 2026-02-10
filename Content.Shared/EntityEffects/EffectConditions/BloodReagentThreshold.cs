@@ -14,7 +14,7 @@ using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Shared.EntityEffects.EffectConditions;
 
-public sealed partial class BloodReagentThreshold : EntityEffectCondition // TODO MARTY THIS IS FUCKING GOOBSTATION COMPONENT WHY IS IT HERE!!!!!!
+public sealed partial class BloodReagentThreshold : EntityEffectCondition // TODO Goobstation move this to goobmod
 {
     [DataField]
     public FixedPoint2 Min = FixedPoint2.Zero;

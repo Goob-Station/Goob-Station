@@ -213,15 +213,31 @@ public sealed class DumpableSystem : EntitySystem
         });
     }
 
-    //todo marty check for dv dump system here.
     private void OnDoAfter(EntityUid uid, DumpableComponent component, DumpableDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) || storage.Container.ContainedEntities.Count == 0 || args.Args.Target is not { } target)
+        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) ||
+            storage.Container.ContainedEntities.Count == 0 || args.Args.Target is not { } target)
             return;
+
+        DumpContents(uid, target, args.Args.User, component);// Goobchange
+    }
+
+    // Goob
+    // This whole thing ran OnDoAfter. Now separate method called by OnDoAfter
+    // DeltaV: Refactor to allow dumping that doesn't require a verb
+    public void DumpContents(EntityUid uid, EntityUid target, EntityUid user, DumpableComponent? component = null)
+    {
+        if (!TryComp<StorageComponent>(uid, out var storage)
+            || !Resolve(uid, ref component))
+            return;
+
+        if (storage.Container.ContainedEntities.Count == 0)
+            return;
+        // Goob end?
 
         var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
 
-        var evt = new DumpEvent(dumpQueue, args.Args.User, false, false);
+        var evt = new DumpEvent(dumpQueue, user, false, false);//goob edit
         RaiseLocalEvent(target, ref evt);
 
         if (!evt.Handled)
@@ -239,7 +255,7 @@ public sealed class DumpableSystem : EntitySystem
 
         if (evt.PlaySound)
         {
-            _audio.PlayPredicted(component.DumpSound, uid, args.User);
+            _audio.PlayPredicted(component.DumpSound, uid, user); //goob edit
         }
     }
 }

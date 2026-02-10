@@ -179,7 +179,7 @@ binds:
   key: Shift
 - function: Sprint
   type: State
-  key: C
+  key: Space
 - function: ResistGrab
   type: State
   key: B

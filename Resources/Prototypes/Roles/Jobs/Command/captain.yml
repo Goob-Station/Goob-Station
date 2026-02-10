@@ -164,8 +164,8 @@
   guides: # goobstation
   - Command
   - Succession
-  - StandardProcedures SOP
-  - Captain SOP
+  - StandardProceduresSOP
+  - CaptainSOP
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear

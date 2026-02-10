@@ -92,7 +92,6 @@ public partial class SharedMartialArtsSystem
             return;
 
         _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.StunId, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
-        // todo recheck here on rebase
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 

@@ -187,7 +187,6 @@ public sealed class MovementModStatusSystem : EntitySystem
         // goob edit - stunmeta
         // no slowdown because funny
         // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
-        //todo goobstream test
         var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, sprintSpeedModifier), 0, 1);
         var cCTime = TimeSpan.FromSeconds(10f);
         if (visual

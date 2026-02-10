@@ -298,7 +298,7 @@
     targetUser: true
   - type: Reflective # Goobstation
     reflective: Magic
-  - type: Ammo # Goobstation #todo marty why is this ammo ungoida this
+  - type: Ammo # Goobstation
     muzzleFlash: null
   - type: Trail # Goobstation
     lerpTime: 0.05

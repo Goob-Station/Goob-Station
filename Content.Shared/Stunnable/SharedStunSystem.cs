@@ -231,15 +231,6 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     private void OnStunnedSuccessfully(EntityUid uid, TimeSpan? duration)
     {
-        //todo goobstream test
-        // goob edit
-        if (duration.HasValue)
-        {
-            _jitter.DoJitter(uid, duration.Value, false);
-            _stutter.DoStutter(uid, duration.Value, false);
-        }
-        // goob edit end
-
         var ev = new StunnedEvent();
         RaiseLocalEvent(uid, ref ev);// todo: rename event or change how it is raised - this event is raised each time duration of stun was externally changed
 
@@ -312,7 +303,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         RaiseLocalEvent( entity, modifierEv, true);
         time *= modifierEv.Modifier;
 
-        if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down //todo marty crawlercomp - also doublecheck the stunmeta shit here
+        if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down
             return false;
 
         if (time <= TimeSpan.Zero)
@@ -424,6 +415,10 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (time != null)
         {
+            // goob edit
+            _jitter.DoJitter(uid, time.Value, true);
+            _stutter.DoStutter(uid, time.Value, true);
+            // goob edit end
             UpdateKnockdownTime((uid, component), time.Value, refresh);
             _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} was knocked down for {time.Value.Seconds} seconds");
         }
@@ -433,7 +428,7 @@ public abstract partial class SharedStunSystem : EntitySystem
             _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} was knocked down");
         }
     }
-    //todo marty shitmed change
+
     public bool TryAddParalyzeDuration(EntityUid uid, TimeSpan duration)
     {
         if (!_status.TryAddStatusEffectDuration(uid, StunId, duration))
@@ -444,7 +439,6 @@ public abstract partial class SharedStunSystem : EntitySystem
         OnStunnedSuccessfully(uid, duration);
 
         return true;
-        // todo marty trystun edit goob
     }
 
     public bool TryUpdateParalyzeDuration(EntityUid uid, TimeSpan? duration)
@@ -458,7 +452,6 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         return true;
     }
-    // todo marty goobify slowdownevent? something about speedmods
     public bool TryUnstun(Entity<StunnedComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp, logMissing: false))
@@ -489,7 +482,6 @@ public abstract partial class SharedStunSystem : EntitySystem
         ev.Cancelled = true;
         args.Args = ev;
     }
-    //todo marty stunmeta no slowdown jitter
     private void OnKnockdownStatusApplied(Entity<KnockdownStatusEffectComponent> entity, ref StatusEffectAppliedEvent args)
     {
         if (GameTiming.ApplyingState)
@@ -511,33 +503,6 @@ public abstract partial class SharedStunSystem : EntitySystem
         ev.Cancelled = true;
         args.Args = ev;
     }
-
-    private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
-    {
-        // EE Interaction Verbs Begin
-        // This is currently disabled in favor of an interaction verb with the same effect, but more obvious usage.
-        //return; // port note: no.
-        // End
-
-        if (args.Handled || knocked.HelpTimer > 0f)
-            return;
-
-        // TODO: This should be an event.
-        if (HasComp<SleepingComponent>(uid))
-            return;
-
-        // Set it to half the help interval so helping is actually useful...
-        knocked.HelpTimer = knocked.HelpInterval / 2f;
-
-        _status.TryGetTime(uid, "StatusEffectStunned", out var timer);
-        _status.TryUpdateStatusEffectDuration(uid, "StatusEffectStunned",  timer.EndEffectTime - TimeSpan.FromSeconds(knocked.HelpInterval));
-        _audio.PlayPredicted(knocked.StunAttemptSound , uid, args.User);
-        Dirty(uid, knocked);
-
-        args.Handled = true;
-    }
-
-    // EE verbs end
 
     #region Attempt Event Handling
 

@@ -9,7 +9,7 @@ namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 /// Changes status effects on entities: Adds, removes or sets time.
 /// </summary>
 [UsedImplicitly]
-public sealed partial class ModifyStatusEffect : EntityEffect // TODO MARTY THIS IS FUCKING GOOBSTATION COMPONENT WHY IS IT HERE!!!!!!
+public sealed partial class ModifyStatusEffect : EntityEffect // TODO Goobstation move this to goobmod
 {
     [DataField(required: true)]
     public EntProtoId EffectProto;

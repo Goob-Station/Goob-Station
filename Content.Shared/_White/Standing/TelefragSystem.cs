@@ -37,7 +37,7 @@ public sealed class TelefragSystem : EntitySystem
             if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime))
                 continue;
 
-            if (_stun.TryCrawling(ent) && autoStandUp) //todo goobstream test - maybe add dropitembehaviour
+            if (_stun.TryCrawling(ent) && autoStandUp)
                 _stun.TryStand(ent!);
         }
     }

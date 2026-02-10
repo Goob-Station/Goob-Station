@@ -747,9 +747,9 @@
     available:
     - enum.DamageStateVisualLayers.Base:
         base: Sixteen
-  - type: FoodSequenceElement - does not work with randomized sprites
-    entries:
-      CottonBurger: AmongPequeno
+  #- type: FoodSequenceElement - does not work with randomized sprites
+  #  entries:
+  #    CottonBurger: AmongPequeno
 
 
 - type: entity
