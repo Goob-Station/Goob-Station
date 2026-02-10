@@ -35,19 +35,17 @@ public sealed class BloodCrawlSystem : SharedBloodCrawlSystem
         var component = ent.Comp;
         var uid = ent.Owner;
 
-        if (!component.IsCrawling && _polymorphedQuery.TryComp(uid, out var polymorph))
-        {
-            var reverted = _polymorph.Revert(uid);
+        if (component.IsCrawling || !_polymorphedQuery.TryComp(uid, out var polymorph))
+            return true;
+        var reverted = _polymorph.Revert(uid);
 
-            if (reverted != null)
-                _audio.PlayPvs(component.ExitJauntSound, reverted.Value);
+        if (reverted != null)
+            _audio.PlayPvs(component.ExitJauntSound, reverted.Value);
 
-            var evExit = new BloodCrawlExitEvent();
-            RaiseLocalEvent(polymorph.Parent, ref evExit);
+        var evExit = new BloodCrawlExitEvent();
+        RaiseLocalEvent(polymorph.Parent!.Value, ref evExit);
 
-            return false;
-        }
-        return true;
+        return false;
     }
 
     protected override void PolymorphDemon(EntityUid user, ProtoId<PolymorphPrototype> polymorph)
