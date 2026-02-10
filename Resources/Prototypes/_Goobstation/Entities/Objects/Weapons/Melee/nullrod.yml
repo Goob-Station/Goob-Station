@@ -558,7 +558,7 @@
     attackRate: 0.7
     damage:
       types:
-        Holy: 20
+        Holy: 15
         Blunt: 18
     soundHit:
       path: /Audio/Effects/Emotes/snap3.ogg
