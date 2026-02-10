@@ -73,8 +73,8 @@ namespace Content.Shared.Nutrition.EntitySystems
 
         private void OnCreamPiedHitBy(EntityUid uid, CreamPiedComponent creamPied, ThrowHitByEvent args)
         {
-            if (args.Handled) // Goobstation
-                return;
+            //if (args.Handled) // Goobstation todo marty
+             //   return;
 
             if (!Exists(args.Thrown) || !TryComp(args.Thrown, out CreamPieComponent? creamPie))
                 return;

@@ -329,8 +329,8 @@ namespace Content.Server.Entry
             _dbManager?.Shutdown();
             IoCManager.Resolve<ServerApi>().Shutdown();
             //todo marty the fuck is this
-            IoCManager.Resolve<DiscordLink>().Shutdown();
-            IoCManager.Resolve<DiscordChatLink>().Shutdown();
+            //IoCManager.Resolve<DiscordLink>().Shutdown();
+            //IoCManager.Resolve<DiscordChatLink>().Shutdown();
 
             IoCManager.Resolve<IBugReportManager>().Shutdown();
         }
