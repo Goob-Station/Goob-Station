@@ -886,12 +886,10 @@
       collection: GeneratorTug
       params:
         volume: 5
-        range: 3
     soundDeactivate:
       path: /Audio/_Goobstation/Weapons/ChainSword/chainEnd.ogg
       params:
         volume: 5
-        range: 3
     activeSound:
       path: /Audio/Weapons/chainsawidle.ogg
       params:
@@ -916,7 +914,6 @@
       path: /Audio/Weapons/chainsaw.ogg
       params:
         volume: 3
-        range: 3
     activatedDamage:
       types:
         Slash: 20
