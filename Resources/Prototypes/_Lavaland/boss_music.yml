@@ -18,6 +18,12 @@
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+- type: soundCollection
+  id: HierophantMusic
+  files:
+    - /Audio/_Lavaland/Mobs/Bosses/hiero_bgm.ogg
+    - /Audio/_Lavaland/Mobs/Bosses/hierophant.ogg
+
 
 - type: bossMusic
   id: Hierophant
@@ -26,7 +32,8 @@
   fadeOutTime: 8
   positionOnEnd: 0
   sound:
-    path: /Audio/_Lavaland/Mobs/Bosses/hiero_bgm.ogg
+    collection: HierophantMusic
+
 
 - type: bossMusic
   id: Colossus
