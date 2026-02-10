@@ -1,0 +1,10 @@
+ent-LavalandEliteBase = Elite
+    .desc = An elite monster, found in one of the strange tumors on lavaland.
+ent-LavalandEliteLegionnaire = Legionnaire
+    .desc = A towering skeleton, embodying the terrifying power of Legion.
+ent-LavalandElitePandora = Pandora
+    .desc = A large magic box with similar power and design to the Hierophant. Once it opens, it's not easy to close it.
+ent-LavalandEliteHerald = Herald
+    .desc = A monstrous beast which fires deadly projectiles at threats and prey.
+ent-LavalandEliteGoliathBroodmother = Broodmother
+    .desc = An example of sexual dimorphism, this female goliath looks much different than the males of her species.  She is, however, just as dangerous, if not more.

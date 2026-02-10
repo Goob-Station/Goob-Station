@@ -23,6 +23,12 @@ mining-voucher-resonator-description =
     Наносит повышенный урон в условиях низкого давления.
 mining-voucher-survival-name = Капсула укрытия и разгрузка исследователя
 mining-voucher-survival-description = Содержит разгрузку исследователя, увеличивающую переносимый объём снаряжения, и запасную капсулу укрытия.
+mining-voucher-combat-name = Боевой набор
+mining-voucher-combat-description =
+    Содержит кинетическое мачете и кинжал-крушитель. Мачете имеет неплохую дальность атаки,
+    а кинжал можно использовать как метательное оружие.
+mining-voucher-medical-name = Медицинский набор
+mining-voucher-medical-description = Содержит 1 медицинский набор для лечения ушибов и ожогов. а также медипен выживания.
 mining-voucher-minebot-name = Набор с майнботом
 mining-voucher-minebot-description =
     Содержит небольшого майнбота-компаньона, помогающего в добыче руды и охоте на фауну.

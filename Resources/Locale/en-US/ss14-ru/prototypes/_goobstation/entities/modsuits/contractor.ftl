@@ -1,0 +1,13 @@
+ent-ClothingModsuitContractor = Contractor modsuit control unit
+    .desc = The main controller for a Contractor modsuit.
+ent-ClothingModsuitGauntletsContractor = Contractor modsuit gauntlets
+    .desc = A pair of gauntlets made for the Contractor modsuit.
+ent-ClothingModsuitHelmetContractor = Contractor modsuit helmet
+    .desc = A state-of-the-art helmet designed by the Syndicate for the Contractor modsuit. It includes a built-in HUD.
+ent-ClothingModsuitChestplateContractor = Contractor modsuit chestplate
+    .desc = A state of the art chestplate designed by the Syndicate for the Contractor modsuit. It incorporates powered servos to reduce the equipment load.
+ent-ClothingModsuitBootsContractor = Contractor modsuit boots
+    .desc = A state-of-the-art pair of magboots for the Contractor modsuit. So long as the suit is powered, these will not slow the wearer down.
+ent-SuitStorageContractor = { ent-SuitStorageBase }
+    .suffix = Contractor Modsuit
+    .desc = { ent-SuitStorageBase.desc }

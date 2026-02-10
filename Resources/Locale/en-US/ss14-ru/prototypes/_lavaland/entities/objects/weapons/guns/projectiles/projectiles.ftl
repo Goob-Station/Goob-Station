@@ -1,8 +1,14 @@
+ent-BulletKinetic = kinetic bolt
+    .desc = Not too bad, but you still don't want to get hit by it.
+ent-BulletKineticShuttle = { ent-BaseBullet }
+    .desc = { ent-BaseBullet.desc }
 ent-RapidBulletKinetic = rapid kinetic bolt
     .desc = { ent-BulletKinetic.desc }
-ent-WeakBulletKinetic = { ent-BulletKinetic }
-    .desc = { ent-BulletKinetic.desc }
+ent-WeakBulletKinetic = { ent-RapidBulletKinetic }
+    .desc = { ent-RapidBulletKinetic.desc }
 ent-PelletKinetic = { ent-WeakBulletKinetic }
     .desc = { ent-WeakBulletKinetic.desc }
 ent-PelletKineticSpread = { ent-PelletKinetic }
     .desc = { ent-PelletKinetic.desc }
+ent-BulletCharge = charge bolt
+    .desc = Marks a target for additional damage.

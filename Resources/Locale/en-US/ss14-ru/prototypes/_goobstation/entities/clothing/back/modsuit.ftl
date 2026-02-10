@@ -1,5 +1,7 @@
 ent-ClothingModsuitStandard = standard modsuit control unit
     .desc = A special modular suit contol unit containing all necessary modular hardsuit parts.
+ent-ClothingModsuitStandardNoStorage = standard modsuit control unit
+    .desc = A special modular suit contol unit containing all necessary modular hardsuit parts.
 ent-ClothingModsuitStandardPowerCell = { ent-ClothingModsuitStandard }
     .suffix = High-Capacity Battery
     .desc = { ent-ClothingModsuitStandard.desc }

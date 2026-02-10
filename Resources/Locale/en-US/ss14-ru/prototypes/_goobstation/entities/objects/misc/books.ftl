@@ -1,3 +1,9 @@
 ent-GuidebookCodexUmbra = Codex Umbra
     .desc = An old book tightly wound in dark leather. It details various contracts and their effects.
     .suffix = guidebook
+ent-AdvMimeryVol1 = Guide to Advanced Mimery Vol 1
+    .desc = The pages don't make any sound when turned.
+ent-AdvMimeryVol2 = Guide to Advanced Mimery Vol 2
+    .desc = There aren't any words written...
+ent-BoxAdvMimery = Guide to Advanced Mimery series box
+    .desc = { ent-BaseSyndicateContraband.desc }

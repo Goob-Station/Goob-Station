@@ -22,3 +22,5 @@ ent-ClothingBeltMilitaryWebbingBSOFilled = РПС Синего Щита
 ent-ClothingBeltUtilityFilledUnremoveable = { ent-ClothingBeltUtilityFilled }
     .suffix = Неснимаемый
     .desc = { ent-ClothingBeltUtilityFilled.desc }
+ent-ClothingBeltSecurityWebbingContractorFilled = РПС наёмника
+    .desc = Нагрудная разгрузка с глубокими карманами. Часто используется наёмниками и охотниками за головами.

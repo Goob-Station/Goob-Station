@@ -1,2 +1,2 @@
 ent-BowHardlight = hardlight bow
-    .desc = A modern bow that can fabricate hardlight arrows using an internal energy. This one is designed by the Syndicate for silent takedowns of targets.
+    .desc = Being a Donk Co. design based on the DT-12 Lawbringer, this folding bow can generate a multitude of arrow types to fit the user's needs.

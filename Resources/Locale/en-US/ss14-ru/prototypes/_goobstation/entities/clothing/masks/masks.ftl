@@ -17,3 +17,5 @@ ent-ClothingMaskMuzzleShock = shock muzzle
 ent-ClothingMaskGasUnremoveable = { ent-ClothingMaskGas }
     .suffix = Unremoveable
     .desc = { ent-ClothingMaskGas.desc }
+ent-ClothingBSOMaskGasSwat = Blueshield SWAT gas mask
+    .desc = A standard issue gas mask for BlueShield Officers

@@ -32,3 +32,5 @@ ent-BulletFlock = шоковый болт
     .desc = { ent-BaseBullet.desc }
 ent-ProjectileMonkeyDart = дротик дартс-обезьяны
     .desc = { ent-BaseBullet.desc }
+ent-BulletMime = пуля (тихая)
+    .desc = { ent-BaseBullet.desc }

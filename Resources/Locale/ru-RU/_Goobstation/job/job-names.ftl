@@ -9,7 +9,7 @@
 
 job-name-futureagent = агент будущего
 job-name-salvagediver = спасатель
-job-name-ntr = представитель Nanotrasen
+job-name-ntr = представитель NanoTrasen
 job-name-bs = офицер Синего Щита
 job-name-overall = общее
 job-name-tider = грейтайд

@@ -24,3 +24,7 @@ ent-ClothingHeadCaptainHat = captain's hat
     .desc = A special hat made to order for the captain.
 ent-ClothingHeadHatBeretSecurityPilot = pilot beret
     .desc = Black beret with a silver badge.
+ent-ClothingHeadHelmetSilverMusician = silver DJ helmet
+    .desc = An old silver helmet belonging to the member of famous musical duo. One more time?
+ent-ClothingHeadHelmetGoldenMusician = golden DJ helmet
+    .desc = An old golden helmet belonging to the member of famous musical duo. Harder, better, faster, stronger.
