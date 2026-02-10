@@ -2,6 +2,7 @@ using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 
@@ -66,7 +67,6 @@ public sealed partial class RecallPrayableSystem : EntitySystem
             return;
 
         args.Handled = true;
-
         var nullrod = comp.NullRod.Value;
 
         if (TerminatingOrDeleted(nullrod))
@@ -75,7 +75,20 @@ public sealed partial class RecallPrayableSystem : EntitySystem
             return;
         }
 
+        var unremoveable = HasComp<UnremoveableComponent>(nullrod);
+
+        if (unremoveable)
+        {
+            RemComp<UnremoveableComponent>(nullrod);
+        }
+
         var message = _hands.TryPickupAnyHand(args.User, nullrod) ? "chaplain-recall-nullrod-recalled" : "chaplain-recall-hands-full";
+
+        if (unremoveable)
+        {
+            EnsureComp<UnremoveableComponent>(nullrod);
+        }
+
         _popup.PopupClient(Loc.GetString(message, ("nullrod", nullrod)), args.User, args.User);
     }
 }

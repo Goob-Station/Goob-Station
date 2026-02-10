@@ -1,4 +1,3 @@
-
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Popups;
