@@ -97,6 +97,14 @@
   description: alerts-marshal-cooldown-desc
 
 - type: alert
+  id: EldritchSlumber
+  icons:
+  - sprite: /Textures/_Goobstation/Heretic/Interface/Alerts/eldritch_slumber.rsi
+    state: eldritch_slumber
+  name: alerts-ether-name
+  description: alerts-ether-desc
+
+- type: alert
   id: Centered
   category: TileMovement
   icons:

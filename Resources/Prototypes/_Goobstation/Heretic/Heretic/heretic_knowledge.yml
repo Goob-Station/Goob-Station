@@ -534,6 +534,13 @@
   ritualPrototypes:
   - ScorchingShark
 
+- type: hereticKnowledge
+  id: EtherOfTheNewborn
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - EtherOfTheNewborn
+
 ## stage 6
 - type: hereticKnowledge
   id: RustedRitual

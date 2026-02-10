@@ -68,13 +68,23 @@ knowledge-path-side-s3-shark-desc =
     Fire Sharks ignite their victims and drop plasma sheet once they die.
     You can only create 15 at a time.
 
+knowledge-path-side-s3-ether-name = Ether Of The Newborn
+knowledge-path-side-s3-ether-desc =
+    Vision and thought grow hazy as the fumes of this ichor swirl up to meet me.
+    Through the haze, I find myself staring back in relief, or something grossly resembling my visage.
+    It is this wretched thing that I consign to my fate, and whose own that I snatch through the haze of dreams. Fools that we are.
+
+    Transmutes a pool of vomit and a shard into a single use potion,
+    drinking it will remove any sort of abnormality from your body including diseases and traumas.
+    on top of restoring it to full health, at the cost of losing consciousness for an entire minute.
+
+## stage 6
 knowledge-path-side-s6-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s6-ice-spear-desc =
     Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
 
     Grants you Mysteries of Creation, a spell that allows you to summon the Glacier Spear at will. This magical spear chills victims upon hit, but more importantly, it shatters upon throwing, dealing a significant amount of damage and temporarily freezing the target into an ice cube. If the spear is destroyed, activating this ability will create a new one, otherwise it will summon the existing spear into your hand.
 
-## stage 6
 knowledge-path-side-s6-rustwalker-name = Rusted Ritual
 knowledge-path-side-s6-rustwalker-desc =
     I combined my knowledge of creation with my desire for corruption. The Marshal knew my name, and the Rusted Hills echoed out.

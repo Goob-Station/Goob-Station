@@ -95,3 +95,20 @@
   parent: MobStatusEffectBase
   id: ExaminedMirrorMaidStatusEffect
   name: examined mirror maid
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectNewbornEther
+  name: eldritch sleep
+  components:
+  - type: StatusEffectAlert
+    alert: EldritchSlumber
+  - type: EldritchSleepStatusEffect
+    componentsToAdd:
+    - type: SpecialHighTempImmunity
+    - type: SpecialLowTempImmunity
+    - type: SpecialBreathingImmunity
+    - type: SpecialPressureImmunity
+    - type: MetabolismModifier
+      modifier: 100
+  - type: ForcedSleepingStatusEffect

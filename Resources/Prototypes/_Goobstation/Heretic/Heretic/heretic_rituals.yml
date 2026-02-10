@@ -434,6 +434,21 @@
     MobGhoulFireShark: 3
   limit: 15
 
+- type: hereticRitual
+  id: EtherOfTheNewborn
+  locName: knowledge-path-side-s3-ether-name
+  locDesc: knowledge-path-side-s3-ether-desc
+  icon:
+    sprite: _Goobstation/Heretic/Entities/Potions/ether.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Vomit
+  requiredTags:
+    GlassShard: 1
+  output:
+    PotionEther: 1
+
 ## stage 6
 
 - type: hereticRitual

@@ -25,6 +25,11 @@
   flavorType: Complex
   description: flavor-complex-marshal
 
+- type: flavor
+  id: ether
+  flavorType: Complex
+  description: flavor-complex-ether
+
 - type: reagent
   id: EldritchEssence
   parent: BaseDrink
@@ -207,5 +212,34 @@
           reagent: WoundedSoldier
           min: 5
         effectProto: StatusEffectWoundedSoldier
+        time: 60
+        type: Set
+
+- type: reagent
+  id: NewbornEther
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-ether
+  desc: reagent-desc-ether
+  physicalDesc: reagent-physical-desc-ether
+  flavor: ether
+  color: "#92ca35"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Heretic
+            - Ghoul
+          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+        - !type:HasStatusEffect
+          effectProto: StatusEffectNewbornEther
+          invert: true
+        - !type:ReagentThreshold
+          reagent: NewbornEther
+          min: 5
+        effectProto: StatusEffectNewbornEther
         time: 60
         type: Set

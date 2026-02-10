@@ -14,4 +14,7 @@ alerts-clarity-desc = Many things hide beyond the horizon. With Owl's help I man
 alerts-marshal-name = Blessing of Wounded Soldier
 alerts-marshal-desc = Some people seek power through redemption. One thing many people don't know is that battle is the ultimate redemption, and wounds let you bask in eternal glory.
 
+alerts-ether-name = Eldritch Slumber
+alerts-ether-desc = You feel an indescribable warmth keeping you safe...
+
 alerts-marshal-cooldown-desc = You have recently entered wounded soldier state. You must wait before you can do so once more.
