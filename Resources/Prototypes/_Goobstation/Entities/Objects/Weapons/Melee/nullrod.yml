@@ -849,11 +849,11 @@
     angle: 20
     damage:
       types:
-        Holy: 10
+        Holy: 7
     soundHit:
       path: /Audio/Weapons/punch3.ogg
   - type: IgniteOnMeleeHit
-    fireStacks: 2
+    fireStacks: 1.5
   - type: Tag
     tags:
     - DragonsTail

@@ -562,7 +562,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Holy: 13
+        Holy: 10
         Piercing: 17
   - type: TimedDespawn
     lifetime: 10
