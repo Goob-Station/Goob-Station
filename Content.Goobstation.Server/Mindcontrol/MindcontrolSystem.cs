@@ -17,11 +17,13 @@ using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Server.Stunnable;
+using Content.Shared._Shitcode.Roles;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
+using Content.Shared.Roles.Components;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 
