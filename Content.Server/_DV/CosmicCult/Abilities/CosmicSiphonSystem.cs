@@ -15,6 +15,7 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Light.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;

@@ -62,7 +62,6 @@ public sealed class MagicSystem : SharedMagicSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SpeakSpellEvent>(OnSpellSpoken);
     }
 
     protected override void OnRandomGlobalSpawnSpell(RandomGlobalSpawnSpellEvent ev)

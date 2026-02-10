@@ -76,6 +76,8 @@ using Content.Goobstation.Common.Religion;
 using Content.Server.Station.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Server.Cuffs;
+using Content.Shared.Light.Components;
+using Content.Shared.Roles.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
