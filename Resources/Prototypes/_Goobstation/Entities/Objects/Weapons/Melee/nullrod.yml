@@ -892,6 +892,10 @@
       params:
         volume: 5
         range: 3
+    activeSound:
+      path: /Audio/Weapons/chainsawidle.ogg
+      params:
+        volume: 20
   - type: ComponentToggler
     components:
     - type: Sharp
@@ -920,11 +924,6 @@
         Structural: 20
       woundSeverityMultipliers:
         Slash: 2
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Weapons/chainsawidle.ogg
-      params:
-        volume: 20
   - type: MeleeWeapon
     animationRotation: -45 
     autoAttack: true
