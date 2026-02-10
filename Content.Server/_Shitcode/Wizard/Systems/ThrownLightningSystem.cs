@@ -28,7 +28,7 @@ public sealed class ThrownLightningSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ThrownLightningComponent, ThrowDoHitEvent>(OnHit);
-        SubscribeLocalEvent<ThrownLightningComponent, ThrownEvent>(OnThrown);
+        SubscribeLocalEvent<ThrownLightningComponent, ThrowEvent>(OnThrown);
         SubscribeLocalEvent<ThrownLightningComponent, StopThrowEvent>(OnStopThrow);
     }
 
@@ -44,7 +44,7 @@ public sealed class ThrownLightningSystem : EntitySystem
         Dirty(ent.Owner, trail);
     }
 
-    private void OnThrown(Entity<ThrownLightningComponent> ent, ref ThrownEvent args)
+    private void OnThrown(Entity<ThrownLightningComponent> ent, ref ThrowEvent args)
     {
         if (TryComp(ent, out TrailComponent? trail))
         {
@@ -64,10 +64,10 @@ public sealed class ThrownLightningSystem : EntitySystem
         if (Deleting(ent))
             return;
 
-        if (args.Handled)
-            return;
+        //if (args.Handled) todo marty
+            //return;
 
-        args.Handled = true;
+        //args.Handled = true;
 
         if (!TryComp(args.Target, out StatusEffectsComponent? status))
             return;

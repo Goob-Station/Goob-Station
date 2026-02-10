@@ -57,7 +57,7 @@ public sealed class ThrowableBlockerSystem : EntitySystem
 
         var blockerComp = Comp<ThrowableBlockerComponent>(blocked);
 
-        args.Handled = true;
+        //args.Handled = true; todo marty
 
         if (_net.IsServer)
         {

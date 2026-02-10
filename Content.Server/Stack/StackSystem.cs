@@ -188,7 +188,7 @@ namespace Content.Server.Stack
             return amounts;
         }
 
-        protected override void UserSplit(EntityUid uid, EntityUid userUid, int amount,
+        public override void UserSplit(EntityUid uid, EntityUid userUid, int amount, // Goobstation public
             StackComponent? stack = null,
             TransformComponent? userTransform = null)
         {

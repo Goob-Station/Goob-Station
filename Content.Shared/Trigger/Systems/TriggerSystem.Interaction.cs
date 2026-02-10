@@ -1,4 +1,4 @@
-using Content.Shared.Examine;
+﻿using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle.Components;
@@ -19,7 +19,7 @@ public sealed partial class TriggerSystem
         SubscribeLocalEvent<TriggerOnInteractUsingComponent, InteractUsingEvent>(OnInteractUsing);
 
         SubscribeLocalEvent<TriggerOnThrowComponent, ThrowEvent>(OnThrow);
-        SubscribeLocalEvent<TriggerOnThrownComponent, ThrownEvent>(OnThrown);
+        SubscribeLocalEvent<TriggerOnThrownComponent, ThrowEvent>(OnThrown);
 
         SubscribeLocalEvent<ItemToggleOnTriggerComponent, TriggerEvent>(HandleItemToggleOnTrigger);
         SubscribeLocalEvent<AnchorOnTriggerComponent, TriggerEvent>(HandleAnchorOnTrigger);
@@ -78,7 +78,7 @@ public sealed partial class TriggerSystem
         Trigger(ent.Owner, args.Thrown, ent.Comp.KeyOut);
     }
 
-    private void OnThrown(Entity<TriggerOnThrownComponent> ent, ref ThrownEvent args)
+    private void OnThrown(Entity<TriggerOnThrownComponent> ent, ref ThrowEvent args)
     {
         Trigger(ent.Owner, args.User, ent.Comp.KeyOut);
     }

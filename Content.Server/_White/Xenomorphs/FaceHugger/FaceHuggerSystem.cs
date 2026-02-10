@@ -68,7 +68,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerComponent, BeingUnequippedAttemptEvent>(OnBeingUnequippedAttempt);
 
         // Goobstation - Throwing behavior
-        SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrownEvent>(OnThrown);
+        SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowEvent>(OnThrown);
         SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowDoHitEvent>(OnThrowDoHit);
     }
 
@@ -396,7 +396,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     /// Marks the facehugger as being in flight to track its state.
     /// Goobstation
     /// </summary>
-    private void OnThrown(EntityUid uid, ThrowableFacehuggerComponent component, ThrownEvent args)
+    private void OnThrown(EntityUid uid, ThrowableFacehuggerComponent component, ThrowEvent args)
     {
         // Mark the facehugger as flying to track its airborne state
         component.IsFlying = true;

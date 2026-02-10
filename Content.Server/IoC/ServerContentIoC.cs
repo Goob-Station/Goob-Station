@@ -247,8 +247,8 @@ namespace Content.Server.IoC
             IoCManager.Register<ConnectionManager>();
             IoCManager.Register<MultiServerKickManager>();
             IoCManager.Register<CVarControlManager>();
-            IoCManager.Register<DiscordLink>();
-            IoCManager.Register<DiscordChatLink>();
+            //IoCManager.Register<DiscordLink>(); todo marty
+            //IoCManager.Register<DiscordChatLink>();
             IoCManager.Register<GithubApiManager>();
             IoCManager.Register<GithubBackgroundWorker>();
             IoCManager.Register<GithubClient>();

@@ -40,7 +40,7 @@ public abstract partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantNinjutsuComponent, UseInHandEvent>(OnGrantCQCUse);
 
-        SubscribeLocalEvent<ThrownEvent>(OnThrow);
+        SubscribeLocalEvent<ThrowEvent>(OnThrow);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, SelfBeforeGunShotEvent>(OnBeforeGunShot);
@@ -88,7 +88,7 @@ public abstract partial class SharedMartialArtsSystem
         _modifier.RefreshMovementSpeedModifiers(ev.Origin.Value);
     }
 
-    private void OnThrow(ref ThrownEvent ev)
+    private void OnThrow(ref ThrowEvent ev)
     {
         if (HasComp<NinjutsuSneakAttackComponent>(ev.User))
             ResetDebuff(ev.User.Value);
