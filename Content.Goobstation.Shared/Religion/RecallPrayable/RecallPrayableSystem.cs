@@ -1,10 +1,12 @@
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Religion.RecallPrayable;
 
@@ -13,6 +15,7 @@ public sealed partial class RecallPrayableSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -60,35 +63,78 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
     private void OnDoAfter(Entity<RecallPrayableComponent> ent, ref RecallPrayDoAfterEvent args)
     {
+        //I don't know why adding this check will not crash your client
+        if (_net.IsClient)
+            return;
+
         if (args.Cancelled || args.Handled || TerminatingOrDeleted(args.User))
             return;
 
         if (!TryComp<BibleUserComponent>(args.User, out var comp) || comp.NullRod == null)
             return;
 
-        args.Handled = true;
-        var nullrod = comp.NullRod.Value;
+        if (!TryComp<NullrodComponent>(comp.NullRod, out var nullrodComp))
+            return;
 
-        if (TerminatingOrDeleted(nullrod))
+        args.Handled = true;
+
+        var nullrod = (comp.NullRod.Value, nullrodComp);
+
+        if (TerminatingOrDeleted(nullrod.Value))
         {
-            _popup.PopupClient(Loc.GetString("chaplain-recall-nullrod-gone", ("nullrod", nullrod)), args.User, args.User);
+            _popup.PopupClient(Loc.GetString("chaplain-recall-nullrod-gone", ("nullrod", nullrod.Value)), args.User, args.User);
             return;
         }
 
-        var unremoveable = HasComp<UnremoveableComponent>(nullrod);
+        RecallNullrod(nullrod, args.User);
+    }
 
-        if (unremoveable)
+    private void RecallNullrod(Entity<NullrodComponent> nullrod, EntityUid user)
+    {
+        switch (nullrod.Comp.SpecialState)
         {
-            RemComp<UnremoveableComponent>(nullrod);
+            case NullrodSpecialState.Normal:
+                RecallNormal(nullrod, user);
+                break;
+
+            case NullrodSpecialState.Unremoveable:
+                RecallUnremoveable(nullrod, user);
+                break;
+
+            case NullrodSpecialState.DualWield:
+                break;
+
+            case NullrodSpecialState.Embedded:
+                break;
+
+            default:
+                RecallNormal(nullrod, user);
+                break;
         }
+    }
 
-        var message = _hands.TryPickupAnyHand(args.User, nullrod) ? "chaplain-recall-nullrod-recalled" : "chaplain-recall-hands-full";
+    private void RecallNormal(Entity<NullrodComponent> nullrod, EntityUid user)
+    {
+        var message = _hands.TryPickupAnyHand(user, nullrod)
+            ? "chaplain-recall-nullrod-recalled"
+            : "chaplain-recall-hands-full";
 
-        if (unremoveable)
-        {
-            EnsureComp<UnremoveableComponent>(nullrod);
-        }
+        _popup.PopupClient(Loc.GetString(message, ("nullrod", nullrod)), user, user);
+    }
 
-        _popup.PopupClient(Loc.GetString(message, ("nullrod", nullrod)), args.User, args.User);
+    private void RecallUnremoveable(Entity<NullrodComponent> nullrod, EntityUid user)
+    {
+        if (!HasComp<UnremoveableComponent>(nullrod))
+            return;
+
+        RemComp<UnremoveableComponent>(nullrod);
+
+        var message = _hands.TryPickupAnyHand(user, nullrod)
+            ? "chaplain-recall-nullrod-recalled"
+            : "chaplain-recall-hands-full";
+
+        EnsureComp<UnremoveableComponent>(nullrod);
+
+        _popup.PopupClient(Loc.GetString(message, ("nullrod", nullrod)), user, user);
     }
 }

@@ -68,4 +68,18 @@ public sealed partial class NullrodComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? LastAttackedEntity;
+
+    /// <summary>
+    /// Used to recall certain state of nullrod
+    /// </summary>
+    [DataField]
+    public NullrodSpecialState SpecialState = NullrodSpecialState.Normal;
+}
+
+public enum NullrodSpecialState
+{
+    Normal, //Nothing special
+    Unremoveable, //e.g Hand of God
+    Embedded, //e.g Ancient Spear
+    DualWield //e.g Jackal and Casul
 }
