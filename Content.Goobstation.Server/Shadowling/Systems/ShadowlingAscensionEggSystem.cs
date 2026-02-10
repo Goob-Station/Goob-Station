@@ -16,6 +16,7 @@ using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
+using Content.Shared.Light.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;

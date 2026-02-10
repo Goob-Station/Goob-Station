@@ -9,8 +9,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 
-namespace Content.Goobstation.Server.Changeling.Roles;
+namespace Content.Goobstation.Shared.Changeling.Roles;
 
 [RegisterComponent]
 public sealed partial class ChangelingRoleComponent : BaseMindRoleComponent

@@ -12,7 +12,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text;
-using Content.Goobstation.Server.Changeling.Roles;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
@@ -23,6 +22,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
@@ -83,7 +83,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
             _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
 
-            if (_role.MindHasRole<ChangelingRoleComponent>(mindId, out var mr))
+            if (_role.MindHasRole<Shared.Changeling.Roles.ChangelingRoleComponent>(mindId, out var mr))
                 AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
         }
         // hivemind stuff

@@ -5,8 +5,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 
-namespace Content.Goobstation.Server.Shadowling;
+namespace Content.Goobstation.Shared.Shadowling;
 
 /// <summary>
 /// Added to mind role entities to tag that they are a shadowling.
