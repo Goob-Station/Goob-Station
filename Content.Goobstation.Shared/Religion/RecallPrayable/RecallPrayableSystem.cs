@@ -4,7 +4,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Religion.RecallPrayable;
 
@@ -37,7 +36,7 @@ public sealed partial class RecallPrayableSystem : EntitySystem
             {
                 if (bibleUserComp.NullRod == null)
                 {
-                    _popup.PopupPredicted(Loc.GetString("chaplain-recall-no-nullrod"), user.User, user.User);
+                    _popup.PopupClient(Loc.GetString("chaplain-recall-no-nullrod"), user.User, user.User);
                     return;
                 }
                 StartRecallPrayDoAfter(user, altar);
@@ -75,12 +74,8 @@ public sealed partial class RecallPrayableSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("chaplain-recall-nullrod-gone", ("nullrod", nullrod)), args.User, args.User);
             return;
         }
-        var xform = Transform(nullrod);
-
-        if (xform.GridUid == null)
-            return;
 
         var message = _hands.TryPickupAnyHand(args.User, nullrod) ? "chaplain-recall-nullrod-recalled" : "chaplain-recall-hands-full";
-        _popup.PopupPredicted(Loc.GetString(message, ("nullrod", nullrod)), args.User, args.User);
+        _popup.PopupClient(Loc.GetString(message, ("nullrod", nullrod)), args.User, args.User);
     }
 }

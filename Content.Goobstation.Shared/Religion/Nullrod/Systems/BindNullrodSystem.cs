@@ -3,7 +3,6 @@ using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
 public sealed partial class BindNullrodSystem : EntitySystem
@@ -21,11 +20,11 @@ public sealed partial class BindNullrodSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        if (!TryComp<BibleUserComponent>(args.User, out var bibleComp))
+        if (!TryComp<BibleUserComponent>(args.User, out var bibleUser))
             return;
 
         //If null rod already binded to the binded entity then return
-        if (bibleComp.NullRod != null && bibleComp.NullRod == ent.Owner)
+        if (bibleUser.NullRod != null && bibleUser.NullRod == ent.Owner)
             return;
 
         var user = args.User;
@@ -34,10 +33,10 @@ public sealed partial class BindNullrodSystem : EntitySystem
             Text = Loc.GetString("nullrod-recall-verb-bind"),
             Act = () =>
             {
-                bibleComp.NullRod = ent.Owner;
-                Dirty(ent);
+                bibleUser.NullRod = ent.Owner;
+                Dirty(user, bibleUser);
 
-                _popup.PopupPredicted(Loc.GetString("nullrod-recall-verb-bind-done", ("nullrod", bibleComp.NullRod)), user, user);
+                _popup.PopupClient(Loc.GetString("nullrod-recall-verb-bind-done", ("nullrod", bibleUser.NullRod)), user, user);
             }
         };
 
