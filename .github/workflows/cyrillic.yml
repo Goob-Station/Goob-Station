@@ -1,0 +1,28 @@
+name: Block Cyrillic text
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  block-cyrillic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # REQUIRED for origin/master
+
+      - name: Fail if Cyrillic is added
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "Checking for Cyrillic characters in diff…"
+
+          if git diff origin/master...HEAD | grep -P '\p{Cyrillic}'; then
+            echo "❌ Cyrillic characters detected in this PR"
+            exit 1
+          fi
+
+          echo "No Cyrillic found ✅"
