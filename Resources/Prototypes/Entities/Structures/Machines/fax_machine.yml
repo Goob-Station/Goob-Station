@@ -197,7 +197,7 @@
     responsePings: false
     notifyAdmins: true
   - type: Emagged
-    emagType: 
+    emagTypeList: 
     - Interaction
 
 - type: entity

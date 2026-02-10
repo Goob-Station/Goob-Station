@@ -399,7 +399,7 @@ namespace Content.Server.Communications
             var (uid, comp) = ent;
             args.Repeatable = true;
 
-            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
                 return;
 
             var stationUid = _stationSystem.GetOwningStation(uid);
