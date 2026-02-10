@@ -527,7 +527,7 @@ namespace Content.Shared.Stacks
         ///     This empty virtual method allows for UserSplit() to be called on the server from the client.
         ///     When prediction is improved, those two methods should be moved to shared, in order to predict the splitting itself (not just the verbs)
         /// </remarks>
-        protected virtual void UserSplit(EntityUid uid, EntityUid userUid, int amount,
+        public virtual void UserSplit(EntityUid uid, EntityUid userUid, int amount, // Goobstation public
             StackComponent? stack = null,
             TransformComponent? userTransform = null)
         {

@@ -93,7 +93,7 @@ namespace Content.Shared.Throwing
             SubscribeLocalEvent<ThrownItemComponent, PhysicsSleepEvent>(OnSleep);
             SubscribeLocalEvent<ThrownItemComponent, StartCollideEvent>(HandleCollision);
             SubscribeLocalEvent<ThrownItemComponent, PreventCollideEvent>(PreventCollision);
-            SubscribeLocalEvent<ThrownItemComponent, ThrownEvent>(ThrowItem);
+            SubscribeLocalEvent<ThrownItemComponent, ThrowEvent>(ThrowItem);
 
             SubscribeLocalEvent<PullStartedMessage>(HandlePullStarted);
         }
@@ -103,7 +103,7 @@ namespace Content.Shared.Throwing
             component.ThrownTime ??= _gameTiming.CurTime;
         }
 
-        private void ThrowItem(EntityUid uid, ThrownItemComponent component, ref ThrownEvent @event)
+        private void ThrowItem(EntityUid uid, ThrownItemComponent component, ref ThrowEvent @event)
         {
             if (!TryComp(uid, out FixturesComponent? fixturesComponent) ||
                 fixturesComponent.Fixtures.Count != 1 ||
@@ -208,7 +208,6 @@ namespace Content.Shared.Throwing
             var doHitEv = new ThrowDoHitEvent(thrown, target, component);
             RaiseLocalEvent(target, ref hitByEv, true);
             RaiseLocalEvent(thrown, ref doHitEv, true);
-            RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component), true);
         }
 
         public override void Update(float frameTime)
