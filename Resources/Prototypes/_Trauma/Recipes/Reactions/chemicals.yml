@@ -1,0 +1,62 @@
+- type: reaction
+  id: SodiumBicarbonate
+  reactants:
+    SodiumCarbonate:
+      amount: 1
+    Water:
+      amount: 1
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 2
+  products:
+    SodiumBicarbonate: 5
+
+- type: reaction
+  id: SodiumAcetate
+  reactants:
+    SodiumBicarbonate:
+      amount: 1
+    Vinegar:
+      amount: 1
+  products:
+    SodiumAcetate: 1
+    CarbonDioxide: 1
+    Water: 1
+
+- type: reaction
+  id: Methane
+  reactants:
+    CarbonDioxide:
+      amount: 1
+    Hydrogen:
+      amount: 4
+    Aluminium:
+      amount: 1
+      catalyst: true
+  products:
+    Methane: 3
+    Water: 2
+
+- type: reaction
+  id: CarbonCombustion
+  minTemp: 773
+  reactants:
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    CarbonDioxide: 2
+
+- type: reaction
+  id: AceticAnhydride
+  minTemp: 323
+  reactants:
+    Vinegar:
+      amount: 1
+    Ethenone:
+      amount: 1
+  products:
+    AceticAnhydride: 1
+    Water: 1

@@ -335,7 +335,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesBase, BaseSyndicateContraband] # Goob edit
+  parent: [ClothingEyesHudSyndicate, ShowMedicalIcons] # Goob edit
   id: ClothingEyesHudSyndicateAgent
   name: syndicate medical visor
   description: The Syndicate Corpsman's professional heads-up display, designed for quick diagnosis of their team's status.
@@ -344,17 +344,15 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/syndagent.rsi
-  - type: ShowSyndicateIcons
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-    - SiliconRadiation # Goobstation - IPCs
-  - type: ShowJobIcons # Goob
-  - type: ShowMindShieldIcons # Goob
-  - type: Tag
-    tags:
-    - PetWearable
-    - WhitelistChameleon
+  - type: SolutionScanner # Goob: For new players as a nukie medic
+#  - type: ShowSyndicateIcons # Goob remove: In parent
+#  - type: ShowHealthBars
+#    damageContainers:
+#    - Biological
+#  - type: Tag
+#    tags:
+#    - PetWearable
+#    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
