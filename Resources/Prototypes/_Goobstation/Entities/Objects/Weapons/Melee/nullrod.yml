@@ -555,11 +555,11 @@
   - type: MeleeWeapon
     canWideSwing: false
     range: 4
-    attackRate: 0.9
+    attackRate: 0.7
     damage:
       types:
-        Holy: 14
-        Blunt: 14
+        Holy: 20
+        Blunt: 18
     soundHit:
       path: /Audio/Effects/Emotes/snap3.ogg
       params:
