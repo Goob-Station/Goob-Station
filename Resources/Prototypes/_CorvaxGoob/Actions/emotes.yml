@@ -47,15 +47,6 @@
   - dances
   - dances.
   - dances!
-  - танцует
-  - танцует.
-  - танцует!
-  - пускается в пляс
-  - пускается в пляс.
-  - пускается в пляс!
-  - отжигает
-  - отжигает.
-  - отжигает!
   targetEvents:
   - !type:PlayAnimationTargetEvent
     animationID: EmoteDance
