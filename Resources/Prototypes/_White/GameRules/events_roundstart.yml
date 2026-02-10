@@ -9,7 +9,7 @@
     objectives:
     - XenomorphSurviveObjective
   - type: XenomorphsRule # Goobstation - Required for Evolution Logic
-    sound:
+    XenomorphInfestationSound:
       collection: xeno_start
   - type: VentSpawnRule
   - type: AntagSpawner

@@ -20,7 +20,7 @@
   - type: AntagSpawner
     prototype: MobXenomorphLarva
   - type: XenomorphsRule
-    sound:
+    XenomorphInfestationSound:
       collection: xeno_start #Goobstation
   - type: AntagObjectives
     objectives:
