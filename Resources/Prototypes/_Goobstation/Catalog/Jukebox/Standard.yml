@@ -312,3 +312,17 @@
   name: Mrjajkes - The Greytide Song
   path:
     path: /Audio/_Goobstation/Music/the_gray_tide_song.ogg
+
+- type: jukebox
+  id: future_perception
+  name: Merct - Future Perception
+  path:
+    path: /Audio/_Goobstation/Music/future_perception.ogg
+
+- type: jukebox
+  id: mind_crawler
+  name: qwertyuerty - Mind Crawler
+  path:
+    path: /Audio/_Goobstation/Music/mind_crawler.ogg
+
+
