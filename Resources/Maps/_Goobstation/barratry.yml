@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/10/2026 02:19:53
-  entityCount: 17413
+  time: 02/10/2026 14:36:05
+  entityCount: 17418
 maps:
 - 1
 grids:
@@ -44919,6 +44919,13 @@ entities:
     - type: Transform
       pos: -51.5,39.5
       parent: 2
+- proto: CloningPod
+  entities:
+  - uid: 15725
+    components:
+    - type: Transform
+      pos: 12.5,26.5
+      parent: 2
 - proto: ClosetChefFilled
   entities:
   - uid: 5291
@@ -48208,6 +48215,25 @@ entities:
     - type: Transform
       pos: -43.5,39.5
       parent: 2
+- proto: ComputerCloningConsole
+  entities:
+  - uid: 15727
+    components:
+    - type: Transform
+      pos: 12.5,25.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        15726:
+        - - CloningPodSender
+          - MedicalScannerReceiver
+        - - MedicalScannerSender
+          - MedicalScannerReceiver
+        15725:
+        - - MedicalScannerSender
+          - CloningPodReceiver
+        - - CloningPodSender
+          - CloningPodReceiver
 - proto: ComputerComms
   entities:
   - uid: 5483
@@ -48443,6 +48469,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,61.5
+      parent: 2
+- proto: ComputerSupermatter
+  entities:
+  - uid: 7304
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -89.5,54.5
       parent: 2
 - proto: ComputerSurveillanceCameraMonitor
   entities:
@@ -56171,7 +56205,7 @@ entities:
       pos: 12.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22581.502
+      secondsUntilStateChange: -22770.092
       state: Closing
   - uid: 6676
     components:
@@ -57564,7 +57598,7 @@ entities:
       pos: -39.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -9115.519
+      secondsUntilStateChange: -9304.108
       state: Closing
   - uid: 6872
     components:
@@ -83200,10 +83234,10 @@ entities:
       parent: 2
 - proto: LiquidCarbonDioxideCanister
   entities:
-  - uid: 16956
+  - uid: 15728
     components:
     - type: Transform
-      pos: -89.5,54.5
+      pos: -92.5,55.5
       parent: 2
 - proto: LiveLetLiveCircuitBoard
   entities:
@@ -84904,6 +84938,13 @@ entities:
     components:
     - type: Transform
       pos: 9.5,32.5
+      parent: 2
+- proto: MedicalScanner
+  entities:
+  - uid: 15726
+    components:
+    - type: Transform
+      pos: 12.5,24.5
       parent: 2
 - proto: MedicalTechFab
   entities:
@@ -98476,11 +98517,15 @@ entities:
       parent: 2
 - proto: SignEVA
   entities:
-  - uid: 7304
+  - uid: 15723
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -13.5,32.5
+      pos: -14.5,26.5
+      parent: 2
+  - uid: 15724
+    components:
+    - type: Transform
+      pos: -15.5,21.5
       parent: 2
 - proto: SignInterrogation
   entities:
@@ -101083,6 +101128,8 @@ entities:
     - type: Transform
       pos: -89.5,58.5
       parent: 2
+    - type: Supermatter
+      activated: True
 - proto: SurveillanceCameraCommand
   entities:
   - uid: 12477
