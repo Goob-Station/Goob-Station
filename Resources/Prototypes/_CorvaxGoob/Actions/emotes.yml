@@ -25,9 +25,6 @@
   - spinning on their head
   - spinning on their head.
   - spinning on their head!
-  - крутится на голове
-  - крутится на голове.
-  - крутится на голове!
   targetEvents:
   - !type:PlayAnimationTargetEvent
     animationID: EmoteSpinningOnHead
