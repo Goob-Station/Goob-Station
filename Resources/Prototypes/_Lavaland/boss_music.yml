@@ -24,7 +24,6 @@
     - /Audio/_Lavaland/Mobs/Bosses/hiero_bgm.ogg
     - /Audio/_Lavaland/Mobs/Bosses/hierophant.ogg
 
-
 - type: bossMusic
   id: Hierophant
   fade: true
@@ -33,7 +32,6 @@
   positionOnEnd: 0
   sound:
     collection: HierophantMusic
-
 
 - type: bossMusic
   id: Colossus
