@@ -559,7 +559,7 @@
     damage:
       types:
         Holy: 15
-        Blunt: 18
+        Blunt: 15
     soundHit:
       path: /Audio/Effects/Emotes/snap3.ogg
       params:
