@@ -205,8 +205,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledRifle
-  name: Estoc bundle # goob
-  description: "For medium-range sharpshooting, the Estoc. Bundled with three magazines." # goob
+  name: Kirkstoc bundle # goob
+  description: "For medium-range sharpshooting, the Kirkstoc. Bundled with three magazines." # goob
   components:
   - type: StorageFill
     contents:
@@ -275,7 +275,7 @@
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, 3 magazines for the Estoc DMR, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
+  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, 3 magazines for the Kirkstoc DMR, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
   components:
   - type: StorageFill
     contents:

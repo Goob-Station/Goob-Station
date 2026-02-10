@@ -119,8 +119,8 @@ uplink-l6-saw-desc = A bulky light machine gun excellent at suppressive, sustain
 uplink-m90-name = M-90
 uplink-m90-desc = A rugged assault rifle that maintains its accuracy across extreme distances. Feeds from .20 Rifle magazines.
 
-uplink-estoc-name = Estoc
-uplink-estoc-desc = A burst-fire designated marksman rifle fitted with an expensive tritium optic. Feeds from .20 Rifle magazines.
+uplink-kirkstoc-name = Kirkstoc
+uplink-kirkstoc-desc = A burst-fire designated marksman rifle fitted with an expensive tritium optic. Feeds from .20 Rifle magazines.
 
 uplink-syndicate-disabler-name = Syndicate Disabler
 uplink-syndicate-disabler-desc = A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
@@ -211,8 +211,8 @@ uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang
 uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
 uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
-uplink-estoc-ammo-name = Rifle Magazine (.30 rifle)
-uplink-estoc-ammo-desc = Rifle magazine with 30 rounds. Compatible with the Estoc.
+uplink-kirkstoc-ammo-name = Rifle Magazine (.30 rifle)
+uplink-kirkstoc-ammo-desc = Rifle magazine with 30 rounds. Compatible with the Kirkstoc.
 
 uplink-m90-ammo-name = Rifle Magazine (.20 rifle)
 uplink-m90-ammo-desc = Rifle magazine with 25 rounds. Compatible with the M-90 and Lecter.

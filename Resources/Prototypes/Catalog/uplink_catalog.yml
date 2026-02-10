@@ -396,11 +396,11 @@
       - ContractorUplink
 
 - type: listing
-  id: UplinkEstoc # goob unbundle
-  name: uplink-estoc-name # goob unbundle
-  description: uplink-estoc-desc # goob unbundle
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
-  productEntity: WeaponRifleEstoc # goob unbundle
+  id: UplinkKirkstoc # goob unbundle
+  name: uplink-kirkstoc-name # goob unbundle
+  description: uplink-kirkstoc-desc # goob unbundle
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/kirkstoc.rsi, state: icon }
+  productEntity: WeaponRifleKirkstoc # goob unbundle
   cost:
     Telecrystal: 60 # goob unbundle
   categories:
@@ -844,11 +844,11 @@
       tags:
       - ContractorUplink
 
-# For the Estoc
+# For the Kirkstoc
 - type: listing
-  id: UplinkEstocAmmo
-  name: uplink-estoc-ammo-name
-  description: uplink-estoc-ammo-desc
+  id: UplinkKirkstocAmmo
+  name: uplink-Kirkstoc-ammo-name
+  description: uplink-kirkstoc-ammo-desc
   productEntity: MagazineLightRifle
   cost:
     Telecrystal: 7 # goob - higher ammo cost due to .30 rifle's 40% armour piercing
