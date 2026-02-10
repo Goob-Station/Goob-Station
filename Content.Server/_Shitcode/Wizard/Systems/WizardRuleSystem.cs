@@ -22,6 +22,7 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Shitcode.Wizard.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Cloning;
@@ -69,7 +70,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
         SubscribeLocalEvent<WizardRuleComponent, AfterAntagEntitySelectedEvent>(OnAfterAntagSelected);
 
-        SubscribeLocalEvent<WizardRoleComponent, GetBriefingEvent>(OnWizardGetBriefing);
+        SubscribeLocalEvent<GoobWizardRoleComponent, GetBriefingEvent>(OnWizardGetBriefing);
         SubscribeLocalEvent<ApprenticeRoleComponent, GetBriefingEvent>(OnApprenticeGetBriefing);
 
         SubscribeLocalEvent<WizardComponent, MobStateChangedEvent>(OnStateChanged);
@@ -210,7 +211,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         var query = EntityQueryEnumerator<MindComponent>();
         while (query.MoveNext(out var mind, out var mindComp))
         {
-            if (!_role.MindHasRole<WizardRoleComponent>(mind) && !_role.MindHasRole<ApprenticeRoleComponent>(mind))
+            if (!_role.MindHasRole<GoobWizardRoleComponent>(mind) && !_role.MindHasRole<ApprenticeRoleComponent>(mind))
                 continue;
 
             if (!_mind.IsCharacterDeadIc(mindComp))
@@ -271,7 +272,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         component.TargetStation = _random.Pick(stations);
     }
 
-    private void OnWizardGetBriefing(Entity<WizardRoleComponent> ent, ref GetBriefingEvent args)
+    private void OnWizardGetBriefing(Entity<GoobWizardRoleComponent> ent, ref GetBriefingEvent args)
     {
         args.Append(Loc.GetString("wizard-role-briefing"));
     }

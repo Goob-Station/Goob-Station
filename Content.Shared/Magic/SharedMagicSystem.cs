@@ -578,7 +578,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
 
         _transform.SwapPositions(ev.Performer, ev.Target);
     }

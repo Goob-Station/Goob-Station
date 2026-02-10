@@ -21,6 +21,7 @@ using Content.Shared.Effects;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Silicons.Borgs.Components;
