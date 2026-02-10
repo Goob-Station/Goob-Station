@@ -1182,7 +1182,7 @@ public sealed class PullingSystem : EntitySystem
 
         var massMultiplier = Math.Clamp(_contests.MassContest(pullable, puller, true) * 2f, 0.5f, 2f);
         var extraMultiplier = 1f;
-        if (_standing.IsDown(pullable))
+        if (_standing.IsDown(pullable.Owner))
             extraMultiplier *= puller.Comp.DownedEscapeChanceMultiplier;
         var raiseEv = new RaiseGrabModifierEventEvent(puller.Owner, 0);
         RaiseLocalEvent(ref raiseEv);
