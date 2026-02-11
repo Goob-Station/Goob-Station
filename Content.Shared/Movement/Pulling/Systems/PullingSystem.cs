@@ -188,8 +188,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
 
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.ReleasePulledObject,
-                InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
+            .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
     }
 
