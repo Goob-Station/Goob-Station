@@ -32,17 +32,11 @@ public sealed partial class GrabbingItemComponent : Component, IGrabCooldownComp
 
     public bool IsCooldownActive(TimeSpan now)
     {
-        if (GrabCooldownDuration <= TimeSpan.Zero)
-            return false;
-
         return GrabCooldownEnd > now;
     }
 
     public void StartCooldown(TimeSpan now)
     {
-        if (GrabCooldownDuration <= TimeSpan.Zero)
-            return;
-
         GrabCooldownEnd = now + GrabCooldownDuration;
     }
 }
