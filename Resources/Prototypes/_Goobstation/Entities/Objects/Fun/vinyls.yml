@@ -109,18 +109,6 @@
       path: /Audio/_Goobstation/RadioStation/music/BoogieParty.ogg
 
 - type: entity
-  name: "vinyl disk: corncob"
-  description: A vinyl disk containing music, has a matt gloss finish.
-  id: VinylDiskGlossy
-  parent: BaseVinylDisk
-  components:
-  - type: Sprite
-    state: glossy-vinyl-disk
-  - type: Vinyl
-    song:
-      path: /Audio/_Goobstation/RadioStation/music/Corncob.ogg
-
-- type: entity
   name: "vinyl disk: night in Venice"
   id: VinylDiskRed
   parent: BaseVinylDisk
@@ -261,18 +249,6 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/music/goonstation/groovy.ogg
-
-- type: entity
-  name: "vinyl disk: fart elise"
-  id: VinylDiskLightRed
-  description: it's not pink, it's a lightish red.
-  parent: BaseVinylDisk
-  components:
-  - type: Sprite
-    state: lightishred-vinyl-disk
-  - type: Vinyl
-    song:
-      path: /Audio/_Goobstation/RadioStation/music/goonstation/fart_elise.ogg
 
 - type: entity
   name: "vinyl disk: dance on a space volcano"
@@ -429,17 +405,6 @@
       path: /Audio/_Goobstation/RadioStation/music/GetThatAntag!.ogg
 
 - type: entity
-  name: "vinyl disk: Want you gone"
-  id: VinylDiskWantYouGone
-  parent: BaseVinylDisk
-  components:
-  - type: Sprite
-    state: earth-vinyl-disk
-  - type: Vinyl
-    song:
-      path: /Audio/_Goobstation/RadioStation/music/WantYouGone.ogg
-
-- type: entity
   name: "vinyl disk: Law 2, open armory"
   id: VinylDiskLaw2
   parent: BaseVinylDisk
@@ -515,17 +480,6 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/music/goonstation/lay_egg_is_true.ogg
-
-- type: entity
-  name: "vinyl disk: We are number two"
-  id: VinylDiskWeAreNumberTwo
-  parent: BaseVinylDisk
-  components:
-  - type: Sprite
-    state: purple-vinyl-disk
-  - type: Vinyl
-    song:
-      path: /Audio/_Goobstation/RadioStation/music/goonstation/we_are_number_two.ogg
 
 - type: entity
   name: "vinyl disk: EXTRA METAL"

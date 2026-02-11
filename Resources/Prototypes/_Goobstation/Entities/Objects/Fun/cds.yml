@@ -237,48 +237,39 @@
 
 - type: entity
   parent: BaseCdDisk
-  id: JVNECdDisk
+  id: CdDiskJNE
   abstract: true
-  description: The June and Eels show!
+  description: Wanna break from the ads?
   components:
   - type: Sprite
     state: jne-cd
 
 - type: entity
-  parent: JVNECdDisk
+  parent: CdDiskJNE
   name: cd disk (Capstien)
-  id: JVNECdDiskCapstien
+  id: CdDiskJNECapstien
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/Capstien.ogg
+      path: /Audio/_Goobstation/RadioStation/Misc/Capstien.ogg
 
 - type: entity
-  parent: JVNECdDisk
+  parent: CdDiskJNE
   name: cd disk (NINJA!!!)
-  id: JVNECdDiskNinja
+  id: CdDiskJNENinja
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/Ninja.ogg
+      path: /Audio/_Goobstation/RadioStation/Misc/Ninja.ogg
 
 - type: entity
-  parent: JVNECdDisk
+  parent: CdDiskJNE
   name: cd disk (Next Up)
-  id: JVNECdDiskNextUp
+  id: CdDiskJNENextUp
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/NextUp.ogg
-
-- type: entity
-  parent: JVNECdDisk
-  name: cd disk (June & Eels Show)
-  id: JVNECdDiskJNE
-  components:
-  - type: Vinyl
-    song:
-      path: /Audio/_Goobstation/RadioStation/ads/JNE.ogg
+      path: /Audio/_Goobstation/RadioStation/Misc/NextUp.ogg
 
 - type: entity
   parent: [BaseSyndicateContraband, BaseCdDisk]
@@ -292,21 +283,21 @@
 - type: entity
   parent: SyndiCdDisk
   name: cd disk (Numbers)
-  id: JVNECdDiskNumber
+  id: SyndiCdNumber
   description: All around the mulberry bush, the monkey chased the weasel...
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/Number.ogg
+      path: /Audio/_Goobstation/RadioStation/Misc/Number.ogg
   - type: VinylSummonRule
     gameRule: NumberStationThreats
 
 - type: entity
   parent: SyndiCdDisk
   name: cd disk (Syndicate)
-  id: JVNECdDiskSyndicate
+  id: SyndiCdSyndicate
   description: 102.9 Syndicate radio
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/Syndicate.ogg
+      path: /Audio/_Goobstation/RadioStation/Misc/Syndicate.ogg

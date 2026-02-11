@@ -7,3 +7,8 @@
   license: "CC-BY-SA-4.0"
   copyright: "taken from goonstation"
   source: "https://github.com/goonstation/goonstation/blob/master/sound/misc/amusingduck.ogg"
+  
+- files: ["Syndicate.ogg", "Capstien.ogg", "NextUp.ogg", "Ninja.ogg", "Number.ogg"]
+  license: "CC-BY-ND-4.0"
+  copyright: "Recorded by Jvne"
+  source: "https://juneialduncan21@gmail.com"

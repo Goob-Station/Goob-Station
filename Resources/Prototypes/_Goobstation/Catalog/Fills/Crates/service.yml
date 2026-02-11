@@ -109,14 +109,12 @@
       weight: 1
     - id: CdDiskSecurityPsa
       weight: 1
-    - id: JVNECdDiskCapstien
-      weight: 0.3
-    - id: JVNECdDiskNinja
-      weight: 0.3
-    - id: JVNECdDiskNextUp
-      weight: 0.5
-    - id: JVNECdDiskJNE
-      weight: 0.3
+    - id: CdDiskJNECapstien
+      weight: 0.1
+    - id: CdDiskJNENinja
+      weight: 0.1
+    - id: CdDiskJNENextUp
+      weight: 0.2
     - id: CdDiskCommanderAnnouncement
       weight: 0.2
     - id: CdDiskCommanderFigurines
@@ -146,8 +144,6 @@
       weight: 1
     - id: VinylDiskPizza
       weight: 1
-    - id: VinylDiskGlossy
-      weight: 1
     - id: VinylDiskRed
       weight: 1
     - id: VinylDiskLightBlue
@@ -169,8 +165,6 @@
     - id: VinylDiskOrange
       weight: 1
     - id: VinylDiskWhite
-      weight: 1
-    - id: VinylDiskLightRed
       weight: 1
     - id: VinylDiskDarkBlue
       weight: 1
@@ -214,11 +208,7 @@
       weight: 1
     - id: VinylDiskViolet
       weight: 1
-    - id: VinylDiskWantYouGone
-      weight: 1
     - id: VinylDiskEgg
-      weight: 1
-    - id: VinylDiskWeAreNumberTwo
       weight: 1
 
 - type: entityTable

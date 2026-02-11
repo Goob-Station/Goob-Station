@@ -1883,10 +1883,10 @@
       - ContractorUplink
 
 - type: listing
-  id: UplinkCdDiskSyndicate
+  id: UplinkSyndiCdSyndicate
   name: uplink-cddisksyndicate-name
   description: uplink-cddisksyndicate-desc
-  productEntity: JVNECdDiskSyndicate
+  productEntity: SyndiCdSyndicate
   cost:
     Telecrystal: 1
   categories:
@@ -1896,10 +1896,10 @@
     stock: 1
 
 - type: listing
-  id: UplinkCdDiskNumber
+  id: UplinkSyndiCdNumber
   name: uplink-cddisknumber-name
   description: uplink-cddisknumber-desc
-  productEntity: JVNECdDiskNumber
+  productEntity: SyndiCdNumber
   cost:
     Telecrystal: 30
   categories:
