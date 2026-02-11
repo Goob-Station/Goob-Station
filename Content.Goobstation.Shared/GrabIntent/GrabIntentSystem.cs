@@ -507,7 +507,7 @@ public sealed class GrabIntentSystem : EntitySystem
 
         foreach (var item in ent.Comp.GrabVirtualItems)
         {
-            if (TryComp<VirtualItemComponent>(ent, out var virtualItemComponent))
+            if (TryComp<VirtualItemComponent>(item, out var virtualItemComponent))
                 _virtualSystem.DeleteVirtualItem((item, virtualItemComponent), ent);
         }
 
