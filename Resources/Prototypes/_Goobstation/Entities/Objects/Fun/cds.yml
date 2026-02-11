@@ -251,7 +251,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/Misc/Capstien.ogg
+      path: /Audio/_Goobstation/RadioStation/misc/Capstien.ogg
 
 - type: entity
   parent: CdDiskJNE
@@ -260,7 +260,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/Misc/Ninja.ogg
+      path: /Audio/_Goobstation/RadioStation/misc/Ninja.ogg
 
 - type: entity
   parent: CdDiskJNE
@@ -269,7 +269,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/Misc/NextUp.ogg
+      path: /Audio/_Goobstation/RadioStation/misc/NextUp.ogg
 
 - type: entity
   parent: [BaseSyndicateContraband, BaseCdDisk]
@@ -288,7 +288,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/Misc/Number.ogg
+      path: /Audio/_Goobstation/RadioStation/misc/Number.ogg
   - type: VinylSummonRule
     gameRule: NumberStationThreats
 
@@ -300,4 +300,4 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/Misc/Syndicate.ogg
+      path: /Audio/_Goobstation/RadioStation/misc/Syndicate.ogg
