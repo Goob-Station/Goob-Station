@@ -91,6 +91,16 @@
       - id: ClothingHeadHatHelmetBishop
 
 - type: entity
+  id: SpawnArmamentsDraconic
+  categories: [ HideSpawnMenu ]
+  name: dragon suit
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnTableOnDespawn
+    table:
+      id: ClothingOuterArmorDragon
+
+- type: entity
   id: SpawnArmamentsInquisitor
   categories: [ HideSpawnMenu ]
   name: inquisitor armour
