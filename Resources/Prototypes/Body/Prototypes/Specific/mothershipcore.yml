@@ -6,7 +6,7 @@
     torso:
       part: TorsoBorg
       connections: # Goobstation - change this and you get russian fucking build errors.
-      - right arm
+      - right arm # edit this shit is currently unused and will be killed <//fixborghands>
       - right arm 2
       - left arm
       - left arm 2
