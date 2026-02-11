@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/19/2025 18:35:07
-  entityCount: 648
+  time: 01/07/2026 18:00:27
+  entityCount: 649
 maps: []
 grids:
 - 1
@@ -77,6 +77,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -573,6 +578,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AirlockCargo
   entities:
   - uid: 2
@@ -1712,6 +1718,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,26.5
+      parent: 1
+- proto: DefaultStationBeaconRuinBeachBiodome
+  entities:
+  - uid: 649
+    components:
+    - type: Transform
+      pos: 9.5,17.5
       parent: 1
 - proto: DoubleEmergencyNitrogenTankFilled
   entities:

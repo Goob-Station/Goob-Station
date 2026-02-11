@@ -101,15 +101,11 @@ public sealed class GhoulSystem : EntitySystem
         SubscribeLocalEvent<GhoulComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
         SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
-        SubscribeLocalEvent<GhoulComponent, PolymorphedEvent>(OnPolymorphed);
 
         SubscribeLocalEvent<GhoulRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
         SubscribeLocalEvent<GhoulWeaponComponent, ExaminedEvent>(OnWeaponExamine);
     }
-
-    private void OnPolymorphed(Entity<GhoulComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<GhoulComponent>(ent, args.NewEntity);
 
     private void OnGetBriefing(Entity<GhoulRoleComponent> ent, ref GetBriefingEvent args)
     {
@@ -172,8 +168,11 @@ public sealed class GhoulSystem : EntitySystem
         if (hasMind)
         {
             _mind.UnVisit(mindId, mind);
-            SendBriefing(ent);
-            _role.MindAddRole(mindId, GhoulRole, mind);
+            if (!_role.MindHasRole<GhoulRoleComponent>(mindId))
+            {
+                SendBriefing(ent);
+                _role.MindAddRole(mindId, GhoulRole, mind);
+            }
         }
         else
         {

@@ -143,3 +143,13 @@
     rules: ghost-role-information-hastur-rules
     raffle:
       settings: short
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: ContractorSpawner
+  id: ContractorTokenSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-contractor-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules

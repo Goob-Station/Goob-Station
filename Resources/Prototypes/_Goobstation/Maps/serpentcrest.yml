@@ -62,12 +62,15 @@
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 4, 4 ]
+            ShaftMiner: [ 4, 4 ]
             CargoTechnician: [ 5, 5 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
+            Reporter: [ 1, 1]
+            RadioHost: [ 1, 1]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 3, 3 ]

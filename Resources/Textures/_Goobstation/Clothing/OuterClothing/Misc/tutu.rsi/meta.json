@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "copyright": "ZOXELON",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        }
+    ]
+}

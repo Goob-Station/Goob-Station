@@ -1,0 +1,43 @@
+# Basically a reskin of salvage specialist
+- type: job
+  id: ShaftMiner
+  name: job-name-shaftminer
+  description: job-description-shaftminer
+  playTimeTracker: JobShaftMiner
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Cargo
+    time: 9000 # 2.5 hrs
+  icon: "JobIconLavaShaftMiner" # Wizden's icon is already called shaft miner for whatever reason.
+  startingGear: ShaftMinerGear
+  guides:
+  - Salvage # TODO lavaland guide
+  - Cargo
+  goobcoins: 20
+  supervisors: job-supervisors-qm
+  access:
+  - Cargo
+  - Salvage
+  - Maintenance
+  - External
+
+- type: startingGear
+  id: ShaftMinerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitShaftMiner
+    id: MinerPDA
+    ears: ClothingHeadsetCargo
+  storage:
+    back:
+    - MiningVoucher
+
+- type: chameleonOutfit
+  id: ShaftMinerChameleonOutfit
+  job: ShaftMiner
+  equipment:
+    head: ClothingHeadHatCargosoft
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskGasExplorer
+    outerClothing: ClothingOuterWinterMiner
+    neck: ClothingNeckScarfStripedBrown
+    gloves: ClothingHandsGlovesColorBlack

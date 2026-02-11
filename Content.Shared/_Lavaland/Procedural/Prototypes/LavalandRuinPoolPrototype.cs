@@ -34,13 +34,13 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     /// Distance in-between ruins.
     /// </summary>
     [DataField]
-    public int RuinDistance = 24;
+    public int RuinDistance = 16;
 
     /// <summary>
     /// Max distance that Ruins can generate.
     /// </summary>
     [DataField]
-    public int MaxDistance = 336;
+    public int MaxDistance = 256; // TODO make this value higher after proper GPS UI is added
 
     /// <summary>
     /// List of all grid ruins and their count.

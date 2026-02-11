@@ -183,7 +183,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/kettle.yml",
             "/Maps/_Goobstation/lambda.yml",
             "/Maps/_Goobstation/leonid.yml",
-            "/Maps/_Goobstation/submarine.yml",
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
             "/Maps/_Goobstation/loop.yml",
@@ -193,8 +192,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/Shuttles/retort_medical.yml",
             "/Maps/_Goobstation/Shuttles/retort_engineering.yml",
             "/Maps/_Goobstation/Shuttles/retort_janitorial.yml",
-            "/Maps/_Goobstation/Shuttles/retort_cburn.yml",
-            "/Maps/_Goobstation/prison.yml"
+            "/Maps/_Goobstation/Shuttles/retort_cburn.yml"
         };
 
         private static readonly string[] GameMaps =
@@ -233,11 +231,9 @@ namespace Content.IntegrationTests.Tests
             "Origin",
             "OriginHighPop",  // Not in pool
             "Packed",
-            "Prison",
             "Reach",
             "Saltern",
             "Serpentcrest",
-            "Submarine",
             "TestTeg",        // Dev map
             "Train"           // Not in pool
             // Goob end
@@ -282,7 +278,6 @@ namespace Content.IntegrationTests.Tests
               "Reach",
               "Saltern",
               "Serpentcrest",
-              "Submarine"
         };
         // Goobstation edit end
 

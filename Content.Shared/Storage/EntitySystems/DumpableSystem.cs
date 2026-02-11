@@ -287,7 +287,7 @@ public sealed class DumpableSystem : EntitySystem
             // }
             foreach (var entity in dumpQueue)
             {
-                _smartFridge.TryInsertObject((target.Value, fridge), entity, user); // Frontier & EE & Goobstation
+                _smartFridge.TryInsertEntity((target.Value, fridge), user, entity); // Goobstation
             }
             // End Frontier
         }

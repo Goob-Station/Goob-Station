@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -12,8 +11,8 @@ using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
+using Content.Shared.DragDrop; // goob
 
 namespace Content.Shared._DV.SmartFridge;
 
@@ -33,6 +32,8 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<SmartFridgeComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
+        SubscribeLocalEvent<SmartFridgeComponent, CanDropTargetEvent>(OnCanDropTarget); // goob
+        SubscribeLocalEvent<SmartFridgeComponent, DragDropTargetEvent>(OnDragDropTarget); // goob
 
         Subs.BuiEvents<SmartFridgeComponent>(SmartFridgeUiKey.Key,
             sub =>
@@ -41,34 +42,87 @@ public sealed class SmartFridgeSystem : EntitySystem
             });
     }
 
-    private void OnInteractUsing(Entity<SmartFridgeComponent> ent, ref InteractUsingEvent args)
+    // Goobstation changes - Drag & Drop insert START
+    /// <summary>
+    /// Try to insert <paramref name="thingToInsert"/> into the smartfridge (<paramref name="ent"/>).
+    /// </summary>
+    /// <param name="ent">The smartfridge entity.</param>
+    /// <param name="user">The user trying to insert something.</param>
+    /// <param name="thingToInsert">The thing to be inserted into the smartfridge.</param>
+    /// <returns>Returns <see langword="true"/> if the item was successfully inserted, and <see langword="false"/> otherwise.</returns>
+    public bool TryInsertEntity(Entity<SmartFridgeComponent> ent, EntityUid user, EntityUid thingToInsert)
+    {
+        if (!CanInsertEntity(ent, user, thingToInsert))
+            return false;
+        if (_hands.IsHolding(user, thingToInsert, out var handId) && !_hands.TryDrop(user, handId))
+            return false;
+
+        InsertEntity(ent, user, thingToInsert);
+        return true;
+    }
+
+    /// <summary>
+    /// Check to see if <paramref name="user"/> is able to insert <paramref name="thingToInsert"/> into the smartfridge (<paramref name="ent"/>).
+    /// </summary>
+    /// <param name="ent">The smartfridge entity.</param>
+    /// <param name="user">The user trying to insert something.</param>
+    /// <param name="thingToInsert">The thing to be inserted into the smartfridge.</param>
+    /// <returns>Returns <see langword="true"/> if the item can be inserted, and <see langword="false"/> otherwise.</returns>
+    private bool CanInsertEntity(Entity<SmartFridgeComponent> ent, EntityUid user, EntityUid thingToInsert)
     {
         if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
-            return;
+            return false;
 
-        if (_whitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Used) || _whitelist.IsBlacklistPass(ent.Comp.Blacklist, args.Used))
-            return;
+        if (container.Count >= ent.Comp.MaxContainedCount)
+            return false;
 
-        if (!Allowed(ent, args.User))
-            return;
+        if (_whitelist.IsWhitelistFail(ent.Comp.Whitelist, thingToInsert) || _whitelist.IsBlacklistPass(ent.Comp.Blacklist, thingToInsert))
+            return false;
 
-        if (container.Count >= ent.Comp.MaxContainedCount) // Frontier
-            return; // Frontier
+        if (!Allowed(ent, user))
+            return false;
 
-        if (!_hands.TryDrop(args.User, args.Used))
-            return;
+        return true;
+    }
 
-        _audio.PlayPredicted(ent.Comp.InsertSound, ent, args.User);
-        _container.Insert(args.Used, container);
-        var key = new SmartFridgeEntry(Identity.Name(args.Used, EntityManager));
+    /// <summary>
+    /// Insert <paramref name="thingToInsert"/> into the smartfridge (<paramref name="ent"/>).
+    /// </summary>
+    /// <remarks>
+    /// Please check <see cref="CanInsertEntity(Entity{SmartFridgeComponent}, EntityUid, EntityUid)">CanInsertEntity()</see> prior to calling this
+    /// to make sure that it's actually possible to insert the entity.
+    /// </remarks>
+    /// <param name="ent">The smartfridge entity.</param>
+    /// <param name="user">The user trying to insert something.</param>
+    /// <param name="thingToInsert">The thing to be inserted into the smartfridge.</param>
+    /// <exception cref="Exception">Thrown if <paramref name="ent"/> doesn't have a valid <see cref="BaseContainer"/> container.</exception>
+    /// <seealso cref="TryInsertEntity(Entity{SmartFridgeComponent}, EntityUid, EntityUid)"/>
+    private void InsertEntity(Entity<SmartFridgeComponent> ent, EntityUid user, EntityUid thingToInsert)
+    {
+        if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
+            throw new Exception("`InsertObject()` called on a smartfridge without a valid container.");
+
+        _audio.PlayPredicted(ent.Comp.InsertSound, ent, user);
+        _container.Insert(thingToInsert, container);
+
+        var key = new SmartFridgeEntry(Identity.Name(thingToInsert, EntityManager));
         if (!ent.Comp.Entries.Contains(key))
             ent.Comp.Entries.Add(key);
+
         ent.Comp.ContainedEntries.TryAdd(key, new());
         var entries = ent.Comp.ContainedEntries[key];
-        if (!entries.Contains(GetNetEntity(args.Used)))
-            entries.Add(GetNetEntity(args.Used));
+
+        var thingNetEntity = GetNetEntity(thingToInsert);
+        if (!entries.Contains(thingNetEntity))
+            entries.Add(thingNetEntity);
         Dirty(ent);
     }
+
+    private void OnInteractUsing(Entity<SmartFridgeComponent> ent, ref InteractUsingEvent args)
+    {
+        TryInsertEntity(ent, args.User, args.Used);
+    }
+    // Goobstation changes - Drag & Drop insert END
 
     private void OnItemRemoved(Entity<SmartFridgeComponent> ent, ref EntRemovedFromContainerMessage args)
     {
@@ -136,32 +190,30 @@ public sealed class SmartFridgeSystem : EntitySystem
         _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
     }
 
-    // Frontier: hacky function to insert an object
-    public bool TryInsertObject(Entity<SmartFridgeComponent> ent, EntityUid item, EntityUid? user)
+    // Goobstation changes - Drag & Drop insert START
+    private void OnCanDropTarget(Entity<SmartFridgeComponent> ent, ref CanDropTargetEvent args)
     {
-        if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
-            return false;
+        if (args.Handled)
+            return;
 
-        if (_whitelist.IsWhitelistFail(ent.Comp.Whitelist, item) || _whitelist.IsBlacklistPass(ent.Comp.Blacklist, item))
-            return false;
+        args.Handled = true;
 
-        if (user is { Valid: true } userUid && !Allowed(ent, userUid))
-            return false;
+        if (!CanInsertEntity(ent, args.User, args.Dragged))
+        {
+            args.CanDrop = false;
+            return;
+        }
 
-        if (container.Count >= ent.Comp.MaxContainedCount)
-            return false;
-
-        _audio.PlayPredicted(ent.Comp.InsertSound, ent, user);
-        _container.Insert(item, container);
-        var key = new SmartFridgeEntry(Identity.Name(item, EntityManager));
-        if (!ent.Comp.Entries.Contains(key))
-            ent.Comp.Entries.Add(key);
-        ent.Comp.ContainedEntries.TryAdd(key, new());
-        var entries = ent.Comp.ContainedEntries[key];
-        if (!entries.Contains(GetNetEntity(item)))
-            entries.Add(GetNetEntity(item));
-        Dirty(ent);
-        return true;
+        args.CanDrop = true;
     }
-    // End Frontier: hacky function to insert an object
+
+    private void OnDragDropTarget(Entity<SmartFridgeComponent> ent, ref DragDropTargetEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        InsertEntity(ent, args.User, args.Dragged);
+        args.Handled = true;
+    }
+    // Goobstation changes - Drag & Drop insert END
 }

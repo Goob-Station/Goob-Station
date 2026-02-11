@@ -1,0 +1,13 @@
+- type: biomeMarkerLayer
+  id: OreGibtonite
+  entityMask:
+    AsteroidRock: AsteroidRockGibtonite
+    WallRock: WallRockGibtonite
+    WallRockBasalt: WallRockBasaltGibtonite
+    WallRockChromite: WallRockChromiteGibtonite
+    WallRockSand: WallRockSandGibtonite
+    WallRockSnow: WallRockSnowGibtonite
+  maxCount: 30
+  minGroupSize: 1
+  maxGroupSize: 1
+  radius: 4

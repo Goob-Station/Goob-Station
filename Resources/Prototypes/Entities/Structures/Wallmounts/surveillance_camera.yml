@@ -130,6 +130,7 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
+  - type: RequireProjectileTarget
   # </Goob>
   placement:
     mode: SnapgridCenter
