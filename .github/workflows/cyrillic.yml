@@ -21,8 +21,9 @@ jobs:
           echo "Checking for Cyrillic characters in diff…"
 
           if git diff origin/master...HEAD | grep -P '\p{Cyrillic}'; then
-            echo "❌ Cyrillic characters detected in this PR"
-            exit 1
+            echo "✅ Cyrillic characters found"
+            exit 0
           fi
 
-          echo "No Cyrillic found ✅"
+          echo "❌ No Cyrillic characters detected in this PR"
+          exit 1
