@@ -26,7 +26,7 @@ public sealed class GrabbingCooldownSystem : EntitySystem
     private void GrabPopup<T>(Entity<T> ent, BaseContainer container) where T : Component, IGrabCooldownComponent
     {
         var holder = container.Owner;
-        _popup.PopupCursor(
+        _popup.PopupPredictedCursor(
             $"Your {MetaData(ent).EntityName} {Loc.GetString(ent.Comp.GrabCooldownVerb)} as it's not ready yet, wait {(ent.Comp.GrabCooldownEnd - _gameTiming.CurTime).TotalSeconds:0.0}s!",
             holder, PopupType.MediumCaution);
     }
