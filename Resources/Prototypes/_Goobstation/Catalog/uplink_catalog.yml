@@ -1916,7 +1916,7 @@
   id: UplinkCdDiskNumber
   name: uplink-cddisknumber-name
   description: uplink-cddisknumber-desc
-  productEntity: JVNECdDiskNumber
+  productEntity: CdDiskNumber
   cost:
     Telecrystal: 30
   categories:
