@@ -179,7 +179,6 @@
     baseWeightlessAcceleration: 3 # Goobstation value
     baseWeightlessFriction: 1
     baseWeightlessModifier: 1
-  - type: MomentumSteering # Goobstation - No steer
   - type: Flammable
     damage:
       types:
