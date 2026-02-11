@@ -549,7 +549,6 @@
     song:
       path: /Audio/_Goobstation/RadioStation/music/NUKIES_TRAP.ogg
 
-
 - type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
