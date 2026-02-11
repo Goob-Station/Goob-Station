@@ -23,6 +23,7 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
@@ -42,7 +43,6 @@ public sealed class GrabIntentSystem : EntitySystem
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -108,7 +108,9 @@ public sealed class GrabIntentSystem : EntitySystem
             || !TryComp(args.User, out PullableComponent? pullable))
             return;
 
-        if (_random.Prob(pullable.GrabEscapeChance))
+        var seed = SharedRandomExtensions.HashCodeCombine([(int) _timing.CurTick.Value, GetNetEntity(ent).Id]);
+        var rand = new Random(seed);
+        if (rand.Prob(pullable.GrabEscapeChance))
             TryLowerGrabStage((args.User, pullable), (ent.Owner, ent.Comp), true);
     }
 
@@ -194,7 +196,7 @@ public sealed class GrabIntentSystem : EntitySystem
     /// <param name="ignoreCombatMode">If true, will ignore disabled combat mode</param>
     /// <param name="grabStageOverride">What stage to set the grab too from the start</param>
     /// <param name="escapeAttemptModifier">if anything what to modify the escape chance by</param>
-    /// <returns></returns>
+    /// <returns>If grab was successful</returns>
     public bool TryGrab(Entity<PullableComponent?> pullable,
         Entity<PullerComponent?> puller,
         bool ignoreCombatMode = false,
@@ -218,7 +220,7 @@ public sealed class GrabIntentSystem : EntitySystem
             return false;
 
         if (_timing.CurTime < meleeWeaponComponent.NextAttack)
-            return true;
+            return false;
 
         var max = meleeWeaponComponent.NextAttack > _timing.CurTime ? meleeWeaponComponent.NextAttack : _timing.CurTime;
         var attackRateEv = new GetMeleeAttackRateEvent(puller, meleeWeaponComponent.AttackRate, 1, puller);
@@ -371,7 +373,9 @@ public sealed class GrabIntentSystem : EntitySystem
         if (!Resolve(pullable.Owner, ref pullable.Comp)
             || _timing.CurTime < pullable.Comp.NextEscapeAttempt)
             return GrabResistResult.TooSoon;
-        if (_random.Prob(pullable.Comp.GrabEscapeChance))
+        var seed = SharedRandomExtensions.HashCodeCombine([(int) _timing.CurTick.Value, GetNetEntity(ent).Id]);
+        var rand = new Random(seed);
+        if (rand.Prob(pullable.Comp.GrabEscapeChance))
             return GrabResistResult.Succeeded;
         pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(pullable.Comp.EscapeAttemptCooldown));
         Dirty(pullable.Owner, pullable.Comp);
@@ -413,6 +417,8 @@ public sealed class GrabIntentSystem : EntitySystem
 
     private void OnGrabbedMoveAttempt(EntityUid uid, PullableComponent component, UpdateCanMoveEvent args)
     {
+        if (!_timing.ApplyingState)
+            return;
         if (component.GrabStage == GrabStage.No)
             return;
         args.Cancel();
