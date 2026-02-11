@@ -55,5 +55,5 @@ public sealed partial class ProjectileGrenadeComponent : Component
     /// The trigger key that will activate the grenade.
     /// </summary>
     [DataField]
-    public string TriggerKey = "timer";
+    public string TriggerKey = "trigger"; // Goobstation shrapnel payload
 }
