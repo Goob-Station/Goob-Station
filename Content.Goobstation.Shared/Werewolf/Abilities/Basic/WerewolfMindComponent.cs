@@ -2,7 +2,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Werewolf.Abilities.Basic;
 
-// fucking KILL YOURSELF!!!!
+/// <summary>
+/// fucking KILL YOURSELF!!!!
+/// </summary>
 [RegisterComponent]
 public sealed partial class WerewolfMindComponent : Component
 {
