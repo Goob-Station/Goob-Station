@@ -291,3 +291,12 @@
       weight: 1
     - id: VinylSleeveWhite
       weight: 1
+
+- type: entityTable
+  id: RandomVinylDiskToyBox
+  table: !type:GroupSelector
+    children:
+    - id: VinylDiskLightRed
+      weight: 1
+    - id: VinylDiskWeAreNumberTwo
+      weight: 1

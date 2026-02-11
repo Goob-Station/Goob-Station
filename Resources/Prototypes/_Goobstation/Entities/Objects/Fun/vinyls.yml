@@ -879,3 +879,60 @@
   components:
   - type: Sprite
     state: plainwhite-vinyl-sleeve
+
+- type: entity
+  abstract: true
+  id: BaseVinylSleevePrefilled
+  name: vinyl sleeve
+  description: A vinyl sleeve, perfect for storing your vinyls.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinylsleeves.rsi
+    state: clown-vinyl-sleeve
+  - type: ContainerFill
+  - type: ContainerContainer
+    containers:
+      vinyl: !type:ContainerSlot
+        showEnts: false
+        occludes: true
+        ent: null
+  - type: ItemSlots
+    slots:
+      vinyl:
+        name: vinyl
+        insertSound: /Audio/_Goobstation/RadioStation/vinyl/vinylEject.ogg
+        ejectSound: /Audio/_Goobstation/RadioStation/vinyl/vinylInsert.ogg
+        whitelist:
+          tags:
+          - VinylSleeveFit
+
+- type: entity
+  name: clown vinyl sleeve
+  description: The clown always wins.
+  id: VinylSleeveClownToyBox
+  parent: BaseVinylSleevePrefilled
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinylsleeves.rsi
+    state: clown-vinyl-sleeve
+  - type: ContainerFill
+    containers:
+      vinyl: 
+      - VinylDiskLightRed
+
+- type: entity
+  name: DJ clown vinyl sleeve
+  description: DJ tider a galactic sensation, his galactic tour lists Sol and alpha centauri as stops.
+  id: VinylSleeveDJClownToyBox
+  parent: BaseVinylSleevePrefilled
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinylsleeves.rsi
+    state: djclown-vinyl-sleeve
+  - type: ContainerFill
+    containers:
+      vinyl: 
+      - VinylDiskWeAreNumberTwo
