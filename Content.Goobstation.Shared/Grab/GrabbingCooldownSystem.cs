@@ -1,6 +1,3 @@
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Popups;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
