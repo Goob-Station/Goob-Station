@@ -38,7 +38,6 @@
   - type: Action
     checkCanInteract: false
     raiseOnUser: true
-    predicted: false
     useDelay: 30
     itemIconStyle: NoItem
     sound:
@@ -65,7 +64,6 @@
   - type: Action
     checkCanInteract: false
     raiseOnUser: true
-    predicted: false
     useDelay: 30
     itemIconStyle: NoItem
     sound:

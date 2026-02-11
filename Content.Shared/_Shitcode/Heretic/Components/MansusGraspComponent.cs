@@ -9,13 +9,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
-namespace Content.Server.Heretic.Components;
+namespace Content.Shared._Shitcode.Heretic.Components;
 
-[RegisterComponent, Access(typeof(MansusGraspSystem))]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class MansusGraspComponent : Component
 {
     [DataField]

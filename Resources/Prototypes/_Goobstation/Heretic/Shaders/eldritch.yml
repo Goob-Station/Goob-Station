@@ -11,3 +11,8 @@
     col3: "#410194ff"
     col4: "#3bb5d3ff"
     col5: "#ffffffff"
+
+- type: shader
+  id: EldritchSmoke
+  kind: source
+  path: "/Textures/_Goobstation/Heretic/Shaders/eldritch_smoke.swsl"

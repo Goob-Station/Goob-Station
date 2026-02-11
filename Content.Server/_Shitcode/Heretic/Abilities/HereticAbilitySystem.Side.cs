@@ -16,6 +16,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Heretic;
+using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
@@ -29,8 +30,21 @@ public sealed partial class HereticAbilitySystem
         base.SubscribeSide();
 
         SubscribeLocalEvent<HereticComponent, EventHereticCleave>(OnCleave);
+        SubscribeLocalEvent<HereticComponent, HereticGraspUpgradeEvent>(OnGraspUpgrade);
         SubscribeLocalEvent<EventHereticSpacePhase>(OnSpacePhase);
         SubscribeLocalEvent<EventMirrorJaunt>(OnMirrorJaunt);
+    }
+
+    private void OnGraspUpgrade(Entity<HereticComponent> ent, ref HereticGraspUpgradeEvent args)
+    {
+        if (!_actions.TryGetActionById(ent.Owner, args.GraspAction, out var grasp))
+            return;
+
+        var upgrade = EnsureComp<MansusGraspUpgradeComponent>(grasp.Value);
+        foreach (var (key, value) in args.AddedComponents)
+        {
+            upgrade.AddedComponents[key] = value;
+        }
     }
 
     private void OnMirrorJaunt(EventMirrorJaunt args)

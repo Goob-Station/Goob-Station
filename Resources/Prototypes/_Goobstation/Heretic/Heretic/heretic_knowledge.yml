@@ -591,6 +591,14 @@
   ritualPrototypes:
   - ThroughTheBoundary
 
+- type: hereticKnowledge
+  id: GraspTheirMinds
+  sideKnowledge: true
+  stage: 6
+  event: !type:HereticGraspUpgradeEvent
+    addedComponents:
+    - type: AreaMansusGrasp
+
 ## stage 8
 - type: hereticKnowledge
   id: Cleave

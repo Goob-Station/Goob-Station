@@ -10,7 +10,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -23,6 +22,7 @@ using System.Text;
 using System.Linq;
 using Content.Shared.Examine;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Stacks;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;

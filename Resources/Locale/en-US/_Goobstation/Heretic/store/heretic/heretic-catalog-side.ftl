@@ -146,6 +146,18 @@ knowledge-path-side-s6-sword-desc =
     More importantly, attacking with the sword will mark the target with a mark of any Path of Decay.
     The sword cannot trigger the mark by itself - best use is in combination with heretic blade.
 
+knowledge-path-side-s6-grasp-name = Grasp Their Minds
+knowledge-path-side-s6-grasp-desc =
+    You believe that your mind is fortresses.
+    You picture walls of reason, towers of will, and a sanctum to which you hold the key.
+    A comforting lie. The walls are only shadows cast by the light of their own fragile understanding.
+    The gates of mind do not open inward or outward - they do not exist at all.
+    I do not knock. I do not need to. I am the silent key that turns in a lock that was never there.
+
+    Your mansus grasp can now be channeled in hand to affect multiple victims in visible area around you.
+    The longer you channel it - the higher the range will be. Channeling can be stopped early by activating grasp again.
+    Area of effect grasp suffers increased cooldown, scaled by range and the number of victims.
+
 # stage 8
 knowledge-path-side-s8-cleave-name = Blood Cleave
 knowledge-path-side-s8-cleave-desc =
