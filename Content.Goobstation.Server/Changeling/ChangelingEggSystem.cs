@@ -13,6 +13,7 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Changeling;
@@ -23,6 +24,7 @@ public sealed class ChangelingEggSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ChangelingSystem _changeling = default!;
+    private readonly EntProtoId _mobMonkey = "MobMonkey";
 
     public override void Update(float frameTime)
     {
@@ -36,13 +38,13 @@ public sealed class ChangelingEggSystem : EntitySystem
 
             comp.UpdateTimer = _timing.CurTime + TimeSpan.FromSeconds(comp.UpdateCooldown);
 
-            Cycle(uid, comp);
+            DoUpdate(uid, comp);
         }
     }
 
-    public void Cycle(EntityUid uid, ChangelingEggComponent comp)
+    private void DoUpdate(EntityUid uid, ChangelingEggComponent comp)
     {
-        if (comp.active == false)
+        if (!comp.active)
         {
             comp.active = true;
             return;
@@ -54,7 +56,7 @@ public sealed class ChangelingEggSystem : EntitySystem
             return;
         }
 
-        var newUid = Spawn("MobMonkey", Transform(uid).Coordinates);
+        var newUid = Spawn(_mobMonkey, Transform(uid).Coordinates);
 
         EnsureComp<MindContainerComponent>(newUid);
         _mind.TransferTo(comp.lingMind, newUid);
