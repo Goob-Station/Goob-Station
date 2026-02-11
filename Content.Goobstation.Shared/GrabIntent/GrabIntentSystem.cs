@@ -108,7 +108,8 @@ public sealed class GrabIntentSystem : EntitySystem
             || !TryComp(args.User, out PullableComponent? pullable))
             return;
 
-        var seed = SharedRandomExtensions.HashCodeCombine([(int) _timing.CurTick.Value, GetNetEntity(ent).Id]);
+        var seedArray = new List<int>{(int) _timing.CurTick.Value, GetNetEntity(ent).Id};
+        var seed = SharedRandomExtensions.HashCodeCombine(seedArray);
         var rand = new Random(seed);
         if (rand.Prob(pullable.GrabEscapeChance))
             TryLowerGrabStage((args.User, pullable), (ent.Owner, ent.Comp), true);
@@ -214,13 +215,11 @@ public sealed class GrabIntentSystem : EntitySystem
         // prevent you from grabbing someone else while being grabbed
         if (TryComp<PullableComponent>(puller, out var pullerAsPullable) && pullerAsPullable.Puller != null)
             return false;
-
         // Don't grab without grab intent
         if (!ignoreCombatMode && !_combatMode.IsInCombatMode(puller))
             return false;
-
         if (_timing.CurTime < meleeWeaponComponent.NextAttack)
-            return false;
+            return true;
 
         var max = meleeWeaponComponent.NextAttack > _timing.CurTime ? meleeWeaponComponent.NextAttack : _timing.CurTime;
         var attackRateEv = new GetMeleeAttackRateEvent(puller, meleeWeaponComponent.AttackRate, 1, puller);
@@ -374,7 +373,8 @@ public sealed class GrabIntentSystem : EntitySystem
             || _timing.CurTime < pullable.Comp.NextEscapeAttempt)
             return GrabResistResult.TooSoon;
         // TODO: MOVE THIS AND THE ONE BELOW TO PREDICTED RANDOM WHEN ENGINE PR MERGED
-        var seed = SharedRandomExtensions.HashCodeCombine([(int) _timing.CurTick.Value, GetNetEntity(pullable).Id]);
+        var seedArray = new List<int>{(int) _timing.CurTick.Value, GetNetEntity(pullable).Id};
+        var seed = SharedRandomExtensions.HashCodeCombine(seedArray);
         var rand = new Random(seed);
         if (rand.Prob(pullable.Comp.GrabEscapeChance))
             return GrabResistResult.Succeeded;
@@ -418,8 +418,6 @@ public sealed class GrabIntentSystem : EntitySystem
 
     private void OnGrabbedMoveAttempt(EntityUid uid, PullableComponent component, UpdateCanMoveEvent args)
     {
-        if (!_timing.ApplyingState)
-            return;
         if (component.GrabStage == GrabStage.No)
             return;
         args.Cancel();
