@@ -80,7 +80,6 @@ public sealed class GrabbingItemSystem : EntitySystem
 
     private void OnMeleeHitEvent(Entity<GrabbingItemComponent> ent, ref MeleeHitEvent args)
     {
-        var grabStage = ent.Comp.GrabStageOverride;
         if (args.Direction != null || args.HitEntities.Count != 1)
             return;
 
@@ -106,13 +105,13 @@ public sealed class GrabbingItemSystem : EntitySystem
             return;
 
         if (!_grabCd.IsCooldownReady(ent))
-            grabStage = GrabStage.No;
+            return;
 
         ent.Comp.ActivelyGrabbingEntity = hitEntity;
         if (!_pulling.TryStartPull(args.User,
                 hitEntity,
                 puller,
-                grabStageOverride: grabStage,
+                grabStageOverride: ent.Comp.GrabStageOverride,
                 escapeAttemptModifier: ent.Comp.EscapeAttemptModifier))
             ent.Comp.ActivelyGrabbingEntity = null;
         Dirty(ent);
