@@ -32,6 +32,6 @@ public sealed class GrabbingCooldownSystem : EntitySystem
         var holder = container.Owner;
         _popup.PopupPredictedCursor(
             $"Your {MetaData(ent).EntityName} {Loc.GetString(ent.Comp.GrabCooldownVerb)} as it's not ready yet, wait {(ent.Comp.GrabCooldownEnd - _gameTiming.CurTime).TotalSeconds:0.0}s!",
-            holder, PopupType.MediumCaution);
+            holder, PopupType.LargeCaution);
     }
 }

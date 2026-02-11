@@ -21,9 +21,6 @@ public sealed partial class GrabbingItemComponent : Component, IGrabCooldownComp
     [DataField, AutoNetworkedField]
     public EntityUid? ActivelyGrabbingEntity;
     
-    [DataField,AutoNetworkedField]
-    public TimeSpan GrabbedTime;
-    
     [DataField, AutoNetworkedField]
     public TimeSpan GrabCooldownDuration { get; set; } = TimeSpan.FromSeconds(0);
     
