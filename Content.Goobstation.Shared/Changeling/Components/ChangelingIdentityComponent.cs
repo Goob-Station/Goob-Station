@@ -116,34 +116,10 @@ public sealed partial class ChangelingIdentityComponent : Component
     public float StasisTime;
 
     /// <summary>
-    ///     Current amount of chemicals changeling currently has.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float Chemicals = 100.0f;
-
-    /// <summary>
-    ///     Maximum amount of chemicals changeling can have.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float MaxChemicals = 100.0f;
-
-    /// <summary>
     ///     Total evolution points gained by the changeling.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float TotalEvolutionPoints;
-
-    /// <summary>
-    ///     Bonus chemicals regeneration. In case
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float BonusChemicalRegen = 0.0f;
-
-    /// <summary>
-    ///     Chemicals regeneration rate multiplier from certain abilities.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float ChemicalRegenMultiplier = 1.0f;
 
     /// <summary>
     ///     Cooldown between chem regen events.

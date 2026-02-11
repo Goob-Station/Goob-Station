@@ -29,7 +29,6 @@
       - AlienBlood
       - BlackBlood
       - BloodChangeling
-      requiredReagentAmount: 15
   - type: StaticPrice
     price: 10000
 

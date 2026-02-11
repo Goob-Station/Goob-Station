@@ -1,0 +1,543 @@
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleCaptain
+  name: captain's ensemble
+  description: You're a hardened veteran, and you rule this station with an iron fist. That chess match? Never happened.
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/cap.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/cap.rsi
+    equippedPrefix: both
+    slots:
+    - Neck
+  - type: StealTarget
+    stealGroup: HeadCloak
+  - type: ItemSwitch
+    state: both
+    showLabel: true
+    states:
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cap.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cap.rsi
+          state: mantle-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cap.rsi
+          state: cloak-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleChiefEngineer
+  name: chief engineer's ensemble
+  description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+    equippedPrefix: both
+    slots:
+    - Neck
+  - type: StealTarget
+    stealGroup: HeadCloak
+  - type: ItemSwitch
+    state: both
+    showLabel: true
+    states:
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          state: mantle-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          state: cloak-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleChiefMedicalOfficer
+  name: chief medical officer's ensemble
+  description: With how many medbays you've seen, you're a real poly math-- unpacking people like packages, and mulching bodies like it's nothing. You WILL set up cloning, right?
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: all
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+    equippedPrefix: all
+    slots:
+    - Neck
+  - type: StealTarget
+    stealGroup: HeadCloak
+  - type: ItemSwitch
+    state: all
+    showLabel: true
+    states:
+      all: !type:ItemSwitchState
+        verb: all
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: mantle-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: cloak-icon
+      wings: !type:ItemSwitchState
+        verb: wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: wings-icon
+      cloakmantle: !type:ItemSwitchState
+        verb: cloak&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: cloakmantle-icon
+      cloakwings: !type:ItemSwitchState
+        verb: cloak&wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: cloakwings-icon
+      mantlewings: !type:ItemSwitchState
+        verb: mantle&wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: mantlewings-icon
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleHeadOfSecurity
+  name: head of security's ensemble
+  description: Stained with the blood of tiders, and the tears of cadets. The word "shitsec" brings you joy, a tear to your eye.
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
+    equippedPrefix: both
+    slots:
+    - Neck
+  - type: StealTarget
+    stealGroup: HeadCloak
+  - type: ItemSwitch
+    state: both
+    showLabel: true
+    states:
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
+          state: mantle-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
+          state: cloak-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleResearchDirector
+  name: research director's ensemble
+  description: The endpoint of all research leads here. You truly are the pinnacle of science, a monument to Nanotrasens accomplishments and ability to glue you back together, must you explode so often?
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: all
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+    equippedPrefix: all
+    slots:
+    - Neck
+  - type: StealTarget
+    stealGroup: HeadCloak
+  - type: ItemSwitch
+    state: all
+    showLabel: true
+    states:
+      all: !type:ItemSwitchState
+        verb: all
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+          state: mantle-icon
+      wings: !type:ItemSwitchState
+        verb: wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+          state: wings-icon
+      mantlewings: !type:ItemSwitchState
+        verb: mantle&wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+          state: mantlewings-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+          state: cloak-icon
+      cloakmantle: !type:ItemSwitchState
+        verb: cloak&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+          state: cloakmantle-icon
+      cloakwings: !type:ItemSwitchState
+        verb: cloak&wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
+          state: cloakwings-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleQuarterMaster
+  name: quartermaster's ensemble
+  description: Delicately crafted with the most premium materials purchaseable with spesos; a cloak that truly represents the Spirit of Cargonia... and your bank account.
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
+    equippedPrefix: both
+    slots:
+    - Neck
+  - type: StealTarget
+    stealGroup: HeadCloak
+  - type: ItemSwitch
+    state: both
+    showLabel: true
+    states:
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
+          state: mantle-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
+          state: cloak-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleHeadOfPersonnel
+  name: head of personnel's ensemble
+  description: There's nothing sweeter in this world than the tears of someone who was made to fill out five paragraphs of paperwork. You denied them after, of course.
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
+    equippedPrefix: both
+    slots:
+    - Neck
+  - type: StealTarget
+    stealGroup: HeadCloak
+  - type: ItemSwitch
+    state: both
+    showLabel: true
+    states:
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
+          state: mantle-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
+          state: cloak-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommCommandContraband]
+  id: ClothingNeckEnsembleBlueshield
+  name: blueshield officer's ensemble
+  description: After fending off countless tiders in defense of command, Nanotrasen has finally granted you the ability to die in style. Now get out there and protect the NTR soldier!
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: cloakblackmantle
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+    equippedPrefix: cloakblackmantle
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: cloakblackmantle
+    showLabel: true
+    states:
+      cloakblackmantle: !type:ItemSwitchState
+        verb: cloakblack&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+          state: icon
+      cloakwhitemantle: !type:ItemSwitchState
+        verb: cloakwhite&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+          state: cloakwhitemantle-icon
+      cloakwhite: !type:ItemSwitchState
+        verb: cloakwhite
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+          state: cloakwhite-icon
+      cloakblack: !type:ItemSwitchState
+        verb: cloakblack
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+          state: cloakblack-icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+          state: mantle-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommCommandContraband]
+  id: ClothingNeckEnsembleNanotrasenRepresentative
+  name: nanotrasen representative's ensemble
+  description: After years of doing practically nothing, Central Command has gifted you this cloak. Now you can do nothing, while looking pretty!
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ntr.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ntr.rsi
+    equippedPrefix: both
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: both
+    showLabel: true
+    states:
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ntr.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ntr.rsi
+          state: mantle-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ntr.rsi
+          state: cloak-icon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckEnsembleTrans
+  name: trans ensemble
+  description: Worn by high ranking vampires of the transylvanian society of vampires.
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: all
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+    equippedPrefix: all
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: all
+    showLabel: true
+    states:
+      all: !type:ItemSwitchState
+        verb: all
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: cloak-icon
+      cloakJewelry: !type:ItemSwitchState
+        verb: cloak&jewelry
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: cloak-icon
+      cloakSash: !type:ItemSwitchState
+        verb: cloak&sash
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: cloakSash-icon
+      cloakSashL: !type:ItemSwitchState
+        verb: altcloak&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: cloakSashL-icon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckEnsembleSalvager
+  name: salvager's ensemble
+  description: Who says you can't have style while slaying creatures beyond human comprehension?
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+    equippedPrefix: both
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: both
+    showLabel: true
+    states:
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+          state: icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+          state: cloak-icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+          state: mantle-icon
+      altcloak: !type:ItemSwitchState
+        verb: altcloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+          state: altcloak-icon
+      altcloakmantle: !type:ItemSwitchState
+        verb: altcloak&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+          state: altcloakmantle-icon

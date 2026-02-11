@@ -121,7 +121,7 @@
   discipline: Experimental
   tier: 2
   cost: 10000
-  recipeUnlocks: 
+  recipeUnlocks:
   - ClothingBeltChemBagXenobiologyHolding
   position: -4,3
   technologyPrerequisites:

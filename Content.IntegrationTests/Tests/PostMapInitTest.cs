@@ -183,7 +183,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/kettle.yml",
             "/Maps/_Goobstation/lambda.yml",
             "/Maps/_Goobstation/leonid.yml",
-            "/Maps/_Goobstation/submarine.yml",
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
             "/Maps/_Goobstation/loop.yml",
@@ -235,7 +234,6 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Saltern",
             "Serpentcrest",
-            "Submarine",
             "TestTeg",        // Dev map
             "Train"           // Not in pool
             // Goob end
@@ -280,7 +278,6 @@ namespace Content.IntegrationTests.Tests
               "Reach",
               "Saltern",
               "Serpentcrest",
-              "Submarine"
         };
         // Goobstation edit end
 

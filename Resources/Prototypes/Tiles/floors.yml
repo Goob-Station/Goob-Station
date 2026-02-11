@@ -2019,7 +2019,7 @@
   footstepSounds:
     collection: FootstepBlood
   itemDrop: FloorTileItemFlesh
-  friction: 0.25 #slippy
+  #friction: 0.25 #slippy Goob station change, no longer slippery
   heatCapacity: 10000
   tileRipResistance: 80
 
