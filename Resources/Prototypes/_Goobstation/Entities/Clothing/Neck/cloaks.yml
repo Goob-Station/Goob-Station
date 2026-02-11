@@ -95,3 +95,14 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
           state: icon
+
+#  Shitchap
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakInquisitor
+  name: inquisitor cloak
+  description: A bulky cloak decorated with sacred writings and the symbol of the Inquisition.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Neck/Misc/inquisitor.rsi
