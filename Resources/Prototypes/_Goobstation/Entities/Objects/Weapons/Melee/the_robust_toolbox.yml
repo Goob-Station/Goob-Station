@@ -5,10 +5,10 @@
   description: The robust toolbox, passed down from generation to generation of shitters just by holding it you feel more robust than ever.
   components:
   - type: MeleeWeapon
-    heavyStaminaCost: 0
+    heavyStaminaCost: 25
     damage:
       types:
-        Blunt: 35
+        Blunt: 22
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Sprite
