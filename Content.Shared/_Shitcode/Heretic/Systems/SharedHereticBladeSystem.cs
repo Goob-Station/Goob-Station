@@ -379,11 +379,9 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             args.BonusDamage += args.BaseDamage * 0.5f;
             if (aliveMobsCount > 0 && TryComp<DamageableComponent>(args.User, out var dmg))
             {
-                var baseHeal = args.BaseDamage.GetTotal();
-                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal / 2f : baseHeal / 4f;
-                bonusHeal *= aliveMobsCount;
+                var heal = args.BaseDamage.GetTotal() * aliveMobsCount * 0.25f;
 
-                _sanguine.LifeSteal(args.User, bonusHeal, dmg);
+                _sanguine.LifeSteal(args.User, heal, dmg);
             }
         }
     }

@@ -164,11 +164,11 @@
   stage: 4
 
 - type: hereticKnowledge
-  id: Realignment
+  id: SacramentsOfPower
   path: Blade
   stage: 5
   actionPrototypes:
-  - ActionHereticRealignment
+  - ActionHereticSacraments
 
 - type: hereticKnowledge
   id: TornChampionStance
@@ -533,6 +533,13 @@
   stage: 3
   ritualPrototypes:
   - ScorchingShark
+
+- type: hereticKnowledge
+  id: Realignment
+  sideKnowledge: true
+  stage: 3
+  actionPrototypes:
+  - ActionHereticRealignment
 
 ## stage 6
 - type: hereticKnowledge

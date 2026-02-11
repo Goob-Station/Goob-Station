@@ -281,7 +281,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     private void OnProjectileHit(EntityUid uid, StaminaDamageOnCollideComponent component, ref ProjectileHitEvent args)
     {
-        OnCollide(uid, component, args.Target);
+        OnCollide(uid, component, args.Target, args.Shooter); // Goob - added shooter
     }
 
     private void OnProjectileEmbed(EntityUid uid, StaminaDamageOnEmbedComponent component, ref EmbedEvent args)
@@ -297,7 +297,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         OnCollide(uid, component, args.Target);
     }
 
-    private void OnCollide(EntityUid uid, StaminaDamageOnCollideComponent component, EntityUid target)
+    private void OnCollide(EntityUid uid, StaminaDamageOnCollideComponent component, EntityUid target, EntityUid? source = null) // Goob - added source
     {
         // you can't inflict stamina damage on things with no stamina component
         // this prevents stun batons from using up charges when throwing it at lockers or lights
@@ -319,7 +319,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         damage *= hitEvent.Value;
         overtime *= hitEvent.Value;
 
-        TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
+        TakeStaminaDamage(target, damage, source: source ?? uid, sound: component.Sound); // Goob edit
         TakeOvertimeStaminaDamage(target, overtime); // Goobstation
     }
 

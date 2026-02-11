@@ -243,14 +243,16 @@ public sealed partial class HereticVoidVisionEvent : EntityEventArgs { } // done
 // blade (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticCuttingEdgeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticDanceOfTheBrandEvent : EntityEventArgs { }
-public sealed partial class EventHereticRealignment : InstantActionEvent
+
+public sealed partial class EventHereticSacraments : InstantActionEvent
 {
     [DataField]
-    public float StaminaRegenRate = -9f; // Same value as default stamina consumption for non humans.
+    public TimeSpan Time = TimeSpan.FromSeconds(6.7);
 
     [DataField]
-    public string StaminaRegenKey = "Realignment";
+    public EntProtoId Status = "SacramentsOfPowerStatusEffect";
 }
+
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticChampionStanceEvent : EntityEventArgs { }
 public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 
@@ -424,6 +426,15 @@ public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
 
     [DataField]
     public float Speed = 10f;
+}
+
+public sealed partial class EventHereticRealignment : InstantActionEvent
+{
+    [DataField]
+    public float StaminaRegenRate = -9f; // Same value as default stamina consumption for non humans.
+
+    [DataField]
+    public string StaminaRegenKey = "Realignment";
 }
 
 // ascensions

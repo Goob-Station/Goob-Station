@@ -71,6 +71,7 @@ heretic-speech-ash-flame = FL'MS!!
 heretic-speech-ash-cascade = C'SC'DE!!
 
 heretic-speech-blade-furioussteel = F'LSH'NG S'LV'R!
+heretic-speech-blade-sacraments = 'DG' 'F IMM'RT'L'T'!
 
 heretic-speech-flesh-surgery = CL'M M'N!
 heretic-speech-flesh-worm = REALITY UNCOIL!!

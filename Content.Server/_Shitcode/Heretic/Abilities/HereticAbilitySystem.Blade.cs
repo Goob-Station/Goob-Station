@@ -13,13 +13,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
-using Content.Shared.CombatMode.Pacification;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components; // Shitmed Change
 
@@ -32,7 +28,6 @@ public sealed partial class HereticAbilitySystem
         base.SubscribeBlade();
 
         SubscribeLocalEvent<HereticComponent, HereticDanceOfTheBrandEvent>(OnDanceOfTheBrand);
-        SubscribeLocalEvent<HereticComponent, EventHereticRealignment>(OnRealignment);
         SubscribeLocalEvent<HereticComponent, HereticChampionStanceEvent>(OnChampionStance);
         SubscribeLocalEvent<HereticComponent, EventHereticFuriousSteel>(OnFuriousSteel);
 
@@ -43,34 +38,6 @@ public sealed partial class HereticAbilitySystem
     {
         var riposte = EnsureComp<RiposteeComponent>(ent);
         riposte.Data.TryAdd("HereticBlade", new());
-    }
-
-    private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)
-    {
-        if (!TryUseAbility(ent, args))
-            return;
-
-        _statusEffect.TryRemoveStatusEffect(ent, "Stun");
-        _statusEffect.TryRemoveStatusEffect(ent, "KnockedDown");
-        _statusEffect.TryRemoveStatusEffect(ent, "ForcedSleep");
-        _statusEffect.TryRemoveStatusEffect(ent, "Drowsiness");
-
-        if (TryComp<StaminaComponent>(ent, out var stam))
-        {
-            if (stam.StaminaDamage >= stam.CritThreshold)
-                _stam.ExitStamCrit(ent, stam);
-
-            _stam.ToggleStaminaDrain(ent, args.StaminaRegenRate, true, true, args.StaminaRegenKey, ent);
-            Dirty(ent, stam);
-        }
-
-        _standing.Stand(ent);
-        RemCompDeferred<DelayedKnockdownComponent>(ent);
-        _pulling.StopAllPulls(ent, stopPuller: false);
-        if (_statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true))
-            _statusEffect.TryAddStatusEffect<RealignmentComponent>(ent, "Realignment", TimeSpan.FromSeconds(10f), true);
-
-        args.Handled = true;
     }
 
     private void OnChampionStance(Entity<HereticComponent> ent, ref HereticChampionStanceEvent args)

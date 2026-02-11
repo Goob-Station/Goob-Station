@@ -109,7 +109,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -559,15 +558,14 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             if (statusQuery.TryComp(uid, out var status))
             {
                 var reduction = leech.StunReduction * multiplier;
-                _statusEffect.TryRemoveTime(uid, "Stun", reduction, status);
-                _statusEffect.TryRemoveTime(uid, "KnockedDown", reduction, status);
+                Status.TryRemoveTime(uid, "Stun", reduction, status);
+                Status.TryRemoveTime(uid, "KnockedDown", reduction, status);
 
-                _statusEffect.TryRemoveStatusEffect(uid, "Pacified", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "ForcedSleep", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "SlowedDown", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "BlurryVision", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "TemporaryBlindness", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "SeeingRainbows", status);
+                Status.TryRemoveStatusEffect(uid, "ForcedSleep", status);
+                Status.TryRemoveStatusEffect(uid, "SlowedDown", status);
+                Status.TryRemoveStatusEffect(uid, "BlurryVision", status);
+                Status.TryRemoveStatusEffect(uid, "TemporaryBlindness", status);
+                Status.TryRemoveStatusEffect(uid, "SeeingRainbows", status);
             }
         }
     }

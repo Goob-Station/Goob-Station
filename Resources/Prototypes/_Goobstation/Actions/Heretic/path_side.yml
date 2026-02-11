@@ -9,6 +9,28 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionHereticRealignment
+  name: Realignment
+  description: Recover from all stuns and knockdowns, gaining short term pacifism.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    checkCanInteract: false
+    checkConsciousness: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: realignment
+  - type: InstantAction
+    event: !type:EventHereticRealignment
+  - type: HereticAction
+    requireMagicItem: false
+    messageLoc: heretic-speech-realignment
+
+- type: entity
+  parent: BaseAction
   id: ActionHereticIceSpear
   name: Mysteries of Creation
   description: Activate to create the Glacier Spear or summon already existing spear.

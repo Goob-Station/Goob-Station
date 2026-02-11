@@ -68,6 +68,14 @@ knowledge-path-side-s3-shark-desc =
     Fire Sharks ignite their victims and drop plasma sheet once they die.
     You can only create 15 at a time.
 
+knowledge-path-side-s3-realignment-name = Realignment
+knowledge-path-side-s3-realignment-desc =
+    In the flurry of death, he found peace within himself. Despite insurmountable odds, he forged on.
+
+    Grants you Realignment a spell that will remove stuns, knockdowns and restraints from you and realign your body rapidly for a short period.
+    During this process, you will rapidly regenerate stamina and quickly recover from stuns, however, you will be unable to attack.
+    Doesn't require focus to cast.
+
 knowledge-path-side-s6-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s6-ice-spear-desc =
     Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
