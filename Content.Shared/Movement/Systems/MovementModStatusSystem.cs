@@ -164,12 +164,13 @@ public sealed class MovementModStatusSystem : EntitySystem
     /// <param name="status">Status effect entity whose modifiers we are updating</param>
     /// <param name="walkSpeedModifier">New walkSpeedModifer we're applying</param>
     /// <param name="sprintSpeedModifier">New sprintSpeedModifier we're applying</param>
+    /// <param name="visual">Should the ent jitter, requires staminacomp, all else runs if it doesn't have one</param>
     public bool TryUpdateMovementStatus(
         EntityUid uid,
         Entity<MovementModStatusEffectComponent?> status,
         float walkSpeedModifier,
         float sprintSpeedModifier,
-        bool visual = true // Goobstation edit.
+        bool visual = false // Goobstation edit.
     )
     {
         if (!Resolve(status, ref status.Comp))
@@ -198,7 +199,7 @@ public sealed class MovementModStatusSystem : EntitySystem
         // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
         var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, sprintSpeedModifier), 0, 1);
         var cCTime = TimeSpan.FromSeconds(10f);
-        if (visual
+        if (visual && !TerminatingOrDeleted(uid)
             && 0 <= staminaComp.ActiveDrains.Aggregate((float) 0, (current, modifier) => current + modifier.Value.DrainRate)) // Goob edit // Goob edit 2 - So stamina regenerating effects doesn't cause jittering
         {
             _jitter.DoJitter(uid, cCFactor * cCTime, true);
