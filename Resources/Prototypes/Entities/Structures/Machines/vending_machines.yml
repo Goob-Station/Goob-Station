@@ -2631,7 +2631,6 @@
     brokenState: broken
     normalState: normal
     denyState: deny
-    ejectDelay: 2
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
