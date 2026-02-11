@@ -407,8 +407,10 @@ namespace Content.IntegrationTests.Tests
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
 
+                // <Goob>
                 "PendingSlimeSpawn", // shut the fuck up please
                 "Slime" // please
+                // </Goob>
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);

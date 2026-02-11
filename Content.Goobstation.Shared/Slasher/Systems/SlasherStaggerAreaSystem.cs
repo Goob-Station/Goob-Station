@@ -8,6 +8,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -16,6 +17,9 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// </summary>
 public sealed class SlasherStaggerAreaSystem : EntitySystem
 {
+
+    public static readonly EntProtoId EffectId = "SlasherSlowdownStatusEffect";
+
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -59,7 +63,7 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
             if (!_interact.InRangeUnobstructed(uid, targetUid, comp.Range))
                 continue;
 
-            _movemod.TryUpdateMovementSpeedModDuration(targetUid,  SharedStunSystem.StunId, TimeSpan.FromSeconds(comp.SlowDuration), comp.SlowMultiplier, comp.SlowMultiplier);
+            _movemod.TryUpdateMovementSpeedModDuration(targetUid, EffectId, TimeSpan.FromSeconds(comp.SlowDuration), comp.SlowMultiplier, comp.SlowMultiplier);
 
             // Show popup to the victim
             if (_net.IsServer)

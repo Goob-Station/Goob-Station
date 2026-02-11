@@ -179,13 +179,12 @@
       tags:
       - MothershipModule
       - BorgModuleEngineering
-      - BorgModuleConstruction # Accursed
   - type: ContainerFill
     containers:
       borg_module:
       - MothershipModule
       - BorgModuleAdvancedTool
-      - BorgModuleConstruction
+      - BorgModuleConstruction # Accursed
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }

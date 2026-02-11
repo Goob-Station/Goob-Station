@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Common.Stunnable;
 using Content.Shared.Damage.Components;
 using Content.Shared.Jittering;
 using Content.Shared.Movement.Components;
@@ -180,6 +181,14 @@ public sealed class MovementModStatusSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
 
         // Goob edit start
+
+        var ignoreEv = new BeforeTrySlowdownEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+
+
         // specifically mostly john station moved here from sharedstunsystem
         if (!TryComp<StaminaComponent>(uid, out var staminaComp))
             return true; // look all the other code ran if they have no stamina im gonna say they dont need to jitter and its fine.

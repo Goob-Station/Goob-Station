@@ -150,7 +150,7 @@ public partial class SharedDiseaseSystem
 
         // migrate this to new status effects once flashes are
         _status.TryAddStatusEffect<FlashedComponent>(args.Ent, _flash.FlashedKey.Id, ent.Comp.Duration * GetScale(args, ent.Comp), true);
-        _movemod.TryUpdateMovementSpeedModDuration(args.Ent.Owner,  SharedStunSystem.StunId, ent.Comp.Duration * GetScale(args, ent.Comp), ent.Comp.SlowTo, ent.Comp.SlowTo);
+        _movemod.TryUpdateMovementSpeedModDuration(args.Ent.Owner,  MovementModStatusSystem.FlashSlowdown, ent.Comp.Duration * GetScale(args, ent.Comp), ent.Comp.SlowTo, ent.Comp.SlowTo);
 
         if (ent.Comp.StunDuration != null)
             _stun.TryKnockdown(args.Ent.Owner, ent.Comp.StunDuration.Value * GetScale(args, ent.Comp), true);

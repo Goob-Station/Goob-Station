@@ -167,7 +167,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         var speedMultiplier = 1f / MathF.Max(1f, power);
-        _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.StunId, args.SlowDownTime * power, speedMultiplier, speedMultiplier);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, args.SlowDownTime * power, speedMultiplier, speedMultiplier);
         _modifier.RefreshMovementSpeedModifiers(target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);

@@ -9,12 +9,14 @@ using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 public partial class TraumaSystem
 {
     private const string OrganDamagePainIdentifier = "OrganDamage";
+    public static readonly EntProtoId OrgansDamagedSlowdown = "OrgansDamagedSlowdownEffect";
 
     private void InitOrgans()
     {
@@ -99,7 +101,7 @@ public partial class TraumaSystem
             _stun.TryUpdateParalyzeDuration(body.Value, nerveSys.Value.Comp.OrganDamageStunTime);
             _movementMod.TryUpdateMovementSpeedModDuration(
                  body.Value,
-                 SharedStunSystem.StunId,
+                 OrgansDamagedSlowdown,
                  nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
                  _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
                  _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));

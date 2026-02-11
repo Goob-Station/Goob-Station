@@ -11,6 +11,7 @@ using Robust.Shared.Timing;
 using System.Numerics;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
 namespace Content.Goobstation.Shared.Wraith.Minions.Harbinger;
@@ -27,6 +28,8 @@ public sealed class TentacleHookSystem : EntitySystem
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     private const string TentacleJoint = "grappling";
+
+    public static readonly EntProtoId EffectId = "TentacleSlowdownStatusEffect";
 
     public override void Initialize()
     {
@@ -96,7 +99,7 @@ public sealed class TentacleHookSystem : EntitySystem
 
         ent.Comp.Target = args.Target;
         Dirty(ent);
-        _movementMod.TryUpdateMovementSpeedModDuration(args.Target, SharedStunSystem.StunId, ent.Comp.DurationSlow, 0.3f, 0.3f);
+        _movementMod.TryUpdateMovementSpeedModDuration(args.Target, EffectId, ent.Comp.DurationSlow, ent.Comp.SlowMultiplier, ent.Comp.SlowMultiplier);
 
         var tentacle = EnsureComp<TentacleHookedComponent>(args.Target);
         tentacle.ThrowTowards = args.Shooter;
