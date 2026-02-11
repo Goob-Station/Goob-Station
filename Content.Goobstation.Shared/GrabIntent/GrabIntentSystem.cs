@@ -6,8 +6,8 @@ using Content.Shared._White.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
-using Robust.Shared.Maths;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Cuffs;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -56,6 +56,10 @@ public sealed class GrabIntentSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
+
+    // TODO: make a GrabIntent component move this there
+    // TODO: move any grab related data into said component so we aint bloating up  puller/pullable
+    private readonly SoundPathSpecifier _thudswoosh = new("/Audio/Effects/thudswoosh.ogg");
 
     public override void Initialize()
     {
@@ -108,15 +112,15 @@ public sealed class GrabIntentSystem : EntitySystem
             TryLowerGrabStage((args.User, pullable), (ent.Owner, ent.Comp), true);
     }
 
-    private void OnAddCuffDoAfterEvent(EntityUid uid, PullerComponent pullerComponent, AddCuffDoAfterEvent args)
+    private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
     {
         if (args.Handled
             || args.Cancelled
-            || !TryComp<PullableComponent>(pullerComponent.Pulling, out var comp)
-            || pullerComponent.Pulling == null)
+            || !TryComp<PullableComponent>(ent.Comp.Pulling, out var comp)
+            || ent.Comp.Pulling == null)
             return;
 
-        _pulling.TryStopPull(pullerComponent.Pulling.Value, comp);
+        _pulling.TryStopPull(ent.Comp.Pulling.Value, comp);
     }
     public bool CanGrab(EntityUid puller, EntityUid pullable)
     {
@@ -128,15 +132,29 @@ public sealed class GrabIntentSystem : EntitySystem
         puller.Comp.GrabStage = stage;
         pullable.Comp.GrabStage = stage;
         pullable.Comp.EscapeAttemptModifier *= escapeAttemptModifier;
-
         if (!TryUpdateGrabVirtualItems(puller, pullable))
             return false;
 
-        var filter = Filter.Empty()
-            .AddPlayersByPvs(Transform(puller).Coordinates)
-            .RemovePlayerByAttachedEntity(puller.Owner)
-            .RemovePlayerByAttachedEntity(pullable.Owner);
+        var popupType = GetPopupType(stage);
+        ResetGrabEscapeChance(pullable, puller, false);
+        _alertsSystem.ShowAlert(puller, puller.Comp.PullingAlert, puller.Comp.PullingAlertSeverity[stage]);
+        _alertsSystem.ShowAlert(pullable, pullable.Comp.PulledAlert, pullable.Comp.PulledAlertAlertSeverity[stage]);
+        _blocker.UpdateCanMove(pullable);
+        _modifierSystem.RefreshMovementSpeedModifiers(puller);
+        GrabStagePopup(puller, pullable, popupType);
 
+        var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
+        RaiseLocalEvent(puller.Owner, comboEv);
+
+        Dirty(pullable);
+        Dirty(puller);
+        return true;
+    }
+
+    // TODO: This should probably just be a dictionary we index instead of a whole method.
+    // TODO: or better yet protos..
+    private static PopupType GetPopupType(GrabStage stage)
+    {
         var popupType = stage switch
         {
             GrabStage.No or GrabStage.Soft => PopupType.Small,
@@ -144,42 +162,28 @@ public sealed class GrabIntentSystem : EntitySystem
             GrabStage.Suffocate => PopupType.LargeCaution,
             _ => throw new ArgumentOutOfRangeException(),
         };
+        return popupType;
+    }
 
-        ResetGrabEscapeChance(pullable, puller, false);
-
-        _alertsSystem.ShowAlert(puller, puller.Comp.PullingAlert, puller.Comp.PullingAlertSeverity[stage]);
-        _alertsSystem.ShowAlert(pullable, pullable.Comp.PulledAlert, pullable.Comp.PulledAlertAlertSeverity[stage]);
-
-        _blocker.UpdateCanMove(pullable);
-        _modifierSystem.RefreshMovementSpeedModifiers(puller);
-
-        _popup.PopupPredicted(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-target",
-                ("puller", Identity.Entity(puller, EntityManager))),
-            pullable,
-            puller,
-            filter,
-            true,
-            popupType);
-        _popup.PopupClient(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-self",
+    private void GrabStagePopup(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, PopupType popupType)
+    {
+        var grabStageString = puller.Comp.GrabStage.ToString().ToLower();
+        _popup.PopupPredicted(Loc.GetString($"popup-grab-{grabStageString}-self",
                 ("target", Identity.Entity(pullable, EntityManager))),
-            pullable,
-            puller,
-            PopupType.Medium);
-        _popup.PopupPredicted(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-others",
+            Loc.GetString($"popup-grab-{grabStageString}-others",
                 ("target", Identity.Entity(pullable, EntityManager)),
                 ("puller", Identity.Entity(puller, EntityManager))),
             pullable,
             puller,
-            filter,
-            true,
+            PopupType.Medium);
+        _popup.PopupPredicted(
+            Loc.GetString($"popup-grab-{grabStageString}-target",
+                ("puller", Identity.Entity(puller, EntityManager))),
+                null,
+            pullable,
+            pullable,
             popupType);
-        _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable, null);
-        var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
-        RaiseLocalEvent(puller.Owner, comboEv);
-
-        Dirty(pullable);
-        Dirty(puller);
-        return true;
+        _audio.PlayPredicted(_thudswoosh, pullable, null);
     }
 
     /// <summary>
@@ -190,7 +194,6 @@ public sealed class GrabIntentSystem : EntitySystem
     /// <param name="ignoreCombatMode">If true, will ignore disabled combat mode</param>
     /// <param name="grabStageOverride">What stage to set the grab too from the start</param>
     /// <param name="escapeAttemptModifier">if anything what to modify the escape chance by</param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     /// <returns></returns>
     public bool TryGrab(Entity<PullableComponent?> pullable,
         Entity<PullerComponent?> puller,
@@ -211,9 +214,8 @@ public sealed class GrabIntentSystem : EntitySystem
             return false;
 
         // Don't grab without grab intent
-        if (!ignoreCombatMode)
-            if (!_combatMode.IsInCombatMode(puller))
-                return false;
+        if (!ignoreCombatMode && !_combatMode.IsInCombatMode(puller))
+            return false;
 
         if (_timing.CurTime < meleeWeaponComponent.NextAttack)
             return true;
@@ -237,7 +239,7 @@ public sealed class GrabIntentSystem : EntitySystem
             var comboEv =
                 new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
             RaiseLocalEvent(puller.Owner, comboEv);
-            _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable.Owner, puller.Owner);
+            _audio.PlayPredicted(_thudswoosh, pullable.Owner, puller.Owner);
             Dirty(pullable);
             Dirty(puller);
             return true;
@@ -264,9 +266,7 @@ public sealed class GrabIntentSystem : EntitySystem
         }
 
         if (grabStageOverride != null)
-        {
             newStage = grabStageOverride.Value;
-        }
 
         var raiseEv = new RaiseGrabModifierEventEvent(puller.Owner, (int) newStage);
         RaiseLocalEvent(ref raiseEv);
@@ -276,12 +276,14 @@ public sealed class GrabIntentSystem : EntitySystem
         if (!TrySetGrabStages((puller, puller.Comp), (pullable, pullable.Comp), newStage, escapeAttemptModifier))
             return false;
 
+        var raiseEffectList = new List<EntityUid> { pullable };
         _color.RaiseEffect(Color.Yellow,
-            [pullable],
+            raiseEffectList,
             Filter.Pvs(pullable, entityManager: EntityManager));
         return true;
     }
-    private void ResetGrabEscapeChance(Entity<PullableComponent> pullable,
+    private void ResetGrabEscapeChance(
+        Entity<PullableComponent> pullable,
         Entity<PullerComponent> puller,
         bool dirty = true)
     {
@@ -489,7 +491,7 @@ public sealed class GrabIntentSystem : EntitySystem
             ent.Comp1.GrabThrownSpeed,
             damage * ent.Comp1.GrabThrowDamageModifier);
         _throwing.TryThrow(ent, -direction * ent.Comp2.InvMass);
-        _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pulling, ent);
+        _audio.PlayPredicted(_thudswoosh, pulling, ent);
         ent.Comp1.NextStageChange = _timing.CurTime.Add(TimeSpan.FromSeconds(3f));
         Dirty(ent, ent.Comp1);
     }

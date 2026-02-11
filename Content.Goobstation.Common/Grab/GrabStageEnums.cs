@@ -27,5 +27,5 @@ public enum GrabResistResult
 {
     TooSoon,
     Failed,
-    Succeeded
+    Succeeded,
 }
