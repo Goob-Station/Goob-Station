@@ -1,0 +1,32 @@
+- type: entity
+  id: CrateFunToyBox
+  parent: CrateToyBox
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: SnapPopBox
+      - id: CrazyGlue
+        amount: 2
+      - id: PlasticBanana
+      - id: WhoopieCushion
+      - id: ToyHammer
+      - id: MrChips
+        orGroup: GiftPool
+      - id: MrDips
+        orGroup: Giftpool
+      - id: LilCal
+        orGroup: Giftpool
+      - id: RevolverCapGun
+      - id: BalloonNT
+      - id: ClothingShoesClownLarge
+      - id: ClothingHeadHatMagician
+      - id: BeachBall
+      - id: ClothingShoesSkates
+      - id: RubberChicken
+## Goobstation change
+      - id: VinylDiskLightRed
+        prob: 0.3
+      - id: VinylDiskWeAreNumberTwo
+        prob: 0.3
+        

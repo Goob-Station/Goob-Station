@@ -524,33 +524,6 @@
         amount: 2
 
 - type: entity
-  id: CrateFunToyBox
-  parent: CrateToyBox
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-      - id: SnapPopBox
-      - id: CrazyGlue
-        amount: 2
-      - id: PlasticBanana
-      - id: WhoopieCushion
-      - id: ToyHammer
-      - id: MrChips
-        orGroup: GiftPool
-      - id: MrDips
-        orGroup: Giftpool
-      - id: LilCal
-        orGroup: Giftpool
-      - id: RevolverCapGun
-      - id: BalloonNT
-      - id: ClothingShoesClownLarge
-      - id: ClothingHeadHatMagician
-      - id: BeachBall
-      - id: ClothingShoesSkates
-      - id: RubberChicken
-
-- type: entity
   id: CrateFunBikeHornImplants
   parent: CrateGenericSteel
   name: bike horn implants
