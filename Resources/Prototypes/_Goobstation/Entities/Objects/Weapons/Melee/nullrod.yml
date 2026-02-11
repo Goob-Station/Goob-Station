@@ -226,6 +226,8 @@
     delay: 1
   - type: Prying
   - type: GrabbingItem
+    grabCooldownVerb: grabbing-item-cooldown-verb-godhand
+    grabCooldownDuration: 10.0
 
 - type: entity
   parent: BaseNullrod

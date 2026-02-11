@@ -18,6 +18,7 @@ namespace Content.Goobstation.Shared.Grab;
 public sealed class GrabbingItemSystem : EntitySystem
 {
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly GrabbingCooldownSystem _grabCd = default!;
 
     public override void Initialize()
     {
@@ -79,6 +80,7 @@ public sealed class GrabbingItemSystem : EntitySystem
 
     private void OnMeleeHitEvent(Entity<GrabbingItemComponent> ent, ref MeleeHitEvent args)
     {
+        var grabStage = ent.Comp.GrabStageOverride;
         if (args.Direction != null || args.HitEntities.Count != 1)
             return;
 
@@ -103,11 +105,14 @@ public sealed class GrabbingItemSystem : EntitySystem
         if (!_pulling.CanGrab(args.User, hitEntity))
             return;
 
+        if (!_grabCd.IsCooldownReady(ent))
+            grabStage = GrabStage.Soft;
+
         ent.Comp.ActivelyGrabbingEntity = hitEntity;
         if (!_pulling.TryStartPull(args.User,
                 hitEntity,
                 puller,
-                grabStageOverride: ent.Comp.GrabStageOverride,
+                grabStageOverride: grabStage,
                 escapeAttemptModifier: ent.Comp.EscapeAttemptModifier))
             ent.Comp.ActivelyGrabbingEntity = null;
         Dirty(ent);
