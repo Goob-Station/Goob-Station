@@ -1,4 +1,3 @@
-using Content.Shared._Lavaland.Megafauna.Selectors;
 using JetBrains.Annotations;
 
 namespace Content.Shared._Lavaland.Megafauna.NumberSelectors;
