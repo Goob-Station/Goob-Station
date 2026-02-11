@@ -218,7 +218,7 @@
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
     back: ClothingBackpackDuffelSyndicateMedical # Goobstation
-    eyes: ClothingEyesHudSyndicate
+    eyes: ClothingEyesHudSyndicateAgent # Goob edit
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA

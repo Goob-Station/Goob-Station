@@ -24,7 +24,7 @@
   - type: Pinpointer
     updateTargetName: true
     canRetarget: true
-    retargetingWhitelist: # Goob edit: pinpointer whitelist
+    retargetingWhitelist:
       components:
       - Anomaly
 
@@ -191,3 +191,15 @@
   - type: Pinpointer
     updateTargetName: true
     canRetarget: true
+
+
+- type: entity
+  name: dark lord pinpointer
+  id: PinpointerDarkLord
+  parent: [ PinpointerBase, BaseCommandContraband ]
+  components:
+  - type: Pinpointer
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - DarkLordMarker
+    targetName: the Dark Lord
