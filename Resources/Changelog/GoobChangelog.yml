@@ -21146,3 +21146,11 @@ Entries:
       message: engi hardsuit now has slightly more armor
   id: 2397
   time: '2026-02-11T16:58:53.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Syndicate explosive payloads now do real harm!
+    - type: Tweak
+      message: Syndicate explosive payloads can now chain react! (Details in PR)
+  id: 2398
+  time: '2026-02-11T17:03:23.0000000+00:00'
