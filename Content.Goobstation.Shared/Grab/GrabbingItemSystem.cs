@@ -106,7 +106,7 @@ public sealed class GrabbingItemSystem : EntitySystem
             return;
 
         if (!_grabCd.IsCooldownReady(ent))
-            grabStage = GrabStage.Soft;
+            grabStage = GrabStage.No;
 
         ent.Comp.ActivelyGrabbingEntity = hitEntity;
         if (!_pulling.TryStartPull(args.User,
