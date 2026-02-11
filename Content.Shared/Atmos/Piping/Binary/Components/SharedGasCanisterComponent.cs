@@ -9,7 +9,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Atmos.Piping.Unary.Components;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Atmos.Piping.Binary.Components

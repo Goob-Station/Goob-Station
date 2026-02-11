@@ -1,5 +1,3 @@
-using Content.Shared.Turrets;
-
 namespace Content.Server.NPC.Queries.Considerations;
 
 /// <summary>
