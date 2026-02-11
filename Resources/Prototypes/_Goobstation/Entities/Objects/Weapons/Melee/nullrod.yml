@@ -618,6 +618,7 @@
     DamageOnUntrainedUse:
       types:
         Heat: 20
+    specialState: DualWield
     UntrainedUseString: nullrod-pistol-untrained-usage-popup
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi

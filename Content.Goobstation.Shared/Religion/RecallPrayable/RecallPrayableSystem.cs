@@ -1,11 +1,13 @@
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
+using Content.Goobstation.Shared.Weapons.RequiresDualWield;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Content.Shared.Whitelist;
 using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Religion.RecallPrayable;
@@ -16,6 +18,7 @@ public sealed partial class RecallPrayableSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -82,7 +85,14 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
         if (TerminatingOrDeleted(nullrod.Value))
         {
-            _popup.PopupClient(Loc.GetString("chaplain-recall-nullrod-gone", ("nullrod", nullrod.Value)), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("chaplain-recall-nullrod-gone", ("nullrod", nullrod.Value)), args.User, args.User);
+            return;
+        }
+
+        //If nullrod already in user hands and it is not a dual wield nullrod then do nothing
+        if (_hands.IsHolding(args.User, nullrod.Value) && !HasComp<RequiresDualWieldComponent>(nullrod.Value))
+        {
+            _popup.PopupEntity(Loc.GetString("chaplain-recall-nullrod-already-in-hand", ("nullrod", nullrod.Value)), args.User, args.User);
             return;
         }
 
@@ -102,9 +112,11 @@ public sealed partial class RecallPrayableSystem : EntitySystem
                 break;
 
             case NullrodSpecialState.DualWield:
+                RecallDualWield(nullrod, user);
                 break;
 
             case NullrodSpecialState.Embedded:
+                RecallEmbedded(nullrod, user);
                 break;
 
             default:
@@ -119,7 +131,7 @@ public sealed partial class RecallPrayableSystem : EntitySystem
             ? "chaplain-recall-nullrod-recalled"
             : "chaplain-recall-hands-full";
 
-        _popup.PopupClient(Loc.GetString(message, ("nullrod", nullrod)), user, user);
+        _popup.PopupEntity(Loc.GetString(message, ("nullrod", nullrod)), user, user);
     }
 
     private void RecallUnremoveable(Entity<NullrodComponent> nullrod, EntityUid user)
@@ -135,6 +147,33 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
         EnsureComp<UnremoveableComponent>(nullrod);
 
-        _popup.PopupClient(Loc.GetString(message, ("nullrod", nullrod)), user, user);
+        _popup.PopupEntity(Loc.GetString(message, ("nullrod", nullrod)), user, user);
+    }
+
+    private void RecallDualWield(Entity<NullrodComponent> nullrod, EntityUid user)
+    {
+        if (!TryComp<RequiresDualWieldComponent>(nullrod, out var dualWieldComp))
+            return;
+
+        if (!_hands.IsHolding(user, nullrod.Owner))
+            _hands.TryPickupAnyHand(user, nullrod.Owner);
+
+        var query = EntityQueryEnumerator<RequiresDualWieldComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (_whitelist.IsWhitelistPass(dualWieldComp.Whitelist, uid))
+            {
+                _hands.TryPickupAnyHand(user, uid);
+                break;
+            }
+        }
+
+        _popup.PopupEntity(Loc.GetString("chaplain-recall-nullrod-recalled", ("nullrod", nullrod)), user, user);
+    }
+
+    private void RecallEmbedded(Entity<NullrodComponent> nullrod, EntityUid user)
+    {
+
     }
 }
