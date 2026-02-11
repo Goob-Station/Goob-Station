@@ -373,7 +373,7 @@ public sealed class GrabIntentSystem : EntitySystem
         if (!Resolve(pullable.Owner, ref pullable.Comp)
             || _timing.CurTime < pullable.Comp.NextEscapeAttempt)
             return GrabResistResult.TooSoon;
-        var seed = SharedRandomExtensions.HashCodeCombine([(int) _timing.CurTick.Value, GetNetEntity(ent).Id]);
+        var seed = SharedRandomExtensions.HashCodeCombine([(int) _timing.CurTick.Value, GetNetEntity(pullable).Id]);
         var rand = new Random(seed);
         if (rand.Prob(pullable.Comp.GrabEscapeChance))
             return GrabResistResult.Succeeded;
