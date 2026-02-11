@@ -10,11 +10,33 @@
       - right arm 2
       - left arm
       - left arm 2
-    left arm: # Goobstation
-      part: LeftArmBorg
-    left arm 2: # Goobstation
-      part: LeftArmBorg
-    right arm: # Goobstation
+    right arm:
       part: RightArmBorg
-    right arm 2: # Goobstation
+      connections:
+      - right hand
+    right arm 2:
       part: RightArmBorg
+      connections:
+      - right hand 2
+    left arm:
+      part: LeftArmBorg
+      connections:
+      - left hand
+    left arm 2:
+      part: LeftArmBorg
+      connections:
+      - left hand 2
+    right hand:
+      part: RightHandHuman
+    right hand 2:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    left hand 2:
+      part: LeftHandHuman
+        # Goobstation end
+        # Basically shitcodes it to have hands at any cost
+        # If it doesnt have hands its loadout drops the items given on the floor
+        # Goobstation todo unshit xenoborgs so that they use a borg module or something rather than this shit
+        # Goobstation todo
+        # Goob todo
