@@ -369,6 +369,7 @@ public sealed class PullingSystem : EntitySystem
         }
     }
 
+    // Goobstation - Grab Intent Start
     private void OnRefreshMovespeed(EntityUid uid, PullerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var itemHeldSpeed))
@@ -403,7 +404,6 @@ public sealed class PullingSystem : EntitySystem
         args.ModifySpeed(multiplier, multiplier);
     }
 
-    // Goobstation - Grab Intent
     private void OnPullableMoveInput(Entity<PullableComponent> ent, ref MoveInputEvent args)
     {
         // If someone moves then break their pulling.
@@ -420,7 +420,7 @@ public sealed class PullingSystem : EntitySystem
 
         TryStopPull(ent, ent, user: ent);
     }
-    // Goobstation
+    // Goobstation - Grab Intent End
 
     private void OnPullableCollisionChange(EntityUid uid, PullableComponent component, ref CollisionChangeEvent args)
     {
@@ -475,12 +475,12 @@ public sealed class PullingSystem : EntitySystem
 
         pullableComp.PullJointId = null;
         pullableComp.Puller = null;
-        // Goobstation - Grab Intent
+        // Goobstation - Grab Intent Start
         pullableComp.GrabStage = GrabStage.No;
         pullableComp.GrabEscapeChance = 1f;
         pullableComp.EscapeAttemptModifier = 1f;
         _blocker.UpdateCanMove(pullableUid);
-        // Goobstation
+        // Goobstation - Grab Intent End
 
         Dirty(pullableUid, pullableComp);
 
@@ -490,22 +490,20 @@ public sealed class PullingSystem : EntitySystem
             var pullerUid = oldPuller.Value;
             _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
             pullerComp.Pulling = null;
-            // Goobstation - Grab Intent
+            // Goobstation - Grab Intent Start
             pullerComp.GrabStage = GrabStage.No;
             var virtualItems = pullerComp.GrabVirtualItems;
             foreach (var item in virtualItems)
                 QueueDel(item);
 
             pullerComp.GrabVirtualItems.Clear();
-            // Goobstation
             Dirty(oldPuller.Value, pullerComp);
+            // Goobstation - Grab Intent End
 
             // Messaging
             var message = new PullStoppedMessage(pullerUid, pullableUid);
             _modifierSystem.RefreshMovementSpeedModifiers(pullerUid);
-            _adminLogger.Add(LogType.Action,
-                LogImpact.Low,
-                $"{ToPrettyString(pullerUid):user} stopped pulling {ToPrettyString(pullableUid):target}");
+            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(pullerUid):user} stopped pulling {ToPrettyString(pullableUid):target}");
 
             RaiseLocalEvent(pullerUid, message);
             RaiseLocalEvent(pullableUid, message);
@@ -547,7 +545,7 @@ public sealed class PullingSystem : EntitySystem
             return;
         }
 
-        TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player, true); // Goobstation
+        TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player, true); // Goob - Grab Intent
     }
 
     public bool CanPull(EntityUid puller, EntityUid pullableUid, PullerComponent? pullerComp = null)
@@ -601,12 +599,17 @@ public sealed class PullingSystem : EntitySystem
         return !startPull.Cancelled && !getPulled.Cancelled;
     }
 
+    // Goob - Grab Intent Start
+    public bool TogglePull(EntityUid pullerUid, PullerComponent puller)
+    {
+        return TryComp<PullableComponent>(puller.Pulling, out var pullable) && TogglePull((puller.Pulling.Value, pullable), pullerUid);
+    }
+
     public bool TogglePull(Entity<PullableComponent?> pullable, EntityUid pullerUid)
     {
         if (!Resolve(pullable, ref pullable.Comp, false))
             return false;
 
-        // Goob - Grab Intent Start
         if (pullable.Comp.Puller != pullerUid)
             return TryStartPull(pullerUid, pullable, pullableComp: pullable.Comp);
 
@@ -614,17 +617,9 @@ public sealed class PullingSystem : EntitySystem
         RaiseLocalEvent(pullable, ref grabAttemptEv);
         if (grabAttemptEv.Grabbed)
             return true;
-        // Goob - Grab Intent End
         return !_combatMode.IsInCombatMode(pullable) && TryStopPull(pullable, pullable.Comp, ignoreGrab: true);
     }
-
-    public bool TogglePull(EntityUid pullerUid, PullerComponent puller)
-    {
-        if (!TryComp<PullableComponent>(puller.Pulling, out var pullable))
-            return false;
-
-        return TogglePull((puller.Pulling.Value, pullable), pullerUid);
-    }
+    // Goob - Grab Intent End
 
     public bool TryStartPull(EntityUid pullerUid,
         EntityUid pullableUid,
