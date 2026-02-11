@@ -6,6 +6,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
@@ -19,6 +20,7 @@ public sealed partial class RecallPrayableSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!;
 
     public override void Initialize()
     {
@@ -72,6 +74,13 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
         if (args.Cancelled || args.Handled || TerminatingOrDeleted(args.User))
             return;
+
+        //If there is no empty hand then do nothing
+        if (!_hands.TryGetEmptyHand(args.User, out var _))
+        {
+            _popup.PopupEntity(Loc.GetString("chaplain-recall-hands-full"), args.User, args.User);
+            return;
+        }
 
         if (!TryComp<BibleUserComponent>(args.User, out var comp) || comp.NullRod == null)
             return;
@@ -127,11 +136,10 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
     private void RecallNormal(Entity<NullrodComponent> nullrod, EntityUid user)
     {
-        var message = _hands.TryPickupAnyHand(user, nullrod)
-            ? "chaplain-recall-nullrod-recalled"
-            : "chaplain-recall-hands-full";
+        if (!_hands.TryPickupAnyHand(user, nullrod.Owner))
+            return;
 
-        _popup.PopupEntity(Loc.GetString(message, ("nullrod", nullrod)), user, user);
+        _popup.PopupEntity(Loc.GetString("chaplain-recall-nullrod-recalled", ("nullrod", nullrod)), user, user);
     }
 
     private void RecallUnremoveable(Entity<NullrodComponent> nullrod, EntityUid user)
@@ -141,13 +149,12 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
         RemComp<UnremoveableComponent>(nullrod);
 
-        var message = _hands.TryPickupAnyHand(user, nullrod)
-            ? "chaplain-recall-nullrod-recalled"
-            : "chaplain-recall-hands-full";
+        if (!_hands.TryPickupAnyHand(user, nullrod.Owner))
+            return;
 
         EnsureComp<UnremoveableComponent>(nullrod);
 
-        _popup.PopupEntity(Loc.GetString(message, ("nullrod", nullrod)), user, user);
+        _popup.PopupEntity(Loc.GetString("chaplain-recall-nullrod-recalled", ("nullrod", nullrod)), user, user);
     }
 
     private void RecallDualWield(Entity<NullrodComponent> nullrod, EntityUid user)
@@ -174,6 +181,21 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
     private void RecallEmbedded(Entity<NullrodComponent> nullrod, EntityUid user)
     {
+        if (!TryComp<EmbeddableProjectileComponent>(nullrod.Owner, out var embedComp))
+            return;
 
+        //If it is not embedded then just recall normally
+        if (embedComp.EmbeddedIntoUid == null)
+        {
+            RecallNormal(nullrod, user);
+            return;
+        }
+
+        _projectile.EmbedDetach(nullrod.Owner, embedComp);
+
+        if (!_hands.TryPickupAnyHand(user, nullrod.Owner))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("chaplain-recall-nullrod-recalled", ("nullrod", nullrod)), user, user);
     }
 }

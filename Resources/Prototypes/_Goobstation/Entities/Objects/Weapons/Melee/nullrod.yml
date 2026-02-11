@@ -721,6 +721,7 @@
     DamageOnUntrainedUse:
       types:
         Piercing: 20
+    specialState: Embedded
     UntrainedUseString: nullrod-spear-untrained-usage-popup
   - type: Item
     size: Large # Goob edit
