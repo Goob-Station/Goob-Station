@@ -349,10 +349,9 @@ namespace Content.Server.Hands.Systems
             if (TryComp<VirtualItemComponent>(throwEnt, out var virt))
             {
                 var userEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt.Value, direction);
-                RaiseLocalEvent(player, userEv);
-
+                RaiseLocalEvent(player, ref userEv);
                 var targEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt.Value, direction);
-                RaiseLocalEvent(virt.BlockingEntity, targEv);
+                RaiseLocalEvent(virt.BlockingEntity, ref targEv);
             }
             // Goobstation end
 

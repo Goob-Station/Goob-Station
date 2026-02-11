@@ -179,19 +179,17 @@ namespace Content.Shared.Hands
     ///     Raised directed on both the blocking entity and user when
     ///     a virtual hand item is thrown (at least attempted to).
     /// </summary>
-    public sealed class VirtualItemThrownEvent : EntityEventArgs
+    [ByRefEvent]
+    public record struct VirtualItemThrownEvent(
+        EntityUid BlockingEntity,
+        EntityUid User,
+        EntityUid VirtualItem,
+        Vector2 Direction)
     {
-        public EntityUid BlockingEntity;
-        public EntityUid User;
-        public EntityUid VirtualItem;
-        public Vector2 Direction;
-        public VirtualItemThrownEvent(EntityUid blockingEntity, EntityUid user, EntityUid virtualItem, Vector2 direction)
-        {
-            BlockingEntity = blockingEntity;
-            User = user;
-            VirtualItem = virtualItem;
-            Direction = direction;
-        }
+        public EntityUid BlockingEntity = BlockingEntity;
+        public EntityUid User = User;
+        public EntityUid VirtualItem = VirtualItem;
+        public Vector2 Direction = Direction;
     }
 
     /// <summary>

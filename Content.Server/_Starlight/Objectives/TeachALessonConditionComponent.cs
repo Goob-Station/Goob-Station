@@ -1,3 +1,5 @@
+using Content.Server.Objectives.Components;
+
 namespace Content.Server._Starlight.Objectives;
 
 /// <summary>

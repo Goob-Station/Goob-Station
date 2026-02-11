@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.IgnitionSource;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -11,7 +12,7 @@ namespace Content.Server.IgnitionSource;
 
 /// <summary>
 /// Ignites for a certain length of time when triggered.
-/// Requires <see cref="Shared.IgnitionSourceComponent"/> along with triggering components.
+/// Requires <see cref="IgnitionSourceComponent"/> along with triggering components.
 /// </summary>
 [RegisterComponent, Access(typeof(IgniteOnTriggerSystem))]
 public sealed partial class IgniteOnTriggerComponent : Component

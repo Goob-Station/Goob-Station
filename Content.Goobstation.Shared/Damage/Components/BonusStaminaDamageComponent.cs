@@ -1,4 +1,5 @@
 
+using Microsoft.IO;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Damage.Components;
@@ -6,7 +7,7 @@ namespace Content.Goobstation.Shared.Damage.Components;
 /// <summary>
 ///     Allows entities to have additional stamina damage for their melee
 ///     and weapon attacks.
-///     <see cref="Shared.Damage.Events.StaminaMeleeHitEvent" />
+///     <see cref="RecyclableMemoryStreamManager.Events.StaminaMeleeHitEvent" />
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BonusStaminaDamageComponent : Component

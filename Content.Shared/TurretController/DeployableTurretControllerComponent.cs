@@ -1,5 +1,6 @@
 using Content.Shared.Access;
 using Content.Shared.Turrets;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

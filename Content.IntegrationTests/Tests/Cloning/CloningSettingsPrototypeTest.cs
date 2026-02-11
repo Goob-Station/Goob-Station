@@ -1,4 +1,6 @@
 using Content.Shared.Cloning;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.IntegrationTests.Tests.Cloning;
 
