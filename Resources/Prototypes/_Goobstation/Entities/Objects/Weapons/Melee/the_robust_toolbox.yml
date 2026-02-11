@@ -5,7 +5,7 @@
   description: The robust toolbox, passed down from generation to generation of shitters just by holding it you feel more robust than ever.
   components:
   - type: MeleeWeapon
-    heavyStaminaCost: 25
+    heavyStaminaCost: 35
     damage:
       types:
         Blunt: 22
