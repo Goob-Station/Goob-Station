@@ -89,7 +89,9 @@ public sealed class SlaughterDevourSystem : EntitySystem
             pullingEnt)
         {
             BreakOnMove = true,
-            ColorOverride = Color.Red
+            ColorOverride = Color.Red,
+            BreakOnDamage = true,
+            MultiplyDelay = false,
         };
 
         args.Cancelled = true; // cancel the jaunt and devour instead

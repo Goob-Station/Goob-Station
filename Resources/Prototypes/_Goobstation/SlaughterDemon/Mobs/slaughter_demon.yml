@@ -211,7 +211,7 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 20
+        Blunt: 20 # No delimbs chudda
         Structural: 50
   - type: GhostRole
     allowMovement: true

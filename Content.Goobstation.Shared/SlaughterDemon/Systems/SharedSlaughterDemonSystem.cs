@@ -97,6 +97,7 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
     {
         var uid = args.pullerEnt;
         var pullingEnt = args.pullingEnt;
+        var coords = Transform(uid).Coordinates;
 
         if (!TryComp<SlaughterDevourComponent>(uid, out var slaughterDevour)
             || slaughterDevour.Container == null)
@@ -119,7 +120,8 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         RemoveBlood(pullingEnt);
 
-        _audio.PlayPredicted(slaughterDevour.FeastSound, Transform(uid).Coordinates, uid);
+        if (_netManager.IsServer) // Should be PlayPredicted but something is killing prediction here
+            _audio.PlayPvs(slaughterDevour.FeastSound, coords);
 
         _slaughterDevour.HealAfterDevouring(pullingEnt, uid, slaughterDevour);
         if (!TryComp(uid, out SlaughterDemonComponent? demon))

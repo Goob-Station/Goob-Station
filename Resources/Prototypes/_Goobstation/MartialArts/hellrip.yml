@@ -33,19 +33,19 @@
   staminaDamage: 80
   canDoWhileProne: false
 
-- type: combo
-  id: HeadRip
-  name: Head Rip
-  martialArtsForm: HellRip
-  attacks:
-  - Harm
-  - Harm
-  - Harm
-  - Grab
-  event: !type:HellRipHeadRipPerformedEvent
-  damageType: Slash
-  extraDamage: 100
-  canDoWhileProne: false
+#- type: combo
+#  id: HeadRip
+#  name: Head Rip
+#  martialArtsForm: HellRip
+#  attacks:
+#  - Harm
+#  - Harm
+#  - Harm
+#  - Grab
+#  event: !type:HellRipHeadRipPerformedEvent
+#  damageType: Slash
+#  extraDamage: 100
+#  canDoWhileProne: false
 
 - type: combo
   id: TearDown
