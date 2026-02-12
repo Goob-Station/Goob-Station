@@ -118,6 +118,7 @@
       - PosterContrabandGoobChuckler # Goobstation
       - PosterContrabandGoobYakub # Goobstation
       - PosterContrabandGoobRedFOSS # Goobstation
+      - PosterContrabandGoobEgg # Goobstation
     chance: 1
 
 - type: entity
