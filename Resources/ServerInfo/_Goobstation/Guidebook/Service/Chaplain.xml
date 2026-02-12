@@ -31,6 +31,8 @@
     <GuideEntityEmbed Entity="AltarSpaceChristian"/>
     <GuideEntityEmbed Entity="AltarTechnology"/>
     <GuideEntityEmbed Entity="AltarToolbox"/>
+    <GuideEntityEmbed Entity="AltarDragon"/>
+    <GuideEntityEmbed Entity="AltarEmpire"/>
   </Box>
 
 Эти алтари можно построить, поместив соответствующее подношение на базовый алтарь:
@@ -46,6 +48,8 @@
 - Алтарь технологии: 1 × конденсатор
 - Алтарь инструментов: 1 × ящик с инструментами
 - Алтарь механизма: 1 x маленькая батарея
+- Draconic Altar: 1 x Carp plushie
+- Imperial altar: 1 x Book
 
 ## Священные артефакты
 

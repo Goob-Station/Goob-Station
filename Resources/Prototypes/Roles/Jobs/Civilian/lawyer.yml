@@ -80,10 +80,10 @@
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop
-  #goobcoins: 10 #Goob content Corvax-Goob-coins
   # guides: # goobstation Hidden by CorvaxGoob
   # - SpaceLaw
   # - Legal SOP
+  #goobcoins: 10 #Goob content Corvax-Goob-coins
   access:
   - Service
   - Lawyer
