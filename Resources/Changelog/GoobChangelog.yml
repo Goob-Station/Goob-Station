@@ -21163,3 +21163,12 @@ Entries:
         in github.
   id: 2399
   time: '2026-02-12T05:22:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Upstream is here and more upstream is to come. Check wizden changelog
+        for gameplay changes, any bugs you should report to the issues section
+        in github.
+  id: 2400
+  time: '2026-02-12T05:39:11.0000000+00:00'
