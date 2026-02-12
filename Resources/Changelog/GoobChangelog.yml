@@ -21064,3 +21064,129 @@ Entries:
         dragon's tail nullrod and the draconic altar
   id: 2386
   time: '2026-02-07T20:22:48.0000000+00:00'
+- author: RomiGur
+  changes:
+    - type: Tweak
+      message: >-
+        Now you can place energy rifle magazines (all types) into all types of
+        security belts.
+  id: 2387
+  time: '2026-02-08T07:04:20.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Police Batons, a stunbaton sidegrade that can be found in detectives
+        closet.
+  id: 2388
+  time: '2026-02-08T07:36:51.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Portable chemical mixer capacity increased by 1.5x and now has a beaker
+        sprite.
+  id: 2389
+  time: '2026-02-08T08:00:14.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Nuclear Operative's Medic is now more useful for the team, having a
+        health and a chemical HUD in visor.
+  id: 2390
+  time: '2026-02-08T08:21:26.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Reduced mobility in nograv environment for everyone.
+  id: 2391
+  time: '2026-02-08T23:26:27.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The laser rifle and laser cannon have been buffed.
+  id: 2392
+  time: '2026-02-09T02:58:40.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Remove
+      message: Freeform lawboard is no longer in RD locker/researchable
+  id: 2393
+  time: '2026-02-09T07:52:24.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: Delta station escape pods
+  id: 2394
+  time: '2026-02-09T07:54:00.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Traitors can get guerilla gloves again, but they cost more, have an
+        equip delay and a more obvious sprite now
+  id: 2395
+  time: '2026-02-09T20:02:36.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Add
+      message: >-
+        ERT now has its own specialized equipment fabricator, located aboard
+        their shuttle.
+    - type: Tweak
+      message: >-
+        Minor ERT shuttle refit: reduced onboard clutter and reorganized storage
+        space.
+  id: 2396
+  time: '2026-02-10T15:20:40.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: engi hardsuit now has slightly more armor
+  id: 2397
+  time: '2026-02-11T16:58:53.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Syndicate explosive payloads now do real harm!
+    - type: Tweak
+      message: Syndicate explosive payloads can now chain react! (Details in PR)
+  id: 2398
+  time: '2026-02-11T17:03:23.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Upstream is here and more upstream is to come. Check wizden changelog
+        for gameplay changes, any bugs you should report to the issues section
+        in github.
+  id: 2399
+  time: '2026-02-12T05:22:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Upstream is here and more upstream is to come. Check wizden changelog
+        for gameplay changes, any bugs you should report to the issues section
+        in github.
+  id: 2400
+  time: '2026-02-12T05:39:11.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Client doesnt crash after upstream merge now.
+  id: 2401
+  time: '2026-02-12T06:18:22.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: BSO's command monitor displays command status correctly again.
+  id: 2402
+  time: '2026-02-12T11:51:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Interacting on a crawling person no longer permastuns them.
+  id: 2403
+  time: '2026-02-12T11:54:46.0000000+00:00'

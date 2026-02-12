@@ -14,6 +14,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
@@ -130,7 +131,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
 
 
         // var humanoidQ = GetEntityQuery<HumanoidAppearanceComponent>();
-        var stationGrids = _stationSystem.GetAllStationGrids();
+        var stationGrids = _stationSystem.GoobGetAllStationGrids();
         while (query.MoveNext(out var uid, out var mobState, out var damage, out var transform))
         {
             if (transform.GridUid == null || !stationGrids.Contains(transform.GridUid.Value))
