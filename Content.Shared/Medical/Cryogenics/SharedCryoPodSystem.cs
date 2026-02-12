@@ -195,9 +195,9 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
             return;
 
         // Shitmed Change start
-        if (ent.Comp.BodyContainer == null || // Annotations will tell you this is always false but prediction makes it possible for container to not exist on client OnCompInit or something
-            ent.Comp.BodyContainer.ContainedEntity == null) // Thats my best guess.
-            return; // todo goob figure why this happens to us but not upstream // upstreamer todo
+        // Actually no this does make sense but shitmed never thought itd be predicted
+        // so we gotta ensure container on client
+        ent.Comp.BodyContainer = _container.EnsureContainer<ContainerSlot>(ent, CryoPodComponent.BodyContainerName);
         var insidePod = ent.Comp.BodyContainer.ContainedEntity;
         // Shitmed Change end
 
