@@ -21190,3 +21190,11 @@ Entries:
       message: Interacting on a crawling person no longer permastuns them.
   id: 2403
   time: '2026-02-12T11:54:46.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Meta mapping! Added roundstart cloning and moved xenobio. Alot of other
+        misc improvements. 
+  id: 2404
+  time: '2026-02-12T15:33:47.0000000+00:00'
