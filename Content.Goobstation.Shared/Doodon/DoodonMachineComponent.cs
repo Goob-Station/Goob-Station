@@ -37,6 +37,10 @@ public sealed partial class DoodonMachineComponent : Component
     [DataField]
     public bool SpawnOnMapInit = false;
 
+    // Does the machine serve as housing for a doodon type? (Dwellings, Warrior huts, pastures)
+    [DataField]
+    public DoodonHousingType ProducedHousing = DoodonHousingType.None;
+
     // fields for time tracking
     public bool Processing = false;
     public float Accumulator = 0f;
