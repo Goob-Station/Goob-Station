@@ -20972,3 +20972,221 @@ Entries:
       message: Entirely removed Submarine station.
   id: 2373
   time: '2026-02-02T06:08:58.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Omnimed from BSO locker
+  id: 2374
+  time: '2026-02-03T18:43:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Durathread armor now covers groin.
+  id: 2375
+  time: '2026-02-05T11:13:37.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Goliath hearts are major contraband.
+  id: 2376
+  time: '2026-02-05T11:14:31.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Add
+      message: Added chameleon ability for nukies and agents thermal goggles
+  id: 2377
+  time: '2026-02-05T11:15:04.0000000+00:00'
+- author: LuciferEOS, bloodyspy
+  changes:
+    - type: Add
+      message: 3 more lobby arts.
+  id: 2378
+  time: '2026-02-05T11:21:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: >-
+        Removed double sec belts + headsets from security lockers, security
+        locker item cleanup in general
+  id: 2379
+  time: '2026-02-05T11:49:07.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: The M-90 has been readded to the uplink.
+  id: 2380
+  time: '2026-02-05T12:55:05.0000000+00:00'
+- author: Thatonestomf
+  changes:
+    - type: Tweak
+      message: >-
+        Backpack water tanks can now be worn on the suitstorage slot in addition
+        to the backslot.
+  id: 2381
+  time: '2026-02-05T12:57:40.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: >-
+        Resprite Ion/Temp/Plasma Rifle, Hardlight Bow, WSPR, Chester, m172,
+        Shmel, alien pistol, decloner, x-00 guns.
+  id: 2382
+  time: '2026-02-05T12:59:01.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Tweak
+      message: Bladed flatcap damage
+    - type: Add
+      message: Bladed flatcap variants
+  id: 2383
+  time: '2026-02-05T13:02:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Crew sided freeform lawboard
+  id: 2384
+  time: '2026-02-06T10:30:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: 'Fake heretic gear now has a different sprite '
+    - type: Remove
+      message: >-
+        Fake heretic gear variants, crafting recipe, fake mansus grasp and fake
+        book
+  id: 2385
+  time: '2026-02-07T20:20:16.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Chaplain has received some new dragon-themed items: dragon suit,
+        dragon's tail nullrod and the draconic altar
+  id: 2386
+  time: '2026-02-07T20:22:48.0000000+00:00'
+- author: RomiGur
+  changes:
+    - type: Tweak
+      message: >-
+        Now you can place energy rifle magazines (all types) into all types of
+        security belts.
+  id: 2387
+  time: '2026-02-08T07:04:20.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Police Batons, a stunbaton sidegrade that can be found in detectives
+        closet.
+  id: 2388
+  time: '2026-02-08T07:36:51.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Portable chemical mixer capacity increased by 1.5x and now has a beaker
+        sprite.
+  id: 2389
+  time: '2026-02-08T08:00:14.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Nuclear Operative's Medic is now more useful for the team, having a
+        health and a chemical HUD in visor.
+  id: 2390
+  time: '2026-02-08T08:21:26.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Reduced mobility in nograv environment for everyone.
+  id: 2391
+  time: '2026-02-08T23:26:27.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The laser rifle and laser cannon have been buffed.
+  id: 2392
+  time: '2026-02-09T02:58:40.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Remove
+      message: Freeform lawboard is no longer in RD locker/researchable
+  id: 2393
+  time: '2026-02-09T07:52:24.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: Delta station escape pods
+  id: 2394
+  time: '2026-02-09T07:54:00.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Traitors can get guerilla gloves again, but they cost more, have an
+        equip delay and a more obvious sprite now
+  id: 2395
+  time: '2026-02-09T20:02:36.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Add
+      message: >-
+        ERT now has its own specialized equipment fabricator, located aboard
+        their shuttle.
+    - type: Tweak
+      message: >-
+        Minor ERT shuttle refit: reduced onboard clutter and reorganized storage
+        space.
+  id: 2396
+  time: '2026-02-10T15:20:40.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: engi hardsuit now has slightly more armor
+  id: 2397
+  time: '2026-02-11T16:58:53.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Syndicate explosive payloads now do real harm!
+    - type: Tweak
+      message: Syndicate explosive payloads can now chain react! (Details in PR)
+  id: 2398
+  time: '2026-02-11T17:03:23.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Upstream is here and more upstream is to come. Check wizden changelog
+        for gameplay changes, any bugs you should report to the issues section
+        in github.
+  id: 2399
+  time: '2026-02-12T05:22:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Upstream is here and more upstream is to come. Check wizden changelog
+        for gameplay changes, any bugs you should report to the issues section
+        in github.
+  id: 2400
+  time: '2026-02-12T05:39:11.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Client doesnt crash after upstream merge now.
+  id: 2401
+  time: '2026-02-12T06:18:22.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: BSO's command monitor displays command status correctly again.
+  id: 2402
+  time: '2026-02-12T11:51:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Interacting on a crawling person no longer permastuns them.
+  id: 2403
+  time: '2026-02-12T11:54:46.0000000+00:00'
