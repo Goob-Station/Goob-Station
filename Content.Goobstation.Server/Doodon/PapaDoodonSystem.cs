@@ -21,9 +21,6 @@ namespace Content.Goobstation.Server.Doodons;
 /// - Uses SharedActionsSystem.SetToggled to drive iconOn for the active order (Rat King pattern)
 /// - Point-to-attack target when in AttackTarget order
 /// - Grants Establish Town Hall action until used (one-time)
-///
-/// IMPORTANT:
-/// Do NOT call StartUseDelay in a periodic Update loop, or the icons will "flash" by constantly restarting cooldown.
 /// </summary>
 public sealed class PapaDoodonSystem : EntitySystem
 {

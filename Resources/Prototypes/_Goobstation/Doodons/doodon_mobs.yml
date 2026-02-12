@@ -5,7 +5,6 @@
   components:
   - type: MobState
   - type: Damageable
-  - type: Hands
   - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
     speaks:
     - Doodon
@@ -126,6 +125,7 @@
   name: papa doodon
   description: The patriarch of the Doodon village.
   components:
+  - type: Hands # Isn't on BaseDoodon because the Moodon inherits from basedoodon
   - type: Sprite
     drawdepth: SmallMobs
     layers: 
@@ -178,8 +178,8 @@
     understands:
     - TauCetiBasic
     - Doodon
-  - type: CanHostGuardian
-  - type: DoodonBuilder
+  - type: CanHostGuardian 
+  - type: DoodonBuilder # Doodon Buildings
     buildables:
     - DoodonDwelling
     - DoodonWarriorHut
@@ -195,7 +195,6 @@
         type: DoodonBuildMenuBoundUserInterface
       enum.StrippingUiKey.Key:  # Needed due to UI interference 
         type: StrippableBoundUserInterface
-      
   - type: ActionGrant
     actions:
       - ActionDoodonBuildSelect
@@ -231,6 +230,7 @@
   name: worker doodon
   description: The backbone of the Doodon village.
   components:
+  - type: Hands
   - type: Sprite
     drawdepth: SmallMobs
     layers:
@@ -312,6 +312,7 @@
   name: doodon warrior
   description: The arms of the Doodon village.  # Warriors work like Rat king rats. They have minds too simple to be controlled by the player.
   components:
+  - type: Hands
   - type: Physics
     bodyType: KinematicController
   - type: Doodon

@@ -8,12 +8,15 @@ namespace Content.Goobstation.Shared.Doodons;
 [RegisterComponent]
 public sealed partial class DoodonBuildingComponent : Component
 {
+    // Does this building provide housing for a specific doodon type
     [DataField]
     public DoodonHousingType HousingType = DoodonHousingType.None;
 
+    // How many doodons of a specific type can this building hold
     [DataField]
     public int HousingCapacity = 0;
 
+    // The town hall it's attatched to
     [ViewVariables]
     public EntityUid? TownHall;
 

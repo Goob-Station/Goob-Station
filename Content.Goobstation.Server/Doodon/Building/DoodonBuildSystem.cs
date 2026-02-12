@@ -37,7 +37,7 @@ public sealed class DoodonBuildSystem : EntitySystem
             return;
 
         var selected = builder.GetSelected();
-        if (selected is null)
+        if (selected is null)                                   // If they didn't select a structure
         {
             _popup.PopupEntity("Select a structure first.", performer, performer);
             return;
@@ -51,7 +51,7 @@ public sealed class DoodonBuildSystem : EntitySystem
         if (!TryGetBuildCost(selected.Value, out var cost))
             return;
 
-        if (cost > 0 && !TryConsumeResin(performer, cost))
+        if (cost > 0 && !TryConsumeResin(performer, cost))          // Consume required resin amount
         {
             var nameFail = _proto.TryIndex<EntityPrototype>(selected.Value, out var pFail)
                 ? pFail.Name
@@ -61,7 +61,7 @@ public sealed class DoodonBuildSystem : EntitySystem
             return;
         }
 
-        Spawn(selected.Value, coords);
+        Spawn(selected.Value, coords);                          // Place the building where selected
         args.Handled = true;
 
         var nameOk = _proto.TryIndex<EntityPrototype>(selected.Value, out var pOk)
