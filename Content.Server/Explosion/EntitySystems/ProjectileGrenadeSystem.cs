@@ -53,6 +53,11 @@ public sealed class ProjectileGrenadeSystem : EntitySystem
     /// </summary>
     private void OnFragTrigger(Entity<ProjectileGrenadeComponent> entity, ref TriggerEvent args)
     {
+        // Goob start - Shrapnel paylaods
+        if (args.Handled)
+            return;
+        // Goob end
+
         if (args.Key != entity.Comp.TriggerKey)
             return;
 
