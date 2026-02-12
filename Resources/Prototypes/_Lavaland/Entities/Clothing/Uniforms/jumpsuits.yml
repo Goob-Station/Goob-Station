@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitShaftMiner
+  name: shaft miner's jumpsuit
+  description: It's a snappy jumpsuit with a sturdy set of overalls. Looks a bit burnt.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Clothing/Uniforms/Jumpsuit/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Lavaland/Clothing/Uniforms/Jumpsuit/shaft_miner.rsi

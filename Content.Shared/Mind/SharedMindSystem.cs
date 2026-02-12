@@ -61,7 +61,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Common.Changeling; // Goobstation
+using Content.Goobstation.Common.Mind;
 using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -716,13 +716,14 @@ public abstract partial class SharedMindSystem : EntitySystem
             if (!TryGetMind(uid, out var mind, out var mindComp) || mind == exclude || !_mobState.IsAlive(uid, mobState))
                 continue;
 
-            // Goobstation: Skip IPCs from selections
-            if (excludeSilicon && HasComp<SiliconComponent>(uid))
-                continue;
+            // goob edit start - selection blocker event
+            var blockEv = new GetAntagSelectionBlockerEvent();
+            RaiseLocalEvent(uid, ref blockEv);
 
-            // Goobstation: Skip changelings from selections
-            if (excludeChangeling && HasComp<ChangelingComponent>(uid)) // TODO change to ChangelingIdentityComponent
+            if (excludeSilicon && blockEv.IsSilicon
+                || excludeChangeling && blockEv.IsChangeling)
                 continue;
+            // goob edit end
 
             allHumans.Add(new Entity<MindComponent>(mind, mindComp));
         }

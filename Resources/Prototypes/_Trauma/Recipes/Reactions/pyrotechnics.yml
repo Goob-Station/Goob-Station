@@ -1,0 +1,56 @@
+- type: reaction
+  id: Methanol
+  reactants:
+    Methane:
+      amount: 1
+    Water:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Methanol: 3
+
+- type: reaction
+  id: Hexamine
+  reactants:
+    Formaldehyde:
+      amount: 3
+    Ammonia:
+      amount: 2
+  products:
+    Hexamine: 5
+
+- type: reaction
+  id: Cyclonite
+  reactants:
+    Hexamine:
+      amount: 1
+    NitricAcid:
+      amount: 1
+  products:
+    Cyclonite: 2
+
+- type: reaction
+  id: AmmoniumNitrateFuelOil
+  reactants:
+    AmmoniumNitrate:
+      amount: 2
+    WeldingFuel:
+      amount: 1
+  products:
+    AmmoniumNitrateFuelOil: 2
+
+- type: reaction
+  id: Octogen
+  priority: 5 # god please let this react BEFORE cyclonite
+  reactants:
+    NitricAcid:
+      amount: 1
+    Vinegar:
+      amount: 1
+    AceticAnhydride:
+      amount: 1
+    Hexamine:
+      amount: 1
+  products:
+    Octogen: 4

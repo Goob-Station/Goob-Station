@@ -1,0 +1,157 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BasePKAUpgrade
+  parent: [BaseItem, BaseSecurityCargoContraband]
+  name: PKA modkit
+  description: A modkit for a proto-kinetic accelerator.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/upgrade.rsi
+  - type: Item
+    size: Small
+  - type: GunUpgrade
+  - type: StaticPrice
+    price: 750
+  - type: Tag
+    tags:
+    - PKAUpgrade
+
+- type: entity
+  id: PKAUpgradeDamage
+  parent: BasePKAUpgrade
+  name: PKA modkit (damage)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ec9b2d"
+    - state: overlay-2
+      color: "#a71010"
+    - state: overlay-3
+      color: "#eb4c13"
+  - type: GunUpgrade
+    name: gun-upgrade-damage-name
+  - type: GunUpgradeDamage
+    modifier: 1.25
+    #damage:
+    #  types:
+    #    Blunt: 10
+
+- type: entity
+  id: PKAUpgradeRange
+  parent: BasePKAUpgrade
+  name: PKA modkit (range)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#2decec"
+    - state: overlay-2
+      color: "#1012a7"
+    - state: overlay-3
+      color: "#1373eb"
+  - type: GunUpgrade
+    name: gun-upgrade-range-name
+  - type: GunUpgradeSpeed
+    coefficient: 1.5
+
+- type: entity
+  id: PKAUpgradeFireRate
+  parent: BasePKAUpgrade
+  name: PKA modkit (fire rate)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#bbf134"
+    - state: overlay-2
+      color: "#07901b"
+    - state: overlay-3
+      color: "#9bf134"
+  - type: GunUpgrade
+    name: gun-upgrade-reload-name
+  - type: GunUpgradeFireRate
+    coefficient: 1.5
+
+- type: entity
+  id: PKAUpgradePressure
+  parent: [BaseSyndicateContraband, BasePKAUpgrade]
+  name: PKA modkit (pressure)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ff4500"
+    - state: overlay-2
+      color: "#9b0000"
+    - state: overlay-3
+      color: "#ff4500"
+  - type: GunUpgrade
+    name: gun-upgrade-pressure-name
+    uniqueGroup: pressure
+  - type: GunUpgradePressure # Works almost everywhere now, yupie!
+    newLowerBound: 0
+    newUpperBound: 200
+
+- type: entity
+  id: PKAUpgradeSpace
+  parent: BasePKAUpgrade
+  name: PKA modkit (space)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ff00bf"
+    - state: overlay-2
+      color: "#a0038b"
+    - state: overlay-3
+      color: "#ff00bf"
+  - type: GunUpgrade
+    name: gun-upgrade-space-name
+    uniqueGroup: pressure
+  - type: GunUpgradePressure
+    newLowerBound: 0
+    newUpperBound: 10
+    newAppliedModifier: 1.5 # Basically 2 damage upgrades in 1
+  - type: Tag
+    tags:
+    - PKAUpgrade
+    - PKAUpgradeSpace
+
+- type: entityTable
+  id: ProtoKineticUpgrades
+  table: !type:GroupSelector
+    children:
+    - id: PKAUpgradeDamage
+    - id: PKAUpgradeRange
+    - id: PKAUpgradeFireRate
+    - id: PKAUpgradeSpace
+      weight: 0.6 # Not that useful

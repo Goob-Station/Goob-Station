@@ -49,10 +49,6 @@
   announcement: terror-grey-tide
   rule: GreyTideAntagMidround
 
-- type: ninjaHackingThreat
-  id: Revolutionary
-  announcement: terror-lone-operative
-  rule: RevolutionaryMidround
 
 #- type: ninjaHackingThreat
 #  id: Wraith

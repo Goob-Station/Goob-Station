@@ -137,9 +137,9 @@
             - material: Bones
               amount: 4
               doAfter: 2
-            - material: WebSilk
-              amount: 1
-              doAfter: 1
+            #- material: WebSilk # Lavaland Change - temporarily removed until a universal alternative is added
+            #  amount: 1
+            #  doAfter: 1
     - node: spear
       entity: SpearBone
 

@@ -196,3 +196,13 @@ ghost-role-information-santa-name = Santa Claus
 ghost-role-information-santa-description = Spread christmas cheer around the station!
 
 ghost-role-information-slasher-token = The Slasher (Token)
+ 
+ghost-role-information-sentientanimal-rules = You are a [color={role-type-sentient-animal-color}][bold]{role-type-sentient-animal-name}[/bold][/color]. You are a neutral animal who may act in self defense but otherwise not seek to harm crew.
+                                              You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                              You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc, however you are not knowledgeable in advanced roles.
+                                              You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+
+ghost-role-information-contractor-name = Syndicate Contractor
+ghost-role-information-contractor-token = Syndicate Contractor (Token)
+ghost-role-information-contractor-description = GET DA... tider..?
+contractor-role-greeting = You are a [color=#611b2b]Syndicate Contractor[/color], a bounty hunter, you are tasked with retreving targets from the station, dead or alive.

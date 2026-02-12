@@ -75,3 +75,25 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-slasher
+
+# Goobstation Sentient Animal PR # This role is intended for all animals who aren't explicitly an antag
+- type: entity
+  parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
+  id: MindRoleGhostRoleSentientAnimal
+  name: Ghost Role (SentientAnimal)
+  components:
+  - type: MindRole
+    roleType: SentientAnimal
+    sortWeight: 30
+    
+#contractor
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleContractor
+  name: Contractor Role
+  components:
+  - type: MindRole
+    antagPrototype: Contractor
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-contractor

@@ -31,7 +31,4 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> LavalandEnabled =
         CVarDef.Create("lavaland.enabled", true, CVar.SERVERONLY);
-
-    public static readonly CVarDef<bool> AllowDuplicatePkaModules =
-        CVarDef.Create("modkit.dupes_enabled", true, CVar.REPLICATED | CVar.SERVER);
 }

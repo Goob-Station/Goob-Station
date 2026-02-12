@@ -92,6 +92,50 @@
     },
     {
       "name": "boots"
+    },
+    {
+      "name": "equipped-HEAD-sealed-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-unshaded-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-sealed-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HAND-sealed-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HAND-sealed-unshaded-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HAND-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-FEET-sealed-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-FEET-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-FEET-sealed-unshaded-vox",
+      "directions": 4
     }
   ]
 }

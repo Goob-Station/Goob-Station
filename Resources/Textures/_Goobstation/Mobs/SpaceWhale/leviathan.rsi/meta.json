@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by Leguia(151045370229555200) on discord for Goobstation",
+  "size": {
+        "x": 96,
+        "y": 96
+  },
+  "states": [
+      {
+          "name": "head"
+      },
+      {
+          "name": "segment"
+      },
+      {
+          "name": "overlay"
+      }
+  ]
+}

@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -25,7 +26,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
 /// <summary>
-/// A <see cref="GunUpgradeComponent"/> for increasing the damage of a gun's projectile.
+/// Adds components when inserted and removes them when ejected from a weapon.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
 public sealed partial class GunUpgradeComponentsComponent : Component
