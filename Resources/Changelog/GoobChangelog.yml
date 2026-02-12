@@ -21216,3 +21216,9 @@ Entries:
       message: Changeling, Cosmic Cult, and other targetted abilities work again.
   id: 2407
   time: '2026-02-12T20:50:44.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Mining shuttle now produces enough power to sustain itself.
+  id: 2408
+  time: '2026-02-12T20:52:35.0000000+00:00'
