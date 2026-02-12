@@ -478,6 +478,9 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     private void OnStunEndAttempt(Entity<StunnedStatusEffectComponent> entity, ref StatusEffectRelayedEvent<StunEndAttemptEvent> args)
     {
+        if (args.Args.Cancelled)
+            return;
+
         var ev = args.Args;
         ev.Cancelled = true;
         args.Args = ev;
