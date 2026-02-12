@@ -21198,3 +21198,9 @@ Entries:
         misc improvements. 
   id: 2404
   time: '2026-02-12T15:33:47.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Cryopod no longer kills client.
+  id: 2405
+  time: '2026-02-12T17:23:05.0000000+00:00'
