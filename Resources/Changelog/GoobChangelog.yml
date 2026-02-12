@@ -21154,3 +21154,12 @@ Entries:
       message: Syndicate explosive payloads can now chain react! (Details in PR)
   id: 2398
   time: '2026-02-11T17:03:23.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Upstream is here and more upstream is to come. Check wizden changelog
+        for gameplay changes, any bugs you should report to the issues section
+        in github.
+  id: 2399
+  time: '2026-02-12T05:22:39.0000000+00:00'
