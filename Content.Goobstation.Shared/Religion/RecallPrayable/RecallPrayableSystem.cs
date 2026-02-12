@@ -110,21 +110,21 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
     private void RecallNullrod(Entity<NullrodComponent> nullrod, EntityUid user)
     {
-        switch (nullrod.Comp.SpecialState)
+        switch (nullrod.Comp.RecallType)
         {
-            case NullrodSpecialState.Normal:
+            case NullrodRecallType.Normal:
                 RecallNormal(nullrod, user);
                 break;
 
-            case NullrodSpecialState.Unremoveable:
+            case NullrodRecallType.Unremoveable:
                 RecallUnremoveable(nullrod, user);
                 break;
 
-            case NullrodSpecialState.DualWield:
+            case NullrodRecallType.DualWield:
                 RecallDualWield(nullrod, user);
                 break;
 
-            case NullrodSpecialState.Embedded:
+            case NullrodRecallType.Embedded:
                 RecallEmbedded(nullrod, user);
                 break;
 

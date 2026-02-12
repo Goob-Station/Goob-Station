@@ -214,7 +214,7 @@
     DamageOnUntrainedUse:
       types:
         Burn: 40
-    specialState: Unremoveable
+    recallType: Unremoveable
     UntrainedUseString: nullrod-godhand-untrained-usage-popup
   - type: Execution # It's not sharp per se, but who's against executing heretics with a giant flaming hand from god?
     doAfterDuration: 4.0
@@ -537,7 +537,7 @@
     DamageOnUntrainedUse:
       types:
         Blunt: 50
-    specialState: Unremoveable
+    recallType: Unremoveable
     UntrainedUseString: nullrod-uristhand-untrained-usage-popup
   - type: MeleeThrowOnHit
     distance: 1
@@ -566,7 +566,7 @@
     DamageOnUntrainedUse:
       types:
         Slash: 50
-    specialState: Unremoveable
+    recallType: Unremoveable
     UntrainedUseString: nullrod-chainsaw-untrained-usage-popup
   - type: Unremoveable
   - type: Sharp
@@ -618,7 +618,7 @@
     DamageOnUntrainedUse:
       types:
         Heat: 20
-    specialState: DualWield
+    recallType: DualWield
     UntrainedUseString: nullrod-pistol-untrained-usage-popup
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi
@@ -701,7 +701,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
   - type: Unremoveable
   - type: Nullrod
-    specialState: Unremoveable
+    recallType: Unremoveable
   - type: MeleeWeapon
     wideAnimationRotation: 90
     attackRate: 0.75
@@ -721,7 +721,7 @@
     DamageOnUntrainedUse:
       types:
         Piercing: 20
-    specialState: Embedded
+    recallType: Embedded
     UntrainedUseString: nullrod-spear-untrained-usage-popup
   - type: Item
     size: Large # Goob edit

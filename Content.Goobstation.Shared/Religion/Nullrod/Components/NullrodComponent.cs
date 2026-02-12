@@ -73,10 +73,10 @@ public sealed partial class NullrodComponent : Component
     /// Used to recall certain state of nullrod
     /// </summary>
     [DataField]
-    public NullrodSpecialState SpecialState = NullrodSpecialState.Normal;
+    public NullrodRecallType RecallType = NullrodRecallType.Normal;
 }
 
-public enum NullrodSpecialState
+public enum NullrodRecallType
 {
     Normal, //Nothing special
     Unremoveable, //e.g Hand of God
