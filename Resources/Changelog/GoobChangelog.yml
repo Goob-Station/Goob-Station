@@ -21210,3 +21210,9 @@ Entries:
       message: CQC legsweep now stands you up again.
   id: 2406
   time: '2026-02-12T20:50:13.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Changeling, Cosmic Cult, and other targetted abilities work again.
+  id: 2407
+  time: '2026-02-12T20:50:44.0000000+00:00'
