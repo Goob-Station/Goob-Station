@@ -16,7 +16,7 @@
   id: HellRipMoves
   combos:
   - DropKick
-  - HeadRip
+  #- HeadRip
   - Slam
   - TearDown
 

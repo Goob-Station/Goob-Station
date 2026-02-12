@@ -75,6 +75,8 @@
       types:
         Slash: 25
         Structural: 50
+      woundSeverityMultipliers:
+        Slash: 1.5
   - type: SlaughterDemon # main component
     speedModWalk: 2.5
     speedModRun: 2.5
@@ -211,8 +213,10 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 20 # No delimbs chudda
+        Slash: 20
         Structural: 50
+      woundSeverityMultipliers:
+        Slash: 0 # It's just a prank honk
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
