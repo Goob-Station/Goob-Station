@@ -120,3 +120,25 @@
       - ShowCrewPowerObjectiveFluff
       - DriveInsaneObjectiveFluff
       - SpreadBloodObjectiveFluff
+
+- type: entity
+  parent: LaughterDemonSummon
+  id: LaughterDemonMidround
+  components:
+  - type: StationEvent
+    weight: 1
+    earliestStart: 30
+    minimumPlayers: 50
+    duration: null
+    maxOccurrences: 1
+    chaos:
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 700
+  - type: Tag
+    tags:
+    - MidroundAntag
