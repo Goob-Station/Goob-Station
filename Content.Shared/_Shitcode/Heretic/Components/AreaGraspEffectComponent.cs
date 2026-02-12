@@ -16,5 +16,5 @@ public sealed partial class AreaGraspEffectComponent : Component
     public float FadeTime = 0.5f;
 
     [DataField]
-    public Color EffectColor = Color.FromHex("#cc66e6");
+    public Color EffectColor = Color.FromHex("#e88cff");
 }

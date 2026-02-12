@@ -1,3 +1,4 @@
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Map;
 
@@ -7,6 +8,7 @@ public sealed class CrucibleSoulStatusEffectSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly PullingSystem _pull = default!;
 
     public override void Initialize()
     {
@@ -28,6 +30,7 @@ public sealed class CrucibleSoulStatusEffectSystem : EntitySystem
         if (ent.Comp.Coords == null || TerminatingOrDeleted(args.Target))
             return;
 
+        _pull.StopAllPulls(args.Target);
         _transform.SetCoordinates(args.Target, ent.Comp.Coords.Value);
         _transform.AttachToGridOrMap(args.Target);
     }

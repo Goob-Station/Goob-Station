@@ -393,13 +393,20 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 {
                     if (HasComp<GhoulComponent>(target))
                     {
-                        _popup.PopupClient(Loc.GetString("heretic-ability-fail-target-ghoul"), user, user);
+                        _popup.PopupClient(Loc.GetString("heretic-ability-fail-target-ghoul"), target, user);
+                        break;
+                    }
+
+                    if (_net.IsClient) // Client can't see other minds
+                    {
+                        applyMark = false;
+                        triggerGrasp = false;
                         break;
                     }
 
                     if (!_mind.TryGetMind(target, out _, out _))
                     {
-                        _popup.PopupClient(Loc.GetString("heretic-ability-fail-target-no-mind"), user, user);
+                        _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-no-mind"), target, user);
                         break;
                     }
 

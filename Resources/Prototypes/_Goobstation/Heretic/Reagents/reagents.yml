@@ -75,6 +75,12 @@
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:ChemCleanBloodstream
         cleanseRate: 3
+        excluded:
+        - EldritchEssence
+        - CrucibleSoul
+        - DuskAndDawn
+        - WoundedSoldier
+        - NewbornEther
         conditions:
         - !type:HasComponentCondition
           components:

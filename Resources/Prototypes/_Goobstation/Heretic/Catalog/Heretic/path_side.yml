@@ -240,7 +240,7 @@
   name: knowledge-path-side-s6-grasp-name
   description: knowledge-path-side-s6-grasp-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: grasp_mind }
-  productHereticKnowledge: GraspTheirMinds
+  productHereticKnowledge: MindGrasp
   cost:
     KnowledgePoint: 1
   categories:

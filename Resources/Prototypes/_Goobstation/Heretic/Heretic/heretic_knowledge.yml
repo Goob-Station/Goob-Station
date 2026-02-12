@@ -592,7 +592,7 @@
   - ThroughTheBoundary
 
 - type: hereticKnowledge
-  id: GraspTheirMinds
+  id: MindGrasp
   sideKnowledge: true
   stage: 6
   event: !type:HereticGraspUpgradeEvent

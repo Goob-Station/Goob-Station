@@ -134,19 +134,19 @@ knowledge-path-side-s6-crucible-desc =
 
 knowledge-path-side-s6-sword-name = Through the Boundary
 knowledge-path-side-s6-sword-desc =
-    “There are no locked doors, no chained gates; no cages, no captives,”
+    “There are no locked doors, no sealed gates; no cages, no captives,”
     whispered the Steward, standing at the edge of the Well of Secrets.
     “Only those who stare too long into the abyss.”
     A moment's glance reveals the truth; a fixed stare unravels the mind.
     The dark power from below pierces like a sharpened sword.
     The veil is torn. The seal is broken.
 
-    Transmute 2 heretic blades, 2 bars of gold and 2 id cards to create Ragged Sword.
-    Ragged Sword deals moderate damage and has higher melee attack range.
-    More importantly, attacking with the sword will mark the target with a mark of any Path of Decay.
-    The sword cannot trigger the mark by itself - best use is in combination with heretic blade.
+    Transmute 2 heretic blades, 2 bars of gold and 2 ID cards to create Ragged Sword.
+    Ragged Sword deals moderate damage with increased melee attack range.
+    More importantly, attacking with the sword will mark the target with combat mark of any Path of Decay.
+    The sword cannot trigger the mark by itself - best used in combination with heretic blade.
 
-knowledge-path-side-s6-grasp-name = Grasp Their Minds
+knowledge-path-side-s6-grasp-name = Mind Grasp
 knowledge-path-side-s6-grasp-desc =
     You believe that your mind is fortresses.
     You picture walls of reason, towers of will, and a sanctum to which you hold the key.

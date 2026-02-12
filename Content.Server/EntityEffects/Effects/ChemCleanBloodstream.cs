@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Systems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -19,12 +20,16 @@ public sealed partial class ChemCleanBloodstream : EntityEffect
     [DataField]
     public float CleanseRate = 3.0f;
 
+    // Goob
+    [DataField]
+    public ProtoId<ReagentPrototype>[]? Excluded;
+
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-chem-clean-bloodstream", ("chance", Probability));
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        
+
         var cleanseRate = CleanseRate;
 
         var bloodstreamSys = args.EntityManager.System<BloodstreamSystem>();
@@ -35,11 +40,16 @@ public sealed partial class ChemCleanBloodstream : EntityEffect
                 return;
 
             cleanseRate *= reagentArgs.Scale.Float();
-            bloodstreamSys.FlushChemicals(args.TargetEntity, reagentArgs.Reagent.ID, cleanseRate);
+            // Goob start
+            if (Excluded is { } excluded)
+                bloodstreamSys.FlushChemicals(args.TargetEntity, cleanseRate, excluded);
+            else
+                bloodstreamSys.FlushChemicals(args.TargetEntity, reagentArgs.Reagent.ID, cleanseRate);
+            // Goob end
         }
         else
         {
-            bloodstreamSys.FlushChemicals(args.TargetEntity, "", cleanseRate);
+            bloodstreamSys.FlushChemicals(args.TargetEntity, cleanseRate, Excluded ?? []); // Goob
         }
     }
 }
