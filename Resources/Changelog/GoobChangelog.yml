@@ -21222,3 +21222,11 @@ Entries:
       message: Mining shuttle now produces enough power to sustain itself.
   id: 2408
   time: '2026-02-12T20:52:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Projectile grenades like the stinger will no longer immediately blow up
+        in hand.
+  id: 2409
+  time: '2026-02-12T20:58:33.0000000+00:00'
