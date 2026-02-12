@@ -32,9 +32,9 @@ public sealed class ParalyzeOnCollideSystem : EntitySystem
             return;
 
         if (component.ParalyzeOther && args.OtherEntity != null)
-            _stunSystem.TryParalyze(args.OtherEntity, component.ParalyzeTime, true);
+            _stunSystem.TryUpdateParalyzeDuration(args.OtherEntity, component.ParalyzeTime);
         if (component.ParalyzeSelf && uid != null)
-            _stunSystem.TryParalyze(uid, component.ParalyzeTime, true);
+            _stunSystem.TryUpdateParalyzeDuration(uid, component.ParalyzeTime);
 
         if (component.RemoveAfterCollide)
         {
