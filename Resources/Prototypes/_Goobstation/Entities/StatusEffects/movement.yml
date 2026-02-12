@@ -1,0 +1,31 @@
+# these are generic slowdowns we could make shit more interesting but thats not for me to do right now
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: SlasherSlowdownStatusEffect
+  name: slasher slowdown
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: TentacleSlowdownStatusEffect
+  name: tentacle slowdown
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: MartialArtsGenericSlowdownEffect
+  name: martial arts slowdown
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: OrgansDamagedSlowdownEffect
+  name: organ damage slowdown
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: ShadowCloakSlowdownEffect
+  name: shadow cloak slowdown
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: ShadowlingGlareSlowdownEffect
+  name: shadow ling glare slowdown
