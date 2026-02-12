@@ -90203,7 +90203,7 @@ entities:
     - type: Transform
       pos: -16.324766,5.808292
       parent: 2
-- proto: DVSmartFridgeMedical
+- proto: SmartFridgeMedical
   entities:
   - uid: 18109
     components:

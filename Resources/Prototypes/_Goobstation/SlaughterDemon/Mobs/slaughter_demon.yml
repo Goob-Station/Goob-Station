@@ -124,7 +124,7 @@
   - type: TypingIndicator
     proto: guardian
   - type: Gibbable
-  - type: LayingDown
+  - type: Crawler
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
