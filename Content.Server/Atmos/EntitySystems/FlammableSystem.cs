@@ -579,8 +579,8 @@ namespace Content.Server.Atmos.EntitySystems
             flammable.Resisting = true;
 
             _popup.PopupEntity(Loc.GetString("flammable-component-resist-message"), uid, uid);
-            // goob edit - stunmeta
-            _stunSystem.KnockdownOrStun(uid, TimeSpan.FromSeconds(2f), true);
+            //goob edit stunmeta or something
+            _stunSystem.KnockdownOrStun(uid, TimeSpan.FromSeconds(2f));
 
             // TODO FLAMMABLE: Make this not use TimerComponent...
             uid.SpawnTimer(2000, () =>
