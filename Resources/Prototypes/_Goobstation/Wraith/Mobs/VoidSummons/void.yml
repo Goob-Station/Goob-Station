@@ -161,7 +161,7 @@
   - type: SpikerShuffle
     statusEffectsToRemove:
     - Stun
-    # - KnockedDown #todo goob ts is no longer a statuseffect
+    - KnockedDown
     - Electrocution
     - SlowedDown
     - Stutter

@@ -43,10 +43,10 @@ public sealed class SprintingSystem : SharedSprintingSystem
             return;
         }
 
-        _stunSystem.TryKnockdown(uid, sprinter.KnockdownDurationOnInterrupt, false, true);
+        _stunSystem.TryKnockdown(uid, sprinter.KnockdownDurationOnInterrupt, false, DropHeldItemsBehavior.NoDrop);
         _stunSystem.TryKnockdown(otherUid,
             otherSprinter.KnockdownDurationOnInterrupt,
             false,
-            true);
+            DropHeldItemsBehavior.NoDrop);
     }
 }

@@ -12,20 +12,20 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Mousetrap;
 
-/// <summary>
-/// Component inteded to be used for mouse traps.
-/// Will stop step triggers from happening unless armed via <see cref="Item.ItemToggle.Components.ItemToggleComponent"/>
-/// and will scale damage taken from <see cref="Trigger.Components.Effects.DamageOnTriggerComponent"/>
-/// depending on mass.
-/// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class MousetrapComponent : Component
 {
+    [ViewVariables]
+    [DataField("isActive")]
+    public bool IsActive = false;
+
     /// <summary>
-    /// Set this to change where the
-    /// inflection point in the damage scaling
-    /// equation will occur.
+    ///     Set this to change where the
+    ///     inflection point in the scaling
+    ///     equation will occur.
+    ///     The default is 10.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("massBalance")]
     public int MassBalance = 10;
 }

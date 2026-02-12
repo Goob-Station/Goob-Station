@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.Speech;
 using Content.Server.Speech;
-using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Server.Speech;

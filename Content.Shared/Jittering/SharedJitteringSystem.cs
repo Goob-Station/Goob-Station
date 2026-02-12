@@ -69,7 +69,7 @@ namespace Content.Shared.Jittering
             amplitude = Math.Clamp(amplitude, MinAmplitude, MaxAmplitude);
             frequency = Math.Clamp(frequency, MinFrequency, MaxFrequency);
 
-            if (StatusEffects.TryAddStatusEffect<JitteringComponent>(uid, "Jitter", time, refresh, status)) //todo goobstation migrate jitter.
+            if (StatusEffects.TryAddStatusEffect<JitteringComponent>(uid, "Jitter", time, refresh, status))
             {
                 var jittering = Comp<JitteringComponent>(uid);
 

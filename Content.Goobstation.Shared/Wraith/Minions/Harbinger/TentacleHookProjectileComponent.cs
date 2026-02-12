@@ -10,7 +10,4 @@ public sealed partial class TentacleHookProjectileComponent : Component
 
     [ViewVariables]
     public EntityUid? Target;
-
-    [DataField]
-    public float SlowMultiplier = 0.3f;
 }

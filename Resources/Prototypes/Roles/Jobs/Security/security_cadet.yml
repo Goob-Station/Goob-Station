@@ -112,8 +112,8 @@
   canBeAntag: false
   guides: # goobstation
   - Security
-  - OfficerCadetSOP
-  - SearchesSOP
+  - OfficerCadet SOP
+  - Searches SOP
   goobcoins: 30 #Goob content
   access:
   - Security

@@ -197,7 +197,7 @@ public sealed class GhoulSystem : EntitySystem
             _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth * 0.99f, MobState.Critical, th);
         }
 
-        _mind.MakeSentient(ent);
+        MakeSentientCommand.MakeSentient(ent, EntityManager);
 
         if (!hasMind)
         {

@@ -79,7 +79,7 @@
   guides: # goobstation
   - Forensics
   - Security
-  - DetectiveSOP
+  - Detective SOP
   goobcoins: 30 #Goob content
   access:
   - Security

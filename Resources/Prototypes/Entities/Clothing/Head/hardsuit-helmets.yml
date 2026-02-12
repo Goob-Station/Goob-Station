@@ -318,7 +318,6 @@
     - CorgiWearable
     - WhitelistChameleon
 
-#Goliath Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitGoliath
@@ -381,7 +380,6 @@
     - CorgiWearable
     - WhitelistChameleon
 
-#Maxim Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitMaxim
@@ -1104,10 +1102,6 @@
       head:
       - state: equipped-head
       - state: equipped-head-unshaded
-        shader: unshaded
-      head-vox:
-      - state: equipped-head-vox
-      - state: equipped-head-unshaded-vox
         shader: unshaded
   - type: PointLight
     color: orange

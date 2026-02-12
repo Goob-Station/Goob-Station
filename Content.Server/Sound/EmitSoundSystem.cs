@@ -54,6 +54,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Sound.Components;
 using Content.Shared.Sound;
 using Content.Shared.Sound.Components;
 using Robust.Shared.Timing;
@@ -91,7 +92,14 @@ public sealed class EmitSoundSystem : SharedEmitSoundSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EmitSoundOnTriggerComponent, TriggerEvent>(HandleEmitSoundOnTrigger);
         SubscribeLocalEvent<SpamEmitSoundComponent, MapInitEvent>(HandleSpamEmitSoundMapInit);
+    }
+
+    private void HandleEmitSoundOnTrigger(EntityUid uid, EmitSoundOnTriggerComponent component, TriggerEvent args)
+    {
+        TryEmitSound(uid, component, args.User, false);
+        args.Handled = true;
     }
 
     private void HandleSpamEmitSoundMapInit(Entity<SpamEmitSoundComponent> entity, ref MapInitEvent args)

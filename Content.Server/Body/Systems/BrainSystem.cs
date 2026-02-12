@@ -22,17 +22,15 @@
 
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
-using Content.Goobstation.Common.Changeling;
-using Content.Shared.Body.Components;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Common.Body;
 
@@ -105,14 +103,15 @@ namespace Content.Server.Body.Systems
             if (TerminatingOrDeleted(newEntity) || TerminatingOrDeleted(oldEntity))
                 return;
 
-        EnsureComp<MindContainerComponent>(newEntity);
-        EnsureComp<MindContainerComponent>(oldEntity);
+            EnsureComp<MindContainerComponent>(newEntity);
+            EnsureComp<MindContainerComponent>(oldEntity);
 
-        var ghostOnMove = EnsureComp<GhostOnMoveComponent>(newEntity);
-        ghostOnMove.MustBeDead = HasComp<MobStateComponent>(newEntity); // Don't ghost living players out of their bodies.
+            var ghostOnMove = EnsureComp<GhostOnMoveComponent>(newEntity);
+            if (HasComp<BodyComponent>(newEntity))
+                ghostOnMove.MustBeDead = true;
 
-        if (!_mindSystem.TryGetMind(oldEntity, out var mindId, out var mind))
-            return;
+            if (!_mindSystem.TryGetMind(oldEntity, out var mindId, out var mind))
+                return;
 
             _mindSystem.TransferTo(mindId, newEntity, mind: mind);
             if (brain != null)

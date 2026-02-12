@@ -175,9 +175,8 @@
   - type: SolutionContainerVisuals
     fillBaseName: syndie-
   - type: Slippery
-    staminaDamage: 50
     slipData:
-      knockdownTime: 3
+      paralyzeTime: 3
       launchForwardsMultiplier: 3
   - type: Item
     heldPrefix: syndie
@@ -204,6 +203,9 @@
     layers:
     - state: syndie-soaplet
   - type: Slippery
+    slipData:
+      paralyzeTime: 1.5 # these things are tiny
+      launchForwardsMultiplier: 1.5
   - type: StepTrigger
     intersectRatio: 0.04
     triggerGroups: # Goobstation
@@ -229,12 +231,10 @@
         - ItemMask
   - type: DeleteOnTrigger
   - type: EmitSoundOnTrigger
-    predicted: true
-    positional: true
     sound:
       path: "/Audio/Effects/Fluids/splat.ogg"
       params:
-        volume: -8
+        volume: -20
 
 - type: entity
   name: soap
@@ -276,9 +276,8 @@
   - type: SolutionContainerVisuals
     fillBaseName: omega-
   - type: Slippery
-    staminaDamage: 50
     slipData:
-      knockdownTime: 5.0
+      paralyzeTime: 5.0
       launchForwardsMultiplier: 3.0
   - type: Item
     heldPrefix: omega

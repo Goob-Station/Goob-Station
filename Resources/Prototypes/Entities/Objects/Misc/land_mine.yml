@@ -84,8 +84,7 @@
   name: kick mine
   parent: BaseLandMine
   components:
-  - type: GhostKickOnTrigger
-    targetUser: true
+  - type: GhostKickUserOnTrigger
   - type: DeleteOnTrigger
 
 - type: entity

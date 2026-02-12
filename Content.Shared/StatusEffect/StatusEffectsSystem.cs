@@ -406,10 +406,15 @@ namespace Content.Shared.StatusEffect
             if (!Resolve(uid, ref status, false))
                 return false;
 
-            var ev = new BeforeOldStatusEffectAddedEvent(key);
-            RaiseLocalEvent(uid, ref ev);
-            if (ev.Cancelled)
-                return false;
+            // Goob edit start
+            if (raiseEvent)
+            {
+                var ev = new OldBeforeStatusEffectAddedEvent(key);
+                RaiseLocalEvent(uid, ref ev);
+                if (ev.Cancelled)
+                    return false;
+            }
+            // Goob edit end
 
             if (!_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto))
                 return false;
@@ -535,11 +540,10 @@ namespace Content.Shared.StatusEffect
     }
 
     /// <summary>
-    /// Raised on an entity before a status effect is added to determine if adding it should be cancelled.
-    /// Obsolete version of <see cref="BeforeStatusEffectAddedEvent" />
+    /// Goob edit
     /// </summary>
-    [ByRefEvent, Obsolete("Migration to StatusEffectNew.StatusEffectsSystem is required")]
-    public record struct BeforeOldStatusEffectAddedEvent(string EffectKey, bool Cancelled = false);
+    [ByRefEvent]
+    public record struct OldBeforeStatusEffectAddedEvent(string Key, bool Cancelled=false);
 
     public readonly struct StatusEffectAddedEvent
     {

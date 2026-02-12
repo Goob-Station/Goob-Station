@@ -181,16 +181,13 @@
   - type: Sprite
     state: produce
   # let cows eat raw produce like wheat and oats
-  - type: Edible
-    requiresSpecialDigestion: true
+  - type: Food
+    requiredStomachs: 2
   - type: Produce
   - type: PotencyVisuals
   - type: Appearance
   - type: Extractable
     grindableSolutionName: food
-  - type: Tag
-    tags:
-    - Ruminant
 
 # For produce that can be immediately eaten
 
@@ -231,7 +228,6 @@
   - type: Tag
     tags:
     - Wheat
-    - Ruminant
 
 - type: entity
   name: meatwheat bushel
@@ -351,7 +347,15 @@
   - type: Tag
     tags:
     - Vegetable
-    - Ruminant
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/laughin_pea.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-content-pea
+      taco:
+        name: food-sequence-content-pea
 
 - type: entity
   name: tower-cap log
@@ -418,7 +422,7 @@
   - type: Produce
     seedId: nettle
   - type: MeleeChemicalInjector
-    transferAmount: 3 #TODO someone you would need 2 nettles and about 6-7 hits, the DOT is likely to crit them if they are running away with almost no health
+    transferAmount: 3 #To OD someone you would need 2 nettles and about 6-7 hits, the DOT is likely to crit them if they are running away with almost no health
     solution: food
     pierceArmor: false
   - type: Extractable
@@ -499,7 +503,7 @@
   - type: FlavorProfile
     flavors:
       - banana
-  - type: Edible
+  - type: Food
     trash:
     - TrashBananaPeel
   - type: SolutionContainerManager
@@ -527,11 +531,15 @@
     - Fruit
     - Banana
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/banana.rsi
+      state: produce
     entries:
-      Burger: Banana
-      Taco: Banana
-  #Goobstation Start
-  - type: Healing
+      burger:
+        name: food-sequence-content-banana
+      taco:
+        name: food-sequence-content-banana
+  - type: Healing #Goobstation - Clowncar
     damageContainers:
       - ClowncarDamageContainer
     damage:
@@ -544,7 +552,6 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
-  #Goobstation End
 
 - type: entity
   name: mimana
@@ -556,7 +563,7 @@
     flavors:
       - banana
       - nothing
-  - type: Edible
+  - type: Food
     trash:
     - TrashMimanaPeel
   - type: SolutionContainerManager
@@ -585,9 +592,14 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/mimana.rsi
+      state: produce
     entries:
-      Burger: Mimana
-      Taco: Mimana
+      burger:
+        name: food-sequence-content-mimana
+      taco:
+        name: food-sequence-content-mimana
 
 - type: entity
   name: banana peel
@@ -631,7 +643,6 @@
     - Recyclable
     - Trash
     - BananaPeel
-    - Ruminant
     - WhitelistChameleon
     - HamsterWearable
     - RotHulkTrash # Goobstation - Wraith
@@ -645,7 +656,7 @@
   - type: Extractable
     grindableSolutionName: food
   - type: SpaceGarbage
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: Clothing
     sprite: Objects/Specific/Hydroponics/banana.rsi
@@ -753,9 +764,14 @@
       - ReagentId: Oculine
         Quantity: 2
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/carrot.rsi
+      state: produce
     entries:
-      Burger: CarrotBurger
-      Taco: Carrot
+      burger:
+        name: food-sequence-burger-content-carrot
+      taco:
+        name: food-sequence-content-carrot
 
 - type: entity
   name: cabbage
@@ -785,9 +801,14 @@
     tags:
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/cabbage.rsi
+      state: produce
     entries:
-      Burger: CabbageBurger
-      Taco: Cabbage
+      burger:
+        name: food-sequence-burger-content-cabbage
+      taco:
+        name: food-sequence-content-cabbage
 
 - type: entity
   name: garlic
@@ -817,9 +838,14 @@
     tags:
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/garlic.rsi
+      state: produce
     entries:
-      Burger: GarlicBurger
-      Taco: Garlic
+      burger:
+        name: food-sequence-burger-content-garlic
+      taco:
+        name: food-sequence-content-garlic
 
 - type: entity
   name: lemon
@@ -855,9 +881,14 @@
     - Lemon
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/lemon.rsi
+      state: produce
     entries:
-      Burger: Lemon
-      Taco: Lemon
+      burger:
+        name: food-sequence-content-lemon
+      taco:
+        name: food-sequence-content-lemon
 
 - type: entity
   name: lemoon
@@ -892,9 +923,14 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/lemoon.rsi
+      state: produce
     entries:
-      Burger: Lemoon
-      Taco: Lemoon
+      burger:
+        name: food-sequence-content-lemoon
+      taco:
+        name: food-sequence-content-lemoon
 
 - type: entity
   name: lime
@@ -921,9 +957,14 @@
     - Lime
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/lime.rsi
+      state: produce
     entries:
-      Burger: Lime
-      Taco: Lime
+      burger:
+        name: food-sequence-content-lime
+      taco:
+        name: food-sequence-content-lime
 
 - type: entity
   name: orange
@@ -949,9 +990,14 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/orange.rsi
+      state: produce
     entries:
-      Burger: Orange
-      Taco: Orange
+      burger:
+        name: food-sequence-content-orange
+      taco:
+        name: food-sequence-content-orange
 
 - type: entity
   name: extradimensional orange
@@ -1064,9 +1110,14 @@
     - Potato
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/potato.rsi
+      state: produce
     entries:
-      Burger: Potato
-      Taco: Potato
+      burger:
+        name: food-sequence-content-potato
+      taco:
+        name: food-sequence-content-potato
 
 
 - type: entity
@@ -1126,10 +1177,19 @@
     - Fruit
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/tomato.rsi
+      state: produce
     entries:
-      Skewer: TomatoSkewer
-      Burger: Tomato
-      Taco: Tomato
+      burger:
+        name: food-sequence-content-tomato
+      taco:
+        name: food-sequence-content-tomato
+      skewer:
+        name: food-sequence-content-tomato
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-tomato
 
 - type: entity
   name: blue tomato
@@ -1178,9 +1238,14 @@
     - Fruit
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/blue_tomato.rsi
+      state: produce
     entries:
-      Burger: BlueTomato
-      Taco: BlueTomato
+      burger:
+        name: food-sequence-content-tomato
+      taco:
+        name: food-sequence-content-tomato
 
 - type: entity
   name: blood tomato
@@ -1227,10 +1292,19 @@
     - Fruit # Fuck you they're a fruit
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/blood_tomato.rsi
+      state: produce
     entries:
-      Skewer: TomatoSkewer
-      Burger: BloodTomato
-      Taco: BloodTomato
+      burger:
+        name: food-sequence-content-tomato
+      taco:
+        name: food-sequence-content-tomato
+      skewer:
+        name: food-sequence-content-tomato
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-tomato
 
 - type: entity
   name: eggplant
@@ -1294,9 +1368,14 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/apple.rsi
+      state: produce
     entries:
-      Burger: Apple
-      Taco: Apple
+      burger:
+        name: food-sequence-content-apple
+      taco:
+        name: food-sequence-content-apple
 
 - type: entity
   name: golden apple
@@ -1336,9 +1415,14 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/golden_apple.rsi
+      state: produce
     entries:
-      Burger: GoldenApple
-      Taco: GoldenApple
+      burger:
+        name: food-sequence-content-apple
+      taco:
+        name: food-sequence-content-apple
 
 - type: entity
   name: cocoa pod
@@ -1372,6 +1456,15 @@
   - type: Tag
     tags:
     - Fruit
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/cocoa.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-content-cocoa
+      taco:
+        name: food-sequence-content-cocoa
 
 - type: entity
   name: ear of corn
@@ -1382,7 +1475,7 @@
   - type: FlavorProfile
     flavors:
       - corn
-  - type: Edible
+  - type: Food
     trash:
     - FoodCornTrash
   - type: SolutionContainerManager
@@ -1411,10 +1504,19 @@
       - ReagentId: Enzyme
         Quantity: 2
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/corn.rsi
+      state: produce
     entries:
-      Burger: Corn
-      Taco: Corn
-      Skewer: CornSkewer
+      burger:
+        name: food-sequence-content-corn
+      taco:
+        name: food-sequence-content-corn
+      skewer:
+        name: food-sequence-content-corn
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-corn
 
 - type: entity
   name: corn cob
@@ -1437,6 +1539,15 @@
         reagents:
         - ReagentId: Cornmeal
           Quantity: 10
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/corn.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-content-corn
+      taco:
+        name: food-sequence-content-corn
 
 - type: entity
   name: onion
@@ -1470,6 +1581,15 @@
   - type: Tag
     tags:
     - Vegetable
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/onion.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-burger-content-onion
+      taco:
+        name: food-sequence-content-onion
 
 - type: entity
   name: red onion
@@ -1503,6 +1623,15 @@
   - type: Tag
     tags:
     - Vegetable
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/onion_red.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-burger-content-onion
+      taco:
+        name: food-sequence-content-onion
 
 - type: entity
   name: chanterelle cluster
@@ -1525,6 +1654,21 @@
   - type: Tag
     tags:
     - Vegetable
+    - Mushroom
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/chanterelle.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-content-mushroom
+      taco:
+        name: food-sequence-content-mushroom
+      skewer:
+        name: food-sequence-content-mushroom
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-mushroom
 
 # Slices
 
@@ -1569,9 +1713,14 @@
     - Fruit
     - Slice
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/pineapple.rsi
+      state: slice
     entries:
-      Burger: PineappleSliceBurger
-      Taco: PineappleSlice
+      burger:
+        name: food-sequence-burger-content-pineapple
+      taco:
+        name: food-sequence-content-pineapple
 
 - type: entity
   name: onion slice
@@ -1600,9 +1749,14 @@
     - Vegetable
     - Slice
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/onion.rsi
+      state: slice
     entries:
-      Burger: OnionSliceBurger
-      Taco: OnionSlice
+      burger:
+        name: food-sequence-burger-content-onion
+      taco:
+        name: food-sequence-content-onion
 
 - type: entity
   name: red onion slice
@@ -1631,9 +1785,14 @@
     - Vegetable
     - Slice
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/onion_red.rsi
+      state: slice
     entries:
-      Burger: OnionRedSliceBurger
-      Taco: OnionRedSlice
+      burger:
+        name: food-sequence-burger-content-onion
+      taco:
+        name: food-sequence-content-onion
 
 - type: entity
   name: chili pepper
@@ -1665,10 +1824,19 @@
     tags:
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/chili.rsi
+      state: produce
     entries:
-      Taco: ChiliPepper
-      Burger: ChiliPepper
-      Skewer: ChiliPepperSkewer
+      burger:
+        name: food-sequence-content-chili
+      taco:
+        name: food-sequence-content-chili
+      skewer:
+        name: food-sequence-content-chili
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-pepper
 
 - type: entity
   name: chilly pepper
@@ -1698,10 +1866,19 @@
   - type: Produce
     seedId: chilly
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/chilly.rsi
+      state: produce
     entries:
-      Taco: ChillyPepper
-      Burger: ChillyPepper
-      Skewer: ChillyPepperSkewer
+      burger:
+        name: food-sequence-content-chilly
+      taco:
+        name: food-sequence-content-chilly
+      skewer:
+        name: food-sequence-content-chilly
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-bluepepper
 
 - type: entity
   name: aloe
@@ -1733,9 +1910,14 @@
     tags:
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/aloe.rsi
+      state: produce
     entries:
-      Taco: Aloe
-      Burger: Aloe
+      burger:
+        name: food-sequence-content-aloe
+      taco:
+        name: food-sequence-content-aloe
 
 - type: entity
   name: poppy
@@ -1772,9 +1954,14 @@
     - Flower # TODO add "RedFlower" or "Poppy" tag, when other color flowers will be
     - Poppy # goob edit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/poppy.rsi
+      state: produce
     entries:
-      Taco: Poppy
-      Burger: Poppy
+      burger:
+        name: food-sequence-content-poppy
+      taco:
+        name: food-sequence-content-poppy
 
 - type: entity
   name: lily
@@ -1804,9 +1991,14 @@
     tags:
     - Flower
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/lily.rsi
+      state: produce
     entries:
-      Taco: Lily
-      Burger: Lily
+      burger:
+        name: food-sequence-content-lily
+      taco:
+        name: food-sequence-content-lily
 
 - type: entity
   name: lingzhi
@@ -1836,9 +2028,22 @@
   - type: Extractable
     grindableSolutionName: food
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/lingzhi.rsi
+      state: produce
     entries:
-      Taco: Lingzhi
-      Burger: Lingzhi
+      burger:
+        name: food-sequence-content-mushroom
+      taco:
+        name: food-sequence-content-mushroom
+      skewer:
+        name: food-sequence-content-mushroom
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-mushroom
+  - type: Tag
+    tags:
+    - Mushroom
 
 - type: entity
   name: ambrosia vulgaris
@@ -1882,8 +2087,11 @@
     - Ambrosia
   - type: FoodSequenceElement
     entries:
-      Taco: AmbrosiaVulgaris
-      Burger: AmbrosiaVulgarisBurger
+      burger:
+        name: food-sequence-burger-content-ambrosia
+        sprite:
+          sprite: Objects/Specific/Hydroponics/ambrosia_vulgaris.rsi
+          state: produce
 
 - type: entity
   name: ambrosia deus
@@ -1924,9 +2132,14 @@
     tags:
     - Ambrosia
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/ambrosia_deus.rsi
+      state: produce
     entries:
-      Taco: AmbrosiaDeus
-      Burger: AmbrosiaDeusBurger
+      burger:
+        name: food-sequence-burger-content-ambrosia
+      taco:
+        name: food-sequence-content-ambrosia
 
 - type: entity
   name: galaxythistle
@@ -1957,9 +2170,14 @@
     - Galaxythistle
     - Fruit # Probably?
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
+      state: produce
     entries:
-      Taco: Galaxythistle
-      Burger: GalaxythistleBurger
+      burger:
+        name: food-sequence-burger-content-galaxy
+      taco:
+        name: food-sequence-content-galaxy
 
 - type: entity
   name: glasstle
@@ -2025,9 +2243,14 @@
     tags:
     - Galaxythistle
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/glasstle.rsi
+      state: produce
     entries:
-      Taco: Glasstle
-      Burger: GlasstleBurger
+      burger:
+        name: food-sequence-burger-content-glasstle
+      taco:
+        name: food-sequence-content-glasstle
 
 - type: entity
   name: fly amanita
@@ -2057,9 +2280,22 @@
     grindableSolutionName: food
   - type: BadFood
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/fly_amanita.rsi
+      state: produce
     entries:
-      Taco: FlyAmanita
-      Burger: FlyAmanita
+      burger:
+        name: food-sequence-content-mushroom
+      taco:
+        name: food-sequence-content-mushroom
+      skewer:
+        name: food-sequence-content-mushroom
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-mushroom
+  - type: Tag
+    tags:
+    - Mushroom
 
 - type: entity
   name: gatfruit
@@ -2083,16 +2319,21 @@
     sprite: Objects/Specific/Hydroponics/gatfruit.rsi
   - type: Produce
     seedId: gatfruit
-  - type: Edible
+  - type: Food
     trash:
     - WeaponRevolverPython
   - type: Tag
     tags:
     - Fruit # It's in the name
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/gatfruit.rsi
+      state: produce
     entries:
-      Taco: Gatfruit
-      Burger: GatfruitBurger
+      burger:
+        name: food-sequence-burger-content-gatfruit
+      taco:
+        name: food-sequence-content-gatfruit
 
 - type: entity
   name: capfruit
@@ -2118,16 +2359,21 @@
     heldPrefix: produce
   - type: Produce
     seedId: realCapfruit
-  - type: Edible
+  - type: Food
     trash:
     - RevolverCapGun
   - type: Tag
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/capfruit.rsi
+      state: produce
     entries:
-      Taco: Capfruit
-      Burger: CapfruitBurger
+      burger:
+        name: food-sequence-burger-content-capfruit
+      taco:
+        name: food-sequence-content-capfruit
 
 - type: entity
   name: capfruit
@@ -2137,7 +2383,7 @@
   components:
   - type: Produce
     seedId: fakeCapfruit
-  - type: Edible
+  - type: Food
     trash:
     - RevolverCapGunFake
 
@@ -2186,9 +2432,14 @@
     tags:
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/soybeans.rsi
+      state: produce
     entries:
-      Taco: Soybeans
-      Burger: SoybeansBurger
+      burger:
+        name: food-sequence-content-soy
+      taco:
+        name: food-sequence-content-soy
 
 - type: entity
   name: spaceman's trumpet
@@ -2220,9 +2471,14 @@
   - type: Instrument #hehe trumpet
     program: 56
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
+      state: produce
     entries:
-      Taco: SpacemansTrumpet
-      Burger: SpacemansTrumpetBurger
+      burger:
+        name: food-sequence-burger-content-spacemans-trumpet
+      taco:
+        name: food-sequence-content-spacemans-trumpet
 
 - type: entity
   name: koibean
@@ -2252,9 +2508,14 @@
     tags:
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/koibean.rsi
+      state: produce
     entries:
-      Taco: Koibean
-      Burger: KoibeanBurger
+      burger:
+        name: food-sequence-burger-content-koibean
+      taco:
+        name: food-sequence-content-koibean
 
 - type: entity
   name: watermelon
@@ -2353,10 +2614,14 @@
     - Fruit
     - Slice
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/watermelon.rsi
+      state: slice
     entries:
-      Burger: WatermelonSliceBurger
-      Taco: WatermelonSlice
-      Skewer: WatermelonSliceSkewer
+      burger:
+        name: food-sequence-burger-content-watermelon
+      taco:
+        name: food-sequence-content-watermelon
 
 - type: entity
   name: holymelon
@@ -2523,9 +2788,14 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/berries.rsi
+      state: produce
     entries:
-      Taco: Berries
-      Burger: BerriesBurger
+      burger:
+        name: food-sequence-burger-content-berries
+      taco:
+        name: food-sequence-content-berries
 
 - type: entity
   name: bungo fruit
@@ -2536,7 +2806,7 @@
   - type: FlavorProfile
     flavors:
       - bungo
-  - type: Edible
+  - type: Food
     trash:
     - FoodBungoPit
   - type: SolutionContainerManager
@@ -2561,9 +2831,14 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/bungo.rsi
+      state: produce
     entries:
-      Taco: Bungo
-      Burger: Bungo
+      burger:
+        name: food-sequence-content-bungo
+      taco:
+        name: food-sequence-content-bungo
 
 - type: entity
   name: bungo pit
@@ -2621,9 +2896,14 @@
     tags:
     - Vegetable
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/pea.rsi
+      state: produce
     entries:
-      Taco: Pea
-      Burger: Pea
+      burger:
+        name: food-sequence-content-pea
+      taco:
+        name: food-sequence-content-pea
 
 - type: entity
   parent: FoodProduceBase
@@ -2767,7 +3047,7 @@
   - type: FlavorProfile
     flavors:
       - cotton
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -2784,9 +3064,6 @@
     tags:
     - ClothMade
     - CottonBoll
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: CottonBol
 
 - type: entity
   name: pyrotton boll
@@ -2799,7 +3076,7 @@
   - type: FlavorProfile
     flavors:
       - pyrotton
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -2820,9 +3097,6 @@
     - CottonBoll
   - type: Extractable
     grindableSolutionName: food
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: PyrottonBol
 
 - type: entity
   name: cherry
@@ -2833,7 +3107,7 @@
   - type: FlavorProfile
     flavors:
       - cherry
-  - type: Edible
+  - type: Food
     trash:
     - TrashCherryPit
   - type: SolutionContainerManager
@@ -2858,9 +3132,14 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+      state: produce
     entries:
-      Taco: Cherry
-      Burger: Cherry
+      burger:
+        name: food-sequence-content-cherry
+      taco:
+        name: food-sequence-content-cherry
 
 - type: entity
   name: cherry pit
@@ -2873,7 +3152,6 @@
   - type: Item
     sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
     heldPrefix: pit
-    size: Tiny
   - type: Tag
     tags:
     - Recyclable
@@ -2908,7 +3186,7 @@
     heldPrefix: produce
   - type: Produce
     seedId: anomalyBerry
-  - type: Edible
+  - type: Food
     trash:
     - EffectAnomalyFloraBulb # Random loot
   - type: SolutionContainerManager
@@ -2926,81 +3204,11 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
+      state: produce
     entries:
-      Taco: AnomalyBerry
-      Burger: AnomalyBerryBurger
-
-- type: entity
-  name: bloonion bulb
-  description: A strange floating bulb.. Nothing worth crying over.
-  parent: BaseStructureDynamic
-  id: FoodBloonion
-  components:
-  - type: Appearance
-  - type: Sprite
-    drawdepth: Items
-    noRot: true
-    sprite: Objects/Specific/Hydroponics/bloonion.rsi
-    state: produce
-  - type: Item
-    size: Small
-    sprite: Objects/Specific/Hydroponics/bloonion.rsi
-    heldPrefix: produce
-  - type: Produce
-    seedId: bloonion
-  - type: Tag
-    tags:
-    - Vegetable
-  - type: PotencyVisuals
-  - type: FlavorProfile
-    flavors:
-    - onion
-    - strange
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 7
-        canReact: false
-        reagents:
-        - ReagentId: Potassium
-          Quantity: 1
-        - ReagentId: Phosphorus
-          Quantity: 1
-        - ReagentId: Sugar
-          Quantity: 1
-        - ReagentId: Allicin
-          Quantity: 4
-  - type: Extractable
-    grindableSolutionName: food
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 0.001
-    intensitySlope: 1
-    totalIntensity: 0.1
-  - type: Damageable
-    damageContainer: Biological
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1
-      behaviors:
-      - !type:SpillBehavior
-        solution: food
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.20
-          position: 0, 0.35
-        density: 80
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+      burger:
+        name: food-sequence-content-anomaly-berry
+      taco:
+        name: food-sequence-content-anomaly-berry

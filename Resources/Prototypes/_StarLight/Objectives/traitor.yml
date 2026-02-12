@@ -43,9 +43,4 @@
     unique: true
   - type: TargetObjective
     title: objective-condition-teach-lesson-title
-  - type: PickRandomPerson
-    filters:
-    - !type:BodyMindFilter
-      whitelist:
-        components:
-        - CommandStaff
+  - type: PickRandomHead

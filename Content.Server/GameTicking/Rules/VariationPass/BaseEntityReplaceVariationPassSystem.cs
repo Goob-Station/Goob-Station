@@ -65,7 +65,7 @@ public abstract class BaseEntityReplaceVariationPassSystem<TEntComp, TGameRuleCo
             Transform(newEnt).LocalRotation = rot;
         }
 
-        Log.Debug($"Entity replacement took {stopwatch.Elapsed} with {Stations.GetTileCount(args.Station.AsNullable())} tiles");
+        Log.Debug($"Entity replacement took {stopwatch.Elapsed} with {Stations.GetTileCount(args.Station)} tiles");
     }
 
     private void QueueReplace(Entity<TransformComponent> ent, List<EntitySpawnEntry> replacements)

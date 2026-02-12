@@ -65,8 +65,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
             _actionsSystem.AddAction(component.ImplantedEntity.Value, ref component.Action, component.ImplantAction, uid);
         }
 
-        // replace micro bomb with macro bomb
-        // TODO: this shouldn't be hardcoded here
+        //replace micro bomb with macro bomb
         if (_container.TryGetContainer(component.ImplantedEntity.Value, ImplanterComponent.ImplantSlotId, out var implantContainer) && _tag.HasTag(uid, MacroBombTag))
         {
             foreach (var implant in implantContainer.ContainedEntities)
@@ -206,7 +205,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (!_container.TryGetContainer(uid, ImplanterComponent.ImplantSlotId, out var implantContainer))
             return;
 
-        var relayEv = new ImplantRelayEvent<T>(args, uid);
+        var relayEv = new ImplantRelayEvent<T>(args);
         foreach (var implant in implantContainer.ContainedEntities)
         {
             if (args is HandledEntityEventArgs { Handled : true })
@@ -221,12 +220,9 @@ public sealed class ImplantRelayEvent<T> where T : notnull
 {
     public readonly T Event;
 
-    public readonly EntityUid ImplantedEntity;
-
-    public ImplantRelayEvent(T ev, EntityUid implantedEntity)
+    public ImplantRelayEvent(T ev)
     {
         Event = ev;
-        ImplantedEntity = implantedEntity;
     }
 }
 

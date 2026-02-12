@@ -123,7 +123,7 @@ public sealed class CluwneSystem : EntitySystem
         else if (_robustRandom.Prob(component.KnockChance))
         {
             _audio.PlayPvs(component.KnockSound, uid);
-            _stunSystem.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(component.ParalyzeTime));
+            _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(component.ParalyzeTime), true);
             _chat.TrySendInGameICMessage(uid, "spasms", InGameICChatType.Emote, ChatTransmitRange.Normal);
         }
     }

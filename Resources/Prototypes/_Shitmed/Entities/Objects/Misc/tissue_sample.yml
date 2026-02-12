@@ -18,9 +18,14 @@
         - ReagentId: SulfuricAcid
           Quantity: 20
   - type: FoodSequenceElement # it's usable as xeno meat in a burger... but what a waste
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: xeno
     entries:
-      Burger: MeatXeno
-      Taco: MeatXeno
+      burger:
+        name: food-sequence-content-xeno
+      taco:
+        name: food-sequence-content-xeno
   - type: FlavorProfile
     flavors:
     - meaty

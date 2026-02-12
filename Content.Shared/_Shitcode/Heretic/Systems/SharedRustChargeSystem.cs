@@ -36,7 +36,7 @@ public abstract class SharedRustChargeSystem : EntitySystem
         SubscribeLocalEvent<RustChargeComponent, StopThrowEvent>(OnStopThrow);
         SubscribeLocalEvent<RustChargeComponent, DownAttemptEvent>(OnDownAttempt);
         SubscribeLocalEvent<RustChargeComponent, InteractionAttemptEvent>(OnInteractAttempt);
-        SubscribeLocalEvent<RustChargeComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
+        SubscribeLocalEvent<RustChargeComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
         SubscribeLocalEvent<RustChargeComponent, ComponentShutdown>(OnRustChargeShutdown);
     }
 
@@ -48,9 +48,9 @@ public abstract class SharedRustChargeSystem : EntitySystem
         RemCompDeferred<RustObjectsInRadiusComponent>(ent);
     }
 
-    private void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref BeforeOldStatusEffectAddedEvent args)
+    private void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref OldBeforeStatusEffectAddedEvent args)
     {
-        if (args.EffectKey == "KnockedDown")
+        if (args.Key == "KnockedDown")
             args.Cancelled = true;
     }
 

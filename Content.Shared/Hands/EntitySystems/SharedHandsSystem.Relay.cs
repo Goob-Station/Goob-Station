@@ -13,7 +13,6 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Wieldable;
 
 // Goobstation using
 using Content.Shared._Shitmed.Surgery;
@@ -40,8 +39,8 @@ public abstract partial class SharedHandsSystem
         SubscribeLocalEvent<HandsComponent, ExtinguishEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, ProjectileReflectAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, HitScanReflectAttemptEvent>(RefRelayEvent);
-        SubscribeLocalEvent<HandsComponent, WieldAttemptEvent>(RefRelayEvent);
-        SubscribeLocalEvent<HandsComponent, UnwieldAttemptEvent>(RefRelayEvent);
+        //SubscribeLocalEvent<HandsComponent, WieldAttemptEvent>(RefRelayEvent);
+        //SubscribeLocalEvent<HandsComponent, UnwieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, TargetHandcuffedEvent>(RefRelayEvent);
 
         SubscribeLocalEvent<HandsComponent, RefreshEquipmentHudEvent<ShowHealthBarsComponent>>(RefRelayEvent); // goob edit - heretics

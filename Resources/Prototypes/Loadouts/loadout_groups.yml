@@ -203,20 +203,11 @@
   - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
-  - ClothingNeckGoldAutismPin
-  - OffsetCane
-  - OffsetCaneWood
-  - OffsetCaneClown
-  - OffsetCaneMime
-  - OffsetCaneNT
-  - Cane
-  # GoobStation Start
-  - CardBoxBlack
-  - CardBoxNanotrasen
-  - FoodSnackLollypopWrapped
-  - FoodSnackLollypopWrappedRainbow
-  - FoodSnackLollypopWrappedCarp
-  # Goobstation End
+  - CardBoxBlack # GoobStation
+  - CardBoxNanotrasen # GoobStation
+  - FoodSnackLollypopWrapped # Goobstation
+  - FoodSnackLollypopWrappedRainbow # Goobstation
+  - FoodSnackLollypopWrappedCarp # Goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen

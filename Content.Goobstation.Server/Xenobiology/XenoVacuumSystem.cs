@@ -22,7 +22,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
@@ -147,12 +146,11 @@ public sealed partial class XenoVacuumSystem : EntitySystem
             var popup = Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
             _popup.PopupEntity(popup, ent, args.User);
 
-            if (args.Target is { } thrown)
-                _throw.TryThrow(removedEnt, thrown.ToCoordinates());
-            else
-                _throw.TryThrow(removedEnt, args.ClickLocation);
-            _stun.TryUpdateParalyzeDuration(removedEnt, TimeSpan.FromSeconds(2));
-            _htn.SetHTNEnabled(removedEnt, true,2f);
+            if (args.Target is { } thrown) _throw.TryThrow(removedEnt, thrown.ToCoordinates());
+            else _throw.TryThrow(removedEnt, args.ClickLocation);
+
+            _stun.TryKnockdown(removedEnt, TimeSpan.FromSeconds(1), true);
+            _htn.SetHTNEnabled(removedEnt, true, 1f);
         }
 
         if (ud != null) _useDelay.TryResetDelay((ent, ud), false, ReleaseDelayId);

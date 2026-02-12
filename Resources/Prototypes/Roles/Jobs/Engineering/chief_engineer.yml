@@ -155,10 +155,10 @@
   antagAdvantage: 75 # Goobstation
   guides: # goobstation
   - Engineering
-  - ChiefEngineerSOP
-  - EngineeringSOP
+  - ChiefEngineer SOP
+  - Engineering SOP
   - Command
-  - EmergenciesSOP
+  - Emergencies SOP
   goobcoins: 40 #Goob content
   access:
   - Maintenance

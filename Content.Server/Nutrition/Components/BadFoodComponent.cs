@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Nutrition.EntitySystems;
+using Content.Server.Nutrition.EntitySystems;
 
 namespace Content.Server.Nutrition.Components;
 

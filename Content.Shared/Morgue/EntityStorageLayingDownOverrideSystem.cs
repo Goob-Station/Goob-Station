@@ -27,9 +27,7 @@ public sealed class EntityStorageLayingDownOverrideSystem : EntitySystem
     {
         foreach (var ent in args.Contents)
         {
-            // Explicitly check for standing state component, as entities without it will return false for IsDown()
-            // which prevents inserting any kind of non-mobs into this container (which is unintended)
-            if (TryComp<StandingStateComponent>(ent, out var standingState) && !_standing.IsDown(ent, standingState))
+            if (HasComp<BodyComponent>(ent) && !_standing.IsDown(ent))
                 args.Contents.Remove(ent);
         }
     }

@@ -20,7 +20,7 @@
     integrityThresholds:
       Normal: 28
       Damaged: 16
-      Destroyed: 0
+      Destroyed: 0    
   - type: Input
     context: "ghost"
   - type: Brain
@@ -49,8 +49,10 @@
       - people
   - type: FoodSequenceElement
     entries:
-      Burger: Brain
-      Taco: Brain
+      burger:
+        name: food-sequence-content-brain
+      taco:
+        name: food-sequence-content-brain
   - type: Item
     size: Small
     heldPrefix: brain
@@ -73,7 +75,7 @@
     integrityThresholds:
       Normal: 12
       Damaged: 6
-      Destroyed: 0
+      Destroyed: 0    
   - type: Eyes
   # end-backmen: surgery
   - type: Sprite

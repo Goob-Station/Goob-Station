@@ -4,10 +4,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Antag;
+using Content.Server.Dragon;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Roles;
+using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.CharacterInfo;
 using Content.Shared.Localizations;
 using Robust.Server.GameObjects;
 
@@ -58,9 +61,10 @@ public sealed class DragonRuleSystem : GameRuleSystem<DragonRuleComponent>
 
         var dragonXform = Transform(dragon);
 
+        var station = _station.GetStationInMap(dragonXform.MapID);
         EntityUid? stationGrid = null;
-        if (_station.GetStationInMap(dragonXform.MapID) is { } station)
-            stationGrid = _station.GetLargestGrid(station);
+        if (TryComp<StationDataComponent>(station, out var stationData))
+            stationGrid = _station.GetLargestGrid(stationData);
 
         if (stationGrid is not null)
         {

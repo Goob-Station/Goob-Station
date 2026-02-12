@@ -35,8 +35,6 @@
     solution: food
   - type: DrainableSolution
     solution: food
-  - type: ExaminableSolution
-    solution: food
   - type: Sprite
     sprite: Objects/Consumable/Food/condiments.rsi
   - type: Icon
@@ -97,8 +95,6 @@
   - type: Tag
     tags:
       - Packet
-  - type: ExaminableSolution
-    exactVolume: true
 
 - type: entity
   parent: BaseFoodCondimentPacket

@@ -31,7 +31,7 @@
     - BloodChangeling
   - type: DemonicWhisper
   - type: Visibility
-    layer: 2 # Ghost visflag
+    layer: 2
   - type: Spectral
   - type: Eye
     drawFov: false

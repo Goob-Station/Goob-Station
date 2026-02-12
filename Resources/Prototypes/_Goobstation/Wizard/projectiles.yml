@@ -303,12 +303,12 @@
       types:
         Heat: 0
   - type: PolymorphOnTrigger
-    targetUser: true
     polymorph: WizardWabbajack
-  - type: WhitelistTriggerCondition
-    userWhitelist:
+  - type: TriggerWhitelist
+    whitelist:
       components:
       - Body
+  - type: TriggerOnProjectileHit
   - type: Reflective
     reflective: Magic
   - type: Ammo
@@ -333,8 +333,6 @@
         - Impassable
         - BulletImpassable
         - Opaque # So that it can hit holographic mobs
-  - type: TriggerOnCollide
-    fixtureID: projectile
 
 - type: entity
   id: ProjectileDeathBolt
@@ -576,8 +574,7 @@
     reflective: Magic
   - type: Ammo
     muzzleFlash: null
-  - type: TriggerOnCollide
-    fixtureID: projectile
+  - type: TriggerOnProjectileHit
   - type: EmpOnTrigger
     range: 3
     energyConsumption: 50000
@@ -757,7 +754,7 @@
   - type: Slippery
     slipData:
       slipOnStep: false
-      stunTime: 10
+      paralyzeTime: 10
       launchForwardsMultiplier: 1
   - type: ProjectileHitShooterAfterDelay
     delay: 0.5

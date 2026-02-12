@@ -144,7 +144,16 @@
         - ReagentId: Ammonia
           Quantity: 5
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: chicken-fried
     entries:
-      Burger: FSE_FoodMeatVoxFried
-      Taco: FSE_FoodMeatVoxFried
-      Skewer: FSE_FoodMeatVoxFriedSkewer
+      burger:
+        name: food-sequence-content-chicken
+      taco:
+        name: food-sequence-content-chicken
+      skewer:
+        name: food-sequence-content-chicken
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-meat

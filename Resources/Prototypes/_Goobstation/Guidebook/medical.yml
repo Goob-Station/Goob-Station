@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: guideEntry
-  id: MedicalPatches
+  id: Medical Patches
   name: guide-entry-medpatches
   text: "/ServerInfo/_Goobstation/Guidebook/Medical/Medicalpatches.xml"
 

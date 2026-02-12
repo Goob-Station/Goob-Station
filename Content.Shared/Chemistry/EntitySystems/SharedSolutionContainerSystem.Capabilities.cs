@@ -147,13 +147,12 @@ public abstract partial class SharedSolutionContainerSystem
 
     #endregion Solution Modifiers
 
-    /// <returns>A value between 0 and 100 inclusive.</returns>
     public float PercentFull(EntityUid uid)
     {
-        if (!TryGetDrainableSolution(uid, out _, out var solution))
+        if (!TryGetDrainableSolution(uid, out _, out var solution) || solution.MaxVolume.Equals(FixedPoint2.Zero))
             return 0;
 
-        return PercentFull(solution);
+        return solution.FillFraction * 100;
     }
 
     #region Static Methods
@@ -182,15 +181,6 @@ public abstract partial class SharedSolutionContainerSystem
 
         sb.Append(']');
         return sb.ToString();
-    }
-
-    /// <returns>A value between 0 and 100 inclusive.</returns>
-    public static float PercentFull(Solution sol)
-    {
-        if (sol.MaxVolume.Equals(FixedPoint2.Zero))
-            return 0;
-
-        return sol.FillFraction * 100;
     }
 
     #endregion Static Methods

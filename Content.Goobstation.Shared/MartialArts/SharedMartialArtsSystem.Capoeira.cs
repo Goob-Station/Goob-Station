@@ -8,7 +8,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -16,7 +15,6 @@ using Content.Goobstation.Shared.Sprinting;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
@@ -115,7 +113,6 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
-            true,
             proto.DropHeldItemsBehavior);
 
         if (TryComp<PullableComponent>(target, out var pullable))
@@ -147,7 +144,6 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
-            true,
             proto.DropHeldItemsBehavior);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
@@ -167,7 +163,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         var speedMultiplier = 1f / MathF.Max(1f, power);
-        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, args.SlowDownTime * power, speedMultiplier, speedMultiplier);
+        _stun.TrySlowdown(target, args.SlowDownTime * power, true, speedMultiplier, speedMultiplier);
         _modifier.RefreshMovementSpeedModifiers(target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);
@@ -193,7 +189,6 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
-            true,
             true,
             proto.DropHeldItemsBehavior);
 

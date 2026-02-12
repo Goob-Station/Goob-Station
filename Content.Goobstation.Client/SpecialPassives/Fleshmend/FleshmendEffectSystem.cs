@@ -17,19 +17,15 @@ public sealed class FleshmendEffectSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FleshmendEffectComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<FleshmendEffectComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<FleshmendEffectComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
     }
 
-    private void OnStartup(Entity<FleshmendEffectComponent> ent, ref ComponentStartup args)
+    private void OnAfterAutoHandleState(Entity<FleshmendEffectComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (TryComp<FleshmendComponent>(ent, out var fleshmend) // only done if new effects were yaml'd in (or just applied to the comp)
-            && fleshmend.EffectState != null
-            && fleshmend.ResPath != ResPath.Empty)
-        {
-            ent.Comp.EffectState = fleshmend.EffectState;
-            ent.Comp.ResPath = fleshmend.ResPath;
-        }
+        if (ent.Comp.ResPath == ResPath.Empty
+            || ent.Comp.EffectState == null)
+            return;
 
         AddLayer(ent);
     }

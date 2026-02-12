@@ -14,7 +14,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Slippery;
 using Content.Shared.Toggleable;
-using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -133,7 +132,7 @@ public abstract class SharedRootableSystem : EntitySystem
         if (!ent.Comp.Rooted)
             return;
 
-        if (args.SlipCausingEntity != null && HasComp<DamageOnTriggerComponent>(args.SlipCausingEntity))
+        if (args.SlipCausingEntity != null && HasComp<DamageUserOnTriggerComponent>(args.SlipCausingEntity))
             return;
 
         args.NoSlip = true;

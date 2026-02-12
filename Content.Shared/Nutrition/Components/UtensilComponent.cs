@@ -32,7 +32,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Nutrition.Components
 {
-    [RegisterComponent, NetworkedComponent, Access(typeof(IngestionSystem))]
+    [RegisterComponent, NetworkedComponent, Access(typeof(SharedUtensilSystem))]
     public sealed partial class UtensilComponent : Component
     {
         [DataField("types")]

@@ -5,7 +5,7 @@ namespace Content.Goobstation.Shared.Disease.Components;
 /// <summary>
 /// This component allows you to see health status icons above damageable mobs.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ShowDiseaseIconsComponent : Component
 {
     /// <summary>

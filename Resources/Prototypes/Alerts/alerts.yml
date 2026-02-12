@@ -290,15 +290,6 @@
   description: alerts-stunned-desc
 
 - type: alert
-  id: Knockdown
-  clickEvent: !type:KnockedDownAlertEvent
-  icons:
-  - sprite: /Textures/Interface/Alerts/stunnable.rsi
-    state: knocked-down
-  name: alerts-knockdown-name
-  description: alerts-knockdown-desc
-
-- type: alert
   id: Handcuffed
   clickEvent: !type:RemoveCuffsAlertEvent
   icons: [ /Textures/Interface/Alerts/Handcuffed/Handcuffed.png ]
@@ -456,9 +447,7 @@
   id: PilotingShuttle
   category: Piloting
   clickEvent: !type:StopPilotingAlertEvent
-  icons:
-  - sprite: /Textures/Interface/Alerts/shuttle.rsi
-    state: piloting
+  icons: [ /Textures/Interface/Alerts/piloting.png ]
   name: alerts-piloting-name
   description: alerts-piloting-desc
 

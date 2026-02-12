@@ -395,7 +395,6 @@
         - HolosignProjector
         - Plunger
         - Keyring # Goobstation
-        - GoldenPlunger
         - WireBrush
       components:
         - LightReplacer

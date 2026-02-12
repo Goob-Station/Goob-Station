@@ -10,9 +10,9 @@
 
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
+using Content.Shared.Lock;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Lock;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -114,7 +114,7 @@ public sealed partial class OpenableSystem : EntitySystem
                 Text = Loc.GetString(comp.CloseVerbText),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/close.svg.192dpi.png")),
                 Act = () => TryClose(args.Target, comp, args.User),
-                Priority = 3
+                // this verb is lower priority than drink verb (2) so it doesn't conflict
             };
         }
         else
@@ -123,8 +123,7 @@ public sealed partial class OpenableSystem : EntitySystem
             {
                 Text = Loc.GetString(comp.OpenVerbText),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/open.svg.192dpi.png")),
-                Act = () => TryOpen(args.Target, comp, args.User),
-                Priority = 3
+                Act = () => TryOpen(args.Target, comp, args.User)
             };
         }
         args.Verbs.Add(verb);
@@ -133,7 +132,10 @@ public sealed partial class OpenableSystem : EntitySystem
     private void OnTransferAttempt(Entity<OpenableComponent> ent, ref SolutionTransferAttemptEvent args)
     {
         if (!ent.Comp.Opened)
-            args.Cancel(Loc.GetString(ent.Comp.ClosedPopup, ("owner", ent.Owner)));
+        {
+            // message says its just for drinks, shouldn't matter since you typically dont have a food that is openable and can be poured out
+            args.Cancel(Loc.GetString("drink-component-try-use-drink-not-open", ("owner", ent.Owner)));
+        }
     }
 
     private void OnAttemptShake(Entity<OpenableComponent> entity, ref AttemptShakeEvent args)
@@ -174,7 +176,7 @@ public sealed partial class OpenableSystem : EntitySystem
     /// Drinks that don't have OpenableComponent are automatically open, so it returns false.
     /// If user is not null a popup will be shown to them.
     /// </summary>
-    public bool IsClosed(EntityUid uid, EntityUid? user = null, OpenableComponent? comp = null, bool predicted = false)
+    public bool IsClosed(EntityUid uid, EntityUid? user = null, OpenableComponent? comp = null)
     {
         if (!Resolve(uid, ref comp, false))
             return false;
@@ -183,12 +185,7 @@ public sealed partial class OpenableSystem : EntitySystem
             return false;
 
         if (user != null)
-        {
-            if (predicted)
-                _popup.PopupClient(Loc.GetString(comp.ClosedPopup, ("owner", uid)), user.Value, user.Value);
-            else
-                _popup.PopupEntity(Loc.GetString(comp.ClosedPopup, ("owner", uid)), user.Value, user.Value);
-        }
+            _popup.PopupEntity(Loc.GetString(comp.ClosedPopup, ("owner", uid)), user.Value, user.Value);
 
         return true;
     }

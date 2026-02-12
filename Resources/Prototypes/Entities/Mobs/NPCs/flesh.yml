@@ -78,7 +78,7 @@
       75: Dead
   - type: Stamina
     critThreshold: 50
-    animationThreshold: 25
+    animationThreshold: 25 # Goob edit
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -277,7 +277,7 @@
       75: Dead
   - type: Stamina
     critThreshold: 50
-    animationThreshold: 25
+    animationThreshold: 25 # Goob edit
   - type: Butcherable
     spawned:
     - id: FoodMeat

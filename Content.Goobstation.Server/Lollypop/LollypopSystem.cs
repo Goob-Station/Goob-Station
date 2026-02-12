@@ -7,12 +7,8 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry;
 using Content.Shared.Clothing;
-using Content.Shared.Nutrition;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Lollypop;
@@ -122,13 +118,8 @@ public sealed class LollypopSystem : EntitySystem
         if (soln.Value.Comp.Solution.Volume > FixedPoint2.Zero )
             return; // end if there is solution left
 
-
         if (ent.Comp.DeleteOnEmpty)
-        {
-            var args = new FullyEatenEvent(ent.Comp.HeldBy!.Value);
-            _food.OnFoodFullyEaten(food.Owner!, ref args);
-        }
-
+            _food.DeleteAndSpawnTrash(food,ent.Owner,ent.Comp.HeldBy.Value);
 
         ent.Comp.NextBite  = TimeSpan.Zero; // lollypop is empty stop checking
     }

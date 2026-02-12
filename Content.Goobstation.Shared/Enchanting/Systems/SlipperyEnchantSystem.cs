@@ -31,9 +31,7 @@ public sealed class SlipperyEnchantSystem : EntitySystem
     private void Modify(EntityUid item, float factor)
     {
         var comp = EnsureComp<SlipperyComponent>(item);
-        var sliptime = 1.5f; // hardcode sliptime here probably reaadd sliptime at some point or smth
-        sliptime *= factor; // shitcoding it this way because now stuntime needs a timespan and i dont trust it multiplying a float.
-        comp.SlipData.StunTime = TimeSpan.FromSeconds(sliptime);
+        comp.SlipData.ParalyzeTime *= factor;
         comp.SlipData.LaunchForwardsMultiplier *= factor;
         comp.SlipData.SuperSlippery = true; // needed to actually launch people
         Dirty(item, comp);

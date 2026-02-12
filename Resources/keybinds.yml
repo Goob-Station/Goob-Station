@@ -179,7 +179,10 @@ binds:
   key: Shift
 - function: Sprint
   type: State
-  key: Space
+  key: C
+- function: ToggleStanding
+  type: State
+  key: R
 - function: ResistGrab
   type: State
   key: B
@@ -328,7 +331,8 @@ binds:
   mod1: Alt
 - function: OpenCharacterMenu
   type: State
-  key: U
+  mod1: Shift
+  key: C
 - function: OpenEmotesMenu
   type: State
   key: Y
@@ -669,9 +673,6 @@ binds:
 - function: Arcade3
   type: State
   key: Z
-- function: ToggleKnockdown
-  type: State
-  key: C
 - function: OpenAbilitiesMenu
   type: State
   key: K

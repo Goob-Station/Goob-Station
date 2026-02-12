@@ -21,8 +21,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.CombatMode.Pacification;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Shared.Heretic.Components.PathSpecific; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components; // Shitmed Change
 
 namespace Content.Server.Heretic.Abilities;
 

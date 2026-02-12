@@ -58,7 +58,7 @@ public sealed class RevenantShockwaveSystem : EntitySystem
             if (!_statusEffectsQuery.TryComp(entity, out var statusEffect))
                 continue;
 
-            _stun.KnockdownOrStun(entity, ent.Comp.KnockdownDuration, true);
+            _stun.KnockdownOrStun(entity, ent.Comp.KnockdownDuration, true, statusEffect);
         }
 
         _audio.PlayPredicted(ent.Comp.ShockSound, ent.Owner, null);

@@ -155,9 +155,9 @@
   canBeAntag: false
   guides: # goobstation
   - SpaceLaw
-  - LegalSOP
+  - Legal SOP
   - Security
-  - WardenSOP
+  - Warden SOP
   - KravMaga
   goobcoins: 35 #Goob content
   access:
