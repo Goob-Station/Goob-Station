@@ -215,3 +215,13 @@
   - type: Sprite
     sprite: _Goobstation/Structures/posters.rsi
     state: goob_poster3_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandGoobEgg
+  name: "Egg Poster"
+  description: "The poster claims that omelettes are destroying the station and control the people in power. You have no idea what this means."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/posters.rsi
+    state: goob_poster4_contraband
