@@ -1,5 +1,6 @@
 using Content.Server._CorvaxGoob.Events.Components;
 using Content.Server.Explosion.EntitySystems;
+using Content.Shared.Trigger;
 
 namespace Content.Server._CorvaxGoob.Events.EntitySystems;
 

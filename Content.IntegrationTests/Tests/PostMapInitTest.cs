@@ -235,7 +235,7 @@ namespace Content.IntegrationTests.Tests
             "Saltern",
             "Serpentcrest",
             "TestTeg",        // Dev map
-            "Train"           // Not in pool
+            "Train",           // Not in pool
             // Goob end
 
             // Corvax-Goob-Maps-start

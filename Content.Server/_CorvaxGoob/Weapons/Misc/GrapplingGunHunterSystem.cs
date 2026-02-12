@@ -19,10 +19,7 @@ public sealed class GrapplingGunHunterSystem : SharedGrapplingGunHunterSystem
         if (args.Handled)
             return;
 
-        if (!TryComp<StatusEffectsComponent>(uid, out var status))
-            return;
-
-        _stun.TryParalyze(uid, args.Duration, true, status);
+        _stun.TryAddParalyzeDuration(uid, args.Duration);
         args.Handled = true;
     }
 }
