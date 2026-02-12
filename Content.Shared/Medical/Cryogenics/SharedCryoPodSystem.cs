@@ -193,7 +193,13 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         // Needed to avoid adding/removing components on a deleted entity
         if (Terminating(ent))
             return;
-        var insidePod = ent.Comp.BodyContainer.ContainedEntity; // Shitmed Change
+
+        // Shitmed Change start
+        if (ent.Comp.BodyContainer == null || // Annotations will tell you this is always false but prediction makes it possible for container to not exist on client OnCompInit or something
+            ent.Comp.BodyContainer.ContainedEntity == null) // Thats my best guess.
+            return; // todo goob figure why this happens to us but not upstream // upstreamer todo
+        var insidePod = ent.Comp.BodyContainer.ContainedEntity;
+        // Shitmed Change end
 
         if (args.Powered)
         {
