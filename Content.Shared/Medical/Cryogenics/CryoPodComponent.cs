@@ -11,71 +11,67 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Tools;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Medical.Cryogenics;
 
-/// <summary>
-/// Component for medical cryo pods.
-/// Handles transferring reagents from a beaker slot into an inserted mob, as well as exposing them to connected atmos pipes.
-/// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class CryoPodComponent : Component
 {
     /// <summary>
-    /// The name of the container the patient is stored in.
-    /// </summary>
-    public const string BodyContainerName = "scanner-body";
-
-    /// <summary>
     /// Specifies the name of the atmospherics port to draw gas from.
     /// </summary>
-    [DataField]
-    public string PortName = "port";
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("port")]
+    public string PortName { get; set; } = "port";
 
     /// <summary>
-    /// Specifies the name of the slot that holds the beaker with medicine.
+    /// Specifies the name of the slot that holds beaker with medicine.
     /// </summary>
-    [DataField]
-    public string SolutionContainerName = "beakerSlot";
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("solutionContainerName")]
+    public string SolutionContainerName { get; set; } = "beakerSlot";
 
     /// <summary>
-    /// How often are chemicals transferred from the beaker to the body?
-    /// (injection interval)
+    /// How often (seconds) are chemicals transferred from the beaker to the body?
     /// </summary>
-    [DataField]
-    public TimeSpan BeakerTransferTime = TimeSpan.FromSeconds(1);
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("beakerTransferTime")]
+    public float BeakerTransferTime = 1f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("nextInjectionTime", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    public TimeSpan? NextInjectionTime;
 
     /// <summary>
-    /// The timestamp for the next injection.
+    /// How many units of each reagent to transfer per tick from the beaker to the mob?
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoNetworkedField, AutoPausedField]
-    public TimeSpan NextInjectionTime = TimeSpan.Zero;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("beakerTransferAmount")]
+    public float BeakerTransferAmount = .25f;
 
     /// <summary>
-    /// How many units to transfer per injection from the beaker to the mob?
+    /// How potent (multiplier) the reagents are when transferred from the beaker to the mob.
     /// </summary>
-    [DataField]
-    public FixedPoint2 BeakerTransferAmount = 1;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("PotencyAmount")]
+    public float PotencyMultiplier = 2f;
 
     /// <summary>
-    /// Delay applied when inserting a mob in the pod (in seconds).
+    ///     Delay applied when inserting a mob in the pod.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("entryDelay")]
     public float EntryDelay = 2f;
 
     /// <summary>
-    /// Delay applied when trying to pry open a locked pod (in seconds).
+    /// Delay applied when trying to pry open a locked pod.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("pryDelay")]
     public float PryDelay = 5f;
 
     /// <summary>
@@ -87,25 +83,21 @@ public sealed partial class CryoPodComponent : Component
     /// <summary>
     /// If true, the eject verb will not work on the pod and the user must use a crowbar to pry the pod open.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool Locked;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("locked")]
+    public bool Locked { get; set; }
 
     /// <summary>
     /// Causes the pod to be locked without being fixable by messing with wires.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool PermaLocked;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("permaLocked")]
+    public bool PermaLocked { get; set; }
 
-    /// <summary>
-    /// The tool quality needed to eject a body when the pod is locked.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public ProtoId<ToolQualityPrototype> UnlockToolQuality = "Prying";
-}
-
-[Serializable, NetSerializable]
-public enum CryoPodVisuals : byte
-{
-    ContainsEntity,
-    IsOn
+    [Serializable, NetSerializable]
+    public enum CryoPodVisuals : byte
+    {
+        ContainsEntity,
+        IsOn
+    }
 }

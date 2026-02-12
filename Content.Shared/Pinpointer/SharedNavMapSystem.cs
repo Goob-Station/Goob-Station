@@ -15,7 +15,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using System.Runtime.CompilerServices;
-using Content.Shared.Examine;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
@@ -49,8 +48,6 @@ public abstract class SharedNavMapSystem : EntitySystem
 
         // Data handling events
         SubscribeLocalEvent<NavMapComponent, ComponentGetState>(OnGetState);
-        SubscribeLocalEvent<ConfigurableNavMapBeaconComponent, ExaminedEvent>(OnConfigurableExamined);
-
         _doorQuery = GetEntityQuery<NavMapDoorComponent>();
     }
 
@@ -179,17 +176,6 @@ public abstract class SharedNavMapSystem : EntitySystem
         }
 
         args.State = new NavMapDeltaState(chunks, component.Beacons, component.RegionProperties, new(component.Chunks.Keys));
-    }
-
-    private void OnConfigurableExamined(Entity<ConfigurableNavMapBeaconComponent> ent, ref ExaminedEvent args)
-    {
-        if (!args.IsInDetailsRange || !TryComp<NavMapBeaconComponent>(ent, out var navMap))
-            return;
-
-        args.PushMarkup(Loc.GetString("nav-beacon-examine-text",
-            ("enabled", navMap.Enabled),
-            ("color", navMap.Color.ToHexNoAlpha()),
-            ("label", navMap.Text ?? string.Empty)));
     }
 
     #endregion

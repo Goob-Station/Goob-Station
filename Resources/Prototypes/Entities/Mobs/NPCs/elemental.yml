@@ -111,6 +111,9 @@
     bodyType: KinematicController # Same for all inheritors
   - type: StatusEffects
     allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
     - Stutter
     - Electrocution
   - type: Pullable
@@ -129,6 +132,11 @@
     critThreshold: 120
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:TriggerBehavior
     - trigger:
         !type:DamageTrigger
         damage: 120
@@ -454,6 +462,7 @@
     chemicalMaxVolume: 100
   - type: StatusEffects
     allowed:
+    - SlowedDown
     - Electrocution
   - type: MeleeWeapon
     soundHit:
@@ -476,7 +485,6 @@
       - FootstepSound
       - CannotSuicide
       - DoorBumpOpener
-      - StunImmune
   - type: NoSlip
   - type: ZombieImmune
   - type: ExaminableSolution

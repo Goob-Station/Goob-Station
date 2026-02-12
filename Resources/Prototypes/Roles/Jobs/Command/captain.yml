@@ -164,8 +164,8 @@
   guides: # goobstation
   - Command
   - Succession
-  - StandardProceduresSOP
-  - CaptainSOP
+  - StandardProcedures SOP
+  - Captain SOP
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear
@@ -188,7 +188,7 @@
   id: CaptainGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesCommand
+    eyes: ClothingEyesGlassesSunglasses
     #gloves: ClothingHandsGlovesCaptain - Goobstation, moved to loadouts
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand

@@ -18,7 +18,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Client._Shitmed.Medical.Surgery.Wounds;
 
-[RegisterComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
+[RegisterComponent]
 public sealed partial class WoundableVisualsComponent : Component
 {
     [DataField(required: true)]

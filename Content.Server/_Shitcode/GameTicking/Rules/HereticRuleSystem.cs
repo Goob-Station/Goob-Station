@@ -29,7 +29,6 @@ using Robust.Shared.Random;
 using System.Text;
 using Content.Server.Station.Components;
 using Content.Server._Goobstation.Objectives.Components;
-using Content.Shared.Station.Components;
 
 namespace Content.Server.GameTicking.Rules;
 

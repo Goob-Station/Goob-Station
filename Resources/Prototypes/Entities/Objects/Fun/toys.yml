@@ -249,9 +249,9 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/ian.ogg
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: IanPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: IanPlushie
 
 ## Toyweapons
 
@@ -317,6 +317,10 @@
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   - type: Item
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: -2,-7
     sprite: Objects/Fun/capgun.rsi
   - type: Tag
     tags:
@@ -346,6 +350,7 @@
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
+  - type: GunExecutionBlacklist # Goobstation
 
 - type: entity
   parent: RevolverCapGun
@@ -623,29 +628,6 @@
   - type: TileFrictionModifier
     modifier: 0.001
 
-# Goobstation commentout - This is wizdens orb, use the other one.
-#- type: entity
-#  parent: PonderingOrb
-#  id: PonderingOrbWizard
-#  name: pondering orb
-#  description: Ponderous, man... Really ponderous. Magically shows the station's camera network.
-#  suffix: Wizard
-#  components:
-#  - type: ActivatableUI
-#    requireActiveHand: false
-#    inHandsOnly: true
-#    key: enum.SurveillanceCameraMonitorUiKey.Key
-#  - type: UserInterface
-#    interfaces:
-#      enum.SurveillanceCameraMonitorUiKey.Key:
-#        type: SurveillanceCameraMonitorBoundUserInterface
-#  - type: DeviceNetwork
-#    deviceNetId: Wired
-#    receiveFrequencyId: SurveillanceCamera
-#    transmitFrequencyId: SurveillanceCamera
-#  - type: WiredNetworkConnection
-#  - type: SurveillanceCameraMonitor
-
 - type: entity
   parent: BaseItem
   id: ToySword
@@ -747,9 +729,9 @@
     available:
     - enum.DamageStateVisualLayers.Base:
         base: Sixteen
-  #- type: FoodSequenceElement - does not work with randomized sprites
-  #  entries:
-  #    CottonBurger: AmongPequeno
+#  - type: FoodSequenceElement - does not work with randomized sprites
+#    entries:
+#      CottonBurger: AmongPequeno
 
 
 - type: entity
@@ -801,11 +783,11 @@
     damage:
       types:
         Blunt: 0.3
-    soundHit:
-      path: /Audio/Items/Toys/card_tube_bonk.ogg
-  - type: Construction
-    graph: CardSword
-    node: cardSword
+#    soundHit:
+#      path: /Audio/Items/Toys/card_tube_bonk.ogg
+#  - type: Construction
+#    graph: CardSword
+#    node: cardSword
   - type: Item
     size: Normal
     storedSprite:
@@ -917,11 +899,7 @@
   - type: UseDelay
     delay: 0.8
   - type: Slippery
-    staminaDamage: 0
-    frictionStatusTime: 0
     slipData:
-      stunTime: 0
-      knockdownTime: 0
       launchForwardsMultiplier: 0
     slipSound:
       collection: Parp

@@ -54,7 +54,7 @@
     - type: Implanter
       whitelist:
         components:
-        - MobState # no chair microbomb
+        - Body # no chair microbomb
       blacklist:
         components:
         - Guardian # no holoparasite macrobomb wombo combo

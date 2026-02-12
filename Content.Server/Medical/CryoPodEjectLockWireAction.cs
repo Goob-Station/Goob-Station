@@ -15,7 +15,7 @@ namespace Content.Server.Medical;
 /// <summary>
 /// Causes a failure in the cryo pod ejection system when cut. A crowbar will be needed to pry open the pod.
 /// </summary>
-public sealed partial class CryoPodEjectLockWireAction : ComponentWireAction<CryoPodComponent>
+public sealed partial class CryoPodEjectLockWireAction: ComponentWireAction<CryoPodComponent>
 {
     public override Color Color { get; set; } = Color.Red;
     public override string Name { get; set; } = "wire-name-lock";
@@ -25,10 +25,7 @@ public sealed partial class CryoPodEjectLockWireAction : ComponentWireAction<Cry
     public override bool Cut(EntityUid user, Wire wire, CryoPodComponent cryoPodComponent)
     {
         if (!cryoPodComponent.PermaLocked)
-        {
             cryoPodComponent.Locked = true;
-            EntityManager.Dirty(wire.Owner, cryoPodComponent);
-        }
 
         return true;
     }
@@ -36,10 +33,7 @@ public sealed partial class CryoPodEjectLockWireAction : ComponentWireAction<Cry
     public override bool Mend(EntityUid user, Wire wire, CryoPodComponent cryoPodComponent)
     {
         if (!cryoPodComponent.PermaLocked)
-        {
             cryoPodComponent.Locked = false;
-            EntityManager.Dirty(wire.Owner, cryoPodComponent);
-        }
 
         return true;
     }

@@ -802,8 +802,6 @@ public abstract class SharedMagicSystem : EntitySystem
             _mind.TransferTo(tarMind, ev.Performer);
         }
 
-        _stun.TryUpdateParalyzeDuration(ev.Target, ev.TargetStunDuration);
-        _stun.TryUpdateParalyzeDuration(ev.Performer, ev.PerformerStunDuration);
         // Goobstation start
         List<Type> components = new()
         {

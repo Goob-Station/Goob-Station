@@ -22,7 +22,6 @@ using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Maps;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Station.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -123,7 +122,7 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
 
     protected Entity<MapGridComponent>? GetStationMainGrid(StationDataComponent station)
     {
-        if ((station.Grids.FirstOrNull(HasComp<BecomesStationComponent>) ?? _station.GetLargestGrid(station.Owner)) is not //todo goobstation station.owner obsolete patchup
+        if ((station.Grids.FirstOrNull(HasComp<BecomesStationComponent>) ?? _station.GetLargestGrid(station)) is not
             { } grid || !TryComp(grid, out MapGridComponent? gridComp))
             return null;
 

@@ -74529,7 +74529,7 @@ entities:
     - type: Transform
       pos: 18.561031,-31.757362
       parent: 2
-- proto: SmartFridgeMedical
+- proto: DVSmartFridgeMedical
   entities:
   - uid: 11837
     components:

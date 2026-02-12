@@ -19,21 +19,11 @@ namespace Content.Shared.Ninja.Components;
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSpiderChargeSystem))]
 public sealed partial class SpiderChargeComponent : Component
 {
-    /// <summary>
-    /// Range for planting within the target area.
-    /// </summary>
+    /// Range for planting within the target area
     [DataField]
     public float Range = 10f;
 
-    /// <summary>
-    /// The ninja that planted this charge.
-    /// </summary>
+    /// The ninja that planted this charge
     [DataField]
     public EntityUid? Planter;
-
-    /// <summary>
-    /// The trigger that will mark the objective as successful.
-    /// </summary>
-    [DataField]
-    public string TriggerKey = "timer";
 }

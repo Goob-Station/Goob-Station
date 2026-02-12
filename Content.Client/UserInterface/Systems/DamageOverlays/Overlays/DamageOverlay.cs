@@ -17,7 +17,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Numerics;
 using Content.Shared.Mobs;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -181,13 +180,17 @@ public sealed class DamageOverlay : Overlay
             _bruteShader.SetParameter("outerCircleMaxRadius", outerRadius + 0.2f * distance);
             _bruteShader.SetParameter("innerCircleRadius", innerRadius);
             _bruteShader.SetParameter("innerCircleMaxRadius", innerRadius + 0.02f * distance);
+
             handle.UseShader(_bruteShader);
             handle.DrawRect(viewport, Color.White);
         }
-        else
+
+        // Always update _oldPainLevel to match PainLevel when PainLevel is 0
+        if (PainLevel <= 0f)
         {
-            _oldPainLevel = PainLevel;
+            _oldPainLevel = 0f;
         }
+        // Goobstation end
 
         level = State != MobState.Critical ? _oldOxygenLevel : 1f;
 

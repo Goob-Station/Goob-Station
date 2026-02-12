@@ -99,6 +99,7 @@
 
 using System.Numerics;
 using Content.Server.Shuttles.Components;
+using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Shuttles.Components;
@@ -159,7 +160,10 @@ public sealed partial class ShuttleSystem
         if (!_cfg.GetCVar(CCVars.GridFill))
             return;
 
-        var targetGrid = _station.GetLargestGrid(uid);
+        if (!TryComp(uid, out StationDataComponent? dataComp))
+            return;
+
+        var targetGrid = _station.GetLargestGrid(dataComp);
 
         if (targetGrid == null)
             return;
@@ -259,7 +263,12 @@ public sealed partial class ShuttleSystem
         if (!_cfg.GetCVar(CCVars.GridFill))
             return;
 
-        var targetGrid = _station.GetLargestGrid(uid);
+        if (!TryComp<StationDataComponent>(uid, out var data))
+        {
+            return;
+        }
+
+        var targetGrid = _station.GetLargestGrid(data);
 
         if (targetGrid == null)
             return;

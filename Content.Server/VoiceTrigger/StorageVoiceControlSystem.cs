@@ -5,7 +5,6 @@ using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
-using Content.Shared.Trigger;
 using Robust.Server.Containers;
 
 namespace Content.Server.VoiceTrigger;

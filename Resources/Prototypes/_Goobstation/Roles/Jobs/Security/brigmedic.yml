@@ -21,7 +21,7 @@
   canBeAntag: false
   guides:
   - MedicalDoctor
-  - BrigmedicSOP
+  - Brigmedic SOP
   - Medicine
   goobcoins: 35
   access: # EE parity, make corpsman able function.

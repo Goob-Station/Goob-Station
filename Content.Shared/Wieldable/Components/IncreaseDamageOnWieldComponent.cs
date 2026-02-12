@@ -13,6 +13,5 @@ namespace Content.Shared.Wieldable.Components;
 public sealed partial class IncreaseDamageOnWieldComponent : Component
 {
     [DataField("damage", required: true)]
-    [Access(Other = AccessPermissions.ReadExecute)]
     public DamageSpecifier BonusDamage = default!;
 }

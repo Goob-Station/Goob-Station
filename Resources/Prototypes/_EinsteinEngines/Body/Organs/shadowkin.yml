@@ -113,10 +113,15 @@
     groups:
     - id: Food
     - id: Drink
-  - type: FoodSequenceElement # Goob
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+      state: stomach
     entries:
-      Burger: FSE_OrganShadowkinStomach
-      Taco: FSE_OrganShadowkinStomach
+      burger:
+        name: food-sequence-content-stomach
+      taco:
+        name: food-sequence-content-stomach
   - type: Tag # goob edit
     tags:
     - Meat
@@ -136,10 +141,15 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1
-  - type: FoodSequenceElement #Goob
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+      state: liver
     entries:
-      Burger: FSE_OrganShadowkinLiver
-      Taco: FSE_OrganShadowkinLiver
+      burger:
+        name: food-sequence-content-liver
+      taco:
+        name: food-sequence-content-liver
   - type: Tag # goob edit
     tags:
     - Meat

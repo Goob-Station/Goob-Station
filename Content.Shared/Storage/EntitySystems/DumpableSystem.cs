@@ -63,7 +63,6 @@
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
@@ -87,13 +86,19 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._DV.SmartFridge; // DeltaV - ough why do you not use events for this
+using Content.Shared.Disposal;
+using Content.Shared.Disposal.Components;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers; // Goobstation
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -105,8 +110,11 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // DeltaV - ough why do you not use events for this
+    [Dependency] private readonly SmartFridgeSystem _smartFridge = default!; // Frontier
 
     private EntityQuery<ItemComponent> _itemQuery;
 
@@ -122,12 +130,10 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, DumpableComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Handled || args.Target is not { } target)
+        if (!args.CanReach || args.Handled)
             return;
 
-        var evt = new GetDumpableVerbEvent(args.User, null);
-        RaiseLocalEvent(target, ref evt);
-        if (evt.Verb is null)
+        if (!HasComp<DisposalUnitComponent>(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
             return;
 
         if (!TryComp<StorageComponent>(uid, out var storage))
@@ -136,7 +142,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!storage.Container.ContainedEntities.Any())
             return;
 
-        StartDoAfter(uid, target, args.User, component);
+        StartDoAfter(uid, args.Target.Value, args.User, component);
         args.Handled = true;
     }
 
@@ -168,22 +174,33 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        var evt = new GetDumpableVerbEvent(args.User, null);
-        RaiseLocalEvent(args.Target, ref evt);
-
-        if (evt.Verb is not { } verbText)
-            return;
-
-        UtilityVerb verb = new()
+        if (HasComp<DisposalUnitComponent>(args.Target) || HasComp<SmartFridgeComponent>(args.Target)) // DeltaV - ough why do you not use events for this
         {
-            Act = () =>
+            UtilityVerb verb = new()
             {
-                StartDoAfter(uid, args.Target, args.User, dumpable);
-            },
-            Text = verbText,
-            IconEntity = GetNetEntity(uid)
-        };
-        args.Verbs.Add(verb);
+                Act = () =>
+                {
+                    StartDoAfter(uid, args.Target, args.User, dumpable);
+                },
+                Text = Loc.GetString("dump-disposal-verb-name", ("unit", args.Target)),
+                IconEntity = GetNetEntity(uid)
+            };
+            args.Verbs.Add(verb);
+        }
+
+        if (HasComp<PlaceableSurfaceComponent>(args.Target))
+        {
+            UtilityVerb verb = new()
+            {
+                Act = () =>
+                {
+                    StartDoAfter(uid, args.Target, args.User, dumpable);
+                },
+                Text = Loc.GetString("dump-placeable-verb-name", ("surface", args.Target)),
+                IconEntity = GetNetEntity(uid)
+            };
+            args.Verbs.Add(verb);
+        }
     }
 
     private void StartDoAfter(EntityUid storageUid, EntityUid targetUid, EntityUid userUid, DumpableComponent dumpable)
@@ -215,17 +232,15 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, DumpableComponent component, DumpableDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) ||
-            storage.Container.ContainedEntities.Count == 0 || args.Args.Target is not { } target)
+        if (args.Handled || args.Cancelled)
             return;
 
-        DumpContents(uid, target, args.Args.User, component);// Goobchange
+        DumpContents(uid, args.Args.Target, args.Args.User, component);
     }
 
-    // Goob
-    // This whole thing ran OnDoAfter. Now separate method called by OnDoAfter
     // DeltaV: Refactor to allow dumping that doesn't require a verb
-    public void DumpContents(EntityUid uid, EntityUid target, EntityUid user, DumpableComponent? component = null)
+    [PublicAPI]
+    public void DumpContents(EntityUid uid, EntityUid? target, EntityUid user, DumpableComponent? component = null)
     {
         if (!TryComp<StorageComponent>(uid, out var storage)
             || !Resolve(uid, ref component))
@@ -233,14 +248,51 @@ public sealed class DumpableSystem : EntitySystem
 
         if (storage.Container.ContainedEntities.Count == 0)
             return;
-        // Goob end?
 
         var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
 
-        var evt = new DumpEvent(dumpQueue, user, false, false);//goob edit
-        RaiseLocalEvent(target, ref evt);
+        var dumped = false;
 
-        if (!evt.Handled)
+        if (HasComp<DisposalUnitComponent>(target))
+        {
+            dumped = true;
+
+            foreach (var entity in dumpQueue)
+            {
+                _disposalUnitSystem.DoInsertDisposalUnit(target.Value, entity, user, false); // Goobstation - SHUT UP!!!!
+            }
+        }
+        else if (HasComp<PlaceableSurfaceComponent>(target))
+        {
+            dumped = true;
+
+            var (targetPos, targetRot) = _transformSystem.GetWorldPositionRotation(target.Value);
+
+            foreach (var entity in dumpQueue)
+            {
+                _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
+            }
+        }
+        // Begin DeltaV - ough why do you not use events for this
+        else if (TryComp<SmartFridgeComponent>(target, out var fridge)) // EE & Goobstation
+        {
+            dumped = true;
+            // Frontier:
+            // if (_container.TryGetContainer(target!.Value, fridge.Container, out var container))
+            // {
+            //     foreach (var entity in dumpQueue)
+            //     {
+            //         _container.Insert(entity, container); // Frontier
+            //     }
+            // }
+            foreach (var entity in dumpQueue)
+            {
+                _smartFridge.TryInsertEntity((target.Value, fridge), user, entity); // Goobstation
+            }
+            // End Frontier
+        }
+        // End DeltaV - ough why do you not use events for this
+        else
         {
             var targetPos = _transformSystem.GetWorldPosition(uid);
 
@@ -249,13 +301,11 @@ public sealed class DumpableSystem : EntitySystem
                 var transform = Transform(entity);
                 _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, _random.NextAngle(), transform);
             }
-
-            return;
         }
 
-        if (evt.PlaySound)
+        if (dumped)
         {
-            _audio.PlayPredicted(component.DumpSound, uid, user); //goob edit
+            _audio.PlayPredicted(component.DumpSound, uid, user);
         }
     }
 }

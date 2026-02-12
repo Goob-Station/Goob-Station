@@ -516,18 +516,15 @@ public abstract class SharedActionsSystem : EntitySystem
             return comp.CanTargetSelf;
 
         var targetAction = Comp<TargetActionComponent>(uid);
-
         // not using the ValidateBaseTarget logic since its raycast fails if the target is e.g. a wall
         if (targetAction.CheckCanAccess)
-            return _interaction.InRangeAndAccessible(user, target, targetAction.Range, targetAction.AccessMask);
+            return _interaction.InRangeAndAccessible(user, target, range: targetAction.Range);
 
-        // Just check normal in range, allowing <= 0 range to mean infinite range.
-        if (targetAction.Range > 0
-            && !_transform.InRange(user, target, targetAction.Range))
-            return false;
-
-        // If checkCanAccess isn't set, we allow targeting things in containers
-        return _interaction.IsAccessible(user, target);
+        // if not just checking pure range, let stored entities be targeted by actions
+        // if it's out of range it probably isn't stored anyway...
+        // return _interaction.CanAccessViaStorage(user, target);
+        // This shit is broken - Goob edit
+        return true;
     }
 
     public bool ValidateWorldTarget(EntityUid user, EntityCoordinates target, Entity<WorldTargetActionComponent> ent)
@@ -1238,7 +1235,6 @@ public abstract class SharedActionsSystem : EntitySystem
     public bool IsCooldownActive(ActionComponent action, TimeSpan? curTime = null)
     {
         // TODO: Check for charge recovery timer
-        curTime ??= GameTiming.CurTime;
         return action.Cooldown.HasValue && action.Cooldown.Value.End > curTime;
     }
 

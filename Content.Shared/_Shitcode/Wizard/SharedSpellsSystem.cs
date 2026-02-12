@@ -222,7 +222,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (TryComp(ev.Target, out StatusEffectsComponent? status))
         {
-            Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
+            Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
             _jitter.DoJitter(ev.Target, ev.StutterDuration, true, status: status);
         }
 
@@ -244,7 +244,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (TryComp(ev.Target, out StatusEffectsComponent? status))
         {
-            Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
+            Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
             _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
             _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
         }
@@ -273,7 +273,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Target, out StatusEffectsComponent? status))
             return;
 
-        Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
+        Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
 
         var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
 
@@ -424,9 +424,9 @@ public abstract class SharedSpellsSystem : EntitySystem
                 continue;
 
             if (HasComp<SiliconComponent>(target) || HasComp<BorgChassisComponent>(target))
-                Stun.TryUpdateParalyzeDuration(target, ev.SiliconStunTime / range);
+                Stun.TryParalyze(target, ev.SiliconStunTime / range, true, status);
             else
-                Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true);
+                Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true, status);
         }
 
         ev.Handled = true;

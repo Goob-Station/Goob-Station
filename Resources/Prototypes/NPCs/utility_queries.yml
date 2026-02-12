@@ -46,7 +46,7 @@
   query:
     - !type:ComponentQuery
       components:
-      - type: Edible
+      - type: Food
   considerations:
     - !type:TargetIsAliveCon
       curve: !type:InverseBoolCurve
@@ -65,7 +65,7 @@
   query:
   - !type:ComponentQuery
     components:
-    - type: Edible
+    - type: Drink
   considerations:
   - !type:TargetIsAliveCon
     curve: !type:InverseBoolCurve

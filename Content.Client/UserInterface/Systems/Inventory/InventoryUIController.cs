@@ -215,6 +215,8 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
             }
         }
 
+        return;
+
         int GetIndex(Vector2i position)
         {
             return position.Y * maxWidth + position.X;

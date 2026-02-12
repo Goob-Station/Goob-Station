@@ -24,7 +24,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Server.Audio; // Goobstation - Play music on announcement
 using Content.Server.Ghost.Roles.Components;
-using Content.Shared.Station.Components;
 
 namespace Content.Server._White.GameTicking.Rules;
 
@@ -360,7 +359,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         var stationGrids = new HashSet<EntityUid>();
         foreach (var station in _gameTicker.GetSpawnableStations())
         {
-            if (TryComp<StationDataComponent>(station, out var _) && _station.GetLargestGrid(station) is { } grid)
+            if (TryComp<StationDataComponent>(station, out var data) && _station.GetLargestGrid(data) is { } grid)
                 stationGrids.Add(grid);
         }
 

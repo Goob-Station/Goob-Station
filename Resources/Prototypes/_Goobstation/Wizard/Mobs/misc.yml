@@ -133,7 +133,7 @@
         damage:
           types:
             Cellular: 1
-  - type: Crawler
+  - type: LayingDown
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: PaperCreature

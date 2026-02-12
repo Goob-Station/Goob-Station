@@ -24845,7 +24845,7 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
-- proto: SmartFridgeMedical
+- proto: DVSmartFridgeMedical
   entities:
   - uid: 7339
     components:

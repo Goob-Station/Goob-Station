@@ -29,8 +29,7 @@
   - type: WorldTargetAction
     event: !type:TeleportSpellEvent
 
-# Todo goobstation fix this spell?
-## TODO: Second level upgrade sometime that allows swapping with all objects
+# TODO: Second level upgrade sometime that allows swapping with all objects
 #- type: entity
 #  parent: BaseEntitySpellAction
 #  id: ActionVoidApplause
@@ -45,8 +44,7 @@
 #      sprite: Objects/Magic/Eldritch/eldritch_actions.rsi
 #      state: voidblink
 #  - type: TargetAction
-#    accessMask:
-#    - Opaque
+#    checkCanAccess: false
 #    repeat: false
 #    range: 16
 #  - type: EntityTargetAction

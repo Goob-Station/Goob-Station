@@ -88,7 +88,6 @@ using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Sticky;
-using Content.Shared.Trigger;
 
 namespace Content.Server.Ninja.Systems;
 
@@ -162,9 +161,6 @@ public sealed class SpiderChargeSystem : SharedSpiderChargeSystem
     /// </summary>
     private void OnExplode(EntityUid uid, SpiderChargeComponent comp, TriggerEvent args)
     {
-        if (args.Key != comp.TriggerKey)
-            return;
-
         if (!TryComp<SpaceNinjaComponent>(comp.Planter, out var ninja))
             return;
 

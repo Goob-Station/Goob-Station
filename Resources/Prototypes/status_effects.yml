@@ -27,6 +27,10 @@
   alert: Stun
 
 - type: statusEffect
+  id: KnockedDown
+  alert: KnockedDown # Goobstation
+
+- type: statusEffect
   id: SlowedDown
 
 - type: statusEffect

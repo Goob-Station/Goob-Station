@@ -50,10 +50,4 @@ public sealed partial class ProjectileGrenadeComponent : Component
     /// </summary>
     [DataField]
     public float MaxVelocity = 6f;
-
-    /// <summary>
-    /// The trigger key that will activate the grenade.
-    /// </summary>
-    [DataField]
-    public string TriggerKey = "trigger"; // Goobstation shrapnel payload
 }

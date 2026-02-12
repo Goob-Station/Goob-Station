@@ -98,10 +98,10 @@
   canBeAntag: false
   guides: # goobstation
   - Security
-  - LegalSOP
-  - OfficerCadetSOP
+  - Legal SOP
+  - OfficerCadet SOP
   - CorporateJudo
-  - AlertLevels
+  - Alert Levels
   goobcoins: 30 #Goob content
   access:
   - Security

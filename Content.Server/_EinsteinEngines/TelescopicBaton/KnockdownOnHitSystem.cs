@@ -6,13 +6,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Standing;
+using Content.Server.Standing;
 using Content.Server.Stunnable;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._EinsteinEngines.TelescopicBaton;
@@ -20,6 +19,7 @@ namespace Content.Server._EinsteinEngines.TelescopicBaton;
 public sealed class KnockdownOnHitSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly LayingDownSystem _laying = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
 
     public override void Initialize()
@@ -46,7 +46,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         {
             if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
             {
-                _stun.TryCrawling(target);
+                if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation
                     knockedDown.Add(target);
                 continue;
             }
@@ -57,8 +57,8 @@ public sealed class KnockdownOnHitSystem : EntitySystem
             if (_stun.TryKnockdown(target,
                 entity.Comp.Duration,
                 entity.Comp.RefreshDuration,
-                true,
-                DropHeldItemsBehavior.NoDrop))
+                ev.Behavior, // Goob edit
+                statusEffects)) // Goob edit
                 knockedDown.Add(target);
         }
 

@@ -251,6 +251,17 @@
     Diamond: 150
 
 - type: latheRecipe
+  id: MechEquipmentGrabber
+  result: MechEquipmentGrabber
+  categories:
+  - MechEquipment
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 200
+
+
+- type: latheRecipe
   id: MechEquipmentHonkerBananaMortar
   result: WeaponMechSpecialBananaMortar
   categories:

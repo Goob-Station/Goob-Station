@@ -104,7 +104,7 @@ public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // 
 public sealed partial class EventHereticShadowCloak : InstantActionEvent
 {
     [DataField]
-    public ProtoId<StatusEffectPrototype> Status = "ShadowCloakAlertSE";
+    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
 
     [DataField]
     public TimeSpan Lifetime = TimeSpan.FromSeconds(180);

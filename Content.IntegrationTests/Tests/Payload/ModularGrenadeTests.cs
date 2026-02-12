@@ -11,8 +11,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.IntegrationTests.Tests.Interaction;
-using Content.Shared.Trigger.Components;
-using Content.Shared.Trigger.Systems;
+using Content.Server.Explosion.Components;
+using Content.Shared.Explosion.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 
@@ -37,19 +37,19 @@ public sealed class ModularGrenadeTests : InteractionTest
         await InteractUsing(Cable);
 
         // Insert & remove trigger
-        AssertComp<TimerTriggerComponent>(false);
+        AssertComp<OnUseTimerTriggerComponent>(false);
         await InteractUsing(Trigger);
-        AssertComp<TimerTriggerComponent>();
+        AssertComp<OnUseTimerTriggerComponent>();
         await FindEntity(Trigger, LookupFlags.Uncontained, shouldSucceed: false);
         await InteractUsing(Pry);
-        AssertComp<TimerTriggerComponent>(false);
+        AssertComp<OnUseTimerTriggerComponent>(false);
 
         // Trigger was dropped to floor, not deleted.
         await FindEntity(Trigger, LookupFlags.Uncontained);
 
         // Re-insert
         await InteractUsing(Trigger);
-        AssertComp<TimerTriggerComponent>();
+        AssertComp<OnUseTimerTriggerComponent>();
 
         // Insert & remove payload.
         await InteractUsing(Payload);
@@ -68,16 +68,14 @@ public sealed class ModularGrenadeTests : InteractionTest
         await Pickup();
         AssertComp<ActiveTimerTriggerComponent>(false);
         await UseInHand();
-        AssertComp<ActiveTimerTriggerComponent>(true);
 
         // So uhhh grenades in hands don't destroy themselves when exploding. Maybe that will be fixed eventually.
         await Drop();
 
         // Wait until grenade explodes
-        var triggerSys = SEntMan.System<TriggerSystem>();
-        Target = SEntMan.GetNetEntity(await FindEntity(Payload)); // Goobstation - shrapnel payload start
-        var modgrenadeEnt = await FindEntity("ModularGrenade");
-        while (Target != null && triggerSys.GetRemainingTime(modgrenadeEnt)?.TotalSeconds >= 0.0) // Goobstation - shrapnel payload end
+        var timer = Comp<ActiveTimerTriggerComponent>();
+        Target = SEntMan.GetNetEntity(await FindEntity(Payload)); // Goobstation - shrapnel payload
+        while (timer.TimeRemaining >= 0)
         {
             await RunTicks(10);
         }

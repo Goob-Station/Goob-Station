@@ -75,6 +75,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ActionBlocker;
+using Content.Shared.Burial;
 using Content.Shared.Burial.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -85,7 +86,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Shared.Burial;
+namespace Content.Server.Burial.Systems;
 
 public sealed class BurialSystem : EntitySystem
 {

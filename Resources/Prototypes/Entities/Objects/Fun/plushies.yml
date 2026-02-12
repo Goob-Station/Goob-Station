@@ -6,24 +6,26 @@
   id: BasePlushie
   components:
   - type: EmitSoundOnUse
-    sound: &BasePlushieSound
+    sound:
       collection: ToySqueak
-      params:
-        volume: -4
   - type: EmitSoundOnActivate
-    sound: *BasePlushieSound
+    sound:
+      collection: ToySqueak
   - type: EmitSoundOnCollide
-    sound: *BasePlushieSound
+    sound:
+      collection: ToySqueak
   - type: EmitSoundOnLand
-    sound: *BasePlushieSound
+    sound:
+      collection: ToyFall
   - type: EmitSoundOnTrigger
-    sound: *BasePlushieSound
+    sound:
+      collection: ToySqueak
   - type: UseDelay
-    delay: 3.0
+    delay: 1.0
   - type: MeleeWeapon
-    attackRate: 0.333
     wideAnimationRotation: 180
-    soundHit: *BasePlushieSound
+    soundHit:
+      collection: ToySqueak
     damage:
       types:
         Blunt: 0
@@ -35,7 +37,8 @@
     price: 5
   - type: Food
     requiresSpecialDigestion: true
-    useSound: *BasePlushieSound
+    useSound:
+      collection: ToySqueak
     delay: 2
   - type: SolutionContainerManager
     solutions:
@@ -64,9 +67,9 @@
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: ThronglerPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: ThronglerPlushie
 
 
 - type: entity
@@ -102,9 +105,9 @@
     accumulatorRatio: 0.5
     maxSpeed: 1
     minSpeed: 0.25
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: GhostPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: GhostPlushie
   - type: Tag
     tags:
     - ForceableFollow
@@ -128,9 +131,9 @@
   - type: Construction
     graph: PlushieGhostRevenant
     node: plushie
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: RevenantPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: RevenantPlushie
 
 - type: entity
   parent: BasePlushie
@@ -164,9 +167,9 @@
     sprite: Objects/Fun/Plushies/bee.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: BeePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: BeePlushie
 
 - type: entity
   parent: BasePlushie
@@ -209,9 +212,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.04"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: HamptrPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: HamptrPlushie
 
 - type: entity
   parent: PlushieBee
@@ -256,9 +259,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.03"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: NukiePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: NukiePlushie
 
 - type: entity
   parent: BasePlushie
@@ -279,9 +282,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.03"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: RounyPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: RounyPlushie
 
 - type: entity
   parent: BasePlushie
@@ -296,9 +299,9 @@
     radius: 1.5
     energy: 2
     netsync: false
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: LampPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: LampPlushie
 
 - type: entity
   parent: BasePlushie
@@ -337,9 +340,9 @@
     sprite: Objects/Fun/Plushies/arachnid.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: ArachnidPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: ArachnidPlushie
 
 - type: entity
   parent: BasePlushie
@@ -353,24 +356,28 @@
   - type: Item
     sprite: Objects/Fun/Plushies/lizard.rsi
   - type: EmitSoundOnUse
-    sound: &PlushieLizardSound
+    sound:
       path: /Audio/Items/Toys/weh.ogg
-      params:
-        volume: -5
   - type: EmitSoundOnLand
-    sound: *PlushieLizardSound
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
   - type: EmitSoundOnActivate
-    sound: *PlushieLizardSound
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
   - type: EmitSoundOnTrigger
-    sound: *PlushieLizardSound
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
   - type: EmitSoundOnCollide
-    sound: *PlushieLizardSound
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound: *PlushieLizardSound
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    soundHit: *PlushieLizardSound
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
   - type: Extractable
     juiceSolution:
       reagents:
@@ -392,9 +399,9 @@
     - HEAD
   - type: Speech
     speechVerb: Reptilian # for pais (In the secret stash)
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: LizardPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: LizardPlushie
   - type: Tag
     tags:
     - Payload
@@ -420,24 +427,28 @@
       - state: inhand-right
         shader: shaded
   - type: EmitSoundOnUse
-    sound: &PlushieExperimentSound
+    sound:
       path: /Audio/Items/Toys/arf.ogg
-      params:
-        volume: -5
   - type: EmitSoundOnLand
-    sound: *PlushieExperimentSound
+    sound:
+      path: /Audio/Items/Toys/arf.ogg
   - type: EmitSoundOnActivate
-    sound: *PlushieExperimentSound
+    sound:
+      path: /Audio/Items/Toys/arf.ogg
   - type: EmitSoundOnTrigger
-    sound: *PlushieExperimentSound
+    sound:
+      path: /Audio/Items/Toys/arf.ogg
   - type: EmitSoundOnCollide
-    sound: *PlushieExperimentSound
+    sound:
+      path: /Audio/Items/Toys/arf.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound: *PlushieExperimentSound
+    useSound:
+      path: /Audio/Items/Toys/arf.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    soundHit: *PlushieExperimentSound
+    soundHit:
+      path: /Audio/Items/Toys/arf.ogg
   - type: Clothing
     clothingVisuals:
       head:
@@ -447,9 +458,9 @@
     sprite: Objects/Fun/Plushies/expi.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: ExperimentPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: ExperimentPlushie
   - type: Tag
     tags:
     - Payload
@@ -504,24 +515,28 @@
     sprite: Objects/Fun/Plushies/lizard.rsi
     heldPrefix: spacelizard
   - type: EmitSoundOnUse
-    sound: &PlushieSpaceLizardSound
+    sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
-      params:
-        volume: -5
   - type: EmitSoundOnLand
-    sound: *PlushieSpaceLizardSound
+    sound:
+      path: /Audio/Items/Toys/muffled_weh.ogg
   - type: EmitSoundOnActivate
-    sound: *PlushieSpaceLizardSound
+    sound:
+      path: /Audio/Items/Toys/muffled_weh.ogg
   - type: EmitSoundOnTrigger
-    sound: *PlushieSpaceLizardSound
+    sound:
+      path: /Audio/Items/Toys/muffled_weh.ogg
   - type: EmitSoundOnCollide
-    sound: *PlushieSpaceLizardSound
+    sound:
+      path: /Audio/Items/Toys/muffled_weh.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound: *PlushieSpaceLizardSound
+    useSound:
+      path: /Audio/Items/Toys/muffled_weh.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    soundHit: *PlushieSpaceLizardSound
+    soundHit:
+      path: /Audio/Items/Toys/muffled_weh.ogg
   - type: Clothing
     sprite: Objects/Fun/Plushies/lizard.rsi
     slots:
@@ -531,9 +546,9 @@
       head:
       - state: spacelizard-equipped-HELMET
         offset: "0, 0.03"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: SpaceLizardPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: SpaceLizardPlushie
 
 - type: entity
   parent: PlushieLizard
@@ -546,22 +561,25 @@
   - type: Item
     heldPrefix: plushielizardinversed
   - type: EmitSoundOnUse
-    sound: &PlushieLizardInversedSound
+    sound:
       path: /Audio/Items/Toys/hew.ogg
-      params:
-        volume: -5
   - type: EmitSoundOnLand
-    sound: *PlushieLizardInversedSound
+    sound:
+      path: /Audio/Items/Toys/hew.ogg
   - type: EmitSoundOnActivate
-    sound: *PlushieLizardInversedSound
+    sound:
+      path: /Audio/Items/Toys/hew.ogg
   - type: EmitSoundOnTrigger
-    sound: *PlushieLizardInversedSound
+    sound:
+      path: /Audio/Items/Toys/hew.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound: *PlushieLizardInversedSound
+    useSound:
+      path: /Audio/Items/Toys/hew.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    soundHit: *PlushieLizardInversedSound
+    soundHit:
+      path: /Audio/Items/Toys/hew.ogg
   - type: Extractable
     juiceSolution:
       reagents:
@@ -582,9 +600,9 @@
     equippedPrefix: plushielizardinversed
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: InversedLizardPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: InversedLizardPlushie
 
 
 - type: entity
@@ -601,24 +619,28 @@
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
   - type: EmitSoundOnUse
-    sound: &PlushieDionaSound
+    sound:
       path: /Audio/Items/Toys/toy_rustle.ogg
-      params:
-        volume: -5
   - type: EmitSoundOnLand
-    sound: *PlushieDionaSound
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
   - type: EmitSoundOnActivate
-    sound: *PlushieDionaSound
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
   - type: EmitSoundOnTrigger
-    sound: *PlushieDionaSound
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
   - type: EmitSoundOnCollide
-    sound: *PlushieDionaSound
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    soundHit: *PlushieDionaSound
+    soundHit:
+      path: /Audio/Items/Toys/toy_rustle.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound: *PlushieDionaSound
+    useSound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
   - type: SolutionContainerManager
     solutions:
       plushie:
@@ -670,9 +692,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.09"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: DionaPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: DionaPlushie
 
 - type: entity
   parent: BasePlushie
@@ -706,9 +728,9 @@
   - type: Item
     heldPrefix: blue
     storedRotation: -90
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: BlueSharkPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: BlueSharkPlushie
   - type: Tag
     tags:
     - PlushieSharkBlue
@@ -726,9 +748,9 @@
     state: pink
   - type: Item
     heldPrefix: pink
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: PinkSharkPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: PinkSharkPlushie
   - type: Tag
     tags:
     - PlushieSharkPink
@@ -746,9 +768,9 @@
     state: grey
   - type: Item
     heldPrefix: grey
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: GreySharkPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: GreySharkPlushie
   - type: Tag
     tags:
     - PlushieSharkGrey
@@ -773,9 +795,9 @@
     sprite: Objects/Fun/Plushies/ratvar.rsi
     slots:
     - neck
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: RatvarPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: RatvarPlushie
 
 - type: entity
   parent: BasePlushie
@@ -795,9 +817,9 @@
     sprite: Objects/Fun/Plushies/narsie.rsi
     slots:
     - neck
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: NarPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: NarPlushie
 
 - type: entity
   parent: BasePlushie
@@ -837,9 +859,9 @@
       path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite # Rrrr!
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: CarpPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: CarpPlushie
   - type: GibThisGuy  # Goobstation
     requireBoth: false
     icNames:
@@ -867,9 +889,9 @@
       - state: magicarpplush-inhand-left
       right:
       - state: magicarpplush-inhand-right
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: MagicarpPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: MagicarpPlushie
   - type: Tag
     tags:
     - Payload
@@ -912,9 +934,9 @@
       - state: holocarpplush-inhand-left
       right:
       - state: holocarpplush-inhand-right
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: HolocarpPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: HolocarpPlushie
   - type: Tag
     tags:
     - Payload
@@ -951,9 +973,9 @@
     sprite: Objects/Fun/Plushies/slime.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: SlimePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: SlimePlushie
 
 - type: entity
   parent: BasePlushie
@@ -996,9 +1018,9 @@
     - NECK
   - type: Speech
     speechVerb: Reptilian # for pais (In the secret stash)
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: SnakePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: SnakePlushie
 
 - type: entity
   parent: BasePlushie
@@ -1037,9 +1059,9 @@
     sprite: Objects/Fun/toy_mouse.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: MousePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: MousePlushie
 
 - type: entity
   parent: BasePlushie
@@ -1051,24 +1073,28 @@
     sprite: Objects/Fun/Plushies/vox.rsi
     state: icon
   - type: EmitSoundOnUse
-    sound: &PlushieVoxSound
+    sound:
       path: /Audio/Voice/Vox/shriek1.ogg
-      params:
-        volume: -5
   - type: EmitSoundOnLand
-    sound: *PlushieVoxSound
+    sound:
+      path: /Audio/Voice/Vox/shriek1.ogg
   - type: EmitSoundOnActivate
-    sound: *PlushieVoxSound
+    sound:
+      path: /Audio/Voice/Vox/shriek1.ogg
   - type: EmitSoundOnTrigger
-    sound: *PlushieVoxSound
+    sound:
+      path: /Audio/Voice/Vox/shriek1.ogg
   - type: EmitSoundOnCollide
-    sound: *PlushieVoxSound
+    sound:
+      path: /Audio/Voice/Vox/shriek1.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound: *PlushieVoxSound
+    useSound:
+      path: /Audio/Voice/Vox/shriek1.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    soundHit: *PlushieVoxSound
+    soundHit:
+      path: /Audio/Voice/Vox/shriek1.ogg
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/Plushies/vox.rsi
@@ -1078,9 +1104,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.09"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: VoxPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: VoxPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1100,9 +1126,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.04"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: AtmosianPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: AtmosianPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1116,24 +1142,28 @@
   - type: Item
     size: Normal
   - type: EmitSoundOnUse
-    sound: &PlushieXenoSound
+    sound:
       path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-      params:
-        volume: -8
   - type: EmitSoundOnLand
-    sound: *PlushieXenoSound
+    sound:
+      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: EmitSoundOnActivate
-    sound: *PlushieXenoSound
+    sound:
+      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: EmitSoundOnTrigger
-    sound: *PlushieXenoSound
+    sound:
+      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: EmitSoundOnCollide
-    sound: *PlushieXenoSound
+    sound:
+      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound: *PlushieXenoSound
+    useSound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    soundHit: *PlushieXenoSound
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/Plushies/xeno.rsi
@@ -1143,9 +1173,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.03"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: XenoPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: XenoPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1161,9 +1191,9 @@
     sprite: Objects/Fun/Plushies/penguin.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: PenguinPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: PenguinPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1175,49 +1205,35 @@
     sprite: Objects/Fun/Plushies/human.rsi
     state: icon
   - type: EmitSoundOnUse
-    sound: &PlushieHuman
+    sound:
       path: /Audio/Voice/Human/malescream_1.ogg
-      params:
-        volume: -8
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Human/malescream_2.ogg
-      params:
-        volume: -8
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Human/malescream_3.ogg
-      params:
-        volume: -8
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Human/malescream_4.ogg
-      params:
-        volume: -8
   - type: Food
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Human/malescream_1.ogg
-      params:
-        volume: -8
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Voice/Human/malescream_4.ogg
-      params:
-        volume: -8
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Human/malescream_5.ogg
-      params:
-        volume: -8
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/Plushies/human.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: HumanPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: HumanPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1255,6 +1271,6 @@
     sprite: Objects/Fun/Plushies/moth.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: MothPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: MothPlushie

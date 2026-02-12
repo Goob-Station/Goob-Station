@@ -295,6 +295,8 @@ public abstract partial class InventorySystem
         if (triggerHandContact && !((slotDefinition.SlotFlags & SlotFlags.GLOVES) == 0))
             TriggerHandContactInteraction(target);
 
+        Dirty(target, inventory);
+
         _movementSpeed.RefreshMovementSpeedModifiers(target);
 
         return true;
@@ -585,6 +587,8 @@ public abstract partial class InventorySystem
         // If gloves are unequipped, OnContactInteraction should trigger for held items
         if (triggerHandContact && !((slotDefinition.SlotFlags & SlotFlags.GLOVES) == 0))
             TriggerHandContactInteraction(target);
+
+        Dirty(target, inventory);
 
         _movementSpeed.RefreshMovementSpeedModifiers(target);
 

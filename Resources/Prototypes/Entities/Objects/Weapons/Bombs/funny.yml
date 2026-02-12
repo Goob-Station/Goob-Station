@@ -41,16 +41,13 @@
       damage:
         types:
           Blunt: 5
-    - type: TriggerOnUse
-    - type: TimerTrigger
+    - type: OnUseTimerTrigger
       delay: 120
       beepSound:
         path: /Audio/Machines/Nuke/general_beep.ogg
         params:
           volume: -2
     - type: ExplodeOnTrigger
-      keysIn:
-      - timer
     - type: Explosive
       explosionType: Default
       maxIntensity: 50
@@ -58,8 +55,6 @@
       totalIntensity: 100
       canCreateVacuum: false
     - type: DeleteOnTrigger
-      keysIn:
-      - timer
     - type: HotPotato
     - type: DamageOnHolding
       enabled: false
@@ -72,7 +67,7 @@
         enum.Trigger.TriggerVisuals.VisualState:
           base:
             Primed: { state: activated }
-            Unprimed: { state: icon }
+            Unprimed: { state: complete }
 
 - type: entity
   id: HotPotatoEffect

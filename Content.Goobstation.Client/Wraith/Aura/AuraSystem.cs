@@ -2,7 +2,6 @@ using Content.Goobstation.Shared.Wraith.Aura;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
-using System.Numerics;
 
 namespace Content.Goobstation.Client.Wraith.Aura;
 

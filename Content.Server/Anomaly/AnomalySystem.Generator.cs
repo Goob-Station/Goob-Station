@@ -45,6 +45,7 @@
 
 using Content.Server.Anomaly.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Station.Components;
 using Content.Shared.Anomaly;
 using Content.Shared.CCVar;
 using Content.Shared.Materials;
@@ -208,7 +209,8 @@ public sealed partial class AnomalySystem
         var xform = Transform(uid);
 
         if (_station.GetStationInMap(xform.MapID) is not { } station ||
-            _station.GetLargestGrid(station) is not { } grid)
+            !TryComp<StationDataComponent>(station, out var data) ||
+            _station.GetLargestGrid(data) is not { } grid)
         {
             if (xform.GridUid == null)
                 return;

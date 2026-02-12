@@ -14,217 +14,217 @@
   name: guide-entry-sop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
   children:
-  - AlertLevels
-  - EmergenciesSOP
-  - JobsSOP
-  - LegalSOP
-  - StandardProceduresSOP
+  - Alert Levels
+  - Emergencies SOP
+  - Jobs SOP
+  - Legal SOP
+  - StandardProcedures SOP
   - Succession
 
 # Alert Levels Main Directory
 - type: guideEntry
-  id: AlertLevels
+  id: Alert Levels
   name: guide-entry-sop-alert-levels
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/AlertLevelsSOP.xml"
   priority: 1
   children:
-  - GreenAlertSOP
-  - BlueAlertSOP
-  - YellowAlertSOP
-  - RedAlertSOP
-  - DeltaAlertSOP
-  - EpsilonAlertSOP
-  - GammaAlertSOP
-  - VioletAlertSOP
-  - OmicronAlertSOP
+  - GreenAlert SOP
+  - BlueAlert SOP
+  - YellowAlert SOP
+  - RedAlert SOP
+  - DeltaAlert SOP
+  - EpsilonAlert SOP
+  - GammaAlert SOP
+  - VioletAlert SOP
+  - OmicronAlert SOP
 
 # Emergencies Main Directory
 - type: guideEntry
-  id: EmergenciesSOP
+  id: Emergencies SOP
   name: guide-entry-sop-emergencies
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/Emergencies.xml"
   priority: 1
   children:
-  - ConfirmedRevsSOP
-  - ContainmentFailSOP
-  - FireGasSpillSOP
-  - MeteorStormSOP
-  - SMDelamSOP
-  - StationDamageSOP
-  - WarDeclarationSOP
-  - ZombieSOP
-  - EmergencyResponseTeamSOP
+  - ConfirmedRevs SOP
+  - ContainmentFail SOP
+  - FireGasSpill SOP
+  - MeteorStorm SOP
+  - SMDelam SOP
+  - StationDamage SOP
+  - WarDeclaration SOP
+  - Zombie SOP
+  - EmergencyResponseTeam SOP
 
 # Standard Procedures and Legal Main Directories
 - type: guideEntry
-  id: StandardProceduresSOP
+  id: StandardProcedures SOP
   name: guide-entry-sop-standards
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/StandardProceduresSOP.xml"
   priority: 2
   children:
-  - DemotingSOP
-  - EarlyEvacuationSOP
-  - HiringSOP
+  - Demoting SOP
+  - EarlyEvacuation SOP
+  - Hiring SOP
 
 - type: guideEntry
-  id: LegalSOP
+  id: Legal SOP
   name: guide-entry-sop-legal
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/LegalSOP.xml"
   priority: 2
   children:
-  - ExecutionSOP
-  - PermaBrigSOP
-  - PunishmentsSOP
-  - SearchesSOP
+  - Execution SOP
+  - PermaBrig SOP
+  - Punishments SOP
+  - Searches SOP
 
 # Jobs Main Directory and Subdirectories
 - type: guideEntry
-  id: JobsSOP
+  id: Jobs SOP
   name: guide-entry-sop-jobs
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/JobsSOP.xml"
   priority: 2
   children:
-  - CargoSOP
-  - CommandSOP
-  - EngineeringSOP
-  - MedicalSOP
-  - ScienceSOP
-  - SecuritySOP
-  - ServiceSOP
+  - Cargo SOP
+  - Command SOP
+  - Engineering SOP
+  - Medical SOP
+  - Science SOP
+  - Security SOP
+  - Service SOP
 
 - type: guideEntry
-  id: CargoSOP
+  id: Cargo SOP
   name: guide-entry-sop-cargo
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoSOP.xml"
   children:
-  - CargoTechSOP
-  - SalvageSpecialistSOP
-  - ShaftMinerSOP
+  - CargoTech SOP
+  - SalvageSpecialist SOP
+  - ShaftMiner SOP
 
 - type: guideEntry
-  id: CommandSOP
+  id: Command SOP
   name: guide-entry-sop-command
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CommandSOP.xml"
   children:
-  - NanotrasenRepSOP
-  - BlueshieldOfficerSOP
-  - CaptainSOP
-  - HeadOfPersonnelSOP
-  - HeadOfSecuritySOP
-  - ResearchDirectorSOP
-  - ChiefMedicalOfficerSOP
-  - ChiefEngineerSOP
-  - QuartermasterSOP
+  - NanotrasenRep SOP
+  - BlueshieldOfficer SOP
+  - Captain SOP
+  - HeadOfPersonnel SOP
+  - HeadOfSecurity SOP
+  - ResearchDirector SOP
+  - ChiefMedicalOfficer SOP
+  - ChiefEngineer SOP
+  - Quartermaster SOP
 
 - type: guideEntry
-  id: EngineeringSOP
+  id: Engineering SOP
   name: guide-entry-sop-engineering
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Engineering/EngineeringSOP.xml"
   children:
-  - AtmosTechSOP
-  - StationEngineerSOP
+  - AtmosTech SOP
+  - StationEngineer SOP
 
 - type: guideEntry
-  id: MedicalSOP
+  id: Medical SOP
   name: guide-entry-sop-medical
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/MedicalSOP.xml"
   children:
-  - DoctorInternSOP
-  - ChemistSOP
+  - DoctorIntern SOP
+  - Chemist SOP
 
 - type: guideEntry
-  id: ScienceSOP
+  id: Science SOP
   name: guide-entry-sop-science
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScienceSOP.xml"
   children:
-  - ScientistSOP
-  - RoboticistSOP
+  - Scientist SOP
+  - Roboticist SOP
 
 - type: guideEntry
-  id: SecuritySOP
+  id: Security SOP
   name: guide-entry-sop-security
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SecuritySOP.xml"
   children:
-  - BrigmedicSOP
-  - WardenSOP
-  - OfficerCadetSOP
-  - DetectiveSOP
+  - Brigmedic SOP
+  - Warden SOP
+  - OfficerCadet SOP
+  - Detective SOP
 
 - type: guideEntry
-  id: ServiceSOP
+  id: Service SOP
   name: guide-entry-sop-service
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/ServiceSOP.xml"
   children:
-  - BartenderSOP
-  - BotanistSOP
-  - ChefSOP
-  - ClownSOP
-  - JanitorSOP
-  - LibrarianSOP
-  - MimeSOP
-  - ReporterSOP
+  - Bartender SOP
+  - Botanist SOP
+  - Chef SOP
+  - Clown SOP
+  - Janitor SOP
+  - Librarian SOP
+  - Mime SOP
+  - Reporter SOP
 
 # Alert Levels SOP Entries
 - type: guideEntry
-  id: GreenAlertSOP
+  id: GreenAlert SOP
   name: guide-entry-sop-greenalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/GreenAlertSOP.xml"
 
 - type: guideEntry
-  id: BlueAlertSOP
+  id: BlueAlert SOP
   name: guide-entry-sop-bluealert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/BlueAlertSOP.xml"
 
 - type: guideEntry
-  id: YellowAlertSOP
+  id: YellowAlert SOP
   name: guide-entry-sop-yellowalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/YellowAlertSOP.xml"
 
 - type: guideEntry
-  id: RedAlertSOP
+  id: RedAlert SOP
   name: guide-entry-sop-redalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/RedAlertSOP.xml"
 
 - type: guideEntry
-  id: DeltaAlertSOP
+  id: DeltaAlert SOP
   name: guide-entry-sop-deltaalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/DeltaAlertSOP.xml"
 
 - type: guideEntry
-  id: EpsilonAlertSOP
+  id: EpsilonAlert SOP
   name: guide-entry-sop-epsilonalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/EpsilonAlertSOP.xml"
 
 - type: guideEntry
-  id: GammaAlertSOP
+  id: GammaAlert SOP
   name: guide-entry-sop-gammaalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/GammaAlertSOP.xml"
 
 - type: guideEntry
-  id: VioletAlertSOP
+  id: VioletAlert SOP
   name: guide-entry-sop-violetalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/VioletAlertSOP.xml"
 
 - type: guideEntry
-  id: OmicronAlertSOP
+  id: OmicronAlert SOP
   name: guide-entry-sop-omicronalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/OmicronAlertSOP.xml"
 
 # Basic SOP Entries
 - type: guideEntry
-  id: DemotingSOP
+  id: Demoting SOP
   name: guide-entry-sop-demoting
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/FiringDemotion.xml"
   priority: 10
 
 - type: guideEntry
-  id: EarlyEvacuationSOP
+  id: EarlyEvacuation SOP
   name: guide-entry-sop-evacuation
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/EarlyEvacuationSOP.xml"
   priority: 10
 
 - type: guideEntry
-  id: HiringSOP
+  id: Hiring SOP
   name: guide-entry-sop-hiring
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/HiringTransfers.xml"
   priority: 10
@@ -237,225 +237,225 @@
 
 # Emergency SOP Entries
 - type: guideEntry
-  id: ConfirmedRevsSOP
+  id: ConfirmedRevs SOP
   name: guide-entry-sop-confirmedrevs
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ConfirmedRevolutions.xml"
 
 - type: guideEntry
-  id: ContainmentFailSOP
+  id: ContainmentFail SOP
   name: guide-entry-sop-containmentfail
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ContainmentFail.xml"
 
 - type: guideEntry
-  id: FireGasSpillSOP
+  id: FireGasSpill SOP
   name: guide-entry-sop-firegasspill
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/FireGasSpill.xml"
 
 - type: guideEntry
-  id: MeteorStormSOP
+  id: MeteorStorm SOP
   name: guide-entry-sop-meteorstorm
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/MeteorStorm.xml"
 
 - type: guideEntry
-  id: StationDamageSOP
+  id: StationDamage SOP
   name: guide-entry-sop-stationdamage
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/StationDamage.xml"
 
 - type: guideEntry
-  id: SMDelamSOP
+  id: SMDelam SOP
   name: guide-entry-sop-supermatterdelam
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/SupermatterDelam.xml"
 
 - type: guideEntry
-  id: WarDeclarationSOP
+  id: WarDeclaration SOP
   name: guide-entry-sop-wardeclaration
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/WarDeclaration.xml"
 
 - type: guideEntry
-  id: ZombieSOP
+  id: Zombie SOP
   name: guide-entry-sop-zombieoutbreak
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ZombieOutbreak.xml"
 
 - type: guideEntry
-  id: EmergencyResponseTeamSOP
+  id: EmergencyResponseTeam SOP
   name: guide-entry-sop-emergencyresponseteam
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/EmergencyResponseTeam.xml"
 
 # Legal SOP Entries
 - type: guideEntry
-  id: ExecutionSOP
+  id: Execution SOP
   name: guide-entry-sop-execution
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/ExecutionSOP.xml"
 
 - type: guideEntry
-  id: PermaBrigSOP
+  id: PermaBrig SOP
   name: guide-entry-sop-permabrig
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/PermaBrigSOP.xml"
 
 - type: guideEntry
-  id: PunishmentsSOP
+  id: Punishments SOP
   name: guide-entry-sop-punishments
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/PunishmentsSOP.xml"
 
 - type: guideEntry
-  id: SearchesSOP
+  id: Searches SOP
   name: guide-entry-sop-searches
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/SearchesSOP.xml"
 
 # Cargo SOP Entries
 - type: guideEntry
-  id: CargoTechSOP
+  id: CargoTech SOP
   name: guide-entry-sop-cargotech
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoTechSOP.xml"
 
 - type: guideEntry
-  id: SalvageSpecialistSOP
+  id: SalvageSpecialist SOP
   name: guide-entry-sop-salvage
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/SalvageSpecialistSOP.xml"
 
 - type: guideEntry
-  id: ShaftMinerSOP
+  id: ShaftMiner SOP
   name: guide-entry-sop-shaft-miner
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/ShaftMinerSOP.xml"
 
 # Command SOP Entries
 - type: guideEntry
-  id: NanotrasenRepSOP
+  id: NanotrasenRep SOP
   name: guide-entry-sop-ntr
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/NanotrasenRepSOP.xml"
 
 - type: guideEntry
-  id: BlueshieldOfficerSOP
+  id: BlueshieldOfficer SOP
   name: guide-entry-sop-bso
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/BlueshieldOfficerSOP.xml"
 
 - type: guideEntry
-  id: CaptainSOP
+  id: Captain SOP
   name: guide-entry-sop-captain
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml"
 
 - type: guideEntry
-  id: HeadOfPersonnelSOP
+  id: HeadOfPersonnel SOP
   name: guide-entry-sop-hop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfPersonnelSOP.xml"
 
 - type: guideEntry
-  id: HeadOfSecuritySOP
+  id: HeadOfSecurity SOP
   name: guide-entry-sop-hos
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml"
 
 - type: guideEntry
-  id: ResearchDirectorSOP
+  id: ResearchDirector SOP
   name: guide-entry-sop-rd
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ResearchDirectorSOP.xml"
 
 - type: guideEntry
-  id: ChiefMedicalOfficerSOP
+  id: ChiefMedicalOfficer SOP
   name: guide-entry-sop-cmo
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ChiefMedicalOfficerSOP.xml"
 
 - type: guideEntry
-  id: ChiefEngineerSOP
+  id: ChiefEngineer SOP
   name: guide-entry-sop-ce
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ChiefEngineerSOP.xml"
 
 - type: guideEntry
-  id: QuartermasterSOP
+  id: Quartermaster SOP
   name: guide-entry-sop-qm
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/QuartermasterSOP.xml"
 
 # Engineering SOP Entries
 - type: guideEntry
-  id: AtmosTechSOP
+  id: AtmosTech SOP
   name: guide-entry-sop-atmostech
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Engineering/AtmosTechSOP.xml"
 
 - type: guideEntry
-  id: StationEngineerSOP
+  id: StationEngineer SOP
   name: guide-entry-sop-stationengineer
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Engineering/StationEngineerSOP.xml"
 
 # Medical SOP Entries
 - type: guideEntry
-  id: DoctorInternSOP
+  id: DoctorIntern SOP
   name: guide-entry-sop-doctorintern
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/DoctorInternSOP.xml"
 
 - type: guideEntry
-  id: ChemistSOP
+  id: Chemist SOP
   name: guide-entry-sop-chemist
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/ChemistSOP.xml"
 
 # Science SOP Entries
 - type: guideEntry
-  id: ScientistSOP
+  id: Scientist SOP
   name: guide-entry-sop-scientist
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScientistSOP.xml"
 
 - type: guideEntry
-  id: RoboticistSOP
+  id: Roboticist SOP
   name: guide-entry-sop-roboticist
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/RoboticistSOP.xml"
 
 # Security SOP Entries
 
 - type: guideEntry
-  id: BrigmedicSOP
+  id: Brigmedic SOP
   name: guide-entry-sop-brigmedic
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/BrigmedicSOP.xml"
 
 - type: guideEntry
-  id: DetectiveSOP
+  id: Detective SOP
   name: guide-entry-sop-detective
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/DetectiveSOP.xml"
 
 - type: guideEntry
-  id: OfficerCadetSOP
+  id: OfficerCadet SOP
   name: guide-entry-sop-officercadet
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/OfficerCadetSOP.xml"
 
 - type: guideEntry
-  id: WardenSOP
+  id: Warden SOP
   name: guide-entry-sop-warden
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
 
 # Service SOP Entries
 - type: guideEntry
-  id: BartenderSOP
+  id: Bartender SOP
   name: guide-entry-sop-bartender
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/BartenderSOP.xml"
 
 - type: guideEntry
-  id: BotanistSOP
+  id: Botanist SOP
   name: guide-entry-sop-botanist
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/BotanistSOP.xml"
 
 - type: guideEntry
-  id: ChefSOP
+  id: Chef SOP
   name: guide-entry-sop-chef
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/ChefSOP.xml"
 
 - type: guideEntry
-  id: ClownSOP
+  id: Clown SOP
   name: guide-entry-sop-clown
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/ClownSOP.xml"
 
 - type: guideEntry
-  id: JanitorSOP
+  id: Janitor SOP
   name: guide-entry-sop-janitor
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/JanitorSOP.xml"
 
 - type: guideEntry
-  id: LibrarianSOP
+  id: Librarian SOP
   name: guide-entry-sop-librarian
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/LibrarianSOP.xml"
 
 - type: guideEntry
-  id: MimeSOP
+  id: Mime SOP
   name: guide-entry-sop-mime
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/MimeSOP.xml"
 
 - type: guideEntry
-  id: ReporterSOP
+  id: Reporter SOP
   name: guide-entry-sop-reporter
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/ReporterSOP.xml"

@@ -14,68 +14,51 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
 using Content.Server.Stunnable.Components;
 using Content.Shared.StatusEffect;
-using Content.Shared.Movement.Systems;
 using JetBrains.Annotations;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Server.Stunnable.Systems;
-
-[UsedImplicitly]
-internal sealed class StunOnCollideSystem : EntitySystem
+namespace Content.Server.Stunnable
 {
-    [Dependency] private readonly StunSystem _stunSystem = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
-
-    public override void Initialize()
+    [UsedImplicitly]
+    internal sealed class StunOnCollideSystem : EntitySystem
     {
-        base.Initialize();
+        [Dependency] private readonly StunSystem _stunSystem = default!;
 
-        SubscribeLocalEvent<StunOnCollideComponent, StartCollideEvent>(HandleCollide);
-        SubscribeLocalEvent<StunOnCollideComponent, ThrowDoHitEvent>(HandleThrow);
-    }
-
-    private void TryDoCollideStun(Entity<StunOnCollideComponent> ent, EntityUid target)
-    {
-        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, DropHeldItemsBehavior.AlwaysDrop); // Goob DropHeldItemsBehavior
-
-        if (ent.Comp.Refresh)
+        public override void Initialize()
         {
-            _stunSystem.TryUpdateStunDuration(target, ent.Comp.StunAmount);
-            _movementMod.TryUpdateMovementSpeedModDuration(
-                target,
-                MovementModStatusSystem.TaserSlowdown,
-                ent.Comp.SlowdownAmount,
-                ent.Comp.WalkSpeedModifier,
-                ent.Comp.SprintSpeedModifier
-            );
+            base.Initialize();
+            SubscribeLocalEvent<StunOnCollideComponent, StartCollideEvent>(HandleCollide);
+            SubscribeLocalEvent<StunOnCollideComponent, ThrowDoHitEvent>(HandleThrow);
         }
-        else
+
+        private void TryDoCollideStun(EntityUid uid, StunOnCollideComponent component, EntityUid target)
         {
-            _stunSystem.TryAddStunDuration(target, ent.Comp.StunAmount);
-            _movementMod.TryAddMovementSpeedModDuration(
-                target,
-                MovementModStatusSystem.TaserSlowdown,
-                ent.Comp.SlowdownAmount,
-                ent.Comp.WalkSpeedModifier,
-                ent.Comp.SprintSpeedModifier
-            );
+
+            if (TryComp<StatusEffectsComponent>(target, out var status))
+            {
+                _stunSystem.TryStun(target, TimeSpan.FromSeconds(component.StunAmount), true, status);
+
+                _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(component.KnockdownAmount), true,
+                    status);
+
+                _stunSystem.TrySlowdown(target, TimeSpan.FromSeconds(component.SlowdownAmount), true,
+                    component.WalkSpeedMultiplier, component.RunSpeedMultiplier, status);
+            }
         }
-    }
+        private void HandleCollide(EntityUid uid, StunOnCollideComponent component, ref StartCollideEvent args)
+        {
+            if (args.OurFixtureId != component.FixtureID)
+                return;
 
-    private void HandleCollide(Entity<StunOnCollideComponent> ent, ref StartCollideEvent args)
-    {
-        if (args.OurFixtureId != ent.Comp.FixtureID)
-            return;
+            TryDoCollideStun(uid, component, args.OtherEntity);
+        }
 
-        TryDoCollideStun(ent, args.OtherEntity);
-    }
-
-    private void HandleThrow(Entity<StunOnCollideComponent> ent, ref ThrowDoHitEvent args)
-    {
-        TryDoCollideStun(ent, args.Target);
+        private void HandleThrow(EntityUid uid, StunOnCollideComponent component, ThrowDoHitEvent args)
+        {
+            TryDoCollideStun(uid, component, args.Target);
+        }
     }
 }
