@@ -316,6 +316,7 @@
         - MobLayer
   - type: DashAction # Goobstation - dark souls moths
     actionProto: ActionDashMoth
+  - type: SpontaneousCombustion # Goobstation - hot moths
 
 - type: entity
   parent: BaseSpeciesDummy
