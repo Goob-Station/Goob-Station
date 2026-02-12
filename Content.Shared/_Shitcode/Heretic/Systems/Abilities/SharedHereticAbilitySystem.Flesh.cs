@@ -105,6 +105,8 @@ public abstract partial class SharedHereticAbilitySystem
         IHateWoundMed(target, null, null, null, null, null, null);
         if (TryComp(target, out MobStateComponent? mob))
             _mobState.ChangeMobState(target, MobState.Alive, mob, args.User);
+        if (_mind.TryGetMind(target, out var mindId, out var mind))
+            _mind.UnVisit(mindId, mind);
         RemComp<GhoulDeconvertComponent>(target);
         args.Handled = true;
     }
