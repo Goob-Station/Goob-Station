@@ -224,7 +224,7 @@
       - 0,0,7,3
     whitelist:
       components:
-      - OnUseTimerTrigger # Basically all and only grenades use this
+      - TimerTrigger # Basically all and only grenades use this
       tags:
         - Grenade # China lake ammo
         - MagazinePistol
