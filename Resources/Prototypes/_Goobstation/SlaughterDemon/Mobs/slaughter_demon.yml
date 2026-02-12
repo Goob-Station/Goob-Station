@@ -213,10 +213,8 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 20
+        Piercing: 20
         Structural: 50
-      woundSeverityMultipliers:
-        Slash: 0 # It's just a prank honk
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
