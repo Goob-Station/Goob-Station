@@ -72,8 +72,9 @@ public sealed class DevilGripSystem : EntitySystem
         // Upgrade: Enhanced stun
         if (HasComp<GripSidegradeStunComponent>(args.User))
         {
-            stunTime += ent.Comp.KnockdownTimeIncrement;
-            _damageable.TryChangeDamage(args.User, ent.Comp.Healing);
+            _stun.KnockdownOrStun(target, ent.Comp.KnockdownTime, true);
+            _stamina.TakeStaminaDamage(target, ent.Comp.StaminaDamage);
+            _language.DoRatvarian(target, ent.Comp.SpeechTime, true, status);
         }
 
         if (!TryComp(target, out StatusEffectsComponent? status))
