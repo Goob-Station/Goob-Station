@@ -21230,3 +21230,21 @@ Entries:
         in hand.
   id: 2409
   time: '2026-02-12T20:58:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed discharged ipcs crashing the server
+  id: 2410
+  time: '2026-02-13T03:55:14.0000000+00:00'
+- author: Hardbassman
+  changes:
+    - type: Add
+      message: Resprite of the BSO's "praetorian" modsuit for reptilians
+  id: 2411
+  time: '2026-02-13T05:34:54.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Fix
+      message: Bone armour, BSO swathelm, and atmos firesuits now have Vox sprites
+  id: 2412
+  time: '2026-02-13T05:38:47.0000000+00:00'
