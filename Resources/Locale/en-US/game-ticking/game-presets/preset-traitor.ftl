@@ -77,6 +77,7 @@ traitor-role-moreinfo =
     Find more information about your role in the character menu.
 
 traitor-role-nouplink =
+# goob
     Unfortunately you do not have access to the black market.
 
 traitor-role-allegiances =
