@@ -94,7 +94,7 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
             return;
 
         // todo goobstation ftl this and refactor this fucking mess.
-        _popup.PopupClient("Without charge, you don't have the strength to stand up",ent.Owner, PopupType.SmallCaution);
+        _popup.PopupEntity("Without charge, you don't have the strength to stand up",ent.Owner, PopupType.SmallCaution);
         args.Autostand = false;
         args.Cancelled = true;
     }
