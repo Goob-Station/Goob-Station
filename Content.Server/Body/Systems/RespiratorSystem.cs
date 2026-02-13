@@ -322,7 +322,7 @@ public sealed class RespiratorSystem : EntitySystem
     /// <returns>Returns true only if the air is not toxic, and it wouldn't suffocate.</returns>
     public bool CanMetabolizeInhaledAir(Entity<RespiratorComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, logMissing: false))// CorvaxGoob fix
             return false;
 
         // Get the gas at our location but don't actually remove it from the gas mixture.
@@ -346,7 +346,7 @@ public sealed class RespiratorSystem : EntitySystem
     /// <returns>Returns true only if the gas mixture is not toxic, and it wouldn't suffocate.</returns>
     public bool CanMetabolizeInhaledAir(Entity<RespiratorComponent?> ent, GasMixture gas)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, logMissing: false))// CorvaxGoob fix
             return false;
 
         var ev = new CanMetabolizeGasEvent(gas);
