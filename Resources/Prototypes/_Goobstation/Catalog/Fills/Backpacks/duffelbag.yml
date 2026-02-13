@@ -132,3 +132,17 @@
       amount: 9
     - id: CartridgeG8Hypercharged
       amount: 9
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelContractorHardsuitBundle
+  name: Contractor Hardsuit bundle
+  description: "Contains the Guild approved Hardsuit suit."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitContractor
+      - id: ClothingMaskGasSyndicate
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled

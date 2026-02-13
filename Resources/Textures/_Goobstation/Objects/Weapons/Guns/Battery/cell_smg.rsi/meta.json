@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "made by ReggieTheRat/a_person5660. inhand-left and inhand-right taken from cev-eris at https://github.com/discordia-space/CEV-Eris/raw/e1a3cbe9ba2e6e29b7f1cad1bb456b390aac936d/icons/obj/guns/projectile.dmi",
+    "copyright": "made by ReggieTheRat/a_person5660. inhand-left and inhand-right taken from cev-eris at https://github.com/discordia-space/CEV-Eris/raw/e1a3cbe9ba2e6e29b7f1cad1bb456b390aac936d/icons/obj/guns/projectile.dmi, Resprite by RedTerror",
     "size": {
         "x": 32,
         "y": 32
@@ -14,7 +14,13 @@
             "name": "base"
         },
         {
-            "name": "mag-0"
+            "name": "mag-0",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
         },
         {
             "name": "mag-1"

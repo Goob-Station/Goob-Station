@@ -113,7 +113,7 @@
     requireActiveHand: false
     singleUser: false
     verbOnly: true
-  - type: PenSpin # Goob ending here
+  - type: Pen # Goob ending here
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 10
