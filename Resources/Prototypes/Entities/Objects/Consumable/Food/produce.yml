@@ -1525,7 +1525,7 @@
   - type: Tag
     tags:
     - Vegetable
-
+    - Mushroom #Goobstation
 # Slices
 
 - type: entity
@@ -2060,6 +2060,9 @@
     entries:
       Taco: FlyAmanita
       Burger: FlyAmanita
+  - type: Tag #Goobstation
+    tags:
+    - Mushroom
 
 - type: entity
   name: gatfruit
