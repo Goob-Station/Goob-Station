@@ -159,10 +159,10 @@
     graph: HereticCostume
     node: start
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/rust_armor.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/rust_armor.rsi # CorvaxGoob
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticCostume
@@ -176,10 +176,10 @@
   suffix: Void
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/void_armor.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/void_armor.rsi # CorvaxGoob
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticVoidCostume
@@ -190,10 +190,10 @@
   suffix: Ash
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/ashen_armor.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/ashen_armor.rsi # CorvaxGoob
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticAshCostume
@@ -204,10 +204,10 @@
   suffix: Flesh
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/flesh_armor.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/flesh_armor.rsi # CorvaxGoob
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticFleshCostume
@@ -218,10 +218,10 @@
   suffix: Blade
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/blade_armor.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/blade_armor.rsi # CorvaxGoob
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticBladeCostume
