@@ -19,10 +19,10 @@
   components:
   - type: HereticMagicItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/rust_hood.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/rust_hood.rsi # CorvaxGoob
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -51,46 +51,46 @@
   - type: FireProtection
     reduction: 0.1
   - type: FaceHuggerBlocker
-    
+
 - type: entity
   parent: ClothingHeadHatHoodHeretic
   id: ClothingHeadHatHoodHereticVoid
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/Head/void_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/void_hood.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/Head/void_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/void_hood.rsi # CorvaxGoob
 
 - type: entity
   parent: ClothingHeadHatHoodHeretic
   id: ClothingHeadHatHoodHereticAsh
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/Head/ashen_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/ashen_hood.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/Head/ashen_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/ashen_hood.rsi # CorvaxGoob
 
 - type: entity
   parent: ClothingHeadHatHoodHeretic
   id: ClothingHeadHatHoodHereticFlesh
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/Head/flesh_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/flesh_hood.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/Head/flesh_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/flesh_hood.rsi # CorvaxGoob
 
 - type: entity
   parent: ClothingHeadHatHoodHeretic
   id: ClothingHeadHatHoodHereticBlade
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/blade_hood.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/blade_hood.rsi # CorvaxGoob
 
 - type: entity
   parent: ClothingHeadHatHoodHeretic

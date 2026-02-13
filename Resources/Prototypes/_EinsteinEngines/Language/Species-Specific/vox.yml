@@ -17,31 +17,31 @@
     !type:SyllableObfuscation
     minSyllables: 1
     maxSyllables: 4
-    replacement:
-    - ca
-    - ra
-    - ma
-    - sa
-    - na
-    - ta
-    - la
-    - sha
-    - ti
-    - hi
-    - ki
-    - ya
-    - ta
-    - ha
-    - ka
-    - ya
-    - chi
-    - cha
-    - kah
-    - skre
-    - ahk
-    - ek
-    - rawk
-    - kraa
-    - ii
-    - kri
-    - ka
+    replacement: # CorvaxGoob-Localization
+    - ка
+    - ра
+    - ма
+    - са
+    - на
+    - та
+    - ла
+    - ша
+    - ти
+    - хи
+    - ки
+    - я
+    - та
+    - ха
+    - ка
+    - йа
+    - чи
+    - ча
+    - ках
+    - кхре
+    - ахк
+    - ек
+    - равк
+    - краа
+    - ии
+    - кри
+    - ка

@@ -56,7 +56,47 @@
   description: A torn, dust-caked hood. Smudgy eyes line the inside.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/Head/toy_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/rust_hood.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/Head/toy_hood.rsi
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/rust_hood.rsi # CorvaxGoob
+
+- type: entity
+  parent: ClothingHeadHatHoodHereticCostume
+  id: ClothingHeadHatHoodHereticVoidCostume
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/void_hood.rsi # CorvaxGoob
+    state: icon
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/void_hood.rsi # CorvaxGoob
+
+- type: entity
+  parent: ClothingHeadHatHoodHereticCostume
+  id: ClothingHeadHatHoodHereticAshCostume
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/ashen_hood.rsi # CorvaxGoob
+    state: icon
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/ashen_hood.rsi # CorvaxGoob
+
+- type: entity
+  parent: ClothingHeadHatHoodHereticCostume
+  id: ClothingHeadHatHoodHereticFleshCostume
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/flesh_hood.rsi # CorvaxGoob
+    state: icon
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/flesh_hood.rsi # CorvaxGoob
+
+- type: entity
+  parent: ClothingHeadHatHoodHereticCostume
+  id: ClothingHeadHatHoodHereticBladeCostume
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/blade_hood.rsi # CorvaxGoob
+    state: icon
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/HereticHoods/blade_hood.rsi # CorvaxGoob

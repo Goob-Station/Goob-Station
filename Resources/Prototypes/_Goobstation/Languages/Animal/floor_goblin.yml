@@ -6,17 +6,17 @@
     !type:SyllableObfuscation
     minSyllables: 1
     maxSyllables: 3
-    replacement:
-    - mi
-    - mimi
-    - mimi
-    - yoyo
-    - iyo
-    - me
-    - memimimi
-    - mimimi
-    - mi
-    - bibi
-    - bi
-    - mi
-    - yo
+    replacement: # CorvaxGoob-Localization
+    - ми
+    - мими
+    - мимими
+    - йойо
+    - ийо
+    - ме
+    - мемимими
+    - мемими
+    - мьи
+    - биби
+    - би
+    - мье
+    - йо

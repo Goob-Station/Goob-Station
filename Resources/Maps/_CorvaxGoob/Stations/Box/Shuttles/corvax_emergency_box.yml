@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/16/2025 20:01:02
-  entityCount: 1418
+  time: 02/07/2026 07:37:11
+  entityCount: 1419
 maps: []
 grids:
 - 1
@@ -43,7 +43,7 @@ entities:
     - type: MetaData
       name: NT Evac Box
     - type: Transform
-      pos: 12.954691,6.2491474
+      pos: 0,0
       parent: invalid
     - type: MapGrid
       chunks:
@@ -95,6 +95,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -763,6 +768,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -9296,6 +9302,15 @@ entities:
     - type: Transform
       pos: -18.5,1.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 1419
+    components:
+    - type: Transform
+      pos: -7.5,-0.5
+      parent: 1
+    - type: WarpPoint
+      location: Эвакуационный шаттл
 - proto: WeaponCapacitorRecharger
   entities:
   - uid: 1373

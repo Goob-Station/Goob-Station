@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
-  forkId: syndicate-next
-  forkVersion: ff44c24e0a922dd3060f883f8cca40c1545db54f
-  time: 06/09/2025 01:48:17
-  entityCount: 318
+  engineVersion: 264.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 02/07/2026 07:57:16
+  entityCount: 319
 maps: []
 grids:
 - 1
@@ -27,7 +27,7 @@ entities:
     - type: MetaData
       name: Crappy PR-148
     - type: Transform
-      pos: -220.79016,420.21445
+      pos: 0,0
       parent: invalid
     - type: MapGrid
       chunks:
@@ -59,6 +59,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: DeviceNetwork
@@ -201,45 +206,40 @@ entities:
       data:
         tiles:
           0,0:
-            0: 4369
-          0,1:
-            0: 4369
-          -1,0:
-            0: 65535
-          0,2:
             0: 1
-          -2,0:
-            0: 61166
-            1: 4369
-          -2,1:
-            0: 61166
-            1: 17
-          -2,2:
-            0: 14
+          -1,0:
+            0: 54783
+          0,1:
+            0: 257
           -1,1:
-            0: 65535
+            0: 56797
           -1,2:
-            0: 15
-          0,-1:
-            0: 4369
+            0: 29
+          -3,0:
+            0: 136
+          -2,0:
+            0: 12287
+          -3,1:
+            1: 8
+          -2,1:
+            0: 65534
+          -2,2:
+            0: 239
           -2,-1:
-            0: 61134
-            2: 32
-            1: 4369
+            0: 36795
           -1,-1:
             0: 65535
-          -3,0:
-            1: 34952
           0,-2:
-            1: 4096
-          -3,-2:
-            1: 32768
-          -3,-1:
-            1: 34952
-          -2,-2:
-            1: 61440
+            0: 4096
+          0,-1:
+            0: 273
           -1,-2:
-            1: 61440
+            0: 53248
+          -3,-2:
+            1: 34816
+          -2,-2:
+            1: 24320
+            0: 32768
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -256,8 +256,12 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
-          temperature: 293.15
+          immutable: True
           moles:
           - 0
           - 0
@@ -265,17 +269,6 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 20.078888
-          - 75.53487
           - 0
           - 0
           - 0
@@ -293,6 +286,7 @@ entities:
     - type: ProtectedGrid
       baseIndices: {}
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AirlockBarGlassLocked
   entities:
   - uid: 2
@@ -997,6 +991,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -1807,6 +1805,15 @@ entities:
     - type: Transform
       pos: -2.5,9.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 319
+    components:
+    - type: Transform
+      pos: -3.5,1.5
+      parent: 1
+    - type: WarpPoint
+      location: Эвакуационный шаттл
 - proto: WeaponCapacitorRecharger
   entities:
   - uid: 250

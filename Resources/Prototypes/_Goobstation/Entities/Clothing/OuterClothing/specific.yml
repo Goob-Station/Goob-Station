@@ -156,10 +156,66 @@
   description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/rust_armor.rsi # CorvaxGoob
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi #idi nakhuy
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/rust_armor.rsi # CorvaxGoob
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticVoidCostume
+  suffix: Void
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/void_armor.rsi # CorvaxGoob
+    state: icon
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/void_armor.rsi # CorvaxGoob
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticVoidCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticAshCostume
+  suffix: Ash
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/ashen_armor.rsi # CorvaxGoob
+    state: icon
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/ashen_armor.rsi # CorvaxGoob
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticAshCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticFleshCostume
+  suffix: Flesh
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/flesh_armor.rsi # CorvaxGoob
+    state: icon
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/flesh_armor.rsi # CorvaxGoob
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticFleshCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticBladeCostume
+  suffix: Blade
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/blade_armor.rsi # CorvaxGoob
+    state: icon
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/blade_armor.rsi # CorvaxGoob
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticBladeCostume

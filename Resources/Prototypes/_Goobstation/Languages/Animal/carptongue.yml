@@ -8,13 +8,13 @@
     !type:SyllableObfuscation
     minSyllables: 2
     maxSyllables: 4
-    replacement:
-      - r
-      - rr
-      - Rr
-      - gr
-      - sr
-      - ss
-      - sSs
-      - rer
-      - row
+    replacement: # CorvaxGoob-Localization
+      - р
+      - рр
+      - Рр
+      - гр
+      - ср
+      - сс
+      - сСс
+      - рер
+      - роу
