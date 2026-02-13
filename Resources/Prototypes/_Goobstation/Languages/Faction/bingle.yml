@@ -6,18 +6,19 @@
 - type: language
   id: Bingle
   speech:
-    fontId: Eatday
-    boldFontId: Eatday
+    # CorvaxGoob - Font do not support russian
+    # fontId: Eatday
+    # boldFontId: Eatday
     color: "#33528d"
   obfuscation:
     !type:PhraseObfuscation
     proportion: 0.66
     minPhrases: 1
     maxPhrases: 6
-    replacement:
-    - Bingle
-    - Bongle
-    - BINGLE
-    - Bong
-    - Bing
-    - BONGLE
+    replacement: # CorvaxGoob-Localization
+    - Бингл
+    - Бонгл
+    - БИНГЛ!
+    - Бонг
+    - Бинг
+    - БОНГЛ!
