@@ -47,7 +47,7 @@
     path: /Audio/Machines/beep.ogg
 
 - type: speechSounds
-  id: ShadowCloak
+  id: ShadowCloakSpeechSounds
   saySound:
     collection: HissSay
   askSound:

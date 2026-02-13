@@ -244,8 +244,8 @@
       - ReagentId: Sarin
         Quantity: 20
     spreadAmount: 1
-  - type: ActiveTimerTrigger
-    timeRemaining: 1
+  - type: TimerTrigger
+    delay: 1
   - type: DeleteOnTrigger
   - type: Projectile
     damage:

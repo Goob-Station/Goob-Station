@@ -6,6 +6,7 @@ using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Storage.Components;
 
 namespace Content.Goobstation.Server.Wraith.Systems;
 
