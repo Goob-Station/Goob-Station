@@ -89,7 +89,6 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
         if (args.Cancelled || !ent.Comp.Dead)
             return;
 
-        EnsureComp<KnockedDownComponent>(ent);
         args.Cancel();
     }
 
@@ -168,6 +167,7 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
 
         // Let you stand again
         RemComp<KnockedDownComponent>(uid);
+        _standing.Stand(uid, force: true);
 
         // Update component
         siliconDeadComp.Dead = false;
