@@ -1,5 +1,5 @@
 # creds to the great yamldozer @killangenifer
-# Standart
+# Standard
 - type: entity
   id: SpawnSupplyEmpty
   name: SpawnSupplyEmpty
@@ -21,7 +21,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/DropPod/Standart/marker.rsi
+    sprite: _Goobstation/Objects/Specific/DropPod/Standard/marker.rsi
     state: marker_ping
     drawdepth: FloorObjects
   - type: TimedDespawn
@@ -40,7 +40,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/DropPod/Standart/marker.rsi
+    sprite: _Goobstation/Objects/Specific/DropPod/Standard/marker.rsi
     state: marker
     drawdepth: FloorObjects
   - type: TimedDespawn
@@ -88,7 +88,7 @@
     spreadAmount: 1
   - type: Sprite
     offset: 0, 0.25
-    sprite: _Goobstation/Objects/Specific/DropPod/Standart/supplypod.rsi
+    sprite: _Goobstation/Objects/Specific/DropPod/Standard/supplypod.rsi
     state: landed
     drawdepth: FloorObjects
   - type: TimedDespawn
@@ -105,7 +105,7 @@
   components:
   - type: Sprite
     offset: 0, 0.25
-    sprite: _Goobstation/Objects/Specific/DropPod/Standart/supplypod.rsi
+    sprite: _Goobstation/Objects/Specific/DropPod/Standard/supplypod.rsi
     state: landed-opened
     drawdepth: FloorObjects
   - type: TimedDespawn
@@ -193,7 +193,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/DropPod/supplypodlandig.ogg
-      maxDistance: 5
   - type: TriggerOnSpawn
 
 - type: entity
