@@ -56,6 +56,7 @@ traitor-role-codewords =
 # Goob 
     Codewords can be used in regular conversation to identify yourself discreetly to other traitors.
 traitor-role-uplink-code =
+# Goob
     Your uplink code is [color=white]{$code}[/color]. Set it as your PDA ringtone to access the black market.
     Remember to lock it after, or the stations crew will easily open it too!
 traitor-role-uplink-pen-code =
