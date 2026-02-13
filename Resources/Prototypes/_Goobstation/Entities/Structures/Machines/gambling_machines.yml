@@ -384,9 +384,9 @@
     - PlushieBongle
     - PlushieBinglePony
     - PlushieAbductor
-    - PlushieWachtel
-    - PlushieLeguia
-    - PlushiePasha
+    # - PlushieWachtel
+    # - PlushieLeguia
+    # - PlushiePasha
     # CorvaxGoob-DelPlushie-start
     # - PlushieXeve
     # - PlushieDurk
@@ -398,15 +398,15 @@
     # - PlushieBrizby
     # - PlushieBoggle
     # - PlushieLehmin
-    # CorvaxGoob-DelPlushie-end
     evilRewards:
-    - EvilPlushieBoggle
-    - EvilPlushieBrizby
-    - EvilPlushieNigel
-    - EvilPlushieFern
-    - EvilPlushieJvne
-    - EvilPlushieWachtel
-    - EvilPlushieLeguia
-    - EvilPlushiePasha
-    - EvilPlushieTwofish
+    # - EvilPlushieBoggle
+    # - EvilPlushieBrizby
+    # - EvilPlushieNigel
+    # - EvilPlushieFern
+    # - EvilPlushieJvne
+    # - EvilPlushieWachtel
+    # - EvilPlushieLeguia
+    # - EvilPlushiePasha
+    # - EvilPlushieTwofish
+    # CorvaxGoob-DelPlushie-end
   - type: DoAfter

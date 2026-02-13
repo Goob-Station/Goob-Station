@@ -1111,3 +1111,9 @@ DVSmartFridgeMedical: SmartFridgeMedical
 
 # 2026-01-10 Goobstation Change Mapped Chem to Energy Chem by default
 ChemDispenser: EnergyChemDispenser
+
+#2026-2-13 CorvaxGoob
+PlushieLeguia: null
+PlushiePasha: null
+PlushieWachtel: null
+DVSmartFridge: SmartFridge

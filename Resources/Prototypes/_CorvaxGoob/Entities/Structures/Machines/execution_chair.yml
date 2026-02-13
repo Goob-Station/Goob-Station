@@ -1,6 +1,6 @@
 - type: entity
   id: ExecutionChair
-  parent: BaseStructureDynamic
+  parent: BaseStructure
   name: execution chair
   description: Looks comfy.
   components:

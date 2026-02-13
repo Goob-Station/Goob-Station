@@ -409,7 +409,9 @@ namespace Content.IntegrationTests.Tests
 
                 // <Goob>
                 "PendingSlimeSpawn", // shut the fuck up please
-                "Slime" // please
+                "Slime", // please
+                "SpawnEffectSparks", // CorvaxGoob
+                "SpawnFloorTrapXenoDrone" // CorvaxGoob
                 // </Goob>
             };
 
