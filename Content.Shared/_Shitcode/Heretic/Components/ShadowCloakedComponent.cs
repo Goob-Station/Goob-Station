@@ -16,13 +16,13 @@ public sealed partial class ShadowCloakedComponent : Component
     public bool WasVisible = true;
 
     [DataField]
-    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
+    public ProtoId<StatusEffectPrototype> ShadowCloakAlert = "ShadowCloakAlertSE"; //todo goob migrate
 
     [DataField]
-    public ProtoId<EmoteSoundsPrototype> EmoteSounds = "ShadowCloak";
+    public ProtoId<EmoteSoundsPrototype> EmoteSounds = "ShadowCloakEmoteSounds";
 
     [DataField]
-    public ProtoId<SpeechSoundsPrototype> SpeechSounds = "ShadowCloak";
+    public ProtoId<SpeechSoundsPrototype> SpeechSounds = "ShadowCloakSpeechSounds";
 
     [DataField]
     public ProtoId<SpeechVerbPrototype> SpeechVerb = "Hiss";

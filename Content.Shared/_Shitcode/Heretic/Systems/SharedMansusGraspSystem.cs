@@ -282,7 +282,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
         if (triggerGrasp && TryComp(target, out StatusEffectsComponent? status))
         {
-            _stun.KnockdownOrStun(target, grasp.Comp.KnockdownTime, true, status);
+            _stun.KnockdownOrStun(target, grasp.Comp.KnockdownTime, true);
             _stamina.TakeStaminaDamage(target, grasp.Comp.StaminaDamage);
             _language.DoRatvarian(target, grasp.Comp.SpeechTime, true, status);
             _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(target,
@@ -360,7 +360,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 // small stun if the person is looking away or laying down
                 if (_backstab.TryBackstab(target, performer, Angle.FromDegrees(45d)))
                 {
-                    _stun.TryParalyze(target, TimeSpan.FromSeconds(1.5f), true);
+                    _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(1.5f));
                     _damage.TryChangeDamage(target,
                         new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
                         ignoreResistances: true,

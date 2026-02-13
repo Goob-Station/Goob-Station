@@ -20,7 +20,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
@@ -30,13 +29,12 @@ using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
-using Robust.Shared.Audio.Systems;
+using Content.Shared.Trigger;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class MansusGraspSystem : SharedMansusGraspSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -52,18 +50,18 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
-        SubscribeLocalEvent<MansusGraspBlockTriggerComponent, BeforeTriggerEvent>(OnTriggerAttempt);
+        SubscribeLocalEvent<MansusGraspBlockTriggerComponent, AttemptTriggerEvent>(OnTriggerAttempt);
     }
 
-    private void OnTriggerAttempt(Entity<MansusGraspBlockTriggerComponent> ent, ref BeforeTriggerEvent args)
+    private void OnTriggerAttempt(Entity<MansusGraspBlockTriggerComponent> ent, ref AttemptTriggerEvent args)
     {
         if (HasComp<MansusGraspAffectedComponent>(args.User))
         {
-            args.Cancel();
+            args.Cancelled = true;
             _popup.PopupEntity(Loc.GetString("mansus-grasp-trigger-fail"), args.User.Value, args.User.Value);
         }
         else if (HasComp<MansusGraspAffectedComponent>(Transform(ent).ParentUid))
-            args.Cancel();
+            args.Cancelled = true;
     }
 
     public override void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent>? ent)
