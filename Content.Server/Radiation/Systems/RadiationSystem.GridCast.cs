@@ -37,8 +37,11 @@ public partial class RadiationSystem
         Vector2 WorldPosition)
     {
         public EntityUid? GridUid => Entity.Comp2.GridUid;
-        public float Slope => Entity.Comp1.Slope;
         public TransformComponent Transform => Entity.Comp2;
+
+        // goobstation
+        public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope;
+        public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance;
     }
 
     private void UpdateGridcast()
@@ -154,10 +157,17 @@ public partial class RadiationSystem
         // Goobstation Start - Radiation Overhaul
         // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
-        var dist = Math.Max(dir.Length(),0.5f);
+        var dist = Math.Max(dir.Length(), 0.5f);
         if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
             dist = Math.Max(dist - horizon.Radius, 0.5f);
-        var rads = source.Intensity / (dist );
+
+        // Ray enters terminal decay if the distance between source->receiver >TerminalDecayDistance.
+        // Decays at an additional linear rate of TerminalDecaySlope rads per tile past TerminalDecayDistance ontop of the existing hyperbolic function.
+        // Hyperbolic function
+        var rads = source.Intensity / (dist)
+        // Terminal decay function
+        - (dist - source.TerminalDecayDistance > 0 ? (source.TerminalDecaySlope * (dist - source.TerminalDecayDistance)) : 0);
+
         if (rads < 0.01)
             return null;
         // Goobstation End - Radiation Overhaul
@@ -324,7 +334,6 @@ public partial class RadiationSystem
             if (resistanceMap.TryGetValue(point, out var resData))
             {
                 var passRatioFromRadResistance = (1 / (resData > 2 ? (resData / 2) : 1));
-
                 var passthroughRatio = MathF.Pow(passRatioFromRadResistance, dist);
                 ray.Rads *= passthroughRatio;
 

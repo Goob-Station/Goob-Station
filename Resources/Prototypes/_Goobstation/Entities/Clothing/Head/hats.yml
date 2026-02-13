@@ -379,6 +379,20 @@
     - HamsterWearable
 
 - type: entity
+  parent: ClothingHeadHatCapcap
+  id: ClothingHeadHatCapcapSenior
+  name: cap cap senior
+  description: A grand, stylish cap worn by the Seniors Captains. Shows the station who's in charge.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
+  - type: Item
+    sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
+    
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTinfoilHat
   name: tinfoil hat

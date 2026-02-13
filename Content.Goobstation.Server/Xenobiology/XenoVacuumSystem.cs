@@ -6,10 +6,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 using Content.Server.NPC.HTN;
+using Content.Server.Storage.Components;
+using Content.Server.Storage.EntitySystems;
 using Content.Shared.Coordinates;
+using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -20,8 +22,10 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -44,15 +48,20 @@ public sealed partial class XenoVacuumSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly EntityStorageSystem _entStorage = default!;
+
+    private const string ReleaseDelayId = "release";
+    private const string SuctionDelayId = "suction";
 
     public override void Initialize()
     {
         base.Initialize();
-        // Init
         SubscribeLocalEvent<XenoVacuumTankComponent, MapInitEvent>(OnTankInit);
-
-        // Interaction
         SubscribeLocalEvent<XenoVacuumTankComponent, ExaminedEvent>(OnTankExamined);
+        SubscribeLocalEvent<XenoVacuumTankComponent, DestructionEventArgs>(OnDestruction);
+
+        SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnGotEmagged);
         SubscribeLocalEvent<XenoVacuumComponent, GotEquippedHandEvent>(OnEquippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, GotUnequippedHandEvent>(OnUnequippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnAfterInteract);
@@ -65,11 +74,17 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private void OnTankExamined(Entity<XenoVacuumTankComponent> ent, ref ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange)
+        if (!args.IsInDetailsRange || !TryComp<EntityStorageComponent>(ent, out var entStorage))
             return;
 
-        var text = Loc.GetString("xeno-vacuum-examined", ("n", ent.Comp.StorageTank.ContainedEntities.Count));
+        var text = Loc.GetString("xeno-vacuum-examined", ("n", entStorage.Contents.ContainedEntities.Count));
         args.PushMarkup(text);
+    }
+
+    private void OnDestruction(Entity<XenoVacuumTankComponent> ent, ref DestructionEventArgs args)
+    {
+        // apparently ContainerManager doesn't automatically release them so
+        _containerSystem.EmptyContainer(ent.Comp.StorageTank);
     }
 
     private void OnEquippedHand(Entity<XenoVacuumComponent> ent, ref GotEquippedHandEvent args)
@@ -98,16 +113,31 @@ public sealed partial class XenoVacuumSystem : EntitySystem
         Dirty(tank.Value, tankComp);
     }
 
+    private void OnGotEmagged(Entity<XenoVacuumComponent> ent, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
+        || _emag.CheckFlag(ent, EmagType.Interaction)
+        || HasComp<EmaggedComponent>(ent))
+            return;
+
+        args.Handled = true;
+    }
+
     private void OnAfterInteract(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
     {
+        var ud = Comp<UseDelayComponent>(ent);
+        if (CheckDelays(ent)) return;
+
         if (args is { Target: { } target, CanReach: true } && HasComp<MobStateComponent>(target))
         {
             TryDoSuction(args.User, target, ent);
+            if (ud != null) _useDelay.TryResetDelay((ent, ud), false, SuctionDelayId);
             return;
         }
 
-        if (!TryGetTank(args.User, out var tank) && !tank.HasValue
-        && tank!.Value.Comp.StorageTank.ContainedEntities.Count <= 0)
+        // release all entities contained
+        if (!TryGetTank(args.User, out var tank) || !tank.HasValue
+        || tank!.Value.Comp.StorageTank.ContainedEntities.Count <= 0)
             return;
 
         var tankComp = tank!.Value.Comp;
@@ -121,14 +151,20 @@ public sealed partial class XenoVacuumSystem : EntitySystem
                 _throw.TryThrow(removedEnt, thrown.ToCoordinates());
             else
                 _throw.TryThrow(removedEnt, args.ClickLocation);
-            _stun.TryParalyze(removedEnt, TimeSpan.FromSeconds(2), true);
+            _stun.TryUpdateParalyzeDuration(removedEnt, TimeSpan.FromSeconds(2));
             _htn.SetHTNEnabled(removedEnt, true,2f);
         }
+
+        if (ud != null) _useDelay.TryResetDelay((ent, ud), false, ReleaseDelayId);
 
         _audio.PlayEntity(ent.Comp.ClearSound, ent, args.User, AudioParams.Default.WithVolume(-2f));
     }
 
     #region Helpers
+
+    private bool CheckDelays(Entity<XenoVacuumComponent> tank)
+        => _useDelay.IsDelayed(tank.Owner, SuctionDelayId)
+        || _useDelay.IsDelayed(tank.Owner, ReleaseDelayId);
 
     private bool TryGetTank(EntityUid user, out Entity<XenoVacuumTankComponent>? tank)
     {
@@ -171,7 +207,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
         var tankComp = tank.Value.Comp;
 
-        if (!_whitelist.IsWhitelistPass(vacuum.Comp.EntityWhitelist, target))
+        if (!HasComp<EmaggedComponent>(vacuum) && !_whitelist.IsWhitelistPass(vacuum.Comp.EntityWhitelist, target))
         {
             var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);

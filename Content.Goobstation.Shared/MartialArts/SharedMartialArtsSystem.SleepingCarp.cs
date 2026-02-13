@@ -54,7 +54,7 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        if (HasComp<ChangelingIdentityComponent>(args.User))
+        if (HasComp<ChangelingComponent>(args.User))
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), args.User, args.User);
             return;
@@ -157,7 +157,7 @@ public partial class SharedMartialArtsSystem
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropHeldItemsBehavior);
         }
         else
         {
