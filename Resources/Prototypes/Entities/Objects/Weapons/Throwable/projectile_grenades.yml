@@ -83,6 +83,7 @@
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
+    keyOut: trigger # Goobchange for shrapnel payloads.
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
@@ -110,6 +111,7 @@
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
+    keyOut: trigger # Goob modgrenade shrapnel
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
@@ -141,6 +143,7 @@
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
+    keyOut: trigger # Goob edit Shrapnel modgrenade
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
