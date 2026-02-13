@@ -21242,3 +21242,9 @@ Entries:
       message: Resprite of the BSO's "praetorian" modsuit for reptilians
   id: 2411
   time: '2026-02-13T05:34:54.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Fix
+      message: Bone armour, BSO swathelm, and atmos firesuits now have Vox sprites
+  id: 2412
+  time: '2026-02-13T05:38:47.0000000+00:00'
