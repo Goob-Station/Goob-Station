@@ -82,6 +82,7 @@ traitor-role-nouplink =
 traitor-role-allegiances =
     Your allegiances:
 
+#goob
 traitor-role-notes =
     Additional notes:
 
