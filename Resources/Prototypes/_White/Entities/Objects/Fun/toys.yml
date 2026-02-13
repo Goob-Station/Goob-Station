@@ -26,6 +26,8 @@
       components:
       - Ghost
     knockdownTime: 0
+    initialInjectionDelay: 60
+    sleepChem: Happiness
     infectionPrototype: null
     damageOnImpact:
       types:
