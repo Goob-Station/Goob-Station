@@ -183,7 +183,7 @@
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
   id: ClothingModsuitSecurity
   name: security soldat modsuit control unit
-  description: A robust modular hardsuit control module unit for thrashing commies in spess.
+  description: A robust modular hardsuit control module unit for enforcing space law.
   components:
   - type: Appearance
   - type: Sprite
