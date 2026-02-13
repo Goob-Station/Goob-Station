@@ -165,7 +165,6 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
             _actions.SetEnabled(combatMode.CombatToggleActionEntity, true);
 
         // Let you stand again
-        RemComp<KnockedDownComponent>(uid);
         _standing.Stand(uid, force: true);
 
         // Update component
