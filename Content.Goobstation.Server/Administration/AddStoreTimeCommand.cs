@@ -61,7 +61,7 @@ namespace Content.Goobstation.Server.Administration
                 return;
             }
 
-            var listing = store.Listings.FirstOrDefault(l => l.ID == listingId);
+            var listing = store.FullListingsCatalog.FirstOrDefault(l => l.ID == listingId);
 
             if (listing == null)
             {
