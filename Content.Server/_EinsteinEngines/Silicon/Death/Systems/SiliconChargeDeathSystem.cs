@@ -124,7 +124,6 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
 
         // Knock down
         _standing.Down(uid);
-        EnsureComp<KnockedDownComponent>(uid);
 
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
         {
