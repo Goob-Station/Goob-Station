@@ -14,6 +14,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
+using Content.Shared.StatusEffectNew.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Physics;
@@ -64,7 +65,7 @@ public abstract partial class SharedStunSystem
         SubscribeLocalEvent<CrawlerComponent, KnockedDownRefreshEvent>(OnKnockdownRefresh);
         SubscribeLocalEvent<CrawlerComponent, DamageChangedEvent>(OnDamaged);
         // <Goob>
-        SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand);
+        //SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand); // todo goob rework help knockdown
         // </Goob>
 
         // Handling Alternative Inputs
@@ -494,6 +495,8 @@ public abstract partial class SharedStunSystem
         args.SpeedModifier *= entity.Comp.SpeedModifier;
     }
     // EE Interaction Verbs Begin
+    /*
+     // Todo goobstation ngl this whole help thing needs a rework with on-demand crawl
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
     {
 
@@ -508,16 +511,24 @@ public abstract partial class SharedStunSystem
         if (HasComp<SleepingComponent>(uid))
             return;
 
-        // Set it to half the help interval so helping is actually useful...
+        if (!_status.TryGetTime(uid, StunId, out var timer))
+            return;
+
         knocked.HelpTimer = knocked.HelpInterval / 2f;
 
-        _status.TryGetTime(uid, "StatusEffectStunned", out var timer);
-        _status.TryUpdateStatusEffectDuration(uid, "StatusEffectStunned",  timer.EndEffectTime - TimeSpan.FromSeconds(knocked.HelpInterval));
-        _audio.PlayPredicted(knocked.StunAttemptSound , uid, args.User);
+        var newDuration = timer.EndEffectTime - TimeSpan.FromSeconds(knocked.HelpInterval);
+
+        if (newDuration <= TimeSpan.Zero)
+            _status.TryRemoveStatusEffect(uid, StunId);
+        else
+            _status.TryUpdateStatusEffectDuration(uid, StunId, newDuration);
+
+        _audio.PlayPredicted(knocked.StunAttemptSound, uid, args.User);
         Dirty(uid, knocked);
 
         args.Handled = true;
-    }
+    }*/
+
     // EE verbs end
 
 

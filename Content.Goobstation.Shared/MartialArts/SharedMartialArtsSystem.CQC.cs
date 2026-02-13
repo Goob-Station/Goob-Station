@@ -32,6 +32,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 
@@ -156,14 +157,16 @@ public partial class SharedMartialArtsSystem
                 }
 
                 // Leg sweep
-                 if (!TryComp<StandingStateComponent>(ent, out var standing)
+                 if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)
                      || standing.Standing
-                     || !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
-                     !targetStanding.Standing)
+                     || !TryComp<StandingStateComponent>(args.Target, out var targetStanding)
+                     || !targetStanding.Standing
+                     )
                      break;
+                if (HasComp<KnockedDownComponent>(ent.Owner))
+                    RemComp<KnockedDownComponent>(ent.Owner);
 
-                _status.TryRemoveStatusEffect(ent, "KnockedDown");
-                _standingState.Stand(ent);
+                _standingState.Stand(ent.Owner);
                 _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
                 ComboPopup(ent, args.Target, "Leg Sweep");
                 break;
