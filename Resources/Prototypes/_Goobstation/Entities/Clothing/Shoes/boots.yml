@@ -66,6 +66,9 @@
   name: tactical response magboots
   description: Look! An emergency responder, we're saved!
   components:
+  - type: ContainerContainer # CorvaxGoob edit
+    containers:
+      item: !type:ContainerSlot
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
     state: icon
@@ -105,6 +108,9 @@
   name: deathsquad magboots
   description: The sound of these boots are iconic; the sound of terror.
   components:
+  - type: ContainerContainer # CorvaxGoob edit
+    containers:
+      item: !type:ContainerSlot
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
     state: icon

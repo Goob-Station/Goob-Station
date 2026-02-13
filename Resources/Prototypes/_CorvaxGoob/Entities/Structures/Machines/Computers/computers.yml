@@ -8,6 +8,10 @@
     range: 200
     ports:
       - ShuttleDroneTransmitter
+      - SignalShuttleConsole1
+      - SignalShuttleConsole2
+      - SignalShuttleConsole3
+      - SignalShuttleConsole4
   - type: Tag
     tags:
     - DroneShuttleLinkable # used for definition a linkable drone console from usual one

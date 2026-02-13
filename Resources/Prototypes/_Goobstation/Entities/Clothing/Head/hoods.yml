@@ -49,8 +49,9 @@
     sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
 
 - type: entity
-  parent: [ ClothingHeadBase ]
+  parent: ClothingHeadBase
   id: ClothingHeadHatHoodHereticCostume
+  categories: [ HideSpawnMenu ]
   name: occult hood
   description: A torn, dust-caked hood. Smudgy eyes line the inside.
   components:

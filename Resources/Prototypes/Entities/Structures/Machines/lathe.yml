@@ -547,6 +547,7 @@
     - RestraintTechnology
     - MiningWeapons
     # CorvaxGoob Packs
+    emagStaticPacks:
     - SyndicateBodyBagsStatic # AdvancedBodyBag
 
 - type: entity

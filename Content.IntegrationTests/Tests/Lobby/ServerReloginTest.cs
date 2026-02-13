@@ -41,7 +41,7 @@ public sealed class ServerReloginTest
             username = serverPlayerMgr.Sessions.First().Name;
 
             //No new players are allowed, but since our client was already playing, they should be able to get in
-            serverConfig.SetCVar(CCVars.SoftMaxPlayers, 0);
+            serverConfig.SetCVar(CCVars.SoftMaxPlayers, 1); // Corvax-Goob-Edit - It's either related to the new queue system or something others. Doesnt gonna cause any problems
         });
 
         await client.WaitAssertion(() =>

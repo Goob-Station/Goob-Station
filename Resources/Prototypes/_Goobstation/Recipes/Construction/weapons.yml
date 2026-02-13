@@ -20,3 +20,51 @@
   targetNode: woodenWand
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: BladedPlasmaFlatcapGrey
+  graph: BladedPlasmaFlatcapGrey
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  objectType: Item
+  
+- type: construction
+  id: BladedUraniumFlatcapGrey
+  graph: BladedUraniumFlatcapGrey
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  objectType: Item
+  
+- type: construction
+  id: BladedReinforcedFlatcapGrey
+  graph: BladedReinforcedFlatcapGrey
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  objectType: Item
+  
+- type: construction
+  id: BladedPlasmaFlatcapBrown
+  graph: BladedPlasmaFlatcapBrown
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  objectType: Item
+  
+- type: construction
+  id: BladedUraniumFlatcapBrown
+  graph: BladedUraniumFlatcapBrown
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  objectType: Item
+  
+- type: construction
+  id: BladedReinforcedFlatcapBrown
+  graph: BladedReinforcedFlatcapBrown
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  objectType: Item

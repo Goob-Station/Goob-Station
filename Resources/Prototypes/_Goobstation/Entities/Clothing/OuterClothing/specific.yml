@@ -155,9 +155,6 @@
   name: occult robes
   description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
   components:
-  - type: Construction
-    graph: HereticCostume
-    node: start
   - type: Sprite
     sprite: _CorvaxGoob/Clothing/OuterClothing/HereticRobes/rust_armor.rsi # CorvaxGoob
     state: icon
@@ -166,9 +163,6 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticCostume
-  - type: Tag
-    tags:
-      - HereticCostume
 
 - type: entity
   parent: ClothingOuterArmorHereticCostume
