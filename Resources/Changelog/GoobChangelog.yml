@@ -21236,3 +21236,9 @@ Entries:
       message: Fixed discharged ipcs crashing the server
   id: 2410
   time: '2026-02-13T03:55:14.0000000+00:00'
+- author: Hardbassman
+  changes:
+    - type: Add
+      message: Resprite of the BSO's "praetorian" modsuit for reptilians
+  id: 2411
+  time: '2026-02-13T05:34:54.0000000+00:00'
