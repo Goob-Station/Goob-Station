@@ -1,7 +1,9 @@
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server.Administration.Logs;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Audio;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
@@ -12,6 +14,7 @@ namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     /// <summary>
     ///     Used to calculate when the finale song should start playing
     /// </summary>
@@ -67,6 +70,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             return;
         }
         _popup.PopupEntity(Loc.GetString("cosmiccult-finale-beckon-success"), args.Args.User, args.Args.User);
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Args.User)} has started the Cosmic Cult finale at {ToPrettyString(uid)}");
         StartFinale(uid);
     }
 
