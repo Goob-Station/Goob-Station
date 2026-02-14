@@ -32,7 +32,7 @@
     sprite: _Goobstation/Wizard/actions.rsi
     state: fireball
   - type: Action
-    useDelay: 6
+    useDelay: 6 # Goobstation?
     itemIconStyle: BigAction
     raiseOnUser: true
     sound: !type:SoundPathSpecifier
@@ -43,12 +43,10 @@
   - type: TargetAction
     range: 60
     checkCanAccess: false
-  - type: EntityTargetAction # Goobstation
-    canTargetSelf: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
-      speed: 20
+      speed: 20 # Goobstation?
   - type: SpeakOnAction
     sentence: action-speech-spell-fireball
   - type: ActionUpgrade
@@ -62,22 +60,8 @@
   name: Fireball II
   description: Fires a fireball, but faster!
   components:
-  - type: EntityWorldTargetAction # Goob edit
+  - type: Action
     useDelay: 4 # Goob edit
-    checkCanInteract: false # Goobstation
-    itemIconStyle: BigAction
-    checkCanAccess: false
-    raiseOnUser: true
-    range: 60
-    sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/fireball.ogg
-    icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: fireball # Goob edit
-    event: !type:ProjectileSpellEvent
-      prototype: ProjectileFireball
-  - type: SpeakOnAction
-    sentence: action-speech-spell-fireball
 
 - type: entity
   parent: ActionFireball
@@ -85,19 +69,5 @@
   name: Fireball III
   description: The fastest fireball in the west!
   components:
-    - type: EntityWorldTargetAction # Goob edit
-      useDelay: 2 # Goob edit
-      checkCanInteract: false # Goobstation
-      itemIconStyle: BigAction
-      checkCanAccess: false
-      raiseOnUser: true
-      range: 60
-      sound: !type:SoundPathSpecifier
-        path: /Audio/Magic/fireball.ogg
-      icon:
-        sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-        state: fireball # Goob edit
-      event: !type:ProjectileSpellEvent
-        prototype: ProjectileFireball
-    - type: SpeakOnAction
-      sentence: action-speech-spell-fireball
+  - type: Action
+    useDelay: 2 # Goob edit

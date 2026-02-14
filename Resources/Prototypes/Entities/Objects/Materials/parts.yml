@@ -40,10 +40,6 @@
     state: rods
   - type: Item
     sprite: Objects/Materials/parts.rsi
-  - type: Tag
-    tags:
-      - DroneUsable # Goobstation
-      - PartBase # Goobstation
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
@@ -58,6 +54,8 @@
   - type: Tag
     tags:
     - ConstructionMaterial
+    - DroneUsable # Goobstation
+    - PartBase # Goobstation
 
 - type: entity
   parent: PartBase

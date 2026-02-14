@@ -558,19 +558,6 @@
   - type: ExaminableSolution
     solution: injector
     exactVolume: true
-  - type: Spillable
-    solution: injector
-  - type: TrashOnSolutionEmpty
-    solution: injector
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 2
-    fillBaseName: syringe
-    inHandsMaxFillLevels: 3
-    inHandsFillBaseName: -fill-
-  - type: Tag
-    tags:
-    - Syringe
   # Goobstation Start - Added embeddable properties for syringe gun
   - type: MeleeWeapon
     wideAnimationRotation: -135
