@@ -351,6 +351,7 @@
   id: VaccinatorMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: vaccinator machine board
+  description: A machine printed circuit board for a vaccinator.
   components:
   - type: Sprite
     state: medical
@@ -368,6 +369,7 @@
   id: DiagnoserMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: diagnoser machine board
+  description: A machine printed circuit board for a disease diagnoser.
   components:
   - type: Sprite
     state: medical

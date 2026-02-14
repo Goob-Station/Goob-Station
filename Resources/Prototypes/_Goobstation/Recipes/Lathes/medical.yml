@@ -165,3 +165,24 @@
   icon:
     sprite: Structures/dispensers.rsi
     state: industrial-working
+
+# Virology
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
+  id: VaccinatorMachineCircuitboard
+  icon:
+    sprite: Structures/Machines/vaccinator.rsi
+    state: icon
+  result: VaccinatorMachineCircuitboard
+  completeTime: 8
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
+  id: DiagnoserMachineCircuitboard
+  icon:
+    sprite: Structures/Machines/diagnoser.rsi
+    state: icon
+  result: DiagnoserMachineCircuitboard
+  completeTime: 8
+

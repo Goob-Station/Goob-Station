@@ -68,6 +68,22 @@
 # Tier 2
 
 - type: technology
+  id: VirologyTechnology
+  name: research-technology-virology
+  icon:
+    sprite: Structures/Machines/vaccinator.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - VaccinatorMachineCircuitboard
+  - DiagnoserMachineCircuitboard
+  position: 4,4
+  technologyPrerequisites:
+  - AccessibilityTech
+
+- type: technology
   id: ExtendedCommunications
   name: research-technology-extended-communication
   icon:
