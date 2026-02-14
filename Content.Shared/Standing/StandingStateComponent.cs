@@ -19,39 +19,30 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Standing;
-
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class StandingStateComponent : Component
+namespace Content.Shared.Standing
 {
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
-    public SoundSpecifier DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+    [Access(typeof(StandingStateSystem))]
+    public sealed partial class StandingStateComponent : Component
+    {
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        public SoundSpecifier? DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
 
-    // WD EDIT START
-    [DataField, AutoNetworkedField]
-    public StandingState CurrentState { get; set; } = StandingState.Standing;
-    // WD EDIT END
+        [DataField, AutoNetworkedField]
+        public bool Standing { get; set; } = true;
 
-    /// <summary>
-    /// Goobstation - made to just use CurrentState and no longer a real field
-    /// This means while you try to get up it pushes mobs away which looks a bit better than standing up and suddenly pushing everyone out.
-    /// </summary>
-    [ViewVariables]
-    public bool Standing => CurrentState != StandingState.Lying;
+        /// <summary>
+        /// Friction modifier applied to an entity in the downed state.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public float DownFrictionMod = 0.4f;
 
-    /// <summary>
-    ///     List of fixtures that had their collision mask changed when the entity was downed.
-    ///     Required for re-adding the collision mask.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public List<string> ChangedFixtures = new();
+        /// <summary>
+        ///     List of fixtures that had their collision mask changed when the entity was downed.
+        ///     Required for re-adding the collision mask.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public List<string> ChangedFixtures = new();
+    }
 }
-// WD EDIT START
-public enum StandingState
-{
-    Lying,
-    GettingUp,
-    Standing,
-}
-// WD EDIT END

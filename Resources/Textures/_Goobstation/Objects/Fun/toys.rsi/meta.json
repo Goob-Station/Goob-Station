@@ -1,178 +1,192 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-4.0",
-  "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_mnwaar by ShieldAcrados based on the Einstein Engines shadowkin plushie, plushiemnwaar-inhand-left and plushiemnwaar-inhand-right by MarkerWicker, plushie_brizby and plushie_baldzby by Zethine, plushie_boggle and plushie_lehmin by KipperSkipp, plushie xeve by Yonsim, plushie holy by SDPowerStroke",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "plushie_louie"
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_mnwaar by ShieldAcrados based on the Einstein Engines shadowkin plushie, plushiemnwaar-inhand-left and plushiemnwaar-inhand-right by MarkerWicker, plushie_brizby and plushie_baldzby by Zethine, plushie_boggle and plushie_lehmin by KipperSkipp, plushie xeve by Yonsim, plushie holy by SDPowerStroke, TwoFish by Yero",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "plushie_durk"
-    },
-    {
-      "name": "plushie_jvne"
-    },
-    {
-      "name": "plushie_fern"
-    },
-    {
-      "name": "plushie_nigel"
-    },
-    {
-      "name": "plushie_mnwaar"
-    },
-    {
-      "name": "plushie_xeve"
-    },
-    {
-    
-      "name": "plushie_holy"
-    },
-    {
-      "name": "plushieholy-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "plushiejvne-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushiejvne-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "plushie_samantha"
-    },
-    {
-      "name": "plushiesamantha-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "plushiesamantha-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushiesamantha-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "plushie_abductor"
-    },
-    {
-      "name": "bingleing"
-    },
-    {
-      "name": "bongle",
-      "directions": 4
-    },
-    {
-      "name": "plushie_brizby"
-    },
-    {
-      "name": "plushiebrizby-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushiebrizby-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "plushie_baldzby"
-    },
-    {
-      "name": "plushiebaldzby-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushiebaldzby-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "bingle_pony",
-      "directions": 4
-    },
-    {
-      "name": "plushiemnwaar-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushiemnwaar-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "plushie_boggle"
-    },
-    {
-      "name": "plushie_lehmin"
-    },
-    {
-      "name": "plushieboggle-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushieboggle-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "plushielehmin-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushielehmin-inhand-right",
-      "directions": 4
-    },
-	{
-      "name": "plushie_pasha"
-    },
-    {
-      "name": "plushiepasha-equipped-HELMET",
-      "directions": 4
-    },    
-	{
-      "name": "plushiepasha-equipped-HELMET-vox",
-      "directions": 4
-    },
-    {
-      "name": "plushiepasha-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushiepasha-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "plushie_leguia"
-    },
-    {
-      "name": "plushieleguia-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "plushieleguia-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushieleguia-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "plushie_grug"
-    },
-    {
-      "name": "plushiegrug-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "plushiegrug-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "plushiegrug-inhand-right",
-      "directions": 4
-    }
-  ]
+    "states": [
+        {
+            "name": "plushie_louie"
+        },
+        {
+            "name": "plushie_durk"
+        },
+        {
+            "name": "plushie_jvne"
+        },
+        {
+            "name": "plushie_fern"
+        },
+        {
+            "name": "plushie_nigel"
+        },
+        {
+            "name": "plushie_mnwaar"
+        },
+        {
+            "name": "plushie_xeve"
+        },
+        {
+            "name": "plushie_holy"
+        },
+        {
+            "name": "plushieholy-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushiejvne-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiejvne-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_samantha"
+        },
+        {
+            "name": "plushiesamantha-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushiesamantha-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiesamantha-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_abductor"
+        },
+        {
+            "name": "bingleing"
+        },
+        {
+            "name": "bongle",
+            "directions": 4
+        },
+        {
+            "name": "plushie_brizby"
+        },
+        {
+            "name": "plushiebrizby-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiebrizby-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_baldzby"
+        },
+        {
+            "name": "plushiebaldzby-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiebaldzby-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "bingle_pony",
+            "directions": 4
+        },
+        {
+            "name": "plushiemnwaar-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiemnwaar-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_boggle"
+        },
+        {
+            "name": "plushie_lehmin"
+        },
+        {
+            "name": "plushieboggle-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushieboggle-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushielehmin-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushielehmin-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_pasha"
+        },
+        {
+            "name": "plushiepasha-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushiepasha-equipped-HELMET-vox",
+            "directions": 4
+        },
+        {
+            "name": "plushiepasha-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiepasha-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_leguia"
+        },
+        {
+            "name": "plushieleguia-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushieleguia-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushieleguia-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_grug"
+        },
+        {
+            "name": "plushiegrug-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushiegrug-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiegrug-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_twofish"
+        },
+        {
+            "name": "plushietwofish-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushietwofish-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushietwofish-inhand-right",
+            "directions": 4
+        }
+    ]
 }
