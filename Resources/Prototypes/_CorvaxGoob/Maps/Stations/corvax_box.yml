@@ -69,8 +69,8 @@
             Boxer: [ 1, 1 ]
             Zookeeper: [ 1, 1 ]
             Reporter: [ 1, 2 ]
-            Passenger: [ -1, -1 ]
             RadioHost: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
