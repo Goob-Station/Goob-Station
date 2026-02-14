@@ -4,21 +4,21 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
-  parent: BaseMail
-  id: MailSignallerKit
-  suffix: signallerkit
-  components:
-  - type: Mail
-    contents:
-    - id: Multitool
-    - id: RemoteSignaller
-
-- type: entity
-  parent: BaseMail
-  id: MailFlashlight
-  suffix: Flashlight
-  components:
-  - type: Mail
-    contents:
-    - id: FlashlightLantern
+#- type: entity # upstreamrr todo <mailfix>
+#  parent: BaseMail
+#  id: MailSignallerKit
+#  suffix: signallerkit
+#  components:
+#  - type: Mail
+#    contents:
+#    - id: Multitool
+#    - id: RemoteSignaller
+#
+#- type: entity
+#  parent: BaseMail
+#  id: MailFlashlight
+#  suffix: Flashlight
+#  components:
+#  - type: Mail
+#    contents:
+#    - id: FlashlightLantern

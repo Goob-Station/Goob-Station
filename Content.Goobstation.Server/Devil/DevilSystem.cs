@@ -51,6 +51,7 @@ using Content.Shared.Shuttles.Components;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
 using Content.Shared.Temperature.Components;
+using Content.Shared.Zombies;
 using Robust.Server.Containers;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;

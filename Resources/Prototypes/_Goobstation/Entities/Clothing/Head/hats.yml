@@ -167,16 +167,16 @@
       map: ["foldedLayer"]
       visible: false
 
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadMailCarrier
-  name: mail carrier's hat
-  description: Smells like a good pension.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+#- type: entity todo <mailfix>
+#  parent: ClothingHeadBase
+#  id: ClothingHeadMailCarrier
+#  name: mail carrier's hat
+#  description: Smells like a good pension.
+#  components:
+#  - type: Sprite
+#    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+#  - type: Clothing
+#    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable

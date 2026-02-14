@@ -53,16 +53,16 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/trainer.rsi
 
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformSkirtMailCarrier
-  name: mail carrier's jumpskirt
-  description: Enemy of dogs everywhere.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
+#- type: entity todo <mailfix>
+#  parent: ClothingUniformSkirtBase
+#  id: ClothingUniformSkirtMailCarrier
+#  name: mail carrier's jumpskirt
+#  description: Enemy of dogs everywhere.
+#  components:
+#  - type: Sprite
+#    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
+#  - type: Clothing
+#    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -121,7 +121,7 @@
       - state: inhand-right
         color: "#620b73"
         sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
-        
+
 
 - type: entity
   parent: ClothingUniformSkirtBase
