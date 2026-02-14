@@ -175,7 +175,7 @@
     sprite: Structures/Machines/vaccinator.rsi
     state: icon
   result: VaccinatorMachineCircuitboard
-  completeTime: 8
+  completetime: 8
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
@@ -184,5 +184,5 @@
     sprite: Structures/Machines/diagnoser.rsi
     state: icon
   result: DiagnoserMachineCircuitboard
-  completeTime: 8
+  completetime: 8
 
