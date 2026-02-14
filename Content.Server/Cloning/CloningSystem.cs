@@ -97,7 +97,7 @@ namespace Content.Server.Cloning;
 ///     System responsible for making a copy of a humanoid's body.
 ///     For the cloning machines themselves look at CloningPodSystem, CloningConsoleSystem and MedicalScannerSystem instead.
 /// </summary>
-public sealed partial class CloningSystem : SharedCloningSystem
+public sealed partial class CloningSystem : EntitySystem
 {
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -173,7 +173,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
         return true;
     }
 
-    public override void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
+    public void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
     {
         var componentsToCopy = settings.Components;
         var componentsToEvent = settings.EventComponents;
@@ -261,7 +261,6 @@ public sealed partial class CloningSystem : SharedCloningSystem
     /// </summary>
     public void CopyEquipment(Entity<InventoryComponent?> original, Entity<InventoryComponent?> clone, SlotFlags slotFlags, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null, bool makeUnremoveable = false, bool copyStorage = true, bool internalContentsUnremoveable = false) // Goob edit
     {
-
         if (!Resolve(original, ref original.Comp) || !Resolve(clone, ref clone.Comp))
             return;
 
