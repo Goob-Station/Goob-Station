@@ -113,7 +113,6 @@
     species:
     - SlimePerson
     - Vox
-    - Resomi
 
 - type: loadoutEffectGroup
   id: OxygenBreather
@@ -134,6 +133,7 @@
     - Rodentia
     - Yowie
     - Oni
+    - Resomi
     - Tajaran
     - Chitinid # DeltaV
     - Shadowkin
@@ -212,6 +212,7 @@
     - Rodentia
     - Yowie
     - Oni
+    - Resomi
     - Tajaran
     - Shadowkin
 
