@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseThiefStealStructureObjective
+  id: WeaponEnergyGunMultiphaseStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponEnergyGunMultiphase
+  - type: Objective
+    difficulty: 2
+

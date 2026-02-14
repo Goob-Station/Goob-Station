@@ -107,7 +107,7 @@
     - id: EmpGrenade
     - id: ExGrenade
       weight: 0.5
-    - id: SingularityGrenade
+    - id: SupermatterGrenade # Goobstation
       weight: 0.25
     - id: WhiteholeGrenade
       weight: 0.25

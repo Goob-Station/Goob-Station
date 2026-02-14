@@ -163,25 +163,25 @@
     sprite: _Goobstation/Clothing/Head/Hardsuits/goobparamed.rsi # goobstation - wizden sprites SUCK ASS!!!
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hardsuits/goobparamed.rsi # goobstation - wizden sprites SUCK ASS!!!
-  - type: HandheldLight
-    addPrefix: false
+#  - type: HandheldLight #Goob
+#    addPrefix: false
   - type: ToggleableVisuals
     spriteLayer: light
-    clothingVisuals:
-      head:
-      - state: equipped-head-light
-      head-vox:
-      - state: equipped-head-light-vox
-      head-dog:
-      - state: equipped-head-light-dog
-  - type: Clothing
-    clothingVisuals:
-      head:
-      - state: equipped-head
-      head-vox:
-      - state: equipped-head-vox
-      head-dog:
-      - state: equipped-head-dog
+#    clothingVisuals: # Goobstaion
+#      head:
+#      - state: equipped-head-light
+#      head-vox:
+#      - state: equipped-head-light-vox
+#      head-dog:
+#      - state: equipped-head-light-dog
+#  - type: Clothing
+#    clothingVisuals:
+#      head:
+#      - state: equipped-head
+#      head-vox:
+#      - state: equipped-head-vox
+#      head-dog:
+#      - state: equipped-head-dog
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
@@ -189,17 +189,17 @@
     # Goob Start
     coverage:
     - Head
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0.14
+      BoneDamage: 0.14
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Heat: 0.9
         Radiation: 0.75
         Caustic: 0.5
-        traumaDeductions:
-          Dismemberment: 0
-          OrganDamage: 0.14
-          BoneDamage: 0.14
-          VeinsDamage: 0
-          NerveDamage: 0
     # Goob end
   - type: PointLight
     radius: 5

@@ -335,15 +335,6 @@
     stackType: Bloodpack
     count: 1
 
-- type: entity # Goobstation?
-  parent: Bloodpack
-  id: Bloodpack10Lingering
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
 # Shitmed Change - yeah this thing is effectively an entirely different tool now.
 - type: entity
   parent: BaseHealingItem
@@ -417,15 +408,6 @@
   components:
   - type: Stack
     count: 1
-
-- type: entity # Goobstation?
-  id: Gauze10Lingering
-  parent: Gauze
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   name: aloe cream

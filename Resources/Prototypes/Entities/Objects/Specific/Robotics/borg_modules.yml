@@ -701,7 +701,7 @@
     - item: WeaponProtoKineticAccelerator
       hand:
         emptyRepresentative: WeaponProtoKineticAccelerator
-        emptyLabel: borg-slot-cables-empty #todo marty kpa label
+        emptyLabel: borg-slot-WeaponProtoKineticAccelerator-empty-goob
         whitelist:
           components:
           - PressureDamageChange
@@ -1459,36 +1459,36 @@
       price: 2000
 
 # Goob upstreamer todo fixborghands earlyadding this so i dont have to do shitcode for xenoborgs and i dont want to earlymerge every part of them
-# Kill this shit when you start upstreaming xenoborgs proper
-# <Goobstreamer>
-# mothership module
-- type: entity
-  parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
-  id: MothershipModule
-  name: mothership module
-  description: A module that helps the mothership borg brains and install other modules.
-  components:
-  - type: Tag
-    tags:
-    - MothershipModule
-  - type: Sprite
-    layers:
-    - state: xenoborg_generic
-    - state: icon-xenoborg-tools
-  - type: ItemBorgModule
-    moduleId: MothershipBasic # This makes this version of xenoborgs technically a backport which is so accursed.
-    items:
-    - DoorRemoteXenoborg
-    - MMI
-    - PowerCellHigh
-    - XenoborgModuleBasic
-    - HandheldGPSBasic
-    - MaterialBag
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
-- type: Tag
-  id: MothershipModule # Cyborg module category for evil xenoborg core
-  # Yeah im just, whatever, ill kill this as i upstream.
+## Kill this shit when you start upstreaming xenoborgs proper
+## <Goobstreamer>
+## mothership module
+#- type: entity
+#  parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
+#  id: MothershipModule
+#  name: mothership module
+#  description: A module that helps the mothership borg brains and install other modules.
+#  components:
+#  - type: Tag
+#    tags:
+#    - MothershipModule
+#  - type: Sprite
+#    layers:
+#    - state: xenoborg_generic
+#    - state: icon-xenoborg-tools
+#  - type: ItemBorgModule
+#    moduleId: MothershipBasic # This makes this version of xenoborgs technically a backport which is so accursed.
+#    items:
+#    - DoorRemoteXenoborg
+#    - MMI
+#    - PowerCellHigh
+#    - XenoborgModuleBasic
+#    - HandheldGPSBasic
+#    - MaterialBag
+#  - type: BorgModuleIcon
+#    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
+#- type: Tag
+#  id: MothershipModule # Cyborg module category for evil xenoborg core
+#  # Yeah im just, whatever, ill kill this as i upstream.
 
 # </Goobstreamer>
 
@@ -1516,7 +1516,7 @@
     - item: OrganHumanBrain
       hand:
         emptyRepresentative: OrganHumanBrain
-        emptyLabel: borg-slot-cables-empty #todo marty organ slot
+        emptyLabel: borg-slot-organs-empty-goob
         whitelist:
           components:
           - BodyPart
@@ -1543,7 +1543,7 @@
     - item: OrganHumanBrain
       hand:
         emptyRepresentative: OrganHumanBrain
-        emptyLabel: borg-slot-cables-empty #todo marty organ slot
+        emptyLabel: borg-slot-organs-empty-goob
         whitelist:
           components:
           - BodyPart

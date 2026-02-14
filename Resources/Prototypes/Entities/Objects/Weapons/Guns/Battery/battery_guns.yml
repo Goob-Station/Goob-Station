@@ -558,8 +558,8 @@
   id: WeaponPulseCarbine
   description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Cheaper than its advanced counterpart, though lacks the ability to self-recharge. # Goobstation
   components:
-  - type: Item
-    size: Large
+#  - type: Item #Goob
+#    size: Large
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
     layers:
