@@ -163,12 +163,30 @@
     sprite: _Goobstation/Clothing/Head/Hardsuits/goobparamed.rsi # goobstation - wizden sprites SUCK ASS!!!
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hardsuits/goobparamed.rsi # goobstation - wizden sprites SUCK ASS!!!
-  - type: PointLight # goobstation
-    color: "#3385cc"
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+      head-vox:
+      - state: equipped-head-light-vox
+      head-dog:
+      - state: equipped-head-light-dog
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      head-vox:
+      - state: equipped-head-vox
+      head-dog:
+      - state: equipped-head-dog
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
+    # Goob Start
     coverage:
     - Head
     modifiers:
@@ -176,12 +194,23 @@
         Heat: 0.9
         Radiation: 0.75
         Caustic: 0.5
-    traumaDeductions:
-      Dismemberment: 0
-      OrganDamage: 0.14
-      BoneDamage: 0.14
-      VeinsDamage: 0
-      NerveDamage: 0
+        traumaDeductions:
+          Dismemberment: 0
+          OrganDamage: 0.14
+          BoneDamage: 0.14
+          VeinsDamage: 0
+          NerveDamage: 0
+    # Goob end
+  - type: PointLight
+    radius: 5
+    energy: 2
+    color: "#3385cc" # goobstation
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - HelmetEVA
+    - WhitelistChameleon
+
 
 #Ancient Void Helmet
 - type: entity
@@ -194,50 +223,3 @@
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
-
-# #Paramedic Void Helmet TODO: Move goob prototype to wizden prototype
-#- type: entity
-#  parent: [ ClothingHeadSuitWithLightBase, ClothingHeadEVAHelmetBase ] #Despite acting like a hardsuit helmet, since it inherits from EVA Helmet, it goes here.
-#  id: ClothingHeadHelmetVoidParamed
-#  name: paramedic void helmet
-#  description: A void helmet made for paramedics.
-#  categories: [ HideSpawnMenu ]
-#  components:
-#  - type: Sprite
-#    sprite: Clothing/Head/Hardsuits/paramedhelm.rsi
-#  - type: HandheldLight
-#    addPrefix: false
-#  - type: ToggleableVisuals
-#    spriteLayer: light
-#    clothingVisuals:
-#      head:
-#      - state: equipped-head-light
-#      head-vox:
-#      - state: equipped-head-light-vox
-#      head-dog:
-#      - state: equipped-head-light-dog
-#  - type: Clothing
-#    clothingVisuals:
-#      head:
-#      - state: equipped-head
-#      head-vox:
-#      - state: equipped-head-vox
-#      head-dog:
-#      - state: equipped-head-dog
-#  - type: TemperatureProtection
-#    heatingCoefficient: 0.1
-#    coolingCoefficient: 0.1
-#  - type: Armor
-#    modifiers:
-#      coefficients:
-#        Heat: 0.90
-#        Radiation: 0.75
-#  - type: PointLight
-#    radius: 5
-#    energy: 2
-#    color: "#00ffff"
-#  - type: Tag
-#    tags:
-#    - CorgiWearable
-#    - HelmetEVA
-#    - WhitelistChameleon
