@@ -395,6 +395,7 @@
         - HolosignProjector
         - Plunger
         - Keyring # Goobstation
+        - GoldenPlunger
         - WireBrush
       components:
         - LightReplacer
@@ -591,6 +592,15 @@
         - Skewer
         - MonkeyCube
         - Mayo
+        - Meat #Goobstation start
+        - Mouse
+        - Vegetable
+        - Fruit
+        - Slice
+        - Cake
+        - Pie
+        - Crayon #Its edible
+        - Bread #Goobstation end
       components:
         - Mousetrap
         - Smokable
@@ -667,6 +677,7 @@
         - BolaEnergy # Goobstation
         - EnergySpeedloader # Goobstation
         - MilitaryPowerCell # Goobstation
+        - EnergyMagAmmo # Goobstation
         - HandGrenade
       components:
         - Stunbaton

@@ -314,10 +314,10 @@
   - type: Appearance
 
 - type: entity
-  name: Estoc # goob
+  name: Estoc # Goob
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A now defunct military burst-fire DMR, the Estoc quickly found its way into paramilitary and boarding party hands. Boasts an expensive tritium sight for faster target acquisition. Feeds from .20 Rifle magazines. # Goobstation
+  description: A now defunct military burst-fire DMR, the Estoc quickly found its way into paramilitary and boarding party hands. Boasts an expensive tritium sight for faster target acquisition. Feeds from .30 Rifle magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
@@ -331,42 +331,41 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
-    minAngle: 30
-    maxAngle: 43
+    minAngle: 30 # Goob
+    maxAngle: 45 # Goob
     shotsPerBurst: 3
     selectedMode: Burst
     availableModes:
     - Burst
-    - SemiAuto
-    burstFireRate: 14
+    burstFireRate: 10 # Goob
   - type: GunWieldBonus
-    minAngle: -28
-    maxAngle: -35 # goob
+    minAngle: -30 # Goob
+    maxAngle: -40 # Goob
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineRifle
+        startingItem: MagazineLightRifle # Goob
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - MagazineRifle
+          - MagazineLightRifle # Goob
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifle
+        startingItem: CartridgeLightRifle # Goob
         priority: 1
         whitelist:
           tags:
-          - CartridgeRifle
+          - CartridgeLightRifle # Goob
   - type: SpeedModifiedOnWield
-    walkModifier: 0.9 # goob
-    sprintModifier: 0.9 # goob
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 2
+    maxOffset: 3.5 # Goob
     pvsIncrease: 0.2
   - type: ContainerContainer
     containers:

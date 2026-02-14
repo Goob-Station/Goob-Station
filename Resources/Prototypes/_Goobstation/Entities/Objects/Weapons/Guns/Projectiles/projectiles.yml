@@ -395,8 +395,8 @@
       - ReagentId: TearGas
         Quantity: 20
     spreadAmount: 5
-  - type: ActiveTimerTrigger
-    timeRemaining: 5
+  - type: TimerTrigger
+    delay: 5
   - type: DeleteOnTrigger
   - type: Projectile
     damage:
@@ -510,3 +510,22 @@
     - state: icon
   - type: Ammo
     muzzleFlash: null
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletMime
+  name: bullet (silent)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+  - type: EntityEffectOnProjectileHit
+    effects:
+    - !type:GenericStatusEffect
+      key: Muted
+      component: Muted
+      type: Add
+      time: 20
+      refresh: true

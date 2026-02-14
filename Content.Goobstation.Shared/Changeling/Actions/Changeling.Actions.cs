@@ -21,25 +21,11 @@
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Changeling.Actions;
-
-[RegisterComponent, NetworkedComponent]
-public sealed partial class ChangelingActionComponent : Component
-{
-    [DataField] public float ChemicalCost = 0;
-
-    [DataField] public bool UseInLastResort = false;
-
-    [DataField] public bool UseInLesserForm = false;
-
-    [DataField] public float RequireAbsorbed = 0;
-}
 
 #region Events - Basic
 
@@ -128,18 +114,5 @@ public sealed partial class ActionLastResortEvent : InstantActionEvent { }
 public sealed partial class ActionLesserFormEvent : InstantActionEvent { }
 public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
-
-#endregion
-
-#region Events - Misc
-
-[DataDefinition]
-public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
-
-[DataDefinition]
-public sealed partial class AwakenedInstinctPurchasedEvent : EntityEventArgs;
-
-[DataDefinition]
-public sealed partial class VoidAdaptionPurchasedEvent : EntityEventArgs;
 
 #endregion
