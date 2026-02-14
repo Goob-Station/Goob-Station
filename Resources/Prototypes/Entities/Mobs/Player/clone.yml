@@ -16,14 +16,14 @@
   - NpcFactionMember
   - EncryptionKeyHolder # Goobstation
   # traits
-  - BlackAndWhiteOverlay
-  - Clumsy
-  - Hemophilia
-  - ImpairedMobility
+  - BlackAndWhiteOverlay # Goobstation?
+  - Clumsy # Goobstation?
+  - Hemophilia # Goobstation?
+  - ImpairedMobility # Goobstation?
   # - LegsParalyzed (you get healed)
-  - BlackAndWhiteOverlay
+  - BlackAndWhiteOverlay # Goobstation?
   - LightweightDrunk
-  - Muted
+  - Muted # Goobstation?
   - Narcolepsy
   - Pacified
   - PainNumbness
@@ -37,16 +37,16 @@
   - Clumsy
   # - MindShield # goob edit - it's an implant. why?
   - MimePowers
-  - SpaceNinja
-  - Thieving
+  - SpaceNinja # Goobstation?
+  - Thieving # Goobstation?
   # accents
   - Accentless
   - BackwardsAccent
   - BarkAccent
   - BleatingAccent
-  - DamagedSiliconAccent
+  - DamagedSiliconAccent # Goobstation?
   - FrenchAccent
-  - FrontalLisp
+  - FrontalLisp # Goobstation?
   - GermanAccent
   - LizardAccent
   - MobsterAccent
@@ -84,7 +84,7 @@
     components:
     - AttachedClothing # helmets, which are part of the suit
     - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
-    - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
+    - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet # Goobstation?
     - VirtualItem
 
 # all antagonist roles
