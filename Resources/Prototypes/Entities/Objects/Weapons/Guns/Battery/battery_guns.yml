@@ -664,10 +664,6 @@
   - type: Tag
     tags:
     - Rifle
-  - type: Item
-    size: Huge
-    shape:
-    - 0,0,5,1
 
 - type: entity
   name: laser cannon
@@ -705,10 +701,6 @@
     tags:
     - TurretCompatibleWeapon
     - Rifle # Goobstation
-  - type: Item # Goobstation
-    size: Huge
-    shape:
-    - 0,0,4,1
 
 - type: entity
   name: portable particle decelerator
@@ -791,10 +783,6 @@
   - type: Tag
     tags:
     - Rifle
-  - type: Item
-    size: Huge
-    shape:
-    - 0,0,4,1
 
 - type: entity
   name: practice disabler
