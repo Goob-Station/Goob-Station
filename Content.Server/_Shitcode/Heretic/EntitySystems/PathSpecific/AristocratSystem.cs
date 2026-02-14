@@ -39,6 +39,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Effects;
 using Content.Shared.Heretic;

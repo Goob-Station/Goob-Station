@@ -110,6 +110,7 @@ using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
 using Content.Goobstation.Common.NTR.Scan; // Goobstation
 using Content.Shared.Chat;
+using Content.Shared.Prototypes;
 
 namespace Content.Server.Lathe
 {
