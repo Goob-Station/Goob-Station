@@ -28,6 +28,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
+using Content.Shared.Atmos.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
 

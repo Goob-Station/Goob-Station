@@ -150,6 +150,7 @@ using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
 using Robust.Server.GameObjects; // Goobstation
 using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Robust.Shared.Random; // Lavaland Change
 

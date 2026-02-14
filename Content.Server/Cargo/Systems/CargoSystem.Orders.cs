@@ -103,6 +103,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Pirates;
 using System.Linq;
 using Content.Server.Cargo.Components;
+using Content.Server.Station.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Components;
