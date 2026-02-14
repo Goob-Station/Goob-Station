@@ -490,9 +490,25 @@ namespace Content.Server.Lathe
         // Goobstation - Lathe Queue Reset
         private void OnLatheQueueResetMessage(EntityUid uid, LatheComponent component, LatheQueueResetMessage args)
         {
+            // Upstreamer todo? kill this cause upstream has a better thing i think.
             if (component.Queue.Count > 0)
             {
-                var allMaterials = component.Queue.SelectMany(q => _proto.Index(q));
+                var allMaterials = new List<(string, int)>();
+
+                foreach (var q in component.Queue)
+                {
+                    var recipe = _proto.Index(q.Recipe);
+
+                    var remaining = q.ItemsRequested - q.ItemsPrinted;
+                    if (remaining <= 0)
+                        continue;
+
+                    foreach (var (mat, amount) in recipe.Materials)
+                    {
+                        allMaterials.Add((mat.Id, amount * remaining));
+                    }
+                }
+
                 var totalMaterials = new Dictionary<string, int>();
 
                 foreach (var (mat, amount) in allMaterials)
@@ -509,7 +525,9 @@ namespace Content.Server.Lathe
                         _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
                     }
                     component.Queue.Clear();
-                } else {
+                }
+                else
+                {
                     _popup.PopupEntity(Loc.GetString("lathe-queue-reset-material-overflow"), uid);
                 }
             }

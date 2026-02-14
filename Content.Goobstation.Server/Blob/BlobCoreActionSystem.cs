@@ -20,6 +20,7 @@ using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Item;

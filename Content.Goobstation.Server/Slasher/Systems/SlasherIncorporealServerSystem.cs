@@ -13,6 +13,7 @@ using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Spawners;
 

@@ -235,16 +235,16 @@
   - type: ExplosionResistance
     damageCoefficient: 0.75
 
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadMailCarrier
-  name: mail carrier's hat
-  description: Smells like a good pension.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+#- type: entity todo <mailfix>
+#  parent: ClothingHeadBase
+#  id: ClothingHeadMailCarrier
+#  name: mail carrier's hat
+#  description: Smells like a good pension.
+#  components:
+#  - type: Sprite
+#    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+#  - type: Clothing
+#    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
@@ -391,7 +391,7 @@
     sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
   - type: Item
     sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTinfoilHat
