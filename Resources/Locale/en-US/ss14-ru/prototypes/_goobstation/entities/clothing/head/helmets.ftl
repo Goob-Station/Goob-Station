@@ -29,3 +29,7 @@ ent-ClothingHeadHatHelmetMonk = monk's hood
     .desc = For when a man wants to cover up his tonsure.
 ent-ClothingHeadHatHelmetBishop = bishop mitre
     .desc = An opulent hat that functions as a radio to God. Or as a lightning rod, depending on who you ask.
+ent-ClothingHeadHatHelmetDragon = dragon hood
+    .desc = Fireball spewing not included.
+ent-ClothingHeadHatHelmetInquisitor = inquisitor cap
+    .desc = A majestic gilded cap. The personification of the punishment that will befall heretics!

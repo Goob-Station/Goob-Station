@@ -1,0 +1,12 @@
+ent-SlasherSlowdownStatusEffect = slasher slowdown
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-TentacleSlowdownStatusEffect = tentacle slowdown
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-MartialArtsGenericSlowdownEffect = martial arts slowdown
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-OrgansDamagedSlowdownEffect = organ damage slowdown
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-ShadowCloakSlowdownEffect = shadow cloak slowdown
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-ShadowlingGlareSlowdownEffect = shadow ling glare slowdown
+    .desc = { ent-StatusEffectSlowdown.desc }

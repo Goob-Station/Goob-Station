@@ -7,6 +7,7 @@ wieldable-component-failed-wield = Вы берёте { $item } в одну ру�
 wieldable-component-successful-wield-other = { $user } берёт { $item } в две руки.
 wieldable-component-failed-wield-other = { $user } берёт { $item } в одну руку.
 wieldable-component-no-hands = Вам не хватает рук!
+wieldable-component-blocked-wield = { CAPITALIZE($blocker) } не даёт вам взять { $item } в две руки.
 wieldable-component-not-enough-free-hands =
     Чтобы использовать { $item } вам понадобится ещё { $number } { $number ->
         [one] свободная рука

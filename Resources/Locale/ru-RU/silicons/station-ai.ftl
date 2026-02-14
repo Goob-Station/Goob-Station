@@ -5,6 +5,7 @@ wire-name-ai-act-light = ИИС
 station-ai-takeover = ИИ захват
 # Radial actions
 ai-open = Открыть действия
+station-ai-eye-name = око ИИ - { $name }
 ai-close = Закрыть действия
 bolt-close = Заболтировать
 bolt-open = Разболтировать
@@ -32,7 +33,3 @@ station-ai-icon-smiley = Улыбка
 station-ai-hologram-female = Женский образ
 station-ai-hologram-male = Мужской образ
 station-ai-hologram-face = Бестелесная голова
-station-ai-hologram-cat = Форма кота
-station-ai-hologram-dog = Форма корги
-station-ai-hologram-kobold = Форма кобольда
-station-ai-hologram-monkey = Форма обезьяны

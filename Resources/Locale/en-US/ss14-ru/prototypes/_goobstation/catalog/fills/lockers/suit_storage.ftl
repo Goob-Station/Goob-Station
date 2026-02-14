@@ -4,3 +4,6 @@ ent-SuitStorageBlueshield = { ent-SuitStorageBase }
 ent-SuitStorageDetective = { ent-SuitStorageBase }
     .suffix = Detective
     .desc = { ent-SuitStorageBase.desc }
+ent-SuitStorageHardsuitContractor = { ent-SuitStorageBase }
+    .suffix = Contractor Hardsuit
+    .desc = { ent-SuitStorageBase.desc }

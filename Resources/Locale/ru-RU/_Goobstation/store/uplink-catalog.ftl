@@ -164,6 +164,8 @@ uplink-high-caliber-shotgun-box-slug-desc = 16 пуль 8 калибра для 
 uplink-high-caliber-shotgun-box-flash-slug-name = Коробка ружейных патронов (.8 светошумовые)
 uplink-high-caliber-shotgun-box-flash-slug-desc = 16 светошумовых патронов 8 калибра для дробовика. Не оглушает тех, у кого есть соответствующие средства защиты.
 uplink-high-caliber-shotgun-box-sarin-name = Коробка ружейных патронов (.8 газ)
+uplink-m90-ammo-name = Магазин (.20)
+uplink-m90-ammo-desc = 25 патронов .20 калибра. Совместим с M-90 и Лектером.
 uplink-high-caliber-shotgun-box-sarin-desc = 16 патронов 8 калибра с газом зарин для боевого дробовика, выпускающих небольшое облако газа.
 uplink-estoc-ammo-name = Магазин (.20)
 uplink-estoc-ammo-desc = 25 патронов .20 калибра. Совместим с Эсток.
@@ -285,6 +287,18 @@ uplink-cddisksyndicate-name = CD "Реклама Синдиката"
 uplink-cddisksyndicate-desc = 102.9 Синдикат радио
 uplink-cddisknumber-name = CD "Номер станции"
 uplink-cddisknumber-desc = Вызовите угрозу, чтобы отвлечь внимание станции... Удачи проиграть это полностью.
+#Contractor
+
+uplink-moduist-contractor-name = MOD скафандр Наёмника
+uplink-moduist-contractor-desc = Этот лёгкий скафандр был создан специально для членов Гильдии! Изготовлен из пластитана для экстремальной прочности при малом весе. Оснащён сервоприводами для более сильного хвата, инжекторами, реагирующими на критические повреждения, и встроенной технологией хамелеона! Для сохранения малого веса, этот модульный скафандр не имеет встроенного хранилища.
+uplink-hardsuit-contractor-name = Набор скафандра Наёмника
+uplink-hardsuit-contractor-desc = Этот лёгкий скафандр был создан специально для членов Гильдии! Без проблем помещается в рюкзак.
+uplink-webbing-contractor-name = РПС Наёмника
+uplink-webbing-contractor-desc = Взрывостойкая разгрузка с глубокими карманами, часто используемая Наёмниками и охотниками за головами.
+uplink-jetpack-contractor-name = Джетпак Наёмника
+uplink-jetpack-contractor-desc = Этот джетпак был создан специально для членов Гильдии! Обладает высокой манёвренностью и приличным запасом топлива, идеально подходящий для быстрого отступления. Имеет встроенные крепления для использования со скафандром.
+uplink-cuffs-contractor-name = Наручники
+uplink-cuffs-contractor-desc = Используется для сдерживания преступников и других мудаков.
 uplink-box-xenobio-name = Ксенобиологический ящик слаймов
 uplink-box-xenobio-desc = Слаймы для ваших ксенобиологических нужд. Содержит 9 случайный слаймов 1-го уровня.
 uplink-customboard-name = Экспериментальная плата законов синдиката

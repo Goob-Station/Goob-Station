@@ -23,6 +23,8 @@ alerts-walking-desc = Вы идёте шагом, двигаясь в медле
 alerts-stunned-name = [color=yellow]Оглушены[/color]
 alerts-stunned-desc = Вы [color=yellow]оглушены[/color]! Что-то мешает вам двигаться или взаимодействовать с объектами.
 alerts-handcuffed-name = [color=yellow]В наручниках[/color]
+alerts-knockdown-name = [color=yellow]Сбит с ног[/color]
+alerts-knockdown-desc = Вы [color=yellow]сбиты с ног[/color]! Что-то заставило вас поскользнуться или толкнуло, затруднив ваше передвижение.
 alerts-handcuffed-desc = На вас [color=yellow]надели наручники[/color] и вы не можете использовать руки. Если кто-нибудь вас потащит, вы не сможете сопротивляться.
 alerts-ensnared-name = [color=yellow]Захваченный[/color]
 alerts-ensnared-desc = Вы [color=yellow]попали в ловушку[/color], и это мешает вам двигаться.

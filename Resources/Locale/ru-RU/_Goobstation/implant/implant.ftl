@@ -7,3 +7,5 @@
 
 mindshield-implant-effect-removed = Вы ощущаете мучительную боль, когда ваше восприятие меняется, а зрение мгновенно расширяется.
 nanite-mend-popup = Вы чувствуете, как по всему телу распространяется яркое тепло.
+deathrattle-implant-dead-message = Зафиксирована смерть { $user } { $position }.
+deathrattle-implant-critical-message = Жизненные показатели { $user } критические, требуется немедленная помощь: { $position }.

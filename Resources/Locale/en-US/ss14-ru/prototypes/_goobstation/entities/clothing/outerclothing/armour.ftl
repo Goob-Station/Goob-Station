@@ -46,3 +46,7 @@ ent-ClothingOuterArmorMonk = monk's habit
     .desc = A few steps above rended sackcloth.
 ent-ClothingOuterArmorBishop = bishop's robes
     .desc = Glad to see the tithes you collected were well spent.
+ent-ClothingOuterArmorDragon = dragon suit
+    .desc = The scales were ethically sourced, promise.
+ent-ClothingOuterArmorInquisitor = inquisitor armor
+    .desc = Bulky armor adorned with golden chains and patterns. Show heresy your might!

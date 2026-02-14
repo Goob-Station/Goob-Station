@@ -14,3 +14,7 @@ ent-SpawnArmamentsMonk = монашеское одеяние
     .desc = { ent-SpawnSupplyEmpty.desc }
 ent-SpawnArmamentsBishop = одеяния епископа
     .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsDraconic = костюм дракона
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnArmamentsInquisitor = доспехи инквизитора
+    .desc = { ent-SpawnSupplyEmpty.desc }

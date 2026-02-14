@@ -33,3 +33,7 @@ ent-BlessingOfTheReaper = blessing of the reaper
     .desc = A special undroppable armblade nullrod, it's blessed by the dark gods.
 ent-RatvarianSpear = ancient spear
     .desc = An ancient spear made of brass, I mean gold, I mean bronze. It looks highly mechanical.
+ent-DragonsTail = dragon's tail
+    .desc = A dragon's tail impaled on a stick. Still holds that deep fiery power within.
+ent-InquisitorChainSword = chain sword
+    .desc = The perfect weapon for purging the station of all heresy! Activated through prayer.

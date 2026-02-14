@@ -105,5 +105,7 @@ ent-WallSandCobblebrick = песчаниковая булыжниковая ст
     .desc = { ent-WallCobblebrick.desc }
 ent-WallChromiteCobblebrick = хромитовая булыжниковая стена
     .desc = { ent-WallCobblebrick.desc }
+ent-Cardwall = картонная стена
+    .desc = Бюджет урезали. Терпим.
 ent-WallAndesiteCobblebrick = андезитовая булыжниковая стена
     .desc = { ent-WallCobblebrick.desc }

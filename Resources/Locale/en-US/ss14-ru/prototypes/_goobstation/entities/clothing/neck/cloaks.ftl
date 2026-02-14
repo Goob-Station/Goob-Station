@@ -10,3 +10,5 @@ ent-ClothingNeckCloakSanabi = brigadier general cloak
     .desc = A tattered, yet imposing cloak, worn by elite warriors.
 ent-ClothingNeckCloakVetCap = Veteran Captain's cloak
     .desc = Captains Aura Cloak
+ent-ClothingNeckCloakInquisitor = inquisitor cloak
+    .desc = A bulky cloak decorated with sacred writings and the symbol of the Inquisition.

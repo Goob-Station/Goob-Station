@@ -9,5 +9,5 @@ ent-PinpointerUniversal = universal pinpointer
 ent-PinpointerStation = research server pinpointer
     .desc = A handheld tracking device that leads to the direction of any nearby research server.
 ent-PinpointerMothership = core pinpointer
-    .desc = A handheld tracking device that leads to the direction of the mothership core.
+    .desc = A handheld tracking device that leads to the direction of the Mothership core.
     .suffix = Mothership

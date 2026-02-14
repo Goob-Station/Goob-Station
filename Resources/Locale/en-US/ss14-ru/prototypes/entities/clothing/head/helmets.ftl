@@ -56,3 +56,5 @@ ent-ClothingHeadHelmetJusticeEmpty = { ent-ClothingHeadHelmetJustice }
     .desc = { ent-ClothingHeadHelmetJustice.desc }
 ent-ActionToggleJusticeHelm = Toggle Justice Helm
     .desc = Toggles the justice helm on and off.
+ent-CardHelmet = cardboard helmet
+    .desc = A medieval helmet built from cardboard.

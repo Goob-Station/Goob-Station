@@ -31,6 +31,11 @@ network-configurator-ui-count-label =
     }
 # tooltips
 network-configurator-tooltip-set = Создание списка целевых устройств
+network-configurator-text-set = Установить
+network-configurator-text-add = Добавить
+network-configurator-text-clear = Очистить
+network-configurator-text-copy = Копировать
+network-configurator-text-show = Показать
 network-configurator-tooltip-add = Добавление в список целевых устройств
 network-configurator-tooltip-edit = Редактирование списка целевых устройств
 network-configurator-tooltip-clear = Очистка списка целевых устройств

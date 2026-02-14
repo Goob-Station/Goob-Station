@@ -13,3 +13,7 @@ ent-PinpointerThief = thieving pinpointer
     .desc = A handheld tracking device that can target anything worthwhile, including high risk items and stealable structures while off. Keep upright to retain accuracy.
 ent-PinpointerSyndicateNuclearFission = syndicate nuke pinpointer
     .desc = Produced specifically for nuclear operative missions, get that nuclear bomb!
+ent-PinpointerContractor = contractor pinpointer
+    .desc = A handheld tracking device that points to your ship, and your target. Keep upright to retain accuracy.
+ent-PinpointerDarkLord = dark lord pinpointer
+    .desc = { ent-PinpointerBase.desc }
