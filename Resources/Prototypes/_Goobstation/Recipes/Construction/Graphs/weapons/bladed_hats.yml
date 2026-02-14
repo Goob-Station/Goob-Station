@@ -1,0 +1,131 @@
+- type: constructionGraph
+  id: BladedPlasmaFlatcapGrey
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: PlasmaGlassShard
+        name: construction-graph-tag-plasma-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: BrimFlatcapGrey
+        name: construction-graph-tag-grey-flatcap
+        icon:
+          sprite: Clothing/Head/Hats/greyflatcap.rsi
+          state: icon
+  - node: icon
+    entity: BladedPlasmaFlatcapGrey
+
+- type: constructionGraph
+  id: BladedUraniumFlatcapGrey
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: UraniumGlassShard
+        name: construction-graph-tag-uranium-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: BrimFlatcapGrey
+        name: construction-graph-tag-grey-flatcap
+        icon:
+          sprite: Clothing/Head/Hats/greyflatcap.rsi
+          state: icon
+  - node: icon
+    entity: BladedUraniumFlatcapGrey
+
+- type: constructionGraph
+  id: BladedReinforcedFlatcapGrey
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: ReinforcedGlassShard
+        name: construction-graph-tag-reinforced-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: BrimFlatcapGrey
+        name: construction-graph-tag-grey-flatcap
+        icon:
+          sprite: Clothing/Head/Hats/greyflatcap.rsi
+          state: icon
+  - node: icon
+    entity: BladedReinforcedFlatcapGrey
+
+- type: constructionGraph
+  id: BladedPlasmaFlatcapBrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: PlasmaGlassShard
+        name: construction-graph-tag-plasma-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: BrimFlatcapBrown
+        name: construction-graph-tag-brown-flatcap
+        icon:
+          sprite: Clothing/Head/Hats/brownflatcap.rsi
+          state: icon
+  - node: icon
+    entity: BladedPlasmaFlatcapBrown
+
+- type: constructionGraph
+  id: BladedUraniumFlatcapBrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: UraniumGlassShard
+        name: construction-graph-tag-uranium-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: BrimFlatcapBrown
+        name: construction-graph-tag-brown-flatcap
+        icon:
+          sprite: Clothing/Head/Hats/brownflatcap.rsi
+          state: icon
+  - node: icon
+    entity: BladedUraniumFlatcapBrown
+
+- type: constructionGraph
+  id: BladedReinforcedFlatcapBrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: ReinforcedGlassShard
+        name: construction-graph-tag-reinforced-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: BrimFlatcapBrown
+        name: construction-graph-tag-brown-flatcap
+        icon:
+          sprite: Clothing/Head/Hats/brownflatcap.rsi
+          state: icon
+  - node: icon
+    entity: BladedReinforcedFlatcapBrown
