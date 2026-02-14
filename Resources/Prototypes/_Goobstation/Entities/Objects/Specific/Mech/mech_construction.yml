@@ -63,7 +63,6 @@
       - RipleyLLeg
       - RipleyRLeg
     containerId: mech-assembly-container
-    battery-container: !type:Container
   - type: Construction
     graph: RipleyMKII
     node: start
@@ -131,7 +130,6 @@
       - ClarkeRArm
       - ClarkeTreads
     containerId: mech-assembly-container
-    battery-container: !type:Container
   - type: Construction
     graph: Clarke
     node: start
@@ -253,7 +251,6 @@
       - DurandLLeg
       - DurandRLeg
     containerId: mech-assembly-container
-    battery-container: !type:Container
   - type: Construction
     graph: Durand
     node: start

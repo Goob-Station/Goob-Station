@@ -76,7 +76,6 @@
     - Common
     # - Binary # Goobstation - replaced with collective mind
   - type: BorgSwitchableSubtype # Goobstation
-    # - Binary # Goobstation - replaced with collective mind
 
 
 - type: entity

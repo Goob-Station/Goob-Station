@@ -920,7 +920,7 @@ LeadChemistryBottle: ChemistryBottleLead
 ToxinChemistryBottle: ChemistryBottleToxin
 
 # Goob - making wizden maps compatible to support mapping efforts. 2025-04-13.
-CargoMailTeleporter: MailTeleporter
+# CargoMailTeleporter: MailTeleporter # see 2026-2-14
 ClothingMaskBlushingMime: ClothingMaskSexyMime
 ClothingMaskBlushingClown: ClothingMaskSexyMime
 MachineMaterialSilo: null
@@ -1074,3 +1074,6 @@ DVSmartFridgeMedical: SmartFridgeMedical
 
 # 2026-01-10 Goobstation Change Mapped Chem to Energy Chem by default
 ChemDispenser: EnergyChemDispenser
+
+# 2026-02-14 Goobstation, upstreaming. wild.
+MailTeleporter: CargoMailTeleporter

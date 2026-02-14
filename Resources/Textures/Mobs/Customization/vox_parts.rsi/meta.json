@@ -136,14 +136,6 @@
       "directions": 4
     },
     {
-      "name": "tail_docked",
-      "directions": 4
-    },
-    {
-      "name": "tail_split",
-      "directions": 4
-    },
-    {
       "name": "tail_big_animated",
       "directions": 4,
       "delays": [
