@@ -4,25 +4,13 @@
   id: DrinkBottlePlasticBaseFull
   suffix: Full
   components:
-  - type: Item
-    size: Normal
-  - type: Openable
-    sound:
-      collection: bottleOpenSounds
-    closeable: true
-    closeSound:
-      collection: bottleCloseSounds
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/generic_jug.rsi # fallback to generic plastic jug
-  - type: TrashOnSolutionEmpty
-    solution: drink
+  - type: Construction #Goob content
+    graph: MolotovConstruction
+    node: start
   - type: Tag
     tags:
-    - DrinkBottle # Needed to fit in the soda dispenser, needs a better name
+    - MolotovConstruction #Goobstation
+    - DrinkBottle
 
 - type: entity
   abstract: true
@@ -56,7 +44,7 @@
 # Small Plastic Bottles
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticSmallBaseFull]
+  parent: [DrinkBottleVisualsAll, DrinkBottlePlasticSmallBaseFull]
   id: DrinkWaterBottleFull
   name: water bottle
   description: Simple clean water of unknown origin. You think that maybe you dont want to know it.
@@ -71,6 +59,10 @@
     sprite: Objects/Consumable/Drinks/waterbottle.rsi
   - type: Label
     currentLabel: reagent-name-water
+  - type: Sealable # Goobstation
+  - type: Tag # Goobstation
+    tags:
+    - DrinkBottle
 
 # Large Plastic Bottles
 
