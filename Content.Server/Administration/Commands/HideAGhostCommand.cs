@@ -21,6 +21,8 @@ public sealed class HideAGhostCommand : LocalizedCommands
     public override string Command => "hideaghost";
     public override string Help => "hideaghost";
 
+    private const float Visibility = -1.5f;
+
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length != 0)
@@ -37,16 +39,15 @@ public sealed class HideAGhostCommand : LocalizedCommands
         var stealthSystem = _entities.System<StealthSystem>();
         var ghostEnt = player.AttachedEntity.Value;
         if (!_entities.HasComponent<GhostComponent>(ghostEnt))
+            return;
+        var stealth = _entities.EnsureComponent<StealthComponent>(ghostEnt);
+        var vis = stealthSystem.GetVisibility(ghostEnt);
+        if (vis < 0f)
         {
-           return;
-        }
-        if (_entities.HasComponent<StealthComponent>(ghostEnt))
-        {
-            _entities.RemoveComponentDeferred<StealthComponent>(ghostEnt);
+            stealthSystem.SetVisibility(ghostEnt, Visibility);
+            stealthSystem.SetEnabled(ghostEnt, true);
             return;
         }
-        _entities.AddComponent<StealthComponent>(ghostEnt);
-        stealthSystem.SetVisibility(ghostEnt, -1.5f);
-        stealthSystem.SetEnabled(ghostEnt, true);
+        stealthSystem.SetEnabled(ghostEnt, stealth.Enabled);
     }
 }
