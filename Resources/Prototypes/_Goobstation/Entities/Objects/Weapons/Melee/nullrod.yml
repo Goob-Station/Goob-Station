@@ -926,13 +926,13 @@
     autoAttack: true
     heavyStaminaCost: 10 
     wideAnimationRotation: -135
-    attackRate: 1.3
+    attackRate: 1.4
     damage:
       types:
-        Blunt: 7
+        Blunt: 5
         Holy: 5
   - type: UseDelay
-    delay: 180.0
+    delay: 100.0
   - type: Appearance
   - type: ToggleableVisuals
     spriteLayer: blade
@@ -944,6 +944,8 @@
   - type: Tag
     tags:
     - InquisitorChainSword
+  - type: AlternatePrayable
+    prayDoAfterDuration: 2
 
 - type: entity
   name: divine bow
