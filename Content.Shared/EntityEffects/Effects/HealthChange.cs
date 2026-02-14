@@ -183,6 +183,7 @@ namespace Content.Shared.EntityEffects.Effects
             var damageSpec = new DamageSpecifier(Damage);
 
             if (args is EntityEffectReagentArgs reagentArgs)
+            {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
 
             if (ScaleByTemperature.HasValue)

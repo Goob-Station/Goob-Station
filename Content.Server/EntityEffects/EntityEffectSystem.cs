@@ -137,7 +137,7 @@ public sealed class EntityEffectSystem : EntitySystem
         args.Result = false;
         if (TryComp(args.Args.TargetEntity, out TemperatureComponent? temp))
         {
-            if (temp.CurrentTemperature >= args.Condition.Min && temp.CurrentTemperature <= args.Condition.Max)
+            if (temp.CurrentTemperature > args.Condition.Min && temp.CurrentTemperature < args.Condition.Max)
                 args.Result = true;
         }
     }
@@ -534,7 +534,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
             }
 
-            if (_spreader.RequiresFloorToSpread(args.Effect.PrototypeId) &&  _turf.IsSpace(tileRef)) //todo Goobstation _turf should be tileRef but we dont have the RT for it?
+            if (_spreader.RequiresFloorToSpread(args.Effect.PrototypeId) &&  _turf.IsSpace(tileRef)) //todo Goobstation? _turf should be tileRef but we dont have the RT for it?
                 return;
 
             var coords = _map.MapToGrid(gridUid, mapCoords);
@@ -715,7 +715,7 @@ public sealed class EntityEffectSystem : EntitySystem
             args.Args.TargetEntity,
             null,
             range,
-            TimeSpan.FromSeconds(args.Effect.Duration * 1000),
+            TimeSpan.FromSeconds(args.Effect.Duration * 1000), // Goobstation? Why is this a timespan for us
             slowTo: args.Effect.SlowTo,
             sound: args.Effect.Sound);
 
@@ -802,7 +802,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale.Float();
             }
 
-            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt);
+            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt); // Goobstation? our bleed takes less arguments???
 
             // Shitmed Change
             var woundsSys = args.Args.EntityManager.System<WoundSystem>();
@@ -822,7 +822,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale;
             }
 
-            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt);
+            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt); // Goob our bleed takes less arguments???
         }
     }
 
