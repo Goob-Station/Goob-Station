@@ -1,0 +1,90 @@
+- type: startingGear
+  id: ThunderdomeBaseGear
+  equipment:
+    outerClothing: ClothingOuterArmorBasic
+    head: ClothingHeadHelmetBasic
+    shoes: ClothingShoesBootsCombatFilled
+    back: ClothingBackpack
+    pocket1: WeaponPistolMk58
+    pocket2: MagazinePistol
+
+- type: startingGear
+  id: ThunderdomeShotgun
+  equipment:
+    suitstorage: WeaponShotgunKammerer
+  storage:
+    back:
+      - BoxLethalshot
+      - BoxShotgunSlug
+
+- type: startingGear
+  id: ThunderdomeDoubleBarreled
+  equipment:
+    suitstorage: WeaponShotgunDoubleBarreled
+  storage:
+    back:
+      - BoxLethalshot
+      - BoxLethalshot
+
+- type: startingGear
+  id: ThunderdomeSmg
+  equipment:
+    suitstorage: WeaponSubMachineGunDrozd
+  storage:
+    back:
+      - MagazinePistolSubMachineGun
+      - MagazinePistolSubMachineGun
+
+- type: startingGear
+  id: ThunderdomeWt550
+  equipment:
+    suitstorage: WeaponSubMachineGunWt550
+  storage:
+    back:
+      - MagazinePistolSubMachineGunTopMounted
+      - MagazinePistolSubMachineGunTopMounted
+
+- type: startingGear
+  id: ThunderdomeLecter
+  equipment:
+    suitstorage: WeaponRifleLecter
+  storage:
+    back:
+      - MagazineRifle
+      - MagazineRifle
+      - MagazineRifleIncendiary
+
+- type: startingGear
+  id: ThunderdomeAkms
+  equipment:
+    suitstorage: WeaponRifleAk
+  storage:
+    back:
+      - MagazineLightRifle
+      - MagazineLightRifle
+
+- type: startingGear
+  id: ThunderdomePython
+  equipment:
+    suitstorage: WeaponRevolverPythonAP
+  storage:
+    back:
+      - SpeedLoaderMagnumAP
+
+- type: startingGear
+  id: ThunderdomeInspector
+  equipment:
+    suitstorage: WeaponRevolverInspector
+  storage:
+    back:
+      - SpeedLoaderMagnum
+      - SpeedLoaderMagnum
+
+- type: startingGear
+  id: ThunderdomeHristov
+  equipment:
+    suitstorage: WeaponSniperHristov
+  storage:
+    back:
+      - MagazineAntiMateriel
+      - MagazineAntiMateriel

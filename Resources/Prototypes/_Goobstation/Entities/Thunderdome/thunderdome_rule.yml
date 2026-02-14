@@ -1,0 +1,56 @@
+- type: entity
+  id: ThunderdomeRule
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: ThunderdomeRule
+      gear: ThunderdomeBaseGear
+      weaponLoadouts:
+        - gear: ThunderdomeShotgun
+          name: thunderdome-loadout-shotgun
+          description: thunderdome-desc-shotgun
+          category: thunderdome-category-shotguns
+          sprite: WeaponShotgunKammerer
+        - gear: ThunderdomeDoubleBarreled
+          name: thunderdome-loadout-doublebarreled
+          description: thunderdome-desc-doublebarreled
+          category: thunderdome-category-shotguns
+          sprite: WeaponShotgunDoubleBarreled
+        - gear: ThunderdomeSmg
+          name: thunderdome-loadout-smg
+          description: thunderdome-desc-smg
+          category: thunderdome-category-smgs
+          sprite: WeaponSubMachineGunDrozd
+        - gear: ThunderdomeWt550
+          name: thunderdome-loadout-wt550
+          description: thunderdome-desc-wt550
+          category: thunderdome-category-smgs
+          sprite: WeaponSubMachineGunWt550
+        - gear: ThunderdomeLecter
+          name: thunderdome-loadout-lecter
+          description: thunderdome-desc-lecter
+          category: thunderdome-category-rifles
+          sprite: WeaponRifleLecter
+        - gear: ThunderdomeAkms
+          name: thunderdome-loadout-akms
+          description: thunderdome-desc-akms
+          category: thunderdome-category-rifles
+          sprite: WeaponRifleAk
+        - gear: ThunderdomePython
+          name: thunderdome-loadout-python
+          description: thunderdome-desc-python
+          category: thunderdome-category-revolvers
+          sprite: WeaponRevolverPython
+        - gear: ThunderdomeInspector
+          name: thunderdome-loadout-inspector
+          description: thunderdome-desc-inspector
+          category: thunderdome-category-revolvers
+          sprite: WeaponRevolverInspector
+        - gear: ThunderdomeHristov
+          name: thunderdome-loadout-hristov
+          description: thunderdome-desc-hristov
+          category: thunderdome-category-snipers
+          sprite: WeaponSniperHristov
+    - type: LoadMapRule
+      mapPath: /Maps/_Goobstation/Nonstations/dm01-entryway.yml
+    - type: RuleGrids
