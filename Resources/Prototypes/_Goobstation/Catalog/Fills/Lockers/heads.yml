@@ -64,7 +64,6 @@
     - id: BlueshieldUndeterminedWeapon
     - id: BlueshieldUndeterminedHardsuit
     - id: FlashlightSeclite
-    - id: BluespaceLifelineImplanter # CorvaxGoob-Not-Roundstart-Implant
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
