@@ -803,7 +803,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale.Float();
             }
 
-            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt); // Goobstation? our bleed takes less arguments???
+            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt);
 
             // Shitmed Change
             var woundsSys = args.Args.EntityManager.System<WoundSystem>();
@@ -823,7 +823,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale;
             }
 
-            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt); // Goob our bleed takes less arguments???
+            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt);
         }
     }
 
