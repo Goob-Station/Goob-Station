@@ -60,6 +60,14 @@
       "directions": 4
     },
     {
+      "name": "engineer_derelict",
+      "directions": 4
+    },
+    {
+      "name": "engineer_derelict_crystal",
+      "directions": 4
+    },
+    {
       "name": "janitor",
       "directions": 4
     },

@@ -187,7 +187,7 @@
     children:
     - id: ClosetSkeleton
     - id: KingRatMigration
-    - id: RevenantSpawn
+    # - id: RevenantSpawn # Goob
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
 
@@ -202,7 +202,7 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    - id: DerelictCyborgSpawn #Goobstation?
+    # - id: DerelictCyborgSpawn #Goobstation?
     - id: BlobSpawn # Goobstation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
@@ -892,7 +892,7 @@
       Hostile: 200
       Medical: 200
       Death: 200
-      eventType: HostilesSpawn # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: GameRule # Goobstation
     chaosScore: 700
   - type: RuleGrids

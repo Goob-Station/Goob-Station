@@ -190,12 +190,12 @@
     noMindState: core-e
     moduleWhitelist:
       tags:
-      - MothershipModule
+      # - MothershipModule # Goob add this later as we go
       - BorgModuleEngineering
   - type: ContainerFill
     containers:
       borg_module:
-      - MothershipModule
+      # - MothershipModule # Goob add this later as we go
       - BorgModuleAdvancedTool
       - BorgModuleConstruction # Accursed
   - type: ContainerContainer

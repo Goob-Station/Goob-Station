@@ -639,7 +639,7 @@
   id: Syringe
   components:
   - type: Injector
-    transferAmount: 15
+    currentTransferAmount: 15
     toggleState: Draw
   - type: Tag
     tags:

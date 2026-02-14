@@ -271,11 +271,3 @@
     stackType: Plasteel
     count: 1
 
-- type: entity # Goobstation
-  parent: SheetPlasteel
-  id: SheetPlasteelLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0

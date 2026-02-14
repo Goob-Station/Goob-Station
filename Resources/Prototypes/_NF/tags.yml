@@ -49,6 +49,9 @@
   id: ObjectOfSpiritualSignificance
 
 - type: Tag
+  id: PartBase
+
+- type: Tag
   id: PrizeTicket
 
 - type: Tag

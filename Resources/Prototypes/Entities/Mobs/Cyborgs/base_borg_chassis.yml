@@ -569,7 +569,7 @@
     - Syndicate
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation collectivemind binary
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -639,10 +639,12 @@
     access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ] ]
   - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
     channels:
-    - Binary #1984
+    - Common # Goobstation i need this to not be null and if theyre derelict its whatever
+    #- Binary #1984 # Goobstation collectivemind binary
   - type: ActiveRadio
     channels:
-    - Binary
+    - Common # Goobstation i need this to not be null and if theyre derelict its whatever
+    #- Binary # Goobstation collectivemind binary
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
@@ -653,6 +655,10 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: CollectiveMind # Goobstation collectivemind binary
+    defaultChannel: Binary
+    channels:
+    - Binary
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
