@@ -14,6 +14,7 @@ thunderdome-category-smgs = SMGs
 thunderdome-category-rifles = Rifles
 thunderdome-category-revolvers = Revolvers
 thunderdome-category-snipers = Snipers
+thunderdome-category-melee = Melee
 
 # Weapon names
 thunderdome-loadout-shotgun = Kammerer
@@ -25,6 +26,7 @@ thunderdome-loadout-akms = AKMS
 thunderdome-loadout-python = Python
 thunderdome-loadout-inspector = Inspector
 thunderdome-loadout-hristov = Hristov
+thunderdome-loadout-esword = Energy Sword
 
 # Weapon descriptions (tooltips)
 thunderdome-desc-shotgun = Pump shotgun + 1 box buckshot, 1 box slugs
@@ -36,6 +38,7 @@ thunderdome-desc-akms = Assault rifle + 2 spare magazines
 thunderdome-desc-python = AP-loaded revolver + 1 AP speedloader
 thunderdome-desc-inspector = Revolver + 2 speedloaders
 thunderdome-desc-hristov = Anti-materiel sniper + 2 spare magazines
+thunderdome-desc-esword = Energy sword + 2 hyperzine injectors
 
 # Kill streak announcements
 thunderdome-streak-3 = Killing Spree!

@@ -51,6 +51,11 @@
           description: thunderdome-desc-hristov
           category: thunderdome-category-snipers
           sprite: WeaponSniperHristov
+        - gear: ThunderdomeEsword
+          name: thunderdome-loadout-esword
+          description: thunderdome-desc-esword
+          category: thunderdome-category-melee
+          sprite: EnergySword
     - type: LoadMapRule
       mapPath: /Maps/_Goobstation/Nonstations/dm01-entryway.yml
     - type: RuleGrids

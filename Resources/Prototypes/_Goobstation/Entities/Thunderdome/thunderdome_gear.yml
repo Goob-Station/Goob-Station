@@ -7,6 +7,9 @@
     back: ClothingBackpack
     pocket1: WeaponPistolMk58
     pocket2: MagazinePistol
+  storage:
+    back:
+      - MedkitFilled
 
 - type: startingGear
   id: ThunderdomeShotgun
@@ -88,3 +91,12 @@
     back:
       - MagazineAntiMateriel
       - MagazineAntiMateriel
+
+- type: startingGear
+  id: ThunderdomeEsword
+  equipment:
+    suitstorage: EnergySword
+  storage:
+    back:
+      - Stimpack
+      - Stimpack
