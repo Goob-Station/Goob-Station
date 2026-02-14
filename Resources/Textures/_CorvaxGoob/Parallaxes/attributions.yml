@@ -23,7 +23,12 @@
   copyright: "Created by TheShuEd"
   source: "https://github.com/space-syndicate/space-station-14/pull/1938"
   
-  files: ["GlacierParallaxCloud.png", "GlacierParallaxCloud2.png", "GlacierParallaxLand.png", "GlacierParallaxPlasma.png", "GlacierParallaxShadow.png"]
+- files: ["GlacierParallaxCloud.png", "GlacierParallaxCloud2.png", "GlacierParallaxLand.png", "GlacierParallaxPlasma.png", "GlacierParallaxShadow.png"]
   license: "CC0-1.0"
   copyright: "Created by JustUser"
   source: "https://github.com/space-syndicate/space-station-14"
+
+- files: ["Water.png", "AzureWater.png"]
+  license: "CC0-1.0"
+  copyright: "adapted from Citadel Station 13"
+  source: "https://github.com/Citadel-Station-13/Citadel-Station-13-RP/tree/2ac1c566b89a6862c46380de02700c7c0d21a10d/icons/turf"
