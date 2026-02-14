@@ -9,16 +9,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
-  parent: ClothingOuterWinterCoat
-  id: ClothingOuterWinterCoatMail
-  name: mail carrier's winter coat
-  description: It'll keep away the cold but not the dogs.
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
-    - type: Clothing
-      sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
+#- type: entity # upstreamrr todo <mailfix>
+#  parent: ClothingOuterWinterCoat
+#  id: ClothingOuterWinterCoatMail
+#  name: mail carrier's winter coat
+#  description: It'll keep away the cold but not the dogs.
+#  components:
+#    - type: Sprite
+#      sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
+#    - type: Clothing
+#      sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoat

@@ -922,15 +922,6 @@
 - type: Tag
   id: GuideEmbeded
 
-- type: Tag # Goobstation?
-  id: GunUpgradeDamage
-
-- type: Tag # Goobstation?
-  id: GunUpgradeRange
-
-- type: Tag # Goobstation?
-  id: GunUpgradeReloadSpeed
-
 - type: Tag
   id: Hamster
 

@@ -35,4 +35,4 @@
   - type: InstantAction
     event: !type:ChargeMagicEvent # Goob edit
   - type: SpeakOnAction
-    sentence: action-speech-spell-charge
+    sentence: action-speech-spell-charge-goob # Goob

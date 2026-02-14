@@ -34,6 +34,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Content.Goobstation.Shared.MartialArts.Components;
 
 namespace Content.Shared.Kitchen;
 
