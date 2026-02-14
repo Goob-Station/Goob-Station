@@ -110,6 +110,7 @@ using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
 using Content.Goobstation.Common.NTR.Scan; // Goobstation
 using Content.Shared.Chat;
+using Content.Shared.Prototypes;
 
 namespace Content.Server.Lathe
 {
@@ -491,7 +492,7 @@ namespace Content.Server.Lathe
         {
             if (component.Queue.Count > 0)
             {
-                var allMaterials = component.Queue.SelectMany(q => _proto.Index(q).Materials);
+                var allMaterials = component.Queue.SelectMany(q => _proto.Index(q));
                 var totalMaterials = new Dictionary<string, int>();
 
                 foreach (var (mat, amount) in allMaterials)
