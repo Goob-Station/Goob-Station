@@ -603,6 +603,6 @@
   id: ImmovableRodSpawnKeepTiles # For numbers vinyl
   parent: ImmovableRodSpawn
   components:
-    - type: ImmovableRodRule
-    rodPrototypes:
-    - id: ImmovableRodKeepTiles
+   - type: ImmovableRodRule
+     rodPrototypes:
+     - id: ImmovableRodKeepTiles
