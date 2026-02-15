@@ -39,6 +39,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
 
     private const string RulePrototype = "ThunderdomeRule";
@@ -82,12 +83,10 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         if (!_ticker.StartGameRule(RulePrototype, out var ruleEntity))
         {
-            Log.Error("Thunderdome: Failed to start game rule.");
             return;
         }
 
         _ruleEntity = ruleEntity;
-        Log.Info("Thunderdome: Game rule started successfully.");
     }
 
     private void OnRoundEnding(RoundRestartCleanupEvent ev)
@@ -123,9 +122,8 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     private void OnGridsLoaded(EntityUid uid, ThunderdomeRuleComponent component, ref RuleLoadedGridsEvent args)
     {
         component.ArenaMap = args.Map;
-        component.ArenaGrids.AddRange(args.Grids);
+        component.ArenaGrids.UnionWith(args.Grids);
         component.Active = true;
-        Log.Info($"Thunderdome: Arena loaded on map {args.Map} with {args.Grids.Count} grid(s). Arena is now active.");
         BroadcastPlayerCount(component);
     }
 
@@ -286,13 +284,11 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     {
         var session = args.SenderSession;
 
-        if (session.AttachedEntity is not { Valid: true } currentEntity)
+        if (session.AttachedEntity is not { Valid: true } currentEntity
+            || !TryComp<ThunderdomePlayerComponent>(currentEntity, out var tdPlayer))
             return;
 
-        EntityUid? originalBody = null;
-
-        if (TryComp<ThunderdomePlayerComponent>(currentEntity, out var tdPlayer))
-            originalBody = tdPlayer.OriginalBody;
+        var originalBody = tdPlayer.OriginalBody;
 
         if (originalBody == null || !Exists(originalBody)
             || !TryComp<MobStateComponent>(originalBody, out var mobState)
@@ -302,13 +298,12 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         if (!_mind.TryGetMind(currentEntity, out var mindId, out _))
             return;
 
-        if (TryComp<ThunderdomePlayerComponent>(currentEntity, out var tdComp)
-            && tdComp.RuleEntity != null
-            && TryComp<ThunderdomeRuleComponent>(tdComp.RuleEntity.Value, out var rule))
+        if (tdPlayer.RuleEntity != null
+            && TryComp<ThunderdomeRuleComponent>(tdPlayer.RuleEntity.Value, out var rule))
         {
             rule.Players.Remove(GetNetEntity(currentEntity));
             BroadcastPlayerCount(rule);
-            }
+        }
 
         _mind.TransferTo(mindId, originalBody.Value);
         RemComp<ThunderdomeOriginalBodyComponent>(originalBody.Value);
@@ -317,24 +312,25 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private void SweepLooseItems(ThunderdomeRuleComponent rule)
     {
-        var itemQuery = EntityQueryEnumerator<ItemComponent, TransformComponent>();
-        while (itemQuery.MoveNext(out var uid, out _, out var xform))
-        {
-            if (xform.GridUid is not { } grid || !rule.ArenaGrids.Contains(grid))
-                continue;
+        if (rule.ArenaMap is not { } map)
+            return;
 
+        var items = new HashSet<Entity<ItemComponent>>();
+        _lookup.GetEntitiesOnMap(map, items);
+
+        foreach (var (uid, _) in items)
+        {
             if (_container.IsEntityInContainer(uid))
                 continue;
 
             QueueDel(uid);
         }
 
-        var puddleQuery = EntityQueryEnumerator<PuddleComponent, TransformComponent>();
-        while (puddleQuery.MoveNext(out var uid, out _, out var xform))
-        {
-            if (xform.GridUid is not { } grid || !rule.ArenaGrids.Contains(grid))
-                continue;
+        var puddles = new HashSet<Entity<PuddleComponent>>();
+        _lookup.GetEntitiesOnMap(map, puddles);
 
+        foreach (var (uid, _) in puddles)
+        {
             QueueDel(uid);
         }
     }

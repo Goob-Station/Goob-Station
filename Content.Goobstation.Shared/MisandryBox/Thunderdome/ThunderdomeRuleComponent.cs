@@ -2,7 +2,6 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization.Manager.Attributes;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.MisandryBox.Thunderdome;
 
@@ -32,7 +31,7 @@ public sealed partial class ThunderdomeRuleComponent : Component
     public MapId? ArenaMap;
 
     [DataField]
-    public List<EntityUid> ArenaGrids = new();
+    public HashSet<EntityUid> ArenaGrids = new();
 
     [DataField]
     public HashSet<NetEntity> Players = new();
@@ -48,9 +47,6 @@ public sealed partial class ThunderdomeRuleComponent : Component
 
     [DataField]
     public string Gear = "ThunderdomeBaseGear";
-
-    [DataField]
-    public ResPath MapPath = new("/Maps/_Goobstation/Nonstations/dm01-entryway.yml");
 
     [DataField]
     public List<ThunderdomeWeaponLoadout> WeaponLoadouts = new();
