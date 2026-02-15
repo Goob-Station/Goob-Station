@@ -21254,3 +21254,11 @@ Entries:
       message: Leonid has been updated to the current mapping standards.
   id: 2413
   time: '2026-02-15T02:45:32.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed some wiring on meta and chloris, made meta genpop slightly harder
+        to oversee
+  id: 2414
+  time: '2026-02-15T13:43:41.0000000+00:00'
