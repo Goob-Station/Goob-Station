@@ -1,0 +1,47 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="using:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'pen-spin-ui-title'}"
+                      MinSize="200 120"
+                      SetSize="200 120">
+    <BoxContainer Orientation="Vertical"
+                  VerticalExpand="True"
+                  HorizontalExpand="True"
+                  HorizontalAlignment="Center"
+                  Margin="8">
+
+        <PanelContainer>
+            <BoxContainer Orientation="Horizontal"
+                          HorizontalAlignment="Center"
+                          HorizontalExpand="True">
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="°" />
+                <LineEdit Name="DegreeInput"
+                          Access="Public"
+                          MinSize="80 0"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          PlaceHolder="0-359" />
+            </BoxContainer>
+        </PanelContainer>
+
+        <PanelContainer>
+            <BoxContainer Orientation="Horizontal"
+                          HorizontalAlignment="Center"
+                          HorizontalExpand="True">
+                <Button Name="ResetButton"
+                        Access="Public"
+                        Text="{Loc 'pen-spin-ui-reset'}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        StyleClasses="OpenRight" />
+                <Button Name="SubmitButton"
+                        Access="Public"
+                        Text="{Loc 'pen-spin-ui-submit'}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        StyleClasses="OpenLeft" />
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>

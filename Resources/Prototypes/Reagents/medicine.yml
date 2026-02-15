@@ -847,6 +847,10 @@
         damage:
           types:
             Caustic: 0.3
+      # Goobstation
+      - !type:DiseaseProgressChange
+        affectedType: OwnCells
+        progressModifier: -0.07 # anti-cancer
 
 - type: reagent
   id: PolypyryliumOligomers
@@ -1710,6 +1714,10 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:HealthChange #Goobstation
+        damage:
+          types:
+            Radiation: -0.25 #Goobend
       - !type:GenericStatusEffect
         key: RadiationProtection
         component: RadiationProtection

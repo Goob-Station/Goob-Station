@@ -324,10 +324,27 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             EntityUid picked;
 
-            if (args.Winner == null)
-                picked = (EntityUid) _rand.Pick(args.Winners);
-            else
+            //Here to prevent deleted entitiy
+            if (args.Winner != null && !TerminatingOrDeleted((EntityUid) args.Winner))
+            {
                 picked = (EntityUid) args.Winner;
+            }
+            else
+            {
+                var actualWinners = new List<EntityUid>();
+
+                foreach (var winner in args.Winners)
+                {
+                    if (!TerminatingOrDeleted((EntityUid) winner))
+                        actualWinners.Add((EntityUid) winner);
+                }
+
+                //Just in case
+                if (actualWinners.Count == 0)
+                    return;
+
+                picked = _rand.Pick(actualWinners);
+            }
 
             EnsureComp<CosmicCultLeadComponent>(picked);
             RaiseLocalEvent(picked, new CosmicCultLeadChangedEvent());
@@ -776,7 +793,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var cosmicGamerule = cult.Comp;
 
-        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
+        _stun.TryKnockdown(uid.Owner, TimeSpan.FromSeconds(2), true);
         foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
         if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))

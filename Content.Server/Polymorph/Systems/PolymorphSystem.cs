@@ -9,7 +9,7 @@
 // SPDX-FileCopyrightText: 2024 Baa <9057997+Baa14453@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Bakke <luringens@protonmail.com>
 // SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>makesen
 // SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
@@ -186,12 +186,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphableComponent, PolymorphActionEvent>(OnPolymorphActionEvent);
         SubscribeLocalEvent<PolymorphedEntityComponent, RevertPolymorphActionEvent>(OnRevertPolymorphActionEvent);
 
-        SubscribeLocalEvent<PolymorphedEntityComponent, BeforeFullyEatenEvent>(OnBeforeFullyEaten);
         SubscribeLocalEvent<PolymorphedEntityComponent, BeforeFullySlicedEvent>(OnBeforeFullySliced);
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
 
         InitializeMap();
-        InitializeTrigger();
     }
 
     public override void Update(float frameTime)
@@ -218,8 +216,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 Revert((uid, comp));
             }
         }
-
-        UpdateTrigger();
     }
 
     private void OnComponentStartup(Entity<PolymorphableComponent> ent, ref ComponentStartup args)
@@ -264,16 +260,6 @@ public sealed partial class PolymorphSystem : EntitySystem
         Revert((ent, ent));
     }
 
-    private void OnBeforeFullyEaten(Entity<PolymorphedEntityComponent> ent, ref BeforeFullyEatenEvent args)
-    {
-        var (_, comp) = ent;
-        if (comp.Configuration.RevertOnEat)
-        {
-            args.Cancel();
-            Revert((ent, ent));
-        }
-    }
-
     private void OnBeforeFullySliced(Entity<PolymorphedEntityComponent> ent, ref BeforeFullySlicedEvent args)
     {
         var (_, comp) = ent;
@@ -308,15 +294,18 @@ public sealed partial class PolymorphSystem : EntitySystem
     }
 
     /// <summary>
-    /// Polymorphs the target entity into another
+    /// Polymorphs the target entity into another.
     /// </summary>
     /// <param name="uid">The entity that will be transformed</param>
-    /// <param name="configuration">Polymorph data</param>
-    /// <returns></returns>
+    /// <param name="configuration">The new polymorph configuration</param>
+    /// <returns>The new entity, or null if the polymorph failed.</returns>
     public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
     {
-        // if it's already morphed, don't allow it again with this condition active.
-        if (!configuration.AllowRepeatedMorphs && HasComp<PolymorphedEntityComponent>(uid))
+        // If they're morphed, check their current config to see if they can be
+        // morphed again
+        if (!configuration.IgnoreAllowRepeatedMorphs
+            && TryComp<PolymorphedEntityComponent>(uid, out var currentPoly)
+            && !currentPoly.Configuration.AllowRepeatedMorphs)
             return null;
 
         // If this polymorph has a cooldown, check if that amount of time has passed since the
@@ -353,22 +342,8 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
         var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
-        MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
+        _mindSystem.MakeSentient(child, configuration.AllowMovement);
         // Goob edit end
-
-        // Einstein Engines - Language begin
-        // Copy specified components over
-        foreach (var compName in configuration.CopiedComponents)
-        {
-            if (!_compFact.TryGetRegistration(compName, out var reg)
-                || !EntityManager.TryGetComponent(uid, reg.Idx, out var comp))
-                continue;
-
-            var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
-            copy.Owner = child;
-            AddComp(child, copy, true);
-        }
-        // Einstein Engines - Language end
 
         var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
@@ -485,16 +460,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             foreach (var data in configuration.ComponentsToTransfer)
             {
-                Type type;
-                try
-                {
-                    type = _compFact.GetRegistration(data.Component).Type;
-                }
-                catch (UnknownComponentException e)
-                {
-                    Log.Error(e.Message);
+                if (!_compFact.TryGetRegistration(data.Component, out var registration))
                     continue;
-                }
+
+                var type = registration.Type;
 
                 if (!EntityManager.TryGetComponent(uid, type, out var component))
                     continue;
@@ -708,4 +677,43 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (actions.TryGetValue(id, out var action))
             _actions.RemoveAction(target.Owner, action);
     }
+
+    // goob edit
+    // it makes more sense for it to be here than anywhere.
+    // if anywhere it should be embedded in the engine but we can't afford that :P
+    public T? CopyPolymorphComponent<T>(EntityUid old, EntityUid @new, bool transfer = true) where T : Component
+        => CopyPolymorphComponent(old, @new, typeof(T), transfer) as T;
+
+    // don't use transfer if you have component references like EE languages
+    // ideally you shouldn't use comp references at all
+    public IComponent? CopyPolymorphComponent(EntityUid old, EntityUid @new, string componentRegistration, bool transfer = true)
+    {
+        if (!_compFact.TryGetRegistration(componentRegistration, out var reg))
+            return null;
+
+        return CopyPolymorphComponent(old, @new, reg.Type, transfer);
+    }
+
+    public IComponent? CopyPolymorphComponent(EntityUid old, EntityUid @new, Type compType, bool transfer = true)
+    {
+        if (old == @new)
+            return null;
+
+        if (!EntityManager.TryGetComponent(old, compType, out var comp))
+            return null;
+
+        if (transfer)
+        {
+            var newComp = (Component) _compFact.GetComponent(compType);
+            var temp = (object) newComp;
+            _serialization.CopyTo(comp, ref temp, notNullableOverride: true);
+            EntityManager.AddComponent(@new, (Component) temp!, true);
+            return temp as IComponent;
+        }
+
+        var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
+        AddComp(@new, copy, true);
+        return copy;
+    }
+    // goob edit end
 }

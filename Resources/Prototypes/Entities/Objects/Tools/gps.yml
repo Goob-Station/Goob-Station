@@ -24,7 +24,7 @@
     - state: active
   - type: Item
     sprite: Objects/Devices/gps.rsi
-  - type: HandheldGPS
+  - type: GPS # Goob Station - what if gps didnt suck doo doo balls
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 200
@@ -32,17 +32,14 @@
   - type: Tag
     tags:
     - GPS
-  - type: RadarConsole
-    maxRange: 256
-    followEntity: true
   - type: ActivatableUI
-    key: enum.RadarConsoleUiKey.Key
+    key: enum.GpsUiKey.Key # Goob Station - what if gps didnt suck doo doo balls
     inHandsOnly: true
     singleUser: true
   - type: UserInterface
     interfaces:
-      enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
+      enum.GpsUiKey.Key: # Goob Station - what if gps didnt suck doo doo balls
+        type: GpsBoundUserInterface
 
 - type: entity #why does this exist? Well, "global positioning system" is too long to fit in the cyborg's hand slot.
   name: Integrated GPS

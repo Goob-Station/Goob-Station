@@ -285,6 +285,4 @@
     - Engineering
     - Maintenance
     - Atmospherics # Goobstation
-  - type: RandomMetadata
-    nameSegments:
-    - NamesDrone # maintainer drones get named after maintainers get it? its funny
+  - type: ContributorName # Goobstation - Maint drones get up to date contributor names

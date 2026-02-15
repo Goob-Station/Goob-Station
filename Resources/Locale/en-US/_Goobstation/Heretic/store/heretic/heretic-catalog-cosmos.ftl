@@ -70,7 +70,7 @@ knowledge-path-cosmos-s9-desc =
     Bring 3 corpses with a star mark to a transmutation rune to complete the ritual.
     When completed, you become the owner of a Star Gazer.
     The Star Gazer is a strong ally who can even break down reinforced walls.
-    The Star Gazer has an aura that will heal you and damage opponents.
+    The Star Gazer has an aura that will heal you.
     Star Touch can now teleport you to the Star Gazer when activated in your hand.
     Your cosmic expansion spell and your blades also become greatly empowered.
     You gain x-ray vision as well as immunity to extreme pressure and temperature.

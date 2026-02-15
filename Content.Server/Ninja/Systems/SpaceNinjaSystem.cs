@@ -15,6 +15,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Effects;
 using Content.Server.Communications;
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.Objectives.Components;
@@ -45,6 +46,7 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
 
     public override void Initialize()
     {
@@ -154,16 +156,19 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
             : Loc.GetString("ninja-research-steal-success", ("count", gained), ("server", args.Target));
 
         Popup.PopupEntity(str, uid, uid, PopupType.Medium);
+        _sparks.DoSparks(Transform(args.Target).Coordinates); // goob edit - sparks everywhere
     }
 
     private void OnThreatCalledIn(Entity<SpaceNinjaComponent> ent, ref ThreatCalledInEvent args)
     {
         _codeCondition.SetCompleted(ent.Owner, ent.Comp.TerrorObjective);
+        _sparks.DoSparks(Transform(args.Target).Coordinates); // goob edit - sparks everywhere
     }
 
     private void OnCriminalRecordsHacked(Entity<SpaceNinjaComponent> ent, ref CriminalRecordsHackedEvent args)
     {
         _codeCondition.SetCompleted(ent.Owner, ent.Comp.MassArrestObjective);
+        _sparks.DoSparks(Transform(args.Target).Coordinates); // goob edit - sparks everywhere
     }
 
     /// <summary>

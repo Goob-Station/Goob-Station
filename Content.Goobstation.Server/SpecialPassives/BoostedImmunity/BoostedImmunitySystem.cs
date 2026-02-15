@@ -1,3 +1,5 @@
+using Content.Goobstation.Shared.Disease.Systems;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Goobstation.Shared.Medical;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Server._White.Xenomorphs.Infection;
@@ -12,6 +14,7 @@ public sealed class BoostedImmunitySystem : SharedBoostedImmunitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly SharedDiseaseSystem _disease = default!;
 
     private EntityQuery<XenomorphInfectionComponent> _xenoInfectQuery;
 
@@ -49,5 +52,10 @@ public sealed class BoostedImmunitySystem : SharedBoostedImmunitySystem
             _body.TryRemoveOrgan(organ.Id);
             QueueDel(organ.Id);
         }
+    }
+
+    protected override void RemoveDiseases(Entity<BoostedImmunityComponent> ent)
+    {
+        _disease.TryCureAll(ent.Owner);
     }
 }

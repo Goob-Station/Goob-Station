@@ -1,0 +1,43 @@
+﻿- type: entity
+  name: fruiting cacti
+  parent: BaseStructure
+  id: FruitCactus
+  description: Several prickly cacti, brimming with ripe fruit and covered in a thin layer of ash.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/fruiting_cactus.rsi
+    layers:
+    - state: cactus1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        cactus1: ""
+        cactus2: ""
+        cactus3: ""
+        cactus4: ""
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+  - type: InteractionOutline
+  - type: Harvestable
+    delay: 2.5
+    loot: FoodMealCactusFruit
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

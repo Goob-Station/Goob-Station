@@ -1,0 +1,24 @@
+- files: ["AirportLounge.ogg", "BoogieParty.ogg", "Corncob.ogg", "DeadlyRoulette.ogg", "JingleBells.ogg", "LateNightRadio.ogg", "MesmerizingGalaxyLoop.ogg", "SpaceJazz.ogg", "VibingOverVenus.ogg, NightInVenice.ogg, BurnTheWorldWaltz.ogg, FeralAngelWaltz.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "music by kevin macleod"
+  source: "https://incompetech.com/music/royalty-free/music.html"
+
+- files: ["peakasshole.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "made by lucifermkshelter (discord)"
+  source: "https://github.com/LuciferEOS"
+
+- files: ["WantYouGone.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Want you gone by Jonathan Coulton"
+  source: "https://www.youtube.com/watch?v=Pa-P7_XvP_4"
+
+- files: ["GetThatAntag!.ogg", LAW2OPENARMORY.ogg, EphedrineOverdose.ogg, RunningOutCover.ogg, TraitorousIntent.ogg, violet.ogg]
+  license: "CC-BY-3.0"
+  copyright: "made by mrjajkes"
+  source: "https://www.youtube.com/@mrjajkes"
+
+- files: [OpenTTDJourney.ogg]
+  license: "CC-BY-SA-3.0"
+  copyright: "taken from open TTD"
+  source: "https://www.openttd.org/content-creators"

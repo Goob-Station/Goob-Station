@@ -39,7 +39,7 @@ public sealed partial class SlasherIncorporealComponent : Component
     /// How long the do-after to enter incorporeal form takes.
     /// </summary>
     [DataField]
-    public TimeSpan IncorporealizeDelay = TimeSpan.FromSeconds(2);
+    public TimeSpan IncorporealizeDelay = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// Range to disable lights around the slasher when entering incorporeal.

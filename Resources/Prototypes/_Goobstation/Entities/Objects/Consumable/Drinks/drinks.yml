@@ -51,7 +51,7 @@
 - type: reagent
   id: MilkChoco
   name: reagent-name-milk-choco
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-milk-choco
   physicalDesc: reagent-physical-desc-opaque
   flavor: chocolate

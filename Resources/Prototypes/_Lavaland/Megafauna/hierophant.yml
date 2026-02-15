@@ -1,0 +1,78 @@
+# Root selector
+- type: megafaunaSelector
+  id: Hierophant
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: HierophantActions
+
+# Target selector
+- type: megafaunaSelector
+  id: PickTargetSimple
+  selector: !type:AggressivePickTargetSelector
+    delay: 0.0
+    priority: 10
+    targetConditions:
+    # Hit closer aggressors more often.
+    - !type:RangeCondition
+      maxRange: 3.0
+    - !type:RangeCondition
+      maxRange: 6.0
+    - !type:RangeCondition
+      maxRange: 9.0
+
+# Actions
+- type: megafaunaSelector
+  id: HierophantActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionHierophantBox
+    - id: ActionHierophantCrosses
+    - id: ActionHierophantChasers
+    - id: ActionHierophantBlink
+
+# Anger delays are needed so hierophant doesn't wait for 4 seconds and then uses all actions at once.
+# TODO: add support for actions to have a shared delay so we can remove AngerNumberSelector
+- type: megafaunaSelector
+  id: ActionHierophantBox
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionHierophantBox
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantBox
+
+- type: megafaunaSelector
+  id: ActionHierophantCrosses
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,3.0
+      inverse: true
+    actionId: ActionHierophantCrosses
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantCrosses
+
+- type: megafaunaSelector
+  id: ActionHierophantChasers
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 0.1,0.5
+      inverse: true
+    actionId: ActionHierophantChasers
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantChasers
+
+- type: megafaunaSelector
+  id: ActionHierophantBlink
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 0.2,1.0
+      inverse: true
+    actionId: ActionHierophantBlink
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantBlink

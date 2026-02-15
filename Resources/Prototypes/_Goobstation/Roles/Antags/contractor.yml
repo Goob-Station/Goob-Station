@@ -1,0 +1,6 @@
+- type: antag
+  id: Contractor
+  name: roles-antag-contractor-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-contractor-objectives

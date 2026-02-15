@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: CdRack
+  id: CdRackFilled
+  suffix: random filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: RandomCDDisk
+        rolls: !type:RangeNumberSelector
+          range: 1, 8

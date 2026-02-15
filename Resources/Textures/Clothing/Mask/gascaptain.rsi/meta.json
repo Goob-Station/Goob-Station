@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, remade by 𝚆𝚊𝚛𝚝𝚊𝚐𝚕𝚎𝚡#0912. Reptilian edit by Nairod(Github). equipped-MASK-vox state taken from 'gas-alt' state in /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/4638130fab5ff0e9faa220688811349d3297a33e, and modified by Flareguy",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, remade by \uD835\uDE86\uD835\uDE8A\uD835\uDE9B\uD835\uDE9D\uD835\uDE8A\uD835\uDE90\uD835\uDE95\uD835\uDE8E\uD835\uDEA1#0912. Reptilian edit by Nairod(Github). equipped-MASK-vox state taken from \u0027gas-alt\u0027 state in /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/4638130fab5ff0e9faa220688811349d3297a33e, and modified by Flareguy",
   "size": {
     "x": 32,
     "y": 32
@@ -28,6 +28,10 @@
     },
     {
       "name": "equipped-MASK-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK-vulpkanin",
       "directions": 4
     }
   ]

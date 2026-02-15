@@ -184,6 +184,19 @@
     graph: GasMaskHalf
     node: start
     deconstructionTarget: null
+  # Goobstation
+  - type: DiseaseProtection
+    # higher protection for gas masks
+    incoming:
+      powerModifiers:
+        Aerial: -0.2
+      chanceMultipliers:
+        Aerial: 0.7
+    outgoing:
+      powerModifiers:
+        Aerial: -0.2
+      chanceMultipliers:
+        Aerial: 0.5
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
@@ -280,7 +293,7 @@
   - type: BreathMask
   - type: IngestionBlocker
     blockSmokeIngestion: true # Goobstation
-    
+
 
 - type: entity
   parent: [ ClothingMaskGasAtmos, BaseCentcommContraband ]
@@ -345,6 +358,19 @@
     materialComposition:
       Steel: 50
       Plastic: 50
+  # Goobstation
+  - type: DiseaseProtection
+    # full protection if both people are wearing it
+    incoming:
+      powerModifiers:
+        Aerial: -0.4
+      chanceMultipliers:
+        Aerial: 0.5
+    outgoing:
+      powerModifiers:
+        Aerial: -0.6
+      chanceMultipliers:
+        Aerial: 0.5
 
 - type: entity
   parent: ClothingMaskBreathMedical
@@ -369,7 +395,19 @@
         Heat: 0.9
         Caustic: 0.9
   - type: IngestionBlocker # Goobstation
-    blockSmokeIngestion: true # Goobstation      
+    blockSmokeIngestion: true # Goobstation
+  # Goobstation
+  - type: DiseaseProtection
+    incoming:
+      powerModifiers:
+        Aerial: -0.35
+      chanceMultipliers:
+        Aerial: 0.5
+    outgoing:
+      powerModifiers:
+        Aerial: -0.35
+      chanceMultipliers:
+        Aerial: 0.5
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -466,7 +504,7 @@
         Piercing: 0.9
         Heat: 0.9
   - type: IngestionBlocker
-    blockSmokeIngestion: true # Goobstation      
+    blockSmokeIngestion: true # Goobstation
 
 - type: entity
   parent: ClothingMaskBase
@@ -526,8 +564,22 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
+      Cloth: 25
   - type: StaticPrice
     price: 5
+  # Goobstation
+  - type: DiseaseProtection
+    # really strong protection
+    incoming:
+      powerModifiers:
+        Aerial: -0.6
+      chanceMultipliers:
+        Aerial: 0.4
+    outgoing:
+      powerModifiers:
+        Aerial: -0.6
+      chanceMultipliers:
+        Aerial: 0.4
 
 - type: entity
   parent: ClothingMaskBase
@@ -573,6 +625,19 @@
     slots:
     - Snout
     hideOnToggle: true
+  # Goobstation
+  - type: DiseaseProtection
+    # really good incoming but bad outgoing protection
+    incoming:
+      powerModifiers:
+        Aerial: -0.8
+      chanceMultipliers:
+        Aerial: 0.2
+    outgoing:
+      powerModifiers:
+        Aerial: -0.2
+      chanceMultipliers:
+        Aerial: 0.8
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -707,6 +772,19 @@
         Heat: 0.75
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  # Goobstation
+  - type: DiseaseProtection
+    # full immunity
+    incoming:
+      powerModifiers:
+        Aerial: -1
+      chanceMultipliers:
+        Aerial: 0
+    outgoing:
+      powerModifiers:
+        Aerial: -1
+      chanceMultipliers:
+        Aerial: 0
 
 - type: entity
   parent: ClothingMaskBase

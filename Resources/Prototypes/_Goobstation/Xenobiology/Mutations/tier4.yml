@@ -1,0 +1,55 @@
+- type: breed
+  breedName: oil slime
+  id: OilMutation
+  producedExtract: OilSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#383936"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: OilMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - OilMutation
+
+- type: breed
+  breedName: light pink slime
+  id: LightPinkMutation
+  producedExtract: LightPinkSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#ffb3ec"
+    breed: LightPinkMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - LightPinkMutation
+
+- type: breed
+  breedName: black slime
+  id: BlackMutation
+  producedExtract: BlackSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#000000"
+    breed: BlackMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - BlackMutation
+
+- type: breed
+  breedName: adamantine slime
+  id: AdamantineMutation
+  producedExtract: AdamantineSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#005c33"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: AdamantineMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - AdamantineMutation

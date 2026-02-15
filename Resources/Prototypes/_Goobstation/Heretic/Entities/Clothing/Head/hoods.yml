@@ -50,7 +50,8 @@
       NerveDamage: 0.0
   - type: FireProtection
     reduction: 0.1
-
+  - type: FaceHuggerBlocker
+    
 - type: entity
   parent: ClothingHeadHatHoodHeretic
   id: ClothingHeadHatHoodHereticVoid
@@ -133,3 +134,4 @@
       BoneDamage: 0.3
       VeinsDamage: 0.0
       NerveDamage: 0.0
+  - type: FaceHuggerBlocker

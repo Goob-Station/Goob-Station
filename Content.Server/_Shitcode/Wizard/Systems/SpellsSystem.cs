@@ -30,7 +30,6 @@ using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -75,8 +74,9 @@ using Content.Shared.Construction.Components;
 using Content.Shared.Friction;
 using Content.Shared.Item;
 using Content.Shared.Tag;
+using Content.Goobstation.Shared.Teleportation.Systems;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {
@@ -94,7 +94,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
@@ -242,7 +242,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (distance2 < minRange2)
                 continue;
 
-            Stun.TryParalyze(entity, ev.StunTime, true);
+            Stun.TryUpdateParalyzeDuration(entity, ev.StunTime);
 
             Spawn(ev.EffectProto, TransformSystem.GetMapCoordinates(entity, xform));
 

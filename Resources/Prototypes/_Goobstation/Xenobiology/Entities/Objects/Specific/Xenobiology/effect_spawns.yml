@@ -1,0 +1,178 @@
+- type: entity
+  id: XenoExtractChronofield
+  parent: Chronofield
+  name: sepia chronofield
+  components:
+  - type: TimedDespawn
+    lifetime: 15
+
+- type: entity
+  id: XenoGooWall
+  name: gelatinous growth
+  description: This could very well be the blob from space LIDL.
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/goo_ball.rsi
+      state: goo-wall
+    drawdepth: WallMountedItems
+  - type: Clickable
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: desecration
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: SpamEmitSound
+    minInterval: 20
+    maxInterval: 60
+    sound:
+      collection: SlimeMaleScreams
+      params:
+        variation: 0.125
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: teal
+
+- type: entity
+  name: random hostile mob spawner
+  id: RHostileMobSpawner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - MobAngryBee
+    - MobBrullbar
+    - MobWhiteWolf
+    - MobSpiderSpace
+    - MobCobraSpace
+    - MobCarp
+    - MobCarpMagic
+    - MobCarpHolo
+    - MobCarpRainbow
+    - MobGhoulStalker
+    - MobGhoulProphet
+    - MobGhoulFireShark
+    - MobGhoulRustWalker
+    - ReagentSlimeSpawner
+    - MobAbomination
+    - MobHivebot
+    - MobHivebotRanged
+    - MobHivebotStrong
+    - MobWatcherLavaland
+    - MobWatcherIcewing
+    - MobWatcherMagmawing
+    - MobLuminousPerson
+    - MobLuminousObject
+    - MobLuminousEntity
+    - MobLaserRaptor
+    - MobTomatoKiller
+    - MobRatKing
+    - MobTick
+    - MobXenomorphHunter
+    - MobXenomorphFaceHugger # trollage
+    - MobPurpleSnake
+    - MobSmallPurpleSnake
+    - MobBingle
+    offset: 0.0
+
+- type: entity
+  name: random neutral mob spawner
+  id: RNeutralMobSpawner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - MobBee
+    - MobGorilla
+    - MobKangaroo
+    - MobMonkey
+    - MobKobold
+    - MobMouse
+    - MobMouseCancer
+    - MobGiantSpider
+    - MobGiantSpiderWizard
+    - MobFox
+    - MobReindeerBuck
+    - MobReindeerDoe
+    - MobCockroach
+    - MobSquackroach
+    - MobSlimeXenobioBabyGrey
+    - MobSnail
+    - MobSnailSpeed
+    - MobSnailMoth
+    - MobXenomorphMaid
+    offset: 0.0
+
+- type: entity
+  name: random passive mob spawner
+  id: RPassiveMobSpawner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - MobGondola
+    - MobLootbug
+    - MobChicken
+    - MobDuckMallard
+    - MobDuckWhite
+    - MobDuckBrown
+    - MobButterfly
+    - MobCow
+    - MobCrab
+    - MobGoat
+    - MobGoose
+    - MobLizard
+    - MobSlug
+    - MobFrog
+    - MobParrot
+    - MobPenguin
+    - MobSnake
+    - MobPossum
+    - MobPossumOld
+    - MobRaccoon
+    - MobCorgi
+    - MobCorgiPuppy
+    - MobCat
+    - MobCatCalico
+    - MobCatCaracal
+    - MobCatKitten
+    - MobSloth
+    - MobFerret
+    - MobHamster
+    - MobPig
+    - MobDionaNymph
+    - MobCatShadow
+    offset: 0.0

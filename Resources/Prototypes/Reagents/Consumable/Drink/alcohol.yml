@@ -1063,7 +1063,7 @@
 - type: reagent
   id: DoctorsDelight
   name: reagent-name-doctors-delight
-  parent: BaseDrink
+  parent: BaseAlcohol # Goob - It's alcoholic
   desc: reagent-desc-doctors-delight
   physicalDesc: reagent-physical-desc-soothing
   flavor: medicine
@@ -2084,7 +2084,7 @@
 - type: reagent
   id: WhiteGilgamesh
   name: reagent-name-white-gilgamesh
-  parent: BaseDrink
+  parent: BaseAlcohol # Goob - It's alcoholic
   desc: reagent-desc-white-gilgamesh
   physicalDesc: reagent-physical-desc-creamy
   flavor: white-gilgamesh

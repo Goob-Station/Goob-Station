@@ -117,27 +117,33 @@
     },
     {
       "name": "base-needle-inhand-left",
-        "directions": 4
+      "directions": 4
     },
     {
       "name": "base-needle-inhand-right",
-        "directions": 4
+      "directions": 4
     },
     {
       "name": "base-colorA-inhand-left",
-        "directions": 4
+      "directions": 4
     },
     {
       "name": "base-colorA-inhand-right",
-        "directions": 4
+      "directions": 4
     },
     {
       "name": "base-colorB-inhand-left",
-        "directions": 4
+      "directions": 4
     },
     {
       "name": "base-colorB-inhand-right",
-        "directions": 4
+      "directions": 4
+    },
+    {
+      "name": "livepen"
+    },
+    {
+      "name": "livepen_empty"
     }
   ]
 }

@@ -85,7 +85,7 @@
 
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
-using Content.Server.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects;
 using Content.Server.Spreader;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
@@ -163,7 +163,7 @@ public sealed class SmokeSystem : EntitySystem
             if (curTime < smoke.NextSecond)
                 continue;
 
-            smoke.NextSecond += TimeSpan.FromSeconds(1);
+            smoke.NextSecond += TimeSpan.FromSeconds(1.33f); // goob edit - increased metabolize delay
             SmokeReact(uid, smoke.SmokeEntity);
         }
     }

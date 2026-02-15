@@ -1,0 +1,73 @@
+- type: entity
+  id: DiseaseBehaviorFightImmunity
+  parent: DiseaseBehaviorBase
+  name: Immune resistance
+  description: Makes the disease resist immunity once developed.
+  components:
+  - type: DiseaseEffect
+    complexity: 12
+  - type: DiseaseFightImmunityEffect
+
+- type: entity
+  id: DiseaseBehaviorSluggish
+  parent: DiseaseBehaviorBase
+  name: Feeling sluggish
+  description: Makes you feel sluggish.
+  components:
+  - type: DiseaseEffect
+    complexity: 30
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:MovespeedModifier
+      walkSpeedModifier: 0.65
+      sprintSpeedModifier: 0.65
+
+- type: entity
+  id: DiseaseBehaviorTemperature
+  parent: DiseaseBehaviorBase
+  name: Temperature
+  description: Raises your body temperature to harmful levels.
+  components:
+  - type: DiseaseEffect
+    complexity: 20
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:AdjustTemperature
+      conditions:
+      - !type:Temperature
+        max: 393.15 # stops at 100c
+      amount: 8000
+
+- type: entity
+  id: DiseaseBehaviorCold
+  parent: DiseaseBehaviorBase
+  name: Thermophagy
+  description: Consumes body heat, lowering your body temperature to harmful levels.
+  components:
+  - type: DiseaseEffect
+    complexity: 20
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:AdjustTemperature
+      amount: -8000
+
+- type: entity
+  id: DiseaseBehaviorRapidMutation
+  parent: DiseaseBehaviorBase
+  name: Rapid mutation
+  description: This disease rapidly mutates itself and other diseases even while in the host.
+  components:
+  - type: DiseaseEffect
+    complexity: 10
+  - type: DiseaseReagentEffect
+    # always mutates full speed
+    timeScale: false
+    severityScale: false
+    progressScale: false
+    effects:
+    - !type:MutateDiseases
+      mutationRate: 0.1
+  - type: DiseasePeriodicCondition
+    delayMin: 10
+    delayMax: 30

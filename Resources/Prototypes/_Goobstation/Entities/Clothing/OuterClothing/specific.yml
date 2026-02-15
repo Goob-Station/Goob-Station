@@ -92,6 +92,18 @@
       quickEquip: true
 
 - type: entity
+  parent: ClothingOuterWizardCentCommReal
+  id: WhiteRobes
+  name: robes of the chosen one
+  description: theses white robes are worn by only the finest of Nanotrasen's special operations department.
+  suffix: chosen one
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/robesjedi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/robesjedi.rsi
+
+- type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSuitHotDog
   name: hotdog costume
@@ -146,3 +158,30 @@
         Blunt: 0.9
         Slash: 0.9
 
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitTutu
+  name: tutu
+  description: Why?..
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/tutu.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/tutu.rsi
+    quickEquip: true
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorHereticCostume
+  name: occult robes
+  description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi #idi nakhuy
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticCostume

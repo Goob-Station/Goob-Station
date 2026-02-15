@@ -1,0 +1,13 @@
+- type: soundCollection
+  id: HasturDevour
+  files:
+  - /Audio/_Goobstation/Misc/Hastur/devour1.ogg
+  - /Audio/_Goobstation/Misc/Hastur/devour2.ogg
+  - /Audio/_Goobstation/Misc/Hastur/devour3.ogg
+  - /Audio/_Goobstation/Misc/Hastur/devour4.ogg
+
+- type: soundCollection
+  id: TentacleWalk
+  files:
+  - /Audio/_Goobstation/Misc/Hastur/tentacle_walk.ogg
+  - /Audio/_Goobstation/Misc/Hastur/tentacle_walk.ogg

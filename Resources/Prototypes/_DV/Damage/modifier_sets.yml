@@ -57,3 +57,12 @@
     Blunt: 0.9
     Slash: 1.1
   ignoreArmorPierceFlags: All # Goobstation
+
+- type: damageModifierSet
+  id: Oni
+  coefficients:
+    Blunt: 0.85
+    Slash: 0.85
+    Piercing: 0.85
+    Holy: 1
+  ignoreArmorPierceFlags: All # Goobstation

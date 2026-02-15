@@ -144,7 +144,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBase, BaseSecondSkinHolder] # Goob edit
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBase]
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
@@ -206,7 +206,7 @@
 
 - type: entity
   abstract: true
-  parent: [AllowSuitStorageClothing, BaseSecondSkinHolder] # Goob edit
+  parent: AllowSuitStorageClothing
   id: ClothingOuterArmorHoS
   components:
   - type: Armor
@@ -218,11 +218,11 @@
     - Leg
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.7
-        Caustic: 0.75
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.55
+        Caustic: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -233,7 +233,7 @@
 
 - type: entity
   abstract: true
-  parent: [AllowSuitStorageClothing, BaseSecondSkinHolder] # Goob edit
+  parent: AllowSuitStorageClothing
   id: ClothingOuterArmorWarden
   components:
   - type: Armor
@@ -245,11 +245,11 @@
     - Leg
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.7
-        Heat: 0.7
-        Caustic: 0.9
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.55
+        Caustic: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -570,22 +570,6 @@
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
-  - type: Armor # GOOB
-    coverage:
-    - Chest
-    - Groin
-    - Tail
-    - Arm
-    modifiers:
-      coefficients:
-        Slash: 0.6
-        Heat: 1.2
-  - type: ModifyDelayedKnockdown # GOOB
-    delayDelta: 1
-    knockdownTimeDelta: -1
-  - type: TemperatureProtection # GOOB
-    heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
-    coolingCoefficient: 0.5
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseMajorContraband]
@@ -649,10 +633,10 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, BaseSecurityContraband, BaseSecondSkinHolder] # Goobstation
+  parent: [ClothingOuterStorageBase, BaseSecurityContraband] # Goobstation
   id: ClothingOuterCoatAMG
   name: armored medical gown
-  description: The version of the medical gown, with elements of an armor vest, looks strange, but your heart is protected.
+  description: The version of the medical gown, with elements of a bulletproof vest, looks strange, but your heart is protected.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
@@ -661,11 +645,13 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.7
+        Piercing: 0.4
         Heat: 0.7
         Caustic: 0.4
   - type: ModifyDelayedKnockdown # Goobstation

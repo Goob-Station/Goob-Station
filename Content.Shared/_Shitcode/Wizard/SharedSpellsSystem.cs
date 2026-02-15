@@ -29,7 +29,6 @@ using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared._Lavaland.Mobs.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Abilities.Mime;
 using Content.Shared.Access.Components;
@@ -44,6 +43,7 @@ using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Lavaland.Movement;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
@@ -222,7 +222,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (TryComp(ev.Target, out StatusEffectsComponent? status))
         {
-            Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+            Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
             _jitter.DoJitter(ev.Target, ev.StutterDuration, true, status: status);
         }
 
@@ -244,7 +244,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (TryComp(ev.Target, out StatusEffectsComponent? status))
         {
-            Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+            Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
             _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
             _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
         }
@@ -273,7 +273,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Target, out StatusEffectsComponent? status))
             return;
 
-        Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+        Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
 
         var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
 
@@ -424,9 +424,9 @@ public abstract class SharedSpellsSystem : EntitySystem
                 continue;
 
             if (HasComp<SiliconComponent>(target) || HasComp<BorgChassisComponent>(target))
-                Stun.TryParalyze(target, ev.SiliconStunTime / range, true, status);
+                Stun.TryUpdateParalyzeDuration(target, ev.SiliconStunTime / range);
             else
-                Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true, status);
+                Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true);
         }
 
         ev.Handled = true;

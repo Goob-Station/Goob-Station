@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by alzore_(Discord) for SS14 using the colors of the blood-red hardsuit",
+  "copyright": "Made by alzore_(Discord) for SS14 using the colors of the blood-red hardsuit, vulp version by YERO",
   "size": {
     "x": 32,
     "y": 32
@@ -24,6 +24,10 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-vulpkanin",
       "directions": 4
     }
   ]

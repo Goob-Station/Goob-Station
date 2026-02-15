@@ -1,0 +1,85 @@
+- type: reaction
+  id: CycloniteExplosion
+  minTemp: 576 #todo: make the reaction require another explosion to detonate it.
+  impact: High
+  priority: 20
+  reactants:
+    Cyclonite:
+      amount: 1
+  products:
+    Ash: 0.1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: DemolitionCharge #Better at breaking walls and stuff
+      maxIntensity: 50
+      intensityPerUnit: 7 # RDX's RE factor is 1.6 of tnt
+      intensitySlope: 20 # more controlled explosion
+      maxTotalIntensity: 700
+
+- type: reaction
+  id: AmmoniumNitrateDecomposition
+  minTemp: 484
+  reactants:
+    AmmoniumNitrate:
+      amount: 2
+  products:
+    Nitrogen: 2
+    Oxygen: 1
+    Water: 4
+
+- type: reaction
+  id: SodiumBicarbonateDecomposition
+  minTemp: 324
+  reactants:
+    SodiumBicarbonate:
+      amount: 2
+  products:
+    SodiumCarbonate: 2
+    CarbonDioxide: 1
+    Water: 1
+
+- type: reaction
+  id: ANFOExplosion
+  minTemp: 576 #todo: make the reaction require another explosion to detonate it.
+  impact: High
+  priority: 20
+  reactants:
+    AmmoniumNitrateFuelOil:
+      amount: 1
+  products:
+    Ash: 0.1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: DemolitionCharge #ANFO is used in mining
+      maxIntensity: 12
+      intensityPerUnit: 3 # you need a lot of it for a large explosion
+      intensitySlope: 1
+      maxTotalIntensity: 3000 # max explosion requires 5000 units which is A LOT
+
+- type: reaction
+  id: VinegarDecomposition
+  minTemp: 504
+  reactants:
+    Vinegar:
+      amount: 1
+  products:
+    Ethenone: 1
+    Water: 1
+
+- type: reaction
+  id: OctogenExplosion
+  minTemp: 553 #todo: make the reaction require another explosion to detonate it.
+  impact: High
+  priority: 20
+  reactants:
+    Octogen:
+      amount: 1
+  products:
+    Ash: 0.1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: HardBomb # very high detonation velocity
+      maxIntensity: 20
+      intensityPerUnit: 3 # Lower because hardbomb
+      intensitySlope: 2 # very high detonation velocity
+      maxTotalIntensity: 3000 # very high detonation velocity # this sounds horrifying, but we'll just have to see whether it should be tweaked - Speebro

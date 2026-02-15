@@ -1,0 +1,30 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by DeusMaldPr for Goobstation, spritemashed from jackboots.rsi at tgstation commit https://github.com/tgstation/tgstation/commit/2fea0a59470c476cf3f927833d3918d89cbe6af8 and https://github.com/vgstation-coders/vgstation13/blob/31d6576ba8102135d058ef49c3cb6ecbe8db8a79/icons/mob/species/vox/shoes.dmi, and galoshes at commit https://github.com/tgstation/tgstation/commit/d0474ed3b3cc00d0e37fb4c6ec8c10009c178f2c",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-FEET",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FEET-vox",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

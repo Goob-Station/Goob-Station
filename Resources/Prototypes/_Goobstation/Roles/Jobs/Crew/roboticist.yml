@@ -10,6 +10,8 @@
   startingGear: RoboticistGear
   icon: "JobIconRoboticist"
   supervisors: job-supervisors-rd
+  guides: [ Robotics ]
+  goobcoins: 20
   access:
   - Research
   - Maintenance
@@ -35,4 +37,3 @@
     jumpsuit: ClothingUniformJumpsuitRoboticist
     shoes: ClothingShoesColorBlack
     id: RoboticistPDA
-

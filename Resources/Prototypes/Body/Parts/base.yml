@@ -202,13 +202,13 @@
       - Unedible # Goobstation
   - type: Woundable
     boneEntity: BoneNeck
-    integrity: 80
-    integrityCap: 80
+    integrity: 125 #Decaps should happen after the person is already dead
+    integrityCap: 125
     thresholds:
-      Minor: 70
-      Moderate: 50
-      Severe: 25
-      Critical: 10
+      Minor: 110
+      Moderate: 70
+      Severe: 50
+      Critical: 20
       Mangled: 0
     damageOnAmputate: # This seemingly arbitrary spread is the result of the default head health (65) subtracted to 200 (death threshold).
       types:

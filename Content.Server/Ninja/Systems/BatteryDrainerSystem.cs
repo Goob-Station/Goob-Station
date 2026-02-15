@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Effects;
 using Content.Server.Ninja.Events;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -31,6 +32,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
 
     public override void Initialize()
     {
@@ -113,7 +115,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
         var output = input * comp.DrainEfficiency;
         _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + output, battery);
         // TODO: create effect message or something
-        Spawn("EffectSparks", Transform(target).Coordinates);
+        _sparks.DoSparks(Transform(target).Coordinates); // goob edit - replace spark effect spawn with this
         _audio.PlayPvs(comp.SparkSound, target);
         _popup.PopupEntity(Loc.GetString("battery-drainer-success", ("battery", target)), uid, uid);
 

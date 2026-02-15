@@ -224,3 +224,21 @@
   components:
   - type: Flatpack
     entity: ChemistryHotplate
+
+- type: entity
+  parent: BaseFlatpack
+  id: DiseaseDiagnoserFlatPack
+  name: disease diagnoser flat pack
+  description: A flatpack used for constructing a disease diagnoser.
+  components:
+  - type: Flatpack
+    entity: DiseaseDiagnoser
+
+- type: entity
+  parent: BaseFlatpack
+  id: VaccinatorFlatPack
+  name: vaccinator machine flat pack
+  description: A flatpack used for constructing a vaccinator.
+  components:
+  - type: Flatpack
+    entity: Vaccinator

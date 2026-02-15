@@ -21,21 +21,23 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared._Lavaland.Aggression;
 
 /// <summary>
 ///     Keeps track of whoever attacked our mob, so that it could prioritize or randomize targets.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AggressiveComponent : Component
 {
     /// <summary>
     /// Active aggressors, that this aggressor will try to attack.
     /// </summary>
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public HashSet<EntityUid> Aggressors = new();
+
+    [ViewVariables]
+    public TimeSpan NextUpdate;
 
     /// <summary>
     /// If specified, will forgive the target after it enters another map or
@@ -44,23 +46,6 @@ public sealed partial class AggressiveComponent : Component
     [DataField]
     public float? ForgiveRange;
 
-    /// <summary>
-    /// How often we check that aggressor should be removed.
-    /// </summary>
-    [ViewVariables]
-    public float UpdateFrequency = 10f;
-
-    [ViewVariables]
-    public float Accumulator = 0f;
-}
-
-[Serializable, NetSerializable]
-public sealed class AggressiveComponentState : ComponentState
-{
-    public readonly HashSet<NetEntity> Aggressors;
-
-    public AggressiveComponentState(HashSet<NetEntity> aggressors)
-    {
-        Aggressors = aggressors;
-    }
+    [DataField]
+    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(10f);
 }

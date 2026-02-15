@@ -110,8 +110,9 @@ public sealed class BotanySwabSystem : EntitySystem
         {
             if (swab.SeedData != null)
                 args.PushMarkup(Loc.GetString("swab-used"));
-            else
-                args.PushMarkup(Loc.GetString("swab-unused"));
+            // Goobstation
+            // else
+            //    args.PushMarkup(Loc.GetString("swab-unused"));
         }
     }
 

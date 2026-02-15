@@ -6,9 +6,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Effects;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
-using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Timing;
 using Robust.Server.Audio;
 

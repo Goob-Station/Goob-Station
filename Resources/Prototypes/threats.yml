@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 # threats called in by ninja hacking comms console
@@ -10,41 +11,19 @@
   weights:
     Dragon: 1
     # Revenant: 1 # Goob - Removed in favor of LoneOperative
-    SlaughterDemon: 1 # Goobstation
-    # Wraith: 1 # Goobstation
-    LoneOperative: 1 # Goobstation
-    #TODO When Slasher is ready Slasher: 1 # Goobstation
+    SlaughterDemon: 1 # Goobstation begin
+    # Wraith: 1
+    LoneOperative: 1
+    #TODO When Slasher is ready Slasher: 1
+    # Goobstation end
 
 - type: ninjaHackingThreat
   id: Dragon
   announcement: terror-dragon
   rule: DragonSpawn
 
-# Goobstation - start
-- type: ninjaHackingThreat
-  id: SlaughterDemon
-  announcement: terror-slaughter-demon
-  rule: SlaughterDemonMidround
-
-- type: ninjaHackingThreat
-  id: LoneOperative
-  announcement: terror-lone-operative
-  rule: LoneOpsSpawn
-
-# Goob - Wraith
-#- type: ninjaHackingThreat
-#  id: Wraith
-#  announcement: terror-wraith
-#  rule: WraithMidround
-
-# TODO When Slasher is Ready
-#- type: ninjaHackingThreat
-#  id: Slasher
-#  announcement: terror-slasher
-#  rule: SlasherSpawn
-
+# Goobstation - Revenant was disabled.
 #- type: ninjaHackingThreat
 #  id: Revenant
 #  announcement: terror-revenant
 #  rule: RevenantSpawn
-# Revenant was disabledz

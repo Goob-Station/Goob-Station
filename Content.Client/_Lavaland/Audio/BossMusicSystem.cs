@@ -37,6 +37,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Lavaland.Audio;
 
+// TODO: Port this system to Shared and optimize it.
 public sealed class BossMusicSystem : SharedBossMusicSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;

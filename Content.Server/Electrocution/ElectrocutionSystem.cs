@@ -49,6 +49,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Effects;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Beam.Components;
@@ -109,8 +110,9 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!; // Goobstation - Add Cooldown to shock to prevent entity overload
+    [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - finally visual fucking effects
 
-    private static readonly ProtoId<StatusEffectPrototype> StatusEffectKey = "Electrocution";
+    private static readonly ProtoId<StatusEffectPrototype> StatusKeyIn = "Electrocution";
     private static readonly ProtoId<DamageTypePrototype> DamageType = "Shock";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
@@ -474,20 +476,26 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         }
 
         if (!Resolve(uid, ref statusEffects, false) ||
-            !_statusEffects.CanApplyEffect(uid, StatusEffectKey, statusEffects))
+            !_statusEffects.CanApplyEffect(uid, StatusKeyIn, statusEffects))
         {
             return false;
         }
 
-        if (!_statusEffects.TryAddStatusEffect<ElectrocutedComponent>(uid, StatusEffectKey, time, refresh, statusEffects))
+        if (!_statusEffects.TryAddStatusEffect<ElectrocutedComponent>(uid, StatusKeyIn, time, refresh, statusEffects))
             return false;
 
         var shouldStun = siemensCoefficient > 0.5f;
 
         if (shouldStun)
-            _stun.TryParalyze(uid, time * ParalyzeTimeMultiplier, refresh, statusEffects);
+        {
+            _ = refresh
+                ? _stun.TryUpdateParalyzeDuration(uid, time * ParalyzeTimeMultiplier)
+                : _stun.TryAddParalyzeDuration(uid, time * ParalyzeTimeMultiplier);
+        }
+            
 
         // TODO: Sparks here.
+        _sparks.DoSparks(Transform(uid).Coordinates); // goob edit - DONE! I HATE YOU AVIU
 
         if (shockDamage is { } dmg)
         {

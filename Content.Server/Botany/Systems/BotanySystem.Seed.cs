@@ -38,9 +38,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Common.NTR.Scan; // Goobstation
+using Content.Goobstation.Common.NTR.Scan;
+using Content.Server.EntityEffects; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.EntityEffects;
 
 namespace Content.Server.Botany.Systems;
 
@@ -55,6 +57,7 @@ public sealed partial class BotanySystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // goob edit
 
     public override void Initialize()
     {

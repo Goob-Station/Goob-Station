@@ -19,6 +19,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: flesh_surgery
     checkCanInteract: true
+    raiseOnUser: true
   - type: InstantAction
     event: !type:EventHereticFleshSurgery
   - type: HereticAction
