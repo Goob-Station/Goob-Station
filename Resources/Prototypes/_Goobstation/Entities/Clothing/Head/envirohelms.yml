@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmDispatcher
+  name: dispatcher's envirosuit helmet
+  description: A Plasmaman containment helmet designed for the dispatcher. A pair of white stripes being added to differeciate them from other members of security.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/warden.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/warden.rsi

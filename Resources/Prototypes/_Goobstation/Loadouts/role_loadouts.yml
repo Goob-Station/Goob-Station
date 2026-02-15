@@ -264,3 +264,23 @@
    - VirologyEnvirohelm
    - VirologyEnvirosuit
    - VirologyEnvirogloves
+
+- type: roleLoadout
+  id: JobDispatcher
+  groups:
+  - DispatcherHead
+  - DispatcherJumpsuit
+  - SecurityBackpack
+  - SecurityNeck
+  - SecurityBelt
+  - DispatcherOuterClothing
+  - DispatcherShoes
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityStar
+  - Animals
+  - GroupSpeciesBreathToolSecurity
+  # Goobstation - EE Plasmeme Change.
+  - DispatcherEnvirohelm
+  - DispatcherEnvirosuit
+  - DispatcherEnvirogloves

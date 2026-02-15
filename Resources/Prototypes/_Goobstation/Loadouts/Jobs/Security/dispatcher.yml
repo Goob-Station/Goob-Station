@@ -1,0 +1,47 @@
+# Head
+- type: loadout
+  id: DispatcherHead
+  equipment:
+    head: ClothingHeadHatSecsoft
+
+
+# Jumpsuit
+- type: loadout
+  id: SecurityJumpsuitBlue
+  equipment:
+   jumpsuit: ClothingUniformJumpsuitSecBlue
+
+# OuterClothing
+- type: loadout
+  id: Vest
+  equipment:
+    outerClothing: ClothingOuterVest
+
+- type: loadout
+  id: SecurityWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterSec
+
+- type: loadout
+  id: DispatcherEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitDispatcher
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: DispatcherEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmDispatcher
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+# Shoes
+- type: loadout
+  id: DispatcherShoes
+  equipment:
+    head: ClothingShoesBootsLaceup

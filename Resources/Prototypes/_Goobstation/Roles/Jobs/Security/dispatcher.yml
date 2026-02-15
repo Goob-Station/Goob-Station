@@ -1,0 +1,72 @@
+- type: job
+  id: Dispatcher
+  name: job-name-dispatcher
+  description: job-description-dispatcher
+  playTimeTracker: JobDispatcher
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hrs
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
+      species:
+      - Felinid
+  startingGear: DispatcherGear
+  icon: "JobIconDispatcher"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  guides:
+  - SpaceLaw
+  - LegalSOP
+  - Security
+  - WardenSOP # TODO dispatcher SOP
+  goobcoins: 35
+  access:
+  - Security
+  - Brig
+  - Armory
+  - Maintenance
+  - Service
+  - External
+  - Detective
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: SecurityStaff
+  - !type:AddComponentSpecial
+
+- type: startingGear
+  id: DispatcherGear
+  equipment:
+    eyes: ClothingEyesGlassesSecurityContraDetect # Goobstation
+    id: DispatcherPDA
+    ears: ClothingHeadsetAltDispatcher # Goobstation
+    pocket1: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+    - ClothingMaskGasSecurity # Goobstation
+
+- type: chameleonOutfit
+  id: DispatcherChameleonOutfit
+  job: Dispatcher
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatSecsoft
+    mask: ClothingMaskGasSecurity
+    outerClothing: ClothingOuterVest
+    jumpsuit: ClothingUniformJumpsuitWarden
+    neck: Dinkystar
+    belt: ClothingBeltSecurity
+    gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesBootsLaceup
