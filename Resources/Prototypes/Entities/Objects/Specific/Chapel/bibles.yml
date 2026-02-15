@@ -200,9 +200,9 @@
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
   - type: Material
-  - type: Tag
-    tags:
-    - Bible
+#  - type: Tag
+#    tags:
+#    - Bible
 #  - type: StealTarget
 #    stealGroup: Bible
   - type: EnchantingTool # Goobstation
