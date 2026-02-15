@@ -437,5 +437,3 @@ ui-options-admin-overlay-merge-distance = Stack merge distance
 ui-options-admin-overlay-ghost-fade-distance = Ghost overlay fade range from mouse
 ui-options-admin-overlay-ghost-hide-distance = Ghost overlay hide range from mouse
 ui-options-admin-overlay-fade-non-ghosts = Fade non-ghost overlays near mouse
-
-
