@@ -21,7 +21,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.IdentityManagement;
+using Content.Shared.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Power.Components;

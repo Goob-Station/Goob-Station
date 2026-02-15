@@ -153,7 +153,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
     [Dependency] private readonly LastRolledAntagManager _lastRolled = default!; // Goobstation
-    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
+    [Dependency] private readonly PlayTimeTrackingManager _playTimeManager = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     // arbitrary random number to give late joining some mild interest.
@@ -358,7 +358,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // weight by playtime since last rolled
         foreach (var se in pool)
         {
-            var lastRoll = (float)(_playTime.GetOverallPlaytime(se) - _lastRolled.GetLastRolled(se.UserId)).TotalSeconds;
+            var lastRoll = (float)(_playTimeManager.GetOverallPlaytime(se) - _lastRolled.GetLastRolled(se.UserId)).TotalSeconds;
             //weight clamped between 5 hours and 20 hours
             weights[se] = float.Clamp(lastRoll, 18000.0f, 72000.0f);
         }
@@ -482,7 +482,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             try // tests die without this
             {
-                _lastRolled.SetLastRolled(session.UserId, _playTime.GetOverallPlaytime(session));
+                _lastRolled.SetLastRolled(session.UserId, _playTimeManager.GetOverallPlaytime(session));
             }
             catch { }
         }

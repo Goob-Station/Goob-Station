@@ -15,6 +15,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Shuttles.Components;
 
 namespace Content.Goobstation.Server.Shuttle;
 

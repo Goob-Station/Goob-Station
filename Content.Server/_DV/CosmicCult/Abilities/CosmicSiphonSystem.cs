@@ -112,7 +112,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
         else
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-            _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
+            _alerts.ShowAlert(uid.Owner, uid.Comp.EntropyAlert);
             _cultRule.IncrementCultObjectiveEntropy(uid);
         }
 

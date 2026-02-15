@@ -44,7 +44,7 @@
 # Small Plastic Bottles
 
 - type: entity
-  parent: [DrinkBottleVisualsAll, DrinkBottlePlasticSmallBaseFull]
+  parent: [DrinkBottlePlasticSmallBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkWaterBottleFull
   name: water bottle
   description: Simple clean water of unknown origin. You think that maybe you dont want to know it.
@@ -84,7 +84,7 @@
     sprite: Objects/Consumable/Drinks/colabottle.rsi
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkSpaceMountainWindBottleFull
   name: Space Solar Wind bottle
   description: Blows right through you like a solar wind.
@@ -101,7 +101,7 @@
     sprite: Objects/Consumable/Drinks/space_mountain_wind_bottle.rsi
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkSpaceUpBottleFull
   name: Space-Up bottle
   description: Tastes like a hull breach in your mouth.
@@ -118,7 +118,7 @@
     sprite: Objects/Consumable/Drinks/space-up_bottle.rsi
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkSodaWaterBottleFull
   name: soda water bottle
   description: Like water, but angry!
@@ -136,7 +136,7 @@
     currentLabel: reagent-name-soda-water
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkTonicWaterBottleFull
   name: tonic water bottle
   description: Like soda water, but angrier maybe? Often sweeter.
@@ -154,7 +154,7 @@
     currentLabel: reagent-name-tonic-water
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkEnergyDrinkJug
   name: Red Bool jug
   description: A jug of Red Bool, with enough caffeine to kill a whole station.
@@ -174,7 +174,7 @@
 # TODO these have too much volume
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkSugarJug
   name: sugar jug
   suffix: For Drinks, Full
@@ -192,7 +192,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkLemonLimeJug
   name: Smite jug
   description: A dual citrus sensation.
@@ -209,7 +209,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkMeadJug
   name: mead jug
   description: Storing mead in a plastic jug should be a crime.
@@ -226,7 +226,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkIceJug
   name: ice jug
   description: Stubborn water. Pretty cool.
@@ -243,7 +243,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkCoconutWaterJug
   name: coconut water jug
   description: It's on the inside of the coconut that counts.
@@ -260,7 +260,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkCoffeeJug
   name: coffee jug
   description: Wake up juice, of the heated kind.
@@ -277,7 +277,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkTeaJug
   name: tea jug
   description: The drink of choice for the Bri'ish and hipsters.
@@ -294,7 +294,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkGreenTeaJug
   name: green tea jug
   description: It's like tea... but green! great for settling the stomach.
@@ -311,7 +311,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkIcedTeaJug
   name: iced tea jug
   description: For when the regular tea is too hot for you. Boohoo.
@@ -328,7 +328,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkDrGibbJug
   name: Dr. Gibb jug
   description: 42 different flavours... in a jug!
@@ -345,7 +345,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkRootBeerJug
   name: root beer jug
   description: This drink makes Australians giggle.
@@ -362,7 +362,7 @@
   # TODO new sprite
 
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkBottlePlasticBaseFull, DrinkBaseMaterialPlastic, DrinkBaseOpenable]
   id: DrinkWaterMelonJuiceJug
   name: watermelon juice jug
   description: May include leftover seeds.

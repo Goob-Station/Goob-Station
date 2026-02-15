@@ -1200,13 +1200,13 @@
 
 - type: entity
   parent: VendingMachine
-  id: VendingMachineMedical
-  name: NanoMed Plus
-  description: It's a medical drug dispenser. Natural chemicals only! (And wheelchairs, why not) # Goobstation
+  id: VendingMachineMedicalBase
+  name: NanoMed Civilian
+  description: It's a medical drug dispenser. Natural chemicals only!
   components:
   - type: VendingMachine
-    pack: NanoMedPlusInventory
-    offState: off
+    pack: NanoMedCivilianInventory
+    offState: off # Goob
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
@@ -1217,24 +1217,20 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/medivend.rsi
+    sprite: Structures/Machines/VendingMachines/medivend.rsi # Goob
     noRot: true
     layers:
-    - state: "off"
+    - state: "off" # Goob
       map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
+    - state: "off" # Goob
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: AccessReader
-    access: [["Medical"]]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#9dc5c9"
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
   - type: GuideHelp
     guides:
     - MedicalDoctor

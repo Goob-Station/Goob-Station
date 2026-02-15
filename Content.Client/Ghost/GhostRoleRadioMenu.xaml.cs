@@ -99,7 +99,7 @@ public sealed partial class GhostRoleRadioMenu : RadialMenu
     }
 }
 
-public sealed class GhostRoleRadioMenuButton : RadialMenuTextureButtonWithSector
+public sealed class GhostRoleRadioMenuButton : RadialMenuButtonWithSector
 {
     public ProtoId<GhostRolePrototype> ProtoId { get; set; }
 }

@@ -170,6 +170,7 @@ using System.Numerics;
 using System.Threading;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Polymorph;
 using Content.Shared.Speech.Components;
 
 namespace Content.Server.Administration.Systems;
