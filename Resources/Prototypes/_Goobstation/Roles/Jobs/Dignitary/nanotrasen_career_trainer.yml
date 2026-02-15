@@ -14,7 +14,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
-  whitelisted: true # 1984
+  whitelisted: false #freedom
   setPreference: true # Omu, enable NCT for admins
   accessGroups:
   - AllAccess
