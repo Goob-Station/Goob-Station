@@ -13,13 +13,15 @@
     - type: LegsStartParalyzed
     - type: MovementImpaired
     - type: Muted
-    - type: Narcolepsy # the fields are just so no errors throw
-      timeBetweenIncidents: 0, 0
-      durationOfIncident: 0, 0
-    - type: Paracusia # the fields are just so no errors throw
-      minTimeBetweenIncidents: 0
-      maxTimeBetweenIncidents: 0
-      maxSoundDistance: 0
+    - type: Narcolepsy
+      maxTimeBetweenIncidents: 600
+      minTimeBetweenIncidents: 300
+      maxDurationOfIncident: 30
+      minDurationOfIncident: 10
+    - type: Paracusia
+      minTimeBetweenIncidents: 0.1
+      maxTimeBetweenIncidents: 300
+      maxSoundDistance: 7
       sounds:
         collection: Paracusia
     - type: PainNumbness

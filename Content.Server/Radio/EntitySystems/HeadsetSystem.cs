@@ -16,7 +16,7 @@
 
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 using Content.Server.Speech;
 using Content.Server._EinsteinEngines.Language;
 using Content.Shared.Chat;

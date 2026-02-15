@@ -120,7 +120,8 @@ public sealed partial class StationAiMenu : RadialMenu
     }
 }
 
-public sealed class StationAiMenuButton(BaseStationAiAction action) : RadialMenuTextureButtonWithSector
+public sealed class StationAiMenuButton(BaseStationAiAction action) : RadialMenuButtonWithSector
 {
     public BaseStationAiAction Action = action;
 }
+
