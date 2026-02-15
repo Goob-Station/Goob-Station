@@ -298,13 +298,20 @@ namespace Content.Shared.Damage
             bool interruptsDoAfters = true,
             DamageableComponent? damageable = null,
             EntityUid? origin = null,
-            bool ignoreGlobalModifiers = false)
+            bool canBeCancelled = false,
+            float partMultiplier = 1.00f,
+            TargetBodyPart? targetPart = null,
+            bool ignoreBlockers = false,
+            SplitDamageBehavior splitDamage = SplitDamageBehavior.Split,
+            bool canMiss = true)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
                 // TODO BODY SYSTEM pass damage onto body system
                 // BOBBY WHEN?
+
                 return null;
+            }
 
             if (damage.Empty)
                 return damage;
