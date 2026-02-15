@@ -6,8 +6,6 @@ namespace Content.Goobstation.Shared.MomentumSteering;
 
 public sealed class MomentumThrustSystem : CommonMomentumThrustSystem
 {
-    [Dependency] private readonly CommonMomentumSteeringSystem _steering = default!;
-
     private EntityQuery<JetpackUserComponent> _jetpackUserQuery;
 
     public override void Initialize()

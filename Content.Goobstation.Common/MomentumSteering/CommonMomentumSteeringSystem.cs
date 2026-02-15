@@ -49,17 +49,5 @@ public abstract class CommonMomentumSteeringSystem : EntitySystem
         return true;
     }
 
-    public float GetThrustEfficiency(MomentumSteeringComponent comp, float speed)
-    {
-        if (speed <= comp.SpeedThreshold)
-            return 1f;
-
-        var speedFactor = MathHelper.Clamp(
-            (speed - comp.SpeedThreshold) / (comp.MaxSpeed - comp.SpeedThreshold),
-            0f,
-            1f);
-        return MathHelper.Lerp(1f, comp.ThrustFalloff, speedFactor);
-    }
-
     public abstract void TryApplyMomentumJitter(EntityUid uid, MomentumSteeringComponent comp, float speed);
 }
