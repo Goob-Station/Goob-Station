@@ -13,6 +13,7 @@
     ImmovableRodKeepTiles: 0.2
     Meteor: 0.35
     LoneAbductor: 0.3
+    SleeperAgentsThreat: 1
 
 # Threats
 
@@ -87,7 +88,7 @@
   rule: MimeAssassinMidround
 
 - type: ninjaHackingThreat
-  id: SleeperAgents
+  id: SleeperAgentsThreat
   announcement: terror-lone-operative
   rule: SleeperAgents
 
