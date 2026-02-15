@@ -356,7 +356,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             {
                 // Shit got refactored upstream im replacing AnnounceIntellicardUsage with this event
                 var ev = new ChatNotificationEvent(_downloadChatNotificationPrototype, args.Used, args.User);
-                RaiseLocalEvent(held, ref ev);
+                RaiseLocalEvent<ChatNotificationEvent>(held.Value, ref ev);
             }
         }
         // Corvax-Next-AiRemoteControl-End

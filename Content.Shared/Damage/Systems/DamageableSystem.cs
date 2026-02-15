@@ -569,7 +569,7 @@ namespace Content.Shared.Damage
                     return damage;
             }
 
-            if (!ignoreGlobalModifiers)
+            if (!ignoreResistances)
                 damage = ApplyUniversalAllModifiers(damage);
 
             var delta = new DamageSpecifier(damage.ArmorPenetration,

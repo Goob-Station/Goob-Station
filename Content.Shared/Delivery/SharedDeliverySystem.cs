@@ -162,7 +162,7 @@ public abstract class SharedDeliverySystem : EntitySystem
     private bool TryUnlockDelivery(Entity<DeliveryComponent> ent, EntityUid user, bool rewardMoney = true, bool force = false)
     {
         // Check fingerprint access if there is a reader on the mail
-        if (!force && !_fingerprintReader.IsAllowed(ent.Owner, user, out _))
+        if (!force && !_fingerprintReader.IsAllowed(ent.Owner, user))
             return false;
 
         var deliveryName = _nameModifier.GetBaseName(ent.Owner);
@@ -287,20 +287,6 @@ public abstract class SharedDeliverySystem : EntitySystem
         var totalMultiplier = Math.Max(ev.AdditiveMultiplier * ev.MultiplicativeMultiplier, 0);
 
         return totalMultiplier;
-    }
-
-    /// <summary>
-    /// Gathers the total multiplier for a delivery.
-    /// This is done by components having subscribed to GetDeliveryMultiplierEvent and having added onto it.
-    /// </summary>
-    /// <param name="ent">The delivery for which to get the multiplier.</param>
-    /// <returns>Total multiplier.</returns>
-    protected float GetDeliveryMultiplier(Entity<DeliveryComponent> ent)
-    {
-        var ev = new GetDeliveryMultiplierEvent();
-        RaiseLocalEvent(ent, ref ev);
-
-        return ev.AdditiveMultiplier * ev.MultiplicativeMultiplier;
     }
 
     protected virtual void GrantSpesoReward(Entity<DeliveryComponent?> ent) { }
