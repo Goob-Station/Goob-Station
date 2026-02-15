@@ -6,7 +6,7 @@
   requirements: # Omu, add requirements
     - !type:RoleTimeRequirement
       role: JobNanotrasenCareerTrainer
-      time: 360000 #100 hrs - Omu
+      time: 1800000 #500 hrs - Goob
   goobcoins: 45
   weight: 20
   startingGear: NanotrasenCareerTrainerGear
