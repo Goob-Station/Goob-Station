@@ -353,6 +353,11 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.ShowDebugMonitors);
             AddButton(EngineKeyFunctions.HideUI);
             AddButton(ContentKeyFunctions.InspectEntity);
+            // goobstation start
+            AddHeader("ui-options-header-admin");
+            AddButton(ContentKeyFunctions.ToggleAdminOverlay);
+            AddButton(ContentKeyFunctions.ToggleAdminOverlayFadeOut);
+            // goobstation end
 
             foreach (var control in _keyControls.Values)
             {

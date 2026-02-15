@@ -201,6 +201,10 @@ namespace Content.Client.Input
             aghost.AddFunction(ContentKeyFunctions.TryPullObject);
             aghost.AddFunction(ContentKeyFunctions.MovePulledObject);
             aghost.AddFunction(ContentKeyFunctions.ReleasePulledObject);
+            // goobstation start
+            aghost.AddFunction(ContentKeyFunctions.ToggleAdminOverlay);
+            aghost.AddFunction(ContentKeyFunctions.ToggleAdminOverlayFadeOut);
+            // goobstation end
 
             var ghost = contexts.New("ghost", "human");
             ghost.AddFunction(EngineKeyFunctions.MoveUp);

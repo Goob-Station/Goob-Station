@@ -48,11 +48,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Administration.Managers;
+using Content.Shared.CCVar; // goob
+using Content.Shared.Input; // goob
 using Content.Shared.Roles;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
+using Robust.Shared.Input.Binding; // goob
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Administration.Systems
@@ -87,11 +90,18 @@ namespace Content.Client.Administration.Systems
                 _roles,
                 _proto);
             _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
+            CommandBinds.Builder
+                .Bind(ContentKeyFunctions.ToggleAdminOverlay,
+                    InputCmdHandler.FromDelegate(_ => AdminOverlayToggle()))
+                .Bind(ContentKeyFunctions.ToggleAdminOverlayFadeOut,
+                    InputCmdHandler.FromDelegate(_ => AdminOverlayFadeOutToggle()))
+                .Register<AdminSystem>(); // goobstation toggle admin overlay
         }
 
         private void ShutdownOverlay()
         {
             _adminManager.AdminStatusUpdated -= OnAdminStatusUpdated;
+            CommandBinds.Unregister<AdminSystem>(); // goobstation toggle admin overlay
         }
 
         private void OnAdminStatusUpdated()
@@ -112,5 +122,24 @@ namespace Content.Client.Administration.Systems
             _overlayManager.RemoveOverlay<AdminNameOverlay>();
             OverlayDisabled?.Invoke();
         }
+#region Goobstation
+        private void AdminOverlayToggle()
+        {
+            if (_overlayManager.HasOverlay<AdminNameOverlay>())
+            {
+                AdminOverlayOff();
+            }
+            else
+            {
+                AdminOverlayOn();
+            }
+        }
+
+        private void AdminOverlayFadeOutToggle()
+        {
+            _configurationManager.SetCVar(CCVars.AdminOverlayFadeNonGhosts, !_configurationManager.GetCVar(CCVars.AdminOverlayFadeNonGhosts));
+        }
+        
+#endregion
     }
 }

@@ -13,3 +13,7 @@ ui-options-hud-theme-coscult = Cosmic Cult
 
 ui-options-admin-notifications-title = Admin Notifications
 ui-options-admin-notifications-volume = Admin Notification Volume
+
+ui-options-header-admin = Admin
+ui-options-function-toggle-admin-overlay = Toggle admin overlay
+ui-options-function-toggle-admin-overlay-fade-out = Toggle overlay fade out for non-ghosts

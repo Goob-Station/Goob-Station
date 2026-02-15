@@ -775,3 +775,11 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
+# goobstation admin overlay toggle
+- function: ToggleAdminOverlay
+  type: State
+  key: O
+- function: ToggleAdminOverlayFadeOut
+  type: State
+  key: O
+  mod1: Shift

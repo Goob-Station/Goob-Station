@@ -271,5 +271,10 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction MappingRemoveDecal = "MappingRemoveDecal";
         public static readonly BoundKeyFunction MappingCancelEraseDecal = "MappingCancelEraseDecal";
         public static readonly BoundKeyFunction MappingOpenContextMenu = "MappingOpenContextMenu";
+        
+        // goob admin keybinds start
+        public static readonly BoundKeyFunction ToggleAdminOverlay = "ToggleAdminOverlay";
+        public static readonly BoundKeyFunction ToggleAdminOverlayFadeOut = "ToggleAdminOverlayFadeOut";
+        // goob admin keybinds end
     }
 }
