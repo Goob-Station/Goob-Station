@@ -189,3 +189,32 @@
     balance:
       # Goobstation - Telecrystal rework
       Telecrystal: 999999
+
+- type: entity
+  parent: [BaseItem, StorePresetContractor, BaseSyndicateContraband]
+  id: BaseUplinkContractor
+  name: contractor uplink
+  description: A handheld terminal providing access to the guild store and bounty board.
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/contractoruplink.rsi
+    layers:
+    - state: icon
+      scale: .75,.75
+    - state: assign
+      scale: .75,.75
+  - type: Item
+    sprite: _Goobstation/Objects/Devices/contractoruplink.rsi
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Telecrystal: 0
+  - type: Tag
+    tags:
+    - ContractorUplink

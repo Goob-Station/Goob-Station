@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From TG station https://github.com/tgstation/tgstation",
+  "copyright": "From TG station https://github.com/tgstation/tgstation, edited (beaker) by UmbiMax",
   "size": {
     "x": 32,
     "y": 32
@@ -10,11 +10,11 @@
     {
       "name": "incomplete"
     },
-	{
-      "name": "chemical_mixer"
-    },
-	{
+    {
       "name": "chemical_mixer_beaker"
+    },
+    {
+      "name": "chemical_mixer"
     }
   ]
 }
