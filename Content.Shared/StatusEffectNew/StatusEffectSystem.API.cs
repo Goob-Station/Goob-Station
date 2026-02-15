@@ -93,7 +93,8 @@ public sealed partial class StatusEffectsSystem
         EntityUid target,
         EntProtoId effectProto,
         [NotNullWhen(true)] out EntityUid? statusEffect,
-        TimeSpan? duration = null
+        TimeSpan? duration = null,
+        TimeSpan? delay =  null
     )
     {
         if (duration <= TimeSpan.Zero)

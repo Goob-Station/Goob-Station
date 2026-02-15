@@ -309,25 +309,25 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         _metaData.SetEntityName(start, newName);
     }
 
-    private void MergeFoodSolutions(Entity<EdibleComponent?> start, Entity<EdibleComponent?> element)
+    private void MergeFoodSolutions(Entity<EdibleComponent?> start, Entity<EdibleComponent?> elementFood)
     {
         if (!Resolve(start, ref start.Comp, false))
             return;
 
-        if (!Resolve(element, ref element.Comp, false))
+        if (!Resolve(elementFood, ref elementFood.Comp, false))
             return;
 
         if (!_solutionContainer.TryGetSolution(start.Owner, start.Comp.Solution, out var startSolutionEntity, out var startSolution))
             return;
 
-        if (!_solutionContainer.TryGetSolution(element, elementFood.Solution, out _, out var elementSolution))
+        if (!_solutionContainer.TryGetSolution(elementFood.Owner, elementFood.Comp.Solution, out _, out var elementSolution))
             return; // Goob anythingburg
 
-        if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer)) // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
+        if (TryComp<SolutionContainerManagerComponent>(elementFood, out var elementSolutionContainer)) // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
         {
             foreach (var name in elementSolutionContainer.Containers)
             {
-                if (!_solutionContainer.TryGetSolution(element, name, out _, out var elementSolutionGoob))
+                if (!_solutionContainer.TryGetSolution(elementFood.Owner, name, out _, out var elementSolutionGoob))
                     continue;
 
                 startSolution.MaxVolume += elementSolutionGoob.MaxVolume;
