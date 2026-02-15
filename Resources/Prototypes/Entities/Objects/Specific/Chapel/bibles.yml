@@ -105,15 +105,15 @@
     - ClockworkSet
     maxSelectedSets: 1
 
-- type: selectableSet
-  id: BibleSet
-  name: The Holy Bible
-  description: Sever any tie, but the ties that bind me to your service and to your heart.
-  sprite:
-    sprite: Objects/Specific/Chapel/bible.rsi
-    state: icon
-  content:
-  - Bible
+#- type: selectableSet
+#  id: BibleSet
+#  name: The Holy Bible
+#  description: Sever any tie, but the ties that bind me to your service and to your heart.
+#  sprite:
+#    sprite: Objects/Specific/Chapel/bible.rsi
+#    state: icon
+#  content:
+#  - Bible
 
 - type: selectableSet
   id: QuaranSet
@@ -203,8 +203,8 @@
   - type: Tag
     tags:
     - Bible
-  - type: StealTarget
-    stealGroup: Bible
+#  - type: StealTarget
+#    stealGroup: Bible
   - type: EnchantingTool # Goobstation
   - type: StatusEffectOnCollideGhost # Goobstation
     whitelist:
@@ -214,7 +214,7 @@
     duration: 5
 
 - type: entity
-  parent: [Bible, BaseSyndicateContraband]
+  parent: [Bible]
   name: necronomicon
   description: "There's a note: Klatuu, Verata, Nikto -- Don't forget it again!"
   id: BibleNecronomicon
