@@ -76,3 +76,15 @@
     layers:
       - state: green
       - state: doctor
+
+- type: entity
+  id: SpawnPointDispatcher
+  parent: SpawnPointJobBase
+  name: dispatcher
+  components:
+  - type: SpawnPoint
+    job_id: Dispatcher
+  - type: Sprite
+    layers:
+      - state: green
+      - state: warden

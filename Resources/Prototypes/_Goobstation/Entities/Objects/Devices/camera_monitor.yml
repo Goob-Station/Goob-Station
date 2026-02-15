@@ -2,7 +2,7 @@
   id: CameraMonitor
   parent: [ BaseItem, BaseHandheldComputer ]
   name: camera monitor
-  description: Device used for surveillance on 'innocent' tiders. No, it doesn't have games.
+  description: Device used for surveillance on 'innocent' tiders by dispatchers worldwide. No, it doesn't have games.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/camera_monitor.rsi

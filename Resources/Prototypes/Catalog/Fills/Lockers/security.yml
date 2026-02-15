@@ -130,6 +130,7 @@
     - id: Wrench # Goobstation
     - id: ContrabandDetectorFlatpack # Goobstation
     - id: SecurityMegaphone # goob - loudspeakers
+    - id: CameraMonitor # goob - dispatcher job
 
 - type: entityTable
   id: FillLockerWardenHarduit
