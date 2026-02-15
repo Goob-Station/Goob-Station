@@ -61,7 +61,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
         SubscribeLocalEvent<XenoVacuumTankComponent, ExaminedEvent>(OnTankExamined);
         SubscribeLocalEvent<XenoVacuumTankComponent, DestructionEventArgs>(OnDestruction);
 
-        SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnGotEmagged);
+        // SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnGotEmagged); disabled emagged xenovac
         SubscribeLocalEvent<XenoVacuumComponent, GotEquippedHandEvent>(OnEquippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, GotUnequippedHandEvent>(OnUnequippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnAfterInteract);
@@ -113,15 +113,15 @@ public sealed partial class XenoVacuumSystem : EntitySystem
         Dirty(tank.Value, tankComp);
     }
 
-    private void OnGotEmagged(Entity<XenoVacuumComponent> ent, ref GotEmaggedEvent args)
-    {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
-        || _emag.CheckFlag(ent, EmagType.Interaction)
-        || HasComp<EmaggedComponent>(ent))
-            return;
-
-        args.Handled = true;
-    }
+    // private void OnGotEmagged(Entity<XenoVacuumComponent> ent, ref GotEmaggedEvent args)
+    // {
+    //     if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
+    //     || _emag.CheckFlag(ent, EmagType.Interaction)
+    //     || HasComp<EmaggedComponent>(ent))
+    //         return;
+    //
+    //     args.Handled = true;
+    // }
 
     private void OnAfterInteract(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
     {
