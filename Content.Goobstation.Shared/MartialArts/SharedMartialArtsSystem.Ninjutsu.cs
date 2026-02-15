@@ -59,7 +59,7 @@ public abstract partial class SharedMartialArtsSystem
     private void OnAlertEffectEnded(Entity<NinjutsuSneakAttackComponent> ent, ref StatusEffectEndedEvent args)
     {
         if (args.Key == "LossOfSurprise")
-            _alerts.ShowAlert(ent, ent.Comp.Alert);
+            _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     private void OnSneakAttackRemove(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentRemove args)
@@ -67,12 +67,12 @@ public abstract partial class SharedMartialArtsSystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        _alerts.ClearAlertCategory(ent, NinjutsuAlertCategory);
+        _alerts.ClearAlertCategory(ent.Owner, NinjutsuAlertCategory);
     }
 
     private void OnSneakAttackInit(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentInit args)
     {
-        _alerts.ShowAlert(ent, ent.Comp.Alert);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     private void OnMobStateChanged(MobStateChangedEvent ev)
