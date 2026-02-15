@@ -145,6 +145,7 @@ internal sealed class AdminNameOverlay : Overlay
     // Goobstation - Start
     private bool _showCharacterName;
     private bool _showUserName;
+    private bool _fadeNonGhosts;
     // Goobstation - End
 
     //TODO make this adjustable via GUI?
@@ -189,6 +190,7 @@ internal sealed class AdminNameOverlay : Overlay
         // Goobstation - Start
         config.OnValueChanged(GoobCVars.AdminOverlayShowCharacterName, (show) => { _showCharacterName = show; }, true);
         config.OnValueChanged(GoobCVars.AdminOverlayShowUserName, (show) => { _showUserName = show; }, true);
+        config.OnValueChanged(CCVars.AdminOverlayFadeNonGhosts, (b) => { _fadeNonGhosts = b; }, true);
         // Goobstation - End
     }
 
@@ -265,7 +267,7 @@ internal sealed class AdminNameOverlay : Overlay
             var currentOffset = Vector2.Zero;
 
             //  Ghosts near the cursor are made transparent/invisible
-            if (playerInfo.IsGhost) // Goobstation
+            if ((playerInfo.IsGhost || _fadeNonGhosts)) // Modified to include non-ghosts if enabled
             {
                 // We want the map positions here, so we don't have to worry about resolution and such shenanigans
                 var mobPosition = aabb.Center;

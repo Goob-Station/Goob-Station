@@ -127,4 +127,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<int> AdminOverlayStackMax =
         CVarDef.Create("ui.admin_overlay_stack_max", 3, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, non-ghost admin overlays will also fade near the mouse cursor (using ghost fade settings).
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayFadeNonGhosts =
+        CVarDef.Create("ui.admin_overlay_fade_non_ghosts", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
