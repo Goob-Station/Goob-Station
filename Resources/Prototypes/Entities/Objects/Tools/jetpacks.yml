@@ -86,6 +86,7 @@
       temperature: 293.15
   - type: Jetpack
     moleUsage: 0.00085
+  - type: GoobJetpack # Goobstation - in-hands scatter
   - type: Appearance
   - type: GenericVisualizer
     visuals:

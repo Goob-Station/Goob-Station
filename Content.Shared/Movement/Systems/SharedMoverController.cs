@@ -137,6 +137,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared._vg.TileMovement;
 using Content.Shared.Standing; // Goobstation - kil mofs
+using Content.Goobstation.Common.Jetpack; // Goobstation - jetpack in-hands scatter
 using Content.Goobstation.Common.MomentumSteering; // Goobstation - also kil mofs
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 
@@ -165,6 +166,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly StandingStateSystem _standing = default!; // Goobstation - kil mofs
     [Dependency] private   readonly CommonMomentumSteeringSystem _momentumSteering = default!; // Goobstation - momentum steering
     [Dependency] private   readonly CommonMomentumThrustSystem _momentumThrust = default!; // Goobstation - jetpack thrust falloff
+    [Dependency] private   readonly CommonGoobJetpackSystem _goobJetpack = default!; // Goobstation - jetpack in-hands scatter
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
@@ -459,6 +461,10 @@ public abstract partial class SharedMoverController : VirtualController
         friction = Math.Max(friction, _minDamping);
         var minimumFrictionSpeed = moveSpeedComponent?.MinimumFrictionSpeed ?? MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
         Friction(minimumFrictionSpeed, frameTime, friction, ref velocity);
+
+        // Goobstation - jetpack in-hands
+        if (weightless && _goobJetpack.TryOverrideWishDir(uid, out var overrideDir))
+            wishDir = overrideDir;
 
         // Goobstation - momentum steering
         if (weightless && touching && wishDir != Vector2.Zero
