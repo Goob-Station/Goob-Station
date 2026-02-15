@@ -94,3 +94,4 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
+            NanotrasenCareerTrainer: [ -1, -1] # Omu
