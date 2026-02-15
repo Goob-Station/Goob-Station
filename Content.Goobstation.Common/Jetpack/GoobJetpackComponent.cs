@@ -6,17 +6,14 @@ namespace Content.Goobstation.Common.Jetpack;
 public sealed partial class GoobJetpackComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float HandScatterAngle = 1.5708f;
+    public int HandDirectionHoldTicks = 40;
 
     [DataField, AutoNetworkedField]
-    public float HandScatterFrequency = 0.05f;
+    public float HandScatterWobble = 0.2f;
 
     [DataField, AutoNetworkedField]
-    public float HandScatterWobble = 0.3f;
+    public float HandJitterAmplitude = 3f;
 
     [DataField, AutoNetworkedField]
-    public float HandJitterAmplitude = 1.5f;
-
-    [DataField, AutoNetworkedField]
-    public float HandJitterFrequency = 3f;
+    public float HandJitterFrequency = 5f;
 }

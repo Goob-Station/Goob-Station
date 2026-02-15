@@ -36,10 +36,11 @@ public sealed class GoobJetpackSystem : CommonGoobJetpackSystem
         if (!_hands.IsHolding(uid, jetpackUser.Jetpack))
             return false;
 
-        var tick = (float) _timing.CurTick.Value;
-        var seed = uid.Id * 7.13f;
-        var baseAngle = tick * goobJetpack.HandScatterFrequency + seed;
-        var wobble = MathF.Sin(tick * goobJetpack.HandScatterFrequency * 30f + seed * 2.3f) * goobJetpack.HandScatterWobble;
+        var tick = _timing.CurTick.Value;
+        var seed = uid.Id * 71;
+        var step = (int) (tick / goobJetpack.HandDirectionHoldTicks) + seed;
+        var baseAngle = step * 2.6535897f;
+        var wobble = MathF.Sin(tick * 0.3f + seed) * goobJetpack.HandScatterWobble;
         var angle = baseAngle + wobble;
         wishDir = new Vector2(MathF.Cos(angle), MathF.Sin(angle));
 
