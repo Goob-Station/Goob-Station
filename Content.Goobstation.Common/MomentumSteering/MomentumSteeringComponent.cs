@@ -24,9 +24,6 @@ public sealed partial class MomentumSteeringComponent : Component
     public float BrakingFactor = 0.125f;
 
     [DataField, AutoNetworkedField]
-    public float ThrustFalloff = 0.8f;
-
-    [DataField, AutoNetworkedField]
     public float JetpackSteeringBonus = 0.8f;
 
     [DataField, AutoNetworkedField]

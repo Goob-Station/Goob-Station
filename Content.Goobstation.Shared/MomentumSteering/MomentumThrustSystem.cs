@@ -22,7 +22,5 @@ public sealed class MomentumThrustSystem : CommonMomentumThrustSystem
             return;
 
         adjustedWishDir = Vector2.Lerp(adjustedWishDir, originalWishDir, comp.JetpackSteeringBonus);
-
-        adjustedWishDir *= _steering.GetThrustEfficiency(comp, speed);
     }
 }
