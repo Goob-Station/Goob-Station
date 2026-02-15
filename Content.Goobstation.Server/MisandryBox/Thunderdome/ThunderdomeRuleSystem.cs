@@ -51,7 +51,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnding);
         SubscribeLocalEvent<ThunderdomeRuleComponent, RuleLoadedGridsEvent>(OnGridsLoaded);
         SubscribeNetworkEvent<ThunderdomeJoinRequestEvent>(OnJoinRequest);
@@ -76,15 +75,13 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         }
     }
 
-    private void OnRoundStarting(RoundStartingEvent ev)
+    private void EnsureRule()
     {
-        if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
+        if (_ruleEntity != null)
             return;
 
         if (!_ticker.StartGameRule(RulePrototype, out var ruleEntity))
-        {
             return;
-        }
 
         _ruleEntity = ruleEntity;
     }
@@ -131,8 +128,12 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     {
         var session = args.SenderSession;
 
-        if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled)
-            || _ruleEntity == null
+        if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
+            return;
+
+        EnsureRule();
+
+        if (_ruleEntity == null
             || !TryComp<ThunderdomeRuleComponent>(_ruleEntity.Value, out var rule)
             || !rule.Active)
             return;
