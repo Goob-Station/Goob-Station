@@ -3,6 +3,10 @@
   name: job-name-nct
   description: job-description-nct
   playTimeTracker: JobNanotrasenCareerTrainer
+  requirements: # Omu, add requirements
+    - !type:RoleTimeRequirement
+      role: JobNanotrasenCareerTrainer
+      time: 360000 #100 hrs - Omu
   goobcoins: 45
   weight: 20
   startingGear: NanotrasenCareerTrainerGear
@@ -11,7 +15,7 @@
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
   whitelisted: true # 1984
-  setPreference: false # 1984 x2
+  setPreference: true # Omu, enable NCT for admins
   accessGroups:
   - AllAccess
   access:
