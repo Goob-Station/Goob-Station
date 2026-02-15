@@ -833,7 +833,8 @@ public sealed partial class ChangelingSystem
             QueueDel(cuff);
         }
 
-        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
+        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) &&
+            ensnareable.IsEnsnared && ensnareable.Container.ContainedEntities.Count > 0)
         {
             var bola = ensnareable.Container.ContainedEntities[0];
             _snare.ForceFree(bola, Comp<EnsnaringComponent>(bola));
