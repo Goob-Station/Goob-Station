@@ -20,6 +20,8 @@ public sealed class FleshmendEffectSystem : EntitySystem
         SubscribeLocalEvent<FleshmendEffectComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<FleshmendEffectComponent, ComponentShutdown>(OnShutdown);
     }
+    // todo goobstation nuke all lingcode and unhardcode ts
+    private static readonly ResPath ResPath = new("_Goobstation/SpecialPassives/fleshmend_visuals.rsi");
 
     private void OnStartup(Entity<FleshmendEffectComponent> ent, ref ComponentStartup args)
     {
@@ -30,6 +32,10 @@ public sealed class FleshmendEffectSystem : EntitySystem
             ent.Comp.EffectState = fleshmend.EffectState;
             ent.Comp.ResPath = fleshmend.ResPath;
         }
+
+        // I'm not dealing with abysmal fuckery to get the path to the effects. just like, why?
+        ent.Comp.ResPath = ResPath;
+        ent.Comp.EffectState = "mend_active";
 
         AddLayer(ent);
     }

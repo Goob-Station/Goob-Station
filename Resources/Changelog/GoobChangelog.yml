@@ -21178,3 +21178,79 @@ Entries:
       message: Client doesnt crash after upstream merge now.
   id: 2401
   time: '2026-02-12T06:18:22.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: BSO's command monitor displays command status correctly again.
+  id: 2402
+  time: '2026-02-12T11:51:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Interacting on a crawling person no longer permastuns them.
+  id: 2403
+  time: '2026-02-12T11:54:46.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Meta mapping! Added roundstart cloning and moved xenobio. Alot of other
+        misc improvements. 
+  id: 2404
+  time: '2026-02-12T15:33:47.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Cryopod no longer kills client.
+  id: 2405
+  time: '2026-02-12T17:23:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: CQC legsweep now stands you up again.
+  id: 2406
+  time: '2026-02-12T20:50:13.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Changeling, Cosmic Cult, and other targetted abilities work again.
+  id: 2407
+  time: '2026-02-12T20:50:44.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Mining shuttle now produces enough power to sustain itself.
+  id: 2408
+  time: '2026-02-12T20:52:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Projectile grenades like the stinger will no longer immediately blow up
+        in hand.
+  id: 2409
+  time: '2026-02-12T20:58:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed discharged ipcs crashing the server
+  id: 2410
+  time: '2026-02-13T03:55:14.0000000+00:00'
+- author: Hardbassman
+  changes:
+    - type: Add
+      message: Resprite of the BSO's "praetorian" modsuit for reptilians
+  id: 2411
+  time: '2026-02-13T05:34:54.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Fix
+      message: Bone armour, BSO swathelm, and atmos firesuits now have Vox sprites
+  id: 2412
+  time: '2026-02-13T05:38:47.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Leonid has been updated to the current mapping standards.
+  id: 2413
+  time: '2026-02-15T02:45:32.0000000+00:00'

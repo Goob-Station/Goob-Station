@@ -193,7 +193,13 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         // Needed to avoid adding/removing components on a deleted entity
         if (Terminating(ent))
             return;
-        var insidePod = ent.Comp.BodyContainer.ContainedEntity; // Shitmed Change
+
+        // Shitmed Change start
+        // Actually no this does make sense but shitmed never thought itd be predicted
+        // so we gotta ensure container on client
+        ent.Comp.BodyContainer = _container.EnsureContainer<ContainerSlot>(ent, CryoPodComponent.BodyContainerName);
+        var insidePod = ent.Comp.BodyContainer.ContainedEntity;
+        // Shitmed Change end
 
         if (args.Powered)
         {

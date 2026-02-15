@@ -509,9 +509,8 @@ namespace Content.Client.Actions
                 return;
 
             // Goob edit start
-            if (!HasComp<LockOnMarkActionComponent>(ent) || !Exists(_mark.Target))
-                    return;
-            entity = _mark.Target.Value;
+            if (HasComp<LockOnMarkActionComponent>(ent) && Exists(_mark.Target))
+                entity = _mark.Target.Value;
             // Goob edit end
 
             // let world target component handle it
