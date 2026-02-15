@@ -81,16 +81,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+using Content.Shared.DisplacementMap;
 using Content.Shared.Inventory.Events;
+// Shitmed Change
+using Content.Shared.Random;
 using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-
-// Shitmed Change
-using Content.Shared.Random;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Shared.Inventory;
 
@@ -421,4 +421,24 @@ public partial class InventorySystem : EntitySystem
         Dirty(uid, inventory);
     }
     // Shitmed Change End
+
+    // CorvaxGoob-AppearanceConverter-Start
+    public void SetSpeciesId(Entity<InventoryComponent> entity, string? speciesId) =>
+        entity.Comp.SpeciesId = speciesId;
+
+    public void SetDisplacements(Entity<InventoryComponent> entity,
+        Dictionary<string, DisplacementData>? displacements = null,
+        Dictionary<string, DisplacementData>? maleDisplacements = null,
+        Dictionary<string, DisplacementData>? femaleDisplacements = null)
+    {
+        if (displacements is not null)
+            entity.Comp.Displacements = displacements;
+
+        if (maleDisplacements is not null)
+            entity.Comp.MaleDisplacements = maleDisplacements;
+
+        if (femaleDisplacements is not null)
+            entity.Comp.FemaleDisplacements = femaleDisplacements;
+    }
+    // CorvaxGoob-AppearanceConverter-End
 }

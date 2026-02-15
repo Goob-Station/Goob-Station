@@ -1,6 +1,6 @@
 - type: typingIndicator
   id: oni
-  spritePath: /Textures/_Floofstation/Effects/speech.rsi
+  # spritePath: /Textures/_Floofstation/Effects/speech.rsi CorvaxGoob-Changes
   typingState: oni0
   idleState: oni0
   offset: 0, 0.0625

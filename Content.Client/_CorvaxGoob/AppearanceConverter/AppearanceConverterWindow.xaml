@@ -1,0 +1,79 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+            Title="{Loc 'appearance-converter-ui-title'}"
+            MinSize="775 290"
+            SetSize="775 290">
+    <BoxContainer Orientation="Vertical" Margin="10 10">
+        <BoxContainer Orientation="Horizontal">
+            <BoxContainer Orientation="Vertical">
+                <PanelContainer SetSize="200 200" MaxSize="200 200">
+                    <SpriteView Name="ProfilePreview" Access="Public"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                OverrideDirection="South"
+                                Scale="4 4"
+                                Visible="False">
+                    </SpriteView>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+                    </PanelContainer.PanelOverride>
+                    <Label Name="ProfileNotSelected" Text="{Loc 'appearance-converter-ui-profile-not-selected'}" Align="Center"/>
+                </PanelContainer>
+                <OptionButton Name="ProfilesOptionButton" Access="Public" HorizontalExpand="True" Margin="0 5"/>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" Margin="5 0" HorizontalExpand="True">
+                <PanelContainer VerticalExpand="True">
+                    <BoxContainer Name="ProfileNotSelectedTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+                        <Label Text="{Loc 'appearance-converter-ui-profile-not-selected'}" HorizontalAlignment="Center" StyleClasses="LabelBig"/>
+                        <RichTextLabel Text="{Loc 'appearance-converter-ui-profile-not-selected-detail'}"/>
+                    </BoxContainer>
+                    <BoxContainer Name="ProfileInformationBox" Visible="False" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'appearance-converter-ui-text-info-name'} " FontColorOverride="#FFD36E"/>
+                            <Label Name="NameTextInfo" Margin="3 0"/>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'appearance-converter-ui-text-info-species'} " FontColorOverride="#FFD36E"/>
+                            <Label Name="SpeciesTextInfo" Margin="3 0"/>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'appearance-converter-ui-text-info-age'} " FontColorOverride="#FFD36E"/>
+                            <Label Name="AgeTextInfo" Margin="3 0"/>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'appearance-converter-ui-text-info-sex'} " FontColorOverride="#FFD36E"/>
+                            <Label Name="SexTextInfo" Margin="3 0"/>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'appearance-converter-ui-text-info-fingerprint'} " FontColorOverride="#FFD36E"/>
+                            <Label Name="FingerprintTextInfo" Margin="3 0"/>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="{Loc 'appearance-converter-ui-text-info-dna'} " FontColorOverride="#FFD36E"/>
+                            <ContainerButton Name="DNATextButton">
+                                <Label Name="DNATextInfo" Margin="3 0"/>
+                            </ContainerButton>
+                        </BoxContainer>
+                    </BoxContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <LineEdit Name="InputLineEdit" Access="Public" SetWidth="200" Margin="0 5 5 5" PlaceHolder="Скан ДНК"/>
+                    <Button Name="ScanButton" Text="{Loc 'appearance-converter-ui-scan-button'}" Margin="0 5" Access="Public"/>
+                    <Button Name="DeTransformButton" Margin="0 5" Access="Public" Disabled="True" StyleClasses="ButtonColorRed">
+                        <TextureButton
+                            MouseFilter="Ignore"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Scale="0.9 0.9"
+                            StyleClasses="Refresh"/>
+                    </Button>
+                    <Button Name="TransformButton" Text="{Loc 'appearance-converter-ui-transform-button'}" Margin="0 5" Access="Public" HorizontalExpand="True" Disabled="True" StyleClasses="ButtonColorGreen"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

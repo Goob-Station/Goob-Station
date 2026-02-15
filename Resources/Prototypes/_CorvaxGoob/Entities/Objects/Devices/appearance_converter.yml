@@ -1,0 +1,25 @@
+- type: entity
+  id: ClothingHandsAppearanceConverter
+  parent: ClothingHandsChameleon
+  name: black gloves
+  description: Regular black gloves that do not keep you from frying.
+  suffix: Appearance converter
+  components:
+  - type: ActivatableUI
+    key: enum.AppearanceConverterUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.AppearanceConverterUiKey.Key:
+        type: AppearanceConverterUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: AppearanceConverter
+
+- type: entity
+  id: ClothingHandsAppearanceConverterDebug
+  parent: ClothingHandsAppearanceConverter
+  suffix: Appearance converter, DEBUG
+  components:
+  - type: AppearanceConverter
+    transformDelay: 0
+    scanningDoAfterTime: 0

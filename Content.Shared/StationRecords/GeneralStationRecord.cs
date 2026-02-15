@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Robust.Shared.Enums;
+using Content.Shared.Humanoid;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.StationRecords;
@@ -51,12 +51,13 @@ public sealed record GeneralStationRecord
     [DataField]
     public string Species = string.Empty;
 
+    // CorvaxGoob : replaced to Sex
     /// <summary>
     ///     Gender identity tied to this station record.
     /// </summary>
     /// <remarks>Sex should be placed in a medical record, not a general record.</remarks>
     [DataField]
-    public Gender Gender = Gender.Epicene;
+    public Sex Sex = Sex.Unsexed;
 
     /// <summary>
     ///     The priority to display this record at.

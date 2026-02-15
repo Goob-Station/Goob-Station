@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: InterfacesDatasetAppearanceConverter
+  values:
+    prefix: interfaces-dataset-appearance-converter-
+    count: 3

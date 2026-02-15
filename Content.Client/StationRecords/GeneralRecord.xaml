@@ -7,14 +7,29 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <Control xmlns="https://spacestation14.io">
     <BoxContainer Orientation="Vertical" Margin="5">
-        <Label Name="RecordName" StyleClasses="LabelBig"/>
-        <Label Name="Age"/>
-        <Label Name="Title"/>
-        <Label Name="Job"/>
-        <Label Name="Species"/>
-        <Label Name="Gender"/>
-        <Label Name="Fingerprint"/>
-        <Label Name="Dna"/>
+        <!--CorvaxGoob-Locale-Start-->
+        <ContainerButton Name="TitleButton">
+            <Label Name="TitleLabel" StyleClasses="LabelBig" Access="Public"/>
+        </ContainerButton>
+        <ContainerButton Name="AgeButton">
+            <RichTextLabel Name="AgeLabel" Access="Public"/>
+        </ContainerButton>
+        <ContainerButton Name="JobButton">
+            <RichTextLabel Name="JobLabel" Access="Public"/>
+        </ContainerButton>
+        <ContainerButton Name="SpeciesButton">
+            <RichTextLabel Name="SpeciesLabel" Access="Public"/>
+        </ContainerButton>
+        <ContainerButton Name="SexButton">
+            <RichTextLabel Name="SexLabel" Access="Public"/>
+        </ContainerButton>
+        <ContainerButton Name="FingerprintButton">
+            <RichTextLabel Name="FingerprintLabel" Access="Public"/>
+        </ContainerButton>
+        <ContainerButton Name="DnaButton">
+            <RichTextLabel Name="DnaLabel" Access="Public"/>
+        </ContainerButton>
         <Button Visible="False" Name="DeleteButton" Text="{Loc 'general-station-record-console-delete'}"/>
+        <!--CorvaxGoob-Locale-End-->
     </BoxContainer>
 </Control>
