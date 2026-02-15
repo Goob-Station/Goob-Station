@@ -941,22 +941,7 @@
   id: GrimoireGhost
 
 - type: Tag
-  id: HudMedical
-
-- type: Tag
-  id: HudSecurity
-
-- type: Tag
   id: GuideEmbeded
-
-- type: Tag
-  id: GunUpgradeDamage
-
-- type: Tag
-  id: GunUpgradeRange
-
-- type: Tag
-  id: GunUpgradeReloadSpeed
 
 ## H ##
 

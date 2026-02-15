@@ -45,7 +45,6 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
 
     private readonly ChemistryGuideDataSystem _chemistryGuideData;
     private readonly ContrabandSystem _contraband;
-    private readonly ISawmill _sawmill;
 
     public IPrototype? RepresentedPrototype { get; private set; }
 

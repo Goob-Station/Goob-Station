@@ -245,9 +245,9 @@ internal static class ServerContentIoC
         deps.Register<ConnectionManager>();
         deps.Register<MultiServerKickManager>();
         deps.Register<CVarControlManager>();
-        deps.Register<DiscordLink>();
-        deps.Register<DiscordChatLink>();
-        IoCManager.Register<LastRolledAntagManager>(); // Goobstation - antag pity
-        IoCManager.Register<LinkAccountManager>(); // RMC - Patreon
+        //deps.Register<DiscordLink>();
+        //deps.Register<DiscordChatLink>();
+        deps.Register<LastRolledAntagManager>(); // Goobstation - antag pity
+        deps.Register<LinkAccountManager>(); // RMC - Patreon
     }
 }

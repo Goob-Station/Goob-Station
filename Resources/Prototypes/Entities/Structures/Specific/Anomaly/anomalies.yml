@@ -1095,7 +1095,6 @@
     - Profanol
   - type: Edible # todo marty does drink exist
     edible: Drink
-  - type: Drink
     solution: anomaly
     destroyOnEmpty: false
     utensil: Spoon

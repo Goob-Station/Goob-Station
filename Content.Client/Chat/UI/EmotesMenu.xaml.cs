@@ -67,10 +67,13 @@ public sealed partial class EmotesMenu : RadialMenu
             parent.AddChild(button);
             foreach (var child in main.Children)
             {
-                if (child is not RadialMenuTextureButton castChild)
+                if (child is not RadialMenuButton castChild)
                     continue;
 
-                if (castChild.TargetLayer == emote.Category.ToString())
+                if (castChild.TargetLayer == null) // Goobstation?
+                    continue;
+
+                if (castChild.TargetLayer.ToString() == emote.Category.ToString())
                 {
                     castChild.Visible = true;
                     break;
@@ -105,7 +108,8 @@ public sealed partial class EmotesMenu : RadialMenu
 }
 
 
-public sealed class EmoteMenuButton : RadialMenuTextureButtonWithSector
+public sealed class EmoteMenuButton : RadialMenuButtonWithSector
 {
     public ProtoId<EmotePrototype> ProtoId { get; set; }
 }
+

@@ -20,12 +20,6 @@ public sealed partial class ModifyStatusEffect : EntityEffect // TODO Goobstatio
     [DataField]
     public float Time = 2.0f;
 
-    /// <summary>
-    /// Delay before the effect starts. If another effect is added with a shorter delay, it takes precedence.
-    /// </summary>
-    [DataField]
-    public float Delay = 0f;
-
     /// <remarks>
     /// true - refresh status effect time (update to greater value), false - accumulate status effect time.
     /// </remarks>

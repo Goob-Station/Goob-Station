@@ -10,7 +10,7 @@
 
 using Content.Server.Forensics;
 using Content.Server.Humanoid;
-using Content.Server.IdentityManagement;
+using Content.Shared.IdentityManagement;
 using Content.Shared._Shitmed.StatusEffects;
 using Content.Shared.DetailExaminable;
 using Content.Shared.Forensics;

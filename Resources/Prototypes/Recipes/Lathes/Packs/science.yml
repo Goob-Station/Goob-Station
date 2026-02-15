@@ -21,20 +21,6 @@
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
 
-- type: latheRecipePack
-  id: CircuitFloorsStatic
-  recipes:
-  - FloorGreenCircuit
-  - FloorBlueCircuit
-  - FloorRedCircuit
-
-# Keeps flash payloads out of the hands of tiders, I guess. All triggers roundstart for autolathes and med/sci/secfab
-- type: latheRecipePack
-  id: ScienceExplosives
-  recipes:
-  - ChemicalPayload
-  - FlashPayload
-
 ## Dynamic
 
 - type: latheRecipePack
@@ -88,19 +74,6 @@
   - TimerTrigger
   - SignalTrigger
   - VoiceTrigger
-
-- type: latheRecipePack
-  id: FauxTiles
-  recipes:
-  - FauxTileAstroGrass
-  - FauxTileMowedAstroGrass
-  - FauxTileJungleAstroGrass
-  - FauxTileDarkAstroGrass
-  - FauxTileLightAstroGrass
-  - FauxTileAstroIce
-  - FauxTileAstroSnow
-  - FauxTileAstroAsteroidSand
-  - FauxTileDesertAstroSand
 
 - type: latheRecipePack
   id: ScienceBoards

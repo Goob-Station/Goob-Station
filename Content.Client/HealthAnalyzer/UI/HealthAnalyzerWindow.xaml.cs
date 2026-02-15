@@ -276,7 +276,8 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Alerts
 
-            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true;
+            var showAlerts = msg.Unrevivable == true || msg.Bleeding.Values.Any(v => v); // Goobstation?
+
 
             AlertsDivider.Visible = showAlerts;
             AlertsContainer.Visible = showAlerts;

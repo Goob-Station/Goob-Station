@@ -150,6 +150,7 @@ using Content.Server.GuideGenerator;
 using Content.Server.Info;
 using Content.Server.IoC;
 using Content.Server.Maps;
+using Content.Server.MoMMI;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
@@ -179,8 +180,8 @@ namespace Content.Server.Entry
         [Dependency] private readonly CVarControlManager _cvarCtrl = default!;
         [Dependency] private readonly ContentLocalizationManager _loc = default!;
         [Dependency] private readonly ContentNetworkResourceManager _netResMan = default!;
-        [Dependency] private readonly DiscordChatLink _discordChatLink = default!;
-        [Dependency] private readonly DiscordLink _discordLink = default!;
+        //[Dependency] private readonly DiscordChatLink _discordChatLink = default!; // Goobstation no
+        //[Dependency] private readonly DiscordLink _discordLink = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly GhostKickManager _ghostKick = default!;
         [Dependency] private readonly IAdminManager _admin = default!;
@@ -213,7 +214,7 @@ namespace Content.Server.Entry
         [Dependency] private readonly ServerInfoManager _serverInfo = default!;
         [Dependency] private readonly ServerUpdateManager _updateManager = default!;
 
-        private LastRolledAntagManager? _lastAntagManager; // Goobstation
+        [Dependency] private readonly LastRolledAntagManager _lastAntagManager = default!; // Goobstation
 
         public override void PreInit()
         {
@@ -268,7 +269,6 @@ namespace Content.Server.Entry
             _watchlistWebhookManager.Initialize();
             _job.Initialize();
             _rateLimit.Initialize();
-            _lastAntagManager = IoCManager.Resolve<LastRolledAntagManager>(); // Goobstation
             _lastAntagManager.Initialize(); // Goobstation
         }
 
@@ -296,8 +296,8 @@ namespace Content.Server.Entry
             _admin.Initialize();
             _afk.Initialize();
             _rules.Initialize();
-            _discordLink.Initialize();
-            _discordChatLink.Initialize();
+            //_discordLink.Initialize();
+            //_discordChatLink.Initialize();
             _euiManager.Initialize();
             _gameMap.Initialize();
             _entSys.GetEntitySystem<GameTicker>().PostInitialize();
@@ -341,8 +341,8 @@ namespace Content.Server.Entry
             _serverApi.Shutdown();
 
             // TODO Should this be awaited?
-            _discordLink.Shutdown();
-            _discordChatLink.Shutdown();
+            //_discordLink.Shutdown();
+            //_discordChatLink.Shutdown();
         }
 
         private static void LoadConfigPresets(IConfigurationManager cfg, IResourceManager res, ISawmill sawmill)

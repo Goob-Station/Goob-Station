@@ -101,7 +101,7 @@ public sealed class HereticShapeshiftRadialMenu : RadialMenu
         }
     }
 
-    public sealed class HereticPolymorphMenuButton : RadialMenuTextureButtonWithSector
+    public sealed class HereticPolymorphMenuButton : RadialMenuButtonWithSector
     {
         public ProtoId<PolymorphPrototype> ProtoId { get; set; }
     }

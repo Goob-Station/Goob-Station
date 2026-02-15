@@ -144,7 +144,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             uid.Comp.ActionEntities.Add(actionEnt);
         }
 
-        _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
+        _alerts.ShowAlert(uid.Owner, uid.Comp.EntropyAlert);
 
         if (TryComp(uid, out EyeComponent? eyeComp))
             _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask | (int) VisibilityFlags.CosmicCultMonument);
