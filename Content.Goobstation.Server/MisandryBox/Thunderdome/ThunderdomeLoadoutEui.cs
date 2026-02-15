@@ -8,20 +8,21 @@ namespace Content.Goobstation.Server.MisandryBox.Thunderdome;
 public sealed class ThunderdomeLoadoutEui : BaseEui
 {
     private readonly ThunderdomeRuleSystem _thunderdomeSystem;
+    private readonly IEntityManager _entManager;
     private readonly EntityUid _ruleEntity;
     private readonly ICommonSession _session;
 
     public ThunderdomeLoadoutEui(ThunderdomeRuleSystem thunderdomeSystem, EntityUid ruleEntity, ICommonSession session)
     {
         _thunderdomeSystem = thunderdomeSystem;
+        _entManager = IoCManager.Resolve<IEntityManager>();
         _ruleEntity = ruleEntity;
         _session = session;
     }
 
     public override EuiStateBase GetNewState()
     {
-        var entManager = IoCManager.Resolve<IEntityManager>();
-        if (!entManager.TryGetComponent<ThunderdomeRuleComponent>(_ruleEntity, out var rule))
+        if (!_entManager.TryGetComponent<ThunderdomeRuleComponent>(_ruleEntity, out var rule))
             return new ThunderdomeLoadoutEuiState(new List<ThunderdomeLoadoutOption>(), 0);
 
         return _thunderdomeSystem.GetLoadoutState(rule);
