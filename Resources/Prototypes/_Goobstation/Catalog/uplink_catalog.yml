@@ -1903,7 +1903,7 @@
   id: UplinkCdDiskSyndicate
   name: uplink-cddisksyndicate-name
   description: uplink-cddisksyndicate-desc
-  productEntity: JVNECdDiskSyndicate
+  productEntity:  CdDiskSyndicate
   cost:
     Telecrystal: 1
   categories:
@@ -1916,7 +1916,7 @@
   id: UplinkCdDiskNumber
   name: uplink-cddisknumber-name
   description: uplink-cddisknumber-desc
-  productEntity: JVNECdDiskNumber
+  productEntity:  CdDiskNumber
   cost:
     Telecrystal: 30
   categories:
