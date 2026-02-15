@@ -124,3 +124,25 @@
     - Hair
     - HeadTop
     - HeadSide
+    
+- type: entity              # Invincible Reference
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitUnrobustable
+  name: Unrobustable costume
+  description: "A replica of the uniform worn by famous comic book superhero: Mark Greytide A.K.A. Unrobustable."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/unrobustable.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/unrobustable.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodUnrobustable
+  - type: Armor
+    coverage:
+    - Chest
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+

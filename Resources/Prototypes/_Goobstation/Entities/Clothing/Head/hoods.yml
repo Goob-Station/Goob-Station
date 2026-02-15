@@ -47,3 +47,25 @@
     sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
+    
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodUnrobustable
+  categories: [ HideSpawnMenu ]
+  name: Unrobustable costume hood
+  description: "Tends to get beaten in a lot. Lucky for you, you're [TITLE-CARD]. Comes with comic accurate hair."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/unrobustable_hood.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/unrobustable_hood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
