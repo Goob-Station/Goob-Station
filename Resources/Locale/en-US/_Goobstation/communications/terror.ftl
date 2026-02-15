@@ -10,4 +10,4 @@ terror-rat-king = Attention crew, it appears that someone on your station has ma
 terror-dark-lord = Attention crew, it appears that someone on your station has made an unexpected communication with an ancient magic user in nearby space.
 terror-lone-abductor = Attention crew, it appears that someone on your station has made an unexpected communication with a curious scientist in nearby space.
 terror-tunnel-clown = Attention crew, it appears that someone on your station has made an unexpected communication with a murderous prankster in nearby space.
-
+terror-meteor = Attention crew, it appears that someone on your station has made an unexpected communication a hostile mining corporation.

@@ -5,13 +5,11 @@
     LaughterDemon: 0.3
     ShuttleInstigator: 0.6
     RatKing: 0.5
-    SleeperAgents: 1
-    VoxRaiders: 0.7
+    VoxRaiders: 0.6
     DarkLord: 0.5
     MimeAssassin: 0.75
     DarkPriest: 0.5
     TunnelClown: 0.5
-    LoneAbductor: 0.3
     ImmovableRodKeepTiles: 0.2
 
 # Threats
@@ -90,6 +88,11 @@
   id: SleeperAgents
   announcement: terror-lone-operative
   rule: SleeperAgents
+
+- type: ninjaHackingThreat
+  id: Meteor
+  announcement: terror-meteor
+  rule: GameRuleMeteorSwarm
 
 #- type: ninjaHackingThreat
 #  id: Wraith
