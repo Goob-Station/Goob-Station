@@ -307,6 +307,8 @@
       amount: 1
     - id: EbifinlLazideChemistryVial
       amount: 1
+    - id: ChemistryBottlePax  # CorvaxGoob 
+      amount: 1
 
 - type: entity
   parent: ClothingBeltUtilityFilled
