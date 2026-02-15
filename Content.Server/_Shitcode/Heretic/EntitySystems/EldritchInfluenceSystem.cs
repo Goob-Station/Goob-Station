@@ -11,6 +11,7 @@
 
 using System.Text.RegularExpressions;
 using Content.Server.Chat.Managers;
+using Content.Server.EntityEffects;
 using Content.Server.Heretic.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -39,7 +40,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityEffectSystem _effect = default!;
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!;
 
     public override void Initialize()
     {
