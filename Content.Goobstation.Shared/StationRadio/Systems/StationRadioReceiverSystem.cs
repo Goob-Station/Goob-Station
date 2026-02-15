@@ -38,9 +38,9 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     private void OnMediaPlayed(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaPlayedEvent args)
     {
         var audio = _audio.PlayPredicted(args.MediaPlayed, uid, uid, comp.DefaultParams);
-        if (audio != null && _power.IsPowered(uid))
+        if (audio != null && _power.IsPowered(uid) && comp.Active)
             comp.SoundEntity = audio.Value.Entity;
-        else if (audio != null && !_power.IsPowered(uid))
+        else if (audio != null && !_power.IsPowered(uid) || !comp.Active && audio != null)
         {
             comp.SoundEntity = audio.Value.Entity;
             _audio.SetGain(comp.SoundEntity, 0);
@@ -49,7 +49,9 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void OnMediaStopped(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaStoppedEvent args)
     {
-        if (comp.SoundEntity != null)
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
+        if (comp.SoundEntity == null)
+            return;
+
+        comp.SoundEntity = _audio.Stop(comp.SoundEntity);
     }
 }

@@ -123,3 +123,50 @@
             max: 50
             worksOnLavaland: true
       # Cuts the amount healed roughly by 50% when in normal pressure.
+
+- type: reagent
+  id: VitriumFroth
+  name: reagent-name-vitrium-froth
+  group: Medicine
+  desc: reagent-desc-vitrium-froth
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: sweet
+  color: "#d3a308"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -2
+          types:
+            Heat: -1
+            Shock: -1
+            Cold: -1
+
+- type: reagent
+  id: SerakaExtract
+  name: reagent-name-seraka-extract
+  group: Medicine
+  desc: reagent-desc-seraka-extract
+  physicalDesc: reagent-physical-desc-sticky
+  flavor: metallic
+  color: "#00767c"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Bloodloss: -1
+      - !type:ModifyBleedAmount
+        amount: -1
+      - !type:ModifyBloodLevel
+        amount: 1
+      - !type:HealthChange # Overdose can cause blood to clot in the veins
+        conditions:
+        - !type:ReagentThreshold
+          min: 8
+        damage:
+          groups:
+            Airloss: 7

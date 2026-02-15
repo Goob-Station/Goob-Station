@@ -29,6 +29,7 @@ store-category-implants = Implants
 store-category-allies = Allies
 store-category-job = Job
 store-category-wearables = Wearables
+store-category-contractor = Contractor
 store-category-pointless = Pointless
 store-discounted-items = Discounts
 

@@ -1,4 +1,8 @@
 bounty-item-extract-any-three = Any Three Slime Extracts
+bounty-item-extract-any-three-tier1 = Any Three Tier 1 Slime Extracts
+bounty-item-extract-any-three-tier2 = Any Three Tier 2 Slime Extracts
+bounty-item-extract-any-three-tier3 = Any Three Tier 3 Slime Extracts
+bounty-item-extract-any-three-tier4 = Any Three Tier 4 Slime Extracts
 bounty-item-grey-extract = Grey Slime Extract
 bounty-item-orange-extract = Orange Slime Extract
 bounty-item-purple-extract = Purple Slime Extract

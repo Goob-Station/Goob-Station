@@ -28,7 +28,7 @@
     - id: WeaponDisablerAdvanced
     - id: BedsheetCentcom
     - id: CaneSheathFilledNanotrasen
-    - id: HandheldFaxNanorep
+    - id: HandheldFaxOfficial
     - id: RubberStampNanorep
     - id: ExecutiveBriefcaseEmpty # nanorep update
     - id: ComputerNTRTasksFlatpack # nanorep update
@@ -60,7 +60,6 @@
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
     - id: BlueshieldUndeterminedHardsuit

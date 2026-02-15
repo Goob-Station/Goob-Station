@@ -869,8 +869,8 @@
   categories:
   - SpellbookSummons
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+  #- !type:ListingLimitedStockCondition
+  #  stock: 1  changed to have many apprentices
   - !type:StoreWhitelistCondition
     blacklist:
       tags:

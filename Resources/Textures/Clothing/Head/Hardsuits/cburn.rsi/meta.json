@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by 𝘽𝙚𝙡𝙖𝙮#7441. Vox states by Flareguy for SS14",
+  "copyright": "Made by \uD835\uDE3D\uD835\uDE5A\uD835\uDE61\uD835\uDE56\uD835\uDE6E#7441. Vox states by Flareguy for SS14, vulp version made by YERO",
   "size": {
     "x": 32,
     "y": 32
@@ -33,6 +33,14 @@
     },
     {
       "name": "equipped-head-unshaded-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded-vulpkanin",
       "directions": 4
     }
   ]

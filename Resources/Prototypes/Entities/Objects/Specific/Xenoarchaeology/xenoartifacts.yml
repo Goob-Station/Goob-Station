@@ -38,7 +38,7 @@
   - type: Physics
     bodyType: Dynamic
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.25
+    baseWalkSpeed: 0.3 # Goobstation
     baseSprintSpeed: 0.5
   - type: UseDelay
   - type: StealTarget
@@ -67,6 +67,6 @@
     icon:
       sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
       state: ano29
-    useDelay: 300
+    useDelay: 30 # Goobstation
   - type: InstantAction
     event: !type:ArtifactSelfActivateEvent

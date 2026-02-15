@@ -11,3 +11,12 @@
   - type: NavMapBeacon
     defaultText: station-beacon-centcomm-office
     color: "#159415"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconRadioStation
+  suffix: Radio Station
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-radio-station
+    color: "#30a314"

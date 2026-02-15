@@ -246,12 +246,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Should the player automatically get up after being knocked down
-    /// </summary>
-    public static readonly CVarDef<bool> AutoGetUp =
-        CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
-
-    /// <summary>
     ///     Sets the size of the hitbox where projectile/laser will hit any entity regardless of crawling
     /// </summary>
     public static readonly CVarDef<float> CrawlHitzoneSize =
@@ -655,10 +649,28 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> AdminNotificationVolume =
         CVarDef.Create("admin.notification_volume", 1f, CVar.CLIENT | CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Whether or not to spawn space whales if the entity is too far away from the station
+    /// </summary>
+    public static readonly CVarDef<bool> SpaceWhaleSpawn =
+        CVarDef.Create("misc.space_whale_spawn", true, CVar.SERVER);
+
+    /// <summary>
+    /// The distance to spawn a space whale from the station
+    /// </summary>
+    public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
+        CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
+
     #endregion
     /// <summary>
     /// Enables or disables contraband icons.
     /// </summary>
     public static readonly CVarDef<bool> ContrabandIconsEnabled =
         CVarDef.Create("contraband.icons_enabled", false, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Controls how often GPS updates.
+    /// </summary>
+    public static readonly CVarDef<float> GpsUpdateRate =
+        CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
 }

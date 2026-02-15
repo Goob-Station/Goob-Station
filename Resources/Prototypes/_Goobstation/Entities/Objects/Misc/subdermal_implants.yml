@@ -34,7 +34,7 @@
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
-  - type: TriggerImplantAction
+  - type: TriggerOnActivateImplant
   - type: DeleteParentOnTrigger
   - type: SpawnOnTrigger
     proto: BluespaceLifelineSpawnCore
@@ -89,11 +89,11 @@
   components:
     - type: SubdermalImplant
       implantAction: ActivateSmokeImplant
-    - type: TriggerImplantAction
+    - type: TriggerOnActivateImplant
     - type: SmokeOnTrigger
       spreadAmount: 25
       duration: 10
-    - type: SoundOnTrigger
+    - type: EmitSoundOnTrigger
       sound: /Audio/Effects/smoke.ogg
 
 - type: entity
@@ -316,7 +316,7 @@
     - type: TriggerOnMobstateChange
       mobState:
         - Dead
-    - type: TriggerImplantAction
+    - type: TriggerOnActivateImplant
     - type: DeleteParentOnTrigger
     - type: SpawnOnTrigger
       proto: RedspaceLifelineSpawnCore

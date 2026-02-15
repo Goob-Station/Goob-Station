@@ -1,0 +1,16 @@
+- type: uplinkPreference
+  id: UplinkPda
+  loadout: TraitorUplinkPDA
+  searchComponents:
+  - Pda
+
+- type: uplinkPreference
+  id: UplinkPen
+  loadout: TraitorUplinkPen
+  searchComponents:
+  - Pen
+
+# This thing has null for searchComponents on purpose because this is reused as a fallback
+- type: uplinkPreference
+  id: UplinkImplant
+  loadout: TraitorUplinkImplant

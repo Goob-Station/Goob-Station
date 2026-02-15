@@ -29,3 +29,48 @@
     sprite: _Lavaland/Structures/Storage/Crates/necropolechest.rsi
   - type: Sprite
     sprite: _Lavaland/Structures/Storage/Crates/necropolechest.rsi
+
+- type: entity
+  parent: LavalandCrateNecropolis
+  id: LavalandCrateNecropolisFilled
+  name: necropolis chest
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: NecropolisChestLoot
+
+- type: entityTable
+  id: NecropolisChestLoot
+  table: !type:GroupSelector
+    children:
+    - id: LavalandCursedHeart
+    - id: ClothingOuterArmorCult
+    - id: LavalandVampirismCrystal
+    # TODO add more interesting obtain methods for crusher upgrades (from megafauna, ruins, etc.)
+    - id: CrusherUpgradeMainRudeBuster
+
+    - !type:NestedSelector
+      weight: 2
+      tableId: LavalandMaterialRare
+    - !type:AllSelector
+      children:
+      - id: ClothingOuterRobesCult
+      - id: BedsheetCult
+
+- type: entityTable
+  id: LavalandMaterialRare
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: MaterialWatcherWing5
+      - id: MaterialWatcherMagmaWing5
+      - id: MaterialWatcherIceWing5
+    - !type:AllSelector
+      rolls: 1, 2
+      children:
+      - id: MaterialLegionSkull1
+      - id: MaterialBones1
+        rolls: 2, 3

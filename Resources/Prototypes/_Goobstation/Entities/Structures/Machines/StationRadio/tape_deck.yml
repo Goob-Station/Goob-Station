@@ -10,6 +10,7 @@
     sprite: _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
     layers:
     - state: icon
+    drawdepth: SmallObjects
     # TODO: unlit & maints panel sprite
   - type: Rotatable
   - type: Machine

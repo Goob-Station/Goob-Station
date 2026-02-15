@@ -46,3 +46,23 @@
   id: VirologistPDA
   equipment:
     id: VirologistPDA
+
+# Envirosuit Helmet
+- type: loadout
+  id: VirologistEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmVirology
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+# Envirosuit
+- type: loadout
+  id: VirologistEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitVirology
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman

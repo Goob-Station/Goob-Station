@@ -6,20 +6,28 @@
     "x": 32,
     "y": 32
   },
-    "states": [
-        {
-            "name": "icon"
-        },
-        {
-            "name": "icon-flash"
-        },
-        {
-            "name": "off-equipped-HELMET",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET",
-            "directions": 4
-        }
-    ]
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-flash"
+    },
+    {
+      "name": "off-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vulpkanin",
+      "directions": 4
+    }
+  ]
 }

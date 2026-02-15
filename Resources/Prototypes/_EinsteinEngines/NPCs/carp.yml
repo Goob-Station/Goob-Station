@@ -18,9 +18,9 @@
       makeSentient: true
       name: ghost-role-information-space-goldfish-name
       description: ghost-role-information-space-goldfish-description
-      rules: ghost-role-information-freeagent-rules
+      rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
       mindRoles:
-      - MindRoleGhostRoleFreeAgent
+      - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
     - type: Tag #Goob edit start
       tags:
       - VimPilot
