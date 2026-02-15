@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Standing;
 using Content.Shared.Stunnable;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -58,7 +59,7 @@ public sealed partial class ModifyKnockdown : EntityEffect
                 }
                 else
                 {
-                    stunSys.TryKnockdown(args.TargetEntity, time, drop: Drop);
+                    stunSys.TryKnockdown(args.TargetEntity, time, behavior: DropHeldItemsBehavior.AlwaysDrop ); // Goob
                 }
                 break;
             case StatusEffectMetabolismType.Add:
@@ -68,7 +69,7 @@ public sealed partial class ModifyKnockdown : EntityEffect
                 }
                 else
                 {
-                    stunSys.TryKnockdown(args.TargetEntity, time, false, drop: Drop);
+                    stunSys.TryKnockdown(args.TargetEntity, time, false, behavior: DropHeldItemsBehavior.AlwaysDrop );
                 }
                 break;
             case StatusEffectMetabolismType.Remove:
@@ -81,7 +82,7 @@ public sealed partial class ModifyKnockdown : EntityEffect
                 }
                 else
                 {
-                    stunSys.TryKnockdown(args.TargetEntity, time, drop: Drop);
+                    stunSys.TryKnockdown(args.TargetEntity, time, behavior: DropHeldItemsBehavior.AlwaysDrop );
                 }
                 stunSys.SetKnockdownTime(args.TargetEntity, time);
                 break;
