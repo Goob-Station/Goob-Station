@@ -1,17 +1,11 @@
-using System.Linq;
-using Content.Server.GameTicking;
+using Content.Server.Administration;
 using Content.Server.Stealth;
 using Content.Shared.Administration;
 using Content.Shared.Ghost;
-using Content.Shared.Mind;
 using Content.Shared.Stealth.Components;
-using Robust.Server.GameObjects;
-using Robust.Server.Player;
 using Robust.Shared.Console;
-using Robust.Shared.Player;
-using Serilog;
 
-namespace Content.Server.Administration.Commands;
+namespace Content.Goobstation.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class HideAGhostCommand : LocalizedCommands
