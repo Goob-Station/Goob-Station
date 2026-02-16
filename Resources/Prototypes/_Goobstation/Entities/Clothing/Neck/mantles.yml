@@ -18,4 +18,27 @@
     sprite: _Goobstation/Clothing/Neck/Mantle/bsomantle.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Mantle/bsomantle.rsi
-
+  - type: DeviceNetwork  
+    deviceNetId: Wired  
+    receiveFrequencyId: SurveillanceCameraSecurity  
+    transmitFrequencyId: SurveillanceCamera  
+  - type: SurveillanceCamera  
+    networkSet: true  
+    nameSet: True  
+    mobile: True  
+    id: Bodycam  
+  - type: Eye  
+  - type: WirelessNetworkConnection  
+    range: 200  
+  - type: SurveillanceCameraMicrophone  
+    blacklist:  
+      components:  
+      - SurveillanceCamera  
+      - SurveillanceCameraMonitor  
+      - RadioSpeaker  
+  - type: ActiveListener  
+    range: 10  
+  - type: ClothingGrantComponent  
+    component:  
+    - type: StationAiVision  
+      range: 4
