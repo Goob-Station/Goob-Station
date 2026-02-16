@@ -23,6 +23,7 @@ using Content.Shared.Destructible;
 using Content.Shared.Explosion.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Prototypes;
 
