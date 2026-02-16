@@ -95,8 +95,8 @@ public abstract partial class SharedHereticAbilitySystem
                 targetPart: TargetBodyPart.All,
                 canMiss: false);
 
-            _stun.TryStun(pookie, args.StunTime, true);
-            _stun.TryKnockdown(pookie, args.KnockDownTime, true);
+            _stun.TryUpdateStunDuration(pookie, args.StunTime);
+            _stun.TryKnockdown(pookie.Owner, args.KnockDownTime, true);
 
             if (condition)
                 Voidcurse.DoCurse(pookie, 3);

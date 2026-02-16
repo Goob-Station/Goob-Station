@@ -19,8 +19,10 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cloning;
 using Content.Shared.Coordinates;
@@ -307,7 +309,7 @@ public sealed partial class HereticAbilitySystem
         {
             var time = knockdownStartEnd.Value.Item2 - Timing.CurTime;
             if (time > TimeSpan.Zero)
-                _stun.TryKnockdown(clone.Value, time, true, DropHeldItemsBehavior.NoDrop);
+                _stun.TryKnockdown(clone.Value, time, true, true, DropHeldItemsBehavior.NoDrop);
         }
 
         var damage = EnsureComp<DamageOverTimeComponent>(clone.Value);

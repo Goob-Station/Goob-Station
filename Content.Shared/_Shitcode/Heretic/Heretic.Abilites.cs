@@ -108,7 +108,7 @@ public readonly record struct HereticMindDetachedEvent(EntityUid Mind);
 public sealed partial class EventHereticShadowCloak : InstantActionEvent
 {
     [DataField]
-    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
+    public ProtoId<StatusEffectPrototype> Status = "ShadowCloakAlertSE";
 
     [DataField]
     public TimeSpan Lifetime = TimeSpan.FromSeconds(180);

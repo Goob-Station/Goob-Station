@@ -25,10 +25,10 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
-using Content.Server.Station.Components;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared.Mind;
 using Robust.Server.GameObjects;
+using Content.Shared.Station.Components;
 
 namespace Content.Server.GameTicking.Rules;
 

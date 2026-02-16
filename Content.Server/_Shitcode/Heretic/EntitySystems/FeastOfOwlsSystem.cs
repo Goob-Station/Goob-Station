@@ -4,12 +4,10 @@ using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffect;
-using Content.Shared.Store.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -46,7 +44,7 @@ public sealed class FeastOfOwlsSystem : EntitySystem
 
             comp.ElapsedTime = 0f;
 
-            if (comp.CurrentStep + 1 < comp.Reward && !_stun.TryParalyze(uid, comp.ParalyzeTime, true, status))
+            if (comp.CurrentStep + 1 < comp.Reward && !_stun.TryUpdateParalyzeDuration(uid, comp.ParalyzeTime))
             {
                 _heretic.UpdateKnowledge(uid, comp.Reward - comp.CurrentStep, false, false, mindContainer);
                 RemCompDeferred(uid, comp);

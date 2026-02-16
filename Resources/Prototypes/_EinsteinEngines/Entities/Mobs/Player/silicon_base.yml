@@ -341,7 +341,7 @@
     - type: ComplexInteraction
     - type: Carriable
     - type: Targeting
-    - type: LayingDown
+    - type: Crawler
     - type: Consciousness
       cap: 190
       threshold: 95
