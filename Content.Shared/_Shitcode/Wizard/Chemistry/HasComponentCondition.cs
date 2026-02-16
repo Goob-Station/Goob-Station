@@ -5,8 +5,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Mind;
 using Content.Shared.EntityEffects;
+using Content.Shared.Mind;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -30,7 +30,7 @@ public sealed partial class HasComponentCondition : EntityEffectCondition
     public override bool Condition(EntityEffectBaseArgs args)
     {
         EntityUid? mind = null;
-        if (CheckMind && args.EntityManager.System<MindSystem>().TryGetMind(args.TargetEntity, out var mindId, out _))
+        if (CheckMind && args.EntityManager.System<SharedMindSystem>().TryGetMind(args.TargetEntity, out var mindId, out _))
             mind = mindId;
 
         var hasComp = false;
