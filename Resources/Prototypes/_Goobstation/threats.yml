@@ -45,10 +45,9 @@
   rule: UnknownShuttleInstigator
 
 - type: ninjaHackingThreat
-  id: GreyTide
-  announcement: terror-grey-tide
-  rule: GreyTideAntagMidround
-
+  id: WizApprentice
+  announcement: terror-wiz-apprentice
+  rule: ApprenticeRule
 
 #- type: ninjaHackingThreat
 #  id: Wraith
