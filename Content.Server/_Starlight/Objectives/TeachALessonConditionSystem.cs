@@ -1,5 +1,6 @@
 using Content.Server.Ghost;
 using Content.Server.Objectives.Components;
+using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components; // goob - fix teach a lesson
 using Content.Shared.Mobs;
@@ -42,20 +43,26 @@ public sealed class TeachALessonConditionSystem : EntitySystem
         if (targetMobUid is null)
             return;
         var targetComponent = EnsureComp<TeachALessonTargetComponent>(targetMobUid.Value);
-        targetComponent.Teacher.Add(ent.Owner);
+        targetComponent.Teachers.Add(ent.Owner);
     }
 
     private void OnMindAdded(EntityUid uid, TeachALessonTargetComponent component, MindAddedMessage args) // goob - fix teach a lesson
     {
         var targetComponent = EnsureComp<TeachALessonTargetComponent>(args.Container.Owner);
-        foreach (var teacher in component.Teacher)
+        foreach (var teacher in component.Teachers)
         {
-            targetComponent.Teacher.Add(teacher);
+            targetComponent.Teachers.Add(teacher);
         }
     }
 
     private void OnMindRemoved(EntityUid uid, TeachALessonTargetComponent component, MindRemovedMessage args) // goob - fix teach a lesson
     {
+        // cryo storage fix godo
+        if (TryComp<CryostorageContainedComponent>(uid, out var contained) && contained.GracePeriodEndTime == null)
+        {
+            TriggerObjective(component);
+        }
+
         RemCompDeferred<TeachALessonTargetComponent>(uid);
     }
 
@@ -64,27 +71,33 @@ public sealed class TeachALessonConditionSystem : EntitySystem
         if (args.Mind.OwnedEntity is not { } owned || !TryComp<TeachALessonTargetComponent>(owned, out var target))
             return;
 
-        // If the player can return to their body.
+        if (args.CanReturnGlobal && args.Mind.VisitingEntity == null)
+        {
+            TriggerObjective(target);
+            return;
+        }
+
         if (args.CanReturnGlobal)
             return;
 
-        foreach (var teacher in target.Teacher)
-        {
-            if (!TryComp(teacher, out TeachALessonConditionComponent? condition))
-                continue;
-
-            condition.HasDied = true;
-        }
+        TriggerObjective(target);
     }
 
     private void OnMobStateChanged(Entity<TeachALessonTargetComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)
             return;
-        foreach (var teacher in ent.Comp.Teacher)
+
+        TriggerObjective(ent.Comp);
+    }
+
+    private void TriggerObjective(TeachALessonTargetComponent component) // goob - fix teach a lesson
+    {
+        foreach (var teacher in component.Teachers)
         {
-            if(!TryComp(teacher, out TeachALessonConditionComponent? condition))
+            if (!TryComp(teacher, out TeachALessonConditionComponent? condition))
                 continue;
+
             condition.HasDied = true;
         }
     }

@@ -9,5 +9,5 @@ namespace Content.Server._Starlight.Objectives;
 public sealed partial class TeachALessonTargetComponent : Component
 {
     [DataField]
-    public HashSet<EntityUid> Teacher = new HashSet<EntityUid>();
+    public HashSet<EntityUid> Teachers = new HashSet<EntityUid>();
 }
