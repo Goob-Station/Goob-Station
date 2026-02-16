@@ -2,18 +2,15 @@
 - type: weightedRandom
   id: NumberStationThreats
   weights:
+    LoneOperative: 1
+    ShuttleInstigator: 0.8
+    VoxRaiders: 0.8
+    GreyTide: 0.65
+    #TODO When Slasher is ready Slasher: 0.6 # Goobstation
+    Blob: 0.5
+    Dragon: 0.3
+    SlaughterDemon: 0.3
     LaughterDemon: 0.3
-    ShuttleInstigator: 0.6
-    KingRatMigration: 0.5
-    SleeperAgents: 1
-    VoxRaiders: 0.7
-    DarkLordMidround: 0.5
-    MimeAssassinMidround: 0.75
-    DarkPriestMidround: 0.5
-    TunnelClownMidround: 0.5
-    LoneAbductorSpawn: 0.3
-    ImmovableRodSpawnKeepTiles: 0.2
-    
 
 # Threats
 
