@@ -22,7 +22,6 @@ namespace Content.Shared.Actions.Components;
 /// Used for dangerous actions that cannot be undone (unlike screaming).
 /// Requires <see cref="ActionComponent"/>.
 /// </summary>
-// goobstation - moved to Server.
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState, AutoGenerateComponentPause]
 [EntityCategory("Actions")]

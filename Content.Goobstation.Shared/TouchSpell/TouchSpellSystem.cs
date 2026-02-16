@@ -25,7 +25,7 @@ namespace Content.Goobstation.Shared.TouchSpell;
 /// </remarks>
 public sealed partial class TouchSpellSystem : EntitySystem
 {
-    [Dependency] private readonly EntityEffectSystem _effects = default!;
+    [Dependency] private readonly SharedEntityEffectSystem _effects = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
@@ -37,7 +37,7 @@ public sealed partial class TouchSpellSystem : EntitySystem
 
         SubscribeLocalEvent<TouchSpellActionComponent, ActionAttemptEvent>(OnActionAttempt);
 
-        SubscribeLocalEvent<TouchSpellComponent, InteractEvent>(OnInteract);
+        SubscribeLocalEvent<TouchSpellComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<TouchSpellComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
@@ -80,7 +80,7 @@ public sealed partial class TouchSpellSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnInteract(Entity<TouchSpellComponent> ent, ref InteractEvent args)
+    private void OnAfterInteract(Entity<TouchSpellComponent> ent, ref AfterInteractEvent args)
     {
         if (!args.Target.HasValue || !args.CanReach || args.Target == args.User)
             return;

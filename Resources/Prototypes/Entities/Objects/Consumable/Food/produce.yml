@@ -2362,7 +2362,7 @@
   name: holymelon
   parent: [ FoodProduceBase, ItemHeftyBase, BaseNullrod ] # goob edit
   id: FoodHolymelon
-  description: The water within this melon has been blessed by some deity that's particularly fond of watermelon. Legends say it could also repel dark arts if applied properly.
+  description: The water within this melon has been blessed by some deity that's particularly fond of watermelon. Some say it has an ability to repel curses too.
   components:
   - type: Item
     size: Small
