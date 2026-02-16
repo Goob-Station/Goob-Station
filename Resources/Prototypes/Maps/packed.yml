@@ -62,7 +62,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
-            NanotrasenCareerTrainer: [ -1, -1] # Omu            
+            NanotrasenCareerTrainer: [ 1, 1] # Omu
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]

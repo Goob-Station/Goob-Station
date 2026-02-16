@@ -128,6 +128,7 @@
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 3 ]
             Detective: [ 1, 1 ]
+            NanotrasenCareerTrainer: [ 1, 1] # Omu
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]

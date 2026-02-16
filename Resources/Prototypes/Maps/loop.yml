@@ -122,6 +122,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 3, 3 ]
+            NanotrasenCareerTrainer: [ 1, 1] # Omu
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
@@ -160,4 +161,3 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
-            NanotrasenCareerTrainer: [ -1, -1] # Omu
