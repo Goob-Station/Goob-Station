@@ -69,7 +69,7 @@
 
 - type: ninjaHackingThreat
   id: ImmovableRodKeepTiles
-  announcement: station-event-immovable-rod-start-announcement
+  announcement: null
   rule: ImmovableRodSpawnKeepTiles
 
 - type: ninjaHackingThreat
