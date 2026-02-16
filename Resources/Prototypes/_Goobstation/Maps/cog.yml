@@ -75,7 +75,7 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 3, 3 ]
-
+            NanotrasenCareerTrainer: [ -1, -1] # Omu
       # Goobstation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
