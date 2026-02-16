@@ -46,7 +46,7 @@
 
 - type: ninjaHackingThreat
   id: WizApprentice
-  announcement: terror-wiz-apprentice
+  announcement: terror-apprentice
   rule: ApprenticeRule
 
 #- type: ninjaHackingThreat
