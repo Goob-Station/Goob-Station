@@ -114,6 +114,7 @@
             Librarian: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             ServiceWorker: [ 1, 2 ]
+            NanotrasenCareerTrainer: [ 1, 1] # Omu            
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]

@@ -64,6 +64,7 @@
             Librarian: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             ServiceWorker: [ 1, 1 ]
+            NanotrasenCareerTrainer: [ 1, 1] # Omu            
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]

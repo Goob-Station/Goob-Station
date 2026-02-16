@@ -72,6 +72,7 @@
             ServiceWorker: [ 3, 3 ]
             Zookeeper: [ 1, 1 ]
             Passenger: [ -1, -1 ]
+            NanotrasenCareerTrainer: [ 1, 1] # Omu            
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]

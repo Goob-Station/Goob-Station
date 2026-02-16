@@ -66,6 +66,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 2, 2 ]
             ServiceWorker: [ 4, 4 ]
+            NanotrasenCareerTrainer: [ 1, 1] # Omu            
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 5, 5 ]
