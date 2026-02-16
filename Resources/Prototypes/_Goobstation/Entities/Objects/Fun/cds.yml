@@ -297,7 +297,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/Number_short.ogg
+      path: /Audio/_Goobstation/RadioStation/ads/Number.ogg
   - type: VinylSummonRule
     gameRule: NumberStationThreats
 
