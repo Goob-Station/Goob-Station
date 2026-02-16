@@ -61,7 +61,7 @@
 
 - type: ninjaHackingThreat
   id: DarkPriest
-  announcement: terror-dark-priest
+  announcement: terror-dark-pirest
   rule: DarkPriestMidround
 
 - type: ninjaHackingThreat
