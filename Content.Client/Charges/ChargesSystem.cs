@@ -15,7 +15,6 @@ namespace Content.Client.Charges;
 public sealed class ChargesSystem : SharedChargesSystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     private Dictionary<EntityUid, int> _lastCharges = new();
     private Dictionary<EntityUid, int> _tempLastCharges = new();
@@ -30,7 +29,7 @@ public sealed class ChargesSystem : SharedChargesSystem
 
     private void OnActionUpdate(Entity<LimitedChargesComponent> ent, ref ActionUpdateEvent args)
     {
-        args.QueueDisable = _charges.GetCurrentCharges(ent.Owner) <= 0;
+        args.QueueDisable = GetCurrentCharges(ent.Owner) <= 0;
     }
 
     public override void Update(float frameTime)

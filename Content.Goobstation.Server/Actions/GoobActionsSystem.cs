@@ -12,6 +12,7 @@ public sealed partial class GoobActionsSystem : EntitySystem
 
     private void OnActionRemovedFromUIController(ActionRemovedFromUIControllerMessage ev)
     {
-        RaiseLocalEvent(GetEntity(ev.Action), new ActionRemovedFromUIControllerEvent());
+        var ent = GetEntity(ev.Action);
+        RaiseLocalEvent(ent, new ActionRemovedFromUIControllerEvent());
     }
 }
