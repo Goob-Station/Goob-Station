@@ -23,6 +23,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Content.Goobstation.Common.Ingestion;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -390,6 +391,9 @@ public sealed partial class IngestionSystem : EntitySystem
         // Tell the food that it's time to die.
         var finishedEv = new FullyEatenEvent(args.User);
         RaiseLocalEvent(food, ref finishedEv);
+
+        var afterEatingEv = new AfterEatingEvent(food);// goob moth eating
+        RaiseLocalEvent(entity.Owner, ref afterEatingEv);// goob moth eating
 
         var eventArgs = new DestructionEventArgs();
         RaiseLocalEvent(food, eventArgs);
