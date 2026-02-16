@@ -599,7 +599,7 @@
     tags:
     - MidroundAntag
 
-- type: entity
+- type: Entity
   id: ImmovableRodSpawnKeepTiles # For numbers vinyl
   parent: ImmovableRodSpawn
   components:
