@@ -4,15 +4,16 @@
   weights:
     LaughterDemon: 0.3
     ShuttleInstigator: 0.6
-    RatKing: 0.5
+    KingRatMigration: 0.5
     SleeperAgents: 1
     VoxRaiders: 0.7
-    DarkLord: 0.5
-    MimeAssassin: 0.75
-    DarkPriest: 0.5
-    TunnelClown: 0.5
-    LoneAbductor: 0.3
-    ImmovableRodKeepTiles: 0.2
+    DarkLordMidround: 0.5
+    MimeAssassinMidround: 0.75
+    DarkPriestMidround: 0.5
+    TunnelClownMidround: 0.5
+    LoneAbductorSpawn: 0.3
+    ImmovableRodSpawnKeepTiles: 0.2
+    
 
 # Threats
 
@@ -51,45 +52,6 @@
   announcement: terror-grey-tide
   rule: GreyTideAntagMidround
 
-- type: ninjaHackingThreat
-  id: RatKing
-  announcement: terror-rat-king
-  rule: KingRatMigration
-
-- type: ninjaHackingThreat
-  id: DarkLord
-  announcement: terror-dark-lord
-  rule: DarkLordMidround
-
-- type: ninjaHackingThreat
-  id: DarkPriest
-  announcement: terror-dark-pirest
-  rule: DarkPriestMidround
-
-- type: ninjaHackingThreat
-  id: ImmovableRodKeepTiles
-  announcement: station-event-immovable-rod-start-announcement
-  rule: ImmovableRodSpawnKeepTiles
-
-- type: ninjaHackingThreat
-  id: LoneAbductor
-  announcement: terror-lone-abductor
-  rule: LoneAbductorSpawn
-
-- type: ninjaHackingThreat
-  id: TunnelClown
-  announcement: terror-tunnel-clown
-  rule: TunnelClownMidround
-
-- type: ninjaHackingThreat
-  id: MimeAssassin
-  announcement: terror-lone-operative
-  rule: MimeAssassinMidround
-
-- type: ninjaHackingThreat
-  id: SleeperAgents
-  announcement: terror-lone-operative
-  rule: SleeperAgents
 
 #- type: ninjaHackingThreat
 #  id: Wraith
