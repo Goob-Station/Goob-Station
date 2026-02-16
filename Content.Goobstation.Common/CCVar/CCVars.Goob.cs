@@ -123,7 +123,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("game.players.highpop_threshold", 50f, CVar.SERVERONLY);
 
     public static readonly CVarDef<bool> RemoveClumsyOnAntag =
-        CVarDef.Create("game.antag.gain.remove_clumsy", true, CVar.SERVERONLY);
+        CVarDef.Create("game.antag.gain.remove_clumsy", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     Is ore silo enabled.
