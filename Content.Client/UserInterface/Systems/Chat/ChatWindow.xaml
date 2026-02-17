@@ -3,5 +3,10 @@
                       xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
                       Title="{Loc chat-window-title}"
                       MinSize="465 265">
-    <widgets:ChatBox Name="Chatbox"/>
+    <!-- Goobstation - AChat Popout-->
+    <BoxContainer Name="ChatRoot" Access="Public" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <widgets:ChatBox Name="Chatbox"/>
+        <Button Visible="False" Disabled="True" Name="PopOut" Access="Public" Text="{Loc 'admin-logs-pop-out'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" />
+    </BoxContainer>
+    <!-- Goobstation - AChat Popout-->
 </controls:FancyWindow>
