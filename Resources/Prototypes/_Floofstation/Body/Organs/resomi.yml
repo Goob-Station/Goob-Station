@@ -34,7 +34,7 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
 
-- type: entity
+- type: entity # Goobstation - resomi lungs
   id: OrganResomiLungs
   parent: OrganHumanLungs
   description: "The nitrogen-breathing lungs of a Resomi, which supplement their anaerobic blood."
