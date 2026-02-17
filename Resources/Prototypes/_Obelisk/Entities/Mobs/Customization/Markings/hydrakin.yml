@@ -453,7 +453,7 @@
   speciesRestriction: [Hydrakin]
   sprites:
   - sprite: _Obelisk/Mobs/Customization/hydrakin_mystic.rsi
-    state: hydrakin_leg_mystic_L
+    state: hydrakin_leg_mystic_R
 
 # Hydraking Rebel Markings
 
