@@ -21262,3 +21262,28 @@ Entries:
         to oversee
   id: 2414
   time: '2026-02-15T13:43:41.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Medical beam gun rebalance: broader healing spectrum (uber mode causes
+        suffocation). Now instantly recharges to full after 1 min (1.5 min for
+        syndi version) of non-use to discourage over-reliance.
+  id: 2415
+  time: '2026-02-17T15:19:06.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Scram is no longer dogshit. (made the teleport distance as it was
+        before)
+  id: 2416
+  time: '2026-02-17T18:59:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Removed stamina damage slowdown.
+    - type: Tweak
+      message: Getting damaged while standing up no longer cancels standing do-after.
+  id: 2417
+  time: '2026-02-17T18:59:50.0000000+00:00'
