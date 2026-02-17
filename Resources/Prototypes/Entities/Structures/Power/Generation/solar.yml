@@ -98,7 +98,7 @@
     supplyRampTolerance: 500
     supplyRampRate: 500
   - type: SolarPanel
-    maxSupply: 3000 #Goob
+    maxSupply: 2000 #Goob
   - type: Sprite
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_panel_plasma
@@ -141,7 +141,7 @@
     supplyRampTolerance: 500
     supplyRampRate: 500
   - type: SolarPanel
-    maxSupply: 4500 #Goob
+    maxSupply: 3000 #Goob
   - type: Sprite
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_panel_uranium
