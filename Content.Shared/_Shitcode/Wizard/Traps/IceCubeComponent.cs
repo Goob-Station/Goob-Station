@@ -7,6 +7,7 @@
 
 using Content.Shared.Atmos;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage;
 using Content.Shared.Physics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -50,7 +51,10 @@ public sealed partial class IceCubeComponent : Component
     public float SustainedDamageMeltProbabilityMultiplier = 4f;
 
     [DataField]
-    public float DamageMeltProbabilityThreshold = 20f;
+    public float StaminaDamageMeltProbabilityMultiplier = 5f;
+
+    [DataField]
+    public float DamageMeltProbabilityThreshold = 60f;
 
     [DataField]
     public float SustainedDamage;
@@ -67,6 +71,17 @@ public sealed partial class IceCubeComponent : Component
     [DataField]
     public SpriteSpecifier Sprite =
         new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wizard/Effects/effects.rsi"), "ice_cube");
+
+    [DataField]
+    public DamageModifierSet DamageReduction = new()
+    {
+        Coefficients =
+        {
+            { "Blunt", 0.35f },
+            { "Slash", 0.35f },
+            { "Piercing", 0.35f },
+        },
+    };
 }
 
 public enum IceCubeKey : byte
