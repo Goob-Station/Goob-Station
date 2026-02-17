@@ -21271,3 +21271,11 @@ Entries:
         syndi version) of non-use to discourage over-reliance.
   id: 2415
   time: '2026-02-17T15:19:06.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Scram is no longer dogshit. (made the teleport distance as it was
+        before)
+  id: 2416
+  time: '2026-02-17T18:59:14.0000000+00:00'
