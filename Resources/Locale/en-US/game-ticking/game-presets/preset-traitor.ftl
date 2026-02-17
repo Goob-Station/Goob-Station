@@ -53,10 +53,8 @@ traitor-role-greeting =
 traitor-role-codewords =
     The codewords are: [color = lightgray]
     {$codewords}.[/color]
-# Goob 
     Codewords can be used in regular conversation to identify yourself discreetly to other traitors.
 traitor-role-uplink-code =
-# Goob
     Your uplink code is [color=white]{$code}[/color]. Set it as your PDA ringtone to access the black market.
     Remember to lock it after, or the stations crew will easily open it too!
 traitor-role-uplink-pen-code =
@@ -71,7 +69,6 @@ traitor-role-codewords-short =
     The codewords are:
     {$codewords}.
 
-# Goob
 traitor-role-uplink-code-short = Your uplink code is {$code}. Set it as your PDA ringtone to access the black market.
 traitor-role-uplink-pen-code-short = Your pen uplink code is {$code}. Spin the pen to unlock. Locks when closed.
 traitor-role-uplink-implant-short = Your uplink was implanted. Access it from your hotbar.
@@ -80,13 +77,11 @@ traitor-role-moreinfo =
     Find more information about your role in the character menu.
 
 traitor-role-nouplink =
-# goob
     Unfortunately you do not have access to the black market.
 
 traitor-role-allegiances =
     Your allegiances:
 
-#goob
 traitor-role-notes =
     Additional notes:
 
