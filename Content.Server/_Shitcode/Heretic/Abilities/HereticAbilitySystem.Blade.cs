@@ -23,7 +23,7 @@ using Content.Shared.CombatMode.Pacification;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Heretic.Components.PathSpecific;
-using Content.Shared.Stunnable; // Shitmed Change
+using Content.Shared.Stunnable;
 
 namespace Content.Server.Heretic.Abilities;
 
