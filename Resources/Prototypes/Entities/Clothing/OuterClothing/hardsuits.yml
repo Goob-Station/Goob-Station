@@ -886,7 +886,7 @@
 
 #Quartermaster's hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitQm
   name: quartermaster's hardsuit
   description: A luxury mining hardsuit, refashioned to be distinguished as personal property of the quartermaster. That's the only difference.
