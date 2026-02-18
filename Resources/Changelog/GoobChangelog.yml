@@ -21287,3 +21287,9 @@ Entries:
       message: Getting damaged while standing up no longer cancels standing do-after.
   id: 2417
   time: '2026-02-17T18:59:50.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed revolutionary manifesto book not showing do after bar
+  id: 2418
+  time: '2026-02-18T00:05:57.0000000+00:00'
