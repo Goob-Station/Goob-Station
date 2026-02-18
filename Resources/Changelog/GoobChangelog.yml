@@ -21299,3 +21299,9 @@ Entries:
       message: 'Fixed teach a lesson for the last time hopefully '
   id: 2419
   time: '2026-02-18T03:36:02.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed eating mothroaches making you big
+  id: 2420
+  time: '2026-02-18T03:36:42.0000000+00:00'
