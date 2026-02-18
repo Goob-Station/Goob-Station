@@ -418,7 +418,7 @@
 
 #Quartermaster's hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: ClothingHeadHelmetHardsuitLuxury
   id: ClothingHeadHelmetHardsuitQm
   name: quartermaster's hardsuit helmet
   description: A refashioned luxury mining hardsuit helmet, with nothing more and nothing less than the regular one. Just a flashier colour.
@@ -427,17 +427,3 @@
     sprite: _Goobstation/Clothing/Head/Hardsuits/qm.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hardsuits/qm.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.525
-    lowPressureMultiplier: 1000
-  - type: PointLight
-    radius: 7
-    energy: 3
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.8
-        Piercing: 0.9
-        Radiation: 0.15
-        Caustic: 0.8
