@@ -15,12 +15,12 @@ namespace Content.Client.UserInterface.Systems.Chat;
 [GenerateTypedNameReferences]
 public sealed partial class ChatWindow : FancyWindow
 {
-    // Goobstation - AChat Popout
+    // Goobstation - AChat Popout Start
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     private IClydeWindow? _clydeWindow;
     private WindowRoot? _windowRoot;
-    // Goobstation - AChat Popout
+    // Goobstation - AChat Popout End
 
     public ChatWindow()
     {
@@ -35,7 +35,7 @@ public sealed partial class ChatWindow : FancyWindow
         PopOut.OnPressed += _ => Popout(); // Goobstation - AChat Popout
     }
 
-    // Goobstation - AChat Popout
+    // Goobstation - AChat Popout Start
     private void Popout()
     {
         if (_clydeWindow != null)
@@ -63,18 +63,14 @@ public sealed partial class ChatWindow : FancyWindow
 
         PopOut.Disabled = true;
         PopOut.Visible = false;
-        // Goobstation - AChat Popout
     }
 
-    // Goobstation - AChat Popout
     private void OnRequestClosed(WindowRequestClosedEventArgs args)
     {
         CleanupPopout();
         Parent?.RemoveAllChildren();
     }
-    // Goobstation - AChat Popout
 
-    // Goobstation - AChat Popout
     private void CleanupPopout()
     {
         if (_clydeWindow == null)
@@ -84,7 +80,7 @@ public sealed partial class ChatWindow : FancyWindow
         _windowRoot = null;
         _clydeWindow = null;
     }
-    // Goobstation - AChat Popout
+    // Goobstation - AChat Popout End
 
     /// <summary>
     /// Helper method to configure this window to be useful for admins.
