@@ -21,7 +21,7 @@
   - type: ScatteringGrenade
     fillPrototype: MobSyndieAngryBee
     capacity: 5
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     beepSound:
       path: "/Audio/_Goobstation/Effects/Grenades/beenade_buzz.ogg"
       params:

@@ -255,11 +255,14 @@
   - type: Speech # Goobstation
     speechVerb: HolierThanThou
   - type: Eye
-    visMask:
-      - Ghost
+    visMask: # Goob edit
       - Normal
-      - CosmicCultMonument # DeltaV - Cosmic Cult
+      - Ghost
       - Abductor
+      - CosmicCultMonument # DeltaV - Cosmic Cult
+      - EldritchInfluence
+      - EldritchInfluenceSpent
+      - Admin
   - type: OwnInteractionVerbs
     allowedVerbs: []
   - type: ExplosionResistance
