@@ -26,6 +26,9 @@ public sealed partial class RevolutionaryConverterComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool ApplyFlashEffect { get; set; }
+    
+    [DataField, AutoNetworkedField]
+    public bool BypassMuted { get; set; } //if true, the flash will apply to muted entities as well
 
     [DataField, AutoNetworkedField]
     public TimeSpan FlashDuration { get; set; } = TimeSpan.FromSeconds(4); //only used if ApplyFlashEffect is true

@@ -21271,3 +21271,37 @@ Entries:
         syndi version) of non-use to discourage over-reliance.
   id: 2415
   time: '2026-02-17T15:19:06.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Scram is no longer dogshit. (made the teleport distance as it was
+        before)
+  id: 2416
+  time: '2026-02-17T18:59:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Removed stamina damage slowdown.
+    - type: Tweak
+      message: Getting damaged while standing up no longer cancels standing do-after.
+  id: 2417
+  time: '2026-02-17T18:59:50.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed revolutionary manifesto book not showing do after bar
+  id: 2418
+  time: '2026-02-18T00:05:57.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: 'Fixed teach a lesson for the last time hopefully '
+  id: 2419
+  time: '2026-02-18T03:36:02.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed eating mothroaches making you big
+  id: 2420
+  time: '2026-02-18T03:36:42.0000000+00:00'
