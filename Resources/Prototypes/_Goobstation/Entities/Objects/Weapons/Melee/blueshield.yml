@@ -129,7 +129,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 5
+        Piercing: 1
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg

@@ -30,7 +30,8 @@
             BlueshieldOfficer: [ 1, 1 ]
             # cargo
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 6, 8 ]
+            SalvageSpecialist: [ 4, 4 ]
+            ShaftMiner: [ 4, 4 ]
             CargoTechnician: [ 5, 6 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]

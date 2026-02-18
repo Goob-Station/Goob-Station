@@ -28,3 +28,28 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Yogstation, made by @Hey-Holokin (Github)"
   source: "https://github.com/yogstation13/Yogstation/commit/04f271c80f2df96c8120052362efb6a3e28dd0d0"
+
+- files: ["bdm_boss.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/music/boss/bdm_boss.ogg"
+
+- files: ["bubblegum.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by QwertyQwerty"
+  source: "https://www.youtube.com/watch?v=bOn7B3Xw_Rs"
+
+- files: ["miniboss_fight.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Visager"
+  source: "https://visager.bandcamp.com/album/songs-from-an-unmade-world-2"
+
+- files: ["tearofveil.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Bolgarich"
+  source: "https://www.youtube.com/watch?v=NqNHKfTAvcw"
+
+- files: ["Parabellum.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Bolgarich"
+  source: "https://www.youtube.com/watch?v=SRbHDwLaGKY"

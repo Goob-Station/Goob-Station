@@ -24,7 +24,32 @@
   - Mech
   completetime: 10
 
-# Recipes
+- type: latheRecipe
+  abstract: true
+  parent: BaseMechPartRecipe
+  id: BaseRipleyLimbRecipe
+  materials:
+    Steel: 1000
+    Glass: 750
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseMechPartRecipe
+  id: BaseHonkerLimbRecipe
+  materials:
+    Steel: 2000
+    Glass: 750
+    Bananium: 250
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseMechPartRecipe
+  id: BaseHamtrLimbRecipe
+  materials:
+    Steel: 800
+    Glass: 600
+
+## Recipes
 
 # Ripley
 - type: latheRecipe
@@ -32,50 +57,34 @@
   result: RipleyHarness
   categories:
   - Ripley # Goobstation
-  completetime: 10
-  materials:
-    Steel: 1500
-    Glass: 1200
 
 - type: latheRecipe
+  parent: BaseRipleyLimbRecipe
   id: RipleyLArm
   result: RipleyLArm
   categories:
   - Ripley # Goobstation
-  completetime: 10
-  materials:
-    Steel: 1000
-    Glass: 750
 
 - type: latheRecipe
+  parent: BaseRipleyLimbRecipe
   id: RipleyLLeg
   result: RipleyLLeg
   categories:
   - Ripley # Goobstation
-  completetime: 10
-  materials:
-    Steel: 1000
-    Glass: 750
 
 - type: latheRecipe
+  parent: BaseRipleyLimbRecipe
   id: RipleyRLeg
   result: RipleyRLeg
   categories:
   - Ripley # Goobstation
-  completetime: 10
-  materials:
-    Steel: 1000
-    Glass: 750
 
 - type: latheRecipe
+  parent: BaseRipleyLimbRecipe
   id: RipleyRArm
   result: RipleyRArm
   categories:
   - Ripley # Goobstation
-  completetime: 10
-  materials:
-    Steel: 1000
-    Glass: 750
 
 # H.O.N.K.
 - type: latheRecipe
@@ -90,48 +99,32 @@
     Bananium: 500
 
 - type: latheRecipe
+  parent: BaseHonkerLimbRecipe
   id: HonkerLArm
   result: HonkerLArm
   categories:
   - Honker # Goobstation
-  completetime: 10
-  materials:
-    Steel: 3000
-    Glass: 1200
-    Bananium: 500
 
 - type: latheRecipe
+  parent: BaseHonkerLimbRecipe
   id: HonkerLLeg
   result: HonkerLLeg
   categories:
   - Honker # Goobstation
-  completetime: 10
-  materials:
-    Steel: 3000
-    Glass: 1200
-    Bananium: 500
 
 - type: latheRecipe
+  parent: BaseHonkerLimbRecipe
   id: HonkerRLeg
   result: HonkerRLeg
   categories:
   - Honker # Goobstation
-  completetime: 10
-  materials:
-    Steel: 3000
-    Glass: 1200
-    Bananium: 500
 
 - type: latheRecipe
+  parent: BaseHonkerLimbRecipe
   id: HonkerRArm
   result: HonkerRArm
   categories:
   - Honker # Goobstation
-  completetime: 10
-  materials:
-    Steel: 3000
-    Glass: 1200
-    Bananium: 500
 
 # HAMTR
 - type: latheRecipe
@@ -139,67 +132,31 @@
   result: HamtrHarness
   categories:
   - Hamptr # Goobstation
-  completetime: 10
-  materials:
-    Steel: 1200
-    Glass: 1000
 
 - type: latheRecipe
+  parent: BaseHamtrLimbRecipe
   id: HamtrLArm
   result: HamtrLArm
   categories:
   - Hamptr # Goobstation
-  completetime: 10
-  materials:
-    Steel: 800
-    Glass: 600
 
 - type: latheRecipe
+  parent: BaseHamtrLimbRecipe
   id: HamtrLLeg
   result: HamtrLLeg
   categories:
   - Hamptr # Goobstation
-  completetime: 10
-  materials:
-    Steel: 800
-    Glass: 600
 
 - type: latheRecipe
+  parent: BaseHamtrLimbRecipe
   id: HamtrRLeg
   result: HamtrRLeg
   categories:
   - Hamptr # Goobstation
-  completetime: 10
-  materials:
-    Steel: 800
-    Glass: 600
 
 - type: latheRecipe
+  parent: BaseHamtrLimbRecipe
   id: HamtrRArm
   result: HamtrRArm
   categories:
   - Hamptr # Goobstation
-  completetime: 10
-  materials:
-    Steel: 800
-    Glass: 600
-
-- type: latheRecipe
-  id: MechEquipmentGrabberSmall
-  result: MechEquipmentGrabberSmall
-  categories:
-  - MechEquipment # Goobstation
-  completetime: 10
-  materials:
-    Steel: 400
-    Plastic: 100
-
-- type: latheRecipe
-  id: MechEquipmentHorn
-  result: MechEquipmentHorn
-  categories:
-  - MechEquipment
-  completetime: 10
-  materials:
-    Steel: 500
-    Bananium: 200

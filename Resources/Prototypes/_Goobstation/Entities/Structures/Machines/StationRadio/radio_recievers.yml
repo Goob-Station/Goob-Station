@@ -44,7 +44,7 @@
     channels:
     - RadioShow
   - type: Speech
-    speechVerb: Robotic
+    speechVerb: StationRadio
   - type: ActiveRadio
     channels:
     - RadioShow

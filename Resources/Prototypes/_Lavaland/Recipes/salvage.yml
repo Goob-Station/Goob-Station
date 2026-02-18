@@ -25,7 +25,7 @@
   result: PKAUpgradeDamage # Probably the strongest so might as well keep it under control.
   categories:
   - Weapons
-  completetime: 5
+  completetime: 10
   materials:
     Steel: 4500
     Gold: 2500
@@ -36,7 +36,7 @@
   result: PKAUpgradeRange
   categories:
   - Weapons
-  completetime: 5
+  completetime: 10
   materials:
     Steel: 1500
     Gold: 500
@@ -47,8 +47,20 @@
   result: PKAUpgradeFireRate
   categories:
   - Weapons
-  completetime: 5
+  completetime: 10
   materials:
     Steel: 1500
     Gold: 500
     Silver: 500
+
+- type: latheRecipe
+  id: PKAUpgradeSpace
+  result: PKAUpgradeSpace
+  categories:
+  - Weapons
+  completetime: 10
+  materials:
+    Steel: 2500
+    Gold: 1000
+    Silver: 500
+    Diamond: 100

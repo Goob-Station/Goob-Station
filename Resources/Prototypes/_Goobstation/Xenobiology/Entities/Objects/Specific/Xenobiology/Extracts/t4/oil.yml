@@ -1,0 +1,56 @@
+- type: entity
+  id: OilSlimeExtract
+  parent: BaseSlimeExtract
+  name: oil slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#383936"
+      shader: XenoMetallic
+  - type: Reactive
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: SpaceLube
+        amount: 100
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 5
+        frequency: 20
+      - !type:ExplosionReactionEffect
+        delay: 5
+        explosionType: FireBomb # bomboclat
+        maxIntensity: 1050
+        intensitySlope: 4
+        intensityPerUnit: 70
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: Tag
+    tags:
+    - XenobiologyOilExtract

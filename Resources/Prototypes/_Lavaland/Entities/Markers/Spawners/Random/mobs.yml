@@ -4,28 +4,30 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entityTable
-  id: LavalandMobs
+  id: LavalandHeavyMobs
   table: !type:GroupSelector
     children:
     - !type:GroupSelector
-      weight: 50
       children:
-      - id: MobGoliathRandom
-      - id: MobHivelord
-    - !type:GroupSelector
-        weight: 35
-        children:
-        - id: MobCarpDungeon
-    - !type:GroupSelector
-      weight: 15
-      children:
-      - id: MobWatcherIcewing
-      - id: MobWatcherLavaland
-      #- id: LavalandTendrilLegion
+      - id: MobLavalandGoliath
+        weight: 99
+      - id: MobLavalandGoliathAncient
+        weight: 1
+    - id: MobLegion
 
+- type: entityTable
+  id: LavalandLightMobs
+  table: !type:GroupSelector
+    children:
+    - id: MobCarpDungeon
+    - !type:GroupSelector
+      children:
+      - id: MobWatcherLavaland
+      - id: MobWatcherMagmawing
+      - id: MobWatcherIcewing
 
 - type: entity
-  name: lavaland mob spawner
+  name: lavaland heavy mob spawner
   id: SpawnerRandomMobLavaland
   parent: MarkerBase
   suffix: Lavaland
@@ -37,24 +39,19 @@
       state: goliath
   - type: EntityTableSpawner
     table: !type:NestedSelector
-      tableId: LavalandMobs
-  placement:
-    mode: AlignTileAny
-
+      tableId: LavalandHeavyMobs
 
 - type: entity
-  id: MobGoliathRandom
+  name: lavaland light mob spawner
+  id: SpawnerRandomLightMobLavaland
   parent: MarkerBase
-  name: Goliath
-  suffix: Random
+  suffix: Lavaland
   components:
   - type: Sprite
-    sprite: Mobs/Aliens/Asteroid/goliath.rsi
-    state: goliath
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath
   - type: EntityTableSpawner
-    table: !type:GroupSelector
-      children:
-      - id: MobLavalandGoliath
-        weight: 99
-      - id: MobLavalandGoliathAncient
-        weight: 1
+    table: !type:NestedSelector
+      tableId: LavalandLightMobs

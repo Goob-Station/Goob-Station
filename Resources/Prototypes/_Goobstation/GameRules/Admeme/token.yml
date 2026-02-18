@@ -363,3 +363,38 @@
         - NamesSlasherTitle
         - NamesSlasher
         nameFormat: name-format-slasher
+
+- type: entity
+  parent: ContractorSpawn
+  id: TokenContractorSpawn
+  components:
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: ContractorTokenSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ContractorGear
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalNukie
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSyndicateNormal
+        nameFormat: name-format-nukie-agent
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+  - type: StationEvent
+    isSelectable: false
+    startAnnouncement: null
+    weight: 1
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Hostile: 40
+      Combat: 40
+      Death: 40
+    eventType: HostilesSpawn
