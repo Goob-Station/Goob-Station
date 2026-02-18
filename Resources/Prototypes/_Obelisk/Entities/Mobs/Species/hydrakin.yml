@@ -3,9 +3,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 - type: entity
+  save: false
+  name: Urist McHydra
   parent: BaseMobSpeciesOrganic
   id: BaseMobHydrakin
-  name: Urist McHydra
   abstract: true
   components:
   - type: UserInterface # Mono
@@ -53,8 +54,8 @@
       90: 0.9
       40: 0.75
       10: 0.6
-  #- type: HumanoidAppearance
-  #  species: Hydrakin
+  - type: HumanoidAppearance
+    species: Hydrakin
   - type: ThermalRegulator #Todo, implement hydrakin thermal movement generation
     metabolismHeat: 800
     radiatedHeat: 100
@@ -117,7 +118,28 @@
   id: MobHydrakinDummy
   categories: [ HideSpawnMenu ]
   components:
-  # - type: HumanoidAppearance
-  #   species: Hydrakin
+  - type: HumanoidAppearance
+    species: Hydrakin
   - type: Inventory
     speciesId: hydrakin
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: shoes
+      head:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: head

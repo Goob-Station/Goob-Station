@@ -236,6 +236,17 @@
     nameSegments:
     - NamesVox
 
+- type: entity # mono
+  parent: MobHydrakin
+  id: MobHydrakinRandom
+  name: Urist McHydra
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_hydrakin_unisex
+
 - type: entity
   parent: MobShadowkin
   id: MobShadowkinRandom
@@ -296,7 +307,12 @@
         settings: short
       requirements:
 
+<<<<<<< HEAD
 ## ERT Leader
+=======
+
+# Navy Captain
+>>>>>>> efa7daa13c (Minor Hydrakin Visual Fixes + Hunger/Thirst (#3243))
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderNoReq
