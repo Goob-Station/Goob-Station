@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "By Ko4erga (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+  "states": [
+    {
+      "name": "radio"
+    },
+    {
+      "name": "frame_0"
+    },
+    {
+      "name": "frame_1"
+    },
+    {
+      "name": "frame_2"
+    },
+    {
+      "name": "unlit"
+    }
+  ]
+}

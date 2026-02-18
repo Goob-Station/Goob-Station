@@ -1,0 +1,12 @@
+- type: construction
+  id: WallmountStationRadioReceiverRecipe
+  graph: WSRR
+  startNode: start
+  targetNode: wsrr
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition {}

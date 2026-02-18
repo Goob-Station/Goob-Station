@@ -555,6 +555,9 @@
   id: StasisCage
 
 - type: Tag
+  id: StationRadioCircuitboard
+
+- type: Tag
   id: Steel
 
 - type: Tag

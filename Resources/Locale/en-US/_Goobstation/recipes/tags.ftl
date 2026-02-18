@@ -45,3 +45,4 @@ construction-graph-tag-ushanka = ushanka
 construction-graph-tag-baseball-bat = baseball bat
 construction-graph-tag-heart = heart
 construction-graph-tag-camera-electronics = surveillance camera electronics
+construction-graph-tag-station-radio-receiver-circuitboard = station radio machine board
