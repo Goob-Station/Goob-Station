@@ -42,15 +42,10 @@ namespace Content.Server.Stack
     public sealed class StackSystem : SharedStackSystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SharedUserInterfaceSystem _ui = default!; // Goobstation - Custom stack splitting dialog
-
-        public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 30, 50 };
 
         public override void Initialize()
         {
             base.Initialize();
-
-            SubscribeLocalEvent<StackComponent, GetVerbsEvent<AlternativeVerb>>(OnStackAlternativeInteract);
         }
 
         public override void SetCount(EntityUid uid, int amount, StackComponent? component = null)
@@ -61,7 +56,7 @@ namespace Content.Server.Stack
             base.SetCount(uid, amount, component);
 
             // Queue delete stack if count reaches zero.
-            if (component.Count <= 0 && !component.Lingering)
+            if (component.Count <= 0)
                 QueueDel(uid);
         }
 
@@ -193,56 +188,7 @@ namespace Content.Server.Stack
             return amounts;
         }
 
-        private void OnStackAlternativeInteract(EntityUid uid, StackComponent stack, GetVerbsEvent<AlternativeVerb> args)
-        {
-            if (!args.CanAccess || !args.CanInteract || args.Hands == null || stack.Count == 1)
-                return;
-
-            AlternativeVerb halve = new()
-            {
-                Text = Loc.GetString("comp-stack-split-halve"),
-                Category = VerbCategory.Split,
-                Act = () => UserSplit(uid, args.User, stack.Count / 2, stack),
-                Priority = 1
-            };
-            args.Verbs.Add(halve);
-
-            var priority = 0;
-            foreach (var amount in DefaultSplitAmounts)
-            {
-                if (amount >= stack.Count)
-                    continue;
-
-                AlternativeVerb verb = new()
-                {
-                    Text = amount.ToString(),
-                    Category = VerbCategory.Split,
-                    Act = () => UserSplit(uid, args.User, amount, stack),
-                    // we want to sort by size, not alphabetically by the verb text.
-                    Priority = priority
-                };
-
-                priority--;
-
-                args.Verbs.Add(verb);
-            }
-
-            // Goobstation - Custom stack splitting dialog
-            AlternativeVerb custom = new()
-            {
-                Text = Loc.GetString("comp-stack-split-custom"),
-                Category = VerbCategory.Split,
-                Act = () =>
-                {
-                    _ui.OpenUi(uid, StackCustomSplitUiKey.Key, args.User);
-                },
-                Priority = priority - 1
-            };
-            args.Verbs.Add(custom);
-        }
-
-        // Goob Modularity - Edit made Public
-        public void UserSplit(EntityUid uid, EntityUid userUid, int amount,
+        public override void UserSplit(EntityUid uid, EntityUid userUid, int amount, // Goobstation public
             StackComponent? stack = null,
             TransformComponent? userTransform = null)
         {

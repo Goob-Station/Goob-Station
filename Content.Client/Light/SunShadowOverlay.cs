@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
+using Content.Client.Graphics;
 using Content.Shared.Light.Components;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -29,8 +30,7 @@ public sealed class SunShadowOverlay : Overlay
 
     private readonly HashSet<Entity<SunShadowCastComponent>> _shadows = new();
 
-    private IRenderTexture? _blurTarget;
-    private IRenderTexture? _target;
+    private readonly OverlayResourceCache<CachedResources> _resources = new();
 
     public SunShadowOverlay()
     {
@@ -60,16 +60,18 @@ public sealed class SunShadowOverlay : Overlay
         var worldBounds = args.WorldBounds;
         var targetSize = viewport.LightRenderTarget.Size;
 
-        if (_target?.Size != targetSize)
+        var res = _resources.GetForViewport(args.Viewport, static _ => new CachedResources());
+
+        if (res.Target?.Size != targetSize)
         {
-            _target = _clyde
+            res.Target = _clyde
                 .CreateRenderTarget(targetSize,
                     new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb),
                     name: "sun-shadow-target");
 
-            if (_blurTarget?.Size != targetSize)
+            if (res.BlurTarget?.Size != targetSize)
             {
-                _blurTarget = _clyde
+                res.BlurTarget = _clyde
                     .CreateRenderTarget(targetSize, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "sun-shadow-blur");
             }
         }
@@ -98,11 +100,11 @@ public sealed class SunShadowOverlay : Overlay
             _shadows.Clear();
 
             // Draw shadow polys to stencil
-            args.WorldHandle.RenderInRenderTarget(_target,
+            args.WorldHandle.RenderInRenderTarget(res.Target,
                 () =>
                 {
                     var invMatrix =
-                        _target.GetWorldToLocalMatrix(eye, scale);
+                        res.Target.GetWorldToLocalMatrix(eye, scale);
                     var indices = new Vector2[PhysicsConstants.MaxPolygonVertices * 2];
 
                     // Go through shadows in range.
@@ -147,7 +149,7 @@ public sealed class SunShadowOverlay : Overlay
                 Color.Transparent);
 
             // Slightly blur it just to avoid aliasing issues on the later viewport-wide blur.
-            _clyde.BlurRenderTarget(viewport, _target, _blurTarget!, eye, 1f);
+            _clyde.BlurRenderTarget(viewport, res.Target, res.BlurTarget!, eye, 1f);
 
             // Draw stencil (see roofoverlay).
             args.WorldHandle.RenderInRenderTarget(viewport.LightRenderTarget,
@@ -160,8 +162,27 @@ public sealed class SunShadowOverlay : Overlay
                     var maskShader = _protoManager.Index(MixShader).Instance();
                     worldHandle.UseShader(maskShader);
 
-                    worldHandle.DrawTextureRect(_target.Texture, worldBounds, Color.Black.WithAlpha(alpha));
+                    worldHandle.DrawTextureRect(res.Target.Texture, worldBounds, Color.Black.WithAlpha(alpha));
                 }, null);
+        }
+    }
+
+    protected override void DisposeBehavior()
+    {
+        _resources.Dispose();
+
+        base.DisposeBehavior();
+    }
+
+    private sealed class CachedResources : IDisposable
+    {
+        public IRenderTexture? BlurTarget;
+        public IRenderTexture? Target;
+
+        public void Dispose()
+        {
+            BlurTarget?.Dispose();
+            Target?.Dispose();
         }
     }
 }

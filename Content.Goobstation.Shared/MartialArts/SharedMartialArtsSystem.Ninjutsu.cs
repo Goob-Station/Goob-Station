@@ -40,7 +40,7 @@ public abstract partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantNinjutsuComponent, UseInHandEvent>(OnGrantCQCUse);
 
-        SubscribeLocalEvent<ThrownEvent>(OnThrow);
+        SubscribeLocalEvent<ThrowEvent>(OnThrow);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, SelfBeforeGunShotEvent>(OnBeforeGunShot);
@@ -59,7 +59,7 @@ public abstract partial class SharedMartialArtsSystem
     private void OnAlertEffectEnded(Entity<NinjutsuSneakAttackComponent> ent, ref StatusEffectEndedEvent args)
     {
         if (args.Key == "LossOfSurprise")
-            _alerts.ShowAlert(ent, ent.Comp.Alert);
+            _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     private void OnSneakAttackRemove(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentRemove args)
@@ -67,12 +67,12 @@ public abstract partial class SharedMartialArtsSystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        _alerts.ClearAlertCategory(ent, NinjutsuAlertCategory);
+        _alerts.ClearAlertCategory(ent.Owner, NinjutsuAlertCategory);
     }
 
     private void OnSneakAttackInit(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentInit args)
     {
-        _alerts.ShowAlert(ent, ent.Comp.Alert);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     private void OnMobStateChanged(MobStateChangedEvent ev)
@@ -88,7 +88,7 @@ public abstract partial class SharedMartialArtsSystem
         _modifier.RefreshMovementSpeedModifiers(ev.Origin.Value);
     }
 
-    private void OnThrow(ref ThrownEvent ev)
+    private void OnThrow(ref ThrowEvent ev)
     {
         if (HasComp<NinjutsuSneakAttackComponent>(ev.User))
             ResetDebuff(ev.User.Value);

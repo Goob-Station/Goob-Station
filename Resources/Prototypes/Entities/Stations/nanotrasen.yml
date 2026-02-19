@@ -67,7 +67,7 @@
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
-    - BaseStationMail # Nyano component, required for station mail to function
+    - BaseStationDeliveries
     - BaseStationWizardTarget # Goobstation
   categories: [ HideSpawnMenu ]
   components:

@@ -360,7 +360,9 @@
   - type: Lock
     locked: true
     unlockOnClick: false
-  - type: ActivatableUIRequiresLock
+  - type: UIRequiresLock
+    userInterfaceKeys:
+    - enum.BorgUiKey.Key
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
@@ -567,6 +569,7 @@
     - Syndicate
   - type: ActiveRadio
     channels:
+    # - Binary # Goobstation collectivemind binary
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -612,6 +615,50 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+
+- type: entity
+  id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
+  parent: BaseBorgChassis # We don't want them to see Nukies or have syndi comms, their database is out of date
+  abstract: true
+  components:
+  - type: SiliconLawProvider
+    laws: SyndicateStatic #Non-subverted version so they can still be changed
+  - type: StartIonStormed
+    ionStormAmount: 3
+  - type: IonStormTarget
+    chance: 1
+  - type: ShowJobIcons
+  - type: NpcFactionMember # They're still syndicate even if they can't listen to the radio or see icons
+    factions:
+    - Syndicate
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+  - type: AccessReader
+    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ] ]
+  - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
+    channels:
+    - Common # Goobstation i need this to not be null and if theyre derelict its whatever
+    #- Binary #1984 # Goobstation collectivemind binary
+  - type: ActiveRadio
+    channels:
+    - Common # Goobstation i need this to not be null and if theyre derelict its whatever
+    #- Binary # Goobstation collectivemind binary
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: PointLight
+    color: "#dd200b"
+  - type: CollectiveMind # Goobstation collectivemind binary
+    defaultChannel: Binary
+    channels:
+    - Binary
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable

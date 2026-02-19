@@ -93,7 +93,7 @@ namespace Content.Shared.Throwing
             SubscribeLocalEvent<ThrownItemComponent, PhysicsSleepEvent>(OnSleep);
             SubscribeLocalEvent<ThrownItemComponent, StartCollideEvent>(HandleCollision);
             SubscribeLocalEvent<ThrownItemComponent, PreventCollideEvent>(PreventCollision);
-            SubscribeLocalEvent<ThrownItemComponent, ThrownEvent>(ThrowItem);
+            SubscribeLocalEvent<ThrownItemComponent, ThrowEvent>(ThrowItem);
 
             SubscribeLocalEvent<PullStartedMessage>(HandlePullStarted);
         }
@@ -103,7 +103,7 @@ namespace Content.Shared.Throwing
             component.ThrownTime ??= _gameTiming.CurTime;
         }
 
-        private void ThrowItem(EntityUid uid, ThrownItemComponent component, ref ThrownEvent @event)
+        private void ThrowItem(EntityUid uid, ThrownItemComponent component, ref ThrowEvent @event)
         {
             if (!TryComp(uid, out FixturesComponent? fixturesComponent) ||
                 fixturesComponent.Fixtures.Count != 1 ||
@@ -204,13 +204,10 @@ namespace Content.Shared.Throwing
                 _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
 
-            // Goob edit start
-            var ev = new ThrowHitByEvent(thrown, target, component);
-            RaiseLocalEvent(target, ev, true);
-            if (ev.Handled)
-                return;
-            // Goob edit ent
-            RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component), true);
+            var hitByEv = new ThrowHitByEvent(thrown, target, component);
+            var doHitEv = new ThrowDoHitEvent(thrown, target, component);
+            RaiseLocalEvent(target, ref hitByEv, true);
+            RaiseLocalEvent(thrown, ref doHitEv, true);
         }
 
         public override void Update(float frameTime)

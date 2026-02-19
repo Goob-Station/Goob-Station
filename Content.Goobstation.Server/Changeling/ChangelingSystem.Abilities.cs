@@ -78,6 +78,7 @@ using Content.Shared.Tools.Systems;
 using Content.Goobstation.Shared.Devour.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
+using Content.Shared.Light.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 

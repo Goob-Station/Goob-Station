@@ -60,14 +60,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Cloning;
 using Content.Server.Humanoid;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
@@ -81,15 +79,17 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Cloning;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.Clothing.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Radio.Components; // Goobstation
+using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
-using Robust.Shared.Utility; // Goobstation
+using Robust.Shared.Utility;
 
 namespace Content.Server.Cloning;
 
@@ -118,27 +118,27 @@ public sealed partial class CloningSystem : EntitySystem
     public bool TryCloning(EntityUid original, MapCoordinates? coords, ProtoId<CloningSettingsPrototype> settingsId, [NotNullWhen(true)] out EntityUid? clone)
     {
         clone = null;
-        if (!_prototype.TryIndex(settingsId, out var settings))
+        if (!_prototype.Resolve(settingsId, out var settings))
             return false; // invalid settings
 
         // Goobstation start
-        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid) && !settings.AllowNonHumanoid)
+        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid) && !settings.AllowNonHumanoid || humanoid == null)
             return false; // whatever body was to be cloned, was not a humanoid
 
-        SpeciesPrototype? speciesPrototype = null;
-        if (humanoid != null && !_prototype.TryIndex(humanoid.Species, out speciesPrototype))
+        if (!_prototype.Resolve(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
         var proto = speciesPrototype?.Prototype.ToString() ?? Prototype(original)?.ID;
         if (proto == null)
             return false;
-        // Goobstation end
 
         if (HasComp<HolographicCloneComponent>(original) && !settings.ForceCloning) // Goobstation - This has to be separate because I don't want to touch the other check.
             return false;
 
         if (HasComp<UncloneableComponent>(original) && !settings.ForceCloning) // Goob: enable forcecloning bypass for antagctrl admemes on vox/ipc.
             return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead
+
+        // Goobstation end
 
         var attemptEv = new CloningAttemptEvent(settings);
         RaiseLocalEvent(original, ref attemptEv);
@@ -152,7 +152,7 @@ public sealed partial class CloningSystem : EntitySystem
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
-            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist, settings.MakeEquipmentUnremoveable, settings.CopyStorage, settings.InternalContentsUnremoveable); // Goob edit
+            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist);
 
         // Copy storage on the mob itself as well.
         // This is needed for slime storage.
@@ -172,12 +172,6 @@ public sealed partial class CloningSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    ///     Copy components from one entity to another based on a CloningSettingsPrototype.
-    /// </summary>
-    /// <param name="original">The orignal Entity to clone components from.</param>
-    /// <param name="clone">The target Entity to clone components to.</param>
-    /// <param name="settings">The clone settings prototype containing the list of components to clone.</param>
     public void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
     {
         var componentsToCopy = settings.Components;
@@ -252,7 +246,8 @@ public sealed partial class CloningSystem : EntitySystem
             }
 
             // If the original does not have the component, then the clone shouldn't have it either.
-            RemComp(clone, componentRegistration.Type);
+            if (!HasComp(original, componentRegistration.Type))
+                RemComp(clone, componentRegistration.Type);
         }
 
         var cloningEv = new CloningEvent(settings, clone);
@@ -274,7 +269,7 @@ public sealed partial class CloningSystem : EntitySystem
         var slotEnumerator = _inventory.GetSlotEnumerator(original, slotFlags);
         while (slotEnumerator.NextItem(out var item, out var slot))
         {
-            var cloneItem = CopyItem(item, coords, whitelist, blacklist, copyStorage);
+            var cloneItem = CopyItem(item, coords, whitelist, blacklist);
 
             // Goob edit start
             if (cloneItem == null)

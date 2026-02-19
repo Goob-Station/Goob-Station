@@ -135,7 +135,7 @@ public sealed partial class IdCardComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField]
-    public ProtoId<AccessLevelPrototype>? JobPrototype;
+    public ProtoId<JobPrototype>? JobPrototype;
 
     /// <summary>
     /// The proto IDs of the departments associated with the job

@@ -598,6 +598,8 @@ public enum LogType
     /// </summary>
     Instrument = 103,
 
+    // Goob start
+
     /// <summary>
     /// SecretPlus related game interactions.
     /// </summary>

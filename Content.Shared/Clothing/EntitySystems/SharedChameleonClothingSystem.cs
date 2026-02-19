@@ -23,6 +23,7 @@ using Content.Shared.Contraband;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
+using Content.Shared.Lock;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
@@ -42,6 +43,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] protected readonly IGameTiming _timing = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
 
     private static readonly SlotFlags[] IgnoredSlots =
     {
@@ -91,7 +93,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
     protected void UpdateVisuals(EntityUid uid, ChameleonClothingComponent component)
     {
         if (string.IsNullOrEmpty(component.Default) ||
-            !_proto.TryIndex(component.Default, out EntityPrototype? proto))
+            !_proto.Resolve(component.Default, out EntityPrototype? proto))
             return;
 
         // world sprite icon
@@ -141,7 +143,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
 
     private void OnVerb(Entity<ChameleonClothingComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || ent.Comp.User != args.User)
+        if (!args.CanAccess || !args.CanInteract || _lock.IsLocked(ent.Owner))
             return;
 
         // Can't pass args from a ref event inside of lambdas

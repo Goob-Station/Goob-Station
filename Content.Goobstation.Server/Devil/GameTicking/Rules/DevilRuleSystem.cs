@@ -5,8 +5,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text;
-using Content.Goobstation.Server.Devil.Roles;
+using Content.Goobstation.Shared.Devil.Roles;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Roles;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;

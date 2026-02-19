@@ -116,12 +116,16 @@ using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
+using Content.Server.PDA.Ringer;
 using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
+using Content.Shared.PDA;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
 using Robust.Shared.Prototypes;
@@ -154,6 +158,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     {
         base.Initialize();
 
+        Log.Level = LogLevel.Debug;
+
         SubscribeLocalEvent<TraitorRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected);
         SubscribeLocalEvent<TraitorRuleComponent, ObjectivesTextPrependEvent>(OnObjectivesTextPrepend);
     }
@@ -171,20 +177,31 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         //Grab the mind if it wasn't provided
         if (!_mindSystem.TryGetMind(traitor, out var mindId, out var mind))
+        {
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)}  - failed, no Mind found");
             return false;
+        }
 
         var briefing = "";
 
+        if (component.GiveCodewords)
+        {
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - added codewords flufftext to briefing");
+            briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", factionCodewords)));
+        }
+
         var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
 
-        string? uplinkBriefing = null;
-        string? uplinkBriefingShort = null;
+        string? uplinkBriefing = null; // Goob
+        string? uplinkBriefingShort = null; // Goob
 
         if (component.GiveUplink)
         {
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink start");
             // Calculate the amount of currency on the uplink.
             var startingBalance = component.StartingBalance;
             if (_jobs.MindTryGetJob(mindId, out var prototype))
+                // Goob Start
                 startingBalance = Math.Max(startingBalance - prototype.AntagAdvantage, 0);
 
             var uplinkPreference = _goobUplink.GetUplinkPreference(mindId);
@@ -198,27 +215,43 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 uplinkBriefingShort = setupEvent.Value.BriefingEntryShort;
             }
             else // Fallback ooplink
+                // Goob End
             {
                 uplinkBriefing = Loc.GetString("traitor-role-uplink-implant");
                 uplinkBriefingShort = Loc.GetString("traitor-role-uplink-implant-short");
             }
+            /* Goob
+            Yeah idk apparently we arent using this check comment of me crashing out below.
+            todo goobstation clean up this whole file in relation to upstream version
+            pain
+
+            // Choose and generate an Uplink, and return the uplink code if applicable
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request start");
+            var uplinkParams = RequestUplink(traitor, startingBalance, briefing);
+            code = uplinkParams.Item1;
+            briefing = uplinkParams.Item2;
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request completed");
+            */
         }
 
         string[]? codewords = null;
         if (component.GiveCodewords)
         {
+            // Goob start
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - added codewords flufftext to briefing");
             briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", factionCodewords)));
+            // Goob end
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - set codewords from component");
             codewords = factionCodewords;
         }
 
         if (component.GiveBriefing)
         {
-            _antag.SendBriefing(traitor, GenerateBriefing(codewords, uplinkBriefing, issuer), null, component.GreetSoundNotification);
+            _antag.SendBriefing(traitor, GenerateBriefing(codewords, uplinkBriefing, issuer), null, component.GreetSoundNotification); // Goob
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Sent the Briefing");
         }
 
+        Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Adding TraitorMind");
         component.TraitorMinds.Add(mindId);
 
         // Assign briefing
@@ -241,11 +274,55 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         _roleCodewordSystem.SetRoleCodewords((mindId, codewordComp), "traitor", factionCodewords.ToList(), color);
 
         // Change the faction
+        Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Change faction");
         _npcFaction.RemoveFaction(traitor, component.NanoTrasenFaction, false);
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
 
+        Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Finished");
         return true;
     }
+    /*
+     Goobstation john fucking station nuked this whole ass thing for whatever implement we have now
+     Im not fucking fixing this. For all i care this file might as well be entirely goob.
+     Im recommenting it in for upstream clarity.
+     TODO GOOBSTATION. MOVE UPLINK SHIT TO GOOBMOD AND UNFUCK THIS???
+     ffs
+    private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing)
+    {
+        var pda = _uplink.FindUplinkTarget(traitor);
+        Note[]? code = null;
+
+        Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
+        var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
+
+        if (pda is not null && uplinked)
+        {
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
+            // Codes are only generated if the uplink is a PDA
+            var ev = new GenerateUplinkCodeEvent();
+            RaiseLocalEvent(pda.Value, ref ev);
+
+            if (ev.Code is { } generatedCode)
+            {
+                code = generatedCode;
+
+                // If giveUplink is false the uplink code part is omitted
+                briefing = string.Format("{0}\n{1}",
+                    briefing,
+                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+                return (code, briefing);
+            }
+        }
+        else if (pda is null && uplinked)
+        {
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
+            briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
+        }
+
+        return (null, briefing);
+    }
+    Goob end
+    */
 
     // TODO: AntagCodewordsComponent
     private void OnObjectivesTextPrepend(EntityUid uid, TraitorRuleComponent comp, ref ObjectivesTextPrependEvent args)

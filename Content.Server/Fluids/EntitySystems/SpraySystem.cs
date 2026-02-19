@@ -235,7 +235,7 @@ public sealed class SpraySystem : EntitySystem
 
                 if (TryComp<PhysicsComponent>(user, out var body))
                 {
-                    if (_gravity.IsWeightless(user, body))
+                    if (_gravity.IsWeightless(user))
                         _physics.ApplyLinearImpulse(user, -impulseDirection.Normalized() * entity.Comp.PushbackAmount, body: body);
                 }
 
@@ -314,7 +314,7 @@ public sealed class SpraySystem : EntitySystem
 
             if (TryComp<PhysicsComponent>(user, out var body))
             {
-                if (_gravity.IsWeightless(user, body))
+                if (_gravity.IsWeightless(user))
                 {
                     // push back the player
                     _physics.ApplyLinearImpulse(user, -impulseDirection * entity.Comp.PushbackAmount, body: body);

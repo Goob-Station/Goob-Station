@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Radio.Components;
-using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+using Content.Shared.Radio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._EinsteinEngines.Radio;
 
@@ -21,15 +21,17 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
 
     private void OnTransmitterChannelsChanged(EntityUid uid, IntrinsicRadioTransmitterComponent component, EncryptionChannelsChangedEvent args)
     {
-        UpdateChannels(uid, args.Component, ref component.Channels);
+        UpdateChannels(args.Component, ref component.Channels);
+        Dirty(uid, component);
     }
 
     private void OnReceiverChannelsChanged(EntityUid uid, ActiveRadioComponent component, EncryptionChannelsChangedEvent args)
     {
-        UpdateChannels(uid, args.Component, ref component.Channels);
+        UpdateChannels(args.Component, ref component.Channels);
+        Dirty(uid, component);
     }
 
-    private void UpdateChannels(EntityUid _, EncryptionKeyHolderComponent keyHolderComp, ref HashSet<string> channels)
+    private void UpdateChannels(EncryptionKeyHolderComponent keyHolderComp, ref HashSet<ProtoId<RadioChannelPrototype>> channels)
     {
         channels.Clear();
         channels.UnionWith(keyHolderComp.Channels);

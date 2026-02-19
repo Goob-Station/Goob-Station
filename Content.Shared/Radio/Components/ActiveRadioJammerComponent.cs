@@ -37,7 +37,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Radio.Components;
 
 /// <summary>
-/// Prevents all radio in range from sending messages
+/// Prevents all non whitelisted radios from sending messages
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedJammerSystem))]

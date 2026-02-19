@@ -6,6 +6,7 @@
 
 using Content.Server.Kitchen.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Content.Shared.Kitchen.Components;
 using Robust.Shared.Audio;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
@@ -27,7 +28,7 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
     {
         if (EnsureComp<SurgeryToolComponent>(ent, out var tool))
         {
-            ent.Comp.HadSurgeryTool = true;
+            //ent.Comp.HadSurgeryTool = true; // todo marty
         }
         else
         {
@@ -38,7 +39,7 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
 
         if (EnsureComp<ScalpelComponent>(ent, out var scalpel))
         {
-            ent.Comp.HadScalpel = true;
+            //ent.Comp.HadScalpel = true; // todo marty
         }
         else
         {
@@ -48,7 +49,7 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
 
         if (EnsureComp<BoneSawComponent>(ent, out var saw))
         {
-            ent.Comp.HadBoneSaw = true;
+            //ent.Comp.HadBoneSaw = true; //todo marty
         }
         else
         {
@@ -59,13 +60,13 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
 
     private void OnSharpShutdown(Entity<SharpComponent> ent, ref ComponentShutdown args)
     {
-        if (!ent.Comp.HadSurgeryTool)
+        //if (!ent.Comp.HadSurgeryTool) // todo marty
             RemComp<SurgeryToolComponent>(ent);
 
-        if (!ent.Comp.HadScalpel)
+        //if (!ent.Comp.HadScalpel)
             RemComp<ScalpelComponent>(ent);
 
-        if (!ent.Comp.HadBoneSaw)
+        //if (!ent.Comp.HadBoneSaw)
             RemComp<BoneSawComponent>(ent);
     }
 }

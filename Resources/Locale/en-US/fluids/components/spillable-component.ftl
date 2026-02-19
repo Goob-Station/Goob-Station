@@ -18,4 +18,4 @@ spill-melee-hit-others = {CAPITALIZE(THE($attacker))} spills some of {THE($spill
 spill-land-spilled-on-other = {CAPITALIZE(THE($spillable))} spills some of its solution onto {THE($target)}!
 
 spill-examine-is-spillable = This container looks spillable.
-spill-examine-spillable-weapon = You could splash this onto someone with a melee attack.
+spill-examine-spillable-weapon = You could splash this onto someone with an attack.

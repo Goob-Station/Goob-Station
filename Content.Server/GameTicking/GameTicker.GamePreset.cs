@@ -83,6 +83,11 @@ public sealed partial class GameTicker
     public GamePresetPrototype? Preset { get; private set; }
 
     /// <summary>
+    /// The selected preset that will be shown at the lobby screen to fool players.
+    /// </summary>
+    public GamePresetPrototype? Decoy { get; private set; }
+
+    /// <summary>
     /// The preset that's currently active.
     /// </summary>
     public GamePresetPrototype? CurrentPreset { get; private set; }
@@ -110,10 +115,10 @@ public sealed partial class GameTicker
             DelayStart(TimeSpan.FromSeconds(PresetFailedCooldownIncrease));
         }
 
-            if (_cfg.GetCVar(CCVars.GameLobbyFallbackEnabled))
-            {
-                var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
-                var startFailed = true;
+        if (_cfg.GetCVar(CCVars.GameLobbyFallbackEnabled))
+        {
+            var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
+            var startFailed = true;
 
             foreach (var preset in fallbackPresets)
             {
@@ -153,12 +158,12 @@ public sealed partial class GameTicker
         return true;
     }
 
-        private void InitializeGamePreset()
-        {
-            SetGamePreset(LobbyEnabled ? _cfg.GetCVar(CCVars.GameLobbyDefaultPreset) : "sandbox");
-        }
+    private void InitializeGamePreset()
+    {
+        SetGamePreset(LobbyEnabled ? _cfg.GetCVar(CCVars.GameLobbyDefaultPreset) : "sandbox");
+    }
 
-    public void SetGamePreset(GamePresetPrototype? preset, bool force = false, int? resetDelay = null)
+    public void SetGamePreset(GamePresetPrototype? preset, bool force = false, GamePresetPrototype? decoy = null, int? resetDelay = null)
     {
         // Do nothing if this game ticker is a dummy!
         if (DummyTicker)
@@ -178,6 +183,7 @@ public sealed partial class GameTicker
         }
 
         Preset = preset;
+        Decoy = decoy;
         ValidateMap();
         UpdateInfoText();
 
@@ -190,7 +196,7 @@ public sealed partial class GameTicker
     public void SetGamePreset(string preset, bool force = false)
     {
         var proto = FindGamePreset(preset);
-        if(proto != null)
+        if (proto != null)
             SetGamePreset(proto, force);
     }
 
@@ -278,19 +284,19 @@ public sealed partial class GameTicker
         }
     }
 
-        private void IncrementRoundNumber()
-        {
-            var playerIds = _playerGameStatuses.Keys.Select(player => player.UserId).ToArray();
-            var serverName = _cfg.GetCVar(CCVars.AdminLogsServerName);
-
-    // TODO FIXME AAAAAAAAAAAAAAAAAAAH THIS IS BROKEN
-    // Task.Run as a terrible dirty workaround to avoid synchronization context deadlock from .Result here.
-    // This whole setup logic should be made asynchronous so we can properly wait on the DB AAAAAAAAAAAAAH
-    var task = Task.Run(async () =>
+    private void IncrementRoundNumber()
     {
-        var server = await _dbEntryManager.ServerEntity;
-        return await _db.AddNewRound(server, playerIds);
-    });
+        var playerIds = _playerGameStatuses.Keys.Select(player => player.UserId).ToArray();
+        var serverName = _cfg.GetCVar(CCVars.AdminLogsServerName);
+
+        // TODO FIXME AAAAAAAAAAAAAAAAAAAH THIS IS BROKEN
+        // Task.Run as a terrible dirty workaround to avoid synchronization context deadlock from .Result here.
+        // This whole setup logic should be made asynchronous so we can properly wait on the DB AAAAAAAAAAAAAH
+        var task = Task.Run(async () =>
+        {
+            var server = await _dbEntryManager.ServerEntity;
+            return await _db.AddNewRound(server, playerIds);
+        });
 
         _taskManager.BlockWaitOnTask(task);
         RoundId = task.GetAwaiter().GetResult();

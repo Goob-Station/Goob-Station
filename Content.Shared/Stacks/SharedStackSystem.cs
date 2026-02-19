@@ -22,6 +22,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Common.Stack;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -29,6 +30,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Nutrition;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map; // Goobstation
@@ -52,6 +54,9 @@ namespace Content.Shared.Stacks
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] protected readonly SharedPopupSystem Popup = default!;
         [Dependency] private readonly SharedStorageSystem _storage = default!;
+        [Dependency] private readonly SharedUserInterfaceSystem _ui = default!; // Goobstation - Custom stack splitting dialog
+
+        public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 30, 50 };
 
         public override void Initialize()
         {
@@ -64,6 +69,7 @@ namespace Content.Shared.Stacks
             SubscribeLocalEvent<StackComponent, InteractUsingEvent>(OnStackInteractUsing);
             SubscribeLocalEvent<StackComponent, BeforeIngestedEvent>(OnBeforeEaten);
             SubscribeLocalEvent<StackComponent, IngestedEvent>(OnEaten);
+            SubscribeLocalEvent<StackComponent, GetVerbsEvent<AlternativeVerb>>(OnStackAlternativeInteract);
 
             _vvm.GetTypeHandler<StackComponent>()
                 .AddPath(nameof(StackComponent.Count), (_, comp) => comp.Count, SetCount);
@@ -385,10 +391,6 @@ namespace Content.Shared.Stacks
 
         private void OnStackStarted(EntityUid uid, StackComponent component, ComponentStartup args)
         {
-            // on client, lingering stacks that start at 0 need to be darkened
-            // on server this does nothing
-            SetCount(uid, component.Count, component);
-
             if (!TryComp(uid, out AppearanceComponent? appearance))
                 return;
 
@@ -399,7 +401,7 @@ namespace Content.Shared.Stacks
 
         private void OnStackGetState(EntityUid uid, StackComponent component, ref ComponentGetState args)
         {
-            args.State = new StackComponentState(component.Count, component.MaxCountOverride, component.Lingering);
+            args.State = new StackComponentState(component.Count, component.MaxCountOverride);
         }
 
         private void OnStackHandleState(EntityUid uid, StackComponent component, ref ComponentHandleState args)
@@ -408,7 +410,6 @@ namespace Content.Shared.Stacks
                 return;
 
             component.MaxCountOverride = cast.MaxCount;
-            component.Lingering = cast.Lingering;
             // This will change the count and call events.
             SetCount(uid, cast.Count, component);
         }
@@ -461,7 +462,7 @@ namespace Content.Shared.Stacks
                 return;
 
             // We haven't eaten the whole stack yet or are unable to eat it completely.
-            if (eaten.Comp.Count > 0 || eaten.Comp.Lingering)
+            if (eaten.Comp.Count > 0)
             {
                 args.Refresh = true;
                 return;
@@ -469,6 +470,68 @@ namespace Content.Shared.Stacks
 
             // Here to tell the food system to do destroy stuff.
             args.Destroy = true;
+        }
+
+        private void OnStackAlternativeInteract(EntityUid uid, StackComponent stack, GetVerbsEvent<AlternativeVerb> args)
+        {
+            if (!args.CanAccess || !args.CanInteract || args.Hands == null || stack.Count == 1)
+                return;
+
+            AlternativeVerb halve = new()
+            {
+                Text = Loc.GetString("comp-stack-split-halve"),
+                Category = VerbCategory.Split,
+                Act = () => UserSplit(uid, args.User, stack.Count / 2, stack),
+                Priority = 1
+            };
+            args.Verbs.Add(halve);
+
+            var priority = 0;
+            foreach (var amount in DefaultSplitAmounts)
+            {
+                if (amount >= stack.Count)
+                    continue;
+
+                AlternativeVerb verb = new()
+                {
+                    Text = amount.ToString(),
+                    Category = VerbCategory.Split,
+                    Act = () => UserSplit(uid, args.User, amount, stack),
+                    // we want to sort by size, not alphabetically by the verb text.
+                    Priority = priority
+                };
+
+                priority--;
+
+                args.Verbs.Add(verb);
+            }
+
+            // Goobstation - Custom stack splitting dialog
+            AlternativeVerb custom = new()
+            {
+                Text = Loc.GetString("comp-stack-split-custom"),
+                Category = VerbCategory.Split,
+                Act = () =>
+                {
+                    _ui.OpenUi(uid, StackCustomSplitUiKey.Key, args.User);
+                },
+                Priority = priority - 1
+            };
+            args.Verbs.Add(custom);
+        }
+
+        /// <remarks>
+        ///     OnStackAlternativeInteract() was moved to shared in order to faciliate prediction of stack splitting verbs.
+        ///     However, prediction of interacitons with spawned entities is non-functional (or so i'm told)
+        ///     So, UserSplit() and Split() should remain on the server for the time being.
+        ///     This empty virtual method allows for UserSplit() to be called on the server from the client.
+        ///     When prediction is improved, those two methods should be moved to shared, in order to predict the splitting itself (not just the verbs)
+        /// </remarks>
+        public virtual void UserSplit(EntityUid uid, EntityUid userUid, int amount, // Goobstation public
+            StackComponent? stack = null,
+            TransformComponent? userTransform = null)
+        {
+
         }
     }
 

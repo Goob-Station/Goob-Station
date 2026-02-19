@@ -108,6 +108,8 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Zombies;
 
 namespace Content.Goobstation.Server.Changeling;
 

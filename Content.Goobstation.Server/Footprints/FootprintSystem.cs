@@ -76,7 +76,7 @@ public sealed class FootprintSystem : EntitySystem
         if (_noFootprintsQuery.HasComp(entity))
             return;
 
-        if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
+        if (_gravity.IsWeightless(entity.Owner) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
             return;
 
         var oldPosition = _transform.ToMapCoordinates(e.OldPosition).Position;

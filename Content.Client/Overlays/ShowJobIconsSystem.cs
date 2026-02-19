@@ -130,7 +130,7 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
             }
         }
 
-        if (_prototype.TryIndex(iconId, out var iconPrototype))
+        if (_prototype.Resolve(iconId, out var iconPrototype))
             ev.StatusIcons.Add(iconPrototype);
         else
             Log.Error($"Invalid job icon prototype: {iconPrototype}");

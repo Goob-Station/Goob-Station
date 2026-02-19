@@ -706,6 +706,18 @@
   maxCount: 30
 
 - type: stack
+  id: FloorTileDarkAstroGrass
+  name: stack-dark-astro-grass-floor
+  spawn: FloorTileItemDarkAstroGrass
+  maxCount: 30
+
+- type: stack
+  id: FloorTileLightAstroGrass
+  name: stack-light-astro-grass-floor
+  spawn: FloorTileItemLightAstroGrass
+  maxCount: 30
+
+- type: stack
   id: FloorTileAstroIce
   name: stack-astro-ice-floor
   spawn: FloorTileItemAstroIce
@@ -724,9 +736,51 @@
   maxCount: 30
 
 - type: stack
+  id: FloorTileDesertAstroSand
+  name: stack-desert-astro-sand-floor
+  spawn: FloorTileItemDesertAstroSand
+  maxCount: 30
+
+- type: stack
   id: FloorTileWoodLarge
   name: stack-large-wood-floor
   spawn: FloorTileItemWoodLarge
+  maxCount: 30
+
+- type: stack
+  id: FloorTileXeno
+  name: stack-xeno-floor
+  spawn: FloorTileItemXeno
+  maxCount: 30
+
+- type: stack
+  id: FloorTileXenoSteel
+  name: stack-xeno-steel
+  spawn: FloorTileItemXenoSteelCorner
+  maxCount: 30
+
+- type: stack
+  id: FloorTileXenoSteelCorner
+  name: stack-xeno-steel-corner
+  spawn: FloorTileItemXenoSteelCorner
+  maxCount: 30
+
+- type: stack
+  id: FloorTileXenoMaint
+  name: stack-xeno-maint
+  spawn: FloorTileItemXenoSteelCorner
+  maxCount: 30
+
+- type: stack
+  id: FloorTileDarkSquiggly
+  name: stack-dark-squiggly
+  spawn: FloorTileItemDarkSquiggly
+  maxCount: 30
+
+- type: stack
+  id: FloorTileXenoborg
+  name: stack-xenoborg
+  spawn: FloorTileItemXenoborg
   maxCount: 30
 
 - type: stack

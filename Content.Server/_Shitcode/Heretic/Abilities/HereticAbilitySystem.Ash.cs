@@ -28,6 +28,7 @@ using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Temperature.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Atmos.Components;
 
 namespace Content.Server.Heretic.Abilities;
 

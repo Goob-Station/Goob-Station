@@ -109,7 +109,7 @@ public sealed class DisgustSystem : EntitySystem
     {
         if (ent.Comp.Level <= 0f)
         {
-            _alets.ClearAlert(ent, ent.Comp.Alert);
+            _alets.ClearAlert(ent.Owner, ent.Comp.Alert);
             return;
         }
 
@@ -121,8 +121,8 @@ public sealed class DisgustSystem : EntitySystem
         }
 
         if (severity == 0)
-            _alets.ClearAlert(ent, ent.Comp.Alert);
+            _alets.ClearAlert(ent.Owner, ent.Comp.Alert);
         else
-            _alets.ShowAlert(ent, ent.Comp.Alert, severity);
+            _alets.ShowAlert(ent.Owner, ent.Comp.Alert, severity);
     }
 }

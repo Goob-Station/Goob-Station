@@ -162,16 +162,16 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
 
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformMailCarrier
-  name: mail carrier's uniform
-  description: Enemy of dogs everywhere.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
+#- type: entity todo <mailfix>
+#  parent: ClothingUniformBase
+#  id: ClothingUniformMailCarrier
+#  name: mail carrier's uniform
+#  description: Enemy of dogs everywhere.
+#  components:
+#  - type: Sprite
+#    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
+#  - type: Clothing
+#    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
 
 - type: entity
   parent: ClothingUniformBase
