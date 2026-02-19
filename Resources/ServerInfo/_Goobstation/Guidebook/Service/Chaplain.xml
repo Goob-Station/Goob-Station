@@ -58,21 +58,25 @@ Allows you to choose a set of armor. All armors have identical stats.
 The Null Rod is the chaplain's trusty tool, With it the chaplain is one of the most feared crew memebers for magical beings, and without it the chaplain is nothing.
 
   ### Null Rod [Default]
+
   Holds the power to transform into any form you desire, although don't write off the default nullrod as it is a great weapon without any gimmicks.
 
   Does good damage (10 blunt and 10 holy) at average speed.
 
   ### Atheist's Fedora [Nanotrasen Altar]
+
   The latest fasion among "cool" chaplain these days, it's fitted with special Nanotrasen patented boomerang technology so you won't have to worry about losing it.
 
   Deals low melee damage (5 slash and 10 holy) with average throwing damage (10 slash and 10 holy) with average attack speed.
 
   ### God Hand [Chaos Altar]
+
   Infuse your own hand with the power of the GODS replacing it with a Firey, Blazing, Holy hand.
 
   Deals good damage ([color=red]10 Heat[/color], 4 slash and 10 holy) at average speed with the added ability of applying fire stacks and instantly hard grabbing the target.
 
   ### Holy Claymore [Heaven Altar]
+
   The number one choice for space crusaders this holy sword has been one of the most reliable weapons throught out the history of space crusades.
 
   Right clicking with this weapon while wealding it shoots out a yellow bolt of holy energy.
@@ -81,12 +85,14 @@ The Null Rod is the chaplain's trusty tool, With it the chaplain is one of the m
   Deals good damage (13 slash and 10 holy) It's melee speed is average with a 0.5 shots per second ranged bolt.
 
   ### Monk's Staff [Nature Altar]
+
   A wooden staff, Typically used to beat the literal and metaphorical Devil out of someone.
   Its real power lies in the staffs ability to deal stamina damage.
 
   Deals low damage (2.5 blunt and 6 holy, with an additional [color=blue]10 stamina[/color]) at a fast attack speed.
 
   ### His Holy Chainsaw [Toolbox Altar]
+
   Do you like chainsaws? Are you mildly insane? Then this is the nullrod for you, Completely replace your arm with a full on chainsaw and hack up those demons.
 
   Needs wielding, But deals low damage (2 blunt, 3 slash and 6 holy, With 20 structural to tear into places) at a very fast attack speed.
@@ -106,6 +112,7 @@ The Null Rod is the chaplain's trusty tool, With it the chaplain is one of the m
   Each pistol does low damage, and comes in a special holster, deals (5 piercing and 4 holy per shot)
 
   ### Grey Emperor's Glove [Maintenance Altar]
+
   The tider GOD has chosen you to be his vessel, replace your hand with HIS and let HIS power flow through you.
 
   Allows you to use any tool you need(dosen't come with a welder) and is fully insulated.
@@ -113,6 +120,7 @@ The Null Rod is the chaplain's trusty tool, With it the chaplain is one of the m
   Deals good damage (14 holy and 9 blunt) with average attack speed.
 
   ### Arythmic Knife [Fanged Altar]
+
   knife of the speed addicts, randomly speeds and slows you down at intervals, between 0.6x move speed and 2.0x move speed.
 
   Average attack speed and lowish damage (9 slash and 10 holy)
@@ -125,6 +133,7 @@ The Null Rod is the chaplain's trusty tool, With it the chaplain is one of the m
   Average attack speed and lowish damage (10 blunt and 12 holy)
 
   ### Ratvarian Spear [Clockwork Altar]
+
   A spear scavanged and forged from the remains of the very dead clockwork god.
   A robust melee weapon with added range, and a good throwing one at that, tho it likes to stick to stuff when thrown and is pretty annoying to pull out.
 
@@ -138,9 +147,16 @@ The Null Rod is the chaplain's trusty tool, With it the chaplain is one of the m
   It blocks 15% of all damage unless planted, then its 100%. It does low damage (5 slash and 10 holy) at a slow speed.
 
   ### Dragon's tail [Draconic Altar]
-  A whip made from the remains of a space dragon
+
+  A whip made from the remains of a space dragon.
 
   Deals good damage ([color=red]5 Heat[/color], 5 blunt and 5 holy) at average speed with the added ability of applying fire stacks.
+
+ ###  Inquisitor Chain Sword [ Imperial Altar]
+
+ A ChainSword that revs up when prayed to offering a high burst of damage.
+
+ It does high damage when activated (20 slash and 15 holy and lasts 10 seconds with a 180 second delay between uses) at a fast speed, and dose (7 Blunt and 5 Holy when unreved).
 
 ### Enchanting
 
