@@ -1,0 +1,47 @@
+﻿- type: constructionGraph
+  id: TileSteelCheckerDark
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: steeltile
+      completed:
+      - !type:SetStackCount
+        amount: 4
+      steps:
+      - material: Steel
+        amount: 1
+  - node: steeltile
+    entity: FloorTileItemSteelCheckerDark
+
+- type: constructionGraph
+  id: TileSteelCheckerLight
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: steeltile
+      completed:
+      - !type:SetStackCount
+        amount: 4
+      steps:
+      - material: Steel
+        amount: 1
+  - node: steeltile
+    entity: FloorTileItemSteelCheckerLight
+
+- type: constructionGraph
+  id: TileSteelKitchen
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: steeltile
+      completed:
+      - !type:SetStackCount
+        amount: 4
+      steps:
+      - material: Steel
+        amount: 1
+  - node: steeltile
+    entity: FloorTileItemKitchen

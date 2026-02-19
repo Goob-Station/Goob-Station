@@ -1,0 +1,23 @@
+﻿- type: construction
+  id: TileSteelCheckerDark
+  graph: TileSteelCheckerDark
+  startNode: start
+  targetNode: steeltile
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
+  id: TileSteelCheckerLight
+  graph: TileSteelCheckerLight
+  startNode: start
+  targetNode: steeltile
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
+  id: TileSteelKitchen
+  graph: TileSteelKitchen
+  startNode: start
+  targetNode: steeltile
+  category: construction-category-tiles
+  objectType: Item

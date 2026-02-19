@@ -179,6 +179,9 @@
       - FloorSteelCheckerDark
   - type: Stack
     stackType: FloorTileSteelCheckerDark
+  - type: Construction #Goobstation
+    graph: TileSteelCheckerDark
+    node: steeltile
 
 - type: entity
   name: steel light checker tile
@@ -193,6 +196,9 @@
       - FloorSteelCheckerLight
   - type: Stack
     stackType: FloorTileSteelCheckerLight
+  - type: Construction #Goobstation
+    graph: TileSteelCheckerLight
+    node: steeltile
 
 - type: entity
   name: dark tile
@@ -975,6 +981,9 @@
       - FloorKitchen
   - type: Stack
     stackType: FloorTileKitchen
+  - type: Construction #Goobstation
+    graph: TileSteelKitchen
+    node: steeltile
 
 - type: entity
   name: laundry tile
