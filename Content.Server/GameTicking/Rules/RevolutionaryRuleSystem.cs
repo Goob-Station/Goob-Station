@@ -235,7 +235,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         // Goob edit end (for now)
 
-        if (uid != ev.User)
+        if (uid != ev.User) // Goob
             return;
 
         var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(ev.Target);
