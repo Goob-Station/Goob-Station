@@ -1,13 +1,13 @@
 using Content.Goobstation.Common.CCVar;
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Mind;
 using Content.Server.Popups;
-using Content.Server.Warps;
+using Content.Shared.Warps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Rejuvenate;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Content.Shared.Popups;
+using Content.Shared.Trigger;
 
 namespace Content.Goobstation.Server.CentComm;
 public sealed partial class WarpParentOnTriggerSystem : EntitySystem
