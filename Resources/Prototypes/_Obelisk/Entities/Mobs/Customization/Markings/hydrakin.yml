@@ -319,7 +319,7 @@
 - type: marking
   id: HydrakinHydraSeerMarking
   bodyPart: Head
-  markingCategory: HeadSide
+  markingCategory: Head
   speciesRestriction: [Hydrakin]
   sprites:
   - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
