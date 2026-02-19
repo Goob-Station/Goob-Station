@@ -80,6 +80,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
@@ -127,7 +128,6 @@ public sealed partial class PullerComponent : Component
 
     // Goobstation start
     // Added Grab variables
-
     [DataField]
     public Dictionary<GrabStage, short> PullingAlertSeverity = new()
     {
@@ -168,7 +168,7 @@ public sealed partial class PullerComponent : Component
     public float GrabThrowDamageModifier = 2f;
 
     [ViewVariables]
-    public List<EntityUid> GrabVirtualItems = new();
+    public List<EntityUid> GrabVirtualItems = [];
 
     [ViewVariables]
     public Dictionary<GrabStage, int> GrabVirtualItemStageCount = new()

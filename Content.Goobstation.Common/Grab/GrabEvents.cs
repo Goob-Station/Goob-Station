@@ -2,6 +2,24 @@ namespace Content.Goobstation.Common.Grab;
 
 // Can't have inventory relays because it must be in common...
 [ByRefEvent]
+public record struct GrabAttemptEvent(
+    EntityUid Puller,
+    bool IgnoreCombatMode = false,
+    GrabStage? GrabStageOverride = null,
+    float EscapeAttemptModifier = 1f)
+{
+    public bool Grabbed = false;
+}
+
+[ByRefEvent]
+public record struct GrabAttemptReleaseEvent(
+    EntityUid? user,
+    EntityUid puller)
+{
+    public bool Released = false;
+}
+
+[ByRefEvent]
 public record struct RaiseGrabModifierEventEvent(
     EntityUid User,
     int Stage,
