@@ -157,7 +157,10 @@
       coefficients:
         Blunt: 0.9
         Slash: 0.9
-
+  - type: ContainerContainer    # hope
+    containers:
+      storagebase: !type:Container
+        ents: []
 
 - type: entity
   parent: ClothingOuterBase
