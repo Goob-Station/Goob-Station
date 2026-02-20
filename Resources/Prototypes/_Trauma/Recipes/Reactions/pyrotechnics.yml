@@ -54,5 +54,6 @@
       amount: 1
     Vestine:
       amount: 1
+      catalyst: true
   products:
-    Octogen: 6
+    Octogen: 4
