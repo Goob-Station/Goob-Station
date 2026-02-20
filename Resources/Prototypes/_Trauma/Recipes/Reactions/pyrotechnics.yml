@@ -52,5 +52,7 @@
       amount: 1
     Hexamine:
       amount: 1
+    Vestine:
+      amount: 1
   products:
-    Octogen: 4
+    Octogen: 6
