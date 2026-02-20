@@ -157,9 +157,15 @@
       coefficients:
         Blunt: 0.9
         Slash: 0.9
-  - type: ContainerContainer    # hope
+  - type: ContainerContainer
     containers:
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      toggleable-clothing: !type:Container
+        showEnts: False
+        occludes: True
         ents: []
 
 - type: entity
