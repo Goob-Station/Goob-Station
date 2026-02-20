@@ -211,6 +211,11 @@
         components:
         - CommandStaff
     # Can't have multiple objectives to kill the same person.
+    - !type:BodyMindFilter # Goob - don't pick nukie commander...
+      inverted: true
+      whitelist:
+        components:
+          - NukeOperative
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
@@ -242,8 +247,9 @@
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
-        - RandomTraitorAlive
-        - RandomTraitorProgress
+        - HelpProgressCondition
+        - KeepAliveCondition
+
 
 - type: entity
   parent: [BaseTraitorSocialObjective, BaseHelpProgressObjective]
@@ -271,8 +277,8 @@
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
-        - RandomTraitorAlive
-        - RandomTraitorProgress
+        - HelpProgressCondition
+        - KeepAliveCondition
 
 # steal
 

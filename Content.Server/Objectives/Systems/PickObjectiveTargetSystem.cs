@@ -11,9 +11,10 @@ using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Revolutionary.Components;
 using Robust.Shared.Random;
-using System.Linq;
+using Content.Server._Goobstation.Objectives.Components;
+using Content.Shared.Mind.Filters;
+
 
 namespace Content.Server.Objectives.Systems;
 
@@ -34,6 +35,8 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
         SubscribeLocalEvent<PickSpecificPersonComponent, ObjectiveAssignedEvent>(OnSpecificPersonAssigned);
         SubscribeLocalEvent<PickRandomPersonComponent, ObjectiveAssignedEvent>(OnRandomPersonAssigned);
+        SubscribeLocalEvent<PickRandomTraitorComponent, ObjectiveAssignedEvent>(OnRandomTraitorAssigned);
+        SubscribeLocalEvent<RandomTraitorTargetComponent, ObjectiveAssignedEvent>(OnRandomTraitorTargetAssigned);
     }
 
     private void OnSpecificPersonAssigned(Entity<PickSpecificPersonComponent> ent, ref ObjectiveAssignedEvent args)
@@ -85,6 +88,97 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
+        if (_mind.PickFromPool(new AliveHumansPool(), new(), args.MindId) is not {} fallback)
+        // fallback if no traitors
+        _target.SetTarget(ent, picked, target);
+    }
+
+    private void OnRandomTraitorAssigned(Entity<PickRandomTraitorComponent> ent, ref ObjectiveAssignedEvent args)
+    {
+        // invalid objective prototype
+        if (!TryComp<TargetObjectiveComponent>(ent, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        // target already assigned
+        if (target.Target != null)
+            return;
+
+        if (!TryComp<MindComponent>(args.MindId, out var mind))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        var otherTraitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(mind);
+
+        EntityUid? picked = null;
+        if (otherTraitors.Count > 0)
+        {
+            picked = _random.Pick(otherTraitors).Id;
+        }
+
+        // fallback if no traitors this should never happen if there are enough players
+        if (picked == null)
+        {
+            if (_mind.PickFromPool(new AliveHumansPool(), new(), args.MindId) is not {} fallback)
+            {
+                args.Cancelled = true;
+                return;
+            }
+            picked = fallback;
+        }
+
+        _target.SetTarget(ent, picked.Value, target);
+    }
+
+    private void OnRandomTraitorTargetAssigned(Entity<RandomTraitorTargetComponent> ent, ref ObjectiveAssignedEvent args)
+    {
+        // invalid objective prototype
+        if (!TryComp<TargetObjectiveComponent>(ent, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        // target already assigned
+        if (target.Target != null)
+            return;
+
+        if (!TryComp<MindComponent>(args.MindId, out var mind))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        var otherTraitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(mind);
+
+        var possibleTargets = new HashSet<EntityUid>();
+
+        foreach (var (_, traitorMind) in otherTraitors)
+        {
+            foreach (var obj in traitorMind.Objectives)
+            {
+                if (!TryComp<TargetObjectiveComponent>(obj, out var objTarget) || objTarget.Target == null)
+                    continue;
+
+                if (!HasComp<KillPersonConditionComponent>(obj))
+                    continue;
+
+                possibleTargets.Add(objTarget.Target.Value);
+            }
+        }
+
+        // couldn't find a target :(
+        if (possibleTargets.Count == 0)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        var picked = _random.Pick(possibleTargets);
         _target.SetTarget(ent, picked, target);
     }
 }
