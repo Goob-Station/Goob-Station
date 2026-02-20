@@ -36,19 +36,19 @@ knowledge-path-blade-s2-desc =
 
     Your Mansus Grasp will cause a short stun when used on someone lying down or facing away from you.
 
-knowledge-path-blade-s3-name = Dance of the Brand
+knowledge-path-blade-s3-name = Mark of the Blade
 knowledge-path-blade-s3-desc =
-    The footsoldier was known to be a fearsome duelist. Their general quickly appointed them as their personal Champion.
-
-    Being attacked while wielding a Heretic Blade in either hand will deliver a riposte towards your attacker, knocking them down. This effect can only trigger once every 20 seconds.
-
-knowledge-path-blade-s4-name = Mark of the Blade
-knowledge-path-blade-s4-desc =
     His general wished to end the war, but the Champion knew there could be no life without death. He would slay the coward himself, and anyone who tried to run.
 
     Your Mansus Grasp now applies the Mark of the Blade.
     Triggering the mark will summon a knife that will orbit you for a short time.
     The knife will block any attack directed towards you, but is consumed on use.
+
+knowledge-path-blade-s4-name = Dance of the Brand
+knowledge-path-blade-s4-desc =
+    The footsoldier was known to be a fearsome duelist. Their general quickly appointed them as their personal Champion.
+
+    Being attacked while wielding a Heretic Blade in either hand will deliver a riposte towards your attacker, knocking them down. This effect can only trigger once every 20 seconds.
 
 knowledge-path-blade-s5-name = Realignment
 knowledge-path-blade-s5-desc =

@@ -14,8 +14,8 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class TransmutationRuneScriberComponent : Component
 {
     [DataField]
-    public float Time = 5f;
+    public float? Time;
 
     [DataField]
-    public EntProtoId RuneDrawingEntity = "HereticRuneRitualDrawAnimationCicatrix";
+    public EntProtoId? RuneDrawingEntity;
 }

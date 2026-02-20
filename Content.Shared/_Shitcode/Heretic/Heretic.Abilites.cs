@@ -333,7 +333,7 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
     public float LookupRange = 0.1f;
 
     [DataField]
-    public int RustStrength = 4; // Mark of rust level
+    public int RustStrength = 2;
 
     [DataField]
     public EntProtoId TileRune = "TileHereticRustRune";

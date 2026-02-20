@@ -11,7 +11,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
 public sealed partial class EntropicPlumeAffectedComponent : Component
 {
     [DataField]
@@ -20,8 +20,8 @@ public sealed partial class EntropicPlumeAffectedComponent : Component
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan NextAttack = TimeSpan.Zero;
 
-    [DataField]
-    public SpriteSpecifier Sprite =
+    [DataField, AutoNetworkedField]
+    public SpriteSpecifier? Sprite =
         new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Heretic/Effects/effects.rsi"), "cloud_swirl");
 }
 

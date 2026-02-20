@@ -180,7 +180,7 @@ public sealed partial class PuddleSystem
         }
 
         var drainedSolution = _solutionContainerSystem.Drain(entity.Owner, soln.Value, solution.Volume);
-        TrySplashSpillAt(entity.Owner, Transform(entity).Coordinates, drainedSolution, out _);
+        TrySplashSpillAt(entity.Owner, Transform(entity).Coordinates, drainedSolution, out _, user: args.User); // Goob edit
     }
 
     private void OnDoAfter(Entity<SpillableComponent> entity, ref SpillDoAfterEvent args)

@@ -80,6 +80,16 @@
             - Heretic
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 50.0
+        type: Remove
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Heretic
+            - Ghoul
+          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
     Poison:
       effects:
       - !type:Electrocute

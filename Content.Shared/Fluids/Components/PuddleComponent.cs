@@ -37,7 +37,7 @@ namespace Content.Shared.Fluids.Components
         [DataField]
         public float DefaultSlippery = 5.5f;
 
-        [ViewVariables]
+        [ViewVariables, Access(Other = AccessPermissions.ReadWriteExecute)] // Goob edit
         public Entity<SolutionComponent>? Solution;
 
         // Corvax-Next-Footprints-Start

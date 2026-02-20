@@ -14,7 +14,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Your ultimate goal is to ascend and become all powerful, but to do that you must gain knowledge.
   In order to ascend, you must complete your objectives, research final ascension knowledge and perform ascension ritual on transmutation rune.
-  Most knowledges and all side knowledge cost 1 point, some of them cost 2 and ascension costs 3.
+  All main knowledge except for starting ones cost 2 and all side knowledge cost 1.
 
   You can gain knowledge points and become stronger through a few ways:
   - Draining influences that spawn randomly around the station.
@@ -37,7 +37,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   Influences are the easy way to gain power points. Whenever there are Heretics aboard Space Station 14, influences will randomly spawn across the station.
   They are not visible to the naked eye of a crew member, however they [bold]will[/bold] become visible after harvesting, aside from suddenly changing colors.
-  Tip: When using [color=green]Codex Cicatrix[/color] on an influence you will harvest it faster and get twice as much knowledge points from it, but it will be a dead giveaway to anyone nearby that you're a heretic.
+  Influences give 1 knowledge point and can be harvested with either [color=green]Codex Cicatrix[/color] or [color=green]Codex Morbus[/color].
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Harvested influence. Notice the glow."/>
   </Box>
@@ -91,15 +91,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - \[ [color=red]Amber Focus[/color] \] - Allows you to transmute a sheet of glass and a pair of eyes into an Amber Focus. This is a small neck-worn item that allows you to cast advanced spells while worn.
   - \[ [color=red]Living Heart[/color] \] - Allows you to pinpoint your targets. Plays an audible heartbeat sound, so use it carefully.
   - \[ [color=red]Relentless Heartbeat[/color] \] - Allows you to transmute a heart, a pen and paper to reroll your target selection, in case you've run out of bodies or want a different approach.
-  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix. The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes faster, and as a spell focus in a pinch.
+  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix. The Codex Cicatrix can be used when draining influences. It can also be used to draw and remove transmutation runes, and as a spell focus in a pinch.
   - \[ [color=red]Cloak of Shadow[/color] \] - A spell, which will conceal your identity in an obvious purple smoke, making you move faster but interact slower. Requires a focus to cast.
   - \[ [color=red]Feast of Owls[/color] \] - Allows you to perform a ritual that grants you 5 knowledge points but locks you out of ascension. A small sacrifice to gain power quickly. There is no going back.
   - \[ [color=red]Reminiscence[/color] \] - Heretic blades are limited. You can only create up to 2-4 blades depending on your path by performing stage 2 blade creation ritual. Reminiscence ritual allows you to transmute a chair to recall your lost blade that you have previously created to the transmutation rune.
+  - \[ [color=red]Phylactery of Damnation[/color] \] - Transmute a beaker and a pool of blood into a Phylactery that can instantly draw blood, even from long distances. Be warned, your target may still feel a prick.
 
   ## Tips
   - You can enchant items using your Codex Cicatrix and Transmutation rune. [textlink="For more info on enchanting, click here." link="Enchanting"]
   - Be wary of other heretics. They worship false gods, and will sacrifice you for knowledge just as easily as they would any other heathen. However, you can sacrifice them to the Mansus as well. Let the strongest god win.
-  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend or wear a Mask of Madness!
+  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can burn people, you are not immune to it until you ascend or wear a Mask of Madness!
   - As a [color=purple]Raw Prophet[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a hivemind similar to changelings with +m key to talk privately.
   - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
   - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.

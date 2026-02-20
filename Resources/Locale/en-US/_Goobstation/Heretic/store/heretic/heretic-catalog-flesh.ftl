@@ -40,8 +40,16 @@ knowledge-path-flesh-s2-desc =
     You are now able to consume raw flesh. Eating meat, organs and body parts will empower and heal you temporarily, the effect scales with your path stage.
     You also become immune to damage from poisons.
 
-knowledge-path-flesh-s3-name = Imperfect Ritual
+knowledge-path-flesh-s3-name = Mark of Flesh
 knowledge-path-flesh-s3-desc =
+    That's when I saw them, the marked ones. They were out of reach. They screamed, and screamed.
+
+    Your Mansus Grasp now applies the Mark of Flesh. The mark is triggered from an attack with your Bloody Blade.
+    When triggered, the victim will split into flesh mimic that will attack them.
+    Flesh mimics are identical to ghouls risen by mansus grasp but they receive damage over time that increases slowly.
+
+knowledge-path-flesh-s4-name = Imperfect Ritual
+knowledge-path-flesh-s4-desc =
     I found notes of a dark ritual, unfinished... yet still, I pushed forward.
 
     Allows you to transmute a corpse and a muzzle to create a Voiceless Dead.
@@ -49,14 +57,6 @@ knowledge-path-flesh-s3-desc =
     Voiceless Dead are mute ghouls, which have 100 health and a Bloody Blade.
     Voiceless Dead are stronger than regular ones at using Bloody Blades.
     You can only create two at a time.
-
-knowledge-path-flesh-s4-name = Mark of Flesh
-knowledge-path-flesh-s4-desc =
-    That's when I saw them, the marked ones. They were out of reach. They screamed, and screamed.
-
-    Your Mansus Grasp now applies the Mark of Flesh. The mark is triggered from an attack with your Bloody Blade.
-    When triggered, the victim will split into flesh mimic that will attack them.
-    Flesh mimics are identical to ghouls risen by mansus grasp but they receive damage over time that increases slowly.
 
 knowledge-path-flesh-s5-name = Knitting of Flesh
 knowledge-path-flesh-s5-desc =

@@ -17,7 +17,7 @@
   icon: { sprite: _Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
   productHereticKnowledge: NightwatcherSecret
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathAsh
   conditions:
@@ -42,7 +42,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfAsh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathAsh
   conditions:
@@ -53,15 +53,14 @@
     whitelist:
     - Ash
 
-# side
 - type: listing
-  id: HereticAshPath3
+  id: HereticAshPath4
   name: knowledge-path-ash-s3-name
   description: knowledge-path-ash-s3-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashen_shift }
-  productHereticKnowledge: AshenShift
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfAsh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathAsh
   conditions:
@@ -72,12 +71,13 @@
     whitelist:
     - Ash
 
+# side
 - type: listing
-  id: HereticAshPath4
+  id: HereticAshPath3
   name: knowledge-path-ash-s4-name
   description: knowledge-path-ash-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfAsh
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashen_shift }
+  productHereticKnowledge: AshenShift
   cost:
     KnowledgePoint: 2
   categories:
@@ -116,7 +116,7 @@
   icon: { sprite: _Goobstation/Heretic/mad_mask.rsi, state: icon }
   productHereticKnowledge: MaskOfMadness
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathAsh
   conditions:
@@ -153,7 +153,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: nightwatcher_rebirth }
   productHereticKnowledge: NightwatcherRebirth
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathAsh
   conditions:
@@ -171,7 +171,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashlord_rite1 }
   productHereticKnowledge: AscensionAsh
   cost:
-    KnowledgePoint: 3
+    KnowledgePoint: 2
   categories:
   - HereticPathAsh
   conditions:
