@@ -125,6 +125,7 @@
     price: 100
   - type: Tag
     tags:
+    - Recyclable
     - Bedsheet
 
 - type: entity
