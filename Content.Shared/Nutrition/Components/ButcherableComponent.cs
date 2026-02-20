@@ -31,8 +31,7 @@ namespace Content.Shared.Nutrition.Components
         public List<EntitySpawnEntry> SpawnedEntities = new();
 
         [ViewVariables(VVAccess.ReadWrite), DataField("butcherDelay")]
-        //public float ButcherDelay = 8.0f;
-        public float ButcherDelay = 1.0f;  //Goobstation
+        public float ButcherDelay = 8.0f;
 
         [ViewVariables(VVAccess.ReadWrite), DataField("butcheringType")]
         public ButcheringType Type = ButcheringType.Knife;

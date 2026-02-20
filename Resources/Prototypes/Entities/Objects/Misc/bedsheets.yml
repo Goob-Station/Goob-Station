@@ -114,6 +114,7 @@
     slots:
     - neck
   - type: Butcherable #Goob start
+    butcherDelay: 1.0
     butcheringType: Knife
     spawned:
     - id: MaterialCloth1
