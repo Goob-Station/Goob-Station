@@ -113,6 +113,14 @@
     quickEquip: true
     slots:
     - neck
+  - type: Butcherable #Goob start
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 3
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 150 #Goob end
   - type: StaticPrice
     price: 100
   - type: Tag
