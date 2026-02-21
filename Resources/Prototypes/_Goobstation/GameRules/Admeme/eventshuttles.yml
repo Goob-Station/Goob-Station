@@ -157,18 +157,3 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-
-# HECU
-
-- type: entity
-  parent: BaseUnknownShuttleRule
-  id: SpawnHECU
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-hecu-enroute
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    duration: 1
-    maxOccurrences: 1
-  - type: LoadMapRule
-    preloadedGrid: RetortShuttleHECU
