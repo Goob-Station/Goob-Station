@@ -40,7 +40,7 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
         var recallVerb = new ActivationVerb
         {
-            Text = Loc.GetString(ent.Comp.Verb),
+            Text = Loc.GetString("chaplain-recall-verb"),
             Act = () =>
             {
                 if (bibleUserComp.NullRod == null)
@@ -126,10 +126,6 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
             case NullrodRecallType.Embedded:
                 RecallEmbedded(nullrod, user);
-                break;
-
-            default:
-                RecallNormal(nullrod, user);
                 break;
         }
     }

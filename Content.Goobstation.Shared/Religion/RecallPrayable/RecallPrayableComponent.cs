@@ -8,12 +8,6 @@ namespace Content.Goobstation.Shared.Religion.RecallPrayable;
 public sealed partial class RecallPrayableComponent : Component
 {
     /// <summary>
-    /// Used for verb text.
-    /// </summary>
-    [DataField]
-    public string Verb = "chaplain-recall-verb";
-
-    /// <summary>
     /// How long does the recall do-after take to complete.
     /// </summary>
     [DataField]
