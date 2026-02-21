@@ -349,7 +349,7 @@
     implants: [ FreedomImplant ]
   - type: GhostRole
     name: ghost-role-information-Hecu-name
-    description: ghost-role-information-Hecu-description
+    description: ghost-role-information-ert-security-description
     rules: ghost-role-information-Hecu-rules
     raffle:
       settings: short
