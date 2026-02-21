@@ -1,0 +1,37 @@
+﻿- type: entity
+  parent: DemonicWhisperAction
+  id: ShadowDemonicWhisperAction
+  name: Demonic Whisper
+  description: Drive mortals insane with demonic telepathy! Remind them you are the reason night lights exist!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Trauma/ShadowDemon/actions.rsi
+      state: shadow_whisper
+
+- type: entity
+  id: ShadowGrappleAction
+  name: Shadow Grapple
+  description: Fire one of your hands.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Trauma/ShadowDemon/actions.rsi
+      state: shadow_grapple
+  - type: EntityTargetAction
+  #  event: !type:BloodCrawlEvent
+
+- type: entity
+  id: ShadowCrawlAction
+  name: Shadow Crawl
+  description: Use darkness to phase out of existence.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Trauma/ShadowDemon/actions.rsi
+      state: shadow_crawl
+  - type: InstantAction
+  #  event: !type:BloodCrawlEvent
