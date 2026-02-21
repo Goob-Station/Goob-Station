@@ -21305,3 +21305,9 @@ Entries:
       message: Fixed eating mothroaches making you big
   id: 2420
   time: '2026-02-18T03:36:42.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: turned spare ats engi room into lockbox storage room, ats atmos fixed
+  id: 2421
+  time: '2026-02-19T21:30:46.0000000+00:00'
