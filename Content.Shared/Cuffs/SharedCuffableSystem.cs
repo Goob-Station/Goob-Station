@@ -602,11 +602,10 @@ namespace Content.Shared.Cuffs
             EnsureComp<HandcuffComponent>(handcuff, out var handcuffsComp);
             handcuffsComp.Used = true;
             Dirty(handcuff, handcuffsComp);
+            // Shitmed Change End
 
             // Success!
             _hands.TryDrop(user, handcuff);
-            var result = _container.Insert(handcuff, component.Container);
-            // Shitmed Change End
 
             _container.Insert(handcuff, component.Container);
 
