@@ -87,6 +87,7 @@ using Content.Shared._EinsteinEngines.Revolutionary;
 using Robust.Shared.Player;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Common.Conversion;
+using Content.Shared._EinsteinEngines.Revolutionary.Components;
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -225,15 +226,16 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     private void OnPostConvert(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterRevolutionaryConvertedEvent ev)
     {
         // Einstein Engines - Revolutionary Manifesto - Use RevolutionaryConverterSystem instead of hardcoding flashes
-        // GoobStation - check if headRev's ability enabled
+        // GoobStation START - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
             return;
-
-        // Goobstation - Something something check for 30 conditions of mute or otherwise speech impeding shit that makes book pointless
-        if (HasComp<MumbleAccentComponent>(uid) // Muzzles to bypass speech is bad
-            || HasComp<MutedComponent>(uid)) // No speech = No convert
+        if (!TryComp<RevolutionaryConverterComponent>(ev.Used, out var revconv))
             return;
-        // Goob edit end (for now)
+        // Goobstation - Something something check for 30 conditions of mute or otherwise speech impeding shit that makes book pointless
+        if ((HasComp<MumbleAccentComponent>(ev.User) // Muzzles to bypass speech is bad
+            || HasComp<MutedComponent>(ev.User)) && !revconv.BypassMuted) // No speech = No convert but still convert if BYPASS
+            return;
+        // Goob edit END (for now) of course for now you dumbass
 
         if (uid != ev.User)
             return;
