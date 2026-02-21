@@ -350,7 +350,7 @@
   - type: GhostRole
     name: ghost-role-information-Hecu-name
     description: ghost-role-information-Hecu-description
-    rules: ghost-role-information-Hecu-rules
+    rules: ghost-role-information-ert-security-description
     raffle:
       settings: short
   - type: Loadout
