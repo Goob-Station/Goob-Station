@@ -395,8 +395,8 @@
       - ReagentId: TearGas
         Quantity: 20
     spreadAmount: 5
-  - type: ActiveTimerTrigger
-    timeRemaining: 5
+  - type: TimerTrigger
+    delay: 5
   - type: DeleteOnTrigger
   - type: Projectile
     damage:
