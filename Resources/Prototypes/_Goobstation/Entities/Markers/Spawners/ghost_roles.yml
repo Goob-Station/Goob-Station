@@ -218,4 +218,5 @@
   - type: Sprite
     layers:
     - state: green
+    - sprite: Resources/Textures/Markers/jobs.rsi
       state: hecu
