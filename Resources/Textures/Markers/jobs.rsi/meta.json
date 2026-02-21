@@ -112,9 +112,6 @@
     {
       "name": "geneticist"
     },
-	{
-      "name": "hecu"
-    },
     {
       "name": "hop"
     },
@@ -176,7 +173,7 @@
       "name": "scientist"
     },
     {
-      "name": "security_cadet" 
+      "name": "security_cadet"
     },
     {
       "name": "security_officer"
