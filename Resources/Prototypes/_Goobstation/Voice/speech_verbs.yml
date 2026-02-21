@@ -47,7 +47,7 @@
     path: /Audio/Machines/beep.ogg
 
 - type: speechSounds
-  id: ShadowCloak
+  id: ShadowCloakSpeechSounds
   saySound:
     collection: HissSay
   askSound:
@@ -130,3 +130,9 @@
   - chat-speech-verb-floor-goblin-1
   - chat-speech-verb-floor-goblin-2
   - chat-speech-verb-floor-goblin-3
+
+- type: speechVerb
+  id: StationRadio
+  name: chat-speech-verb-name-station-radio
+  speechVerbStrings:
+  - chat-speech-verb-station-radio-1
