@@ -453,4 +453,16 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     }
     // Goobstation end
     #endregion
+
+    /// <summary>
+    /// Trauma - Sets the delay for an entity with DoAfterArgs component
+    /// </summary>
+    public void SetDoAfterArgsEntityDelay(EntityUid uid, TimeSpan delay, DoAfterArgsComponent? doAfterArgs = null)
+    {
+        if (!Resolve(uid, ref doAfterArgs))
+            return;
+
+        doAfterArgs.Delay = delay;
+        Dirty(uid, doAfterArgs);
+    }
 }

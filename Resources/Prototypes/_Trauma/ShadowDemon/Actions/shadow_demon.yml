@@ -7,7 +7,7 @@
   components:
   - type: Action
     icon:
-      sprite: _Trauma/ShadowDemon/actions.rsi
+      sprite: _Trauma/Mobs/ShadowDemon/actions.rsi
       state: shadow_whisper
 
 - type: entity
@@ -18,7 +18,7 @@
   components:
   - type: Action
     icon:
-      sprite: _Trauma/ShadowDemon/actions.rsi
+      sprite: _Trauma/Mobs/ShadowDemon/actions.rsi
       state: shadow_grapple
   - type: EntityTargetAction
   #  event: !type:BloodCrawlEvent
@@ -27,11 +27,18 @@
   id: ShadowCrawlAction
   name: Shadow Crawl
   description: Use darkness to phase out of existence.
+  parent: BaseDoAfterAction
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     icon:
-      sprite: _Trauma/ShadowDemon/actions.rsi
+      sprite: _Trauma/Mobs/ShadowDemon/actions.rsi
       state: shadow_crawl
   - type: InstantAction
-  #  event: !type:BloodCrawlEvent
+    event: !type:ShadowCrawlEvent
+  - type: DoAfterArgs
+    delay: 0 # we start at non-jaunt so its instant, but it gets changed to 2 while exiting jaunt
+    breakOnHandChange: false
+    breakOnDropItem: false
+    breakOnMove: true
+    requireCanInteract: false

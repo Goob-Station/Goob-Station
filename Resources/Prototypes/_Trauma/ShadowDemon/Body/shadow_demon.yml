@@ -1,0 +1,115 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseMobBody
+  id: AppearanceShadowDemon
+  name: shadow demon appearance
+  components:
+  - type: InitialBody
+    organs:
+      # Parts
+      Torso: OrganShadowDemonTorso
+      ArmLeft: OrganShadowDemonArmLeft
+      ArmRight: OrganShadowDemonArmRight
+      HandLeft: OrganShadowDemonHandLeft
+      HandRight: OrganShadowDemonHandRight
+      # Organs
+      Heart: OrganShadowDemonHeart
+      Lungs: OrganCarpLungs
+      Stomach: OrganAnimalStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganAnimalKidneys
+
+## Base
+
+- type: entity
+  abstract: true
+  parent: OrganBase
+  id: OrganShadowDemon
+  suffix: shadow demon
+
+- type: entity
+  abstract: true
+  parent: OrganShadowDemon
+  id: OrganShadowDemonInternal
+
+- type: entity
+  abstract: true
+  parent: OrganShadowDemon
+  id: OrganShadowDemonExternal
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/body_parts.rsi # placeholder
+  - type: VisualOrgan
+    data:
+      sprite: _Goobstation/SlaughterDemon/body_parts.rsi # placeholder
+  - type: VisualOrganMarkings
+    markingData:
+      group: None
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0
+
+## Parts
+
+- type: entity
+  # it has no unique sprite and i cbf
+  parent: [ OrganBaseTorso, OrganAnimalSpriteExternal, OrganShadowDemonExternal ]
+  id: OrganShadowDemonTorso
+  components:
+  - type: BodyPart
+    slots:
+    # Parts
+    - ArmLeft
+    - ArmRight
+    # Organs
+    - Heart
+    - Lungs
+    - Stomach
+    - Liver
+    - Kidneys
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganShadowDemonExternal ]
+  id: OrganShadowDemonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganShadowDemonExternal ]
+  id: OrganShadowDemonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganShadowDemonExternal ]
+  id: OrganShadowDemonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganShadowDemonExternal ]
+  id: OrganShadowDemonHandRight
+
+## Organs
+
+- type: entity
+  parent: [ OrganAnimalHeart, OrganShadowDemonInternal, BaseMagicalContraband ]
+  id: OrganShadowDemonHeart
+  name: demonic heart
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/heart.rsi # placeholder
+  - type: InternalOrgan
+    intCap: 30
+    integrity: 30
+    integrityThresholds:
+      Normal: 30
+      Damaged: 20
+      Destroyed: 0
+  - type: OrganComponents
+    onAdd:
+    - type: ShadowCrawl
+      phaseIn: ShadowDemonPhaseIn
+      phaseOut: ShadowDemonPhaseOut
+  - type: StaticPrice
+    price: 10000
