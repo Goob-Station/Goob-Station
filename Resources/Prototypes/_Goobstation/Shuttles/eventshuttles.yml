@@ -41,3 +41,10 @@
   id: RetortShuttleCBURN
   path: /Maps/_Goobstation/Shuttles/retort_cburn.yml
   copies: 1
+
+# HECU
+
+- type: preloadedGrid
+  id: RetortShuttleHECU
+  path: /Maps/_Goobstation/Shuttles/retort_hecu.yml
+  copies: 1
