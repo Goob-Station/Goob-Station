@@ -284,7 +284,7 @@ public abstract partial class SharedStunSystem : EntitySystem
     ///     Try knockdown, if it fails - stun.
     ///     Refresh true by default on either, statuseffectcomp is handled by each system separately
     /// </summary>
-    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh = true)
+    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh = true) // todo goobstation kill this shit
     {
         return TryKnockdown(uid, time, refresh) || TryUpdateStunDuration(uid, time);
     }
