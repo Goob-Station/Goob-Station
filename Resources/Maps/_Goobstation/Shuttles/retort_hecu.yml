@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/21/2026 08:30:57
-  entityCount: 327
-maps:
-- 4
+  time: 02/21/2026 08:50:16
+  entityCount: 326
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   2: Space
@@ -26,7 +26,7 @@ entities:
       name: NT-152 Drop-ship "Retort"
     - type: Transform
       pos: -0.060707748,-0.65287584
-      parent: 4
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -294,16 +294,6 @@ entities:
     - type: RadiationGridResistance
     - type: ImplicitRoof
     - type: FTLDrive
-  - uid: 4
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirAlarm
   entities:
   - uid: 28
