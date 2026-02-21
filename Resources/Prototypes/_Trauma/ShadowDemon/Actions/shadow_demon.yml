@@ -36,9 +36,3 @@
       state: shadow_crawl
   - type: InstantAction
     event: !type:ShadowCrawlEvent
-  - type: DoAfterArgs
-    delay: 0 # we start at non-jaunt so its instant, but it gets changed to 2 while exiting jaunt
-    breakOnHandChange: false
-    breakOnDropItem: false
-    breakOnMove: true
-    requireCanInteract: false

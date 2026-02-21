@@ -10,11 +10,13 @@ namespace Content.Trauma.Shared.ShadowDemon;
 public sealed class ShadowCrawlSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<ShadowCrawlComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ShadowCrawlComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<ShadowCrawlComponent, ShadowCrawlEvent>(OnCrawl);
 
@@ -24,11 +26,29 @@ public sealed class ShadowCrawlSystem : EntitySystem
         SubscribeLocalEvent<LightDetectionDamageComponent, ShadowCrawlDeActivatedEvent>(OnCrawlDeactivated);
     }
 
+    private void OnMapInit(Entity<ShadowCrawlComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.ActionUid = _actionsSystem.AddAction(ent.Owner, ent.Comp.Action);
+    }
+
+    private void OnShutdown(Entity<ShadowCrawlComponent> ent, ref ComponentShutdown args)
+    {
+        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.ActionUid);
+    }
+
     private void OnCrawl(Entity<ShadowCrawlComponent> ent, ref ShadowCrawlEvent args)
     {
         // We are already in jaunt, try get out of it
         if (ent.Comp.Active)
         {
+            var attemptEvExit = new ShadowCrawlAttemptEvent();
+            RaiseLocalEvent(ent.Owner, ref attemptEvExit);
+            if (attemptEvExit.Cancelled)
+            {
+                // TODO: Popup here
+                return;
+            }
+
             RemCompDeferred<PhaseShiftedComponent>(ent.Owner);
             ent.Comp.Active = false;
             Dirty(ent);
@@ -48,9 +68,6 @@ public sealed class ShadowCrawlSystem : EntitySystem
 
                 _actionsSystem.SetEnabled((action.Owner, action.Comp), true);
             }
-
-            // Reset cast time to 0 so its instant
-            _doAfterSystem.SetDoAfterArgsEntityDelay(args.Action, TimeSpan.FromSeconds(0));
 
             return;
         }
@@ -90,18 +107,12 @@ public sealed class ShadowCrawlSystem : EntitySystem
 
             _actionsSystem.SetEnabled((action.Owner, action.Comp), false);
         }
-
-        // Reset cast time so exiting jaunt requires X amount of seconds
-        _doAfterSystem.SetDoAfterArgsEntityDelay(args.Action, ent.Comp.CastTime);
     }
 
     private void OnCrawlAttempt(Entity<LightDetectionComponent> ent, ref ShadowCrawlAttemptEvent args)
     {
         if (ent.Comp.OnLight)
-            return;
-
-        // Cancel if we aren't on light
-        args.Cancelled = true;
+            args.Cancelled = true;
     }
 
     private void OnCrawlActivated(Entity<LightDetectionDamageComponent> ent, ref ShadowCrawlActivatedEvent args)

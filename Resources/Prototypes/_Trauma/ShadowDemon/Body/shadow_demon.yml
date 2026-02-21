@@ -111,5 +111,6 @@
     - type: ShadowCrawl
       phaseIn: ShadowDemonPhaseIn
       phaseOut: ShadowDemonPhaseOut
+      action: ShadowCrawlAction
   - type: StaticPrice
     price: 10000
