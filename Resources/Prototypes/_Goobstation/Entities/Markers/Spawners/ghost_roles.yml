@@ -207,3 +207,16 @@
     - sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
       state: icon
   - type: MaintsSpawnLocation
+
+- type: entity
+  id: SpawnPointHECU
+  parent: SpawnPointJobBase
+  name: HECU
+  components:
+  - type: SpawnPoint
+    job_id: HecuOperative
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Resources/Textures/Markers/jobs.rsi
+      state: hecu
