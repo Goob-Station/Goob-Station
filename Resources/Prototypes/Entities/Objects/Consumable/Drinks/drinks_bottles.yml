@@ -324,6 +324,8 @@
     layers:
       - state: icon
         map: ["enum.OpenableVisuals.Layer"]
+  - type: ExaminableSolution
+    examinableWhileClosed: false # If you can't see fill levels, it's probably opaque
 
 - type: entity
   id: DrinkBottleVisualsAll
@@ -349,6 +351,7 @@
     fillBaseName: fill-
     inHandsMaxFillLevels: 3
     inHandsFillBaseName: -fill-
+  - type: ExaminableSolution
 
 # Large Glass Bottles
 
