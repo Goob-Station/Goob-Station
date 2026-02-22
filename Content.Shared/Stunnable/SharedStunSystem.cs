@@ -284,7 +284,7 @@ public abstract partial class SharedStunSystem : EntitySystem
     ///     Try knockdown, if it fails - stun.
     ///     Refresh true by default on either, statuseffectcomp is handled by each system separately
     /// </summary>
-    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh = true)
+    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh = true) // todo goobstation kill this shit
     {
         return TryKnockdown(uid, time, refresh) || TryUpdateStunDuration(uid, time);
     }
@@ -345,7 +345,7 @@ public abstract partial class SharedStunSystem : EntitySystem
     public bool TryKnockdown(Entity<CrawlerComponent?> entity, TimeSpan? time, bool refresh = true, bool autoStand = true,
         DropHeldItemsBehavior behavior = DropHeldItemsBehavior.DropIfStanding, // Goob custom drop behaviour.
         bool force = false)
-    {
+     {
         //goob start stunmodifiers todo goob these are fucking broke anyway apparently
         var modifierEv = new GetClothingStunModifierEvent(entity);
         RaiseLocalEvent(modifierEv);
@@ -397,18 +397,18 @@ public abstract partial class SharedStunSystem : EntitySystem
             RefreshKnockedMovement((uid, component));
             CancelKnockdownDoAfter((uid, component));
         }
-        else
-        {
+        //else // Goob edit, we handle dropitembehaviour differently and its gonna bite me in the ass cause i know it gets decoupled later
+        //{ Goob
             // Only drop items the first time we want to fall...
-            if (drop)
-            {
-                var ev = new DropHandItemsEvent();
-                RaiseLocalEvent(uid, ref ev);
-            }
+        if (drop)
+        {
+            var ev = new DropHandItemsEvent();
+            RaiseLocalEvent(uid, ref ev);
+        }
 
             // Only update Autostand value if it's our first time being knocked down...
-            SetAutoStand((uid, component), autoStand);
-        }
+        SetAutoStand((uid, component), autoStand);
+        //} Goob
 
         var knockedEv = new KnockedDownEvent();
         RaiseLocalEvent(uid, ref knockedEv);
