@@ -126,7 +126,7 @@
     price: 100
   - type: Tag
     tags:
-    - Recyclable
+    - Recyclable #Goobstation
     - Bedsheet
 
 - type: entity
