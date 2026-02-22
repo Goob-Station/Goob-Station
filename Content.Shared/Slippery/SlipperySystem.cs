@@ -155,36 +155,23 @@ public sealed class SlipperySystem : EntitySystem
                 && _status.CanAddStatusEffect(toSlip, SharedStunSystem.StunId); //Should be KnockedDown instead?
     }
 
-    public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool force = false, bool predicted = true) // Goob edit
+    public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool predicted = true)
     {
         var knockedDown = _knockedDownQuery.HasComp(other);
         if (knockedDown && !component.SlipData.SuperSlippery)
             return;
-        // Goob edit start
-        if (!predicted && _net.IsClient)
+        var attemptEv = new SlipAttemptEvent(uid);
+        RaiseLocalEvent(other, attemptEv);
+        if (attemptEv.SlowOverSlippery)
+            _speedModifier.AddModifiedEntity(other);
+
+        if (attemptEv.NoSlip)
             return;
 
-        if ((HasComp<KnockedDownComponent>(other) || HasComp<StunnedComponent>(other)) && !component.SlipData.SuperSlippery)
+        var attemptCausingEv = new SlipCausingAttemptEvent();
+        RaiseLocalEvent(uid, ref attemptCausingEv);
+        if (attemptCausingEv.Cancelled)
             return;
-
-        if (!force)
-        {
-            var attemptEv = new SlipAttemptEvent(uid);
-            RaiseLocalEvent(other, attemptEv);
-            if (attemptEv.SlowOverSlippery)
-                _speedModifier.AddModifiedEntity(other);
-
-            if (attemptEv.NoSlip)
-                return;
-
-            var attemptCausingEv = new SlipCausingAttemptEvent();
-            RaiseLocalEvent(uid, ref attemptCausingEv);
-            if (attemptCausingEv.Cancelled)
-                return;
-        }
-
-        var hardStun = component.SlipData.SuperSlippery; // Goobstation
-        // Goob edit end
 
         var ev = new SlipEvent(other);
         RaiseLocalEvent(uid, ref ev);
@@ -196,13 +183,6 @@ public sealed class SlipperySystem : EntitySystem
             if (component.AffectsSliding && requiresContact)
                 EnsureComp<SlidingComponent>(other);
         }
-
-        // goob edit - stunmeta
-        var time = component.SlipData.StunTime;
-        if (hardStun)
-            _stun.TryUpdateParalyzeDuration(other, time);
-        else
-            _stun.KnockdownOrStun(other, time, true);
 
         // Preventing from playing the slip sound and stunning when you are already knocked down.
         if (!knockedDown)
