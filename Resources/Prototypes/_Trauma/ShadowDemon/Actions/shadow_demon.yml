@@ -21,7 +21,9 @@
       sprite: _Trauma/Mobs/ShadowDemon/actions.rsi
       state: shadow_grapple
   - type: EntityTargetAction
-  #  event: !type:BloodCrawlEvent
+    event: !type:ShadowGrappleEvent
+      projectileProto: ShadowGrappleProjectile
+      # TODO: jointSprite: smth
 
 - type: entity
   id: ShadowCrawlAction

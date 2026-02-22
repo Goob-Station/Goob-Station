@@ -1,4 +1,7 @@
 ﻿using Content.Shared.Actions;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Trauma.Shared.ShadowDemon;
 
@@ -22,3 +25,12 @@ public record struct ShadowCrawlDeActivatedEvent(float LightDamageModifier = 1f)
 public record struct ShadowCrawlAttemptEvent(bool Cancelled = false);
 
 public sealed partial class ShadowCrawlEvent : InstantActionEvent;
+
+public sealed partial class ShadowGrappleEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public EntProtoId ProjectileProto;
+
+    [DataField]
+    public SpriteSpecifier? JointSprite;
+};
