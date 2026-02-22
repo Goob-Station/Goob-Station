@@ -21369,3 +21369,11 @@ Entries:
       message: mime and clown lockers
   id: 2424
   time: '2026-02-22T16:45:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Interaction verbs force down making you a crawling god and Help up
+        not helping folk up in some cases.
+  id: 2425
+  time: '2026-02-22T19:11:34.0000000+00:00'
