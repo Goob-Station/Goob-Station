@@ -21339,3 +21339,11 @@ Entries:
       message: Getting cuffed while pulling should now allow you to stop pulling.
   id: 2422
   time: '2026-02-22T09:58:37.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer construct buildables without actually having the
+        materials to do so.
+  id: 2423
+  time: '2026-02-22T12:54:18.0000000+00:00'
