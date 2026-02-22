@@ -14,13 +14,13 @@
     sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi
     state: icon-lethal
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 300
+    startingCharge: 300
   - type: BatteryDrinkerSource
     maxAmount: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 10
     autoRechargePause: true
     autoRechargePauseTime: 12
   - type: AmmoCounter
@@ -37,7 +37,7 @@
   components:
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunMagnum
-    fireCost: 100
+    fireCost: 50
   - type: Tag
     tags:
       - EnergySpeedloader
@@ -67,7 +67,7 @@
   components:
   - type: HitscanBatteryAmmoProvider
     proto: LightPulse
-    fireCost: 50
+    fireCost: 25
   - type: Tag
     tags:
     - EnergySpeedloader

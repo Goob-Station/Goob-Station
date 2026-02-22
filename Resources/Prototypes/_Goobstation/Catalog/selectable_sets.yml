@@ -404,12 +404,11 @@
   content:
   # Guaranteed items
   - WeaponLeverChester
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineBoxShotgunHighCaliberEMP
-  - MagazineBoxShotgunHighCaliberEnsnaring
-#  tables:
-#  - ChesterRandomAmmoTable
+  - MagazineLeverRifleEmpty
+  - MagazineLeverRifleEmpty
+  - MagazineBoxHighCaliberEMP
+  - MagazineBoxHighCaliberEnsnaring
+  - MagazineBoxHighCaliberFlash
 
 - type: selectableSet
   id: BSOSyringeSet

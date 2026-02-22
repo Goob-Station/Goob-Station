@@ -10,8 +10,8 @@
 
 - type: entity
   abstract: true
-  parent: [ BaseItem, BaseSyndicateContraband ]
-  id: BaseMagazineBoxHighCaliber
+  parent: [ BaseItem, BaseSecurityContraband]
+  id: MagazineBoxHighCaliber
   name: ammunition box (.50 anti-materiel)
   components:
   - type: BallisticAmmoProvider
@@ -39,15 +39,45 @@
     zeroVisible: false
   - type: Appearance
 
-- type: entity
-  parent: BaseMagazineBoxHighCaliber
-  id: MagazineBoxHighCaliber
+# Maybe Someone One day will make custom sprite layers for these
+
+# Explosive
 
 - type: entity
-  parent: BaseMagazineBoxHighCaliber
+  parent: MagazineBoxHighCaliber
   id: MagazineBoxHighCaliberExplosive
   name: ammunition box (.50 high-explosive incendiary)
   components:
   - type: BallisticAmmoProvider
     capacity: 30
     proto: CartridgeHighCaliberExplosive
+
+# Ensnaring
+- type: entity
+  parent: MagazineBoxHighCaliber
+  id: MagazineBoxHighCaliberEnsnaring
+  name: ammunition box (.50 ensnaring)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: CartridgeHighCaliberEnsnaring
+
+# EMP
+- type: entity
+  parent: MagazineBoxHighCaliber
+  id: MagazineBoxHighCaliberEMP
+  name: ammunition box (.50 emp)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: CartridgeHighCaliberEMP
+
+# Flash
+- type: entity
+  parent: MagazineBoxHighCaliber
+  id: MagazineBoxHighCaliberFlash
+  name: ammunition box (.50 flash)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: CartridgeHighCaliberFlash

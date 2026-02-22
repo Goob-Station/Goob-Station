@@ -7,7 +7,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ BaseCartridge, BaseMajorContraband ]
+  parent: [ BaseCartridge, BaseSecurityContraband ]
   id: CartridgeHighCaliber
   name: cartridge (.50 anti-materiel)
   components:
@@ -27,23 +27,39 @@
   - type: StaticPrice
     price: 20
 
+# Explosive
+
 - type: entity
-  parent: [ BaseCartridge, BaseMajorContraband ]
+  parent: CartridgeHighCaliber
   id: CartridgeHighCaliberExplosive
   name: cartridge (.50 high-explosive incendiary)
   components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - CartridgeHighCaliber
   - type: CartridgeAmmo
     proto: BulletHighCaliberExplosive
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
-    layers:
-    - state: base
-      map: ["enum.AmmoVisualLayers.Base"]
-  - type: Appearance
-  - type: SpentAmmoVisuals
-  - type: StaticPrice
-    price: 20
+
+# Ensnaring
+- type: entity
+  id: CartridgeHighCaliberEnsnaring
+  name: cartridge (.50 ensnaring slug)
+  parent: CartridgeHighCaliber
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHighCaliberEnsnaring
+
+# EMP
+- type: entity
+  id: CartridgeHighCaliberEMP
+  name: cartridge (.50 EMP slug)
+  parent: CartridgeHighCaliber
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHighCaliberEMP
+
+# Flash
+- type: entity
+  id: CartridgeHighCaliberFlash
+  name: cartridge (.50 flash slug)
+  parent: CartridgeHighCaliber
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHighCaliberFlash
