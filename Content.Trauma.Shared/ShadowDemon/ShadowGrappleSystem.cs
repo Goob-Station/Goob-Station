@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;

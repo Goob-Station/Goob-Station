@@ -1,4 +1,4 @@
-﻿using Content.Goobstation.Shared.LightDetection.Components;
+using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.PhaseShift;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
