@@ -39,6 +39,8 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        var dropItems = ev.DropItems;
+
         List<EntityUid> knockedDown = new(); // Goobstation
         foreach (var target in
                  args.HitEntities.Where(e => !HasComp<BorgChassisComponent>(e) && _mobState.IsAlive(e))) // Goob edit
@@ -57,7 +59,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
                 entity.Comp.Duration,
                 entity.Comp.RefreshDuration,
                 true,
-                false)) // goob edit
+                dropItems)) // goob edit
                 knockedDown.Add(target);
         }
 
