@@ -1,5 +1,4 @@
-﻿using Content.Shared.Actions;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Shared.ShadowDemon;
@@ -21,7 +20,7 @@ public sealed partial class ShadowCrawlComponent : Component
     public float SpeedBuff = 2;
 
     [DataField]
-    public TimeSpan CastTime = TimeSpan.FromSeconds(2f);
+    public TimeSpan ActionCooldown = TimeSpan.FromSeconds(4);
 
     [ViewVariables, AutoNetworkedField]
     public bool Active;
