@@ -1,4 +1,4 @@
-﻿using Content.Shared.Alert;
+using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
@@ -283,8 +283,7 @@ public abstract partial class SharedStunSystem
 
         var doAfterArgs = new DoAfterArgs(EntityManager, entity, ev.DoAfterTime, new TryStandDoAfterEvent(), entity, entity)
         {
-            BreakOnDamage = true,
-            DamageThreshold = 5,
+            MultiplyDelay = false, // Goob
             CancelDuplicate = true,
             RequireCanInteract = false,
             BreakOnHandChange = true
