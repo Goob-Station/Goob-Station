@@ -200,7 +200,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: ReptilianScream
+      collection: ReptilianScream # Omu
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
