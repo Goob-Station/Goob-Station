@@ -21347,3 +21347,25 @@ Entries:
         materials to do so.
   id: 2423
   time: '2026-02-22T12:54:18.0000000+00:00'
+- author: fritzfranz
+  changes:
+    - type: Tweak
+      message: Kettle mapping
+    - type: Fix
+      message: fixed salvage from spacing
+    - type: Add
+      message: turrets to armoury
+    - type: Add
+      message: 1 enforcer to armoury
+    - type: Fix
+      message: camera blindspots on ai sat
+    - type: Add
+      message: windows to xenobio
+    - type: Add
+      message: stasis beds to both med and brigmed
+    - type: Add
+      message: 2nd bartender locker
+    - type: Add
+      message: mime and clown lockers
+  id: 2424
+  time: '2026-02-22T16:45:05.0000000+00:00'
