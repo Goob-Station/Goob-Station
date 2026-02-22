@@ -402,10 +402,10 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester_icon_48x.rsi
     state: base
   content:
-  # Guaranteed items
   - WeaponLeverChester
   - MagazineLeverRifleEmpty
   - MagazineLeverRifleEmpty
+  - MagazineBoxHighCaliber
   - MagazineBoxHighCaliberEMP
   - MagazineBoxHighCaliberEnsnaring
   - MagazineBoxHighCaliberFlash

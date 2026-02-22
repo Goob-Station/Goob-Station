@@ -16,7 +16,6 @@
   id: SecurityAmmoStaticGoob
   recipes:
   - MagazineBoxHighCaliber
-  - MagazineLeverRifleEmpty
 
 - type: latheRecipePack
   id: SecurityEquipmentStaticGoob

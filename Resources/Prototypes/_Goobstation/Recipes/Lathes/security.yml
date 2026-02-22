@@ -589,19 +589,6 @@
   materials:
     Steel: 165
 
-- type: latheRecipe
-  parent: BaseEmptyAmmoRecipe
-  id: MagazineLeverRifleEmpty
-  result: MagazineLeverRifleEmpty
-  materials:
-    Steel: 25
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineLeverRifle
-  result: MagazineLeverRifle
-  materials:
-    Steel: 240
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
