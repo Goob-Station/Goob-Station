@@ -31,6 +31,6 @@ public sealed class SlipOnCollideSystem : EntitySystem
         if (!TryComp(uid, out SlipperyComponent? slippery))
             return;
 
-        _slippery.TrySlip(uid, slippery, args.OtherEntity, force: comp.Force, predicted: false);
+        _slippery.TrySlip(uid, slippery, args.OtherEntity, predicted: false);
     }
 }
