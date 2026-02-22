@@ -1,7 +1,12 @@
 using System.Numerics;
-using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Body;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Inventory;
+using Content.Shared.Light.Components;
+using Content.Shared.Light.EntitySystems;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Physics;
@@ -17,8 +22,18 @@ public sealed class ShadowGrappleSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedPoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private const string GrappleJoint = "grappling";
+
+    private EntityQuery<BodyComponent> _bodyQuery;
+    private EntityQuery<InventoryComponent> _inventoryQuery;
+    private EntityQuery<HandheldLightComponent> _handheldQuery;
+
+    private readonly HashSet<Entity<PoweredLightComponent>> _lights = new();
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -29,11 +44,14 @@ public sealed class ShadowGrappleSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowGrappleProjectileComponent, ProjectileEmbedEvent>(OnEmbed);
         SubscribeLocalEvent<ShadowGrappleProjectileComponent, ProjectileHitEvent>(OnHit);
+
+        _bodyQuery = GetEntityQuery<BodyComponent>();
+        _inventoryQuery = GetEntityQuery<InventoryComponent>();
+        _handheldQuery = GetEntityQuery<HandheldLightComponent>();
     }
 
-    private void OnGrapple(ref ShadowGrappleEvent args)
+    private void OnGrapple(ShadowGrappleEvent args)
     {
-        // TODO: test in-game
         var user = args.Performer;
 
         var proj = PredictedSpawnAtPosition(args.ProjectileProto, Transform(user).Coordinates);
@@ -78,10 +96,55 @@ public sealed class ShadowGrappleSystem : EntitySystem
         if (args.Shooter is not { } shooter)
             return;
 
-        _throwingSystem.TryThrow(shooter, Transform(args.Target).Coordinates, 30f, shooter);
+        var target = args.Target;
 
-        // TODO:
-        // BreakLights(args.Target);
-        // Damage entity if body, else don't damage structures
+        _throwingSystem.TryThrow(shooter, Transform(target).Coordinates, 10f, shooter);
+
+        // Body, apply damage
+        if (_bodyQuery.HasComp(target))
+        {
+            _damageableSystem.TryChangeDamage(target, ent.Comp.DamageOnHit);
+            BreakLightsOnTarget(target);
+
+            _stunSystem.TryAddParalyzeDuration(target, ent.Comp.StunTime);
+            return;
+        }
+
+        BreakNearbyLights(target, args.Shooter);
+    }
+
+    /// <summary>
+    /// Break any lights nearby.
+    /// </summary>
+    public void BreakNearbyLights(EntityUid target, EntityUid? user)
+    {
+        _lights.Clear();
+        _lookup.GetEntitiesInRange(Transform(target).Coordinates, 1f, _lights);
+        foreach (var light in _lights)
+        {
+            _poweredLight.TryDestroyBulb(light.Owner, light.Comp, user);
+        }
+    }
+
+    /// <summary>
+    /// Breaks any lights on someone.
+    /// </summary>
+    public void BreakLightsOnTarget(EntityUid target)
+    {
+        // todo: fix because this doesn't work
+        if (_inventoryQuery.TryComp(target, out var inv))
+        {
+            foreach (var container in inv.Containers)
+            {
+                foreach (var containerItem in container.ContainedEntities)
+                {
+                    if (!_handheldQuery.HasComp(containerItem))
+                        continue;
+
+                    Spawn("Ash", Transform(target).Coordinates);
+                    QueueDel(containerItem);
+                }
+            }
+        }
     }
  }

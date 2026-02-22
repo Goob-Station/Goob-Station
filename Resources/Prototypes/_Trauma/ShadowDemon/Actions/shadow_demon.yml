@@ -20,10 +20,15 @@
     icon:
       sprite: _Trauma/Mobs/ShadowDemon/actions.rsi
       state: shadow_grapple
+    itemIconStyle: NoItem
+  # useDelay: 10
   - type: EntityTargetAction
     event: !type:ShadowGrappleEvent
       projectileProto: ShadowGrappleProjectile
       # TODO: jointSprite: smth
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
 
 - type: entity
   id: ShadowCrawlAction

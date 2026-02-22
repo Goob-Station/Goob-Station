@@ -33,3 +33,7 @@
         mask:
         - BulletImpassable
   - type: ShadowGrappleProjectile
+    damageOnHit:
+      types:
+        Blunt: 100
+  # stunTime: 2
