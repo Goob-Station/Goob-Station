@@ -113,6 +113,7 @@
     runningState: icon
     staticPacks:
     - ToolsStatic
+    - PartsStatic
     - SharedBoardsStatic
     - CargoBoardsStatic
     - CablesStatic
