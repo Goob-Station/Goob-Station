@@ -17,8 +17,6 @@ namespace Content.Trauma.Shared.ShadowDemon;
 
 public sealed class ShadowGrappleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
@@ -40,42 +38,12 @@ public sealed class ShadowGrappleSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ShadowGrappleEvent>(OnGrapple);
-
         SubscribeLocalEvent<ShadowGrappleProjectileComponent, ProjectileEmbedEvent>(OnEmbed);
         SubscribeLocalEvent<ShadowGrappleProjectileComponent, ProjectileHitEvent>(OnHit);
 
         _bodyQuery = GetEntityQuery<BodyComponent>();
         _inventoryQuery = GetEntityQuery<InventoryComponent>();
         _handheldQuery = GetEntityQuery<HandheldLightComponent>();
-    }
-
-    private void OnGrapple(ShadowGrappleEvent args)
-    {
-        var user = args.Performer;
-
-        var proj = PredictedSpawnAtPosition(args.ProjectileProto, Transform(user).Coordinates);
-        var projPos = _transform.GetWorldPosition(proj);
-        var targetPos = _transform.GetWorldPosition(args.Target);
-
-        var dir = (targetPos - projPos).Normalized();
-
-        var visuals = EnsureComp<JointVisualsComponent>(proj);
-
-        if (args.JointSprite is {} jointSprite)
-            visuals.Sprite = jointSprite;
-
-        visuals.OffsetA = new Vector2(0f, 0.5f);
-        visuals.Target = user;
-        Dirty(proj, visuals);
-
-        _gun.ShootProjectile(proj,
-            dir,
-            Vector2.Zero,
-            null,
-            user);
-
-        args.Handled = true;
     }
 
     private void OnEmbed(Entity<ShadowGrappleProjectileComponent> ent, ref ProjectileEmbedEvent args)
@@ -116,10 +84,10 @@ public sealed class ShadowGrappleSystem : EntitySystem
     /// <summary>
     /// Break any lights nearby.
     /// </summary>
-    public void BreakNearbyLights(EntityUid target, EntityUid? user)
+    public void BreakNearbyLights(EntityUid target, EntityUid? user, float range = 1f)
     {
         _lights.Clear();
-        _lookup.GetEntitiesInRange(Transform(target).Coordinates, 1f, _lights);
+        _lookup.GetEntitiesInRange(Transform(target).Coordinates, range, _lights);
         foreach (var light in _lights)
         {
             _poweredLight.TryDestroyBulb(light.Owner, light.Comp, user);

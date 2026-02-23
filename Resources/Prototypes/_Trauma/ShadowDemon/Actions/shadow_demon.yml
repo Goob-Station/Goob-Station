@@ -23,7 +23,7 @@
     itemIconStyle: NoItem
   # useDelay: 10
   - type: EntityTargetAction
-    event: !type:ShadowGrappleEvent
+    event: !type:ShootGrappleEvent
       projectileProto: ShadowGrappleProjectile
       # TODO: jointSprite: smth
   - type: TargetAction

@@ -18,25 +18,12 @@ public sealed class ShadowCrawlSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ShadowCrawlComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<ShadowCrawlComponent, ComponentShutdown>(OnShutdown);
-
         SubscribeLocalEvent<ShadowCrawlComponent, ShadowCrawlEvent>(OnCrawl);
 
         SubscribeLocalEvent<LightDetectionComponent, ShadowCrawlAttemptEvent>(OnCrawlAttempt);
 
         SubscribeLocalEvent<LightDetectionDamageComponent, ShadowCrawlActivatedEvent>(OnCrawlActivated);
         SubscribeLocalEvent<LightDetectionDamageComponent, ShadowCrawlDeActivatedEvent>(OnCrawlDeactivated);
-    }
-
-    private void OnMapInit(Entity<ShadowCrawlComponent> ent, ref MapInitEvent args)
-    {
-        ent.Comp.ActionUid = _actionsSystem.AddAction(ent.Owner, ent.Comp.Action);
-    }
-
-    private void OnShutdown(Entity<ShadowCrawlComponent> ent, ref ComponentShutdown args)
-    {
-        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.ActionUid);
     }
 
     private void OnCrawl(Entity<ShadowCrawlComponent> ent, ref ShadowCrawlEvent args)
@@ -77,11 +64,9 @@ public sealed class ShadowCrawlSystem : EntitySystem
         phase.PhaseOutEffect = ent.Comp.PhaseOut;
         phase.MovementSpeedBuff = ent.Comp.SpeedBuff;
         AddComp(ent.Owner, phase);
-        Log.Info("add jaunt components");
 
         ent.Comp.Active = true;
         Dirty(ent);
-        Log.Info("not active");
 
         // Notify the activation and ensure we get halved damage from lights
         var activateEv = new ShadowCrawlActivatedEvent(ent.Comp.DamageModiferFromLights);
@@ -89,11 +74,9 @@ public sealed class ShadowCrawlSystem : EntitySystem
 
         // Disable all actions while in jaunt except the jaunt itself
         ToggleActions(args.Action, ent.Owner, false);
-        Log.Info("disabling all actions");
 
         // Ensures we don't attack people while invisible
         _combat.SetInCombatMode(ent.Owner, false);
-        Log.Info("finished setting up everything");
 
         args.Handled = true;
     }
@@ -102,8 +85,6 @@ public sealed class ShadowCrawlSystem : EntitySystem
     {
         if (ent.Comp.OnLight)
             args.Cancelled = true;
-
-        Log.Info($"the jaunt is: {args.Cancelled}");
     }
 
     private void OnCrawlActivated(Entity<LightDetectionDamageComponent> ent, ref ShadowCrawlActivatedEvent args)
