@@ -125,10 +125,17 @@ public sealed partial class AdminLogsControl : Control
         // This exception is thrown if the regex is invalid, which happens often, so we ignore it.
         try
         {
-            LogSearchRegex = new Regex(
-                "(" + LogSearch.Text + ")",
-                RegexOptions.IgnoreCase,
-                TimeSpan.FromSeconds(1));
+            if (string.IsNullOrEmpty(LogSearch.Text))
+            {
+                LogSearchRegex = new Regex("", RegexOptions.IgnoreCase);
+            }
+            else
+            {
+                LogSearchRegex = new Regex(
+                    "(" + LogSearch.Text + ")",
+                    RegexOptions.IgnoreCase,
+                    TimeSpan.FromSeconds(1));
+            }
         }
         catch (ArgumentException)
         {
@@ -343,8 +350,15 @@ public sealed partial class AdminLogsControl : Control
             return false;
 
         // Check search
-        if (!LogSearchRegex.IsMatch(entry.Log.Message))
+        try
+        {
+            if (!LogSearchRegex.IsMatch(entry.Log.Message))
+                return false;
+        }
+        catch (RegexMatchTimeoutException)
+        {
             return false;
+        }
 
         return true;
     }

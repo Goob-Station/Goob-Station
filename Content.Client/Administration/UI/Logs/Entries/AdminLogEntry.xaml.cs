@@ -33,11 +33,26 @@ public sealed partial class AdminLogEntry : BoxContainer
         DetailsHeading.OnToggled += DetailsToggled;
     }
 
+    private string? _lastHighlightRegex;
+    private bool _lastRenderRichText;
+    private bool _lastRemoveMarkup;
+
     /// <summary>
     /// Sets text to be highlighted from a search result, and renders rich text, or removes all rich text markup.
     /// </summary>
-    public void RenderResults(Regex highlightRegex, bool renderRichText, bool removeMarkup)
+    public void RenderResults(Regex? highlightRegex, bool renderRichText, bool removeMarkup)
     {
+        if (_lastHighlightRegex == highlightRegex?.ToString() &&
+            _lastRenderRichText == renderRichText &&
+            _lastRemoveMarkup == removeMarkup)
+        {
+            return;
+        }
+
+        _lastHighlightRegex = highlightRegex?.ToString();
+        _lastRenderRichText = renderRichText;
+        _lastRemoveMarkup = removeMarkup;
+
         var color = _cfgManager.GetCVar(CCVars.AdminLogsHighlightColor);
         var formattedMessage = renderRichText
             ? _rawMessage
@@ -46,7 +61,7 @@ public sealed partial class AdminLogEntry : BoxContainer
                 : FormattedMessage.EscapeText(_rawMessage);
 
         // Want to avoid highlighting smaller strings
-        if (highlightRegex.ToString().Length > 4)
+        if (highlightRegex != null && highlightRegex.ToString().Length > 4)
         {
             try
             {
