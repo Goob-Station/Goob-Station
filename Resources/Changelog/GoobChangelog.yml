@@ -21305,3 +21305,75 @@ Entries:
       message: Fixed eating mothroaches making you big
   id: 2420
   time: '2026-02-18T03:36:42.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: turned spare ats engi room into lockbox storage room, ats atmos fixed
+  id: 2421
+  time: '2026-02-19T21:30:46.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Flashes no longer blind you for 1000x the intended duration.
+    - type: Fix
+      message: Robust Harvest works again.
+    - type: Fix
+      message: >-
+        Paralysed individuals can no longer walk, defy friction, or crawl at
+        super speed.
+    - type: Fix
+      message: Admin drop pods work again.
+    - type: Fix
+      message: >-
+        Dropped item behaviour now works even if the person being forced to drop
+        items is knocked down, fixing things like Judo armbar disarming.
+    - type: Fix
+      message: >-
+        (super) Slipping is predicted, no longer hard stuns you for double the
+        amount, and will knock you down instead of knocking and paralysing.
+    - type: Fix
+      message: Slipping while dragging no longer gives you telekinetic pulling powers.
+    - type: Fix
+      message: Players can no longer ignore handcuffs and escape being pulled.
+    - type: Fix
+      message: Getting cuffed while pulling should now allow you to stop pulling.
+  id: 2422
+  time: '2026-02-22T09:58:37.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer construct buildables without actually having the
+        materials to do so.
+  id: 2423
+  time: '2026-02-22T12:54:18.0000000+00:00'
+- author: fritzfranz
+  changes:
+    - type: Tweak
+      message: Kettle mapping
+    - type: Fix
+      message: fixed salvage from spacing
+    - type: Add
+      message: turrets to armoury
+    - type: Add
+      message: 1 enforcer to armoury
+    - type: Fix
+      message: camera blindspots on ai sat
+    - type: Add
+      message: windows to xenobio
+    - type: Add
+      message: stasis beds to both med and brigmed
+    - type: Add
+      message: 2nd bartender locker
+    - type: Add
+      message: mime and clown lockers
+  id: 2424
+  time: '2026-02-22T16:45:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Interaction verbs force down making you a crawling god and Help up
+        not helping folk up in some cases.
+  id: 2425
+  time: '2026-02-22T19:11:34.0000000+00:00'
