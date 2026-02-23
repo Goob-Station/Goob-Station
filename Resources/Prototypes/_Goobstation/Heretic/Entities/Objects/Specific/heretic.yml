@@ -39,6 +39,7 @@
   - type: ItemToggle
   - type: ComponentToggler
     components:
+    - type: HereticMagicItem # TODO remove
     - type: MagicFocusProvider
       weight: 2
     - type: EldritchInfluenceDrainer

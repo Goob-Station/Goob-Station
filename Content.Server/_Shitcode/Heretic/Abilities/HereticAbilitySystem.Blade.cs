@@ -48,6 +48,9 @@ public sealed partial class HereticAbilitySystem
 
     private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)
     {
+        if (!TryUseAbility(ent, args))
+            return;
+
         _statusEffect.TryRemoveStatusEffect(ent, "Stun");
         _statusEffect.TryRemoveStatusEffect(ent, "KnockedDown");
         _statusEffect.TryRemoveStatusEffect(ent, "ForcedSleep");
@@ -86,6 +89,9 @@ public sealed partial class HereticAbilitySystem
     }
     private void OnFuriousSteel(Entity<HereticComponent> ent, ref EventHereticFuriousSteel args)
     {
+        if (!TryUseAbility(ent, args))
+            return;
+
         _pblade.AddProtectiveBlade(ent);
         for (var i = 1; i < 3; i++)
         {

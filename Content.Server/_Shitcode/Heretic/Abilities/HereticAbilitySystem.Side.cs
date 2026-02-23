@@ -25,6 +25,9 @@ public sealed partial class HereticAbilitySystem
 
     private void OnCleave(Entity<HereticComponent> ent, ref EventHereticCleave args)
     {
+        if (!TryUseAbility(ent, args))
+            return;
+
         args.Handled = true;
 
         if (!args.Target.IsValid(EntityManager))

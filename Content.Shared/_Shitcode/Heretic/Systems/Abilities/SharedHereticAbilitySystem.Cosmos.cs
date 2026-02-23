@@ -66,6 +66,9 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnExpansion(EntityUid ent, ref EventHereticCosmicExpansion args, int strength, bool ascended)
     {
+        if (!TryUseAbility(ent, args))
+            return;
+
         args.Handled = true;
 
         var coords = Transform(ent).Coordinates;
@@ -117,6 +120,9 @@ public abstract partial class SharedHereticAbilitySystem
         }
 
         if (!args.Target.IsValid(EntityManager))
+            return;
+
+        if (!TryUseAbility(ent, args))
             return;
 
         args.Handled = true;
@@ -183,6 +189,9 @@ public abstract partial class SharedHereticAbilitySystem
             Popup.PopupClient(Loc.GetString("heretic-ability-fail-tile-occupied"), args.Performer, args.Performer);
             return;
         }
+
+        if (!TryUseAbility(ent, args))
+            return;
 
         args.Handled = true;
 
