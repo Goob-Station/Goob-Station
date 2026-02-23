@@ -19,3 +19,26 @@
       reagents:
       - ReagentId: Sarin
         Quantity: 50
+
+- type: entity
+  parent: [ GrenadeBase, BaseSecurityContraband ]
+  id: SecurityEMPGrenade
+  name: EMP grenade
+  description: A low yield EMP grenade issued to security forces.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+  - type: EmpOnTrigger
+    keysIn:
+    - timer
+    range: 2
+    energyConsumption: 25000
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg
+  - type: StaticPrice
+    price: 333
