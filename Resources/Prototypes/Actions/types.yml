@@ -253,8 +253,6 @@
     icon:
       sprite: _Goobstation/Actions/implants/implants.rsi # goob edit
       state: scrambler
-  - type: InstantAction
-    event: !type:UseDnaScramblerImplantEvent
 
 - type: entity
   parent: BaseAction
