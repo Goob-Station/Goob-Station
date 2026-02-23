@@ -1015,6 +1015,7 @@
     - WhitelistChameleon
     - DroneUsable
     - Ushanka
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadBase
