@@ -40,8 +40,6 @@ public sealed class ClientAntagTokenManager : IAntagTokenManager, IPostInjectIni
         _net.ClientSendMessage(new MsgAntagTokenDeactivate());
     }
 
-    public void Initialize() { }
-
     // Server-side stubs
     bool IAntagTokenManager.HasActiveToken(NetUserId userId) => false;
     float IAntagTokenManager.GetWeightMultiplier() => 1f;

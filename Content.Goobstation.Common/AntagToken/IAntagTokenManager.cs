@@ -4,8 +4,6 @@ namespace Content.Goobstation.Common.AntagToken;
 
 public interface IAntagTokenManager
 {
-    void Initialize();
-
     bool HasActiveToken(NetUserId userId);
     float GetWeightMultiplier();
     void ConsumeToken(NetUserId userId, int roundId);
