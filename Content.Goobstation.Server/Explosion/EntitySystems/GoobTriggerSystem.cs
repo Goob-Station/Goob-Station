@@ -19,6 +19,8 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
+using Content.Shared.Trigger;
+using Content.Shared.Trigger.Systems;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Server.Explosion.EntitySystems;

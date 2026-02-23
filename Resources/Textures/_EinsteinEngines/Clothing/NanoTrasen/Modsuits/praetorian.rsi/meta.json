@@ -27,6 +27,14 @@
       "name": "equipped-HEAD-sealed-resomi",
       "directions": 4
     },
+	{
+      "name": "equipped-HEAD-sealed-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "equipped-HEAD-reptilian",
+      "directions": 4
+    },
     {
       "name": "equipped-HEAD-sealed",
       "directions": 4
@@ -57,6 +65,14 @@
     },
     {
       "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+	{
+      "name": "equipped-OUTERCLOTHING-sealed-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "equipped-OUTERCLOTHING-reptilian",
       "directions": 4
     },
     {
@@ -167,6 +183,18 @@
     },
     {
       "name": "equipped-HEAD-sealed-unshaded-vulpkanin",
+      "directions": 4
+    },
+	{
+      "name": "equipped-HEAD-sealed-unshaded-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "equipped-FEET-sealed-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-FEET-reptilian",
       "directions": 4
     }
   ]
