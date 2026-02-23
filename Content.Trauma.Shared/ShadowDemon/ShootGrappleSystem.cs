@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Shared.Physics;
 using Content.Shared.Weapons.Ranged.Systems;
 
