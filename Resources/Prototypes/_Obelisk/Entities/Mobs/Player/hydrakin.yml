@@ -3,11 +3,3 @@
   name: Urist McHydra
   parent: BaseMobHydrakin
   id: MobHydrakin
-  components:
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - Hydraspeak
-    understands:
-    - TauCetiBasic
-    - Hydraspeak

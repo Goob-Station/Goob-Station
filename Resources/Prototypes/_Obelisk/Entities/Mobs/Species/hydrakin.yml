@@ -22,6 +22,8 @@
     state: full
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
+  - type: Hunger
+  - type: Thirst
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Hydrakin
@@ -75,6 +77,13 @@
     ignoreHeatResistance: true
   - type: PressureProtection
     lowPressureMultiplier: 1.2
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Hydraspeak
+    understands:
+    - TauCetiBasic
+    - Hydraspeak
   - type: Inventory
     speciesId: hydrakin
     templateId: hydrakin
