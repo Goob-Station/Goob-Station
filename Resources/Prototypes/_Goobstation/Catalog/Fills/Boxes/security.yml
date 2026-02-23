@@ -104,11 +104,5 @@
   - type: StorageFill
     contents:
     - id: SecurityEmpGrenade
-      amount: 8
-  - type: Storage
-    grid:
-    - 0,0,3,3
-    whitelist:
-      tags:
-      - Grenade
+      amount: 4
 
