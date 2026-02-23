@@ -1,8 +1,10 @@
 using Content.Goobstation.Common.AntagToken;
 using Content.Goobstation.Common.CCVar;
 using Content.Server.Administration;
+using Content.Server.Administration.Logs;
 using Content.Server.Database;
 using Content.Shared.Administration;
+using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
@@ -41,6 +43,10 @@ public sealed class DeactivateAntagTokenCommand : IConsoleCommand
         }
 
         tokenManager.DeactivateToken(userId);
+
+        var adminLog = IoCManager.Resolve<IAdminLogManager>();
+        adminLog.Add(LogType.AntagToken, LogImpact.High, $"Admin {shell.Player?.Name ?? "CONSOLE"} deactivated antag token for player '{args[0]}'.");
+
         shell.WriteLine($"Deactivated antag token for player '{args[0]}'.");
     }
 
@@ -89,6 +95,10 @@ public sealed class GrantAntagTokenCommand : IConsoleCommand
         var cap = cfg.GetCVar(GoobCVars.AntagTokenCap);
 
         var newCount = await db.IncrementAntagTokens(userId, amount, cap);
+
+        var adminLog = IoCManager.Resolve<IAdminLogManager>();
+        adminLog.Add(LogType.AntagToken, LogImpact.High, $"Admin {shell.Player?.Name ?? "CONSOLE"} granted {amount} antag token(s) to player '{args[0]}'. New total: {newCount}.");
+
         shell.WriteLine($"Granted {amount} antag token(s) to '{args[0]}'. They now have {newCount}.");
     }
 

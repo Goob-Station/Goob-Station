@@ -2,9 +2,11 @@ using System.Threading.Tasks;
 using Content.Goobstation.Common.AntagToken;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.ServerCurrency;
+using Content.Server.Administration.Logs;
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
+using Content.Shared.Database;
 using Content.Shared.Players.RateLimiting;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -22,6 +24,7 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
     [Dependency] private readonly IServerNetManager _net = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     private const string RateLimitKey = "AntagToken";
 
@@ -134,6 +137,7 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
             }
 
             _activeTokens[userId] = true;
+            _adminLog.Add(LogType.AntagToken, LogImpact.Medium, $"Player {session.Name} activated an antag token.");
         }
         catch (Exception e)
         {
@@ -149,7 +153,8 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
         if (_rateLimitManager.CountAction(session, RateLimitKey) != RateLimitStatus.Allowed)
             return;
 
-        _activeTokens.Remove(session.UserId);
+        if (_activeTokens.Remove(session.UserId))
+            _adminLog.Add(LogType.AntagToken, LogImpact.Medium, $"Player {session.Name} deactivated their antag token.");
     }
 
     public bool HasActiveToken(NetUserId userId)
@@ -179,7 +184,10 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
             await _db.ConsumeAntagToken(userId, roundId);
 
             if (_playerManager.TryGetSessionById(userId, out var session))
+            {
+                _adminLog.Add(LogType.AntagToken, LogImpact.High, $"Player {session.Name} consumed an antag token on round {roundId}.");
                 await SendTokenCount(session);
+            }
         }
         catch (Exception e)
         {
