@@ -6,10 +6,12 @@
 
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Shared.Actions;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Speech.Muting;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.PreAscension;
@@ -26,6 +28,9 @@ public sealed class ShadowlingGlareSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _effects = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+
+    public static readonly EntProtoId SlingGlareSlowEffect = "ShadowlingGlareSlowdownEffect";
 
     public override void Initialize()
     {
@@ -65,7 +70,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
 
     private void ActivateStun(EntityUid target, ShadowlingGlareComponent comp)
     {
-        _stun.TryStun(target, TimeSpan.FromSeconds(comp.GlareStunTime), false);
+        _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(comp.GlareStunTime));
         comp.ActivateGlareTimer = false;
     }
 
@@ -87,7 +92,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         if (distance <= comp.MinGlareDistance)
         {
             comp.GlareStunTime = comp.MaxGlareStunTime;
-            _stun.TryStun(target, TimeSpan.FromSeconds(comp.GlareStunTime), true);
+            _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(comp.GlareStunTime));
         }
         else
         {
@@ -102,7 +107,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         if (TryComp<StatusEffectsComponent>(target, out var statComp))
         {
             _effects.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), true);
-            _stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.SlowTime), true, 0.5f, 0.5f, statComp);
+            _movementMod.TryUpdateMovementSpeedModDuration(target, SlingGlareSlowEffect, TimeSpan.FromSeconds(comp.SlowTime), 0.5f, 0.5f);
         }
 
         var effectEnt = PredictedSpawnAtPosition(comp.EffectGlare, Transform(uid).Coordinates);
