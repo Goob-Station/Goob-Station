@@ -38,11 +38,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Administration.Logs;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -53,6 +55,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Utility;
 using Content.Shared.Projectiles;
 
@@ -63,16 +66,26 @@ public sealed class SlipperySystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SpeedModifierContactsSystem _speedModifier = default!;
 
+    private EntityQuery<KnockedDownComponent> _knockedDownQuery;
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+    private EntityQuery<SlidingComponent> _slidingQuery;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _knockedDownQuery = GetEntityQuery<KnockedDownComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        _slidingQuery = GetEntityQuery<SlidingComponent>();
 
         SubscribeLocalEvent<SlipperyComponent, StepTriggerAttemptEvent>(HandleAttemptCollide);
         SubscribeLocalEvent<SlipperyComponent, StepTriggeredOffEvent>(HandleStepTrigger);
@@ -139,73 +152,63 @@ public sealed class SlipperySystem : EntitySystem
     public bool CanSlip(EntityUid uid, EntityUid toSlip) // Goob edit
     {
         return !_container.IsEntityInContainer(uid)
-                && _statusEffects.CanApplyEffect(toSlip, "KnockedDown", raiseEvent: false); // Goob edit
+                && _status.CanAddStatusEffect(toSlip, SharedStunSystem.StunId); //Should be KnockedDown instead?
     }
 
-    public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool force = false, bool predicted = true) // Goob edit
+    public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool predicted = true)
     {
-        // Goob edit start
-        if (!predicted && _net.IsClient)
+        var knockedDown = _knockedDownQuery.HasComp(other);
+        if (knockedDown && !component.SlipData.SuperSlippery)
+            return;
+        var attemptEv = new SlipAttemptEvent(uid);
+        RaiseLocalEvent(other, attemptEv);
+        if (attemptEv.SlowOverSlippery)
+            _speedModifier.AddModifiedEntity(other);
+
+        if (attemptEv.NoSlip)
             return;
 
-        if ((HasComp<KnockedDownComponent>(other) || HasComp<StunnedComponent>(other)) && !component.SlipData.SuperSlippery)
+        var attemptCausingEv = new SlipCausingAttemptEvent();
+        RaiseLocalEvent(uid, ref attemptCausingEv);
+        if (attemptCausingEv.Cancelled)
             return;
-
-        if (!force)
-        {
-            var attemptEv = new SlipAttemptEvent(uid);
-            RaiseLocalEvent(other, attemptEv);
-            if (attemptEv.SlowOverSlippery)
-                _speedModifier.AddModifiedEntity(other);
-
-            if (attemptEv.NoSlip)
-                return;
-
-            var attemptCausingEv = new SlipCausingAttemptEvent();
-            RaiseLocalEvent(uid, ref attemptCausingEv);
-            if (attemptCausingEv.Cancelled)
-                return;
-        }
-
-        var hardStun = component.SlipData.SuperSlippery; // Goobstation
-        // Goob edit end
 
         var ev = new SlipEvent(other);
         RaiseLocalEvent(uid, ref ev);
 
-        if (TryComp(other, out PhysicsComponent? physics) && !HasComp<SlidingComponent>(other))
+        if (_physicsQuery.TryComp(other, out var physics) && !_slidingQuery.HasComp(other))
         {
             _physics.SetLinearVelocity(other, physics.LinearVelocity * component.SlipData.LaunchForwardsMultiplier, body: physics);
 
-            if (component.SlipData.SuperSlippery && requiresContact)
-            {
-                var sliding = EnsureComp<SlidingComponent>(other);
-                sliding.CollidingEntities.Add(uid);
-                // Why the fuck does this assertion stack overflow every once in a while
-                DebugTools.Assert(_physics.GetContactingEntities(other, physics).Contains(uid));
-            }
+            if (component.AffectsSliding && requiresContact)
+                EnsureComp<SlidingComponent>(other);
         }
 
-        var playSound = !_statusEffects.HasStatusEffect(other, "KnockedDown");
-
-        // goob edit - stunmeta
-        var time = component.SlipData.ParalyzeTime;
-        if (hardStun)
-            _stun.TryParalyze(other, time, true);
-        else
-            _stun.KnockdownOrStun(other, time, true);
-
-        // Preventing from playing the slip sound when you are already knocked down.
-        if (playSound)
+        // Preventing from playing the slip sound and stunning when you are already knocked down.
+        if (!knockedDown)
         {
-            if (predicted)
-                _audio.PlayPredicted(component.SlipSound, other, other);
-            else
-                _audio.PlayPvs(component.SlipSound, other);
+            // Status effects should handle a TimeSpan of 0 properly...
+            _stun.TryUpdateStunDuration(other, component.SlipData.StunTime);
+
+            // Don't make a new status effect entity if the entity wouldn't do anything
+            if (!MathHelper.CloseTo(component.SlipData.SlipFriction, 1f))
+            {
+                _movementMod.TryUpdateFrictionModDuration(
+                    other,
+                    component.FrictionStatusTime,
+                    component.SlipData.SlipFriction
+                );
+            }
+
+            _stamina.TakeStaminaDamage(other, component.StaminaDamage); // Note that this can StamCrit
+
+            _audio.PlayPredicted(component.SlipSound, other, other);
         }
 
-        _adminLogger.Add(LogType.Slip, LogImpact.Low,
-            $"{ToPrettyString(other):mob} slipped on collision with {ToPrettyString(uid):entity}");
+        // Slippery is so tied to knockdown that we really just need to force it here.
+        _stun.TryKnockdown(other, component.SlipData.KnockdownTime, force: true);
+
+        _adminLogger.Add(LogType.Slip, LogImpact.Low, $"{ToPrettyString(other):mob} slipped on collision with {ToPrettyString(uid):entity}");
     }
 }
 

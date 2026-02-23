@@ -98,6 +98,10 @@
 	{
 		"name": "brass_chair",
 		"directions": 4
-	}
+	},
+    {
+        "name": "card-stool",
+        "directions": 4
+    }
   ]
 }

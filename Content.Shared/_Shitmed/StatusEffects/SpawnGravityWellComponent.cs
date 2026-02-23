@@ -16,4 +16,17 @@ public sealed partial class SpawnGravityWellComponent : SpawnEntityEffectCompone
 {
     public override string EntityPrototype { get; set; } = "AdminInstantEffectGravityWell";
     public override bool AttachToParent { get; set; } = true;
+
+    // Taken from GravityWellComponent
+    [DataField]
+    public float MaxRange;
+
+    [DataField]
+    public float MinRange = 0f;
+
+    [DataField]
+    public float BaseRadialAcceleration = 0.0f;
+
+    [DataField]
+    public float BaseTangentialAcceleration = 0.0f;
 }
