@@ -236,8 +236,6 @@
     icon:
       sprite: _Goobstation/Actions/implants/implants.rsi # goob edit
       state: scram
-  - type: InstantAction
-    event: !type:UseScramImplantEvent
 
 - type: entity
   parent: BaseImplantAction
