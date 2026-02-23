@@ -155,6 +155,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IAntagTokenManager _antagTokenSystem = default!; // Goobstation - Antag Tokens
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -493,8 +494,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             // Goobstation - Antag Tokens: consume token if active
             if (_antagTokenSystem.HasActiveToken(session.UserId))
             {
-                var gameTicker = EntityManager.System<GameTicker>();
-                _antagTokenSystem.ConsumeToken(session.UserId, gameTicker.RoundId);
+                _antagTokenSystem.ConsumeToken(session.UserId, _gameTicker.RoundId);
                 _adminLogger.Add(LogType.AntagSelection, LogImpact.High,
                     $"Player {session} consumed an antag token for {ToPrettyString(ent)}");
             }

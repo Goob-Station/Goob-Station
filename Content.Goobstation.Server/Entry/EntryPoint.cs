@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.AntagToken;
 using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
@@ -33,6 +34,8 @@ public sealed class EntryPoint : GameServer
 
         _curr = IoCManager.Resolve<ICommonCurrencyManager>();
         _curr.Initialize();
+
+        IoCManager.Resolve<IAntagTokenManager>().Initialize();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)

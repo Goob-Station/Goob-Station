@@ -8,7 +8,9 @@ using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Shared.Database;
+using Content.Shared.GameTicking;
 using Content.Shared.Players.RateLimiting;
+using Robust.Shared.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
@@ -17,7 +19,7 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.AntagToken;
 
-public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectInit
+public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectInit, IEntityEventSubscriber
 {
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -57,6 +59,18 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
                 GoobCVars.AntagTokenRateLimitPeriod,
                 GoobCVars.AntagTokenRateLimitCount,
                 null));
+    }
+
+    public void Initialize()
+    {
+        _entityManager.EventBus.SubscribeEvent<RoundRestartCleanupEvent>(EventSource.Local, this, _ => ClearActiveTokens());
+        _entityManager.EventBus.SubscribeEvent<GameRunLevelChangedEvent>(EventSource.Local, this, OnRunLevelChanged);
+    }
+
+    private void OnRunLevelChanged(GameRunLevelChangedEvent ev)
+    {
+        if (ev.New == GameRunLevel.InRound)
+            ClearActiveTokens();
     }
 
     public void ClearActiveTokens()
