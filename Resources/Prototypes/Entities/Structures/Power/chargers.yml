@@ -146,6 +146,8 @@
   - type: PowerCellSlot
     cellSlotId: charger_slot
     # fitsInCharger is true i dont think this will ever affect anything negatively but it lets it function
+  - type: Charger #Goobstation
+    chargeRate: 25
   - type: ItemSlots
     slots:
       charger_slot:
@@ -219,6 +221,8 @@
   - type: Machine
     board: WeaponCapacitorRechargerCircuitboard
   # no powercellslot since stun baton etc arent powercells
+  - type: Charger #Goobstation
+    chargeRate: 25
   - type: ItemSlots
     slots:
       charger_slot:
