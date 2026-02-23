@@ -2,7 +2,7 @@ magic-requirements-muted = I'm muted! I can't pronounce this spell!
 
 magic-requirements-items = I need more power to cast this! {$n} more focus will suffice!
 
-magic-requirements-stability = It can't get anymore inconvenient than this! I can't focus!
+magic-requirements-stability = It can't get any more inconvenient than this! I need stable ground!
 
 magic-requirements-role = I don't know how to cast this!
 

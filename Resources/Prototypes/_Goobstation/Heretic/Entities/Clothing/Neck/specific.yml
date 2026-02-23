@@ -43,7 +43,7 @@
     lightRadius: 0
     toggleAction: null
     whitelist:
-    requireAll: false
+      requireAll: false
       components: # TODO define all of them as MagicUser
       - Wizard
       - Heretic
