@@ -2090,7 +2090,7 @@
     heldPrefix: 0
   - type: Clothing
     quickEquip: false
-    sprite: Mobs/Animals/mouse.rsi
+    sprite: Mobs/Animals/mouse/mouse.rsi # Goobstation - mouse displacement map
     equippedPrefix: 0
     slots:
     - HEAD

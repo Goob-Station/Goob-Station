@@ -40,7 +40,7 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Mobs/Animals/mouse.rsi
+        - sprite: Mobs/Animals/mouse/mouse.rsi # Goobstation - mouse displacement map
           state: icon-2
         - state: timed
     - type: Timer
