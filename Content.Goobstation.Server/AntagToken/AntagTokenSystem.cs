@@ -4,6 +4,8 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Server.Database;
 using Content.Server.GameTicking;
+using Content.Server.Players.RateLimiting;
+using Content.Shared.Players.RateLimiting;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
@@ -19,6 +21,9 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IServerNetManager _net = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
+
+    private const string RateLimitKey = "AntagToken";
 
     private ISawmill _sawmill = default!;
     private readonly Dictionary<NetUserId, bool> _activeTokens = new();
@@ -42,6 +47,12 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
         _net.RegisterNetMessage<MsgAntagTokenDeactivate>(OnTokenDeactivate);
 
         _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
+
+        _rateLimitManager.Register(RateLimitKey,
+            new RateLimitRegistration(
+                GoobCVars.AntagTokenRateLimitPeriod,
+                GoobCVars.AntagTokenRateLimitCount,
+                null));
     }
 
     public void ClearActiveTokens()
@@ -74,8 +85,13 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
     {
         try
         {
-            if (_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session))
-                await SendTokenCount(session);
+            if (!_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session))
+                return;
+
+            if (_rateLimitManager.CountAction(session, RateLimitKey) != RateLimitStatus.Allowed)
+                return;
+
+            await SendTokenCount(session);
         }
         catch (Exception e)
         {
@@ -88,6 +104,9 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
         try
         {
             if (!_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session))
+                return;
+
+            if (_rateLimitManager.CountAction(session, RateLimitKey) != RateLimitStatus.Allowed)
                 return;
 
             if (session.Status == SessionStatus.InGame)
@@ -124,8 +143,13 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
 
     private void OnTokenDeactivate(MsgAntagTokenDeactivate msg)
     {
-        if (_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session))
-            _activeTokens.Remove(session.UserId);
+        if (!_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session))
+            return;
+
+        if (_rateLimitManager.CountAction(session, RateLimitKey) != RateLimitStatus.Allowed)
+            return;
+
+        _activeTokens.Remove(session.UserId);
     }
 
     public bool HasActiveToken(NetUserId userId)

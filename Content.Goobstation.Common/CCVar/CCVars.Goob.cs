@@ -345,6 +345,18 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> AntagTokenCooldownRounds =
         CVarDef.Create("antagtoken.cooldown", 0, CVar.SERVERONLY);
 
+    /// <summary>
+    ///     Rate limit period length in seconds for antag token network messages.
+    /// </summary>
+    public static readonly CVarDef<float> AntagTokenRateLimitPeriod =
+        CVarDef.Create("antagtoken.rate_limit_period", 2f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Maximum number of antag token network messages allowed per rate limit period.
+    /// </summary>
+    public static readonly CVarDef<int> AntagTokenRateLimitCount =
+        CVarDef.Create("antagtoken.rate_limit_count", 5, CVar.SERVERONLY);
+
     #endregion
 
     #endregion

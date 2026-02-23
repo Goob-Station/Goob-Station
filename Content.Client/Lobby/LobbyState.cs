@@ -421,8 +421,7 @@ namespace Content.Client.Lobby
                 return;
             }
 
-            // Unreadying - deactivate any token
-            _antagTokenManager.SendDeactivate();
+            _antagTokenManager.SendDeactivate(); // Goobstation - ontag token
             _consoleHost.ExecuteCommand("toggleready false");
         }
 
