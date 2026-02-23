@@ -86,6 +86,19 @@ gs-balanceui-remark-token-hat = Bought a hat token.
 gs-balanceui-shop-click-confirm = Click again to confirm
 gs-balanceui-shop-purchased = Purchased {$item}
 
+# Antag Token Commands
+antag-token-command-deactivate = antagtoken:deactivate
+antag-token-command-deactivate-description = Deactivates a player's antag token so they won't get a weight boost for antag selection.
+antag-token-command-deactivate-help = Usage: antagtoken:deactivate <username>
+
+antag-token-command-add = antagtoken:add
+antag-token-command-add-description = Grants antag token(s) to a player.
+antag-token-command-add-help = Usage: antagtoken:add <username> [amount]
+
+antag-token-command-list = antagtoken:list
+antag-token-command-list-description = Lists all players with an active antag token.
+antag-token-command-list-help = Usage: antagtoken:list
+
 # Antag Token Lobby UI
 antag-token-window-title = Antag Token
 antag-token-count = You have {$count} antag token(s).

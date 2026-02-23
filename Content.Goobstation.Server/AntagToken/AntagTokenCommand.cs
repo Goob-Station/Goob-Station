@@ -9,6 +9,7 @@ using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
+using Robust.Shared.Localization;
 
 namespace Content.Goobstation.Server.AntagToken;
 
@@ -19,9 +20,9 @@ public sealed class DeactivateAntagTokenCommand : IConsoleCommand
     [Dependency] private readonly IAntagTokenManager _antagToken = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
-    public string Command => "deactivateantagtoken";
-    public string Description => "Deactivates a player's antag token so they won't get a weight boost for antag selection.";
-    public string Help => "Usage: deactivateantagtoken <username>";
+    public string Command => Loc.GetString("antag-token-command-deactivate");
+    public string Description => Loc.GetString("antag-token-command-deactivate-description");
+    public string Help => Loc.GetString("antag-token-command-deactivate-help");
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -68,9 +69,9 @@ public sealed class GrantAntagTokenCommand : IConsoleCommand
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IAntagTokenManager _antagToken = default!;
 
-    public string Command => "grantantagtoken";
-    public string Description => "Grants antag token(s) to a player.";
-    public string Help => "Usage: grantantagtoken <username> [amount]";
+    public string Command => Loc.GetString("antag-token-command-add");
+    public string Description => Loc.GetString("antag-token-command-add-description");
+    public string Help => Loc.GetString("antag-token-command-add-help");
 
     public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -118,9 +119,9 @@ public sealed class ListAntagTokensCommand : IConsoleCommand
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IAntagTokenManager _antagToken = default!;
 
-    public string Command => "listantagtokens";
-    public string Description => "Lists all players with an active antag token.";
-    public string Help => "Usage: listantagtokens";
+    public string Command => Loc.GetString("antag-token-command-list");
+    public string Description => Loc.GetString("antag-token-command-list-description");
+    public string Help => Loc.GetString("antag-token-command-list-help");
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
