@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Goobstation.Common.AntagToken;
 using Content.Goobstation.Common.CCVar;
 using Content.Server.Administration;
@@ -15,6 +16,8 @@ namespace Content.Goobstation.Server.AntagToken;
 public sealed class DeactivateAntagTokenCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IAntagTokenManager _antagToken = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     public string Command => "deactivateantagtoken";
     public string Description => "Deactivates a player's antag token so they won't get a weight boost for antag selection.";
@@ -34,18 +37,14 @@ public sealed class DeactivateAntagTokenCommand : IConsoleCommand
             return;
         }
 
-        var tokenManager = IoCManager.Resolve<IAntagTokenManager>();
-
-        if (!tokenManager.HasActiveToken(userId))
+        if (!_antagToken.HasActiveToken(userId))
         {
             shell.WriteLine($"Player '{args[0]}' does not have an active antag token.");
             return;
         }
 
-        tokenManager.DeactivateToken(userId);
-
-        var adminLog = IoCManager.Resolve<IAdminLogManager>();
-        adminLog.Add(LogType.AntagToken, LogImpact.High, $"Admin {shell.Player?.Name ?? "CONSOLE"} deactivated antag token for player '{args[0]}'.");
+        _antagToken.DeactivateToken(userId);
+        _adminLog.Add(LogType.AntagToken, LogImpact.High, $"Admin {shell.Player?.Name ?? "CONSOLE"} deactivated antag token for player '{args[0]}'.");
 
         shell.WriteLine($"Deactivated antag token for player '{args[0]}'.");
     }
@@ -64,6 +63,9 @@ public sealed class DeactivateAntagTokenCommand : IConsoleCommand
 public sealed class GrantAntagTokenCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     public string Command => "grantantagtoken";
     public string Description => "Grants antag token(s) to a player.";
@@ -90,14 +92,9 @@ public sealed class GrantAntagTokenCommand : IConsoleCommand
             return;
         }
 
-        var db = IoCManager.Resolve<IServerDbManager>();
-        var cfg = IoCManager.Resolve<IConfigurationManager>();
-        var cap = cfg.GetCVar(GoobCVars.AntagTokenCap);
-
-        var newCount = await db.IncrementAntagTokens(userId, amount, cap);
-
-        var adminLog = IoCManager.Resolve<IAdminLogManager>();
-        adminLog.Add(LogType.AntagToken, LogImpact.High, $"Admin {shell.Player?.Name ?? "CONSOLE"} granted {amount} antag token(s) to player '{args[0]}'. New total: {newCount}.");
+        var cap = _cfg.GetCVar(GoobCVars.AntagTokenCap);
+        var newCount = await _db.IncrementAntagTokens(userId, amount, cap);
+        _adminLog.Add(LogType.AntagToken, LogImpact.High, $"Admin {shell.Player?.Name ?? "CONSOLE"} granted {amount} antag token(s) to player '{args[0]}'. New total: {newCount}.");
 
         shell.WriteLine($"Granted {amount} antag token(s) to '{args[0]}'. They now have {newCount}.");
     }
@@ -110,5 +107,30 @@ public sealed class GrantAntagTokenCommand : IConsoleCommand
             2 => CompletionResult.FromHint("Amount (default: 1)"),
             _ => CompletionResult.Empty
         };
+    }
+}
+
+[AdminCommand(AdminFlags.Admin)]
+public sealed class ListAntagTokensCommand : IConsoleCommand
+{
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IAntagTokenManager _antagToken = default!;
+
+    public string Command => "listantagtokens";
+    public string Description => "Lists all players with an active antag token.";
+    public string Help => "Usage: listantagtokens";
+
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        var active = _antagToken.GetActiveTokenUsers();
+        if (active.Count == 0)
+        {
+            shell.WriteLine("No players have active antag tokens.");
+            return;
+        }
+
+        var names = active.Select(id =>
+            _playerManager.TryGetSessionById(id, out var s) ? s.Name : id.ToString());
+        shell.WriteLine($"Active antag tokens ({active.Count}): {string.Join(", ", names)}");
     }
 }

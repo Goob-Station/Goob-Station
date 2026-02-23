@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.AntagToken;
 using Content.Goobstation.Common.CCVar;
@@ -172,15 +173,20 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
         _activeTokens.Remove(userId);
     }
 
+    public IReadOnlyCollection<NetUserId> GetActiveTokenUsers()
+    {
+        return _activeTokens.Keys.ToList();
+    }
+
     public async void ConsumeToken(NetUserId userId, int roundId)
     {
-        if (!HasActiveToken(userId))
-            return;
-
-        _activeTokens.Remove(userId);
-
         try
         {
+            if (!HasActiveToken(userId))
+                return;
+
+            _activeTokens.Remove(userId);
+
             await _db.ConsumeAntagToken(userId, roundId);
 
             if (_playerManager.TryGetSessionById(userId, out var session))

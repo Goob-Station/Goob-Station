@@ -9,6 +9,7 @@ public interface IAntagTokenManager
     void ConsumeToken(NetUserId userId, int roundId);
     void DeactivateToken(NetUserId userId);
     void ClearActiveTokens();
+    IReadOnlyCollection<NetUserId> GetActiveTokenUsers();
 
     int TokenCount { get; }
     bool OnCooldown { get; }
