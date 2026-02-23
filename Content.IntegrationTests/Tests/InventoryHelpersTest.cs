@@ -40,9 +40,7 @@ namespace Content.IntegrationTests.Tests
   components:
   - type: Inventory
   - type: ContainerContainer
-  - type: StatusEffects
-    allowed:
-    - Stun
+  - type: MobState
 
 - type: entity
   name: InventoryJumpsuitJanitorDummy
@@ -93,7 +91,7 @@ namespace Content.IntegrationTests.Tests
                 });
 #pragma warning restore NUnit2045
 
-                systemMan.GetEntitySystem<StunSystem>().TryStun(human, TimeSpan.FromSeconds(1f), true);
+                systemMan.GetEntitySystem<StunSystem>().TryUpdateStunDuration(human, TimeSpan.FromSeconds(1f));
 
 #pragma warning disable NUnit2045
                 // Since the mob is stunned, they can't equip this.

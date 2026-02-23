@@ -24,8 +24,10 @@
     whitelist:
       requireAll: true
       components:
-      - Body
       - MobState
+      - Body # this also allows borgs because that supercode uses Body for no reason
+      - PAI # intended to mindswap pAIs and AIs
+      - StationAiCore
       - MindContainer
     # Goob edit end
     event: !type:MindSwapSpellEvent

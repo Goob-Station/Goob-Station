@@ -11,6 +11,7 @@ nullrod-uristhand-untrained-usage-popup = Secure trespass.
 nullrod-chainsaw-untrained-usage-popup = Ahh, and look at what we have here — a bloody heathen!
 nullrod-bulwark-untrained-usage-popup = You cannot bear the weight of your own sins, let alone this hunk of steel.
 nullrod-spear-untrained-usage-popup = MALFUNCTION.
+nullrod-dragontail-untrained-usage-popup = The tail flails out of control and hits you!
 nullrod-chainsword-untrained-usage-popup = HE didn't accept you.
 
 alternate-pray-prompt = Pray to {$item}

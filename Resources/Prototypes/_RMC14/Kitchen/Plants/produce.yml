@@ -1,4 +1,4 @@
-- type: entity 
+- type: entity
   name: mango
   parent: FoodProduceBase
   id: FoodMango
@@ -32,12 +32,7 @@
     tags:
     - Fruit
   - type: FoodSequenceElement
-    sprite:
-      sprite: _RMC14/Objects/Kitchen/Plants/mango.rsi
-      state: produce
-    # TODO: Sequence sprites are to be scaled by 0.8x. 
+    # TODO: Sequence sprites are to be scaled by 0.8x.
     entries:
-      taco:
-        name: food-sequence-content-mango
-      burger:
-        name: food-sequence-burger-content-mango
+      Taco: FSE_Mango
+      Burger: FSE_MangoBurger
