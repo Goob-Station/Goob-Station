@@ -48,10 +48,10 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         ref InventoryRelayedEvent<RefreshEquipmentHudEvent<ThermalVisionComponent>> args)
     {
         var mindPass = !_mind.TryGetMind(_player.LocalSession, out var mindId, out var mindComp)
-            || _whitelist.IsWhitelistPassOrNull(ent.Comp.EquipmentWhitelist, mindId);
+            || _whitelist.IsWhitelistPassOrNull(ent.Comp.Whitelist, mindId);
 
         var parentPass = !_player.LocalEntity.HasValue
-            || _whitelist.IsWhitelistPassOrNull(ent.Comp.EquipmentWhitelist, _player.LocalEntity.Value);
+            || _whitelist.IsWhitelistPassOrNull(ent.Comp.Whitelist, _player.LocalEntity.Value);
 
         if (ent.Comp.IsEquipment && (mindPass || parentPass))
             base.OnRefreshEquipmentHud(ent, ref args);

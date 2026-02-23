@@ -31,7 +31,7 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
     public bool IsEquipment;
 
     [DataField]
-    public EntityWhitelist? EquipmentWhitelist;
+    public EntityWhitelist? Whitelist;
 
     /// <summary>
     /// If it is greater than 0, overlay isn't toggled but pulsed instead

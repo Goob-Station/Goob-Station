@@ -32,11 +32,6 @@
     requirements:
     - !type:MagicRequireRole
       role: !type:MindRoleBloodCultistComponent
-  - type: BloodCultAction
-    unlimitedUses: true
-    damage:
-      types:
-        Slash: 5
   - type: UserInterface
     interfaces:
       enum.EntityRadialMenuKey.Key:
