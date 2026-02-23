@@ -224,11 +224,18 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
             onCooldown = currentRound - lastConsumedRound < _cooldownRounds;
         }
 
-        session.Channel.SendMessage(new MsgAntagTokenCountUpdate
+        try
         {
-            TokenCount = count,
-            OnCooldown = onCooldown,
-        });
+            session.Channel.SendMessage(new MsgAntagTokenCountUpdate
+            {
+                TokenCount = count,
+                OnCooldown = onCooldown,
+            });
+        }
+        catch (NotImplementedException)
+        {
+            // Exists due to tests
+        }
     }
 
     // Client-side stubs
