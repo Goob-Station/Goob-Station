@@ -182,7 +182,6 @@
     - Recyclable
     - HamsterWearable
     - MouseWearable
-    - MouseWearable
     - WhitelistChameleon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
