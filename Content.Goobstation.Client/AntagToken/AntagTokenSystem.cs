@@ -47,4 +47,5 @@ public sealed class ClientAntagTokenManager : IAntagTokenManager, IPostInjectIni
     void IAntagTokenManager.DeactivateToken(NetUserId userId) { }
     void IAntagTokenManager.ClearActiveTokens() { }
     IReadOnlyCollection<NetUserId> IAntagTokenManager.GetActiveTokenUsers() => Array.Empty<NetUserId>();
+    void IAntagTokenManager.RefreshTokenCount(NetUserId userId) { }
 }

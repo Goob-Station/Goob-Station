@@ -66,6 +66,7 @@ public sealed class GrantAntagTokenCommand : IConsoleCommand
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly IAntagTokenManager _antagToken = default!;
 
     public string Command => "grantantagtoken";
     public string Description => "Grants antag token(s) to a player.";
@@ -95,6 +96,7 @@ public sealed class GrantAntagTokenCommand : IConsoleCommand
         var cap = _cfg.GetCVar(GoobCVars.AntagTokenCap);
         var newCount = await _db.IncrementAntagTokens(userId, amount, cap);
         _adminLog.Add(LogType.AntagToken, LogImpact.High, $"Admin {shell.Player?.Name ?? "CONSOLE"} granted {amount} antag token(s) to player '{args[0]}'. New total: {newCount}.");
+        _antagToken.RefreshTokenCount(userId);
 
         shell.WriteLine($"Granted {amount} antag token(s) to '{args[0]}'. They now have {newCount}.");
     }

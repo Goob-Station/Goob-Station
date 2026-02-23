@@ -113,7 +113,8 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
             if (_rateLimitManager.CountAction(session, RateLimitKey) != RateLimitStatus.Allowed)
                 return;
 
-            if (session.Status == SessionStatus.InGame)
+            var gameTicker = _entityManager.System<GameTicker>();
+            if (gameTicker.RunLevel != GameRunLevel.PreRoundLobby)
                 return;
 
             var userId = session.UserId;
@@ -127,10 +128,7 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
 
             if (_cooldownRounds > 0 && lastConsumedRound > 0)
             {
-                var gameTicker = _entityManager.System<GameTicker>();
-                var currentRound = gameTicker.RoundId;
-
-                if (currentRound - lastConsumedRound < _cooldownRounds)
+                if (gameTicker.RoundId - lastConsumedRound < _cooldownRounds)
                 {
                     await SendTokenCount(session);
                     return;
@@ -176,6 +174,19 @@ public sealed class ServerAntagTokenManager : IAntagTokenManager, IPostInjectIni
     public IReadOnlyCollection<NetUserId> GetActiveTokenUsers()
     {
         return _activeTokens.Keys.ToList();
+    }
+
+    public async void RefreshTokenCount(NetUserId userId)
+    {
+        try
+        {
+            if (_playerManager.TryGetSessionById(userId, out var session))
+                await SendTokenCount(session);
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"Failed to refresh antag token count for {userId}: {e}");
+        }
     }
 
     public async void ConsumeToken(NetUserId userId, int roundId)
