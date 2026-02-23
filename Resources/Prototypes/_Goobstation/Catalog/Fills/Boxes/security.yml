@@ -91,3 +91,24 @@
       tags:
       - Grenade
 
+- type: entity
+  name: emp grenade box
+  parent: [BoxCardboard, BaseSecurityContraband]
+  id: BoxGrenadesSecurityEmp
+  description: A box containing four weak EMP grenades for disabling electronics.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_security
+    - state: security_emp
+  - type: StorageFill
+    contents:
+    - id: SecurityEmpGrenade
+      amount: 8
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    whitelist:
+      tags:
+      - Grenade
+

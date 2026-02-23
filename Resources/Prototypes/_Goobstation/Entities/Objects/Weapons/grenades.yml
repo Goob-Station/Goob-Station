@@ -22,7 +22,7 @@
 
 - type: entity
   parent: [ GrenadeBase, BaseSecurityContraband ]
-  id: SecurityEMPGrenade
+  id: SecurityEmpGrenade
   name: EMP grenade
   description: A low yield EMP grenade issued to security forces.
   components:
