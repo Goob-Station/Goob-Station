@@ -42,7 +42,7 @@
   - type: StaminaDamageOnCollide
     damage: 30
   - type: KnockdownOnCollide
-    behavior: DropIfStanding
+    dropItems: true
   - type: BlurOnCollide
   - type: TimedDespawn
     lifetime: 0.4
