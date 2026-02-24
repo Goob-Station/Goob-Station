@@ -130,8 +130,8 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Forensics;
+using Content.Shared.Forensics.Components;
 
 namespace Content.Server.Body.Systems;
 
@@ -143,8 +143,6 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem
 
         SubscribeLocalEvent<BloodstreamComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<BloodstreamComponent, GenerateDnaEvent>(OnDnaGenerated);
-        SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt); // Goobstation - moved to Server
-        SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt); // Goobstation - moved to Server
     }
 
     // not sure if we can move this to shared or not
@@ -188,40 +186,21 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem
             Log.Error("Unable to set bloodstream DNA, solution entity could not be resolved");
     }
 
-    private void OnReactionAttempt(Entity<BloodstreamComponent> ent, ref ReactionAttemptEvent args)
+    /// <summary>
+    /// Get the reagent data for blood that a specific entity should have.
+    /// </summary>
+    public List<ReagentData> GetEntityBloodData(EntityUid uid)
     {
-        if (args.Cancelled)
-            return;
+        var bloodData = new List<ReagentData>();
+        var dnaData = new DnaData();
 
-        foreach (var effect in args.Reaction.Effects)
-        {
-            switch (effect)
-            {
-                case CreateEntityReactionEffect: // Prevent entities from spawning in the bloodstream
-                case AreaReactionEffect: // No spontaneous smoke or foam leaking out of blood vessels.
-                    args.Cancelled = true;
-                    return;
-            }
-        }
+        if (TryComp<DnaComponent>(uid, out var donorComp) && donorComp.DNA != null)
+            dnaData.DNA = donorComp.DNA;
+        else
+            dnaData.DNA = Loc.GetString("forensics-dna-unknown");
 
-        // The area-reaction effect canceling is part of avoiding smoke-fork-bombs (create two smoke bombs, that when
-        // ingested by mobs create more smoke). This also used to act as a rapid chemical-purge, because all the
-        // reagents would get carried away by the smoke/foam. This does still work for the stomach (I guess people vomit
-        // up the smoke or spawned entities?).
+        bloodData.Add(dnaData);
 
-        // TODO apply organ damage instead of just blocking the reaction?
-        // Having cheese-clots form in your veins can't be good for you.
-    }
-
-    private void OnReactionAttempt(Entity<BloodstreamComponent> ent, ref SolutionRelayEvent<ReactionAttemptEvent> args)
-    {
-        if (args.Name != ent.Comp.BloodSolutionName
-            && args.Name != ent.Comp.ChemicalSolutionName
-            && args.Name != ent.Comp.BloodTemporarySolutionName)
-        {
-            return;
-        }
-
-        OnReactionAttempt(ent, ref args.Event);
+        return bloodData;
     }
 }
