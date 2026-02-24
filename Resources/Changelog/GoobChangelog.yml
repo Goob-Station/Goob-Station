@@ -21397,3 +21397,9 @@ Entries:
       message: Removed both normal and advanced clowning modules.
   id: 2428
   time: '2026-02-24T08:32:04.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed stunbaton not knocking down on left click.
+  id: 2429
+  time: '2026-02-24T08:45:29.0000000+00:00'
