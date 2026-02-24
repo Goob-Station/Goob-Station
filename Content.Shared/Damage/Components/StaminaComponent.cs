@@ -127,8 +127,9 @@ public sealed partial class StaminaComponent : Component
     /// <summary>
     /// Thresholds that determine an entity's slowdown as a function of stamina damage.
     /// </summary>
-    [DataField]
-    public Dictionary<FixedPoint2, float> StunModifierThresholds = new() { {0, 1f } }; // Goob - no slowdown
+    [DataField] // Goob edit. No slowdown. todo goobstation refactor sprint shit so it isnt as dependent on stamina its kinda annoying to wrangle both at the same time.
+    public Dictionary<FixedPoint2, float> StunModifierThresholds = new() { {0, 1f } }; // Goob edit, 0.7 -> 1, 0.5 -> 1
+
 
     #region Animation Data
 
