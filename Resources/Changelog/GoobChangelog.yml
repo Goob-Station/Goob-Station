@@ -21377,3 +21377,9 @@ Entries:
         not helping folk up in some cases.
   id: 2425
   time: '2026-02-22T19:11:34.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed telescopic batons not disarming.
+  id: 2426
+  time: '2026-02-24T05:37:42.0000000+00:00'
