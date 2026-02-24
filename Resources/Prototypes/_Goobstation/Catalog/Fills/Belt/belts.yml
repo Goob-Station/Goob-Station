@@ -120,7 +120,6 @@
     children:
     - id: Handcuffs
     - id: Handcuffs
-    - id: Handcuffs
     - id: HoloprojectorSecurity
     - id: RadioHandheldSecurity
     - id: WeaponDisabler #Goobstation
@@ -173,8 +172,12 @@
       item2:
       - WeaponPistolJackal
   - type: DivineIntervention
+    validSpellDenialSlots:
+    - BELT
   - type: Reflect
     reflectProb: 1
+    slotFlags:
+    - BELT
     reflects:
     - Magic
   - type: Tag

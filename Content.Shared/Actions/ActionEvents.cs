@@ -137,12 +137,18 @@ public sealed class GetItemActionsEvent : EntityEventArgs
     /// </summary>
     public bool InHands => SlotFlags == null;
 
-    public GetItemActionsEvent(ActionContainerSystem system, EntityUid user, EntityUid provider, SlotFlags? slotFlags = null)
+    /// <summary>
+    ///     Lavaland Change: if true the item is being equipped, if false it's being dropped.
+    /// </summary>
+    public bool IsEquipping;
+
+    public GetItemActionsEvent(ActionContainerSystem system, EntityUid user, EntityUid provider, SlotFlags? slotFlags = null, bool isEquipping = true) // Lavaland Change - added isEquipping
     {
         _system = system;
         User = user;
         Provider = provider;
         SlotFlags = slotFlags;
+        IsEquipping = isEquipping; // Lavaland Change
     }
 
     /// <summary>
