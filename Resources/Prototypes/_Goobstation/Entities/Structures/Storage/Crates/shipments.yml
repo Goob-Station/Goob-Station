@@ -1,0 +1,100 @@
+#MARK: Base
+- type: entity
+  parent: BaseStructureDynamic
+  id: BaseCrateShipment
+  name: crate
+  description: A large container for items.
+  abstract: true
+  components:
+  - type: Animateable
+  - type: Transform
+    noRot: true
+  - type: Icon
+    sprite: Structures/Storage/Crates/generic.rsi
+    state: icon
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Storage/Crates/generic.rsi
+    layers:
+    - state: empty
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Appearance
+  - type: ItemSlots
+  - type: GenericVisualizer
+    visuals:
+      enum.ShipmentCrateVisuals.State:
+        ShipmentCrateVisuals.Layer:
+          -1: { visible: false }
+          0: { state: filled, visible: true}
+          1: { state: lid, visible: true}
+          # 2: { state: seal, visible: true}
+  - type: StaticPrice
+    price: 75
+  # - type: Construction
+  #   graph: CrateGenericSteel
+  #   node: crategenericsteel
+  #   containers:
+  #     - entity_storage
+  - type: RequireProjectileTarget
+  - type: Tag
+    tags:
+      - Crate
+
+#MARK: Engi shipment
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentEngineeringBase
+  name: engi shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+    state: empty
+  # - type: Construction
+  #   graph: GraphCrateShipmentEngineering
+  #   node: start
+
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentEngineeringTools
+  name: engi shipment crate
+  suffix: Tools (5000)
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+    state: icon
+  # - type: Construction
+  #   graph: GraphCrateShipmentEngineering
+  #   node: shipmentEngineeringTools
+  - type: StaticPrice
+    price: 5000

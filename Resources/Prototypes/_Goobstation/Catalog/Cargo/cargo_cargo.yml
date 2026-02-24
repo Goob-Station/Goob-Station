@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ForkliftCrateCargo
+  icon:
+    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+    state: forklift
+  product: CrateCargoForklift
+  cost: 6000
+  category: cargoproduct-category-name-cargo
+  group: market

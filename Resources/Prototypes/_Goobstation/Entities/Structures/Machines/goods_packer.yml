@@ -1,0 +1,43 @@
+
+- type: entity
+  id: MachineGoodsPacker
+  parent: [BaseLatheLube, BaseSiloUtilizer]
+  name: goods packer
+  description: WARNING - DO NOT PUT LIMBS IN FRONT OF MACHINE - OUTPUTS CRATES. Prints shipment crates to be sold for money from materials and even items.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/goods_packer.rsi
+    snapCardinals: true
+    layers:
+    - state: base
+    - state: screen
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: packing
+      map: ["anim"]
+      visible: false
+    - state: inserting
+      visible: false
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+  - type: Machine
+    board: GoodsPackerCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - RecipePackShipmentCratesStatic
+    dynamicPacks:
+    - ConstructionBagOfHolding
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - NailgunEvilStatic
+    emagDynamicPacks:
+    - MiningBoards
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot

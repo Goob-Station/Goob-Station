@@ -20,6 +20,11 @@
   recipes:
   - SeismicCharge
 
+- type: latheRecipePack
+  id: RecipePackShipmentCratesStatic
+  recipes:
+  - RecipeShipmentCrateSteel
+
 ## Dynamic
 - type: latheRecipePack
   id: MiningWeapons

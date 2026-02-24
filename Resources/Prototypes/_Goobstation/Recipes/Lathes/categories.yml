@@ -51,3 +51,7 @@
 - type: latheCategory
   id: Modsuit
   name: lathe-category-modsuit
+
+- type: latheCategory
+  id: GoodsShipments
+  name: lathe-category-shipments

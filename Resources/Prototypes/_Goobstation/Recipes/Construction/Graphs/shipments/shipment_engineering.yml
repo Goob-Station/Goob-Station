@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: GraphCrateShipmentEngineering
+  graph:
+
+    - node: start
+      edges:
+        - to: shipmentEngineeringTools
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 2
+
+    - node: shipmentEngineeringTools
+      entity: CrateShipmentEngineeringTools
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 2
