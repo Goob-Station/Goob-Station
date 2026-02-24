@@ -8,6 +8,7 @@
 mindshield-implant-effect-removed = You feel an agonizing pain as your perspective changes and your vision widens near-instantly.
 nanite-mend-popup = You feel a vivid warmness spread throughout your body.
 
+lifeline-trigger-fail = Your lifeline implant failed miserably.
 # BSO and nukie implant
 
 deathrattle-implant-dead-message = {$user} has died {$position}.

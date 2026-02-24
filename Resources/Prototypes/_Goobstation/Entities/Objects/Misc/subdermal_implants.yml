@@ -35,7 +35,8 @@
     mobState:
     - Dead
   - type: TriggerOnActivateImplant
-  - type: DeleteParentOnTrigger
+  - type: WarpParentOnTrigger
+    warpLocation: CentCom
   - type: SpawnOnTrigger
     proto: BluespaceLifelineSpawnCore
   - type: Tag
