@@ -118,7 +118,7 @@
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         - type: StaminaDamageOnHit
-          damage: 30
+          damage: 25
           overtime: 15
         soundStateActivate:
           collection: sparks
@@ -161,7 +161,7 @@
           damage:
             types:
               Slash: 18
-              Heat: 12
+              Heat: 10
             woundSeverityMultipliers:
               Slash: 3
           angle: 60
@@ -196,7 +196,7 @@
           damage:
             types:
               Slash: 18
-              Heat: 60
+              Heat: 50
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:
