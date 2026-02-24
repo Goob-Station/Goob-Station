@@ -30,6 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.EntityEffects.Effects;
 
 namespace Content.Shared.Body.Systems;
 
@@ -55,8 +56,8 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
         SubscribeLocalEvent<BloodstreamComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BloodstreamComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        //SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt); // Goobstation - moved to Server
-        //SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt); // Goobstation - moved to Server
+        SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt);
+        SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
         SubscribeLocalEvent<BloodstreamComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<BloodstreamComponent, HealthBeingExaminedEvent>(OnHealthBeingExamined);
         SubscribeLocalEvent<BloodstreamComponent, BeingGibbedEvent>(OnBeingGibbed);
@@ -233,8 +234,6 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             entity.Comp.TemporarySolution = null;
     }
 
-    // Goob edit - ported these 2 events to Server since we don't have predicted EntityEffects yet
-    /*
     private void OnReactionAttempt(Entity<BloodstreamComponent> ent, ref ReactionAttemptEvent args)
     {
         if (args.Cancelled)
@@ -271,7 +270,6 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
         OnReactionAttempt(ent, ref args.Event);
     }
-    */
 
     private void OnDamageChanged(Entity<BloodstreamComponent> ent, ref DamageChangedEvent args)
     {
