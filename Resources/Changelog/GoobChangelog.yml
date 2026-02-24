@@ -21383,3 +21383,11 @@ Entries:
       message: Fixed telescopic batons not disarming.
   id: 2426
   time: '2026-02-24T05:37:42.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Chemical payloads respect their trigger.
+    - type: Fix
+      message: Adding nutrients to hydroponics trays works again.
+  id: 2427
+  time: '2026-02-24T08:30:22.0000000+00:00'
