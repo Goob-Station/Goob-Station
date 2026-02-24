@@ -274,8 +274,12 @@ public sealed partial class WoundSystem
             if (damageValue == 0)
                 continue; // Only create wounds for damage or healing
 
-            if (hasDamageable && !damageable.Damage.DamageDict.ContainsKey(damageType))
-                continue; // Only create wounds for supported damage types
+            if (hasDamageable)
+            {
+                var existingDamageable = damageable!;
+                if (!existingDamageable.Damage.DamageDict.ContainsKey(damageType))
+                    continue; // Only create wounds for supported damage types
+            }
 
             if (damageValue < 0)
             {
