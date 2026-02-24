@@ -21391,3 +21391,9 @@ Entries:
       message: Adding nutrients to hydroponics trays works again.
   id: 2427
   time: '2026-02-24T08:30:22.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Remove
+      message: Removed both normal and advanced clowning modules.
+  id: 2428
+  time: '2026-02-24T08:32:04.0000000+00:00'
