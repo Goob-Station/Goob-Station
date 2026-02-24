@@ -11,7 +11,7 @@
 
 - type: entity
   id: Vaccinator
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
   name: vaccinator
   description: A machine that creates vaccines.
   placement:
@@ -31,7 +31,6 @@
   - type: Appearance
   - type: Machine
     board: VaccinatorMachineCircuitboard
-  - type: RequireProjectileTarget
   - type: ItemSlots
     slots:
       disease_swab_slot:

@@ -43,3 +43,4 @@ research-technology-bluespace-construction-storage = Bluespace Construction Stor
 research-technology-extended-communication = Extended Communications
 research-technology-bluespace-munitions = Bluespace Munitions
 research-technology-radio-music-communication = Radio Music Communications
+research-technology-virology = Disease Control
