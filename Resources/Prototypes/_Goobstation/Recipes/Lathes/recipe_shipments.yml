@@ -1,0 +1,211 @@
+#MARK: Base >>
+- type: latheRecipe
+  id: BaseRecipeShipmentCrate
+  icon: { sprite: _Goobstation/Structures/Machines/contraband_detector.rsi, state: icon }
+  completetime: 5
+  abstract: true
+  categories:
+  - GoodsShipments
+
+- type: latheRecipe
+  abstract: true
+  id: BaseRecipeCargoLicense
+  materials:
+    Cloth: 150
+    Durathread: 50
+  categories:
+  - LicenseReceipt
+  completetime: 5
+
+- type: latheRecipe
+  abstract: true
+  id: BaseRecipeShipmentNotice
+  materials:
+    Cloth: 50
+  categories:
+  - GoodsShipments
+  completetime: 1
+
+#MARK: Crates >>
+
+
+
+
+
+#MARK: Generic
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentGenericBase
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_generic.rsi, state: filled }
+  result: CrateShipmentGenericBase
+  completetime: 15
+  materials:
+    Steel: 1000
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentGenericLid
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_generic.rsi, state: lid }
+  result: CrateShipmentGenericLid
+  completetime: 15
+  materials:
+    Steel: 300
+
+#MARK: Plastic lid
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentPlasticLid
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_medical.rsi, state: lid }
+  result: CrateShipmentPlasticLid
+  completetime: 15
+  materials:
+    Plastic: 300
+
+#MARK: Engineering
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentEngineeringBase
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi, state: filled }
+  result: CrateShipmentEngineeringBase
+  completetime: 15
+  materials:
+    Steel: 1000
+    Plasteel: 1000
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentEngineeringLid
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi, state: lid }
+  result: CrateShipmentEngineeringLid
+  completetime: 15
+  materials:
+    Steel: 200
+    Plasteel: 200
+
+#MARK: Security
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentSecurityBase
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_security.rsi, state: filled }
+  result: CrateShipmentSecurityBase
+  completetime: 15
+  materials:
+    Steel: 1000
+    Plasteel: 1000
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentSecurityLid
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_security.rsi, state: lid }
+  result: CrateShipmentSecurityLid
+  completetime: 15
+  materials:
+    Steel: 200
+    Plasteel: 200
+
+#MARK: Armory
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentArmoryBase
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_armory.rsi, state: filled }
+  result: CrateShipmentArmoryBase
+  completetime: 15
+  materials:
+    Steel: 1000
+    Plasteel: 1000
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentArmoryLid
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_armory.rsi, state: lid }
+  result: CrateShipmentArmoryLid
+  completetime: 15
+  materials:
+    Steel: 200
+    Plasteel: 200
+
+#MARK: Medical
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentMedicalBase
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_medical.rsi, state: filled }
+  result: CrateShipmentMedicalBase
+  completetime: 15
+  materials:
+    Steel: 1000
+    Plasteel: 1000
+
+#MARK: Surgical
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentSurgicalBase
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_surgical.rsi, state: filled }
+  result: CrateShipmentSurgicalBase
+  completetime: 15
+  materials:
+    Steel: 1000
+    Plasteel: 1000
+
+#MARK: Science
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentScienceBase
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_science.rsi, state: filled }
+  result: CrateShipmentScienceBase
+  completetime: 15
+  materials:
+    Steel: 1000
+    Plasteel: 1000
+
+#MARK: Experimental
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentExperimentalBase
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi, state: filled }
+  result: CrateShipmentExperimentalBase
+  completetime: 15
+  materials:
+    Steel: 1000
+    Plasteel: 1000
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentCrate
+  id: RecipeCrateShipmentExperimentalLid
+  icon: { sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi, state: lid }
+  result: CrateShipmentExperimentalLid
+  completetime: 15
+  materials:
+    Steel: 200
+    Plasteel: 200
+
+#MARK: Receipts >>
+
+
+
+
+
+- type: latheRecipe
+  parent: BaseRecipeCargoLicense
+  id: RecipeCargoLicenseReceiptEngineering
+  result: BlueprintCargoLicenseReceiptEngineering
+
+#MARK: Notices >>
+
+
+
+
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeEngineeringTools
+  result: ShipmentNoticeEngineeringTools
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeEngineeringToolsAdvanced
+  result: ShipmentNoticeEngineeringToolsAdvanced
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeGenericTider
+  result: ShipmentNoticeGenericTider

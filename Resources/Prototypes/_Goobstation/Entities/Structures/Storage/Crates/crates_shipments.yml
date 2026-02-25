@@ -1,0 +1,480 @@
+#MARK: Base Shipment
+- type: entity
+  parent: BaseStructureDynamic
+  id: BaseCrateShipment
+  name: crate
+  description: A shipment crate waiting to be filled and sold. Has an anti-tamper safety seal that destroys the content to discourage any thief from stealing it.
+  abstract: true
+  components:
+  - type: Animateable
+  - type: Transform
+    noRot: true
+  - type: Icon
+    sprite: Structures/Storage/Crates/generic.rsi
+    state: icon
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Storage/Crates/generic.rsi
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Appearance
+  - type: ItemSlots
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          0: { state: paper, visible: true}
+          1: { state: filled, visible: true}
+          2: { state: lid, visible: true}
+          3: { state: icon, visible: true}
+  - type: StaticPrice
+    price: 75
+  # - type: Construction
+  #   graph: CrateGenericSteel
+  #   node: crategenericsteel
+  #   containers:
+  #     - entity_storage
+  - type: RequireProjectileTarget
+  - type: Tag
+    tags:
+      - Crate
+
+#MARK: Base Lid
+- type: entity
+  parent: BaseItem
+  id: BaseCrateLid
+  suffix: Empty
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.1"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+
+#MARK: Lid
+- type: entity
+  parent: BaseCrateLid
+  id: CrateShipmentPlasticLid
+  name: plastic shipment crate lid
+  components:
+  - type: Icon
+    #doesnt matter if sprite is science/surgical/medical
+    sprite: _Goobstation/Structures/Storage/shipment_science.rsi
+    state: lid
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_science.rsi
+    state: lid
+  - type: Tag
+    tags:
+      - CratePlasticLid
+
+- type: entity
+  parent: BaseCrateLid
+  id: CrateShipmentGenericLid
+  name: steel shipment crate lid
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
+    state: lid
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
+    state: lid
+  - type: Tag
+    tags:
+      - CrateSteelLid
+
+#MARK: Generic >
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentGenericBase
+  name: steel shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
+    state: empty
+  - type: Construction
+    graph: GraphCrateShipmentGeneric
+    node: start
+
+#MARK: Tider
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentGenericTider
+  name: tider gears shipment
+  suffix: 6000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentGeneric
+    node: shipmentGenericTider
+  - type: StaticPrice
+    price: 6000
+
+#MARK: Engineering >
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentEngineeringBase
+  name: engineering shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+    state: empty
+  - type: Construction
+    graph: GraphCrateShipmentEngineering
+    node: start
+
+#MARK: Lid
+- type: entity
+  parent: BaseCrateLid
+  id: CrateShipmentEngineeringLid
+  name: engineering shipment crate lid
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+    state: lid
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+    state: lid
+  - type: Tag
+    tags:
+      - CrateEngineeringLid
+
+#MARK: Tools
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentEngineeringTools
+  name: engineering tools shipment
+  suffix: 9000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentEngineering
+    node: shipmentEngineeringTools
+  - type: StaticPrice
+    price: 9000
+
+#MARK: Advanced Tools
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentEngineeringToolsAdvanced
+  name: engineering advanced tools shipment
+  suffix: 20000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentEngineering
+    node: shipmentEngineeringToolsAdvanced
+  - type: StaticPrice
+    price: 20000
+
+#MARK: Science >
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentScienceBase
+  name: science shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_science.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_science.rsi
+    state: empty
+  - type: Construction
+    graph: GraphCrateShipmentScience
+    node: start
+
+#MARK: Tools
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentScienceTools
+  name: science tools shipment
+  suffix: 9000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_science.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_science.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentScience
+    node: shipmentScienceTools
+  - type: StaticPrice
+    price: 9000
+
+#MARK: Experimental >
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentExperimentalBase
+  name: experimental shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
+    state: empty
+  - type: Construction
+    graph: GraphCrateShipmentExperimental
+    node: start
+
+#MARK: Lid
+- type: entity
+  parent: BaseCrateLid
+  id: CrateShipmentExperimentalLid
+  name: experimental shipment crate lid
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
+    state: lid
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
+    state: lid
+  - type: Tag
+    tags:
+      - CrateExperimentalLid
+
+#MARK: Tools
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentExperimentalTools
+  name: experimental tools shipment
+  suffix: 9000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentExperimental
+    node: shipmentExperimentalTools
+  - type: StaticPrice
+    price: 9000
+
+#MARK: Medical >
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentMedicalBase
+  name: medical shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_medical.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_medical.rsi
+    state: empty
+  - type: Construction
+    graph: GraphCrateShipmentMedical
+    node: start
+
+#MARK: Tools
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentMedicalTools
+  name: medical tools shipment
+  suffix: 9000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_medical.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_medical.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentMedical
+    node: shipmentMedicalTools
+  - type: StaticPrice
+    price: 9000
+
+#MARK: Surgical >
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentSurgicalBase
+  name: surgical shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_surgical.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_surgical.rsi
+    state: empty
+  - type: Construction
+    graph: GraphCrateShipmentSurgical
+    node: start
+
+#MARK: Tools
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentSurgicalTools
+  name: surgical tools shipment
+  suffix: 9000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_surgical.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_surgical.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentSurgical
+    node: shipmentSurgicalTools
+  - type: StaticPrice
+    price: 9000
+
+#MARK: Security >
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentSecurityBase
+  name: security shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_security.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_security.rsi
+    state: empty
+  - type: Construction
+    graph: GraphCrateShipmentSecurity
+    node: start
+
+#MARK: Lid
+- type: entity
+  parent: BaseCrateLid
+  id: CrateShipmentSecurityLid
+  name: security shipment crate lid
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_security.rsi
+    state: lid
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_security.rsi
+    state: lid
+  - type: Tag
+    tags:
+      - CrateSecurityLid
+
+#MARK: Tools
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentSecurityTools
+  name: security tools shipment
+  suffix: 9000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_security.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_security.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentSecurity
+    node: shipmentSecurityTools
+  - type: StaticPrice
+    price: 9000
+
+#MARK: Armory >
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentArmoryBase
+  name: armory shipment crate
+  suffix: Empty
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
+    state: empty
+  - type: Construction
+    graph: GraphCrateShipmentArmory
+    node: start
+
+#MARK: Lid
+- type: entity
+  parent: BaseCrateLid
+  id: CrateShipmentArmoryLid
+  name: armory shipment crate lid
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
+    state: lid
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
+    state: lid
+  - type: Tag
+    tags:
+      - CrateArmoryLid
+
+#MARK: Tools
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentArmoryTools
+  name: armory tools shipment
+  suffix: 9000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentArmory
+    node: shipmentArmoryTools
+  - type: StaticPrice
+    price: 9000

@@ -1,0 +1,40 @@
+- type: constructionGraph
+  id: GraphCrateShipmentMedical
+  graph:
+    - node: start
+      edges:
+      #MARK: Tools
+      - to: shipmentMedicalTools
+        steps:
+          - tag: Paper
+            name: "the paper of the order you want to fulfil"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: Crowbar
+            name: "2 crowbar"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+            #Content of the shipment end
+          - tag: CratePlasticLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+    - node: shipmentMedicalTools
+      entity: CrateShipmentMedicalTools

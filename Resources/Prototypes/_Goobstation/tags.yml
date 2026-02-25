@@ -806,3 +806,45 @@
 
 - type: Tag
   id: ContractorUplink
+
+#saw alphabetical bullshit died above, also why not just use categories and #MARK my god this is ass
+
+#MARK: Tools
+- type: Tag
+  id: WelderExperimental
+
+#MARK: Blueprints
+- type: Tag
+  id: BlueprintGoodsPacker
+
+- type: Tag
+  id: BlueprintCargoTechfab
+
+#MARK: Shipments crate
+- type: Tag
+  id: CrateSteelLid
+
+- type: Tag
+  id: CratePlasticLid
+
+- type: Tag
+  id: CrateEngineeringLid
+
+- type: Tag
+  id: CrateExperimentalLid
+
+- type: Tag
+  id: CrateSecurityLid
+
+- type: Tag
+  id: CrateArmoryLid
+
+#MARK: Shipments notice
+- type: Tag
+  id: NoticeEngineeringTools
+
+- type: Tag
+  id: NoticeEngineeringToolsAdvanced
+
+- type: Tag
+  id: NoticeGenericTider

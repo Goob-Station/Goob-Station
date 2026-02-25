@@ -28,16 +28,21 @@
     runningState: icon
     staticPacks:
     - RecipePackShipmentCratesStatic
-    dynamicPacks:
-    - ConstructionBagOfHolding
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - NailgunEvilStatic
-    emagDynamicPacks:
-    - MiningBoards
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintGoodsPacker
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint

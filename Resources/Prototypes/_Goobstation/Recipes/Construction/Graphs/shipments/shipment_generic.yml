@@ -1,0 +1,60 @@
+- type: constructionGraph
+  id: GraphCrateShipmentGeneric
+  graph:
+    - node: start
+      edges:
+      #MARK: Tider gears
+      - to: shipmentGenericTider
+        steps:
+          - tag: NoticeGenericTider
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: Spear
+            name: "4 spear"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: Spear
+            name: "3 spear"
+            doAfter: 0.1
+          - tag: Spear
+            name: "2 spear"
+            doAfter: 0.1
+          - tag: Spear
+            name: "1 spear"
+            doAfter: 0.1
+          - tag: GasMask
+            name: "4 gas mask"
+            doAfter: 0.1
+          - tag: GasMask
+            name: "3 gas mask"
+            doAfter: 0.1
+          - tag: GasMask
+            name: "2 gas mask"
+            doAfter: 0.1
+          - tag: GasMask
+            name: "1 gas mask"
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CrateSteelLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+    - node: shipmentGenericTider
+      entity: CrateShipmentGenericTider

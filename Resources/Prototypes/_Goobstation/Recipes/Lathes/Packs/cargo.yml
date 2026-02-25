@@ -23,7 +23,14 @@
 - type: latheRecipePack
   id: RecipePackShipmentCratesStatic
   recipes:
-  - RecipeShipmentCrateSteel
+  - RecipeCrateShipmentGenericBase
+  - RecipeCrateShipmentGenericLid
+  - RecipeCrateShipmentPlasticLid
+
+- type: latheRecipePack
+  id: RecipePackShipmentNoticeStatic
+  recipes:
+  - RecipeShipmentNoticeGenericTider
 
 ## Dynamic
 - type: latheRecipePack

@@ -55,3 +55,7 @@
 - type: latheCategory
   id: GoodsShipments
   name: lathe-category-shipments
+
+- type: latheCategory
+  id: LicenseReceipt
+  name: lathe-category-license-receipts

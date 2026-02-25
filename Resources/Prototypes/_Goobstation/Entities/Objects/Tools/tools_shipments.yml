@@ -1,0 +1,149 @@
+#MARK: Licenses >>
+- type: entity
+  parent: BaseItem
+  id: BaseBlueprintCargoLicense
+  description: A license to allow production of shipment crate assemblies. Can be inserted into a cargo techfab to allow production of license receipts.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/cargo_licenses.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Blueprint
+  - type: Tag
+    tags:
+    - BlueprintCargoTechfab
+
+#MARK: Engineering
+- type: entity
+  parent: BaseBlueprintCargoLicense
+  id: BlueprintCargoLicenseEngineering
+  name: engineering shipment license
+  components:
+  - type: Blueprint
+    providedRecipes:
+    #Receipts
+    - RecipeCargoLicenseReceiptEngineering
+    #Shipment Notices
+    - RecipeShipmentNoticeEngineeringTools
+  - type: Sprite
+    state: icon-engineering
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+- type: entity
+  parent: BaseBlueprintCargoLicense
+  id: BlueprintCargoLicenseEngineeringAdvanced
+  name: advanced engineering shipment license
+  components:
+  - type: Blueprint
+    providedRecipes:
+    #Shipment Notices
+    - RecipeShipmentNoticeEngineeringToolsAdvanced
+  - type: Sprite
+    state: icon-engineering
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Receipts >>
+- type: entity
+  parent: BaseItem
+  id: BaseBlueprintCargoLicenseReceipt
+  description: A license to allow production of shipment crate assemblies. Can be inserted into a goods packer to start producing the shipments.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/cargo_license_receipts.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Blueprint
+  - type: Tag
+    tags:
+    - BlueprintGoodsPacker
+
+#MARK: Engi
+- type: entity
+  parent: BaseBlueprintCargoLicenseReceipt
+  id: BlueprintCargoLicenseReceiptEngineering
+  name: engineering shipment license receipt
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - RecipeCrateShipmentEngineeringBase
+    - RecipeCrateShipmentEngineeringLid
+  - type: Sprite
+    state: icon-engineering
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Notices >>
+- type: entity
+  name: shipment notice
+  parent: BaseItem
+  abstract: true
+  id: BaseShipmentNotice
+  description: "A notice to start completion of a shipment order"
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper
+  - type: Tag
+    tags:
+    - Paper
+
+- type: entity
+  name: engineering tools shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeEngineeringTools
+  components:
+  - type: Tag
+    tags:
+    - NoticeEngineeringTools
+
+- type: entity
+  name: engineering advanced tools shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeEngineeringToolsAdvanced
+  components:
+  - type: Tag
+    tags:
+    - NoticeEngineeringToolsAdvanced
+
+- type: entity
+  name: tiding gears shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeGenericTider
+  components:
+  - type: Tag
+    tags:
+    - NoticeGenericTider

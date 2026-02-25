@@ -7,3 +7,23 @@
   cost: 6000
   category: cargoproduct-category-name-cargo
   group: market
+
+- type: cargoProduct
+  id: ShipmentLicenseEngineering
+  icon:
+    sprite: _Goobstation/Objects/Tools/cargo_licenses.rsi
+    state: icon-engineering
+  product: BlueprintCargoLicenseEngineering
+  cost: 5000
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: ShipmentLicenseEngineeringAdvanced
+  icon:
+    sprite: _Goobstation/Objects/Tools/cargo_licenses.rsi
+    state: icon-engineering
+  product: BlueprintCargoLicenseEngineeringAdvanced
+  cost: 25000
+  category: cargoproduct-category-name-cargo
+  group: market
