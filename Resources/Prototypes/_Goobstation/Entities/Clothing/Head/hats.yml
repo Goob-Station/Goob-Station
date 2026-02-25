@@ -409,3 +409,14 @@
   - type: ClothingGrantComponent
     component:
       - type: PossessionImmune
+
+- type: entity
+  parent: ClothingHeadHatCentcomcap
+  id: ClothingHeadHatOuterCommandcap
+  name: outer command cap
+  description: Purple gilded cap with Terra-Gov insignia.
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/outcommcap.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/outcommcap.rsi

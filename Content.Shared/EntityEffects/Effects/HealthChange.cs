@@ -183,61 +183,64 @@ namespace Content.Shared.EntityEffects.Effects
             var damageSpec = new DamageSpecifier(Damage);
 
             if (args is EntityEffectReagentArgs reagentArgs)
+            {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
 
-            if (ScaleByTemperature.HasValue)
-            {
-                var tempEv = new GetCurrentTemperatureEvent();
-                args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ref tempEv);
-
-                if (tempEv.CurrentTemperature == null)
-                    scale = FixedPoint2.Zero;
-                else
-                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(tempEv.CurrentTemperature.Value, scale, false);
-            }
-
-            var universalReagentDamageModifier =
-                args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
-            var universalReagentHealModifier =
-                args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
-
-            if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
-            {
-                foreach (var (type, val) in damageSpec.DamageDict)
+                if (ScaleByTemperature.HasValue)
                 {
-                    if (val < 0f)
-                    {
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
-                    }
+                    var tempEv = new GetCurrentTemperatureEvent();
+                    args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ref tempEv);
 
-                    if (val > 0f)
+                    if (tempEv.CurrentTemperature == null)
+                        scale = FixedPoint2.Zero;
+                    else
+                        scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(tempEv.CurrentTemperature.Value,
+                            scale,
+                            false);
+                }
+
+                var universalReagentDamageModifier =
+                    args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
+                var universalReagentHealModifier =
+                    args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
+
+                if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
+                {
+                    foreach (var (type, val) in damageSpec.DamageDict)
                     {
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                        if (val < 0f)
+                        {
+                            damageSpec.DamageDict[type] = val * universalReagentHealModifier;
+                        }
+
+                        if (val > 0f)
+                        {
+                            damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                        }
                     }
                 }
+
+                // Goobstation start
+                var ev = new ImmuneToPoisonDamageEvent();
+                args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ref ev);
+                if (ev.Immune)
+                {
+                    damageSpec = DamageSpecifier.GetNegative(damageSpec);
+                    if (damageSpec.GetTotal() == FixedPoint2.Zero)
+                        return;
+                }
+                // Goobstation end
+
+                args.EntityManager.System<DamageableSystem>()
+                    .TryChangeDamage(
+                        args.TargetEntity,
+                        damageSpec * scale,
+                        IgnoreResistances,
+                        interruptsDoAfters: false,
+                        targetPart: UseTargeting ? TargetPart : null,
+                        ignoreBlockers: IgnoreBlockers,
+                        splitDamage: SplitDamage); // Shitmed Change
             }
-
-            // Goobstation start
-            var ev = new ImmuneToPoisonDamageEvent();
-            args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ref ev);
-            if (ev.Immune)
-            {
-                damageSpec = DamageSpecifier.GetNegative(damageSpec);
-                if (damageSpec.GetTotal() == FixedPoint2.Zero)
-                    return;
-            }
-            // Goobstation end
-
-            args.EntityManager.System<DamageableSystem>()
-                .TryChangeDamage(
-                    args.TargetEntity,
-                    damageSpec * scale,
-                    IgnoreResistances,
-                    interruptsDoAfters: false,
-                    targetPart: UseTargeting ? TargetPart : null,
-                    ignoreBlockers: IgnoreBlockers,
-                    splitDamage: SplitDamage); // Shitmed Change
-
         }
     }
 }
