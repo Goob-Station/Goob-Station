@@ -85,12 +85,4 @@ public sealed partial class TraumaCVars
         CVarDef.Create("trauma.softcrit_inhale_modifier", 0.3f, CVar.SERVER | CVar.REPLICATED);
 
     #endregion
-
-    #region Shadow Demon
-    /// <summary>
-    /// How long it takes to shadow cocoon someone.
-    /// </summary>
-    public static readonly CVarDef<float> ShadowCocoonDelay =
-        CVarDef.Create("trauma.shadow_cocoon_doafter_delay", 5f, CVar.SERVER | CVar.REPLICATED);
-    #endregion
 }

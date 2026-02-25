@@ -84,7 +84,7 @@ public sealed class ShadowGrappleSystem : EntitySystem
     /// <summary>
     /// Break any lights nearby.
     /// </summary>
-    public void BreakNearbyLights(EntityUid target, EntityUid? user, float range = 1f)
+    private void BreakNearbyLights(EntityUid target, EntityUid? user, float range = 1f)
     {
         _lights.Clear();
         _lookup.GetEntitiesInRange(Transform(target).Coordinates, range, _lights);
@@ -97,7 +97,7 @@ public sealed class ShadowGrappleSystem : EntitySystem
     /// <summary>
     /// Breaks any lights on someone.
     /// </summary>
-    public void BreakLightsOnTarget(EntityUid target)
+    private void BreakLightsOnTarget(EntityUid target)
     {
         // todo: fix because this doesn't work
         if (_inventoryQuery.TryComp(target, out var inv))
