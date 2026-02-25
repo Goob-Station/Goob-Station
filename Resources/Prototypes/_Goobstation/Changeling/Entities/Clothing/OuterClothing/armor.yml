@@ -64,8 +64,8 @@
   - type: FireProtection
     reduction: -0.25 # Ling armor should be counterable given you get this for eating two tiders
   - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
+    walkModifier: 0.85
+    sprintModifier: 0.85 #mfw big ass hard outer coating has no effect on mobility
   - type: HeldSpeedModifier
   - type: ExplosionResistance
     damageCoefficient: 0.9
