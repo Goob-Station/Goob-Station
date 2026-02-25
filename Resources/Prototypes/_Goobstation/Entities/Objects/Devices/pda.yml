@@ -357,7 +357,6 @@
     id: RadioHostIDCard
 
 - type: entity
-
   parent: WardenPDA
   id: DispatcherPDA
   name: dispatcher PDA
