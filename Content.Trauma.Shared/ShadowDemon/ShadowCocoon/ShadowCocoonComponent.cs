@@ -1,4 +1,4 @@
-﻿using Robust.Shared.GameStates;
+using Robust.Shared.GameStates;
 
 namespace Content.Trauma.Shared.ShadowDemon.ShadowCocoon;
 
