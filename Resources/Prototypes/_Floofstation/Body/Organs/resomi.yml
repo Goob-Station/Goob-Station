@@ -41,7 +41,7 @@
   name: resomi lungs # Shitmed
   components:
   - type: Sprite
-    sprite: _Floofstation/Mobs/Species/Resomi/organs.rsi
+    sprite: _Goobstation/Mobs/Species/Resomi/organs.rsi
   - type: Metabolizer
     metabolizerTypes: [ Slime ]
   - type: Lung
