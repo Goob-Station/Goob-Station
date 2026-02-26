@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Derived from qmturtleneck sprite from beestation at commit https://github.com/BeeStation/BeeStation-Hornet/commit/a11e7468ca552cfc97c9164c69ccdafff09e794c and modified by Emisse for Space Station 14, Resprited by MureixloL, fix digi sprited by DreamlyJack, edited by Deenkaide (github) for ss14",
+  "copyright": "Taken from paradise at commit https://github.com/ParadiseSS13/Paradise/commit/207695cbdab4cb8f81a25cdbb201a88a6851d78b , In hand sprite scaled down by potato1234_x, monkey made by SonicHDC (github) for ss14",
   "size": {
     "x": 32,
     "y": 32

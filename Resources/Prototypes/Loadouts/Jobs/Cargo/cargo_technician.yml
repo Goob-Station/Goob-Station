@@ -94,7 +94,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
 
-
 - type: loadout # goob
   id: CargoTechMJ
   equipment:

@@ -86,3 +86,13 @@
     - id: PresentRandomUnsafe
     - id: OxygenTankFilled
     - id: OxygenTankFilled
+
+# Cargo
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackCargo
+  name: cargo backpack
+  description: A robust backpack for stealing cargo's loot.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Back/Backpacks/cargo.rsi

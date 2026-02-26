@@ -46,21 +46,10 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#b7793d"
+        color: "#7b4e23"
       right:
       - state: inhand-right
-        color: "#b7793d"
-
-- type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
-  id: ClothingUniformJumpsuitSalvageSpecialist
-  name: salvage specialist's jumpsuit
-  description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/salvage.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/salvage.rsi
+        color: "#7b4e23"
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband]
@@ -74,10 +63,10 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#b7793d"
+        color: "#7b4e23"
       right:
       - state: inhand-right
-        color: "#b7793d"
+        color: "#7b4e23"
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/qm.rsi
 
@@ -93,12 +82,67 @@
       inhandVisuals:
         left:
         - state: inhand-left
-          color: "#b7793d"
+          color: "#7b4e23"
         right:
         - state: inhand-right
-          color: "#b7793d"
+          color: "#7b4e23"
     - type: Clothing
       sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/qmturtle.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSalvageSpecialist
+  name: salvage specialist's jumpsuit
+  description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/salvage.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/salvage.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitShaftMiner
+  name: shaft miner's jumpsuit
+  description: It's a snappy jumpsuit, looks a bit burnt.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/shaft_miner.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformOverallsCargo
+  name: cargo tech's overalls
+  description: It's a sturdy set of overalls. It's a bit dusty.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/cargotech.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/cargotech.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformOverallsSalvageSpecialist
+  name: salvage specialist's overalls
+  description: It's a sturdy set of overalls. It's very dirty.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/salvage.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/salvage.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformOverallsShaftMiner
+  name: shaft miner's overalls
+  description: It's a sturdy set of overalls, looks a bit burnt.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/shaft_miner.rsi
 
 ## Casual
 

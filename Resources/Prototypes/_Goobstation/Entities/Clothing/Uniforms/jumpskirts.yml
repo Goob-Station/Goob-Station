@@ -23,10 +23,10 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#b7793d"
+        color: "#7b4e23"
       right:
       - state: inhand-right
-        color: "#b7793d"
+        color: "#7b4e23"
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/cargotech.rsi
 
@@ -53,10 +53,10 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#b7793d"
+        color: "#7b4e23"
       right:
       - state: inhand-right
-        color: "#b7793d"
+        color: "#7b4e23"
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/qm.rsi
 
@@ -72,12 +72,34 @@
       inhandVisuals:
         left:
         - state: inhand-left
-          color: "#b7793d"
+          color: "#7b4e23"
         right:
         - state: inhand-right
-          color: "#b7793d"
+          color: "#7b4e23"
     - type: Clothing
       sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/qmturtleskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtSalvageSpecialist
+  name: salvage specialist's jumpskirt
+  description: It's a snappy jumpskirt with a sturdy set of overalls. It's very dirty.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/salvage.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/salvage.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpskirtShaftMiner
+  name: shaft miner's jumpskirt
+  description: It's a snappy jumpskirt with a sturdy set of overalls. It looks burnt.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/shaft_miner.rsi
 
 ## Centcom
 
