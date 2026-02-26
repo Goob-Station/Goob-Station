@@ -32,8 +32,10 @@
     table: !type:GroupSelector
       children:
       - id: MobBingle
-        weight: 49    # 49/50
+        weight: 48    # 48/50
       - id: MobTurkle
+        weight: 1     # 01/50
+      - id: MobGorkle
         weight: 1     # 01/50
 
 # Base bingle
@@ -240,3 +242,51 @@
       state: combat
       visible: false
 
+# skin gorkle
+- type: entity
+  name: gorkle
+  id: MobGorkle
+  parent: MobBingle
+  description: One hell of a gorklmination whatever it is.
+  components:
+  - type: Bingle
+    upgradedID: MobGorkleUpgraded
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/gorkles.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: alive
+    - map: ["enum.BingleVisual.Upgraded"]
+      state: Upgraded
+      visible: false
+    - map: ["enum.BingleVisual.Combat"]
+      state: combat
+      visible: false
+  - type: NightVision
+    color: "#430a64"
+    activateSound: null
+    deactivateSound: null
+  - type: PointLight
+    radius: 1.2
+    energy: 2
+    color: "#430a64"
+
+- type: entity
+  id: MobGorkleUpgraded
+  name: gorkle
+  description: One hell of a gorklmination whatever it is.
+  parent: MobBingleUpgraded
+  suffix: Upgraded
+  components:
+  - type: Bingle
+    upgraded: true
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/gorkles.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: Upgraded
+    - map: [ "enum.BingleVisual.Combat" ]
+      state: combat
+      visible: false
