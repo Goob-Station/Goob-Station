@@ -21377,3 +21377,49 @@ Entries:
         not helping folk up in some cases.
   id: 2425
   time: '2026-02-22T19:11:34.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed telescopic batons not disarming.
+  id: 2426
+  time: '2026-02-24T05:37:42.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Chemical payloads respect their trigger.
+    - type: Fix
+      message: Adding nutrients to hydroponics trays works again.
+  id: 2427
+  time: '2026-02-24T08:30:22.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Remove
+      message: Removed both normal and advanced clowning modules.
+  id: 2428
+  time: '2026-02-24T08:32:04.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed stunbaton not knocking down on left click.
+  id: 2429
+  time: '2026-02-24T08:45:29.0000000+00:00'
+- author: Valniae and Androidonator
+  changes:
+    - type: Add
+      message: Outer-Commander drip
+  id: 2430
+  time: '2026-02-24T08:54:32.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Tweak
+      message: Feroxi now use proper mask sprites.
+    - type: Tweak
+      message: Feroxi can thump their tails now.
+  id: 2431
+  time: '2026-02-24T08:56:31.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Added a MANGO to vault freezer with a 65% CHANCE to spawn.
+  id: 2432
+  time: '2026-02-24T09:05:24.0000000+00:00'
