@@ -324,6 +324,7 @@
         Heat: 0.90
         Radiation: 0.25
   - type: ToggleableClothing
+    replaceCurrentClothing: True
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
