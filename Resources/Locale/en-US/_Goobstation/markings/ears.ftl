@@ -2,5 +2,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-marking-PuppyEars = Puppy Ears
-marking-PuppyEarsWag = Puppy Ears(Wagging)
+marking-dogEars = Dog Ears
+marking-dogEarsWag = Dog Ears(Wagging)

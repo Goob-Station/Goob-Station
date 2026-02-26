@@ -2,5 +2,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-marking-PuppyTail = Puppy Tail
-marking-PuppyTailWag = Puppy Tail(Wagging)
+marking-dogTail = Dog Tail
+marking-dogTailWag = Dog Tail(Wagging)
