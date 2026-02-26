@@ -38,8 +38,7 @@
   - type: Body # Change later
     bodyType: Complex
     prototype: Doodon
-    requiredLegs: 2
-  - type: Puller    
+    requiredLegs: 2 
   - type: Clumsy        # no guns for doodons
     gunShootFailDamage:
       types:
@@ -126,6 +125,7 @@
   description: The patriarch of the Doodon village.
   components:
   - type: Hands # Isn't on BaseDoodon because the Moodon inherits from basedoodon
+  - type: Puller   
   - type: Sprite
     drawdepth: SmallMobs
     layers: 
@@ -231,6 +231,7 @@
   description: The backbone of the Doodon village.
   components:
   - type: Hands
+  - type: Puller   
   - type: Sprite
     drawdepth: SmallMobs
     layers:
@@ -313,6 +314,7 @@
   description: The arms of the Doodon village.  # Warriors work like Rat king rats. They have minds too simple to be controlled by the player.
   components:
   - type: Hands
+  - type: Puller   
   - type: Physics
     bodyType: KinematicController
   - type: Doodon
