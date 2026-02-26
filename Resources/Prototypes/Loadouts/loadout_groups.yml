@@ -1144,7 +1144,9 @@
   name: loadout-group-research-director-jumpsuit
   loadouts:
   - ResearchDirectorJumpsuit
+  - ResearchDirectorJumpsuitAlt
   - ResearchDirectorJumpskirt
+  - ResearchDirectorJumpskirtAlt
   - ResearchDirectorMJ # goob
   - RDSummerShirt # goob
 
