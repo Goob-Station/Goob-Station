@@ -1,11 +1,15 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.Inventory;
+using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Shared.ShadowDemon.ShadowCocoon;
 
@@ -13,15 +17,16 @@ namespace Content.Trauma.Shared.ShadowDemon.ShadowCocoon;
 public sealed class ShadowCocoonSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    // [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPoweredLightSystem _poweredLight = default!;
 
     private EntityQuery<ShadowCocoonMakerComponent> _shadowCocoonMakerQuery;
 
-    private readonly HashSet<Entity<PoweredLightComponent>> _lights = new(); // TODO: more generic
+    /// <summary>
+    /// Attaches to the shadow cocoon to detect nearby lights
+    /// </summary>
+    private static EntProtoId _shadowCocoonArea = "ShadowCocoonArea";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -31,11 +36,10 @@ public sealed class ShadowCocoonSystem : EntitySystem
         SubscribeLocalEvent<CanBeShadowCocoonComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
         SubscribeLocalEvent<CanBeShadowCocoonComponent, ShadowCocoonDoAfterEvent>(OnCocoonDoAfter);
 
-        SubscribeLocalEvent<ShadowCocoonComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<ShadowCocoonComponent, StartCollideEvent>(OnCollide);
-
         _shadowCocoonMakerQuery = GetEntityQuery<ShadowCocoonMakerComponent>();
     }
+
+    // TODO: Update loop
 
     #region Shadow Cocoon Maker
     private void OnGetAltVerbs(Entity<CanBeShadowCocoonComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
@@ -60,13 +64,19 @@ public sealed class ShadowCocoonSystem : EntitySystem
 
     private void OnCocoonDoAfter(Entity<CanBeShadowCocoonComponent> ent, ref ShadowCocoonDoAfterEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         if (args.Target is not {} target || !_shadowCocoonMakerQuery.TryComp(args.User, out var shadowCocoonMaker))
             return;
 
         var spawnAt = Transform(target).Coordinates;
-        var cocoon = PredictedSpawnAtPosition(shadowCocoonMaker.ShadowCocoon, spawnAt);
+        var cocoon = SpawnAtPosition(shadowCocoonMaker.ShadowCocoon, spawnAt);
 
-        _entityStorage.Insert(ent.Owner, cocoon);
+        // Spawn the area used to detect lights
+        SpawnAttachedTo(_shadowCocoonArea, Transform(cocoon).Coordinates);
+
+        _entityStorage.Insert(target, cocoon);
 
         _adminLog.Add(LogType.Verb, LogImpact.High,
             $"{args.User} spawned a shadow cocoon and put {target} inside");
@@ -79,34 +89,13 @@ public sealed class ShadowCocoonSystem : EntitySystem
             user,
             delay,
             new ShadowCocoonDoAfterEvent(),
-            user,
+            target,
             target)
         {
             BreakOnMove = true,
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
-    }
-    #endregion
-
-    #region Shadow Cocoon Entity
-
-    private void OnMapInit(Entity<ShadowCocoonComponent> ent, ref MapInitEvent args)
-    {
-        // Automatically break lights when spawning
-        // TODO: Store those lights somewhere so they get ignored or smth idk optimize it
-        _lights.Clear();
-        _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, ent.Comp.Radius, _lights);
-        foreach (var light in _lights)
-        {
-            _poweredLight.TryDestroyBulb(light.Owner, light.Comp);
-        }
-    }
-
-    private void OnCollide(Entity<ShadowCocoonComponent> ent, ref StartCollideEvent args)
-    {
-        // TODO: Implement this, needs good optimization
-        // On Collision -> break light
     }
     #endregion
 }

@@ -25,7 +25,9 @@
   - type: EntityTargetAction
     event: !type:ShootGrappleEvent
       projectileProto: ShadowGrappleProjectile
-      # TODO: jointSprite: smth
+      jointSprite:
+        sprite: _Trauma/Mobs/ShadowDemon/shadow_hand.rsi
+        state: shadow_hand_mid
   - type: TargetAction
     range: 60
     checkCanAccess: false

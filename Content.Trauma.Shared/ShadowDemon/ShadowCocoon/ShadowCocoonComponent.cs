@@ -9,5 +9,5 @@ public sealed partial class ShadowCocoonComponent : Component
     ///  This should be the overall radius of the area the Shadow Cocoon occupies
     /// </summary>
     [DataField]
-    public float Radius;
+    public float Radius = 8f;
 }

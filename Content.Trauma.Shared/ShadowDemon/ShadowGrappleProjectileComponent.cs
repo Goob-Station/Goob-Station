@@ -12,4 +12,7 @@ public sealed partial class ShadowGrappleProjectileComponent : Component
 
     [DataField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public float BreakLightsRange = 2f;
 }

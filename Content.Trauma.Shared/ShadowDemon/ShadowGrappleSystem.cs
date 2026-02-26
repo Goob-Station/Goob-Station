@@ -52,10 +52,17 @@ public sealed class ShadowGrappleSystem : EntitySystem
                 return;
 
         EnsureComp<JointComponent>(ent.Owner);
-        var joint = _joints.CreateDistanceJoint(ent.Owner, shooter, anchorA: new Vector2(0f, 0.5f), id: GrappleJoint);
-        joint.MaxLength = joint.Length + 0.2f;
-        joint.Stiffness = 1f;
+        var joint = _joints.CreateDistanceJoint(
+            ent.Owner,
+            shooter,
+            anchorA: Vector2.Zero,
+            anchorB: Vector2.Zero,
+            id: GrappleJoint);
+
+        // Need to find better values but too lazy ngl
         joint.MinLength = 0.35f;
+        joint.Stiffness = 10f;
+        joint.Damping = 5f;
         Dirty(ent);
     }
 
@@ -66,7 +73,7 @@ public sealed class ShadowGrappleSystem : EntitySystem
 
         var target = args.Target;
 
-        _throwingSystem.TryThrow(shooter, Transform(target).Coordinates, 10f, shooter);
+        _throwingSystem.TryThrow(shooter, Transform(target).Coordinates, 10f, shooter, doSpin: true);
 
         // Body, apply damage
         if (_bodyQuery.HasComp(target))
@@ -78,7 +85,7 @@ public sealed class ShadowGrappleSystem : EntitySystem
             return;
         }
 
-        BreakNearbyLights(target, args.Shooter);
+        BreakNearbyLights(target, args.Shooter, ent.Comp.BreakLightsRange);
     }
 
     /// <summary>

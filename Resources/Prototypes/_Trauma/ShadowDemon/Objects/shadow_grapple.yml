@@ -11,9 +11,9 @@
   - type: InteractionOutline
   - type: Sprite
     noRot: false
-    sprite: _Goobstation/Wraith/Objects/Line/tentacle.rsi
+    sprite: _Trauma/Mobs/ShadowDemon/shadow_hand.rsi
     layers:
-    - state: end_tentacle # placeholder
+    - state: shadow_hand
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0

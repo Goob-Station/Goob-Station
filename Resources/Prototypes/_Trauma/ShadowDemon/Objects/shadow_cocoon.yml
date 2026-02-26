@@ -1,0 +1,30 @@
+- type: entity
+  id: ShadowCocoon
+  name: shadow cocoon
+  parent: BaseStructure
+  description: I MUST AVENGE MARIO
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/ShadowDemon/shadow_cocoon.rsi
+    state: shadow_cocoon
+  - type: EntityStorage
+    capacity: 1
+    openOnMove: false
+  - type: Lock
+    locked: true
+    showLockVerbs: false
+    showExamine: false
+    breakOnAccessBreaker: false
+    unlockOnClick: false
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # - type: ShadowCocoon
+
