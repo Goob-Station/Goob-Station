@@ -26,7 +26,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitShaftMiner
     id: MinerPDA
-    ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetMining
   storage:
     back:
     - MiningVoucher
