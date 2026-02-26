@@ -780,14 +780,10 @@
       - state: inhand-left
         color: "#876c33"
         sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
-      - state: overlay-inhand-left
-        sprite: Clothing/Uniforms/Jumpskirt/RND/rnd.rsi
       right:
       - state: inhand-right
         color: "#876c33"
         sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
-      - state: overlay-inhand-right
-        sprite: Clothing/Uniforms/Jumpskirt/RND/rnd.rsi
   
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband]
@@ -805,14 +801,10 @@
       - state: inhand-left
         color: "#620b73"
         sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
-      - state: overlay-inhand-left
-        sprite: Clothing/Uniforms/Jumpskirt/RND/rndturtle.rsi
       right:
       - state: inhand-right
         color: "#620b73"
         sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
-      - state: overlay-inhand-right
-        sprite: Clothing/Uniforms/Jumpskirt/RND/rndturtle.rsi
   
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
