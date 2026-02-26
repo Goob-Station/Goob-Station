@@ -23,10 +23,6 @@
       "name": "icon"
     },
 	{
-      "name": "equipped-INNERCLOTHING-monkey",
-      "directions": 4
-    },
-	{
       "name": "folded-equipped-INNERCLOTHING",
       "directions": 4
     }
