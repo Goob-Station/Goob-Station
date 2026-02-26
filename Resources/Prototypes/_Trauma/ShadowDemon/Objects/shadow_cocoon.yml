@@ -27,4 +27,3 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   # - type: ShadowCocoon
-
