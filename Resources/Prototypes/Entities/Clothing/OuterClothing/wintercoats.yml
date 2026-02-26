@@ -382,11 +382,11 @@
   - type: Armor # Goob
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.6
-        Caustic: 0.65
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.65
+        Heat: 0.65
+        Caustic: 0.70
 
 - type: entity
   parent: [ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband]
@@ -626,11 +626,11 @@
   - type: Armor # Goob
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.7
-        Heat: 0.6
-        Caustic: 0.85
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.75
+        Heat: 0.65
+        Caustic: 0.90
 ################################################################
 
 - type: entity
