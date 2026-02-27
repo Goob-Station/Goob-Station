@@ -1,4 +1,4 @@
-﻿using Content.Server.Light.Components;
+using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Light.Components;

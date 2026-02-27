@@ -1,4 +1,4 @@
-﻿using Content.Trauma.Shared.ShadowDemon.ShadowCocoon;
+using Content.Trauma.Shared.ShadowDemon.ShadowCocoon;
 
 namespace Content.Trauma.Client.ShadowDemon;
 
