@@ -114,6 +114,7 @@
       tags:
       - DroneUsable
       - Trash
+      - Crayon
     blacklist:
       tags:
       - Syringe
@@ -121,8 +122,23 @@
       - Sidearm
       - Taser
       components:
+      - Handcuff
       - Gun
       - EnergySword
+  - type: ContainerContainer # imp.
+    containers:
+      cell_slot: !type:ContainerSlot { }
+  - type: PowerCellSlot # imp.
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: PowerCellDraw # imp
+    drawRate: 0.6
+  - type: ItemSlots # imp
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+        disableEject: true
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
