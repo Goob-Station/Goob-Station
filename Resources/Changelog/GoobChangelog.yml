@@ -21437,3 +21437,11 @@ Entries:
       message: Doubled the power generation of solar panels
   id: 2434
   time: '2026-02-27T16:21:16.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Changed back armored winter coats and nerfed infection resistances on
+        them
+  id: 2435
+  time: '2026-02-27T19:54:29.0000000+00:00'
