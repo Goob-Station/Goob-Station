@@ -146,7 +146,7 @@
   parent: BaseCrateShipment
   id: CrateShipmentGenericTider
   name: tider gears shipment
-  suffix: 6000
+  suffix: 4000
   components:
   - type: Icon
     sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
@@ -157,7 +157,25 @@
     graph: GraphCrateShipmentGeneric
     node: shipmentGenericTider
   - type: StaticPrice
-    price: 6000
+    price: 4000
+
+#MARK: Uniforms
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentGenericUniforms
+  name: uniforms shipment
+  suffix: 5000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_generic.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentGeneric
+    node: shipmentGenericUniforms
+  - type: StaticPrice
+    price: 5000
 
 #MARK: Engineering >
 - type: entity
@@ -196,7 +214,7 @@
   parent: BaseCrateShipment
   id: CrateShipmentEngineeringTools
   name: engineering tools shipment
-  suffix: 9000
+  suffix: 7000
   components:
   - type: Icon
     sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
@@ -207,14 +225,14 @@
     graph: GraphCrateShipmentEngineering
     node: shipmentEngineeringTools
   - type: StaticPrice
-    price: 9000
+    price: 7000
 
 #MARK: Advanced Tools
 - type: entity
   parent: BaseCrateShipment
   id: CrateShipmentEngineeringToolsAdvanced
   name: engineering advanced tools shipment
-  suffix: 20000
+  suffix: 9000
   components:
   - type: Icon
     sprite: _Goobstation/Structures/Storage/shipment_engineering.rsi
@@ -225,7 +243,7 @@
     graph: GraphCrateShipmentEngineering
     node: shipmentEngineeringToolsAdvanced
   - type: StaticPrice
-    price: 20000
+    price: 9000
 
 #MARK: Science >
 - type: entity
@@ -243,12 +261,12 @@
     graph: GraphCrateShipmentScience
     node: start
 
-#MARK: Tools
+#MARK: Anomaly
 - type: entity
   parent: BaseCrateShipment
-  id: CrateShipmentScienceTools
-  name: science tools shipment
-  suffix: 9000
+  id: CrateShipmentScienceAnomaly
+  name: anomaly research kit shipment
+  suffix: 7500
   components:
   - type: Icon
     sprite: _Goobstation/Structures/Storage/shipment_science.rsi
@@ -257,9 +275,27 @@
     state: icon
   - type: Construction
     graph: GraphCrateShipmentScience
-    node: shipmentScienceTools
+    node: shipmentScienceAnomaly
   - type: StaticPrice
-    price: 9000
+    price: 7500
+
+#MARK: Workstation
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentScienceWorkstation
+  name: workstation kit shipment
+  suffix: 5500
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_science.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_science.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentScience
+    node: shipmentScienceWorkstation
+  - type: StaticPrice
+    price: 5500
 
 #MARK: Experimental >
 - type: entity
@@ -293,12 +329,12 @@
     tags:
       - CrateExperimentalLid
 
-#MARK: Tools
+#MARK: Adv Materials
 - type: entity
   parent: BaseCrateShipment
-  id: CrateShipmentExperimentalTools
-  name: experimental tools shipment
-  suffix: 9000
+  id: CrateShipmentExperimentalMaterialsAdvanced
+  name: advanced material analysis shipment
+  suffix: 15000
   components:
   - type: Icon
     sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
@@ -307,9 +343,27 @@
     state: icon
   - type: Construction
     graph: GraphCrateShipmentExperimental
-    node: shipmentExperimentalTools
+    node: shipmentExperimentalMaterialsAdvanced
   - type: StaticPrice
-    price: 9000
+    price: 15000
+
+#MARK: Geological
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentExperimentalGeological
+  name: geological analysis shipment
+  suffix: 10000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_experimental.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentExperimental
+    node: shipmentExperimentalGeological
+  - type: StaticPrice
+    price: 10000
 
 #MARK: Medical >
 - type: entity
@@ -327,11 +381,11 @@
     graph: GraphCrateShipmentMedical
     node: start
 
-#MARK: Tools
+#MARK: Med Supplies
 - type: entity
   parent: BaseCrateShipment
-  id: CrateShipmentMedicalTools
-  name: medical tools shipment
+  id: CrateShipmentMedicalSupplies
+  name: medical supplies shipment
   suffix: 9000
   components:
   - type: Icon
@@ -341,9 +395,27 @@
     state: icon
   - type: Construction
     graph: GraphCrateShipmentMedical
-    node: shipmentMedicalTools
+    node: shipmentMedicalSupplies
   - type: StaticPrice
     price: 9000
+
+#MARK: Emergency
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentMedicalEmergency
+  name: emergency medical shipment
+  suffix: 6500
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_medical.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_medical.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentMedical
+    node: shipmentMedicalEmergency
+  - type: StaticPrice
+    price: 6500
 
 #MARK: Surgical >
 - type: entity
@@ -361,12 +433,12 @@
     graph: GraphCrateShipmentSurgical
     node: start
 
-#MARK: Tools
+#MARK: Adv Supplies
 - type: entity
   parent: BaseCrateShipment
-  id: CrateShipmentSurgicalTools
-  name: surgical tools shipment
-  suffix: 9000
+  id: CrateShipmentSurgicalSuppliesAdvanced
+  name: advanced surgical supplies shipment
+  suffix: 11000
   components:
   - type: Icon
     sprite: _Goobstation/Structures/Storage/shipment_surgical.rsi
@@ -375,9 +447,27 @@
     state: icon
   - type: Construction
     graph: GraphCrateShipmentSurgical
-    node: shipmentSurgicalTools
+    node: shipmentSurgicalSuppliesAdvanced
   - type: StaticPrice
-    price: 9000
+    price: 11000
+
+#MARK: Cyborg
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentSurgicalCyborg
+  name: cyborg kit shipment
+  suffix: 10000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_surgical.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_surgical.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentSurgical
+    node: shipmentSurgicalCyborg
+  - type: StaticPrice
+    price: 10000
 
 #MARK: Security >
 - type: entity
@@ -411,12 +501,12 @@
     tags:
       - CrateSecurityLid
 
-#MARK: Tools
+#MARK: Supplies
 - type: entity
   parent: BaseCrateShipment
-  id: CrateShipmentSecurityTools
-  name: security tools shipment
-  suffix: 9000
+  id: CrateShipmentSecuritySupplies
+  name: security supplies shipment
+  suffix: 7500
   components:
   - type: Icon
     sprite: _Goobstation/Structures/Storage/shipment_security.rsi
@@ -425,9 +515,27 @@
     state: icon
   - type: Construction
     graph: GraphCrateShipmentSecurity
-    node: shipmentSecurityTools
+    node: shipmentSecuritySupplies
   - type: StaticPrice
-    price: 9000
+    price: 7500
+
+#MARK: Ammo
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentSecurityAmmo
+  name: security ammunition shipment
+  suffix: 7500
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_security.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_security.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentSecurity
+    node: shipmentSecurityAmmo
+  - type: StaticPrice
+    price: 7500
 
 #MARK: Armory >
 - type: entity
@@ -461,12 +569,12 @@
     tags:
       - CrateArmoryLid
 
-#MARK: Tools
+#MARK: Lasers
 - type: entity
   parent: BaseCrateShipment
-  id: CrateShipmentArmoryTools
+  id: CrateShipmentArmoryLasers
   name: armory tools shipment
-  suffix: 9000
+  suffix: 12500
   components:
   - type: Icon
     sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
@@ -475,6 +583,24 @@
     state: icon
   - type: Construction
     graph: GraphCrateShipmentArmory
-    node: shipmentArmoryTools
+    node: shipmentArmoryLasers
   - type: StaticPrice
-    price: 9000
+    price: 12500
+
+#MARK: Adv Ammo
+- type: entity
+  parent: BaseCrateShipment
+  id: CrateShipmentArmoryAmmoAdvanced
+  name: armory advanced ammunition shipment
+  suffix: 10000
+  components:
+  - type: Icon
+    sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/shipment_armory.rsi
+    state: icon
+  - type: Construction
+    graph: GraphCrateShipmentArmory
+    node: shipmentArmoryAmmoAdvanced
+  - type: StaticPrice
+    price: 10000

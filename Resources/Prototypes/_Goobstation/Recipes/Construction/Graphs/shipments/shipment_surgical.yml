@@ -3,24 +3,65 @@
   graph:
     - node: start
       edges:
-      #MARK: Tools
-      - to: shipmentSurgicalTools
+      #MARK: Adv Supplies
+      - to: shipmentSurgicalSuppliesAdvanced
         steps:
-          - tag: Paper
-            name: "the paper of the order you want to fulfil"
+          - tag: NoticeSurgicalSuppliesAdvanced
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 0
             #Content of the shipment start
-          - tag: Crowbar
-            name: "2 crowbar"
+          - tag: SurgicalAdvancedBoneGel
+            name: "3x advanced bone gel"
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
+          - tag: SurgicalAdvancedBoneGel
+            name: "2x advanced bone gel"
+            doAfter: 0.1
+          - tag: SurgicalAdvancedBoneGel
+            name: "1x advanced bone gel"
+            doAfter: 0.1
+          - tag: SurgicalAdvancedRetractor
+            name: "3x advanced retractor"
+            doAfter: 0.1
+          - tag: SurgicalAdvancedRetractor
+            name: "2x advanced retractor"
+            doAfter: 0.1
+          - tag: SurgicalAdvancedRetractor
+            name: "1x advanced retractor"
+            doAfter: 0.1
+          - tag: SurgicalEnergyCautery
+            name: "3x energy cautery"
+            doAfter: 0.1
+          - tag: SurgicalEnergyCautery
+            name: "2x energy cautery"
+            doAfter: 0.1
+          - tag: SurgicalEnergyCautery
+            name: "1x energy cautery"
+            doAfter: 0.1
+          - tag: SurgicalEnergyScalpel
+            name: "3x energy scalpel"
+            doAfter: 0.1
+          - tag: SurgicalEnergyScalpel
+            name: "2x energy scalpel"
+            doAfter: 0.1
+          - tag: SurgicalEnergyScalpel
+            name: "1x energy scalpel"
+            doAfter: 0.1
+          - tag: LatexGloves
+            name: "3x pair of latex gloves"
+            doAfter: 0.1
+          - tag: LatexGloves
+            name: "2x pair of latex gloves"
+            doAfter: 0.1
+          - tag: LatexGloves
+            name: "1x pair of latex gloves"
+            doAfter: 0.1
             #Content of the shipment end
           - tag: CratePlasticLid
             name: "the respective crate lid"
@@ -36,5 +77,63 @@
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 3
-    - node: shipmentSurgicalTools
-      entity: CrateShipmentSurgicalTools
+      #MARK: Cyborg
+      - to: shipmentSurgicalCyborg
+        steps:
+          - tag: NoticeSurgicalCyborg
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: CyberneticDexLeftHand
+            name: "1x cybernetic D.E.X left hand"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: CyberneticDexRightHand
+            name: "1x cybernetic D.E.X right hand"
+            doAfter: 0.1
+          - tag: CyberneticLeftFoot
+            name: "1x cybernetic left foot"
+            doAfter: 0.1
+          - tag: CyberneticRightFoot
+            name: "1x cybernetic right foot"
+            doAfter: 0.1
+          - tag: CyberneticJwlLeftArm
+            name: "1x cybernetic J.W.L left arm"
+            doAfter: 0.1
+          - tag: CyberneticJwlRightArm
+            name: "1x cybernetic J.W.L right arm"
+            doAfter: 0.1
+          - tag: CyberneticSpeedLeftLeg
+            name: "1x cybernetic S.P.E.E.D left leg"
+            doAfter: 0.1
+          - tag: CyberneticSpeedRightLeg
+            name: "1x cybernetic S.P.E.E.D right leg"
+            doAfter: 0.1
+          - tag: EnhancedCyberneticEyes
+            name: "1x enhanced cybernetic eyes (diag/sec/med)"
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CratePlasticLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+    - node: shipmentSurgicalSuppliesAdvanced
+      entity: CrateShipmentSurgicalSuppliesAdvanced
+    - node: shipmentSurgicalCyborg
+      entity: CrateShipmentSurgicalCyborg

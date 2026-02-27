@@ -186,7 +186,7 @@
 
 - type: latheRecipe
   parent: BaseRecipeCargoLicense
-  id: RecipeCargoLicenseReceiptEngineering
+  id: RecipeBlueprintCargoLicenseReceiptEngineering
   result: BlueprintCargoLicenseReceiptEngineering
 
 #MARK: Notices >>
@@ -195,6 +195,7 @@
 
 
 
+#MARK: Engineering
 - type: latheRecipe
   parent: BaseRecipeShipmentNotice
   id: RecipeShipmentNoticeEngineeringTools
@@ -205,7 +206,79 @@
   id: RecipeShipmentNoticeEngineeringToolsAdvanced
   result: ShipmentNoticeEngineeringToolsAdvanced
 
+#MARK: Generic
 - type: latheRecipe
   parent: BaseRecipeShipmentNotice
   id: RecipeShipmentNoticeGenericTider
   result: ShipmentNoticeGenericTider
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeGenericUniforms
+  result: ShipmentNoticeGenericUniforms
+
+#MARK: Medical
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeMedicalSupplies
+  result: ShipmentNoticeMedicalSupplies
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeMedicalEmergency
+  result: ShipmentNoticeMedicalEmergency
+
+#MARK: Surgical
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeSurgicalCyborg
+  result: ShipmentNoticeSurgicalCyborg
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeSurgicalSuppliesAdvanced
+  result: ShipmentNoticeSurgicalSuppliesAdvanced
+
+#MARK: Security
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeSecuritySupplies
+  result: ShipmentNoticeSecuritySupplies
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeSecurityAmmo
+  result: ShipmentNoticeSecurityAmmo
+
+#MARK: Armory
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeArmoryLasers
+  result: ShipmentNoticeArmoryLasers
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeArmoryAmmoAdvanced
+  result: ShipmentNoticeArmoryAmmoAdvanced
+
+#MARK: Science
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeScienceAnomaly
+  result: ShipmentNoticeScienceAnomaly
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeScienceWorkstation
+  result: ShipmentNoticeScienceWorkstation
+
+#MARK: Experimental
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeExperimentalMaterialsAdvanced
+  result: ShipmentNoticeExperimentalMaterialsAdvanced
+
+- type: latheRecipe
+  parent: BaseRecipeShipmentNotice
+  id: RecipeShipmentNoticeExperimentalGeological
+  result: ShipmentNoticeExperimentalGeological

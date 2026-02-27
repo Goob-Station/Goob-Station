@@ -63,6 +63,9 @@
     - type: ShowCriminalRecordIcons
     - type: FlashImmunity
     - type: EyeProtection
+  - type: Tag
+    tags:
+    - EnhancedCyberneticEyes # Goobstation
 
 - type: entity
   parent: BasicCyberneticEyes
@@ -80,6 +83,9 @@
     - type: ShowHealthIcons
       damageContainers:
       - Biological
+  - type: Tag
+    tags:
+    - EnhancedCyberneticEyes # Goobstation
 
 - type: entity
   parent: BasicCyberneticEyes
@@ -101,6 +107,9 @@
       - Inorganic
       - Silicon
       - SiliconRadiation
+  - type: Tag
+    tags:
+    - EnhancedCyberneticEyes # Goobstation
 
 # Heart
 

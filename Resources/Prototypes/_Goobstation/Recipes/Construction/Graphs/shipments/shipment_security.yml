@@ -3,24 +3,68 @@
   graph:
     - node: start
       edges:
-      #MARK: Tools
-      - to: shipmentSecurityTools
+      #MARK: Supplies
+      - to: shipmentSecuritySupplies
         steps:
-          - tag: Paper
-            name: "the paper of the order you want to fulfil"
+          - tag: NoticeSecuritySupplies
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 0
             #Content of the shipment start
-          - tag: Crowbar
-            name: "2 crowbar"
+          - tag: BolaEnergy
+            name: "8x energy bola"
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
+          - tag: BolaEnergy
+            name: "7x energy bola"
+            doAfter: 0.1
+          - tag: BolaEnergy
+            name: "6x energy bola"
+            doAfter: 0.1
+          - tag: BolaEnergy
+            name: "5x energy bola"
+            doAfter: 0.1
+          - tag: BolaEnergy
+            name: "4x energy bola"
+            doAfter: 0.1
+          - tag: BolaEnergy
+            name: "3x energy bola"
+            doAfter: 0.1
+          - tag: BolaEnergy
+            name: "2x energy bola"
+            doAfter: 0.1
+          - tag: BolaEnergy
+            name: "1x energy bola"
+            doAfter: 0.1
+          - tag: Stunbaton
+            name: "4x Stunbaton"
+            doAfter: 0.1
+          - tag: Stunbaton
+            name: "3x Stunbaton"
+            doAfter: 0.1
+          - tag: Stunbaton
+            name: "2x Stunbaton"
+            doAfter: 0.1
+          - tag: Stunbaton
+            name: "1x Stunbaton"
+            doAfter: 0.1
+          - tag: CombatKnife
+            name: "4x combat knife"
+            doAfter: 0.1
+          - tag: CombatKnife
+            name: "3x combat knife"
+            doAfter: 0.1
+          - tag: CombatKnife
+            name: "2x combat knife"
+            doAfter: 0.1
+          - tag: CombatKnife
+            name: "1x combat knife"
+            doAfter: 0.1
             #Content of the shipment end
           - tag: CrateSecurityLid
             name: "the respective crate lid"
@@ -36,5 +80,54 @@
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 3
-    - node: shipmentSecurityTools
-      entity: CrateShipmentSecurityTools
+      #MARK: Ammo
+      - to: shipmentSecurityAmmo
+        steps:
+          - tag: NoticeSecurityAmmo
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: AmmoBox35AutoBase
+            name: "2x .35 Auto ammo box"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: AmmoBox35AutoBase
+            name: "1x .35 Auto ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox20RifleBase
+            name: "2x .20 Rifle ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox20RifleBase
+            name: "1x .20 Rifle ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox12GaugeBase
+            name: "2x shotgun 12 gauge ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox12GaugeBase
+            name: "1x shotgun 12 gauge ammo box"
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CrateSecurityLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+    - node: shipmentSecuritySupplies
+      entity: CrateShipmentSecuritySupplies
+    - node: shipmentSecurityAmmo
+      entity: CrateShipmentSecurityAmmo

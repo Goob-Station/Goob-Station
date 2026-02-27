@@ -73,6 +73,7 @@
     - Recyclable
     - WhitelistChameleon
     - Skirt # Goobstation
+    - ClothingUniforms # Goobstation
 
 - type: entity
   abstract: true

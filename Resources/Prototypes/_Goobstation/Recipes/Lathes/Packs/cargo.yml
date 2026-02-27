@@ -26,11 +26,15 @@
   - RecipeCrateShipmentGenericBase
   - RecipeCrateShipmentGenericLid
   - RecipeCrateShipmentPlasticLid
-
+  - RecipeCrateShipmentMedicalBase
+  - RecipeCrateShipmentScienceBase
 - type: latheRecipePack
-  id: RecipePackShipmentNoticeStatic
+  id: RecipePackShipmentNoticesStatic
   recipes:
   - RecipeShipmentNoticeGenericTider
+  - RecipeShipmentNoticeGenericUniforms
+  - RecipeShipmentNoticeMedicalSupplies
+  - RecipeShipmentNoticeMedicalEmergency
 
 ## Dynamic
 - type: latheRecipePack

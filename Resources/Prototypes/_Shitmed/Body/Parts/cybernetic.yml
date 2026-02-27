@@ -168,6 +168,9 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
+  - type: Tag
+    tags:
+    - CyberneticLeftFoot # Goobstation
 
 - type: entity
   parent: [ CyberneticPartBase, BaseRightFoot ]
@@ -186,6 +189,9 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
+  - type: Tag
+    tags:
+    - CyberneticRightFoot # Goobstation
 
 - type: entity
   parent: LeftArmCybernetic
@@ -200,6 +206,9 @@
       pryPowered: true
     - type: UseDelay # For insta prying
       delay: 1
+  - type: Tag
+    tags:
+    - CyberneticJwlLeftArm # Goobstation
 
 - type: entity
   parent: RightArmCybernetic
@@ -214,6 +223,9 @@
       pryPowered: true
     - type: UseDelay # For insta prying
       delay: 1
+  - type: Tag
+    tags:
+    - CyberneticJwlRightArm # Goobstation
 
 - type: entity
   parent: LeftLegCybernetic
@@ -224,6 +236,9 @@
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.175
+  - type: Tag
+    tags:
+    - CyberneticSpeedLeftLeg # Goobstation
 
 - type: entity
   parent: RightLegCybernetic
@@ -234,6 +249,9 @@
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.175
+  - type: Tag
+    tags:
+    - CyberneticSpeedRightLeg # Goobstation
 
 - type: entity
   id: DexLeftHand
@@ -243,6 +261,9 @@
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.9
+  - type: Tag
+    tags:
+    - CyberneticDexLeftHand # Goobstation
 
 - type: entity
   id: DexRightHand
@@ -252,3 +273,6 @@
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.9
+  - type: Tag
+    tags:
+    - CyberneticDexRightHand # Goobstation

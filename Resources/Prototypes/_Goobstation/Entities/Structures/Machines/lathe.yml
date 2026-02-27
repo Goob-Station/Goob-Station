@@ -120,7 +120,7 @@
     - MiningToolsStatic
     - MiscSignallersStatic
     - CargoStatic
-    - RecipePackShipmentNoticeStatic
+    - RecipePackShipmentNoticesStatic
     dynamicPacks:
     - AdvancedTools
     - Mining

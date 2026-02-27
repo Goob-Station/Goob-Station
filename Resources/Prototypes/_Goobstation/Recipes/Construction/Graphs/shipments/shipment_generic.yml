@@ -14,32 +14,115 @@
                 data: 0
             #Content of the shipment start
           - tag: Spear
-            name: "4 spear"
+            name: "4x spear"
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: Spear
-            name: "3 spear"
+            name: "3x spear"
             doAfter: 0.1
           - tag: Spear
-            name: "2 spear"
+            name: "2x spear"
             doAfter: 0.1
           - tag: Spear
-            name: "1 spear"
+            name: "1x spear"
             doAfter: 0.1
           - tag: GasMask
-            name: "4 gas mask"
+            name: "4x gas mask"
             doAfter: 0.1
           - tag: GasMask
-            name: "3 gas mask"
+            name: "3x gas mask"
             doAfter: 0.1
           - tag: GasMask
-            name: "2 gas mask"
+            name: "2x gas mask"
             doAfter: 0.1
           - tag: GasMask
-            name: "1 gas mask"
+            name: "1x gas mask"
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CrateSteelLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+      #MARK: Uniforms
+      - to: shipmentGenericUniforms
+        steps:
+          - tag: NoticeGenericUniforms
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: ClothingUniforms
+            name: "6x uniform"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: ClothingUniforms
+            name: "5x uniform"
+            doAfter: 0.1
+          - tag: ClothingUniforms
+            name: "4x uniform"
+            doAfter: 0.1
+          - tag: ClothingUniforms
+            name: "3x uniform"
+            doAfter: 0.1
+          - tag: ClothingUniforms
+            name: "2x uniform"
+            doAfter: 0.1
+          - tag: ClothingUniforms
+            name: "1x uniform"
+            doAfter: 0.1
+          - tag: ClothingShoes
+            name: "6x pair of shoes"
+            doAfter: 0.1
+          - tag: ClothingShoes
+            name: "5x pair of shoes"
+            doAfter: 0.1
+          - tag: ClothingShoes
+            name: "4x pair of shoes"
+            doAfter: 0.1
+          - tag: ClothingShoes
+            name: "3x pair of shoes"
+            doAfter: 0.1
+          - tag: ClothingShoes
+            name: "2x pair of shoes"
+            doAfter: 0.1
+          - tag: ClothingShoes
+            name: "1x pair of shoes"
+            doAfter: 0.1
+          - tag: ClothingHats
+            name: "6x hat"
+            doAfter: 0.1
+          - tag: ClothingHats
+            name: "5x hat"
+            doAfter: 0.1
+          - tag: ClothingHats
+            name: "4x hat"
+            doAfter: 0.1
+          - tag: ClothingHats
+            name: "3x hat"
+            doAfter: 0.1
+          - tag: ClothingHats
+            name: "2x hat"
+            doAfter: 0.1
+          - tag: ClothingHats
+            name: "1x hat"
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateSteelLid
@@ -58,3 +141,5 @@
                 data: 3
     - node: shipmentGenericTider
       entity: CrateShipmentGenericTider
+    - node: shipmentGenericUniforms
+      entity: CrateShipmentGenericUniforms

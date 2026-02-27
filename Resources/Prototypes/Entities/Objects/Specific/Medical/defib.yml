@@ -76,6 +76,9 @@
       - TauCetiBasic
       understands:
       - TauCetiBasic
+    - type: Tag
+      tags:
+      - Defibrillator
 
 - type: entity
   id: Defibrillator

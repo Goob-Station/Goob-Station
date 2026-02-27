@@ -3,24 +3,112 @@
   graph:
     - node: start
       edges:
-      #MARK: Tools
-      - to: shipmentArmoryTools
+      #MARK: AmmoAdvanced
+      - to: shipmentArmoryAmmoAdvanced
         steps:
-          - tag: Paper
-            name: "the paper of the order you want to fulfil"
+          - tag: NoticeArmoryAmmoAdvanced
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 0
             #Content of the shipment start
-          - tag: Crowbar
-            name: "2 crowbar"
+          - tag: AmmoBox35AutoUranium
+            name: "2x uranium .35 Auto ammo box"
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
+          - tag: AmmoBox35AutoUranium
+            name: "1x uranium .35 Auto ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox20RifleUranium
+            name: "2x uranium .20 Rifle ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox20RifleUranium
+            name: "1x uranium .20 Rifle ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox12GaugeUranium
+            name: "2x uranium shotgun 12 gauge ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox12GaugeUranium
+            name: "1x uranium shotgun 12 gauge ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox35AutoIncendiary
+            name: "2x incendiary .35 Auto ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox35AutoIncendiary
+            name: "1x incendiary .35 Auto ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox20RifleIncendiary
+            name: "2x incendiary .20 Rifle ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox20RifleIncendiary
+            name: "1x incendiary .20 Rifle ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox12GaugeIncendiary
+            name: "2x incendiary shotgun 12 gauge ammo box"
+            doAfter: 0.1
+          - tag: AmmoBox12GaugeIncendiary
+            name: "1x incendiary shotgun 12 gauge ammo box"
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CrateArmoryLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3      #MARK: AmmoAdvanced
+      #MARK: Lasers
+      - to: shipmentArmoryLasers
+        steps:
+          - tag: NoticeArmoryLasers
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: LaserCarbine
+            name: "3x laser carbine"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: LaserCarbine
+            name: "2x laser carbine"
+            doAfter: 0.1
+          - tag: LaserCarbine
+            name: "1x laser carbine"
+            doAfter: 0.1
+          - tag: LaserCannon
+            name: "3x laser cannon"
+            doAfter: 0.1
+          - tag: LaserCannon
+            name: "2x laser cannon"
+            doAfter: 0.1
+          - tag: LaserCannon
+            name: "1x laser cannon"
+            doAfter: 0.1
+          - tag: XrayCannon
+            name: "3x x-ray cannon"
+            doAfter: 0.1
+          - tag: XrayCannon
+            name: "2x x-ray cannon"
+            doAfter: 0.1
+          - tag: XrayCannon
+            name: "1x x-ray cannon"
+            doAfter: 0.1
             #Content of the shipment end
           - tag: CrateArmoryLid
             name: "the respective crate lid"
@@ -36,5 +124,7 @@
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 3
-    - node: shipmentArmoryTools
-      entity: CrateShipmentArmoryTools
+    - node: shipmentArmoryAmmoAdvanced
+      entity: CrateShipmentArmoryAmmoAdvanced
+    - node: shipmentArmoryLasers
+      entity: CrateShipmentArmoryLasers

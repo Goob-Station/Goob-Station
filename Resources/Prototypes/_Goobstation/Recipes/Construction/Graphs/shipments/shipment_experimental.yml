@@ -3,24 +3,32 @@
   graph:
     - node: start
       edges:
-      #MARK: Tools
-      - to: shipmentExperimentalTools
+      #MARK: Adv Materials
+      - to: shipmentExperimentalMaterialsAdvanced
         steps:
-          - tag: Paper
-            name: "the paper of the order you want to fulfil"
+          - tag: NoticeExperimentalMaterialsAdvanced
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 0
             #Content of the shipment start
-          - tag: Crowbar
-            name: "2 crowbar"
+          - material: Plasma
+            amount: 30
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
+          - material: Bananium
+            amount: 30
+            doAfter: 0.1
+          - material: MaterialBSCrystal
+            amount: 5
+            doAfter: 0.1
+          - material: Diamond
+            amount: 5
+            doAfter: 0.1
             #Content of the shipment end
           - tag: CrateExperimentalLid
             name: "the respective crate lid"
@@ -36,5 +44,57 @@
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 3
-    - node: shipmentExperimentalTools
-      entity: CrateShipmentExperimentalTools
+      #MARK: Geological
+      - to: shipmentExperimentalGeological
+        steps:
+          - tag: NoticeExperimentalGeological
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - material: SteelOre
+            amount: 30
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - material: SpaceQuartz
+            amount: 30
+            doAfter: 0.1
+          - material: GoldOre
+            amount: 30
+            doAfter: 0.1
+          - material: SilverOre
+            amount: 30
+            doAfter: 0.1
+          - material: UraniumOre
+            amount: 30
+            doAfter: 0.1
+          - material: BananiumOre
+            amount: 15
+            doAfter: 0.1
+          - material: DiamondOre
+            amount: 1
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CrateExperimentalLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+    - node: shipmentExperimentalMaterialsAdvanced
+      entity: CrateShipmentExperimentalMaterialsAdvanced
+    - node: shipmentExperimentalGeological
+      entity: CrateShipmentExperimentalGeological
