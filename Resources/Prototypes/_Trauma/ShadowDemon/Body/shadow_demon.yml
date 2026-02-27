@@ -108,9 +108,6 @@
       Destroyed: 0
   - type: OrganComponents
     onAdd:
-    - type: ShadowCrawl
-      phaseIn: ShadowDemonPhaseIn
-      phaseOut: ShadowDemonPhaseOut
-      action: ShadowCrawlAction
+    - type: ShadowGrapple # Only grants you the action, check shadow_grapple.yml for damage values instead
   - type: StaticPrice
     price: 10000

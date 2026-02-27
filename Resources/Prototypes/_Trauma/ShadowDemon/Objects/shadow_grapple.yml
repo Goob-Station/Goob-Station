@@ -33,7 +33,7 @@
         mask:
         - BulletImpassable
   - type: ShadowGrappleProjectile
-    damageOnHit:
+    # stunTime: 2 #  | Stun applied to entities when they get hit
+    damageOnHit:  #  | Damage done to entities when they get hit
       types:
         Blunt: 100
-  # stunTime: 2

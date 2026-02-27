@@ -22,6 +22,9 @@ public sealed partial class ShadowCocoonComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan NextUpdate;
 
+    /// <summary>
+    /// Random sounds that play when you turn on hallucinations
+    /// </summary>
     [DataField]
     public SoundCollectionSpecifier RandomSounds;
 

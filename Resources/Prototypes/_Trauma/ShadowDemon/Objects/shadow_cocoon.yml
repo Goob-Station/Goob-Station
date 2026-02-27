@@ -25,8 +25,10 @@
         damage: 30
       behaviors:
       - !type:DoActsBehavior
-        acts: ["Destruction"]
+        acts: ["Destruction"] # todo: add destroy sound
   - type: ShadowCocoon
+    randomSounds:
+      collection: ShadowCocoonHallucinations
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Trauma/Mobs/ShadowDemon/shadownode.ogg

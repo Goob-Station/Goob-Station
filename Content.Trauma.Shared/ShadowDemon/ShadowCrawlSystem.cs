@@ -9,7 +9,7 @@ namespace Content.Trauma.Shared.ShadowDemon;
 
 public sealed class ShadowCrawlSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly INetManager _net = default!;
 
@@ -18,13 +18,24 @@ public sealed class ShadowCrawlSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ShadowCrawlComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ShadowCrawlComponent, ComponentShutdown>(OnShutdown);
+
         SubscribeLocalEvent<ShadowCrawlComponent, ShadowCrawlEvent>(OnCrawl);
+
+        SubscribeLocalEvent<ShadowCrawlComponent, ShootGrappleEvent>(OnGrappleShot);
 
         SubscribeLocalEvent<LightDetectionComponent, ShadowCrawlAttemptEvent>(OnCrawlAttempt);
 
         SubscribeLocalEvent<LightDetectionDamageComponent, ShadowCrawlActivatedEvent>(OnCrawlActivated);
         SubscribeLocalEvent<LightDetectionDamageComponent, ShadowCrawlDeActivatedEvent>(OnCrawlDeactivated);
     }
+
+    private void OnMapInit(Entity<ShadowCrawlComponent> ent, ref MapInitEvent args) =>
+        _actions.AddAction(ent.Owner, ref ent.Comp.ActionUid, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowCrawlComponent> ent, ref ComponentShutdown args) =>
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionUid);
 
     private void OnCrawl(Entity<ShadowCrawlComponent> ent, ref ShadowCrawlEvent args)
     {
@@ -44,8 +55,8 @@ public sealed class ShadowCrawlSystem : EntitySystem
             // Re-enable all actions
             ToggleActions(args.Action, ent.Owner, true);
 
-            // Activate cooldown only when exiting jaunt
-            _actionsSystem.SetCooldown(args.Action.Owner, ent.Comp.ActionCooldown);
+            // Activate cooldown only when exiting jaunt (todo: test this works)
+            _actions.SetCooldown(ent.Comp.ActionUid, ent.Comp.ActionCooldown);
 
             args.Handled = true;
             return;
@@ -81,18 +92,33 @@ public sealed class ShadowCrawlSystem : EntitySystem
         args.Handled = true;
     }
 
+    /// <summary>
+    /// Add cooldown to shadow crawl when shooting a shadow grapple
+    /// </summary>
+    private void OnGrappleShot(Entity<ShadowCrawlComponent> ent, ref ShootGrappleEvent args) =>
+        _actions.SetCooldown(ent.Comp.ActionUid, ent.Comp.ActionCooldownAfterGrapple);
+
+    /// <summary>
+    /// Ensures we are on darkness before attempting a crawl
+    /// </summary>
     private void OnCrawlAttempt(Entity<LightDetectionComponent> ent, ref ShadowCrawlAttemptEvent args)
     {
         if (ent.Comp.OnLight)
             args.Cancelled = true;
     }
 
+    /// <summary>
+    /// Decreases the damage we take from lights by a number
+    /// </summary>
     private void OnCrawlActivated(Entity<LightDetectionDamageComponent> ent, ref ShadowCrawlActivatedEvent args)
     {
         ent.Comp.DamageToDeal *= args.LightDamageModifier;
         Dirty(ent);
     }
 
+    /// <summary>
+    /// Increases the damage we take from lights by a number
+    /// </summary>
     private void OnCrawlDeactivated(Entity<LightDetectionDamageComponent> ent, ref ShadowCrawlDeActivatedEvent args)
     {
         ent.Comp.DamageToDeal /= args.LightDamageModifier;
@@ -100,7 +126,6 @@ public sealed class ShadowCrawlSystem : EntitySystem
     }
 
     #region Helpers
-
     private bool CanJaunt(EntityUid uid)
     {
         var attemptEv = new ShadowCrawlAttemptEvent();
@@ -114,15 +139,19 @@ public sealed class ShadowCrawlSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    /// Disables or enables all actions on the user for use.
+    /// This is meant to prevent using actions while in jaunt
+    /// </summary>
     private void ToggleActions(Entity<ActionComponent> ignoreAction, EntityUid uid, bool toggle)
     {
-        var actions = _actionsSystem.GetActions(uid);
+        var actions = _actions.GetActions(uid);
         foreach (var action in actions)
         {
             if (action == ignoreAction)
                 continue;
 
-            _actionsSystem.SetEnabled((action.Owner, action.Comp), toggle);
+            _actions.SetEnabled((action.Owner, action.Comp), toggle);
         }
     }
 

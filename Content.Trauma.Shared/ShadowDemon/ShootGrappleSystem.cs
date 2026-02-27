@@ -1,12 +1,12 @@
 using System.Numerics;
+using Content.Shared.Actions;
 using Content.Shared.Physics;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Trauma.Shared.ShadowDemon;
 
-/// <summary>
-/// TODO: Move to another folder
-/// </summary>
 public sealed class ShootGrappleSystem : EntitySystem
 {
     [Dependency] private readonly SharedGunSystem _gun = default!;
@@ -48,3 +48,21 @@ public sealed class ShootGrappleSystem : EntitySystem
         args.Handled = true;
     }
 }
+
+/// <summary>
+/// Action event that shoots a grapple at the direction of clicking.
+/// </summary>
+public sealed partial class ShootGrappleEvent : EntityTargetActionEvent
+{
+    /// <summary>
+    /// The projectile to shoot
+    /// </summary>
+    [DataField]
+    public EntProtoId ProjectileProto;
+
+    /// <summary>
+    /// The joint sprite of the projectile (the huge rope that will be attached to the projectile)
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? JointSprite;
+};

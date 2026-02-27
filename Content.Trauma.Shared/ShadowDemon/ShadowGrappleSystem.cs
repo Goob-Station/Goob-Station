@@ -1,14 +1,13 @@
 using System.Numerics;
+using Content.Shared.Actions;
 using Content.Shared.Body;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
-using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
@@ -24,6 +23,7 @@ public sealed class ShadowGrappleSystem : EntitySystem
     [Dependency] private readonly SharedPoweredLightSystem _poweredLight = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     private const string GrappleJoint = "grappling";
 
@@ -40,6 +40,9 @@ public sealed class ShadowGrappleSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowGrappleProjectileComponent, ProjectileEmbedEvent>(OnEmbed);
         SubscribeLocalEvent<ShadowGrappleProjectileComponent, ProjectileHitEvent>(OnHit);
+
+        SubscribeLocalEvent<ShadowGrappleComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ShadowGrappleComponent, ComponentShutdown>(OnShutdown);
 
         _bodyQuery = GetEntityQuery<BodyComponent>();
         _inventoryQuery = GetEntityQuery<InventoryComponent>();
@@ -88,6 +91,13 @@ public sealed class ShadowGrappleSystem : EntitySystem
         BreakNearbyLights(target, args.Shooter, ent.Comp.BreakLightsRange);
     }
 
+    private void OnMapInit(Entity<ShadowGrappleComponent> ent, ref MapInitEvent args) =>
+        _actions.AddAction(ent.Owner, ref ent.Comp.ActionUid, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowGrappleComponent> ent, ref ComponentShutdown args) =>
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionUid);
+
+    #region Helper
     /// <summary>
     /// Break any lights nearby.
     /// </summary>
@@ -122,4 +132,5 @@ public sealed class ShadowGrappleSystem : EntitySystem
             }
         }
     }
+    #endregion
  }

@@ -38,8 +38,20 @@ public sealed partial class ShadowCrawlComponent : Component
     public TimeSpan ActionCooldown = TimeSpan.FromSeconds(4);
 
     /// <summary>
+    /// The cooldown applied to the action when shooting a grapple
+    /// </summary>
+    [DataField]
+    public TimeSpan ActionCooldownAfterGrapple = TimeSpan.FromSeconds(10);
+
+    /// <summary>
     /// Whether we are in jaunt or not
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool Active;
+
+    [DataField]
+    public EntProtoId ActionId = "ShadowCrawlAction";
+
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? ActionUid;
 }
