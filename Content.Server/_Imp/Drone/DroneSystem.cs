@@ -27,7 +27,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 using Content.Server.PowerCell;
 
-namespace Content.Server._Impstation.Drone
+namespace Content.Server._Imp.Drone
 {
     public sealed class DroneSystem : SharedDroneSystem
     {

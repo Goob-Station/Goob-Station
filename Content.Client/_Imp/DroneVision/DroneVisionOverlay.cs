@@ -10,7 +10,7 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 
-namespace Content.Client._Impstation.Overlays;
+namespace Content.Client._Imp.DroneVision;
 
 public sealed class DroneVisionOverlay : Overlay
 {
