@@ -29,6 +29,7 @@
     damageContainer: Inorganic
   - type: Bloodstream
     bloodReagent: Oil
+    bloodMaxVolume: 50
     bloodlossDamage:
       types:
         Bloodloss:
