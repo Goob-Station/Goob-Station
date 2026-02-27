@@ -31,7 +31,8 @@
     - !type:EntityWhitelistRequirement
       whitelist:
         components:
-        - LayingDown
+        - Crawler
+        - KnockedDown
     # Goob end
   action:
     !type:ComplexAction
@@ -57,7 +58,7 @@
     - !type:EntityWhitelistRequirement
       whitelist:
         components:
-        - LayingDown
+        - Crawler
     # Goob end
   action:
     !type:ChangeStandingStateAction

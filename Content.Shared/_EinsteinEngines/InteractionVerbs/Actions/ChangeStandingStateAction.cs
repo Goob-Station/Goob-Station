@@ -7,8 +7,9 @@
 using Content.Shared.Bed.Sleep;
 using Content.Shared.InteractionVerbs;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 
-namespace Content.Server.InteractionVerbs.Actions;
+namespace Content.Shared._EinsteinEngines.InteractionVerbs.Actions;
 
 [Serializable]
 public sealed partial class ChangeStandingStateAction : InteractionAction
@@ -38,15 +39,17 @@ public sealed partial class ChangeStandingStateAction : InteractionAction
         if (args.TryGetBlackboard("standing", out bool oldStanding)
             && oldStanding != state.Standing)
             return false;
-
-        var stateSystem = entMan.System<StandingStateSystem>();
-
+        var stun = entMan.System<SharedStunSystem>();
         // Note: these will get cancelled if the target is forced to stand/lay, e.g. due to a buckle or stun or something else.
-        if (!state.Standing && MakeStanding)
-            return stateSystem.Stand(args.Target);
+        if (!state.Standing && MakeStanding &&
+            entMan.TryGetComponent<KnockedDownComponent>(args.Target, out var knocked))
+        {
+            stun.ForceStandUp((args.Target, knocked));
+            return state.Standing;
+        }
 
         if (state.Standing && MakeLaying)
-            return stateSystem.Down(args.Target);
+            return stun.TryCrawling(args.Target, autoStand: false);
 
         return false;
     }
