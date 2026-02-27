@@ -82,7 +82,7 @@ public sealed class DroneVisionOverlay : Overlay
                 }
             }
 
-            if (_entries.Any(e => e.Ent.Owner == entity))
+            if (_entity.HasComponent<DroneVisionComponent>(entity)) //goob dont add overlay to entities whit dronevision comp
                 continue;
 
             _entries.Add(new DroneVisionRenderEntry((entity, sprite, xform), mapId, eyeRot));
