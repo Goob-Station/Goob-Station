@@ -1,0 +1,12 @@
+﻿- type: soundCollection
+  id: ShadowCocoonHallucinations
+  files:
+  - /Audio/_Trauma/Mobs/ShadowDemon/shadowhalluc1.ogg # TODO: CONVERT EVERYTHING TO MONO
+  - /Audio/_Trauma/Mobs/ShadowDemon/shadowhalluc2.ogg
+  - /Audio/_Trauma/Mobs/ShadowDemon/shadowhalluc3.ogg
+  - /Audio/Machines/airlock_open.ogg
+  - /Audio/Machines/airlock_close.ogg
+  - /Audio/Machines/boltsup.ogg
+  - /Audio/Weapons/egloves.ogg
+  - /Audio/Effects/bodyfall1.ogg
+  - /Audio/Effects/bodyfall3.ogg

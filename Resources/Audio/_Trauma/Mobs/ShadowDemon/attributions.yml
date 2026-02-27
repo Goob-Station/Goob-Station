@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["shadowattack1.ogg",
+          "shadowattack2.ogg",
+          "shadowattack3.ogg",
+          "shadowattack4.ogg",
+          "shadowdeath.ogg",
+          "shadowhalluc1.ogg",
+          "shadowhalluc2.ogg",
+          "shadowhalluc3.ogg",
+          "shadownode.ogg",
+          "shadownodeambientt.ogg"
+          ]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Sirryan2002"
+  source: "https://github.com/ParadiseSS13/Paradise/commit/9418e343c405ee03a66837735042874731a94e19"
