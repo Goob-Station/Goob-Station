@@ -65,7 +65,7 @@ public sealed class DroneVisionOverlay : Overlay
         var entities = _entity.EntityQueryEnumerator<BodyComponent, SpriteComponent, TransformComponent>();
         while (entities.MoveNext(out var uid, out var body, out var sprite, out var xform))
         {
-            if (!CanSee(uid, sprite) || !body.ThermalVisibility)
+            if (!CanSee(uid, sprite) || !body.ThermalVisibility || player == uid)
                 continue;
 
             var entity = uid;
@@ -82,7 +82,7 @@ public sealed class DroneVisionOverlay : Overlay
                 }
             }
 
-            if (_entity.HasComponent<DroneVisionComponent>(entity)) //goob dont add overlay to entities whit dronevision comp
+            if (_entries.Any(e => e.Ent.Owner == entity))
                 continue;
 
             _entries.Add(new DroneVisionRenderEntry((entity, sprite, xform), mapId, eyeRot));
