@@ -21445,3 +21445,9 @@ Entries:
         them
   id: 2435
   time: '2026-02-27T19:54:29.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed ziptie box from bso's locker
+  id: 2436
+  time: '2026-02-27T19:56:39.0000000+00:00'
