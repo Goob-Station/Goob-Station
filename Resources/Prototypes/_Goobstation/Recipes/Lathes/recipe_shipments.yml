@@ -189,6 +189,26 @@
   id: RecipeBlueprintCargoLicenseReceiptEngineering
   result: BlueprintCargoLicenseReceiptEngineering
 
+- type: latheRecipe
+  parent: BaseRecipeCargoLicense
+  id: RecipeBlueprintCargoLicenseReceiptSurgical
+  result: BlueprintCargoLicenseReceiptSurgical
+
+- type: latheRecipe
+  parent: BaseRecipeCargoLicense
+  id: RecipeBlueprintCargoLicenseReceiptExperimental
+  result: BlueprintCargoLicenseReceiptExperimental
+
+- type: latheRecipe
+  parent: BaseRecipeCargoLicense
+  id: RecipeBlueprintCargoLicenseReceiptSecurity
+  result: BlueprintCargoLicenseReceiptSecurity
+
+- type: latheRecipe
+  parent: BaseRecipeCargoLicense
+  id: RecipeBlueprintCargoLicenseReceiptArmory
+  result: BlueprintCargoLicenseReceiptArmory
+
 #MARK: Notices >>
 
 

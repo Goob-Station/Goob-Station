@@ -79,15 +79,7 @@
     - RecipeShipmentNoticeSurgicalSuppliesAdvanced
     - RecipeShipmentNoticeSurgicalCyborg
   - type: Sprite
-    state: icon-security
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#e3c656"
-      right:
-      - state: inhand-right
-        color: "#e3c656"
+    state: icon-surgical
   - type: StaticPrice
     price: 10000
 
@@ -105,15 +97,15 @@
     - RecipeShipmentNoticeExperimentalMaterialsAdvanced
     - RecipeShipmentNoticeExperimentalGeological
   - type: Sprite
-    state: icon-security
+    state: icon-experimental
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#e3c656"
+        color: "#FFA500"
       right:
       - state: inhand-right
-        color: "#e3c656"
+        color: "#FFA500"
   - type: StaticPrice
     price: 10000
 
@@ -136,10 +128,10 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#e3c656"
+        color: "#8B0000"
       right:
       - state: inhand-right
-        color: "#e3c656"
+        color: "#8B0000"
   - type: StaticPrice
     price: 10000
 
@@ -162,10 +154,10 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#e3c656"
+        color: "#8B0000"
       right:
       - state: inhand-right
-        color: "#e3c656"
+        color: "#8B0000"
   - type: StaticPrice
     price: 10000
 
@@ -323,6 +315,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeEngineeringTools
   components:
+  - type: Sprite
+    color: "#FFBF00"
   - type: Tag
     tags:
     - NoticeEngineeringTools
@@ -333,6 +327,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeEngineeringToolsAdvanced
   components:
+  - type: Sprite
+    color: "#FFBF00"
   - type: Tag
     tags:
     - NoticeEngineeringToolsAdvanced
@@ -362,6 +358,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeMedicalSupplies
   components:
+  - type: Sprite
+    color: "#00FFFF"
   - type: Tag
     tags:
     - NoticeMedicalSupplies
@@ -371,6 +369,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeMedicalEmergency
   components:
+  - type: Sprite
+    color: "#00FFFF"
   - type: Tag
     tags:
     - NoticeMedicalEmergency
@@ -381,6 +381,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeSurgicalSuppliesAdvanced
   components:
+  - type: Sprite
+    color: "#00FFFF"
   - type: Tag
     tags:
     - NoticeSurgicalSuppliesAdvanced
@@ -390,6 +392,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeSurgicalCyborg
   components:
+  - type: Sprite
+    color: "#00FFFF"
   - type: Tag
     tags:
     - NoticeSurgicalCyborg
@@ -400,6 +404,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeSecuritySupplies
   components:
+  - type: Sprite
+    color: "#D22B2B"
   - type: Tag
     tags:
     - NoticeSecuritySupplies
@@ -409,6 +415,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeSecurityAmmo
   components:
+  - type: Sprite
+    color: "#D22B2B"
   - type: Tag
     tags:
     - NoticeSecurityAmmo
@@ -419,6 +427,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeArmoryLasers
   components:
+  - type: Sprite
+    color: "#D22B2B"
   - type: Tag
     tags:
     - NoticeArmoryLasers
@@ -428,6 +438,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeArmoryAmmoAdvanced
   components:
+  - type: Sprite
+    color: "#D22B2B"
   - type: Tag
     tags:
     - NoticeArmoryAmmoAdvanced
@@ -438,6 +450,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeScienceAnomaly
   components:
+  - type: Sprite
+    color: "#702963"
   - type: Tag
     tags:
     - NoticeScienceAnomaly
@@ -447,6 +461,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeScienceWorkstation
   components:
+  - type: Sprite
+    color: "#702963"
   - type: Tag
     tags:
     - NoticeScienceWorkstation
@@ -457,6 +473,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeExperimentalMaterialsAdvanced
   components:
+  - type: Sprite
+    color: "#702963"
   - type: Tag
     tags:
     - NoticeExperimentalMaterialsAdvanced
@@ -466,6 +484,8 @@
   parent: BaseShipmentNotice
   id: ShipmentNoticeExperimentalGeological
   components:
+  - type: Sprite
+    color: "#702963"
   - type: Tag
     tags:
     - NoticeExperimentalGeological

@@ -35,6 +35,8 @@
   - RecipeShipmentNoticeGenericUniforms
   - RecipeShipmentNoticeMedicalSupplies
   - RecipeShipmentNoticeMedicalEmergency
+  - RecipeShipmentNoticeScienceAnomaly
+  - RecipeShipmentNoticeScienceWorkstation
 
 ## Dynamic
 - type: latheRecipePack

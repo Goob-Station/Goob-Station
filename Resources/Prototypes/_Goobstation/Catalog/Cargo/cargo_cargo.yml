@@ -24,6 +24,36 @@
     sprite: _Goobstation/Objects/Tools/cargo_licenses.rsi
     state: icon-engineering
   product: BlueprintCargoLicenseEngineeringAdvanced
-  cost: 25000
+  cost: 14000
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: ShipmentLicenseSecurity
+  icon:
+    sprite: _Goobstation/Objects/Tools/cargo_licenses.rsi
+    state: icon-security
+  product: BlueprintCargoLicenseSecurity
+  cost: 9000
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: ShipmentLicenseExperimental
+  icon:
+    sprite: _Goobstation/Objects/Tools/cargo_licenses.rsi
+    state: icon-experimental
+  product: BlueprintCargoLicenseExperimental
+  cost: 16000
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: ShipmentLicenseSurgical
+  icon:
+    sprite: _Goobstation/Objects/Tools/cargo_licenses.rsi
+    state: icon-surgical
+  product: BlueprintCargoLicenseSurgical
+  cost: 8000
   category: cargoproduct-category-name-cargo
   group: market
