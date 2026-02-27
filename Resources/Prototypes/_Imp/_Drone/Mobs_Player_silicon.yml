@@ -190,7 +190,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Dead
+      25: Dead
   #- type: Flash # Goobstation - Remove drone flashing.
   - type: NoSlip
   - type: StatusEffects
