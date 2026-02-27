@@ -61,7 +61,6 @@ namespace Content.Server._Impstation.Drone
             SubscribeLocalEvent<DroneComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
         }
 
-        // imp. for the battery system
         private void OnMapInit(Entity<DroneComponent> ent, ref MapInitEvent args)
         {
             UpdateBatteryAlert(ent);
@@ -70,7 +69,6 @@ namespace Content.Server._Impstation.Drone
                 _powerCell.SetDrawEnabled(ent.Owner, false);
         }
 
-        // Imp. this replaces OnInteractionAttempt from the upstream version of DroneSystem.
         private void OnUseAttempt(EntityUid uid, DroneComponent component, UseAttemptEvent args)
         {
             if (_whitelist.IsWhitelistPass(component.Whitelist, args.Used) && NonDronesInRange(uid, component)) /// tag whitelist. sends proximity warning popup if the item isn't whitelisted. Doesn't prevent actions. Takes precedent over blacklist.
