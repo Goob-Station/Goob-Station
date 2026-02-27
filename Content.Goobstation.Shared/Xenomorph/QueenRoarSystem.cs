@@ -81,7 +81,7 @@ public sealed partial class QueenRoarSystem : EntitySystem
                 continue;
 
             // Stun
-            _stun.TryStun(mob, TimeSpan.FromSeconds(component.RoarStunTime), true);
+            _stun.KnockdownOrStun(mob, TimeSpan.FromSeconds(component.RoarStunTime));
         }
 
         _popup.PopupPredicted(Loc.GetString("queen-roar-complete"), uid, args.User, Filter.Entities(args.User), false, PopupType.MediumCaution);
