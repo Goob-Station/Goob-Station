@@ -122,6 +122,7 @@
       - HighRiskItem
       - Sidearm
       - Taser
+      - Flash
       components:
       - Handcuff
       - Gun
