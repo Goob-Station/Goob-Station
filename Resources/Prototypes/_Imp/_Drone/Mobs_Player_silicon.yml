@@ -177,6 +177,12 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
     baseSprintSpeed : 5
+    minimumFrictionSpeed: 0
+    weightlessAcceleration: 1.2
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2
+    offGridFriction: 1.5
+    weightlessModifier: 1
   - type: MobState
     allowedStates:
     - Alive
@@ -215,7 +221,7 @@
       sprite: _Imp/Drone/drone.rsi
       state: shell
     name: drone
-  - type: MovementIgnoreGravity
+  - type: MovementAlwaysTouching
   - type: Fixtures
     fixtures:
       fix1:
