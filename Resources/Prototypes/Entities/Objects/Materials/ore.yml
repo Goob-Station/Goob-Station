@@ -178,6 +178,8 @@
   - type: PhysicalComposition
     materialComposition:
       RawPlasma: 500 # Goobstation - was 100
+  - type: PlasmaCutterFuel #Goobstation
+    energyPerSheet: 1250 
   - type: PointLight
     radius: 1.2
     energy: 0.6

@@ -11,7 +11,7 @@
   name: plasma cutter
   parent: BaseWeaponBatterySmall
   id: WeaponPlasmaCutter
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. Charge it with plasma, either in ore or in smelted form.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cutter.rsi
@@ -25,10 +25,9 @@
     shape:
     - 0,0,2,2
   - type: Battery
-    maxCharge: 1500
-    startingCharge: 1500
-  - type: MaterialEnergy
-    materialWhiteList: [Plasma]
+    maxCharge: 2500
+    startingCharge: 2500
+  - type: PlasmaCutterEnergy #Changed it to be self independed system for plasma cutter only
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPlasmaCutter
     fireCost: 100
@@ -45,5 +44,5 @@
   suffix: Empty
   components:
   - type: Battery
-    maxCharge: 1500
+    maxCharge: 2500
     startingCharge: 0
