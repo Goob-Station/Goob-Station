@@ -48,6 +48,6 @@ public sealed class GunRecoilSystem : EntitySystem
             TimeSpan.FromSeconds(knockdownTime),
             ent.Comp.RefreshKnockdown,
             true,
-            ent.Comp.Behavior);
+            ent.Comp.DropItems);
     }
 }

@@ -36,6 +36,7 @@
     damageCoefficient: 0
   - type: Damageable
     damageContainer: Inorganic
+  - type: TriggerOnUse
   - type: TimerTrigger
     delay: 0.9
   - type: Destructible
@@ -56,13 +57,15 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: AnchorOnTrigger
   - type: TwoStageTrigger
+    keysIn:
+    - timer
     triggerDelay: 1
     components:
-      - type: DamageOverTime
-        damage:
-          types:
-            Slash: 50
-        interval: 0.5
-        ignoreResistances: true
-      - type: AnchorOnTrigger
+    - type: DamageOverTime
+      damage:
+        types:
+          Slash: 50
+      interval: 0.5
+      ignoreResistances: true
