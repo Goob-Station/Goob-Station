@@ -1,0 +1,7 @@
+﻿ghost-role-information-shadow-demon-name = Shadow Demon
+ghost-role-information-shadow-demon-description = The darkness needs a King, and you got summoned to wear the crown.
+ghost-role-information-shadow-demon-rules =
+    As a shadow demon, your task is to cause as much chaos as possible,
+    so grapple your way into the halls of the station, and feast on the innocent crew.
+    Use darkness to your advantage, because nobody can take you on there,
+    and remember that [color=red]all demons are your allies[/color], so don't hesitate to work with another demon.

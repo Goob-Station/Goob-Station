@@ -1,0 +1,15 @@
+﻿- type: damageModifierSet
+  id: ShadowDemon
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.6
+    Piercing: 0.7
+    Shock: 0.5
+    Heat: 1.5
+    Holy: 3.0
+    Radiation: 0.0
+    Poison: 0.0
+    Cold: 0.0
+    Cellular: 0.0
+    Caustic: 0.0
+  ignoreArmorPierceFlags: All

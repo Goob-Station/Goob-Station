@@ -1,0 +1,16 @@
+﻿- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostShadowDemon
+  components:
+  - type: GhostRole
+    name: ghost-role-information-shadow-demon-name
+    description: ghost-role-information-shadow-demon-description
+    rules: ghost-role-information-shadow-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: _Trauma/Mobs/ShadowDemon/demon.rsi
+    state: shadow_demon

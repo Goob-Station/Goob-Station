@@ -1,0 +1,26 @@
+﻿- type: entity
+  parent: BaseGameRule
+  id: ShadowDemonSummon
+  components:
+  - type: AntagSpawner
+    prototype: BaseMobShadowDemon
+  - type: AntagSelection
+    agentName: shadow-demon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostShadowDemon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleShadowDemon
+      briefing:
+        text: shadow-demon-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/SlaughterDemon/briefing.ogg # placeholder
+      components:
+      - type: RandomMetadata  # Left as is since they are demonic names
+        nameSegments:
+        - NamesSlaughterTitle
+        - NamesSlaughter
+        nameFormat: name-format-slaughter
+  - type: AntagRandomSpawn # todo: replace with MaintsSpawnRule once implemented

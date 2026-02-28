@@ -922,6 +922,27 @@
       - GrimoireGhost
   disableRefund: true
 
+- type: listing
+  id: SpellbookBottleOfShadow
+  name: spellbook-bottle-shadow-name
+  description: spellbook-bottle-shadow-desc
+  productEntity: BottleOfShadow
+  icon:
+    sprite: _Goobstation/Wizard/Objects/vials.rsi
+    state: vialshadows
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookSummons
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
+  disableRefund: true
+
 # Event
 - type: listing
   id: SpellbookEventDimensionShift

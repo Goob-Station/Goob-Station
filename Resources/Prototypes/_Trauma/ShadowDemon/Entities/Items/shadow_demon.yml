@@ -1,0 +1,48 @@
+﻿- type: entity
+  name: vial of shadow
+  id: BottleOfShadow
+  parent: [BaseItem, BaseMagicalContraband]
+  description: A magically infused bottle of pure darkness, distilled from ground up shadowling bones. Used in dark rituals to attract dark creatures.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/vials.rsi
+    state: vialshadows
+  - type: SolutionContainerManager
+    solutions:
+      liquid:
+        maxVol: 15
+        reagents:
+        - ReagentId: Blood
+          Quantity: 15
+  - type: ExaminableSolution
+    solution: liquid
+  - type: Item
+    size: Tiny
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: liquid
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 0
+            max: 1
+      - !type:AddGameRuleBehavior
+        rule: ShadowDemonSummon
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

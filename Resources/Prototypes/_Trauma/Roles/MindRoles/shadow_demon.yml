@@ -1,0 +1,11 @@
+﻿- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleShadowDemon
+  name: Shadow Demon Role
+  components:
+  - type: MindRole
+    antagPrototype: ShadowDemon
+    roleType: SoloAntagonist
+    subtype: role-subtype-shadow-demon
+    exclusiveAntag: true
+  - type: ShadowDemonRole

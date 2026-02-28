@@ -95,10 +95,12 @@
 - type: entity
   parent: [ OrganAnimalHeart, OrganShadowDemonInternal, BaseMagicalContraband ]
   id: OrganShadowDemonHeart
-  name: demonic heart
+  name: heart of darkness
+  description: It still beats furiously, emitting an aura of fear.
   components:
   - type: Sprite
-    sprite: _Goobstation/SlaughterDemon/heart.rsi # placeholder
+    sprite: _Goobstation/SlaughterDemon/heart.rsi
+    color: "#000000"
   - type: InternalOrgan
     intCap: 30
     integrity: 30
