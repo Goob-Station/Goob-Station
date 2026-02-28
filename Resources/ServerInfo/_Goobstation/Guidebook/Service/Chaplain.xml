@@ -33,7 +33,10 @@ If you don't already have one, build an altar and find an offering to place on-t
     <GuideEntityEmbed Entity="AltarTechnology"/>
     <GuideEntityEmbed Entity="AltarToolbox"/>
     <GuideEntityEmbed Entity="AltarDragon"/>
-    <GuideEntityEmbed Entity="AltarEmpire"/>
+  </Box>
+  <Box>
+      <GuideEntityEmbed Entity="AltarEmpire"/>
+      <GuideEntityEmbed Entity="AltarConvertRed"/>
   </Box>
 
 These altars can be constructed by placing the following offerings atop your base convert altar:
@@ -50,7 +53,8 @@ These altars can be constructed by placing the following offerings atop your bas
 - Toolbox Altar: 1 x Toolbox
 - Clockwork Altar: 1 x Small Power Cell
 - Draconic Altar: 1 x Carp plushie
-- Imperial altar: 1 x Book
+- Imperial Altar: 1 x Book
+- Red Altar: 1 x Bow
 
 ## Holy Artefacts
 

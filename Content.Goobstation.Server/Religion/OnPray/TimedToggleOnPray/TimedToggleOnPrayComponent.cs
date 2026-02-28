@@ -29,4 +29,10 @@ public sealed partial class TimedToggleOnPrayComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public SoundSpecifier? SoundDeactivate;
+
+    [DataField(required: true), AutoNetworkedField]
+    public SoundSpecifier? ActiveSound;
+
+    [DataField]
+    public EntityUid? PlayingStream;
 }

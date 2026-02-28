@@ -24,6 +24,7 @@ public sealed class TimedToggleOnPraySystem : EntitySystem
         SubscribeLocalEvent<TimedToggleOnPrayComponent, AlternatePrayEvent>(OnPray);
         SubscribeLocalEvent<TimedToggleOnPrayComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<TimedToggleOnPrayComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<TimedToggleOnPrayComponent, ItemToggledEvent>(UpdateActiveSound);
     }
 
     private void OnStartup(Entity<TimedToggleOnPrayComponent> ent, ref ComponentStartup args)
@@ -124,6 +125,26 @@ public sealed class TimedToggleOnPraySystem : EntitySystem
         if (TryComp(ent, out AppearanceComponent? appearance))
         {
             _appearance.SetData(ent, ToggleableVisuals.Enabled, ent.Comp.Activated, appearance);
+        }
+    }
+
+    private void UpdateActiveSound(Entity<TimedToggleOnPrayComponent> ent, ref ItemToggledEvent args)
+    {
+        var (uid, comp) = ent;
+        if (!args.Activated)
+        {
+            comp.PlayingStream = _audio.Stop(comp.PlayingStream);
+            return;
+        }
+
+        if (comp.ActiveSound != null && comp.PlayingStream == null)
+        {
+            var loop = comp.ActiveSound.Params.WithLoop(true);
+            var stream = args.Predicted
+                ? _audio.PlayPredicted(comp.ActiveSound, uid, args.User, loop)
+                : _audio.PlayPvs(comp.ActiveSound, uid, loop);
+            if (stream?.Entity is {} entity)
+                comp.PlayingStream = entity;
         }
     }
 }

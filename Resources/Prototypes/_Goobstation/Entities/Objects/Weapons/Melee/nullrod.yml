@@ -78,7 +78,7 @@
     attackRate: 0.8
     damage:
       types:
-        Slash: 13
+        Slash: 18
         Holy: 10
       woundSeverityMultipliers:
         Slash: 2.5
@@ -476,8 +476,8 @@
   - type: Tool
     qualities:
     - Screwing
-    speedModifier: 1.2
-    useSound: /Audio/Items/drill_use.ogg
+    speedModifier: 1.5
+    useSound: /Audio/Effects/Emotes/snap3.ogg
   - type: ToolTileCompatible
   - type: Prying
     enabled: false
@@ -489,48 +489,81 @@
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
-        path: /Audio/Items/drill_use.ogg
+        path: /Audio/Effects/Emotes/snap3.ogg
+        params:
+          volume: 10
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
+        params:
+          volume: 10
     - behavior: Prying
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
-        path: /Audio/Items/jaws_pry.ogg
+        path: /Audio/Effects/Emotes/snap3.ogg
+        params:
+          volume: 10
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
+        params:
+          volume: 10
     - behavior: Anchoring
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
-        path: /Audio/Items/ratchet.ogg
+        path: /Audio/Effects/Emotes/snap3.ogg
+        params:
+          volume: 10
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
+        params:
+          volume: 10
     - behavior: Cutting
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
-        path: /Audio/Items/jaws_cut.ogg
+        path: /Audio/Effects/Emotes/snap3.ogg
+        params:
+          volume: 10
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
+        params:
+          volume: 10
     - behavior: Pulsing
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
+        params:
+          volume: 10
+    - behavior: Welding
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Effects/Emotes/snap3.ogg
+        params:
+          volume: 10
+      changeSound:
+        path: /Audio/Effects/Emotes/snap2.ogg
+        params:
+          volume: 10
   - type: MeleeWeapon
     canWideSwing: false
-    attackRate: 0.9
+    range: 4
+    attackRate: 0.7
     damage:
       types:
-        Holy: 14
-        Blunt: 9
+        Holy: 15
+        Blunt: 15
     soundHit:
-      path: /Audio/Weapons/smash.ogg
+      path: /Audio/Effects/Emotes/snap3.ogg
+      params:
+        volume: 10
   - type: Unremoveable
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -739,7 +772,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 18
+        Piercing: 15
         Holy: 10
     angle: 0
     animation: WeaponArcThrust
@@ -803,24 +836,24 @@
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
-        Heat: 20
+        Heat: 40
     UntrainedUseString: nullrod-dragontail-untrained-usage-popup
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1
+    range: 3
+    attackRate: 1.5
     animationRotation: -135
     wideAnimationRotation: -135
+    angle: 20
     damage:
       types:
-        Holy: 5
-        Heat: 5
-        Blunt: 5
+        Holy: 7
     soundHit:
-      path: /Audio/Weapons/slash.ogg
+      path: /Audio/Weapons/punch3.ogg
   - type: IgniteOnMeleeHit
-    fireStacks: 1
+    fireStacks: 1.5
   - type: Tag
     tags:
     - DragonsTail
@@ -834,7 +867,7 @@
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
-        Slash: 25
+        Slash: 35
     UntrainedUseString: nullrod-chainsword-untrained-usage-popup
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/chainsword.rsi
@@ -852,21 +885,18 @@
     soundActivate:
       collection: GeneratorTug
       params:
-        volume: 3
+        volume: 5
     soundDeactivate:
       path: /Audio/_Goobstation/Weapons/ChainSword/chainEnd.ogg
       params:
-        volume: 3
-  - type: ItemToggleActiveSound
+        volume: 5
     activeSound:
       path: /Audio/Weapons/chainsawidle.ogg
       params:
-        volume: 3
+        volume: 20
   - type: ComponentToggler
     components:
     - type: Sharp
-    - type: DisarmMalus
-      malus: 0.6
     - type: Execution
       doAfterDuration: 4.0
     - type: BoneSaw # Shitmed
@@ -876,6 +906,7 @@
         path: /Audio/Weapons/chainsawwield.ogg
       endSound:
         path: /Audio/Weapons/chainsaw.ogg
+    - type: Unremoveable
   - type: Item
     size: Large
   - type: ItemToggleMeleeWeapon
@@ -895,13 +926,13 @@
     autoAttack: true
     heavyStaminaCost: 10
     wideAnimationRotation: -135
-    attackRate: 1.2
+    attackRate: 1.4
     damage:
       types:
-        Blunt: 7
+        Blunt: 5
         Holy: 5
   - type: UseDelay
-    delay: 180.0
+    delay: 100.0
   - type: Appearance
   - type: ToggleableVisuals
     spriteLayer: blade
@@ -913,3 +944,82 @@
   - type: Tag
     tags:
     - InquisitorChainSword
+  - type: AlternatePrayable
+    prayDoAfterDuration: 2
+
+- type: entity
+  name: divine bow
+  parent: BaseItem
+  id: DivineBow
+  description: The very thing is to kill the enemy of the church with light.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/Bow/light_bow.rsi
+    layers:
+    - state: bow
+      map: [ "base" ]
+    - state: unwielded-arrow
+      map: [ "bowstring" ]
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/Bow/light_bow.rsi
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Items/bow_pull.ogg
+  - type: UseDelay
+    delay: 1.5
+  - type: GunRequiresWield
+  - type: Gun
+    clumsyProof: true
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: UnwieldOnShoot
+  - type: UseDelayBlockShoot
+  - type: BasicEntityAmmoProvider
+    proto: HolyArrow
+  - type: FoldingWeapon
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.5
+    color: "#fffe51"
+    netsync: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bowstring:
+          True: { state: wielded-arrow }
+          False: { state: unwielded-arrow }
+  - type: ToggleableLightWieldable
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 4 
+    pvsIncrease: 0.4
+  - type: DivineIntervention
+  - type: AlternatePrayable
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Magic
+    slotFlags:
+    - NONE
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Burn: 50
+    UntrainedUseString: nullrod-divinebow-untrained-usage-popup
+  - type: Tag
+    tags:
+    - DivineBow
+

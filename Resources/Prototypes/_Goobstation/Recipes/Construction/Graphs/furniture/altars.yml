@@ -154,6 +154,14 @@
       - tag: Book
         name: construction-graph-tag-book
         doAfter: 3
+    - to: AltarConvertRedNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: Bow
+        name: construction-graph-tag-bow
+        doAfter: 3
 
   #Nullrod Altars
   - node: BananiumAltarNode
@@ -319,6 +327,18 @@
       completed:
       - !type:SpawnPrototype
         prototype: BookRandom
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: AltarConvertRedNode
+    entity: AltarConvertRed
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: BowImprovised
         amount: 1
       steps:
       - tool: Prying
