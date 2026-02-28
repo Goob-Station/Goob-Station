@@ -132,7 +132,7 @@ evolutionmenu-utility-panacea-desc =
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
-    Evolve additional features in your eyes, such toggleable thermal vision and flash protection. You become more vulnerable to flash-based devices while in thermal vision mode.
+    Evolve additional features in your eyes, such toggleable x-ray vision and flash protection. You become vulnerable to flash-based devices while in x-ray vision mode.
     Cost-free.
 
 evolutionmenu-utility-biodegrade-name = Biodegrade

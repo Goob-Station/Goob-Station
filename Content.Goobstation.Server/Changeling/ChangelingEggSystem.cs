@@ -63,9 +63,6 @@ public sealed class ChangelingEggSystem : EntitySystem
 
         EntityManager.AddComponent(newUid, comp.lingStore);
 
-        if (comp.AugmentedEyesightPurchased)
-            _changeling.InitializeAugmentedEyesight(newUid);
-
         _bodySystem.GibBody(uid);
     }
 }
