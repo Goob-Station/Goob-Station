@@ -21128,3 +21128,326 @@ Entries:
         equip delay and a more obvious sprite now
   id: 2395
   time: '2026-02-09T20:02:36.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Add
+      message: >-
+        ERT now has its own specialized equipment fabricator, located aboard
+        their shuttle.
+    - type: Tweak
+      message: >-
+        Minor ERT shuttle refit: reduced onboard clutter and reorganized storage
+        space.
+  id: 2396
+  time: '2026-02-10T15:20:40.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: engi hardsuit now has slightly more armor
+  id: 2397
+  time: '2026-02-11T16:58:53.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Syndicate explosive payloads now do real harm!
+    - type: Tweak
+      message: Syndicate explosive payloads can now chain react! (Details in PR)
+  id: 2398
+  time: '2026-02-11T17:03:23.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Upstream is here and more upstream is to come. Check wizden changelog
+        for gameplay changes, any bugs you should report to the issues section
+        in github.
+  id: 2399
+  time: '2026-02-12T05:22:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Upstream is here and more upstream is to come. Check wizden changelog
+        for gameplay changes, any bugs you should report to the issues section
+        in github.
+  id: 2400
+  time: '2026-02-12T05:39:11.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Client doesnt crash after upstream merge now.
+  id: 2401
+  time: '2026-02-12T06:18:22.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: BSO's command monitor displays command status correctly again.
+  id: 2402
+  time: '2026-02-12T11:51:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Interacting on a crawling person no longer permastuns them.
+  id: 2403
+  time: '2026-02-12T11:54:46.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Meta mapping! Added roundstart cloning and moved xenobio. Alot of other
+        misc improvements. 
+  id: 2404
+  time: '2026-02-12T15:33:47.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Cryopod no longer kills client.
+  id: 2405
+  time: '2026-02-12T17:23:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: CQC legsweep now stands you up again.
+  id: 2406
+  time: '2026-02-12T20:50:13.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Changeling, Cosmic Cult, and other targetted abilities work again.
+  id: 2407
+  time: '2026-02-12T20:50:44.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Mining shuttle now produces enough power to sustain itself.
+  id: 2408
+  time: '2026-02-12T20:52:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Projectile grenades like the stinger will no longer immediately blow up
+        in hand.
+  id: 2409
+  time: '2026-02-12T20:58:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed discharged ipcs crashing the server
+  id: 2410
+  time: '2026-02-13T03:55:14.0000000+00:00'
+- author: Hardbassman
+  changes:
+    - type: Add
+      message: Resprite of the BSO's "praetorian" modsuit for reptilians
+  id: 2411
+  time: '2026-02-13T05:34:54.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Fix
+      message: Bone armour, BSO swathelm, and atmos firesuits now have Vox sprites
+  id: 2412
+  time: '2026-02-13T05:38:47.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Leonid has been updated to the current mapping standards.
+  id: 2413
+  time: '2026-02-15T02:45:32.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed some wiring on meta and chloris, made meta genpop slightly harder
+        to oversee
+  id: 2414
+  time: '2026-02-15T13:43:41.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Medical beam gun rebalance: broader healing spectrum (uber mode causes
+        suffocation). Now instantly recharges to full after 1 min (1.5 min for
+        syndi version) of non-use to discourage over-reliance.
+  id: 2415
+  time: '2026-02-17T15:19:06.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Scram is no longer dogshit. (made the teleport distance as it was
+        before)
+  id: 2416
+  time: '2026-02-17T18:59:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Removed stamina damage slowdown.
+    - type: Tweak
+      message: Getting damaged while standing up no longer cancels standing do-after.
+  id: 2417
+  time: '2026-02-17T18:59:50.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed revolutionary manifesto book not showing do after bar
+  id: 2418
+  time: '2026-02-18T00:05:57.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: 'Fixed teach a lesson for the last time hopefully '
+  id: 2419
+  time: '2026-02-18T03:36:02.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed eating mothroaches making you big
+  id: 2420
+  time: '2026-02-18T03:36:42.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: turned spare ats engi room into lockbox storage room, ats atmos fixed
+  id: 2421
+  time: '2026-02-19T21:30:46.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Flashes no longer blind you for 1000x the intended duration.
+    - type: Fix
+      message: Robust Harvest works again.
+    - type: Fix
+      message: >-
+        Paralysed individuals can no longer walk, defy friction, or crawl at
+        super speed.
+    - type: Fix
+      message: Admin drop pods work again.
+    - type: Fix
+      message: >-
+        Dropped item behaviour now works even if the person being forced to drop
+        items is knocked down, fixing things like Judo armbar disarming.
+    - type: Fix
+      message: >-
+        (super) Slipping is predicted, no longer hard stuns you for double the
+        amount, and will knock you down instead of knocking and paralysing.
+    - type: Fix
+      message: Slipping while dragging no longer gives you telekinetic pulling powers.
+    - type: Fix
+      message: Players can no longer ignore handcuffs and escape being pulled.
+    - type: Fix
+      message: Getting cuffed while pulling should now allow you to stop pulling.
+  id: 2422
+  time: '2026-02-22T09:58:37.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer construct buildables without actually having the
+        materials to do so.
+  id: 2423
+  time: '2026-02-22T12:54:18.0000000+00:00'
+- author: fritzfranz
+  changes:
+    - type: Tweak
+      message: Kettle mapping
+    - type: Fix
+      message: fixed salvage from spacing
+    - type: Add
+      message: turrets to armoury
+    - type: Add
+      message: 1 enforcer to armoury
+    - type: Fix
+      message: camera blindspots on ai sat
+    - type: Add
+      message: windows to xenobio
+    - type: Add
+      message: stasis beds to both med and brigmed
+    - type: Add
+      message: 2nd bartender locker
+    - type: Add
+      message: mime and clown lockers
+  id: 2424
+  time: '2026-02-22T16:45:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Interaction verbs force down making you a crawling god and Help up
+        not helping folk up in some cases.
+  id: 2425
+  time: '2026-02-22T19:11:34.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed telescopic batons not disarming.
+  id: 2426
+  time: '2026-02-24T05:37:42.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Chemical payloads respect their trigger.
+    - type: Fix
+      message: Adding nutrients to hydroponics trays works again.
+  id: 2427
+  time: '2026-02-24T08:30:22.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Remove
+      message: Removed both normal and advanced clowning modules.
+  id: 2428
+  time: '2026-02-24T08:32:04.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed stunbaton not knocking down on left click.
+  id: 2429
+  time: '2026-02-24T08:45:29.0000000+00:00'
+- author: Valniae and Androidonator
+  changes:
+    - type: Add
+      message: Outer-Commander drip
+  id: 2430
+  time: '2026-02-24T08:54:32.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Tweak
+      message: Feroxi now use proper mask sprites.
+    - type: Tweak
+      message: Feroxi can thump their tails now.
+  id: 2431
+  time: '2026-02-24T08:56:31.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Added a MANGO to vault freezer with a 65% CHANCE to spawn.
+  id: 2432
+  time: '2026-02-24T09:05:24.0000000+00:00'
+- author: SezakiAiri
+  changes:
+    - type: Remove
+      message: Armor values from berets. "Style over practicality!"
+    - type: Tweak
+      message: Less resists on security winter coats.
+  id: 2433
+  time: '2026-02-26T14:54:29.0000000+00:00'
+- author: StrangerOfParadiseOG
+  changes:
+    - type: Tweak
+      message: Doubled the power generation of solar panels
+  id: 2434
+  time: '2026-02-27T16:21:16.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Changed back armored winter coats and nerfed infection resistances on
+        them
+  id: 2435
+  time: '2026-02-27T19:54:29.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed ziptie box from bso's locker
+  id: 2436
+  time: '2026-02-27T19:56:39.0000000+00:00'

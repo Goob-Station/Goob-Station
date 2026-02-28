@@ -38,7 +38,6 @@
   - type: EntityStorage
     capacity: 1
     airtight: false
-    itemCanStoreMobs: true
     openOnMove: false
   - type: ResistLocker
   - type: PlaceableSurface

@@ -29,3 +29,4 @@ player-panel-rejuvenate = Rejuvenate
 player-panel-false = False
 player-panel-true = True
 player-panel-follow = Follow
+player-panel-camera = Camera
