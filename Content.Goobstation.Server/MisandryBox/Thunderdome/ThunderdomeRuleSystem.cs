@@ -1,4 +1,6 @@
+using System.Linq;
 using Content.Goobstation.Shared.MisandryBox.Thunderdome;
+using Content.Server.Destructible;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
@@ -12,6 +14,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Item;
 using Content.Server.Preferences.Managers;
+using Content.Shared.Destructible;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
@@ -49,11 +52,11 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    //[Dependency] private readonly ThunderdomeRuleMind _domeMind = default!;
+
+
 
     private const string RulePrototype = "ThunderdomeRule";
     private EntityUid? _ruleEntity;
@@ -72,6 +75,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, MobStateChangedEvent>(OnOriginalBodyStateChanged);
         SubscribeNetworkEvent<ThunderdomeRevivalAcceptEvent>(OnRevivalAccept);
         SubscribeLocalEvent<ThunderdomePlayerComponent, SuicideGhostEvent>(OnSuicideAttempt);
+        SubscribeLocalEvent<DestructibleComponent, DestructionAttemptEvent>(OnDestructionAttempt);
     }
 
     public override void Update(float frameTime)
@@ -128,6 +132,21 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         }
 
         _ruleEntity = null;
+    }
+
+    private void OnDestructionAttempt(EntityUid uid,
+        DestructibleComponent component,
+        ref DestructionAttemptEvent args)
+    {
+        if (_ruleEntity == null
+            || !TryComp<ThunderdomeRuleComponent>(_ruleEntity.Value, out var rule)
+            || !rule.Active)
+            return;
+        var xform = Transform(uid);
+        if (xform.GridUid == null
+            || !rule.ArenaGrids.Contains(xform.GridUid.Value))
+            return;
+        args.Cancel();
     }
 
     private void OnGridsLoaded(EntityUid uid, ThunderdomeRuleComponent component, ref RuleLoadedGridsEvent args)
