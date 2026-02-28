@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from /tg/station https://github.com/tgstation/tgstation/blob/37199d7f7fead421df1352f3d2ed876949db1c4d/icons/effects/96x96.dmi",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "landing"
+    }
+  ]
+}

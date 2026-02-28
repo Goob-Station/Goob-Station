@@ -1,0 +1,11 @@
+- type: entity
+  id: BubblegumLanding
+  name: Blood rune
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/landing.rsi
+    state: landing
+  - type: TimedDespawn
+    lifetime: 2.5
+    
+
