@@ -24,3 +24,28 @@
       - id: TegCirculatorFlatpack
       - id: TegMiddleFlatpack
       - id: ToyFigurineAtmosTech
+
+- type: entity
+  id: BuildAShuttleCrate
+  parent: CrateEngineering
+  name: Build-A-Shuttle crate
+  description: All you need to make your own shuttle. Tools and insurance are not included.
+  components:
+  - type: StorageFill
+    contents: # Non-flatpacked to not take away from building process
+    - id: ShuttleConsoleCircuitboard
+    - id: GyroscopeMachineCircuitboard
+    - id: ThrusterMachineCircuitboard
+      amount: 4
+    - id: APCElectronics
+    - id: WallmountSubstationElectronics
+    - id: WallmountGeneratorElectronics
+    - id: SheetSteel
+      amount: 3
+    - id: CableApcStack
+    - id: CableMVStack
+    - id: CableHVStack
+    - id: MicroManipulatorStockPartStack10
+      amount: 2
+    - id: PowerCellSmall
+    - id: SheetGlass10
