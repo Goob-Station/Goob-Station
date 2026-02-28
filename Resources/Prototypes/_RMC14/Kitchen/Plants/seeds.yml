@@ -17,6 +17,8 @@
   packetPrototype: MangoSeeds
   productPrototypes:
     - FoodMango
+  mutationPrototypes: 
+    - mangoGland
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
