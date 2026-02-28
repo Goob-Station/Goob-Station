@@ -21539,3 +21539,9 @@ Entries:
         instead of 2,5.
   id: 2449
   time: '2026-02-28T22:00:32.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Dog markings to humans and dwarves
+  id: 2450
+  time: '2026-02-28T22:04:15.0000000+00:00'
