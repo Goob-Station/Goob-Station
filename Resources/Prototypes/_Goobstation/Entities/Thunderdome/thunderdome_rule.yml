@@ -5,6 +5,7 @@
   components:
     - type: ThunderdomeRule
       gear: ThunderdomeBaseGear
+      baseTimePenalty: 180 # 3 min
       weaponLoadouts:
         - gear: ThunderdomeShotgun
           name: thunderdome-loadout-shotgun
