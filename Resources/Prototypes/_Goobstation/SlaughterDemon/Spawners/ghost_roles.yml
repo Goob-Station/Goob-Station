@@ -25,6 +25,27 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSlaughterDemonMidround
+  components:
+  - type: GhostRole
+    name: ghost-role-information-slaughter-demon-name
+    description: ghost-role-information-slaughter-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hours
+    - !type:DenyObserverRequirement
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/demon.rsi
+    state: daemon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
   parent: SpawnPointGhostSlaughterDemon
   id: SpawnPointGhostLaughterDemon
   components:

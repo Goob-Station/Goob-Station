@@ -251,6 +251,9 @@ namespace Content.Server.GameTicking
             if (DummyTicker)
                 return;
 
+            // Goobstation - Track if they joined as an observer through the lobby.
+            SetObserverStatus(player, false);
+
             if (station == EntityUid.Invalid)
             {
                 var stations = GetSpawnableStations();
@@ -470,6 +473,9 @@ namespace Content.Server.GameTicking
             // Can't spawn players with a dummy ticker!
             if (DummyTicker)
                 return;
+
+            // Goobstation - Track if they joined as an observer through the lobby.
+            SetObserverStatus(player, true);
 
             PlayerJoinGame(player);
             SpawnObserver(player);
