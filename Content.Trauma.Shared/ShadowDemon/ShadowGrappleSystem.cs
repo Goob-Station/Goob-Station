@@ -10,6 +10,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Trauma.Shared.ShadowDemon;
@@ -24,8 +25,11 @@ public sealed class ShadowGrappleSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private const string GrappleJoint = "grappling";
+
+    private static EntProtoId Ash = "Ash";
 
     private EntityQuery<BodyComponent> _bodyQuery;
     private EntityQuery<InventoryComponent> _inventoryQuery;
@@ -116,20 +120,15 @@ public sealed class ShadowGrappleSystem : EntitySystem
     /// </summary>
     private void BreakLightsOnTarget(EntityUid target)
     {
-        // todo: fix because this doesn't work
-        if (_inventoryQuery.TryComp(target, out var inv))
+        foreach (var slotEnt in _inventory.GetHandOrInventoryEntities(target))
         {
-            foreach (var container in inv.Containers)
-            {
-                foreach (var containerItem in container.ContainedEntities)
-                {
-                    if (!_handheldQuery.HasComp(containerItem))
-                        continue;
+            if (!_handheldQuery.HasComp(slotEnt))
+                continue;
 
-                    Spawn("Ash", Transform(target).Coordinates);
-                    QueueDel(containerItem);
-                }
-            }
+            // TODO: revisit by making it empty the battery instead or remove this comment and leave as is idk
+
+            PredictedSpawnAtPosition(Ash, Transform(target).Coordinates);
+            PredictedQueueDel(slotEnt);
         }
     }
     #endregion

@@ -147,7 +147,11 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
                 totalLightLevel += pointLight.Energy * (1f - t * t);
             }
 
+            var ev = new LightLevelUpdated(totalLightLevel, comp.CurrentLightLevel);
+            LightSys.RaiseLocalEvent(uid, ref ev);
+
             comp.CurrentLightLevel = totalLightLevel;
         }
     }
 }
+
