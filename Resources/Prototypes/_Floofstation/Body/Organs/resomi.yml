@@ -33,3 +33,19 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+
+- type: entity # Goobstation - resomi lungs
+  id: OrganResomiLungs
+  parent: OrganHumanLungs
+  description: "The nitrogen-breathing lungs of a Resomi, which supplement their anaerobic blood."
+  name: resomi lungs # Shitmed
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Resomi/organs.rsi
+  - type: Metabolizer
+    metabolizerTypes: [ Slime ]
+  - type: Lung
+    alert: LowNitrogen
+  - type: Item
+    size: Small
+    heldPrefix: lungs

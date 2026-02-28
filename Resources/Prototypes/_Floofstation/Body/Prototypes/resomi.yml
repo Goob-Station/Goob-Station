@@ -32,7 +32,7 @@
       - head # Shitmed Change
       organs:
         heart: OrganHumanHeart
-        lungs: OrganHumanLungs
+        lungs: OrganResomiLungs # Goob addition
     groin:
       part: GroinResomi
       connections:
