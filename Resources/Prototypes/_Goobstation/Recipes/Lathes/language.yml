@@ -19,3 +19,9 @@
   id: YowKriolTranslatorImplanter
   subname: lathe-recipe-YowKriolTranslatorImplanter-subname
   result: YowKriolTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: SignTranslatorImplanter
+  subname: lathe-recipe-SignTranslatorImplanter-subname
+  result: SignTranslatorImplanter
