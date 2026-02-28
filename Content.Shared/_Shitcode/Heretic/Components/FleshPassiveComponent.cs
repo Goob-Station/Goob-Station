@@ -1,12 +1,13 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Tag;
+using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitcode.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class FleshPassiveComponent : Component
+public sealed partial class FleshPassiveComponent : Robust.Shared.GameObjects.Component
 {
     [DataField, NonSerialized]
     public List<EntityUid> FleshMimics = new();
@@ -18,7 +19,10 @@ public sealed partial class FleshPassiveComponent : Component
     public float MimicHealMultiplier = 5f;
 
     [DataField, NonSerialized]
-    public EntityUid? FleshStomach;
+    public ContainerSlot StomachContainer = default!;
+
+    [DataField]
+    public string StomachContainerId = "flesh-stomach-container";
 
     [DataField]
     public float BaseMoveSpeedPerFlesh = 0.0003f;
