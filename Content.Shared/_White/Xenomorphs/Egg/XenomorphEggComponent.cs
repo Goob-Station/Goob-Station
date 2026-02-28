@@ -10,6 +10,14 @@ public sealed partial class XenomorphEggComponent : Component
     [DataField]
     public EntProtoId? FaceHuggerPrototype = "MobXenomorphFaceHugger";
 
+    // Goobstation begin - Sentient facehuggers.
+    [DataField]
+    public EntProtoId? SentientFaceHuggerPrototype = "MobXenomorphFaceHuggerSentient";
+
+    [DataField]
+    public float SentientSpawnChance = 0.1f;
+    // Goobstation end - Sentient facehuggers.
+
     [DataField]
     public float BurstRange = 1f;
 

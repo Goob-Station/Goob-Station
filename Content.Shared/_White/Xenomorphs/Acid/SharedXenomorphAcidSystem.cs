@@ -20,16 +20,21 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<XenomorphAcidComponent, AcidActionEvent>(OnXenomorphAcidActionEvent);
+        SubscribeLocalEvent<AcidActionEvent>(OnXenomorphAcidActionEvent);
     }
 
-    private void OnXenomorphAcidActionEvent(EntityUid uid, XenomorphAcidComponent component, AcidActionEvent args)
+    private void OnXenomorphAcidActionEvent(AcidActionEvent args)
     {
         if (args.Handled)
             return;
 
-        // Check if this is a plasma-cost action and get the cost
         // Goobstart
+        var uid = args.Performer;
+
+        if (!TryComp<XenomorphAcidComponent>(uid, out var component))
+            return;
+
+        // Check if this is a plasma-cost action and get the cost
         TryComp<PlasmaCostActionComponent>(args.Action, out var plasmaCost);
         var plasmaCostValue = plasmaCost?.PlasmaCost ?? FixedPoint2.Zero;
 
@@ -48,7 +53,7 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
 
         if (HasComp<AcidCorrodingComponent>(args.Target))
         {
-            _popup.PopupEntity(Loc.GetString("xenomorphs-acid-already-corroding", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
+            _popup.PopupPredicted(Loc.GetString("xenomorphs-acid-already-corroding", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
             return;
         }
 

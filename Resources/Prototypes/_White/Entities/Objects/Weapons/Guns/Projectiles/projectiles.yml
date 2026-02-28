@@ -5,8 +5,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StaminaDamageOnCollide
-    damage: 65
+    damage: 35 # Goobstation 65 to 35
   - type: Projectile
     damage:
       types:
-        Caustic: 1
+        Caustic: 12 # Goobstation 1 to 12

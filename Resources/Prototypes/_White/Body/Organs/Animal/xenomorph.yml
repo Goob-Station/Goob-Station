@@ -105,12 +105,11 @@
         types:
           Caustic: 20
           Heat: 20 # Goobstation
-  # <Goobstation>
+  # <Goobstation> begin
   - type: AcidGland
-  # - type: OrganActions
-  #   actions:
-  #   - ActionAcid
-  # </Goobstation> commented until acid if fixed
+  - type: OrganActions
+    actions:
+    - ActionAcid
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -126,16 +125,16 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.75
     - type: PlasmaAmmoProvider
-      fireCost: 55
+      fireCost: 20
       proto: BulletNeurotoxin
     - type: Gun
-      fireRate: 0.75
+      fireRate: 0.60
       useKey: false
       selectedMode: FullAuto
       availableModes:
       - FullAuto
       soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: NeurotoxinGland # Goobstation
+    - type: NeurotoxinGland # Goobstation
 
 - type: entity
   parent: BaseXenomorphOrgan

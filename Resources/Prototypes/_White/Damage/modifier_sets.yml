@@ -21,8 +21,8 @@
 - type: damageModifierSet
   id: Resin
   coefficients:
-    Blunt: 0.3
-    Slash: 0.5
+    Blunt: 0.5
+    Slash: 1.5
     Piercing: 0.8
     Heat: 1.5
     Shock: 0
