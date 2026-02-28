@@ -21495,3 +21495,13 @@ Entries:
       message: SecTech vendor now has distress signallers.
   id: 2443
   time: '2026-02-28T21:39:15.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Bingles can now run, in very short bursts
+    - type: Fix
+      message: 'Bingles can wideswing again '
+    - type: Fix
+      message: Ntr can't scan bingles for points anymore; again
+  id: 2444
+  time: '2026-02-28T21:45:28.0000000+00:00'
