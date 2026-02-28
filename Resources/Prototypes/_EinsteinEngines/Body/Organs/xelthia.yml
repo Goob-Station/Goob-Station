@@ -1,0 +1,29 @@
+- type: entity
+  id: OrganXelthiaStomach
+  name: xelthia stomach
+  parent: OrganHumanStomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxPoisonsProcessable: 3
+    metabolizerTypes: [ Xelthia ]
+    removeEmpty: true
+    groups:
+      - id: Food
+      - id: Drink

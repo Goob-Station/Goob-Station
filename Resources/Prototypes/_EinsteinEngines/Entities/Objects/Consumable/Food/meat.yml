@@ -1,0 +1,61 @@
+
+- type: entity
+  name: xelthia tentacle
+  # bacon is cured so not raw = cant rot
+  parent: FoodMeatBase
+  id: FoodMeatXelthiaTentacle
+  description: A xelthia tentacle. Edible...?
+  components:
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Consumable/Food/meat.rsi
+    state: xelthia-tentacle
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 5
+  - type: InternalTemperature
+    thickness: 0.02
+    area: 0.02 # arbitrary numbers
+  - type: SliceableFood
+    count: 3
+    slice: FoodMeatCutlet
+  - type: Construction
+    graph: Xelthiarm
+    node: start
+    defaultTarget: xelthiarm
+
+- type: entity
+  name: xelthia calamari
+  parent: FoodMeatBase
+  id: FoodMeatXelthiaTentacleCooked
+  description: This was someone's arm at one point, but now it's some weird Calamari. They probably don't mind.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - xelthia
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Consumable/Food/meat.rsi
+    state: xelthia-tentacle-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Construction
+    graph: Xelthiarm
+    node: xelthiarm

@@ -1,0 +1,14 @@
+- type: loadout
+  id: ResearchDirectorDecoratedCloak
+  equipment:
+    neck: ClothingNeckCloakRdFancy
+
+- type: loadout
+  id: MystaLabcoat
+  equipment:
+    outerClothing: ClothingOuterCoatRndMysta
+
+- type: loadout
+  id: MystaHat
+  equipment:
+    head: ClothingHeadHatMysta

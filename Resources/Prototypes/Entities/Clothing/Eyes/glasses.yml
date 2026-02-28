@@ -448,6 +448,7 @@
       tags:
       - PetWearable
       - WhitelistChameleon
+      - HudChemistry #omu edit
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]

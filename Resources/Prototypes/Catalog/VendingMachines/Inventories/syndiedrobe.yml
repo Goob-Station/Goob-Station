@@ -28,6 +28,11 @@
     ClothingNeckScarfStripedSyndieGreen: 2
     ClothingNeckScarfStripedSyndieRed: 2
     ClothingShoesBootsWinterSyndicate: 2
+    # OmuStation Changes Start.
+    ClothingUniformJumpsuitBloodredPyjamas: 3 
+    ClothingUniformSyndicateCombat: 3
+    ClothingUniformTacticalTurtleneckFormal: 3
+    # OmuStation Changes End.
   contrabandInventory:
     ToyFigurineFootsoldier: 1
     ToyFigurineNukieElite: 1

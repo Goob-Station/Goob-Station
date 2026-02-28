@@ -1,0 +1,22 @@
+#Elite BSO webbing
+
+- type: entity
+  parent: [ClothingBeltAssault, BaseCentcommContraband]
+  id: ClothingBeltBlueshieldElite
+  name: elite blueshield webbing
+  description: A tactical rig for Elite Blueshields that can hold many items to save the lives of command. While it looks more robust, it's just for show.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Belt/blueshieldwebbing.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Belt/blueshieldwebbing.rsi
+
+- type: entity
+  parent: ClothingBeltBlueshieldElite
+  id: ClothingBeltBlueshieldEliteFilled
+  suffix: Filled, BSO
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltAssaultBSOEntityTable

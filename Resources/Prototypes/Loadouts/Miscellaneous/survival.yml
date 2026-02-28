@@ -137,6 +137,8 @@
     - Tajaran
     - Chitinid # DeltaV
     - Shadowkin
+    # Omu - Custom Species
+    - Xelthia
 
 # Goobstation start
 - type: loadoutEffectGroup
@@ -215,6 +217,8 @@
     - Resomi
     - Tajaran
     - Shadowkin
+    # Omu - Custom Species
+    - Xelthia
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth

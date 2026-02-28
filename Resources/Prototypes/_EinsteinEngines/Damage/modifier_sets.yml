@@ -45,3 +45,10 @@
     Poison: 0.8
     Radiation: 0
     Bloodloss: 0.0 # Immune to weapons that directly deal bloodloss damage
+
+- type: damageModifierSet
+  id: Xelthia
+  coefficients:
+    Cold: 1.5
+    Heat: 0.5
+    Caustic: 0

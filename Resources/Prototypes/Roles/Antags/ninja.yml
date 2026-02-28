@@ -88,6 +88,7 @@
     inverted: true
     species:
     - Plasmaman
+    - Xelthia #Omu Edit - They can't use gloves and ninja objectives needs gloves
 
 #Ninja Gear
 - type: startingGear

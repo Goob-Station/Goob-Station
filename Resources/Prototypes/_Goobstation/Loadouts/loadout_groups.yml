@@ -982,6 +982,7 @@
   - BlueshieldOfficerBeret
   - BlueshieldOfficerHeadCowboy
   - BlueshieldOfficerGoidaHelmet
+  - BlueshieldOfficerBeretElite # Omustation
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -999,6 +1000,13 @@
   - BlueshieldOfficerInnerBlueshieldSuit
   - BlueshieldOfficerInnerBlueshieldSkirt
   - BlueshieldOfficerInnerBlueshieldShirt
+  - BlueshieldOfficerTurtleneck # OmuStation Addon
+  - BlueshieldOfficerTurtleneckSkirt # OmuStation Addon
+  - BlackBlueshieldOfficerTurtleneck # OmuStation Addon
+  - BlackBlueshieldOfficerTurtleneckSkirt # OmuStation Addon
+  - BlueShieldShirt #Omu - Starlight Port
+  - EliteBlueShieldJumpsuit #Omu - Starlight Port
+  - EliteBlueShieldJumpskirt #Omu - Starlight Port
 
 - type: loadoutGroup
   id: BlueshieldOfficerOuter
@@ -1008,6 +1016,11 @@
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
   - BlueshieldOfficerOuterBlueshieldCowboyVest
   - BlueshieldOfficerOuterWinterBlueshield
+  - BSOArmoredCoat # EE
+  - BSOMarineVest # EE
+  - BSOArmoredVest # EE
+  - BlueshieldOfficerOuterKimonoBlueshield
+  - BlueshieldOfficerOuterKimonoBlueshield #Omu
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
@@ -1015,7 +1028,8 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerOuterBlueshieldMantle
-  - BlueshieldOfficerEnsemble
+  - BlueshieldOfficerOuterBlueshieldMantleBlack # Omu
+  - BlueShieldEliteCloak # Omu - Starlight Port
 
 - type: loadoutGroup
   id: BlueshieldOfficerMask
@@ -1031,6 +1045,7 @@
   - JackBoots
   - BlackCowboyBoots
   - SnowjacksBso
+  - BSOAdvancedJackBoots #Omu
 
 - type: loadoutGroup
   id: BlueshieldOfficerEnvirohelm
@@ -1404,6 +1419,7 @@
   name: loadout-group-brigmedic-outer
   loadouts:
   - BrigmedicAMG
+  - BrigmedRedJacket # OmuStation
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat

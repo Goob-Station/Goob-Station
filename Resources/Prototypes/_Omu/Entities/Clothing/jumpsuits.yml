@@ -1,0 +1,135 @@
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitBloodredPyjamas
+  name: blood-red pajamas
+  description: Do operatives dream of nuclear sheep?
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/bloodredpajamas.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/bloodredpajamas.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformSyndicateCombat
+  name: syndicate combat uniform
+  description: With a suit lined with this many pockets, you are ready to operate.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/syndicatecombatuniform.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/syndicatecombatuniform.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformTacticalTurtleneckFormal
+  name: tactical turtleneck suit
+  description: A double seamed tactical turtleneck disguised as a civilian-grade silk suit. Intended for the most formal operator. The collar is really sharp.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/tacticalsuit.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/tacticalsuit.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitQMUniform
+  name: quartermaster uniform
+  description: A brown dress shirt, coupled with a pair of black slacks. It's specially designed to prevent back injuries caused by pushing paper.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/qmuniform.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/qmuniform.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargotechSweater
+  name: cargo technician's uniform
+  description: A brown sweater and black jeans, because, honestly, who likes shorts?
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/cargotechturtleneck.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/cargotechturtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargotechShorts
+  name: cargo technician's shorts
+  description: I like shooooorts! They're comfy and easy to wear!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/cargotechshirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/cargotechshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitParamedUniform
+  name: paramedic uniform
+  description: It's made of a special fiber that provides minor protection against caustic hazards. It has a dark blue cross on the chest denoting that the wearer is a trained paramedic.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/paramedicuniform.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/paramedicuniform.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.85
+
+- type: entity
+  parent: ClothingUniformJumpsuitBlueshieldOfficer
+  id: ClothingUniformBlueShieldOfficerTurtleneck
+  name: blueshield officer turtleneck
+  description: Turtleneck worn by Blueshield Officers, CC tag removed because it was too itchy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blueshieldturtleneck.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blueshieldturtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitBlueshieldOfficer
+  id: ClothingUniformBlackBlueShieldOfficerTurtleneck
+  name: black blueshield officer turtleneck
+  description: black turtleneck worn by Blueshield Officers, CC tag removed because it was too itchy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackblueshieldturtleneck.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackblueshieldturtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformSecurityTrooper
+  id: ClothingUniformBlackRedSecUniform
+  name: security officer uniform
+  description: A utility uniform worn by trained Security officers.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackredsecurityuniform.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackredsecurityuniform.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPParade
+  name: head of personnel's parade uniform
+  description: A luxurious uniform for the head of personnel, woven in a deep blue. On the lapel is a small pin in the shape of a corgi's head.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/hopparadeuniform.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/hopparadeuniform.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPTurtleneck
+  name: head of personnel's turtleneck
+  description: A soft blue turtleneck and black khakis worn by heads who prefer a bit more comfort over style.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/hopturtleneck.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/hopturtleneck.rsi

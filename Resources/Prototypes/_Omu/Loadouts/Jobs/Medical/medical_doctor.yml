@@ -1,0 +1,13 @@
+# OuterClothing
+- type: loadout
+  id: ClothingLabcoatLong
+  equipment:
+    outerClothing: ClothingOuterCoatMedicalcoatLong
+
+- type: loadout
+  id: SeniorPhysicianXelthiaJacket
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  equipment:
+    outerClothing: ClothingOuterJacketSeniorPhys

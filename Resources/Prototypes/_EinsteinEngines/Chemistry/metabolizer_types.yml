@@ -5,3 +5,7 @@
 - type: metabolizerType
   id: Plasmaman
   name: metabolizer-type-plasmaman
+
+- type: metabolizerType
+  id: Xelthia
+  name: metabolizer-type-xelthia

@@ -75,6 +75,10 @@
         prob: 0.2
       - id: ClothingHandsGlovesColorYellow
         prob: 0.05
+        #Omu Edit start - Add Xelthia from EE
+      - id: ClothingOuterJacketInsulated
+        prob: 0.05
+        #Omu Edit end - Add Xelthia from EE
       - id: ClothingHeadHatHardhatRed
         prob: 0.4
       - id: CableApcStack
@@ -215,6 +219,7 @@
   - type: StorageFill
     contents:
       - id: ClothingHandsGlovesColorYellow
+      - id: ClothingOuterJacketInsulated #Omu Edit start - Add Xelthia from EE
       - id: ClothingMaskGas
       - id: trayScanner
       - id: RCD

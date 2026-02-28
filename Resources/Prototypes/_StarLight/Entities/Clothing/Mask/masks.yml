@@ -1,0 +1,27 @@
+- type: entity
+  parent: [ ClothingMaskGas, BaseCentcommContraband ]
+  id: ClothingMaskGasBSO
+  name: Blue SWAT Gas Mask
+  description: A elite issue Security gas mask. Now in blue!
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Mask/blueswat.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Mask/blueswat.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    hideOnToggle: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95
+  - type: IngestionBlocker
+    blockSmokeIngestion: true

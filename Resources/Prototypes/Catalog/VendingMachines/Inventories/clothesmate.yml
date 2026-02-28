@@ -167,6 +167,18 @@
     ClothingNeckPonchoSmallBlack: 3 # Monolith
     ClothingNeckPonchoSmallWhite: 3 # Monolith
     # DO NOT ADD MORE, USE UNIFORM DYING
+    ClothingUniformJumpsuitLoungewear: 3 # OMU
+    ClothingUniformMNKOfficeSkirt: 3 # OMU
+    ClothingUniformMNKUnderGarment: 3 # OMU
+    ClothingUniformMNKDressBlack: 3 # OMU
+    ClothingUniformMNKGymBra: 3 # OMU
+    ClothingUniformMNKBlackOveralls: 3 # OMU
+    ClothingUniformMNKBlackShoulder: 3 # OMU
+    ClothingUniformMNKTracksuitBlack: 3 # OMU
+    ClothingOuterCoatMNKBlackJacket: 3 # OMU
+    ClothingOuterCoatMNKWhiteHoodie: 3 # OMU
+    ClothingOuterCoatMNKBlackTopCoat: 3 # OMU
+    ClothingUniformJumpsuitBlackTurtleneck: 3 # OMU
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 2 # +1 Goobstation
