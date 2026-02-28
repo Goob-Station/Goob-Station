@@ -60,9 +60,7 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Server.Heretic.Components;
 using Content.Server.Temperature.Components;
-using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
@@ -80,6 +78,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
+using Content.Shared.Weather;
 using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Abilities;
@@ -97,16 +96,13 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly PhysicsSystem _phys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
@@ -115,8 +111,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly RespiratorSystem _respirator = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
@@ -126,6 +120,9 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
+    [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+
 
     private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
@@ -217,6 +214,11 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             QueueDel(st);
             return;
+        }
+
+        if (TryComp(args.Action, out MansusGraspUpgradeComponent? upgrade))
+        {
+            EntityManager.AddComponents(st, upgrade.AddedComponents);
         }
 
         ent.Comp.MansusGrasp = args.Action.Owner;
@@ -543,7 +545,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             }
 
             if (bloodQuery.TryComp(uid, out var blood))
-                _blood.FlushChemicals((uid, blood), leech.ExcludedReagent, leech.ChemPurgeRate * multiplier);
+                _blood.FlushChemicals((uid, blood), leech.ChemPurgeRate * multiplier, leech.ExcludedReagents);
 
             if (temperatureQuery.TryComp(uid, out var temperature))
                 _temperature.ForceChangeTemperature(uid, leech.TargetTemperature, temperature);

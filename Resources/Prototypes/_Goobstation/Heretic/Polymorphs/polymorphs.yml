@@ -16,6 +16,7 @@
     duration: 3
     attachToGridOrMap: true
     showPopup: false
+    allowRepeatedMorphs: true
 
 - type: polymorph
   id: AshJauntLong
@@ -24,6 +25,46 @@
     forced: true
     duration: 7
     attachToGridOrMap: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: SpaceJaunt
+  configuration:
+    entity: PolymorphSpaceJaunt
+    forced: true
+    attachToGridOrMap: true
+    showPopup: false
+    allowRepeatedMorphs: true
+    polymorphSound:
+      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
+    exitPolymorphSound:
+      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
+
+- type: polymorph
+  id: MirrorJaunt
+  configuration:
+    entity: PolymorphMirrorJaunt
+    forced: true
+    attachToGridOrMap: true
+    showPopup: false
+    allowRepeatedMorphs: true
+    polymorphSound:
+      path: /Audio/_Goobstation/Heretic/glass_reverse.ogg
+    exitPolymorphSound:
+      path: /Audio/_Goobstation/Heretic/glass_reverse.ogg
+
+- type: polymorph
+  id: ShatteredRisen
+  configuration:
+    entity: MobShattered
+    forced: true
+    transferName: true
+    transferDamage: false
+    revertOnCrit: false
+    revertOnDeath: false
+    transferHumanoidAppearance: false
+    inventory: Drop
+    allowRepeatedMorphs: true
 
 - type: polymorph
   id: EldritchHorror
@@ -34,6 +75,7 @@
     transferDamage: false
     revertOnCrit: false
     revertOnDeath: false
+    allowRepeatedMorphs: true
 
 - type: polymorph
   id: VoidPrison
@@ -47,6 +89,7 @@
     polymorphSound: /Audio/_Goobstation/Heretic/voidblink.ogg
     showPopup: false
     attachToGridOrMap: true
+    allowRepeatedMorphs: true
 
 # shapeshifts
 - type: polymorph
@@ -57,6 +100,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -71,6 +115,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -85,6 +130,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -99,6 +145,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -113,6 +160,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -127,6 +175,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -141,6 +190,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -155,6 +205,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -169,6 +220,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -183,6 +235,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -197,6 +250,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -211,6 +265,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -225,6 +280,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -239,6 +295,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -253,6 +310,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -267,6 +325,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker
@@ -281,6 +340,7 @@
     revertOnCrit: true
     revertOnDeath: true
     skipRevertConfirmation: true
+    allowRepeatedMorphs: true
     componentsToTransfer:
     - component: LanguageKnowledge
     - component: LanguageSpeaker

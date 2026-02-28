@@ -23,4 +23,10 @@ public sealed partial class AuraComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Distortion = 0.05f;
+
+    /// <summary>
+    /// If not null, it will use multi shader overlay to render with specified render order
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int? MultiShaderOrder = 5;
 }

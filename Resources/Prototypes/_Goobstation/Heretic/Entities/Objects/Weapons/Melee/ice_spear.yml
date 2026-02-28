@@ -79,3 +79,4 @@
   - type: ChangeTemperatureOnHit
     heat: -50000
   - type: IceSpear
+  - type: ReflectiveSurface # Goob

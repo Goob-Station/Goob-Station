@@ -50,6 +50,7 @@
   - type: Tag
     tags:
     - HereticItem
+    - AnchorHereticStructure
 
 - type: entity
   parent: [ DrinkBase, BaseMagicalContraband ]
@@ -77,6 +78,7 @@
   - type: Tag
     tags:
     - HereticItem
+    - EldritchFlask
 
 - type: entity
   id: HereticProtectiveBlade

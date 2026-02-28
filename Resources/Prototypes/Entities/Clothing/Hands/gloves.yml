@@ -280,6 +280,9 @@
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
+  - type: Tag # Goob
+    tags:
+    - GlovesLatex
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -294,6 +297,10 @@
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
+  - type: Tag # Goob
+    tags:
+    - GlovesNitrile
+
 ####
 - type: entity
   parent: ClothingHandsButcherable

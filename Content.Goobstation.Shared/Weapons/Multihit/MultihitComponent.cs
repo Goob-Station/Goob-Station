@@ -18,6 +18,9 @@ public sealed partial class MultihitComponent : Component
     public TimeSpan MultihitDelay = TimeSpan.FromSeconds(0.25);
 
     [DataField]
+    public TimeSpan DelayPenalty = TimeSpan.Zero;
+
+    [DataField]
     public EntityWhitelist? MultihitWhitelist;
 
     [DataField]

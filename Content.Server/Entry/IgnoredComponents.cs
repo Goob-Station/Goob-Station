@@ -85,6 +85,7 @@ namespace Content.Server.Entry
             "RotationDrawDepth", // RMC14
             "ToggleableLightWieldable", // Goobstation
             "HideClothingLayerClothing", // Goobstation
+            "MultiShaderSprite", // Goobstation
             "ItemSlotRenderer", // WWDP EDIT
         };
     }

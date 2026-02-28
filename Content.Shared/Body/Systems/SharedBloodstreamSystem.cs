@@ -454,6 +454,30 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     }
 
     /// <summary>
+    /// Goob
+    /// Removes a certain amount of all reagents except of excluded ones from the bloodstream.
+    /// </summary>
+    public bool FlushChemicals(Entity<BloodstreamComponent?> ent,
+        FixedPoint2 quantity,
+        params ProtoId<ReagentPrototype>[] excludedReagents)
+    {
+        if (!Resolve(ent, ref ent.Comp, logMissing: false)
+            || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.ChemicalSolutionName, ref ent.Comp.ChemicalSolution, out var chemSolution))
+            return false;
+
+        for (var i = chemSolution.Contents.Count - 1; i >= 0; i--)
+        {
+            var (reagentId, _) = chemSolution.Contents[i];
+            if (!excludedReagents.Contains(reagentId.Prototype))
+            {
+                SolutionContainer.RemoveReagent(ent.Comp.ChemicalSolution.Value, reagentId, quantity);
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
     ///  Attempts to modify the blood level of this entity directly.
     /// </summary>
     public bool TryModifyBloodLevel(Entity<BloodstreamComponent?> ent, FixedPoint2 amount)

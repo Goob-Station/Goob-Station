@@ -1,0 +1,108 @@
+- type: entity
+  parent: [ DrinkBase, BaseMagicalContraband ]
+  id: HereticPotionBase
+  abstract: true
+  components:
+  - type: UnholyItem
+  - type: Item
+    size: Tiny
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Icon
+    state: icon
+  - type: Sprite
+    layers:
+    - state: potion
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: potion1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+    - state: closed
+      map: ["enum.OpenableVisuals.Layer"]
+      visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: potion
+    metamorphic: false
+
+- type: entity
+  parent: HereticPotionBase
+  id: PotionCrucibleSoul
+  name: brew of the crucible soul
+  description: The Wood grows around the walls of the Mansus. As any student of Histories knows, the Mansus has no walls.
+  components:
+  - type: Icon
+    sprite: _Goobstation/Heretic/Entities/Potions/crucible_soul.rsi
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/Potions/crucible_soul.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: CrucibleSoul
+          Quantity: 5
+
+- type: entity
+  parent: HereticPotionBase
+  id: PotionDuskDawn
+  name: brew of dusk and dawn
+  description: The higher I rise. The more I see.
+  components:
+  - type: Icon
+    sprite: _Goobstation/Heretic/Entities/Potions/clarity.rsi
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/Potions/clarity.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: DuskAndDawn
+          Quantity: 5
+
+- type: entity
+  parent: HereticPotionBase
+  id: PotionWoundedSoldier
+  name: brew of the wounded soldier
+  description: Not all doors are wounds, but all wounds are doors.
+  components:
+  - type: Icon
+    sprite: _Goobstation/Heretic/Entities/Potions/marshal.rsi
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/Potions/marshal.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: WoundedSoldier
+          Quantity: 5
+
+- type: entity
+  parent: HereticPotionBase
+  id: PotionEther
+  name: ether of the newborn
+  description: This dream, again, a House in the Wood. I walk endlessly to find the hidden paths through the tangled trees. If I keep going, I might find insight, or I might be touched by madness.
+  components:
+  - type: Icon
+    sprite: _Goobstation/Heretic/Entities/Potions/ether.rsi
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/Potions/ether.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: NewbornEther
+          Quantity: 5

@@ -21,3 +21,6 @@ public abstract class SharedHereticCombatMarkSystem : EntitySystem
         return true;
     }
 }
+
+[ByRefEvent]
+public readonly record struct UpdateCombatMarkAppearanceEvent;

@@ -1,3 +1,4 @@
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects;
@@ -9,6 +10,10 @@ public sealed partial class ChemCleanBloodstream : EventEntityEffect<ChemCleanBl
 {
     [DataField]
     public float CleanseRate = 3.0f;
+
+    // Goob
+    [DataField]
+    public ProtoId<ReagentPrototype>[]? Excluded;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-chem-clean-bloodstream", ("chance", Probability));

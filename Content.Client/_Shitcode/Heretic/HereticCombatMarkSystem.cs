@@ -26,6 +26,12 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
         SubscribeLocalEvent<HereticCombatMarkComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<HereticCombatMarkComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HereticCombatMarkComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
+        SubscribeLocalEvent<HereticCombatMarkComponent, UpdateCombatMarkAppearanceEvent>(OnUpdate);
+    }
+
+    private void OnUpdate(Entity<HereticCombatMarkComponent> ent, ref UpdateCombatMarkAppearanceEvent args)
+    {
+        AddLayer(ent);
     }
 
     private void OnAfterAutoHandleState(Entity<HereticCombatMarkComponent> ent, ref AfterAutoHandleStateEvent args)

@@ -75,3 +75,15 @@
   name: stamina resistance modifier
   components:
   - type: StaminaResistanceModifierStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: EmoteVomitCounterStatusEffect
+  name: emote vomit
+  components:
+  - type: CounterStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: BlockVomitEmotesStatusEffect
+  name: block vomit emotes

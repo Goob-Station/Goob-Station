@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseFlashEffect
+  id: EldritchFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: "#cc66e6"
+  - type: AreaGraspEffect

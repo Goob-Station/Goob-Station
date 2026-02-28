@@ -1,0 +1,226 @@
+- type: entity
+  id: PartShattered
+  parent: [BaseItem, BasePart]
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+    state: chest_m
+  - type: Icon
+    sprite: _Goobstation/Heretic/Mobs/Shattered/parts.rsi
+  - type: BodyPart
+    species: Shattered
+  - type: Woundable
+    canBleed: false
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#000000"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+
+- type: entity
+  id: ChestShattered
+  name: shattered chest
+  parent: [PartShattered, BaseChestInorganic]
+  components:
+  - type: Woundable
+    integrity: 300
+    integrityCap: 300
+    thresholds:
+      Minor: 270
+      Moderate: 180
+      Severe: 90
+      Critical: 45
+      Mangled: 0
+
+- type: entity
+  id: GroinShattered
+  name: shattered groin
+  parent: [PartShattered, BaseGroinInorganic]
+  components:
+  - type: Sprite
+    state: groin_m
+  - type: Woundable
+    integrity: 300
+    integrityCap: 300
+    thresholds:
+      Minor: 270
+      Moderate: 180
+      Severe: 90
+      Critical: 45
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 0.5
+
+- type: entity
+  id: HeadShattered
+  name: shattered head
+  parent: [PartShattered, BaseHead]
+  components:
+  - type: Sprite
+    state: head_m
+  - type: Woundable
+    integrity: 250
+    integrityCap: 250
+    thresholds:
+      Minor: 225
+      Moderate: 150
+      Severe: 75
+      Critical: 38
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 0.5
+
+- type: entity
+  id: LeftArmShattered
+  name: left shattered arm
+  parent: [PartShattered, BaseLeftArm]
+  components:
+  - type: Sprite
+    state: l_arm
+  - type: Woundable
+    integrity: 250
+    integrityCap: 250
+    thresholds:
+      Minor: 225
+      Moderate: 150
+      Severe: 75
+      Critical: 38
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 1.0
+
+- type: entity
+  id: RightArmShattered
+  name: right shattered arm
+  parent: [PartShattered, BaseRightArm]
+  components:
+  - type: Sprite
+    state: r_arm
+  - type: Woundable
+    integrity: 250
+    integrityCap: 250
+    thresholds:
+      Minor: 225
+      Moderate: 150
+      Severe: 75
+      Critical: 38
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 1.0
+
+- type: entity
+  id: LeftHandShattered
+  name: left shattered hand
+  parent: [PartShattered, BaseLeftHand]
+  components:
+  - type: Sprite
+    state: l_hand
+  - type: Woundable
+    integrity: 140
+    integrityCap: 140
+    thresholds:
+      Minor: 125
+      Moderate: 70
+      Severe: 45
+      Critical: 22
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 1.0
+
+- type: entity
+  id: RightHandShattered
+  name: right shattered hand
+  parent: [PartShattered, BaseRightHand]
+  components:
+  - type: Sprite
+    state: r_hand
+  - type: Woundable
+    integrity: 140
+    integrityCap: 140
+    thresholds:
+      Minor: 125
+      Moderate: 70
+      Severe: 45
+      Critical: 22
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 1.0
+
+- type: entity
+  id: LeftLegShattered
+  name: left shattered leg
+  parent: [PartShattered, BaseLeftLeg]
+  components:
+  - type: Sprite
+    state: l_leg
+  - type: Woundable
+    integrity: 250
+    integrityCap: 250
+    thresholds:
+      Minor: 225
+      Moderate: 150
+      Severe: 75
+      Critical: 38
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 0.5
+
+- type: entity
+  id: RightLegShattered
+  name: right shattered leg
+  parent: [PartShattered, BaseRightLeg]
+  components:
+  - type: Sprite
+    state: r_leg
+  - type: Woundable
+    integrity: 250
+    integrityCap: 250
+    thresholds:
+      Minor: 225
+      Moderate: 150
+      Severe: 75
+      Critical: 38
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 0.5
+
+- type: entity
+  id: LeftFootShattered
+  name: left shattered foot
+  parent: [PartShattered, BaseLeftFoot]
+  components:
+  - type: Sprite
+    state: l_foot
+  - type: Woundable
+    integrity: 140
+    integrityCap: 140
+    thresholds:
+      Minor: 125
+      Moderate: 70
+      Severe: 45
+      Critical: 22
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 0.5
+
+- type: entity
+  id: RightFootShattered
+  name: right shattered foot
+  parent: [PartShattered, BaseRightFoot]
+  components:
+  - type: Sprite
+    state: r_foot
+  - type: Woundable
+    integrity: 140
+    integrityCap: 140
+    thresholds:
+      Minor: 125
+      Moderate: 70
+      Severe: 45
+      Critical: 22
+      Mangled: 0
+    traumaDeductions:
+      Dismemberment: 0.5

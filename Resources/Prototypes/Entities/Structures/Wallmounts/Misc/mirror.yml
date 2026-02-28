@@ -47,6 +47,7 @@
     interfaces:
       enum.MagicMirrorUiKey.Key:
         type: MagicMirrorBoundUserInterface
+  - type: ReflectiveSurface # Goob
   - type: Destructible
     thresholds:
     - trigger:

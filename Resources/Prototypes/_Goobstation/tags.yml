@@ -59,6 +59,9 @@
   id: AthiestsFedora
 
 - type: Tag
+  id: AnchorHereticStructure
+
+- type: Tag
   id: AntagGateway
 
 - type: Tag
@@ -188,6 +191,9 @@
   id: DurandTargetingControlModule
 
 - type: Tag
+  id: EldritchFlask
+
+- type: Tag
   id: EmergencyMedipen
 
 - type: Tag
@@ -252,6 +258,9 @@
 
 - type: Tag
   id: GorillaFormAction
+
+- type: Tag
+  id: GoldBar
 
 - type: Tag
   id: Gygax
@@ -576,6 +585,9 @@
   id: ShellShotgunHeavy
 
 - type: Tag
+  id: SilverBar
+
+- type: Tag
   id: SyringeArmor
 
 - type: Tag
@@ -797,6 +809,12 @@
 
 - type: Tag
   id: Crate
+
+- type: Tag
+  id: GlovesLatex
+
+- type: Tag
+  id: GlovesNitrile
 
 - type: Tag
   id: VinylSleeveFit

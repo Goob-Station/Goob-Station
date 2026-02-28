@@ -16,18 +16,57 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Emoting;
 
-// use as a template
-//[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationNameEmoteEvent : EntityEventArgs { }
-
-[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationFlipEmoteEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationSpinEmoteEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationJumpEmoteEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationTweakEmoteEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationFlexEmoteEvent : EntityEventArgs { }
-
-[RegisterComponent, NetworkedComponent] public sealed partial class AnimatedEmotesComponent : Component
+[Serializable, NetSerializable, ImplicitDataDefinitionForInheritors]
+public abstract partial class AnimationEmoteEvent : EntityEventArgs
 {
-    [DataField] public ProtoId<EmotePrototype>? Emote;
+    [DataField]
+    public virtual bool CausesVomit { get; set; }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class AnimationFlipEmoteEvent : AnimationEmoteEvent
+{
+    public override bool CausesVomit { get; set; } = true;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class AnimationSpinEmoteEvent : AnimationEmoteEvent
+{
+    public override bool CausesVomit { get; set; } = true;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class AnimationJumpEmoteEvent : AnimationEmoteEvent
+{
+    public override bool CausesVomit { get; set; } = true;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class AnimationTweakEmoteEvent : AnimationEmoteEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class AnimationFlexEmoteEvent : AnimationEmoteEvent;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class AnimatedEmotesComponent : Component
+{
+    [DataField]
+    public ProtoId<EmotePrototype>? Emote;
+
+    [DataField]
+    public EntProtoId VomitStatus = "EmoteVomitCounterStatusEffect";
+
+    [DataField]
+    public EntProtoId BlockVomitEmoteStatus = "BlockVomitEmotesStatusEffect";
+
+    [DataField]
+    public TimeSpan VomitStatusTime = TimeSpan.FromSeconds(1);
+
+    [DataField]
+    public int EmotesToVomit = 5;
+
+    [DataField]
+    public TimeSpan BlockVomitStatusTime = TimeSpan.FromSeconds(10);
 }
 
 [Serializable, NetSerializable] public sealed partial class AnimatedEmotesComponentState : ComponentState

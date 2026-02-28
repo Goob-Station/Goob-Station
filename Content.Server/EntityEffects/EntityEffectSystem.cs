@@ -565,11 +565,16 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
 
             cleanseRate *= reagentArgs.Scale.Float();
-            _bloodstream.FlushChemicals(args.Args.TargetEntity, reagentArgs.Reagent.ID, cleanseRate);
+            // Goob start
+            if (args.Effect.Excluded is { } excluded)
+                _bloodstream.FlushChemicals(args.Args.TargetEntity, cleanseRate, excluded);
+            else
+                _bloodstream.FlushChemicals(args.Args.TargetEntity, reagentArgs.Reagent.ID, cleanseRate);
+            // Goob end
         }
         else
         {
-            _bloodstream.FlushChemicals(args.Args.TargetEntity, "", cleanseRate);
+            _bloodstream.FlushChemicals(args.Args.TargetEntity, cleanseRate, args.Effect.Excluded ?? []); // Goob
         }
     }
 

@@ -235,6 +235,7 @@
   - type: InteractionVerbs # EE: Interaction Verbs
     allowedVerbs:
     - KnockOn
+  - type: ReflectiveSurface # Goob
 
 - type: entity
   id: BaseSecureWindoor
