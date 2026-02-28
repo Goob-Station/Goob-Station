@@ -21469,3 +21469,9 @@ Entries:
       message: NTR no longer deletes contrabanned when scanned
   id: 2439
   time: '2026-02-28T21:18:28.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: Fixed the pronoun "It" when examining a character
+  id: 2440
+  time: '2026-02-28T21:25:37.0000000+00:00'
