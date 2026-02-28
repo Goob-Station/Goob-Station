@@ -21569,3 +21569,9 @@ Entries:
       message: Fix ChemVend eject animation being sluggish
   id: 2454
   time: '2026-02-28T22:09:23.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Add
+      message: Add missing category to surgery tools
+  id: 2455
+  time: '2026-02-28T22:09:54.0000000+00:00'
