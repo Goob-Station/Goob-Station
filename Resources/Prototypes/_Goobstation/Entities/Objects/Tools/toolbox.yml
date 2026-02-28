@@ -1,0 +1,18 @@
+- type: entity
+  name: ancient toolbox
+  parent: [ToolboxBase, BaseSyndicateContraband]
+  id: AncientToolbox
+  description: An old, blue toolbox, it looks robust.
+  components:
+  - type: AncientToolbox
+  - type: Sprite
+    sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+  - type: MeleeWeapon
+    canWideSwing: true
+    heavyStaminaCost: 9
+    damage:
+      types:
+        Blunt: 19
