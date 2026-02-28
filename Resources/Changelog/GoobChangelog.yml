@@ -21531,3 +21531,11 @@ Entries:
       message: More chems to the reagent anomaly.
   id: 2448
   time: '2026-02-28T21:54:46.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Cosmic cult final will now always take around 6 minutes to finish
+        instead of 2,5.
+  id: 2449
+  time: '2026-02-28T22:00:32.0000000+00:00'
