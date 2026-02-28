@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Blob;
@@ -19,6 +20,7 @@ using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
+using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
@@ -26,6 +28,7 @@ using Content.Shared.NPC.Systems;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -36,6 +39,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private readonly BlobCoreActionSystem _blobCoreActionSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly EmpSystem _empSystem = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
@@ -44,6 +48,8 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;
+    private EntityQuery<BlobTileComponent> _tileQuery;
+    private EntityQuery<BlobObserverComponent> _observerQuery;
 
     [ValidatePrototypeId<NpcFactionPrototype>]
     private const string BlobFaction = "Blob";
@@ -58,6 +64,8 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
         SubscribeLocalEvent<BlobTileComponent, EntityTerminatingEvent>(OnTerminate);
 
         _blobCoreQuery = GetEntityQuery<BlobCoreComponent>();
+        _tileQuery = GetEntityQuery<BlobTileComponent>();
+        _observerQuery = GetEntityQuery<BlobObserverComponent>();
     }
 
     private void OnMapInit(Entity<BlobTileComponent> ent, ref MapInitEvent args)
@@ -94,104 +102,81 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
         }
     }
 
+    private readonly List<Vector2i> _directions = new()
+    {
+        Vector2i.Up,
+        Vector2i.Down,
+        Vector2i.Left,
+        Vector2i.Right,
+    };
+
     private void OnPulsed(EntityUid uid, BlobTileComponent component, BlobTileGetPulseEvent args)
     {
-        if (component.Core == null)
+        if (args.Handled
+            || !CoreQuery.TryComp(component.Core, out var coreComp))
             return;
 
-        var core = component.Core.Value;
+        HealTile((uid, component));
 
-        if (core.Comp.CurrentChem == BlobChemType.RegenerativeMateria)
-        {
-            var healCore = new DamageSpecifier();
-            foreach (var keyValuePair in component.HealthOfPulse.DamageDict)
-            {
-                healCore.DamageDict.Add(keyValuePair.Key, keyValuePair.Value * 5);
-            }
-
-            _damageableSystem.TryChangeDamage(uid, healCore);
-        }
-        else
-        {
-            _damageableSystem.TryChangeDamage(uid, component.HealthOfPulse);
-        }
-
-        if (!args.Handled)
-            return;
-
+        // Automatically grow/attack somewhere by simulating an interaction.
         var xform = Transform(uid);
-
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-        {
-            return;
-        }
-
-        var nearNode = _blobCoreSystem.GetNearNode(xform.Coordinates, core.Comp.TilesRadiusLimit);
-
-        if (nearNode == null)
             return;
 
-        var mobTile = _mapSystem.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
+        var curTile = _mapSystem.CoordinatesToTile(xform.GridUid.Value, grid, xform.Coordinates);
+        EntityCoordinates? clickLocation = null;
 
-        var mobAdjacentTiles = new[]
+        _random.Shuffle(_directions);
+        foreach (var dir in _directions)
         {
-            mobTile.GridIndices.Offset(Direction.East),
-            mobTile.GridIndices.Offset(Direction.West),
-            mobTile.GridIndices.Offset(Direction.North),
-            mobTile.GridIndices.Offset(Direction.South),
-        };
-
-        _random.Shuffle(mobAdjacentTiles);
-
-        var localPos = xform.Coordinates.Position;
-
-        var radius = 1.0f;
-
-        var innerTiles = _mapSystem.GetLocalTilesIntersecting(xform.GridUid.Value,
-                grid,
-                new Box2(localPos + new Vector2(-radius, -radius), localPos + new Vector2(radius, radius)))
-            .ToArray();
-
-        foreach (var innerTile in innerTiles)
-        {
-            if (!mobAdjacentTiles.Contains(innerTile.GridIndices))
-            {
-                continue;
-            }
-
-            foreach (var ent in _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, innerTile.GridIndices))
-            {
-                if (!HasComp<DestructibleComponent>(ent) || !HasComp<ConstructionComponent>(ent))
-                    continue;
-
-                DoLunge(uid, ent);
-                _damageableSystem.TryChangeDamage(ent, core.Comp.ChemDamageDict[core.Comp.CurrentChem]);
-                _audioSystem.PlayPvs(core.Comp.AttackSound, uid, AudioParams.Default);
-                args.Handled = true;
-                return;
-            }
-
-            var spawn = true;
-            foreach (var ent in _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, innerTile.GridIndices))
-            {
-                if (!HasComp<BlobTileComponent>(ent))
-                    continue;
-                spawn = false;
+            if (CheckTile((xform.GridUid.Value, grid), curTile + dir, out clickLocation))
                 break;
-            }
-
-            if (!spawn)
-                continue;
-
-            var location = _mapSystem.ToCoordinates(xform.GridUid.Value, innerTile.GridIndices, grid);
-
-            if (_blobCoreSystem.TransformBlobTile(null,
-                    core,
-                    nearNode,
-                    BlobTileType.Normal,
-                    location))
-                return;
         }
+
+        if (clickLocation == null
+            || !_observerQuery.TryComp(coreComp.Observer, out var observerComp))
+            return;
+
+        var ev = new AfterInteractEvent(coreComp.Observer.Value, EntityUid.Invalid, null, clickLocation.Value, true);
+        _blobCoreActionSystem.OnInteract(coreComp.Observer.Value, observerComp, ev, false);
+        args.Handled = true;
+    }
+
+    private void HealTile(Entity<BlobTileComponent> ent)
+    {
+        var healCore = new DamageSpecifier();
+
+        foreach (var keyValuePair in ent.Comp.HealthOfPulse.DamageDict)
+        {
+            healCore.DamageDict.TryAdd(keyValuePair.Key, keyValuePair.Value * 5);
+        }
+
+        _damageableSystem.TryChangeDamage(ent, healCore);
+    }
+
+    private bool CheckTile(
+        Entity<MapGridComponent> grid,
+        Vector2i tile,
+        [NotNullWhen(true)] out EntityCoordinates? position)
+    {
+        position = null;
+        var picked = _mapSystem.GridTileToLocal(grid, grid, tile);
+
+        // Check it for other blob tiles
+        var anchored = _mapSystem.GetAnchoredEntities(grid, grid, picked);
+        foreach (var uid in anchored)
+        {
+            if (_tileQuery.HasComp(uid))
+                return false;
+        }
+
+        // Don't automatically grow in space
+        var targetTile = _mapSystem.GetTileRef(grid, grid, picked);
+        if (targetTile.Tile.IsEmpty)
+            return false;
+
+        position = picked;
+        return true;
     }
 
     protected override void TryUpgrade(Entity<BlobTileComponent> target, Entity<BlobCoreComponent> core, EntityUid observer)
@@ -222,229 +207,6 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
         RaiseLocalEvent(core, ev);
     }
 
-    /* This work very bad.
-     I replace invisible
-     wall to teleportation observer
-     if he moving away from blob tile */
-
-    // private void OnStartup(EntityUid uid, BlobCellComponent component, ComponentStartup args)
-    // {
-    //     var xform = Transform(uid);
-    //     var radius = 2.5f;
-    //     var wallSpacing = 1.5f; // Расстояние между стенами и центральной областью
-    //
-    //     if (!_map.TryGetGrid(xform.GridUid, out var grid))
-    //     {
-    //         return;
-    //     }
-    //
-    //     var localpos = xform.Coordinates.Position;
-    //
-    //     // Получаем тайлы в области с радиусом 2.5
-    //     var allTiles = grid.GetLocalTilesIntersecting(
-    //         new Box2(localpos + new Vector2(-radius, -radius), localpos + new Vector2(radius, radius))).ToArray();
-    //
-    //     // Получаем тайлы в области с радиусом 1.5
-    //     var innerTiles = grid.GetLocalTilesIntersecting(
-    //         new Box2(localpos + new Vector2(-wallSpacing, -wallSpacing), localpos + new Vector2(wallSpacing, wallSpacing))).ToArray();
-    //
-    //     foreach (var tileref in innerTiles)
-    //     {
-    //         foreach (var ent in grid.GetAnchoredEntities(tileref.GridIndices))
-    //         {
-    //             if (HasComp<BlobBorderComponent>(ent))
-    //                 QueueDel(ent);
-    //             if (HasComp<BlobCellComponent>(ent))
-    //             {
-    //                 var blockTiles = grid.GetLocalTilesIntersecting(
-    //                     new Box2(Transform(ent).Coordinates.Position + new Vector2(-wallSpacing, -wallSpacing),
-    //                         Transform(ent).Coordinates.Position + new Vector2(wallSpacing, wallSpacing))).ToArray();
-    //                 allTiles = allTiles.Except(blockTiles).ToArray();
-    //             }
-    //         }
-    //     }
-    //
-    //     var outerTiles = allTiles.Except(innerTiles).ToArray();
-    //
-    //     foreach (var tileRef in outerTiles)
-    //     {
-    //         foreach (var ent in grid.GetAnchoredEntities(tileRef.GridIndices))
-    //         {
-    //             if (HasComp<BlobCellComponent>(ent))
-    //             {
-    //                 var blockTiles = grid.GetLocalTilesIntersecting(
-    //                     new Box2(Transform(ent).Coordinates.Position + new Vector2(-wallSpacing, -wallSpacing),
-    //                         Transform(ent).Coordinates.Position + new Vector2(wallSpacing, wallSpacing))).ToArray();
-    //                 outerTiles = outerTiles.Except(blockTiles).ToArray();
-    //             }
-    //         }
-    //     }
-    //
-    //     foreach (var tileRef in outerTiles)
-    //     {
-    //         var spawn = true;
-    //         foreach (var ent in grid.GetAnchoredEntities(tileRef.GridIndices))
-    //         {
-    //             if (HasComp<BlobBorderComponent>(ent))
-    //             {
-    //                 spawn = false;
-    //                 break;
-    //             }
-    //         }
-    //         if (spawn)
-    //             EntityManager.SpawnEntity("BlobBorder", tileRef.GridIndices.ToEntityCoordinates(xform.GridUid.Value, _map));
-    //     }
-    // }
-
-    // private void OnDestruction(EntityUid uid, BlobTileComponent component, DestructionEventArgs args)
-    // {
-    //     var xform = Transform(uid);
-    //     var radius = 1.0f;
-    //
-    //     if (!_map.TryGetGrid(xform.GridUid, out var grid))
-    //     {
-    //         return;
-    //     }
-    //
-    //     var localPos = xform.Coordinates.Position;
-    //
-    //     var innerTiles = grid.GetLocalTilesIntersecting(
-    //         new Box2(localPos + new Vector2(-radius, -radius), localPos + new Vector2(radius, radius)), false).ToArray();
-    //
-    //     var centerTile = grid.GetLocalTilesIntersecting(
-    //         new Box2(localPos, localPos)).ToArray();
-    //
-    //     innerTiles = innerTiles.Except(centerTile).ToArray();
-    //
-    //     foreach (var tileref in innerTiles)
-    //     {
-    //         foreach (var ent in grid.GetAnchoredEntities(tileref.GridIndices))
-    //         {
-    //             if (!HasComp<BlobTileComponent>(ent))
-    //                 continue;
-    //             var blockTiles = grid.GetLocalTilesIntersecting(
-    //                 new Box2(Transform(ent).Coordinates.Position + new Vector2(-radius, -radius),
-    //                     Transform(ent).Coordinates.Position + new Vector2(radius, radius)), false).ToArray();
-    //
-    //             var tilesToRemove = new List<TileRef>();
-    //
-    //             foreach (var blockTile in blockTiles)
-    //             {
-    //                 tilesToRemove.Add(blockTile);
-    //             }
-    //
-    //             innerTiles = innerTiles.Except(tilesToRemove).ToArray();
-    //         }
-    //     }
-    //
-    //     foreach (var tileRef in innerTiles)
-    //     {
-    //         foreach (var ent in grid.GetAnchoredEntities(tileRef.GridIndices))
-    //         {
-    //             if (HasComp<BlobBorderComponent>(ent))
-    //             {
-    //                 QueueDel(ent);
-    //             }
-    //         }
-    //     }
-    //
-    //     EntityManager.SpawnEntity(component.BlobBorder, xform.Coordinates);
-    // }
-    //
-    // private void OnStartup(EntityUid uid, BlobTileComponent component, ComponentStartup args)
-    // {
-    //     var xform = Transform(uid);
-    //     var wallSpacing = 1.0f;
-    //
-    //     if (!_map.TryGetGrid(xform.GridUid, out var grid))
-    //     {
-    //         return;
-    //     }
-    //
-    //     var localPos = xform.Coordinates.Position;
-    //
-    //     var innerTiles = grid.GetLocalTilesIntersecting(
-    //         new Box2(localPos + new Vector2(-wallSpacing, -wallSpacing), localPos + new Vector2(wallSpacing, wallSpacing)), false).ToArray();
-    //
-    //     var centerTile = grid.GetLocalTilesIntersecting(
-    //         new Box2(localPos, localPos)).ToArray();
-    //
-    //     foreach (var tileRef in centerTile)
-    //     {
-    //         foreach (var ent in grid.GetAnchoredEntities(tileRef.GridIndices))
-    //         {
-    //             if (HasComp<BlobBorderComponent>(ent))
-    //                 QueueDel(ent);
-    //         }
-    //     }
-    //     innerTiles = innerTiles.Except(centerTile).ToArray();
-    //
-    //     foreach (var tileref in innerTiles)
-    //     {
-    //         var spaceNear = false;
-    //         var hasBlobTile = false;
-    //         foreach (var ent in grid.GetAnchoredEntities(tileref.GridIndices))
-    //         {
-    //             if (!HasComp<BlobTileComponent>(ent))
-    //                 continue;
-    //             var blockTiles = grid.GetLocalTilesIntersecting(
-    //                 new Box2(Transform(ent).Coordinates.Position + new Vector2(-wallSpacing, -wallSpacing),
-    //                     Transform(ent).Coordinates.Position + new Vector2(wallSpacing, wallSpacing)), false).ToArray();
-    //
-    //             var tilesToRemove = new List<TileRef>();
-    //
-    //             foreach (var blockTile in blockTiles)
-    //             {
-    //                 if (blockTile.Tile.IsEmpty)
-    //                 {
-    //                     spaceNear = true;
-    //                 }
-    //                 else
-    //                 {
-    //                     tilesToRemove.Add(blockTile);
-    //                 }
-    //             }
-    //
-    //             innerTiles = innerTiles.Except(tilesToRemove).ToArray();
-    //
-    //             hasBlobTile = true;
-    //         }
-    //
-    //         if (!hasBlobTile || spaceNear)
-    //             continue;
-    //         {
-    //             foreach (var ent in grid.GetAnchoredEntities(tileref.GridIndices))
-    //             {
-    //                 if (HasComp<BlobBorderComponent>(ent))
-    //                 {
-    //                     QueueDel(ent);
-    //                 }
-    //             }
-    //         }
-    //     }
-    //
-    //     var spaceNearCenter = false;
-    //
-    //     foreach (var tileRef in innerTiles)
-    //     {
-    //         var spawn = true;
-    //         if (tileRef.Tile.IsEmpty)
-    //         {
-    //             spaceNearCenter = true;
-    //             spawn = false;
-    //         }
-    //         if (grid.GetAnchoredEntities(tileRef.GridIndices).Any(ent => HasComp<BlobBorderComponent>(ent)))
-    //         {
-    //             spawn = false;
-    //         }
-    //         if (spawn)
-    //             EntityManager.SpawnEntity(component.BlobBorder, tileRef.GridIndices.ToEntityCoordinates(xform.GridUid.Value, _map));
-    //     }
-    //     if (spaceNearCenter)
-    //     {
-    //         EntityManager.SpawnEntity(component.BlobBorder, xform.Coordinates);
-    //     }
-    // }
     public void SwapSpecials(Entity<BlobNodeComponent> from, Entity<BlobNodeComponent> to)
     {
         (from.Comp.BlobFactory, to.Comp.BlobFactory) = (to.Comp.BlobFactory, from.Comp.BlobFactory);
