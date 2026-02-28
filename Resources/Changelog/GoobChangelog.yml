@@ -21587,3 +21587,15 @@ Entries:
       message: Added a translation implanter for sign language
   id: 2457
   time: '2026-02-28T22:11:04.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Brought back the new traitor briefing.
+    - type: Add
+      message: >-
+        Brought Champion of Evil and Postal Dude from Game Postal Game to
+        traitor flavor text.
+    - type: Add
+      message: More codewords.
+  id: 2458
+  time: '2026-02-28T22:25:10.0000000+00:00'
