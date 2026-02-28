@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitDispatcher
+  name: dispatcher's envirosuit
+  description: A Plasmaman containment suit designed for the dispatcher, white stripes being added to differentiate them from other members of security.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/warden.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/warden.rsi

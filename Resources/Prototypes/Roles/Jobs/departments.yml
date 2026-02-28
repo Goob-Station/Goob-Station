@@ -233,6 +233,7 @@
   - Warden
   - Brigmedic # Goob
   - SecurityClown # event-restricted, Goob
+  - Dispatcher # Goob
 
 - type: department
   id: Science

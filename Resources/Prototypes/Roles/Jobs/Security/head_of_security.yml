@@ -141,7 +141,10 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 18000 #5 hr
+      time: 9000 #2.5 hr
+    - !type:RoleTimeRequirement
+      role: JobDispatcher # goob
+      time: 9000 #2.5 hr
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 36000 #10 hrs

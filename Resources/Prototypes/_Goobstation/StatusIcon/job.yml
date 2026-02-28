@@ -20,3 +20,11 @@
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: trainer
   jobName: job-name-nct
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDispatcher
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: dispatcher
+  jobName: job-name-dispatcher

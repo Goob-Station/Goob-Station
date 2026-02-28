@@ -221,5 +221,14 @@ loadout-group-zookeeper-head = Zookeeper hat
 loadout-group-boxer-envirohelm = Boxer envirohelm
 loadout-group-boxer-envirosuit = Boxer envirosuit
 
+# Dispatcher
+loadout-group-dispatcher-envirohelm = Dispatcher envirohelm
+loadout-group-dispatcher-envirosuit = Dispatcher envirosuit
+loadout-group-dispatcher-envirogloves = Dispatcher envirogloves
+loadout-group-dispatcher-head = Dispatcher head
+loadout-group-dispatcher-jumpsuit = Dispatcher jumpsuit
+loadout-group-dispatcher-shoes = Dispatcher shoes
+loadout-group-dispatcher-outerclothing = Dispatcher outer clothing
+
 # Misc
 loadout-group-plasma-tank = Plasma tank

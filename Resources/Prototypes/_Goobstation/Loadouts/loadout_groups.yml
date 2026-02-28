@@ -508,6 +508,63 @@
   loadouts:
   - BlackEnvirogloves
 
+# Dispatcher
+
+- type: loadoutGroup
+  id: DispatcherEnvirohelm
+  name: loadout-group-dispatcher-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DispatcherEnvirohelm
+
+- type: loadoutGroup
+  id: DispatcherEnvirosuit
+  name: loadout-group-dispatcher-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DispatcherEnvirosuit
+
+- type: loadoutGroup
+  id: DispatcherEnvirogloves
+  name: loadout-group-dispatcher-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackEnvirogloves
+
+- type: loadoutGroup
+  id: DispatcherHead
+  name: loadout-group-dispatcher-head
+  maxLimit: 1
+  loadouts:
+  - DispatcherHead
+
+- type: loadoutGroup
+  id: DispatcherJumpsuit
+  name: loadout-group-dispatcher-jumpsuit
+  maxLimit: 1
+  loadouts:
+  - SecurityJumpsuit
+  - SecurityJumpskirt
+  - SecurityJumpsuitBlue
+
+- type: loadoutGroup
+  id: DispatcherShoes
+  name: loadout-group-dispatcher-shoes
+  maxLimit: 1
+  loadouts:
+  - DispatcherShoes
+
+- type: loadoutGroup
+  id: DispatcherOuterClothing
+  name: loadout-group-dispatcher-outerclothing
+  maxLimit: 1
+  loadouts:
+  - Vest
+  - SecurityWinterCoat
+
 # Head of Personnel
 
 - type: loadoutGroup
