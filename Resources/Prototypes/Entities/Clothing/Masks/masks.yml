@@ -580,6 +580,9 @@
         Aerial: -0.6
       chanceMultipliers:
         Aerial: 0.4
+  - type: Tag # Goobstation
+    tags:
+    - SterileMask
 
 - type: entity
   parent: ClothingMaskBase

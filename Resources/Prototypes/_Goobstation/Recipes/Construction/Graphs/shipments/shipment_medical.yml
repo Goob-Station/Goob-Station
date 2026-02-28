@@ -1,0 +1,181 @@
+- type: constructionGraph
+  id: GraphCrateShipmentMedical
+  graph:
+    - node: start
+      edges:
+      #MARK: Supplies
+      - to: shipmentMedicalSupplies
+        steps:
+          - tag: NoticeMedicalSupplies
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: Syringe
+            name: "10x syringe"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: Syringe
+            name: "9x syringe"
+            doAfter: 0.1
+          - tag: Syringe
+            name: "8x syringe"
+            doAfter: 0.1
+          - tag: Syringe
+            name: "7x syringe"
+            doAfter: 0.1
+          - tag: Syringe
+            name: "6x syringe"
+            doAfter: 0.1
+          - tag: Syringe
+            name: "5x syringe"
+            doAfter: 0.1
+          - tag: Syringe
+            name: "4x syringe"
+            doAfter: 0.1
+          - tag: Syringe
+            name: "3x syringe"
+            doAfter: 0.1
+          - tag: Syringe
+            name: "2x syringe"
+            doAfter: 0.1
+          - tag: Syringe
+            name: "1x syringe"
+            doAfter: 0.1
+          - tag: GlassBeaker
+            name: "4x beaker"
+            doAfter: 0.1
+          - tag: GlassBeaker
+            name: "3x beaker"
+            doAfter: 0.1
+          - tag: GlassBeaker
+            name: "2x beaker"
+            doAfter: 0.1
+          - tag: GlassBeaker
+            name: "1x beaker"
+            doAfter: 0.1
+          - tag: Medkit
+            name: "8x medkit box"
+            doAfter: 0.1
+          - tag: Medkit
+            name: "7x medkit box"
+            doAfter: 0.1
+          - tag: Medkit
+            name: "6x medkit box"
+            doAfter: 0.1
+          - tag: Medkit
+            name: "5x medkit box"
+            doAfter: 0.1
+          - tag: Medkit
+            name: "4x medkit box"
+            doAfter: 0.1
+          - tag: Medkit
+            name: "3x medkit box"
+            doAfter: 0.1
+          - tag: Medkit
+            name: "2x medkit box"
+            doAfter: 0.1
+          - tag: Medkit
+            name: "1x medkit box"
+            doAfter: 0.1
+          - material: Cloth
+            amount: 30
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CratePlasticLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+      #MARK: Emergency
+      - to: shipmentMedicalEmergency
+        steps:
+          - tag: NoticeMedicalEmergency
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: BodyBag
+            name: "5x bodybag"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: BodyBag
+            name: "4x bodybag"
+            doAfter: 0.1
+          - tag: BodyBag
+            name: "3x bodybag"
+            doAfter: 0.1
+          - tag: BodyBag
+            name: "2x bodybag"
+            doAfter: 0.1
+          - tag: BodyBag
+            name: "1x bodybag"
+            doAfter: 0.1
+          - tag: SterileMask
+            name: "5x sterile mask"
+            doAfter: 0.1
+          - tag: SterileMask
+            name: "4x sterile mask"
+            doAfter: 0.1
+          - tag: SterileMask
+            name: "3x sterile mask"
+            doAfter: 0.1
+          - tag: SterileMask
+            name: "2x sterile mask"
+            doAfter: 0.1
+          - tag: SterileMask
+            name: "1x sterile mask"
+            doAfter: 0.1
+          - tag: Defibrillator
+            name: "5x defibrillator"
+            doAfter: 0.1
+          - tag: Defibrillator
+            name: "4x defibrillator"
+            doAfter: 0.1
+          - tag: Defibrillator
+            name: "3x defibrillator"
+            doAfter: 0.1
+          - tag: Defibrillator
+            name: "2x defibrillator"
+            doAfter: 0.1
+          - tag: Defibrillator
+            name: "1x defibrillator"
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CratePlasticLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+    - node: shipmentMedicalSupplies
+      entity: CrateShipmentMedicalSupplies
+    - node: shipmentMedicalEmergency
+      entity: CrateShipmentMedicalEmergency

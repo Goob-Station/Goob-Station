@@ -806,3 +806,219 @@
 
 - type: Tag
   id: ContractorUplink
+
+#saw alphabetical bullshit died above, also why not just use categories and #MARK my god this is ass
+
+#Part of the problem is anyone wanna revert >
+#https://github.com/space-wizards/space-station-14/pull/11611
+
+#MARK: Laser weapons
+- type: Tag
+  id: LaserCarbine
+
+- type: Tag
+  id: LaserCannon
+
+- type: Tag
+  id: XrayCannon
+
+#MARK: Ammo Boxes
+- type: Tag
+  id: AmmoBox35AutoBase
+
+- type: Tag
+  id: AmmoBox35AutoIncendiary
+
+- type: Tag
+  id: AmmoBox35AutoUranium
+
+- type: Tag
+  id: AmmoBox20RifleBase
+
+- type: Tag
+  id: AmmoBox20RifleIncendiary
+
+- type: Tag
+  id: AmmoBox20RifleUranium
+
+- type: Tag
+  id: AmmoBox12GaugeBase
+
+- type: Tag
+  id: AmmoBox12GaugeIncendiary
+
+- type: Tag
+  id: AmmoBox12GaugeUranium
+
+#MARK: Tools
+- type: Tag
+  id: WelderExperimental
+
+- type: Tag
+  id: Defibrillator
+
+- type: Tag
+  id: AnomalyScannerTool
+
+- type: Tag
+  id: AnomalyLocatorTool
+
+- type: Tag
+  id: AnomalyLocatorWideSpectrum
+
+#MARK: Circuit Board
+
+- type: Tag
+  id: AutolatheBoard
+
+- type: Tag
+  id: ProtolatheBoard
+
+- type: Tag
+  id: ImprinterBoard
+
+- type: Tag
+  id: ExofabBoard
+
+- type: Tag
+  id: FlatpackerBoard
+
+#MARK: Surgical Tools
+- type: Tag
+  id: SurgicalEnergyScalpel
+
+- type: Tag
+  id: SurgicalAdvancedRetractor
+
+- type: Tag
+  id: SurgicalEnergyCautery
+
+- type: Tag
+  id: SurgicalAdvancedBoneGel
+
+#MARK: Bionics
+- type: Tag
+  id: CyberneticLeftFoot
+
+- type: Tag
+  id: CyberneticRightFoot
+
+- type: Tag
+  id: CyberneticJwlLeftArm
+
+- type: Tag
+  id: CyberneticJwlRightArm
+
+- type: Tag
+  id: CyberneticSpeedLeftLeg
+
+- type: Tag
+  id: CyberneticSpeedRightLeg
+
+- type: Tag
+  id: CyberneticDexLeftHand
+
+- type: Tag
+  id: CyberneticDexRightHand
+
+- type: Tag
+  id: EnhancedCyberneticEyes
+
+#MARK: Clothings
+- type: Tag
+  id: ClothingShoes
+
+- type: Tag
+  id: ClothingUniforms
+
+- type: Tag
+  id: ClothingHats
+
+- type: Tag
+  id: SterileMask
+
+- type: Tag
+  id: LatexGloves
+
+#MARK: Blueprints
+- type: Tag
+  id: BlueprintGoodsPacker
+
+- type: Tag
+  id: BlueprintCargoTechfab
+
+#MARK: Shipment crates
+- type: Tag
+  id: CrateSteelLid
+
+- type: Tag
+  id: CratePlasticLid
+
+- type: Tag
+  id: CrateEngineeringLid
+
+- type: Tag
+  id: CrateExperimentalLid
+
+- type: Tag
+  id: CrateSecurityLid
+
+- type: Tag
+  id: CrateArmoryLid
+
+#MARK: Shipment notices
+  #Engineering
+- type: Tag
+  id: NoticeEngineeringTools
+
+- type: Tag
+  id: NoticeEngineeringToolsAdvanced
+
+  #Generic
+- type: Tag
+  id: NoticeGenericTider
+
+- type: Tag
+  id: NoticeGenericUniforms
+
+  #Medical
+- type: Tag
+  id: NoticeMedicalSupplies
+
+- type: Tag
+  id: NoticeMedicalEmergency
+
+  #Surgical
+- type: Tag
+  id: NoticeSurgicalSuppliesAdvanced
+
+- type: Tag
+  id: NoticeSurgicalCyborg
+
+  #Security
+- type: Tag
+  id: NoticeSecuritySupplies
+
+- type: Tag
+  id: NoticeSecurityAmmo
+
+  #Armory
+- type: Tag
+  id: NoticeArmoryLasers
+
+- type: Tag
+  id: NoticeArmoryAmmoAdvanced
+
+  #Science
+- type: Tag
+  id: NoticeScienceAnomaly
+
+- type: Tag
+  id: NoticeScienceWorkstation
+
+  #Experimental
+- type: Tag
+  id: NoticeExperimentalMaterialsAdvanced
+
+- type: Tag
+  id: NoticeExperimentalGeological

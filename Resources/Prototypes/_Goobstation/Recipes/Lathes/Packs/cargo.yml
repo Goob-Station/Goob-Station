@@ -20,6 +20,24 @@
   recipes:
   - SeismicCharge
 
+- type: latheRecipePack
+  id: RecipePackShipmentCratesStatic
+  recipes:
+  - RecipeCrateShipmentGenericBase
+  - RecipeCrateShipmentGenericLid
+  - RecipeCrateShipmentPlasticLid
+  - RecipeCrateShipmentMedicalBase
+  - RecipeCrateShipmentScienceBase
+- type: latheRecipePack
+  id: RecipePackShipmentNoticesStatic
+  recipes:
+  - RecipeShipmentNoticeGenericTider
+  - RecipeShipmentNoticeGenericUniforms
+  - RecipeShipmentNoticeMedicalSupplies
+  - RecipeShipmentNoticeMedicalEmergency
+  - RecipeShipmentNoticeScienceAnomaly
+  - RecipeShipmentNoticeScienceWorkstation
+
 ## Dynamic
 - type: latheRecipePack
   id: MiningWeapons

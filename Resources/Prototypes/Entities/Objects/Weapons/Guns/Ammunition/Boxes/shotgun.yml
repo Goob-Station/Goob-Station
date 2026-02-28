@@ -33,7 +33,7 @@
   id: AmmoProviderShotgunShell
   abstract: true
   components:
-    # Goobstation edit start
+   # Goobstation edit start
     - type: EmitSoundOnPickup
       sound:
         path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
@@ -43,7 +43,7 @@
     - type: EmitSoundOnLand
       sound:
         path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
-    # Goobstation edit end
+   # Goobstation edit end
     - type: Sprite
       sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
     - type: BallisticAmmoProvider
@@ -88,6 +88,9 @@
       - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: lethal
+    - type: Tag
+      tags:
+      - AmmoBox12GaugeBase # Goobstation
 
 - type: entity
   name: ammunition box (12 Gauge slug) # Goob edit
@@ -137,6 +140,9 @@
       - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: incendiary
+    - type: Tag
+      tags:
+      - AmmoBox12GaugeIncendiary # Goobstation
 
 - type: entity
   name: ammunition box (12 Gauge uranium) # Goob edit
@@ -156,6 +162,9 @@
       - state: mag-alt-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: uranium
+    - type: Tag
+      tags:
+      - AmmoBox12GaugeUranium # Goobstation
 
 - type: entity
   name: ammunition box (12 Gauge practice) # Goob edit

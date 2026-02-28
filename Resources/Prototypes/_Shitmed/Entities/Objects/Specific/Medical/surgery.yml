@@ -102,6 +102,9 @@
           params:
             variation: 0.125
             volume: -5
+  - type: Tag
+    tags:
+    - SurgicalEnergyScalpel # Goobstation
 
 - type: entity
   name: power pinches
@@ -166,6 +169,9 @@
           params:
             variation: 0.125
             volume: -5
+  - type: Tag
+    tags:
+    - SurgicalAdvancedRetractor # Goobstation
 
 - type: entity
   name: energy stapler
@@ -226,6 +232,9 @@
           params:
             variation: 0.125
             volume: -5
+  - type: Tag
+    tags:
+    - SurgicalEnergyCautery # Goobstation
 
 - type: entity
   name: bone multitool
@@ -285,6 +294,9 @@
           params:
             variation: 0.125
             volume: -5
+  - type: Tag
+    tags:
+    - SurgicalAdvancedBoneGel # Goobstation
 
 - type: entity
   name: surgical omnitool

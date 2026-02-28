@@ -1,0 +1,491 @@
+#MARK: Licenses >>
+- type: entity
+  parent: BaseItem
+  id: BaseBlueprintCargoLicense
+  description: A license to allow production of shipment crate assemblies. Can be inserted into a cargo techfab to allow production of license receipts.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/cargo_licenses.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Blueprint
+  - type: Tag
+    tags:
+    - BlueprintCargoTechfab
+
+#MARK: Engineering
+- type: entity
+  parent: BaseBlueprintCargoLicense
+  id: BlueprintCargoLicenseEngineering
+  name: engineering shipment license
+  components:
+  - type: Blueprint
+    providedRecipes:
+    #Receipts
+    - RecipeBlueprintCargoLicenseReceiptEngineering
+    #Shipment Notices
+    - RecipeShipmentNoticeEngineeringTools
+  - type: Sprite
+    state: icon-engineering
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 5000
+
+#MARK: Adv Engineering
+- type: entity
+  parent: BaseBlueprintCargoLicense
+  id: BlueprintCargoLicenseEngineeringAdvanced
+  name: advanced engineering shipment license
+  components:
+  - type: Blueprint
+    providedRecipes:
+    #Shipment Notices
+    - RecipeShipmentNoticeEngineeringToolsAdvanced
+  - type: Sprite
+    state: icon-engineering
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Surgical
+- type: entity
+  parent: BaseBlueprintCargoLicense
+  id: BlueprintCargoLicenseSurgical
+  name: surgical shipment license
+  components:
+  - type: Blueprint
+    providedRecipes:
+    #Receipts
+    - RecipeBlueprintCargoLicenseReceiptSurgical
+    #Shipment Notices
+    - RecipeShipmentNoticeSurgicalSuppliesAdvanced
+    - RecipeShipmentNoticeSurgicalCyborg
+  - type: Sprite
+    state: icon-surgical
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Experimental
+- type: entity
+  parent: BaseBlueprintCargoLicense
+  id: BlueprintCargoLicenseExperimental
+  name: experimental shipment license
+  components:
+  - type: Blueprint
+    providedRecipes:
+    #Receipts
+    - RecipeBlueprintCargoLicenseReceiptExperimental
+    #Shipment Notices
+    - RecipeShipmentNoticeExperimentalMaterialsAdvanced
+    - RecipeShipmentNoticeExperimentalGeological
+  - type: Sprite
+    state: icon-experimental
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#FFA500"
+      right:
+      - state: inhand-right
+        color: "#FFA500"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Security
+- type: entity
+  parent: BaseBlueprintCargoLicense
+  id: BlueprintCargoLicenseSecurity
+  name: security shipment license
+  components:
+  - type: Blueprint
+    providedRecipes:
+    #Receipts
+    - RecipeBlueprintCargoLicenseReceiptSecurity
+    #Shipment Notices
+    - RecipeShipmentNoticeSecuritySupplies
+    - RecipeShipmentNoticeSecurityAmmo
+  - type: Sprite
+    state: icon-security
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#8B0000"
+      right:
+      - state: inhand-right
+        color: "#8B0000"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Armory
+- type: entity
+  parent: BaseBlueprintCargoLicense
+  id: BlueprintCargoLicenseArmory
+  name: armory shipment license
+  components:
+  - type: Blueprint
+    providedRecipes:
+    #Receipts
+    - RecipeBlueprintCargoLicenseReceiptArmory
+    #Shipment Notices
+    - RecipeShipmentNoticeArmoryLasers
+    - RecipeShipmentNoticeArmoryAmmoAdvanced
+  - type: Sprite
+    state: icon-armory
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#8B0000"
+      right:
+      - state: inhand-right
+        color: "#8B0000"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Receipts >>
+- type: entity
+  parent: BaseItem
+  id: BaseBlueprintCargoLicenseReceipt
+  description: A license to allow production of shipment crate assemblies. Can be inserted into a goods packer to start producing the shipments.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/cargo_license_receipts.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Blueprint
+  - type: Tag
+    tags:
+    - BlueprintGoodsPacker
+
+#MARK: Engineering
+- type: entity
+  parent: BaseBlueprintCargoLicenseReceipt
+  id: BlueprintCargoLicenseReceiptEngineering
+  name: engineering shipment license receipt
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - RecipeCrateShipmentEngineeringBase
+    - RecipeCrateShipmentEngineeringLid
+  - type: Sprite
+    state: icon-engineering
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Security
+- type: entity
+  parent: BaseBlueprintCargoLicenseReceipt
+  id: BlueprintCargoLicenseReceiptSecurity
+  name: security shipment license receipt
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - RecipeCrateShipmentSecurityBase
+    - RecipeCrateShipmentSecurityLid
+  - type: Sprite
+    state: icon-security
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Armory
+- type: entity
+  parent: BaseBlueprintCargoLicenseReceipt
+  id: BlueprintCargoLicenseReceiptArmory
+  name: armory shipment license receipt
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - RecipeCrateShipmentArmoryBase
+    - RecipeCrateShipmentArmoryLid
+  - type: Sprite
+    state: icon-armory
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Surgical
+- type: entity
+  parent: BaseBlueprintCargoLicenseReceipt
+  id: BlueprintCargoLicenseReceiptSurgical
+  name: surgical shipment license receipt
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - RecipeCrateShipmentSurgicalBase
+  - type: Sprite
+    state: icon-surgical
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Experimental
+- type: entity
+  parent: BaseBlueprintCargoLicenseReceipt
+  id: BlueprintCargoLicenseReceiptExperimental
+  name: experimental shipment license receipt
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - RecipeCrateShipmentExperimentalBase
+    - RecipeCrateShipmentExperimentalLid
+  - type: Sprite
+    state: icon-experimental
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3c656"
+      right:
+      - state: inhand-right
+        color: "#e3c656"
+  - type: StaticPrice
+    price: 10000
+
+#MARK: Notices >>
+- type: entity
+  name: shipment notice
+  parent: BaseItem
+  abstract: true
+  id: BaseShipmentNotice
+  description: "A notice to start completion of a shipment order"
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper
+  - type: Tag
+    tags:
+    - Paper
+
+#MARK: Engineering
+- type: entity
+  name: engineering tools shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeEngineeringTools
+  components:
+  - type: Sprite
+    color: "#FFBF00"
+  - type: Tag
+    tags:
+    - NoticeEngineeringTools
+
+#MARK: Adv Engineering
+- type: entity
+  name: engineering advanced tools shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeEngineeringToolsAdvanced
+  components:
+  - type: Sprite
+    color: "#FFBF00"
+  - type: Tag
+    tags:
+    - NoticeEngineeringToolsAdvanced
+
+#MARK: Generic
+- type: entity
+  name: tiding gears shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeGenericTider
+  components:
+  - type: Tag
+    tags:
+    - NoticeGenericTider
+
+- type: entity
+  name: uniforms shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeGenericUniforms
+  components:
+  - type: Tag
+    tags:
+    - NoticeGenericUniforms
+
+#MARK: Medical
+- type: entity
+  name: medical supplies shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeMedicalSupplies
+  components:
+  - type: Sprite
+    color: "#00FFFF"
+  - type: Tag
+    tags:
+    - NoticeMedicalSupplies
+
+- type: entity
+  name: medical emergency shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeMedicalEmergency
+  components:
+  - type: Sprite
+    color: "#00FFFF"
+  - type: Tag
+    tags:
+    - NoticeMedicalEmergency
+
+#MARK: Surgical
+- type: entity
+  name: advanced surgical supplies shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeSurgicalSuppliesAdvanced
+  components:
+  - type: Sprite
+    color: "#00FFFF"
+  - type: Tag
+    tags:
+    - NoticeSurgicalSuppliesAdvanced
+
+- type: entity
+  name: cyborg kit shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeSurgicalCyborg
+  components:
+  - type: Sprite
+    color: "#00FFFF"
+  - type: Tag
+    tags:
+    - NoticeSurgicalCyborg
+
+#MARK: Security
+- type: entity
+  name: security supplies shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeSecuritySupplies
+  components:
+  - type: Sprite
+    color: "#D22B2B"
+  - type: Tag
+    tags:
+    - NoticeSecuritySupplies
+
+- type: entity
+  name: ammunition shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeSecurityAmmo
+  components:
+  - type: Sprite
+    color: "#D22B2B"
+  - type: Tag
+    tags:
+    - NoticeSecurityAmmo
+
+#MARK: Armory
+- type: entity
+  name: laser weaponry shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeArmoryLasers
+  components:
+  - type: Sprite
+    color: "#D22B2B"
+  - type: Tag
+    tags:
+    - NoticeArmoryLasers
+
+- type: entity
+  name: advanced ammunition shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeArmoryAmmoAdvanced
+  components:
+  - type: Sprite
+    color: "#D22B2B"
+  - type: Tag
+    tags:
+    - NoticeArmoryAmmoAdvanced
+
+#MARK: Science
+- type: entity
+  name: anomaly research kit shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeScienceAnomaly
+  components:
+  - type: Sprite
+    color: "#702963"
+  - type: Tag
+    tags:
+    - NoticeScienceAnomaly
+
+- type: entity
+  name: workstation shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeScienceWorkstation
+  components:
+  - type: Sprite
+    color: "#702963"
+  - type: Tag
+    tags:
+    - NoticeScienceWorkstation
+
+#MARK: Experimental
+- type: entity
+  name: advanced material analysis shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeExperimentalMaterialsAdvanced
+  components:
+  - type: Sprite
+    color: "#702963"
+  - type: Tag
+    tags:
+    - NoticeExperimentalMaterialsAdvanced
+
+- type: entity
+  name: geological analysis shipment notice
+  parent: BaseShipmentNotice
+  id: ShipmentNoticeExperimentalGeological
+  components:
+  - type: Sprite
+    color: "#702963"
+  - type: Tag
+    tags:
+    - NoticeExperimentalGeological

@@ -137,6 +137,9 @@
       stackRequirements:
         Manipulator: 4
         Glass: 1
+    - type: Tag
+      tags:
+        - AutolatheBoard # Goobstation
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -170,6 +173,9 @@
       GlassBeaker:
         amount: 2
         defaultPrototype: Beaker
+  - type: Tag
+    tags:
+      - ProtolatheBoard # Goobstation
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -269,6 +275,9 @@
       GlassBeaker:
         amount: 2
         defaultPrototype: Beaker
+  - type: Tag
+    tags:
+      - ImprinterBoard # Goobstation
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -305,6 +314,9 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: Tag
+    tags:
+      - ExofabBoard # Goobstation
 
 # yes i know this prototype name is long i'm just following conventions
 - type: entity
@@ -1227,6 +1239,9 @@
     stackRequirements:
       Manipulator: 3
       Steel: 1
+  - type: Tag
+    tags:
+      - FlatpackerBoard # Goobstation
 
 - type: entity
   id: EmitterCircuitboard

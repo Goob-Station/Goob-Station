@@ -522,7 +522,9 @@
     fireCost: 50 # Goobstation
   - type: Item
     size: Large
-
+  - type: Tag
+    tags:
+    - LaserCarbine # Goobstation
 
 - type: entity
   name: pulse pistol
@@ -704,6 +706,7 @@
     tags:
     - TurretCompatibleWeapon
     - Rifle # Goobstation
+    - LaserCannon # Goobstation
   - type: Item # Goobstation
     size: Huge
     shape:
@@ -786,6 +789,7 @@
   - type: Tag
     tags:
     - Rifle
+    - XrayCannon # Goobstation
   - type: Item
     size: Huge
     shape:
