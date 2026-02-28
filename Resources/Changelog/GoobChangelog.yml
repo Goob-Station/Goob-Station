@@ -21599,3 +21599,13 @@ Entries:
       message: More codewords.
   id: 2458
   time: '2026-02-28T22:25:10.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Capoeira push kick reworked, check the guidebook.
+    - type: Fix
+      message: >-
+        Capoeira sweep kick now properly increases grab speed instead of
+        reducing it.
+  id: 2459
+  time: '2026-02-28T22:28:20.0000000+00:00'
