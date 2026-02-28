@@ -11,24 +11,42 @@ public enum GpsUiKey
 }
 
 [Serializable, NetSerializable]
-public sealed class GpsEntry
+public sealed class GpsEntry(
+    NetEntity netEntity,
+    string? name,
+    EntProtoId? prototypeId,
+    bool isDistress,
+    Color color,
+    MapCoordinates coordinates)
+    : IEquatable<GpsEntry>
 {
-    public NetEntity NetEntity;
-    public string? Name;
-    public EntProtoId? PrototypeId;
-    public bool IsDistress;
-    public Color Color;
-    public MapCoordinates Coordinates;
+    public readonly NetEntity NetEntity = netEntity;
+    public readonly string? Name = name;
+    public readonly EntProtoId? PrototypeId = prototypeId;
+    public readonly bool IsDistress = isDistress;
+    public readonly Color Color = color;
+    public readonly MapCoordinates Coordinates = coordinates;
 
+    // We compare only some stuff, since this comparer is used only to
+    // update the entries and not the compass. Beware of the shitcode that was written to
+    // satisfy the LINQ gods!!!
     public bool Equals(GpsEntry? other)
     {
-        // We compare only some stuff, since this comparer is used only to
-        // update the entries and not the compass.
         return !(NetEntity != other?.NetEntity
                 || Name != other.Name
                 || PrototypeId != other.PrototypeId
                 || IsDistress != other.IsDistress
                 || Color != other.Color);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return ReferenceEquals(this, obj) || obj is GpsEntry other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(NetEntity, Name, PrototypeId, IsDistress, Color);
     }
 }
 

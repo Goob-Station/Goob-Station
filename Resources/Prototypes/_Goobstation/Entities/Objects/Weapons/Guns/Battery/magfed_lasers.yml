@@ -3,11 +3,12 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# ER-5 Torrent SMG
 - type: entity
   name: ER-5 Torrent
   parent: [ BaseWeaponCustomCell, BaseSecurityContraband ]
   id: WeaponLaserCellSMG
-  description: A high-tech laser SMG, compatible with specialized SMG power cells.
+  description: A specialized laser SMG, designed to put down suppressive fire through cover and be reloaded on the fly. Takes SMG power cells.
   components:
   - type: Item
     size: Large
@@ -59,22 +60,23 @@
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_smg.ogg
   - type: AmmoCounter
 
-
+# ES-7 Multilens Sniper Rifle
 - type: entity
   name:  ES-7 Multilens
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponLaserCellSniper
-  description: A high-tech burst laser sniper rifle, compatible with specialized sniper power cells.
+  description: A burst-fire laser sniper rifle that retains its power across extreme distances. Fitted with a standard magnifying scope. Takes sniper power cells.
   components:
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
     size: Huge
     shape:
     - 0,0,6,1
   - type: Gun
-    burstFireRate: 10
+    burstFireRate: 15
     shotsPerBurst: 3
-    burstCooldown: 0.8
-    fireRate: 0.8
+    burstCooldown: 1.5
+    fireRate: 1.5
     lockOnTargetBurst: true
     selectedMode: Burst
     availableModes:
@@ -89,7 +91,7 @@
           tags:
           - MilitaryPowerCellSniper
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper_icon_48x.rsi
     layers:
     - state: icon
       visible: false
@@ -126,12 +128,12 @@
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
   - type: AmmoCounter
 
-
+# EG-1 Taro Revolver
 - type: entity
   name: EG-1 Taro
   parent: [ BaseWeaponCustomCellSmall, BaseSecurityContraband ]
   id: WeaponLaserCellRevolver
-  description: A high-tech laser revolver, compatible with specialized revolver power cells.
+  description: Originally designed as a sidearm for NanoTrasen security teams, the Taro is an obscure break action laser revolver platform. It was quickly scrapped due to an annoying firerate cap included to prevent overheating. Takes revolver power cells.
   components:
   - type: Item
     size: Small
@@ -200,15 +202,15 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: AmmoCounter
 
-
+# EL-20 HAMRR
 - type: entity
   name: EL-20 HAMRR
   parent: [BaseItem, BaseSecurityContraband]
   id: WeaponLaserLMG
-  description: A high-tech laser LMG, that draws power from specialized backpack.
+  description: An unwieldy laser LMG that draws power from its dedicated backpack storage rig. The compromises taken to allow for its overwhelming firerate and onboard cooling system make it both heavy and inaccurate.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg_icon_48x.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -216,18 +218,19 @@
       shader: unshaded
       map: ["enum.GunVisualLayers.BaseUnshaded"]
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
     size: Huge
     shape:
     - 0,0,4,3
   - type: Wieldable
   - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -20
+    minAngle: -15
+    maxAngle: -15
   - type: Gun
-    minAngle: 24
-    maxAngle: 45
-    angleIncrease: 4
-    angleDecay: 16
+    minAngle: 50
+    maxAngle: 20
+    angleIncrease: -5
+    angleDecay: -80
     fireRate: 10
     selectedMode: FullAuto
     availableModes:

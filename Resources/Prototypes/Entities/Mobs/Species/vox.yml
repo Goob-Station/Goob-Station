@@ -148,7 +148,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Bagawk']
+    allowedEmotes: ['Bagawk','Click','Chitter','Hiss','Caw']
   - type: TypingIndicator
     proto: vox
   - type: Vocal
@@ -369,6 +369,7 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  - type: Wagging
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
       - TauCetiBasic

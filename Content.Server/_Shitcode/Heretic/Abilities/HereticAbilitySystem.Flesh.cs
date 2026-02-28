@@ -11,7 +11,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
@@ -19,8 +18,10 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cloning;
 using Content.Shared.Coordinates;
@@ -295,7 +296,7 @@ public sealed partial class HereticAbilitySystem
         {
             var time = knockdownStartEnd.Value.Item2 - Timing.CurTime;
             if (time > TimeSpan.Zero)
-                _stun.TryKnockdown(clone.Value, time, true, DropHeldItemsBehavior.NoDrop);
+                _stun.TryKnockdown(clone.Value, time, true, true, false);
         }
 
         var damage = EnsureComp<DamageOverTimeComponent>(clone.Value);

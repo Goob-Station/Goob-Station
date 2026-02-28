@@ -35,25 +35,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon # We do a little bit of trolling.
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
-        Radiation: 0.75
-        Caustic: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
 
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
@@ -69,25 +50,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
-        Radiation: 0.75
-        Caustic: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
 
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
@@ -103,25 +65,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
-        Radiation: 0.75
-        Caustic: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
 
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
@@ -137,25 +80,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon # We do a little bit of trolling.
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
-        Radiation: 0.75
-        Caustic: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
 
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
@@ -171,25 +95,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
-        Radiation: 0.75
-        Caustic: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
 
 - type: entity
   parent: [ClothingHeadBase, BaseFoldable, BaseCentcommContraband]
@@ -215,25 +120,6 @@
     - state: icon-up
       map: ["foldedLayer"]
       visible: false
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
-        Radiation: 0.75
-        Caustic: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
 
 - type: entity
   parent: ClothingHeadBase
@@ -379,6 +265,20 @@
     - HamsterWearable
 
 - type: entity
+  parent: ClothingHeadHatCapcap
+  id: ClothingHeadHatCapcapSenior
+  name: cap cap senior
+  description: A grand, stylish cap worn by the Seniors Captains. Shows the station who's in charge.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
+  - type: Item
+    sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
+    
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTinfoilHat
   name: tinfoil hat
@@ -395,3 +295,14 @@
   - type: ClothingGrantComponent
     component:
       - type: PossessionImmune
+
+- type: entity
+  parent: ClothingHeadHatCentcomcap
+  id: ClothingHeadHatOuterCommandcap
+  name: outer command cap
+  description: Purple gilded cap with Terra-Gov insignia.
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/outcommcap.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/outcommcap.rsi

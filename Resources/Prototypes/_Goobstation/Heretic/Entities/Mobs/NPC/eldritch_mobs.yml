@@ -114,13 +114,12 @@
     description: ghostrole-stalker-desc
     mindRoles:
     - MindRoleGhoul
-  - type: ActionsProvider
+  - type: ActionGrant
     actions:
     - ActionHereticJaunt
     # basically an EMP implant. don't feel like making 1 more emp action
     - ActionActivateEmpImplant
-    - ActionHereticShapeshift
-  - type: TriggerImplantAction
+  - type: TriggerOnActivateImplant
   - type: EmpOnTrigger
     range: 5
     energyConsumption: 50000
@@ -171,7 +170,7 @@
     description: ghostrole-prophet-desc
     mindRoles:
     - MindRoleGhoul
-  - type: ActionsProvider
+  - type: ActionGrant
     actions:
     - ActionHereticJauntLong
     - ActionHereticMansusLink
@@ -279,7 +278,7 @@
     noMovementLayers:
       movement:
         state: rust_walker
-  - type: ActionsProvider
+  - type: ActionGrant
     actions:
     - ActionHereticAggressiveSpread
     - ActionHereticRustWave
