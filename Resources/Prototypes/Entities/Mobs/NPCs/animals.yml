@@ -2074,7 +2074,7 @@
     allowedEmotes: ['Squeak']
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: Mobs/Animals/mouse.rsi
+    sprite: Mobs/Animals/mouse/mouse.rsi # Goobstation mouse displacement map
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-0
@@ -2090,7 +2090,7 @@
     heldPrefix: 0
   - type: Clothing
     quickEquip: false
-    sprite: Mobs/Animals/mouse.rsi
+    sprite: Mobs/Animals/mouse/mouse.rsi # Goobstation - mouse displacement map
     equippedPrefix: 0
     slots:
     - HEAD
@@ -2294,6 +2294,21 @@
       tags:
       - Mouse
   - type: MobCallable
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: mouse
+    templateId: mouse
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mouse/displacement.rsi
+            state: head
   # </Goobstation>
 
 - type: entity

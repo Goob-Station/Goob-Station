@@ -611,7 +611,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = mouseName,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Animals/mouse.rsi"), "icon-0"),
+            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Animals/mouse/mouse.rsi"), "icon-0"), // Goobstation
             Act = () =>
             {
                 _polymorphSystem.PolymorphEntity(args.Target, "AdminMouseSmite");
