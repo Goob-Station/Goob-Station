@@ -391,3 +391,126 @@
   - type: ContainerContainer
     containers:
       crate_storage: !type:Container
+
+
+- type: entity
+  id: BaseEnvironmentVehicle
+  parent: BaseVehicle
+  abstract: true
+  save: false
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AirFilter # Copypaste major
+    # everything except oxygen and nitrogen
+    gases:
+    - CarbonDioxide
+    - Plasma
+    - Tritium
+    - WaterVapor
+    - Ammonia
+    - NitrousOxide
+    - Frezon
+    #- Helium3 TODO: fusion
+    # healium not included for ADVANCED trolling 
+    - BZ
+    - Nitrium
+    # remove everything except oxygen to maintain oxygen ratio
+    overflowGases:
+    - Nitrogen
+    - CarbonDioxide
+    - Plasma
+    - Tritium
+    - WaterVapor
+    - Ammonia
+    - NitrousOxide
+    - Frezon
+    #- Helium3 TODO: fusion
+    # <Goobstation>
+    - BZ
+    - Healium
+    - Nitrium
+    - Pluoxium
+  - type: AirIntake
+  # for intake and filter to work
+  - type: AtmosDevice
+    requireAnchored: false
+    joinSystem: true
+  - type: VehicleEnvironment
+    requireTank: true
+
+- type: entity
+  id: CritterBall
+  parent: BaseEnvironmentVehicle
+  name: critter ball
+  description: A composite-glass sphere to safely store small animals in case of spacing, or a low oxygen environment. Additionally, it has storage for a air tank, and ID card for those VIP pets.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+    layers:
+    - state: vehicle
+    noRot: true
+    drawdepth: OverMobs
+  - type: Vehicle
+    requiredHands: 0
+    engineRunning: true
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
+  - type: MovementSpeedModifier
+    baseAcceleration: 1
+    baseFriction: 0.1 # Very slippery
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 6.5
+  - type: StaticPrice
+    price: 100
+  - type: PhysicalComposition
+    materialComposition: # Returns about half the used construction materials
+      Plastic: 100
+      Glass: 200
+      Steel: 100
+  - type: Strap
+    buckleOnInteractHand: false
+    selfUnBuckleDelay: 2
+    whitelist:
+      tags:
+        - VimPilot  # Small creatures only
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    templateId: critterball
+    displacements:
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+            state: equipped-SUITSTORAGE
+      id:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+            state: equipped-IDCARD
+  - type: Construction
+    graph: CritterBallGraph
+    node: end
+  - type: VehicleEnvironment
+    requireTank: true
+  - type: Item
+    sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+    size: Large
+    shape:
+    - 0,0,2,2
+
+- type: entity
+  parent: BaseItem
+  id: CritterBallUnfinished
+  name: unfinished critter ball
+  description: A future ride for your small critters, but for now it's just a mess of plastic and reinforced glass.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+    state: unfinished
+  - type: Construction
+    graph: CritterBallGraph
+    node: unfinished
