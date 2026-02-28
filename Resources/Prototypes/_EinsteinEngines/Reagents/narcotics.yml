@@ -31,12 +31,12 @@
         emote: Yawn
         showInChat: true
         probability: 0.03
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        component: Drowsiness
-        time: 2.5
-        type: Add
-        refresh: false
+      - !type:Drunk # goob edit - replace drowsiness
+        boozePower: 4
+        slurSpeech: false
+      - !type:MovespeedModifier # goob edit - replace drowsiness
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
       - !type:SuppressPain
         amount: 50
         time: 30

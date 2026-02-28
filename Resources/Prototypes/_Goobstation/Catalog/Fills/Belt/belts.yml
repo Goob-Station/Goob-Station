@@ -36,7 +36,8 @@
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
-      - id: EmergencyMedipen
+#      - id: EmergencyMedipen
+      - id: PainMedipen
 
 - type: entity
   parent: [ ClothingBeltDeathsquadWebbing, BaseCentcommContraband ]
