@@ -1,0 +1,209 @@
+# =========================================================
+# BLACK TERROR — Poison
+# =========================================================
+- type: entity
+  id: TerrorSpiderBlack
+  parent: TerrorSpiderBaseT1
+  name: black terror spider
+  description: An ominous-looking spider, black as the darkest night. It has merciless eyes, and a blood-red hourglass pattern on its back.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: widow
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: widow
+      Dead:
+        Base: widow_dead
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin # Change this to black venom maybe but like it doesn't do anything special.
+          Quantity: 1000
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 0.2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-black-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+  - type: ActionGrant
+    actions:
+      - ActionTerrorPoisonWeb
+
+# =========================================================
+# WHITE TERROR — Egg Injector
+# =========================================================
+- type: entity
+  id: TerrorSpiderWhite
+  parent: TerrorSpiderBaseT1
+  name: white terror spider
+  description: An ominous-looking white spider, its ghostly eyes and vicious-looking fangs are the stuff of nightmares.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: white
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: white
+      Dead:
+        Base: white_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-white-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: WhiteTerror
+  - type: ActionGrant
+    actions:
+      - ActionTerrorInfestedWeb
+
+# =========================================================
+# PURPLE TERROR — Nest Guard
+# =========================================================
+- type: entity
+  id: TerrorSpiderPurple
+  parent: TerrorSpiderBaseT1
+  name: purple terror spider
+  description: An ominous-looking purple spider. It looks about warily, as if waiting for something.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: purple
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: purple
+      Dead:
+        Base: purple_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.4
+    baseSprintSpeed: 3.4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 25
+      types:
+        Structural: 100
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: BerserkerRage
+  - type: PurpleTerror
+  - type: ActionGrant
+    actions:
+      - ActionTerrorThickWeb
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-purple-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+# =========================================================
+# BROWN TERROR — Breacher
+# =========================================================
+- type: entity
+  id: TerrorSpiderBrown
+  parent: TerrorSpiderBaseT1
+  name: brown terror spider
+  description: An ominous-looking spider, colored brown like the dirt it crawled out of. Its forearms have sharp digging claws.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: brown
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: brown
+      Dead:
+        Base: brown_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 30
+      types:
+        Structural: 300
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 5 # Brown spooder is literally made for this shiet
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: TerrorVentSmash
+  - type: ActionGrant
+    actions:
+      - ActionTerrorVentSmash
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-brown-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
