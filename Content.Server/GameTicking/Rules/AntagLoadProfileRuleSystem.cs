@@ -18,6 +18,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
+using System.Numerics; // Goobstation
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -26,6 +27,7 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _sharedHumanoid = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -60,5 +62,14 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
 
         args.Entity = Spawn(species.Prototype);
         _humanoid.LoadProfile(args.Entity.Value, profile?.WithSpecies(species.ID));
+
+        // Goobstation start - Make entities spawn at max size for their species
+        if (ent.Comp.ForceMaxSize
+            && TryComp<HumanoidAppearanceComponent>(args.Entity.Value, out var humanoid))
+        {
+            var maxScale = new Vector2(species.MaxWidth, species.MaxHeight);
+            _sharedHumanoid.SetScale(args.Entity.Value, maxScale, true, humanoid);
+        }
+        // Goobstation end
     }
 }

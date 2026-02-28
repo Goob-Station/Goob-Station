@@ -166,7 +166,7 @@ public abstract partial class SharedBuckleSystem
             var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.BuckleDoafterTime, new BuckleDoAfterEvent(), args.Dragged, args.Dragged, uid)
             {
                 BreakOnMove = true,
-                BreakOnDamage = true,
+                BreakOnDamage = component.BuckleBreakOnDamage, // Goobstation true to component
                 AttemptFrequency = AttemptFrequency.EveryTick
             };
 
