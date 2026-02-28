@@ -1,0 +1,6 @@
+- type: antag
+  id: ImmortalSnail
+  name: roles-antag-immortal-snail-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-immortal-snail-objective

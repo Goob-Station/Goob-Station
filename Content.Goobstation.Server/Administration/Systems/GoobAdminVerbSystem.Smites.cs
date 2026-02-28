@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading;
+using Content.Goobstation.Server.ImmortalSnail;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Administration;
@@ -17,6 +18,8 @@ namespace Content.Goobstation.Server.Administration.Systems;
 
 public sealed partial class GoobAdminVerbSystem
 {
+    [Dependency] private readonly ImmortalSnailRuleSystem _snailRule = default!;
+
     private void AddSmiteVerbs(GetVerbsEvent<Verb> args)
     {
         if (!SmitesAllowed(args))
@@ -37,6 +40,21 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-smite-thunderstrike-desc"),
         };
         args.Verbs.Add(thunder);
+
+        var snailName = Loc.GetString("admin-smite-snail-name").ToLowerInvariant();
+        Verb snail = new()
+        {
+            Text = snailName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Rsi(new ("/Textures/_Goobstation/Mobs/Animals/snail_clown.rsi"), "snail"),
+            Act = () =>
+            {
+                _snailRule.SpawnSnailSmite(args.Target);
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", snailName, Loc.GetString("admin-smite-snail-description")),
+        };
+        args.Verbs.Add(snail);
     }
 
     private bool SmitesAllowed(GetVerbsEvent<Verb> args)

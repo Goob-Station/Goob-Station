@@ -207,3 +207,32 @@
     - sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
       state: icon
   - type: MaintsSpawnLocation
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostImmortalSnail
+  components:
+  - type: GhostRole
+    name: immortal-snail-role-name
+    description: immortal-snail-role-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleImmortalSnail
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SpawnPointGhostImmortalSnail
+  id: SpawnPointGhostImmortalSnailSmite
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobImmortalSnail
