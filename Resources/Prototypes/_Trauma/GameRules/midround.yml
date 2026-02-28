@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseGameRule
   id: ShadowDemonSummon
   components:

@@ -1,4 +1,4 @@
-﻿ghost-role-information-shadow-demon-name = Shadow Demon
+ghost-role-information-shadow-demon-name = Shadow Demon
 ghost-role-information-shadow-demon-description = The darkness needs a King, and you got summoned to wear the crown.
 ghost-role-information-shadow-demon-rules =
     As a shadow demon, your task is to cause as much chaos as possible,

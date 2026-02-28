@@ -1,4 +1,4 @@
-﻿using Content.Shared.Roles.Components;
+using Content.Shared.Roles.Components;
 
 namespace Content.Trauma.Shared.Roles;
 

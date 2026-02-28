@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostShadowDemon

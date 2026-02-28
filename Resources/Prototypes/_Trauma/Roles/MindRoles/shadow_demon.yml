@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseMindRoleAntag
   id: MindRoleShadowDemon
   name: Shadow Demon Role

@@ -1,4 +1,4 @@
-﻿- type: damageModifierSet
+- type: damageModifierSet
   id: ShadowDemon
   coefficients:
     Blunt: 0.5
