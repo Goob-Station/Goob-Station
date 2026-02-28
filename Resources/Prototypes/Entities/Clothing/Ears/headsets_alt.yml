@@ -130,7 +130,7 @@
     sprite: Clothing/Ears/Headsets/cargo.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
+  parent: [ClothingHeadsetAlt, BaseCentcommCommandContraband] # Goobstation
   id: ClothingHeadsetAltCentCom
   name: CentComm over-ear headset
   components:
