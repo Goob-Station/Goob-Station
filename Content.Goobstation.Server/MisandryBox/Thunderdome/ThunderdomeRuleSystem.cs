@@ -1,10 +1,12 @@
+using System.Linq;
 using Content.Goobstation.Shared.MisandryBox.Thunderdome;
+using Content.Server.Destructible;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
-using Content.Server.GameTicking.Events;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Ghost.Roles.Components;
+using Content.Server.Ghost;
 using Content.Server.Mind;
+using Content.Server.Popups;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking;
@@ -12,18 +14,26 @@ using Content.Shared.Ghost;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Item;
 using Content.Server.Preferences.Managers;
+using Content.Shared.Destructible;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Preferences;
-using Robust.Server.GameObjects;
+using Robust.Server.Audio;
+using Robust.Server.GameStates;
 using Robust.Server.Player;
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.MisandryBox.Thunderdome;
 
@@ -41,6 +51,12 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+
+
 
     private const string RulePrototype = "ThunderdomeRule";
     private EntityUid? _ruleEntity;
@@ -58,6 +74,8 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomePlayerComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, MobStateChangedEvent>(OnOriginalBodyStateChanged);
         SubscribeNetworkEvent<ThunderdomeRevivalAcceptEvent>(OnRevivalAccept);
+        SubscribeLocalEvent<ThunderdomePlayerComponent, SuicideGhostEvent>(OnSuicideAttempt);
+        //SubscribeLocalEvent<DestructibleComponent, DestructionAttemptEvent>(OnDestructionAttempt); //todo damage cancel for destruction
     }
 
     public override void Update(float frameTime)
@@ -115,6 +133,23 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         _ruleEntity = null;
     }
+
+    // todo this kinda works but still does damage triggers finish this later ig
+    /*
+    private void OnDestructionAttempt(EntityUid uid,
+        DestructibleComponent component,
+        ref DestructionAttemptEvent args)
+    {
+        if (_ruleEntity == null
+            || !TryComp<ThunderdomeRuleComponent>(_ruleEntity.Value, out var rule)
+            || !rule.Active)
+            return;
+        var xform = Transform(uid);
+        if (xform.GridUid == null
+            || !rule.ArenaGrids.Contains(xform.GridUid.Value))
+            return;
+        args.Cancel();
+    }*/
 
     private void OnGridsLoaded(EntityUid uid, ThunderdomeRuleComponent component, ref RuleLoadedGridsEvent args)
     {
@@ -192,15 +227,9 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             rule.Deaths[deadUserId] = existingDeaths + 1;
         }
 
-        rule.Players.Remove(GetNetEntity(uid));
-        var deathCoords = _transform.GetMapCoordinates(uid);
-        QueueDel(uid);
+        GhostDomePlayer(uid, component, rule, true);
 
-        if (mindId != default)
-        {
-            var ghost = Spawn("MobObserver", deathCoords);
-            _mind.TransferTo(mindId, ghost);
-        }
+        QueueDel(uid);
 
         BroadcastPlayerCount(rule);
     }
@@ -238,16 +267,94 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
                 marker.Owner = ownerId;
         }
 
-        _mind.TransferTo(mindId, mob);
-        rule.Players.Add(GetNetEntity(mob));
+        _mind.UnVisit(mindId, mindComp); // we are ghost, go to original
+        _mind.Visit(mindId, mob, mindComp); // original now visits new body
+        mindComp.PreventGhosting = true; // ghosting is wackier than suicide
 
-        if (ghostEntity.Valid && ghostEntity != mob)
-            QueueDel(ghostEntity);
+        rule.Players.Add(GetNetEntity(mob));
 
         _activeEuis.Remove(session);
 
         BroadcastPlayerCount(rule);
     }
+
+    private void CleanUpPlayer(EntityUid uid, ThunderdomePlayerComponent tdPlayer, ThunderdomeRuleComponent rule, bool playSound, SoundPathSpecifier sound)
+    {
+
+        if (!TryComp<VisitingMindComponent>(uid, out var visitingMind)
+            || visitingMind.MindId == null
+            || !_mind.TryGetMind(uid, out var mindId, out var mindComp)
+            || !_transform.TryGetMapOrGridCoordinates(uid, out var deathCoords))
+            return;
+
+        mindComp.PreventGhosting = false;
+        rule.Players.Remove(GetNetEntity(uid));
+
+        if (mindId != default)
+        {
+            var ghost = Spawn("MobObserver", deathCoords.Value);
+            _mind.MoveVisitingEntity(uid, ghost, visitingMind, mindComp); // we do ts so we dont have to unvisit then visit again and reload maps.
+
+            if (TryComp<GhostComponent>(ghost, out var ghostComp))
+                _ghost.SetCanReturnToBody((ghost, ghostComp), true);
+
+            _playerManager.TryGetSessionById(mindComp.UserId, out var session);
+            _playerManager.SetAttachedEntity(session, ghost);
+
+            // namesetting ugly but i cant use spawnghost due to transfer and i cba to make this a method
+            if (!string.IsNullOrWhiteSpace(mindComp.CharacterName))
+                _meta.SetEntityName(ghost, FormattedMessage.EscapeText(mindComp.CharacterName)); // Goob Sanitize Text
+            else if (mindComp.UserId is { } userId && _playerManager.TryGetSessionById(userId, out session))
+                _meta.SetEntityName(ghost, FormattedMessage.EscapeText(session.Name)); // Goob Sanitize Text
+        }
+        if (playSound) // admin erase sound default.
+        {
+            var name = Identity.Entity(uid, EntityManager);
+            _popup.PopupCoordinates(Loc.GetString("thunderdome-leave-01", ("user", name)),
+                deathCoords.Value,
+                PopupType.LargeCaution);
+            var filter = Filter.Pvs(deathCoords.Value, 1, EntityManager, _playerManager);
+            var audioParams = new AudioParams().WithVolume(3);
+            _audio.PlayStatic(sound, filter, deathCoords.Value, true, audioParams);
+        }
+
+        QueueDel(uid);
+        BroadcastPlayerCount(rule);
+    }
+
+    // todo: handle ghost command
+    private void OnSuicideAttempt(EntityUid uid, ThunderdomePlayerComponent tdPlayer, ref SuicideGhostEvent args)
+    {
+        if (tdPlayer.RuleEntity == null
+            || !TryComp<ThunderdomeRuleComponent>(tdPlayer.RuleEntity.Value, out var rule)
+            || args.Victim != uid
+            )
+            return;
+
+        GhostDomePlayer(uid, tdPlayer, rule);
+        args.Handled = true;
+    }
+
+    private void GhostDomePlayer(
+        EntityUid uid,
+        ThunderdomePlayerComponent tdPlayer,
+        ThunderdomeRuleComponent rule,
+        bool bypassPenalty = false,
+        bool playSound = true,
+        SoundPathSpecifier? sound = null
+        )
+    {
+        if (!bypassPenalty) // todo does nothing but players suiciding could just instarespawn in thunderdome which is prob bad
+        {
+            tdPlayer.TimePenalty = +rule.BaseTimePenalty;
+            var remaining = tdPlayer.RespawnTimer - _timing.CurTime + TimeSpan.FromSeconds(tdPlayer.TimePenalty);
+            tdPlayer.RespawnTimer = remaining;
+        }
+        sound ??= new SoundPathSpecifier("/Audio/Effects/pop_high.ogg");
+
+        CleanUpPlayer(uid, tdPlayer, rule, playSound, sound);
+    }
+
 
     private void LeaveThunderdome(EntityUid entity, ThunderdomePlayerComponent tdPlayer, ICommonSession session)
     {
@@ -271,7 +378,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private void OnOriginalBodyStateChanged(EntityUid uid, ThunderdomeOriginalBodyComponent component, MobStateChangedEvent args)
     {
-        if (args.NewMobState is MobState.Dead or MobState.Invalid)
+        if (args.NewMobState is MobState.Dead or MobState.Invalid || args.OldMobState == MobState.Alive)
             return;
 
         if (!_playerManager.TryGetSessionById(component.Owner, out var session)
