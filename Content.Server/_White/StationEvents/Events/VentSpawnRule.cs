@@ -8,7 +8,7 @@ using Robust.Shared.Map;
 
 namespace Content.Server._White.StationEvents.Events;
 
-public sealed class VentSpawnRule : StationEventSystem<VentSpawnRuleComponent>
+public sealed partial class VentSpawnRule : StationEventSystem<VentSpawnRuleComponent>
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -23,7 +23,8 @@ public sealed class VentSpawnRule : StationEventSystem<VentSpawnRuleComponent>
     {
         var comp = Comp<GameRuleComponent>(args.GameRule);
 
-        if (!TryGetRandomStation(out var station))
+        // Goobstation (HasStationGrids): Make sure it's the actual station and not a shuttle or other grid.
+        if (!TryGetRandomStation(out var station, HasStationGrids))
         {
             ForceEndSelf(ent, comp);
             return;
