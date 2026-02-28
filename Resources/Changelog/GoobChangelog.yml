@@ -21519,3 +21519,9 @@ Entries:
       message: New tracks for the Hierophant, Warops, and Xenos from 13!
   id: 2446
   time: '2026-02-28T21:53:14.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: You can now escape being carried.
+  id: 2447
+  time: '2026-02-28T21:53:55.0000000+00:00'
