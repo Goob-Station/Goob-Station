@@ -46,9 +46,12 @@ knowledge-path-flesh-s3-desc =
 
     Allows you to transmute a corpse and a muzzle to create a Voiceless Dead.
     The corpse does not need to have a soul.
-    Voiceless Dead are mute ghouls, which have 100 health and a Bloody Blade.
-    Voiceless Dead are stronger than regular ones at using Bloody Blades.
+    Voiceless Dead are mute ghouls, which have 150 health and a Bloody Blade.
+    Voiceless Dead are better than regular ones at using Bloody Blades.
+    Voiceless Dead body parts cannot be severed and its organs cannot be removed.
     You can only create two at a time.
+    Attempting to perform a ritual again after performing it twice will teleport already existing voiceless dead on the rune.
+    Voiceless Dead can be brought back to life by performing this ritual on it and supplying the muzzle.
 
 knowledge-path-flesh-s4-name = Mark of Flesh
 knowledge-path-flesh-s4-desc =

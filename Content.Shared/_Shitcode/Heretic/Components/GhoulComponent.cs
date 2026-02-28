@@ -11,6 +11,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -30,10 +31,17 @@ public sealed partial class GhoulComponent : Component
     /// <summary>
     ///     Total health for ghouls.
     /// </summary>
-    [DataField] public FixedPoint2 TotalHealth = 50;
+    [DataField]
+    public FixedPoint2 TotalHealth = 50;
+
+    /// <summary>
+    /// Whether this ghoul can be unghoulified
+    /// </summary>
+    [DataField]
+    public bool CanDeconvert;
 
     [DataField]
-    public bool DropOrgansOnDeath = true;
+    public GhoulDeathBehavior DeathBehavior = GhoulDeathBehavior.GibOrgans;
 
     [DataField]
     public EntProtoId? SpawnOnDeathPrototype;
@@ -69,4 +77,20 @@ public sealed partial class GhoulComponent : Component
 
     [DataField]
     public LocId GhostRoleRules = "ghostrole-ghoul-rules";
+
+    [DataField]
+    public Color OldSkinColor;
+
+    [DataField]
+    public Color OldEyeColor;
+
+    [DataField]
+    public HashSet<ProtoId<NpcFactionPrototype>> OldFactions = new();
+}
+
+public enum GhoulDeathBehavior : byte
+{
+    GibOrgans, // Gibs into organs
+    Gib, // Gibs without organs
+    NoGib, // Doesn't gib
 }

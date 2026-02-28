@@ -1425,6 +1425,10 @@
         conditions:
         - !type:ReagentThreshold
           min: 10
+      - !type:DeconvertGhoul # Goob
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
       - !type:HealthChange
         conditions:
         - !type:TotalDamage

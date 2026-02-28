@@ -13,7 +13,7 @@ public sealed partial class FleshSurgeryComponent : Component, ITouchSpell
     public EntityUid? Action { get; set; }
 
     [DataField]
-    public TimeSpan Cooldown { get; set; } = TimeSpan.FromSeconds(20);
+    public TimeSpan Cooldown { get; set; } = TimeSpan.FromSeconds(5);
 
     [DataField]
     public LocId Speech { get; set; } = "heretic-speech-flesh-surgery";

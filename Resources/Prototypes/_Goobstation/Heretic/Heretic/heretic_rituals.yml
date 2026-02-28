@@ -194,7 +194,6 @@
     state: full
   customBehaviors:
   - !type:RitualMuteGhoulifyBehavior
-    onlyHumanoid: false
   requiredTags:
     Muzzle: 1
   limit: 2
