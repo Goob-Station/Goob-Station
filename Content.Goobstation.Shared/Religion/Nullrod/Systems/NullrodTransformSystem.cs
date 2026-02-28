@@ -42,6 +42,10 @@ public sealed class NullrodTransformSystem : EntitySystem
         // Spawn proto associated with the altar.
         Spawn(component.RodProto, args.ClickLocation.SnapToGrid(EntityManager));
 
+        //Unassign original nullrod
+        if (TryComp<BibleUserComponent>(args.User, out var bibleComp))
+            bibleComp.NullRod = null;
+
         // Remove the nullrod
         QueueDel(args.Used);
         args.Handled = true;
