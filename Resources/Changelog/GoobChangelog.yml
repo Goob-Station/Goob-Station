@@ -21545,3 +21545,9 @@ Entries:
       message: Dog markings to humans and dwarves
   id: 2450
   time: '2026-02-28T22:04:15.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Singuloth Knight can no longer drop their Hammer
+  id: 2451
+  time: '2026-02-28T22:05:06.0000000+00:00'
