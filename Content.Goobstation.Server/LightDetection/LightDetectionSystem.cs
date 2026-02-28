@@ -154,4 +154,3 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
         }
     }
 }
-
