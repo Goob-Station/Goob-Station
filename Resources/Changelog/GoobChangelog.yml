@@ -21631,3 +21631,9 @@ Entries:
       message: Alert carving disappears when you teleport on it.
   id: 2460
   time: '2026-02-28T22:29:45.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: fixed legendary ling checking forbidden technique
+  id: 2461
+  time: '2026-02-28T22:32:33.0000000+00:00'
