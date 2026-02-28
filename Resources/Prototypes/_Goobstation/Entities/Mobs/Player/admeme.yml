@@ -448,6 +448,7 @@
   - type: Puller
     needsHands: false
     throwCooldown: 0.1
+  - type: GrabIntent
     stageChangeCooldown: 0.1
     grabThrowDamageModifier: 100
     grabThrownSpeed: 50

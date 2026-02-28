@@ -16,8 +16,11 @@ public record struct GrabAttemptReleaseEvent(
     EntityUid? user,
     EntityUid puller)
 {
-    public bool Released = false;
+    public bool Released = true;
 }
+
+[ByRefEvent]
+public record struct CheckGrabbedEvent(bool IsGrabbed = false);
 
 [ByRefEvent]
 public record struct RaiseGrabModifierEventEvent(

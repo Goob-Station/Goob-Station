@@ -74,8 +74,8 @@ public sealed class GrabbingItemSystem : EntitySystem
         if (grabbed == null)
             return;
 
-        if (!args.IsHeavyAttack && (!TryComp(args.User, out PullerComponent? puller) ||
-            puller.GrabStage < GrabStage.Suffocate))
+        if (!args.IsHeavyAttack && (!TryComp(args.User, out GrabIntentComponent? grabIntent) ||
+            grabIntent.GrabStage < GrabStage.Suffocate))
             return;
 
         args.Cancelled = true;
@@ -103,7 +103,7 @@ public sealed class GrabbingItemSystem : EntitySystem
                 return;
             }
 
-            _grabbing.TryGrab(puller.Pulling.Value, (args.User, puller), true, null, ent.Comp.EscapeAttemptModifier);
+            _grabbing.TryGrab(puller.Pulling.Value, args.User, true, null, ent.Comp.EscapeAttemptModifier);
             return;
         }
 

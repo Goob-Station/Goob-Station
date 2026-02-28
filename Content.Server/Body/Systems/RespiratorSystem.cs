@@ -82,6 +82,7 @@ using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Body; // goob
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -103,7 +104,6 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.Movement.Pulling.Components; // Goobstation
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 // Shitmed Change
@@ -162,8 +162,8 @@ public sealed class RespiratorSystem : EntitySystem
 
         if (respirator.Saturation < respirator.SuffocationThreshold)
             return false;
-        if (TryComp<PullableComponent>(uid, out var pullable)
-            && pullable.GrabStage == GrabStage.Suffocate)
+        if (TryComp<GrabbableComponent>(uid, out var grabbable)
+            && grabbable.GrabStage == GrabStage.Suffocate)
             return false;
 
         return !HasComp<KravMagaBlockedBreathingComponent>(uid);

@@ -111,10 +111,11 @@
   - type: DemonicWhisper # allows the demon to demonic whisper
   - type: DemonicAccent # the accent
   - type: Puller
+    needsHands: false
+  - type: GrabIntent
     stageChangeCooldown: 0.5
     grabThrowDamageModifier: 6.0
     throwingDistance: 30
-    needsHands: false
   - type: Targeting
   - type: Speech
     speechVerb: SlaughterDemon
