@@ -4,6 +4,7 @@
   abstract: True
   components:
   - type: SiliconLawProvider
+    laws: Crewsimov # The CustomLawboard component handles the laws, this just keeps it error-free.
     lawUploadSound: /Audio/Ambience/Antag/emagged_borg.ogg
   - type: UserInterface
     interfaces:
@@ -25,21 +26,15 @@
   - type: Sprite
     sprite: _Goobstation/CustomLawboard/custom_lawboard.rsi
     state: icon
-  - type: SiliconLawProvider
-    laws: AntimovLawset # This is because it starts off as Antimov for convenience.
-    lawset:
-      obeysTo: laws-owner-crew
-      laws:
-      - lawIdentifierOverride: null
-        order: 1
-        lawString: law-antimov-1
-      - lawIdentifierOverride: null
-        order: 2
-        lawString: law-antimov-2
-      - lawIdentifierOverride: null
-        order: 3
-        lawString: law-antimov-3
-
+  - type: CustomLawboard
+    laws:
+    - order: 1
+      lawString: law-antimov-1
+    - order: 2
+      lawString: law-antimov-2
+    - order: 3
+      lawString: law-antimov-3
+        
 - type: entity
   id: NTCustomLawboard
   parent: [BaseCustomLawboard, BaseCommandContraband]
@@ -49,5 +44,3 @@
   - type: Sprite
     sprite: _Goobstation/CustomLawboard/custom_lawboard_NT.rsi
     state: icon
-  - type: SiliconLawProvider
-    laws: Crewsimov
