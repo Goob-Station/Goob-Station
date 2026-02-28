@@ -21609,3 +21609,25 @@ Entries:
         reducing it.
   id: 2459
   time: '2026-02-28T22:28:20.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix void prison not working supposedly.
+    - type: Fix
+      message: Fix realignment not removing stuns and knockdowns.
+    - type: Tweak
+      message: Void mark applies 3 chill stacks again.
+    - type: Tweak
+      message: >-
+        Void conduit applies 1 stack up to 5 again, but every 2 second instead
+        of 1 and also it gradually expands from 0 tile range to 8.
+    - type: Tweak
+      message: >-
+        Being frozen in ice cube gives you brute resits, stamina damage can melt
+        the cube similarly to normal damage.
+    - type: Tweak
+      message: Alert carving can trigger when borg steps on it.
+    - type: Tweak
+      message: Alert carving disappears when you teleport on it.
+  id: 2460
+  time: '2026-02-28T22:29:45.0000000+00:00'
