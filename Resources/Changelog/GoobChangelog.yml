@@ -21423,3 +21423,31 @@ Entries:
       message: Added a MANGO to vault freezer with a 65% CHANCE to spawn.
   id: 2432
   time: '2026-02-24T09:05:24.0000000+00:00'
+- author: SezakiAiri
+  changes:
+    - type: Remove
+      message: Armor values from berets. "Style over practicality!"
+    - type: Tweak
+      message: Less resists on security winter coats.
+  id: 2433
+  time: '2026-02-26T14:54:29.0000000+00:00'
+- author: StrangerOfParadiseOG
+  changes:
+    - type: Tweak
+      message: Doubled the power generation of solar panels
+  id: 2434
+  time: '2026-02-27T16:21:16.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Changed back armored winter coats and nerfed infection resistances on
+        them
+  id: 2435
+  time: '2026-02-27T19:54:29.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed ziptie box from bso's locker
+  id: 2436
+  time: '2026-02-27T19:56:39.0000000+00:00'
