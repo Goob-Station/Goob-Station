@@ -58,5 +58,5 @@
           category: thunderdome-category-melee
           sprite: EnergySword
     - type: LoadMapRule
-      mapPath: /Maps/_Goobstation/chloris.yml
+      mapPath: /Maps/_Goobstation/Nonstations/dm01-entryway.yml
     - type: RuleGrids

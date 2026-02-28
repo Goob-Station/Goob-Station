@@ -55,3 +55,4 @@ thunderdome-revival-decline = Stay in Arena
 # Chat / messages
 thunderdome-join = {$player} has entered the Thunderdome!
 thunderdome-leave = {$player} has left the Thunderdome.
+thunderdome-leave-01 = {$user} disappears, having grown tired of killing.
