@@ -174,9 +174,9 @@ BenchParkRight: null
 BenchPewLeft: null
 BenchPewMiddle: null
 BenchPewRight: null
-BenchSofaCorpLeft: null
-BenchSofaCorpMiddle: null
-BenchSofaCorpRight: null
+#BenchSofaCorpLeft: null # goob edit
+#BenchSofaCorpMiddle: null # goob edit
+#BenchSofaCorpRight: null # goob edit
 BenchSofaLeft: null
 BenchSofaRight: null
 BenchSteelLeft: null
