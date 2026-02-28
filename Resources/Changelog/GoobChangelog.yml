@@ -21637,3 +21637,15 @@ Entries:
       message: fixed legendary ling checking forbidden technique
   id: 2461
   time: '2026-02-28T22:32:33.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Fix
+      message: >-
+        Fixed remote eating of a target with a slime when unhooking it with a
+        slime cannon.
+    - type: Fix
+      message: >-
+        Fixed the eternal eating of a target by a slime when a slime splits on
+        it.
+  id: 2462
+  time: '2026-02-28T22:36:14.0000000+00:00'
