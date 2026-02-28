@@ -21557,3 +21557,9 @@ Entries:
       message: Wheelchair users no longer impale their chair when throwing spears
   id: 2452
   time: '2026-02-28T22:07:30.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Uniform Printer can be linked to Material Silo now.
+  id: 2453
+  time: '2026-02-28T22:09:04.0000000+00:00'
