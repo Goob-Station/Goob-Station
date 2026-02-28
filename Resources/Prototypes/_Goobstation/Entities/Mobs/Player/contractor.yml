@@ -52,14 +52,14 @@
   id: ContractorGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
-    eyes: ClothingEyesHudSyndicate
+    eyes: ClothingEyesHudContractor
     mask: ClothingMaskNeckGaiter
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesCombat
     id: SyndiPDANukie
     belt: ClothingBeltSecurityWebbingContractorFilled
     ears: ClothingHeadsetAltSyndicate
-    back: ClothingModsuitContractor
+    back: ClothingBackpackChameleon
     outerClothing: ClothingOuterArmorBasicSlim
     suitstorage: JetpackContractorFilled
     pocket1: WeaponDisablerSyndicate

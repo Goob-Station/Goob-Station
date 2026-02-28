@@ -11,9 +11,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Medical.Cryogenics;
-using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Medical.Cryogenics;
@@ -26,11 +24,6 @@ public sealed class CryoPodSystem : SharedCryoPodSystem
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<CryoPodComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<CryoPodComponent, GetVerbsEvent<AlternativeVerb>>(AddAlternativeVerbs);
-        SubscribeLocalEvent<CryoPodComponent, GotEmaggedEvent>(OnEmagged);
-        SubscribeLocalEvent<CryoPodComponent, CryoPodPryFinished>(OnCryoPodPryFinished);
 
         SubscribeLocalEvent<CryoPodComponent, AppearanceChangeEvent>(OnAppearanceChange);
         SubscribeLocalEvent<InsideCryoPodComponent, ComponentStartup>(OnCryoPodInsertion);
@@ -65,8 +58,8 @@ public sealed class CryoPodSystem : SharedCryoPodSystem
             return;
         }
 
-        if (!_appearance.TryGetData<bool>(uid, CryoPodComponent.CryoPodVisuals.ContainsEntity, out var isOpen, args.Component)
-            || !_appearance.TryGetData<bool>(uid, CryoPodComponent.CryoPodVisuals.IsOn, out var isOn, args.Component))
+        if (!_appearance.TryGetData<bool>(uid, CryoPodVisuals.ContainsEntity, out var isOpen, args.Component)
+            || !_appearance.TryGetData<bool>(uid, CryoPodVisuals.IsOn, out var isOn, args.Component))
         {
             return;
         }

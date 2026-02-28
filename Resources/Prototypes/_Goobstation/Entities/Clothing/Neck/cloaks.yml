@@ -95,3 +95,25 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
           state: icon
+
+# outer command cloak
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakOuterCommand
+  name: outer command cloak
+  description: A stylish purple cloak with Terra-Gov insignia.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/outcommcloak.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/outcommcloak.rsi
+#  Shitchap
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakInquisitor
+  name: inquisitor cloak
+  description: A bulky cloak decorated with sacred writings and the symbol of the Inquisition.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Neck/Misc/inquisitor.rsi
