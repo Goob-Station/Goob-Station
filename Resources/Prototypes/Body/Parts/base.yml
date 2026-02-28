@@ -202,13 +202,13 @@
       - Head
   - type: Woundable
     boneEntity: BoneNeck
-    integrity: 65
-    integrityCap: 65
+    integrity: 215
+    integrityCap: 215
     thresholds:
-      Minor: 50
-      Moderate: 35
-      Severe: 20
-      Critical: 10
+      Minor: 80
+      Moderate: 65
+      Severe: 50
+      Critical: 40
       Mangled: 0
     damageOnAmputate: # This seemingly arbitrary spread is the result of the default head health (65) subtracted to 200 (death threshold).
       types:

@@ -140,6 +140,8 @@
         state: alive
     - type: CombatMode
     - type: Physics
+    - type: Puller # Goob
+    - needsHands: false # Goob
     - type: Fixtures
       fixtures:
         fix1:
