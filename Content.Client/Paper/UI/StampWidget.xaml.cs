@@ -80,15 +80,12 @@ public sealed partial class StampWidget : PanelContainer
         var borderImage = resCache.GetResource<TextureResource>(
                 "/Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png");
 
-        //_borderTexture = new StyleBoxTexture { // Goob
-        //    Texture = borderImage,
-        //};
-
         _borderTexture = new StyleBoxTexture { Texture = borderImage }; //Goob
+        _borderTexture.SetPatchMargin(StyleBoxTexture.Margin.All, 7.0f);
         PanelOverride = _borderTexture;
 
         //var prototypes = IoCManager.Resolve<IPrototypeManager>(); //Goob
-        //_stampShader = prototypes.Index(PaperStamp).InstanceUnique();
+        _stampShader = prototypes.Index(PaperStamp).InstanceUnique();
     }
 
     protected override void Draw(DrawingHandleScreen handle)
