@@ -1,0 +1,422 @@
+- type: entity      # Base
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase ]
+  id: BaseDoodon
+  abstract: true
+  components:
+  - type: MobState
+  - type: Damageable
+  - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
+    speaks:
+    - Doodon
+    understands:
+    - TauCetiBasic
+    - Doodon
+  - type: Emoting
+  - type: Strippable
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip
+      - !type:PlaySoundBehavior
+        sound:
+          collection: DoodonDeath
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead 
+  - type: Doodon    
+  - type: Bloodstream
+    bloodReagent: AlienBlood
+    bloodMaxVolume: 40
+  - type: CanEscapeInventory
+  - type: Body # Change later
+    bodyType: Complex
+    prototype: Doodon
+    requiredLegs: 2 
+  - type: Clumsy        # no guns for doodons
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
+  - type: InputMover
+  - type: ComplexInteraction
+  - type: MobMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Physics
+    bodyType: KinematicController
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.1
+        Burn: -0.1
+  - type: Stripping
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 15
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: SpamEmitSound         # Give the doodons a voice
+    minInterval: 45
+    maxInterval: 90
+    sound:
+      collection: Doodon
+      params:
+        volume: -6
+        maxDistance: 5
+        variation: 0.10
+  - type: Inventory    # just hands
+    templateId: Doodon
+  - type: PressureImmunity      # Space fairing creatures
+  - type: Speech    # Unique Speech Sounds and Verbs
+    speechVerb: Doodon
+    speechSounds: Doodon
+  - type: TypingIndicator
+    proto: alien
+  - type: Temperature       # No icey doodons
+    heatDamageThreshold: 500
+    coldDamageThreshold: 0
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: DoodonTownHallVision
+  - type: Tag
+    tags:
+    - VimPilot
+  - type: CollectiveMind        # The Collective mind
+    defaultChannel: DoodonMind
+    channels:
+    - DoodonMind
+  - type: VentCrawler
+    allowInventory: false
+  - type: GuideHelp
+    guides:
+    - Doodon
+  - type: Consciousness
+    hasPainScreams: false
+    threshold: 70
+    cap: 140
+    
+- type: entity      # Papa
+  parent: BaseDoodon
+  id: PapaDoodon
+  name: papa doodon
+  description: The patriarch of the Doodon village.
+  components:
+  - type: Hands # Isn't on BaseDoodon because the Moodon inherits from basedoodon
+  - type: Puller   
+  - type: Sprite
+    drawdepth: SmallMobs
+    layers: 
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+      state: papa
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Cuffable # Arrest the doodon
+  - type: Appearance
+  - type: MobThresholds     # Papa Doodon health
+    thresholds:
+      0: Alive
+      100: Critical
+      150: Dead
+  - type: Sericulture
+    entityProduced: MaterialDoodonResin1
+    action: ActionDoodonResin
+    productionLength: 1
+    hungerCost: 5
+  - type: PapaDoodon
+  - type: MindContainer
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-papa-doodon-name
+    description: ghost-role-information-papa-doodon-information
+    rules: ghost-role-information-papa-doodon-rules
+    mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      - MindRolePapaDoodon
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 3
+  - type: LanguageKnowledge # Only papa can speak Tau Ceti
+    speaks:
+    - TauCetiBasic
+    - Doodon
+    understands:
+    - TauCetiBasic
+    - Doodon
+  - type: CanHostGuardian 
+  - type: DoodonBuilder # Doodon Buildings
+    buildables:
+    - DoodonDwelling
+    - DoodonWarriorHut
+    - DoodonPasture
+    - DoodonMetalRefiner
+    - DoodonGlassRefiner
+    - DoodonShieldsmith
+    - DoodonSwordsmith
+    - DoodonGemCutter
+  - type: UserInterface
+    interfaces:
+      enum.Content.Goobstation.Shared.Doodon.Building.DoodonBuildUiKey.Key:
+        type: DoodonBuildMenuBoundUserInterface
+      enum.StrippingUiKey.Key:  # Needed due to UI interference 
+        type: StrippableBoundUserInterface
+  - type: ActionGrant
+    actions:
+      - ActionDoodonBuildSelect
+      - ActionDoodonBuildPlace
+  - type: DoodonBuildMenu
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: GroupRetaliation
+    range: 8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip
+      - !type:PlaySoundBehavior
+        sound:
+          collection: DoodonDeath
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: papa
+      Critical:
+        Base: papa_dead
+      Dead:
+        Base: papa_dead
+    
+- type: entity      # Worker
+  parent: BaseDoodon
+  id: WorkerDoodon
+  name: worker doodon
+  description: The backbone of the Doodon village.
+  components:
+  - type: Hands
+  - type: Puller   
+  - type: Sprite
+    drawdepth: SmallMobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+      state: worker
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Cuffable # Arrest the doodon
+  - type: Sericulture
+    entityProduced: MaterialDoodonResin1
+    action: ActionDoodonResin
+    productionLength: 1
+    hungerCost: 10
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: GroupRetaliation
+    range: 8
+  - type: NpcFactionMember
+    factions:
+      - Doodon
+  - type: HTN
+    rootTask:
+      task: DoodonWorkerCompound
+  - type: Doodon
+    requiredHousing: Worker
+  - type: Physics
+    bodyType: KinematicController
+  - type: CombatMode
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 3
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-doodon-name
+    description: ghost-role-information-doodon-information
+    rules: ghost-role-information-doodon-rules
+    mindRoles:
+      - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: default
+  - type: DoodonBuilder
+    buildables:
+    - DoodonDwelling
+    - DoodonWarriorHut
+    - DoodonPasture
+    - DoodonMetalRefiner
+    - DoodonGlassRefiner
+    - DoodonShieldsmith
+    - DoodonSwordsmith
+    - DoodonGemCutter
+  - type: UserInterface     # access the build menu
+    interfaces:
+      enum.Content.Goobstation.Shared.Doodon.Building.DoodonBuildUiKey.Key:
+        type: DoodonBuildMenuBoundUserInterface
+      enum.StrippingUiKey.Key:  # Strip the doodon
+        type: StrippableBoundUserInterface
+  - type: ActionGrant
+    actions:
+      - ActionDoodonBuildSelect
+      - ActionDoodonBuildPlace
+  - type: DoodonBuildMenu
+    
+- type: entity          # Warrior
+  parent: BaseDoodon
+  id: WarriorDoodon
+  name: doodon warrior
+  description: The arms of the Doodon village.  # Warriors work like Rat king rats. They have minds too simple to be controlled by the player.
+  components:
+  - type: Hands
+  - type: Puller   
+  - type: Physics
+    bodyType: KinematicController
+  - type: Doodon
+    requiredHousing: Warrior
+  - type: Sprite
+    drawdepth: SmallMobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+      state: warrior
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Cuffable # Arrest the doodon
+  - type: DoodonWarrior
+  - type: NpcFactionMember
+    factions:
+    - DoodonFighter
+  - type: HTN
+    rootTask:
+      task: DoodonWarriorCompound
+    blackboard:
+      IdleRange: !type:Single
+        3.5
+      FollowCloseRange: !type:Single
+        1.5
+      FollowRange: !type:Single
+        3.0
+  - type: Fixtures      # Too big to fit under doors
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 3.5
+  - type: InputMover
+  - type: MobMover
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 8
+    animation: WeaponArcFist
+   
+- type: entity              # Moodon
+  name: moodon
+  description: The cattle of the Doodon village. Contains omnizne.
+  parent: BaseDoodon
+  id: Moodon
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: moodon
+    drawdepth: SmallMobs
+  - type: Doodon
+    requiredHousing: Moodon
+    countsTowardPopulation: false      # Moodons are cattle, and do not count towards city population. They do still require pastures though
+  - type: SolutionContainerManager
+    solutions:
+      juice:
+        maxVol: 20
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 20
+      udder:
+        maxVol: 100
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 10
+  - type: Udder
+    reagentId: Omnizine
+    quantityPerUpdate: 10
+    growthDelay: 25
+  - type: ExaminableHunger
+  - type: Extractable
+    grindableSolutionName: juice
+  - type: InteractionPopup
+    successChance: 0.7
+    interactDelay: 3
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/_Goobstation/Doodon/moo_moodon.ogg
+  - type: NpcFactionMember
+    factions:
+    - Doodon
+  - type: Body
+    prototype: AnimalRuminant
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+  - type: Item
+    size: Small

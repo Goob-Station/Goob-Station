@@ -1,0 +1,17 @@
+- type: language
+  id: Doodon
+  speech:
+    fontId: Eatday        
+    boldFontId: Eatday
+    color: "#55ff88"
+  obfuscation:
+    !type:PhraseObfuscation
+    proportion: 0.75
+    minPhrases: 1
+    maxPhrases: 5
+    replacement:
+    - Doodon
+    - Do do doodon
+    - Doodon?
+    - DOOODON!
+    - Doo Doodon

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "sprited by Arraydeess",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "dwelling"
+        },
+        {
+            "name": "townhall"
+        },
+        {
+            "name": "warriorhut"
+        },
+        {
+            "name": "pasture"
+        },
+        {
+            "name": "metalrefiner"
+        },
+        {
+            "name": "glassrefiner"
+        },
+        {
+            "name": "doohickery"
+        },
+        {
+            "name": "shieldsmith"
+        },
+        {
+            "name": "swordsmith"
+        },
+        {
+            "name": "gemcutter"
+        }
+    ]
+}
