@@ -21489,3 +21489,9 @@ Entries:
       message: Fixed syringe guns can fire any and all syringes now
   id: 2442
   time: '2026-02-28T21:37:38.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: SecTech vendor now has distress signallers.
+  id: 2443
+  time: '2026-02-28T21:39:15.0000000+00:00'
