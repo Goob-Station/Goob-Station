@@ -29,6 +29,7 @@ public sealed partial class WerewolfBasicAbilitiesComponent : Component
 
     [DataField]
     public bool StoreOpened = true; // todo ungoida it, tie it to the mind and not the body you chud i fucking hate you future me raagh
+    // fuck you piece of shit previous me, why the fuck are half of the shit broken
 
     [ViewVariables]
     public ProtoId<PolymorphPrototype> CurrentMutation; //"WerewolfTransformBasic"

@@ -5,7 +5,7 @@
   - MobCombat
   id: BaseWerewolf
   name: wolf
-  description: Holy shit what the fuck is that!? Who have brought a wolf onto the station?
+  description: Holy shit what the fuck is that!? Who have brought a wolf onto the station? # todo
   abstract: true
   components:
   - type: Sprite

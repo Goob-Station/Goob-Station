@@ -28,6 +28,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Store.Components;
 using Content.Shared.Throwing;
@@ -61,16 +62,17 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, TransfurmEvent>(TryTransfurm);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfOpenStore>(OnOpenStore);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfDevour>(TryDevour);
-        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, WerewolfDevourDoAfterEvent>(БлятьЯРотЕбалЭтуХуйнюНахуй);
+        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, WerewolfDevourDoAfterEvent>(DoDevour);
+        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, PolymorphedEvent>(OnPolymorphed);
     }
 
     private void TryTransfurm(EntityUid uid, WerewolfBasicAbilitiesComponent component, TransfurmEvent args)
     {
-        if (component.Transfurmed == true)
+        if (component.Transfurmed)
         {
             component.Transfurmed = false;
-            args.Handled = true;
             _polymorph.Revert(uid);
+            args.Handled = true;
             return;
         }
 
@@ -78,6 +80,13 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
         _polymorph.PolymorphEntity(uid, component.CurrentMutation);
         component.Transfurmed = false; // trust this is really important, the fucking polymorph is shit!!!!
         args.Handled = true;
+    }
+
+    private void OnPolymorphed(EntityUid uid, WerewolfBasicAbilitiesComponent comp, PolymorphedEvent args)
+    {
+        if (!comp.Transfurmed)
+            return;
+        _polymorph.CopyPolymorphComponent<WerewolfBasicAbilitiesComponent>(uid, args.NewEntity);
     }
 
     private void OnOpenStore(Entity<WerewolfBasicAbilitiesComponent> ent, ref EventWerewolfOpenStore args)
@@ -132,7 +141,7 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
     }
 
     public ProtoId<DamageGroupPrototype> DevourDamage = "Brute";
-    private void БлятьЯРотЕбалЭтуХуйнюНахуй(EntityUid uid, WerewolfBasicAbilitiesComponent comp, WerewolfDevourDoAfterEvent args)
+    private void DoDevour(EntityUid uid, WerewolfBasicAbilitiesComponent comp, WerewolfDevourDoAfterEvent args)
     {
         if (args.Args.Target == null)
             return;

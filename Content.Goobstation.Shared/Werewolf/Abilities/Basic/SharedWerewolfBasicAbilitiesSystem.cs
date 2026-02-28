@@ -69,7 +69,10 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
 
             _recoil.KickCamera(uid, -delta.Normalized());
             foreach (var entity in _entityLookup.GetEntitiesInRange(uid, args.ShriekPower))
-                _stun.TryParalyze(entity, new TimeSpan(0, 0, 0, args.StunDuration), true); //goid
+            {
+                _stun.TryUpdateStunDuration(entity, TimeSpan.FromSeconds(args.StunDuration));
+                _stun.TryKnockdown(entity, TimeSpan.FromSeconds(args.StunDuration), true);
+            }
         }
         // _audio.PlayGlobal(comp.DistantSound, uid); // when you howl, everyone on the station hears a quiet distant howl, which breaks the metashield for the chaplain, "allegedly" todo uncomment when better sound is found
         args.Handled = true;
