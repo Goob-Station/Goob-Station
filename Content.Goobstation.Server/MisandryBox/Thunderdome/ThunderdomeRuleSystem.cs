@@ -75,7 +75,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, MobStateChangedEvent>(OnOriginalBodyStateChanged);
         SubscribeNetworkEvent<ThunderdomeRevivalAcceptEvent>(OnRevivalAccept);
         SubscribeLocalEvent<ThunderdomePlayerComponent, SuicideGhostEvent>(OnSuicideAttempt);
-        //SubscribeLocalEvent<DestructibleComponent, DestructionAttemptEvent>(OnDestructionAttempt); //todo damage cancel for destruction
     }
 
     public override void Update(float frameTime)
@@ -133,23 +132,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         _ruleEntity = null;
     }
-
-    // todo this kinda works but still does damage triggers finish this later ig
-    /*
-    private void OnDestructionAttempt(EntityUid uid,
-        DestructibleComponent component,
-        ref DestructionAttemptEvent args)
-    {
-        if (_ruleEntity == null
-            || !TryComp<ThunderdomeRuleComponent>(_ruleEntity.Value, out var rule)
-            || !rule.Active)
-            return;
-        var xform = Transform(uid);
-        if (xform.GridUid == null
-            || !rule.ArenaGrids.Contains(xform.GridUid.Value))
-            return;
-        args.Cancel();
-    }*/
 
     private void OnGridsLoaded(EntityUid uid, ThunderdomeRuleComponent component, ref RuleLoadedGridsEvent args)
     {
@@ -301,13 +283,12 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             _playerManager.TryGetSessionById(mindComp.UserId, out var session);
             _playerManager.SetAttachedEntity(session, ghost);
 
-            // namesetting ugly but i cant use spawnghost due to transfer and i cba to make this a method
             if (!string.IsNullOrWhiteSpace(mindComp.CharacterName))
-                _meta.SetEntityName(ghost, FormattedMessage.EscapeText(mindComp.CharacterName)); // Goob Sanitize Text
+                _meta.SetEntityName(ghost, FormattedMessage.EscapeText(mindComp.CharacterName));
             else if (mindComp.UserId is { } userId && _playerManager.TryGetSessionById(userId, out session))
-                _meta.SetEntityName(ghost, FormattedMessage.EscapeText(session.Name)); // Goob Sanitize Text
+                _meta.SetEntityName(ghost, FormattedMessage.EscapeText(session.Name)); 
         }
-        if (playSound) // admin erase sound default.
+        if (playSound)
         {
             var name = Identity.Entity(uid, EntityManager);
             _popup.PopupCoordinates(Loc.GetString("thunderdome-leave-01", ("user", name)),
@@ -344,7 +325,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SoundPathSpecifier? sound = null
         )
     {
-        if (!bypassPenalty) // todo does nothing but players suiciding could just instarespawn in thunderdome which is prob bad
+        if (!bypassPenalty)
         {
             tdPlayer.TimePenalty = +rule.BaseTimePenalty;
             var remaining = tdPlayer.RespawnTimer - _timing.CurTime + TimeSpan.FromSeconds(tdPlayer.TimePenalty);
