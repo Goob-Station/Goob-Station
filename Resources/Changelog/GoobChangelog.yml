@@ -21475,3 +21475,11 @@ Entries:
       message: Fixed the pronoun "It" when examining a character
   id: 2440
   time: '2026-02-28T21:25:37.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: >-
+        Firelocks now automatically re-close if they have a danger signal and
+        they're powered.
+  id: 2441
+  time: '2026-02-28T21:32:29.0000000+00:00'
