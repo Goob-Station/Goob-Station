@@ -8,8 +8,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Emag.Systems;
+using Content.Goobstation.Common.Emag.Prototypes; // goob edit
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes; // goob edit
 
 namespace Content.Shared.Emag.Components;
 
@@ -20,8 +21,8 @@ namespace Content.Shared.Emag.Components;
 public sealed partial class EmaggedComponent : Component
 {
     /// <summary>
-    /// The EmagType flags that were used to emag this device
+    /// The EmagTypes that were used to emag this device // goob edit
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EmagType EmagType = EmagType.None;
+    public HashSet<ProtoId<EmagTypePrototype>> EmagTypeList = new(); // goob edit
 }

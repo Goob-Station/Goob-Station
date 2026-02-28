@@ -355,7 +355,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         if (!Resolve(uid, ref cryoPodComponent))
             return;
 
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
         if (cryoPodComponent.PermaLocked && cryoPodComponent.Locked)

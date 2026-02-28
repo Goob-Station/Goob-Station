@@ -115,8 +115,8 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private void OnGotEmagged(Entity<XenoVacuumComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
-        || _emag.CheckFlag(ent, EmagType.Interaction)
+        if (!_emag.CompareProtoId(args.Type, "Interaction")
+        || _emag.CheckProtoId(ent, "Interaction")
         || HasComp<EmaggedComponent>(ent))
             return;
 

@@ -217,10 +217,10 @@ public abstract class SharedPinpointerSystem : EntitySystem
             return;
         // WD EDIT END
 
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckProtoId(uid, "Interaction")) // goob edit
             return;
 
         args.Handled = true;
