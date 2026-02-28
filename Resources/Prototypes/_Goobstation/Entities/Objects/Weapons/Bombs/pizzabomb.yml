@@ -18,7 +18,7 @@
     - state: icon
     - state: primed
       map: ["enum.TriggerVisualLayers.Base"]
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     delay: 100
     examinable: false
     initialBeepDelay: 0

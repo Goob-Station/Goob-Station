@@ -26,6 +26,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
@@ -92,14 +93,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
 
-        _stun.TrySlowdown(target, args.Time, true, args.SpeedMultiplier, args.SpeedMultiplier, status);
-
-        if (_newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, args.Time) &&
-            TryComp(effect, out StaminaResistanceModifierStatusEffectComponent? effectComp))
-        {
-            effectComp.Modifier *= args.StaminaResistanceModifier;
-            Dirty(effect.Value, effectComp);
-        }
+        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -149,7 +143,7 @@ public partial class SharedMartialArtsSystem
 
         knockdownTime *= ev.Value;
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -189,7 +183,7 @@ public partial class SharedMartialArtsSystem
             || grabbable.GrabStage != GrabStage.Suffocate)
             _grab.TrySetGrabStages((ent, puller, grabIntent), (target, pullable, grabbable), GrabStage.Suffocate);
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
@@ -213,7 +207,7 @@ public partial class SharedMartialArtsSystem
             ent,
             _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position,
             5,
-            behavior: proto.DropHeldItemsBehavior);
+            behavior: proto.DropItems);
 
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
         _standingState.Stand(ent);
@@ -232,7 +226,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, status);
+        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
 
         _pulling.TryStopPull(target, pullable, ent, true);
 

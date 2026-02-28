@@ -185,10 +185,71 @@ public sealed class PullingSystem : EntitySystem
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
+        SubscribeLocalEvent<ActivePullerComponent, TargetHandcuffedEvent>(OnTargetHandcuffed);
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
+    }
+
+    // Goobstation - Grab Intent
+    private void OnDowned(Entity<PullableComponent> ent, ref DownedEvent args)
+    {
+        if (!TryComp(ent.Comp.Puller, out PullerComponent? puller))
+            return;
+
+        ResetGrabEscapeChance(ent, (ent.Comp.Puller.Value, puller));
+    }
+
+    private void OnStood(Entity<PullableComponent> ent, ref StoodEvent args)
+    {
+        if (!TryComp(ent.Comp.Puller, out PullerComponent? puller))
+            return;
+
+        ResetGrabEscapeChance(ent, (ent.Comp.Puller.Value, puller));
+    }
+
+    private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
+    {
+        if (ent.Comp.Pulling != args.User
+            || ent.Comp.GrabStage < GrabStage.Soft
+            || !TryComp(args.User, out PullableComponent? pullable))
+            return;
+
+        if (_random.Prob(pullable.GrabEscapeChance))
+            TryLowerGrabStage((args.User, pullable), (ent.Owner, ent.Comp), true);
+    }
+
+    private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!args.Cancelled
+            && TryComp<PullableComponent>(ent.Comp.Pulling, out var comp)
+            && ent.Comp.Pulling != null)
+        {
+            if(_netManager.IsServer)
+                StopPulling(ent.Comp.Pulling.Value, comp);
+        }
+    }
+    // Goobstation
+
+    private void OnTargetHandcuffed(Entity<ActivePullerComponent> ent, ref TargetHandcuffedEvent args)
+    {
+        if (!TryComp<PullerComponent>(ent, out var comp))
+            return;
+
+        if (comp.Pulling == null)
+            return;
+
+        if (CanPull(ent, comp.Pulling.Value, comp))
+            return;
+
+        if (!TryComp<PullableComponent>(comp.Pulling, out var pullableComp))
+            return;
+
+        TryStopPull(comp.Pulling.Value, pullableComp);
     }
 
     private void HandlePullStarted(EntityUid uid, HandsComponent component, PullStartedMessage args)
@@ -720,11 +781,8 @@ public sealed class PullingSystem : EntitySystem
         if (pullerUidNull == null)
             return true;
 
-        if (user != null && !_blocker.CanInteract(user.Value, pullableUid))
-            return false;
-
         var msg = new AttemptStopPullingEvent(user);
-        RaiseLocalEvent(pullableUid, ref msg, true); // Goob edit
+        RaiseLocalEvent(pullableUid, ref msg, true);
 
         if (msg.Cancelled)
             return false;

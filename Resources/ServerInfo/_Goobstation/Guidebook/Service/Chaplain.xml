@@ -32,6 +32,7 @@ If you don't already have one, build an altar and find an offering to place on-t
     <GuideEntityEmbed Entity="AltarSpaceChristian"/>
     <GuideEntityEmbed Entity="AltarTechnology"/>
     <GuideEntityEmbed Entity="AltarToolbox"/>
+    <GuideEntityEmbed Entity="AltarDragon"/>
     <GuideEntityEmbed Entity="AltarEmpire"/>
   </Box>
 
@@ -48,6 +49,7 @@ These altars can be constructed by placing the following offerings atop your bas
 - Technology Altar: 1 x Capacitor
 - Toolbox Altar: 1 x Toolbox
 - Clockwork Altar: 1 x Small Power Cell
+- Draconic Altar: 1 x Carp plushie
 - Imperial altar: 1 x Book
 
 ## Holy Artefacts

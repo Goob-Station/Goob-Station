@@ -62,7 +62,7 @@ public sealed class TableSlamSystem : EntitySystem
         if(!_random.Prob(ent.Comp.ParalyzeChance))
             return;
 
-        _stunSystem.TryParalyze(ent, TimeSpan.FromSeconds(3), false);
+        _stunSystem.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(3));
         RemComp<PostTabledComponent>(ent);
     }
 
@@ -153,9 +153,9 @@ public sealed class TableSlamSystem : EntitySystem
                 });
         }
 
-        _staminaSystem.TakeStaminaDamage(ent.Owner, ent.Comp.TabledStaminaDamage, applyResistances: true);
-        _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(3 * modifierOnGlassBreak), false);
-        var postTabledComponent = EnsureComp<PostTabledComponent>(ent.Owner);
+        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage, applyResistances: true);
+        _stunSystem.TryKnockdown(ent, TimeSpan.FromSeconds(3 * modifierOnGlassBreak), false);
+        var postTabledComponent = EnsureComp<PostTabledComponent>(ent);
         postTabledComponent.PostTabledShovableTime = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(3));
         ent.Comp.BeingTabled = false;
         Dirty(ent.Owner, ent.Comp);

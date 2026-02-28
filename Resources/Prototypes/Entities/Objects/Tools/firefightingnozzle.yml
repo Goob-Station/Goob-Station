@@ -77,8 +77,8 @@
     duration: 8
     spreadAmount: 200
     smokePrototype: Resin
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.3
+  - type: TimerTrigger
+    delay: 0.3
   - type: DeleteOnTrigger
 
 

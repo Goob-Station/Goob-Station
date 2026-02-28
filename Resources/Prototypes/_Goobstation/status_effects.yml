@@ -65,8 +65,8 @@
   alwaysAllowed: true
 
 - type: statusEffect
-  id: ShadowCloak
-  alert: ShadowCloak
+  id: ShadowCloakAlertSE
+  alert: ShadowCloakAlert
   alwaysAllowed: true
 
 - type: entity

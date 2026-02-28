@@ -246,12 +246,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Should the player automatically get up after being knocked down
-    /// </summary>
-    public static readonly CVarDef<bool> AutoGetUp =
-        CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
-
-    /// <summary>
     ///     Sets the size of the hitbox where projectile/laser will hit any entity regardless of crawling
     /// </summary>
     public static readonly CVarDef<float> CrawlHitzoneSize =

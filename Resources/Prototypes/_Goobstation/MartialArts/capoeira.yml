@@ -32,7 +32,7 @@
       path: /Audio/Weapons/genhit3.ogg
   extraDamage: 5
   paralyzeTime: 1
-  dropHeldItemsBehavior: NoDrop
+  dropItems: false # why is this even here, should it be true by default? if so isnt it stupid & OP as fuck?
   canDoWhileProne: false
 
 - type: combo

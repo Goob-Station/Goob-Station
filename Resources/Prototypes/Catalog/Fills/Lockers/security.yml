@@ -250,6 +250,7 @@
     - id: BloodTrak # Goobstation
     - id: Betty # Goobstation
     - id: BoxTapeRecorder # DeltaV
+    - id: PoliceBaton # Goobstation
 
 - type: entity
   id: ClosetBombFilled
