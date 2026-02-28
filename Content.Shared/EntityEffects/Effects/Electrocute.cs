@@ -5,6 +5,7 @@
 
 using Content.Shared.EntityEffects;
 using Content.Shared.Electrocution;
+using Content.Shared.Electrocution;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects;
