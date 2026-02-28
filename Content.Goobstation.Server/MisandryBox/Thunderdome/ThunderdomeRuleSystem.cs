@@ -75,7 +75,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, MobStateChangedEvent>(OnOriginalBodyStateChanged);
         SubscribeNetworkEvent<ThunderdomeRevivalAcceptEvent>(OnRevivalAccept);
         SubscribeLocalEvent<ThunderdomePlayerComponent, SuicideGhostEvent>(OnSuicideAttempt);
-        SubscribeLocalEvent<DestructibleComponent, DestructionAttemptEvent>(OnDestructionAttempt);
+        //SubscribeLocalEvent<DestructibleComponent, DestructionAttemptEvent>(OnDestructionAttempt); //todo damage cancel for destruction
     }
 
     public override void Update(float frameTime)
@@ -134,6 +134,8 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         _ruleEntity = null;
     }
 
+    // todo this kinda works but still does damage triggers finish this later ig
+    /*
     private void OnDestructionAttempt(EntityUid uid,
         DestructibleComponent component,
         ref DestructionAttemptEvent args)
@@ -147,7 +149,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             || !rule.ArenaGrids.Contains(xform.GridUid.Value))
             return;
         args.Cancel();
-    }
+    }*/
 
     private void OnGridsLoaded(EntityUid uid, ThunderdomeRuleComponent component, ref RuleLoadedGridsEvent args)
     {
@@ -305,7 +307,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             else if (mindComp.UserId is { } userId && _playerManager.TryGetSessionById(userId, out session))
                 _meta.SetEntityName(ghost, FormattedMessage.EscapeText(session.Name)); // Goob Sanitize Text
         }
-        if (playSound)
+        if (playSound) // admin erase sound default.
         {
             var name = Identity.Entity(uid, EntityManager);
             _popup.PopupCoordinates(Loc.GetString("thunderdome-leave-01", ("user", name)),
@@ -342,7 +344,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SoundPathSpecifier? sound = null
         )
     {
-        if (!bypassPenalty)
+        if (!bypassPenalty) // todo does nothing but players suiciding could just instarespawn in thunderdome which is prob bad
         {
             tdPlayer.TimePenalty = +rule.BaseTimePenalty;
             var remaining = tdPlayer.RespawnTimer - _timing.CurTime + TimeSpan.FromSeconds(tdPlayer.TimePenalty);
