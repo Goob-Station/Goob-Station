@@ -157,7 +157,7 @@ public partial class SharedMartialArtsSystem
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         }
         else
         {
@@ -186,7 +186,7 @@ public partial class SharedMartialArtsSystem
         var dir = hitPos - mapPos;
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage, proto.DropHeldItemsBehavior);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage, proto.DropItems);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

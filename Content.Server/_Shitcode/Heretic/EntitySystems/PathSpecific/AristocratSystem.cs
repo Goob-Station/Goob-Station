@@ -83,7 +83,7 @@ public sealed class AristocratSystem : EntitySystem
     private static readonly ProtoId<ContentTileDefinition> SnowTilePrototype = "FloorAstroSnow";
     private static readonly EntProtoId IceWallPrototype = "WallIce";
 
-    private const float ConduitDelay = 1f;
+    private const float ConduitDelay = 2f;
 
     private float _accumulator;
 
@@ -316,6 +316,12 @@ public sealed class AristocratSystem : EntitySystem
         var conduitQuery = EntityQueryEnumerator<VoidConduitComponent, TransformComponent>();
         while (conduitQuery.MoveNext(out var uid, out var conduit, out var xform))
         {
+            if (!conduit.Active) // Skip first iteration
+            {
+                conduit.Active = true;
+                continue;
+            }
+
             FreezeAtmos((uid, xform));
 
             var (pos, rot) = _xform.GetWorldPositionRotation(xform, xformQuery);
@@ -344,7 +350,7 @@ public sealed class AristocratSystem : EntitySystem
                     continue;
                 }
 
-                if (_voidcurse.DoCurse(ent, conduit.stacksEverySeconds, conduit.maxStacksGiven))
+                if (_voidcurse.DoCurse(ent))
                 {
                     ignored.Add(ent);
                     affected.Add(ent);
@@ -377,6 +383,12 @@ public sealed class AristocratSystem : EntitySystem
 
             if (affected.Count > 0)
                 _color.RaiseEffect(Color.Black, affected, Filter.Pvs(uid, 3f, EntityManager));
+
+            if (conduit.Range < conduit.MaxRange)
+            {
+                conduit.Range++;
+                Dirty(uid, conduit);
+            }
         }
     }
 

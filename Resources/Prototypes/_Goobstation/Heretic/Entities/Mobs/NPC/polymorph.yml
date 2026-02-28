@@ -205,7 +205,6 @@
       map: [ "base" ]
     drawdepth: OverMobs
     noRot: true
-  - type: CosmicLapse
   - type: Speech
     enabled: False
   - type: Transform

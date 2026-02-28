@@ -93,6 +93,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Materials;
 using Content.Shared.Nutrition;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tools.EntitySystems;
@@ -110,6 +111,7 @@ namespace Content.Shared.Storage.EntitySystems;
 /// </summary>
 public sealed class SecretStashSystem : EntitySystem
 {
+    [Dependency] private readonly IngestionSystem _ingestion = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
@@ -126,7 +128,7 @@ public sealed class SecretStashSystem : EntitySystem
         SubscribeLocalEvent<SecretStashComponent, DestructionEventArgs>(OnDestroyed);
         SubscribeLocalEvent<SecretStashComponent, GotReclaimedEvent>(OnReclaimed);
         SubscribeLocalEvent<SecretStashComponent, InteractUsingEvent>(OnInteractUsing, after: new[] { typeof(ToolOpenableSystem), typeof(AnchorableSystem) });
-        SubscribeLocalEvent<SecretStashComponent, AfterFullyEatenEvent>(OnEaten);
+        SubscribeLocalEvent<SecretStashComponent, FullyEatenEvent>(OnFullyEaten);
         SubscribeLocalEvent<SecretStashComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<SecretStashComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerb);
     }
@@ -146,7 +148,7 @@ public sealed class SecretStashSystem : EntitySystem
         DropContentsAndAlert(entity, args.ReclaimerCoordinates);
     }
 
-    private void OnEaten(Entity<SecretStashComponent> entity, ref AfterFullyEatenEvent args)
+    private void OnFullyEaten(Entity<SecretStashComponent> entity, ref FullyEatenEvent args)
     {
         // TODO: When newmed is finished should do damage to teeth (Or something like that!)
         var damage = entity.Comp.DamageEatenItemInside;

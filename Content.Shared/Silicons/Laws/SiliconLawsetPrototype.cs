@@ -8,6 +8,7 @@
 
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using System.Linq;
 
 namespace Content.Shared.Silicons.Laws;
 
@@ -31,16 +32,13 @@ public sealed partial class SiliconLawset
 
     /// <summary>
     /// A single line used in logging laws.
+    /// Now using linq why? because I felt like it and it's free perf.
     /// </summary>
     public string LoggingString()
     {
-        var laws = new List<string>(Laws.Count);
-        foreach (var law in Laws)
-        {
-            laws.Add($"{law.Order}: {Loc.GetString(law.LawString)}");
-        }
-
-        return string.Join(" / ", laws);
+        return string.Join(" / ", 
+            from law in Laws 
+            select $"{law.Order}: {Loc.GetString(law.LawString)}");
     }
 
     /// <summary>
