@@ -21505,3 +21505,11 @@ Entries:
       message: Ntr can't scan bingles for points anymore; again
   id: 2444
   time: '2026-02-28T21:45:28.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Add
+      message: >-
+        Added ablity to butcher most of the bedsheets and recycle them in
+        recycler.
+  id: 2445
+  time: '2026-02-28T21:52:13.0000000+00:00'
