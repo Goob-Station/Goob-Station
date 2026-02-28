@@ -262,10 +262,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     [color=#999999][italic] 4 Evolution Points / 20 Chems [italic][/color]
   </Box>
   - Changeling gains invisibility.
-  - Invisibility increases while standing still.
-  - Invisibility rapidly decreases while moving.
+  - Invisibility rapidly increases while motionless.
+  - Invisibility instantly breaks on any motion.
   - Can be used while cuffed.
-  - Slows down chem regen rate by 25%.
 
   ## Adrenaline Reserves
   <Box>

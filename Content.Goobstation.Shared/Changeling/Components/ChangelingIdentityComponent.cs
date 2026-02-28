@@ -87,9 +87,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     [DataField]
     public bool IsInLastResort = false;
 
-    [DataField]
-    public bool ChameleonActive = false;
-
     public List<EntityUid>? ActiveArmor = null;
 
     public Dictionary<string, EntityUid?> Equipment = new();
