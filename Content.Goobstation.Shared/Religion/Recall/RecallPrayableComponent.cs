@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.ComponentModel;
 
-namespace Content.Goobstation.Shared.Religion.RecallPrayable;
+namespace Content.Goobstation.Shared.Religion.Recall;
 
 [RegisterComponent]
 public sealed partial class RecallPrayableComponent : Component

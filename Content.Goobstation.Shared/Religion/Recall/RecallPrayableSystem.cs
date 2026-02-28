@@ -11,7 +11,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Shared.Religion.RecallPrayable;
+namespace Content.Goobstation.Shared.Religion.Recall;
 
 public sealed partial class RecallPrayableSystem : EntitySystem
 {
