@@ -81,6 +81,7 @@ namespace Content.Client.GameTicking.Managers
         [ViewVariables] public string? InGameInfoBlob { get; private set; }
         [ViewVariables] public TimeSpan StartTime { get; private set; }
         [ViewVariables] public new bool Paused { get; private set; }
+        [ViewVariables] private int _activePlayerCount; // Goobstation - PlayerPopRequirement
 
         [ViewVariables] public IReadOnlyDictionary<NetEntity, Dictionary<ProtoId<JobPrototype>, int?>> JobsAvailable => _jobsAvailable;
         [ViewVariables] public IReadOnlyDictionary<NetEntity, string> StationNames => _stationNames;
@@ -174,9 +175,14 @@ namespace Content.Client.GameTicking.Managers
             AreWeReady = message.YouAreReady;
             LobbyBackground = message.LobbyBackground;
             Paused = message.Paused;
+            _activePlayerCount = message.ActivePlayerCount; // Goobstation - PlayerPopRequirement
 
             LobbyStatusUpdated?.Invoke();
         }
+
+        // Goobstation - PlayerPopRequirement
+        public override bool InLobby => !IsGameStarted;
+        public override int GetActivePlayerCount() => _activePlayerCount;
 
         private void LobbyInfo(TickerLobbyInfoEvent message)
         {
