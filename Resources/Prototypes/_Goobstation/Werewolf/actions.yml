@@ -23,6 +23,7 @@
   components:
   - type: Action
     useDelay: 12 # todo 120
+    startDelay: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/werewolf.rsi
@@ -118,4 +119,4 @@
   - type: InstantAction
     event: !type:HowlEvent
       shriekPower: 4
-      stunDuration: 2
+      stunDuration: 1.65

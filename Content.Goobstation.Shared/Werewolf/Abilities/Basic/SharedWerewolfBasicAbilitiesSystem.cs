@@ -21,7 +21,6 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -29,23 +28,17 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, ComponentStartup>(OnStartup);
     }
 
-    private void OnStartup(EntityUid uid, WerewolfBasicAbilitiesComponent comp, ref ComponentStartup args)
+    public void OnStartup(EntityUid uid, WerewolfBasicAbilitiesComponent comp, ref ComponentStartup args)
     {
-        if (_mind.TryGetMind(uid, out var mindId, out _)) // todo ts not working figure out
-            GiveActionsToMind(mindId, comp);
+        foreach (var actionId in comp.BaseWerewolfActions)
+            _actions.AddAction(uid, actionId);
 
         if (_tag.HasTag(uid, "VulpEmotes"))
         {
             comp.CurrentMutation = "WerewolfTransformWerehuman";
             return;
         }
-        comp.CurrentMutation = "WerewolfTransformBasic";
-    }
-
-    private void GiveActionsToMind(EntityUid mindId, WerewolfBasicAbilitiesComponent comp) // in case if polymorph is giga shit for the future do not forget you stupid fucking fat fat stinky fuck
-    {
-        foreach (var actionId in comp.BaseWerewolfActions)
-            _actions.AddAction(mindId, actionId);
+        comp.CurrentMutation = "WerewolfTransformBasic"; // goida
     }
 
 

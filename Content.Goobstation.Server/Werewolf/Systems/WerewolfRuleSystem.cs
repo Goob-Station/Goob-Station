@@ -21,7 +21,7 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!; // todo
+    [Dependency] private readonly HungerSystem _hunger = default!;
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"); // todo
 
@@ -61,7 +61,7 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
         if (_role.MindHasRole<WerewolfRuleComponent>(mindId, out var mr))
                 AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
 
-        EnsureComp<WerewolfBasicAbilitiesComponent>(mindId);
+        EnsureComp<WerewolfBasicAbilitiesComponent>(target);
         EnsureComp<WerewolfMindComponent>(mindId);
 
         // add store

@@ -53,7 +53,9 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly IRobustRandom _gambling = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
-
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, TransfurmEvent>(TryTransfurm);
@@ -85,12 +87,9 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
             return;
 
         _mind.TryGetMind(ent.Owner, out var mindId, out var mind);
-        if (!TryComp<WerewolfMindComponent>(mindId, out var mindComp))
-            return;
-
+        if (!TryComp<WerewolfMindComponent>(mindId, out var mindComp)) return;
         foreach (var bit in mindComp.BittenPeople)
             _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "Fury", ent.Comp.Amount } }, ent.Owner);
-
         mindComp.BittenPeople.Clear();
 
         _store.ToggleUi(ent, ent, store);
