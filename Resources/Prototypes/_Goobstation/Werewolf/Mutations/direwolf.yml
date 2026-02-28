@@ -1,0 +1,32 @@
+- type: entity
+  id: WerewolfDirewolf
+  parent: BaseWerewolf
+  description: A dark, forboding feeling overtakes you. You know what will come, you can smell his intentions.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Werewolf/Mutations/direwolf.rsi
+    state: direwolf
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.35
+        Heat: 0.1
+  - type: GrantWerewolfMoves
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - Canilunzt
+    understands:
+    - TauCetiBasic
+    - Canilunzt
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 17
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 7.5
+    baseWalkSpeed: 4.5
