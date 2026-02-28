@@ -21551,3 +21551,9 @@ Entries:
       message: Singuloth Knight can no longer drop their Hammer
   id: 2451
   time: '2026-02-28T22:05:06.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Wheelchair users no longer impale their chair when throwing spears
+  id: 2452
+  time: '2026-02-28T22:07:30.0000000+00:00'
