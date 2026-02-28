@@ -21525,3 +21525,9 @@ Entries:
       message: You can now escape being carried.
   id: 2447
   time: '2026-02-28T21:53:55.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More chems to the reagent anomaly.
+  id: 2448
+  time: '2026-02-28T21:54:46.0000000+00:00'
