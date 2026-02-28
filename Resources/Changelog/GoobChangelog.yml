@@ -21451,3 +21451,9 @@ Entries:
       message: Removed ziptie box from bso's locker
   id: 2436
   time: '2026-02-27T19:56:39.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed supermatter sliver being able to be removed multiple times.
+  id: 2437
+  time: '2026-02-28T13:56:00.0000000+00:00'
