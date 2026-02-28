@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Client.Movement.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Camera;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -39,6 +39,14 @@ public sealed partial class EyeCursorOffsetSystem : EntitySystem
 
     private void OnGetEyeOffsetEvent(EntityUid uid, EyeCursorOffsetComponent component, ref GetEyeOffsetEvent args)
     {
+        // Begin DeltaV - enable/disable
+        if (!component.Enabled)
+        {
+            args.Offset = Vector2.Zero;
+            return;
+        }
+        // End DeltaV - enable/disable
+
         var offset = OffsetAfterMouse(uid, component);
         if (offset == null)
             return;
