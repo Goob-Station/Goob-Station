@@ -21483,3 +21483,9 @@ Entries:
         they're powered.
   id: 2441
   time: '2026-02-28T21:32:29.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed syringe guns can fire any and all syringes now
+  id: 2442
+  time: '2026-02-28T21:37:38.0000000+00:00'
