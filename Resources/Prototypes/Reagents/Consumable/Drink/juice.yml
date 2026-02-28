@@ -131,6 +131,10 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.5
+      - !type:ImmunityModifier #Goobstation start
+        gainRateModifier: 0.0005 #1/3rd of immurin
+        strengthModifier: 0.01
+        statusLifetime: 3 # 3s per 1u #Goobstation end
 
 - type: reagent
   id: JuiceGrape
@@ -155,6 +159,15 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms: #Goobstation start
+    Medicine:
+      effects:
+      - !type:SatiateThirst
+      - !type:ImmunityModifier
+        gainRateModifier: 0.0005 #1/3rd of immurin
+        strengthModifier: 0.01
+        statusLifetime: 3 # 3s per 1u
+        #Goobstation end
 
 - type: reagent
   id: JuiceLime
@@ -164,6 +177,15 @@
   physicalDesc: reagent-physical-desc-citric
   flavor: sour
   color: "#99bb43"
+  metabolisms: #Goobstation start
+    Medicine:
+      effects:
+      - !type:SatiateThirst
+      - !type:ImmunityModifier
+        gainRateModifier: 0.0005 #1/3rd of immurin
+        strengthModifier: 0.01
+        statusLifetime: 3 # 3s per 1u
+        #Goobstation end
 
 # /datum/reagent/drink/orangejuice/on_mob_life(var/mob/living/M)
 
@@ -187,6 +209,15 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms: #Goobstation start
+    Medicine:
+      effects:
+      - !type:SatiateThirst
+      - !type:ImmunityModifier
+        gainRateModifier: 0.0005 #1/3rd of immurin
+        strengthModifier: 0.01
+        statusLifetime: 3 # 3s per 1u
+        #Goobstation end
 
 - type: reagent
   id: JuicePineapple
@@ -196,6 +227,15 @@
   physicalDesc: reagent-physical-desc-tropical
   flavor: pineapple
   color: yellow
+  metabolisms: #Goobstation start
+    Medicine:
+      effects:
+      - !type:SatiateThirst
+      - !type:ImmunityModifier
+        gainRateModifier: 0.0005 #1/3rd of immurin
+        strengthModifier: 0.01
+        statusLifetime: 3 # 3s per 1u
+        #Goobstation end
 
 - type: reagent
   id: JuicePotato
