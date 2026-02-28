@@ -21457,3 +21457,127 @@ Entries:
       message: Fixed supermatter sliver being able to be removed multiple times.
   id: 2437
   time: '2026-02-28T13:56:00.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: scram implant no longer kidnaps people
+  id: 2438
+  time: '2026-02-28T21:17:28.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: NTR no longer deletes contrabanned when scanned
+  id: 2439
+  time: '2026-02-28T21:18:28.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: Fixed the pronoun "It" when examining a character
+  id: 2440
+  time: '2026-02-28T21:25:37.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: >-
+        Firelocks now automatically re-close if they have a danger signal and
+        they're powered.
+  id: 2441
+  time: '2026-02-28T21:32:29.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed syringe guns can fire any and all syringes now
+  id: 2442
+  time: '2026-02-28T21:37:38.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: SecTech vendor now has distress signallers.
+  id: 2443
+  time: '2026-02-28T21:39:15.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Bingles can now run, in very short bursts
+    - type: Fix
+      message: 'Bingles can wideswing again '
+    - type: Fix
+      message: Ntr can't scan bingles for points anymore; again
+  id: 2444
+  time: '2026-02-28T21:45:28.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Add
+      message: >-
+        Added ablity to butcher most of the bedsheets and recycle them in
+        recycler.
+  id: 2445
+  time: '2026-02-28T21:52:13.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: New tracks for the Hierophant, Warops, and Xenos from 13!
+  id: 2446
+  time: '2026-02-28T21:53:14.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: You can now escape being carried.
+  id: 2447
+  time: '2026-02-28T21:53:55.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More chems to the reagent anomaly.
+  id: 2448
+  time: '2026-02-28T21:54:46.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Cosmic cult final will now always take around 6 minutes to finish
+        instead of 2,5.
+  id: 2449
+  time: '2026-02-28T22:00:32.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Dog markings to humans and dwarves
+  id: 2450
+  time: '2026-02-28T22:04:15.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Singuloth Knight can no longer drop their Hammer
+  id: 2451
+  time: '2026-02-28T22:05:06.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Wheelchair users no longer impale their chair when throwing spears
+  id: 2452
+  time: '2026-02-28T22:07:30.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Uniform Printer can be linked to Material Silo now.
+  id: 2453
+  time: '2026-02-28T22:09:04.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fix ChemVend eject animation being sluggish
+  id: 2454
+  time: '2026-02-28T22:09:23.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Add
+      message: Add missing category to surgery tools
+  id: 2455
+  time: '2026-02-28T22:09:54.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Add
+      message: Add Dropper to lathe
+  id: 2456
+  time: '2026-02-28T22:10:52.0000000+00:00'
