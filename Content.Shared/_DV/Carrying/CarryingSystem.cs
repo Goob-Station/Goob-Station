@@ -235,7 +235,6 @@ public sealed class CarryingSystem : EntitySystem
         DropCarried(ent.Comp.Carrier, ent.Owner);
     }
 
-
     private void OnDoAfter(Entity<CarriableComponent> ent, ref CarryDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled)
