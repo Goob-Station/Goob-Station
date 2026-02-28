@@ -670,6 +670,7 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> ContrabandIconsEnabled =
         CVarDef.Create("contraband.icons_enabled", true, CVar.SERVER | CVar.REPLICATED);
+    
    #endregion
 
     /// <summary>
