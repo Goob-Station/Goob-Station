@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Trauma.Shared.ShadowDemon;
+namespace Content.Trauma.Shared.LightDetection;
 
 /// <summary>
 /// Modifies the movement speed on an entity based on its light levels

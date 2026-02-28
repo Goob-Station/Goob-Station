@@ -1,7 +1,7 @@
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Shared.Movement.Systems;
 
-namespace Content.Trauma.Shared.ShadowDemon;
+namespace Content.Trauma.Shared.LightDetection;
 
 public sealed class LightSpeedModifierSystem : EntitySystem
 {

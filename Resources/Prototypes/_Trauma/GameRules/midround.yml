@@ -23,4 +23,6 @@
         - NamesSlaughterTitle
         - NamesSlaughter
         nameFormat: name-format-slaughter
+      - type: LightImmunity # Grants temporary light immunity so it survives AntagRandomSpawn | Remove once we get better spawns
+        duration: 20
   - type: AntagRandomSpawn # todo: replace with MaintsSpawnRule once implemented
