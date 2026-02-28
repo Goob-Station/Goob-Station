@@ -78,7 +78,7 @@
       - TauCetiBasic
     - type: Tag
       tags:
-      - Defibrillator
+      - Defibrillator # Goobstation
 
 - type: entity
   id: Defibrillator

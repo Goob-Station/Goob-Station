@@ -19,7 +19,7 @@
   recipes:
   - OreProcessorMachineCircuitboard
   - SalvageMagnetMachineCircuitboard
-  - GoodsPackerCircuitboard
+  - GoodsPackerCircuitboard # Goobstation
 ## Dynamic
 
 - type: latheRecipePack
