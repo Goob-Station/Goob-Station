@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Sound.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
