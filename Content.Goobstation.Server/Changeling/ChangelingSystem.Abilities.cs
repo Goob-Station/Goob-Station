@@ -96,8 +96,6 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, StingExtractDNAEvent>(OnStingExtractDNA);
         SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingTransformEvent>(OnTransform);
-        SubscribeLocalEvent<ChangelingIdentityComponent, EnterStasisEvent>(OnEnterStasis);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ExitStasisEvent>(OnExitStasis);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmbladeEvent>(OnToggleArmblade);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmHammerEvent>(OnToggleHammer);
@@ -418,93 +416,6 @@ public sealed partial class ChangelingSystem
         if (args.Handled
             || !TryTransform(uid, comp))
             UpdateChemicals((uid, comp), Comp<InternalResourcesActionComponent>(args.Action).UseAmount);
-
-        args.Handled = true;
-    }
-
-    private void OnEnterStasis(EntityUid uid, ChangelingIdentityComponent comp, ref EnterStasisEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail"), uid, uid);
-            return;
-        }
-
-        if (_mobState.IsAlive(uid))
-        {
-            // fake our death
-            var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", uid));
-            _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true);
-        }
-
-        var currentTime = comp.StasisTime;
-        var lowestTime = comp.DefaultStasisTime;
-        var highestTime = comp.CatastrophicStasisTime;
-
-        // tell the changeling how bad they screwed up
-        if (currentTime == lowestTime)
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter"), uid, uid);
-        else if (currentTime > lowestTime && currentTime < highestTime)
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-damaged"), uid, uid);
-        else
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-catastrophic"), uid, uid);
-
-        if (!_mobState.IsDead(uid))
-            _mobState.ChangeMobState(uid, MobState.Dead);
-
-        comp.IsInStasis = true;
-
-        args.Handled = true;
-    }
-    private void OnExitStasis(EntityUid uid, ChangelingIdentityComponent comp, ref ExitStasisEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        // check if we're allowed to revive
-        var reviveEv = new BeforeSelfRevivalEvent(uid, "self-revive-fail");
-        RaiseLocalEvent(uid, ref reviveEv);
-
-        if (reviveEv.Cancelled)
-            return;
-
-        if (!comp.IsInStasis)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail"), uid, uid);
-            return;
-        }
-        if (HasComp<AbsorbedComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-dead"), uid, uid);
-            return;
-        }
-        if (comp.StasisTime > 0)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-time"), uid, uid);
-            return;
-        }
-
-        if (!TryComp<DamageableComponent>(uid, out var damageable))
-            return;
-
-        // heal of everything
-        var stasisEv = new RejuvenateEvent(false, true);
-        RaiseLocalEvent(uid, stasisEv);
-
-        _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
-
-        // stuns or knocks down anybody grabbing you
-        if (_pull.IsPulled(uid))
-        {
-            var puller = Comp<PullableComponent>(uid).Puller;
-            if (puller != null)
-            {
-                _stun.KnockdownOrStun(puller.Value, TimeSpan.FromSeconds(1), true);
-            }
-        }
 
         args.Handled = true;
     }
@@ -938,6 +849,7 @@ public sealed partial class ChangelingSystem
         fleshmend.PassiveSound = args.PassiveSound;
         fleshmend.ResPath = args.ResPath;
         fleshmend.EffectState = args.EffectState;
+        fleshmend.BloodLevelAdjust = 0;
 
         AddComp(uid, fleshmend, true);
 

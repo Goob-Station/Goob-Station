@@ -35,8 +35,8 @@ public sealed partial class AbsorbBiomatterEvent : EntityTargetActionEvent { }
 public sealed partial class StingExtractDNAEvent : EntityTargetActionEvent { }
 public sealed partial class ChangelingTransformCycleEvent : InstantActionEvent { }
 public sealed partial class ChangelingTransformEvent : InstantActionEvent { }
-public sealed partial class EnterStasisEvent : InstantActionEvent { }
-public sealed partial class ExitStasisEvent : InstantActionEvent { }
+public sealed partial class ChangelingRegenerateEvent : InstantActionEvent { }
+public sealed partial class ChangelingStasisEvent : InstantActionEvent { }
 
 #endregion
 

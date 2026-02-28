@@ -154,9 +154,9 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionEnterStasis
-  name: Enter regenerative stasis
-  description: Fake your death and start regenerating. Cost free.
+  id: ActionRegenerativeStasis
+  name: Regenerative Stasis
+  description: Prepare/leave regenerative stasis. Costs 15 chemicals to leave.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -166,36 +166,37 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: stasis_enter
+    iconOn:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: stasis_exit
   - type: InstantAction
-    event: !type:EnterStasisEvent {}
+    event: !type:ChangelingStasisEvent {}
   - type: ChangelingAction
     useOnFire: true
     useInLesserForm: true
-    useInLastResort: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
 
 - type: entity
   parent: BaseAction
-  id: ActionExitStasis
-  name: Exit stasis
-  description: Rise from the dead with full health. Costs 30 chemicals.
+  id: ActionRegenerate
+  name: Regenerate
+  description: Regenerate missing limbs, restore blood, stop bleeding, fix wounds and repair broken bones. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     checkCanInteract: false
-    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: stasis_exit
+      state: regrow
   - type: InstantAction
-    event: !type:ExitStasisEvent {}
+    event: !type:ChangelingRegenerateEvent {}
   - type: ChangelingAction
-    useOnFire: true
-    useInLesserForm: true
-    useInLastResort: true
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
-    useAmount: 30
+    useAmount: 15
 
 # combat
 - type: entity
