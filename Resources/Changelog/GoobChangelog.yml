@@ -21457,3 +21457,15 @@ Entries:
       message: Fixed supermatter sliver being able to be removed multiple times.
   id: 2437
   time: '2026-02-28T13:56:00.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: scram implant no longer kidnaps people
+  id: 2438
+  time: '2026-02-28T21:17:28.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: NTR no longer deletes contrabanned when scanned
+  id: 2439
+  time: '2026-02-28T21:18:28.0000000+00:00'
