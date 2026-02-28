@@ -146,7 +146,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
-		// CorvaxGoob 
+		// Goob Station - Identity Fix
 		// Fix for incorrect pronouns PR #5999
         var identity = ("user", Identity.Entity(uid, EntityManager));
         var species = ("species", GetSpeciesRepresentation(component.Species).ToLower());
