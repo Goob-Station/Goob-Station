@@ -14,20 +14,20 @@
   id: WerewolfDire
   name: werewolf-store-dire
   priority: 1
-
-- type: listing # goida
-  id: WerewolfHowl
-  name: werewolf-store-howl-name
-  description: werewolf-store-t0-desc
-  icon:
-    sprite: _Goobstation/Actions/werewolf.rsi
-    state: howl
-  productAction: ActionWerewolfHowl
-  productUpgradeId: WerewolfHowlUpgrade
-  cost:
-    Fury: 0
-  categories:
-  - WerewolfChoose
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#
+#- type: listing # goida
+#  id: WerewolfHowl
+#  name: werewolf-store-howl-name
+#  description: werewolf-store-t0-desc
+#  icon:
+#    sprite: _Goobstation/Actions/werewolf.rsi
+#    state: howl
+#  productAction: ActionWerewolfHowl
+#  productUpgradeId: WerewolfHowlUpgrade
+#  cost:
+#    Fury: 0
+#  categories:
+#  - WerewolfChoose
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1

@@ -54,24 +54,24 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly IRobustRandom _gambling = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedWerewolfBasicAbilitiesSystem _sharedWerewolf = default!; // hell.
     public override void Initialize()
     {
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, TransfurmEvent>(TryTransfurm);
+        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfChangeType>(OnChangeType);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfOpenStore>(OnOpenStore);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfDevour>(TryDevour);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, WerewolfDevourDoAfterEvent>(DoDevour);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, PolymorphedEvent>(OnPolymorphed);
     }
-
+    # region basic handlers
     private void TryTransfurm(EntityUid uid, WerewolfBasicAbilitiesComponent component, TransfurmEvent args)
     {
         if (component.Transfurmed)
         {
             component.Transfurmed = false;
             _polymorph.Revert(uid);
+            // _sharedWerewolf.SyncActions(uid, component);
             args.Handled = true;
             return;
         }
@@ -87,6 +87,11 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
         if (!comp.Transfurmed)
             return;
         _polymorph.CopyPolymorphComponent<WerewolfBasicAbilitiesComponent>(uid, args.NewEntity);
+
+        // _sharedWerewolf.SyncActions(args.NewEntity, Comp<WerewolfBasicAbilitiesComponent>(args.NewEntity)); // todo
+        var werewolf = Comp<WerewolfBasicAbilitiesComponent>(args.NewEntity);
+        // werewolf.ActionEntities.Clear();
+        _sharedWerewolf.SyncActions(args.NewEntity, werewolf);
     }
 
     private void OnOpenStore(Entity<WerewolfBasicAbilitiesComponent> ent, ref EventWerewolfOpenStore args)
@@ -105,6 +110,17 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
         ent.Comp.StoreOpened = true;
     }
 
+    private void OnChangeType(EntityUid uid, WerewolfBasicAbilitiesComponent comp, EventWerewolfChangeType args)
+    {
+        comp.CurrentMutation = args.WerewolfType;
+        _popup.PopupEntity(Loc.GetString("werewolf-mutation-changed", ("mutation", args.WerewolfType)), uid, uid); // todo locale
+
+        args.Handled = true;
+    }
+
+    #endregion
+
+    # region devour
     private void TryDevour(EntityUid uid, WerewolfBasicAbilitiesComponent component, EventWerewolfDevour args)
     {
         if (component.Transfurmed != true)
@@ -182,4 +198,5 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
 
         _wound.AmputateWoundableSafely(woundable.ParentWoundable.Value, pick.Id, woundable);
     }
+    # endregion
 }

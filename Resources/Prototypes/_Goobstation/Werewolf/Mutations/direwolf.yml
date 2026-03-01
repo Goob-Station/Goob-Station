@@ -1,7 +1,7 @@
 - type: entity
   id: WerewolfDirewolf
   parent: BaseWerewolf
-  description: A dark, forboding feeling overtakes you. You know what will come, you can smell his intentions.
+  description: A dark, forboding feeling overtakes you. You know what will come, you can feel his intentions.
   components:
   - type: Sprite
     sprite: _Goobstation/Werewolf/Mutations/direwolf.rsi
@@ -30,3 +30,6 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 7.5
     baseWalkSpeed: 4.5
+  - type: Prying
+    speedModifier: 6 # a bit faster than a base wolf
+    pryPowered: true

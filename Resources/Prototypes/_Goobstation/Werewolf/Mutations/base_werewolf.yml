@@ -75,7 +75,7 @@
     isEquipment: false
     toggleAction: PulseThermalVisionWerewolf
   - type: Prying
-    speedModifier: 65 # cmon a fucking 11 foot wolf
+    speedModifier: 4 # cmon a fucking 11 foot wolf
     pryPowered: true
   - type: Hands # also dont worry you cant pick up anything
     hands:

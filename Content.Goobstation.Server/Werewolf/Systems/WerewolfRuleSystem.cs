@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Goobstation.Server.Werewolf.Components;
 using Content.Goobstation.Shared.Overlays;
 using Content.Goobstation.Shared.Werewolf.Abilities.Basic;
@@ -21,7 +22,7 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly SharedWerewolfBasicAbilitiesSystem _sharedWerewolf = default!; // hell.
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"); // todo
 
@@ -61,8 +62,10 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
         if (_role.MindHasRole<WerewolfRuleComponent>(mindId, out var mr))
                 AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
 
-        EnsureComp<WerewolfBasicAbilitiesComponent>(target);
-        EnsureComp<WerewolfMindComponent>(mindId);
+        EnsureComp<WerewolfBasicAbilitiesComponent>(target, out var werewolfComp);
+        EnsureComp<WerewolfMindComponent>(mindId, out var werewolfMind);
+        werewolfMind.UnlockedActions = werewolfComp.WerewolfActions.Select(id => (string)id).ToList(); // add the actions to the werewolf mind
+        _sharedWerewolf.SyncActions(target, werewolfComp);
 
         // add store
         var store = EnsureComp<StoreComponent>(target);

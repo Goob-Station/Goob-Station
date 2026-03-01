@@ -8,4 +8,7 @@ public sealed partial class WerewolfMindComponent : Component
 {
     [DataField]
     public List<EntityUid> BittenPeople = new();
+
+    [DataField]
+    public List<string> UnlockedActions = new();
 }

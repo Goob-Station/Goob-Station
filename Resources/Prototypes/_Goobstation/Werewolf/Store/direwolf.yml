@@ -5,7 +5,9 @@
   icon:
     sprite: _Goobstation/Werewolf/Mutations/direwolf.rsi
     state: icon
-  productAction: ActionWerewolfMutateDire
+  productEvent: !type:EventWerewolfChangeType
+    werewolfType: WerewolfTransformDirewolf
+  raiseProductEventOnUser: true
   cost:
     Fury: 2
   categories:
@@ -21,7 +23,10 @@
   icon:
     sprite: _Goobstation/Actions/werewolf.rsi
     state: howl-red
-  productAction: ActionWerewolfHowlUpgrade
+  productEvent: !type:EventWerewolfUpgradeAbility
+    oldActionId: ActionWerewolfHowl
+    newActionId: ActionWerewolfHowlDire
+  raiseProductEventOnUser: true
   cost:
     Fury: 2
   categories:

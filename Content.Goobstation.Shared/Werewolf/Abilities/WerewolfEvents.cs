@@ -25,3 +25,21 @@ public sealed partial class EventWerewolfChangeType : InstantActionEvent
 // pohui goida
 [Serializable, NetSerializable]
 public sealed partial class WerewolfDevourDoAfterEvent : SimpleDoAfterEvent { }
+
+// upgrade events idk
+// event raised when any werewolf ability is upgraded
+// yes this is horrible and probably would be better to replace this with ProductUpgradeId but its kinda shit
+public sealed partial class EventWerewolfUpgradeAbility : InstantActionEvent
+{
+    /// <summary>
+    /// The prototype ID of the action to be replaced
+    /// </summary>
+    [DataField]
+    public string OldActionId;
+
+    /// <summary>
+    /// The prototype ID of the new upgraded action
+    /// </summary>
+    [DataField]
+    public string NewActionId;
+}
