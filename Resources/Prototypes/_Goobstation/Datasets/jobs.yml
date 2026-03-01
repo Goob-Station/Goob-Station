@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: Jobs
+  values:
+    prefix: jobs-
+    count: 35

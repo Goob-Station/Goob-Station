@@ -395,3 +395,15 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+# outer command jumpsuit
+- type: entity
+  parent: [ ClothingUniformJumpsuitNavyGold, BaseCentcommContraband ]
+  id: ClothingUniformJumpsuitOuterCommand
+  name: outer command jumpsuit
+  description: A fancy purple suit with a Terra-Gov insignia.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/outcommsuit.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/outcommsuit.rsi

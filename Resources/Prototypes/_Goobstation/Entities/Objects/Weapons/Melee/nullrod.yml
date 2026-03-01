@@ -445,7 +445,7 @@
         volume: 3
   - type: KnockdownOnHit
     duration: 0.2
-    dropHeldItemsBehavior: NoDrop
+    dropItems: false
   - type: UseDelay
     delay: 3
   - type: UseDelayBlockKnockdown
@@ -891,9 +891,9 @@
       woundSeverityMultipliers:
         Slash: 2
   - type: MeleeWeapon
-    animationRotation: -45 
+    animationRotation: -45
     autoAttack: true
-    heavyStaminaCost: 10 
+    heavyStaminaCost: 10
     wideAnimationRotation: -135
     attackRate: 1.2
     damage:
