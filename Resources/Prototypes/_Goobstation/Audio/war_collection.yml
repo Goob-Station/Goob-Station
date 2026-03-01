@@ -1,0 +1,5 @@
+﻿- type: soundCollection
+  id: war
+  files:
+  - /Audio/_Goobstation/Announcements/war.ogg
+  - /Audio/_Goobstation/Announcements/war2.ogg

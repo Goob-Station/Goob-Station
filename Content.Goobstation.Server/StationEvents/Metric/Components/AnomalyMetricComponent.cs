@@ -13,13 +13,13 @@ public sealed partial class AnomalyMetricComponent : Component
     /// <summary>
     ///   Cost of a growing anomaly
     /// </summary>
-    [DataField("growingCost")]
+    [DataField]
     public float GrowingCost = 40.0f;
 
     /// <summary>
     ///   Cost of a dangerous anomaly
     /// </summary>
-    [DataField("severityCost")]
+    [DataField]
     public float SeverityCost = 20.0f;
 
     /// <summary>

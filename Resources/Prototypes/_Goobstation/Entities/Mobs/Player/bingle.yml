@@ -84,6 +84,7 @@
     bloodMaxVolume: 100
     bloodReagent: Nitrogen # by request
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 0
@@ -98,8 +99,14 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2 # same as slime
     baseSprintSpeed : 4
+  - type: Sprinter
+    staminaDrainRate: 27 #fat legs
   - type: Stamina
     critThreshold: 120
+  - type: StaminaDamageOnHit # Should consistently stamcrit in 3 hits, 4-5 against sec
+    damage: 25
+    overtime: 15
+    sound: /Audio/Weapons/egloves.ogg
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Bingle
@@ -116,7 +123,8 @@
   - type: LanguageKnowledge
     speaks:
     - Bingle
-    understands: []
+    understands:
+    - TauCetiBasic
   - type: CollectiveMind
     defaultChannel: Binglemind
     respectAccents: true
@@ -136,8 +144,6 @@
     activateSound: null
     deactivateSound: null
   - type: FlashImmunity
-  - type: ScannableForPoints # NTR update
-    points: 2 # this would be abused so much if i made it more
   - type: Butcherable
     spawned:
     - id: FoodMeatBingle
@@ -150,7 +156,6 @@
   components:
   - type: Bingle
     prime: true
-  - type: ScannableForPoints # NTR update, 5 points is the default.
 
 - type: entity
   id: MobBingleUpgraded

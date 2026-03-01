@@ -106,92 +106,92 @@ namespace Content.IntegrationTests.Tests
                 .ToList();
             // Goobstation edit end
 
-            await server.WaitPost(() =>
+            // Goob start run this test in batches of 10k because fuck you. we got too much shit.
+            const int batchSize = 10000;
+
+            for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
-                /* Goobstation
-                var protoIds = prototypeMan
-                    .EnumeratePrototypes<EntityPrototype>()
-                    .Where(p => !p.Abstract)
-                    .Where(p => !pair.IsTestPrototype(p))
-                    .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                    .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // goob edit - fuck them mimics
-                    .Where(p => !p.Components.ContainsKey("Supermatter")) // Goobstation - Supermatter eats everything, oh no!
-                    .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
-                    .Select(p => p.ID)
+                var batchProtoIds = protoIds
+                    .Skip(batchStart)
+                    .Take(batchSize)
                     .ToList();
-                    Goobstation */
 
-                foreach (var protoId in protoIds)
+                await server.WaitPost(() =>
                 {
-                    mapSystem.CreateMap(out var mapId);
-                    var grid = mapManager.CreateGridEntity(mapId);
-                    // TODO: Fix this better in engine.
-                    mapSystem.SetTile(grid.Owner, grid.Comp, Vector2i.Zero, new Tile(1));
-                    var coord = new EntityCoordinates(grid.Owner, 0, 0);
-                    entityMan.SpawnEntity(protoId, coord);
-                }
-            });
-
-            // Goobstation Edit Start  (this test isn't even worth the effort tbh)
-            // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
-            // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on SpawnAndDirtyAllEntities
-            // Goob gets to about ~12GB, if we reach 16 GB on integrationtests we'll time out from GitHub
-            //
-            // This area on my local testing is where most of the memory builds up, so run it as long as we can within reason.
-            // i mean yeah you could run the test in batches of entities but its not really a stress test then is it.
-
-            const int maxTicks = 15; // (default wizden)
-            const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB, depends on how close you wanna fly to the sun.
-
-            var warninglog = true; // if we stop caring about this test turn this off.
-
-            for (var tick = 0; tick < maxTicks; tick++)
-            {
-                await pair.RunTicksSync(1);
-
-                var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
-
-                // debug logging but tbh just use debugger
-                // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDeleteAllEntitiesOnDifferentMaps] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
-
-                if (memoryUsed < memoryLimitBytes)
-                    continue;
-                if (warninglog)
-                    await TestContext.Progress.WriteLineAsync(
-                        "Warning:\n"+
-                        $"[SpawnAndDeleteAllEntitiesOnDifferentMaps] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks} \n" +
-                        "Stopping early (limit: 13 GB)." +
-                        $"\nWe spawned a total of {protoIds.Count} entities and held on for {tick+1} ticks. We're probably fine."
-                    );
-
-                break; // stop ticking early
-            }
-            // Goobstation Edit End
-
-            await server.WaitPost(() =>
-            {
-                static IEnumerable<(EntityUid, TComp)> Query<TComp>(IEntityManager entityMan)
-                    where TComp : Component
-                {
-                    var query = entityMan.AllEntityQueryEnumerator<TComp>();
-                    while (query.MoveNext(out var uid, out var meta))
+                    foreach (var protoId in batchProtoIds) // goob Batchprotoids
                     {
-                        yield return (uid, meta);
+                        mapSystem.CreateMap(out var mapId);
+                        var grid = mapManager.CreateGridEntity(mapId);
+                        // TODO: Fix this better in engine.
+                        mapSystem.SetTile(grid.Owner, grid.Comp, Vector2i.Zero, new Tile(1));
+                        var coord = new EntityCoordinates(grid.Owner, 0, 0);
+                        entityMan.SpawnEntity(protoId, coord);
                     }
-                }
+                });
 
-                var entityMetas = Query<MetaDataComponent>(entityMan).ToList();
-                foreach (var (uid, meta) in entityMetas)
-                {
-                    if (!meta.EntityDeleted)
-                        entityMan.DeleteEntity(uid);
-                }
+                    // Goobstation Edit Start  (this test isn't even worth the effort tbh)
+                    // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
+                    // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on SpawnAndDirtyAllEntities
+                    // Goob gets to about ~12GB, if we reach 16 GB on integrationtests we'll time out from GitHub
+                    //
+                    // This area on my local testing is where most of the memory builds up, so run it as long as we can within reason.
+                    // i mean yeah you could run the test in batches of entities but its not really a stress test then is it.
 
-                // goob edit - repalce is0 with atmost1.
-                // i can't believe you've done this.
-                Assert.That(entityMan.EntityCount, Is.AtMost(1));
-            });
+                    const int maxTicks = 15; // (default wizden)
+                    const long
+                        memoryLimitBytes =
+                            13L * 1024 * 1024 * 1024; // 13 GB, depends on how close you wanna fly to the sun.
 
+                    var warninglog = true; // if we stop caring about this test turn this off.
+
+                    for (var tick = 0; tick < maxTicks; tick++)
+                    {
+                        await pair.RunTicksSync(1);
+
+                        var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
+
+                        // debug logging but tbh just use debugger
+                        // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDeleteAllEntitiesOnDifferentMaps] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
+
+                        if (memoryUsed < memoryLimitBytes)
+                            continue;
+                        if (warninglog)
+                            await TestContext.Progress.WriteLineAsync(
+                                "Warning:\n" +
+                                $"[SpawnAndDeleteAllEntitiesOnDifferentMaps] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks} \n" +
+                                "Stopping early (limit: 13 GB)." +
+                                $"\nWe spawned a total of {protoIds.Count} entities and held on for {tick + 1} ticks. We're probably fine."
+                            );
+
+                        break; // stop ticking early
+                    }
+                    // Goobstation Edit End
+
+                    await server.WaitPost(() =>
+                    {
+                        static IEnumerable<(EntityUid, TComp)> Query<TComp>(IEntityManager entityMan)
+                            where TComp : Component
+                        {
+                            var query = entityMan.AllEntityQueryEnumerator<TComp>();
+                            while (query.MoveNext(out var uid, out var meta))
+                            {
+                                yield return (uid, meta);
+                            }
+                        }
+
+                        var entityMetas = Query<MetaDataComponent>(entityMan).ToList();
+                        foreach (var (uid, meta) in entityMetas)
+                        {
+                            if (!meta.EntityDeleted)
+                                entityMan.DeleteEntity(uid);
+                        }
+
+                        // goob edit - repalce is0 with atmost1.
+                        // i can't believe you've done this.
+                        Assert.That(entityMan.EntityCount, Is.AtMost(1));
+                    });
+
+            }
             await pair.CleanReturnAsync();
         }
 
@@ -283,83 +283,94 @@ namespace Content.IntegrationTests.Tests
                 .Select(p => p.ID)
                 .ToList();
 
-            await server.WaitPost(() =>
+            // Goob start run this test in batches of 10k because fuck you. we got too much shit.
+            const int batchSize = 10000;
+
+            for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
-                foreach (var protoId in protoIds)
+                var batchProtoIds = protoIds
+                    .Skip(batchStart)
+                    .Take(batchSize)
+                    .ToList();
+
+                await server.WaitPost(() =>
                 {
-                    mapSys.CreateMap(out var mapId);
-                    var grid = mapManager.CreateGridEntity(mapId);
-                    var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
-                    foreach (var (_, component) in sEntMan.GetNetComponents(ent))
+                    foreach (var protoId in batchProtoIds) // goob Batchprotoids
                     {
-                        sEntMan.Dirty(ent, component);
+                        mapSys.CreateMap(out var mapId);
+                        var grid = mapManager.CreateGridEntity(mapId);
+                        var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
+                        foreach (var (_, component) in sEntMan.GetNetComponents(ent))
+                        {
+                            sEntMan.Dirty(ent, component);
+                        }
                     }
-                }
-            });
+                });
 
-            // Goobstation Edit Start  (this test isn't even worth the effort tbh)
-            // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
-            // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on this test
-            // Goob gets to about 15GB, if we reach 16 GB on integrationtests we'll time out from github
-            //
-            // This area on my local testing is where most of the memory builds up, so run it as long as we can within reason.
-            // i mean yeah you could run the test in batches of entities but its not really a stress test then is it.
+                // Goobstation Edit Start  (this test isn't even worth the effort tbh)
+                // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
+                // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on this test
+                // Goob gets to about 15GB, if we reach 16 GB on integrationtests we'll time out from github
+                //
+                // This area on my local testing is where most of the memory builds up, so run it as long as we can within reason.
+                // i mean yeah you could run the test in batches of entities but its not really a stress test then is it.
 
-            const int maxTicks = 15; // (default wizden)
-            const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB
+                const int maxTicks = 15; // (default wizden)
+                const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB
 
-            var warninglog = true; // if we stop caring about this test turn this off.
+                var warninglog = true; // if we stop caring about this test turn this off.
 
-            for (var tick = 0; tick < maxTicks; tick++)
-            {
-                await pair.RunTicksSync(1);
-
-                var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
-
-                // debug logging but tbh just use debugger
-                // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDirtyAllEntities] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
-
-                if (memoryUsed < memoryLimitBytes)
-                    continue;
-                if (warninglog)
-                    await TestContext.Progress.WriteLineAsync(
-                        "Warning:\n"+
-                        $"[SpawnAndDirtyAllEntities] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks}\n" +
-                        "Stopping early (limit: 13 GB)." +
-                        $"\nWe spawned and dirtied {protoIds.Count} entities and held on for {tick+1} ticks. We're probably fine."
-                    );
-
-                break; // stop ticking early
-            }
-            // Goobstation Edit End
-
-            // Make sure the client actually received the entities
-            // 500 is completely arbitrary. Note that the client & sever entity counts aren't expected to match.
-            Assert.That(client.ResolveDependency<IEntityManager>().EntityCount, Is.GreaterThan(500));
-
-            await server.WaitPost(() =>
-            {
-                static IEnumerable<(EntityUid, TComp)> Query<TComp>(IEntityManager entityMan)
-                    where TComp : Component
+                for (var tick = 0; tick < maxTicks; tick++)
                 {
-                    var query = entityMan.AllEntityQueryEnumerator<TComp>();
-                    while (query.MoveNext(out var uid, out var meta))
+                    await pair.RunTicksSync(1);
+
+                    var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
+
+                    // debug logging but tbh just use debugger
+                    // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDirtyAllEntities] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
+
+                    if (memoryUsed < memoryLimitBytes)
+                        continue;
+                    if (warninglog)
+                        await TestContext.Progress.WriteLineAsync(
+                            "Warning:\n" +
+                            $"[SpawnAndDirtyAllEntities] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks}\n" +
+                            "Stopping early (limit: 13 GB)." +
+                            $"\nWe spawned and dirtied {protoIds.Count} entities and held on for {tick + 1} ticks. We're probably fine."
+                        );
+
+                    break; // stop ticking early
+                }
+                // Goobstation Edit End
+
+                // Make sure the client actually received the entities
+                // 500 is completely arbitrary. Note that the client & sever entity counts aren't expected to match.
+                Assert.That(client.ResolveDependency<IEntityManager>().EntityCount, Is.GreaterThan(500));
+
+                await server.WaitPost(() =>
+                {
+                    static IEnumerable<(EntityUid, TComp)> Query<TComp>(IEntityManager entityMan)
+                        where TComp : Component
                     {
-                        yield return (uid, meta);
+                        var query = entityMan.AllEntityQueryEnumerator<TComp>();
+                        while (query.MoveNext(out var uid, out var meta))
+                        {
+                            yield return (uid, meta);
+                        }
                     }
-                }
 
-                var entityMetas = Query<MetaDataComponent>(sEntMan).ToList();
-                foreach (var (uid, meta) in entityMetas)
-                {
-                    if (!meta.EntityDeleted)
-                        sEntMan.DeleteEntity(uid);
-                }
+                    var entityMetas = Query<MetaDataComponent>(sEntMan).ToList();
+                    foreach (var (uid, meta) in entityMetas)
+                    {
+                        if (!meta.EntityDeleted)
+                            sEntMan.DeleteEntity(uid);
+                    }
 
-                // goob edit - repalce is0 with atmost1.
-                // i can't believe you've done this.
-                Assert.That(sEntMan.EntityCount, Is.AtMost(1));
-            });
+                    // goob edit - repalce is0 with atmost1.
+                    // i can't believe you've done this.
+                    Assert.That(sEntMan.EntityCount, Is.AtMost(1));
+                });
+            } // Goob end, yeah im putting the whole test in a for loop.
 
             await pair.CleanReturnAsync();
         }
@@ -396,8 +407,10 @@ namespace Content.IntegrationTests.Tests
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
 
+                // <Goob>
                 "PendingSlimeSpawn", // shut the fuck up please
                 "Slime" // please
+                // </Goob>
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
@@ -424,8 +437,8 @@ namespace Content.IntegrationTests.Tests
             await pair.RunTicksSync(3);
 
             // We consider only non-audio entities, as some entities will just play sounds when they spawn.
-            int Count(IEntityManager ent) =>  ent.EntityCount - ent.Count<AudioComponent>();
-            IEnumerable<EntityUid> Entities(IEntityManager entMan) => entMan.GetEntities().Where(entMan.HasComponent<AudioComponent>);
+            int Count(IEntityManager ent) => ent.EntityCount - ent.Count<AudioComponent>();
+            IEnumerable<EntityUid> Entities(IEntityManager entMan) => entMan.GetEntities().Where(e => !entMan.HasComponent<AudioComponent>(e));
 
             await Assert.MultipleAsync(async () =>
             {
@@ -465,8 +478,8 @@ namespace Content.IntegrationTests.Tests
                     // Check that the number of entities has gone back to the original value.
                     Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deletion: count didn't reset properly\n" +
                         BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                    Assert.That(client.EntMan.EntityCount, Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deletion: count didn't reset properly:\n" +
-                        $"Expected {clientCount} and found {client.EntMan.EntityCount}.\n" +
+                    Assert.That(Count(client.EntMan), Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deletion: count didn't reset properly:\n" +
+                        $"Expected {clientCount} and found {Count(client.EntMan)}.\n" +
                         $"Server count was {count}.\n" +
                         BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
                 }

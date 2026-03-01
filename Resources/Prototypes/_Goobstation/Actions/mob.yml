@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionMouseCall
+  name: Mousecall
+  description: Call nearby mice to your location.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/call.rsi
+      state: icon
+    useDelay: 15
+  - type: InstantAction
+    event: !type:MobCallActionEvent

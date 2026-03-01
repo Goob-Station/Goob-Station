@@ -89,6 +89,16 @@
       role: JobHeadOfSecurity
       time: 72000 #20 hrs
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterHoS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 360000 # 100 hrs
+
 # Jumpsuit
 - type: loadout
   id: HeadofSecurityJumpsuit
@@ -163,6 +173,14 @@
   id: HeadofSecurityMantle
   equipment:
     neck: ClothingNeckMantleHOS
+
+- type: loadout # Goobstation - Ensembles
+  id: HeadOfSecurityEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleHeadOfSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterHoS
 
 # OuterClothing
 - type: loadout

@@ -105,7 +105,7 @@
   parent: SteelOre
   id: SteelOreUnprocessed
   name: unprocessed iron ore
-  suffix: Full
+  suffix: Thirty
   components:
   - type: Stack
     stackType: SteelOreUnprocessed
@@ -120,6 +120,24 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  id: SteelOre60Unprocessed
+  parent: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  id: SteelOre90Unprocessed
+  parent: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
 
 - type: entity
   parent: PlasmaOre
@@ -165,7 +183,7 @@
   parent: SpaceQuartz
   id: SpaceQuartzUnprocessed
   name: unprocessed space quartz
-  suffix: Full
+  suffix: Thirty
   components:
   - type: Stack
     stackType: SpaceQuartzUnprocessed
@@ -180,6 +198,24 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: SpaceQuartzUnprocessed
+  id: SpaceQuartz60Unprocessed
+  name: unprocessed space quartz
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  parent: SpaceQuartzUnprocessed
+  id: SpaceQuartz90Unprocessed
+  name: unprocessed space quartz
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
 
 - type: entity
   parent: UraniumOre
@@ -225,7 +261,7 @@
   parent: Coal
   id: CoalUnprocessed
   name: unprocessed coal
-  suffix: Full
+  suffix: Thirty
   components:
   - type: Stack
     stackType: CoalUnprocessed
@@ -267,6 +303,24 @@
   components:
   - type: Stack
     count: 15
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal60Unprocessed
+  name: unprocessed coal
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal90Unprocessed
+  name: unprocessed coal
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
 
 - type: entity
   parent: ArtifactFragmentOre
