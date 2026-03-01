@@ -19,8 +19,3 @@
   - type: Execution
     doAfterDuration: 4.0
   - type: Unremoveable
-
-- type: entity
-  name: Singuloth's hammer
-  parent: SingularityHammer
-  id: SingulothsHammer

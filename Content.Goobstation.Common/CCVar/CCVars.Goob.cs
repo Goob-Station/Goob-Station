@@ -122,6 +122,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> HighpopThreshold =
         CVarDef.Create("game.players.highpop_threshold", 50f, CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> RemoveClumsyOnAntag =
+        CVarDef.Create("game.antag.gain.remove_clumsy", false, CVar.SERVERONLY);
+
     /// <summary>
     ///     Is ore silo enabled.
     /// </summary>
@@ -244,12 +247,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> SiliconNpcUpdateTime =
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     Should the player automatically get up after being knocked down
-    /// </summary>
-    public static readonly CVarDef<bool> AutoGetUp =
-        CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
 
     /// <summary>
     ///     Sets the size of the hitbox where projectile/laser will hit any entity regardless of crawling

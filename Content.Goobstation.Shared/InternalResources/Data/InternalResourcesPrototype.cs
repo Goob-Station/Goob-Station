@@ -19,26 +19,38 @@ public sealed class InternalResourcesPrototype : IPrototype
     public LocId? Description;
 
     /// <summary>
-    /// Alert prototype for inner resources visualising
+    /// The alert prototype to be shown.
     /// </summary>
-    [DataField("alert")]
-    public ProtoId<AlertPrototype> AlertPrototype = "ChangelingChemicals";
+    [DataField("alert", required: true)]
+    public ProtoId<AlertPrototype> AlertPrototype;
 
     /// <summary>
-    /// Base resources regeneration rate per update time
+    /// The thresholds proto used for raising InternalResourcesThresholdMetEvent.
+    /// </summary>
+    [DataField("thresholds")]
+    public ProtoId<InternalResourcesThresholdsPrototype>? ThresholdsProto;
+
+    /// <summary>
+    /// Base resource regeneration amount per update tick
     /// </summary>
     [DataField("regenerationRate")]
     public float BaseRegenerationRate = 1f;
 
     /// <summary>
-    /// Base resources maximum amount
+    /// Base resource maximum amount
     /// </summary>
     [DataField("maxAmount")]
     public float BaseMaxAmount = 100f;
 
     /// <summary>
-    /// Base amount of resources when these internal resources is added to entity
+    /// Starting resource amount when added to an entity.
     /// </summary>
     [DataField("startingAmount")]
     public float BaseStartingAmount = 100f;
+
+    /// <summary>
+    /// Used for action popups when the resource amount is not high enough.
+    /// </summary>
+    [DataField]
+    public LocId DeficitPopup = "internal-resources-action-generic-deficit";
 }

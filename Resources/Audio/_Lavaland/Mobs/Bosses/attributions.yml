@@ -58,3 +58,7 @@
   license: "Custom"
   copyright: "Made by Sonican"
   source: "https://pixabay.com/music/upbeat-action-fight-239712/"
+- files: ["hierophant.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by qwertyquerty"
+  source: "https://www.youtube.com/watch?v=Zafd-0ehSpQ"

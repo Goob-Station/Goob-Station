@@ -48,3 +48,51 @@
           tags:
           - Paper
           - Vial
+
+- type: entity
+  id: ComputerContractor
+  parent: [BaseComputer, StorePresetUplink, BaseSyndicateContraband]
+  name: contractor uplink computer
+  description: A terminal providing access to the guild store. Spend your hard earned TC on exclusive gear and upgrades to aid you in your freelancer endeavors.
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Telecrystal: 0
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: [ "computerLayerBody" ]
+      state: computer
+    - map: [ "computerLayerKeyboard" ]
+      state: generic_keyboard
+    - map: [ "computerLayerScreen" ]
+      state: comm_syndie
+    - map: [ "computerLayerKeys" ]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: [ ]
+      documentSlot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: [ ]
+  - type: Tag
+    tags:
+    - ContractorUplink
