@@ -20,7 +20,6 @@ using Content.Server.Chat.Systems;
 using Content.Server.Mind;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Chat;
@@ -29,6 +28,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Stacks;
+using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.Pirates.Siphon;
