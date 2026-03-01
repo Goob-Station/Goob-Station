@@ -44,7 +44,7 @@ public sealed class ResourceSiphonSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
-    private float TickTimer = 1f;
+    private float _tickTimer = 1f;
 
     public override void Initialize()
     {
@@ -72,10 +72,10 @@ public sealed class ResourceSiphonSystem : EntitySystem
             siphon.ActivationPhase = 0; // reset
         }
 
-        TickTimer -= frameTime;
-        if (TickTimer <= 0)
+        _tickTimer -= frameTime;
+        if (_tickTimer <= 0)
         {
-            TickTimer = 1;
+            _tickTimer = 1;
             eqe = EntityQueryEnumerator<ResourceSiphonComponent>(); // reset it ig
             while (eqe.MoveNext(out var uid, out var siphon))
                 Tick((uid, siphon));
@@ -131,7 +131,7 @@ public sealed class ResourceSiphonSystem : EntitySystem
 
         EntityUid? stationGrid = null;
         if (TryComp<StationDataComponent>(stationEntry, out var stationData))
-            stationGrid = _station.GetLargestGrid(stationData); // this is probably the station
+            stationGrid = _station.GetLargestGrid((stationEntry, stationData)); // this is probably the station
 
         // if this is the case we've got bigger problems than handling this
         if (stationGrid == null)
