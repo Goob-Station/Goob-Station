@@ -55,7 +55,7 @@
   id: HereticVoidPath2
   name: knowledge-path-void-s2-name
   description: knowledge-path-void-s2-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: mansus_grasp }
   productHereticKnowledge: GraspOfVoid
   cost:
     KnowledgePoint: 1
@@ -110,7 +110,7 @@
   id: HereticVoidPath4
   name: knowledge-path-void-s4-name
   description: knowledge-path-void-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: mansus_grasp }
   productHereticKnowledge: MarkOfVoid
   cost:
     KnowledgePoint: 2

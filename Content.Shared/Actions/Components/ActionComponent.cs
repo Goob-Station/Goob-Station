@@ -199,19 +199,19 @@ public sealed partial class ActionComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public SoundSpecifier? Sound;
-    
+
     /// <summary>
     ///     Goobstation.
     ///     If true, ghosts will be granted this action.
     /// </summary>
-    [DataField] 
+    [DataField]
     public bool AllowGhostAction;
 
     /// <summary>
     ///     Goobstation.
     ///     Is this action predicted.
     /// </summary>
-    [DataField] 
+    [DataField]
     public bool Predicted = true;
 }
 

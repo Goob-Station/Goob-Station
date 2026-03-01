@@ -1,0 +1,258 @@
+- type: entity
+  parent: BaseAction
+  id: BaseActionCult
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LimitedCharges
+    maxCharges: 1 # hehe
+  - type: MagicAction
+    requirements:
+    - !type:MagicRequireRole
+      role: !type:MindRoleBloodCultistComponent
+    - !type:MagicRequireSpeech
+    - !type:MagicRequireStability
+
+# Blood Magic
+- type: entity
+  parent: BaseAction
+  id: ActionCultPrepareBloodMagic
+  name: Prepare Blood Magic
+  description: Prepare blood magic by carving runes into your flesh. This is easier with an empowering rune.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: carve
+  - type: InstantAction
+    event: !type:EventActionCultPrepareBloodMagic
+  - type: MagicAction
+    requirements:
+    - !type:MagicRequireRole
+      role: !type:MindRoleBloodCultistComponent
+  - type: UserInterface
+    interfaces:
+      enum.EntityRadialMenuKey.Key:
+        type: CultBloodMagicBUI
+    
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultTouchSpellStun
+  name: Stun
+  description: Empowers your hand to stun and mute a victim on contact. Gets weaker depending on how many have joined the Cult. The stun dissipates on injury.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: hand
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-stun
+    invocationType: Whisper
+  - type: BloodCultAction
+    damage:
+      types:
+        Slash: 10
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultStun
+
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultTouchSpellTeleport
+  name: Teleport
+  description: Empowers your hand to teleport yourself or another cultist to a teleport rune on contact.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: tele
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-teleport
+    invocationType: Whisper
+  - type: BloodCultAction
+    damage:
+      types:
+        Slash: 7
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultTeleport
+
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultEmp
+  name: Electromagnetic Pulse
+  description: Emits a large electromagnetic pulse.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: emp
+  - type: InstantAction
+    event: !type:EventActionCultEmp
+  - type: BloodCultAction
+    damage:
+      types:
+        Slash: 10
+
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultTouchSpellShackles
+  name: Shadow Shackles
+  description: Empowers your hand to start handcuffing victim on contact, and mute them if successful. The shackles dissipate on injury.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: cuff
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-shackles
+    invocationType: Whisper
+  - type: BloodCultAction
+    damage:
+      types:
+        Slash: 4
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultShackles
+
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultTouchSpellConstruction
+  name: Twisted Construction
+  description: Empowers your hand to corrupt certain metallic objects. Converts Plasteel into runed metal, 30 steel sheets into a construct shell, living cyborgs into constructs, cyborg shells into construct shells, purified soulstones (and any shades inside) into cultist soulstones and airlocks into brittle runed airlocks.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: transmute
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-construction
+    invocationType: Whisper
+  - type: BloodCultAction
+    damage:
+      types:
+        Slash: 12
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultConstruction
+    
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultTouchSpellEquipment
+  name: Summon Combat Equipment
+  description: Empowers your hand to summon and equip combat gear onto a cultist you touch, including cult armor, a cult bola, and a cult sword. Not recommended for use before the blood cult's presence has been revealed.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: equip
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent
+  - type: MagicAction
+    invocationLoc: cult-magic-invoke-dagger
+    invocationType: Whisper
+  - type: BloodCultAction
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultEquipment
+    
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultDagger
+  name: Summon Ritual Dagger
+  description: Allows you to summon a ritual dagger, in case you've lost the dagger that was given to you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: equip
+  - type: InstantAction
+    event: !type:EventActionCultDagger
+  - type: BloodCultAction
+    
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultTouchSpellManipulation
+  name: Blood Rites
+  description: Empowers your hand to absorb blood to be used for advanced rites, or heal a cultist on contact. Use the spell in-hand to cast advanced rites.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: manip
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent
+  - type: BloodCultAction
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultManipulation
+  - type: BloodRitesData
+
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultManipulationHalberd
+  name: Bloody Halberd
+  description: Summons a robust two-handed halberd. Can be recalled to your hand from up to 10 tiles away if it has a clear path back to you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: bloodspear
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent # TODO change
+  - type: BloodCultAction
+
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultManipulationBoltBarrage
+  name: Bolt Barrage
+  description: Temporarily grants you the ability to launch several powerful projectiles from your hand, similar to the Wizard's arcane barrage.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: pulse
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent # TODO change
+  - type: BloodCultAction
+
+- type: entity
+  parent: BaseActionCult
+  id: ActionCultManipulationBloodBeam
+  name: Blood Beam
+  description: POWER OVERWHELMING!!!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Cult/actions_cult.rsi
+      state: sintouch
+  - type: InstantAction
+    event: !type:BlankInstantActionEvent # TODO change
+  - type: BloodCultAction

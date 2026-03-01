@@ -27,7 +27,7 @@
   id: HereticCosmosPath2
   name: knowledge-path-cosmos-s2-name
   description: knowledge-path-cosmos-s2-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: mansus_grasp }
   productHereticKnowledge: GraspOfCosmos
   cost:
     KnowledgePoint: 1
@@ -63,7 +63,7 @@
   id: HereticCosmosPath4
   name: knowledge-path-cosmos-s4-name
   description: knowledge-path-cosmos-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: mansus_grasp }
   productHereticKnowledge: MarkOfCosmos
   cost:
     KnowledgePoint: 2

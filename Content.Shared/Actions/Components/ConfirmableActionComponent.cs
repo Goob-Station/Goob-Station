@@ -10,7 +10,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Popups;
-using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -23,7 +22,7 @@ namespace Content.Shared.Actions.Components;
 /// Used for dangerous actions that cannot be undone (unlike screaming).
 /// Requires <see cref="ActionComponent"/>.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(ConfirmableActionSystem))]
+[RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState, AutoGenerateComponentPause]
 [EntityCategory("Actions")]
 public sealed partial class ConfirmableActionComponent : Component

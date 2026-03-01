@@ -29,6 +29,7 @@ using Robust.Shared.Random;
 using System.Text;
 using Content.Server.Station.Components;
 using Content.Server._Goobstation.Objectives.Components;
+using Content.Goobstation.Shared.Magic;
 using Content.Shared.Clumsy;
 using Content.Server.Popups;
 using Content.Shared.Station.Components;

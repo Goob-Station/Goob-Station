@@ -103,11 +103,6 @@ public sealed class WeakToHolySystem : EntitySystem
             args.ShouldTakeHoly = true;
             return;
         }
-
-        // If any item in hand or in inventory has Unholy item, shouldtakeholy is true.
-        if (_inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.WITHOUT_POCKET)
-            .Any(HasComp<UnholyItemComponent>))
-            args.ShouldTakeHoly = true;
     }
 
     #endregion

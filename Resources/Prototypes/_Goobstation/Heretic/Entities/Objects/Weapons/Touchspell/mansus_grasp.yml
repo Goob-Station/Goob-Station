@@ -12,14 +12,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: TouchSpellBase
   id: TouchSpellMansus
   name: mansus grasp
   description: The power of the Old Gods, channeled through your grip.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Unremoveable
-  - type: Item
-  - type: UnholyItem
   - type: MansusGrasp
     blacklist:
       components:
@@ -31,31 +29,32 @@
       types:
         Piercing: 1
   - type: Sprite
-    sprite: _Goobstation/Heretic/mansus_grasp.rsi
-    state: icon
-  - type: Appearance
+    color: "#329a00"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#329a00" # here too
+      right:
+      - state: inhand-right
+        color: "#329a00" # here too...
   - type: UseDelay
     delays: # For rust path
       rust:
         length: 3
   - type: PointLight
-    enabled: true
-    radius: 2
-    energy: 1
     color: "#329a00"
   - type: SurgeryTool # For organ removal
     startSound:
       path: /Audio/_Goobstation/Heretic/crack2.ogg
     endSound:
       path: /Audio/Items/welder.ogg
-  # Used for extracting organs
   - type: Hemostat
     speed: 1.5
   - type: Retractor
     speed: 1.5
   - type: Tweezers
     speed: 1.5
-  # Not used for extracting organs
   - type: Drill
     speed: 0.75
   - type: BoneSetter

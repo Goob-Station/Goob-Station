@@ -10,7 +10,6 @@
   parent: [ BaseKnife, BaseMagicalContraband ]
   id: CarvingKnife
   components:
-  - type: UnholyItem
   - type: Sprite
     sprite: _Goobstation/Heretic/items.rsi
     state: rune_carver

@@ -177,6 +177,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
     }
 
+    [Obsolete("See the new SharedGoobMagicSystem for checks instead. This is to be removed.")]
     public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
         if (args.Handled

@@ -1,20 +1,22 @@
 - type: entity
+  parent: TouchSpellBase
   id: TouchSpellFleshSurgery
   name: knit flesh
   description: Let's go practice medicine.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Unremoveable
-  - type: Item
-  - type: UnholyItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/Entities/flesh_surgery.rsi
-    state: icon
+    color: "#911500"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#911500" # here too
+      right:
+      - state: inhand-right
+        color: "#911500" # here too...
   - type: Appearance
   - type: PointLight
-    enabled: true
-    radius: 2
-    energy: 1
     color: "#911500"
   - type: SurgeryTool
     startSound:

@@ -1,0 +1,38 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseCultObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-cult
+
+- type: entity
+  parent: BaseCultObjective
+  id: CultHalosObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Cult/objective_icons.rsi
+      state: halos
+  # todo
+
+- type: entity
+  parent: BaseCultObjective
+  id: CultSacrificeObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Cult/objective_icons.rsi
+      state: sacrifice
+  # todo
+
+- type: entity
+  parent: BaseCultObjective
+  id: CultSummonObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Cult/objective_icons.rsi
+      state: nrsie
+  # todo

@@ -17,7 +17,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Actions;
 
 /// <summary>
-/// Handles action priming, confirmation and automatic unpriming.
+///     Handles action priming, confirmation and automatic unpriming.
 /// </summary>
 public sealed class ConfirmableActionSystem : EntitySystem
 {
@@ -53,6 +53,8 @@ public sealed class ConfirmableActionSystem : EntitySystem
     {
         if (!ent.Comp.ShouldCancel) // Goobstation
             return;
+
+        // TODO: make it so that it pops up a confirmation window instead?
 
         if (args.Cancelled)
             return;

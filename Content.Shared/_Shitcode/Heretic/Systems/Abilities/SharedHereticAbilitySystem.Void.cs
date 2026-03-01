@@ -28,9 +28,6 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnVoidConduit(Entity<HereticComponent> ent, ref HereticVoidConduitEvent args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         args.Handled = true;
 
         PredictedSpawnAtPosition(args.VoidConduit, Transform(ent).Coordinates);
