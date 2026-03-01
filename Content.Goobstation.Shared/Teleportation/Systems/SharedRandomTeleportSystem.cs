@@ -59,7 +59,7 @@ public partial class SharedRandomTeleportSystem : EntitySystem
         if (sound) _audio.PlayPvs(rtp.DepartureSound, Transform(target).Coordinates, AudioParams.Default);
         _sparks.DoSparks(Transform(target).Coordinates); // also sparks!!
 
-        finalWorldPos = RandomTeleport(target, rtp.Radius, rtp.TeleportAttempts, rtp.ForceSafeTeleport);
+        finalWorldPos = RandomTeleport(target, rtp.Radius, rtp.TeleportAttempts, rtp.ForceSafeTeleport, rtp.TeleportPulledEntities);
 
         if (sound) _audio.PlayPvs(rtp.ArrivalSound, Transform(target).Coordinates, AudioParams.Default);
         _sparks.DoSparks(Transform(target).Coordinates);
@@ -76,7 +76,7 @@ public partial class SharedRandomTeleportSystem : EntitySystem
         return _random.NextAngle().ToVec() * distance;
     }
 
-    public Vector2? RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true)
+    public Vector2? RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true, bool teleportPulledEntities = false)
     {
         var xform = Transform(uid);
         var entityCoords = _xform.ToMapCoordinates(xform.Coordinates);
@@ -148,7 +148,7 @@ public partial class SharedRandomTeleportSystem : EntitySystem
 
         // pulled entity goes with us
         // btw STOP REVERSING CHECKS
-        if (pullableEntity != null)
+        if (pullableEntity != null && teleportPulledEntities)
         {
             _xform.SetWorldPosition(pullableEntity.Value, newPos);
             _pullingSystem.TryStartPull(uid, pullableEntity.Value, grabStageOverride: stage, force: true);

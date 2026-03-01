@@ -142,3 +142,18 @@
     - YowKriol
     requires:
     - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SignTranslatorImplant
+  name: sign translator implant
+  description: An implant giving the ability to understand and speak Sign Language.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Sign
+    spoken:
+    - Sign
+    requires:
+    - TauCetiBasic
