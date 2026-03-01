@@ -1,0 +1,25 @@
+- type: entityTable
+  id: LootFoodCommonMRE
+  table: !type:GroupSelector
+    children:
+    - id: FoodSnackNutribrick
+    - id: DrinkMREFlask
+    - id: FoodSnackMREBrownie
+    - id: FoodTinMRE
+
+- type: entityTable
+  id: LootFoodCommonDrink
+  table: !type:GroupSelector
+    children:
+    - id: DrinkWaterBottleFull
+    - id: DrinkVermouthBottleFull
+    - id: DrinkWhiskeyBottleFull
+
+- type: entityTable
+  id: LootFoodCommonMisc
+  table: !type:GroupSelector
+    children:
+    - id: FoodSnackSus
+    - id: FoodTinPeachesMaint
+    - id: FoodTinBeans
+   

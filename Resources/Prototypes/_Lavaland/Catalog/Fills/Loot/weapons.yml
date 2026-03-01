@@ -1,0 +1,69 @@
+- type: entityTable
+  id: MetalShelfCommonWeapons
+  table: !type:GroupSelector
+    children:
+    - id: MagazinePistol
+    - id: WeaponFlareGun
+
+- type: entityTable
+  id: MetalShelfRareWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponNailgun
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazineNailgun
+    - id: WeaponSniperMosin
+    - id: WeaponPistolMk58
+    - id: WeaponFlareGun
+    - id: MagazinePistol
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: MetalShelfVeryRareWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponPistolMk58
+      weight: 6
+    - id: MagazineRifle
+      weight: 6
+    - id: MagazinePistolIncendiary
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+      weight: 6
+    - id: MagazinePistolSubMachineGun
+      weight: 6
+    - id: MagazinePistolSubMachineGunTopMounted
+      weight: 6
+    - id: BoxShotgunSlug
+      weight: 5
+    - id: WeaponSubMachineGunAtreides
+      weight: 3
+    - id: WeaponSubMachineGunWt550
+      weight: 3
+    - id: WeaponSubMachineGunDrozd
+      weight: 3
+    - id: WeaponShotgunEnforcer
+      weight: 1
+    - id: WeaponRifleAk
+      weight: 1
+    - id: WeaponRifleLecter
+      weight: 1
+    - id: Sledgehammer
+      weight: 1
+    - id: Katana
+      weight: 1
+
+- type: entityTable
+  id: MetalShelfUltraRareWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponRifleLecter
+    - id: WeaponRifleAk
+    - id: WeaponShotgunEnforcer
+    - id: WeaponSubMachineGunDrozd
+    - id: WeaponSubMachineGunWt550
+    - id: MagazinePistolUranium
+      amount: !type:RangeNumberSelector
+        range: 2, 3

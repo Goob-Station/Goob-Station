@@ -1,0 +1,29 @@
+- type: entity
+  id: GoonPoolLadder
+  parent: BaseStructure
+  name: ladder
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: ladder
+  - type: Transform
+    anchored: true
+
+- type: entity
+  id: GoonMetalLadderOn
+  parent: GoonPoolLadder
+  name: ladder
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: ladder_on
+
+- type: entity
+  id: GoonMetalLadderOff
+  parent: GoonPoolLadder
+  name: ladder
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: ladder_off

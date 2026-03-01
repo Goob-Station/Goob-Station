@@ -1,0 +1,49 @@
+- type: entity
+  parent: Bed
+  id: BunkBed1
+  name: bunk bed
+  description: It's a bed with Z-levels.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Furniture/bunkbed.rsi
+    state: zbunkbed
+
+- type: entity
+  parent: Bed
+  id: BunkBed2
+  name: bunk bed
+  description: It's a bed with Z-levels.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Furniture/bunkbed.rsi
+    state: zbunkbed2
+
+- type: entity
+  parent: Bed
+  id: BunkBed3
+  name: bunk bed
+  description: It's a bed with Z-levels.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Furniture/bunkbed.rsi
+    state: zbunkbed3
+
+- type: entity
+  parent: Bed
+  id: BunkBed4
+  name: bunk bed
+  description: It's a bed with Z-levels.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Furniture/bunkbed.rsi
+    state: zbunkbed4
+
+- type: entity
+  parent: Bed
+  id: BunkBed5
+  name: bunk bed
+  description: It's a bed with Z-levels.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Furniture/bunkbed.rsi
+    state: prisonbed

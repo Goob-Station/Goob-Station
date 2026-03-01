@@ -63,3 +63,47 @@
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: AlwaysHot
 
+- type: entity
+  id: UglyBarrel1
+  name: storage barrel
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: barrel1
+
+- type: entity
+  id: UglyBarrel2
+  name: storage barrel
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: barrel2
+
+- type: entity
+  id: UglyBarrel3
+  name: storage barrel
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: barrel3
+
+- type: entity
+  id: UglyBarrel4
+  name: storage barrel
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: barrel4
+
+- type: entity
+  id: UglyBarrel5
+  name: storage barrel
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: barrel5

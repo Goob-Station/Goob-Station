@@ -1,0 +1,17 @@
+- type: entity
+  id: GoonAngelStatue
+  parent: BaseRuinStructure
+  name: creepy statue
+  description: Don't even blink
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: statue
+
+- type: entity
+  id: GoonAngelStatueBroken
+  parent: GoonAngelStatue
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: statue_broken

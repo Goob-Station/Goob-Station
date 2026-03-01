@@ -1,0 +1,166 @@
+- type: entity
+  name: R.F.P.K. shotgun prototype
+  id: WeaponProtoKineticShotgunPrototype
+  parent: WeaponProtoKineticShotgun
+  description: An experimental prototype developed by the military, combining the best of both worlds to equip a shotgun with burst mode capabilities that allows for relentless volleys of pain.
+  suffix: DO NOT MAP
+  components:
+  - type: Gun
+    selectedMode: Burst
+    minAngle: 10
+    maxAngle: 20
+    burstFireRate: 3
+    burstCooldown: 3
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/kinetic_accel_boosted.ogg
+  - type: BasicEntityAmmoProvider
+    proto: PelletKineticSpread
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/prototype.rsi
+    layers:
+    - state: icon
+      map: [ "icon" ]
+    - state: bayonet
+      map: [ "bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "flight" ]
+      visible: false
+    - state: flight-on
+      map: [ "flight-on" ]
+      visible: false
+    - state: animation-icon
+      map: [ "animation-icon" ]
+      visible: false
+    - state: upgrade-space
+      map: [ "upgrade-space" ]
+      visible: false
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/prototype.rsi
+  - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/prototype.rsi
+    shape:
+    - 0,2,4,2
+  - type: ContainerContainer
+    containers:
+      bayonet: !type:ContainerSlot
+      flashlight: !type:ContainerSlot
+      upgrade_slot_1: !type:ContainerSlot
+      upgrade_slot_2: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      bayonet:
+        name: weapon-upgrade-slot-name-bayonet
+        priority: 5
+        insertDelay: 2.0
+        ejectDelay: 1.2
+        ejectOnBreak: true
+        whitelist: {components: []}
+      flashlight:
+        name: weapon-upgrade-slot-name-flashlight
+        priority: 4
+        insertDelay: 0.8
+        ejectDelay: 0.4
+        ejectOnBreak: true
+        occludesLight: false
+        whitelist: {components: []}
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false
+        priority: 3
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist: {tags: []}
+      upgrade_slot_2:
+        name: weapon-upgrade-slot-name-second
+        swap: false
+        priority: 2
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist: {tags: []}
+
+- type: entity
+  name: U.R.F.P.K. repeater prototype
+  id: WeaponProtoKineticRepeaterPrototype
+  parent: WeaponProtoKineticRepeater
+  description: An experimental prototype developed by the military. Fires a massive, relentless volley of low-damage bullets. Once you start, it cannot stop.
+  suffix: DO NOT MAP
+  components:
+  - type: Gun
+    selectedMode: Burst
+    minAngle: 10
+    maxAngle: 30
+    shotsPerBurst: 30
+    burstFireRate: 5
+    burstCooldown: 6
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: BasicEntityAmmoProvider
+    proto: WeakBulletKinetic
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/repeater.rsi
+    layers:
+    - state: icon
+      map: [ "icon" ]
+    - state: bayonet
+      map: [ "bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "flight" ]
+      visible: false
+    - state: flight-on
+      map: [ "flight-on" ]
+      visible: false
+    - state: animation-icon
+      map: [ "animation-icon" ]
+      visible: false
+    - state: upgrade-space
+      map: [ "upgrade-space" ]
+      visible: false
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/repeater.rsi
+  - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Special/repeater.rsi
+    shape:
+    - 0,0,3,3
+  - type: ContainerContainer
+    containers:
+      bayonet: !type:ContainerSlot
+      flashlight: !type:ContainerSlot
+      upgrade_slot_1: !type:ContainerSlot
+      upgrade_slot_2: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      bayonet:
+        name: weapon-upgrade-slot-name-bayonet
+        priority: 5
+        insertDelay: 2.0
+        ejectDelay: 1.2
+        ejectOnBreak: true
+        whitelist: {components: []}
+      flashlight:
+        name: weapon-upgrade-slot-name-flashlight
+        priority: 4
+        insertDelay: 0.8
+        ejectDelay: 0.4
+        ejectOnBreak: true
+        occludesLight: false
+        whitelist: {components: []}
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false
+        priority: 3
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist: {tags: []}
+      upgrade_slot_2:
+        name: weapon-upgrade-slot-name-second
+        swap: false
+        priority: 2
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist: {tags: []}

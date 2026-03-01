@@ -9,6 +9,7 @@
   parent: [ SimpleSpaceMobBase, MobCombat ]
   description: A swarm of angry nanites.
   components:
+  - type: Insulated
   - type: Sprite
     drawdepth: Mobs
     sprite: /Textures/_Goobstation/Mobs/Silicon/nanites.rsi
@@ -83,6 +84,7 @@
   parent: [ BaseMob, MobCombat ]
   description: A Security Robot, something seems a bit off.
   components:
+  - type: Insulated
   - type: Sprite
     sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
     layers:

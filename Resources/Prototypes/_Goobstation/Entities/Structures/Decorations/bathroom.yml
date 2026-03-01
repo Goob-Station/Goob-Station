@@ -1,0 +1,183 @@
+- type: entity
+  id: BathroomToiletPaperHolder
+  parent: BaseSign
+  name: paper holder
+  description: Don't flip it!
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: toiletholder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: BathroomTowelHanger
+  parent: BaseSign
+  name: rung
+  description: A solidly attached metal bar with many uses.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: rung
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: Urinal
+  parent: BaseSign
+  name: Urinal
+  description: Don't you dare.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: urinal
+
+- type: entity
+  id: Shower
+  parent: BaseSign
+  name: Showerhead
+  description: Might do you some good.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: shower
+
+- type: entity
+  id: RadiatorMachine
+  parent: BaseSign
+  name: radiator
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: radiator
+  - type: Rotatable
+
+- type: entity
+  id: BathroomTrashcan
+  parent: BaseStructureDynamic
+  name: trashcan
+  description: After the invention of disposal units, people forgot how to use trashcans.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/disposal.rsi
+    state: trashcan
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.15
+        density: 120
+        mask:
+        - MachineMask
+        layer:
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: UglyBathtub
+  name: bathtub
+  description: Don't slip!
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: bathtub
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+
+- type: entity
+  id: WaterShower
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: water
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: AnimationPlayer
+
+- type: entity
+  id: Mist
+  parent: WaterShower
+  name: Mist
+  description: Hard to see what's inside.
+  components:
+  - type: Sprite
+    state: mist
+    drawdepth: Effects
+
+- type: entity
+  id: PuddleAlt
+  name: Puddle
+  description: It's a puddle of something.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: puddle
+    drawdepth: FloorObjects
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+
+- type: entity
+  id: PuddleOil
+  parent: PuddleAlt
+  components:
+  - type: Sprite
+    state: puddle-oil
+
+- type: entity
+  id: PuddleOilSplash
+  parent: PuddleAlt
+  components:
+  - type: Sprite
+    state: puddle-oil-splash
+
+- type: entity
+  id: PuddleSplash
+  parent: PuddleAlt
+  components:
+  - type: Sprite
+    state: puddle-splash
+
+- type: entity
+  id: LaundromatWashingMachine
+  parent: BaseStructure
+  name: Washing machine
+  description: An old and obsolete machine. 
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/hospital.rsi
+    state: washer

@@ -1,0 +1,120 @@
+# ---- Laser weapons (battery + self recharge) ----
+
+- type: entity
+  id: ShuttleGunSvalinnMachineGunAutoRegen
+  parent: ShuttleGunSvalinnMachineGun
+  suffix: Auto, Regen
+  components:
+  - type: AutoShootGun
+    enabled: true
+  - type: Battery
+    maxCharge: 5000
+    startingCharge: 5000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 250
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        startingItem: DebugPowerCellAntiqueProtoInfinite
+
+- type: entity
+  id: ShuttleGunPerforatorAutoRegen
+  parent: ShuttleGunPerforator
+  suffix: Auto, Regen
+  components:
+  - type: AutoShootGun
+    enabled: true
+  - type: Battery
+    maxCharge: 8000
+    startingCharge: 8000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 300
+
+# ---- Grenade launchers (entity ammo + recharge) ----
+
+- type: entity
+  id: ShuttleGunFriendshipAutoRegen
+  parent: ShuttleGunFriendship
+  suffix: Auto, Regen
+  components:
+  - type: AutoShootGun
+    enabled: true
+  - type: BasicEntityAmmoProvider
+    proto: GrenadeFragSelfDespawn
+    capacity: 2
+    count: 2
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 3
+
+- type: entity
+  id: ShuttleGunDusterAutoRegen
+  parent: ShuttleGunDuster
+  suffix: Auto, Regen
+  components:
+  - type: AutoShootGun
+    enabled: true
+  - type: BasicEntityAmmoProvider
+    proto: GrenadeFragSelfDespawn
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 4
+
+# ---- Pirate cannon (single-shot, slow regen) ----
+
+- type: entity
+  id: ShuttleGunPirateCannonAutoRegen
+  parent: ShuttleGunPirateCannon
+  suffix: Auto, Regen
+  components:
+  - type: AutoShootGun
+    enabled: true
+  - type: BasicEntityAmmoProvider
+    proto: CannonBall
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 6
+
+# ---- Kinetic turret (already self-recharging) ----
+
+- type: entity
+  id: ShuttleGunKineticAuto
+  parent: ShuttleGunKinetic
+  suffix: Auto
+  components:
+  - type: AutoShootGun
+    enabled: true
+
+- type: entity
+  name: infinite power cell
+  description: A small cell that self recharges.
+  id: DebugPowerCellAntiqueProtoInfinite
+  suffix: DO NOT MAP
+  parent: BasePowerCell
+  components:
+    - type: Sprite
+      layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: antique
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: o2
+        shader: unshaded
+    - type: Battery
+      maxCharge: 9999
+      startingCharge: 9999
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 9999
+    - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+      proto: RedLaser
+      fireCost: 75 # 16 shots
+
+- type: entity
+  id: GrenadeFragSelfDespawn # To avoid entity clutter on self recharge turrets
+  parent: GrenadeFrag
+  components:
+  - type: TimedDespawn
+    lifetime: 10

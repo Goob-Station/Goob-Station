@@ -2022,6 +2022,7 @@
   #friction: 0.25 #slippy Goob station change, no longer slippery
   heatCapacity: 10000
   tileRipResistance: 80
+  # Goobstation, no longer slippery, instead slows you down
 
 - type: tile
   id: FloorTechMaint2
