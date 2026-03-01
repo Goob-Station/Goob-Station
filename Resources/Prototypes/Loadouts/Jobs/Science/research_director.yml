@@ -131,6 +131,8 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
 
+# Goob start
+
 - type: loadout
   id: ResearchDirectorJumpsuitAlt
   equipment:
@@ -140,6 +142,8 @@
   id: ResearchDirectorJumpskirtAlt
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirectorAlt
+
+# Goob end
 
 - type: loadout # goob
   id: ResearchDirectorMJ

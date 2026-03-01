@@ -82,15 +82,6 @@
   equipment:
     neck: ClothingNeckEnsembleSalvager
 
-- type: startingGear
-  id: SalvageSpecialistGear
-  equipment:
-    id: SalvagePDA
-    ears: ClothingHeadsetCargo
-  storage: # DeltaV: Add mining voucher
-    back:
-    - MiningVoucher
-
 # Salvage
 - type: loadout
   id: SalvageSpecialistJumpsuit
@@ -106,7 +97,7 @@
   id: SalvageSpecialistOveralls
   equipment:
     jumpsuit: ClothingUniformOverallsSalvageSpecialist
-    
+
 # Shaft Miner
 - type: loadout
   id: ShaftMinerJumpsuit
