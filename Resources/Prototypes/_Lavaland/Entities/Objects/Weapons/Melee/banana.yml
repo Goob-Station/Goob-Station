@@ -1,0 +1,49 @@
+- type: entity
+  name: nameless sword
+  parent: [ BaseItem, BaseMinorContraband ]
+  id: BananaBoneSword
+  description: A sword made of countless curses. Feels warm to the touch.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/nameless_sword.rsi
+    state: icon
+  - type: MeleeWeapon
+    heavyStaminaCost: 15
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 15
+        Heat: 5
+        Structural: 50
+      woundSeverityMultipliers:
+        Slash: 4.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Ginormous
+  - type: Tool
+    qualities:
+    - Prying
+    - Axing
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 5.0
+    decapitation: true
+  - type: ToolTileCompatible
+  - type: Prying
+  - type: UseDelay
+    delay: 1.5
+  - type: Scalpel
+    speed: 1
+  - type: BoneSaw
+    speed: 2
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: ActionGrant
+    actions:
+    - ActionFlamingSlash
+  - type: ItemActionGrant
+    actions:
+    - ActionFlamingSlash
+  

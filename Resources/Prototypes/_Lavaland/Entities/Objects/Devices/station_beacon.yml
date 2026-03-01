@@ -86,3 +86,11 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ruin-snow-biodome
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinBananaArena
+  suffix: Ruin Childish Oni Arena
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-banana-arena

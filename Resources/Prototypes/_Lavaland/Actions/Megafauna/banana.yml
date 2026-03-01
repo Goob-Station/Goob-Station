@@ -1,0 +1,177 @@
+- type: entity
+  id: ActionBaseBanana
+  parent: BaseAction
+  name: childish oni action
+  abstract: true
+  components:
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Mobs/Bosses/banana.rsi
+      state: childish-oni
+    itemIconStyle: NoItem
+  - type: TargetAction
+    checkCanAccess: false
+    range: 20
+
+- type: entity
+  id: ActionDemonicHandSpiral
+  parent: ActionBaseBanana
+  name: Expanding Box
+  description: Spawns a giant demonic hand which spirals outward, dealing heat damage to anything it touches.
+  components:
+  - type: AngerDelayAction
+    minDelay: 3
+    maxDelay: 10
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: BananaSpawnIndicator
+
+- type: entity
+  id: ActionOniRampage
+  parent: ActionBaseBanana
+  name: Rampage
+  description: Jumps towards the target, dealing damage in an area and spawning a ring of fire.
+  components:
+  - type: AngerDelayAction
+    minDelay: 2
+    maxDelay: 6
+  - type: WorldTargetAction
+    event: !type:OniRampageEvent
+
+- type: entity
+  id: ActionRingOfFireClose
+  parent: ActionBaseBanana
+  name: Close Ring of Fire
+  description: Spawns a ring of flaming skulls at close range.
+  components:
+  - type: AngerDelayAction
+    minDelay: 14
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:RingOfFireEvent
+      ringDistance: 1
+      skullPrototype: BananaSmallSkullTemporaryLong
+
+- type: entity
+  id: ActionRingOfFireWide
+  parent: ActionBaseBanana
+  name: Wide Ring of Fire
+  description: Spawns a ring of flaming skulls at long range.
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:RingOfFireEvent
+      ringDistance: 2
+      skullPrototype: BananaSmallSkullTemporary
+
+- type: entity
+  parent: ActionBaseBanana
+  id: ActionFlamingSlash
+  name: Flaming slash
+  description: Sends a flaming slash towards the target. Deals damage on contact.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 1
+    maxDelay: 8
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Actions/banana.rsi
+      state: nameless
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: FlamingSlashProjectileTemporary
+      speed: 12
+
+- type: entity
+  parent: ActionBaseBanana
+  id: ActionClawSlash
+  name: Claw slash
+  description: Sends a very short lived claw towards the target. Has extremely short range.
+  components:
+  - type: TargetAction
+    checkCanAccess: false
+    range: 2
+  - type: AngerDelayAction
+    minDelay: 1
+    maxDelay: 3
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: ClawSlashProjectile
+
+- type: entity
+  id: ActionFlurryOfSlashes
+  parent: ActionBaseBanana
+  name: Flurry of slashes
+  description: Sends flaming slashes at random in every direction.
+  components:
+  - type: AngerDelayAction
+    minDelay: 4
+    maxDelay: 10
+  - type: InstantAction
+    event: !type:MegafaunaProjectileFlurryEvent
+
+- type: entity
+  id: ActionOniHandFarSide
+  parent: ActionBaseBanana
+  name: Far Side Hand
+  description: Spawns a demonic hand far to the left or right of the target.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 3
+    maxDelay: 8
+  - type: WorldTargetAction
+    event: !type:SpawnFarSideHandEvent
+
+- type: entity
+  id: ActionOniHandCloseSide
+  parent: ActionBaseBanana
+  name: Close Side Hand
+  description: Spawns a demonic hand close to the left or right of the target.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 2
+    maxDelay: 6
+  - type: WorldTargetAction
+    event: !type:SpawnCloseSideHandEvent
+
+- type: entity
+  id: ActionOniHandFarBarrage
+  parent: ActionBaseBanana
+  name: Far Hand Barrage
+  description: Spawns multiple demonic hands at long range from random directions.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 6
+    maxDelay: 10
+  - type: WorldTargetAction
+    event: !type:SpawnFarBarrageEvent
+
+- type: entity
+  id: ActionOniHandCloseBarrage
+  parent: ActionBaseBanana
+  name: Close Hand Barrage
+  description: Spawns multiple demonic hands close to the target from random directions.
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: AngerDelayAction
+    minDelay: 5
+    maxDelay: 10
+  - type: WorldTargetAction
+    event: !type:SpawnCloseBarrageEvent

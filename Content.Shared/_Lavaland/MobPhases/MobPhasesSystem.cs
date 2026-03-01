@@ -35,21 +35,28 @@ public sealed class MobPhasesSystem : EntitySystem
         if (!Resolve(ent.Owner, ref ent.Comp1, ref ent.Comp2, false))
             return;
 
-        var ai = ent.Comp1;
+        var phases = ent.Comp1;
         var damageable = ent.Comp2;
-        foreach (var (threshold, phase) in ai.PhaseThresholds.Reverse())
+        var oldPhase = phases.CurrentPhase;
+
+        foreach (var (threshold, phase) in phases.PhaseThresholds.Reverse())
         {
             if (damageable.TotalDamage < threshold)
                 continue;
 
-            if (phase < ent.Comp1.CurrentPhase
-                && !ai.CanSwitchBack)
+            if (phase < phases.CurrentPhase && !phases.CanSwitchBack)
                 continue;
 
-            ent.Comp1.CurrentPhase = phase;
+            phases.CurrentPhase = phase;
             break;
         }
+
+        if (oldPhase != phases.CurrentPhase)
+        {
+            RaiseLocalEvent(ent.Owner, new MobPhaseChangedEvent(oldPhase, phases.CurrentPhase));
+        }
     }
+
 
     /// <summary>
     /// Scales all phases by one modifier. Doesn't update current phase.

@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseRoofTempleShingle
+  id: TemplePillar
+  name: temple pillar # Deliberaly does not have collisions because it is used in boss arena. If you wish to use these make a child with collissions.
+  description: Holds up a temple.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: pillar
+    drawdepth: Overdoors
+  - type: Icon
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: pillar
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 1
+            max: 3
