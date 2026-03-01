@@ -21248,3 +21248,404 @@ Entries:
       message: Bone armour, BSO swathelm, and atmos firesuits now have Vox sprites
   id: 2412
   time: '2026-02-13T05:38:47.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Leonid has been updated to the current mapping standards.
+  id: 2413
+  time: '2026-02-15T02:45:32.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed some wiring on meta and chloris, made meta genpop slightly harder
+        to oversee
+  id: 2414
+  time: '2026-02-15T13:43:41.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Tweak
+      message: >-
+        Medical beam gun rebalance: broader healing spectrum (uber mode causes
+        suffocation). Now instantly recharges to full after 1 min (1.5 min for
+        syndi version) of non-use to discourage over-reliance.
+  id: 2415
+  time: '2026-02-17T15:19:06.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Scram is no longer dogshit. (made the teleport distance as it was
+        before)
+  id: 2416
+  time: '2026-02-17T18:59:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Removed stamina damage slowdown.
+    - type: Tweak
+      message: Getting damaged while standing up no longer cancels standing do-after.
+  id: 2417
+  time: '2026-02-17T18:59:50.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed revolutionary manifesto book not showing do after bar
+  id: 2418
+  time: '2026-02-18T00:05:57.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: 'Fixed teach a lesson for the last time hopefully '
+  id: 2419
+  time: '2026-02-18T03:36:02.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed eating mothroaches making you big
+  id: 2420
+  time: '2026-02-18T03:36:42.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: turned spare ats engi room into lockbox storage room, ats atmos fixed
+  id: 2421
+  time: '2026-02-19T21:30:46.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Flashes no longer blind you for 1000x the intended duration.
+    - type: Fix
+      message: Robust Harvest works again.
+    - type: Fix
+      message: >-
+        Paralysed individuals can no longer walk, defy friction, or crawl at
+        super speed.
+    - type: Fix
+      message: Admin drop pods work again.
+    - type: Fix
+      message: >-
+        Dropped item behaviour now works even if the person being forced to drop
+        items is knocked down, fixing things like Judo armbar disarming.
+    - type: Fix
+      message: >-
+        (super) Slipping is predicted, no longer hard stuns you for double the
+        amount, and will knock you down instead of knocking and paralysing.
+    - type: Fix
+      message: Slipping while dragging no longer gives you telekinetic pulling powers.
+    - type: Fix
+      message: Players can no longer ignore handcuffs and escape being pulled.
+    - type: Fix
+      message: Getting cuffed while pulling should now allow you to stop pulling.
+  id: 2422
+  time: '2026-02-22T09:58:37.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer construct buildables without actually having the
+        materials to do so.
+  id: 2423
+  time: '2026-02-22T12:54:18.0000000+00:00'
+- author: fritzfranz
+  changes:
+    - type: Tweak
+      message: Kettle mapping
+    - type: Fix
+      message: fixed salvage from spacing
+    - type: Add
+      message: turrets to armoury
+    - type: Add
+      message: 1 enforcer to armoury
+    - type: Fix
+      message: camera blindspots on ai sat
+    - type: Add
+      message: windows to xenobio
+    - type: Add
+      message: stasis beds to both med and brigmed
+    - type: Add
+      message: 2nd bartender locker
+    - type: Add
+      message: mime and clown lockers
+  id: 2424
+  time: '2026-02-22T16:45:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Interaction verbs force down making you a crawling god and Help up
+        not helping folk up in some cases.
+  id: 2425
+  time: '2026-02-22T19:11:34.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed telescopic batons not disarming.
+  id: 2426
+  time: '2026-02-24T05:37:42.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Chemical payloads respect their trigger.
+    - type: Fix
+      message: Adding nutrients to hydroponics trays works again.
+  id: 2427
+  time: '2026-02-24T08:30:22.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Remove
+      message: Removed both normal and advanced clowning modules.
+  id: 2428
+  time: '2026-02-24T08:32:04.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed stunbaton not knocking down on left click.
+  id: 2429
+  time: '2026-02-24T08:45:29.0000000+00:00'
+- author: Valniae and Androidonator
+  changes:
+    - type: Add
+      message: Outer-Commander drip
+  id: 2430
+  time: '2026-02-24T08:54:32.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Tweak
+      message: Feroxi now use proper mask sprites.
+    - type: Tweak
+      message: Feroxi can thump their tails now.
+  id: 2431
+  time: '2026-02-24T08:56:31.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Added a MANGO to vault freezer with a 65% CHANCE to spawn.
+  id: 2432
+  time: '2026-02-24T09:05:24.0000000+00:00'
+- author: SezakiAiri
+  changes:
+    - type: Remove
+      message: Armor values from berets. "Style over practicality!"
+    - type: Tweak
+      message: Less resists on security winter coats.
+  id: 2433
+  time: '2026-02-26T14:54:29.0000000+00:00'
+- author: StrangerOfParadiseOG
+  changes:
+    - type: Tweak
+      message: Doubled the power generation of solar panels
+  id: 2434
+  time: '2026-02-27T16:21:16.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Changed back armored winter coats and nerfed infection resistances on
+        them
+  id: 2435
+  time: '2026-02-27T19:54:29.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed ziptie box from bso's locker
+  id: 2436
+  time: '2026-02-27T19:56:39.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed supermatter sliver being able to be removed multiple times.
+  id: 2437
+  time: '2026-02-28T13:56:00.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: scram implant no longer kidnaps people
+  id: 2438
+  time: '2026-02-28T21:17:28.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: NTR no longer deletes contrabanned when scanned
+  id: 2439
+  time: '2026-02-28T21:18:28.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: Fixed the pronoun "It" when examining a character
+  id: 2440
+  time: '2026-02-28T21:25:37.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: >-
+        Firelocks now automatically re-close if they have a danger signal and
+        they're powered.
+  id: 2441
+  time: '2026-02-28T21:32:29.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed syringe guns can fire any and all syringes now
+  id: 2442
+  time: '2026-02-28T21:37:38.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: SecTech vendor now has distress signallers.
+  id: 2443
+  time: '2026-02-28T21:39:15.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Bingles can now run, in very short bursts
+    - type: Fix
+      message: 'Bingles can wideswing again '
+    - type: Fix
+      message: Ntr can't scan bingles for points anymore; again
+  id: 2444
+  time: '2026-02-28T21:45:28.0000000+00:00'
+- author: Syoga23
+  changes:
+    - type: Add
+      message: >-
+        Added ablity to butcher most of the bedsheets and recycle them in
+        recycler.
+  id: 2445
+  time: '2026-02-28T21:52:13.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: New tracks for the Hierophant, Warops, and Xenos from 13!
+  id: 2446
+  time: '2026-02-28T21:53:14.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: You can now escape being carried.
+  id: 2447
+  time: '2026-02-28T21:53:55.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: More chems to the reagent anomaly.
+  id: 2448
+  time: '2026-02-28T21:54:46.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        Cosmic cult final will now always take around 6 minutes to finish
+        instead of 2,5.
+  id: 2449
+  time: '2026-02-28T22:00:32.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Dog markings to humans and dwarves
+  id: 2450
+  time: '2026-02-28T22:04:15.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Singuloth Knight can no longer drop their Hammer
+  id: 2451
+  time: '2026-02-28T22:05:06.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Wheelchair users no longer impale their chair when throwing spears
+  id: 2452
+  time: '2026-02-28T22:07:30.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Uniform Printer can be linked to Material Silo now.
+  id: 2453
+  time: '2026-02-28T22:09:04.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fix ChemVend eject animation being sluggish
+  id: 2454
+  time: '2026-02-28T22:09:23.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Add
+      message: Add missing category to surgery tools
+  id: 2455
+  time: '2026-02-28T22:09:54.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Add
+      message: Add Dropper to lathe
+  id: 2456
+  time: '2026-02-28T22:10:52.0000000+00:00'
+- author: StrangerOfParadiseOG
+  changes:
+    - type: Add
+      message: Added a translation implanter for sign language
+  id: 2457
+  time: '2026-02-28T22:11:04.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Brought back the new traitor briefing.
+    - type: Add
+      message: >-
+        Brought Champion of Evil and Postal Dude from Game Postal Game to
+        traitor flavor text.
+    - type: Add
+      message: More codewords.
+  id: 2458
+  time: '2026-02-28T22:25:10.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Capoeira push kick reworked, check the guidebook.
+    - type: Fix
+      message: >-
+        Capoeira sweep kick now properly increases grab speed instead of
+        reducing it.
+  id: 2459
+  time: '2026-02-28T22:28:20.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix void prison not working supposedly.
+    - type: Fix
+      message: Fix realignment not removing stuns and knockdowns.
+    - type: Tweak
+      message: Void mark applies 3 chill stacks again.
+    - type: Tweak
+      message: >-
+        Void conduit applies 1 stack up to 5 again, but every 2 second instead
+        of 1 and also it gradually expands from 0 tile range to 8.
+    - type: Tweak
+      message: >-
+        Being frozen in ice cube gives you brute resits, stamina damage can melt
+        the cube similarly to normal damage.
+    - type: Tweak
+      message: Alert carving can trigger when borg steps on it.
+    - type: Tweak
+      message: Alert carving disappears when you teleport on it.
+  id: 2460
+  time: '2026-02-28T22:29:45.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: fixed legendary ling checking forbidden technique
+  id: 2461
+  time: '2026-02-28T22:32:33.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Fix
+      message: >-
+        Fixed remote eating of a target with a slime when unhooking it with a
+        slime cannon.
+    - type: Fix
+      message: >-
+        Fixed the eternal eating of a target by a slime when a slime splits on
+        it.
+  id: 2462
+  time: '2026-02-28T22:36:14.0000000+00:00'
