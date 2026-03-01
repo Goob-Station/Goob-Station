@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
@@ -71,7 +72,7 @@ public sealed class AggressorsSystem : EntitySystem
 
             aggressive.NextUpdate = curTime + aggressive.UpdateDelay;
 
-            foreach (var aggressor in aggressive.Aggressors)
+            foreach (var aggressor in aggressive.Aggressors.ToArray())
             {
                 if (!_xformQuery.TryComp(aggressor, out var aggroXform))
                     continue;
@@ -191,7 +192,7 @@ public sealed class AggressorsSystem : EntitySystem
         if (!Resolve(aggressor, ref aggressor.Comp))
             return;
 
-        foreach (var aggressive in aggressor.Comp.Aggressives)
+        foreach (var aggressive in aggressor.Comp.Aggressives.ToArray())
         {
             if (TryComp<AggressiveComponent>(aggressive, out var aggressors))
                 RemoveAggressor((aggressive, aggressors), aggressor);
