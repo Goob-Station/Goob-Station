@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 11:15:02
-  entityCount: 1013
+  time: 01/08/2026 12:41:47
+  entityCount: 1027
 maps: []
 grids:
 - 1
@@ -64,6 +64,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -147,7 +152,8 @@ entities:
           -1,0:
             0: 65535
           0,1:
-            0: 61951
+            0: 29183
+            1: 32768
           -1,1:
             0: 63743
           0,2:
@@ -266,10 +272,30 @@ entities:
           - 0
           - 0
           - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.813705
+          - 82.06108
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2
@@ -3754,8 +3780,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.8856695
-        - 7.0937095
+        - 1.8968438
+        - 7.1357465
         - 0
         - 0
         - 0
@@ -3776,12 +3802,12 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 688
           - 689
-          - 690
-          - 692
-          - 691
           - 687
+          - 691
+          - 692
+          - 690
+          - 688
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -3857,6 +3883,20 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 3.5,11.5
+      parent: 1
+- proto: CrusherUpgradeLootSpawner
+  entities:
+  - uid: 1024
+    components:
+    - type: Transform
+      pos: 3.5,8.5
+      parent: 1
+- proto: DefaultStationBeaconRuinSnowBiodome
+  entities:
+  - uid: 1027
+    components:
+    - type: Transform
+      pos: -0.5,0.5
       parent: 1
 - proto: DrinkIcedTeaCan
   entities:
@@ -3981,6 +4021,18 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: FoodMeatGoliath
+  entities:
+  - uid: 1020
+    components:
+    - type: Transform
+      pos: -2.591356,7.5001254
+      parent: 1
+  - uid: 1026
+    components:
+    - type: Transform
+      pos: -2.419481,7.7188754
+      parent: 1
 - proto: GasMixerFlipped
   entities:
   - uid: 713
@@ -4130,6 +4182,13 @@ entities:
     - type: Transform
       pos: 1.5,14.5
       parent: 1
+- proto: KitchenElectricGrill
+  entities:
+  - uid: 1025
+    components:
+    - type: Transform
+      pos: -1.5,7.5
+      parent: 1
 - proto: LightPostSmall
   entities:
   - uid: 735
@@ -4233,7 +4292,7 @@ entities:
   - uid: 745
     components:
     - type: Transform
-      pos: 0.5,10.5
+      pos: 0.5182935,10.5983925
       parent: 1
 - proto: PoweredDimSmallLight
   entities:
@@ -4323,6 +4382,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,14.5
       parent: 1
+  - uid: 1023
+    components:
+    - type: Transform
+      pos: 3.5,8.5
+      parent: 1
 - proto: SalvageCanisterSpawner
   entities:
   - uid: 760
@@ -4337,6 +4401,11 @@ entities:
     - type: Transform
       pos: -13.5,-3.5
       parent: 1
+  - uid: 763
+    components:
+    - type: Transform
+      pos: -12.5,-3.5
+      parent: 1
 - proto: SalvageSpawnerEquipment
   entities:
   - uid: 762
@@ -4344,17 +4413,10 @@ entities:
     - type: Transform
       pos: -13.5,3.5
       parent: 1
-- proto: SalvageSpawnerScrapCommon75
-  entities:
-  - uid: 763
-    components:
-    - type: Transform
-      pos: -12.5,-3.5
-      parent: 1
   - uid: 764
     components:
     - type: Transform
-      pos: -12.5,-2.5
+      pos: -13.5,4.5
       parent: 1
 - proto: SalvageSpawnerTreasure
   entities:
@@ -4369,6 +4431,21 @@ entities:
     components:
     - type: Transform
       pos: 7.5,10.5
+      parent: 1
+  - uid: 1014
+    components:
+    - type: Transform
+      pos: 13.5,-0.5
+      parent: 1
+  - uid: 1015
+    components:
+    - type: Transform
+      pos: 13.5,-1.5
+      parent: 1
+  - uid: 1016
+    components:
+    - type: Transform
+      pos: 13.5,-2.5
       parent: 1
 - proto: SignAtmos
   entities:
@@ -4418,6 +4495,16 @@ entities:
     - type: Transform
       pos: -13.5,3.5
       parent: 1
+  - uid: 1021
+    components:
+    - type: Transform
+      pos: -2.5,7.5
+      parent: 1
+  - uid: 1022
+    components:
+    - type: Transform
+      pos: -1.5,7.5
+      parent: 1
 - proto: TableReinforced
   entities:
   - uid: 775
@@ -4458,6 +4545,18 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,13.5
+      parent: 1
+- proto: ToySpawner
+  entities:
+  - uid: 1017
+    components:
+    - type: Transform
+      pos: -2.5,11.5
+      parent: 1
+  - uid: 1018
+    components:
+    - type: Transform
+      pos: -2.5,10.5
       parent: 1
 - proto: WallReinforced
   entities:
@@ -5608,6 +5707,13 @@ entities:
     components:
     - type: Transform
       pos: 13.5,0.5
+      parent: 1
+- proto: WaterCooler
+  entities:
+  - uid: 1019
+    components:
+    - type: Transform
+      pos: -3.5,7.5
       parent: 1
 - proto: WoodDoor
   entities:

@@ -55,3 +55,12 @@
     interactFailureString: petting-failure-fillbot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: GhostRole # Goob
+    prob: 0.05
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-fillbot-name
+    description: ghost-role-information-fillbot-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable

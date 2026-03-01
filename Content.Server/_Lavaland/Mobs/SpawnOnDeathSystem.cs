@@ -3,15 +3,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.EntityTable;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 
+// ReSharper disable EnforceForeachStatementBraces
+// ReSharper disable EnforceIfStatementBraces
 namespace Content.Server._Lavaland.Mobs;
 
 public sealed class SpawnOnDeathSystem : EntitySystem
 {
+    [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
@@ -37,21 +41,27 @@ public sealed class SpawnOnDeathSystem : EntitySystem
             QueueDel(uid);
 
         var droppedSpecial = false;
-        if (comp.DoSpecialLoot && comp.SpecialLoot != null)
+        if (comp.DoSpecialLoot && comp.SpecialTable != null)
         {
-            Spawn(comp.SpecialLoot, coords);
+            var specialLoot = _entityTable.GetSpawns(comp.SpecialTable);
+            foreach (var item in specialLoot)
+                Spawn(item, coords);
+
             droppedSpecial = true;
         }
 
-        if (comp.Loot == null)
+        if (comp.Table == null)
             return;
 
+        var loot = _entityTable.GetSpawns(comp.Table);
         if (droppedSpecial)
         {
             if (comp.DropBoth)
-                Spawn(comp.Loot, coords);
+                foreach (var item in loot)
+                    Spawn(item, coords);
         }
         else
-            Spawn(comp.Loot, coords);
+            foreach (var item in loot)
+                Spawn(item, coords);
     }
 }

@@ -144,7 +144,7 @@
         length: 4
   - type: KnockdownOnHit
     duration: 4
-    dropHeldItemsBehavior: DropIfStanding
+    dropItems: true
     knockdownOnHeavyAttack: false
   - type: UseDelayBlockKnockdown
     delay: knockdown

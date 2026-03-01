@@ -18,8 +18,8 @@
       connections:
       - groin
       organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss
-        heart: OrganCobraHeart # Allows you to become invisible.
+        lungs: OrganAnimalLungs
+        heart: OrganCobraHeart
     groin:
       part: GroinAnimal
       connections:
