@@ -198,7 +198,7 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
-    - state: "insert_overlay"
+    - state: "insert_overlay" # Goob
       map: [ "enum.PdaVisualLayers.Pen" ]
   - type: Icon
     sprite: Objects/Devices/pda.rsi
@@ -327,7 +327,7 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
-    - state: "insert_overlay"
+    - state: "insert_overlay" # Goob
       map: [ "enum.PdaVisualLayers.Pen" ]
 
 - type: entity
