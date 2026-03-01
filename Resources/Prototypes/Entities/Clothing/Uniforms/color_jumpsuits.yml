@@ -15,7 +15,7 @@
   description: A generic white jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
   - type: Item
@@ -25,7 +25,7 @@
       right:
       - state: inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/white.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/white.rsi
 
 
 # Grey Jumpsuit
@@ -36,7 +36,7 @@
   description: A tasteful grey jumpsuit that reminds you of the good old days.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#b3b3b3"
@@ -49,7 +49,7 @@
       - state: inhand-right
         color: "#b3b3b3"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/grey.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/grey.rsi
 
 # Black Jumpsuit
 - type: entity
@@ -59,7 +59,7 @@
   description: A generic black jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#3f3f3f"
@@ -72,7 +72,7 @@
       - state: inhand-right
         color: "#3f3f3f"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/black.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/black.rsi
 
 
 # Blue Jumpsuit
@@ -83,7 +83,7 @@
   description: A generic blue jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#52aecc"
@@ -96,7 +96,7 @@
       - state: inhand-right
         color: "#52aecc"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/blue.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/blue.rsi
 
 
 # Dark Blue Jumpsuit
@@ -107,7 +107,7 @@
   description: A generic dark blue jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#3285ba"
@@ -120,7 +120,7 @@
       - state: inhand-right
         color: "#3285ba"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/darkblue.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/darkblue.rsi
 
 
 # Teal Jumpsuit
@@ -131,7 +131,7 @@
   description: A generic teal jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#77f3b7"
@@ -144,7 +144,7 @@
       - state: inhand-right
         color: "#77f3b7"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/aqua.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/aqua.rsi
 
 
 # Green Jumpsuit
@@ -155,7 +155,7 @@
   description: A generic green jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#9ed63a"
@@ -168,7 +168,7 @@
       - state: inhand-right
         color: "#9ed63a"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/green.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/green.rsi
 
 
  # Dark Green Jumpsuit
@@ -179,7 +179,7 @@
   description: A generic dark green jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#007923"
@@ -192,7 +192,7 @@
       - state: inhand-right
         color: "#007923"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/darkgreen.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/darkgreen.rsi
 
 
 # Orange Jumpsuit
@@ -203,7 +203,7 @@
   description: Don't wear this near paranoid security officers.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#ff8c19"
@@ -216,7 +216,7 @@
       - state: inhand-right
         color: "#ff8c19"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/orange.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/orange.rsi
 
 
 # Pink Jumpsuit
@@ -227,7 +227,7 @@
   description: Just looking at this makes you feel <i>fabulous</i>.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#ffa69b"
@@ -240,7 +240,7 @@
       - state: inhand-right
         color: "#ffa69b"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/pink.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/pink.rsi
 
 
 # Red Jumpsuit
@@ -251,7 +251,7 @@
   description: A generic red jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#eb0c07"
@@ -264,7 +264,7 @@
       - state: inhand-right
         color: "#eb0c07"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/lightred.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/lightred.rsi
 
 
 # Yellow Jumpsuit
@@ -275,7 +275,7 @@
   description: A generic yellow jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#ffe14d"
@@ -288,7 +288,7 @@
       - state: inhand-right
         color: "#ffe14d"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/yellow.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/yellow.rsi
 
 
 # Purple Jumpsuit
@@ -299,7 +299,7 @@
   description: A generic light purple jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#9f70cc"
@@ -312,7 +312,7 @@
       - state: inhand-right
         color: "#9f70cc"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/purple.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/purple.rsi
 
 
 # Light Brown Jumpsuit
@@ -323,7 +323,7 @@
   description: A generic light brown jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#c59431"
@@ -336,7 +336,7 @@
       - state: inhand-right
         color: "#c59431"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/lightbrown.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/lightbrown.rsi
 
 
 # Brown Jumpsuit
@@ -347,7 +347,7 @@
   description: A generic brown jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#a17229"
@@ -360,7 +360,7 @@
       - state: inhand-right
         color: "#a17229"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/brown.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/brown.rsi
 
 
 # Maroon Jumpsuit
@@ -371,7 +371,7 @@
   description: A generic maroon jumpsuit with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
     - state: icon
       color: "#cc295f"
@@ -384,7 +384,7 @@
       - state: inhand-right
         color: "#cc295f"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/red.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/red.rsi
 
 
 # Rainbow Jumpsuit
@@ -395,7 +395,7 @@
   description: A multi-colored jumpsuit!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color/rainbow.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/rainbow.rsi
   - type: Item
     inhandVisuals:
       left:
@@ -403,4 +403,4 @@
       right:
       - state: inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color/rainbow.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/rainbow.rsi

@@ -15,7 +15,7 @@
   description: A generic white jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
   - type: Item
@@ -25,7 +25,7 @@
       right:
       - state: inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/white.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/white.rsi
 
 
 # Grey Jumpskirt
@@ -36,7 +36,7 @@
   description: A tasteful grey jumpskirt that reminds you of the good old days.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#b3b3b3"
@@ -49,7 +49,7 @@
       - state: inhand-right
         color: "#b3b3b3"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/grey.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/grey.rsi
 
 # Black Jumpskirt
 - type: entity
@@ -59,7 +59,7 @@
   description: A generic black jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#3f3f3f"
@@ -72,7 +72,7 @@
       - state: inhand-right
         color: "#3f3f3f"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/black.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/black.rsi
 
 
 # Blue Jumpskirt
@@ -83,7 +83,7 @@
   description: A generic blue jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#52aecc"
@@ -96,7 +96,7 @@
       - state: inhand-right
         color: "#52aecc"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/blue.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/blue.rsi
 
 
 # Dark Blue Jumpskirt
@@ -107,7 +107,7 @@
   description: A generic dark blue jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#3285ba"
@@ -120,7 +120,7 @@
       - state: inhand-right
         color: "#3285ba"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/darkblue.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/darkblue.rsi
 
 
 # Teal Jumpskirt
@@ -131,7 +131,7 @@
   description: A generic teal jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#77f3b7"
@@ -144,7 +144,7 @@
       - state: inhand-right
         color: "#77f3b7"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/aqua.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/aqua.rsi
 
 
 # Green Jumpskirt
@@ -155,7 +155,7 @@
   description: A generic green jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#9ed63a"
@@ -168,7 +168,7 @@
       - state: inhand-right
         color: "#9ed63a"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/green.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/green.rsi
 
 
  # Dark Green Jumpskirt
@@ -179,7 +179,7 @@
   description: A generic dark green jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#007923"
@@ -192,7 +192,7 @@
       - state: inhand-right
         color: "#007923"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/darkgreen.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/darkgreen.rsi
 
 
 # Orange Jumpskirt
@@ -203,7 +203,7 @@
   description: Don't wear this near paranoid security officers.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#ff8c19"
@@ -216,7 +216,7 @@
       - state: inhand-right
         color: "#ff8c19"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/orange.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/orange.rsi
 
 
 # Pink Jumpskirt
@@ -227,7 +227,7 @@
   description: Just looking at this makes you feel <i>fabulous</i>.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#ffa69b"
@@ -240,7 +240,7 @@
       - state: inhand-right
         color: "#ffa69b"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/pink.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/pink.rsi
 
 
 # Red Jumpskirt
@@ -251,7 +251,7 @@
   description: A generic red jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#eb0c07"
@@ -264,7 +264,7 @@
       - state: inhand-right
         color: "#eb0c07"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/lightred.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/lightred.rsi
 
 
 # Yellow Jumpskirt
@@ -275,7 +275,7 @@
   description: A generic yellow jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#ffe14d"
@@ -288,7 +288,7 @@
       - state: inhand-right
         color: "#ffe14d"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/yellow.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/yellow.rsi
 
 
 # Purple Jumpskirt
@@ -299,7 +299,7 @@
   description: A generic light purple jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#9f70cc"
@@ -312,7 +312,7 @@
       - state: inhand-right
         color: "#9f70cc"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/purple.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/purple.rsi
 
 
 # Light Brown Jumpskirt
@@ -323,7 +323,7 @@
   description: A generic light brown jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#c59431"
@@ -336,7 +336,7 @@
       - state: inhand-right
         color: "#c59431"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/lightbrown.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/lightbrown.rsi
 
 
 # Brown Jumpskirt
@@ -347,7 +347,7 @@
   description: A generic brown jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#a17229"
@@ -360,7 +360,7 @@
       - state: inhand-right
         color: "#a17229"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/brown.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/brown.rsi
 
 
 # Maroon Jumpskirt
@@ -371,7 +371,7 @@
   description: A generic maroon jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
     layers:
     - state: icon
       color: "#cc295f"
@@ -384,7 +384,7 @@
       - state: inhand-right
         color: "#cc295f"
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/red.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/red.rsi
 
 
 # Rainbow Jumpskirt
@@ -395,6 +395,6 @@
   description: A multi-colored jumpskirt!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color/rainbow.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/rainbow.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color/rainbow.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/rainbow.rsi

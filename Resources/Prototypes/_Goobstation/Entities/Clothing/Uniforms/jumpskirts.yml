@@ -60,9 +60,9 @@
   description: Enemy of dogs everywhere.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -74,3 +74,50 @@
     sprite: _Goobstation/Clothing/Uniforms/Other/command_maid.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Other/command_maid.rsi
+
+# Cargo
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtSalvageSpecialist
+  name: salvage specialist's jumpskirt
+  description: It's a snappy jumpskirt with a sturdy set of overalls. It's very dirty.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/salvage.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/salvage.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpskirtShaftMiner
+  name: shaft miner's jumpskirt
+  description: It's a snappy jumpskirt with a sturdy set of overalls. It looks burnt.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/shaft_miner.rsi
+
+# RND
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtResearchDirectorAlt
+  name: research director's turtleneck
+  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/rndturtle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/rndturtle.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#620b73"
+        sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
+      right:
+      - state: inhand-right
+        color: "#620b73"
+        sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
