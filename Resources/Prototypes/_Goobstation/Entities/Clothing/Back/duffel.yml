@@ -11,3 +11,12 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Duffels/blueshield.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelCargo
+  name: cargo duffel bag
+  description: A large duffel bag for stealing cargo's precious loot.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Back/Duffels/cargo.rsi

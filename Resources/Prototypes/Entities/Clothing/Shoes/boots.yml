@@ -218,16 +218,6 @@
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
-  id: ClothingShoesBootsWinterCargo
-  name: cargo winter boots
-  components:
-  - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
-  - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
-
-- type: entity
-  parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterEngi
   name: engineering winter boots
   components:

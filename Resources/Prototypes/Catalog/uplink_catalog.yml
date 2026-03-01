@@ -1917,7 +1917,7 @@
   name: uplink-chameleon-name
   description: uplink-chameleon-desc
   productEntity: ClothingBackpackChameleonFill
-  icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Clothing/Uniforms/Jumpsuit/color/rainbow.rsi, state: icon }
   cost:
     Telecrystal: 15 # goob
   categories:

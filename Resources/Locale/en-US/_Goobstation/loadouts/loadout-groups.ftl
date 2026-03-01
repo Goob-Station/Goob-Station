@@ -223,3 +223,7 @@ loadout-group-boxer-envirosuit = Boxer envirosuit
 
 # Misc
 loadout-group-plasma-tank = Plasma tank
+
+# Salvage/Shaft Miner
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist Jumpsuit
+loadout-group-shaft-miner-jumpsuit = Shaft Miner Jumpsuit

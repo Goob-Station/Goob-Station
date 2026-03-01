@@ -340,3 +340,13 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+
+- type: entity
+  parent: ClothingShoesBaseWinterBoots
+  id: ClothingShoesBootsWinterCargo
+  name: cargo winter boots
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/winterbootscargo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/winterbootscargo.rsi

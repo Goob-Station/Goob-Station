@@ -30,3 +30,13 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Satchels/blueshield.rsi
+
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelCargo
+  name: cargo satchel
+  description: A robust satchel for stealing cargo's loot.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Back/Satchels/cargo.rsi

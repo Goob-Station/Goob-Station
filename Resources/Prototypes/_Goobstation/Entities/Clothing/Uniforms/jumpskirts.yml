@@ -16,9 +16,9 @@
   description: A skirt worn by CentComs legal team. Smells of burnt coffee.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/centcom_agent.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/centcom_agent.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -27,42 +27,20 @@
   description: A black skirt worn by officials.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/nanotrasen_representative.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/nanotrasen_representative.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformBase,  ClothingUniformFoldableBase]
   id: ClothingUniformJumpskirtBlueshieldOfficer
   name: blueshield officer jumpskirt
   description: A short-sleeved grey and blue jumpskirt, made out of a sturdy material. Blueshield standard issue.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/blueshield_officer.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/blueshield_officer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/blueshield_officer.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformSkirtMailCarrier
-  name: mail carrier's jumpskirt
-  description: Enemy of dogs everywhere.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtReporter
-  name: reporter's dress
-  description: An extravagant black dress designed to catch the attention of as many people as possible.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/reporter_dress.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/reporter_dress.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/blueshield_officer.rsi
 
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
@@ -71,9 +49,20 @@
   description: A jumpskirt issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/trainer.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/trainer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/trainer.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/trainer.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtMailCarrier
+  name: mail carrier's jumpskirt
+  description: Enemy of dogs everywhere.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -85,3 +74,50 @@
     sprite: _Goobstation/Clothing/Uniforms/Other/command_maid.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Other/command_maid.rsi
+
+# Cargo
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtSalvageSpecialist
+  name: salvage specialist's jumpskirt
+  description: It's a snappy jumpskirt with a sturdy set of overalls. It's very dirty.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/salvage.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/salvage.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpskirtShaftMiner
+  name: shaft miner's jumpskirt
+  description: It's a snappy jumpskirt with a sturdy set of overalls. It looks burnt.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/shaft_miner.rsi
+
+# RND
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtResearchDirectorAlt
+  name: research director's turtleneck
+  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/rndturtle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/rndturtle.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#620b73"
+        sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
+      right:
+      - state: inhand-right
+        color: "#620b73"
+        sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
