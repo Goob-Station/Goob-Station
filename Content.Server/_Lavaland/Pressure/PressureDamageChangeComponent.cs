@@ -37,10 +37,10 @@ public sealed partial class PressureDamageChangeComponent : Component
     public float UpperBound = Atmospherics.OneAtmosphere * 0.5f;
 
     [DataField]
-    public bool ApplyWhenInRange;
+    public bool ApplyWhenInRange = true;
 
     [DataField]
-    public float AppliedModifier = 0.25f;
+    public float AppliedModifier = 2f; // Becomes 2 times better when in lavaland pressure environment
 
     [DataField]
     public bool ApplyToMelee = true;

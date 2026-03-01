@@ -224,21 +224,6 @@
     - CorgiWearable
     - HamsterWearable
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
 
 - type: entity
   parent: [ClothingHeadHatBeret, BaseSecurityContraband] #goobstation - contraband marking
@@ -254,21 +239,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
 
 - type: entity
   parent: ClothingHeadHatBeret
@@ -364,21 +334,6 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
   parent: [ClothingHeadHatBeretRND, BaseSecurityContraband] # Goob edit
@@ -390,21 +345,6 @@
     sprite: Clothing/Head/Hats/beret_warden.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_warden.rsi
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
   - type: Tag
     tags:
     - PetWearable
@@ -435,21 +375,6 @@
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
   - type: Tag
     tags:
     - PetWearable
@@ -521,21 +446,6 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
   parent: ClothingHeadBase
@@ -562,21 +472,6 @@
     sprite: Clothing/Head/Hats/centcom.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/centcom.rsi
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
   - type: Tag
     tags:
     - PetWearable
@@ -633,21 +528,6 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSecurityContraband ] # Goob edit
@@ -659,21 +539,6 @@
     sprite: Clothing/Head/Hats/greyfedora.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyfedora.rsi
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
   - type: Tag
     tags:
     - PetWearable
@@ -731,21 +596,6 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
   parent: ClothingHeadBase
@@ -1068,21 +918,6 @@
     sprite: Clothing/Head/Hats/warden.rsi
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
   - type: Tag
     tags:
     - PetWearable
@@ -1531,21 +1366,6 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
   - type: BlockMovement
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
   parent: [ ClothingHeadBase, BaseCentcommContraband ]
@@ -1567,21 +1387,6 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
   parent: ClothingHeadBase

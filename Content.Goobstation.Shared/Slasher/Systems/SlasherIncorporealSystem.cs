@@ -21,8 +21,8 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Emoting;
 using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Temperature.Components;
-using Content.Goobstation.Shared.Body.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Ghost;
@@ -34,6 +34,8 @@ using Content.Shared.Standing;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Pointing;
+using Robust.Shared.Timing;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -50,6 +52,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
@@ -122,7 +125,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         RaiseLocalEvent(ent.Owner, checkEv);
         if (checkEv.Cancelled)
         {
-            _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-seen"), ent.Owner, ent.Owner);
+            _popup.PopupEntity(Loc.GetString("slasher-incorporealize-fail-seen"), ent.Owner, ent.Owner);
             return;
         }
 
@@ -158,7 +161,20 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         }
 
         if (!ent.Comp.IsIncorporeal)
+        {
+            args.Handled = true;
             return;
+        }
+
+        // Check if anyone can see them.
+        var checkEv = new SlasherIncorporealObserverCheckEvent(GetNetEntity(ent.Owner), ent.Comp.ObserverCheckRange);
+        RaiseLocalEvent(ent.Owner, checkEv);
+        if (checkEv.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-nearby"), ent.Owner, ent.Owner);
+            args.Handled = true;
+            return;
+        }
 
         // Check if any active surveillance cameras have line of sight.
         var camEv = new SlasherIncorporealCameraCheckEvent(GetNetEntity(ent.Owner), ent.Comp.ObserverCheckRange);
@@ -166,6 +182,21 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (camEv.Cancelled)
         {
             _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-camera"), ent.Owner, ent.Owner);
+            args.Handled = true;
+            return;
+        }
+
+        // Check if the slasher is currently inside a wall or solid object
+        if (IsInsideSolidObject(ent.Owner))
+        {
+            _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-inside-wall"), ent.Owner, ent.Owner);
+            args.Handled = true;
+            return;
+        }
+
+        if (!ent.Comp.IsIncorporeal)
+        {
+            args.Handled = true;
             return;
         }
 
@@ -200,7 +231,11 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     private void EnterIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
     {
         ent.Comp.IsIncorporeal = true;
+        ent.Comp.IncorporealStartTime = _timing.CurTime;
         Dirty(ent);
+
+        // Freeze all action cooldowns
+        FreezeCooldowns((uid, ent.Comp));
 
         // Force stand up when entering incorporeal
         _standing.Stand(uid, force: true);
@@ -250,6 +285,12 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     {
         ent.Comp.IsIncorporeal = false;
         Dirty(ent);
+
+        // Restore frozen cooldowns
+        UnfreezeCooldowns((uid, ent.Comp));
+
+        ent.Comp.IncorporealStartTime = null;
+
         if (HasComp<PhaseShiftedComponent>(uid))
             RemComp<PhaseShiftedComponent>(uid);
 
@@ -277,6 +318,43 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         // Remove supermatter immunity
         _ = RemComp<SupermatterImmuneComponent>(uid);
+    }
+
+    // Goida as shit.. I couldn't find a better way stop cooldowns
+    private void FreezeCooldowns(Entity<SlasherIncorporealComponent> ent)
+    {
+        if (!_net.IsServer)
+            return;
+
+        ent.Comp.FrozenCooldowns.Clear();
+
+        var curTime = _timing.CurTime;
+        foreach (var action in _actions.GetActions(ent.Owner))
+            if (action.Comp.Cooldown is { } cooldown && cooldown.End > curTime)
+            {
+                // Store the remaining cooldown duration
+                var remaining = cooldown.End - curTime;
+                ent.Comp.FrozenCooldowns[action.Owner] = remaining;
+
+                // Make the cooldown basically never end to pause it
+                _actions.SetCooldown(action.Owner, cooldown.Start, TimeSpan.MaxValue);
+
+            }
+    }
+
+    private void UnfreezeCooldowns(Entity<SlasherIncorporealComponent> ent)
+    {
+        if (!_net.IsServer)
+            return;
+
+        var curTime = _timing.CurTime;
+        foreach (var (actionId, remainingTime) in ent.Comp.FrozenCooldowns)
+        {
+            // Restore the cooldown with the remaining time
+            _actions.SetCooldown(actionId, curTime, curTime + remainingTime);
+        }
+
+        ent.Comp.FrozenCooldowns.Clear();
     }
 
     // Event hell below
@@ -427,5 +505,47 @@ public sealed class SlasherIncorporealSystem : EntitySystem
                 return;
             }
         }
+    }
+
+    private bool IsInsideSolidObject(EntityUid uid)
+    {
+        var entities = _lookup.GetEntitiesInRange(uid, 1f, LookupFlags.Static | LookupFlags.Sundries);
+
+        foreach (var entity in entities)
+        {
+            if (entity == uid)
+                continue;
+
+            // Check if the entity is solid and impassable
+            if (!TryComp<PhysicsComponent>(entity, out var physics))
+                continue;
+
+            if (!physics.CanCollide || !physics.Hard)
+                continue;
+
+            // Check for Impassable collision layer (walls, grilles, etc)
+            if ((physics.CollisionLayer & (int) CollisionGroup.Impassable) != 0)
+                return true;
+
+            // Check for MachineLayer (vending machines, computers, etc)
+            if ((physics.CollisionLayer & (int) CollisionGroup.MidImpassable) != 0 &&
+                (physics.CollisionLayer & (int) CollisionGroup.LowImpassable) != 0)
+                return true;
+
+            // Check for TableLayer (tables)
+            if ((physics.CollisionLayer & (int) CollisionGroup.MidImpassable) != 0 &&
+                (physics.CollisionLayer & (int) CollisionGroup.TableLayer) != 0)
+                return true;
+
+            // Check for TabletopMachineLayer (small machines on tables)
+            if ((physics.CollisionLayer & (int) CollisionGroup.TabletopMachineLayer) != 0)
+                return true;
+
+            // Check for HighImpassable (tall objects)
+            if ((physics.CollisionLayer & (int) CollisionGroup.HighImpassable) != 0)
+                return true;
+        }
+
+        return false;
     }
 }

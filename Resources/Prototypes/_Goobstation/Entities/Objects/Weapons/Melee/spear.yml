@@ -109,3 +109,4 @@
     - type: NpcFactionMember
       factions:
       - Assistant
+      - Syndicate

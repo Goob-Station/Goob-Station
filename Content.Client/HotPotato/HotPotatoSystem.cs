@@ -10,6 +10,7 @@
 
 using Content.Shared.HotPotato;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Client.HotPotato;
@@ -20,6 +21,9 @@ public sealed class HotPotatoSystem : SharedHotPotatoSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
+    private readonly EntProtoId _hotPotatoEffectId = "HotPotatoEffect";
+
+    // TODO: particle system
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -33,7 +37,7 @@ public sealed class HotPotatoSystem : SharedHotPotatoSystem
             if (_timing.CurTime < comp.TargetTime)
                 continue;
             comp.TargetTime = _timing.CurTime + TimeSpan.FromSeconds(comp.EffectCooldown);
-            Spawn("HotPotatoEffect", _transform.GetMapCoordinates(uid).Offset(_random.NextVector2(0.25f)));
+            Spawn(_hotPotatoEffectId, _transform.GetMapCoordinates(uid).Offset(_random.NextVector2(0.25f)));
         }
     }
 }

@@ -82,12 +82,11 @@ public sealed partial class NPCCombatSystem
                 continue;
             }
 
-            Attack(uid, comp, curTime, frameTime, physicsQuery, xformQuery); // Lavaland Change - added frameTime
+            Attack(uid, comp, curTime, physicsQuery, xformQuery);
         }
     }
 
-    // Lavaland Change - added frameTime
-    private void Attack(EntityUid uid, NPCMeleeCombatComponent component, TimeSpan curTime, float frameTime, EntityQuery<PhysicsComponent> physicsQuery, EntityQuery<TransformComponent> xformQuery)
+    private void Attack(EntityUid uid, NPCMeleeCombatComponent component, TimeSpan curTime, EntityQuery<PhysicsComponent> physicsQuery, EntityQuery<TransformComponent> xformQuery)
     {
         component.Status = CombatStatus.Normal;
 
@@ -134,16 +133,6 @@ public sealed partial class NPCCombatSystem
 
         if (weapon.NextAttack > curTime || !Enabled)
             return;
-
-        // Lavaland Change Start
-        if (component.ChargeupTimer < component.ChargeupDelay)
-        {
-            component.ChargeupTimer += frameTime;
-            return;
-        }
-
-        component.ChargeupTimer = 0f;
-        // Lavaland Change End
 
         if (_random.Prob(component.MissChance) &&
             physicsQuery.TryGetComponent(component.Target, out var targetPhysics) &&

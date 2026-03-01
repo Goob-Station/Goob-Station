@@ -1,0 +1,160 @@
+- type: entity
+  parent: BaseItem
+  id: MaterialWatcherWing
+  name: watcher's wing
+  description: They are tough and yet easily merge together, it should be a great material for new tools.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/watcher.rsi
+    layers:
+    - state: wing
+      map: [ "base" ]
+  - type: Appearance
+  - type: Stack
+    stackType: WatcherWing
+    count: 10
+  - type: Item
+    size: Tiny
+    heldPrefix: wing
+  - type: StackPrice
+    price: 300
+  - type: Tag
+    tags:
+    - WatcherWing
+
+- type: entity
+  parent: MaterialWatcherWing
+  id: MaterialWatcherWing1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialWatcherWing
+  id: MaterialWatcherWing5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: BaseItem
+  id: MaterialWatcherMagmaWing
+  name: watcher's magma wing
+  description: A wing with magma flowing inside. They are tough and yet easily merge together, it should be a great material for new tools.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/watcher.rsi
+    layers:
+    - state: magmawing
+      map: [ "base" ]
+  - type: Appearance
+  - type: Stack
+    stackType: WatcherMagmaWing
+    count: 10
+  - type: Item
+    size: Tiny
+    heldPrefix: magmawing
+  - type: StackPrice
+    price: 300
+  - type: Tag
+    tags:
+    - WatcherWing
+    - WatcherMagmaWing
+
+- type: entity
+  parent: MaterialWatcherMagmaWing
+  id: MaterialWatcherMagmaWing1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialWatcherMagmaWing
+  id: MaterialWatcherMagmaWing5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: BaseItem
+  id: MaterialWatcherIceWing
+  name: watcher's ice wing
+  description: A wing that is made out of ice, but it somehow refuses to melt. They are tough and yet easily merge together, it should be a great material for new tools.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/watcher.rsi
+    layers:
+    - state: icewing
+      map: [ "base" ]
+  - type: Appearance
+  - type: Stack
+    stackType: WatcherIceWing
+    count: 10
+  - type: Item
+    size: Tiny
+    heldPrefix: icewing
+  - type: StackPrice
+    price: 300
+  - type: Tag
+    tags:
+    - WatcherWing
+    - WatcherIceWing
+
+- type: entity
+  parent: MaterialWatcherIceWing
+  id: MaterialWatcherIceWing1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialWatcherIceWing
+  id: MaterialWatcherIceWing5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: BaseItem
+  id: MaterialLegionSkull
+  name: legion skull
+  description: A grey deformed skull of a long gone humanoid. Just for a brief moment, you felt like it is staring right at your soul.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/legion.rsi
+    layers:
+    - state: skull
+      map: [ "base" ]
+  - type: Appearance
+  - type: Stack
+    count: 10
+    stackType: LegionSkull
+  #- type: Item
+  #  heldPrefix: skull
+  - type: StackPrice
+    price: 500
+  - type: Tag
+    tags:
+    - LegionSkull
+
+- type: entity
+  parent: MaterialLegionSkull
+  id: MaterialLegionSkull1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialLegionSkull
+  id: MaterialLegionSkull5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5

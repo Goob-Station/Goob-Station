@@ -1,0 +1,43 @@
+- type: entity
+  id: DiseaseBehaviorHyperactive
+  parent: DiseaseBehaviorBase
+  name: Feeling hyper
+  description: Makes you feel hyper.
+  components:
+  - type: DiseaseEffect
+    complexity: -30
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:MovespeedModifier
+      walkSpeedModifier: 1.35
+      sprintSpeedModifier: 1.35
+    - !type:GenericStatusEffect
+      key: Stutter
+      component: StutteringAccent
+    - !type:Jitter
+
+- type: entity
+  id: DiseaseBehaviorHealing
+  parent: DiseaseBehaviorBase
+  name: Healing factor
+  description: Accelerates natural regeneration.
+  components:
+  - type: DiseaseEffect
+    complexity: -20
+  - type: DiseaseReagentEffect
+    effects:
+    # weaker trico
+    - !type:HealthChange
+      useTargeting: false
+      conditions:
+      - !type:TotalDamage
+        max: 50
+      damage:
+        groups:
+          Brute: -0.4
+        types:
+          Poison: -0.2
+          Heat: -0.2
+          Shock: -0.2
+          Cold: -0.2

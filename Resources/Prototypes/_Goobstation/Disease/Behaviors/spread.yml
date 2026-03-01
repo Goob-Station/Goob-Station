@@ -1,0 +1,21 @@
+- type: entity
+  id: DiseaseBehaviorCough
+  parent: DiseaseBehaviorBase
+  name: Cough
+  description: Makes you cough. Infective.
+  components:
+  - type: DiseaseEffect
+    complexity: 6
+  - type: DiseasePeriodicCondition
+    delayMin: 5
+    delayMax: 20
+  - type: DiseaseEmoteEffect
+    emote: Cough
+  - type: DiseaseSpreadEffect
+    arc: 180
+    range: 3.5
+    timeScale: false
+    spreadParams:
+      power: 1
+      chance: 0.5
+      spreadType: Aerial

@@ -5,7 +5,6 @@ using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Rejuvenate;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;

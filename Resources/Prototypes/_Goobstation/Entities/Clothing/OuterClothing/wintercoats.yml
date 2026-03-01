@@ -54,7 +54,7 @@
         Piercing: 0.65
         Heat: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.95
+    damageCoefficient: 0.65
 
 - type: entity
   parent: ClothingOuterWinterSecArmored
@@ -66,3 +66,16 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCosmic
+  name: cosmic winter coat
+  description: An expensive machine-made winter coat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cosmic.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cosmic.rsi
+

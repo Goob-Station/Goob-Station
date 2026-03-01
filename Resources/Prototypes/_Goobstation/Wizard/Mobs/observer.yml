@@ -9,5 +9,4 @@
   components:
   - type: Spectral
   - type: Ghost
-    canEnterGhostBar: false
     canTakeGhostRoles: false

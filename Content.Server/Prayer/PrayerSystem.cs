@@ -22,6 +22,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Administration.Notifications; // Goobstation - Admin Notifications
 using Content.Goobstation.Common.Religion;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -33,6 +34,8 @@ using Content.Shared.Chat;
 using Content.Shared.Prayer;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
+using Content.Server.Administration.Managers; // Goobstation - Admin Notifications
+using Robust.Server.Audio; // Goobstation - Admin Notifications
 
 namespace Content.Server.Prayer;
 /// <summary>
@@ -47,6 +50,8 @@ public sealed class PrayerSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
+    [Dependency] private readonly AudioSystem _audio = default!; // Goobstation - Admin Notifications
+    [Dependency] private readonly IAdminManager _admin = default!; // Goobstation - Admin Notifications
 
     public override void Initialize()
     {
@@ -129,5 +134,10 @@ public sealed class PrayerSystem : EntitySystem
 
         _chatManager.SendAdminAnnouncement($"{Loc.GetString(comp.NotificationPrefix)} <{sender.Name}>: {message}");
         _adminLogger.Add(LogType.AdminMessage, LogImpact.Low, $"{ToPrettyString(sender.AttachedEntity.Value):player} sent prayer ({Loc.GetString(comp.NotificationPrefix)}): {message}");
+
+        // Goobstation - Admin Notifications
+        if (comp.NotificationSound != null) // estas goida
+            foreach (var admin in _admin.ActiveAdmins)
+                RaiseNetworkEvent(new AdminNotificationEvent(comp.NotificationSound), admin);
     }
 }

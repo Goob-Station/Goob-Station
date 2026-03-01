@@ -90,6 +90,8 @@
     notificationPrefix: prayer-chat-notify-centcom
     verb: prayer-verbs-call
     verbImage: null
+    notificationSound: # Goobstation - Admin Notifications
+      path: /Audio/_Goobstation/Misc/phone_ring.ogg
 
 - type: entity
   parent: PhoneInstrument
@@ -103,6 +105,8 @@
   - type: Prayable
     sentMessage: prayer-popup-notify-syndicate-sent
     notificationPrefix: prayer-chat-notify-syndicate
+    notificationSound: # Goobstation - Admin Notifications
+      path: /Audio/_Goobstation/Misc/phone_ring.ogg
 
 - type: entity
   parent: BaseHandheldInstrument
@@ -208,3 +212,5 @@
     notificationPrefix: prayer-chat-notify-honkmother
     verb: prayer-verbs-call
     verbImage: null
+    notificationSound: # Goobstation - Admin Notifications
+      path: /Audio/_Goobstation/Misc/phone_ring.ogg

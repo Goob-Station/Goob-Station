@@ -165,7 +165,7 @@
   name: Inspector
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
   id: WeaponRevolverInspector
-  description: A single-action revolver manufactured by various companies. It is readily available on the civilian market, making it a popular choice among private investigators. You feel lucky just holding it. Loads 6 rounds of .45 magnum.
+  description: A single-action revolver cast of cold plasma-steel. Popular among civilians, private investigators and law enforcement alike, you feel lucky just holding it. Loads 6 rounds of .45 Magnum. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
@@ -180,7 +180,7 @@
   name: Mateba
   parent: [BaseWeaponRevolver, BaseCentcommContraband]
   id: WeaponRevolverMateba
-  description: A modern revolver used by Nanotrasen’s elite, near mythical ‘Death Squad’ task force. Its unique trigger action and barrel placement enable a high fire rate with minimal muzzle flip. Many have looked down this barrel, but few have lived to tell of it. Loads 6 rounds of .45 magnum.
+  description: A rare and beautiful semi-automatic revolver. Provided only to the Nanotrasen elite, the Mateba sports a unique barrel design that greatly reduces muzzle flip. Many have stared down the barrel of this gun, and even fewer have lived to tell the tale. Loads 6 rounds of .45 Magnum. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
@@ -216,7 +216,7 @@
   name: Python
   parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponRevolverPython
-  description: A powerful double-action revolver manufactured by the Syndicate. Loud and flashy, perfect for any agent looking to make a statement. Loads 6 rounds of .45 magnum.
+  description: A powerful double-action revolver designed by the Waffle Corporation. Loud and flashy, and perfect for any agent looking to make a statement. Loads 6 rounds of .45 magnum. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi

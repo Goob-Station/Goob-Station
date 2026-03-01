@@ -128,3 +128,18 @@
       - EncryptionKeyCommand
       - EncryptionKeyService
       - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltRadioHost
+  name: Radio host's over-ear headset
+  description: An over-ear headset with extra foam padding around the ears.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Ears/Headsets/radiohost.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Ears/Headsets/radiohost.rsi

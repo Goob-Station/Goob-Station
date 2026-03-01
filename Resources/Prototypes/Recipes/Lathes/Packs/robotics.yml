@@ -49,6 +49,7 @@
   recipes:
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
+  # - BorgModuleAdvancedClowning # goobedit
   # - BorgModuleAdvancedChemical # Goob edit
   - BorgModuleAdvancedMining
 

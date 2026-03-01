@@ -99,6 +99,18 @@
     - FloorBasaltLavaland
     entities:
     - FloraRockSolid
+  # Fruit (cactus fruit)
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: 0.9
+    noise:
+      seed: 2
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+      frequency: 2
+    entities:
+    - FruitCactus
   - !type:BiomeEntityLayer
     threshold: 0.2
     noise:
@@ -240,6 +252,19 @@
       fractalType: PingPong
     entities:
     - Lavashroom
+  # Fruit (seraka mushrooms)
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    - FloorPlanetAsh
+    threshold: 0.9
+    noise:
+      seed: 2
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+      frequency: 2
+    entities:
+    - SerakaMushroom
   # Trees
   - !type:BiomeEntityLayer
     threshold: 0.6
@@ -364,6 +389,17 @@
   - !type:BiomeTileLayer
     threshold: -1
     tile: FloorBasaltLavaland
+      # Fruit (cactus fruit)
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: 0.9
+    noise:
+      seed: 2
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+    entities:
+    - FruitCactus
 
 # Lava lakes - has much more lava, but doesn't appear so often
 - type: biomeTemplate
@@ -410,6 +446,18 @@
     - FloorBasaltLavaland
     entities:
     - FloraRockSolid
+  # Fruit (cactus fruit)
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: 0.9
+    noise:
+      seed: 2
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+      frequency: 3 # more frequent near lava
+    entities:
+    - FruitCactus
   - !type:BiomeEntityLayer
     threshold: 0 # The only difference is right here
     noise:

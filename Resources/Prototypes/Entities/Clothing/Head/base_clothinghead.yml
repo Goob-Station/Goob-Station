@@ -314,6 +314,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: FaceHuggerBlocker # Goobstation
 
 - type: entity
   abstract: true

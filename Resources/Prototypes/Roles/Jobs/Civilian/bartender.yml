@@ -78,6 +78,9 @@
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop
+  guides: # goobstation
+  - Bartender
+  - Drinks
   goobcoins: 10 #Goob content
   access:
   - Service

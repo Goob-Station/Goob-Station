@@ -26,7 +26,7 @@ public abstract class SharedHulkSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HulkComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
-        SubscribeLocalEvent<HulkComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
+        SubscribeLocalEvent<HulkComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<HulkComponent, SlipAttemptEvent>(OnSlipAttempt);
         SubscribeLocalEvent<HulkComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<HulkComponent, ComponentStartup>(OnStartup);
@@ -57,9 +57,9 @@ public abstract class SharedHulkSystem : EntitySystem
         args.NoSlip = true;
     }
 
-    private void OnBeforeStatusEffect(Entity<HulkComponent> ent, ref OldBeforeStatusEffectAddedEvent args)
+    private void OnBeforeStatusEffect(Entity<HulkComponent> ent, ref BeforeOldStatusEffectAddedEvent args)
     {
-        if (args.Key is not ("KnockedDown" or "Stun"))
+        if (args.EffectKey is not ("KnockedDown" or "Stun"))
             return;
 
         Roar(ent);

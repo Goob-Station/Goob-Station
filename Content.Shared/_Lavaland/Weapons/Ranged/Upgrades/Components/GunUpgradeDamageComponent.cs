@@ -32,11 +32,11 @@ namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 public sealed partial class GunUpgradeDamageComponent : Component
 {
     [DataField]
-    public DamageSpecifier Damage = new();
+    public DamageSpecifier? BonusDamage;
 
     /// <summary>
-    /// How much of damage applies if the weapon shoots pellets (shotgun)
+    /// How much should we multiply the total projectile's damage.
     /// </summary>
     [DataField]
-    public float PelletModifier = 1f;
+    public float Modifier = 1f;
 }

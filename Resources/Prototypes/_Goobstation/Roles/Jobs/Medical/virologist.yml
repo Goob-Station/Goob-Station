@@ -1,0 +1,46 @@
+- type: job
+  id: Virologist
+  name: job-name-virologist
+  description: job-description-virologist
+  playTimeTracker: JobVirologist
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 14400 #4 hrs
+  startingGear: VirologistGear
+  icon: "JobIconVirologist"
+  supervisors: job-supervisors-cmo
+  goobcoins: 20 #Goob content
+  guides:
+  - MedicalDoctor
+  - Medical
+  - Medicine
+  - Virology
+  access:
+  - Medical
+  - Maintenance
+  extendedAccess:
+  - Chemistry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
+
+
+- type: startingGear
+  id: VirologistGear
+  equipment:
+    ears: ClothingHeadsetMedical
+    eyes: ClothingEyesHudViro
+    belt: ClothingBeltMedicalFilled #No request and still medical so uh delete if want them with no belt I guess
+  #storage:
+    #back:
+
+- type: chameleonOutfit
+  id: VirologistChameleonOutfit
+  job: Virologist
+  equipment:
+    ears: ClothingHeadsetMedical
+    eyes: ClothingEyesHudViro
+    belt: ClothingBeltMedicalFilled #No request and still medical so uh delete if want them with no belt I guess

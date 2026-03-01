@@ -86,7 +86,7 @@
 
 - type: entity
   name: pen
-  parent: BaseItem
+  parent: [BaseItem, StorePresetUplink] # Goob - Pen ooplinkz
   id: Pen
   description: A dark ink pen.
   components:
@@ -101,6 +101,19 @@
     tags:
     - Write
     - Pen
+  - type: UserInterface # Goob starting here
+    interfaces:
+      enum.PenSpinUiKey.Key:
+        type: PenSpinBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.PenSpinUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+    singleUser: false
+    verbOnly: true
+  - type: Pen # Goob ending here
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 10

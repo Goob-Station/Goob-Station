@@ -46,6 +46,16 @@
   recipes:
   - Terminus
 
+- type: latheRecipePack
+  id: ERTAmmoStaticGoob
+  recipes:
+  - MagazineBoxLightRifle
+  - MagazineLightRifleEmpty
+  - MagazineLightRifle
+  - MagazineMagnumEmpty
+  - MagazineMagnum
+  - MagazineBoxShotgunHighCaliber
+
 ## Dynamic
 - type: latheRecipePack
   id: SecurityWeaponsGoob
@@ -57,6 +67,7 @@
   - WeaponLaserCellSMG
   - WeaponLaserCellSniper
   - ClothingBackpackLMGBattery
+  - ClothingEyesGlassesSecurityContraDetect
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
@@ -82,6 +93,10 @@
   - PowerCellXraySniper
   - PowerCellOverchargedSniper
   - MilitaryPowerCellLMG
+  - PowerCellBluespaceRevolver
+  - PowerCellBluespaceSMG
+  - PowerCellBluespaceSniper
+  - MilitaryPowerCellBluespaceLMG
 
 - type: latheRecipePack
   id: SecurityEquipmentDynamicGoob

@@ -63,7 +63,7 @@
           shape:
             !type:PhysShapeCircle
             radius: 0.35
-          density: 300 # goob edit - metal is dense
+          density: 185
           restitution: 0.0
           mask:
           - MobMask
@@ -250,6 +250,8 @@
         enum.WizardTeleportUiKey.Key: # Goobstation - wizard
           type: WizardTeleportBoundUserInterface
           requireInputValidation: false
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
     - type: Emoting
     - type: Grammar
       attributes:
@@ -341,7 +343,7 @@
     - type: ComplexInteraction
     - type: Carriable
     - type: Targeting
-    - type: LayingDown
+    - type: Crawler
     - type: Consciousness
       cap: 190
       threshold: 95

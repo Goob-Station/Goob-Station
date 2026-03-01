@@ -47,7 +47,6 @@
   - type: GunSignalControl
   - type: StaticPrice
     price: 1500
-  - type: UnmannedWeaponry
 
 # ---- Laser weapon branch ----
 # naming: LSE (Laser) + conventional power + suffix (c for PowerCage, e for wired energy) + Name
@@ -71,7 +70,7 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
-      cell_slot: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot # goob edit - svalinn buff fix
   - type: Destructible
     thresholds:
     - trigger:
@@ -95,11 +94,11 @@
     zeroVisible: true
   - type: Machine
     board: ShuttleGunSvalinnMachineGunCircuitboard
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
+  # - type: PowerCellSlot # goob edit - svalinn buff fix
+  #   cellSlotId: cell_slot
   - type: ItemSlots
     slots:
-      cell_slot:
+      gun_magazine: # goob edit - svalinn buff fix
         name: Magazine
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
@@ -107,9 +106,11 @@
           tags:
             - PowerCell
             - PowerCellSmall
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLightLaser
-    fireCost: 50
+            - PotatoBattery # goob edits start
+  # - type: HitscanBatteryAmmoProvider
+  #   proto: RedLightLaser
+  #   fireCost: 50
+  - type: MagazineAmmoProvider # goob edits end
 
 - type: entity
   id: ShuttleGunPerforator
@@ -339,6 +340,7 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+      upgrade_slot_1: !type:ContainerSlot # Lavaland Change
   - type: Destructible
     thresholds:
     - trigger:
@@ -375,9 +377,17 @@
     count: 5
   - type: Machine
     board: ShuttleGunKineticCircuitboard
-  - type: PressureDamageChange # Goobstation
-  - type: UpgradeableGun # Goobstation
-    maxUpgradeCapacity: 40
-    whitelist:
-      tags:
-      - PKAUpgrade
+  - type: PressureDamageChange # Lavaland Change
+    lowerBound: 0
+  - type: UpgradeableWeapon # Lavaland Change
+  - type: ItemSlots # Lavaland Change
+    slots:
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false # can't use the swap...
+        priority: 1
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade

@@ -1,0 +1,127 @@
+- type: entity
+  parent: BaseObjective
+  id: GrayTideKillEveryoneObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+      state: icon
+    difficulty: 1.5
+    issuer: objective-issuer-unknown
+  - type: SlaughterKillEveryoneCondition
+    title: tide-objective-condition-kill-everyone-else-title
+    description: tide-objective-kill-everyone-desc
+
+- type: entity
+  parent: BaseObjective
+  name: Protect maintenance.
+  description: This stations maintenance has been your home for as long as you can remember, hiding from the crew in lockers is all that you've known, until now. Thoses station goers have invaded your home for the last time, kill anyone who dares to distrupt your home.
+  id: TunnelClownProtectMaintenanceObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Mask/clown.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-unknown
+  - type: RoleplayObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Preach the word of Lord Singuloth!
+  description: Thou art to locateth this stations engineering department and conv'rt those folk into fellow followeth'rs of singuloth, if 't those gents refuseth those gents art to beest execut'd mercilessly.
+  id: SingulothKnightPreachObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Chapel/bible.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-lord-singuloth
+  - type: RoleplayObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Expand the singularity
+  description: Thee wilt prithee lord singuloth, doth this by expanding (but nay loosing) the singularity, the bigger the better!
+  id: SingulothKnightSingularityObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/singularityhammer.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-lord-singuloth
+  - type: RoleplayObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Remove any tesla's from the station
+  description: If 't be true this station hast a tesla thou art to destroy it by any means and execute it's creator for yond affront to lord singuloth!
+  id: SingulothKnightTeslaObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Clothing/Head/Hardsuits/singulothhelm.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-lord-singuloth
+  - type: DestroyTheTeslaObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Have an epic duel!
+  description: Those's other syndicate agents don't take you seriously, prove them wrong by winning a duel against a worthy opponent!
+  id: DarkLordDuelObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/e_sword.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-syndicate
+  - type: RoleplayObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Kill the Dark Lord
+  description: You have been sent to this station by Nanotrasen to kill a Dark Lord, don't let them down!
+  id: ChosenOneKillDarkLordObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/e_sword.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-nanotrasen
+  - type: KillTheDarkLordObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Hire an apprentice
+  description: You are in need of an apprentice hire one! this doesn't have to be the person you are protecting!
+  id: DarkPriestHireApprentice
+  components:
+  - type: Objective
+    icon:
+      sprite: _ShitChap/Objects/Weapons/Nullrod/nullrod.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-self
+  - type: RoleplayObjective
+
+- type: entity
+  parent: BaseKeepAliveObjective
+  id: DarkPriestProtectObjective
+  name: Protect Crewmember
+  description: Protect a crewmember who has sparked your interest.
+  components:
+  - type: Objective
+    difficulty: 2
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-white
+    issuer: objective-issuer-self
+  - type: TargetObjective
+    title: objective-condition-other-alive-title
+  - type: PickRandomPerson

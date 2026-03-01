@@ -24,7 +24,7 @@ using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
 using Robust.Shared.Utility;
-using Content.Server._Imp.Drone; //Goobstation drone
+using Content.Shared._Imp.Drone; //Goobstation drone
 using Robust.Shared.Player; //Goobstation drone
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components; // Corvax-Next-AiRemoteControl
 
@@ -167,7 +167,7 @@ public sealed partial class BorgSystem
 
         var message = Loc.GetString(ent.Comp.DestroyingPopup, ("name", Name(ent)));
         Popup.PopupEntity(message, ent);
-        _trigger.StartTimer(ent.Owner, user: null);
+        _trigger.ActivateTimerTrigger(ent.Owner);
 
         // prevent a shitter borg running into people
         RemComp<InputMoverComponent>(ent);

@@ -4,8 +4,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.Religion;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Possession;
 using Content.Goobstation.Shared.Religion;
@@ -20,6 +21,8 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Coordinates;
 using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared.Follower;
+using Content.Shared.Follower.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
@@ -34,8 +37,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
-using Content.Shared.Follower;
-using Content.Shared.Follower.Components;
+using static Content.Shared.Administration.Notes.AdminMessageEuiState;
 
 namespace Content.Goobstation.Server.Possession;
 
@@ -145,7 +147,7 @@ public sealed partial class PossessionSystem : EntitySystem
             coordinates = _transform.ToMapCoordinates(possessed.Comp.OriginalEntity.ToCoordinates());
 
         // Paralyze, so you can't just magdump them.
-        _stun.TryParalyze(possessed, TimeSpan.FromSeconds(10), false);
+        _stun.TryUpdateParalyzeDuration(possessed, TimeSpan.FromSeconds(10));
         _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", possessed)), possessed, PopupType.LargeCaution);
 
         // Teleport to the entity, kinda like you're popping out of their head!
@@ -175,37 +177,54 @@ public sealed partial class PossessionSystem : EntitySystem
     /// <param name="doesMindshieldBlock">Does having a mindshield block being possessed?</param>
     /// <param name="doesChaplainBlock">Is the chaplain immune to this possession?</param>
     /// <param name="HideActions">Should all actions be hidden during?</param>
-    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false, bool doesChaplainBlock = true, bool hideActions = true, bool polymorphPossessor = true)
+    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false, bool doesChaplainBlock = true, bool hideActions = true, bool polymorphPossessor = true, bool doesImmuneBlock = true)
     {
         // Possessing a dead guy? What.
         if (_mobState.IsIncapacitated(possessed) || HasComp<ZombieComponent>(possessed))
         {
-            _popup.PopupClient(Loc.GetString("possession-fail-target-dead"), possessor, possessor);
+            _popup.PopupEntity(Loc.GetString("possession-fail-target-dead"), possessor, possessor);
+            return false;
+        }
+
+        // Can't possess polymorphed entities. Sends you straight to the shadow realm if you do.
+        if (HasComp<PolymorphedEntityComponent>(possessed))
+        {
+            _popup.PopupEntity(Loc.GetString("possession-fail-target-polymorphed"), possessor, possessor);
+            return false;
+        }
+
+        // Check for possession immunity (e.g., tinfoil hat)
+        if (doesImmuneBlock && HasComp<PossessionImmuneComponent>(possessed))
+        {
+            _popup.PopupEntity(Loc.GetString("possession-fail-target-immune"), possessor, possessor);
             return false;
         }
 
         // if you ever wanted to prevent this
         if (doesMindshieldBlock && HasComp<MindShieldComponent>(possessed))
         {
-            _popup.PopupClient(Loc.GetString("possession-fail-target-shielded"), possessor, possessor);
+            _popup.PopupEntity(Loc.GetString("possession-fail-target-shielded"), possessor, possessor);
             return false;
         }
 
         if (doesChaplainBlock && HasComp<BibleUserComponent>(possessed))
         {
-            _popup.PopupClient(Loc.GetString("possession-fail-target-chaplain"), possessor, possessor);
+            _popup.PopupEntity(Loc.GetString("possession-fail-target-chaplain"), possessor, possessor);
             return false;
         }
 
         if (HasComp<PossessedComponent>(possessed))
         {
-            _popup.PopupClient(Loc.GetString("possession-fail-target-already-possessed"), possessor, possessor);
+            _popup.PopupEntity(Loc.GetString("possession-fail-target-already-possessed"), possessor, possessor);
             return false;
         }
 
+        var swapEv = new BeforeMindSwappedEvent();
+        RaiseLocalEvent(possessed, ref swapEv);
+
+        // have fun moving all these to the event
         List<(Type, string)> blockers =
         [
-            (typeof(ChangelingComponent), "changeling"),
             (typeof(DevilComponent), "devil"),
             (typeof(HereticComponent), "heretic"),
             (typeof(GhoulComponent), "ghoul"),
@@ -215,6 +234,12 @@ public sealed partial class PossessionSystem : EntitySystem
             (typeof(FadingTimedDespawnComponent), "temporary"),
             (typeof(ShadowlingComponent), "shadowling"),
         ];
+
+        if (swapEv.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString($"possession-fail-{swapEv.Message}"), possessor, possessor);
+            return false;
+        }
 
         foreach (var (item1, item2) in blockers)
         {
@@ -304,7 +329,7 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!HasComp(possessed, type))
             return false;
 
-        _popup.PopupClient(Loc.GetString($"possession-fail-{message}"), possessor, possessor);
+        _popup.PopupEntity(Loc.GetString($"possession-fail-{message}"), possessor, possessor);
         return true;
     }
 

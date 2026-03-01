@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by whateverusername0 (github) for Space Station 14 taking health analyzer as base. Health analyzer taken from tgstation at commit https://github.com/tgstation/tgstation/commit/f07f847706d85b7cfa4b398e5175732212b69a63",
+    "states": [
+        {
+            "name": "analyzer",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "analyzer-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "analyzer-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "icon"
+        }
+    ]
+}

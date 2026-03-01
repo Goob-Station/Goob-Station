@@ -99,6 +99,7 @@
   # - Virology (when it's back)
     - Botany
     - Chemicals
+  - type: DiseaseSwab # Goobstation
 
 - type: entity
   parent: BaseAmmoProvider # this is for cycling swabs out and not spawning 30 entities, trust
@@ -131,5 +132,16 @@
   - type: Item
     size: Tiny
   - type: Sprite
+    # <Goobstation>
     sprite: Objects/Specific/Medical/medipen.rsi
-    state: salpen
+    layers:
+    - state: salpen
+  - type: Appearance
+  - type: DiseasePen
+  - type: GenericVisualizer
+    visuals:
+      enum.DiseasePenVisuals.Used:
+        salpen:
+          True: { state: salpen_empty }
+          False: { state: salpen }
+  # </Goobstation>

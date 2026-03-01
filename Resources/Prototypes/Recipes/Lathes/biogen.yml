@@ -256,4 +256,63 @@
   materials:
     Biomass: 18
 
+- type: latheRecipe #Goobstation Change
+  id: BioGenDylo
+  resultReagents:
+    Dylovene: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Biomass: 15
 
+- type: latheRecipe #Goobstation Change
+  id: BioGenPhalanx
+  resultReagents:
+    Phalanximine: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Biomass: 20
+
+- type: latheRecipe #Goobstation Change
+  id: BioGenDiethyl
+  resultReagents:
+    Diethylamine: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Biomass: 25
+
+- type: latheRecipe #Goobstation Change
+  id: BioGenMuta
+  resultReagents:
+    UnstableMutagen: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Biomass: 12
+
+- type: latheRecipe #Goobstation Change
+  id: BioGenEgg
+  result: FoodEgg
+  categories:
+  - Materials
+  completetime: 3
+  materials:
+    Biomass: 6

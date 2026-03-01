@@ -1,0 +1,65 @@
+- type: breed
+  breedName: orange slime
+  id: OrangeMutation
+  producedExtract: OrangeSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#ff9f1a"
+    breed: OrangeMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
+    - YellowMutation
+    - DarkPurpleMutation
+    - RedMutation
+
+- type: breed
+  breedName: purple slime
+  id: PurpleMutation
+  producedExtract: PurpleSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#BF77F6"
+    breed: PurpleMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
+    - DarkPurpleMutation
+    - DarkBlueMutation
+    - GreenMutation
+
+- type: breed
+  breedName: blue slime
+  id: BlueMutation
+  producedExtract: BlueSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#79F6FC"
+    breed: BlueMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
+    - DarkBlueMutation
+    - SilverMutation
+    - PinkMutation
+
+- type: breed
+  breedName: metal slime
+  id: MetalMutation
+  producedExtract: MetalSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#595959"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: MetalMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
+    - SilverMutation
+    - YellowMutation
+    - GoldMutation

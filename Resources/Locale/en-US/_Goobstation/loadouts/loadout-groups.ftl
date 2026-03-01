@@ -38,6 +38,11 @@ loadout-group-psychologist-envirohelm = Psychologist envirohelm
 loadout-group-psychologist-envirosuit = Psychologist envirosuit
 loadout-group-psychologist-envirogloves = Psychologist envirogloves
 
+# Virologist
+loadout-group-virology-envirohelm = Virologist envirohelm
+loadout-group-virology-envirosuit = Virologist envirosuit
+loadout-group-virology-envirogloves = Virologist envirogloves
+
 # Cargo Technician
 loadout-group-cargo-technician-envirohelm = Cargo Technician envirohelm
 loadout-group-cargo-technician-envirosuit = Cargo Technician envirosuit

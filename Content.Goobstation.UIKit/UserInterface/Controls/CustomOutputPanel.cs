@@ -84,6 +84,7 @@ public sealed class CustomOutputPanel : Control
     public void RemoveEntry(Index index)
     {
         var entry = _entries[index];
+        entry.RemoveControls();
         _entries.RemoveAt(index.GetOffset(_entries.Count));
 
         var font = _getFont();

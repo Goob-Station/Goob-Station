@@ -48,6 +48,7 @@
   - OreArtifactFragment
   - OreDiamond
   - OreBSCrystal
+  #- OreGibtonite # It's broken right now sadly because of how Gatherable works :(
   addComponents:
   - type: FTLDestination
     whitelist: # TODO fix shuttles FTLing on planets and remove this whitelist
@@ -59,17 +60,14 @@
         min: 600
         max: 900
     - weather: AshfallLight
-      message: ash-storm-telegraph
       duration:
         min: 90
         max: 120
     - weather: Ashfall
-      message: ash-storm-alert
       duration:
         min: 120
         max: 180
     - weather: AshfallLight
-      message: ash-storm-clearing
       duration:
         min: 30
         max: 30

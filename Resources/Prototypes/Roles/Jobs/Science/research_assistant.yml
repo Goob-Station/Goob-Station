@@ -57,11 +57,12 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 18000 #5 hrs
+      time: 36000 #10 hrs
       inverted: true # stop playing intern if you're good at science!
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
+  guides: [ Science ] # goobstation
   goobcoins: 20 #Goob content
   access:
   - Research

@@ -1,0 +1,13 @@
+void fragment() {
+    highp vec4 sprite = texture(TEXTURE, UV);
+
+    if (sprite.a == 0.0) {
+        discard;
+    }
+
+    highp float noise = (fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0;
+
+    sprite.rgb += noise * 0.06 * 4.0;
+
+    COLOR = vec4(sprite.rgb, 1.0);
+}

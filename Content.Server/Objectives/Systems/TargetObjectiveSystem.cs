@@ -14,6 +14,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Shared.Utility; // Goob
 
 namespace Content.Server.Objectives.Systems;
 
@@ -78,7 +79,9 @@ public sealed class TargetObjectiveSystem : EntitySystem
         if (!GetTarget(uid, out var target, comp))
             return;
 
-        _metaData.SetEntityName(uid, GetTitle(target.Value, comp.Title, comp.DynamicName, comp.ShowJobTitle), args.Meta); // Goob edit
+        _metaData.SetEntityName(uid,
+            GetTitle(target.Value, comp.Title, comp.DynamicName, comp.ShowJobTitle),
+            args.Meta); // Goob edit
     }
 
     /// <summary>
@@ -98,22 +101,25 @@ public sealed class TargetObjectiveSystem : EntitySystem
     /// <remarks>
     /// If it is null then the prototype is invalid, just return.
     /// </remarks>
-    public bool GetTarget(EntityUid uid, [NotNullWhen(true)] out EntityUid? target, TargetObjectiveComponent? comp = null)
+    public bool GetTarget(EntityUid uid,
+        [NotNullWhen(true)] out EntityUid? target,
+        TargetObjectiveComponent? comp = null)
     {
         target = Resolve(uid, ref comp) ? comp.Target : null;
         return target != null;
     }
 
-    private string GetTitle(EntityUid target, string title, bool dynamicName = false, bool showJobTitle = true) // Goob edit
+    private string
+        GetTitle(EntityUid target, string title, bool dynamicName = false, bool showJobTitle = true) // Goob edit
     {
         var targetName = "Unknown";
         // Goob edit start
         if (TryComp<MindComponent>(target, out var mind))
         {
             if (dynamicName && TryComp(mind.OwnedEntity, out MetaDataComponent? meta))
-                targetName = meta.EntityName;
+                targetName = FormattedMessage.EscapeText(meta.EntityName); // Goob Sanitize Text
             else if (mind.CharacterName != null)
-                targetName = mind.CharacterName;
+                targetName = FormattedMessage.EscapeText(mind.CharacterName); // Goob Sanitize Text
         }
 
         if (!showJobTitle)

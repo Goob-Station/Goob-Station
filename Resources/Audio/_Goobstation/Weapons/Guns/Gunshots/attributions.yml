@@ -33,3 +33,8 @@
   license: "CC-BY-3.0"
   copyright: "Taken from Goonstation 13"
   source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["merrychristmas.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "made by john john"
+  source: "https://github.com/JohnJJohn"

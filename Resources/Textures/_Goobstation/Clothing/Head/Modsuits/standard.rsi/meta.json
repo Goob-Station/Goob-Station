@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109",
+  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, vulp sprites made by YERO",
   "size": {
     "x": 32,
     "y": 32
@@ -10,28 +10,36 @@
     {
       "name": "helmet"
     },
-		{
-		  "name": "helmet-sealed"
-		},
-		{
-			"name": "equipped-HEAD",
-			"directions": 4
-		},
-		{
-			"name": "equipped-HEAD-sealed",
-			"directions": 4
-		},
     {
-			"name": "equipped-HEAD-sealed-resomi",
-			"directions": 4
-		},
-		{
-			"name": "equipped-HEAD-vox",
-			"directions": 4
-		},
-		{
-			"name": "equipped-HEAD-sealed-vox",
-			"directions": 4
-		}
+      "name": "helmet-sealed"
+    },
+    {
+      "name": "equipped-HEAD",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-resomi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-vulpkanin",
+      "directions": 4
+    }
   ]
 }

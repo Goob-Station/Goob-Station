@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlimeLatch
+  name: Latch
+  description: Latch onto a target and begin digesting it! Or get off of an existing one if you're already latched onto something.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Xenobiology/Actions/actions_slime.rsi
+      state: slimeeat
+    useDelay: 3
+  - type: TargetAction
+    range: 1
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+      - Body
+    blacklist:
+      components:
+      - Slime
+    canTargetSelf: false
+    event: !type:SlimeLatchEvent {}

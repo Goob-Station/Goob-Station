@@ -1,0 +1,22 @@
+- type: entity
+  name: seraka cap
+  parent: FoodProduceBase
+  id: FoodMealSerakaCap
+  description: Small, deeply flavourful mushrooms originally native to Tizira.
+  components:
+  - type: Food
+  - type: FlavorProfile
+    flavors:
+      - berry
+  - type: Sprite
+    sprite: _Lavaland/Objects/Consomable/flora.rsi
+    state: seraka_cap
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: SerakaExtract
+          Quantity: 7

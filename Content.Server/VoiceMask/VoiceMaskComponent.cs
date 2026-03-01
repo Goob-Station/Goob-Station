@@ -5,11 +5,15 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Speech;
+using Content.Shared.StatusIcon; // Goobstation
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.VoiceMask;
@@ -53,4 +57,18 @@ public sealed partial class VoiceMaskComponent : Component
     /// </summary>
     [DataField]
     public bool EnableAction = true; //Goobstation
+
+    #region GabyStation
+    /// <summary>
+    ///     The job icon to be displayed next to their name when speaking on radio
+    /// </summary>
+    [DataField]
+    public ProtoId<JobIconPrototype>? JobIconProtoId; // GabyStation -> Radio icons
+
+    /// <summary>
+    ///     The name of the job that should show up when a mouse overs over the job icon on the radio
+    /// </summary>
+    [DataField]
+    public string? JobName; // GabyStation -> Radio icons
+    #endregion
 }

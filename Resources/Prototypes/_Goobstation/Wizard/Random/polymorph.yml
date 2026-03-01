@@ -109,6 +109,7 @@
     MobMouse: 0.25
     MobMouse1: 0.25
     MobMouse2: 0.25
+    MobMousePlague: 0.25
     MobMouseCancer: 0.25
     MobLizard: 1
     MobSlug: 1

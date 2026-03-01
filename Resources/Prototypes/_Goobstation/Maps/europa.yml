@@ -135,6 +135,7 @@
             Chemist: [ 1, 2 ]
             MedicalIntern: [ 1, 1 ]
             Paramedic: [ 1, 2 ]
+            Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 2, 3 ]

@@ -144,6 +144,9 @@
     sprite: Structures/Power/power.rsi
     state: generator
   - type: Anchorable # goob end
+  - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+    proto: MediumOverchargedLaser # hot potato
+    fireCost: 70
 
 - type: entity
   name: small-capacity power cell
@@ -171,6 +174,9 @@
       Steel: 12
     chemicalComposition:
       Zinc: 5
+  - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+    proto: RedLightLaser
+    fireCost: 45 # 8 shots
 
 - type: entity
   id: PowerCellSmallPrinted
@@ -218,9 +224,9 @@
   - type: Battery
     maxCharge: 720
     startingCharge: 720
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 100
+  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+    proto: MediumRedLaser
+    fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 50
@@ -264,9 +270,9 @@
   - type: Battery
     maxCharge: 1080
     startingCharge: 1080
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 100
+  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+    proto: RedLaser
+    fireCost: 135 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 37
@@ -310,9 +316,9 @@
   - type: Battery
     maxCharge: 1800
     startingCharge: 1800
-  - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
-    fireCost: 150
+  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+    proto: HeavyRedLaser
+    fireCost: 225 # 8 shots
 
 - type: entity
   id: PowerCellHyperPrinted
@@ -353,9 +359,9 @@
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
     # Goobstation
     canEmp: true
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 100
+  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+    proto: MediumRedLaser
+    fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 100
@@ -400,6 +406,9 @@
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 40
+    - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+      proto: RedLaser
+      fireCost: 75 # 16 shots
 
 # Power cage (big heavy power cell for big devices)
 

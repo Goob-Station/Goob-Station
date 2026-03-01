@@ -40,7 +40,7 @@ public sealed partial class HereticComponent : Component
     };
 
     [DataField]
-    public List<EntityUid> ProvidedActions = new();
+    public List<ProtoId<HereticKnowledgePrototype>> ResearchedKnowledge = new();
 
     [DataField, AutoNetworkedField]
     public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();

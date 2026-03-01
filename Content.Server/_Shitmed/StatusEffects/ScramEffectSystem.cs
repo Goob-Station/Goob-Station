@@ -5,14 +5,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.StatusEffects;
-using Content.Server.Teleportation;
 using Content.Shared.Teleportation;
+using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Goobstation.Shared.Teleportation.Components;
 
 namespace Content.Server._Shitmed.StatusEffects;
 
 public sealed class ScrambleLocationEffectSystem : EntitySystem
 {
-    [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleportSys = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<ScrambleLocationEffectComponent, ComponentInit>(OnInit);

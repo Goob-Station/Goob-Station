@@ -8,7 +8,10 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -47,6 +50,13 @@
     Steel: 500
     Gold: 300
     Plasma: 250
+
+- type: latheRecipe
+  id: TinfoilHats
+  result: ClothingHeadHatTinfoilHat
+  completetime: 5
+  materials:
+    Steel: 500
 
 - type: latheRecipe
   id: SyringeGun
@@ -107,3 +117,51 @@
     Glass: 750
     Plasma: 1500
     Silver: 300
+
+- type: latheRecipe
+  id: MedicalPatchBasic
+  result: MedicalPatchBasic
+  completetime: 2
+  materials:
+    Plastic: 50 # might be fine as 1 cloth 1 plastic, one textile crate will let chem make like 120 patches.
+    Cloth: 50
+
+- type: latheRecipe
+  id: MedicalPatchRapid
+  result: MedicalPatchRapid
+  completetime: 2
+  materials:
+    Cloth: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: MedicalPatchTherapeutic
+  result: MedicalPatchTherapeutic
+  completetime: 2
+  materials:
+    Cloth: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: MedicalPatchLarge
+  result: MedicalPatchLarge
+  completetime: 2
+  materials:
+    Plastic: 50
+    Cloth: 50
+
+- type: latheRecipe
+  id: MedicalCigPack
+  result: CigPackMedical
+  completetime: 8 # slows down mass printing entities
+  materials:
+    Plastic: 500
+    Cloth: 500
+
+- type: latheRecipe
+  id: EnergyChemDispenserMachineCircuitboard
+  parent: BaseGoldCircuitboardRecipe
+  result: EnergyChemDispenserMachineCircuitboard
+  icon:
+    sprite: Structures/dispensers.rsi
+    state: industrial-working

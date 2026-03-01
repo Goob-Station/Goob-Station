@@ -1,0 +1,36 @@
+- type: entity
+  id: EffectWeldingSparks
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WeldingSparksVisuals
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    snapCardinals: true
+    noRot: true
+    drawdepth: Effects
+    sprite: /Textures/_Goobstation/Effects/welding_effect.rsi
+    layers:
+    - state: smoke
+    - state: welding_sparks
+      shader: unshaded
+  - type: AnimationPlayer
+  - type: PointLight
+    color: orange
+    radius: 1.5
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: EffectWeldingSparks
+  id: EffectWeldingSparksExp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: smoke
+    - state: exp_welding_sparks
+      shader: unshaded
+  - type: PointLight
+    color: MediumAquamarine

@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Effects;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
@@ -131,7 +132,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
             return;
 
         if (comp.StunTime > TimeSpan.Zero)
-            _stun.TryParalyze(args.OtherEntity, comp.StunTime, true);
+            _stun.TryUpdateParalyzeDuration(args.OtherEntity, comp.StunTime);
 
         RaiseLocalEvent(uid, new TrapTriggeredEvent(args.OtherEntity));
 

@@ -65,6 +65,10 @@ public sealed class KudzuSystem : EntitySystem
             RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
             return;
         }
+        component.TimeAccumulated += SpreaderSystem.SpreadCooldownSeconds;
+        if (component.TimeAccumulated < 1f)
+            return;
+        component.TimeAccumulated = 0f;
 
         if (!_robustRandom.Prob(component.SpreadChance))
             return;

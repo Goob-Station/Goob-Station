@@ -26,19 +26,24 @@
 - type: startingGear
   id: CommandMaidGear
   equipment:
-    jumpsuit: ClothingUniformJumpskirtJanimaid
+    jumpsuit: ClothingUniformJumpskirtCommandMaid
     id: CommandMaidPDA
-    gloves: ClothingHandsGlovesJanitor
+    gloves: ClothingHandsGlovesLatex
     ears: ClothingHeadsetCommandService
+    eyes: ClothingEyesGlassesCommand
     belt: ClothingBeltJanitorFilled
-    shoes: ClothingShoesGaloshes
+    shoes: ClothingShoesBootsJackGaloshes
+  inhand:
+  - AdvMopItem
 
 - type: chameleonOutfit
   id: CommandMaidChameleonOutfit
   job: CommandMaid
   equipment:
-    jumpsuit: ClothingUniformJumpskirtJanimaid
+    jumpsuit: ClothingUniformJumpskirtCommandMaid
     id: CommandMaidPDA
-    gloves: ClothingHandsGlovesJanitor
+    gloves: ClothingHandsGlovesLatex
     ears: ClothingHeadsetCommandService
-    shoes: ClothingShoesGaloshes
+    eyes: ClothingEyesGlassesCommand
+    belt: ClothingBeltJanitor
+    shoes: ClothingShoesBootsJackGaloshes

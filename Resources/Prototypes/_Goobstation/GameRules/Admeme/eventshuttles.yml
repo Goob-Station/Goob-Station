@@ -102,4 +102,58 @@
   - type: LoadMapRule
     preloadedGrid: RetortShuttleChaplain
 
-
+#Contractor
+- type: entity
+  parent: BaseGameRule
+  id: ContractorSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    reoccurrenceDelay: 45
+    weight: 3
+    minimumPlayers: 10
+    duration: null
+    chaos:
+      Hostile: 75
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 100
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Goobstation/Shuttles/ShuttleEvent/Legionnaire.yml
+  - type: AntagLoadProfileRule
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Harpy
+    - Plasmaman
+  - type: AntagObjectives
+    objectives:
+    - ContractorRansomObjective
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: ghost-role-information-contractor-name
+    definitions:
+    - spawnerPrototype: ContractorSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ContractorGear
+      roleLoadout:
+      - RoleSurvivalNukie
+      mindRoles:
+      - MindRoleContractor
+      briefing:
+        text: contractor-role-greeting
+        color: Red
+        sound: /Audio/Ambience/Antag/traitor_wawa.ogg
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesContractorPrefix
+        - NamesSyndicateElite
+        nameFormat: name-format-standard
+      - type: NpcFactionMember
+        factions:
+        - Syndicate

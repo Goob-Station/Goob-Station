@@ -24,8 +24,8 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Temperature.Components;
-using Content.Goobstation.Shared.Body.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 
@@ -95,7 +95,11 @@ public sealed partial class HereticAbilitySystem
             toHeal += args.HealAmount;
 
             _flammable.AdjustFireStacks(look, args.FireStacks, flam, true, args.FireProtectionPenetration);
-            _dmg.TryChangeDamage(look, args.Damage, true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
+            _dmg.TryChangeDamage(look,
+                args.Damage * _body.GetVitalBodyPartRatio(look),
+                true,
+                targetPart: TargetBodyPart.All,
+                splitDamage: SplitDamageBehavior.SplitEnsureAll);
         }
 
         args.Handled = true;

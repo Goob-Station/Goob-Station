@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Jvne",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cd-10"
+    },
+    {
+      "name": "cd-9"
+    },
+    {
+      "name": "cd-8"
+    },
+    {
+      "name": "cd-7"
+    },
+    {
+      "name": "cd-6"
+    },
+    {
+      "name": "cd-5"
+    },
+    {
+      "name": "cd-4"
+    },
+    {
+      "name": "cd-3"
+    },
+    {
+      "name": "cd-2"
+    },
+    {
+      "name": "cd-0"
+    },
+    {
+      "name": "cd-1"
+    },
+    {
+      "name": "base"
+    }
+  ]
+}

@@ -12,7 +12,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Server.StationEvents.Components;
 
-[RegisterComponent, Access(typeof(GameDirectorSystem))]
+[RegisterComponent, Access(typeof(GameDirector.GameDirectorSystem))]
 public sealed partial class GameDirectorComponent : Component
 {
 

@@ -20,6 +20,7 @@
     - 0,0,0,0
     whitelist:
       tags:
+      - Syringe # goobstation fire all syringes
       - SyringeGunAmmo
   - type: Gun
     fireRate: 1

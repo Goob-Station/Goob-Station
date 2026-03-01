@@ -210,8 +210,8 @@
   - type: TraumaInflicter
     severityThreshold: 17
     allowedTraumas:
-    - OrganDamage
-    - BoneDamage
+#    - OrganDamage
+#    - BoneDamage
     - VeinsDamage
     - NerveDamage
     allowArmourDeduction:
@@ -219,8 +219,8 @@
     - BoneDamage
     traumasChances:
       Dismemberment: 0
-      OrganDamage: -0.12
-      BoneDamage: -0.21
+#      OrganDamage: -0.12
+#      BoneDamage: -0.21
       VeinsDamage: 0.34
       NerveDamage: 0.34
     mangledMultipliers:

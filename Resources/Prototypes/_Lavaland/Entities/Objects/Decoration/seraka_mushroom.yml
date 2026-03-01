@@ -1,0 +1,41 @@
+- type: entity
+  name: seraka mushrooms
+  parent: BaseStructure
+  id: SerakaMushroom
+  description: A small cluster of seraka mushrooms. These must have come with the ashlizards.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/seraka_mushroom.rsi
+    layers:
+    - state: seraka_mushroom1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        seraka_mushroom1: ""
+        seraka_mushroom2: ""
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+  - type: InteractionOutline
+  - type: Harvestable
+    delay: 3.5
+    loot: FoodMealSerakaCap
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

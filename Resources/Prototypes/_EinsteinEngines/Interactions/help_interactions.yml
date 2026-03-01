@@ -21,19 +21,25 @@
   cooldown: 0.5
   hideByRequirement: true
   requirement:
-    !type:StandingStateRequirement
-    allowLaying: true
-    allowKnockedDown: true
-    allowSleep: false
+    # Goob edit - No sleeping borgs and stuff
+    !type:ComplexRequirement
+    requirements:
+    - !type:StandingStateRequirement
+      allowLaying: true
+      allowKnockedDown: true
+      allowSleep: false
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components:
+        - Crawler
+        - KnockedDown
+    # Goob end
   action:
     !type:ComplexAction
     requireAll: false
     actions:
     - !type:ChangeStandingStateAction
       makeStanding: true
-    - !type:ModifyStatusEffectAction
-      effect: KnockedDown
-      timeAdded: -2.5 # TODO: probably unnecessary but some systems like slippery sometimes mention it in TODO manner
     - !type:ModifyStatusEffectAction
       effect: Stun
       timeAdded: -2.5 # 2 seconds delay to remove 2.5 seconds of stun - should be good enough.
@@ -44,8 +50,16 @@
   delay: 4.5
   hideByRequirement: true
   requirement:
-    !type:StandingStateRequirement
-    allowStanding: true
+    # Goob edit - No sleeping borgs and stuff
+    !type:ComplexRequirement
+    requirements:
+    - !type:StandingStateRequirement
+      allowStanding: true
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components:
+        - Crawler
+    # Goob end
   action:
     !type:ChangeStandingStateAction
     makeLaying: true

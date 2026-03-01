@@ -589,6 +589,7 @@
     - SharedBoardsStatic
     - MedicalBoardsStaticGoob
     - SecurityBoardsStaticGoob
+    - ServiceBoardsStaticGoob
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -767,7 +768,6 @@
     - ScienceExplosives
     - GrenadeTriggersStatic
     - SecurityWeaponsStaticGoob
-    - SecurityWeaponsNonEmaggableStaticGoob
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -903,7 +903,7 @@
     stealGroup: MedicalTechFabCircuitboard
 
 - type: entity
-  parent: BaseLathe
+  parent: [BaseLatheLube, BaseSiloUtilizer] #Goob edit
   id: UniformPrinter
   name: uniform printer
   description: Prints new or replacement uniforms.

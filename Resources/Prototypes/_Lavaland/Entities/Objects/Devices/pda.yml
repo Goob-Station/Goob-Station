@@ -1,0 +1,30 @@
+- type: entity
+  parent: BasePDA
+  id: MinerPDA
+  name: miner PDA
+  description: Smells like ash.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/pda.rsi
+  - type: Pda
+    id: MinerIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-shaftminer
+  - type: PdaBorderColor
+    borderColor: "#230a2c"
+    accentVColor: "#c900c9"
+  - type: Icon
+    sprite: _Lavaland/Objects/Devices/pda.rsi
+    state: pda-shaftminer
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge # DeltaV

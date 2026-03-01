@@ -6,7 +6,7 @@
 - type: marking
   id: OniTwoToedFeet
   bodyPart: RFoot # Can't be LFoot to avoid visual glitches
-  markingCategory: Legs
+  markingCategory: Overlay # Goob - Moved to 'Overlay'
   speciesRestriction: [Oni]
   coloring:
     default:

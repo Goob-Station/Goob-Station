@@ -1,0 +1,81 @@
+- type: entity
+  id: VinylPlayer
+  name: vinyl player
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  description: An old school vinyl record player sat on a set of drawers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
+    snapCardinals: true
+    granularLayersRendering: true
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    drawdepth: SmallObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Appearance
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: VinylPlayer
+  - type: Machine
+    board: VinylPlayerCircuitboard
+  - type: ApcPowerReceiver
+    powerLoad: 300 # This is a simple machine
+  - type: DeviceLinkSource
+    ports:
+    - VinylPlayerPort
+  - type: DeviceList
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      vinyl: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      vinyl:
+        name: vinyl
+        whitelist:
+          components:
+          - Vinyl
+  - type: ItemMapper
+    containerWhitelist: [vinyl]
+    mapLayers:
+      disk_installed:
+        whitelist:
+          components:
+          - Vinyl
+  - type: GenericVisualizer
+    visuals:
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }

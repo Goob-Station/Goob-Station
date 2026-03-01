@@ -24,11 +24,3 @@
   id: ColorTint
   kind: source
   path: "/Textures/_Goobstation/Shaders/color_tint.swsl"
-
-- type: shader
-  id: SecondSkin
-  kind: source
-  path: "/Textures/_Goobstation/Shaders/secondskin.swsl"
-  params:
-    pixelSize: 32.0
-    amount: 0.5

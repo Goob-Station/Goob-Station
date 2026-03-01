@@ -83,6 +83,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Movement;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
@@ -139,13 +140,15 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, ClothingSpeedModifierComponent component, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        if (_toggle.IsActivated(uid))
+        // goob edit - speed modifier immunity (1 liner)
+        if (_toggle.IsActivated(uid) && !HasComp<SpeedModifierImmunityComponent>(uid))
             args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
     }
 
     private void OnClothingVerbExamine(EntityUid uid, ClothingSpeedModifierComponent component, GetVerbsEvent<ExamineVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess)
+        // goob edit - speed modifier immunity (1 liner)
+        if (!args.CanInteract || !args.CanAccess || HasComp<SpeedModifierImmunityComponent>(uid))
             return;
 
         var walkModifierPercentage = MathF.Round((1.0f - component.WalkModifier) * 100f, 1);

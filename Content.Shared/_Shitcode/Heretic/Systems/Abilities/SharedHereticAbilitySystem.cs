@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
@@ -18,14 +20,17 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Roles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -51,6 +56,8 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
+    [Dependency] protected readonly SharedVoidCurseSystem Voidcurse = default!;
+
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -71,10 +78,12 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -106,6 +115,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeBlade();
         SubscribeRust();
         SubscribeCosmos();
+        SubscribeVoid();
         SubscribeFlesh();
         SubscribeSide();
 
@@ -115,7 +125,8 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     protected List<Entity<MobStateComponent>> GetNearbyPeople(EntityUid ent,
         float range,
         string? path,
-        EntityCoordinates? coords = null)
+        EntityCoordinates? coords = null,
+        bool checkNullRod = true)
     {
         var list = new List<Entity<MobStateComponent>>();
         var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(coords ?? Transform(ent).Coordinates, range);
@@ -128,6 +139,14 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
             if (!HasComp<StatusEffectsComponent>(look))
                 continue;
+
+            if (checkNullRod)
+            {
+                var ev = new BeforeCastTouchSpellEvent(look, false);
+                RaiseLocalEvent(look, ev, true);
+                if (ev.Cancelled)
+                    continue;
+            }
 
             list.Add(look);
         }
@@ -160,19 +179,14 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
     public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
-        if (args.Handled)
-            return false;
-
-        // No using abilities while charging
-        if (HasComp<RustChargeComponent>(ent))
-            return false;
-
-        if (!TryComp<HereticActionComponent>(args.Action, out var actionComp))
+        if (args.Handled
+        || HasComp<RustChargeComponent>(ent) // no abilities while charging
+        || !TryComp<HereticActionComponent>(args.Action, out var actionComp))
             return false;
 
         // check if any magic items are worn
-        if (!TryComp<HereticComponent>(ent, out var hereticComp) || !actionComp.RequireMagicItem ||
-            hereticComp.Ascended)
+        if (!TryComp<HereticComponent>(ent, out var hereticComp) ||
+            !actionComp.RequireMagicItem || hereticComp.Ascended)
         {
             SpeakAbility(ent, actionComp);
             return true;

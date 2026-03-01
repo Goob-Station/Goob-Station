@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Shared.Interaction.Events;

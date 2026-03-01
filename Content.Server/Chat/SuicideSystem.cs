@@ -146,6 +146,9 @@ public sealed class SuicideSystem : EntitySystem
         if (!suicideGhostEvent.Handled || _tagSystem.HasTag(victim, CannotSuicideTag))
             return false;
 
+        // TODO: fix this
+        // This is a handled event, but the result is never used
+        // It looks like TriggerOnMobstateChange is supposed to prevent you from suiciding
         var suicideEvent = new SuicideEvent(victim);
         RaiseLocalEvent(victim, suicideEvent);
 
@@ -180,7 +183,7 @@ public sealed class SuicideSystem : EntitySystem
         // CannotSuicide tag will allow the user to ghost, but also return to their mind
         // This is kind of weird, not sure what it applies to?
         if (_tagSystem.HasTag(victim, CannotSuicideTag)
-            || HasComp<XenomorphPreventSuicideComponent>(victim))
+            || HasComp<XenomorphPreventSuicideComponent>(victim)) // Goob station - Xenomorphs
             args.CanReturnToBody = true;
 
         if (_ghostSystem.OnGhostAttempt(victim.Comp.Mind.Value, args.CanReturnToBody, mind: mindComponent))
@@ -232,7 +235,7 @@ public sealed class SuicideSystem : EntitySystem
     private void OnDamageableSuicide(Entity<DamageableComponent> victim, ref SuicideEvent args)
     {
         if (args.Handled
-            || HasComp<XenomorphPreventSuicideComponent>(victim))
+            || HasComp<XenomorphPreventSuicideComponent>(victim)) // Goob station - Xenomorphs
             return;
 
         var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", Identity.Entity(victim, EntityManager)));

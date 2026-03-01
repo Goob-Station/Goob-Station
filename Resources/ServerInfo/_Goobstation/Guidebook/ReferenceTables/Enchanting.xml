@@ -1,0 +1,70 @@
+<!--
+SPDX-FileCopyrightText: 2023 /ʊniɹɑː/ <onoira@psiko.zone>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Document>
+# Enchanting
+
+Those who are magically inclined, such as Wizards, Heretic and Chaplains, have access to the arcane art of Enchanting.
+
+# Enchanting an item
+
+To enchant an item, you need a sacrificial offering and an item to enchant. Most often these are the cores of anomalies, but are occasionally more mundane components like Diamonds.
+<Box>
+  <GuideEntityEmbed Entity="AltarConvert" Caption=""/>
+</Box>
+Place an item on an altar (or a Transmutation Rune) alongside the offering and hit the item with your magical tome. For wizards, this is their Wizard's Grimoire. For Chaplain, their Bible or other religious texts. For Heretics, their Codex Cicatrix.
+
+If the item and offering are compatible, the offering will be consumed and the item will become enchanted. If you use an anomaly core, those from critical anomalies are more potent than inert cores, and empower your item more effectively.
+
+# Enchantment limits
+
+An item can only be enchanted with one kind of enchantment, unless you perform a ritual. By killing any living entity with a soul on top of an altar alongside your enchanted item, their soul will be consumed and increase the enchantment limit.
+
+The sacrifice will be possible to revive, but have the ill effects of losing their soul, akin to selling their soul to a Devil.
+
+# Types of enchantments
+
+  ### Fire Aspect
+Fire Aspect causes your weapon to set your foes on fire. Obtainable from Pyroclastic Anomaly cores.
+
+  ### Lavaforged
+Lavaforged grants your equipment the ability to protect you from lava. Obtainable from Pyroclastic Anomaly cores.
+
+  ### Knockback
+Knockback causes your weapon to knock people back on hit. Obtainable from Gravity Anomaly cores.
+
+  ### Fire Protection
+Fire Protection grants your armor protection from... Fire. Obtainable from Ice Anomaly cores.
+
+  ### Sharpness
+Sharpness sharpens your weapon and grants four bonus Slash damage per level. Obtainable from Flesh Anomaly cores.
+
+  ### Unbreaking
+Unbreaking reduces all damage by 50%. Due to complicated magical law restrictions, this is only applicable to mice. Obtainable from Rock Anomaly cores.
+
+  ### Protection
+Protection grants your equipment damage resistance. Obtainable from Rock Anomaly cores.
+
+  ### Slippery
+Slippery makes any item slip people. Obtainable from Liquid Anomaly cores.
+
+  ### Unslippable
+Unslippable makes any shoes grant immunity to slipping. Obtainable from Liquid Anomaly cores.
+
+  ### Insulated?
+Insulated? grants a chance to not be shocked by sources of electricity to gloves. Obtainable from inert Elecricity Anomaly cores.
+
+  ### Insulated
+Insulated grants gloves full insulation from electricity. Obtainable from critical Elecricity Anomaly cores.
+
+  ### Thorns
+Thorns can be applied to armor, and damages melee attackers with 4 slash damage per level. Obtainable from Floral Anomaly cores.
+
+  ### Fortune
+Fortune has a chance to increase ore yield for drills and pickaxes, chance proportional to enchantment level. Obtainable from Santa Anomaly cores and diamonds.
+
+</Document>

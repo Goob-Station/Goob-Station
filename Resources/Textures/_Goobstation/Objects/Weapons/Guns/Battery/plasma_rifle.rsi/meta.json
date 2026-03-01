@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/master/icons/obj/weapons/guns/energy.dmi",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/master/icons/obj/weapons/guns/energy.dmi, Resprite by RedTerror",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,10 @@
     },
     {
       "name": "base"
+    },
+    {
+      "name": "mag-unshaded-0",
+      "delays": [[ 0.3, 0.3 ]]
     },
     {
       "name": "mag-unshaded-1"

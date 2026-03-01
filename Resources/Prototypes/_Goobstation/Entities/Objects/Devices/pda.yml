@@ -282,6 +282,25 @@
     - NanoTaskCartridge
     - NanoChatCartridge # DeltaV
 
+- type: entity
+  parent: BaseMedicalPDA
+  id: VirologistPDA
+  name: virology PDA
+  description: You're not sure if touching it is safe.
+  components:
+  - type: Pda
+    id: VirologistIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-virology
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-virology
+
 # event-resctricted jobs
 - type: entity
   parent: ClownPDA
@@ -327,3 +346,42 @@
     accentVColor: "#cc4d03"
   - type: Icon
     state: pda-roboticist
+
+- type: entity
+  parent: BasePDA
+  id: RadioHostPDA
+  name: radio host PDA
+  description: You're listening to the smooth sounds of 145.9 FM.
+  components:
+  - type: Pda
+    id: RadioHostIDCard
+
+- type: entity
+  parent: CentcomPDA
+  id: OuterCommandPDA
+  name: outer command PDA
+  description: Purple pda for outer command members.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-outcom
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-outcom
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-outcom"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: OuterCommandIDCard

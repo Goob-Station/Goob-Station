@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
 # SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
@@ -40,8 +41,11 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 RedMush1 <88719613+RedMush1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedMush1 <axmetvaliev1@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -152,6 +156,7 @@
   id: PotassiumExplosion
   impact: High
   priority: 20
+  conserveEnergy: false
   reactants:
     Water:
       amount: 1
@@ -160,15 +165,16 @@
   effects:
     - !type:ExplosionReactionEffect
       explosionType: Default
-      maxIntensity: 100
-      intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
-      intensitySlope: 4
+      intensityPerUnit: 0.25
       maxTotalIntensity: 100
+      intensitySlope: 4
+      maxIntensity: 7
 
 - type: reaction
   id: Smoke
-  priority: 10
+  priority: -10
   impact: High
+  conserveEnergy: false
   reactants:
     Phosphorus:
       amount: 1
@@ -185,8 +191,9 @@
 
 - type: reaction
   id: Foam
-  priority: 10
+  priority: -10
   impact: High
+  conserveEnergy: false
   reactants:
     Fluorosurfactant:
       amount: 1
@@ -202,7 +209,8 @@
 - type: reaction
   id: IronMetalFoam
   impact: High
-  priority: 10
+  priority: -10
+  conserveEnergy: false
   reactants:
     Iron:
       amount: 3
@@ -220,7 +228,8 @@
 - type: reaction
   id: AluminiumMetalFoam
   impact: High
-  priority: 10
+  priority: -10
+  conserveEnergy: false
   reactants:
     Aluminium:
       amount: 3
@@ -239,6 +248,7 @@
   id: UraniumEmpExplosion
   impact: High
   priority: 20
+  conserveEnergy: false
   reactants:
     Iron:
       amount: 1
@@ -257,6 +267,7 @@
   id: Flash
   impact: High
   priority: 20
+  conserveEnergy: false
   reactants:
     Aluminium:
       amount: 1
@@ -368,7 +379,7 @@
     Oxygen:
       amount: 2
   products:
-    Stimulants: 1 # Goobstation edit
+    Stimulants: 3 # Goobstation edit
 
 - type: reaction
   id: Ephedrine
@@ -397,7 +408,7 @@
     SpaceGlue:
       amount: 2
   products:
-    MuteToxin: 2
+    MuteToxin: 4 #goob edit
 
 - type: reaction
   id: ChloralHydrate
@@ -552,7 +563,7 @@
     Vestine:
       amount: 1
   products:
-    Nocturine: 1
+    Nocturine: 2 #goob edit
 
 - type: reaction
   id: Tazinide
@@ -563,7 +574,7 @@
     Vestine:
       amount: 1
   products:
-    Tazinide: 1
+    Tazinide: 2 #goob edit
 
 - type: reaction
   id: ArtifactGlue

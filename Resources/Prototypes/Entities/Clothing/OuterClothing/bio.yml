@@ -40,6 +40,8 @@
     modifiers:
       coefficients:
         Caustic: 0.2
+      flatReductions:
+        Slash: 1 # mice trolled
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.35
   - type: GroupExamine
@@ -49,6 +51,14 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
+  # Goobstation
+  - type: DiseaseProtection
+    # full prot
+    incoming:
+      powerModifiers:
+        Blood: -1 # immune to plague mice
+      chanceMultipliers:
+        Blood: 0.5
 
 - type: entity
   parent: ClothingOuterBioGeneral

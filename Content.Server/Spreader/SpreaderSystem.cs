@@ -55,7 +55,9 @@ public sealed class SpreaderSystem : EntitySystem
 
     private EntityQuery<EdgeSpreaderComponent> _query;
 
-    public const float SpreadCooldownSeconds = 1;
+    // goob edit - faster smoke.
+    // it's funny how it's stored here and spreader prototype updates have 0 references.
+    public const float SpreadCooldownSeconds = .33f;
 
     private static readonly ProtoId<TagPrototype> IgnoredTag = "SpreaderIgnore";
 

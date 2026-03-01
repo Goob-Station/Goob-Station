@@ -13,6 +13,7 @@
 - type: entity
   parent: [ BaseItem, BaseMagicalContraband ]
   id: CodexCicatrix
+  suffix: MagicItem
   name: codex cicatrix
   description: This heavy tome is full of cryptic scribbles and impossible diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
   components:

@@ -8,11 +8,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Changeling;
 using Content.Goobstation.Shared.Chemistry;
 using Content.Goobstation.Shared.Clothing;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Grab;
+using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Goobstation.Shared.Stunnable;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -44,6 +48,14 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.NightVisionComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.ThermalVisionComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowContrabandIconsComponent>>(RefRelayInventoryEvent);
+
+        SubscribeLocalEvent<InventoryComponent, InternalResourcesRegenModifierEvent>(RefRelayInventoryEvent);
+
+        // disease
+        SubscribeLocalEvent<InventoryComponent, DiseaseOutgoingSpreadAttemptEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, DiseaseIncomingSpreadAttemptEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowDiseaseIconsComponent>>(RefRelayInventoryEvent);
+
     }
 
     private void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent
