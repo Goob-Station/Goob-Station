@@ -35,12 +35,6 @@
       - !type:KeyExistsPrecondition
         key: Target
       operator: !type:AltInteractOperator
-    - !type:HTNPrimitiveTask
-      preconditions:
-      - !type:KeyExistsPrecondition
-        key: IdleTime
-      operator: !type:WaitOperator
-        key: IdleTime
 
 - type: htnCompound
   id: LatchCompound
@@ -59,9 +53,3 @@
     - !type:HTNPrimitiveTask
       operator: !type:SlimeLatchOperator
         latchKey: LatchTarget
-    - !type:HTNPrimitiveTask
-      preconditions:
-      - !type:KeyExistsPrecondition
-        key: IdleTime
-      operator: !type:WaitOperator
-        key: IdleTime
