@@ -1,0 +1,6 @@
+- type: entity
+  name: Singuloth's hammer
+  parent: SingularityHammer
+  id: SingulothsHammer
+  components:
+  - type: Unremoveable
