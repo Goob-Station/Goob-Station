@@ -28,6 +28,7 @@ using System.Text;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared.Mind;
 using Robust.Server.GameObjects;
+using Content.Server.Popups;
 using Content.Shared.Station.Components;
 
 namespace Content.Server.GameTicking.Rules;
@@ -40,6 +41,7 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public static readonly SoundSpecifier BriefingSound =
         new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
@@ -49,7 +51,7 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
 
     public static readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
 
-    static EntProtoId MindRole = "MindRoleHeretic";
+    public static readonly EntProtoId MindRole = "MindRoleHeretic";
 
     public override void Initialize()
     {

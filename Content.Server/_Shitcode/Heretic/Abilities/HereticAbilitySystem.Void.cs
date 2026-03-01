@@ -78,8 +78,7 @@ public sealed partial class HereticAbilitySystem
     {
         var target = args.Target;
 
-        if (!HasComp<PolymorphableComponent>(target) || HasComp<PolymorphedEntityComponent>(target) ||
-            HasComp<VoidPrisonComponent>(target))
+        if (!HasComp<PolymorphableComponent>(target) || HasComp<VoidPrisonComponent>(target))
             return;
 
         if (!TryUseAbility(args))

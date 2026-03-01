@@ -8,12 +8,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Goobstation.Shared.Weapons.MeleeVulnerability;
 using Content.Goobstation.Shared.Sprinting;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
@@ -116,7 +115,7 @@ public abstract partial class SharedMartialArtsSystem
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
             true,
-            proto.DropHeldItemsBehavior);
+            proto.DropItems);
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
@@ -148,7 +147,7 @@ public abstract partial class SharedMartialArtsSystem
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
             true,
-            proto.DropHeldItemsBehavior);
+            proto.DropItems);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);
@@ -178,32 +177,45 @@ public abstract partial class SharedMartialArtsSystem
     private void OnPushKick(Entity<CanPerformComboComponent> ent, ref PushKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         if (!TryPerformCapoeiraMove(ent, args, out var power))
             return;
 
+        if (downed)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-down"), ent, ent);
+            return;
+        }
+
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
         var dir = hitPos - mapPos;
+        var time = TimeSpan.FromSeconds(proto.ParalyzeTime * power);
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
+        if (_newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, time)
+            && TryComp(effect, out MeleeVulnerabilityStatusEffectComponent? effectComp))
+        {
+            effectComp.ModifierSets.Add(args.ModifierSet);
+            Dirty(effect.Value, effectComp);
+        }
+
         _stun.TryKnockdown(target,
-            TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            time,
             true,
             true,
-            proto.DropHeldItemsBehavior);
+            proto.DropItems);
 
         _audio.PlayPvs(args.Sound, target);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _grabThrowing.Throw(target,
             ent,
             dir.Normalized() * args.ThrowRange * power,
             proto.ThrownSpeed,
-            behavior: proto.DropHeldItemsBehavior);
+            behavior: proto.DropItems);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
