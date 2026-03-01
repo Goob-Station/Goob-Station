@@ -2634,7 +2634,7 @@
     brokenState: broken
     normalState: normal
     denyState: deny
-    ejectDelay: 2
+  # ejectDelay: 2 Goobstation - No reason for the eject delay to be 2 seconds
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
