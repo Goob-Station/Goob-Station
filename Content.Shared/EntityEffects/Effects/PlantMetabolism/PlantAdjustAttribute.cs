@@ -4,7 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.EntityEffects.Effects.PlantMetabolism;
 
