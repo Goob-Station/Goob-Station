@@ -1,8 +1,3 @@
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
-using System.ComponentModel;
-
 namespace Content.Goobstation.Shared.Religion.Recall;
 
 [RegisterComponent]
