@@ -17,7 +17,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Spawners;
 using Robust.Shared.Physics.Events;
 using Content.Goobstation.Shared.Contraband;
-using Content.Shared.Trigger.Components.Triggers;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -59,7 +58,6 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, TileFireEvent>(OnTileFire);
 
         SubscribeLocalEvent<ContrabandDetectorComponent, PreventCollideEvent>(OnContrabandDetectorPreventCollide);
-        SubscribeLocalEvent<TriggerOnProximityComponent, PreventCollideEvent>(OnProximityTriggerPreventCollide);
     }
 
     private void OnCameraCheck(ref SlasherIncorporealCameraCheckEvent args)

@@ -218,8 +218,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         RemComp<KnockedDownComponent>(uid);
 
-        _standing.Stand(uid, force: true);
-
         var phase = new PhaseShiftedComponent
         {
             SpawnEffects = false,
