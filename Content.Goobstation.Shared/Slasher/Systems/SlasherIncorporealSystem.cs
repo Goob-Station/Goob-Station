@@ -4,6 +4,7 @@ using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
+using Content.Shared.Flash;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
@@ -35,6 +36,10 @@ using Content.Shared.Body.Part;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics;
 using Content.Shared.Throwing;
+using Content.Goobstation.Shared.Sprinting;
+using Content.Shared.Stunnable;
+using Content.Shared.Trigger;
+using Content.Shared.Trigger.Components.Triggers;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -56,6 +61,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly SlasherObserverCheckSystem _observerCheck = default!;
+    [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
@@ -77,6 +83,11 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, PullStoppedMessage>(OnPullStopped);
         SubscribeLocalEvent<DamageableComponent, BeforeDamageChangedEvent>(OnBeforeDamageBodyPart);
         SubscribeLocalEvent<ActionComponent, ActionAttemptEvent>(OnAnyActionAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, SprintAttemptEvent>(OnSprintAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, DownAttemptEvent>(OnDownAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, KnockDownAttemptEvent>(OnKnockDownAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, FlashAttemptEvent>(OnFlashAttempt);
+        SubscribeLocalEvent<TriggerOnProximityComponent, AttemptTriggerEvent>(OnProximityTriggerAttempt);
     }
 
     private void OnMapInit(Entity<SlasherIncorporealComponent> ent, ref MapInitEvent args)
@@ -205,7 +216,8 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         // Freeze all action cooldowns.
         FreezeCooldowns((uid, ent.Comp));
 
-        // Force stand up when entering incorporeal.
+        RemComp<KnockedDownComponent>(uid);
+
         _standing.Stand(uid, force: true);
 
         var phase = new PhaseShiftedComponent
@@ -414,6 +426,24 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         args.Cancelled = true;
     }
 
+    private void OnSprintAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref SprintAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancel();
+    }
+
+    private void OnDownAttempt(EntityUid uid, SlasherIncorporealComponent comp, DownAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancel();
+    }
+
+    private void OnKnockDownAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref KnockDownAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancelled = true;
+    }
+
     private void OnBeforeThrow(Entity<SlasherIncorporealComponent> ent, ref BeforeThrowEvent args)
     {
         if (ent.Comp.IsIncorporeal
@@ -425,6 +455,23 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     {
         if (comp.IsIncorporeal)
             args.Cancel();
+    }
+
+
+    private void OnFlashAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref FlashAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancelled = true;
+    }
+
+    private void OnProximityTriggerAttempt(EntityUid uid, TriggerOnProximityComponent component, ref AttemptTriggerEvent args)
+    {
+        if (args.User == null)
+            return;
+
+        if (TryComp<SlasherIncorporealComponent>(args.User.Value, out var slasherComp) &&
+            slasherComp.IsIncorporeal)
+            args.Cancelled = true;
     }
 
     private bool IsInsideSolidObject(EntityUid uid)
