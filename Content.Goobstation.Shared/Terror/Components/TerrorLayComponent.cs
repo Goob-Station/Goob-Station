@@ -3,6 +3,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
+/// <summary>
+/// Component used to specify which egg types to lay upon using the terror lay action.
+/// </summary>
+
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TerrorLayComponent : Component
 {

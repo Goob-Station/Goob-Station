@@ -5,6 +5,9 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.Terror.Systems
 {
+    /// <summary>
+    /// Smashes open welded vents.
+    /// </summary>
     public sealed class TerrorVentSmashSystem : EntitySystem
     {
         [Dependency] private readonly WeldableSystem _weldable = default!;

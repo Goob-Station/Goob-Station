@@ -10,6 +10,9 @@ using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
+/// <summary>
+/// Wraps someone up into a cocoon, permanently buffing both the spider that wrapped the person, and the hive as a whole.
+/// </summary>
 public sealed class TerrorWrapSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;

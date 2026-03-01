@@ -3,16 +3,17 @@ using Content.Goobstation.Shared.Terror.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 using Content.Server.Pinpointer;
 
 namespace Content.Goobstation.Server.Terror.Systems;
 
+/// <summary>
+/// This system makes it so the queen gets a popup of all currently alive terror spider types and their locations.
+/// </summary>
 public sealed class TerrorQueenSenseSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
 
     public override void Initialize()
@@ -22,29 +23,22 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
         SubscribeLocalEvent<TerrorQueenSenseComponent, TerrorQueenSenseEvent>(OnSense);
     }
 
-    private void OnSense(EntityUid uid, TerrorQueenSenseComponent comp, ref TerrorQueenSenseEvent args)
-    {
-        // uid = queen
-        SenseSpiders(uid);
-    }
-
     /// <summary>
     /// Called when the queen activates her "sense hive" ability.
     /// </summary>
-    public void SenseSpiders(EntityUid queenUid)
+    private void OnSense(EntityUid uid, TerrorQueenSenseComponent comp, ref TerrorQueenSenseEvent args)
     {
         var msg = BuildSpiderList();
         if (string.IsNullOrEmpty(msg))
         {
             _popup.PopupEntity(
                 Loc.GetString("queen-sense-none"),
-                queenUid,
-                queenUid);
+                uid,
+                uid);
             return;
         }
 
-        _popup.PopupEntity(msg, queenUid, queenUid);
-
+        _popup.PopupEntity(msg, uid, uid);
     }
 
     private string BuildSpiderList()

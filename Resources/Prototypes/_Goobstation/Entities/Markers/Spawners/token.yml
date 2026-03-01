@@ -128,7 +128,7 @@
   - type: GhostRole
     name: ghost-role-information-wraith-name-token
     description: ghost-role-information-description-token-generic
-    rules: ghost-role-information-giant-spider-rules
+    rules: ghost-role-information-wraith-rules
     raffle:
       settings: short
 

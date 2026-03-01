@@ -5,6 +5,9 @@ using Content.Shared.Damage;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
+/// <summary>
+/// The name is self explanatory, but if the target is stunned, whichever entity has this comp will deal bonus damage on them.
+/// </summary>
 public sealed class BonusDamageOnStunnedSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _status = default!;

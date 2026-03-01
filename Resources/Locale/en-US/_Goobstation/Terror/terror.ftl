@@ -9,8 +9,8 @@ sticky-web-slimy = The sticky web ensnares you! You start to feel woozy...
 
 terror-wrap-fail = They must be dead to be wrapped.
 
-infested-cured = Seems like the spiderlings are all gone.
-infested-spawn = Suddenly, spiderlings spawn all over you!
+spiderling-infested-cured = Seems like the spiderlings are all gone.
+spiderling-infested-spawn = Suddenly, spiderlings spawn all over you!
 
 terror-lay-only-cocoon = You can only lay eggs on cocoons.
 

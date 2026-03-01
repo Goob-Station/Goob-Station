@@ -3,6 +3,9 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Popups;
 using System.Numerics;
 
+/// <summary>
+/// Used for purple terror, they can't go too far from queen or they gib. This might generate some mald if they spawn far from queen so maybe this oughta be tweaked in the future.
+/// </summary>
 public sealed class NestGuardSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -50,7 +53,6 @@ public sealed class NestGuardSystem : EntitySystem
             }
         }
     }
-
     private EntityUid? FindNearestQueen(EntityUid guard)
     {
         EntityUid? nearest = null;

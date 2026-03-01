@@ -8,6 +8,9 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Terror.Systems;
 
+/// <summary>
+/// Handles all terror queen spider logic.
+/// </summary>
 public sealed class TerrorQueenSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -47,19 +50,21 @@ public sealed class TerrorQueenSystem : EntitySystem
             filter.AddPlayer(actor.PlayerSession);
         }
 
-        _audio.PlayGlobal(comp.DeathSound, Filter.Broadcast(), false);
+        if (filter.Count > 0) // plays sound only for spooders that were added to the filter
+            _audio.PlayGlobal(comp.DeathSound, filter, false);
     }
 
     private void AffectAllTerrorSpiders(EntityUid queenUid)
     {
         var query = EntityQueryEnumerator<TerrorSpiderComponent>();
+        var queen = Comp<TerrorQueenComponent>(queenUid);
 
         while (query.MoveNext(out var spiderUid, out _))
         {
             if (spiderUid == queenUid)
                 continue;
 
-            if (_random.Prob(0.5f))
+            if (_random.Prob(queen.DeathGibChance))
             {
                 // 50% chance: gib the spider
                 _popup.PopupEntity(

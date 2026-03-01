@@ -6,6 +6,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
+/// <summary>
+/// Makes an entity transparent on top of a tile.
+/// </summary>
 public sealed class InvisibleOnTileSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;

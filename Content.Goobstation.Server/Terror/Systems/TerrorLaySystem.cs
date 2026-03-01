@@ -1,19 +1,20 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System;
 
 namespace Content.Goobstation.Server.Terror.Systems;
 
+/// <summary>
+/// Handles egg-laying behavior for all terror spider variants.
+/// Dispatches role-specific logic (Green, Queen, Princess)
+/// to dedicated handlers.
+/// </summary>
 public sealed class TerrorLaySystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -26,96 +27,88 @@ public sealed class TerrorLaySystem : EntitySystem
         var uid = spider.Owner;
         var layComp = spider.Comp;
 
-        // === Green Terror: Only on cocoons, always Tier 1 ===
-        if (TryComp<GreenTerrorComponent>(uid, out _))
+        if (HasComp<GreenTerrorComponent>(uid))
         {
-            if (!HasComp<CocoonComponent>(args.Target))
-            {
-                _popup.PopupClient(
-                    Loc.GetString("terror-lay-only-cocoon"),
-                    uid,
-                    uid);
-                return;
-            }
-
-            if (TryLayFromList(layComp.EggsTier1, args.Target))
-                args.Handled = true;
-
+            args.Handled = HandleGreenLay(uid, layComp, args.Target);
             return;
         }
 
-        // === Queen: Diminishing returns, capped curve ===
         if (TryComp<TerrorQueenComponent>(uid, out var queen))
         {
-            var wraps = queen.HiveTotalWrappedAmount;
-
-            // Compute diminishing-return chances that interpolate from base -> max
-            var t2Chance = DiminishingChance(wraps, queen.Tier2BaseChance, queen.Tier2MaxChance, queen.Tier2CurveK);
-            var t3Chance = DiminishingChance(wraps, queen.Tier3BaseChance, queen.Tier3MaxChance, queen.Tier3CurveK);
-
-            // Safety clamp: t3 cannot exceed 1, and t2 cannot push total above 1
-            t3Chance = MathF.Min(t3Chance, 1f);
-            t2Chance = MathF.Min(t2Chance, 1f - t3Chance);
-
-            var roll = _random.NextFloat();
-
-            // Tier 3
-            if (roll < t3Chance)
-            {
-                if (TryLayFromList(layComp.EggsTier3, args.Target))
-                    args.Handled = true;
-                return;
-            }
-
-            // Tier 2
-            if (roll < t3Chance + t2Chance)
-            {
-                if (TryLayFromList(layComp.EggsTier2, args.Target))
-                    args.Handled = true;
-                return;
-            }
-
-            // Tier 1
-            if (TryLayFromList(layComp.EggsTier1, args.Target))
-                args.Handled = true;
-
+            args.Handled = HandleQueenLay(uid, layComp, queen, args.Target);
             return;
         }
 
-        // === Princess: Flat chances, no diminishing returns ===
         if (TryComp<PrincessTerrorComponent>(uid, out var princess))
         {
-            var t2Chance = princess.Tier2EggChance;
-            var t3Chance = princess.Tier3EggChance;
-
-            // Safety clamp for princess in case values are weird
-            t3Chance = MathF.Min(t3Chance, 1f);
-            t2Chance = MathF.Min(t2Chance, 1f - t3Chance);
-
-            var roll = _random.NextFloat();
-
-            if (roll < t3Chance)
-            {
-                if (TryLayFromList(layComp.EggsTier3, args.Target))
-                    args.Handled = true;
-                return;
-            }
-
-            if (roll < t3Chance + t2Chance)
-            {
-                if (TryLayFromList(layComp.EggsTier2, args.Target))
-                    args.Handled = true;
-                return;
-            }
-
-            if (TryLayFromList(layComp.EggsTier1, args.Target))
-                args.Handled = true;
-
+            args.Handled = HandlePrincessLay(uid, layComp, princess, args.Target);
             return;
         }
+    }
 
-        // Neither queen nor princess: do nothing
-        return;
+    private bool HandleGreenLay(EntityUid uid, TerrorLayComponent layComp, EntityUid target)
+    {
+        // Green Terror: only lays on cocoons, always Tier 1
+        if (!HasComp<CocoonComponent>(target))
+        {
+            _popup.PopupClient(
+                Loc.GetString("terror-lay-only-cocoon"),
+                uid,
+                uid);
+            return false;
+        }
+
+        return TryLayFromList(layComp.EggsTier1, target);
+    }
+
+    // Queen egg tiers scale with hive growth using diminishing returns.
+    // Chances interpolate from base -> max as total wraps increase.
+    private bool HandleQueenLay(
+    EntityUid uid,
+    TerrorLayComponent layComp,
+    TerrorQueenComponent queen,
+    EntityUid target)
+    {
+        var wraps = queen.HiveTotalWrappedAmount;
+
+        var t2Chance = DiminishingChance(wraps, queen.Tier2BaseChance, queen.Tier2MaxChance, queen.Tier2CurveK);
+        var t3Chance = DiminishingChance(wraps, queen.Tier3BaseChance, queen.Tier3MaxChance, queen.Tier3CurveK);
+
+        // Clamp to ensure total probability never exceeds 1.0
+        t3Chance = MathF.Min(t3Chance, 1f);
+        t2Chance = MathF.Min(t2Chance, 1f - t3Chance);
+
+        var roll = _random.NextFloat();
+
+        if (roll < t3Chance)
+            return TryLayFromList(layComp.EggsTier3, target);
+
+        if (roll < t3Chance + t2Chance)
+            return TryLayFromList(layComp.EggsTier2, target);
+
+        return TryLayFromList(layComp.EggsTier1, target);
+    }
+    private bool HandlePrincessLay(
+    EntityUid uid,
+    TerrorLayComponent layComp,
+    PrincessTerrorComponent princess,
+    EntityUid target)
+    {
+        var t2Chance = princess.Tier2EggChance;
+        var t3Chance = princess.Tier3EggChance;
+
+        t3Chance = MathF.Min(t3Chance, 1f);
+        t2Chance = MathF.Min(t2Chance, 1f - t3Chance);
+
+        var roll = _random.NextFloat();
+
+        if (roll < t3Chance)
+            return TryLayFromList(layComp.EggsTier3, target);
+
+        if (roll < t3Chance + t2Chance)
+            return TryLayFromList(layComp.EggsTier2, target);
+
+        return TryLayFromList(layComp.EggsTier1, target);
     }
 
     private static float DiminishingChance(int wrapped, float baseChance, float maxChance, float k)
@@ -124,7 +117,8 @@ public sealed class TerrorLaySystem : EntitySystem
         if (baseChance >= maxChance)
             return MathF.Min(baseChance, 1f);
 
-        // Smooth interpolation from base -> max: base + (max-base) * (1 - exp(-wrapped/k))
+        // Returns a smooth diminishing-return interpolation from baseChance to maxChance
+        // using an exponential decay curve controlled by k.
         var scale = 1f - MathF.Exp(-wrapped / k);
         return baseChance + (maxChance - baseChance) * scale;
     }

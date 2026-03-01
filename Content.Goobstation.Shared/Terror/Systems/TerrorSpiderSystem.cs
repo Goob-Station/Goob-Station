@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
@@ -11,38 +10,9 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
-
 /// <summary>
-/// <code>
-///      |/|    < --- Reserved for a specific role :)
-///      |/|
-///      |/|
-///      |/|
-///      |/|
-///      |/|
-///      |/| /¯)
-///      |/|/\/
-///      |/|\/
-///     (¯¯¯)
-///     (¯¯¯)
-///     (¯¯¯)
-///     (¯¯¯)
-///     (¯¯¯)
-///     /¯¯/\
-///    / ,^./\
-///   / /   \/\
-///  / /     \/\
-/// ( (       )/
-/// | |       |/|
-/// | |       |/|
-/// | |       |/|
-/// ( (       )/)
-///  \ \     / /
-///   \ `---' /
-///    `-----'
-/// </code>
+/// Handles logic pertaining to a terror spider.
 /// </summary>
-
 public sealed class TerrorSpiderSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -77,13 +47,9 @@ public sealed class TerrorSpiderSystem : EntitySystem
 
         while (query.MoveNext(out var spiderPlayerUid, out var comp, out _))
         {
-            if (!_net.IsClient)
-            {
-                _popup.PopupEntity($"A member of the hive has fallen… ({ToPrettyString(deadSpider.Owner)})", spiderPlayerUid, spiderPlayerUid, PopupType.Medium); // LocString broke this, deal with it Russians
+            _popup.PopupPredicted($"A member of the hive has fallen… ({ToPrettyString(deadSpider.Owner)})", spiderPlayerUid, spiderPlayerUid, PopupType.Medium); // LocString broke this, deal with it Russians
 
-
-                _audio.PlayPredicted(comp.DeathSound, spiderPlayerUid, spiderPlayerUid);
-            }
+            _audio.PlayPredicted(comp.DeathSound, spiderPlayerUid, spiderPlayerUid);
         }
     }
     private void OnWrappedCorpse(EntityUid uid, TerrorSpiderComponent comp, TerrorWrappedCorpseEvent args)

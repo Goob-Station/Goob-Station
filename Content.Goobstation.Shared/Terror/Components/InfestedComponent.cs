@@ -4,6 +4,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
+/// <summary>
+/// Component used to signify an entity is infested with spiderlings. It will periodically spawn spiderlings out of them and stun them in the process.
+/// </summary>
+
 [RegisterComponent, NetworkedComponent]
 
 // Yes this is just a remake of timed spawner, it's easier this way, maybe

@@ -6,6 +6,9 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Terror.Systems;
 
+/// <summary>
+/// Spawns spiderlings on someone until timer runs out.
+/// </summary>
 public sealed class InfestedSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -42,7 +45,7 @@ public sealed class InfestedSystem : EntitySystem
             if (comp.CureAccumulator >= comp.TimeToCure)
             {
                 _popup.PopupPredicted(
-                    Loc.GetString("infested-cured"),
+                    Loc.GetString("spiderling-infested-cured"),
                     uid,
                     uid,
                     PopupType.SmallCaution);
@@ -57,7 +60,7 @@ public sealed class InfestedSystem : EntitySystem
                 _audio.PlayPredicted(comp.SpawnSound, uid, uid);
 
                 _popup.PopupPredicted(
-                    Loc.GetString("infested-spawn"),
+                    Loc.GetString("spiderling-infested-spawn"),
                     uid,
                     uid,
                     PopupType.MediumCaution);

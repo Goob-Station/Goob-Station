@@ -5,6 +5,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
+/// <summary>
+/// Component used to inject poison on someone upon stepping on this web.
+/// </summary>
+
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PoisonWebComponent : Component
 {

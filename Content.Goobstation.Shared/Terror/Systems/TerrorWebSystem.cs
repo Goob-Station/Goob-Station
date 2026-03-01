@@ -14,13 +14,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
+/// <summary>
+/// Stuns and knocks down whoever steps on this web.
+/// </summary>
 public sealed class StickyWebTrapSystem : EntitySystem
 {
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
 
     public override void Initialize()
@@ -42,7 +43,7 @@ public sealed class StickyWebTrapSystem : EntitySystem
         if (HasComp<IgnoreSpiderWebComponent>(args.Tripper))
             return;
 
-        _stun.TryParalyze(args.Tripper, comp.SnareTime, true);
+        _stun.TryAddParalyzeDuration(args.Tripper, comp.SnareTime);
 
         _audio.PlayPredicted(comp.CaughtSound, args.Tripper, args.Tripper);
 
@@ -86,7 +87,6 @@ public sealed class StickyWebTrapSystem : EntitySystem
         }
 
     }
-
     private void Inject(EntityUid target, ProtoId<ReagentPrototype> reagent, FixedPoint2 amount)
     {
         if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
