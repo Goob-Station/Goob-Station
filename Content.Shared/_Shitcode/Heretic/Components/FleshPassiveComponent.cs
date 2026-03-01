@@ -8,6 +8,8 @@ namespace Content.Shared._Shitcode.Heretic.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FleshPassiveComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     [DataField, NonSerialized]
     public List<EntityUid> FleshMimics = new();
 

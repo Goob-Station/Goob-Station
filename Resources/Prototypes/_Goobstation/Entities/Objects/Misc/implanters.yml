@@ -276,14 +276,6 @@
     implant: AntagImplantChangeling
 
 - type: entity
-  id: AntagImplanterHeretic
-  suffix: Heretic
-  parent: BaseAntagImplantOnlyImplanter
-  components:
-  - type: Implanter
-    implant: AntagImplantHeretic
-
-- type: entity
   id: AntagImplanterSpaceNinja
   suffix: Space Ninja
   parent: BaseAntagImplantOnlyImplanter

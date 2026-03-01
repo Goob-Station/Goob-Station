@@ -10,4 +10,7 @@ namespace Content.Goobstation.Common.Body.Components;
 ///     Used to ensure that BreathingImmunityComponent is not overriden.
 /// </summary>
 [RegisterComponent]
-public sealed partial class SpecialBreathingImmunityComponent : Component;
+public sealed partial class SpecialBreathingImmunityComponent : Component
+{
+    public override bool SessionSpecific => true;
+}

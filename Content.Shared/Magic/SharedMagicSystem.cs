@@ -759,9 +759,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         List<(Type, string)> blockers = new()
         {
-            // You should be able to mindswap with heretics,
-            // but all of their data and abilities are not tied to their mind, I'm not making this work.
-            (typeof(HereticComponent), "heretic"),
             (typeof(GhoulComponent), "ghoul"),
             // Mindswapping with aghost real.
             (typeof(GhostComponent), "ghost"),

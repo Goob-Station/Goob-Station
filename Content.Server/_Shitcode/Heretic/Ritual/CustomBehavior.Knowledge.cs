@@ -15,6 +15,8 @@
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Mind;
+using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Server.Containers;
@@ -41,10 +43,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
         outstr = null;
 
-        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return false;
-
-        var requiredTags = _heretic.TryGetRequiredKnowledgeTags((args.Performer, heretic));
+        var requiredTags = _heretic.TryGetRequiredKnowledgeTags(args.Mind);
 
         if (requiredTags == null)
             return false;
@@ -90,15 +89,17 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         {
             args.EntityManager.QueueDeleteEntity(ent);
         }
+
         _toDelete.Clear();
 
-        if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+        if (!args.EntityManager.TryGetComponent(args.Mind, out StoreComponent? store) ||
+            !args.EntityManager.TryGetComponent(args.Mind, out MindComponent? mind))
             return;
 
-        _heretic.UpdateKnowledge(args.Performer, hereticComp, 5);
-        hereticComp.ChosenRitual = null;
-        hereticComp.KnowledgeRequiredTags.Clear();
-        hereticComp.KnownRituals.Remove(args.RitualId);
-        args.EntityManager.Dirty(args.Performer, hereticComp);
+        _heretic.UpdateMindKnowledge((args.Mind, args.Mind.Comp, store, mind), args.Performer, 5);
+        args.Mind.Comp.ChosenRitual = null;
+        args.Mind.Comp.KnowledgeRequiredTags.Clear();
+        args.Mind.Comp.KnownRituals.Remove(args.RitualId);
+        args.EntityManager.Dirty(args.Mind);
     }
 }
