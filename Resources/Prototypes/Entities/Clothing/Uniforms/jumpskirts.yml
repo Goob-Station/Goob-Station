@@ -1066,3 +1066,14 @@
     tags:
     - ClownSuit
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtReporter
+  name: reporter's dress
+  description: An extravagant black dress designed to catch the attention of as many people as possible.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/reporter_dress.rsi # goob
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/reporter_dress.rsi # goob

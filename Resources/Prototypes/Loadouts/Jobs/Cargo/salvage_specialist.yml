@@ -74,6 +74,18 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+    
+- type: startingGear
+  id: SalvageSpecialistGear
+  equipment:
+    id: SalvagePDA
+## Goob comment out - jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
+    ears: ClothingHeadsetCargo
+  storage: # DeltaV: Add mining voucher
+    back:
+    - MiningVoucher
+    
 # Back
 - type: loadout
   id: SalvageSpecialistBackpack
