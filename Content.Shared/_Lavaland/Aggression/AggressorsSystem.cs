@@ -151,6 +151,12 @@ public sealed class AggressorsSystem : EntitySystem
         ent.Comp.Aggressors.Remove(aggressor);
         aggressor.Comp.Aggressives.Remove(ent);
 
+        RaiseLocalEvent(ent.Owner, new AggressorRemovedEvent(aggressor.Owner));
+        RaiseLocalEvent(aggressor.Owner, new AggressiveRemovedEvent(ent.Owner));
+
+        Dirty(ent.Owner, ent.Comp);
+        Dirty(aggressor.Owner, aggressor.Comp);
+
         if (aggressor.Comp.Aggressives.Count == 0)
             RemComp(aggressor, aggressor.Comp);
     }
