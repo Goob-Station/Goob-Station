@@ -29,7 +29,7 @@
     - BSOBlueshieldSet
     - BSORevolverSet
     - BSOCQCSet
-    - BSOChesterSet
+    # - BSOChesterSet #kill chester
     - BSOSyringeSet
     maxSelectedSets: 2
 
