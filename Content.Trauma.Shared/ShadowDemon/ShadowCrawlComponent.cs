@@ -28,12 +28,6 @@ public sealed partial class ShadowCrawlComponent : Component
     public float DamageModiferFromLights = 0.5f;
 
     /// <summary>
-    /// How much speed boost to get while in jaunt
-    /// </summary>
-    [DataField]
-    public float SpeedBuff = 8;
-
-    /// <summary>
     /// The cooldown applied to the action when exiting the jaunt
     /// </summary>
     [DataField]

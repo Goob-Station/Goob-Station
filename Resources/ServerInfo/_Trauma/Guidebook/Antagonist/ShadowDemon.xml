@@ -1,0 +1,41 @@
+﻿<Document>
+  # Shadow Demon
+  <Box>
+    <GuideEntityEmbed Entity="BaseMobShadowDemon" Caption=""/>
+  </Box>
+
+  Shadow Demons are horrific monstrosities that rule the darkness.
+  They source their power from dark areas on station with the sole directive of using their special abilities to murder crew members.
+  However, these demons are highly vulnerable to light, if they spend too much time out of darkness they will very quickly die.
+
+  ## Playing Shadow Demon
+
+  Shadow Demons are frail but lethal ambush predators, striking quickly from the darkness to drag away lone crewmembers.
+  Shadow Demons do considerable damage with each strike, and deactivate any light producing objects they hit.
+  They can use Shadow Crawl to quickly reposition after a kill or during a chase.
+
+  Light is its worst enemy, however, and leaving the darkness for only a few seconds is fatal.
+  Being in Shadow Crawl will halve the damage dealt by light. Darkness, on the other hand,
+  will rapidly heal the Shadow Demon and increase its speed, so fighting on dark turf is preferable.
+
+  ## Abilities
+
+  - Shadow Grapple: Fire one of your hands, if it hits a person it pulls them in, immobilizing them for 2 seconds and dealing heavy damage in the process.
+  If you hit a structure you get pulled to the structure. Any light sources nearby that are hit with this will be disabled.
+
+  - Shadow Crawl: Use darkness to phase out of existence. The Shadow Demon equivalent of Bloodcrawl.
+  Very useful for ambushing, rapid movement, and escaping danger. Will not work if near a light source. Halves damage taken from lights.
+
+  ## Shadow Cocoon
+
+  To counter the light, you can also wrap your dead victims into a shadow cocoon by clicking on them and waiting 4 seconds.
+  Shadow cocoons make an area of darkness and disable or extinguish any lights in their surroundings.
+  Shadow cocoons can be used as bait as well, by Alt-Clicking on them to produce noises.
+
+  ## Heart of Darkness
+
+  After a Shadow Demon has been slain, it will leave behind a Heart of Darkness for the slayer to implant on themselves and gain a fraction of the demon's power,
+  now being able to use the Shadow Grapple ability.
+
+  This text was taken from Paradise station (todo: expand)
+</Document>

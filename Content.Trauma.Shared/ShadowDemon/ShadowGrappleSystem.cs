@@ -31,10 +31,9 @@ public sealed class ShadowGrappleSystem : EntitySystem
 
     private const string GrappleJoint = "grappling";
 
-    private static EntProtoId Ash = "Ash";
+    private static readonly EntProtoId Ash = "Ash";
 
     private EntityQuery<BodyComponent> _bodyQuery;
-    private EntityQuery<InventoryComponent> _inventoryQuery;
     private EntityQuery<HandheldLightComponent> _handheldQuery;
 
     private readonly HashSet<Entity<PoweredLightComponent>> _lights = new();
@@ -51,7 +50,6 @@ public sealed class ShadowGrappleSystem : EntitySystem
         SubscribeLocalEvent<ShadowGrappleComponent, ComponentShutdown>(OnShutdown);
 
         _bodyQuery = GetEntityQuery<BodyComponent>();
-        _inventoryQuery = GetEntityQuery<InventoryComponent>();
         _handheldQuery = GetEntityQuery<HandheldLightComponent>();
     }
 
@@ -68,7 +66,6 @@ public sealed class ShadowGrappleSystem : EntitySystem
             anchorB: Vector2.Zero,
             id: GrappleJoint);
 
-        // Need to find better values but too lazy ngl
         joint.MinLength = 0.35f;
         joint.Stiffness = 10f;
         joint.Damping = 5f;
@@ -81,7 +78,6 @@ public sealed class ShadowGrappleSystem : EntitySystem
             return;
 
         var target = args.Target;
-
         _throwingSystem.TryThrow(shooter, Transform(target).Coordinates, 10f, shooter, doSpin: true);
 
         // Body, apply damage
@@ -126,8 +122,6 @@ public sealed class ShadowGrappleSystem : EntitySystem
         {
             if (!_handheldQuery.HasComp(slotEnt))
                 continue;
-
-            // TODO: revisit by making it empty the battery instead or remove this comment and leave as is idk
 
             PredictedSpawnAtPosition(Ash, Transform(target).Coordinates);
             PredictedQueueDel(slotEnt);

@@ -25,7 +25,10 @@
         damage: 30
       behaviors:
       - !type:DoActsBehavior
-        acts: ["Destruction"] # todo: add destroy sound
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/snap.ogg
   - type: ShadowCocoon
     randomSounds:
       collection: ShadowCocoonHallucinations
@@ -34,3 +37,8 @@
       path: /Audio/_Trauma/Mobs/ShadowDemon/shadownode.ogg
       params:
         volume: 0.7
+  - type: AmbientSound
+    range: 2
+    volume: -2
+    sound:
+      path: /Audio/_Trauma/Mobs/ShadowDemon/shadownodeambientt.ogg

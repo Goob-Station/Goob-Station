@@ -97,6 +97,9 @@ public abstract class SharedShadowCocoonSystem : EntitySystem
     private void OnMapInit(Entity<ShadowCocoonComponent> ent, ref MapInitEvent args) =>
         ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.Update;
 
+    /// <summary>
+    /// Shadow Cocoon has its own alternative verbs, which give it the ability to make random sounds via RandomIntervalSoundComponent when activated.
+    /// </summary>
     private void OnGetAltShadowCocoonVerbs(Entity<ShadowCocoonComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!_shadowCocoonMakerQuery.HasComp(args.User))

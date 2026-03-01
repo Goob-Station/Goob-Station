@@ -5,7 +5,8 @@ using Robust.Shared.GameStates;
 namespace Content.Trauma.Shared.LightDetection;
 
 /// <summary>
-/// Grants light immunity for X seconds
+/// Grants light immunity for X seconds.
+/// Should be used for entities with Light Detection mechanics that need to survive the first seconds of spawning.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]

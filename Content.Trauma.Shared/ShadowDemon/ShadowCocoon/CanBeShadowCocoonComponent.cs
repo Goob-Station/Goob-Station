@@ -12,5 +12,8 @@ namespace Content.Trauma.Shared.ShadowDemon.ShadowCocoon;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CanBeShadowCocoonComponent : Component;
 
+/// <summary>
+/// Doafter for when you try to turn an entity into a shadow cocoon
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ShadowCocoonDoAfterEvent : SimpleDoAfterEvent;

@@ -5,6 +5,7 @@ using Content.Goobstation.Shared.PhaseShift;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.CombatMode;
+using Content.Shared.Popups;
 using Robust.Shared.Network;
 
 namespace Content.Trauma.Shared.ShadowDemon;
@@ -14,6 +15,7 @@ public sealed class ShadowCrawlSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -44,7 +46,7 @@ public sealed class ShadowCrawlSystem : EntitySystem
         // We are already in jaunt, try get out of it
         if (ent.Comp.Active)
         {
-            if (!CanJaunt(ent.Owner))
+            if (!CanJaunt(ent.Owner, true))
                 return;
 
             RemCompDeferred<PhaseShiftedComponent>(ent.Owner);
@@ -57,25 +59,19 @@ public sealed class ShadowCrawlSystem : EntitySystem
             // Re-enable all actions
             ToggleActions(args.Action, ent.Owner, true);
 
-            // Activate cooldown only when exiting jaunt (todo: test this works)
-            _actions.SetCooldown(ent.Comp.ActionUid, ent.Comp.ActionCooldown);
+            // Activate cooldown only when exiting jaunt
+            _actions.SetCooldown(args.Action.Owner, ent.Comp.ActionCooldown);
 
-            args.Handled = true;
             return;
         }
 
         // Okay, we aren't in jaunt, try to confirm we are ready to activate the jaunt
-        if (!CanJaunt(ent.Owner))
+        if (_net.IsClient || !CanJaunt(ent.Owner, false))
             return;
 
-        if (_net.IsClient)
-            return;
-
-        // Cool, we can now jaunt
         var phase = new PhaseShiftedComponent();
         phase.PhaseInEffect = ent.Comp.PhaseIn;
         phase.PhaseOutEffect = ent.Comp.PhaseOut;
-        phase.MovementSpeedBuff = ent.Comp.SpeedBuff;
         AddComp(ent.Owner, phase);
 
         ent.Comp.Active = true;
@@ -90,6 +86,8 @@ public sealed class ShadowCrawlSystem : EntitySystem
 
         // Ensures we don't attack people while invisible
         _combat.SetInCombatMode(ent.Owner, false);
+
+        _popup.PopupEntity(Loc.GetString("shadow-crawl-success"), ent.Owner, ent.Owner, PopupType.Medium);
 
         args.Handled = true;
     }
@@ -128,13 +126,17 @@ public sealed class ShadowCrawlSystem : EntitySystem
     }
 
     #region Helpers
-    private bool CanJaunt(EntityUid uid)
+    private bool CanJaunt(EntityUid uid, bool predicted)
     {
         var attemptEv = new ShadowCrawlAttemptEvent();
         RaiseLocalEvent(uid, ref attemptEv);
         if (attemptEv.Cancelled)
         {
-            // TODO: Popup here
+            if (predicted)
+                _popup.PopupClient(Loc.GetString("shadow-crawl-cancelled"), uid, uid, PopupType.MediumCaution);
+            else
+                _popup.PopupEntity(Loc.GetString("shadow-crawl-cancelled"), uid, uid, PopupType.MediumCaution);
+
             return false;
         }
 
