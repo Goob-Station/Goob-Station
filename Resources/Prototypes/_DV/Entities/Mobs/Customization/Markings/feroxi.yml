@@ -815,7 +815,7 @@
 - type: marking
   id: FeroxiLHandTip
   bodyPart: LHand
-  markingCategory: Hands
+  markingCategory: LeftHand
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
@@ -824,7 +824,7 @@
 - type: marking
   id: FeroxiRHandTip
   bodyPart: RHand
-  markingCategory: Hands
+  markingCategory: RightHand
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
@@ -835,7 +835,7 @@
 - type: marking
   id: FeroxiLFootTip
   bodyPart: LFoot
-  markingCategory: Foots
+  markingCategory: LeftFoot
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
@@ -844,7 +844,7 @@
 - type: marking
   id: FeroxiRFootTip
   bodyPart: RFoot
-  markingCategory: Foots
+  markingCategory: RightFoot
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi

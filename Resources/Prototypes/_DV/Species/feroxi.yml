@@ -63,11 +63,17 @@
     Legs:
       points: 4
       required: false
-    Hands:
-      points: 4
+    RightHand:
+      points: 2
       required: false
-    Foots:
-      points: 4
+    LeftHand:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
       required: false
     Tail:
       points: 1

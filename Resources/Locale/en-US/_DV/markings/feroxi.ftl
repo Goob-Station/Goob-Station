@@ -306,14 +306,14 @@ marking-FeroxiLArmStripesTiger-feroxi-Larm-stripes-tiger = Stripes
 marking-FeroxiRArmStripesTiger = Full Stripes (Right)
 marking-FeroxiRArmStripesTiger-feroxi-Rarm-stripes-tiger = Stripes
 
-marking-FeroxiLHandTip = Countershading Hand (Left)
+marking-FeroxiLHandTip = Countershading Hand
 marking-FeroxiLHandTip-feroxi-Lhand-tip = Countershading
 
-marking-FeroxiRHandTip = Countershading Hand (Right)
+marking-FeroxiRHandTip = Countershading Hand
 marking-FeroxiRHandTip-feroxi-Rhand-tip = Countershading
 
-marking-FeroxiLFootTip = Countershading Foot (Left)
+marking-FeroxiLFootTip = Countershading Foot
 marking-FeroxiLFootTip-feroxi-Lfoot-tip = Countershading
 
-marking-FeroxiRFootTip = Countershading Foot (Right)
+marking-FeroxiRFootTip = Countershading Foot
 marking-FeroxiRFootTip-feroxi-Rfoot-tip = Countershading
