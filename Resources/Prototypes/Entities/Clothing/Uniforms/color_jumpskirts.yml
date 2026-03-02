@@ -390,7 +390,7 @@
 
 # Rainbow Jumpskirt
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: ClothingUniformSkirtBase # Goob
   id: ClothingUniformJumpskirtColorRainbow
   name: rainbow jumpskirt
   description: A multi-colored jumpskirt!
