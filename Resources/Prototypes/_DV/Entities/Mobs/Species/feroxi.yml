@@ -16,7 +16,7 @@
   - type: Thirst
     baseDecayRate: 0.2
   - type: Icon
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: full
   - type: Body
     prototype: Feroxi

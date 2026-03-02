@@ -5,9 +5,9 @@
   markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/ear_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi #RedTerror Goob Resprite
     state: feroxi-ears
-  - sprite: _DV/Mobs/Customization/Feroxi/ear_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi #RedTerror Goob Resprite
     state: feroxi-ears-inner
 
 - type: marking
@@ -16,9 +16,9 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal
 
 - type: marking
@@ -27,7 +27,7 @@
   markingCategory: Snout
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout
 
 # Ears Markings
@@ -37,11 +37,11 @@
   markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/ear_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi #RedTerror Goob Resprite
     state: feroxi-ears
-  - sprite: _DV/Mobs/Customization/Feroxi/ear_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi #RedTerror Goob Resprite
     state: feroxi-ears-inner
-  - sprite: _DV/Mobs/Customization/Feroxi/ear_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi #RedTerror Goob Resprite
     state: feroxi-ears-tips
 
 # Snout Markings
@@ -51,9 +51,9 @@
   markingCategory: Snout
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout-stripe
 
 - type: marking
@@ -62,9 +62,9 @@
   markingCategory: Snout
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout-countershading
 
 - type: marking
@@ -73,11 +73,11 @@
   markingCategory: Snout
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout-countershading
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout-stripe
 
 - type: marking
@@ -86,9 +86,9 @@
   markingCategory: Snout
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout-nurse
 
 - type: marking
@@ -97,11 +97,11 @@
   markingCategory: Snout
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout-countershading
-  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/snout_markings.rsi #RedTerror Goob Resprite
     state: feroxi-snout-nurse
 
 # Tail Markings
@@ -111,7 +111,7 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
 
 - type: marking
@@ -120,9 +120,9 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-stripes
 
 - type: marking
@@ -131,13 +131,13 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-stripes
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal-stripes
 
 - type: marking
@@ -146,13 +146,13 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-top-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-bottom-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-second-dorsal-tip
 
 - type: marking
@@ -161,17 +161,17 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-top-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-bottom-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-second-dorsal-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal-tip
 
 - type: marking
@@ -180,19 +180,19 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-stripes
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-top-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-bottom-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-under
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal-stripes
 
 - type: marking
@@ -201,15 +201,15 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-stripes
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-top-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-bottom-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-under
 
 - type: marking
@@ -218,9 +218,9 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-under
 
 - type: marking
@@ -229,11 +229,11 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-under
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal
 
 - type: marking
@@ -242,11 +242,11 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-stripes
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-under
 
 - type: marking
@@ -255,15 +255,15 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-stripes
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-under
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal-stripes
 
 - type: marking
@@ -272,15 +272,15 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-top-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-bottom-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-second-dorsal-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-under
 
 - type: marking
@@ -289,19 +289,19 @@
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-top-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-bottom-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-second-dorsal-tip
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail-under
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal
-  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-dorsal-tip
 
 # Body Markings
@@ -311,7 +311,7 @@
   markingCategory: Head
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-head-stripes-tiger
 
 - type: marking
@@ -320,7 +320,7 @@
   markingCategory: Chest
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-torso-stripes-blitz
 
 - type: marking
@@ -329,7 +329,7 @@
   markingCategory: Chest
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-torso-countershading-f
 
 - type: marking
@@ -338,7 +338,7 @@
   markingCategory: Chest
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-torso-countershading-m
 
 - type: marking
@@ -347,7 +347,7 @@
   markingCategory: Chest
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-torso-stripes-tiger
 
 # Leg Markings
@@ -357,7 +357,7 @@
   markingCategory: Legs
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-leg-stripes-blitz
 
 - type: marking
@@ -366,7 +366,7 @@
   markingCategory: Legs
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-leg-stripes-tiger
 
 # Arm Markings
@@ -376,7 +376,7 @@
   markingCategory: Arms
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-arm-stripes-blitz
 
 - type: marking
@@ -385,5 +385,5 @@
   markingCategory: Arms
   speciesRestriction: [ Feroxi ]
   sprites:
-  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
     state: feroxi-arm-stripes-tiger
