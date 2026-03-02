@@ -116,6 +116,8 @@
     - ClothMade
     - WhitelistChameleon
 
+# Goobstation
+
 - type: entity
   abstract: true
   parent: BaseFoldable

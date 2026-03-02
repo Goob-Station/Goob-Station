@@ -245,7 +245,14 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/genetics.rsi
-
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackCargo
+  name: cargo backpack
+  description: A robust backpack for stealing cargo's loot.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Back/Backpacks/cargo.rsi
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackSalvage
