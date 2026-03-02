@@ -357,6 +357,11 @@
     id: RadioHostIDCard
 
 - type: entity
+  parent: WardenPDA
+  id: DispatcherPDA
+  name: dispatcher PDA
+  description: Ready to look at a computer screen for 15 hours.
+
   parent: CentcomPDA
   id: OuterCommandPDA
   name: outer command PDA
@@ -385,3 +390,4 @@
       visible: false
   - type: Pda
     id: OuterCommandIDCard
+

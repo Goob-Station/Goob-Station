@@ -1,0 +1,29 @@
+- type: entity
+  id: CameraMonitor
+  parent: [ BaseItem, BaseHandheldComputer ]
+  name: camera monitor
+  description: Device used for surveillance on 'innocent' tiders. No, it doesn't have games.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/camera_monitor.rsi
+    layers:
+     - state: base
+     - state: monitor
+       shader: unshaded
+  - type: Item
+  - type: ActivatableUI
+    requireActiveHand: false
+    inHandsOnly: true
+    key: enum.SurveillanceCameraMonitorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCamera
+    transmitFrequencyId: SurveillanceCamera
+  - type: WiredNetworkConnection
+  - type: SurveillanceCameraMonitor
+  - type: PowerCellDraw
+    drawRate: 5

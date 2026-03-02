@@ -41,6 +41,9 @@ job-name-conquest = Conquest
 job-name-mercenarycaptain = Mercenary Captain
 job-name-radiohost = Radio Host
 
+# Security
+job-name-dispatcher = Dispatcher
+
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
 JobBlueshieldOfficer = Blueshield Officer
@@ -58,3 +61,4 @@ JobMercenaryCaptain = Mercenary Captain
 JobRoboticist = Roboticist
 JobRadioHost = Radio Host
 JobVirologist = Virologist
+JobDispatcher = Dispatcher
