@@ -17,7 +17,7 @@
     sprite: _Goobstation/Clothing/Uniforms/Scrubs/purple.rsi # Goob
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: UniformScrubsColorGreen
   name: green scrubs
   description: A combination of comfort and utility intended to make removing every last organ someone has and selling them to a space robot much more official looking.
