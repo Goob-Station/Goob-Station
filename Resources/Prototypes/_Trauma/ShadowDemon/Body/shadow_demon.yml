@@ -38,10 +38,10 @@
   id: OrganShadowDemonExternal
   components:
   - type: Sprite
-    sprite: _Goobstation/SlaughterDemon/body_parts.rsi # placeholder
+    sprite: _Goobstation/SlaughterDemon/body_parts.rsi # Left as is because they look alike and I have to manually make them
   - type: VisualOrgan
     data:
-      sprite: _Goobstation/SlaughterDemon/body_parts.rsi # placeholder
+      sprite: _Goobstation/SlaughterDemon/body_parts.rsi
   - type: VisualOrganMarkings
     markingData:
       group: None
@@ -58,7 +58,6 @@
 ## Parts
 
 - type: entity
-  # it has no unique sprite and i cbf
   parent: [ OrganBaseTorso, OrganAnimalSpriteExternal, OrganShadowDemonExternal ]
   id: OrganShadowDemonTorso
   components:

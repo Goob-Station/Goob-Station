@@ -21,5 +21,5 @@ public sealed partial class ShadowCocoonMakerComponent : Component
     /// The doafter delay when cocooning someone
     /// </summary>
     [DataField]
-    public TimeSpan CocoonDelay = TimeSpan.FromSeconds(1); // TODO: Change to actual value when done playtesting
+    public TimeSpan CocoonDelay = TimeSpan.FromSeconds(4);
 }

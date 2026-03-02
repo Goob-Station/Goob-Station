@@ -236,4 +236,13 @@ public abstract class SharedStealthSystem : EntitySystem
         Dirty(ent);
     }
     // Goobstation end
+
+    // <Trauma>
+    public void SetRevealOnDamage(EntityUid uid, bool value, StealthComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+        comp.RevealOnDamage = value;
+    }
+    // </Trauma>
 }

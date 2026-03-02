@@ -72,6 +72,7 @@ public sealed class ShadowCrawlSystem : EntitySystem
         var phase = new PhaseShiftedComponent();
         phase.PhaseInEffect = ent.Comp.PhaseIn;
         phase.PhaseOutEffect = ent.Comp.PhaseOut;
+        phase.RevealOnDamage = false;
         AddComp(ent.Owner, phase);
 
         ent.Comp.Active = true;

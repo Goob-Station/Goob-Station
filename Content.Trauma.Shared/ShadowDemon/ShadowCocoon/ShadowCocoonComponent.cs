@@ -19,7 +19,7 @@ public sealed partial class ShadowCocoonComponent : Component
     /// How often to update this entity for lookups
     /// </summary>
     [DataField]
-    public TimeSpan Update = TimeSpan.FromSeconds(2);
+    public TimeSpan Update = TimeSpan.FromSeconds(3);
 
     [DataField, AutoNetworkedField]
     public TimeSpan NextUpdate;

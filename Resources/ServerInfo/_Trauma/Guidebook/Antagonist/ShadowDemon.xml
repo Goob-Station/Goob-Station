@@ -11,7 +11,7 @@
   ## Playing Shadow Demon
 
   Shadow Demons are frail but lethal ambush predators, striking quickly from the darkness to drag away lone crewmembers.
-  Shadow Demons do considerable damage with each strike, and deactivate any light producing objects they hit.
+  Shadow Demons do considerable damage with each strike, and are insulated so they can easily destroy lights around them with a single hit.
   They can use Shadow Crawl to quickly reposition after a kill or during a chase.
 
   Light is its worst enemy, however, and leaving the darkness for only a few seconds is fatal.
@@ -21,21 +21,27 @@
   ## Abilities
 
   - Shadow Grapple: Fire one of your hands, if it hits a person it pulls them in, immobilizing them for 2 seconds and dealing heavy damage in the process.
-  If you hit a structure you get pulled to the structure. Any light sources nearby that are hit with this will be disabled.
+  If you hit a structure you get pulled to the structure. Any light sources (like light bulbs) nearby that are hit with this will be destroyed.
 
   - Shadow Crawl: Use darkness to phase out of existence. The Shadow Demon equivalent of Bloodcrawl.
   Very useful for ambushing, rapid movement, and escaping danger. Will not work if near a light source. Halves damage taken from lights.
 
   ## Shadow Cocoon
+  <Box>
+    <GuideEntityEmbed Entity="ShadowCocoon" Caption=""/>
+  </Box>
 
-  To counter the light, you can also wrap your dead victims into a shadow cocoon by clicking on them and waiting 4 seconds.
+  To counter the light, you can also wrap your dead victims into a shadow cocoon by alt-clicking on them and waiting 4 seconds.
   Shadow cocoons make an area of darkness and disable or extinguish any lights in their surroundings.
   Shadow cocoons can be used as bait as well, by Alt-Clicking on them to produce noises.
 
   ## Heart of Darkness
+  <Box>
+    <GuideEntityEmbed Entity="OrganShadowDemonHeart" Caption=""/>
+  </Box>
 
   After a Shadow Demon has been slain, it will leave behind a Heart of Darkness for the slayer to implant on themselves and gain a fraction of the demon's power,
   now being able to use the Shadow Grapple ability.
 
-  This text was taken from Paradise station (todo: expand)
+  This document was taken and modified from Paradise station wiki.
 </Document>

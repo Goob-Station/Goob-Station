@@ -18,3 +18,26 @@
   - /Audio/_Trauma/Mobs/ShadowDemon/shadowattack2.ogg
   - /Audio/_Trauma/Mobs/ShadowDemon/shadowattack3.ogg
   - /Audio/_Trauma/Mobs/ShadowDemon/shadowattack4.ogg
+
+- type: soundCollection
+  id: ShadowDemonLaugh
+  files:
+  - /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowlaugh1.ogg
+  - /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowlaugh2.ogg
+  - /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowlaugh3.ogg
+
+- type: soundCollection
+  id: ShadowDemonScream
+  files:
+  - /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowscream1.ogg
+  - /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowscream2.ogg
+  - /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowscream3.ogg
+
+- type: speechSounds
+  id: ShadowDemon
+  saySound:
+    path: /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowdemonsay.ogg
+  askSound:
+    path: /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowdemonask.ogg
+  exclaimSound:
+    path: /Audio/_Trauma/Mobs/ShadowDemon/vocal/shadowdemonexclaim.ogg

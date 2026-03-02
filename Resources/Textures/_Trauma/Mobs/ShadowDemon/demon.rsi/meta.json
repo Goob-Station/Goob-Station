@@ -12,10 +12,6 @@
             "directions": 4
         },
         {
-            "name": "shadow_demon_eye_glow_overlay",
-            "directions": 4
-        },
-        {
             "name": "shadowwalk_appear",
             "delays": [
                 [
