@@ -57,7 +57,6 @@
     - id: MedkitBSOIPCFilled
     - id: FlippoLighterBlueshield
     - id: CigPackBlueshield
-    - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: HandheldCrewMonitorBSO

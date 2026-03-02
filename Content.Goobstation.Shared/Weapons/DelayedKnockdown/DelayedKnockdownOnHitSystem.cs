@@ -27,7 +27,7 @@ namespace Content.Goobstation.Shared.Weapons.DelayedKnockdown;
 
 public sealed class DelayedKnockdownOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly ChampionStanceSystem _champion = default!;
@@ -143,7 +143,7 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
 
         foreach (var (hit, _) in args.HitEntities)
         {
-            if (!_status.CanApplyEffect(hit, "KnockedDown"))
+            if (!_status.CanAddStatusEffect(hit, "StatusEffectStunned")) // holy fucking slop
                 continue;
 
             var ev = new DelayedKnockdownAttemptEvent();

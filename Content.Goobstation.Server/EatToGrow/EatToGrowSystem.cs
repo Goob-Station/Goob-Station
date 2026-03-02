@@ -1,46 +1,42 @@
 using Content.Goobstation.Shared.EatToGrow;
-using Content.Server.Nutrition.Components;
-using Content.Shared.Mobs; // mobstate changed event
-using Content.Shared.Nutrition; // before fully eaten event
+using Content.Shared.Mobs;
+using Content.Goobstation.Common.Ingestion;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
 using System.Numerics;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Sprite; // using for vectors
+using Content.Shared.Sprite;
+
 namespace Content.Goobstation.Server.EatToGrow;
 
 
 public sealed class EatToGrowSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EatToGrowComponent, FullyEatenEvent>(OnFoodEaten);
+        SubscribeLocalEvent<EatToGrowComponent, AfterEatingEvent>(OnFoodEaten);
         SubscribeLocalEvent<EatToGrowComponent, MobStateChangedEvent>(ShrinkOnDeath);
     }
 
-    private void OnFoodEaten(Entity<EatToGrowComponent> ent, ref FullyEatenEvent args)
+    private void OnFoodEaten(Entity<EatToGrowComponent> ent, ref AfterEatingEvent args)
     {
         // The entity that ate the food (the mothroach, human, etc.)
-        var eater = args.User;
-
-        // if growing would go over the limit, return
-        if (ent.Comp.CurrentScale >= ent.Comp.MaxGrowth)
-            return;
+        var eater = ent.Owner;
 
         Grow(eater, ent.Comp, 1);
     }
 
     private void Grow(EntityUid eater, EatToGrowComponent comp, float scale)
     {
+        // if growing would go over the limit, return
+        if (comp.CurrentScale >= comp.MaxGrowth)
+            return;
         // Uses scale variable to  multiply the growth, mainly used for shrinking
         // Add growth
         comp.CurrentScale += comp.Growth;
@@ -72,7 +68,6 @@ public sealed class EatToGrowSystem : EntitySystem
                 }
             }
         }
-        return; // If fails, return
     }
     private void ShrinkOnDeath(Entity<EatToGrowComponent> eater, ref MobStateChangedEvent args)
     {

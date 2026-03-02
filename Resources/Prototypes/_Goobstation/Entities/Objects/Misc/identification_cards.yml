@@ -367,3 +367,19 @@
     - state: idvirologist
   - type: PresetIdCard
     job: Virologist
+
+# Outer Command
+- type: entity
+  parent: CentcomIDCardNavyCaptain
+  id: OuterCommandIDCard
+  name: Outer Command ID card
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/id_cards.rsi
+      layers:
+        - state: ert_security
+    - type: IdCard
+      jobTitle: job-name-outercommander
+      jobIcon: JobIconNanotrasen
+    - type: PresetIdCard
+      job: OuterCommander
