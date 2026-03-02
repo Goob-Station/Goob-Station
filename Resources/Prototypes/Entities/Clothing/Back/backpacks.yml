@@ -245,6 +245,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/genetics.rsi
+
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackCargo
@@ -253,6 +254,7 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Back/Backpacks/cargo.rsi
+
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackSalvage
