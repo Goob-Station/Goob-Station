@@ -1,0 +1,17 @@
+- type: listing
+  id: WerewolfSideRegen
+  name: werewolf-store-regen-name
+  description: werewolf-store-regen-desc
+  icon:
+    sprite: _Goobstation/Actions/werewolf.rsi
+    state: regen
+  productEvent: !type:EventWerewolfUpgradeAbility # holy goida
+    newActionId: ActionWerewolfRegen
+  raiseProductEventOnUser: true
+  cost:
+    Fury: 2
+  categories:
+  - WerewolfSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

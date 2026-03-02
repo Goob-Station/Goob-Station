@@ -9,7 +9,7 @@
     werewolfType: WerewolfTransformDirewolf
   raiseProductEventOnUser: true
   cost:
-    Fury: 2
+    Fury: 6
   categories:
   - WerewolfChoose
   conditions:

@@ -1,11 +1,13 @@
 using System.Linq;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Server.Werewolf.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Emoting;
+using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.Werewolf.Abilities;
 using Content.Goobstation.Shared.Werewolf.Abilities.Basic;
 using Content.Server.Body.Systems;
@@ -20,6 +22,8 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
@@ -28,6 +32,8 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Store.Components;
@@ -55,6 +61,9 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _gambling = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly SharedWerewolfBasicAbilitiesSystem _sharedWerewolf = default!; // hell.
+    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, TransfurmEvent>(TryTransfurm);
@@ -63,6 +72,7 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfDevour>(TryDevour);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, WerewolfDevourDoAfterEvent>(DoDevour);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, PolymorphedEvent>(OnPolymorphed);
+        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfRegen>(TryRegen);
     }
     # region basic handlers
     private void TryTransfurm(EntityUid uid, WerewolfBasicAbilitiesComponent component, TransfurmEvent args)
@@ -85,8 +95,18 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
     private void OnPolymorphed(EntityUid uid, WerewolfBasicAbilitiesComponent comp, PolymorphedEvent args)
     {
         if (!comp.Transfurmed)
+        {
+            RemComp<MartialArtsKnowledgeComponent>(uid); // bruh we love MA shitcod
+            RemComp<CanPerformComboComponent>(uid);
+            _polymorph.CopyPolymorphComponent<HungerComponent>(uid, args.NewEntity);
+            if (TryComp<HungerComponent>(uid, out var oldHunger)) // Transfer hunger value
+                _hunger.SetHunger(args.NewEntity, _hunger.GetHunger(oldHunger));
             return;
+        }
         _polymorph.CopyPolymorphComponent<WerewolfBasicAbilitiesComponent>(uid, args.NewEntity);
+        _polymorph.CopyPolymorphComponent<HungerComponent>(uid, args.NewEntity);
+        if (TryComp<HungerComponent>(uid, out var oldHungerTakeTwo)) // Transfer hunger value
+            _hunger.SetHunger(args.NewEntity, _hunger.GetHunger(oldHungerTakeTwo));
 
         // _sharedWerewolf.SyncActions(args.NewEntity, Comp<WerewolfBasicAbilitiesComponent>(args.NewEntity)); // todo
         var werewolf = Comp<WerewolfBasicAbilitiesComponent>(args.NewEntity);
@@ -181,6 +201,7 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
             return;
 
         mindComp.BittenPeople.Add(args.Args.Target.Value);
+        _hunger.ModifyHunger(uid, +80); // todo maybe put as a var inside a comp or sdome shit
     }
 
     private void RipLimb(EntityUid target, BodyComponent body)
@@ -199,4 +220,31 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
         _wound.AmputateWoundableSafely(woundable.ParentWoundable.Value, pick.Id, woundable);
     }
     # endregion
+
+    # region actions
+    private bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)
+    {
+        var solution = new Solution();
+        foreach (var (reagentId, quantity) in reagents)
+            solution.AddReagent(reagentId, quantity);
+
+        if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out _))
+            return false;
+
+        return _solution.TryAddSolution(targetSolution.Value, solution);
+    }
+
+    public void TryRegen(EntityUid uid, WerewolfBasicAbilitiesComponent comp, EventWerewolfRegen args)
+    {
+        var reagents = new Dictionary<string, FixedPoint2> // i hate fixedpoint bru
+        {
+            ["Ichor"] = FixedPoint2.New(10),
+            ["TranexamicAcid"] = FixedPoint2.New(5)
+        };
+
+        if (TryInjectReagents(uid, reagents))
+            _popup.PopupEntity(Loc.GetString("werewolf-action-regen-success"), uid, uid);
+        args.Handled = true;
+    }
+    #endregion
 }

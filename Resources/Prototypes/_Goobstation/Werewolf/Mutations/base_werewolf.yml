@@ -87,3 +87,7 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: Alerts # idk to show the guys hunger since it doesnt for some reason???
+  - type: NpcFactionMember
+    factions:
+    - Wizard # too lazy to make a separate faction just for werewolf, its fine trust

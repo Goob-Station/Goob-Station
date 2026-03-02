@@ -12,6 +12,7 @@ public sealed partial class WerewolfRuleComponent : Component
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {
         "WerewolfChoose",
+        "WerewolfSide",
         "WerewolfDire"
     };
 }

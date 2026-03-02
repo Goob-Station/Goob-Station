@@ -11,9 +11,6 @@
             "name": "empty"
         },
         {
-            "name": "empty-red"
-        },
-        {
             "name": "howl"
         },
         {
@@ -30,6 +27,9 @@
         },
         {
             "name": "store"
+        },
+        {
+            "name": "regen"
         }
     ]
 }

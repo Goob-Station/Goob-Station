@@ -6,13 +6,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 12
+    useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/werewolf.rsi
       state: howl
   - type: InstantAction
     event: !type:HowlEvent {}
+  - type: WerewolfAction
+    hungerCost: 30
+    requireTransfurmed: true
 
 - type: entity
   parent: BaseAction
@@ -23,6 +26,7 @@
   components:
   - type: Action
     useDelay: 12 # todo 120
+    startDelay: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/werewolf.rsi
@@ -80,6 +84,25 @@
     canTargetSelf: false
     event: !type:EventWerewolfDevour {}
 
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfRegen
+  name: increased metabolism
+  description: Increase your metabolism, providing healing at the cost of hunger.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: regen
+  - type: InstantAction
+    event: !type:EventWerewolfRegen {}
+  - type: WerewolfAction
+    hungerCost: 65
+#    requireTransfurmed: true
+
 # direwolf specific
 
 - type: entity
@@ -90,7 +113,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 12
+    useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/werewolf.rsi
@@ -99,3 +122,5 @@
     event: !type:HowlEvent
       shriekPower: 4
       stunDuration: 2
+  - type: WerewolfAction
+    hungerCost: 45 # since its more powerful

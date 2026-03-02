@@ -16,6 +16,8 @@ public sealed partial class EventWerewolfChangeType : InstantActionEvent
 {
     [DataField] public string WerewolfType;
 }
+
+public sealed partial class EventWerewolfRegen : InstantActionEvent {}
 // public sealed partial class AmbushEvent : WorldTargetActionEvent
 // {
 //     [DataField] public float Distance = 6.5f;
@@ -35,7 +37,7 @@ public sealed partial class EventWerewolfUpgradeAbility : InstantActionEvent
     /// The prototype ID of the action to be replaced
     /// </summary>
     [DataField]
-    public string OldActionId;
+    public string? OldActionId;
 
     /// <summary>
     /// The prototype ID of the new upgraded action

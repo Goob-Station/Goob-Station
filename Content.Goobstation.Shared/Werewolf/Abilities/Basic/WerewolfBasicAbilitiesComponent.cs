@@ -34,6 +34,6 @@ public sealed partial class WerewolfBasicAbilitiesComponent : Component
     public ProtoId<PolymorphPrototype> CurrentMutation; //"WerewolfTransformBasic"
 
     [DataField] // amount of points given per devour of a guy
-    public int Amount = 3;
+    public int Amount = 2;
 
 }

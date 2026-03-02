@@ -43,14 +43,14 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
         comp.CurrentMutation = "WerewolfTransformBasic"; // goida
     }
 
-    # region howl
+    # region action handlers
     private void DoHowl(EntityUid uid, WerewolfBasicAbilitiesComponent comp, ref HowlEvent args) //kill me for copying changeling system please
     {
-        if (comp.Transfurmed != true)
-        { // cant howl if your not sigma
-            _popup.PopupClient(Loc.GetString("werewolf-action-fail-transfurmed"), uid);
-            return;
-        }
+        // if (comp.Transfurmed != true)
+        // { // cant howl if your not sigma
+        //     _popup.PopupClient(Loc.GetString("werewolf-action-fail-transfurmed"), uid);
+        //     return;
+        // }
         _audio.PlayPredicted(comp.ShriekSound, uid, uid);
 
         var center = Transform(uid).MapPosition;
@@ -91,7 +91,8 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
             return;
 
         // update the mind to have those new actions
-        mindComp.UnlockedActions.Remove(args.OldActionId);
+        if (args.OldActionId != null)
+            mindComp.UnlockedActions.Remove(args.OldActionId);
         if (!mindComp.UnlockedActions.Contains(args.NewActionId))
             mindComp.UnlockedActions.Add(args.NewActionId);
 
@@ -102,7 +103,7 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
     }
 
     // used for polymorph ent recieving actions from the mind
-    public void SyncActions(EntityUid uid, WerewolfBasicAbilitiesComponent comp)
+    public void SyncActions(EntityUid uid, WerewolfBasicAbilitiesComponent comp) // todo the SERVER gives out an error when you polymorph, tries to remove shit that isnt there, fix before merg Attempted to remove an action Howl (9413/n9413, ActionWerewolfHowl) from an entity that it was never attached to: wolf
     {
         // foreach (var actionEnt in comp.ActionEntities.Values)
         //     if (TryComp<ActionComponent>(actionEnt, out var actComp) && actComp.AttachedEntity == uid) // dont remove stuff from the wolf if it doesnt exist
