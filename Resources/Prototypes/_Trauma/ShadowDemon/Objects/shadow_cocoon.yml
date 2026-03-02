@@ -2,7 +2,7 @@
   id: ShadowCocoon
   name: shadow cocoon
   parent: BaseStructure
-  description: I MUST AVENGE MARIO
+  description: A cocoon made out of darkness and blood.
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/ShadowDemon/shadow_cocoon.rsi
@@ -16,6 +16,9 @@
     showExamine: false
     breakOnAccessBreaker: false
     unlockOnClick: false
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

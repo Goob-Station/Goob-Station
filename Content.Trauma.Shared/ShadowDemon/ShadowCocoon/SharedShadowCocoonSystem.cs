@@ -61,7 +61,7 @@ public abstract class SharedShadowCocoonSystem : EntitySystem
 
     private void OnCocoonDoAfter(Entity<CanBeShadowCocoonComponent> ent, ref ShadowCocoonDoAfterEvent args)
     {
-        if (_net.IsClient)
+        if (_net.IsClient || args.Cancelled)
             return;
 
         if (args.Target is not {} target || !_shadowCocoonMakerQuery.TryComp(args.User, out var shadowCocoonMaker))
