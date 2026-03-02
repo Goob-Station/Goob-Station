@@ -58,10 +58,16 @@
       points: 3
       required: false
     Arms:
-      points: 1
+      points: 4
       required: false
     Legs:
-      points: 1
+      points: 4
+      required: false
+    Hands:
+      points: 4
+      required: false
+    Foots:
+      points: 4
       required: false
     Tail:
       points: 1

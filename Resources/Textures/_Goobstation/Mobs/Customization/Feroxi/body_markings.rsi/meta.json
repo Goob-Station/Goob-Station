@@ -12,11 +12,19 @@
             "directions": 4
         },
         {
-            "name": "feroxi-arm-stripes-blitz",
+            "name": "feroxi-Larm-stripes-blitz",
             "directions": 4
         },
         {
-            "name": "feroxi-leg-stripes-blitz",
+            "name": "feroxi-Rarm-stripes-blitz",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lleg-stripes-blitz",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rleg-stripes-blitz",
             "directions": 4
         },
         {
@@ -32,15 +40,47 @@
             "directions": 4
         },
         {
-            "name": "feroxi-arm-stripes-tiger",
+            "name": "feroxi-torso-stripes-tiger-alt",
             "directions": 4
         },
         {
-            "name": "feroxi-leg-stripes-tiger",
+            "name": "feroxi-Larm-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rarm-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lleg-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rleg-stripes-tiger",
             "directions": 4
         },
         {
             "name": "feroxi-head-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-head-stripes-tiger-alt",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lfoot-tip",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rfoot-tip",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lhand-tip",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rhand-tip",
             "directions": 4
         }
     ]

@@ -352,38 +352,489 @@
 
 # Leg Markings
 - type: marking
-  id: FeroxiLegStripesBlitz
+  id: FeroxiLLegStripesBlitz #RedTerror Goob Resprite
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
-    state: feroxi-leg-stripes-blitz
+    state: feroxi-Lleg-stripes-blitz #RedTerror Goob Resprite
 
 - type: marking
-  id: FeroxiLegStripesTiger
+  id: FeroxiRLegStripesBlitz #RedTerror Goob Resprite
+  bodyPart: RLeg #RedTerror Goob Resprite
+  markingCategory: Legs
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
+    state: feroxi-Rleg-stripes-blitz #RedTerror Goob Resprite
+
+- type: marking
+  id: FeroxiLLegStripesTiger #RedTerror Goob Resprite
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
-    state: feroxi-leg-stripes-tiger
+    state: feroxi-Lleg-stripes-tiger #RedTerror Goob Resprite
+
+- type: marking
+  id: FeroxiRLegStripesTiger #RedTerror Goob Resprite
+  bodyPart: RLeg #RedTerror Goob Resprite
+  markingCategory: Legs
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
+    state: feroxi-Rleg-stripes-tiger #RedTerror Goob Resprite
 
 # Arm Markings
 - type: marking
-  id: FeroxiArmStripesBlitz
+  id: FeroxiLArmStripesBlitz #RedTerror Goob Resprite
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
-    state: feroxi-arm-stripes-blitz
+    state: feroxi-Larm-stripes-blitz #RedTerror Goob Resprite
 
 - type: marking
-  id: FeroxiArmStripesTiger
+  id: FeroxiRArmStripesBlitz #RedTerror Goob Resprite
+  bodyPart: RArm #RedTerror Goob Resprite
+  markingCategory: Arms
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
+    state: feroxi-Rarm-stripes-blitz #RedTerror Goob Resprite
+
+- type: marking
+  id: FeroxiLArmStripesTiger #RedTerror Goob Resprite
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
-    state: feroxi-arm-stripes-tiger
+    state: feroxi-Larm-stripes-tiger #RedTerror Goob Resprite
+
+- type: marking
+  id: FeroxiRArmStripesTiger #RedTerror Goob Resprite
+  bodyPart: RArm #RedTerror Goob Resprite
+  markingCategory: Arms
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi #RedTerror Goob Resprite
+    state: feroxi-Rarm-stripes-tiger #RedTerror Goob Resprite
+
+#goob station
+# Goob Ears Markings
+- type: marking
+  id: FeroxiEarsTiger
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-inner
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-tiger
+
+- type: marking
+  id: FeroxiEarsPiercedTiger
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-pierced
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-tiger
+
+- type: marking
+  id: FeroxiEarsAlt
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-alt-inner
+
+- type: marking
+  id: FeroxiEarsAltTips
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-alt-inner
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-alt-tips
+
+- type: marking
+  id: FeroxiEarsAltTiger
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-alt-inner
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-alt-tiger
+
+# Goob Tail Markings
+
+- type: marking
+  id: FeroxiTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+
+- type: marking
+  id: FeroxiStripedTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+
+- type: marking
+  id: FeroxiStripedTailAndDorsalAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-stripes
+
+- type: marking
+  id: FeroxiTipTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt-top-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip
+
+- type: marking
+  id: FeroxiTipTailAndDorsalAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt-top-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-alt
+
+- type: marking
+  id: FeroxiTailBlitzAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt-top-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-alt
+
+- type: marking
+  id: FeroxiTailBlitzAltNoDorsal
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt-top-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+
+- type: marking
+  id: FeroxiTwoToneTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+
+- type: marking
+  id: FeroxiTwoToneTailAndDorsalAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-alt
+
+- type: marking
+  id: FeroxiStripeTwoToneTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+
+- type: marking
+  id: FeroxiStripeTwoToneTailAndDorsalAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-stripes
+
+- type: marking
+  id: FeroxiTipTwoToneTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt-top-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+
+- type: marking
+  id: FeroxiTipTwoToneTailAndDorsalAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-alt-top-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-alt
+
+- type: marking
+  id: FeroxiFullTipTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip
+
+- type: marking
+  id: FeroxiFullTipTailAndDorsal
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-tip
+
+- type: marking
+  id: FeroxiTailBlitzFullTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-stripes
+
+- type: marking
+  id: FeroxiTailBlitzNoDorsalFullTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+
+- type: marking
+  id: FeroxiFullTipTwoToneTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+
+- type: marking
+  id: FeroxiFullTipTwoToneTailAndDorsal
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-tip
+
+# Goob Body Markings
+- type: marking
+  id: FeroxiHeadStripesTigerAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-head-stripes-tiger-alt
+
+- type: marking
+  id: FeroxiTorsoStripesTigerAlt
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-torso-stripes-tiger-alt
+
+# Goob Hands Markings
+
+- type: marking
+  id: FeroxiLHandTip
+  bodyPart: LHand
+  markingCategory: Hands
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-Lhand-tip
+
+- type: marking
+  id: FeroxiRHandTip
+  bodyPart: RHand
+  markingCategory: Hands
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-Rhand-tip
+
+# Goob Hands Markings
+
+- type: marking
+  id: FeroxiLFootTip
+  bodyPart: LFoot
+  markingCategory: Foots
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-Lfoot-tip
+
+- type: marking
+  id: FeroxiRFootTip
+  bodyPart: RFoot
+  markingCategory: Foots
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-Rfoot-tip
