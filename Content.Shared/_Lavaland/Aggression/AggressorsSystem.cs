@@ -72,7 +72,9 @@ public sealed class AggressorsSystem : EntitySystem
 
             aggressive.NextUpdate = curTime + aggressive.UpdateDelay;
 
-            foreach (var aggressor in aggressive.Aggressors.ToArray())
+            var toRemove = new List<EntityUid>();
+
+            foreach (var aggressor in aggressive.Aggressors)
             {
                 if (!_xformQuery.TryComp(aggressor, out var aggroXform))
                     continue;
@@ -83,7 +85,11 @@ public sealed class AggressorsSystem : EntitySystem
 
                 if (distance > aggressive.ForgiveRange
                     || xform.MapID != aggroXform.MapID)
-                    RemoveAggressor((uid, aggressive), aggressor);
+                    toRemove.Add(aggressor);
+            }
+            foreach (var remove in toRemove)
+            {
+                RemoveAggressor((uid, aggressive), remove);
             }
         }
     }
