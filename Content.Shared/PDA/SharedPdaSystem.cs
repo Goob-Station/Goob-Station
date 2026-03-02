@@ -11,6 +11,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Common.Security.ContrabandIcons.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
@@ -57,7 +58,7 @@ namespace Content.Shared.PDA
         {
             if (args.Container.ID == PdaComponent.PdaIdSlotId)
                 pda.ContainedId = args.Entity;
-
+            RaiseLocalEvent(new IdCardInsertedEvent(args.Entity, args.Container.Owner)); //goob event
             UpdatePdaAppearance(uid, pda);
         }
 
@@ -65,7 +66,7 @@ namespace Content.Shared.PDA
         {
             if (args.Container.ID == pda.IdSlot.ID)
                 pda.ContainedId = null;
-
+            RaiseLocalEvent(new IdCardRemovedEvent(args.Entity, args.Container.Owner)); //goob event
             UpdatePdaAppearance(uid, pda);
         }
 
