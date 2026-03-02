@@ -440,6 +440,15 @@
     state: feroxi-ears-tiger
 
 - type: marking
+  id: FeroxiEarsPierced
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
+    state: feroxi-ears-pierced
+
+- type: marking
   id: FeroxiEarsPiercedTiger
   bodyPart: HeadTop
   markingCategory: HeadTop
@@ -574,6 +583,8 @@
     state: feroxi-tail-under
   - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
     state: feroxi-dorsal-alt
+  - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-stripes
 
 - type: marking
   id: FeroxiTailBlitzAltNoDorsal
@@ -819,7 +830,7 @@
   - sprite: _Goobstation/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-Rhand-tip
 
-# Goob Hands Markings
+# Goob Foots Markings
 
 - type: marking
   id: FeroxiLFootTip
