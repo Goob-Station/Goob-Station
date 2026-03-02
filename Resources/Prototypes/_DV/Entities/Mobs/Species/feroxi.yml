@@ -11,8 +11,6 @@
     - Snout
   - type: Hunger
   # - type: Carriable # ShibaStation - disabled because broken, for now.
-  - type: Inventory
-    speciesId: feroxi
   - type: Thirst
     baseDecayRate: 0.2
   - type: Icon
@@ -111,6 +109,51 @@
     understands:
     - TauCetiBasic
     - Nehina
+  - type: Inventory
+    speciesId: feroxi
+    femaleDisplacements: # Goob-Feroxi-Resprite-Start
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+    # Goob-Feroxi-Resprite-End
 
 - type: entity
   parent: MobHumanDummy
