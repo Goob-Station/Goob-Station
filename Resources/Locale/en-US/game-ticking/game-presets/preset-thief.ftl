@@ -26,4 +26,4 @@ thief-role-greeting-equipment =
 
 objective-issuer-thief = [color=#746694]Criminal[/color]
 
-thief-round-end-agent-name = thief
+thief-round-end-agent-name = a thief
