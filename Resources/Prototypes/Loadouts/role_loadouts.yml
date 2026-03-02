@@ -399,7 +399,7 @@
   - QuartermasterJumpsuit
   - CargoTechnicianBackpack
   - QuartermasterOuterClothing
-  - QuartermasterShoes
+  - CargoShoes # omu
   - Glasses
   - Survival
   - Trinkets
@@ -418,7 +418,7 @@
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
-  - CargoTechnicianShoes
+  - CargoShoes # omu
   - Glasses
   - Survival
   - Trinkets
@@ -436,7 +436,7 @@
   - SalvageSpecialistNeck # Goobstation
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
-  - SalvageSpecialistShoes
+  - CargoShoes # omu
   - Glasses
   - Survival
   - Trinkets

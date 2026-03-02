@@ -1,0 +1,10 @@
+
+- type: entity
+  parent: ClothingHeadHatBeretBlueshield
+  id: ClothingHeadHatBeretBlueShieldElite
+  name: elite blueshield officer's beret
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Head/Hats/blueshield.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Head/Hats/blueshield.rsi

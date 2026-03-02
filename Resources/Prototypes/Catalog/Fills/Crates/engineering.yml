@@ -50,6 +50,10 @@
         amount: 3
       - id: ClothingHandsGlovesColorYellow
         amount: 2
+        #Omu Edit Start - Add Xelthia from EE
+      - id: ClothingOuterJacketInsulated
+        amount: 1
+        #Omu Edit End - Add Xelthia from EE
 
 - type: entity
   id: CrateEngineeringToolbox

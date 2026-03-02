@@ -42,6 +42,13 @@
     ClothingBackpackMessengerCargo: 3 # Frontier
     ClothingUniformJumpsuitCargo: 3
     ClothingUniformJumpskirtCargo: 3
+    # Omustation Changes Start.
+    ClothingUniformJumpsuitCargotechSweater: 3
+    ClothingUniformJumpsuitCargotechSweaterSkirt: 3
+    ClothingUniformJumpsuitCargotechShorts: 3
+    ClothingUniformJumpsuitCargotechShortsSkirt: 3
+    ClothingOuterJacketCargoTech: 3
+    # Omustation Changes End.
     ClothingShoesColorBlack: 3
     ClothingHandsGlovesFingerless: 3
     ClothingHeadHatCargosoft: 3

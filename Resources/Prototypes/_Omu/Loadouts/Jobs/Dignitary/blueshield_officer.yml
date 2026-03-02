@@ -1,0 +1,65 @@
+# Jumpsuits and Jumpskirts
+- type: loadout
+  id: BlueshieldOfficerTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformBlueShieldOfficerTurtleneck
+
+- type: loadout
+  id: BlueshieldOfficerTurtleneckSkirt
+  equipment:
+    jumpsuit: ClothingUniformBlueShieldOfficerTurtleneckSkirt
+
+- type: loadout
+  id: BlackBlueshieldOfficerTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformBlackBlueShieldOfficerTurtleneck
+
+- type: loadout
+  id: BlackBlueshieldOfficerTurtleneckSkirt
+  equipment:
+    jumpsuit: ClothingUniformBlackBlueShieldOfficerTurtleneckSkirt
+
+# OuterClothing
+- type: loadout
+  id: BSOArmoredCoat
+  equipment:
+    outerClothing: ClothingBlueshieldArmoredCoat
+
+- type: loadout
+  id: BSOMarineVest
+  equipment:
+    outerClothing: ClothingBlueshieldArmoredMarine
+
+- type: loadout
+  id: BSOArmoredVest
+  equipment:
+    outerClothing: ClothingBlueshieldArmoredVest
+
+- type: loadout
+  id: BlueshieldOfficerOuterKimonoBlueshield
+  equipment:
+    outerClothing: ClothingOuterBlueshieldArmourKimono
+
+# Neck
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldMantleBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    neck: ClothingNeckMantleTwoBlueshield
+
+# Belt
+- type: loadout #BSO's belt - Moved to Loadout
+  id: BeltAssaultFilled
+  equipment:
+    belt: ClothingBeltAssaultFilled
+
+# boots
+- type: loadout
+  id: BSOAdvancedJackBoots
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    shoes: ClothingShoesBootsBSOJackAdvancedFilled

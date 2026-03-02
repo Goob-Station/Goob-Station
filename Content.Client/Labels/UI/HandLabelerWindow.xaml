@@ -11,9 +11,31 @@ SPDX-License-Identifier: MIT
 
 <DefaultWindow xmlns="https://spacestation14.io"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            Title="{Loc 'hand-labeler-ui-header'}">
-    <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
+            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+            Title="{Loc 'hand-labeler-ui-header'}"
+            SetWidth="400"
+            MinWidth="150"
+            SetHeight="400">  <!-- Starlight - include gfx and set default height to include saved labels section nicely -->
+    <BoxContainer Orientation="Vertical" SeparationOverride="4">
         <Label Name="CurrentTextLabel" Text="{Loc 'hand-labeler-current-text-label'}" />
         <LineEdit Name="LabelLineEdit" />
+        <BoxContainer Orientation="Horizontal" Align="Center">
+            <Button Name="ResetLabelButton" Text="{Loc 'hand-labeler-ui-reset-label-text'}" StyleClasses="OpenRight" />
+            <Button Name="ClearLabelButton" Text="{Loc 'hand-labeler-ui-clear-label-text'}" StyleClasses="OpenLeft" />
+        </BoxContainer>
+        <!-- Starlight Begin -->
+        <Label Text="{Loc 'hand-labeler-saved-labels'}" />
+        <PanelContainer VerticalExpand="True" SizeFlagsStretchRatio="1">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+            </PanelContainer.PanelOverride>
+            <ItemList Name="SavedLabelsList" VerticalExpand="True" SelectMode="Button" />
+        </PanelContainer>
+
+        <BoxContainer Orientation="Horizontal" Align="Center">
+            <Button Name="SaveLabelButton" Text="{Loc 'hand-labeler-save-label-text'}" StyleClasses="OpenRight" />
+            <Button Name="DeleteLabelButton" Text="{Loc 'hand-labeler-delete-label-text'}" StyleClasses="OpenLeft" />
+        </BoxContainer>
+        <!-- Starlight end -->
     </BoxContainer>
 </DefaultWindow>

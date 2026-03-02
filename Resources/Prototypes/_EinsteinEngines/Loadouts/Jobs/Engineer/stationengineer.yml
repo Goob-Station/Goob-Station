@@ -1,0 +1,4 @@
+- type: loadout
+  id: ClothingOuterXelthiaInsulated
+  equipment:
+    outerClothing: ClothingOuterJacketInsulated

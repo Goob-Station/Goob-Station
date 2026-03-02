@@ -20,6 +20,10 @@ fold-flip-verb = Flip
 fold-zip-verb = Zip up
 fold-unzip-verb = Unzip
 
+# omu i think they forgot to put thisd here idk lol
+fold-rollsleeves-verb = Roll sleeves
+fold-unrollsleeves-verb = Unroll sleeves
+
 # Hijacking this because it works well for toggling hideable layers - Goob
 
 fold-showhair-verb = Show hair

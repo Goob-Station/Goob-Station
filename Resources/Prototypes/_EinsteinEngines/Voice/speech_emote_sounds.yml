@@ -171,3 +171,141 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+
+- type: emoteSounds
+  id: UnisexXelthia
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/scream.ogg
+    Laugh:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/laugh.ogg
+    Sneeze:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/sneeze.ogg
+    Cough:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/cough.ogg
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/cry.ogg
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+
+- type: emoteSounds
+  id: FemaleXelthia
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/scream.ogg
+    Laugh:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/laugh.ogg
+    Sneeze:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/sneeze.ogg
+    Cough:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/cough.ogg
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/cry.ogg
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+
+- type: emoteSounds
+  id: MaleXelthia
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/scream.ogg
+    Laugh:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/laugh.ogg
+    Sneeze:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/sneeze.ogg
+    Cough:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/cough.ogg
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      path: /Audio/_EinsteinEngines/Voice/Xelthia/cry.ogg
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp

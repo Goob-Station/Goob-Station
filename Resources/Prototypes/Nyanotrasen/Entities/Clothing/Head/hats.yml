@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMysta
+  name: mystagogue's muffin cap # Delta V - Mystagogue new hat
+  description: Contrary to its silly name, it's actually a symbol of great academic achievement.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/mysta.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/mysta.rsi

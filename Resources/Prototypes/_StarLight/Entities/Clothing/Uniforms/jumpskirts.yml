@@ -1,0 +1,11 @@
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCentcommContraband]
+  id: ClothingUniformJumpskirtEliteBlueShield
+  name: elite blueshield officer's skirt
+  description: Skirt of an Elite Blueshield. To reach such a level, you must have protected command from a [REDACTED] threat.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpskirt/eliteblueshield.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpskirt/eliteblueshield.rsi

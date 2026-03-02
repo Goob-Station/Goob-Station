@@ -317,6 +317,7 @@
     children:
     - id: AccessConfigurator
     - id: BoxEncryptionKeyEngineering
+    - id: ClothingOuterJacketInsulated # Omu - Port Xelthia
     - id: CigarCase
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
@@ -390,6 +391,7 @@
     - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile
+    - id: ClothingOuterJacketSurgical # Omu - port Xelthia
     - id: ClothingHeadHatBeretCmo
     - id: ClothingHeadsetAltMedical
     - id: ClothingMaskSterile

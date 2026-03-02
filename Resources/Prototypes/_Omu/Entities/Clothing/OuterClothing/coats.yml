@@ -1,0 +1,221 @@
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterJacketCargoTech
+  name: cargo gorka
+  description: A brown and black puffy jacket; made from synthetic fabric. Inspired by old Eastern European designs.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/cargotechjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/cargotechjacket.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterJacketCargoTech]
+  id: ClothingOuterJacketCargoTechOpened
+  name: unzipped cargo gorka
+- type: entity
+  parent: ClothingOuterCoatHoSTrench
+  id: ClothingOuterCoatHOSWinterCoat
+  name: head of security's winter trenchcoat
+  description: A trenchcoat enhanced with a special lightweight kevlar, padded with wool on the collar and inside. You feel strangely lonely wearing this coat.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/hoswinterjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/hoswinterjacket.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterJacketParamed
+  name: paramedic's jacket
+  description: A dark blue jacket for paramedics with reflective stripes.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/paramedicjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/paramedicjacket.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterJacketParamed]
+  id: ClothingOuterJacketParamedOpened
+  name: paramedic's jacket
+
+- type: entity
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband]
+  id: ClothingOuterCoatCentralCommandWinter
+  name: CentComm winter trenchcoat
+  description: Pride. Greed. Envy. It's not a sin if you are better than them.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/centcomwinterjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/centcomwinterjacket.rsi
+
+- type: entity
+  parent: ClothingOuterCoatCentralCommandWinter
+  id: ClothingOuterCoatCentralCommandWinterADMEME
+  name: CentComm winter trenchcoat
+  suffix: ADMEME
+  description: Pride. Greed. Envy. It's not a sin if you are better than them.
+  components:
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.20
+        Slash: 0.20
+        Piercing: 0.20
+        Heat: 0.20
+        Radiation: 0.20
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: TemperatureProtection
+    heatingCoefficient: 0.8 # Blame it on bluespace.
+    coolingCoefficient: 0.1
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ClothingOuterCoatHoP
+  name: head of personnel's coat
+  description: A stylish coat given to a Head of Personnel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/hopcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/hopcoat.rsi
+
+- type: entity
+  parent: ClothingOuterCoatAMG
+  id: ClothingJacketBrigmed
+  name: armored security medic jacket
+  description: A stylish red jacket decorated with white stripes and cross. Nine out of ten corpsmen recommend "Do Not Revive."
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/brigmedjacketred.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/brigmedjacketred.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLabChem
+  id: ClothingOuterCoatLabcoatChemLong
+  name: chemist's longcoat
+  description: A standard labcoat for chemistry which protects the wearer from acid spills.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoatchemist.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoatchemist.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ClothingOuterCoatMedicalcoatLong
+  name: long labcoat
+  description: A Nanotrasen standard labcoat for medical personnel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/longlabcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/longlabcoat.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ClothingOuterCoatSciencecoatLong
+  name: science longcoat
+  description: A Nanotrasen standard labcoat for science personnel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/sciencelonglabcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/sciencelonglabcoat.rsi
+
+- type: entity
+  parent: ClothingOuterCoatHoP
+  id: ClothingOuterFormalJacketHoP
+  name: head of personnel's formal jacket
+  description: A expensive, stylish jacket given to a Head of Personnel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/hopformalcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/hopformalcoat.rsi
+
+- type: entity
+  parent: ClothingOuterCoatHoP
+  id: ClothingOuterFormalDressHoP
+  name: head of personnel's formal dress jacket
+  description: A expensive, stylish dress given to a Head of Personnel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/hopformaldress.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/hopformaldress.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCMOLabCoat
+  name: CMO's Splashproof Labcoat
+  description: A Heavy, splash resistant labcoat made out of a fabric inner layer and plastic outer layer. Practical and cozy!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/CMOlabcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/CMOlabcoat.rsi
+  - type: ExplosionResistance
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.9
+        Caustic: 0.4
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCMOLabCoat]
+  id: ClothingOuterCMOLabCoatOpened
+  name: chief medical officer's lab coat

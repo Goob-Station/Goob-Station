@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: XelthiaSpeech
+  saySound:
+    path: /Audio/_EinsteinEngines/Voice/Xelthia/say.ogg
+  askSound:
+    path: /Audio/_EinsteinEngines/Voice/Xelthia/ask.ogg
+  exclaimSound:
+    path: /Audio/_EinsteinEngines/Voice/Xelthia/exclaim.ogg

@@ -11,6 +11,8 @@ using Content.Shared.Popups;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Content.Shared.Damage; // Omu
+using Content.Shared._Shitmed.Targeting; // Omu
 
 namespace Content.Server._White.Xenomorphs.Larva;
 
@@ -21,6 +23,7 @@ public sealed class XenomorphLarvaSystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!; // Omu
 
     public override void Initialize()
     {
@@ -74,6 +77,10 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             return;
 
         _container.Remove(uid, container);
-        _body.GibBody(victim);
+        var damage = new DamageSpecifier(); // Omu start
+        damage.DamageDict.Add("Blunt", 120);
+        damage.DamageDict.Add("Piercing", 80);
+        _damageableSystem.TryChangeDamage(uid: victim, damage: damage, ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.Chest);
+        //_body.GibBody(victim); // Omu end
     }
 }

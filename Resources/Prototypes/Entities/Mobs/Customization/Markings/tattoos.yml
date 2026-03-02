@@ -251,7 +251,7 @@
   id: TattooEyeRightGlowy
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Feroxi, Vulpkanin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins; Omu - Feroxi, Vulpkanin
   coloring:
     default:
       type:
@@ -266,7 +266,7 @@
   id: TattooEyeLeftGlowy
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Feroxi, Vulpkanin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins; Omu - Feroxi, Vulpkanin
   coloring:
     default:
       type:
