@@ -41,7 +41,6 @@ public sealed partial class CosmicCultComponent : Component
     public HashSet<ProtoId<InfluencePrototype>> UnlockedInfluences =
     [
         "InfluenceAberrantLapse",
-        "InfluenceShuntSubjectivity",
         "InfluenceEschewMetabolism",
     ];
 
