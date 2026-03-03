@@ -1,9 +1,12 @@
+using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
 using Content.Goobstation.Shared.Terror.Gamerules;
 using Content.Server.Antag;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Goobstation.Server.Terror.Gamerules;
 
@@ -11,11 +14,13 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<TerrorHiveRuleComponent, TerrorSpiderDiedEvent>(OnSpiderDeath);
         SubscribeLocalEvent<TerrorHiveRuleComponent, TerrorWrappedCorpseEvent>(OnWrappedCorpse);
         SubscribeLocalEvent<TerrorHiveRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
     }
@@ -24,7 +29,7 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
     TerrorHiveRuleComponent rule,
     AfterAntagEntitySelectedEvent args)
     {
-        rule.Queen = args.EntityUid;
+        rule.Queen ??= args.EntityUid;
 
         Dirty(uid, rule);
     }
@@ -43,6 +48,9 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 
     private void CheckThresholds(EntityUid uid, TerrorHiveRuleComponent rule)
     {
+        if (rule.HiveDefeated || rule.RoundWon)
+            return;
+
         if (rule.TotalWrapped >= rule.RequiredWrapsForAnnouncement && !rule.InfestationAnnounced)
         {
             DoInfestationAnnouncement(uid);
@@ -51,7 +59,10 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 
         if (rule.TotalWrapped >= rule.RequiredWrapsForWin)
         {
-            DoWinCondition(uid);
+            var livingSpiders = GetLivingSpiders();
+
+            if (livingSpiders > 0 && IsQueenAlive(rule.Queen))
+                DoWinCondition(uid, rule);
         }
     }
     private void DoInfestationAnnouncement(EntityUid uid)
@@ -72,17 +83,45 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         }
     }
 
-private void DoWinCondition(EntityUid uid)
-{
-    var rules = QueryActiveRules();
-
-    while (rules.MoveNext(out var ruleUid, out _, out var ruleComp, out _))
+    private int GetLivingSpiders()
     {
-        if (ruleComp is not TerrorHiveRuleComponent rule)
-            continue;
+        var count = 0;
+        var query = EntityQueryEnumerator<TerrorSpiderComponent>();
 
-        if (rule.RoundWon)
-            continue;
+        while (query.MoveNext(out var uid, out _))
+        {
+            if (!_mobState.IsDead(uid))
+                count++;
+        }
+
+        return count;
+    }
+
+    private void OnSpiderDeath(
+    EntityUid uid,
+    TerrorHiveRuleComponent rule,
+    ref TerrorSpiderDiedEvent args)
+    {
+        CheckLoseConditions(uid, rule);
+
+        Dirty(uid, rule);
+    }
+
+    private bool IsQueenAlive(EntityUid? queen)
+    {
+        if (queen == null)
+            return false;
+
+        if (!EntityManager.EntityExists(queen.Value))
+            return false;
+
+        return !_mobState.IsDead(queen.Value);
+    }
+
+    private void DoWinCondition(EntityUid uid, TerrorHiveRuleComponent rule)
+    {
+        if (rule.RoundWon || rule.HiveDefeated)
+            return;
 
         rule.RoundWon = true;
 
@@ -95,7 +134,37 @@ private void DoWinCondition(EntityUid uid)
 
         _roundEnd.RequestRoundEnd(null, false);
 
-        Dirty(ruleUid, rule);
+        Dirty(uid, rule);
     }
-}
+    private void CheckLoseConditions(EntityUid uid, TerrorHiveRuleComponent rule)
+    {
+        if (rule.RoundWon || rule.HiveDefeated)
+            return;
+
+        var livingSpiders = GetLivingSpiders();
+
+        if (livingSpiders <= 0)
+        {
+            DoHiveDefeat(uid, rule);
+        }
+    }
+
+    private void DoHiveDefeat(EntityUid uid, TerrorHiveRuleComponent rule)
+    {
+        if (rule.HiveDefeated)
+            return;
+
+        rule.HiveDefeated = true;
+
+        _chat.DispatchGlobalAnnouncement(
+            Loc.GetString("terror-hive-defeated"),
+            Loc.GetString("Station"),
+            true,
+            rule.DetectedAudio,
+            Color.Green);
+
+        _roundEnd.RequestRoundEnd(null, false);
+
+        Dirty(uid, rule);
+    }
 }

@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Terror.Components;
+using Content.Goobstation.Shared.Terror.Events;
 using Content.Goobstation.Shared.Terror.Gamerules;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs;
@@ -34,8 +35,6 @@ public sealed class TerrorQueenSystem : EntitySystem
         {
             rule.Queen ??= uid;
 
-            rule.HiveSpiders.Add(uid);
-
             Dirty(ruleUid, rule);
         }
 
@@ -45,6 +44,7 @@ public sealed class TerrorQueenSystem : EntitySystem
 
         BroadcastQueenDeath(uid);
         AffectAllTerrorSpiders(uid);
+        RaiseLocalEvent(new TerrorSpiderDiedEvent(uid));
     }
 
     private void BroadcastQueenDeath(EntityUid queenUid)

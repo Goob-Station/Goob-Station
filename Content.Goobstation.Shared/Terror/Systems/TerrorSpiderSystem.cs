@@ -35,7 +35,7 @@ public sealed class TerrorSpiderSystem : EntitySystem
         BroadcastSpiderDeath(new Entity<TerrorSpiderComponent>(uid, component));
 
         var ev = new TerrorSpiderDiedEvent(uid);
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(ev);
     }
 
     private void BroadcastSpiderDeath(Entity<TerrorSpiderComponent> deadSpider)

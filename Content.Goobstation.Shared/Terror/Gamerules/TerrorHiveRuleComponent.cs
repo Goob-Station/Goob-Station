@@ -43,6 +43,12 @@ public sealed partial class TerrorHiveRuleComponent : Component
     [DataField]
     public bool RoundWon;
 
+    /// <summary>
+    /// If the hive has lost.
+    /// </summary>
+    [DataField]
+    public bool HiveDefeated;
+
     [DataField]
     public SoundSpecifier? DetectedAudio = new SoundPathSpecifier("/Audio/_Goobstation/Announcements/outbreak_terror.ogg");
 
