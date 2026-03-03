@@ -76,11 +76,27 @@
             "directions": 4
         },
         {
+            "name": "feroxi-Lfoot-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rfoot-stripes-tiger",
+            "directions": 4
+        },
+        {
             "name": "feroxi-Lhand-tip",
             "directions": 4
         },
         {
             "name": "feroxi-Rhand-tip",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lhand-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rhand-stripes-tiger",
             "directions": 4
         }
     ]

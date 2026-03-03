@@ -234,8 +234,20 @@ marking-FeroxiLHandTip-feroxi-Lhand-tip = Countershading
 marking-FeroxiRHandTip = Countershading Hand
 marking-FeroxiRHandTip-feroxi-Rhand-tip = Countershading
 
+marking-FeroxiLHandStripesTiger = Hand with Stripes
+marking-FeroxiLHandStripesTiger-feroxi-Lhand-stripes-tiger = Stripes
+
+marking-FeroxiRHandStripesTiger = Hand with Stripes
+marking-FeroxiRHandStripesTiger-feroxi-Rhand-stripes-tiger = Stripes
+
 marking-FeroxiLFootTip = Countershading Foot
 marking-FeroxiLFootTip-feroxi-Lfoot-tip = Countershading
 
 marking-FeroxiRFootTip = Countershading Foot
 marking-FeroxiRFootTip-feroxi-Rfoot-tip = Countershading
+
+marking-FeroxiLFootStripesTiger = Foot with Stripes
+marking-FeroxiLFootStripesTiger-feroxi-Lfoot-stripes-tiger = Stripes
+
+marking-FeroxiRFootStripesTiger = Foot with Stripes
+marking-FeroxiRFootStripesTiger-feroxi-Rfoot-stripes-tiger = Stripes
