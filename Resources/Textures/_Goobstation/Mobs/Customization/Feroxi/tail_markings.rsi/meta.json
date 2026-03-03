@@ -46,10 +46,6 @@
         {
             "name": "feroxi-dorsal-stripes",
             "directions": 4
-        },
-        {
-            "name": "feroxi-dorsal-alt",
-            "directions": 4
         }
     ]
 }
