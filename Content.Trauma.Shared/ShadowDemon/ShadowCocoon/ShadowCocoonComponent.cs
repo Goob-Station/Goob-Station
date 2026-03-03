@@ -2,11 +2,12 @@
 
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Trauma.Shared.ShadowDemon.ShadowCocoon;
 
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ShadowCocoonComponent : Component
 {
     /// <summary>
@@ -21,7 +22,8 @@ public sealed partial class ShadowCocoonComponent : Component
     [DataField]
     public TimeSpan Update = TimeSpan.FromSeconds(3);
 
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextUpdate;
 
     /// <summary>

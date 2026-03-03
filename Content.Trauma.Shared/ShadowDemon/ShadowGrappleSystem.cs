@@ -90,6 +90,7 @@ public sealed class ShadowGrappleSystem : EntitySystem
             return;
         }
 
+        // Not a body, just destroy nearby lights
         BreakNearbyLights(target, args.Shooter, ent.Comp.BreakLightsRange);
     }
 

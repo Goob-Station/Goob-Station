@@ -38,6 +38,9 @@ public sealed class LightImmunitySystem : EntitySystem
     private void OnMapInit(Entity<LightImmunityComponent> ent, ref MapInitEvent args) =>
         ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.Duration;
 
+    /// <summary>
+    /// Makes the LightDetectionDamage system stop updating
+    /// </summary>
     private void OnLightDamageUpdateAttempt(Entity<LightImmunityComponent> ent, ref LightDamageUpdateAttemptEvent args) =>
         args.Cancelled = true;
 }

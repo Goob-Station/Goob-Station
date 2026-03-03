@@ -5,6 +5,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Shared.ShadowDemon;
 
+/// <summary>
+/// Gives you shadow crawl action.
+/// Allows an entity to use ShadowCrawl action.
+/// Shadow Crawl is an ability that lets you jaunt in darkness,
+/// and can reduce the damage you take from lights.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
 public sealed partial class ShadowCrawlComponent : Component
