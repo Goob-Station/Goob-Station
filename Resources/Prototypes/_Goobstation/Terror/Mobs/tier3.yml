@@ -29,8 +29,8 @@
       types:
         Structural: 300
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5
-    baseSprintSpeed: 5
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
   - type: Prying
     pryPowered: true
     force: true
@@ -40,6 +40,8 @@
   - type: ActionGrant
     actions:
       - ActionTerrorThickWeb
+  - type: TerrorSpider
+    spiderType: TerrorPrince
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -50,7 +52,6 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-
 
 # =========================================================
 # PRINCESS OF TERROR — Mini-Queen
@@ -90,12 +91,13 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: TerrorVentSmash
-  - type: PrincessTerror
   - type: ActionGrant
     actions:
       - ActionTerrorAirtightWeb
       - ActionTerrorLayEggs
       - ActionTerrorVentSmash
+  - type: TerrorSpider
+    spiderType: TerrorPrincess
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -148,6 +150,8 @@
       - ActionTerrorAirtightWeb
       - ActionTerrorRoyalJelly
       - ActionTerrorVentSmash
+  - type: TerrorSpider
+    spiderType: TerrorMother
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

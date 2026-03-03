@@ -35,6 +35,8 @@
     damage:
       groups:
         Brute: 10
+  - type: TerrorSpider
+    spiderType: BlackTerror
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -87,6 +89,8 @@
     rules: ghost-role-information-terror-rules
     raffle:
       settings: default
+  - type: TerrorSpider
+    spiderType: WhiteTerror
   - type: GhostTakeoverAvailable
   - type: Prying
     pryPowered: true
@@ -94,7 +98,6 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: WhiteTerror
   - type: ActionGrant
     actions:
       - ActionTerrorInfestedWeb
@@ -143,6 +146,8 @@
   - type: ActionGrant
     actions:
       - ActionTerrorThickWeb
+  - type: TerrorSpider
+    spiderType: PurpleTerror
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -197,6 +202,8 @@
   - type: ActionGrant
     actions:
       - ActionTerrorVentSmash
+  - type: TerrorSpider
+    spiderType: BrownTerror
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

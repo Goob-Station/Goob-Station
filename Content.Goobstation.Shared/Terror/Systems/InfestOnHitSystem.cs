@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
@@ -9,13 +10,19 @@ namespace Content.Goobstation.Shared.Terror.Systems;
 /// </summary>
 public sealed class InfestOnHitSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<WhiteTerrorComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<TerrorSpiderComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void OnMeleeHit(Entity<WhiteTerrorComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<TerrorSpiderComponent> ent, ref MeleeHitEvent args)
     {
+        var proto = _proto.Index(ent.Comp.SpiderType);
+
+        if (!proto.InfestsOnHit)
+            return;
+
         foreach (var target in args.HitEntities)
         {
             if (!EntityManager.HasComponent<BodyComponent>(target))

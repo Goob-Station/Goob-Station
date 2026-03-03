@@ -1,10 +1,8 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
@@ -14,7 +12,6 @@ namespace Content.Goobstation.Shared.Terror.Systems;
 /// </summary>
 public sealed class BerserkerRageSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<BerserkerRageComponent, GetUserMeleeDamageEvent>(OnGetUserDamage);

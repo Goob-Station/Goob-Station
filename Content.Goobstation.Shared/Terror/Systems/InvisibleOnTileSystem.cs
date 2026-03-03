@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.StepTrigger.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
@@ -13,6 +14,7 @@ public sealed class InvisibleOnTileSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     // Tracks remaining invisibility time per entity
     private readonly Dictionary<EntityUid, float> _timers = new();
@@ -30,7 +32,12 @@ public sealed class InvisibleOnTileSystem : EntitySystem
 
         var tripper = args.Tripper;
 
-        if (!HasComp<GrayTerrorComponent>(tripper))
+        if (!TryComp<TerrorSpiderComponent>(tripper, out var spider))
+            return;
+
+        var proto = _proto.Index(spider.SpiderType);
+
+        if (!proto.IsInvisibleOnWeb)
             return;
 
         if (Deleted(tripper))

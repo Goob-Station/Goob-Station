@@ -70,6 +70,8 @@
       - ActionTerrorSummonSpiderlings
       - ActionTerrorQueenSense
       - ActionTerrorVentSmash
+  - type: TerrorSpider
+    spiderType: TerrorQueen
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

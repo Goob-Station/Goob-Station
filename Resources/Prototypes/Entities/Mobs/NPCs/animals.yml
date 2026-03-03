@@ -3044,6 +3044,7 @@
       types:
         Piercing: 6
   - type: TerrorSpider # Goobstation - terror spiders
+    spiderType: TerrorTarantula
   - type: TerrorWrap
   - type: ActionGrant
     actions:
@@ -3103,6 +3104,7 @@
       bloodMaxVolume: 150
       bloodReagent: Laughter
     - type: TerrorSpider # Goobstation - terror spiders
+      spiderType: TerrorClown
     - type: TerrorWrap
     - type: ActionGrant
       actions:

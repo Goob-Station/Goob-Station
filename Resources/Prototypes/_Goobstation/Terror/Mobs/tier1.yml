@@ -100,6 +100,7 @@
         Toxin: -3
         Genetic: -3
   - type: TerrorSpider
+    spiderType: RedTerror
   - type: CollectiveMind
     defaultChannel: TerrorSpiderHivemind
     respectAccents: true
@@ -108,7 +109,6 @@
   - type: Puller
     needsHands: false
   - type: TerrorWrap
-  - type: TerrorLay
   - type: ActionGrant
     actions:
       - ActionTerrorWeb
@@ -193,7 +193,8 @@
     damage:
       groups:
         Brute: 10
-  - type: GrayTerror
+  - type: TerrorSpider
+    spiderType: GrayTerror
   - type: BonusDamageOnStunned
   - type: GhostRole
     makeSentient: true
@@ -235,10 +236,12 @@
     damage:
       groups:
         Brute: 10
-  - type: GreenTerror
+  - type: TerrorSpider
+    spiderType: GreenTerror
   - type: ActionGrant
     actions:
       - ActionTerrorSlimyWeb
+      - ActionTerrorLayEggs
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

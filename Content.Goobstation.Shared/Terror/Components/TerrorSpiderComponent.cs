@@ -1,18 +1,22 @@
+using Content.Goobstation.Shared.Terror.Prototypes;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TerrorSpiderComponent : Component
 {
+    [DataField("spiderType", required: true)]
+    public ProtoId<TerrorSpiderPrototype> SpiderType;
+
     /// <summary>
     /// Keeps track of how many creatures this individual terror spider has wrapped.
     /// </summary>
     [DataField]
     public int WrappedAmount;
-
 
     /// <summary>
     /// Max amount of corpses to count before you stop multiplying the regen. 12 healing per second is pretty busted.
