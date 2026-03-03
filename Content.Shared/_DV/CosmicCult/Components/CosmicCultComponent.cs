@@ -49,7 +49,7 @@ public sealed partial class CosmicCultComponent : Component
     public HashSet<EntProtoId> CosmicCultActions =
     [
         "ActionCosmicSiphon",
-        "ActionCosmicGlare",
+        "ActionCosmicBlank",
     ];
 
     public HashSet<EntityUid?> ActionEntities = [];
