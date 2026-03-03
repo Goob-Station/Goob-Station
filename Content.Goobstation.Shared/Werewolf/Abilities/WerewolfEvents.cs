@@ -18,13 +18,13 @@ public sealed partial class EventWerewolfChangeType : InstantActionEvent
 }
 
 public sealed partial class EventWerewolfRegen : InstantActionEvent {}
-// public sealed partial class AmbushEvent : WorldTargetActionEvent
-// {
-//     [DataField] public float Distance = 6.5f;
-//     [DataField] public float Speed = 9.65f;
-// }
 
-// pohui goida
+public sealed partial class WerewolfAmbushActionEvent : WorldTargetActionEvent
+{
+    [DataField]
+    public float JumpSpeed = 15f;
+}
+
 [Serializable, NetSerializable]
 public sealed partial class WerewolfDevourDoAfterEvent : SimpleDoAfterEvent { }
 

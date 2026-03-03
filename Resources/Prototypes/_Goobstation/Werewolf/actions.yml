@@ -66,7 +66,7 @@
   parent: BaseAction
   id: ActionWerewolfAbsorb
   name: Bite
-  description: Bite a fellow crewmate for mutation points.
+  description: Bite and rip a limb from your fellow comrade for points.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -88,7 +88,7 @@
   parent: BaseAction
   id: ActionWerewolfRegen
   name: increased metabolism
-  description: Increase your metabolism, providing healing at the cost of hunger.
+  description: Increase your metabolism, providing healing at the cost of a lot of hunger.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -102,6 +102,26 @@
   - type: WerewolfAction
     hungerCost: 65
 #    requireTransfurmed: true
+
+- type: entity
+  id: ActionWerewolfJump
+  parent: BaseAction
+  name: Jump
+  description: Stun your enemies with a quick jump. Costs 30 hunger.
+  components:
+  - type: Action
+    priority: 0
+    useDelay: 20
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: ambush
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:WerewolfAmbushActionEvent
+  - type: WerewolfAction
+    hungerCost: 30
+    requireTransfurmed: true
 
 # direwolf specific
 

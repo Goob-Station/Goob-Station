@@ -30,6 +30,9 @@
         },
         {
             "name": "regen"
+        },
+        {
+            "name": "ambush"
         }
     ]
 }

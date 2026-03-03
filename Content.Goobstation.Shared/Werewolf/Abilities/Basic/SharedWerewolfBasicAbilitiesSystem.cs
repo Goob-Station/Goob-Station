@@ -1,11 +1,14 @@
 using System.Numerics;
+using Content.Shared._White.Jump;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Werewolf.Abilities.Basic;
@@ -22,11 +25,18 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
+    [Dependency] private readonly ThrownItemSystem _throwingItem = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, HowlEvent>(DoHowl);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfUpgradeAbility>(OnUpgradeAbility);
+
+        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, WerewolfAmbushActionEvent>(OnAmbush);
+        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, ThrowDoHitEvent>(OnHit);
     }
 
     public void OnStartup(EntityUid uid, WerewolfBasicAbilitiesComponent comp, ref ComponentStartup args)
@@ -76,6 +86,31 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
             }
         }
         // _audio.PlayGlobal(comp.DistantSound, uid); // when you howl, everyone on the station hears a quiet distant howl, which breaks the metashield for the chaplain, "allegedly" todo uncomment when better sound is found
+        args.Handled = true;
+    }
+    private void OnAmbush(EntityUid uid, WerewolfBasicAbilitiesComponent comp, WerewolfAmbushActionEvent args) // partially taken from xenos jump
+    {
+        if (args.Handled
+            || _container.IsEntityInContainer(uid))
+            return;
+
+        _throwing.TryThrow(uid, args.Target, args.JumpSpeed, uid, 10F);
+        // todo PlayPVS
+        args.Handled = true;
+    }
+
+    private void OnHit(EntityUid uid, WerewolfBasicAbilitiesComponent comp, ThrowDoHitEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        _throwingItem.StopThrow(uid, args.Component);
+
+        if (Transform(args.Target).Anchored)
+            _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(1));
+        else
+            _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(1), true);
+
         args.Handled = true;
     }
     #endregion

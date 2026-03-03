@@ -30,7 +30,7 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
 
     public readonly ProtoId<CurrencyPrototype> Currency = "Fury";
 
-    public readonly int StartingCurrency = 1;
+    public readonly int StartingCurrency = 2; // to buy either regen or ambush, choose your game
 
     [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleWerewolf";
 

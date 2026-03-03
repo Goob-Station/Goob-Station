@@ -6,6 +6,8 @@
     inventory: None
     transferName: false
     transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false
     duration: 480
     polymorphSound: /Audio/_Goobstation/Changeling/Effects/armour_transform.ogg # goida
     copiedComponents:
@@ -18,6 +20,8 @@
     entity: WerewolfWerehuman
     forced: true
     inventory: None
+    revertOnCrit: false
+    revertOnDeath: false
     transferName: false
     transferDamage: true
     duration: 480
@@ -31,6 +35,8 @@
   configuration:
     entity: WerewolfDirewolf
     forced: true
+    revertOnCrit: false
+    revertOnDeath: false
     inventory: None
     transferName: false
     transferDamage: true

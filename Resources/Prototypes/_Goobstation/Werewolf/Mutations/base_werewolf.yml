@@ -3,6 +3,8 @@
   - BaseMob
   - MobAtmosExposed
   - MobCombat
+  - MobBloodstream
+  - MobRespirator
   id: BaseWerewolf
   name: wolf
   description: Holy shit what the fuck is that!? Who have brought a wolf onto the station? # todo
@@ -22,9 +24,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Werewolf
   - type: Body
     prototype: Werewolf
   - type: MobState
@@ -91,3 +90,6 @@
   - type: NpcFactionMember
     factions:
     - Wizard # too lazy to make a separate faction just for werewolf, its fine trust
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: WerewolfBase

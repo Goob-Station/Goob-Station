@@ -15,3 +15,21 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: WerewolfSideAmbush
+  name: werewolf-store-jump-name
+  description: werewolf-store-jump-desc
+  icon:
+    sprite: _Goobstation/Actions/werewolf.rsi
+    state: ambush
+  productEvent: !type:EventWerewolfUpgradeAbility
+    newActionId: ActionWerewolfJump
+  raiseProductEventOnUser: true
+  cost:
+    Fury: 2
+  categories:
+  - WerewolfSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
