@@ -23,38 +23,28 @@ public sealed class BonusDamageOnStunnedSystem : EntitySystem
             return;
 
         var multiplier = ent.Comp.DamageMultiplier;
-        var anyStunned = false;
 
         foreach (var target in args.HitEntities)
         {
-            if (!TryComp<StatusEffectsComponent>(target, out var status))
+            if (!TryComp<StatusEffectsComponent>(target, out _))
                 continue;
 
             var isStunned =
                 _status.HasStatusEffect(target, "Stun") ||
                 _status.HasStatusEffect(target, "KnockedDown");
 
-            if (isStunned)
+            if (!isStunned)
+                continue;
+
+            var extraDamage = new DamageSpecifier();
+
+            foreach (var (type, amount) in args.BaseDamage.DamageDict)
             {
-                anyStunned = true;
-                break;
+                extraDamage.DamageDict[type] = amount * (multiplier - 1f);
             }
+
+            var damageableSys = EntityManager.System<DamageableSystem>();
+            damageableSys.TryChangeDamage(target, extraDamage, origin: ent.Owner);
         }
-
-        if (!anyStunned)
-            return;
-
-        // Apply a multiplicative modifier to all damage types
-        var modifier = new DamageModifierSet
-        {
-            Coefficients = new Dictionary<string, float>()
-        };
-
-        foreach (var type in args.BaseDamage.DamageDict.Keys)
-        {
-            modifier.Coefficients[type] = multiplier;
-        }
-
-        args.ModifiersList.Add(modifier);
     }
 }
