@@ -1,5 +1,8 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
+using Content.Goobstation.Shared.Terror.Gamerules;
+using Content.Server.GameTicking;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -16,6 +19,7 @@ public sealed class TerrorLaySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     public override void Initialize()
     {
@@ -39,7 +43,15 @@ public sealed class TerrorLaySystem : EntitySystem
         if (proto.HiveScaling is { } scaling &&
             TryComp<TerrorQueenComponent>(uid, out var queen))
         {
-            var wraps = queen.HiveTotalWrappedAmount;
+            var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
+
+            int wraps = 0;
+
+            while (rules.MoveNext(out var _, out var rule, out _))
+            {
+                wraps = rule.TotalWrapped;
+                break;
+            }
 
             tier2Chance = DiminishingChance(
                 wraps,

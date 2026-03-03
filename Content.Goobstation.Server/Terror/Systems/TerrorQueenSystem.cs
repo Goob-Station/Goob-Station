@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Terror.Components;
+using Content.Goobstation.Shared.Terror.Gamerules;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
@@ -17,6 +18,7 @@ public sealed class TerrorQueenSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
 
     public override void Initialize()
     {
@@ -26,6 +28,17 @@ public sealed class TerrorQueenSystem : EntitySystem
 
     private void OnQueenStateChanged(EntityUid uid, TerrorQueenComponent component, MobStateChangedEvent args)
     {
+        var rules = EntityQueryEnumerator<TerrorHiveRuleComponent>();
+
+        while (rules.MoveNext(out var ruleUid, out var rule))
+        {
+            rule.Queen ??= uid;
+
+            rule.HiveSpiders.Add(uid);
+
+            Dirty(ruleUid, rule);
+        }
+
         // Only act when the queen *just* died
         if (args.NewMobState != MobState.Dead || args.OldMobState == MobState.Dead)
             return;

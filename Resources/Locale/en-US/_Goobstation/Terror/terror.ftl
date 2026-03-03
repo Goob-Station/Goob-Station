@@ -20,3 +20,7 @@ queen-death-gib = A blood-chilling psychic scream echoes through the hive as the
 queen-death-rage = A blood-chilling psychic scream echoes through the hive as the Terror Queen is slain! You are filled with rage, your attacks dealing more damage the lower your health. Avenge her!
 
 terror-spider-hive-death = A member of the hive has fallen… { $spider }
+
+terror-hive-infestation-detected = Terror spider infestation detected on station. All personnel must contain the outbreak.
+
+terror-hive-infestation-victory = Strong psyonic interference detected. ▄▖▜▚┣ amount of critters ▀▖┗▛▖▞┣┗▖┗┣ inside the station's ventilation system. The ▀▖┗▛ shuttle has been called.
