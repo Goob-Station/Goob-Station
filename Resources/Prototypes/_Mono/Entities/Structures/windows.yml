@@ -1,0 +1,212 @@
+# strong windows for outposts sir!
+
+- type: entity
+  id: ReinforcedWindowOutpost
+  suffix: OUTPOST ONLY
+  name: reinforced window
+  parent: ReinforcedWindow
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: ReinforcedWindowDiagonal
+  id: ReinforcedWindowDiagonalOutpost
+  suffix: diagonal, OUTPOST ONLY
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# plastitanium
+
+- type: entity
+  id: PlastitaniumWindowOutpost
+  suffix: OUTPOST ONLY
+  parent: PlastitaniumWindow
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30000 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+    - trigger:
+        !type:DamageTrigger
+        damage: 25000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: PlastitaniumWindowDiagonal
+  id: PlastitaniumWindowDiagonalOutpost
+  suffix: diagonal, OUTPOST ONLY
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30000 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+    - trigger:
+        !type:DamageTrigger
+        damage: 20000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+#plastitanium but blocks rads 100%
+
+- type: entity
+  id: PlasturaniumWindowDiagonalRadProof
+  parent: PlastitaniumWindowDiagonal
+  name: plasturanium window
+  description: Don't smudge up the rads down there.
+  suffix: Rad-Proof
+  components:
+  - type: RadiationBlocker
+    resistance: 100
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+    state: state0
+#  - type: ArmorThickness # Omu, we don't have this
+#    thickness: 30
+
+- type: entity
+  id: PlasturaniumWindowRadProof
+  parent: PlastitaniumWindow
+  name: plasturanium window
+  description: Don't smudge up the rads down there.
+  suffix: Rad-Proof
+  components:
+  - type: RadiationBlocker
+    resistance: 100
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+    state: full
+#  - type: ArmorThickness # Omu, we don't have this
+#    thickness: 30
+
+#plastitanium but blocks rads 100% (industructible var.)
+
+- type: entity
+  id: PlasturaniumWindowDiagonalRadProofIndestructible
+  parent: PlastitaniumWindowDiagonalIndestructible
+  name: plasturanium window
+  description: Don't smudge up the rads down there.
+  suffix: Rad-Proof, Indestructible
+  components:
+  - type: RadiationBlocker
+    resistance: 100
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+    state: state0
+#  - type: ArmorThickness # Omu, we don't have this
+#    thickness: 30
+
+- type: entity
+  id: PlasturaniumWindowRadProofIndestructible
+  parent: PlastitaniumWindowIndestructible
+  name: plasturanium window
+  description: Don't smudge up the rads down there.
+  suffix: Rad-Proof, Indestructible
+  components:
+  - type: RadiationBlocker
+    resistance: 100
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+    state: full
+#  - type: ArmorThickness # Omu, we don't have this
+#    thickness: 30

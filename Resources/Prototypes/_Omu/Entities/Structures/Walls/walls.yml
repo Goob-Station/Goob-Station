@@ -1,0 +1,119 @@
+#shuttle walls
+- type: entity
+  id: WallNanolaminateDiagonal # Mono
+  name: nanolaminate wall # Mono
+  suffix: ADS ONLY, Diagonal # Mono
+  description: A dense wall made of a strange material, the texture is smooth yet rough. # Mono
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Tag
+    tags:
+    - Wall
+    - Diagonal
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Shitmed/Structures/Walls/abductor_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Icon
+    sprite: _Shitmed/Structures/Walls/abductor_diagonal.rsi
+    state: state0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 2000 # Mono
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              Girder:
+                min: 1
+                max: 1
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Physics
+    bodyType: Static
+  #- type: Reflect
+  #  reflectProb: 1
+  - type: Pullable
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 7500
+  - type: Construction
+    graph: Girder
+    node: diagonalshuttleWall
+  #- type: RustRequiresPathStage
+  #  pathStage: 10 # Ascension
+#  - type: ArmorThickness
+#    thickness: 10
+  # Mono
+#  - type: ShipRepairable
+#    repairTime: 3
+#    repairCost: 6
+
+- type: entity
+  parent: BaseWallTierFour
+  id: WallNanolaminate # Mono
+  name: nanolaminate wall # Mono
+  suffix: ADS ONLY # Mono
+  description: A dense wall made of a strange material, the texture is smooth yet rough. # Mono
+  components:
+  - type: StaticPrice
+    price: 250
+  - type: RadiationBlocker
+    resistance: 5
+  - type: Sprite
+    sprite: _Shitmed/Structures/Walls/abductor.rsi
+  - type: Icon
+    sprite: _Shitmed/Structures/Walls/abductor.rsi
+    state: full
+  - type: Construction
+    graph: Girder
+    node: shuttleWall
+  - type: IconSmooth
+    key: walls
+    base: state
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 15000
+  - type: Appearance
+  #- type: Reflect
+  #  reflectProb: 1
+  #- type: RustRequiresPathStage
+  #  pathStage: 10 # Ascension

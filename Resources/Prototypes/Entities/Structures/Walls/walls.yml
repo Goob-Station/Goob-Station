@@ -945,6 +945,10 @@
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: IconSmooth # Omu sprites
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
@@ -1932,6 +1936,6 @@
   - type: IconSmooth
     key: cards
     base: card
-  - type: Occluder 
+  - type: Occluder
   - type: BlockWeather
   - type: SunShadowCast
