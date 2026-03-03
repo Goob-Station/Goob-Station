@@ -110,6 +110,7 @@
     - DoodonMind
   - type: VentCrawler
     allowInventory: false
+  - type: CanHostGuardian 
   - type: GuideHelp
     guides:
     - Doodon
@@ -178,7 +179,6 @@
     understands:
     - TauCetiBasic
     - Doodon
-  - type: CanHostGuardian 
   - type: DoodonBuilder # Doodon Buildings
     buildables:
     - DoodonDwelling
@@ -391,10 +391,10 @@
         - ReagentId: Omnizine
           Quantity: 20
       udder:
-        maxVol: 100
+        maxVol: 10
         reagents:
         - ReagentId: Omnizine
-          Quantity: 10
+          Quantity: 2
   - type: Udder
     reagentId: Omnizine
     quantityPerUpdate: 10
