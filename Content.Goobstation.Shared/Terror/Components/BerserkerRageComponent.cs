@@ -9,8 +9,9 @@ namespace Content.Goobstation.Shared.Terror.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BerserkerRageComponent : Component
 {
+    [DataField]
     public float MinMultiplier = 1f;
 
-    public float MaxMultiplier = 3f;
-
+    [DataField]
+    public float MaxMultiplier = 2.5f;
 }

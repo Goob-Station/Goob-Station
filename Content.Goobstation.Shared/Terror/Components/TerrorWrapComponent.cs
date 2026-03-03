@@ -13,7 +13,7 @@ public sealed partial class TerrorWrapComponent : Component
     public TimeSpan DoAfter = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// DoAfter timer for cocooning someone.
+    /// The prototype of the cocoon.
     /// </summary>
     [DataField]
     public EntProtoId CocoonProto = "TerrorCocoon";

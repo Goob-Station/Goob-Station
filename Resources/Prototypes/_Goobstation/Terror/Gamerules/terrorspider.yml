@@ -13,7 +13,7 @@
       - MindRoleGhostRoleTeamAntagonist
       briefing:
         text: terror-queen-briefing
-        color: "#8b0000"
+        color: Purple
         sound: /Audio/_Goobstation/Terror/terrorspider.ogg
   - type: AntagRandomSpawn
   - type: AntagSpawner
@@ -53,5 +53,5 @@
       - MindRoleGhostRoleTeamAntagonist
       briefing:
         text: terror-queen-briefing
-        color: "#8b0000"
+        color: Purple
         sound: /Audio/_Goobstation/Terror/terrorspider.ogg

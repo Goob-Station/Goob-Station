@@ -15,11 +15,8 @@ namespace Content.Goobstation.Shared.Terror.Systems;
 /// </summary>
 public sealed class TerrorSpiderSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
-
 
     public override void Initialize()
     {
@@ -47,7 +44,7 @@ public sealed class TerrorSpiderSystem : EntitySystem
 
         while (query.MoveNext(out var spiderPlayerUid, out var comp, out _))
         {
-            _popup.PopupPredicted($"A member of the hive has fallen… ({ToPrettyString(deadSpider.Owner)})", spiderPlayerUid, spiderPlayerUid, PopupType.Medium); // LocString broke this, deal with it Russians
+            _popup.PopupPredicted(Loc.GetString("terror-spider-hive-death", ("spider", deadSpider.Owner)), spiderPlayerUid, spiderPlayerUid, PopupType.Medium);
 
             _audio.PlayPredicted(comp.DeathSound, spiderPlayerUid, spiderPlayerUid);
         }

@@ -1,6 +1,10 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
@@ -10,6 +14,7 @@ namespace Content.Goobstation.Shared.Terror.Systems;
 /// </summary>
 public sealed class BerserkerRageSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<BerserkerRageComponent, GetUserMeleeDamageEvent>(OnGetUserDamage);
@@ -20,10 +25,26 @@ public sealed class BerserkerRageSystem : EntitySystem
         if (!TryComp<DamageableComponent>(ent, out var damageable))
             return 1f;
 
-        var damage = (float) damageable.TotalDamage;
-        const float maxDamage = 100f;
+        if (!TryComp<MobThresholdsComponent>(ent, out var thresholds))
+            return 1f;
 
-        return Math.Clamp(1f - (damage / maxDamage), 0f, 1f);
+        // Find the damage value that corresponds to dead state which is basically max health
+        float maxDamage = 0f;
+
+        foreach (var (damage, state) in thresholds.Thresholds)
+        {
+            if (state == MobState.Dead)
+            {
+                maxDamage = (float) damage;
+                break;
+            }
+        }
+
+        if (maxDamage <= 0f)
+            return 1f;
+
+        var totalDamage = (float) damageable.TotalDamage;
+        return Math.Clamp(1f - (totalDamage / maxDamage), 0f, 1f);
     }
 
     private void OnGetUserDamage(Entity<BerserkerRageComponent> ent, ref GetUserMeleeDamageEvent args)

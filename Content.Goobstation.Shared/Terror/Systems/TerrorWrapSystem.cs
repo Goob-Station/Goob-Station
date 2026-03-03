@@ -1,4 +1,3 @@
-using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
 using Content.Shared.Administration.Logs;
@@ -20,8 +19,6 @@ public sealed class TerrorWrapSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
-
-
     public override void Initialize()
     {
         base.Initialize();

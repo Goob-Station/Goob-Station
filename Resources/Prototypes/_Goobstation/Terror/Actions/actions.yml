@@ -150,7 +150,7 @@
       components:
       - Cocoon
     canTargetSelf: false
-    event: !type:TentacleHookEvent
+    event: !type:TerrorLayEvent
 
 - type: entity
   id: ActionTerrorWrap

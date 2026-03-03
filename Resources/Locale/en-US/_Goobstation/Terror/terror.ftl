@@ -1,7 +1,5 @@
 terror-far-from-queen = You feel your life slipping away… the queen is too far away!
 
-hive-member-fallen = A member of the hive has fallen… ({name})
-
 sticky-web-generic = The sticky web ensnares you!
 sticky-web-infested = The sticky web ensnares you! Spiderlings begin to crawl all over you!
 sticky-web-poison = The sticky web ensnares you! You don't feel too good...
@@ -20,3 +18,5 @@ queen-sense-entry = {name} — {location}
 
 queen-death-gib = A blood-chilling psychic scream echoes through the hive as the Terror Queen is slain! Your body is torn apart by the psychic feedback!
 queen-death-rage = A blood-chilling psychic scream echoes through the hive as the Terror Queen is slain! You are filled with rage, your attacks dealing more damage the lower your health. Avenge her!
+
+terror-spider-hive-death = A member of the hive has fallen… { $spider }
