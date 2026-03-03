@@ -115,43 +115,43 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
             state: jumpsuit-female
       head:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Reptilian/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
             state: head
       mask:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Reptilian/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
             state: mask
       shoes:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
             state: shoes
     displacements:
       head:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Reptilian/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
             state: head
       mask:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Reptilian/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
             state: mask
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
             state: jumpsuit
       shoes:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
             state: shoes
     # Goob-Feroxi-Resprite-End
 

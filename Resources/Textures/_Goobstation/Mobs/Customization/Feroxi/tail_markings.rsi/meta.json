@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
-    "copyright": "Made by BlitzTheSquishy, resprite(and tip, alt) by RedTerror",
+    "copyright": "Made by BlitzTheSquishy, resprite(and tip) by RedTerror",
     "size": {
         "x": 32,
         "y": 32
@@ -21,14 +21,6 @@
         },
         {
             "name": "feroxi-tail-tip",
-            "directions": 4
-        },
-        {
-            "name": "feroxi-tail-alt",
-            "directions": 4
-        },
-        {
-            "name": "feroxi-tail-alt-top-tip",
             "directions": 4
         },
         {
