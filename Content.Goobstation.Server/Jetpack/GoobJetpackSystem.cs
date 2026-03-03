@@ -8,7 +8,6 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
-using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Jetpack;
@@ -23,29 +22,18 @@ public sealed class GoobJetpackSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private EntityQuery<ActiveJetpackComponent> _activeJetpackQuery;
     private EntityQuery<WoundableComponent> _woundableQuery;
 
     public override void Initialize()
     {
         base.Initialize();
-        _activeJetpackQuery = GetEntityQuery<ActiveJetpackComponent>();
         _woundableQuery = GetEntityQuery<WoundableComponent>();
 
         SubscribeLocalEvent<ActiveJetpackComponent, ComponentStartup>(OnActiveJetpackAdded);
-        SubscribeLocalEvent<JetpackComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
     }
 
     private void OnActiveJetpackAdded(EntityUid uid, ActiveJetpackComponent comp, ComponentStartup args)
     {
-        HandleJetpackInhands(uid);
-    }
-
-    private void OnInserted(EntityUid uid, JetpackComponent comp, EntGotInsertedIntoContainerMessage args)
-    {
-        if (!_activeJetpackQuery.HasComp(uid))
-            return;
-
         HandleJetpackInhands(uid);
     }
 
