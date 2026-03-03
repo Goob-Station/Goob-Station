@@ -9,7 +9,6 @@ using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
-using Content.Shared.Popups;
 using Content.Shared.DoAfter;
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
@@ -19,8 +18,6 @@ public sealed partial class SlimeLatchOperator : HTNOperator
     [Dependency] private readonly IEntityManager _entManager = default!;
     private SlimeLatchSystem _slimeLatch = default!;
 
-    private SharedPopupSystem _popup = default!;
-
     [DataField]
     public string LatchKey = string.Empty;
 
@@ -28,7 +25,6 @@ public sealed partial class SlimeLatchOperator : HTNOperator
     {
         base.Initialize(sysManager);
         _slimeLatch = sysManager.GetEntitySystem<SlimeLatchSystem>();
-        _popup = sysManager.GetEntitySystem<SharedPopupSystem>();
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
