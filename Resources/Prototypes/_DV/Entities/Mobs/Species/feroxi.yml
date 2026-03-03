@@ -9,6 +9,7 @@
     species: Feroxi
     hideLayersOnEquip:
     - Snout
+    - Tail
   - type: Hunger
   # - type: Carriable # ShibaStation - disabled because broken, for now.
   - type: Thirst
@@ -34,8 +35,8 @@
     noRot: true
     drawdepth: Mobs
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -115,43 +116,23 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: jumpsuit-female
-      head:
-        sizeMaps:
-          32:
-            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
-            state: head
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
-            state: mask
       shoes:
         sizeMaps:
           32:
-            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
     displacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
-            state: head
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
-            state: mask
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: jumpsuit
       shoes:
         sizeMaps:
           32:
-            sprite: _Goobstation/Mobs/Species/Feroxi/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
     # Goob-Feroxi-Resprite-End
 
@@ -167,13 +148,14 @@
     species: Feroxi
     hideLayersOnEquip:
     - Snout
+    - Tail
   - type: Sprite # Why does feroxi redefine sprites in basemob but NOT in dummy (lobby) ???, fixing that - Goob 120
     netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]

@@ -101,14 +101,14 @@ marking-FeroxiTipTail = Tail with Tips
 marking-FeroxiTipTail-feroxi-tail = Base Tail
 marking-FeroxiTipTail-feroxi-tail-top-tip = Upper Tail Fin Tip
 marking-FeroxiTipTail-feroxi-tail-bottom-tip = Lower Tail Fin Tip
-marking-FeroxiTipTail-feroxi-second-dorsal-tip = Secondary Dorsal Fin Tip
+marking-FeroxiTipTail-feroxi-tail-second-dorsal-tip = Secondary Dorsal Fin Tip
 marking-FeroxiTipTail-feroxi-dorsal = Base Dorsal
 
 marking-FeroxiTipTailAndDorsal = Tail with Tips and Dorsal
 marking-FeroxiTipTailAndDorsal-feroxi-tail = Base Tail
 marking-FeroxiTipTailAndDorsal-feroxi-tail-top-tip = Upper Tail Fin Tip
 marking-FeroxiTipTailAndDorsal-feroxi-tail-bottom-tip = Lower Tail Fin Tip
-marking-FeroxiTipTailAndDorsal-feroxi-second-dorsal-tip = Secondary Dorsal Fin Tip
+marking-FeroxiTipTailAndDorsal-feroxi-tail-second-dorsal-tip = Secondary Dorsal Fin Tip
 marking-FeroxiTipTailAndDorsal-feroxi-dorsal = Base Dorsal
 marking-FeroxiTipTailAndDorsal-feroxi-dorsal-tip = Dorsal Tip
 
@@ -137,7 +137,7 @@ marking-FeroxiTipTwoToneTail = Two Tone Tail with Tips
 marking-FeroxiTipTwoToneTail-feroxi-tail = Base Tail
 marking-FeroxiTipTwoToneTail-feroxi-tail-top-tip = Upper Tail Fin Tip
 marking-FeroxiTipTwoToneTail-feroxi-tail-bottom-tip = Lower Tail Fin Tip
-marking-FeroxiTipTwoToneTail-feroxi-second-dorsal-tip = Secondary Dorsal Fin Tip
+marking-FeroxiTipTwoToneTail-feroxi-tail-second-dorsal-tip = Secondary Dorsal Fin Tip
 marking-FeroxiTipTwoToneTail-feroxi-tail-under = Under Tail
 
 marking-FeroxiTipTwoToneTailAndDorsal = Two Tone Tail with Tips and Dorsal
@@ -145,19 +145,19 @@ marking-FeroxiTipTwoToneTailAndDorsal-feroxi-tail = Base Tail
 marking-FeroxiTipTwoToneTailAndDorsal-feroxi-tail-top-tip = Upper Tail Fin Tip
 marking-FeroxiTipTwoToneTailAndDorsal-feroxi-tail-bottom-tip = Lower Tail Fin Tip
 marking-FeroxiTipTwoToneTailAndDorsal-feroxi-tail-under = Under Tail
-marking-FeroxiTipTwoToneTailAndDorsal-feroxi-second-dorsal-tip = Secondary Dorsal Fin Tip
+marking-FeroxiTipTwoToneTailAndDorsal-feroxi-tail-second-dorsal-tip = Secondary Dorsal Fin Tip
 marking-FeroxiTipTwoToneTailAndDorsal-feroxi-dorsal = Base Dorsal
 marking-FeroxiTipTwoToneTailAndDorsal-feroxi-dorsal-tip = Dorsal Tip
 
 marking-FeroxiFullTipTail = Tail with Full Fin Tip
 marking-FeroxiFullTipTail-feroxi-tail = Base Tail
 marking-FeroxiFullTipTail-feroxi-tail-tip = Full Tail Fin Tip
-marking-FeroxiFullTipTail-feroxi-second-dorsal-tip = Secondary Dorsal Fin Tip
+marking-FeroxiFullTipTail-feroxi-tail-second-dorsal-tip = Secondary Dorsal Fin Tip
 
 marking-FeroxiFullTipTailAndDorsal = Tail with Full Fin Tip and Dorsal
 marking-FeroxiFullTipTailAndDorsal-feroxi-tail = Base Tail
 marking-FeroxiFullTipTailAndDorsal-feroxi-tail-tip = Full Tail Fin Tip
-marking-FeroxiFullTipTailAndDorsal-feroxi-second-dorsal-tip = Secondary Dorsal Fin Tip
+marking-FeroxiFullTipTailAndDorsal-feroxi-tail-second-dorsal-tip = Secondary Dorsal Fin Tip
 marking-FeroxiFullTipTailAndDorsal-feroxi-dorsal = Base Dorsal
 marking-FeroxiFullTipTailAndDorsal-feroxi-dorsal-tip = Dorsal Tip
 
@@ -178,7 +178,7 @@ marking-FeroxiTailBlitzNoDorsalFullTip-feroxi-tail-under = Under Tail
 marking-FeroxiFullTipTwoToneTail = Two Tone Tail with Tips
 marking-FeroxiFullTipTwoToneTail-feroxi-tail = Base Tail
 marking-FeroxiFullTipTwoToneTail-feroxi-tail-tip = Full Tail Fin Tip
-marking-FeroxiFullTipTwoToneTail-feroxi-second-dorsal-tip = Secondary Dorsal Fin Tip
+marking-FeroxiFullTipTwoToneTail-feroxi-tail-second-dorsal-tip = Secondary Dorsal Fin Tip
 marking-FeroxiFullTipTwoToneTail-feroxi-tail-under = Under Tail
 
 marking-FeroxiFullTipTwoToneTailAndDorsal = Two Tone Tail with Tips and Dorsal
@@ -186,7 +186,7 @@ marking-FeroxiFullTipTwoToneTailAndDorsal-feroxi-tail = Base Tail
 marking-FeroxiFullTipTwoToneTailAndDorsal-feroxi-tail-tip = Full Tail Fin Tip
 marking-FeroxiFullTipTwoToneTailAndDorsal-feroxi-tail-under = Under Tail
 marking-FeroxiFullTipTwoToneTailAndDorsal-feroxi-dorsal = Base Dorsal
-marking-FeroxiFullTipTwoToneTailAndDorsal-feroxi-second-dorsal-tip = Secondary Dorsal Fin Tip
+marking-FeroxiFullTipTwoToneTailAndDorsal-feroxi-tail-second-dorsal-tip = Secondary Dorsal Fin Tip
 marking-FeroxiFullTipTwoToneTailAndDorsal-feroxi-dorsal-tip = Dorsal Tip
 
 marking-FeroxiTorsoStripesBlitz = Small Under Arm Stripes
