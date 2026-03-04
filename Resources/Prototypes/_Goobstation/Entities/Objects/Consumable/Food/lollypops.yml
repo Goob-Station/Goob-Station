@@ -9,12 +9,12 @@
 # Lollypops are meant to hold chems. If you can implement them injecting chems while on the mask slot, that'd be cool.
 
 - type: entity
-  parent: FoodBase
+  parent: BaseItem
   id: FoodSnackLollypopWrappedBase
   description: A plain old lollypop. It's still in a wrapper.
   abstract: true
   components:
-  - type: Edible
+  - type: SpaceGarbage
   - type: Tag
     tags:
     - FoodSnack
