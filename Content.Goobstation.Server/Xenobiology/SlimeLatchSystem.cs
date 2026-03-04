@@ -192,9 +192,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     private void OnDoAfterAttempt(EntityUid uid, SlimeComponent comp, ref DoAfterAttemptEvent<SlimeLatchDoAfterEvent> args)
     {
         if (HasComp<BeingLatchedComponent>(args.Event.Target))
-        {
             args.Cancel();
-        }
     }
 
     private void OnSlimeLatchDoAfter(Entity<SlimeComponent> ent, ref SlimeLatchDoAfterEvent args)
