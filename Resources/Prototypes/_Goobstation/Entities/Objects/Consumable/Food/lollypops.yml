@@ -14,7 +14,7 @@
   description: A plain old lollypop. It's still in a wrapper.
   abstract: true
   components:
-  - type: Food
+  - type: Edible
   - type: Tag
     tags:
     - FoodSnack
@@ -40,7 +40,7 @@
   - type: FlavorProfile
     flavors:
     - cherry
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketLollypopTrash
   - type: Tag
@@ -2088,7 +2088,7 @@
     quickEquip: false # You want to eat it, not stick it in your mouth.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     slots: [ mask ]
-  - type: Food
+  - type: Edible
     solution: food
   - type: FlavorProfile
     flavors:
