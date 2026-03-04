@@ -6,7 +6,6 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Popups;
-using Robust.Shared.Network;
 
 namespace Content.Trauma.Shared.ShadowDemon;
 
@@ -14,7 +13,6 @@ public sealed class ShadowCrawlSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     /// <inheritdoc/>
@@ -52,7 +50,7 @@ public sealed class ShadowCrawlSystem : EntitySystem
         // We are already in jaunt, try get out of it
         if (ent.Comp.Active)
         {
-            if (!CanJaunt(ent.Owner, true))
+            if (!CanJaunt(ent.Owner))
                 return;
 
             RemCompDeferred<PhaseShiftedComponent>(ent.Owner);
@@ -72,14 +70,14 @@ public sealed class ShadowCrawlSystem : EntitySystem
         }
 
         // Okay, we aren't in jaunt, try to confirm we are ready to activate the jaunt
-        if (_net.IsClient || !CanJaunt(ent.Owner, false))
+        if (!CanJaunt(ent.Owner))
             return;
 
         var phase = new PhaseShiftedComponent();
         phase.PhaseInEffect = ent.Comp.PhaseIn;
         phase.PhaseOutEffect = ent.Comp.PhaseOut;
         phase.RevealOnDamage = false;
-        AddComp(ent.Owner, phase);
+        AddComp(ent.Owner, phase, true);
 
         ent.Comp.Active = true;
         Dirty(ent);
@@ -94,7 +92,7 @@ public sealed class ShadowCrawlSystem : EntitySystem
         // Ensures we don't attack people while invisible
         _combat.SetInCombatMode(ent.Owner, false);
 
-        _popup.PopupEntity(Loc.GetString("shadow-crawl-success"), ent.Owner, ent.Owner, PopupType.Medium);
+        _popup.PopupClient(Loc.GetString("shadow-crawl-success"), ent.Owner, ent.Owner, PopupType.Medium);
 
         args.Handled = true;
     }
@@ -133,17 +131,13 @@ public sealed class ShadowCrawlSystem : EntitySystem
     }
 
     #region Helpers
-    private bool CanJaunt(EntityUid uid, bool predicted)
+    private bool CanJaunt(EntityUid uid)
     {
         var attemptEv = new ShadowCrawlAttemptEvent();
         RaiseLocalEvent(uid, ref attemptEv);
         if (attemptEv.Cancelled)
         {
-            if (predicted)
-                _popup.PopupClient(Loc.GetString("shadow-crawl-cancelled"), uid, uid, PopupType.MediumCaution);
-            else
-                _popup.PopupEntity(Loc.GetString("shadow-crawl-cancelled"), uid, uid, PopupType.MediumCaution);
-
+            _popup.PopupClient(Loc.GetString("shadow-crawl-cancelled"), uid, uid, PopupType.MediumCaution);
             return false;
         }
 

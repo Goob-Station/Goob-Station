@@ -1,9 +1,16 @@
 - type: entity
   parent: BaseGameRule
-  id: ShadowDemonSummon
+  id: BaseShadowDemonRule
+  abstract: true
   components:
   - type: AntagSpawner
     prototype: BaseMobShadowDemon
+  - type: AntagRandomSpawn
+
+- type: entity
+  parent: BaseShadowDemonRule
+  id: ShadowDemonSummon
+  components:
   - type: AntagSelection
     agentName: shadow-demon-round-end-agent-name
     definitions:
@@ -16,7 +23,7 @@
       briefing:
         text: shadow-demon-role-greeting
         color: Red
-        sound: /Audio/_Goobstation/SlaughterDemon/briefing.ogg # placeholder
+        sound: /Audio/_Trauma/Mobs/ShadowDemon/briefing/shadowdemonbriefing.ogg
       components:
       - type: RandomMetadata  # Left as is since they are demonic names
         nameSegments:
@@ -25,4 +32,3 @@
         nameFormat: name-format-slaughter
       - type: LightImmunity # Grants temporary light immunity so it survives AntagRandomSpawn | Remove once we get better spawns
         duration: 20
-  - type: AntagRandomSpawn # todo: replace with MaintsSpawnRule once implemented

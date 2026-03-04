@@ -1,5 +1,5 @@
-﻿- type: entity
-  parent: ShadowDemonSummon
+- type: entity
+  parent: BaseShadowDemonRule
   id: TokenShadowDemon
   components:
   - type: AntagSelection
@@ -14,8 +14,9 @@
       briefing:
         text: shadow-demon-role-greeting
         color: Red
+        sound: /Audio/_Trauma/Mobs/ShadowDemon/briefing/shadowdemonbriefing.ogg
       components:
-      - type: RandomMetadata
+      - type: RandomMetadata  # Left as is since they are demonic names
         nameSegments:
         - NamesSlaughterTitle
         - NamesSlaughter
