@@ -7,11 +7,11 @@
   - type: InitialBody
     organs:
       # Parts
-      Torso: OrganShadowDemonTorso
-      ArmLeft: OrganShadowDemonArmLeft
-      ArmRight: OrganShadowDemonArmRight
-      HandLeft: OrganShadowDemonHandLeft
-      HandRight: OrganShadowDemonHandRight
+      Torso: OrganSlaughterDemonTorso
+      ArmLeft: OrganSlaughterDemonArmLeft
+      ArmRight: OrganSlaughterDemonArmRight
+      HandLeft: OrganSlaughterDemonHandLeft
+      HandRight: OrganSlaughterDemonHandRight
       # Organs
       Heart: OrganShadowDemonHeart
       Lungs: OrganCarpLungs
@@ -31,63 +31,6 @@
   abstract: true
   parent: OrganShadowDemon
   id: OrganShadowDemonInternal
-
-- type: entity
-  abstract: true
-  parent: OrganShadowDemon
-  id: OrganShadowDemonExternal
-  components:
-  - type: Sprite
-    sprite: _Goobstation/SlaughterDemon/body_parts.rsi # Left as is because they look alike and I have to manually make them
-  - type: VisualOrgan
-    data:
-      sprite: _Goobstation/SlaughterDemon/body_parts.rsi
-  - type: VisualOrganMarkings
-    markingData:
-      group: None
-  - type: Woundable
-    integrity: 500
-    integrityCap: 500
-    thresholds:
-      Minor: 450
-      Moderate: 350
-      Severe: 200
-      Critical: 100
-      Mangled: 0
-
-## Parts
-
-- type: entity
-  parent: [ OrganBaseTorso, OrganAnimalSpriteExternal, OrganShadowDemonExternal ]
-  id: OrganShadowDemonTorso
-  components:
-  - type: BodyPart
-    slots:
-    # Parts
-    - ArmLeft
-    - ArmRight
-    # Organs
-    - Heart
-    - Lungs
-    - Stomach
-    - Liver
-    - Kidneys
-
-- type: entity
-  parent: [ OrganBaseArmLeft, OrganShadowDemonExternal ]
-  id: OrganShadowDemonArmLeft
-
-- type: entity
-  parent: [ OrganBaseArmRight, OrganShadowDemonExternal ]
-  id: OrganShadowDemonArmRight
-
-- type: entity
-  parent: [ OrganBaseHandLeft, OrganShadowDemonExternal ]
-  id: OrganShadowDemonHandLeft
-
-- type: entity
-  parent: [ OrganBaseHandRight, OrganShadowDemonExternal ]
-  id: OrganShadowDemonHandRight
 
 ## Organs
 

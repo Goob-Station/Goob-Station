@@ -6,3 +6,5 @@ ghost-role-information-shadow-demon-rules =
     YOU ARE IMMUNE TO LIGHT FOR 20 SECONDS SINCE YOU SPAWN, DON'T PANIC.
     Use darkness to your advantage, because nobody can take you on there,
     and remember that [color=red]all demons are your allies[/color], so don't hesitate to work with another demon.
+
+roles-shadow-demon-name-token = Shadow Demon (Token)

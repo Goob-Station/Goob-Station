@@ -26,6 +26,6 @@ public sealed partial class LightSpeedModifierComponent : Component
     /// <summary>
     /// If we are on light, based on the RequiredLightLevel
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool OnLight;
 }

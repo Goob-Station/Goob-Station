@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Stealth;
 
-public abstract class SharedStealthSystem : EntitySystem
+public abstract partial class SharedStealthSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -236,13 +236,4 @@ public abstract class SharedStealthSystem : EntitySystem
         Dirty(ent);
     }
     // Goobstation end
-
-    // <Trauma>
-    public void SetRevealOnDamage(EntityUid uid, bool value, StealthComponent? comp = null)
-    {
-        if (!Resolve(uid, ref comp))
-            return;
-        comp.RevealOnDamage = value;
-    }
-    // </Trauma>
 }

@@ -31,16 +31,20 @@ public sealed class LightImmunitySystem : EntitySystem
             if (now < lightImmunity.NextUpdate)
                 continue;
 
-            RemCompDeferred<LightImmunityComponent>(uid);
+            RemCompDeferred(uid, lightImmunity);
         }
     }
 
-    private void OnMapInit(Entity<LightImmunityComponent> ent, ref MapInitEvent args) =>
+    private void OnMapInit(Entity<LightImmunityComponent> ent, ref MapInitEvent args)
+    {
         ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.Duration;
+    }
 
     /// <summary>
     /// Makes the LightDetectionDamage system stop updating
     /// </summary>
-    private void OnLightDamageUpdateAttempt(Entity<LightImmunityComponent> ent, ref LightDamageUpdateAttemptEvent args) =>
+    private void OnLightDamageUpdateAttempt(Entity<LightImmunityComponent> ent, ref LightDamageUpdateAttemptEvent args)
+    {
         args.Cancelled = true;
+    }
 }

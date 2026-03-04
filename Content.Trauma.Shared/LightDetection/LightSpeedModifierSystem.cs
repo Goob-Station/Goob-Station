@@ -30,10 +30,7 @@ public sealed class LightSpeedModifierSystem : EntitySystem
         ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.OnLight)
-        {
-            args.ModifySpeed(1f, 1f);
             return;
-        }
 
         args.ModifySpeed(ent.Comp.WalkModifier, ent.Comp.SprintModifier);
     }

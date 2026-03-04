@@ -15,6 +15,6 @@ public sealed partial class ShadowGrappleComponent : Component
     [DataField]
     public EntProtoId ActionId = "ShadowGrappleAction";
 
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntityUid? ActionUid;
 }

@@ -48,12 +48,12 @@ public sealed partial class ShadowCrawlComponent : Component
     /// <summary>
     /// Whether we are in jaunt or not
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool Active;
 
     [DataField]
     public EntProtoId ActionId = "ShadowCrawlAction";
 
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntityUid? ActionUid;
 }

@@ -19,5 +19,3 @@ ghost-role-information-DClass-description = The science team wants to use you fo
 
 ghost-role-information-facehugger-name = facehugger
 ghost-role-information-facehugger-description = A writhing nightmare. The facehugger clings to its victim's face, forcibly inserting a xenomorph fetus.
-
-roles-shadow-demon-name-token = Shadow Demon (Token)

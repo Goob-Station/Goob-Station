@@ -35,11 +35,17 @@ public sealed class ShadowCrawlSystem : EntitySystem
         SubscribeLocalEvent<LightDetectionDamageComponent, ShadowCrawlDeActivatedEvent>(OnCrawlDeactivated);
     }
 
-    private void OnMapInit(Entity<ShadowCrawlComponent> ent, ref MapInitEvent args) =>
+    private void OnMapInit(Entity<ShadowCrawlComponent> ent, ref MapInitEvent args)
+    {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionUid, ent.Comp.ActionId);
+        Dirty(ent);
+    }
 
-    private void OnShutdown(Entity<ShadowCrawlComponent> ent, ref ComponentShutdown args) =>
+    private void OnShutdown(Entity<ShadowCrawlComponent> ent, ref ComponentShutdown args)
+    {
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionUid);
+        Dirty(ent);
+    }
 
     private void OnCrawl(Entity<ShadowCrawlComponent> ent, ref ShadowCrawlEvent args)
     {

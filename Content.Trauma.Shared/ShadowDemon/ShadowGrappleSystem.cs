@@ -2,11 +2,11 @@
 
 using System.Numerics;
 using Content.Shared.Actions;
-using Content.Shared.Body;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -21,10 +21,10 @@ public sealed class ShadowGrappleSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly SharedPoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -33,7 +33,7 @@ public sealed class ShadowGrappleSystem : EntitySystem
 
     private static readonly EntProtoId Ash = "Ash";
 
-    private EntityQuery<BodyComponent> _bodyQuery;
+    private EntityQuery<MobStateComponent> _mobStateQuery;
     private EntityQuery<HandheldLightComponent> _handheldQuery;
 
     private readonly HashSet<Entity<PoweredLightComponent>> _lights = new();
@@ -49,14 +49,14 @@ public sealed class ShadowGrappleSystem : EntitySystem
         SubscribeLocalEvent<ShadowGrappleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ShadowGrappleComponent, ComponentShutdown>(OnShutdown);
 
-        _bodyQuery = GetEntityQuery<BodyComponent>();
+        _mobStateQuery = GetEntityQuery<MobStateComponent>();
         _handheldQuery = GetEntityQuery<HandheldLightComponent>();
     }
 
     private void OnEmbed(Entity<ShadowGrappleProjectileComponent> ent, ref ProjectileEmbedEvent args)
     {
         if (!_timing.IsFirstTimePredicted || args.Shooter is not {} shooter)
-                return;
+            return;
 
         EnsureComp<JointComponent>(ent.Owner);
         var joint = _joints.CreateDistanceJoint(
@@ -78,15 +78,15 @@ public sealed class ShadowGrappleSystem : EntitySystem
             return;
 
         var target = args.Target;
-        _throwingSystem.TryThrow(shooter, Transform(target).Coordinates, 10f, shooter, doSpin: true);
+        _throwing.TryThrow(shooter, Transform(target).Coordinates, 10f, shooter, doSpin: true);
 
         // Body, apply damage
-        if (_bodyQuery.HasComp(target))
+        if (_mobStateQuery.HasComp(target))
         {
-            _damageableSystem.TryChangeDamage(target, ent.Comp.DamageOnHit);
+            _damage.TryChangeDamage(target, ent.Comp.DamageOnHit);
             BreakLightsOnTarget(target);
 
-            _stunSystem.TryAddParalyzeDuration(target, ent.Comp.StunTime);
+            _stun.TryAddParalyzeDuration(target, ent.Comp.StunTime);
             return;
         }
 
@@ -94,11 +94,17 @@ public sealed class ShadowGrappleSystem : EntitySystem
         BreakNearbyLights(target, args.Shooter, ent.Comp.BreakLightsRange);
     }
 
-    private void OnMapInit(Entity<ShadowGrappleComponent> ent, ref MapInitEvent args) =>
+    private void OnMapInit(Entity<ShadowGrappleComponent> ent, ref MapInitEvent args)
+    {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionUid, ent.Comp.ActionId);
+        Dirty(ent);
+    }
 
-    private void OnShutdown(Entity<ShadowGrappleComponent> ent, ref ComponentShutdown args) =>
+    private void OnShutdown(Entity<ShadowGrappleComponent> ent, ref ComponentShutdown args)
+    {
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionUid);
+        Dirty(ent);
+    }
 
     #region Helper
     /// <summary>
