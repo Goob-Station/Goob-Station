@@ -21677,3 +21677,11 @@ Entries:
       message: PDA pen overlay now functions as intended
   id: 2464
   time: '2026-03-02T03:31:11.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Error sign inhand for Security and Warden Jumpskirt
+    - type: Fix
+      message: Kimono sprite pathing
+  id: 2465
+  time: '2026-03-03T19:45:38.0000000+00:00'
