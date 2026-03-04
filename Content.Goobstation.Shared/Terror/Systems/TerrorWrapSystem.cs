@@ -8,6 +8,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
@@ -21,6 +22,7 @@ public sealed class TerrorWrapSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -73,11 +75,14 @@ public sealed class TerrorWrapSystem : EntitySystem
 
         _storage.Insert(target, cocoon);
 
+        if (!_netManager.IsServer) // TerrorHiveRule is serverside.
+            return;
+
         if (HasComp<TerrorSpiderComponent>(ent.Owner))
         {
             // Tell other systems a corpse was wrapped.
             var ev = new TerrorWrappedCorpseEvent(ent.Owner);
-            RaiseLocalEvent(ent.Owner, ev);
+            RaiseLocalEvent(ev);
         }
 
         // Used to increase the odds of better eggs being laid by the Queen.

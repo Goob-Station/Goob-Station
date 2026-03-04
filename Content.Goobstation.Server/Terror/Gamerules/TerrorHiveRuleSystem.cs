@@ -22,7 +22,7 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         base.Initialize();
 
         SubscribeLocalEvent<TerrorSpiderComponent, TerrorSpiderDiedEvent>(OnSpiderDeath);
-        SubscribeLocalEvent<TerrorSpiderComponent, TerrorWrappedCorpseEvent>(OnWrappedCorpse);
+        SubscribeLocalEvent<TerrorWrappedCorpseEvent>(OnWrappedCorpse);
         SubscribeLocalEvent<TerrorHiveRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
     }
     private void OnSelectAntag(
@@ -35,10 +35,7 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         Dirty(uid, rule);
     }
 
-    private void OnWrappedCorpse(
-        EntityUid spiderUid,
-        TerrorSpiderComponent spider,
-        ref TerrorWrappedCorpseEvent args)
+    private void OnWrappedCorpse(TerrorWrappedCorpseEvent args)
     {
         var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
 

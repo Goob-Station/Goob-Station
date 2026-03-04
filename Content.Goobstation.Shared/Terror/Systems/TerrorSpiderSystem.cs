@@ -22,7 +22,7 @@ public sealed class TerrorSpiderSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<TerrorSpiderComponent, MobStateChangedEvent>(OnSpiderStateChanged);
-        SubscribeLocalEvent<TerrorSpiderComponent, TerrorWrappedCorpseEvent>(OnWrappedCorpse);
+        SubscribeLocalEvent<TerrorWrappedCorpseEvent>(OnWrappedCorpse);
     }
     private void OnSpiderStateChanged(EntityUid uid, TerrorSpiderComponent component, MobStateChangedEvent args)
     {
@@ -49,8 +49,13 @@ public sealed class TerrorSpiderSystem : EntitySystem
             _audio.PlayPredicted(comp.DeathSound, spiderPlayerUid, spiderPlayerUid);
         }
     }
-    private void OnWrappedCorpse(EntityUid uid, TerrorSpiderComponent comp, TerrorWrappedCorpseEvent args)
+    private void OnWrappedCorpse(TerrorWrappedCorpseEvent args)
     {
+        var uid = args.Spider;
+
+        if (!TryComp(uid, out TerrorSpiderComponent? comp))
+            return;
+
         comp.WrappedAmount++;
         Dirty(uid, comp);
 
@@ -61,8 +66,11 @@ public sealed class TerrorSpiderSystem : EntitySystem
         if (comp.BaselineRegen == null)
         {
             comp.BaselineRegen = new DamageSpecifier();
-            foreach (var (type, value) in passive.Damage.DamageDict)
-                comp.BaselineRegen.DamageDict[type] = value;
+
+            foreach (var entry in passive.Damage.DamageDict)
+            {
+                comp.BaselineRegen.DamageDict[entry.Key] = entry.Value;
+            }
         }
 
         var baseline = comp.BaselineRegen;
@@ -73,20 +81,17 @@ public sealed class TerrorSpiderSystem : EntitySystem
         const float k = 3f;
         float capped = comp.MaxRegenCorpses;
 
-        // smooth diminishing returns:
+        // smooth diminishing returns
         // approaches capped but never exceeds it
         float effectiveCorpses = capped * (1f - MathF.Exp(-comp.WrappedAmount / k));
 
-        foreach (var (type, value) in baseline.DamageDict)
+        foreach (var entry in baseline.DamageDict)
         {
-            // scale based on diminishing-returns result
-            var scaled = value * (1 + effectiveCorpses);
-            newDamage.DamageDict[type] = scaled;
+            var scaled = entry.Value * (1 + effectiveCorpses);
+            newDamage.DamageDict[entry.Key] = scaled;
         }
 
         passive.Damage = newDamage;
         Dirty(uid, passive);
     }
-
-
 }
