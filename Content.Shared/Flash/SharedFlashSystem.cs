@@ -18,6 +18,10 @@ using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Charges.Components;
+using Content.Shared.Charges.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Flash.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -39,6 +43,9 @@ using System.Linq;
 using Content.Goobstation.Common.Flash;
 using Content.Shared.Mobs.Components; // Goobstation
 using Content.Shared.Movement.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared.Flash;
 

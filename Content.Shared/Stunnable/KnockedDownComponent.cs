@@ -14,7 +14,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
 using Robust.Shared.Audio;
 using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
