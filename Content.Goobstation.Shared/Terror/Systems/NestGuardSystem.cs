@@ -48,9 +48,7 @@ public sealed class NestGuardSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("terror-far-from-queen"), uid, uid, PopupType.MediumCaution);
 
             if (guard.DeathCounter >= 15)
-            {
                 _body.GibBody(uid);
-            }
         }
     }
     private EntityUid? FindNearestQueen(EntityUid guard)

@@ -40,8 +40,7 @@ public sealed class TerrorLaySystem : EntitySystem
         float tier3Chance = lay.Tier3Chance;
         float tier4Chance = lay.Tier4Chance;
 
-        if (proto.HiveScaling is { } scaling &&
-            TryComp<TerrorQueenComponent>(uid, out var queen))
+        if (proto.HiveScaling is { } scaling && HasComp<TerrorQueenComponent>(uid))
         {
             var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
 
@@ -66,6 +65,14 @@ public sealed class TerrorLaySystem : EntitySystem
                 scaling.Tier3CurveK);
         }
         // else basically do the regular stuff and yadda yadda
+
+        var total = tier4Chance + tier3Chance + tier2Chance; // Prevent overflow.
+        if (total > 1f)
+        {
+            tier4Chance /= total;
+            tier3Chance /= total;
+            tier2Chance /= total;
+        }
 
         var roll = _random.NextFloat();
         var cumulative = 0f;

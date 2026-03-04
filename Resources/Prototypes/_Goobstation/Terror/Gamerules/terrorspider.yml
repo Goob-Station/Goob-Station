@@ -30,6 +30,7 @@
       Medical: 200
       Death: 200
     eventType: HostilesSpawn
+  - type: TerrorHiveRule
   - type: GameRule
     chaosScore: 400
   - type: Tag

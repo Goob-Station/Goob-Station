@@ -5,6 +5,7 @@ using Content.Server.Antag;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 
@@ -20,8 +21,8 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TerrorHiveRuleComponent, TerrorSpiderDiedEvent>(OnSpiderDeath);
-        SubscribeLocalEvent<TerrorHiveRuleComponent, TerrorWrappedCorpseEvent>(OnWrappedCorpse);
+        SubscribeLocalEvent<TerrorSpiderComponent, TerrorSpiderDiedEvent>(OnSpiderDeath);
+        SubscribeLocalEvent<TerrorSpiderComponent, TerrorWrappedCorpseEvent>(OnWrappedCorpse);
         SubscribeLocalEvent<TerrorHiveRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
     }
     private void OnSelectAntag(
@@ -35,15 +36,20 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
     }
 
     private void OnWrappedCorpse(
-        EntityUid uid,
-        TerrorHiveRuleComponent rule,
+        EntityUid spiderUid,
+        TerrorSpiderComponent spider,
         ref TerrorWrappedCorpseEvent args)
     {
-        rule.TotalWrapped++;
+        var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
 
-        CheckThresholds(uid, rule);
+        while (rules.MoveNext(out var ruleUid, out var rule, out _))
+        {
+            rule.TotalWrapped++;
 
-        Dirty(uid, rule);
+            CheckThresholds(ruleUid, rule);
+
+            Dirty(ruleUid, rule);
+        }
     }
 
     private void CheckThresholds(EntityUid uid, TerrorHiveRuleComponent rule)
@@ -98,13 +104,17 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
     }
 
     private void OnSpiderDeath(
-    EntityUid uid,
-    TerrorHiveRuleComponent rule,
-    ref TerrorSpiderDiedEvent args)
+        EntityUid spiderUid,
+        TerrorSpiderComponent spider,
+        ref TerrorSpiderDiedEvent args)
     {
-        CheckLoseConditions(uid, rule);
+        var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
 
-        Dirty(uid, rule);
+        while (rules.MoveNext(out var ruleUid, out var rule, out _))
+        {
+            CheckLoseConditions(ruleUid, rule);
+            Dirty(ruleUid, rule);
+        }
     }
 
     private bool IsQueenAlive(EntityUid? queen)

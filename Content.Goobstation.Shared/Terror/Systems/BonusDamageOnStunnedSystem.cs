@@ -11,6 +11,7 @@ namespace Content.Goobstation.Shared.Terror.Systems;
 public sealed class BonusDamageOnStunnedSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -26,25 +27,15 @@ public sealed class BonusDamageOnStunnedSystem : EntitySystem
 
         foreach (var target in args.HitEntities)
         {
-            if (!TryComp<StatusEffectsComponent>(target, out _))
-                continue;
-
-            var isStunned =
-                _status.HasStatusEffect(target, "Stun") ||
-                _status.HasStatusEffect(target, "KnockedDown");
-
-            if (!isStunned)
+            if (!TryComp<StatusEffectsComponent>(target, out _) ||(!_status.HasStatusEffect(target, "Stun") && !_status.HasStatusEffect(target, "KnockedDown")))
                 continue;
 
             var extraDamage = new DamageSpecifier();
 
             foreach (var (type, amount) in args.BaseDamage.DamageDict)
-            {
                 extraDamage.DamageDict[type] = amount * (multiplier - 1f);
-            }
 
-            var damageableSys = EntityManager.System<DamageableSystem>();
-            damageableSys.TryChangeDamage(target, extraDamage, origin: ent.Owner);
+            _damageable.TryChangeDamage(target, extraDamage, origin: ent.Owner);
         }
     }
 }

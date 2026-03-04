@@ -24,7 +24,7 @@ public readonly record struct TerrorWrappedCorpseEvent(EntityUid Spider);
 
 public sealed class TerrorSpiderDiedEvent : EntityEventArgs
 {
-    public readonly EntityUid Spider;
+    public EntityUid Spider { get; }
 
     public TerrorSpiderDiedEvent(EntityUid spider)
     {

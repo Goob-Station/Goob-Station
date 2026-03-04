@@ -25,10 +25,10 @@ public sealed class InfestOnHitSystem : EntitySystem
 
         foreach (var target in args.HitEntities)
         {
-            if (!EntityManager.HasComponent<BodyComponent>(target))
+            if (!HasComp<BodyComponent>(target))
                 continue;
 
-            EntityManager.EnsureComponent<InfestedComponent>(target);
+            EnsureComp<InfestedComponent>(target);
         }
     }
 }

@@ -4,7 +4,6 @@ using Content.Goobstation.Shared.Terror.Gamerules;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -22,13 +21,11 @@ public sealed class TerrorWrapSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<TerrorWrapComponent, TerrorWrapEvent>(OnTryWrap);
-
         SubscribeLocalEvent<TerrorWrapComponent, TerrorWrapDoAfterEvent>(OnWrapDoAfter);
 
     }
@@ -72,7 +69,7 @@ public sealed class TerrorWrapSystem : EntitySystem
             return;
         }
 
-        var cocoon = EntityManager.SpawnEntity(ent.Comp.CocoonProto, Transform(target).Coordinates);
+        var cocoon = Spawn(ent.Comp.CocoonProto, Transform(target).Coordinates);
 
         _storage.Insert(target, cocoon);
 
@@ -86,11 +83,6 @@ public sealed class TerrorWrapSystem : EntitySystem
         // Used to increase the odds of better eggs being laid by the Queen.
         var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
 
-        while (rules.MoveNext(out var uid, out var rule, out _))
-        {
-            rule.TotalWrapped++;
-            Dirty(uid, rule);
-        }
         _admin.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner)} cocooned {ToPrettyString(target)} as a Terror Spider.");
         args.Handled = true;
     }

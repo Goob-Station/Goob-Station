@@ -32,7 +32,7 @@ public sealed class TerrorSpiderSystem : EntitySystem
         if (HasComp<TerrorQueenComponent>(uid))
             return;
 
-        BroadcastSpiderDeath(new Entity<TerrorSpiderComponent>(uid, component));
+        BroadcastSpiderDeath((uid, component));
 
         var ev = new TerrorSpiderDiedEvent(uid);
         RaiseLocalEvent(ev);

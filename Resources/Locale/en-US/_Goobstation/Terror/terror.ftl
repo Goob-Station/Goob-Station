@@ -24,3 +24,5 @@ terror-spider-hive-death = A member of the hive has fallen… { $spider }
 terror-hive-infestation-detected = Terror spider infestation detected on station. All personnel must contain the outbreak.
 
 terror-hive-infestation-victory = Strong psyonic interference detected. ▄▖▜▚┣ amount of critters ▀▖┗▛▖▞┣┗▖┗┣ inside the station's ventilation system. The ▀▖┗▛ shuttle has been called.
+
+terror-hive-defeated = Scans indicate termination of dominant psionic signature aboard the station.
