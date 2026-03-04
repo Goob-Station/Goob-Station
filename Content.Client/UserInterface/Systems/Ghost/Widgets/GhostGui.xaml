@@ -18,5 +18,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <Button Name="GhostRolesButton" />
         <Button Name="GhostBarButton" Text="{Loc 'ghost-target-window-ghostbar'}" />
         <!-- CorvaxGoob - Ghost Bar -->
+        <Button Name="ThunderdomeButton" Text="{Loc thunderdome-ghost-button-default}" />
     </BoxContainer>
 </widgets:GhostGui>

@@ -984,7 +984,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase] # CorvaxGoob-Contraband : deleted contra label
+  parent: [UnsensoredClothingUniformBase, ClothingUniformFoldableBase] # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpsuitOperative
   name: operative jumpsuit
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.

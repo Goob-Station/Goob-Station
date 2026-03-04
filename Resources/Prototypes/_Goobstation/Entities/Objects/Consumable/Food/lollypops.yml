@@ -9,12 +9,12 @@
 # Lollypops are meant to hold chems. If you can implement them injecting chems while on the mask slot, that'd be cool.
 
 - type: entity
-  parent: FoodBase
+  parent: BaseItem
   id: FoodSnackLollypopWrappedBase
   description: A plain old lollypop. It's still in a wrapper.
   abstract: true
   components:
-  - type: Food
+  - type: SpaceGarbage
   - type: Tag
     tags:
     - FoodSnack
@@ -41,7 +41,7 @@
   - type: FlavorProfile
     flavors:
     - cherry
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketLollypopTrash
   - type: Tag
@@ -2089,7 +2089,7 @@
     quickEquip: false # You want to eat it, not stick it in your mouth.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     slots: [ mask ]
-  - type: Food
+  - type: Edible
     solution: food
   - type: FlavorProfile
     flavors:
