@@ -58,7 +58,8 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
             var loc = _navMap.GetNearestBeaconString(uid);
             var clean = FormattedMessage.RemoveMarkupOrThrow(loc);
 
-            result.AppendLine($"{ToPrettyString(uid)} — {clean}");
+            var name = Comp<MetaDataComponent>(uid).EntityName;
+            result.AppendLine($"{name} — {clean}");
         }
 
         return found ? result.ToString() : string.Empty;

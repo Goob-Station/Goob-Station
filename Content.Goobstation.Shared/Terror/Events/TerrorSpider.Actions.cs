@@ -22,12 +22,4 @@ public sealed partial class TerrorVentSmashEvent : EntityTargetActionEvent;
 
 public readonly record struct TerrorWrappedCorpseEvent(EntityUid Spider);
 
-public sealed class TerrorSpiderDiedEvent : EntityEventArgs
-{
-    public EntityUid Spider { get; }
-
-    public TerrorSpiderDiedEvent(EntityUid spider)
-    {
-        Spider = spider;
-    }
-}
+public readonly record struct TerrorSpiderDiedEvent(EntityUid Spider);

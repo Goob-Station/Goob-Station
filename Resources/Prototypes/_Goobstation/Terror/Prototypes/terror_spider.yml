@@ -14,11 +14,12 @@
   tier: 1
   canLay: true
   layConfig:
-    tier1Chance: 1.0
-    tier1:
-      - TerrorEggRed
-      - TerrorEggGray
-      - TerrorEggGreen
+    tiers:
+    - baseChance: 1.0
+      prototypes:
+        - TerrorEggRed
+        - TerrorEggGray
+        - TerrorEggGreen
 
 # tier 2
 
@@ -50,17 +51,18 @@
   tier: 3
   canLay: true
   layConfig:
-    tier1Chance: 0.9
-    tier2Chance: 0.1
-    tier1:
-      - TerrorEggRed
-      - TerrorEggGray
-      - TerrorEggGreen
-    tier2:
-      - TerrorEggBlack
-      - TerrorEggWhite
-      - TerrorEggPurple
-      - TerrorEggBrown
+    tiers:
+    - baseChance: 0.9
+      prototypes:
+        - TerrorEggRed
+        - TerrorEggGray
+        - TerrorEggGreen
+    - baseChance: 0.1
+      prototypes:
+        - TerrorEggBlack
+        - TerrorEggWhite
+        - TerrorEggPurple
+        - TerrorEggBrown
 
 - type: terrorSpider
   id: TerrorMother
@@ -73,30 +75,30 @@
   tier: 4
   canLay: true
   layConfig:
-    tier1Chance: 0.9
-    tier2Chance: 0.09
-    tier3Chance: 0.01
-    tier1:
-      - TerrorEggRed
-      - TerrorEggGray
-      - TerrorEggGreen
-    tier2:
-      - TerrorEggBlack
-      - TerrorEggWhite
-      - TerrorEggPurple
-      - TerrorEggBrown
-    tier3:
-      - TerrorEggBlack
-      - TerrorEggWhite
-      - TerrorEggPurple
-      - TerrorEggBrown
-  hiveScaling:
-    tier2BaseChance: 0.05
-    tier2MaxChance: 0.50
-    tier2CurveK: 40
-    tier3BaseChance: 0.01
-    tier3MaxChance: 0.10
-    tier3CurveK: 80
+    tiers:
+    - baseChance: 0.9
+      prototypes:
+        - TerrorEggRed
+        - TerrorEggGray
+        - TerrorEggGreen
+    - baseChance: 0.05
+      maxChance: 0.50
+      curveK: 40
+      scaleWithHive: true
+      prototypes:
+        - TerrorEggBlack
+        - TerrorEggWhite
+        - TerrorEggPurple
+        - TerrorEggBrown
+    - baseChance: 0.01
+      maxChance: 0.10
+      curveK: 80
+      scaleWithHive: true
+      prototypes:
+        - TerrorEggBlack
+        - TerrorEggWhite
+        - TerrorEggPurple
+        - TerrorEggBrown
 
 # Misc
 

@@ -1,9 +1,7 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
 using Content.Goobstation.Shared.Terror.Gamerules;
-using Content.Server.GameTicking;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -17,9 +15,7 @@ namespace Content.Goobstation.Server.Terror.Systems;
 public sealed class TerrorLaySystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     public override void Initialize()
     {
@@ -36,72 +32,45 @@ public sealed class TerrorLaySystem : EntitySystem
 
         var lay = proto.LayConfig;
 
-        float tier2Chance = lay.Tier2Chance;
-        float tier3Chance = lay.Tier3Chance;
-        float tier4Chance = lay.Tier4Chance;
+        if (lay.Tiers.Count == 0)
+            return;
 
-        if (proto.HiveScaling is { } scaling && HasComp<TerrorQueenComponent>(uid))
+        int wraps = 0;
+
+        if (HasComp<TerrorQueenComponent>(uid))
         {
             var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
-
-            int wraps = 0;
-
             while (rules.MoveNext(out var _, out var rule, out _))
             {
                 wraps = rule.TotalWrapped;
                 break;
             }
-
-            tier2Chance = DiminishingChance(
-                wraps,
-                scaling.Tier2BaseChance,
-                scaling.Tier2MaxChance,
-                scaling.Tier2CurveK);
-
-            tier3Chance = DiminishingChance(
-                wraps,
-                scaling.Tier3BaseChance,
-                scaling.Tier3MaxChance,
-                scaling.Tier3CurveK);
-        }
-        // else basically do the regular stuff and yadda yadda
-
-        var total = tier4Chance + tier3Chance + tier2Chance; // Prevent overflow.
-        if (total > 1f)
-        {
-            tier4Chance /= total;
-            tier3Chance /= total;
-            tier2Chance /= total;
         }
 
         var roll = _random.NextFloat();
         var cumulative = 0f;
 
-        cumulative += tier4Chance;
-        if (roll < cumulative)
+        foreach (var tier in lay.Tiers)
         {
-            TrySpawnFromList(lay.Tier4, args.Target);
-            args.Handled = true;
-            return;
+            var chance = tier.BaseChance;
+
+            if (tier.ScaleWithHive &&
+                tier.MaxChance is { } max &&
+                tier.CurveK is { } k)
+            {
+                chance = DiminishingChance(wraps, tier.BaseChance, max, k);
+            }
+
+            cumulative += chance;
+
+            if (roll < cumulative)
+            {
+                TrySpawnFromList(tier.Prototypes, args.Target);
+                args.Handled = true;
+                return;
+            }
         }
 
-        cumulative += tier3Chance;
-        if (roll < cumulative)
-        {
-            TrySpawnFromList(lay.Tier3, args.Target);
-            args.Handled = true;
-            return;
-        }
-
-        cumulative += tier2Chance;
-        if (roll < cumulative)
-        {
-            TrySpawnFromList(lay.Tier2, args.Target);
-            args.Handled = true;
-            return;
-        }
-
-        TrySpawnFromList(lay.Tier1, args.Target);
         args.Handled = true;
     }
     private void TrySpawnFromList(List<EntProtoId> list, EntityUid at)

@@ -71,7 +71,7 @@ public sealed class TerrorWrapSystem : EntitySystem
             return;
         }
 
-        var cocoon = Spawn(ent.Comp.CocoonProto, Transform(target).Coordinates);
+        var cocoon = PredictedSpawnAtPosition(ent.Comp.CocoonProto, Transform(target).Coordinates);
 
         _storage.Insert(target, cocoon);
 
