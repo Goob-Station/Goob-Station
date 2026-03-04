@@ -22,4 +22,8 @@ namespace Content.Server.Roles;
 [RegisterComponent]
 public sealed partial class TraitorRoleComponent : BaseMindRoleComponent
 {
+    /// <summary>
+    ///     Goobstation - traitor flavor.
+    /// </summary>
+    [DataField] public string ObjectiveIssuer = string.Empty;
 }
