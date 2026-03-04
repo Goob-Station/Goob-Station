@@ -50,11 +50,11 @@ public sealed class MindcontrolSystem : EntitySystem
     }
     public void OnStartup(EntityUid uid, MindcontrolledComponent component, ComponentStartup arg)
     {
-        _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true); //dont need this but, but its a still a good indicator from how Revulution and subverted silicone does it
+        _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(5f)); //dont need this but, but its a still a good indicator from how Revulution and subverted silicone does it
     }
     public void OnShutdown(EntityUid uid, MindcontrolledComponent component, ComponentShutdown arg)
     {
-        _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true);
+        _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(5f));
         if (_mindSystem.TryGetMind(uid, out var mindId, out _))
             _roleSystem.MindRemoveRole<MindcontrolledRoleComponent>(mindId);
         _popup.PopupEntity(Loc.GetString("mindcontrol-popup-stop"), uid, PopupType.Large);

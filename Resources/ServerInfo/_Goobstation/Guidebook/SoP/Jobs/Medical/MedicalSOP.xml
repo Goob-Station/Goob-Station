@@ -12,10 +12,10 @@ These are the list of SOPs that Medical Personnel should follow. These are, as s
 For purposes of condensing entries, [color=#42636d][bold]Medical Doctor[/bold][/color], [color=#42636d][bold]Medical Intern[/bold][/color], [color=#42636d][bold]Paramedic[/bold][/color] are combined.
 
 The following jobs have entries in this Department, the [color=#1b67a5][bold]Chief Medical Officer[/bold][/color] being the Head of Staff:
-- [textlink="Chief Medical Officer" link="ChiefMedicalOfficer SOP"]
-- [textlink="Chemist" link="Chemist SOP"]
-- [textlink="Paramedic" link="DoctorIntern SOP"]
-- [textlink="Medical Doctor" link="DoctorIntern SOP"]
-- [textlink="Medical Intern" link="DoctorIntern SOP"]
+- [textlink="Chief Medical Officer" link="ChiefMedicalOfficerSOP"]
+- [textlink="Chemist" link="ChemistSOP"]
+- [textlink="Paramedic" link="DoctorInternSOP"]
+- [textlink="Medical Doctor" link="DoctorInternSOP"]
+- [textlink="Medical Intern" link="DoctorInternSOP"]
 
 </Document>
