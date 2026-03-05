@@ -1,8 +1,10 @@
 - type: startingGear
   id: ThunderdomeBaseGear
   equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
     outerClothing: ClothingOuterArmorBasic
     head: ClothingHeadHelmetBasic
+    mask: ClothingMaskGasThunderdome
     shoes: ClothingShoesBootsCombatFilled
     back: ClothingBackpack
     pocket1: WeaponPistolMk58
