@@ -270,6 +270,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private void CleanUpPlayer(EntityUid uid, ThunderdomePlayerComponent tdPlayer, ThunderdomeRuleComponent rule, bool playSound, SoundPathSpecifier sound)
     {
+        rule.Players.Remove(GetNetEntity(uid));
 
         if (!TryComp<VisitingMindComponent>(uid, out var visitingMind)
             || visitingMind.MindId == null
@@ -278,7 +279,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             return;
 
         mindComp.PreventGhosting = false;
-        rule.Players.Remove(GetNetEntity(uid));
 
         if (mindId != default)
         {
