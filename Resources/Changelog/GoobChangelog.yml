@@ -21703,3 +21703,15 @@ Entries:
       message: Fixed servers crashing on round restart.
   id: 2468
   time: '2026-03-04T01:03:50.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: DT-2 'Justice' resprite
+  id: 2469
+  time: '2026-03-04T11:18:43.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Remove
+      message: Removed Hristov from the ThunderDome.
+  id: 2470
+  time: '2026-03-05T03:34:31.0000000+00:00'
