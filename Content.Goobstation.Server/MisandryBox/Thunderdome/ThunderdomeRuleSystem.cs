@@ -1,10 +1,9 @@
-using System.Linq;
+using Content.Goobstation.Server.MisandryBox.Mind;
+using Content.Goobstation.Shared.MisandryBox.Mind;
 using Content.Goobstation.Shared.MisandryBox.Thunderdome;
-using Content.Server.Destructible;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Spawners.Components;
@@ -14,17 +13,15 @@ using Content.Shared.Ghost;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Item;
 using Content.Server.Preferences.Managers;
-using Content.Shared.Destructible;
+using Content.Shared.Damage;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Robust.Server.Audio;
-using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
@@ -34,7 +31,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.MisandryBox.Thunderdome;
 
@@ -52,10 +48,9 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly TemporaryMindSystem _tempMind = default!;
 
 
 
@@ -76,6 +71,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, MobStateChangedEvent>(OnOriginalBodyStateChanged);
         SubscribeNetworkEvent<ThunderdomeRevivalAcceptEvent>(OnRevivalAccept);
         SubscribeLocalEvent<ThunderdomePlayerComponent, SuicideGhostEvent>(OnSuicideAttempt);
+        SubscribeLocalEvent<ThunderdomeArenaProtectedComponent, BeforeDamageChangedEvent>(OnArenaEntityDamage);
     }
 
     public override void Update(float frameTime)
@@ -121,6 +117,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             var query = EntityQueryEnumerator<ThunderdomePlayerComponent>();
             while (query.MoveNext(out var uid, out _))
             {
+                _tempMind.TryRestoreAsGhost(uid);
                 QueueDel(uid);
             }
 
@@ -142,7 +139,25 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         component.ArenaMap = args.Map;
         component.ArenaGrids.UnionWith(args.Grids);
         component.Active = true;
+        WorldGuard(args.Map);
         BroadcastPlayerCount(component);
+    }
+
+    private void WorldGuard(MapId map)
+    {
+        var damageables = new HashSet<Entity<DamageableComponent>>();
+        _lookup.GetEntitiesOnMap(map, damageables);
+
+        foreach (var (ent, _) in damageables)
+        {
+            if (!HasComp<ThunderdomePlayerComponent>(ent))
+                EnsureComp<ThunderdomeArenaProtectedComponent>(ent);
+        }
+    }
+
+    private static void OnArenaEntityDamage(EntityUid uid, ThunderdomeArenaProtectedComponent component, ref BeforeDamageChangedEvent args)
+    {
+        args.Cancelled = true;
     }
 
     private void OnJoinRequest(ThunderdomeJoinRequestEvent ev, EntitySessionEventArgs args)
@@ -232,7 +247,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             return;
 
         var spawnCoords = GetRandomSpawnPoint(rule);
-        if (spawnCoords == null || !_mind.TryGetMind(ghostEntity, out var mindId, out var mindComp))
+        if (spawnCoords == null || !_mind.TryGetMind(ghostEntity, out _, out var mindComp))
             return;
 
         HumanoidCharacterProfile? profile = null;
@@ -246,7 +261,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SpawnLoadoutItems(mob, weaponIdx, rule);
 
         var tdPlayer = EnsureComp<ThunderdomePlayerComponent>(mob);
-        tdPlayer.OriginalBody = originalBody;
         tdPlayer.RuleEntity = ruleEntity;
         tdPlayer.WeaponSelection = weaponIdx;
 
@@ -257,9 +271,8 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
                 marker.Owner = ownerId;
         }
 
-        _mind.UnVisit(mindId, mindComp); // we are ghost, go to original
-        _mind.Visit(mindId, mob, mindComp); // original now visits new body
-        mindComp.PreventGhosting = true; // ghosting is wackier than suicide
+        if (!_tempMind.TrySwapTempMind(session, mob))
+            return;
 
         rule.Players.Add(GetNetEntity(mob));
 
@@ -272,31 +285,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     {
         rule.Players.Remove(GetNetEntity(uid));
 
-        if (!TryComp<VisitingMindComponent>(uid, out var visitingMind)
-            || visitingMind.MindId == null
-            || !_mind.TryGetMind(uid, out var mindId, out var mindComp)
-            || !_transform.TryGetMapOrGridCoordinates(uid, out var deathCoords))
-            return;
-
-        mindComp.PreventGhosting = false;
-
-        if (mindId != default)
-        {
-            var ghost = Spawn("MobObserver", deathCoords.Value);
-            _mind.MoveVisitingEntity(uid, ghost, visitingMind, mindComp); // we do ts so we dont have to unvisit then visit again and reload maps.
-
-            if (TryComp<GhostComponent>(ghost, out var ghostComp))
-                _ghost.SetCanReturnToBody((ghost, ghostComp), true);
-
-            if (_playerManager.TryGetSessionById(mindComp.UserId, out var session))
-                _playerManager.SetAttachedEntity(session, ghost);
-
-            if (!string.IsNullOrWhiteSpace(mindComp.CharacterName))
-                _meta.SetEntityName(ghost, FormattedMessage.EscapeText(mindComp.CharacterName));
-            else if (mindComp.UserId is { } userId && _playerManager.TryGetSessionById(userId, out session))
-                _meta.SetEntityName(ghost, FormattedMessage.EscapeText(session.Name)); 
-        }
-        if (playSound)
+        if (playSound && _transform.TryGetMapOrGridCoordinates(uid, out var deathCoords))
         {
             var name = Identity.Entity(uid, EntityManager);
             _popup.PopupCoordinates(Loc.GetString("thunderdome-leave-01", ("user", name)),
@@ -307,6 +296,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             _audio.PlayStatic(sound, filter, deathCoords.Value, true, audioParams);
         }
 
+        _tempMind.TryRestoreAsGhost(uid);
         QueueDel(uid);
         BroadcastPlayerCount(rule);
     }
@@ -352,15 +342,8 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             return;
 
         rule.Players.Remove(GetNetEntity(entity));
-        var coords = _transform.GetMapCoordinates(entity);
+        _tempMind.TryRestoreAsGhost(entity);
         QueueDel(entity);
-
-        if ((session.AttachedEntity == null || !Exists(session.AttachedEntity))
-            && _mind.TryGetMind(entity, out var mindId, out _))
-        {
-            var ghost = Spawn("MobObserver", coords);
-            _mind.TransferTo(mindId, ghost);
-        }
 
         BroadcastPlayerCount(rule);
     }
@@ -382,17 +365,17 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         var session = args.SenderSession;
 
         if (session.AttachedEntity is not { Valid: true } currentEntity
-            || !TryComp<ThunderdomePlayerComponent>(currentEntity, out var tdPlayer))
+            || !TryComp<ThunderdomePlayerComponent>(currentEntity, out var tdPlayer)
+            || !TryComp<TemporaryMindComponent>(currentEntity, out var tempMind))
             return;
 
-        var originalBody = tdPlayer.OriginalBody;
+        if (!TryComp<MindComponent>(tempMind.OriginalMind, out var origMind))
+            return;
 
+        var originalBody = origMind.OwnedEntity;
         if (originalBody == null || !Exists(originalBody)
             || !TryComp<MobStateComponent>(originalBody, out var mobState)
             || mobState.CurrentState == MobState.Dead)
-            return;
-
-        if (!_mind.TryGetMind(currentEntity, out var mindId, out _))
             return;
 
         if (tdPlayer.RuleEntity != null
@@ -402,7 +385,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             BroadcastPlayerCount(rule);
         }
 
-        _mind.TransferTo(mindId, originalBody.Value);
+        _tempMind.TryRestoreToOriginalBody(currentEntity);
         RemComp<ThunderdomeOriginalBodyComponent>(originalBody.Value);
         QueueDel(currentEntity);
     }

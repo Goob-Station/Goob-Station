@@ -7,9 +7,6 @@ namespace Content.Goobstation.Shared.MisandryBox.Thunderdome;
 public sealed partial class ThunderdomePlayerComponent : Component
 {
     [DataField]
-    public EntityUid? OriginalBody;
-
-    [DataField]
     public EntityUid? RuleEntity;
 
     [DataField]
