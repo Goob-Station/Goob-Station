@@ -18,35 +18,35 @@
             "name": "light-overlay"
         },
         {
-            "name": "equipped-head",
+            "name": "off-equipped-head",
             "directions": 4
         },
         {
-            "name": "equipped-head-light",
+            "name": "on-equipped-head",
             "directions": 4
         },
         {
-            "name": "equipped-head-vox",
+            "name": "off-equipped-head-vox",
             "directions": 4
         },
         {
-            "name": "equipped-head-light-vox",
+            "name": "on-equipped-head-vox",
             "directions": 4
         },
         {
-            "name": "equipped-head-dog",
+            "name": "off-equipped-head-dog",
             "directions": 4
         },
         {
-            "name": "equipped-head-light-dog",
+            "name": "on-equipped-head-dog",
             "directions": 4
         },
         {
-            "name": "equipped-head-vulpkanin",
+            "name": "off-equipped-head-vulpkanin",
             "directions": 4
         },
         {
-            "name": "equipped-head-light-vulpkanin",
+            "name": "on-equipped-head-vulpkanin",
             "directions": 4
         }
     ]
