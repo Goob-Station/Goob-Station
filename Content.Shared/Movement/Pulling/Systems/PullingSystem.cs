@@ -126,6 +126,7 @@ using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Physics;
@@ -191,49 +192,6 @@ public sealed class PullingSystem : EntitySystem
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
     }
-
-    // Goobstation - Grab Intent
-    private void OnDowned(Entity<PullableComponent> ent, ref DownedEvent args)
-    {
-        if (!TryComp(ent.Comp.Puller, out PullerComponent? puller))
-            return;
-
-        ResetGrabEscapeChance(ent, (ent.Comp.Puller.Value, puller));
-    }
-
-    private void OnStood(Entity<PullableComponent> ent, ref StoodEvent args)
-    {
-        if (!TryComp(ent.Comp.Puller, out PullerComponent? puller))
-            return;
-
-        ResetGrabEscapeChance(ent, (ent.Comp.Puller.Value, puller));
-    }
-
-    private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
-    {
-        if (ent.Comp.Pulling != args.User
-            || ent.Comp.GrabStage < GrabStage.Soft
-            || !TryComp(args.User, out PullableComponent? pullable))
-            return;
-
-        if (_random.Prob(pullable.GrabEscapeChance))
-            TryLowerGrabStage((args.User, pullable), (ent.Owner, ent.Comp), true);
-    }
-
-    private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (!args.Cancelled
-            && TryComp<PullableComponent>(ent.Comp.Pulling, out var comp)
-            && ent.Comp.Pulling != null)
-        {
-            if(_netManager.IsServer)
-                StopPulling(ent.Comp.Pulling.Value, comp);
-        }
-    }
-    // Goobstation
 
     private void OnTargetHandcuffed(Entity<ActivePullerComponent> ent, ref TargetHandcuffedEvent args)
     {

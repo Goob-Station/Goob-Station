@@ -1,4 +1,6 @@
 using Content.Goobstation.Common.Grab;
+using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.GrabIntent;
@@ -48,11 +50,17 @@ public sealed partial class GrabIntentComponent : Component
     [DataField]
     public float GrabThrowDamageModifier = 2f;
 
-    [ViewVariables]
-    public List<EntityUid> GrabVirtualItems = [];
+    [DataField]
+    public FixedPoint2 GrabThrowDamage = 5;
+
+    [DataField]
+    public string GrabThrowDamageType = "Blunt";
 
     [ViewVariables]
-    public Dictionary<GrabStage, int> GrabVirtualItemStageCount = new()
+    public readonly List<EntityUid> GrabVirtualItems = [];
+
+    [ViewVariables]
+    public readonly Dictionary<GrabStage, int> GrabVirtualItemStageCount = new()
     {
         { GrabStage.Suffocate, 1 },
     };
@@ -71,4 +79,7 @@ public sealed partial class GrabIntentComponent : Component
 
     [DataField]
     public float ChokeGrabSpeedModifier = 0.4f;
+
+    [NonSerialized]
+    public readonly SoundPathSpecifier GrabSoundEffect = new("/Audio/Effects/thudswoosh.ogg");
 }

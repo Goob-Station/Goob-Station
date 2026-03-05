@@ -26,7 +26,7 @@ public record struct CheckGrabbedEvent(bool IsGrabbed = false);
 public record struct RaiseGrabModifierEventEvent(
     EntityUid User,
     int Stage,
-    int? NewStage = null,
+    GrabStage? NewStage = null,
     float Multiplier = 1f,
     float Modifier = 0f,
     float SpeedMultiplier = 1f);
