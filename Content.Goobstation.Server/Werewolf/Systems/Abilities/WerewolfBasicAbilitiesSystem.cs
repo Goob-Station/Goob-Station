@@ -1,12 +1,5 @@
-using System.Linq;
-using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Goobstation.Server.Changeling.Objectives.Components;
-using Content.Goobstation.Server.Werewolf.Components;
-using Content.Goobstation.Shared.Changeling.Actions;
-using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.Werewolf.Abilities;
 using Content.Goobstation.Shared.Werewolf.Abilities.Basic;
@@ -16,37 +9,22 @@ using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Actions;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Polymorph;
-using Content.Shared.Popups;
 using Content.Shared.Store.Components;
-using Content.Shared.Throwing;
-using Content.Shared.Traits.Assorted;
+using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Werewolf.Systems.Abilities;
 
 
-public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
+public partial class WerewolfBasicAbilitiesSystem : EntitySystem
 {
 
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
@@ -63,14 +41,16 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
     [Dependency] private readonly SharedWerewolfBasicAbilitiesSystem _sharedWerewolf = default!; // hell.
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     public override void Initialize()
     {
+        base.Initialize();
+        InitializeWerewolfSide();
+
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, TransfurmEvent>(TryTransfurm);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfChangeType>(OnChangeType);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfOpenStore>(OnOpenStore);
-        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfDevour>(TryDevour);
-        SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, WerewolfDevourDoAfterEvent>(DoDevour);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, PolymorphedEvent>(OnPolymorphed);
         SubscribeLocalEvent<WerewolfBasicAbilitiesComponent, EventWerewolfRegen>(TryRegen);
     }
@@ -120,11 +100,17 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
             || ent.Comp.Transfurmed == true)
             return;
 
-        _mind.TryGetMind(ent.Owner, out var mindId, out var mind);
-        if (!TryComp<WerewolfMindComponent>(mindId, out var mindComp)) return;
-        foreach (var bit in mindComp.BittenPeople)
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "Fury", ent.Comp.Amount } }, ent.Owner);
-        mindComp.BittenPeople.Clear();
+        // ok hear me out
+        // when you do shit in the WW form that gives you points, it saves in mind and then the next time you open store it adds up
+        // you HAVE to do ts because why? POLYMORPH IS FUCKING SHIT OF COURSE! ig you can store the old uid for store and shit but whatever
+        if (_mind.TryGetMind(ent, out var mindId, out _) && TryComp<WerewolfMindComponent>(mindId, out var mindComp))
+        {
+            if (mindComp.Currency > 0)
+            {
+                _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "Fury", mindComp.Currency } }, ent);
+                mindComp.Currency = 0;
+            }
+        }
 
         _store.ToggleUi(ent, ent, store);
         ent.Comp.StoreOpened = true;
@@ -139,87 +125,6 @@ public sealed class WerewolfBasicAbilitiesSystem : EntitySystem
     }
 
     #endregion
-
-    # region devour
-    private void TryDevour(EntityUid uid, WerewolfBasicAbilitiesComponent component, EventWerewolfDevour args)
-    {
-        if (component.Transfurmed != true)
-        {
-            _popup.PopupEntity(Loc.GetString("werewolf-action-fail-transfurmed"), uid, uid);
-            return;
-        }
-        var target = args.Target;
-
-        if (HasComp<WerewolfBitComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("werewolf-devour-fail-devoured"), uid, uid);
-            return;
-        }
-        if (!HasComp<AbsorbableComponent>(target)) // i mean... it works? also less wizden files changes
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
-            return;
-        }
-
-        var popupOthers = Loc.GetString("werewolf-devour-start", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
-        _popup.PopupEntity(popupOthers, uid, PopupType.LargeCaution);
-        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(2), new WerewolfDevourDoAfterEvent(), uid, target)
-        {
-            DistanceThreshold = 1.5f,
-            BreakOnDamage = true,
-            BreakOnHandChange = false,
-            BreakOnMove = true,
-            BreakOnWeightlessMove = true,
-            AttemptFrequency = AttemptFrequency.StartAndEnd,
-            MultiplyDelay = false,
-        };
-        _doAfter.TryStartDoAfter(dargs);
-    }
-
-    public ProtoId<DamageGroupPrototype> DevourDamage = "Brute";
-    private void DoDevour(EntityUid uid, WerewolfBasicAbilitiesComponent comp, WerewolfDevourDoAfterEvent args)
-    {
-        if (args.Args.Target == null)
-            return;
-
-        var target = args.Args.Target.Value;
-
-        if (args.Cancelled
-            || HasComp<WerewolfBitComponent>(target)
-            || !TryComp<BodyComponent>(target, out var body))
-            return;
-
-        var dmg = new DamageSpecifier(_proto.Index(DevourDamage), 35);
-        _damage.TryChangeDamage(target, dmg, true, true, targetPart: TargetBodyPart.All);
-        _blood.SpillAllSolutions(target);
-        RipLimb(target, body);
-
-        EnsureComp<WerewolfBitComponent>(target);
-
-        _mind.TryGetMind(uid, out var mindId, out var mind);
-        if (!TryComp<WerewolfMindComponent>(mindId, out var mindComp))
-            return;
-
-        mindComp.BittenPeople.Add(args.Args.Target.Value);
-        _hunger.ModifyHunger(uid, +80); // todo maybe put as a var inside a comp or sdome shit
-    }
-
-    private void RipLimb(EntityUid target, BodyComponent body)
-    {
-        var hands = _body.GetBodyChildrenOfType(target, BodyPartType.Arm, body).ToList();
-
-        if (hands.Count <= 0)
-            return;
-
-        var pick = _gambling.Pick(hands);
-
-        if (!TryComp<WoundableComponent>(pick.Id, out var woundable)
-            || !woundable.ParentWoundable.HasValue)
-            return;
-
-        _wound.AmputateWoundableSafely(woundable.ParentWoundable.Value, pick.Id, woundable);
-    }
-    # endregion
 
     # region actions
     private bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)

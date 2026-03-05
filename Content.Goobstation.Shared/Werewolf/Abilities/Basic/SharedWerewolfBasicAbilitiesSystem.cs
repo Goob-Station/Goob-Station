@@ -41,10 +41,6 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
 
     public void OnStartup(EntityUid uid, WerewolfBasicAbilitiesComponent comp, ref ComponentStartup args)
     {
-        // foreach (var actionId in comp.WerewolfActions)
-        //     _actions.AddAction(uid, actionId);
-        // SyncActions(uid, comp);
-
         if (_tag.HasTag(uid, "VulpEmotes"))
         {
             comp.CurrentMutation = "WerewolfTransformWerehuman";
@@ -56,11 +52,6 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
     # region action handlers
     private void DoHowl(EntityUid uid, WerewolfBasicAbilitiesComponent comp, ref HowlEvent args) //kill me for copying changeling system please
     {
-        // if (comp.Transfurmed != true)
-        // { // cant howl if your not sigma
-        //     _popup.PopupClient(Loc.GetString("werewolf-action-fail-transfurmed"), uid);
-        //     return;
-        // }
         _audio.PlayPredicted(comp.ShriekSound, uid, uid);
 
         var center = Transform(uid).MapPosition;

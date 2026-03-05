@@ -11,6 +11,7 @@ public sealed partial class WerewolfBasicAbilitiesComponent : Component
 {
     [DataField] public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg"); // todo
     [DataField] public SoundSpecifier DistantSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg"); // todo
+    [DataField] public SoundSpecifier RipSound = new SoundPathSpecifier("/Audio/Effects/gib1.ogg");
 
     public readonly List<EntProtoId> WerewolfActions = new()
     {
@@ -34,6 +35,9 @@ public sealed partial class WerewolfBasicAbilitiesComponent : Component
     public ProtoId<PolymorphPrototype> CurrentMutation; //"WerewolfTransformBasic"
 
     [DataField] // amount of points given per devour of a guy
-    public int Amount = 2;
+    public int AmountDevour = 2;
+
+    [DataField]
+    public int AmountGut = 1;
 
 }

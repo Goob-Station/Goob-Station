@@ -33,3 +33,21 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: WerewolfSideGut
+  name: werewolf-store-gut-name
+  description: werewolf-store-gut-desc
+  icon:
+    sprite: _Goobstation/Actions/werewolf.rsi
+    state: gut
+  productEvent: !type:EventWerewolfUpgradeAbility
+    newActionId: ActionWerewolfGut
+  raiseProductEventOnUser: true
+  cost:
+    Fury: 2
+  categories:
+  - WerewolfSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

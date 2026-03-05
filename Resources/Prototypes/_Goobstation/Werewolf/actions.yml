@@ -25,8 +25,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 12 # todo 120
-    startDelay: true
+    useDelay: 6 # todo 600
+    startDelay: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/werewolf.rsi
@@ -83,6 +83,30 @@
       - Body
     canTargetSelf: false
     event: !type:EventWerewolfDevour {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfGut
+  name: Gut
+  description: Spills one of the chest organs of a deceased crew member onto the floor. Organs that are produced from this ability grant you Fury.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: gut
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:EventWerewolfGut {}
+  - type: WerewolfAction
+    hungerCost: 0
+    requireTransfurmed: true
 
 - type: entity
   parent: BaseAction
