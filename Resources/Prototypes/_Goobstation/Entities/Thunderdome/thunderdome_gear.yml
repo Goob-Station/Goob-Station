@@ -5,7 +5,6 @@
     outerClothing: ClothingOuterArmorBasic
     head: ClothingHeadHelmetBasic
     mask: ClothingMaskGasThunderdome
-    eyes: ClothingEyesHudMedical
     shoes: ClothingShoesBootsCombatFilled
     back: ClothingBackpack
     pocket1: WeaponPistolMk58
@@ -103,9 +102,3 @@
     back:
       - Stimpack
       - Stimpack
-
-- type: startingGear
-  id: ThunderdomePie
-  storage:
-    back:
-    - FoodPieBananaCream
