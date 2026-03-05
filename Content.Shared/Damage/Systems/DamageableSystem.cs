@@ -138,7 +138,26 @@ namespace Content.Shared.Damage
         public float UniversalTopicalsHealModifier { get; private set; } = 1f;
         public float UniversalMobDamageModifier { get; private set; } = 1f;
 
+        // Goobstation start - cache multipart targeting data so we do not rebuild it on every damage tick.
+        private static readonly TargetBodyPart[] PrimitiveTargetBodyParts =
+        {
+            TargetBodyPart.Head,
+            TargetBodyPart.Chest,
+            TargetBodyPart.Groin,
+            TargetBodyPart.LeftArm,
+            TargetBodyPart.LeftHand,
+            TargetBodyPart.RightArm,
+            TargetBodyPart.RightHand,
+            TargetBodyPart.LeftLeg,
+            TargetBodyPart.LeftFoot,
+            TargetBodyPart.RightLeg,
+            TargetBodyPart.RightFoot,
+        };
+
         private ProtoId<DamageGroupPrototype>[] _vitalOnlyDamageTypes = { "Airloss", "Toxin", "Genetic", "Metaphysical" }; // Goobstation
+        private readonly HashSet<string> _vitalOnlyDamageTypeIds = new(StringComparer.Ordinal);
+        // Goobstation end
+
         public override void Initialize()
         {
             SubscribeLocalEvent<DamageableComponent, ComponentInit>(DamageableInit);
@@ -155,6 +174,18 @@ namespace Content.Shared.Damage
             _bodyQuery = GetEntityQuery<BodyComponent>();
             _consciousnessQuery = GetEntityQuery<ConsciousnessComponent>();
             _woundableQuery = GetEntityQuery<WoundableComponent>();
+
+            // Goobstation start - resolve vital-only groups once instead of rebuilding them per hit.
+            _vitalOnlyDamageTypeIds.Clear();
+            foreach (var groupId in _vitalOnlyDamageTypes)
+            {
+                var group = _prototypeManager.Index<DamageGroupPrototype>(groupId);
+                foreach (var damageType in group.DamageTypes)
+                {
+                    _vitalOnlyDamageTypeIds.Add(damageType);
+                }
+            }
+            // Goobstation end
 
             // Damage modifier CVars are updated and stored here to be queried in other systems.
             // Note that certain modifiers requires reloading the guidebook.
@@ -297,16 +328,8 @@ namespace Content.Shared.Damage
             if (damage.Empty)
                 return damage;
 
-            // Goobstation start
-            var vitalDamage = new DamageSpecifier(damage);
-            vitalDamage -= vitalDamage;
-            vitalDamage.TrimZeros();
-            foreach (var type in _vitalOnlyDamageTypes)
-            {
-                vitalDamage += new DamageSpecifier(_prototypeManager.Index(type), 0f);
-            }
-            vitalDamage.ExclusiveAdd(damage);
-            vitalDamage.TrimZeros();
+            // Goobstation start - only split off a second vital-only pass when the incoming damage actually needs it.
+            var vitalDamage = GetVitalOnlyDamage(damage);
             // Goobstation end
 
             var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled, targetPart); // Shitmed Change
@@ -319,27 +342,87 @@ namespace Content.Shared.Damage
             if (_bodyQuery.TryGetComponent(uid.Value, out var body)
                 && body.BodyType == BodyType.Complex)
             {
-                damage -= vitalDamage; // Goobstation
-                damage.TrimZeros(); // Goobstation
+                DamageSpecifier? appliedDamage = null;
+                if (vitalDamage != null)
+                {
+                    damage -= vitalDamage; // Goobstation
+                    damage.TrimZeros(); // Goobstation
+                }
 
-                var appliedDamage = ApplyDamageToBodyParts(uid.Value, damage, origin, ignoreResistances,
-                    interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers, splitDamage, canMiss);
+                if (!damage.Empty)
+                {
+                    appliedDamage = ApplyDamageToBodyParts(uid.Value, damage, origin, ignoreResistances,
+                        interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers, splitDamage, canMiss);
+                }
 
-                // Goobstation start
+                if (vitalDamage == null)
+                    return appliedDamage;
+
                 var appliedVitalDamage = ApplyDamageToBodyParts(uid.Value, vitalDamage, origin, ignoreResistances,
                     interruptsDoAfters, TargetBodyPart.Vital, partMultiplier, ignoreBlockers, splitDamage, canMiss);
 
-                var totalDamage = appliedDamage;
-                if (totalDamage != null && appliedVitalDamage != null)
-                    totalDamage += appliedVitalDamage;
+                if (appliedDamage == null)
+                    return appliedVitalDamage;
 
-                return totalDamage;
-                // Goobstation end
+                if (appliedVitalDamage != null)
+                    appliedDamage += appliedVitalDamage;
+
+                return appliedDamage;
             }
 
             // For entities without a body, apply damage directly
             return ApplyDamageToEntity(uid.Value, damage, ignoreResistances, interruptsDoAfters, origin, damageable, ignoreBlockers);
         }
+
+        // Goobstation start - preserve damage metadata while extracting only the vital-only portion.
+        private DamageSpecifier? GetVitalOnlyDamage(DamageSpecifier damage)
+        {
+            DamageSpecifier? vitalDamage = null;
+            foreach (var (type, value) in damage.DamageDict)
+            {
+                if (value == 0 || !_vitalOnlyDamageTypeIds.Contains(type))
+                    continue;
+
+                vitalDamage ??= new DamageSpecifier(damage.ArmorPenetration,
+                    damage.PartDamageVariation,
+                    damage.WoundSeverityMultipliers);
+                vitalDamage.DamageDict[type] = value;
+            }
+
+            return vitalDamage;
+        }
+
+        // Goobstation - gather multipart targets without the LINQ-heavy allocation chain from the upstream path.
+        private bool TryGetTargetedBodyParts(
+            EntityUid uid,
+            TargetBodyPart targetPart,
+            List<(EntityUid Id, BodyPartComponent Component, DamageableComponent Damageable)> targetedBodyParts)
+        {
+            foreach (var flag in PrimitiveTargetBodyParts)
+            {
+                if ((targetPart & flag) == 0)
+                    continue;
+
+                var query = _body.ConvertTargetBodyPart(flag);
+                foreach (var part in _body.GetBodyChildrenOfTypeWithComponent<DamageableComponent>(uid,
+                             query.Type,
+                             symmetry: query.Symmetry))
+                {
+                    targetedBodyParts.Add((part.Id, part.Component, part.ExtraComponent));
+                }
+            }
+
+            if (targetedBodyParts.Count > 0)
+                return true;
+
+            foreach (var part in _body.GetBodyChildrenWithComponent<DamageableComponent>(uid))
+            {
+                targetedBodyParts.Add((part.Id, part.BodyPart, part.Component));
+            }
+
+            return targetedBodyParts.Count > 0;
+        }
+        // Goobstation end
 
         /// <summary>
         /// Applies damage to an entity with body parts, targeting specific parts as needed.
@@ -366,36 +449,11 @@ namespace Content.Shared.Damage
                 // Extract only the body parts that are targeted in the bitmask
                 var targetedBodyParts = new List<(EntityUid Id,
                     BodyPartComponent Component,
-                    DamageableComponent Damageable)>();
+                    DamageableComponent Damageable)>(PrimitiveTargetBodyParts.Length);
 
-                // Get only the primitive flags (powers of 2) - these are the actual individual body parts
-                var primitiveFlags = Enum.GetValues<TargetBodyPart>()
-                    .Where(flag => flag != 0 && (flag & (flag - 1)) == 0) // Power of 2 check
-                    .ToList();
-
-                foreach (var flag in primitiveFlags)
-                {
-                    // Check if this specific flag is set in our targetPart bitmask
-                    if (targetPart.Value.HasFlag(flag))
-                    {
-                        var query = _body.ConvertTargetBodyPart(flag);
-                        var parts = _body.GetBodyChildrenOfTypeWithComponent<DamageableComponent>(uid, query.Type,
-                            symmetry: query.Symmetry).ToList();
-
-                        if (parts.Count > 0)
-                            targetedBodyParts.AddRange(parts);
-                    }
-                }
-
-                // If we couldn't find any of the targeted parts, fall back to all body parts
-                if (targetedBodyParts.Count == 0)
-                {
-                    var query = _body.GetBodyChildrenWithComponent<DamageableComponent>(uid).ToList();
-                    if (query.Count > 0)
-                        targetedBodyParts = query;
-                    else
-                        return null;
-                }
+                // Goobstation - reuse a direct helper here so multipart hits do not rebuild temporary LINQ lists.
+                if (!TryGetTargetedBodyParts(uid, targetPart.Value, targetedBodyParts))
+                    return null;
 
                 // Goob edit start
                 List<float>? multipliers = null;
@@ -725,30 +783,19 @@ namespace Content.Shared.Damage
                     return newDamage;
                 case SplitDamageBehavior.Split:
                     return newDamage / parts.Count;
+                // Goobstation start - filter the existing list in place instead of creating throwaway filtered copies.
                 case SplitDamageBehavior.SplitEnsureAllDamaged:
-                    var damagedParts = parts.Where(part =>
-                        part.Damageable.TotalDamage > FixedPoint2.Zero).ToList();
-
-                    parts.Clear();
-                    parts.AddRange(damagedParts);
-
+                    parts.RemoveAll(part => part.Damageable.TotalDamage <= FixedPoint2.Zero);
                     goto case SplitDamageBehavior.SplitEnsureAll;
                 case SplitDamageBehavior.SplitEnsureAllOrganic:
-                    var organicParts = parts.Where(part =>
-                        part.Component.PartComposition == BodyPartComposition.Organic).ToList();
-
-                    parts.Clear();
-                    parts.AddRange(organicParts);
-
+                    parts.RemoveAll(part => part.Component.PartComposition != BodyPartComposition.Organic);
                     goto case SplitDamageBehavior.SplitEnsureAll;
                 case SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic:
-                    var compatableParts = parts.Where(part =>
-                        part.Damageable.TotalDamage > FixedPoint2.Zero &&
-                        part.Component.PartComposition == BodyPartComposition.Organic).ToList();
-
-                    parts.Clear();
-                    parts.AddRange(compatableParts);
+                    parts.RemoveAll(part =>
+                        part.Damageable.TotalDamage <= FixedPoint2.Zero ||
+                        part.Component.PartComposition != BodyPartComposition.Organic);
                     goto case SplitDamageBehavior.SplitEnsureAll;
+                // Goobstation end
                 case SplitDamageBehavior.SplitEnsureAll:
                     foreach (var (type, val) in newDamage.DamageDict)
                     {
