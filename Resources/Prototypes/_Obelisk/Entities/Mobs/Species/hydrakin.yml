@@ -72,7 +72,7 @@
       Alive: 1
       Critical: 0.75
       Dead: 0
-    minimumTemperature: 293.15 # At this point they will have a "thermal runoff" of sorts and get really hot really fast.
+    minimumTemperature: 27.15 # too bad bro
     maximumTemperature: 340
     ignoreHeatResistance: true
   - type: PressureProtection
