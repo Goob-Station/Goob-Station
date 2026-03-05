@@ -74,7 +74,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         ent.Comp.NextTickTime = _gameTiming.CurTime + ent.Comp.Interval;
         _damageable.TryChangeDamage(ent, ent.Comp.Damage, ignoreResistances: true, targetPart: TargetBodyPart.All);
 
-        if (ent.Comp.SourceEntityUid is { } source && TryComp<HungerComponent>(ent.Comp.SourceEntityUid, out var hunger))
+        if (ent.Comp.SourceEntityUid is { } source && TryComp<StomachComponent>(ent.Comp.SourceEntityUid, out var hunger))
         {
             _hunger.ModifyHunger(source, addedHunger, hunger);
             Dirty(source, hunger);
