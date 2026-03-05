@@ -57,6 +57,11 @@
           description: thunderdome-desc-esword
           category: thunderdome-category-melee
           sprite: EnergySword
+        - gear: ThunderdomePie
+          name: thunderdome-loadout-pie
+          description: thunderdome-desc-pie
+          category: thunderdome-category-silly
+          sprite: FoodPieBananaCream
     - type: LoadMapRule
       mapPath: /Maps/_Goobstation/Nonstations/dm01-entryway.yml
     - type: RuleGrids
