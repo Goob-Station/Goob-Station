@@ -4,6 +4,7 @@ using Content.Goobstation.Shared.MisandryBox.Thunderdome;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
+using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Spawners.Components;
@@ -14,6 +15,7 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Item;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Damage;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
@@ -71,6 +73,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, MobStateChangedEvent>(OnOriginalBodyStateChanged);
         SubscribeNetworkEvent<ThunderdomeRevivalAcceptEvent>(OnRevivalAccept);
         SubscribeLocalEvent<ThunderdomePlayerComponent, SuicideGhostEvent>(OnSuicideAttempt);
+        SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt);
         SubscribeLocalEvent<ThunderdomeArenaProtectedComponent, BeforeDamageChangedEvent>(OnArenaEntityDamage);
     }
 
@@ -252,7 +255,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         HumanoidCharacterProfile? profile = null;
         if (mindComp.UserId is { } userId && _prefs.TryGetCachedPreferences(userId, out var prefs))
-            profile = prefs.SelectedCharacter as HumanoidCharacterProfile;
+            profile = (prefs.SelectedCharacter as HumanoidCharacterProfile)?.WithSpecies(SharedHumanoidAppearanceSystem.DefaultSpecies);
 
         var originalBody = mindComp.OwnedEntity != ghostEntity ? mindComp.OwnedEntity : null;
 
@@ -301,7 +304,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         BroadcastPlayerCount(rule);
     }
 
-    // todo: handle ghost command
     private void OnSuicideAttempt(EntityUid uid, ThunderdomePlayerComponent tdPlayer, ref SuicideGhostEvent args)
     {
         if (tdPlayer.RuleEntity == null
@@ -312,6 +314,19 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         GhostDomePlayer(uid, tdPlayer, rule);
         args.Handled = true;
+    }
+
+    private void OnGhostAttempt(GhostAttemptHandleEvent args)
+    {
+        if (args.Mind.CurrentEntity is not { } entity
+            || !TryComp<ThunderdomePlayerComponent>(entity, out var tdPlayer)
+            || tdPlayer.RuleEntity == null
+            || !TryComp<ThunderdomeRuleComponent>(tdPlayer.RuleEntity.Value, out var rule))
+            return;
+
+        GhostDomePlayer(entity, tdPlayer, rule);
+        args.Handled = true;
+        args.Result = true;
     }
 
     private void GhostDomePlayer(

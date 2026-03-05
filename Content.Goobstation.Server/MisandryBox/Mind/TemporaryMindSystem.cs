@@ -5,6 +5,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Server.Player;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -34,9 +35,13 @@ public sealed class TemporaryMindSystem : EntitySystem
         if (!_mind.TryGetMind(currentEntity, out var origMindId, out var origMind))
             return false;
 
+        var userId = origMind.UserId;
         _mind.UnVisit(origMindId, origMind);
 
-        var newMind = _mind.CreateMind(origMind.UserId, origMind.CharacterName);
+        // Clear userId from original mind so the disposable mind can claim it in UserMinds
+        _mind.SetUserId(origMindId, null, origMind);
+
+        var newMind = _mind.CreateMind(userId, origMind.CharacterName);
         _mind.TransferTo(newMind, newBody);
         _playerManager.SetAttachedEntity(session, newBody);
 
@@ -65,8 +70,10 @@ public sealed class TemporaryMindSystem : EntitySystem
         var ghost = Spawn("MobObserver", coords);
         _mind.Visit(temp.OriginalMind, ghost, origMind);
 
+        var canReturn = origMind.OwnedEntity is { } ownedEntity && Exists(ownedEntity);
+
         if (TryComp<GhostComponent>(ghost, out var ghostComp))
-            _ghost.SetCanReturnToBody((ghost, ghostComp), false);
+            _ghost.SetCanReturnToBody((ghost, ghostComp), canReturn);
 
         if (!string.IsNullOrWhiteSpace(origMind.CharacterName))
             _meta.SetEntityName(ghost, FormattedMessage.EscapeText(origMind.CharacterName));
@@ -103,10 +110,19 @@ public sealed class TemporaryMindSystem : EntitySystem
 
     private void CleanupDisposableMind(TemporaryMindComponent temp)
     {
+        NetUserId? userId = null;
+
         if (Exists(temp.DisposableMind))
         {
+            if (TryComp<MindComponent>(temp.DisposableMind, out var disposableMind))
+                userId = disposableMind.UserId;
+
             _mind.WipeMind(temp.DisposableMind);
             QueueDel(temp.DisposableMind);
         }
+
+        // Restore the userId to the original mind so UserMinds maps back correctly
+        if (userId != null && Exists(temp.OriginalMind))
+            _mind.SetUserId(temp.OriginalMind, userId);
     }
 }
