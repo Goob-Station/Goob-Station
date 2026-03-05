@@ -33,11 +33,6 @@ public sealed partial class SpawnOnDespawnComponent : Component
     /// <summary>
     /// Entity prototype to spawn.
     /// </summary>
-    [DataField]
-    public EntProtoId? Prototype; // Lavaland Change
-
-    // Lavaland Change start - make it spawn more. without specific intrusion.
-    [DataField]
-    public List<EntProtoId> Prototypes = [];
-    // Lavaland Change end
+    [DataField(required: true)]
+    public EntProtoId Prototype = string.Empty;
 }

@@ -150,10 +150,10 @@
       time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # 4 hours
+      time: 21600 # 6 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 14400 # 4 hours
+      time: 28000 # 8 hours
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
@@ -164,8 +164,8 @@
   guides: # goobstation
   - Command
   - Succession
-  - StandardProcedures SOP
-  - Captain SOP
+  - StandardProceduresSOP
+  - CaptainSOP
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear
@@ -188,7 +188,7 @@
   id: CaptainGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesCommand
     #gloves: ClothingHandsGlovesCaptain - Goobstation, moved to loadouts
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand

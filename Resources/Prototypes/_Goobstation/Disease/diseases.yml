@@ -3,6 +3,9 @@
   id: DiseaseBase
   components:
   - type: Disease
+  - type: ContainerContainer # It has to be specified here to prevent container desyncs on client-side
+    containers:
+      diseaseEffectContainer: !type:Container
 
 - type: entity
   id: DiseaseBaseMouse
@@ -29,6 +32,7 @@
       DiseaseBehaviorFeelUnwell: 1
       DiseaseBehaviorHeadache: 0.8
       DiseaseBehaviorCough: 0.6
+      DiseaseBehaviorOwO: 1
 
 - type: entity
   id: DiseaseCancer

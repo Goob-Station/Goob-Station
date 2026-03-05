@@ -6,6 +6,7 @@ using Content.Shared.Flash;
 using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
@@ -31,6 +32,7 @@ public partial class SharedDiseaseSystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly MovementModStatusSystem _movemod = default!;
 
     public float MaxEffectSeverity = 1f; // magic numbers are EVIL and BAD
 
@@ -43,19 +45,51 @@ public partial class SharedDiseaseSystem
         SubscribeLocalEvent<DiseaseFlashEffectComponent, DiseaseEffectEvent>(OnFlashEffect);
         SubscribeLocalEvent<DiseasePopupEffectComponent, DiseaseEffectEvent>(OnPopupEffect);
         SubscribeLocalEvent<DiseasePryTileEffectComponent, DiseaseEffectEvent>(OnPryTileEffect);
+        SubscribeLocalEvent<DiseaseGrantComponentEffectComponent, DiseaseEffectEvent>(OnGrantComponent);
+        SubscribeLocalEvent<DiseaseGrantComponentEffectComponent, DiseaseEffectFailedEvent>(OnGrantComponentEffectFail);
+    }
+
+    private void OnGrantComponent(Entity<DiseaseGrantComponentEffectComponent> ent, ref DiseaseEffectEvent args)
+    {
+        foreach (var (compName, _) in ent.Comp.Components)
+        {
+            if (!Factory.TryGetRegistration(compName, out var registration)
+                || EntityManager.HasComponent(args.Ent, registration.Type))
+                continue;
+            var component = _factory.GetComponent(registration.Type);
+            EntityManager.AddComponent(args.Ent, component);
+        }
+    }
+
+    private void OnGrantComponentEffectFail(Entity<DiseaseGrantComponentEffectComponent> ent, ref DiseaseEffectFailedEvent args)
+    {
+        foreach (var (compName, _) in ent.Comp.Components)
+        {
+            if (Factory.TryGetRegistration(compName, out var registration))
+                EntityManager.RemoveComponent(args.Ent, registration.Type);
+        }
+    }
+
+    protected void CleanupEffect(Entity<DiseaseComponent?> ent, EntityUid effect)
+    {
+        var carrier = Transform(ent.Owner).ParentUid;
+        if (!EffectQuery.TryGetComponent(effect, out var effectComp)
+            || !TryComp<DiseaseCarrierComponent>(carrier, out var carrierComp)
+            || ent.Comp == null)
+            return;
+        var failEv = new DiseaseEffectFailedEvent(effectComp, (ent.Owner, ent.Comp), (carrier, carrierComp));
+        RaiseLocalEvent(effect, ref failEv);
     }
 
     private void OnAudioEffect(Entity<DiseaseAudioEffectComponent> ent, ref DiseaseEffectEvent args)
     {
-        if (_net.IsClient)
-            return;
-
         var sound = ent.Comp.Sound;
         if (ent.Comp.SoundFemale != null && TryComp<HumanoidAppearanceComponent>(args.Ent, out var humanoid) && humanoid.Sex == Sex.Female)
             sound = ent.Comp.SoundFemale;
 
-        _audio.PlayPvs(sound, args.Ent);
+        _audio.PlayPvs(sound,args.Ent);
     }
+
     private void OnDiseaseSpreadEffect(Entity<DiseaseSpreadEffectComponent> ent, ref DiseaseEffectEvent args)
     {
         // for gear that makes you less(/more?) infective to others
@@ -116,10 +150,10 @@ public partial class SharedDiseaseSystem
 
         // migrate this to new status effects once flashes are
         _status.TryAddStatusEffect<FlashedComponent>(args.Ent, _flash.FlashedKey.Id, ent.Comp.Duration * GetScale(args, ent.Comp), true);
-        _stun.TrySlowdown(args.Ent, ent.Comp.Duration * GetScale(args, ent.Comp), true, ent.Comp.SlowTo, ent.Comp.SlowTo);
+        _movemod.TryUpdateMovementSpeedModDuration(args.Ent.Owner,  MovementModStatusSystem.FlashSlowdown, ent.Comp.Duration * GetScale(args, ent.Comp), ent.Comp.SlowTo, ent.Comp.SlowTo);
 
         if (ent.Comp.StunDuration != null)
-            _stun.TryKnockdown(args.Ent, ent.Comp.StunDuration.Value * GetScale(args, ent.Comp), true);
+            _stun.TryKnockdown(args.Ent.Owner, ent.Comp.StunDuration.Value * GetScale(args, ent.Comp), true);
     }
 
     private void OnPopupEffect(Entity<DiseasePopupEffectComponent> ent, ref DiseaseEffectEvent args)
@@ -137,19 +171,17 @@ public partial class SharedDiseaseSystem
     {
         if (_net.IsClient)
             return;
-
         var xform = Transform(args.Ent);
         var mapPos = _transform.GetMapCoordinates(xform);
-        if (_mapMan.TryFindGridAt(mapPos, out var gridUid, out var grid))
+        if (!_mapMan.TryFindGridAt(mapPos, out var gridUid, out var grid))
+            return;
+        for (var i = 0; i < ent.Comp.Attempts; i++)
         {
-            for (int i = 0; i < ent.Comp.Attempts; i++)
-            {
-                var distance = ent.Comp.Range * MathF.Sqrt(_random.NextFloat());
-                var tileCoordinates = mapPos.Offset(_random.NextAngle().ToVec() * distance);
-                var tile = _map.GetTileRef((gridUid, grid), tileCoordinates);
-                if (_tile.DeconstructTile(tile))
-                    break;
-            }
+            var distance = ent.Comp.Range * MathF.Sqrt(_random.NextFloat());
+            var tileCoordinates = mapPos.Offset(_random.NextAngle().ToVec() * distance);
+            var tile = _map.GetTileRef((gridUid, grid), tileCoordinates);
+            if (_tile.DeconstructTile(tile))
+                break;
         }
     }
 
@@ -163,8 +195,9 @@ public partial class SharedDiseaseSystem
     private Entity<DiseaseEffectComponent>? RemoveRandomEffect(Entity<DiseaseComponent> ent, bool negativeOnly = false, bool allowFail = false)
     {
         // evil linq but how often is this gonna be called
-        var effects = negativeOnly ? ent.Comp.Effects.Where(e => _effectQuery.TryComp(e, out var eff) && eff.Complexity > 0).ToList()
-                        : ent.Comp.Effects;
+        var effects = negativeOnly
+            ? ent.Comp.Effects.ContainedEntities.Where(e => EffectQuery.TryComp(e, out var eff) && eff.Complexity > 0).ToList()
+                        : ent.Comp.Effects.ContainedEntities;
 
         if (effects.Count < 1)
         {
@@ -177,7 +210,7 @@ public partial class SharedDiseaseSystem
         var effectUid = effects[index];
         TryRemoveEffect((ent, ent.Comp), effectUid);
 
-        return _effectQuery.TryComp(effectUid, out var comp) ? (effectUid, comp) : null;
+        return EffectQuery.TryComp(effectUid, out var comp) ? (effectUid, comp) : null;
     }
 
     private Entity<DiseaseEffectComponent>? AddRandomEffect(Entity<DiseaseComponent> ent, bool negativeOnly = false)
@@ -191,10 +224,10 @@ public partial class SharedDiseaseSystem
         var weights = new Dictionary<string, float>(effects.Weights);
         if (negativeOnly)
             weights = weights.Where(w => _proto.TryIndex<EntityPrototype>(w.Key, out var effProto)
-                                        && effProto.TryGetComponent<DiseaseEffectComponent>(out var effComp, EntityManager.ComponentFactory)
-                                    ).ToDictionary(w => w.Key, w => w.Value);
+                                         && effProto.TryGetComponent<DiseaseEffectComponent>(out var effComp, EntityManager.ComponentFactory))
+                .ToDictionary(w => w.Key, w => w.Value);
 
-        foreach (var diseaseEffect in ent.Comp.Effects) // no rolling effects we have
+        foreach (var diseaseEffect in ent.Comp.Effects.ContainedEntities) // no rolling effects we have
         {
             var metadata = MetaData(diseaseEffect);
             if (metadata.EntityPrototype != null)
@@ -203,7 +236,7 @@ public partial class SharedDiseaseSystem
 
         if (weights.Count == 0)
         {
-            Log.Error($"Disease {ToPrettyString(ent)} attempted to mutate to add an effect, but it has all available effects.");
+            Log.Warning($"Disease {ToPrettyString(ent)} attempted to mutate to add an effect, but it has all available effects.");
             return null;
         }
 
@@ -229,18 +262,17 @@ public partial class SharedDiseaseSystem
             return false;
 
         var effectProto = _proto.Index(effectId);
-        foreach (var effectUid in ent.Comp.Effects)
+        foreach (var effectUid in ent.Comp.Effects.ContainedEntities)
         {
-            if (effectProto == Prototype(effectUid))
+            if (effectProto != Prototype(effectUid))
+                continue;
+            if (!EffectQuery.TryComp(effectUid, out var diseaseEffect))
             {
-                if (!_effectQuery.TryComp(effectUid, out var diseaseEffect))
-                {
-                    Log.Error($"Found disease effect {ToPrettyString(effectUid)} without DiseaseEffectComponent");
-                    return false;
-                }
-                outEffect = (effectUid, diseaseEffect);
-                return true;
+                Log.Error($"Found disease effect {ToPrettyString(effectUid)} without DiseaseEffectComponent");
+                return false;
             }
+            outEffect = (effectUid, diseaseEffect);
+            return true;
         }
         return false;
     }
@@ -282,16 +314,13 @@ public partial class SharedDiseaseSystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        if (!_effectQuery.TryComp(effectUid, out var diseaseEffect))
+        if (!EffectQuery.TryComp(effectUid, out var diseaseEffect))
         {
             Log.Error($"Tried to add disease effect {ToPrettyString(effect)}, but it had no DiseaseEffectComponent");
             return false;
         }
         effect = (effectUid, diseaseEffect);
-        ent.Comp.Effects.Add(effectUid);
-
-        Dirty(ent);
-        return true;
+        return ContainerSystem.Insert(effectUid, ent.Comp.Effects);
     }
 
     /// <summary>
@@ -314,7 +343,7 @@ public partial class SharedDiseaseSystem
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        bool spawned = false;
+        var spawned = false;
         FindEffect(ent, effectId, out effect);
         if (effect == null)
         {

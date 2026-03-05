@@ -22,27 +22,81 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: RapidBulletKinetic
+  id: BulletKinetic
+  name: kinetic bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 15
+        Structural: 20
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 0.18 # roughly 4 tiles
+  - type: GatheringProjectile
+
+- type: entity
+  id: BulletKineticShuttle
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 40
+        Structural: 35
+  - type: Ammo
+    muzzleFlash: HitscanEffect
+  - type: TimedDespawn
+    lifetime: 0.3
+  - type: PointLight
+    radius: 2.5
+    color: white
+    energy: 0.5
+  - type: GatheringProjectile
+
+- type: entity
+  id: RapidBulletKinetic # Used for PK repeater and pistol
   name: rapid kinetic bolt
   parent: BulletKinetic
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 24
+        Blunt: 8
+  - type: TimedDespawn
+    lifetime: 0.22 # roughly 5.5 tiles
 
 - type: entity
-  id: WeakBulletKinetic
+  id: WeakBulletKinetic # Used for PK shotgun
   categories: [ HideSpawnMenu ]
-  parent: BulletKinetic
+  parent: RapidBulletKinetic
   components:
   - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 12
+        Blunt: 5
 
 - type: entity
   id: PelletKinetic
@@ -59,5 +113,41 @@
   components:
   - type: ProjectileSpread
     proto: PelletKinetic
-    count: 6
-    spread: 30
+    count: 4
+    spread: 20
+
+- type: entity
+  id: BulletCharge
+  name: charge bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  description: Marks a target for additional damage.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      shader: unshaded
+  - type: GatheringProjectile
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - MobState
+    damage:
+      types:
+        Blunt: 15
+        Slash: 5
+    effect: { sprite: /Textures/Objects/Weapons/effects.rsi, state: shield2 }
+    sound: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 0
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 0.4

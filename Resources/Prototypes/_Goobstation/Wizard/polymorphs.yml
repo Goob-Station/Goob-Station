@@ -83,6 +83,9 @@
     revertOnDeath: false
     allowRepeatedMorphs: true
     componentsToTransfer:
+    - component: LanguageKnowledge
+    - component: LanguageSpeaker
+    - component: Grammar
     - component: Wizard
       mirror: true
     - component: Apprentice

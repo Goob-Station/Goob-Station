@@ -10,7 +10,12 @@
     Telecrystal: 4
   categories:
     - UplinkDeception
+  #Goobstation
   conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
   - !type:BuyerSpeciesCondition
     whitelist:
     - Plasmaman

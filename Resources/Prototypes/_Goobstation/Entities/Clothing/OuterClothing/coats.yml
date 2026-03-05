@@ -105,7 +105,18 @@
     sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
-    
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Caustic: 0.6
+        Radiation: 0.6
+
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
@@ -124,3 +135,15 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Coats/hoplongcoat.rsi
 #cap prestige coat gets storage so this one does too. Fuck it we ball.
+
+#outer command jacket
+- type: entity
+  parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase, BaseCentcommContraband ]
+  id: ClothingOuterArmoredJacketOuterCommand
+  name: outer command jacket
+  description: A purple jacket with very fancy elements. There is a Terra-Gov insignia on the back.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/outcommjacket.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/outcommjacket.rsi

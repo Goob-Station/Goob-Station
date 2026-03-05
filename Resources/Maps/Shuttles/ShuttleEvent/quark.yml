@@ -1368,6 +1368,8 @@ entities:
         intensity: 50
         type: SingularityDistortion
       - type: ExplodeOnTrigger
+        keysIn:
+        - stageTwo
       triggerDelay: 500
 - proto: GravityGeneratorMini
   entities:

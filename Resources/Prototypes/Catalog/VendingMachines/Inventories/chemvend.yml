@@ -6,14 +6,19 @@
 # SPDX-FileCopyrightText: 2024 Tonk-GCR <ryantrujillo82@gmail.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: vendingMachineInventory
   id: ChemVendInventory
   startingInventory:
-    Jug: 4
+    Jug: 8 #Goob edit - Energy Chem
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
@@ -39,6 +44,8 @@
     StrangePill: 3
     ChemistryBottleToxin: 1
     ChemistryBottleLead: 2
+  emaggedInventory: # Goobsation
+    VestineChemistryVial: 1
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate

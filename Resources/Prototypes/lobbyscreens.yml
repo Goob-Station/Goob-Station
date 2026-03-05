@@ -259,3 +259,21 @@
   background: /Textures/LobbyScreens/enlist.webp
   name: Nanotrasen wants YOU.
   artist: thebiggestbruh
+
+- type: lobbyBackground
+  id: ling-in-my-vents
+  background: /Textures/LobbyScreens/sec_theres_ling_in_my_vents.webp
+  name: Sec theres ling in my vents
+  artist: blooodyspy
+
+- type: lobbyBackground
+  id: we-all-love-ai
+  background: /Textures/LobbyScreens/we_all_love_ai.webp
+  name: We all love ai
+  artist: blooodyspy
+
+- type: lobbyBackground
+  id: syndi-kek
+  background: /Textures/LobbyScreens/syndi_kek.webp
+  name: Syndi kek
+  artist: blooodyspy

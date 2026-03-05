@@ -13,6 +13,7 @@
 - type: entity
   parent: [ BaseItem, BaseMagicalContraband ]
   id: CodexCicatrix
+  suffix: MagicItem
   name: codex cicatrix
   description: This heavy tome is full of cryptic scribbles and impossible diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
   components:
@@ -131,25 +132,3 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: Reflective
     reflective: None
-
-- type: entity
-  id: Inkofimaginination
-  name: Ink of imaginination
-  description: Call to the great minimal to bring forth true existence... A closing truth
-  parent: BaseItem
-  components:
-  - type: UnholyItem
-  - type: Sprite
-    sprite: _Goobstation/Heretic/book.rsi
-    state: icon
-  - type: Icon
-    sprite: _Goobstation/Heretic/book.rsi
-    state: icon
-  - type: SpawnItemsOnUse
-    items:
-      - id: EldritchInfluence
-      - id: EldritchInfluence
-  - type: Tag
-    tags:
-    - HereticItem
-

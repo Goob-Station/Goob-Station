@@ -10,3 +10,8 @@ stack-unprocessed-uranium-ore = unprocessed uranium ore
 stack-unprocessed-bananium-ore = unprocessed bananium ore
 stack-unprocessed-coal = unprocessed coal
 stack-unprocessed-artifact-fragment-ore = unprocessed artifact fragment ore
+
+stack-watcher-wing = watcher wing
+stack-magma-wing = magma watcher wing
+stack-ice-wing = ice watcher wing
+stack-legion-skull = legion skull

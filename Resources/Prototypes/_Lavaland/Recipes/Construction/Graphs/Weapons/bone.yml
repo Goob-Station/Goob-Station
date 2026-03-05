@@ -1,0 +1,30 @@
+# TODO make crafts more complex when more ingredients are added (some plants probably)
+- type: constructionGraph
+  id: BoneAxeConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: axe
+      steps:
+      - material: Bones
+        amount: 6
+      - material: LegionSkull
+        amount: 2
+        doAfter: 10
+  - node: axe
+    entity: BoneAxe
+
+- type: constructionGraph
+  id: DaggerBoneConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: dagger
+      steps:
+      - material: Bones
+        amount: 2
+        doAfter: 6
+  - node: dagger
+    entity: DaggerBone

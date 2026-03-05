@@ -38,7 +38,8 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
             || victimComp.Implanted
             || !HasComp<HumanoidAppearanceComponent>(args.Body)
             || !_mind.TryGetMind(args.Body, out var mindId, out var mind)
-            || !TryComp<ActorComponent>(args.Body, out var actor))
+            || !TryComp<ActorComponent>(args.Body, out var actor)
+            || !HasComp<AbductorOrganComponent>(args.Tool))
             return;
 
         if (mindId == default
