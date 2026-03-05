@@ -235,11 +235,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             rule.Deaths[deadUserId] = existingDeaths + 1;
         }
 
-        GhostDomePlayer(uid, component, rule, true);
-
-        QueueDel(uid);
-
-        BroadcastPlayerCount(rule);
+        GhostDomePlayer(uid, component, rule);
     }
 
     public void SpawnPlayer(ICommonSession session, EntityUid ruleEntity, int weaponIdx)
@@ -333,19 +329,11 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         EntityUid uid,
         ThunderdomePlayerComponent tdPlayer,
         ThunderdomeRuleComponent rule,
-        bool bypassPenalty = false,
         bool playSound = true,
         SoundPathSpecifier? sound = null
         )
     {
-        if (!bypassPenalty)
-        {
-            tdPlayer.TimePenalty = +rule.BaseTimePenalty;
-            var remaining = tdPlayer.RespawnTimer - _timing.CurTime + TimeSpan.FromSeconds(tdPlayer.TimePenalty);
-            tdPlayer.RespawnTimer = remaining;
-        }
         sound ??= new SoundPathSpecifier("/Audio/Effects/pop_high.ogg");
-
         CleanUpPlayer(uid, tdPlayer, rule, playSound, sound);
     }
 

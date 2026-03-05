@@ -18,21 +18,6 @@ public sealed partial class ThunderdomePlayerComponent : Component
     [DataField]
     public int CurrentStreak;
 
-    /// <summary>
-    /// Respawn Penalty to inflict for certain actions, i.e. ghosting or suiciding.
-    /// </summary>
-    [DataField]
-    public float TimePenalty;
-
-    /// <summary>
-    /// How long until player can respawn.
-    /// </summary>
-    [DataField]
-    public TimeSpan RespawnTimer;
-
-    /// <summary>
-    /// The selected weapon index for respawning with the same gear.
-    /// </summary>
     [DataField]
     public int WeaponSelection;
 }
