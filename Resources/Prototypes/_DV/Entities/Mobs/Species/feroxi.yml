@@ -9,7 +9,6 @@
     species: Feroxi
     hideLayersOnEquip:
     - Snout
-    - Tail
   - type: Hunger
   # - type: Carriable # ShibaStation - disabled because broken, for now.
   - type: Thirst
@@ -148,7 +147,6 @@
     species: Feroxi
     hideLayersOnEquip:
     - Snout
-    - Tail
   - type: Sprite # Why does feroxi redefine sprites in basemob but NOT in dummy (lobby) ???, fixing that - Goob 120
     netsync: false
     noRot: true
