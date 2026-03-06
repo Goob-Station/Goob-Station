@@ -5,7 +5,6 @@ using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Server.Player;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -110,19 +109,14 @@ public sealed class TemporaryMindSystem : EntitySystem
 
     private void CleanupDisposableMind(TemporaryMindComponent temp)
     {
-        NetUserId? userId = null;
-
         if (Exists(temp.DisposableMind))
         {
-            if (TryComp<MindComponent>(temp.DisposableMind, out var disposableMind))
-                userId = disposableMind.UserId;
-
             _mind.WipeMind(temp.DisposableMind);
             QueueDel(temp.DisposableMind);
         }
 
-        // Restore the userId to the original mind so UserMinds maps back correctly
-        if (userId != null && Exists(temp.OriginalMind))
+        if (TryComp<MindComponent>(temp.OriginalMind, out var origMind)
+            && origMind.OriginalOwnerUserId is { } userId)
             _mind.SetUserId(temp.OriginalMind, userId);
     }
 }

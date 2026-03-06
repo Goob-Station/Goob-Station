@@ -295,6 +295,13 @@ public abstract partial class SharedMindSystem : EntitySystem
         return null;
     }
 
+    // Goobstation
+    public void SetGhostOnShutdown(EntityUid uid, bool value, MindContainerComponent? mind = null)
+    {
+        if (Resolve(uid, ref mind))
+            mind.GhostOnShutdown = value;
+    }
+
     public Entity<MindComponent> CreateMind(NetUserId? userId, string? name = null)
     {
         var mindId = Spawn(_mindProto, MapCoordinates.Nullspace);
