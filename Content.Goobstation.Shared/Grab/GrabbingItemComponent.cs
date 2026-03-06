@@ -16,6 +16,9 @@ public sealed partial class GrabbingItemComponent : Component
     public GrabStage GrabStageOverride = GrabStage.Hard;
 
     [DataField]
+    public bool CanThrow;
+
+    [DataField]
     public float EscapeAttemptModifier = 2f;
 
     [DataField, AutoNetworkedField]

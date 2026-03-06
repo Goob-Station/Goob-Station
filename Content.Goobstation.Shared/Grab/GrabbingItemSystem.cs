@@ -49,7 +49,7 @@ public sealed class GrabbingItemSystem : EntitySystem
 
     private void OnBeforeThrow(Entity<GrabbingItemComponent> ent, ref BeforeThrowEvent args)
     {
-        if (ent.Comp.ActivelyGrabbingEntity == null)
+        if (!ent.Comp.CanThrow || ent.Comp.ActivelyGrabbingEntity == null)
             return;
 
         args.Cancelled = true;
