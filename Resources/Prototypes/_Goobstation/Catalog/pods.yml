@@ -97,8 +97,10 @@
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
-    table:
-      id: ClothingOuterArmorDragon
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorDragon
+      - id: ClothingHeadHatHelmetDragon
 
 - type: entity
   id: SpawnArmamentsInquisitor
