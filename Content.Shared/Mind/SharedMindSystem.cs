@@ -228,6 +228,14 @@ public abstract partial class SharedMindSystem : EntitySystem
             UnVisit(component.MindId.Value);
     }
 
+    // goob start
+    public void SetShowExamineInfo(Entity<MindContainerComponent> ent, bool value)
+    {
+        ent.Comp.ShowExamineInfo = value;
+        Dirty(ent);
+    }
+    // goob end
+
     private void OnExamined(EntityUid uid, MindContainerComponent mindContainer, ExaminedEvent args)
     {
         if (!mindContainer.ShowExamineInfo || !args.IsInDetailsRange)

@@ -8,22 +8,27 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Server.Popups;
+using Content.Server.Power.Components;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Systems;
+using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Item;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -33,7 +38,6 @@ using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
-using Robust.Shared.Localization;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
@@ -57,15 +61,19 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly TemporaryMindSystem _tempMind = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private readonly GunSystem _gun = default!;
 
     private const string RulePrototype = "ThunderdomeRule";
     private EntityUid? _ruleEntity;
+    private bool _refillOnKill;
 
     private readonly Dictionary<ICommonSession, ThunderdomeLoadoutEui> _activeEuis = new();
 
     public override void Initialize()
     {
         base.Initialize();
+
+        Subs.CVar(_cfg, ThunderdomeCVars.ThunderdomeRefill, value => _refillOnKill = value, true);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnding);
         SubscribeLocalEvent<ThunderdomeRuleComponent, RuleLoadedGridsEvent>(OnGridsLoaded);
@@ -79,6 +87,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomeArenaProtectedComponent, BeforeDamageChangedEvent>(OnArenaEntityDamage);
         SubscribeLocalEvent<TimedDespawnComponent, EntGotInsertedIntoContainerMessage>(OnDespawnPickedUp);
         SubscribeLocalEvent<ThunderdomePlayerComponent, GetAntagSelectionBlockerEvent>(OnAntagSelectionBlocker);
+        SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, ExaminedEvent>(OnOriginalBodyExamined);
     }
 
     public override void Update(float frameTime)
@@ -130,11 +139,15 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
             rule.Players.Clear();
             rule.Active = false;
+            BroadcastPlayerCount(rule);
         }
 
         var bodyQuery = EntityQueryEnumerator<ThunderdomeOriginalBodyComponent>();
         while (bodyQuery.MoveNext(out var uid, out _))
         {
+            if (TryComp<MindContainerComponent>(uid, out var mindContainer))
+                _mind.SetShowExamineInfo((uid, mindContainer), true);
+
             RemComp<ThunderdomeOriginalBodyComponent>(uid);
         }
 
@@ -254,6 +267,9 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             var marker = EnsureComp<ThunderdomeOriginalBodyComponent>(body);
             if (mindComp.UserId is { } ownerId)
                 marker.Owner = ownerId;
+
+            if (TryComp<MindContainerComponent>(body, out var bodyMindContainer))
+                _mind.SetShowExamineInfo((body, bodyMindContainer), false);
         }
 
         if (!_tempMind.TrySwapTempMind(session, mob))
@@ -338,6 +354,9 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             rule.Kills[killerUserId] = existingKills + 1;
             CheckKillStreak((killerUid, killerComp), rule);
         }
+
+        if (_refillOnKill)
+            RefillAmmo(killerUid);
     }
 
     private void GhostDomePlayer(
@@ -402,6 +421,10 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         }
 
         _tempMind.TryRestoreToOriginalBody(currentEntity);
+
+        if (TryComp<MindContainerComponent>(originalBody.Value, out var bodyMindContainer))
+            _mind.SetShowExamineInfo((originalBody.Value, bodyMindContainer), true);
+
         RemComp<ThunderdomeOriginalBodyComponent>(originalBody.Value);
         QueueDel(currentEntity);
     }
@@ -414,17 +437,25 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         var items = new HashSet<Entity<ItemComponent>>();
         _lookup.GetEntitiesOnMap(map, items);
         foreach (var (uid, _) in items)
-            MarkForDespawn(uid, checkContainer: true);
+            MarkForDespawn(uid, rule.SweepDespawnTime, checkContainer: true);
 
         var puddles = new HashSet<Entity<PuddleComponent>>();
         _lookup.GetEntitiesOnMap(map, puddles);
         foreach (var (uid, _) in puddles)
-            MarkForDespawn(uid);
+            MarkForDespawn(uid, rule.SweepDespawnTime);
     }
 
     private static void OnAntagSelectionBlocker(Entity<ThunderdomePlayerComponent> ent, ref GetAntagSelectionBlockerEvent args)
     {
         args.Blocked = true;
+    }
+
+    private void OnOriginalBodyExamined(Entity<ThunderdomeOriginalBodyComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        args.PushMarkup($"[color=yellow]{Loc.GetString("comp-mind-examined-ssd", ("ent", ent))}[/color]");
     }
 
     private void OnDespawnPickedUp(Entity<TimedDespawnComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -433,7 +464,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             RemComp<TimedDespawnComponent>(ent);
     }
 
-    private void MarkForDespawn(EntityUid uid, bool checkContainer = false)
+    private void MarkForDespawn(EntityUid uid, float lifetime, bool checkContainer = false)
     {
         if (HasComp<TimedDespawnComponent>(uid))
             return;
@@ -441,7 +472,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         if (checkContainer && _container.IsEntityInContainer(uid))
             return;
 
-        EnsureComp<TimedDespawnComponent>(uid).Lifetime = 10f;
+        EnsureComp<TimedDespawnComponent>(uid).Lifetime = lifetime;
     }
 
     private void SpawnLoadoutItems(EntityUid mob, int weaponIdx, ThunderdomeRuleComponent rule)
@@ -511,8 +542,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         var ev = new ThunderdomePlayerCountEvent(rule.Players.Count);
         foreach (var session in _playerManager.Sessions)
         {
-            if (session.AttachedEntity is { Valid: true })
-                RaiseNetworkEvent(ev, session.Channel);
+            RaiseNetworkEvent(ev, session.Channel);
         }
     }
 
@@ -533,5 +563,78 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         }
 
         return new ThunderdomeLoadoutEuiState(weapons, rule.Players.Count);
+    }
+
+    private void RefillAmmo(EntityUid killer)
+    {
+        var toCheck = new Queue<EntityUid>();
+        toCheck.Enqueue(killer);
+
+        while (toCheck.Count > 0)
+        {
+            var current = toCheck.Dequeue();
+
+            if (!TryComp<ContainerManagerComponent>(current, out var containerManager))
+                continue;
+
+            foreach (var container in _container.GetAllContainers(current, containerManager))
+            {
+                var inGun = container.ID is "gun_magazine" or "gun_chamber" or "revolver-ammo";
+
+                foreach (var contained in container.ContainedEntities)
+                {
+                    toCheck.Enqueue(contained);
+
+                    if (!inGun && TryComp<BallisticAmmoProviderComponent>(contained, out var ballistic))
+                        RefillBallistic((contained, ballistic));
+
+                    if (!inGun && (HasComp<HitscanBatteryAmmoProviderComponent>(contained)
+                        || HasComp<ProjectileBatteryAmmoProviderComponent>(contained)))
+                        RefillBattery(contained);
+
+                    if (!inGun && TryComp<RevolverAmmoProviderComponent>(contained, out var revolver))
+                        RefillRevolver((contained, revolver));
+                }
+            }
+        }
+    }
+
+    private void RefillBallistic(Entity<BallisticAmmoProviderComponent> ent)
+    {
+        _gun.RefillBallisticAmmo(ent);
+    }
+
+    private void RefillBattery(EntityUid uid)
+    {
+        var getCharge = new GetChargeEvent();
+        RaiseLocalEvent(uid, ref getCharge);
+
+        if (getCharge.MaxCharge <= 0)
+            return;
+
+        var delta = getCharge.MaxCharge - getCharge.CurrentCharge;
+        if (delta <= 0)
+            return;
+
+        var change = new ChangeChargeEvent(delta);
+        RaiseLocalEvent(uid, ref change);
+    }
+
+    private void RefillRevolver(Entity<RevolverAmmoProviderComponent> ent)
+    {
+        for (var i = 0; i < ent.Comp.AmmoSlots.Count; i++)
+        {
+            if (ent.Comp.AmmoSlots[i] is { } ammoEnt)
+            {
+                _container.Remove(ammoEnt, ent.Comp.AmmoContainer);
+                QueueDel(ammoEnt);
+                ent.Comp.AmmoSlots[i] = null;
+            }
+
+            if (i < ent.Comp.Chambers.Length)
+                ent.Comp.Chambers[i] = true;
+        }
+
+        Dirty(ent);
     }
 }

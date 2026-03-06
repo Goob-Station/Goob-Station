@@ -55,5 +55,8 @@ public sealed partial class ThunderdomeRuleComponent : Component
     public TimeSpan CleanupInterval = TimeSpan.FromSeconds(25);
 
     [DataField]
+    public float SweepDespawnTime = 10f;
+
+    [DataField]
     public TimeSpan NextCleanup;
 }
