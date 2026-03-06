@@ -49,4 +49,7 @@ public sealed partial class GrabbableComponent : Component
 
     [DataField]
     public float EscapeAttemptCooldown = 2f;
+
+    [DataField]
+    public float PostTabledDuration = 3f;
 }

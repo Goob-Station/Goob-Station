@@ -79,4 +79,15 @@ public sealed partial class GrabIntentComponent : Component
 
     [NonSerialized]
     public readonly SoundPathSpecifier GrabSoundEffect = new("/Audio/Effects/thudswoosh.ogg");
+
+    #region Table Slamming
+    [DataField]
+    public float TableSlamCooldown = 3f;
+
+    [DataField]
+    public float TableSlamRange = 2f;
+
+    [DataField]
+    public GrabStage TableSlamRequiredStage = GrabStage.Hard;
+    #endregion
 }

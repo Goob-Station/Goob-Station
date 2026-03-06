@@ -23,6 +23,7 @@ using Content.Shared.Damage.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -47,118 +48,101 @@ public sealed class TableSlamSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ContestsSystem _contestsSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
-        SubscribeLocalEvent<PullerComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<GrabIntentComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<GrabbableComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<PostTabledComponent, DisarmAttemptEvent>(OnDisarmAttemptEvent);
-    }
-
-    private void OnDisarmAttemptEvent(Entity<PostTabledComponent> ent, ref DisarmAttemptEvent args)
-    {
-        if(!_random.Prob(ent.Comp.ParalyzeChance))
-            return;
-
-        _stunSystem.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(3));
-        RemComp<PostTabledComponent>(ent);
+        SubscribeLocalEvent<PostTabledComponent, DisarmAttemptEvent>(OnDisarmAttempt);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var tabledQuery = EntityQueryEnumerator<PostTabledComponent>();
-        while (tabledQuery.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<PostTabledComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
             if (_gameTiming.CurTime >= comp.PostTabledShovableTime)
-             RemComp<PostTabledComponent>(uid);
+                RemComp<PostTabledComponent>(uid);
         }
     }
 
-    private void OnMeleeHit(Entity<PullerComponent> ent, ref MeleeHitEvent args)
+    private void OnDisarmAttempt(Entity<PostTabledComponent> ent, ref DisarmAttemptEvent args)
     {
-        if (!TryComp<GrabIntentComponent>(ent, out var grabIntent)
-            || grabIntent.GrabStage < GrabStage.Suffocate
-            || ent.Comp.Pulling == null)
+        var rand = new Random(SharedRandomExtensions.HashCodeCombine(new List<int> { (int) _gameTiming.CurTick.Value, GetNetEntity(ent).Id }));
+        if (!rand.Prob(ent.Comp.ParalyzeChance) || !TryComp<GrabbableComponent>(ent, out var grabbable))
             return;
 
-        if(!TryComp<PullableComponent>(ent.Comp.Pulling, out var pullableComponent)
-            || !TryComp<GrabbableComponent>(ent.Comp.Pulling, out var grabbableComponent))
+        _stunSystem.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(grabbable.PostTabledDuration));
+        RemComp<PostTabledComponent>(ent);
+    }
+
+    private void OnMeleeHit(Entity<GrabIntentComponent> ent, ref MeleeHitEvent args)
+    {
+        if (args.Direction != null || args.HitEntities.Count != 1)
+            return;
+        var target = args.HitEntities[0];
+
+        if (ent.Comp.GrabStage < ent.Comp.TableSlamRequiredStage
+            || !TryComp<PullerComponent>(ent, out var puller)
+            || puller.Pulling == null
+            || !HasComp<BonkableComponent>(target))
             return;
 
-        if (args.Direction != null)
-            return;
-        if (args.HitEntities.Count is > 1 or 0)
-            return;
-
-        var target = args.HitEntities.ElementAt(0);
-        if (!HasComp<BonkableComponent>(target)) // checks if its a table.
-            return;
-
-        var massContest = _contestsSystem.MassContest(ent, ent.Comp.Pulling.Value);
-        var attemptChance = Math.Clamp(0.5f * massContest, 0f, 1f);
-        var attemptRoundedToNearestQuarter = Math.Round(attemptChance * 4, MidpointRounding.ToEven) / 4;
-        if(_random.Prob((float) attemptRoundedToNearestQuarter)) // base chance to table slam someone is 1 if your mass ratio is less than 1 then your going to have a harder time slamming somebody.
-            TryTableSlam((ent.Comp.Pulling.Value, pullableComponent, grabbableComponent), (ent.Owner, ent.Comp, grabIntent), target);
+        var massRatio = _contestsSystem.MassContest(ent.Owner, puller.Pulling.Value, bypassClamp: true);
+        var chance = Math.Clamp(massRatio, 0f, 1f);
+        var rand = new Random(SharedRandomExtensions.HashCodeCombine(new List<int> { (int) _gameTiming.CurTick.Value, GetNetEntity(ent).Id }));
+        if (rand.Prob(chance))
+            TryTableSlam(puller.Pulling.Value, ent.Owner, target);
     }
 
     public void TryTableSlam(
-        Entity<PullableComponent, GrabbableComponent> ent,
-        Entity<PullerComponent, GrabIntentComponent> pullerEnt,
-        EntityUid tableUid)
+        Entity<PullableComponent?, GrabbableComponent?> pullable,
+        Entity<PullerComponent?, GrabIntentComponent?> puller,
+        EntityUid table)
     {
-        if(!_transformSystem.InRange(ent.Owner.ToCoordinates(), tableUid.ToCoordinates(), 2f ))
+        if (!Resolve(pullable, ref pullable.Comp1, ref pullable.Comp2)
+            || !Resolve(puller, ref puller.Comp1, ref puller.Comp2)
+            || !_transformSystem.InRange(pullable.Owner.ToCoordinates(), table.ToCoordinates(), puller.Comp2.TableSlamRange))
             return;
 
-        _standing.Down(ent.Owner);
+        _standing.Down(pullable.Owner);
+        _pullingSystem.TryStopPull(pullable.Owner, pullable.Comp1, puller.Owner, ignoreGrab: true);
+        _throwingSystem.TryThrow(pullable.Owner, table.ToCoordinates(), pullable.Comp2.BasedTabledForceSpeed, animated: false, doSpin: false);
 
-        _pullingSystem.TryStopPull(ent.Owner, ent.Comp1, pullerEnt.Owner, ignoreGrab: true);
-        _throwingSystem.TryThrow(ent.Owner, tableUid.ToCoordinates(), ent.Comp2.BasedTabledForceSpeed, animated: false, doSpin: false);
-        pullerEnt.Comp2.NextStageChange = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(3)); // prevent table slamming spam
-        ent.Comp2.BeingTabled = true;
-        Dirty(pullerEnt.Owner, pullerEnt.Comp2);
-        Dirty(ent.Owner, ent.Comp2);
+        puller.Comp2.NextStageChange = _gameTiming.CurTime + TimeSpan.FromSeconds(puller.Comp2.TableSlamCooldown);
+        pullable.Comp2.BeingTabled = true;
+        Dirty(puller.Owner, puller.Comp2);
+        Dirty(pullable.Owner, pullable.Comp2);
     }
 
     private void OnStartCollide(Entity<GrabbableComponent> ent, ref StartCollideEvent args)
     {
-        if(!ent.Comp.BeingTabled)
-            return;
-        if (!TryComp<PullableComponent>(ent, out _))
-            return;
-        if (!HasComp<BonkableComponent>(args.OtherEntity))
+        if (!ent.Comp.BeingTabled || !HasComp<BonkableComponent>(args.OtherEntity))
             return;
 
-        var modifierOnGlassBreak = 1;
-        if (TryComp<GlassTableComponent>(args.OtherEntity, out var glassTableComponent))
+        var stunDuration = TimeSpan.FromSeconds(ent.Comp.PostTabledDuration);
+
+        if (TryComp<GlassTableComponent>(args.OtherEntity, out var glass))
         {
-            _damageableSystem.TryChangeDamage(args.OtherEntity, glassTableComponent.TableDamage, origin: ent, targetPart: TargetBodyPart.Chest);
-            _damageableSystem.TryChangeDamage(args.OtherEntity, glassTableComponent.ClimberDamage, origin: ent);
-            modifierOnGlassBreak = 2;
+            _damageableSystem.TryChangeDamage(args.OtherEntity, glass.TableDamage, origin: ent, targetPart: TargetBodyPart.Chest);
+            _damageableSystem.TryChangeDamage(args.OtherEntity, glass.ClimberDamage, origin: ent);
+            stunDuration *= 2;
         }
         else
         {
-            _damageableSystem.TryChangeDamage(ent.Owner,
-                new DamageSpecifier()
-                {
-                    DamageDict = new Dictionary<string, FixedPoint2> { { "Blunt", ent.Comp.TabledDamage } },
-                },
-                targetPart: TargetBodyPart.Chest);
-            _damageableSystem.TryChangeDamage(ent.Owner,
-                new DamageSpecifier()
-                {
-                    DamageDict = new Dictionary<string, FixedPoint2> { { "Blunt", ent.Comp.TabledDamage } },
-                });
+            var bluntDamage = new DamageSpecifier { DamageDict = new() { { "Blunt", ent.Comp.TabledDamage } } };
+            _damageableSystem.TryChangeDamage(ent.Owner, bluntDamage, targetPart: TargetBodyPart.Chest);
+            _damageableSystem.TryChangeDamage(ent.Owner, bluntDamage);
         }
 
         _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage, applyResistances: true);
-        _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(3 * modifierOnGlassBreak), false);
-        var postTabledComponent = EnsureComp<PostTabledComponent>(ent);
-        postTabledComponent.PostTabledShovableTime = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(3));
+        _stunSystem.TryKnockdown(ent.Owner, stunDuration, false);
+
+        var postTabled = EnsureComp<PostTabledComponent>(ent);
+        postTabled.PostTabledShovableTime = _gameTiming.CurTime + TimeSpan.FromSeconds(ent.Comp.PostTabledDuration);
+
         ent.Comp.BeingTabled = false;
         Dirty(ent.Owner, ent.Comp);
-
-        //_audioSystem.PlayPvs("/Audio/Effects/thudswoosh.ogg", uid);
     }
 }
