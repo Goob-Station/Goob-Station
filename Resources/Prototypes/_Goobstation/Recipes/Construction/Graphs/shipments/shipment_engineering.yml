@@ -1,0 +1,136 @@
+- type: constructionGraph
+  id: GraphCrateShipmentEngineering
+  graph:
+    - node: start
+      edges:
+      #MARK: Tools
+      - to: shipmentEngineeringTools
+        steps:
+          - tag: NoticeEngineeringTools
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: Crowbar
+            name: "2x crowbar"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: Crowbar
+            name: "1x crowbar"
+            doAfter: 0.1
+          - tag: Wrench
+            name: "2x wrench"
+            doAfter: 0.1
+          - tag: Wrench
+            name: "1x wrench"
+            doAfter: 0.1
+          - tag: Multitool
+            name: "2x multitool"
+            doAfter: 0.1
+          - tag: Multitool
+            name: "1x multitool"
+            doAfter: 0.1
+          - tag: WeldingTool
+            name: "2x welder"
+            doAfter: 0.1
+          - tag: WeldingTool
+            name: "1x welder"
+            doAfter: 0.1
+          - tag: Screwdriver
+            name: "2x screwdriver"
+            doAfter: 0.1
+          - tag: Screwdriver
+            name: "1x screwdriver"
+            doAfter: 0.1
+          - tag: Wirecutter
+            name: "2x wirecutter"
+            doAfter: 0.1
+          - tag: Wirecutter
+            name: "1x wirecutter"
+            doAfter: 0.1
+          - material: Steel
+            amount: 30
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CrateEngineeringLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+      #MARK: Advanced Tools
+      - to: shipmentEngineeringToolsAdvanced
+        steps:
+          - tag: NoticeEngineeringToolsAdvanced
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: JawsOfLife
+            name: "2x pair of jaws of life"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: JawsOfLife
+            name: "1x pair of jaws of life"
+            doAfter: 0.1
+          - tag: Powerdrill
+            name: "2x power drill"
+            doAfter: 0.1
+          - tag: Powerdrill
+            name: "1x power drill"
+            doAfter: 0.1
+          - tag: WelderExperimental
+            name: "2x experimental welder"
+            doAfter: 0.1
+          - tag: WelderExperimental
+            name: "1x experimental welder"
+            doAfter: 0.1
+          - material: ReinforcedUraniumGlass
+            amount: 30
+            doAfter: 0.1
+          - material: ReinforcedPlasmaGlass
+            amount: 30
+            doAfter: 0.1
+          - material: Plasteel
+            amount: 30
+            doAfter: 0.1
+          - material: Plasteel
+            amount: 30
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CrateEngineeringLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+    - node: shipmentEngineeringTools
+      entity: CrateShipmentEngineeringTools
+    - node: shipmentEngineeringToolsAdvanced
+      entity: CrateShipmentEngineeringToolsAdvanced

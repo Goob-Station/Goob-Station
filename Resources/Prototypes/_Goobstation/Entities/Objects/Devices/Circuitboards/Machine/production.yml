@@ -159,7 +159,7 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
-          
+
 - type: entity
   id: TelecomTransmitterCircuitboard
   parent: BaseMachineCircuitboard
@@ -174,3 +174,22 @@
       Uranium: 15
       Steel: 15
       Cable: 5
+
+- type: entity
+  id: GoodsPackerCircuitboard
+  parent: BaseMachineCircuitboard
+  name: goods packer machine board
+  description: A machine printed circuit board for a goods packer.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: MachineGoodsPacker
+    stackRequirements:
+      Manipulator: 6
+      Steel: 20
+      Cable: 10
+    tagRequirements:
+      GlassBeaker:
+        amount: 4
+        defaultPrototype: Beaker

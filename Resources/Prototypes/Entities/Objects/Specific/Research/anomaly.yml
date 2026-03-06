@@ -124,6 +124,9 @@
     materialComposition:
       Steel: 100
       Glass: 25
+  - type: Tag
+    tags:
+    - AnomalyScannerTool # Goobstation
 
 - type: entity
   id: AnomalyLocatorUnpowered
@@ -166,6 +169,9 @@
     materialComposition:
       Steel: 100
       Glass: 25
+  - type: Tag
+    tags:
+    - AnomalyLocatorTool # Goobstation
 
 - type: entity
   id: AnomalyLocator
@@ -201,6 +207,9 @@
     maxBeepInterval: 0.5
   - type: ProximityDetector
     range: 40
+  - type: Tag
+    tags:
+    - AnomalyLocatorWideSpectrum # Goobstation
 
 - type: entity
   id: AnomalyLocatorWide
