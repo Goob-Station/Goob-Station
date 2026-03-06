@@ -27,7 +27,7 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     /// How many units from target's bloodstream would be sucked per tick
     /// </summary>
     [DataField]
-    public FixedPoint2 SuctionUnits = 2;
+    public FixedPoint2 SuctionUnits = 1;
 
     /// <summary>
     /// Which reagent will end up in the slime's stomach when eating the target
@@ -39,7 +39,7 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     /// How many food units will be added to the slime's stomach when eating the target
     /// </summary>
     [DataField]
-    public FixedPoint2 FoodUnits = 1.5;
+    public FixedPoint2 FoodUnits = 0.4;
 
     //public ProtoId<ReagentPrototype> PoisonReagent = "UncookedAnimalProteins";
 
