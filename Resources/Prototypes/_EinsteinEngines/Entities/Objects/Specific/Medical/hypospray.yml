@@ -1,0 +1,29 @@
+- type: entity
+  name: analgesic medipen
+  parent: ChemicalMedipen
+  id: PainMedipen
+  description: A rapid dose of morphine to prepare patients for surgery. # goob edit - adjust to fit goob morphine
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: painpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: painpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 6 # goob edit
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 6 # goob edit
+        reagents:
+        - ReagentId: Morphine
+          Quantity: 6
+  - type: Tag
+    tags: []

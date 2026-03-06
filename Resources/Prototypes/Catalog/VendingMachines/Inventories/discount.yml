@@ -28,6 +28,7 @@
     FoodSnackEnergy: 3
     CigPackMixed: 2
     DiscountDanLighter: 1
+    PillCanisterIbuprofenDan: 2 # goob edit
   contrabandInventory:
     FoodSnackDanDanNoodles: 3
     FoodBakedBunHoney: 3
