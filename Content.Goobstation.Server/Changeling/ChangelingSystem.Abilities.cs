@@ -117,7 +117,6 @@ public sealed partial class ChangelingSystem
 
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionBiodegradeEvent>(OnBiodegrade);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ActionChameleonSkinEvent>(OnChameleonSkin);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionAdrenalineReservesEvent>(OnAdrenalineReserves);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionFleshmendEvent>(OnHealUltraSwag);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLastResortEvent>(OnLastResort);
@@ -876,28 +875,6 @@ public sealed partial class ChangelingSystem
             }
         }
         _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, soln, out _);
-
-        args.Handled = true;
-    }
-    public void OnChameleonSkin(EntityUid uid, ChangelingIdentityComponent comp, ref ActionChameleonSkinEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (!comp.ChameleonActive)
-        {
-            EnsureComp<StealthComponent>(uid);
-            EnsureComp<StealthOnMoveComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
-            comp.ChameleonActive = true;
-        }
-        else
-        {
-            RemComp<StealthComponent>(uid);
-            RemComp<StealthOnMoveComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("changeling-chameleon-end"), uid, uid);
-            comp.ChameleonActive = false;
-        }
 
         args.Handled = true;
     }
