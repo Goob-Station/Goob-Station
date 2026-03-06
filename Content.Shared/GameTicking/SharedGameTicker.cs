@@ -102,6 +102,10 @@ namespace Content.Shared.GameTicking
         {
             return _gameTiming.CurTime.Subtract(RoundStartTimeSpan);
         }
+
+        // Goobstation - PlayerPopRequirement support
+        public virtual bool InLobby => true;
+        public virtual int GetActivePlayerCount() => 0;
     }
 
     [Serializable, NetSerializable]
@@ -156,9 +160,10 @@ namespace Content.Shared.GameTicking
         public TimeSpan StartTime { get; }
         public TimeSpan RoundStartTimeSpan { get; }
         public bool Paused { get; }
+        public int ActivePlayerCount { get; } // Goobstation - PlayerPopRequirement
 
         // Goobstation - Lobby Background Credits
-        public TickerLobbyStatusEvent(bool isRoundStarted, ProtoId<LobbyBackgroundPrototype>? lobbyBackground, bool youAreReady, TimeSpan startTime, TimeSpan preloadTime, TimeSpan roundStartTimeSpan, bool paused)
+        public TickerLobbyStatusEvent(bool isRoundStarted, ProtoId<LobbyBackgroundPrototype>? lobbyBackground, bool youAreReady, TimeSpan startTime, TimeSpan preloadTime, TimeSpan roundStartTimeSpan, bool paused, int activePlayerCount = 0)
         {
             IsRoundStarted = isRoundStarted;
             LobbyBackground = lobbyBackground;
@@ -166,6 +171,7 @@ namespace Content.Shared.GameTicking
             StartTime = startTime;
             RoundStartTimeSpan = roundStartTimeSpan;
             Paused = paused;
+            ActivePlayerCount = activePlayerCount;
         }
     }
 
