@@ -5,6 +5,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Server.Player;
+using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -23,6 +24,22 @@ public sealed class TemporaryMindSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<TemporaryMindComponent, PlayerDetachedEvent>(OnPlayerDetached);
+    }
+
+    private void OnPlayerDetached(Entity<TemporaryMindComponent> ent, ref PlayerDetachedEvent args)
+    {
+        if (args.Player.Status != SessionStatus.Disconnected)
+            return;
+
+        CleanupDisposableMind(ent.Comp);
+        RemComp<TemporaryMindComponent>(ent);
+    }
+
     /// <summary>
     /// Shelves the player's current mind and creates a fresh disposable one for the new body.
     /// </summary>
@@ -39,6 +56,11 @@ public sealed class TemporaryMindSystem : EntitySystem
 
         // Clear userId from original mind so the disposable mind can claim it in UserMinds
         _mind.SetUserId(origMindId, null, origMind);
+
+        // Suppress catatonic examine on the original body while mind is swapped
+        if (origMind.OwnedEntity is { } originalBody
+            && TryComp<MindContainerComponent>(originalBody, out var mindContainer))
+            _mind.SetShowExamineInfo((originalBody, mindContainer), false);
 
         var newMind = _mind.CreateMind(userId, origMind.CharacterName);
         _mind.TransferTo(newMind, newBody);
@@ -117,6 +139,12 @@ public sealed class TemporaryMindSystem : EntitySystem
 
         if (TryComp<MindComponent>(temp.OriginalMind, out var origMind)
             && origMind.OriginalOwnerUserId is { } userId)
+        {
             _mind.SetUserId(temp.OriginalMind, userId);
+
+            if (origMind.OwnedEntity is { } originalBody
+                && TryComp<MindContainerComponent>(originalBody, out var mindContainer))
+                _mind.SetShowExamineInfo((originalBody, mindContainer), true);
+        }
     }
 }

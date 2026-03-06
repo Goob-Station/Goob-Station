@@ -88,6 +88,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<TimedDespawnComponent, EntGotInsertedIntoContainerMessage>(OnDespawnPickedUp);
         SubscribeLocalEvent<ThunderdomePlayerComponent, GetAntagSelectionBlockerEvent>(OnAntagSelectionBlocker);
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, ExaminedEvent>(OnOriginalBodyExamined);
+        SubscribeLocalEvent<ThunderdomePlayerComponent, PlayerDetachedEvent>(OnPlayerDetached);
     }
 
     public override void Update(float frameTime)
@@ -145,9 +146,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         var bodyQuery = EntityQueryEnumerator<ThunderdomeOriginalBodyComponent>();
         while (bodyQuery.MoveNext(out var uid, out _))
         {
-            if (TryComp<MindContainerComponent>(uid, out var mindContainer))
-                _mind.SetShowExamineInfo((uid, mindContainer), true);
-
             RemComp<ThunderdomeOriginalBodyComponent>(uid);
         }
 
@@ -268,8 +266,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             if (mindComp.UserId is { } ownerId)
                 marker.Owner = ownerId;
 
-            if (TryComp<MindContainerComponent>(body, out var bodyMindContainer))
-                _mind.SetShowExamineInfo((body, bodyMindContainer), false);
         }
 
         if (!_tempMind.TrySwapTempMind(session, mob))
@@ -421,10 +417,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         }
 
         _tempMind.TryRestoreToOriginalBody(currentEntity);
-
-        if (TryComp<MindContainerComponent>(originalBody.Value, out var bodyMindContainer))
-            _mind.SetShowExamineInfo((originalBody.Value, bodyMindContainer), true);
-
         RemComp<ThunderdomeOriginalBodyComponent>(originalBody.Value);
         QueueDel(currentEntity);
     }
@@ -455,7 +447,24 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        args.PushMarkup($"[color=yellow]{Loc.GetString("comp-mind-examined-ssd", ("ent", ent))}[/color]");
+        if (TryComp<MobStateComponent>(ent, out var mobState) && mobState.CurrentState == MobState.Dead)
+            args.PushMarkup($"[color=yellow]{Loc.GetString("comp-mind-examined-dead-and-ssd", ("ent", ent))}[/color]");
+        else
+            args.PushMarkup($"[color=yellow]{Loc.GetString("comp-mind-examined-ssd", ("ent", ent))}[/color]");
+    }
+
+    private void OnPlayerDetached(Entity<ThunderdomePlayerComponent> ent, ref PlayerDetachedEvent args)
+    {
+        if (args.Player.Status != SessionStatus.Disconnected)
+            return;
+
+        if (ent.Comp.RuleEntity == null
+            || !TryComp<ThunderdomeRuleComponent>(ent.Comp.RuleEntity.Value, out var rule))
+            return;
+
+        rule.Players.Remove(GetNetEntity(ent));
+        QueueDel(ent);
+        BroadcastPlayerCount(rule);
     }
 
     private void OnDespawnPickedUp(Entity<TimedDespawnComponent> ent, ref EntGotInsertedIntoContainerMessage args)
