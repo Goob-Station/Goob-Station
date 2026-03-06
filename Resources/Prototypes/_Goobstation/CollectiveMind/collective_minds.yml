@@ -87,3 +87,10 @@
   name: collective-mind-xeno
   keycode: 'z'
   color: "#8c3986"
+  
+- type: collectiveMind      # Doodon
+  id: DoodonMind
+  name: collective-mind-doodon
+  keycode: 'l'
+  color: "#58eb34"
+
