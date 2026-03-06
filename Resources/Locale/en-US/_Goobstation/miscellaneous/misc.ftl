@@ -1,0 +1,1 @@
+action-speech-dash-mango = Mango gland activate!
