@@ -16,6 +16,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Robust.Shared.Audio;
+using Robust.Shared.Network;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared.Body.Components;
 
@@ -29,6 +30,7 @@ public abstract partial class SharedBloodstreamSystem
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private void InitializeWounds()
     {
@@ -356,10 +358,11 @@ public abstract partial class SharedBloodstreamSystem
             return;
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/lightburn.ogg"), bodyPart.Body.Value);
-        _popup.PopupPredicted(Loc.GetString("bloodstream-component-wounds-cauterized"),
-            bodyPart.Body.Value,
-            bodyPart.Body.Value,
-            PopupType.Medium);
+        if (_net.IsClient) // PopupClient doesn't work for some reason
+            _popup.PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"),
+                bodyPart.Body.Value,
+                bodyPart.Body.Value,
+                PopupType.Medium);
     }
 
     // begin Goobstation: port EE height/width sliders
