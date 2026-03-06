@@ -133,7 +133,7 @@ public sealed class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
 
             _alerts.ClearAlert(uid, augment.Comp.NoBatteryAlert);
 
-            var chargePercent = (short) MathF.Round(battery.Comp.CurrentCharge / battery.Comp.MaxCharge * 10f);
+            var chargePercent = (short) MathF.Round(battery.Comp.CurrentCharge / battery.Comp.MaxCharge * 5f);
             _alerts.ShowAlert(uid, augment.Comp.BatteryAlert, chargePercent);
         }
     }

@@ -14,13 +14,13 @@ public sealed partial class AugmentPowerCellSlotComponent : Component
     /// The alert shown with the power level when a battery is installed.
     /// </summary>
     [DataField]
-    public ProtoId<AlertPrototype> BatteryAlert = "AugmentBattery";
+    public ProtoId<AlertPrototype> BatteryAlert = "AugmentPower";
 
     /// <summary>
     /// The alert shown when no battery is installed.
     /// </summary>
     [DataField]
-    public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
+    public ProtoId<AlertPrototype> NoBatteryAlert = "AugmentBatteryNone";
 }
 
 /// <summary>

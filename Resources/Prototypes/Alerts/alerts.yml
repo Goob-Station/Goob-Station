@@ -144,6 +144,7 @@
   - alertType: ChangelingChemicals # goobstation - changelings
   - alertType: SuitPower
   - alertType: ModsuitPower # Goobstation - Modsuits
+  - category: AugmentBattery # Goobstation - Augments
   - category: Internals
   - alertType: Fire
   - alertType: Handcuffed

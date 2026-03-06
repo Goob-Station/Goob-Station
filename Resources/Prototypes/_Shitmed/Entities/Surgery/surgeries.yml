@@ -852,9 +852,6 @@
     - SurgeryStepOpenOrganSlot
   - type: SurgeryOrganSlotCondition
     inverse: true
-  - type: SurgeryBodyCondition
-    accepted: [ IPC ]
-    inverse: true
 
 - type: entity
   abstract: true
