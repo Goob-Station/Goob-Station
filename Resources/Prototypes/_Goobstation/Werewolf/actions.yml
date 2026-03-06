@@ -168,3 +168,28 @@
       stunDuration: 2
   - type: WerewolfAction
     hungerCost: 45 # since its more powerful
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfBiteDire
+  name: Bleeding bite
+  description: Sink your canines into a victim, and steal 30% of their blood. This will heal you slightly.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: bleeding-bite
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:EventWerewolfBleedingBite { }
+  - type: WerewolfAction
+    hungerCost: 20
+    requireTransfurmed: true

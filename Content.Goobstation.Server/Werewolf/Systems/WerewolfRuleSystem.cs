@@ -24,7 +24,7 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly SharedWerewolfBasicAbilitiesSystem _sharedWerewolf = default!; // hell.
 
-    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"); // todo
+    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/werewolf_start.ogg");
 
     public readonly ProtoId<AntagPrototype> WerewolfPrototypeId = "Werewolf";
 

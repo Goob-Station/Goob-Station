@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Werewolf.Components;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Werewolf.Abilities;
@@ -8,6 +9,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
@@ -90,7 +92,7 @@ public partial class WerewolfBasicAbilitiesSystem
             return;
         if (!TryComp<WerewolfMindComponent>(mindId, out var mindComp))
             return;
-        mindComp.Currency += comp.AmountGut;
+        mindComp.Currency += comp.AmountDevour;
         mindComp.BittenPeople.Add(args.Args.Target.Value);
 
         _hunger.ModifyHunger(uid, +80); // todo maybe put as a var inside a comp or sdome shit
@@ -190,6 +192,31 @@ public partial class WerewolfBasicAbilitiesSystem
             return;
 
         _wound.AmputateWoundableSafely(woundable.ParentWoundable.Value, pick.Id, woundable);
+    }
+
+    public bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)
+    {
+        var solution = new Solution();
+        foreach (var (reagentId, quantity) in reagents)
+            solution.AddReagent(reagentId, quantity);
+
+        if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out _))
+            return false;
+
+        return _solution.TryAddSolution(targetSolution.Value, solution);
+    }
+
+    private void TryRegen(EntityUid uid, WerewolfBasicAbilitiesComponent comp, EventWerewolfRegen args)
+    {
+        var reagents = new Dictionary<string, FixedPoint2> // i hate fixedpoint bru
+        {
+            ["Ichor"] = FixedPoint2.New(10),
+            ["TranexamicAcid"] = FixedPoint2.New(5)
+        };
+
+        if (TryInjectReagents(uid, reagents))
+            _popup.PopupEntity(Loc.GetString("werewolf-action-regen-success"), uid, uid);
+        args.Handled = true;
     }
     # endregion
 }

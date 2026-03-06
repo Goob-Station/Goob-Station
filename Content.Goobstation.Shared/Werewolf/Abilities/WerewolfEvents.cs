@@ -13,6 +13,7 @@ public sealed partial class TransfurmEvent : InstantActionEvent { }
 public sealed partial class EventWerewolfOpenStore : InstantActionEvent {}
 public sealed partial class EventWerewolfDevour : EntityTargetActionEvent {}
 public sealed partial class EventWerewolfGut : EntityTargetActionEvent {}
+public sealed partial class EventWerewolfBleedingBite : EntityTargetActionEvent {}
 public sealed partial class EventWerewolfChangeType : InstantActionEvent
 {
     [DataField] public string WerewolfType;
@@ -31,6 +32,8 @@ public sealed partial class WerewolfDevourDoAfterEvent : SimpleDoAfterEvent { }
 
 [Serializable, NetSerializable]
 public sealed partial class WerewolfGutDoAfterEvent : SimpleDoAfterEvent { }
+[Serializable, NetSerializable]
+public sealed partial class WerewolfBleedingBiteDoAfterEvent : SimpleDoAfterEvent { }
 
 // upgrade events idk
 // event raised when any werewolf ability is upgraded
