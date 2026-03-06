@@ -116,6 +116,7 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:DenyObserverRequirement
   - type: GhostRoleMobSpawner
     prototype: MobRatKing
   - type: Sprite
@@ -208,6 +209,7 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 #5 hours
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -265,6 +267,7 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:DenyObserverRequirement # Goobstation
   - type: Sprite
     layers:
     - state: green
@@ -287,6 +290,7 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:DenyObserverRequirement
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -307,6 +311,8 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:DenyObserverRequirement # Goobstation
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
