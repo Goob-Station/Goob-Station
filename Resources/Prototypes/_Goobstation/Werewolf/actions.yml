@@ -1,0 +1,195 @@
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfHowl
+  name: Howl
+  description: Scream as loud as you can, stunning everyone in radius.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: howl
+  - type: InstantAction
+    event: !type:HowlEvent {}
+  - type: WerewolfAction
+    hungerCost: 30
+    requireTransfurmed: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfTransfurm
+  name: Transfurm
+  description: Transfurm into a werewolf. Be warned as you can transfurm back only after 2 minutes.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 6 # todo 600
+    startDelay: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: transfurm
+  - type: InstantAction
+    event: !type:TransfurmEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfOpenMutationStore
+  name: Open mutation store
+  description: Open the mutation menu.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: store
+  - type: InstantAction
+    event: !type:EventWerewolfOpenStore {}
+
+- type: entity
+  id: PulseThermalVisionWerewolf
+  parent: ToggleThermalVision
+  name: Heightened Senses
+  description: Gives you 10 seconds of thermal vision
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: senses
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfAbsorb
+  name: Bite
+  description: Bite and rip a limb from your fellow comrade for points.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: bite
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:EventWerewolfDevour {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfGut
+  name: Gut
+  description: Spills one of the chest organs of a deceased crew member onto the floor. Organs that are produced from this ability grant you Fury.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: gut
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:EventWerewolfGut {}
+  - type: WerewolfAction
+    hungerCost: 0
+    requireTransfurmed: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfRegen
+  name: increased metabolism
+  description: Increase your metabolism, providing healing at the cost of a lot of hunger.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: regen
+  - type: InstantAction
+    event: !type:EventWerewolfRegen {}
+  - type: WerewolfAction
+    hungerCost: 65
+#    requireTransfurmed: true
+
+- type: entity
+  id: ActionWerewolfJump
+  parent: BaseAction
+  name: Jump
+  description: Stun your enemies with a quick jump. Costs 30 hunger.
+  components:
+  - type: Action
+    priority: 0
+    useDelay: 20
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: ambush
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:WerewolfAmbushActionEvent
+  - type: WerewolfAction
+    hungerCost: 30
+    requireTransfurmed: true
+
+# direwolf specific
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfHowlDire
+  name: Roar
+  description: Scream as loud as you can, stunning everyone in radius.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: howl-red
+  - type: InstantAction
+    event: !type:HowlEvent
+      shriekPower: 4
+      stunDuration: 2
+  - type: WerewolfAction
+    hungerCost: 45 # since its more powerful
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfBiteDire
+  name: Bleeding bite
+  description: Sink your canines into a victim, and steal 30% of their blood. This will heal you slightly.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: bleeding-bite
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:EventWerewolfBleedingBite { }
+  - type: WerewolfAction
+    hungerCost: 20
+    requireTransfurmed: true

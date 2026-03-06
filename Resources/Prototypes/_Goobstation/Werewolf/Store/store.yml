@@ -1,0 +1,21 @@
+# all the store shit is here (or maybe not, todo idk)
+
+- type: currency
+  id: Fury
+  displayName: store-currency-display-fury
+  canWithdraw: false
+
+- type: storeCategory
+  id: WerewolfChoose
+  name: werewolf-store-choose
+  priority: 0
+
+- type: storeCategory
+  id: WerewolfDire
+  name: werewolf-store-dire
+  priority: 1
+
+- type: storeCategory
+  id: WerewolfSide
+  name: werewolf-store-side
+  priority: 99

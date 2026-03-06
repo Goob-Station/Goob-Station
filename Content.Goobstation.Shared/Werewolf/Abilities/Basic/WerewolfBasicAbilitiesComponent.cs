@@ -1,0 +1,43 @@
+using Content.Shared.Polymorph;
+using Content.Shared.StatusEffect;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Shared.Werewolf.Abilities.Basic;
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class WerewolfBasicAbilitiesComponent : Component
+{
+    [DataField] public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg"); // todo
+    [DataField] public SoundSpecifier DistantSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg"); // todo
+    [DataField] public SoundSpecifier RipSound = new SoundPathSpecifier("/Audio/Effects/gib1.ogg");
+
+    public readonly List<EntProtoId> WerewolfActions = new()
+    {
+        "ActionWerewolfTransfurm",
+        "ActionWerewolfOpenMutationStore",
+        "ActionWerewolfAbsorb",
+        "ActionWerewolfHowl"
+    };
+
+    [DataField, AutoNetworkedField]
+    public Dictionary<string, EntityUid> ActionEntities = new();
+
+    [DataField, AutoNetworkedField]
+    public bool Transfurmed = false;
+
+    [DataField]
+    public bool StoreOpened = true; // todo ungoida it, tie it to the mind and not the body you chud i fucking hate you future me raagh
+    // fuck you piece of shit previous me, why the fuck are half of the shit broken
+
+    [ViewVariables]
+    public ProtoId<PolymorphPrototype> CurrentMutation; //"WerewolfTransformBasic"
+
+    [DataField] // amount of points given per devour of a guy
+    public int AmountDevour = 2;
+
+    [DataField]
+    public int AmountGut = 1;
+
+}
