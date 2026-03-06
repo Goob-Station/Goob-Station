@@ -1,0 +1,111 @@
+# tier 1
+
+- type: terrorSpider
+  id: RedTerror
+  tier: 1
+
+- type: terrorSpider
+  id: GrayTerror
+  tier: 1
+  isInvisibleOnWeb: true
+
+- type: terrorSpider
+  id: GreenTerror
+  tier: 1
+  canLay: true
+  layConfig:
+    tiers:
+    - baseChance: 1.0
+      prototypes:
+        - TerrorEggRed
+        - TerrorEggGray
+        - TerrorEggGreen
+
+# tier 2
+
+- type: terrorSpider
+  id: BlackTerror
+  tier: 2
+
+- type: terrorSpider
+  id: WhiteTerror
+  tier: 2
+  infestsOnHit: true
+
+- type: terrorSpider
+  id: PurpleTerror
+  tier: 2
+
+- type: terrorSpider
+  id: BrownTerror
+  tier: 2
+
+# tier 3
+
+- type: terrorSpider
+  id: TerrorPrince
+  tier: 3
+
+- type: terrorSpider
+  id: TerrorPrincess
+  tier: 3
+  canLay: true
+  layConfig:
+    tiers:
+    - baseChance: 0.9
+      prototypes:
+        - TerrorEggRed
+        - TerrorEggGray
+        - TerrorEggGreen
+    - baseChance: 0.1
+      prototypes:
+        - TerrorEggBlack
+        - TerrorEggWhite
+        - TerrorEggPurple
+        - TerrorEggBrown
+
+- type: terrorSpider
+  id: TerrorMother
+  tier: 3
+
+# Tier 4
+
+- type: terrorSpider
+  id: TerrorQueen
+  tier: 4
+  canLay: true
+  layConfig:
+    tiers:
+    - baseChance: 0.9
+      prototypes:
+        - TerrorEggRed
+        - TerrorEggGray
+        - TerrorEggGreen
+    - baseChance: 0.05
+      maxChance: 0.50
+      curveK: 40
+      scaleWithHive: true
+      prototypes:
+        - TerrorEggBlack
+        - TerrorEggWhite
+        - TerrorEggPurple
+        - TerrorEggBrown
+    - baseChance: 0.01
+      maxChance: 0.10
+      curveK: 80
+      scaleWithHive: true
+      prototypes:
+        - TerrorEggBlack
+        - TerrorEggWhite
+        - TerrorEggPurple
+        - TerrorEggBrown
+
+# Misc
+
+- type: terrorSpider
+  id: TerrorTarantula
+  tier: 1
+
+- type: terrorSpider
+  id: TerrorClown
+  tier: 1
