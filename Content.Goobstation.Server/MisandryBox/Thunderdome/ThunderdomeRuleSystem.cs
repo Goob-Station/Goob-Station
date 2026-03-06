@@ -241,7 +241,8 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     {
         if (!TryComp<ThunderdomeRuleComponent>(ruleEntity, out var rule)
             || !rule.Active
-            || session.AttachedEntity is not { Valid: true } ghostEntity)
+            || session.AttachedEntity is not { Valid: true } ghostEntity
+            || !HasComp<GhostComponent>(ghostEntity))
             return;
 
         var spawnCoords = GetRandomSpawnPoint(rule);
