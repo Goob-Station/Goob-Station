@@ -32,6 +32,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
+using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.MisandryBox.Thunderdome;
@@ -75,6 +76,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomePlayerComponent, SuicideGhostEvent>(OnSuicideAttempt);
         SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt);
         SubscribeLocalEvent<ThunderdomeArenaProtectedComponent, BeforeDamageChangedEvent>(OnArenaEntityDamage);
+        SubscribeLocalEvent<TimedDespawnComponent, EntGotInsertedIntoContainerMessage>(OnDespawnPickedUp);
     }
 
     public override void Update(float frameTime)
@@ -400,22 +402,30 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         var items = new HashSet<Entity<ItemComponent>>();
         _lookup.GetEntitiesOnMap(map, items);
-
         foreach (var (uid, _) in items)
-        {
-            if (_container.IsEntityInContainer(uid))
-                continue;
-
-            QueueDel(uid);
-        }
+            MarkForDespawn(uid, checkContainer: true);
 
         var puddles = new HashSet<Entity<PuddleComponent>>();
         _lookup.GetEntitiesOnMap(map, puddles);
-
         foreach (var (uid, _) in puddles)
-        {
-            QueueDel(uid);
-        }
+            MarkForDespawn(uid);
+    }
+
+    private void OnDespawnPickedUp(EntityUid uid, TimedDespawnComponent comp, EntGotInsertedIntoContainerMessage args)
+    {
+        if (HasComp<ThunderdomePlayerComponent>(args.Container.Owner))
+            RemComp<TimedDespawnComponent>(uid);
+    }
+
+    private void MarkForDespawn(EntityUid uid, bool checkContainer = false)
+    {
+        if (HasComp<TimedDespawnComponent>(uid))
+            return;
+
+        if (checkContainer && _container.IsEntityInContainer(uid))
+            return;
+
+        EnsureComp<TimedDespawnComponent>(uid).Lifetime = 10f;
     }
 
     private void SpawnLoadoutItems(EntityUid mob, int weaponIdx, ThunderdomeRuleComponent rule)
