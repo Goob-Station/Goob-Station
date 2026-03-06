@@ -84,7 +84,6 @@
       - state: inhand-left
       right:
       - state: inhand-right
-  - type: UnholyItem # Goobstation Shitchap
 
 - type: entity
   name: vacuous lance
@@ -183,7 +182,6 @@
         restitution: 0.3
         friction: 0.2
   - type: Sharp
-  - type: UnholyItem # Goobstation Shitchap
 
 - type: entity
   name: astral razor
@@ -278,4 +276,3 @@
       - state: inhand-left
       right:
       - state: inhand-right
-  - type: UnholyItem # Goobstation Shitchap

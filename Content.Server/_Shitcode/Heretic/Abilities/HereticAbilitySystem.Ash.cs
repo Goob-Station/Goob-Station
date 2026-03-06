@@ -114,7 +114,7 @@ public sealed partial class HereticAbilitySystem
 
     private void OnFlames(Entity<HereticComponent> ent, ref EventHereticFlames args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(ent, args)) // server crash button :trollface:
             return;
 
         EnsureComp<HereticFlamesComponent>(ent);

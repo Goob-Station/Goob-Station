@@ -1,0 +1,14 @@
+- type: antag
+  id: BloodCultist
+  name: antagdef-cultist
+  antagonist: true
+  setPreference: true
+  objective: antagdef-cultist-desc
+  guides: [ BloodCult ]
+
+- type: startingGear
+  id: BloodCultist
+  storage:
+    back:
+    - RitualDagger
+    # - RunedMetal10

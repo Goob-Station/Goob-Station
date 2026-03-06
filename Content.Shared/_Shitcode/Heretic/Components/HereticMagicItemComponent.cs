@@ -11,7 +11,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Obsolete("Use MagicFocusProviderComponent instead.")]
 public sealed partial class HereticMagicItemComponent : Component
 {
 

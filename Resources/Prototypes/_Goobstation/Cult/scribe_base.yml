@@ -1,0 +1,23 @@
+- type: entity
+  id: RuneScribeCult
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.EntityRadialMenuKey.Key:
+        type: CultRuneScribeBUI
+  - type: BloodCultRuneScribe
+    malfRune: CultRuneMalf
+    runes:
+      None:
+        - CultRuneOffer
+        - CultRuneEmpower
+        - CultRuneTeleport
+        - CultRuneSpirit
+      Eyes: # yeah you don't get everything from the start
+        - CultRuneRevive
+        - CultRuneSummon
+        - CultRuneApocalypse
+      Halos:
+        - CultRuneBarrier
+        - CultRuneBloodboil
+        - CultRuneNarsie

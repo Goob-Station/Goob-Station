@@ -53,7 +53,7 @@
     linearDamping: 0
     angularDamping: 0
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Projectile
     impactEffect: EffectCosmicExplosion
     damage:

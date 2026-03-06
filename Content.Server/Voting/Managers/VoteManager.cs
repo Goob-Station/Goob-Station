@@ -34,6 +34,7 @@ using System.Collections;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Shared.Cult;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -460,39 +461,36 @@ namespace Content.Server.Voting.Managers
 
         public bool CheckVoterEligibility(ICommonSession player, VoterEligibility eligibility)
         {
-            if (eligibility == VoterEligibility.All)
-                return true;
-
-            if (eligibility == VoterEligibility.Ghost || eligibility == VoterEligibility.GhostMinimumPlaytime)
+            // goob edit - yanderedev to switch conversion
+            switch (eligibility)
             {
-                if (!_entityManager.TryGetComponent(player.AttachedEntity, out GhostComponent? ghostComp))
-                    return false;
-
-                if (eligibility == VoterEligibility.GhostMinimumPlaytime)
-                {
-                    var playtime = _playtimeManager.GetPlayTimes(player);
-                    if (!playtime.TryGetValue(PlayTimeTrackingShared.TrackerOverall, out TimeSpan overallTime) || overallTime < TimeSpan.FromHours(_cfg.GetCVar(CCVars.VotekickEligibleVoterPlaytime)))
-                        return false;
-
-                    if ((int)_timing.RealTime.Subtract(ghostComp.TimeOfDeath).TotalSeconds < _cfg.GetCVar(CCVars.VotekickEligibleVoterDeathtime))
-                        return false;
-                }
+                case VoterEligibility.All:
+                default: return true;
+                case VoterEligibility.Ghost:
+                    return _entityManager.HasComponent<GhostComponent>(player.AttachedEntity);
+                case VoterEligibility.GhostMinimumPlaytime:
+                    {
+                        var playtime = _playtimeManager.GetPlayTimes(player);
+                        if (!_entityManager.TryGetComponent(player.AttachedEntity, out GhostComponent? ghostComp)
+                        || !playtime.TryGetValue(PlayTimeTrackingShared.TrackerOverall, out var overallTime)
+                        || overallTime < TimeSpan.FromHours(_cfg.GetCVar(CCVars.VotekickEligibleVoterPlaytime))
+                        || (int) _timing.RealTime.Subtract(ghostComp.TimeOfDeath).TotalSeconds < _cfg.GetCVar(CCVars.VotekickEligibleVoterDeathtime))
+                            return false;
+                        return true;
+                    }
+                case VoterEligibility.MinimumPlaytime:
+                    {
+                        var playtime = _playtimeManager.GetPlayTimes(player);
+                        if (!playtime.TryGetValue(PlayTimeTrackingShared.TrackerOverall, out var overallTime)
+                        || overallTime < TimeSpan.FromHours(_cfg.GetCVar(CCVars.VotekickEligibleVoterPlaytime)))
+                            return false;
+                        return true;
+                    }
+                case VoterEligibility.CosmicCult:
+                    return _entityManager.HasComponent<CosmicCultComponent>(player.AttachedEntity);
+                case VoterEligibility.BloodCult:
+                    return _entityManager.HasComponent<BloodCultistComponent>(player.AttachedEntity);
             }
-
-            if (eligibility == VoterEligibility.MinimumPlaytime)
-            {
-                var playtime = _playtimeManager.GetPlayTimes(player);
-                if (!playtime.TryGetValue(PlayTimeTrackingShared.TrackerOverall, out TimeSpan overallTime) || overallTime < TimeSpan.FromHours(_cfg.GetCVar(CCVars.VotekickEligibleVoterPlaytime)))
-                    return false;
-            }
-
-            // Begin DeltaV - Cosmic Cult
-            if (eligibility == VoterEligibility.CosmicCult)
-                if (!_entityManager.HasComponent<CosmicCultComponent>(player.AttachedEntity))
-                    return false;
-            // End DeltaV - Cosmic Cult
-
-            return true;
         }
 
         public IEnumerable<IVoteHandle> ActiveVotes => _voteHandles.Values;
@@ -591,6 +589,7 @@ namespace Content.Server.Voting.Managers
             GhostMinimumPlaytime, // Player needs to be a ghost, with a minimum playtime and deathtime as defined by votekick CCvars.
             MinimumPlaytime, //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
             CosmicCult, // DeltaV - Player needs to be a cosmic cultist. Used by the cosmic cult gamemode.
+            BloodCult, // Goobstation - player needs to be a blood cultist. this fucking sucks.
         }
 
         #endregion

@@ -1,0 +1,119 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "artificer"
+        },
+        {
+            "name": "summonsoulstone"
+        },
+        {
+            "name": "cult_comms"
+        },
+        {
+            "name": "cultforcewall"
+        },
+        {
+            "name": "telerune"
+        },
+        {
+            "name": "phaseshift"
+        },
+        {
+            "name": "lesserconstruct"
+        },
+        {
+            "name": "floorconstruct"
+        },
+        {
+            "name": "areaconvert"
+        },
+        {
+            "name": "cultvote"
+        },
+        {
+            "name": "abyssal_gaze"
+        },
+        {
+            "name": "dominate"
+        },
+        {
+            "name": "cult_mark"
+        },
+        {
+            "name": "sintouch"
+        },
+        {
+            "name": "carve"
+        },
+        {
+            "name": "emp"
+        },
+        {
+            "name": "cuff"
+        },
+        {
+            "name": "transmute"
+        },
+        {
+            "name": "dagger"
+        },
+        {
+            "name": "armor"
+        },
+        {
+            "name": "hand"
+        },
+        {
+            "name": "tele"
+        },
+        {
+            "name": "horror"
+        },
+        {
+            "name": "gone"
+        },
+        {
+            "name": "back"
+        },
+        {
+            "name": "draw"
+        },
+        {
+            "name": "revive"
+        },
+        {
+            "name": "barrier"
+        },
+        {
+            "name": "cultfist"
+        },
+        {
+            "name": "manip"
+        },
+        {
+            "name": "bloodspear"
+        },
+        {
+            "name": "equip"
+        },
+        {
+            "name": "sword_fling"
+        },
+        {
+            "name": "spirit_sealed"
+        },
+        {
+            "name": "spirit_unsealed"
+        },
+        {
+            "name": "pulse"
+        }
+    ]
+}
