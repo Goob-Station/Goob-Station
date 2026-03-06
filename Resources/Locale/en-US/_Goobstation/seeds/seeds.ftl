@@ -5,3 +5,6 @@
 
 seeds-strange-berries-name = strange berries
 seeds-strange-berries-display-name = strange berry bush
+
+seeds-mass-mushroom-organism-name = mass mushroom organism
+seeds-mass-mushroom-organism-display-name = mass mushroom organism mushrooms
