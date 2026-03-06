@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Emag.Prototypes; // goob edit
 using Content.Shared.Emag.Systems;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
@@ -40,7 +41,7 @@ public sealed partial class EmagComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField]
-    public EmagType EmagType = EmagType.Interaction;
+    public ProtoId<EmagTypePrototype> EmagType = "Interaction";
 
     /// <summary>
     /// What sound should the emag play when used

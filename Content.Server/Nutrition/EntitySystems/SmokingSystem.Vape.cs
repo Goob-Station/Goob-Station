@@ -82,7 +82,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 forced = false;
             }
 
-            if (entity.Comp.ExplodeOnUse || _emag.CheckFlag(entity, EmagType.Interaction))
+            if (entity.Comp.ExplodeOnUse || _emag.CheckProtoId(entity, "Interaction")) // goob edit
             {
                 _explosionSystem.QueueExplosion(entity.Owner, "Default", entity.Comp.ExplosionIntensity, 0.5f, 3, canCreateVacuum: false);
                 Del(entity);
@@ -184,10 +184,10 @@ namespace Content.Server.Nutrition.EntitySystems
 
         private void OnEmagged(Entity<VapeComponent> entity, ref GotEmaggedEvent args)
         {
-            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
                 return;
 
-            if (_emag.CheckFlag(entity, EmagType.Interaction))
+            if (_emag.CheckProtoId(entity, "Interaction")) // goob edit
                 return;
 
             args.Handled = true;
