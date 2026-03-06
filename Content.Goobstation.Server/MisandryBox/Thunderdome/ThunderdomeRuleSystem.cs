@@ -232,7 +232,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             return;
 
         CreditKill(ent, rule, args.Origin);
-        GhostDomePlayer(ent, rule);
+        GhostDomePlayer(ent, rule, playSound: false);
     }
 
     public void SpawnPlayer(ICommonSession session, EntityUid ruleEntity, int weaponIdx)
@@ -293,6 +293,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             _audio.PlayStatic(sound, filter, deathCoords.Value, true, audioParams);
         }
 
+        ClearOriginalBodyMarker(ent);
         _tempMind.TryRestoreAsGhost(ent);
         QueueDel(ent);
         BroadcastPlayerCount(rule);
@@ -373,6 +374,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             return;
 
         rule.Players.Remove(GetNetEntity(ent));
+        ClearOriginalBodyMarker(ent);
         _tempMind.TryRestoreAsGhost(ent);
         QueueDel(ent);
 
@@ -458,6 +460,17 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         if (args.Player.Status != SessionStatus.Disconnected)
             return;
 
+        // TemporaryMindSystem may have already cleaned up, so search by UserId
+        var query = EntityQueryEnumerator<ThunderdomeOriginalBodyComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.Owner == args.Player.UserId)
+            {
+                RemComp<ThunderdomeOriginalBodyComponent>(uid);
+                break;
+            }
+        }
+
         if (ent.Comp.RuleEntity == null
             || !TryComp<ThunderdomeRuleComponent>(ent.Comp.RuleEntity.Value, out var rule))
             return;
@@ -465,6 +478,14 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         rule.Players.Remove(GetNetEntity(ent));
         QueueDel(ent);
         BroadcastPlayerCount(rule);
+    }
+
+    private void ClearOriginalBodyMarker(EntityUid tempBody)
+    {
+        if (TryComp<TemporaryMindComponent>(tempBody, out var temp)
+            && TryComp<MindComponent>(temp.OriginalMind, out var origMind)
+            && origMind.OwnedEntity is { } originalBody)
+            RemComp<ThunderdomeOriginalBodyComponent>(originalBody);
     }
 
     private void OnDespawnPickedUp(Entity<TimedDespawnComponent> ent, ref EntGotInsertedIntoContainerMessage args)
