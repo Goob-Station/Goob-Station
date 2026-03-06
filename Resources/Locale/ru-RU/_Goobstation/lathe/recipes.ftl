@@ -18,3 +18,4 @@ lathe-recipe-ChevalTranslatorImplanter-subname = Парнокопытный
 lathe-recipe-YowKriolTranslatorImplanter-subname = Йовикрол
 lathe-recipe-GruntishTranslatorImplanter-subname = Грунтич
 lathe-recipe-XenoCompatibilityImplanter = Ксено совместимость
+lathe-recipe-SignTranslatorImplanter-subname = Жесты

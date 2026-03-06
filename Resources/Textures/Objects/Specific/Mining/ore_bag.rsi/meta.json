@@ -23,9 +23,6 @@
       "directions": 4
     },
     {
-      "name": "orebag_off"
-    },
-    {
       "name": "orebag_on",
       "delays": [
         [
