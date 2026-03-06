@@ -1,0 +1,38 @@
+- type: entity
+  id: JapaneseGateTorii
+  parent: BaseStructure
+  name: Torii gate
+  description: Bow before entering as a show of respect.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/96x96.rsi
+    state: torii
+    drawdepth: Overdoors
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      leftPillar:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.15, -1.5, -0.65, -0.9"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+      rightPillar:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.65, -1.5, 1.15, -0.9"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable

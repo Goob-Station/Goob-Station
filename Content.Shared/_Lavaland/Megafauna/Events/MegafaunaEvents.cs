@@ -20,6 +20,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Lavaland.Megafauna.Events;
 
@@ -37,3 +38,17 @@ public sealed class MegafaunaStartupEvent : EntityEventArgs;
 /// Raised when boss doesn't die but for any reason deactivates.
 /// </summary>
 public sealed class MegafaunaShutdownEvent : EntityEventArgs;
+
+/// <summary>
+/// Raised when boss first takes damage.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class BossFirstDamageEvent : EntityEventArgs
+{
+    public NetEntity Boss;
+
+    public BossFirstDamageEvent(NetEntity boss)
+    {
+        Boss = boss;
+    }
+}

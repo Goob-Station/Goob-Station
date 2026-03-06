@@ -1,0 +1,136 @@
+- type: entity
+  id: BananaOniHand
+  name: Oni hand
+  description: Look out!
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/96x96.rsi
+    state: oni-hand-right
+    drawdepth: Effects
+    noRot: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5, -0.8, 0.8, 0.8"
+        density: 10000
+        mask:
+        - LargeMobMask
+        layer:
+        - InteractImpassable
+  - type: AmbientSound
+    volume: -6
+    range: 8
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 8
+    energy: 2
+    color: Orange
+    castShadows: true
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - ChildishOni
+    inverted: true
+    damage:
+      types:
+        Structural: 3000
+        Heat: 25
+
+- type: entity
+  id: BananaOniHandRight
+  parent: BananaOniHand
+  suffix: Right
+  components:
+  - type: FadingIn
+    fadeInTime: 2
+  - type: DirectionalMovement
+    direction: 1,0
+    initialSpeed: 0.1
+    acceleration: 4
+    maxSpeed: 30
+    maxDistance: 50
+    deleteOnEnd: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05
+
+- type: entity
+  id: BananaOniHandLeft
+  parent: BananaOniHand
+  suffix: Left
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/96x96.rsi
+    state: oni-hand-left
+    drawdepth: Effects
+    noRot: false
+  - type: FadingIn
+    fadeInTime: 2
+  - type: DirectionalMovement
+    direction: -1,0
+    initialSpeed: 0.1
+    acceleration: 4
+    maxSpeed: 30
+    maxDistance: 50
+    deleteOnEnd: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05
+
+- type: entity
+  id: BananaOniHandUp
+  parent: BananaOniHand
+  suffix: Up
+  components:
+  - type: FadingIn
+    fadeInTime: 2
+  - type: DirectionalMovement
+    direction: 0,1
+    initialSpeed: 0.1
+    acceleration: 4
+    maxSpeed: 30
+    maxDistance: 20
+    deleteOnEnd: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05
+
+- type: entity
+  id: BananaOniHandDown
+  parent: BananaOniHand
+  suffix: Down
+  components:
+  - type: FadingIn
+    fadeInTime: 2
+  - type: DirectionalMovement
+    direction: 0,-1
+    initialSpeed: 0.1
+    acceleration: 4
+    maxSpeed: 30
+    maxDistance: 20
+    deleteOnEnd: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05

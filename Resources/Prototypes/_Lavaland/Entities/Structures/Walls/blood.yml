@@ -1,0 +1,95 @@
+- type: entity
+  parent: BaseStructure
+  id: BaseBloodWall
+  name: blood wall
+  abstract: true
+  description: You probably shouldn't touch it.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/bloodwall.rsi
+    state: bloodwall_1
+    drawdepth: Walls
+    noRot: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageModifierSet: StructuralMetallicStrong
+    damageContainer: Biological
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Airtight
+  - type: SunShadowCast
+  - type: Occluder
+  - type: Tag
+    tags:
+      - Wall
+
+- type: entity
+  parent: BaseBloodWall
+  id: BaseBloodWall1
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/bloodwall.rsi
+    state: bloodwall_1
+    drawdepth: Walls
+    noRot: true
+
+- type: entity
+  parent: BaseBloodWall
+  id: BaseBloodWall2
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/bloodwall.rsi
+    state: bloodwall_2
+    drawdepth: Walls
+    noRot: true
+
+- type: entity
+  parent: BaseBloodWall
+  id: BaseBloodWall3
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/bloodwall.rsi
+    state: bloodwall_3
+    drawdepth: Walls
+    noRot: true
+
+- type: entity
+  parent: BaseBloodWall
+  id: BaseBloodWall4
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/bloodwall.rsi
+    state: bloodwall_4
+    drawdepth: Walls
+    noRot: true
+
+- type: entity
+  parent: BaseBloodWall
+  id: BaseBloodWall5
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/bloodwall.rsi
+    state: bloodwall_5
+    drawdepth: Walls
+    noRot: true
