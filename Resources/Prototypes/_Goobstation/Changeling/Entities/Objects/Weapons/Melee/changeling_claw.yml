@@ -37,18 +37,7 @@
   - type: Unremoveable
   - type: DisarmMalus
     malus: 0
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 30
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: Amatoxin
-        Quantity: 5
-      - ReagentId: MuteToxin
-        Quantity: 10
-  - type: MeleeChemicalInjector
-    transferAmount: 2
-    solution: melee
+  - type: GrabbingItem
+    escapeAttemptModifier: 1
+  - type: GrabModifier
+    grabMoveSpeedMultiplier: 4 # 0.8 speed modifier on choke grab
