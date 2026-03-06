@@ -207,7 +207,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: Mobs/Animals/mouse.rsi
+    - sprite: Mobs/Animals/mouse/mouse.rsi # Goobstation - mouse displacement map
       state: icon-2
     - state: ai
   # Goobstation
