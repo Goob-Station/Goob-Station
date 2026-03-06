@@ -27,6 +27,7 @@ thunderdome-loadout-python = Python
 thunderdome-loadout-inspector = Inspector
 thunderdome-loadout-hristov = Hristov
 thunderdome-loadout-esword = Energy Sword
+thunderdome-loadout-capo = Capoeira
 
 # Weapon descriptions (tooltips)
 thunderdome-desc-shotgun = Pump shotgun + 1 box buckshot, 1 box slugs
@@ -39,12 +40,17 @@ thunderdome-desc-python = AP-loaded revolver + 1 AP speedloader
 thunderdome-desc-inspector = Revolver + 2 speedloaders
 thunderdome-desc-hristov = Anti-materiel sniper + 2 spare magazines
 thunderdome-desc-esword = Energy sword + 2 hyperzine injectors
+thunderdome-desc-capo = Capoeira manual + 2 injector pens
 
 # Kill streak announcements
-thunderdome-streak-3 = Killing Spree!
-thunderdome-streak-5 = Rampage!
-thunderdome-streak-7 = Dominating!
-thunderdome-streak-10 = UNSTOPPABLE!
+thunderdome-streak-3 = {$player} is on a Killing Spree!
+thunderdome-streak-4 = {$player} is Dominating!
+thunderdome-streak-5 = {$player} has a Mega Kill!
+thunderdome-streak-6 = {$player} is Unstoppable!
+thunderdome-streak-7 = {$player} is Wicked Sick!
+thunderdome-streak-8 = {$player} got a Monster Kill!
+thunderdome-streak-9 = {$player} is GODLIKE!
+thunderdome-streak-12 = {$player} is BEYOND GODLIKE!
 
 # Revival
 thunderdome-revival-title = Body Revived

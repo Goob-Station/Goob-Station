@@ -215,7 +215,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnGetAntagBlocker(Entity<ChangelingComponent> ent, ref GetAntagSelectionBlockerEvent args)
     {
-        args.IsChangeling = true;
+        args.Blocked = true;
     }
 
     private void OnMindswapAttempt(Entity<ChangelingComponent> ent, ref BeforeMindSwappedEvent args)
