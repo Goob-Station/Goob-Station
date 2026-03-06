@@ -33,3 +33,6 @@
 
 - type: stepTriggerType
   id: ContrabandDetector
+
+- type: stepTriggerType # Goobstation
+  id: WasteWater

@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "license": "CC-BY-3.0",
+  "copyright": "https://github.com/tgstation/tgstation/blob/5536a209f91d683887ee60501ebda273928e6e90/icons/obj/watercloset.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "urinal",
+      "directions": 4
+    },
+    {
+      "name": "shower",
+      "directions": 4
+    },
+    {
+      "name": "water",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mist"
+    },
+    {
+      "name": "puddle"
+    },
+    {
+      "name": "puddle-oil",
+      "delays": [
+        [
+          0.1,
+          0.6,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.3,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "puddle-oil-splash",
+      "delays": [
+        [
+          0.3,
+          0.2,
+          0.4,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "puddle-splash",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  ]
+}
