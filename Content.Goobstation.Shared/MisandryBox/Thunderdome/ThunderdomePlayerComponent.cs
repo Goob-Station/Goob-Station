@@ -20,4 +20,6 @@ public sealed partial class ThunderdomePlayerComponent : Component
 
     [DataField]
     public int WeaponSelection;
+
+    public EntityUid? LastAttacker;
 }
