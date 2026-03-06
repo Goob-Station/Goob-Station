@@ -351,7 +351,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
-  
+
 # Detective's Hardsuit
 
 - type: entity
@@ -415,3 +415,15 @@
   - type: FlashImmunity
   - type: FlashSoundSuppression
   - type: EyeProtection
+
+#Quartermaster's hardsuit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitLuxury
+  id: ClothingHeadHelmetHardsuitQm
+  name: quartermaster's hardsuit helmet
+  description: A refashioned luxury mining hardsuit helmet, with nothing more and nothing less than the regular one. Just a flashier colour.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/qm.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/qm.rsi

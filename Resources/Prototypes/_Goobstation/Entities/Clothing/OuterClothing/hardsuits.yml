@@ -443,3 +443,17 @@
     damageCoefficient: 0.6
   - type: Item
     size: Normal
+
+#Quartermaster's hardsuit
+- type: entity
+  parent: [ClothingOuterHardsuitLuxury, BaseCommandContraband]
+  id: ClothingOuterHardsuitQm
+  name: quartermaster's hardsuit
+  description: A luxury mining hardsuit, refashioned to be distinguished as personal property of the quartermaster. That's the only difference.
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/qm.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/qm.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitQm
