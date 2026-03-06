@@ -1,0 +1,37 @@
+- type: reagent
+  id: Peranol
+  name: reagent-name-peranol
+  group: Medicine
+  desc: reagent-desc-peranol
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#8B008B"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -0.2
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 253.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
+        amount: -360
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages: [ "leporazine-effect-temperature-adjusting" ]
+        probability: 0.2
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 253.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: true
+        amount: -7500
