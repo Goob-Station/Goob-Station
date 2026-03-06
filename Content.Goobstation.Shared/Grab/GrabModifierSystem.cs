@@ -2,12 +2,12 @@ using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
-using Content.Shared.Turrets;
 
 namespace Content.Goobstation.Shared.Grab;
 
 public sealed class GrabModifierSystem : EntitySystem
 {
+    [Dependency] private readonly GrabbingCooldownSystem _grabCd = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -52,6 +52,12 @@ public sealed class GrabModifierSystem : EntitySystem
 
         if (stage != GrabStage.No && stage < ent.Comp.StartingGrabStage)
             args.NewStage = ent.Comp.StartingGrabStage;
+        
+        if (stage != GrabStage.No)
+        {
+            if (!_grabCd.IsCooldownReady(ent))
+                args.NewStage = null;
+        }
 
         args.Multiplier *= ent.Comp.GrabEscapeMultiplier;
         args.Modifier += ent.Comp.GrabEscapeModifier;
