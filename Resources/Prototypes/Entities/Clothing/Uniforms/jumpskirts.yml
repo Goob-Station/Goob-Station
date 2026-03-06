@@ -665,7 +665,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi
 
 - type: entity
-  parent: [ClothingUniformFoldableBase,UnsensoredClothingUniformSkirtBase] # CorvaxGoob-Contraband : deleted contra label
+  parent: [UnsensoredClothingUniformSkirtBase,ClothingUniformFoldableBase] # Goob # CorvaxGoob-Contraband : deleted contra label
   id: ClothingUniformJumpskirtOperative
   name: operative jumpskirt
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
@@ -1066,4 +1066,3 @@
     tags:
     - ClownSuit
     - WhitelistChameleon
-
