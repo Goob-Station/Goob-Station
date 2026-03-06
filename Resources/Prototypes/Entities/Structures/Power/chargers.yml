@@ -355,6 +355,7 @@
       - BorgChassis
       - Silicon # EE IPCs
       - Inventory #Goobstation - Modsuits
+      - Drone # Goobstation - Drone recharging
   - type: Construction
     containers:
     - machine_parts
