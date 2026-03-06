@@ -4,6 +4,7 @@ desc = "Corvax — первый русскоязычный проект в Space
 maxplayers = 180
 soft_max_players = 90
 map_rotation = true
+thunderdome_enabled = false
 
 [server]
 lobby_name = "️🛰️ CorvaxGoob — 🌌 Войд ☄️ [MRP] [TTS]"
