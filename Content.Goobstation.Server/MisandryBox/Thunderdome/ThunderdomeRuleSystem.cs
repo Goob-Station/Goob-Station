@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Mind;
 using Content.Goobstation.Server.MisandryBox.Mind;
 using Content.Goobstation.Shared.MisandryBox.Mind;
 using Content.Goobstation.Shared.MisandryBox.Thunderdome;
@@ -77,6 +78,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt);
         SubscribeLocalEvent<ThunderdomeArenaProtectedComponent, BeforeDamageChangedEvent>(OnArenaEntityDamage);
         SubscribeLocalEvent<TimedDespawnComponent, EntGotInsertedIntoContainerMessage>(OnDespawnPickedUp);
+        SubscribeLocalEvent<ThunderdomePlayerComponent, GetAntagSelectionBlockerEvent>(OnAntagSelectionBlocker);
     }
 
     public override void Update(float frameTime)
@@ -409,6 +411,11 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         _lookup.GetEntitiesOnMap(map, puddles);
         foreach (var (uid, _) in puddles)
             MarkForDespawn(uid);
+    }
+
+    private static void OnAntagSelectionBlocker(Entity<ThunderdomePlayerComponent> ent, ref GetAntagSelectionBlockerEvent args)
+    {
+        args.Blocked = true;
     }
 
     private void OnDespawnPickedUp(EntityUid uid, TimedDespawnComponent comp, EntGotInsertedIntoContainerMessage args)

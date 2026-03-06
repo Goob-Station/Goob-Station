@@ -724,8 +724,7 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// Returns a list of every living humanoid player's minds, except for a single one which is exluded.
     /// A new hashset is allocated for every call, consider using <see cref="AddAliveHumans"/> instead.
     /// </summary>
-    public HashSet<Entity<MindComponent>> GetAliveHumans(EntityUid? exclude = null,
-        bool excludeSilicon = false, bool excludeChangeling = false) // Goob edit - exclude certain groups of entities
+    public HashSet<Entity<MindComponent>> GetAliveHumans(EntityUid? exclude = null)
     {
         var allHumans = new HashSet<Entity<MindComponent>>();
         AddAliveHumans(allHumans, exclude);
@@ -735,8 +734,7 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// <summary>
     /// Adds to a hashset every living humanoid player's minds, except for a single one which is exluded.
     /// </summary>
-    public void AddAliveHumans(HashSet<Entity<MindComponent>> allHumans, EntityUid? exclude = null,
-    bool excludeSilicon = false, bool excludeChangeling = false) // Goob edit - exclude certain groups of entities
+    public void AddAliveHumans(HashSet<Entity<MindComponent>> allHumans, EntityUid? exclude = null)
     {
         // HumanoidAppearanceComponent is used to prevent mice, pAIs, etc from being chosen
         var query = EntityQueryEnumerator<HumanoidAppearanceComponent, MobStateComponent>();
@@ -747,14 +745,12 @@ public abstract partial class SharedMindSystem : EntitySystem
             if (!TryGetMind(uid, out var mind, out var mindComp) || mind == exclude || !_mobState.IsAlive(uid, mobState))
                 continue;
 
-            // goob edit start - selection blocker event
+            // Goobstation - selection blocker event
             var blockEv = new GetAntagSelectionBlockerEvent();
             RaiseLocalEvent(uid, ref blockEv);
 
-            if (excludeSilicon && blockEv.IsSilicon
-                || excludeChangeling && blockEv.IsChangeling)
+            if (blockEv.Blocked)
                 continue;
-            // goob edit end
 
             allHumans.Add((mind, mindComp));
         }
