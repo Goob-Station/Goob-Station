@@ -57,9 +57,6 @@ public sealed partial class GrabIntentComponent : Component
     public string GrabThrowDamageType = "Blunt";
 
     [ViewVariables]
-    public readonly List<EntityUid> GrabVirtualItems = [];
-
-    [ViewVariables]
     public readonly Dictionary<GrabStage, int> GrabVirtualItemStageCount = new()
     {
         { GrabStage.Suffocate, 1 },

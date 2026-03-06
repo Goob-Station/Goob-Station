@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Grab;
 using Content.Shared._EinsteinEngines.Contests;
@@ -67,23 +68,12 @@ public sealed partial class GrabIntentSystem : EntitySystem
         SubscribeLocalEvent<GrabbableComponent, CheckGrabbedEvent>(OnCheckGrabbed);
         SubscribeLocalEvent<GrabbableComponent, GrabAttemptEvent>(OnGrabAttempt);
         SubscribeLocalEvent<GrabbableComponent, PullStoppedMessage>(OnPullStoppedGrabbable);
-        SubscribeLocalEvent<PullableComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<GrabIntentComponent, PullStoppedMessage>(OnPullStoppedGrabIntent);
     }
 
     #endregion
 
     #region Core Events
-
-    private void OnPullStarted(Entity<PullableComponent> ent, ref PullStartedMessage args)
-    {
-        if (args.PulledUid != ent.Owner || !CanGrab(args.PullerUid, ent.Owner))
-            return;
-
-        EnsureComp<GrabIntentComponent>(args.PullerUid);
-        var grabbable = EnsureComp<GrabbableComponent>(args.PulledUid);
-        _alertsSystem.ShowAlert(args.PulledUid, grabbable.PulledAlert, 0);
-    }
 
     private void OnPullStoppedGrabbable(EntityUid uid, GrabbableComponent component, ref PullStoppedMessage args)
     {
@@ -104,15 +94,15 @@ public sealed partial class GrabIntentSystem : EntitySystem
             return;
 
         component.GrabStage = GrabStage.No;
-        foreach (var item in component.GrabVirtualItems)
+
+        foreach (var item in GetGrabVirtualItems(uid, args.PulledUid).ToList())
         {
-            if (TryComp<VirtualItemComponent>(item, out var virtualItemComponent))
-                _virtualSystem.DeleteVirtualItem((item, virtualItemComponent), uid);
+            if (TryComp<VirtualItemComponent>(item, out var vi))
+                _virtualSystem.DeleteVirtualItem((item, vi), uid);
             else
                 QueueDel(item);
         }
 
-        component.GrabVirtualItems.Clear();
         Dirty(uid, component);
     }
 

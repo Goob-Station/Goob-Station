@@ -36,7 +36,7 @@ public sealed partial class GrabbableComponent : Component
     public TimeSpan NextEscapeAttempt = TimeSpan.Zero;
 
     [DataField, AutoNetworkedField]
-    public bool BeingTabled = false;
+    public bool BeingTabled;
 
     [DataField]
     public float BasedTabledForceSpeed = 5f;

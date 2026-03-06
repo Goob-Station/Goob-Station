@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared._White.Grab;
@@ -9,6 +10,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Standing;
@@ -73,7 +75,9 @@ public sealed partial class GrabIntentSystem
             TryLowerGrabStage(args.User, uid, true);
     }
 
-    private void OnRefreshMovespeed(EntityUid uid, GrabIntentComponent component, RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshMovespeed(EntityUid uid,
+        GrabIntentComponent component,
+        RefreshMovementSpeedModifiersEvent args)
     {
         if (!TryComp<PullerComponent>(uid, out var puller))
             return;
@@ -236,7 +240,9 @@ public sealed partial class GrabIntentSystem
 
         if (grabIntentComp.GrabStage == GrabStage.Suffocate)
         {
-            _stamina.TakeStaminaDamage(pullable.Owner, grabIntentComp.SuffocateGrabStaminaDamage, applyResistances: true);
+            _stamina.TakeStaminaDamage(pullable.Owner,
+                grabIntentComp.SuffocateGrabStaminaDamage,
+                applyResistances: true);
 
             var comboEv =
                 new ComboAttackPerformedEvent(pullerUid, pullable.Owner, pullerUid, ComboAttackType.Grab);
@@ -312,6 +318,13 @@ public sealed partial class GrabIntentSystem
             Dirty(pullable.Owner, pullable.Comp2);
     }
 
+    private List<EntityUid> GetGrabVirtualItems(EntityUid puller, EntityUid pullable)
+    {
+        return _handsSystem.EnumerateHeld(puller)
+            .Where(held => TryComp<VirtualItemComponent>(held, out var vi) && vi.BlockingEntity == pullable)
+            .ToList();
+    }
+
     private bool TryUpdateGrabVirtualItems(
         Entity<PullerComponent, GrabIntentComponent> puller,
         Entity<PullableComponent, GrabbableComponent> pullable)
@@ -321,43 +334,32 @@ public sealed partial class GrabIntentSystem
         if (grabItemEv.GrabbingItem != null)
             return true;
 
-        var virtualItemsCount = puller.Comp2.GrabVirtualItems.Count;
+        var targetCount = puller.Comp1.NeedsHands ? 0 : 1;
+        if (puller.Comp2.GrabVirtualItemStageCount.TryGetValue(puller.Comp2.GrabStage, out var stageCount))
+            targetCount += stageCount;
 
-        var newVirtualItemsCount = puller.Comp1.NeedsHands ? 0 : 1;
-        if (puller.Comp2.GrabVirtualItemStageCount.TryGetValue(puller.Comp2.GrabStage, out var count))
-            newVirtualItemsCount += count;
-
-        if (virtualItemsCount == newVirtualItemsCount)
-            return true;
-        var delta = newVirtualItemsCount - virtualItemsCount;
+        var pullBaseline = puller.Comp1.NeedsHands ? 1 : 0;
+        var grabManaged = GetGrabVirtualItems(puller.Owner, pullable.Owner).Skip(pullBaseline).ToList();
+        var delta = targetCount - grabManaged.Count;
 
         if (delta > 0)
         {
             for (var i = 0; i < delta; i++)
             {
-                var emptyHand = _handsSystem.TryGetEmptyHand(puller.Owner, out _);
-                if (!emptyHand || !_virtualSystem.TrySpawnVirtualItemInHand(pullable.Owner, puller.Owner, out var item, true))
-                {
-                    _popup.PopupPredicted(Loc.GetString("popup-grab-need-hand"), puller.Owner, puller.Owner, PopupType.Medium);
-                    return false;
-                }
-
-                puller.Comp2.GrabVirtualItems.Add(item.Value);
+                if (_handsSystem.TryGetEmptyHand(puller.Owner, out _)
+                    && _virtualSystem.TrySpawnVirtualItemInHand(pullable.Owner, puller.Owner, out _, true))
+                    continue;
+                _popup.PopupPredicted(Loc.GetString("popup-grab-need-hand"), puller.Owner, puller.Owner, PopupType.Medium);
+                return false;
             }
         }
-
-        if (delta >= 0)
-            return true;
-
-        for (var i = 0; i < Math.Abs(delta); i++)
+        else if (delta < 0)
         {
-            if (i >= puller.Comp2.GrabVirtualItems.Count)
-                break;
-
-            var item = puller.Comp2.GrabVirtualItems[i];
-            puller.Comp2.GrabVirtualItems.Remove(item);
-            if (TryComp<VirtualItemComponent>(item, out var virtualItemComponent))
-                _virtualSystem.DeleteVirtualItem((item, virtualItemComponent), puller.Owner);
+            foreach (var item in grabManaged.Take(-delta))
+            {
+                if (TryComp<VirtualItemComponent>(item, out var vi))
+                    _virtualSystem.DeleteVirtualItem((item, vi), puller.Owner);
+            }
         }
 
         return true;
@@ -381,7 +383,8 @@ public sealed partial class GrabIntentSystem
         Entity<PullerComponent?, GrabIntentComponent?> puller,
         bool ignoreCombatMode = false)
     {
-        if (!Resolve(pullable.Owner, ref pullable.Comp1, ref pullable.Comp2) || !Resolve(puller.Owner, ref puller.Comp1, ref puller.Comp2))
+        if (!Resolve(pullable.Owner, ref pullable.Comp1, ref pullable.Comp2) ||
+            !Resolve(puller.Owner, ref puller.Comp1, ref puller.Comp2))
             return false;
 
         if (pullable.Comp1.Puller != puller.Owner ||
@@ -399,7 +402,9 @@ public sealed partial class GrabIntentSystem
         }
 
         var newStage = puller.Comp2.GrabStage - 1;
-        TrySetGrabStages((puller.Owner, puller.Comp1, puller.Comp2), (pullable.Owner, pullable.Comp1, pullable.Comp2), newStage);
+        TrySetGrabStages((puller.Owner, puller.Comp1, puller.Comp2),
+            (pullable.Owner, pullable.Comp1, pullable.Comp2),
+            newStage);
         return true;
     }
 

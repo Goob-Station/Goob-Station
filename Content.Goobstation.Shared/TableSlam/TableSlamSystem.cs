@@ -12,7 +12,6 @@
 
 using System.Linq;
 using Content.Goobstation.Common.Grab;
-using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._Shitmed.Targeting;
@@ -35,7 +34,7 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Shared.TableSlam;
 
 /// <summary>
-/// This handles...
+/// This handles the slamming of individuals onto the furniture known as tables.
 /// </summary>
 public sealed class TableSlamSystem : EntitySystem
 {
