@@ -9,7 +9,7 @@
     werewolfType: WerewolfTransformDirewolf
   raiseProductEventOnUser: true
   cost:
-    Fury: 6
+    Fury: 15
   categories:
   - WerewolfChoose
   conditions:
@@ -28,7 +28,7 @@
     newActionId: ActionWerewolfHowlDire
   raiseProductEventOnUser: true
   cost:
-    Fury: 2
+    Fury: 5
   categories:
   - WerewolfDire
   conditions:
@@ -37,3 +37,26 @@
   - !type:BuyBeforeCondition
     whitelist:
     - WerewolfDirewolf
+
+
+- type: listing
+  id: WerewolfBiteDire
+  name: werewolf-store-bite-direwolf-name
+  description: werewolf-store-bite-direwolf-desc
+  icon:
+    sprite: _Goobstation/Actions/werewolf.rsi
+    state: bleeding-bite
+  productEvent: !type:EventWerewolfUpgradeAbility
+    newActionId: ActionWerewolfBiteDire
+  raiseProductEventOnUser: true
+  cost:
+    Fury: 10
+  categories:
+  - WerewolfDire
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - WerewolfDirewolf
+
