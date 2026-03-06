@@ -58,3 +58,13 @@
       state: micro_mani
     - type: Stack
       stackType: Manipulator
+
+- type: entity #Goobstation addition - stack of mod parts for easier spawning / crates
+  parent: MicroManipulatorStockPart
+  id: MicroManipulatorStockPartStack10
+  suffix: 10
+  components:
+  - type: Sprite
+    state: micro_mani
+  - type: Stack
+    count: 10
