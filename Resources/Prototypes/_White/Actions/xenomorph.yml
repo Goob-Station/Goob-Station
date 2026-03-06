@@ -207,26 +207,27 @@
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
 
-# Acid action - Goob Commented out until future fix
-#- type: entity
-#  id: ActionAcid
-#  parent: BaseAction
-#  name: Corrosive acid (200)
-#  description: Drench an object in acid, destroying it over time.
-#  components:
-#  - type: Action
-#    useDelay: 11
-#    itemIconStyle: BigAction # Goobstation
-#    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # Goobstation
-#  - type: TargetAction
-#    interactOnMiss: false
-#    range: 2
-#    targetingIndicator: true # Goobstation
-#    checkCanAccess: true # Goobstation
-#  - type: EntityTargetAction
-#    event: !type:AcidActionEvent
-#  - type: PlasmaCostAction
-#    plasmaCost: 200
+# Acid action
+- type: entity
+  id: ActionAcid
+  parent: BaseAction
+  name: Corrosive acid (200)
+  description: Drench an object in acid, destroying it over time.
+  components:
+  - type: Action
+    useDelay: 11
+    itemIconStyle: BigAction # Goobstation
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # Goobstation
+  - type: TargetAction
+    interactOnMiss: false
+    range: 2
+  - type: EntityTargetAction
+    whitelist: # Goobstation
+      components:
+      - Structure
+    event: !type:AcidActionEvent
+  - type: PlasmaCostAction
+    plasmaCost: 200
 
 # Jump action
 - type: entity
@@ -238,10 +239,12 @@
   - type: Action
     priority: 0
     useDelay: 3
+    itemIconStyle: BigAction # Goobstation
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_off }
     iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
   - type: TargetAction
-    range: 10
+    range: 15 # Goobstation 10 to 15 - Makes it less clunky to use.
+    checkCanAccess: false # Goobstation - Makes it less clunky to use.
   - type: WorldTargetAction
     event: !type:JumpActionEvent
 
@@ -285,3 +288,52 @@
     event: !type:PromotionActionEvent
   - type: PlasmaCostAction
     plasmaCost: 500
+
+# Goobstation - Toggleable acid spit action
+- type: entity
+  id: ActionAcidSpit
+  parent: BaseAction
+  name: Acid spit (20)
+  description: Toggle the ability to spit neurotoxin. When enabled, use (M2) to shoot.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # TODO: Custom sprite
+  - type: InstantAction
+    event: !type:ToggleAcidSpitEvent
+
+# Goobstation - Facehugger leap action
+- type: entity
+  id: ActionFaceHuggerLeap
+  parent: BaseAction
+  name: Leap
+  description: Leap onto a target's face to attach yourself.
+  components:
+  - type: Action
+    priority: 0
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_off }
+    iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
+  - type: TargetAction
+    range: 15
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:FaceHuggerLeapActionEvent
+
+# Goobstation - Queen roar action
+- type: entity
+  parent: BaseAction
+  id: ActionQueenroar
+  name: Roar
+  description: Roar loudly to stun all enemies around you.
+  components:
+  - type: Action
+    icon:
+      sprite: _White/Interface/Actions/xenomorph.rsi
+      state: screech
+    useDelay: 60
+    priority: 5
+  - type: InstantAction
+    event: !type:QueenRoarActionEvent

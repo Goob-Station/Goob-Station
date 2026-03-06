@@ -32,6 +32,9 @@ public sealed partial class XenomorphEvolutionDoAfterEvent : DoAfterEvent
 [Serializable, NetSerializable]
 public sealed partial class LarvaBurstDoAfterEvent : SimpleDoAfterEvent;
 
+[Serializable, NetSerializable]
+public sealed partial class QueenRoarDoAfterEvent : SimpleDoAfterEvent; // Goobstation
+
 public sealed partial class TransferPlasmaActionEvent : EntityTargetActionEvent
 {
     [DataField]
@@ -48,6 +51,12 @@ public sealed partial class PromotionActionEvent : EntityTargetActionEvent
 public sealed partial class TailLashActionEvent : WorldTargetActionEvent;
 
 public sealed partial class AcidActionEvent : EntityTargetActionEvent;
+
+public sealed partial class ToggleAcidSpitEvent : InstantActionEvent; // Goobstation
+
+public sealed partial class FaceHuggerLeapActionEvent : WorldTargetActionEvent; // Goobstation
+
+public sealed partial class QueenRoarActionEvent : InstantActionEvent; // Goobstation
 
 public sealed class AfterXenomorphEvolutionEvent(EntityUid evolvedInto, EntityUid mindUid, ProtoId<XenomorphCastePrototype> caste) : EntityEventArgs
 {
