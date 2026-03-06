@@ -8,9 +8,13 @@ using Content.Server._Shitmed.DelayedDeath;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Server.Popups;
+using Content.Shared.Damage;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server._Shitmed.Body.Systems;
 
@@ -23,6 +27,8 @@ public sealed class DebrainedSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly StandingStateSystem _standingSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -31,6 +37,8 @@ public sealed class DebrainedSystem : EntitySystem
         SubscribeLocalEvent<DebrainedComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<DebrainedComponent, SpeakAttemptEvent>(OnSpeakAttempt);
         SubscribeLocalEvent<DebrainedComponent, StandAttemptEvent>(OnStandAttempt);
+        SubscribeLocalEvent<DebrainedComponent, RejuvenateEvent>(OnRejuvenate,
+            before: new []{ typeof(DamageableSystem) });
     }
 
     private void OnComponentInit(EntityUid uid, DebrainedComponent _, ComponentInit args)
@@ -63,5 +71,10 @@ public sealed class DebrainedSystem : EntitySystem
     private void OnStandAttempt(EntityUid uid, DebrainedComponent _, StandAttemptEvent args)
     {
         args.Cancel();
+    }
+
+    private void OnRejuvenate(Entity<DebrainedComponent> ent, ref RejuvenateEvent args)
+    {
+        RemComp(ent, ent.Comp);
     }
 }
