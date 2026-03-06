@@ -40,7 +40,7 @@ thunderdome-desc-python = AP-loaded revolver + 1 AP speedloader
 thunderdome-desc-inspector = Revolver + 2 speedloaders
 thunderdome-desc-hristov = Anti-materiel sniper + 2 spare magazines
 thunderdome-desc-esword = Energy sword + 2 hyperzine injectors
-thunderdome-desc-capo = Capoeira manual + 2 combat medipens
+thunderdome-desc-capo = Capoeira manual + 2 pens
 
 # Kill streak announcements
 thunderdome-streak-3 = Killing Spree!

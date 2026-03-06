@@ -109,5 +109,5 @@
     suitstorage: CapoeiraManual
   storage:
     back:
-    - CombatMedipen
-    - CombatMedipen
+    - BruteAutoInjector
+    - BurnAutoInjector
