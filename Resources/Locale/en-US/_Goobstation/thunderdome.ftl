@@ -27,6 +27,7 @@ thunderdome-loadout-python = Python
 thunderdome-loadout-inspector = Inspector
 thunderdome-loadout-hristov = Hristov
 thunderdome-loadout-esword = Energy Sword
+thunderdome-loadout-capo = Capoeira
 
 # Weapon descriptions (tooltips)
 thunderdome-desc-shotgun = Pump shotgun + 1 box buckshot, 1 box slugs
@@ -39,6 +40,7 @@ thunderdome-desc-python = AP-loaded revolver + 1 AP speedloader
 thunderdome-desc-inspector = Revolver + 2 speedloaders
 thunderdome-desc-hristov = Anti-materiel sniper + 2 spare magazines
 thunderdome-desc-esword = Energy sword + 2 hyperzine injectors
+thunderdome-desc-capo = Capoeira manual + 2 combat medipens
 
 # Kill streak announcements
 thunderdome-streak-3 = Killing Spree!

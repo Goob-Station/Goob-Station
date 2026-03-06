@@ -57,6 +57,11 @@
           description: thunderdome-desc-esword
           category: thunderdome-category-melee
           sprite: EnergySword
+        - gear: ThunderdomeCapoeira
+          description: thunderdome-desc-capo
+          name: thunderdome-loadout-capo
+          category: thunderdome-category-melee
+          sprite: CapoeiraManual
     - type: LoadMapRule
       mapPath: /Maps/_Goobstation/Nonstations/dm01-entryway.yml
     - type: RuleGrids
