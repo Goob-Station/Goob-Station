@@ -24,5 +24,8 @@ public sealed partial class KnockdownOnHitComponent : Component
     public bool RefreshDuration = true;
 
     [DataField]
+    public bool Autostand = true;
+
+    [DataField]
     public bool KnockdownOnHeavyAttack = true; // Goobstation
 }
