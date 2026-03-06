@@ -1,0 +1,25 @@
+- type: construction
+  id: TileFloorLight
+  graph: LightFixture
+  startNode: start
+  targetNode: floorLight
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: TileFloorLightRGB
+  graph: LightFixture
+  startNode: start
+  targetNode: floorLightRGB
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

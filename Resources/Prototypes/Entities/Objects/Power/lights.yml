@@ -401,6 +401,12 @@
     refineResult:
     - id: SheetGlass1
     - id: ShardCrystalBlue
+  # Goobstation edit start
+  - type: Tag 
+    tags:
+    - Trash
+    - LightTubeCrystalBlue
+  # Goobstation edit end
 
 - type: entity
   parent: BaseLightTubeCrystal
@@ -479,6 +485,12 @@
     refineResult:
     - id: SheetGlass1
     - id: ShardCrystalRed
+  # Goobstation edit start
+  - type: Tag
+    tags:
+    - Trash
+    - LightTubeCrystalRed
+  # Goobstation edit end
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -494,7 +506,12 @@
     refineResult:
     - id: SheetGlass1
     - id: ShardCrystalGreen
-
+  # Goobstation edit start
+  - type: Tag
+    tags:
+    - Trash
+    - LightTubeCrystalGreen
+  # Goobstation edit end
 
 - type: entity
   parent: BaseLightbulb
