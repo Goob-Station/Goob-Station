@@ -132,6 +132,8 @@
     - plasma
     - plasma_2
     - plasma_3
+  - type: PlasmaCutterFuel #Goobstation
+    energyPerSheet: 2500 
   - type: Sprite
     state: plasma_3
     layers:
