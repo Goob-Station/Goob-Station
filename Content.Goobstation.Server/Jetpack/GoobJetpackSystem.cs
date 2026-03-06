@@ -2,6 +2,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
+using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Movement.Components;
@@ -29,10 +30,11 @@ public sealed class GoobJetpackSystem : EntitySystem
         base.Initialize();
         _woundableQuery = GetEntityQuery<WoundableComponent>();
 
-        SubscribeLocalEvent<ActiveJetpackComponent, ComponentStartup>(OnActiveJetpackAdded);
+        SubscribeLocalEvent<ActiveJetpackComponent, ComponentStartup>(OnActiveEquip);
+        SubscribeLocalEvent<ActiveJetpackComponent, GotEquippedHandEvent>(OnActiveEquip);
     }
 
-    private void OnActiveJetpackAdded(EntityUid uid, ActiveJetpackComponent comp, ComponentStartup args)
+    private void OnActiveEquip<T>(EntityUid uid, ActiveJetpackComponent comp, T args)
     {
         HandleJetpackInhands(uid);
     }
