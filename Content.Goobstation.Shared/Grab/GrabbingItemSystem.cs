@@ -7,6 +7,7 @@
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -18,6 +19,7 @@ namespace Content.Goobstation.Shared.Grab;
 public sealed class GrabbingItemSystem : EntitySystem
 {
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
@@ -27,7 +29,18 @@ public sealed class GrabbingItemSystem : EntitySystem
         SubscribeLocalEvent<GrabbingItemComponent, AttemptMeleeEvent>(OnMeleeAttempt);
         SubscribeLocalEvent<GrabbingItemComponent, HeldRelayedEvent<FindGrabbingItemEvent>>(OnGetGrabbingItem);
         SubscribeLocalEvent<GrabbingItemComponent, HeldRelayedEvent<StopGrabbingItemPullEvent>>(OnPullStopped);
+        SubscribeLocalEvent<GrabbingItemComponent, HeldRelayedEvent<UseActiveHandGrabbingItemEvent>>(OnActiveHand);
         SubscribeLocalEvent<GrabbingItemComponent, BeforeThrowEvent>(OnBeforeThrow);
+    }
+
+    private void OnActiveHand(Entity<GrabbingItemComponent> ent, ref HeldRelayedEvent<UseActiveHandGrabbingItemEvent> args)
+    {
+        var parent = Transform(ent).ParentUid;
+        if (_hands.GetActiveItem(parent) != ent.Owner)
+            return;
+
+        ent.Comp.ActivelyGrabbingEntity = args.Args.Victim;
+        Dirty(ent);
     }
 
     private void OnPullStopped(Entity<GrabbingItemComponent> ent, ref HeldRelayedEvent<StopGrabbingItemPullEvent> args)
@@ -41,7 +54,7 @@ public sealed class GrabbingItemSystem : EntitySystem
 
     private void OnGetGrabbingItem(Entity<GrabbingItemComponent> ent, ref HeldRelayedEvent<FindGrabbingItemEvent> args)
     {
-        if (args.Args.Grabbed == null || ent.Comp.ActivelyGrabbingEntity != args.Args.Grabbed)
+        if (args.Args.Grabbed != null && ent.Comp.ActivelyGrabbingEntity != args.Args.Grabbed)
             return;
 
         args.Args.GrabbingItem = ent;
@@ -59,7 +72,7 @@ public sealed class GrabbingItemSystem : EntitySystem
 
     private void OnMeleeAttempt(Entity<GrabbingItemComponent> ent, ref AttemptMeleeEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || ent.Comp.CanMeleeWhileGrabbing)
             return;
 
         var grabbed = ent.Comp.ActivelyGrabbingEntity;
@@ -67,7 +80,7 @@ public sealed class GrabbingItemSystem : EntitySystem
         if (grabbed == null)
             return;
 
-        if (!args.IsHeavyAttack && (!TryComp(args.User, out PullerComponent? puller) ||
+        if (ent.Comp.GrabOnMelee && !args.IsHeavyAttack && (!TryComp(args.User, out PullerComponent? puller) ||
             puller.GrabStage < GrabStage.Suffocate))
             return;
 
@@ -79,7 +92,7 @@ public sealed class GrabbingItemSystem : EntitySystem
 
     private void OnMeleeHitEvent(Entity<GrabbingItemComponent> ent, ref MeleeHitEvent args)
     {
-        if (args.Direction != null || args.HitEntities.Count != 1)
+        if (!ent.Comp.GrabOnMelee || args.Direction != null || args.HitEntities.Count != 1)
             return;
 
         if (!TryComp(args.User, out PullerComponent? puller))

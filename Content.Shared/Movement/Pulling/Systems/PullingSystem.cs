@@ -1104,6 +1104,9 @@ public sealed class PullingSystem : EntitySystem
             newStage = grabStageOverride.Value;
         }
 
+        var activeHandEv = new UseActiveHandGrabbingItemEvent(pullable);
+        RaiseLocalEvent(puller.Owner, ref activeHandEv);
+
         var raiseEv = new RaiseGrabModifierEventEvent(puller.Owner, (int) newStage);
         RaiseLocalEvent(ref raiseEv);
         if (raiseEv.NewStage != null)

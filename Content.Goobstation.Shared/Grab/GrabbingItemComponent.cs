@@ -16,6 +16,12 @@ public sealed partial class GrabbingItemComponent : Component
     public GrabStage GrabStageOverride = GrabStage.Hard;
 
     [DataField]
+    public bool CanMeleeWhileGrabbing;
+
+    [DataField]
+    public bool GrabOnMelee;
+
+    [DataField]
     public bool CanThrow;
 
     [DataField]
