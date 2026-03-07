@@ -39,6 +39,9 @@ public sealed class GrabbingItemSystem : EntitySystem
         if (_hands.GetActiveItem(parent) != ent.Owner)
             return;
 
+        var stageOverride = (int) ent.Comp.GrabStageOverride;
+        if (args.Args.NewGrabStage == null || args.Args.NewGrabStage.Value < stageOverride)
+            args.Args.NewGrabStage = stageOverride;
         ent.Comp.ActivelyGrabbingEntity = args.Args.Victim;
         Dirty(ent);
     }
@@ -54,7 +57,7 @@ public sealed class GrabbingItemSystem : EntitySystem
 
     private void OnGetGrabbingItem(Entity<GrabbingItemComponent> ent, ref HeldRelayedEvent<FindGrabbingItemEvent> args)
     {
-        if (args.Args.Grabbed != null && ent.Comp.ActivelyGrabbingEntity != args.Args.Grabbed)
+        if (args.Args.GrabbingItem != null || ent.Comp.ActivelyGrabbingEntity != args.Args.Grabbed)
             return;
 
         args.Args.GrabbingItem = ent;

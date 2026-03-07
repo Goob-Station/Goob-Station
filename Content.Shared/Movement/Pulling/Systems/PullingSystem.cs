@@ -296,9 +296,20 @@ public sealed class PullingSystem : EntitySystem
             return;
 
         // Goob edit start
-        var grabItemEv = new FindGrabbingItemEvent(args.PulledUid);
-        RaiseLocalEvent(uid, ref grabItemEv);
-        if (grabItemEv.GrabbingItem != null)
+        // First check if theres already active grabbing item grabbing pullableUid
+        // If found, not virtual items are needed
+        // If none, find grabbing item in active hand that is not actively grabbing
+        var ev1 = new FindGrabbingItemEvent(args.PulledUid);
+        RaiseLocalEvent(args.PullerUid, ref ev1);
+        if (ev1.GrabbingItem == null)
+        {
+            var ev2 = new FindGrabbingItemEvent();
+            RaiseLocalEvent(args.PullerUid, ref ev2);
+            if (ev2.GrabbingItem is { } item &&
+                _handsSystem.GetActiveItem(args.PullerUid) == item)
+                return;
+        }
+        else
             return;
         // Goob edit end
 
@@ -730,10 +741,18 @@ public sealed class PullingSystem : EntitySystem
             && pullerComp.Pulling == null)
         {
             // Goob edit start
-            var grabItemEv = new FindGrabbingItemEvent(pullableUid);
-            RaiseLocalEvent(puller, ref grabItemEv);
-            if (grabItemEv.GrabbingItem == null)
-                return false;
+            // First check if theres already active grabbing item grabbing pullableUid
+            // If none, find grabbing item in active hand that is not actively grabbing
+            var ev1 = new FindGrabbingItemEvent(pullableUid);
+            RaiseLocalEvent(puller, ref ev1);
+            if (ev1.GrabbingItem == null)
+            {
+                var ev2 = new FindGrabbingItemEvent();
+                RaiseLocalEvent(puller, ref ev2);
+                if (ev2.GrabbingItem is not { } item ||
+                    _handsSystem.GetActiveItem(puller) != item)
+                    return false;
+            }
             // Goob edit end
         }
 
@@ -1104,8 +1123,10 @@ public sealed class PullingSystem : EntitySystem
             newStage = grabStageOverride.Value;
         }
 
-        var activeHandEv = new UseActiveHandGrabbingItemEvent(pullable);
+        var activeHandEv = new UseActiveHandGrabbingItemEvent(pullable, (int?) newStage);
         RaiseLocalEvent(puller.Owner, ref activeHandEv);
+        if (activeHandEv.NewGrabStage != null)
+            newStage = (GrabStage) activeHandEv.NewGrabStage.Value;
 
         var raiseEv = new RaiseGrabModifierEventEvent(puller.Owner, (int) newStage);
         RaiseLocalEvent(ref raiseEv);

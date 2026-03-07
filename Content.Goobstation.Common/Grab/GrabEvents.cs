@@ -14,7 +14,7 @@ public record struct RaiseGrabModifierEventEvent(
 public record struct FindGrabbingItemEvent(EntityUid? Grabbed = null, EntityUid? GrabbingItem = null);
 
 [ByRefEvent]
-public record struct UseActiveHandGrabbingItemEvent(EntityUid Victim);
+public record struct UseActiveHandGrabbingItemEvent(EntityUid Victim, int? NewGrabStage = null);
 
 [ByRefEvent]
 public readonly record struct StopGrabbingItemPullEvent(EntityUid PulledUid);
