@@ -38,6 +38,7 @@ namespace Content.Goobstation.Server.Xenobiology;
 public sealed partial class SlimeLatchSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -85,6 +86,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (ent.Comp.SourceEntityUid is not { } source)
             return;
 
+        var addedHunger = (float) ent.Comp.Damage.GetTotal();
+        if (TryComp<HungerComponent>(source, out var hunger))
+        {
+            _hunger.ModifyHunger(source, addedHunger, hunger);
+            Dirty(source, hunger);
+        }
+
         var stomachList = _body.GetBodyOrganEntityComps<StomachComponent>(source);
 
         if (stomachList.Count == 0)
@@ -112,19 +120,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
                 FixedPoint2 chemTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * chemProportion, AvailabaleVolume() * chemProportion);
                 foreach (var stomach in stomachList)
                 {
-                    var bloodSolution = blood.SplitSolution(bloodTransfer/FixedPoint2.New(stomachList.Count));
+                    var bloodSolution = blood.SplitSolutionWithout(bloodTransfer/FixedPoint2.New(stomachList.Count), ent.Comp.ToxinReagent); // we don't want slime sucking it's own toxin
                     _stomach.TryTransferSolution(stomach.Owner, bloodSolution, stomach); // blood first, other chemicals later
                     var chemSolution = blood.SplitSolution(chemTransfer/FixedPoint2.New(stomachList.Count));
                     _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
                 }
+                chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits);
             }
-        }
-
-        foreach (var stomach in stomachList) // if stomach(s?) is already full, then it is likely that sucking blood from the victim is more important than new food
-        {
-            var amount = FixedPoint2.Min(ent.Comp.FoodUnits, AvailabaleVolume()/FixedPoint2.New(stomachList.Count));
-            var foodSolution = new Solution(ent.Comp.FoodReagent, amount);
-            _stomach.TryTransferSolution(stomach.Owner, foodSolution, stomach);
         }
     }
 

@@ -21,27 +21,23 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? SourceEntityUid;
 
-    // 2u of blood -> 0.2u + 1.5u = 1.7 uncooked protein -> 0.85u protein -> 2.55 hunger
-
     /// <summary>
     /// How many units from target's bloodstream would be sucked per tick
     /// </summary>
     [DataField]
-    public FixedPoint2 SuctionUnits = 1;
+    public FixedPoint2 SuctionUnits = 2.5; // just enough to suck all blood from monkey in 1 latch
 
     /// <summary>
-    /// Which reagent will end up in the slime's stomach when eating the target
+    /// What toxin would be injected inside target's bloodstream
     /// </summary>
     [DataField]
-    public ProtoId<ReagentPrototype> FoodReagent = "UncookedAnimalProteins";
+    public ProtoId<ReagentPrototype> ToxinReagent = "XenobioSlimeToxin";
 
     /// <summary>
-    /// How many food units will be added to the slime's stomach when eating the target
+    /// How many toxin units will be added to the targets bloodstream when eating the target
     /// </summary>
     [DataField]
-    public FixedPoint2 FoodUnits = 0.4;
-
-    //public ProtoId<ReagentPrototype> PoisonReagent = "UncookedAnimalProteins";
+    public FixedPoint2 ToxinUnits = 0.15;
 
     [DataField]
     public TimeSpan Interval = TimeSpan.FromSeconds(1);
