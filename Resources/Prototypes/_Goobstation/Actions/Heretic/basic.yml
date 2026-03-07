@@ -93,6 +93,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    checkCanInteract: false
     raiseOnUser: true
     useDelay: 6
     itemIconStyle: NoItem
@@ -100,7 +101,9 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: shadowcloak
   - type: InstantAction
-    event: !type:EventHereticShadowCloak
+    event: !type:EventHereticCloak
+      status: ShadowCloakedStatusEffect
+      lifetime: 180
   - type: HereticAction
     requireMagicItem: true
   - type: Tag

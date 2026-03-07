@@ -9,6 +9,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Server.GameTicking.Rules;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
@@ -16,20 +18,20 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
+using Content.Shared.Storage;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    private void SubscribeLock()
+    protected override void SubscribeLock()
     {
-        SubscribeLocalEvent<HereticComponent, EventHereticBulglarFinesse>(OnBulglarFinesse);
-        SubscribeLocalEvent<HereticComponent, EventHereticLastRefugee>(OnLastRefugee);
-        // add eldritch id here
+        base.SubscribeLock();
 
-        SubscribeLocalEvent<HereticComponent, HereticAscensionLockEvent>(OnAscensionLock);
+        SubscribeLocalEvent<HereticComponent, EventHereticBulglarFinesse>(OnBulglarFinesse);
 
         SubscribeLocalEvent<GhoulComponent, EventHereticShapeshift>(OnShapeshift);
 
@@ -104,15 +106,34 @@ public sealed partial class HereticAbilitySystem
 
     private void OnBulglarFinesse(Entity<HereticComponent> ent, ref EventHereticBulglarFinesse args)
     {
+        if (!TryUseAbility(ent, args))
+            return;
 
-    }
-    private void OnLastRefugee(Entity<HereticComponent> ent, ref EventHereticLastRefugee args)
-    {
+        if (!Examine.InRangeUnOccluded(ent, args.Target))
+        {
+            Popup.PopupClient(Loc.GetString("dash-ability-cant-see"), ent, ent);
+            return;
+        }
 
-    }
+        args.Handled = true;
 
-    private void OnAscensionLock(Entity<HereticComponent> ent, ref HereticAscensionLockEvent args)
-    {
+        var ev = new BeforeCastTouchSpellEvent(args.Target);
+        RaiseLocalEvent(args.Target, ev, true);
+        if (ev.Cancelled)
+            return;
 
+        if (!_inventory.TryGetSlotEntity(args.Target, "back", out var backpack))
+            return;
+
+        var toSteal = backpack;
+
+        if (TryComp(backpack, out StorageComponent? storage))
+        {
+            var items = storage.Container.ContainedEntities.ToList();
+            if (items.Count > 0)
+                toSteal = _random.Pick(items);
+        }
+
+        _hands.PickupOrDrop(ent, toSteal.Value, false, false, true, true);
     }
 }

@@ -1,0 +1,52 @@
+- type: entity
+  id: BloodChunkEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: false
+    sprite: /Textures/_Goobstation/Wizard/Effects/blood.rsi
+    layers:
+    - state: blood
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Trail
+    angleVariation: 90
+    maxParticleAmount: 50
+    velocity: -0.05
+    lerpTime: 0.001
+    frequency: 0.01
+    lifetime: 0.5
+    alphaLerpAmount: 0.05
+    scaleLerpAmount: 0.05
+    scaleLerpTarget: 0
+    velocityLerpAmount: 0.2
+    velocityLerpTarget: 0
+    sprite:
+      sprite: /Textures/_Goobstation/Wizard/Effects/blood.rsi
+      state: blood
+  - type: Animateable
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    solutionName: print
+  - type: SolutionContainerManager
+    solutions:
+      print:
+        maxVol: 3
+  - type: FootprintSpillOnLand
+  - type: Physics
+    fixedRotation: false
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 5
+        mask:
+        - ItemMask
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 2

@@ -30,7 +30,7 @@ public sealed partial class HereticRuleComponent : Component
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {
         "HereticPathAsh",
-        //"HereticPathLock",
+        "HereticPathLock",
         "HereticPathFlesh",
         "HereticPathBlade",
         "HereticPathVoid",

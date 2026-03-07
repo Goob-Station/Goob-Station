@@ -1,0 +1,40 @@
+- type: entity
+  id: WeepingAvulsion
+  parent: WoundBase
+  name: weeping avulsion
+  components:
+  - type: Wound
+    damageType: Slash
+    woundType: External
+    woundVisibility: Always
+    scarWound: SlashScar
+    integrityMultiplier: 0.25
+    selfHealMultiplier: 0
+    mangleSeverity: Severe
+    canBeHealed: false # Only heals via tend wounds surgery
+    textString: weeping-avulsion
+    alwaysShowInInspects: true
+  - type: TraumaInflicter
+    severityThreshold: 5
+    allowArmourDeduction:
+    - Dismemberment
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
+    allowedTraumas:
+    - Dismemberment
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0.5
+      NerveDamage: 0.5
+  - type: PainInflicter
+    multiplier: 1
+  - type: BleedInflicter
+    scalingSpeed: 4

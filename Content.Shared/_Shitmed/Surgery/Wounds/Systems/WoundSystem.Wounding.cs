@@ -370,7 +370,8 @@ public sealed partial class WoundSystem
         string woundId,
         FixedPoint2 severity,
         [NotNullWhen(true)] out Entity<WoundComponent>? woundInduced,
-        WoundableComponent? woundable = null)
+        WoundableComponent? woundable = null,
+        ProtoId<DamageGroupPrototype>? damageGroup = null)
     {
         woundInduced = null;
         if (!Resolve(uid, ref woundable))
@@ -384,7 +385,7 @@ public sealed partial class WoundSystem
             woundId,
             severity,
             out woundInduced,
-            (from @group in _prototype.EnumeratePrototypes<DamageGroupPrototype>()
+            damageGroup ?? (from @group in _prototype.EnumeratePrototypes<DamageGroupPrototype>()
                 where @group.DamageTypes.Contains(woundId)
                 select @group).FirstOrDefault()
                 ?.ID,
@@ -453,11 +454,12 @@ public sealed partial class WoundSystem
             || !Resolve(uid, ref woundable))
             return false;
 
-        var proto = _prototype.Index(id);
         foreach (var wound in GetWoundableWounds(uid, woundable))
         {
-            if (proto.ID != wound.Comp.DamageType
-                || wound.Comp.IsScar)
+            if (Prototype(wound)?.ID is not { } woundId)
+                continue;
+
+            if (id != woundId || wound.Comp.IsScar)
                 continue;
 
             ApplyWoundSeverity(wound, severity, wound);

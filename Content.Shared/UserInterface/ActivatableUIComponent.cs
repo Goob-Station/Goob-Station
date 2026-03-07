@@ -44,6 +44,7 @@ namespace Content.Shared.UserInterface
     public sealed partial class ActivatableUIComponent : Component
     {
         [DataField(required: true, customTypeSerializer: typeof(EnumSerializer))]
+        [AutoNetworkedField] // Goob edit
         public Enum? Key;
 
         /// <summary>

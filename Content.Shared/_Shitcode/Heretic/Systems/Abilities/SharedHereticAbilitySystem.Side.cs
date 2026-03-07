@@ -9,7 +9,6 @@ public abstract partial class SharedHereticAbilitySystem
 {
     protected virtual void SubscribeSide()
     {
-        SubscribeLocalEvent<HereticComponent, EventHereticRustCharge>(OnRustCharge);
         SubscribeLocalEvent<HereticComponent, EventHereticIceSpear>(OnIceSpear);
     }
 
@@ -56,37 +55,5 @@ public abstract partial class SharedHereticAbilitySystem
 
         spearAction.CreatedSpear = newSpear;
         EnsureComp<IceSpearComponent>(newSpear).ActionId = args.Action;
-    }
-
-    private void OnRustCharge(Entity<HereticComponent> ent, ref EventHereticRustCharge args)
-    {
-        if (!args.Target.IsValid(EntityManager) || !TryUseAbility(ent, args))
-            return;
-
-        var xform = Transform(ent);
-
-        if (!IsTileRust(xform.Coordinates, out _))
-        {
-            Popup.PopupClient(Loc.GetString("heretic-ability-fail-tile-underneath-not-rusted"), ent, ent);
-            return;
-        }
-
-        var ourCoords = _transform.ToMapCoordinates(args.Target);
-        var targetCoords = _transform.GetMapCoordinates(ent, xform);
-
-        if (ourCoords.MapId != targetCoords.MapId)
-            return;
-
-        var dir = ourCoords.Position - targetCoords.Position;
-
-        if (dir.LengthSquared() < 0.001f)
-            return;
-
-        _standing.Stand(ent);
-        EnsureComp<RustChargeComponent>(ent);
-        EnsureComp<RustObjectsInRadiusComponent>(ent);
-        _throw.TryThrow(ent, dir.Normalized() * args.Distance, args.Speed, playSound: false, doSpin: false);
-
-        args.Handled = true;
     }
 }

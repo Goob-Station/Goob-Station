@@ -17,6 +17,7 @@ using Robust.Shared.Animations;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -25,6 +26,7 @@ namespace Content.Client._Shitcode.Wizard.Trail;
 
 public sealed class TrailSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -89,6 +91,7 @@ public sealed class TrailSystem : EntitySystem
         trail.ParticleAmount = comp.ParticleAmount;
         trail.StartAngle = comp.StartAngle;
         trail.EndAngle = comp.EndAngle;
+        trail.AngleVariation = comp.AngleVariation;
         trail.LerpTime = comp.LerpTime;
         trail.LerpAccumulator = comp.LerpAccumulator;
         trail.RenderedEntity = comp.RenderedEntity;
@@ -172,6 +175,10 @@ public sealed class TrailSystem : EntitySystem
                 angle = physics.LinearVelocity.ToAngle();
             else
                 angle = xform.LocalRotation;
+
+            var variation = MathF.Abs(trail.AngleVariation);
+            if (variation > 0)
+                angle += Angle.FromDegrees(_random.NextFloat(-variation, variation));
 
             var start = trail.StartAngle + angle;
             var end = trail.EndAngle + angle;

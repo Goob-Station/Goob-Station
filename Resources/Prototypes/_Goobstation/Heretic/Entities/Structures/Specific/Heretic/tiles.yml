@@ -243,3 +243,45 @@
     blacklist:
       components:
       - StarBlast
+
+- type: entity
+  id: WallLabyrinth
+  name: labyrinth pages
+  description: A field of papers flying in the air, repulsing heathens with impossible force.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Tag
+    tags:
+    - Wall
+    - Holosign
+    - BlockLightning
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - SpecialWallLayer
+        layer:
+        - SpecialWallLayer
+  - type: Airtight
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/paper_wall.rsi
+    layers:
+    - state: icon
+  - type: Icon
+    sprite: _Goobstation/Heretic/Entities/paper_wall.rsi
+    state: icon
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust
+  - type: LabyrinthWall
+  - type: ContainmentField
+    throwForce: 50
+  - type: Clickable
