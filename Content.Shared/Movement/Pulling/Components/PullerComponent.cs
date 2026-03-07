@@ -156,9 +156,9 @@ public sealed partial class PullerComponent : Component
     public Dictionary<GrabStage, float> EscapeChances = new()
     {
         { GrabStage.No, 1f },
-        { GrabStage.Soft, 1f },
-        { GrabStage.Hard, 0.6f },
-        { GrabStage.Suffocate, 0.2f },
+        { GrabStage.Soft, 0.5f },
+        { GrabStage.Hard, 0.3f },
+        { GrabStage.Suffocate, 0.1f },
     };
 
     [DataField]
