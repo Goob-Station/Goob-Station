@@ -84,12 +84,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Popups;
+using Content.Shared._DV.Carrying;
 using Content.Shared.Storage;
 using Content.Shared.Inventory;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Storage.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Events;
@@ -126,6 +128,9 @@ public sealed class EscapeInventorySystem : EntitySystem
         SubscribeLocalEvent<CanEscapeInventoryComponent, EscapeInventoryEvent>(OnEscape);
         SubscribeLocalEvent<CanEscapeInventoryComponent, DroppedEvent>(OnDropped);
         SubscribeLocalEvent<CanEscapeInventoryComponent, EscapeInventoryCancelActionEvent>(OnCancelEscape); // DeltaV
+
+        SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnCarriedEscape); // Goob
+        SubscribeLocalEvent<BeingCarriedComponent, DamageChangedEvent>(OnCarriedDamage);   // Goob
     }
 
     private void OnRelayMovement(EntityUid uid, CanEscapeInventoryComponent component, ref MoveInputEvent args)
@@ -165,6 +170,7 @@ public sealed class EscapeInventorySystem : EntitySystem
             BreakOnDamage = true,
             NeedHand = false,
             CancelDuplicate = false, // Goobstation
+            BreakOnMove = false, // Goobstation; otherwise mousing over or doing anything will just stop it
         };
 
         if (!_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out component.DoAfter))
@@ -202,6 +208,25 @@ public sealed class EscapeInventorySystem : EntitySystem
     // DeltaV
     private void OnCancelEscape(EntityUid uid, CanEscapeInventoryComponent component, EscapeInventoryCancelActionEvent args)
     {
+        if (component.DoAfter != null)
+            _doAfterSystem.Cancel(component.DoAfter);
+
+        _actions.RemoveAction(uid, component.EscapeCancelAction);
+        component.EscapeCancelAction = null;
+    }
+    // TODO Goobstation, move ts and the DV stuff to goobmod
+    private void OnCarriedEscape(EntityUid uid, BeingCarriedComponent carried, ref MoveInputEvent args)
+    {
+        if (!TryComp<CanEscapeInventoryComponent>(uid, out var component) || component.IsEscaping)
+            return;
+        AttemptEscape(uid, carried.Carrier, component);
+    }
+
+    private void OnCarriedDamage(EntityUid uid, BeingCarriedComponent carried, ref DamageChangedEvent args)
+    {
+        if (!TryComp<CanEscapeInventoryComponent>(uid, out var component))
+            return;
+
         if (component.DoAfter != null)
             _doAfterSystem.Cancel(component.DoAfter);
 

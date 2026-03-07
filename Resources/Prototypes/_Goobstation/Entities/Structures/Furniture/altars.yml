@@ -19,6 +19,33 @@
     soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
+  id: AltarDragon
+  parent: AltarBase
+  name: draconic altar
+  description: Altar of the dragons.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Structures/dragonaltar.rsi
+    layers:
+    - state: dragonaltar
+    - state: miniportal
+      shader: unshaded
+  - type: Icon
+    sprite: _ShitChap/Structures/dragonaltar.rsi
+    state: dragonaltar
+  - type: Construction
+    graph: AltarsGraph
+    node: DragonAltarNode
+  - type: AltarSource
+    rodProto: DragonsTail
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: PointLight
+    color: "#366db5"
+    radius: 1.5
+    energy: 1
+
+- type: entity
   id: AltarEmpire
   parent: AltarBase
   name: imperial altar

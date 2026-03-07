@@ -16,7 +16,7 @@
       path: /Audio/Machines/Nuke/general_beep.ogg
 
 - type: emoteSounds
-  id: ShadowCloak
+  id: ShadowCloakEmoteSounds
   params:
     variation: 0.125
   sounds:

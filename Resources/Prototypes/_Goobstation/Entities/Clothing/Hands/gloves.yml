@@ -444,12 +444,14 @@
   parent: [BaseSyndicateContraband, ClothingHandsGlovesCombat]
   id: ClothingHandsGlovesGuerrilla
   name: guerrilla gloves
-  description: Superior quality combative gloves, good for grabs as well as absorbing electrical shocks.
+  description: Top of the line quality syndicate combative gloves, good for grabs as well as absorbing electrical shocks. Seems to be powered by telecrystals.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/guerrilla.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/guerrilla.rsi
+    equipDelay: 2 #sadly this has to exist for telegraphing reasons
+    unequipDelay: 2
   - type: Item
     inhandVisuals:
       left:

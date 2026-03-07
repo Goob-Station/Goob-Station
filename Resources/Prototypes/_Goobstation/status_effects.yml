@@ -70,3 +70,10 @@
   name: stamina resistance modifier
   components:
   - type: StaminaResistanceModifierStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectMeleeVulnerability
+  name: melee vulnerability
+  components:
+  - type: MeleeVulnerabilityStatusEffect

@@ -108,7 +108,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                 break;
 
             case "Void":
-                _voidcurse.DoCurse(target, 5);
+                _voidcurse.DoCurse(target, 3);
                 break;
 
             case "Cosmos":
@@ -128,7 +128,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                     Del(cosmicMark.CosmicDiamondUid.Value); // Just in case
                 }
 
-                _stun.TryParalyze(target, cosmicMark.ParalyzeTime, true);
+                _stun.TryUpdateParalyzeDuration(target, cosmicMark.ParalyzeTime);
                 break;
 
             default:

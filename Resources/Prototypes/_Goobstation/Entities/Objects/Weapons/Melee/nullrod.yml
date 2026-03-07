@@ -445,7 +445,7 @@
         volume: 3
   - type: KnockdownOnHit
     duration: 0.2
-    dropHeldItemsBehavior: NoDrop
+    dropItems: false
   - type: UseDelay
     delay: 3
   - type: UseDelayBlockKnockdown
@@ -792,6 +792,40 @@
   - type: ThrowableBlocked # Goobstation
 
 - type: entity
+  name: dragon's tail
+  parent: BaseNullrod
+  id: DragonsTail
+  description: A dragon's tail impaled on a stick. Still holds that deep fiery power within.
+  components:
+  - type: Item
+    size: Large
+    sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Heat: 20
+    UntrainedUseString: nullrod-dragontail-untrained-usage-popup
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1
+    animationRotation: -135
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Holy: 5
+        Heat: 5
+        Blunt: 5
+    soundHit:
+      path: /Audio/Weapons/slash.ogg
+  - type: IgniteOnMeleeHit
+    fireStacks: 1
+  - type: Tag
+    tags:
+    - DragonsTail
+
+- type: entity
   id: InquisitorChainSword
   parent: BaseNullrod
   name: chain sword
@@ -857,9 +891,9 @@
       woundSeverityMultipliers:
         Slash: 2
   - type: MeleeWeapon
-    animationRotation: -45 
+    animationRotation: -45
     autoAttack: true
-    heavyStaminaCost: 10 
+    heavyStaminaCost: 10
     wideAnimationRotation: -135
     attackRate: 1.2
     damage:

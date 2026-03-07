@@ -32,6 +32,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 
@@ -156,14 +157,16 @@ public partial class SharedMartialArtsSystem
                 }
 
                 // Leg sweep
-                if (!TryComp<StandingStateComponent>(ent, out var standing)
-                    || standing.CurrentState == StandingState.Standing ||
-                    !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
-                    targetStanding.CurrentState != StandingState.Standing)
-                    break;
+                 if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)
+                     || standing.Standing
+                     || !TryComp<StandingStateComponent>(args.Target, out var targetStanding)
+                     || !targetStanding.Standing
+                     )
+                     break;
+                if (HasComp<KnockedDownComponent>(ent.Owner))
+                    RemComp<KnockedDownComponent>(ent.Owner);
 
-                _status.TryRemoveStatusEffect(ent, "KnockedDown");
-                _standingState.Stand(ent);
+                _standingState.Stand(ent.Owner);
                 _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
                 ComboPopup(ent, args.Target, "Leg Sweep");
                 break;
@@ -182,7 +185,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -215,7 +218,7 @@ public partial class SharedMartialArtsSystem
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, behavior: proto.DropHeldItemsBehavior);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, behavior: proto.DropItems);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -227,7 +230,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

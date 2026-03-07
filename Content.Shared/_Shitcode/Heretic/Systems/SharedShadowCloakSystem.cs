@@ -37,8 +37,10 @@ public abstract class SharedShadowCloakSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     private static readonly ProtoId<TagPrototype> ActionTag = "ShadowCloakAction";
+    public static readonly EntProtoId ShadowCloakSlowdown = "ShadowCloakSlowdownEffect";
 
     public override void Initialize()
     {
@@ -139,7 +141,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         {
             _stun.KnockdownOrStun(ent, ent.Comp.KnockdownTime, true);
             var (walk, sprint) = ent.Comp.EarlyRemoveMoveSpeedModifiers;
-            _stun.TrySlowdown(ent, ent.Comp.SlowdownTime, true, walk, sprint);
+            _movementMod.TryUpdateMovementSpeedModDuration(ent, ShadowCloakSlowdown, ent.Comp.SlowdownTime, walk, sprint);
         }
 
         ResetAbilityCooldown(ent, ent.Comp.ForceRevealCooldown);

@@ -77,7 +77,7 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
             _flammable.AdjustFireStacks(uid, origin.Comp.BonusFireStacks, flam, true, origin.Comp.FireProtectionPenetration);
 
             if (statusQuery.TryComp(uid, out var status))
-                _stun.KnockdownOrStun(uid, origin.Comp.BonusKnockdownTime, true, status);
+                _stun.KnockdownOrStun(uid, origin.Comp.BonusKnockdownTime, true);
 
             if (!dmgQuery.TryComp(uid, out var dmg))
                 continue;

@@ -96,7 +96,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
         var effect = effects.First();
 
-        if (!effect.Comp1.Locations.Contains(ev.Coords))
+        if (!effect.Comp1.Locations.TryGetValue(ev.Coords, out var carving))
             return;
 
         var coords = GetCoordinates(ev.Coords);
@@ -104,6 +104,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         _transform.SetCoordinates(ent.Value, coords);
         _audio.PlayPvs(effect.Comp1.TeleportSound, coords);
         _statusNew.TryRemoveStatusEffect(ent.Value, AlertEffect);
+        QueueDel(carving);
     }
 
     private void OnGetItemActions(Entity<CarvingKnifeComponent> ent, ref GetItemActionsEvent args)
@@ -162,7 +163,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
             ("victim", args.Victim),
             ("location", location),
             ("timer", ent.Comp.TeleportDelay),
-            ("id", Shared._Shitcode.Heretic.Components.StatusEffects.CarvingAlertedStatusEffectComponent.Id),
+            ("id", CarvingAlertedStatusEffectComponent.Id),
             ("uid", netUser.Id),
             ("coords", coordsLoc));
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
@@ -179,7 +180,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
                 AlertEffect,
                 out var effect,
                 TimeSpan.FromMilliseconds(ent.Comp.TeleportDelay + 100)))
-            EnsureComp<Shared._Shitcode.Heretic.Components.StatusEffects.CarvingAlertedStatusEffectComponent>(effect.Value).Locations.Add(coords);
+            EnsureComp<CarvingAlertedStatusEffectComponent>(effect.Value).Locations[coords] = ent;
     }
 
     private void OnDeleteCarvings(Entity<CarvingKnifeComponent> ent, ref DeleteAllCarvingsEvent args)
