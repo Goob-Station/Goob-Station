@@ -585,3 +585,37 @@
       amount: 1
   products:
     ArtifactGlue: 2
+
+- type: reaction
+  id: WaterCreate
+  reactants:
+    Hydrogen:
+      amount: 2
+    Oxygen:
+      amount: 1
+  products:
+    Water: 2
+
+- type: reaction
+  id: WeldingFuelCreate
+  reactants:
+    Ethanol:
+      amount: 5
+    Hydrogen:
+      amount: 3
+    Sulfur:
+      amount: 2
+  products:
+    WeldingFuel:
+
+- type: reaction
+  id: EthanolCreate
+  reactants:
+    Carbon:
+      amount: 2
+    Hydrogen:
+      amount: 4
+    Water:
+      amount: 1
+  products:
+    Ethanol: 2
