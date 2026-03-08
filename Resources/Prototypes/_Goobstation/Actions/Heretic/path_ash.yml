@@ -17,6 +17,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     useDelay: 15
     itemIconStyle: NoItem
@@ -48,6 +49,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     useDelay: 45
     itemIconStyle: NoItem
@@ -71,6 +73,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem
@@ -94,6 +97,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     useDelay: 90
     itemIconStyle: NoItem
@@ -114,6 +118,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     checkCanInteract: false
     useDelay: 30
     itemIconStyle: NoItem

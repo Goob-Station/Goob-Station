@@ -38,11 +38,10 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Content.Shared._Lavaland.Weapons.Marker; // Lavaland Change
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
-// Lavaland Change
-using Content.Shared._Lavaland.Weapons.Marker;
-using Content.Shared._Lavaland.Mobs;
 using Content.Shared._Shitmed.Damage; // Shitmed Change
+
 namespace Content.Shared.Weapons.Marker;
 
 public abstract class SharedDamageMarkerSystem : EntitySystem
@@ -66,18 +65,16 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
             return;
 
         args.BonusDamage += component.Damage;
+        RemCompDeferred<DamageMarkerComponent>(uid);
         _audio.PlayPredicted(component.Sound, uid, args.User);
 
         if (TryComp<LeechOnMarkerComponent>(args.Used, out var leech))
             _damageable.TryChangeDamage(args.User, leech.Leech, true, false, origin: args.Used, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
 
-        if (HasComp<DamageBoostOnMarkerComponent>(args.Used))
-        {
-            RaiseLocalEvent(uid, new ApplyMarkerBonusEvent(args.Used, args.User)); // For effects on the target
-            RaiseLocalEvent(args.Used, new ApplyMarkerBonusEvent(args.Used, args.User)); // For effects on the weapon
-        }
-
-        RemCompDeferred<DamageMarkerComponent>(uid);
+        // Lavaland Change start
+        RaiseLocalEvent(uid, new ApplyMarkerBonusEvent(args.Used, args.User)); // For effects on the target
+        RaiseLocalEvent(args.Used, new ApplyMarkerBonusEvent(args.Used, args.User)); // For effects on the weapon
+        // Lavaland Change end
     }
 
     public override void Update(float frameTime)
@@ -102,9 +99,7 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
             component.Amount <= 0 ||
             _whitelistSystem.IsWhitelistFail(component.Whitelist, args.OtherEntity) ||
             !TryComp<ProjectileComponent>(uid, out var projectile) ||
-            projectile.Weapon == null ||
-            component.OnlyWorkOnFauna && // Lavaland Change
-            !HasComp<FaunaComponent>(args.OtherEntity)) // Lavaland Change
+            projectile.Weapon == null)
         {
             return;
         }
@@ -114,8 +109,8 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         marker.Damage = new DamageSpecifier(component.Damage);
         marker.Marker = projectile.Weapon.Value;
         marker.EndTime = _timing.CurTime + component.Duration;
-        marker.Effect = component.Effect; // Pass the effect to the marker
-        marker.Sound = component.Sound; // Pass the effect to the marker
+        marker.Effect = component.Effect; // Goob edit: Pass the effect to the marker
+        marker.Sound = component.Sound; // Goob edit: Pass the effect to the marker
         component.Amount--;
 
         Dirty(args.OtherEntity, marker);

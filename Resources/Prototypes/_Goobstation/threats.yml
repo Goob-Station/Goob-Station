@@ -11,7 +11,7 @@
     Dragon: 0.3
     SlaughterDemon: 0.3
     LaughterDemon: 0.3
-    Revolutionary: 0.2
+    WizApprentice: 0.1
 
 # Threats
 
@@ -46,14 +46,9 @@
   rule: UnknownShuttleInstigator
 
 - type: ninjaHackingThreat
-  id: GreyTide
-  announcement: terror-grey-tide
-  rule: GreyTideAntagMidround
-
-- type: ninjaHackingThreat
-  id: Revolutionary
-  announcement: terror-lone-operative
-  rule: RevolutionaryMidround
+  id: WizApprentice
+  announcement: terror-apprentice
+  rule: ApprenticeRule
 
 #- type: ninjaHackingThreat
 #  id: Wraith

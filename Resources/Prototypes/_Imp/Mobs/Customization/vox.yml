@@ -787,7 +787,7 @@
     state: spines
 
 - type: marking
-  id: VoxTailSplit
+  id: VoxTailSplit2
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]

@@ -100,6 +100,8 @@
     - Figurine
   - type: UseDelay
     delay: 5
+  - type: UseDelayOnTrigger
+  - type: UseDelayTriggerCondition # prevent spam
   - type: TriggerOnActivate
   - type: TriggerOnSignal
   - type: Speech

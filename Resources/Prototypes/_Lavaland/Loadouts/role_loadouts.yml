@@ -1,0 +1,18 @@
+- type: roleLoadout
+  id: JobShaftMiner
+  groups:
+  - GroupTankHarness
+  - SalvageSpecialistNeck # TODO add a special cloak specifically for shaft miners
+  - ShaftMinerJumpsuit #Goob
+  - SalvageSpecialistBackpack
+  - SalvageSpecialistOuterClothing
+  - SalvageSpecialistShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
+  - SalvageEnvirohelm
+  - SalvageEnvirosuit
+  - SalvageEnvirogloves

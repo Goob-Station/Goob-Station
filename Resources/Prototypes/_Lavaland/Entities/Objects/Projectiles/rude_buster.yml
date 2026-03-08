@@ -1,0 +1,54 @@
+- type: entity
+  id: ProjectileRudeBuster
+  parent: BaseBullet
+  name: rude buster
+  description: Strong magical projectile, that focuses all of the user's will into a single powerful blow.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Projectiles/rude_buster.rsi
+    layers:
+    - state: buster
+      shader: unshaded
+      color: "#ae00ffdd"
+      scale: 1.5,1.5
+  - type: Reflective
+    reflective: Magic
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 15
+        Heat: 15
+        Structural: 80
+    penetrationThreshold: 400 # Good for breaking rocks (and hordes of fauna)
+  - type: StaminaDamageOnCollide
+    damage: 60
+  - type: Trail
+    color: "#ae00ffdd"
+    scale: 1.1
+    frequency: 0.02
+    lifetime: 0.8
+    lerpTime: 0.005
+    alphaLerpAmount: 0.2
+    scaleLerpAmount: 0.1
+    shader: unshaded
+    sprite:
+      sprite: /Textures/_Lavaland/Objects/Projectiles/rude_buster.rsi
+      state: buster
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.2,0.4,0.2"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: null
+  - type: TileFrictionModifier # Thanks wizden for killing physics comp damping
+    modifier: 0
+  - type: HomingProjectile # TODO this doesn't work since it needs a target to be assigned by an action
+    #homingTime: 0
+    homingSpeed: 2160

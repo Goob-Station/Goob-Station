@@ -48,8 +48,11 @@
           task: MeleeCombatCompound
     - tasks:
         - !type:HTNCompoundTask
+          task: MoveCallTargetCompound # Goobstation - move to mousecall target
+    - tasks:
+        - !type:HTNCompoundTask
           task: IdleCompound
-          
+
 - type: htnCompound
   id: MoproachCompound
   branches:

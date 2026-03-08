@@ -692,6 +692,51 @@
     Steel: 285
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellBluespaceRevolver
+  result: PowerCellBluespaceRevolver
+  materials:
+    Steel: 300
+    Gold: 200
+    Glass: 300
+    Plasma: 500
+    Uranium: 400
+    BSCrystal: 100
+    
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MilitaryPowerCellBluespaceLMG
+  result: MilitaryPowerCellBluespaceLMG
+  materials:
+    Steel: 1500
+    Gold: 200
+    Glass: 800
+    Plasma: 1000
+    BSCrystal: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellBluespaceSniper
+  result: PowerCellBluespaceSniper
+  materials:
+    Steel: 600
+    Gold: 300
+    Glass: 600
+    Plasma: 1500
+    BSCrystal: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellBluespaceSMG
+  result: PowerCellBluespaceSMG
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 400
+    Plasma: 1000
+    BSCrystal: 100
+
+- type: latheRecipe
   id: ClothingEyesGlassesSecurityContraDetect
   result: ClothingEyesGlassesSecurityContraDetect
   completetime: 2
@@ -727,3 +772,5 @@
     Steel: 500
     Plastic: 250
     Cloth: 200
+
+  

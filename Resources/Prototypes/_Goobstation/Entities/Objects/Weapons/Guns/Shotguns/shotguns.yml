@@ -14,7 +14,7 @@
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunAntelope
-  description: A mag-fed shotgun designed for neutralizing threats and keeping criminals at bay with overwhelming force.
+  description: A mag-fed shotgun designed for neutralizing threats and keeping criminals at bay with overwhelming force. Feeds from 12 Gauge drum magazines.
   suffix: DO NOT MAP # This should be made obtainable at some point.
   components:
   - type: Sprite
@@ -83,10 +83,10 @@
     price: 500
 
 - type: entity
-  name: "'Bojevic' combat shotgun"
+  name: Bojevic
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunCombat
-  description: An old design with a beefier shell intended to repell boarding parties; this time, you are the boarding party. '8 GUAGE' is stamped on the barrel.
+  description: For when you need to repel targets that are behind two plasteel walls, a fridge, and a car door. Pump action and fun as hell to shoot, though not as much for your shoulder. Loads 5 rounds of 8 Gauge.
   components:
   - type: Item
     size: Large
@@ -96,7 +96,9 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
   - type: GunRequiresWield # remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 1
+    fireRate: 2
+  - type: GunSpreadModifier
+    spread: 0.6
   - type: Tag
     tags:
     - WeaponShotgunKammerer
@@ -114,7 +116,7 @@
   name: NZ CSG-242
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunHeavy
-  description: A 3-round burst magazine-fed heavy shotgun for total extermination. Uses 2 gauge ammunition.
+  description: A portable human rights violation. Burst fire, high explosive, and will literally push you back six feet when fired. Feeds from 2 Gauge drum magazines. Holy shit.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi

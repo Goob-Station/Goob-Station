@@ -25,6 +25,7 @@
   - ClothingUniformJumpsuitQMTurtleneck
   - ClothingUniformJumpskirtQMTurtleneck
   - ClothingUniformJumpsuitQMFormal
+  - ClothingUniformJumpsuitShaftMiner # Lavaland Change
 
 - type: latheRecipePack
   id: ClothingCommand

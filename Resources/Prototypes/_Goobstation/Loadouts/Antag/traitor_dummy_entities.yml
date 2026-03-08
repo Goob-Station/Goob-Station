@@ -1,0 +1,26 @@
+# Dummy entities for traitor uplink loadout
+# Names and descriptions come from ent-LoadoutDummyTraitor* in traitor.ftl
+
+- type: entity
+  id: LoadoutDummyTraitorPda
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    state: pda
+
+- type: entity
+  id: LoadoutDummyTraitorPen
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/pens.rsi
+    state: pen
+
+- type: entity
+  id: LoadoutDummyTraitorImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter1
