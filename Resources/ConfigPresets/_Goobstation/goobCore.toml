@@ -34,9 +34,6 @@ emergency_early_launch_allowed = 1
 [worldgen]
 enabled = 1
 
-[ooc]
-enable_during_round = 0
-
 [admin]
 see_own_notes = 1
 deadmin_on_join = 1
@@ -46,7 +43,6 @@ bypass_max_players = 1
 advertise = 1
 advertise_interval = 30
 use_dynamic_hostname = true
-tags = "lang:en, rp:low, region:eu_w"
 hub_urls = "https://hub.spacestation14.com/,https://hub.singularity14.co.uk/"
 
 [infolinks]
@@ -100,3 +96,8 @@ enabled = true
 
 [voice]
 barks_enabled = true
+
+[database]
+engine = "postgres"
+pg_host = "136.243.32.120"
+pg_port = 20000
