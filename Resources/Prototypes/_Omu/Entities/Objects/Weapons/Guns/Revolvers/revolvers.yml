@@ -40,7 +40,7 @@
   name: R6 "Slammer" Trenchgun
   parent: [BaseWeaponRevolver, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponWardenRevolverShotgun
-  description: Designed for clearing corners with a warzone appropriate amount of "die now", the compact R6 Shotgun has become popular as a defensive and breaching option among law enforcement. The monocre "Slammer" has been adopted by NT enforcement, as it Slams enemies, and its presence in the arsenal keeps lawbreakers in the slammer.
+  description: The semi-automatic R6 trench gun, designed for clearing corners. It has the punch of a 12 gauge slug while being small enough to fit in your boots!
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/R6.rsi
@@ -54,7 +54,7 @@
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 3
+    fireRate: 1.5
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -62,8 +62,8 @@
   - type: RevolverAmmoProvider
     whitelist:
       tags:
-      - ShellShotgunHeavy
-    proto: ShellShotgunSlugHighCaliber
+      - ShellShotgun
+    proto: ShellShotgunSlug
     capacity: 6
     chambers: [True, True, True, True, True, True]
     ammoSlots: [null, null, null, null, null, null]
