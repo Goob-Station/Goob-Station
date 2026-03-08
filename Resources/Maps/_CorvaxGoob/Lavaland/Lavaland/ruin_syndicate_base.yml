@@ -41,7 +41,9 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: grid
+      name: lavaland-ruin-syndicate
+    - type: IFF
+      flags: Hide
     - type: Transform
       pos: -1.875,2.3625705
       parent: invalid

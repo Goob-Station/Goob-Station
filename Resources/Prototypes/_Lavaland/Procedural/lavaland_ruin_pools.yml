@@ -30,6 +30,16 @@
     # Corvax-Goob-start
     #SyndicateBase: 1
     CorvaxSyndicateBase: 1
+    CorvaxLavaOutpost: 1
+    CorvaxLavaClownBase: 1
+    CorvaxRatvar: 1
+    #Ratvar: 1
+    CorvaxMeteo: 1
+    CorvaxLavaMiningPost: 2
+    CorvaxWarehouse: 1
+    CorvaxSyndicateShuttle: 1
+    CorvaxUnathi: 1
+    CorvaxCrystal: 3
     # Corvax-Goob-end
     HierophantArena: 1
     RougeAI: 1
@@ -46,7 +56,6 @@
     ArrivalsFront: 1
     VulpLab: 1
     Shelter: 1
-    Ratvar: 1
     MiningPost: 3
     AbductorDebris: 1
     CultBase: 1

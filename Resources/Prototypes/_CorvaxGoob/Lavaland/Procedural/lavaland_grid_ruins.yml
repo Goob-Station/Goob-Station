@@ -3,3 +3,65 @@
   name: lavaland-ruin-syndicate
   path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_syndicate_base.yml
   priority: -1 # highest priority
+  patchToPlanet: false
+
+#Corvax ruins
+- type: lavalandGridRuin
+  id: CorvaxLavaOutpost
+  name: lavaland-ruin-lava_outpost
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_lava_outpost.yml
+  priority: 1
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: CorvaxLavaClownBase
+  name: lavaland-ruin-lava_clown_base
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_clown_lava_base.yml
+  priority: 2
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: CorvaxRatvar
+  name: lavaland-ruin-ratvar
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_ratvar.yml
+  priority: 3
+
+- type: lavalandGridRuin
+  id: CorvaxMeteo
+  name: lavaland-ruin-meteo
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_meteo.yml
+  priority: 4
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: CorvaxLavaMiningPost
+  name: lavaland-ruin-lava_mining_post
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_lava_mining_post.yml
+  priority: 5
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: CorvaxWarehouse
+  name: lavaland-ruin-warehouse
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_warehouse.yml
+  priority: 6
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: CorvaxSyndicateShuttle
+  name: lavaland-ruin-syndicate_shuttle
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_syndicate_shuttle.yml
+  priority: 7
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: CorvaxUnathi
+  name: lavaland-ruin-unathi
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_unathi.yml
+  priority: 8
+
+- type: lavalandGridRuin
+  id: CorvaxCrystal
+  name: lavaland-ruin-crystal
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_crystal.yml
+  priority: 9
