@@ -34,9 +34,9 @@
     CorvaxLavaClownBase: 1
     CorvaxRatvar: 1
     #Ratvar: 1
-    CorvaxMeteo: 1
+    CorvaxWeatherStation: 1
     CorvaxLavaMiningPost: 2
-    CorvaxWarehouse: 1
+    CorvaxWarehouse: 2
     CorvaxSyndicateShuttle: 1
     CorvaxUnathi: 1
     CorvaxCrystal: 3

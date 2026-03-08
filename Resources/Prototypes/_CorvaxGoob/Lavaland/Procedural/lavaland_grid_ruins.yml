@@ -27,9 +27,9 @@
   priority: 3
 
 - type: lavalandGridRuin
-  id: CorvaxMeteo
-  name: lavaland-ruin-meteo
-  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_meteo.yml
+  id: CorvaxWeatherStation
+  name: lavaland-ruin-weather_station
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_weather_station.yml
   priority: 4
   patchToPlanet: false
 

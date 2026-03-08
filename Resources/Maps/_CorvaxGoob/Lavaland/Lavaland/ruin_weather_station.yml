@@ -31,7 +31,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: lavaland-ruin-meteo
+      name: lavaland-ruin-weather_station
     - type: Transform
       pos: -1.5833334,-1.5
       parent: invalid
