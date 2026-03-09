@@ -1,29 +1,3 @@
 [game]
 hostname = "Goob Sigma ᴇᴜ-ᴡ"
 desc = "😱"
-
-[net]
-port = 25500
-
-[status]
-bind = "*:25500"
-connectaddress = "udp://136.243.32.120:25500"
-
-[hub]
-server_url = "ss14s://sigma.goobstation.com"
-
-[adminlogs]
-server_name = "GoobSigma"
-
-[replay]
-auto_record_name = "remote/Goob/Sigma/sigma_{year}_{month}_{day}-{hour}_{minute}-round_{round}.zip"
-
-[metrics]
-enabled = 1
-host = "*"
-port = 25500
-
-[loki]
-enabled = true
-address = "https://loki.goobstation.com"
-name = "goob_sigma"
