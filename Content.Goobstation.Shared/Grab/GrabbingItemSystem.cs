@@ -18,6 +18,7 @@ namespace Content.Goobstation.Shared.Grab;
 public sealed class GrabbingItemSystem : EntitySystem
 {
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly GrabbingCooldownSystem _grabCd = default!;
 
     public override void Initialize()
     {
@@ -101,6 +102,9 @@ public sealed class GrabbingItemSystem : EntitySystem
         }
 
         if (!_pulling.CanGrab(args.User, hitEntity))
+            return;
+
+        if (!_grabCd.IsCooldownReady(ent))
             return;
 
         ent.Comp.ActivelyGrabbingEntity = hitEntity;
