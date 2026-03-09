@@ -81,13 +81,6 @@ hardware_ids = true
 [rmc]
 patron_lobby_message_time_seconds = 10
 
-[replay]
-auto_record = true
-auto_record_temp_dir = "replays-recording"
-directory = "replays"
-max_uncompressed_size = 15728640
-max_compressed_size = 7864320
-
 [lavaland]
 enabled = true
 
@@ -96,8 +89,3 @@ enabled = true
 
 [voice]
 barks_enabled = true
-
-[database]
-engine = "postgres"
-pg_host = "136.243.32.120"
-pg_port = 20000

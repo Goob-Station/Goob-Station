@@ -1,29 +1,3 @@
 [game]
 hostname = "Goob Alpha ᴇᴜ-ᴡ"
 desc = "😱"
-
-[net]
-port = 25501
-
-[status]
-bind = "*:25501"
-connectaddress = "udp://136.243.32.120:25501"
-
-[hub]
-server_url = "ss14s://alpha.goobstation.com"
-
-[adminlogs]
-server_name = "GoobAlpha"
-
-[replay]
-auto_record_name = "remote/Goob/Alpha/alpha_{year}_{month}_{day}-{hour}_{minute}-round_{round}.zip"
-
-[metrics]
-enabled = 1
-host = "*"
-port = 25501
-
-[loki]
-enabled = true
-address = "https://loki.goobstation.com"
-name = "goob_alpha"

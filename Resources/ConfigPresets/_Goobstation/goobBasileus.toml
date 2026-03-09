@@ -1,30 +1,3 @@
 [game]
 hostname = "Goob Basileus 𝑀𝑅𝒫 ᴇᴜ-ᴡ"
 desc = "The illustrious Goob Station MRP, a resplendent sanctuary ordained solely for the most venerable and cultured denizens of our esteemed realm."
-
-[net]
-port = 25502
-
-[status]
-bind = "*:25502"
-connectaddress = "udp://136.243.32.120:25502"
-
-[hub]
-tags = "lang:en, rp:medium, region:eu_w"
-server_url = "ss14s://omega.goobstation.com"
-
-[adminlogs]
-server_name = "GoobBasileus"
-
-[replay]
-auto_record_name = "remote/Goob/Basileus/basileus_{year}_{month}_{day}-{hour}_{minute}-round_{round}.zip"
-
-[metrics]
-enabled = 1
-host = "*"
-port = 25502
-
-[loki]
-enabled = true
-address = "https://loki.goobstation.com"
-name = "goob_omega"
