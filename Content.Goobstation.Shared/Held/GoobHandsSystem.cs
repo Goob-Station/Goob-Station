@@ -18,6 +18,7 @@ public sealed class GoobHandsSystem : EntitySystem
         SubscribeLocalEvent<HandsComponent, StopGrabbingItemPullEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, FindGrabbingItemEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, GrabModifierEvent>(RefRelayEvent);
+        SubscribeLocalEvent<HandsComponent, UseActiveHandGrabbingItemEvent>(RefRelayEvent);
     }
 
     private void RelayEvent<T>(Entity<HandsComponent> entity, ref T args) where T : EntityEventArgs
