@@ -1063,4 +1063,5 @@ DVSmartFridgeMedical: SmartFridgeMedical
 ChemDispenser: EnergyChemDispenser
 
 # 2026-03-09 Goob
+RandomInsulsSpawner: MaintenanceInsulsSpawner
 ClothingHandsGlovesColorYellow: MaintenanceInsulsSpawner # Engis get their insuls from lockers or engivend anyway
