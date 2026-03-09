@@ -403,16 +403,21 @@
       - id: CableHVStack10
       - id: CableMVStack10
       - id: CableApcStack10
-      - !type:GroupSelector
-        children:
-        - id: ClothingHandsGlovesColorYellowBudget
-          weight: 5
-        - id: ClothingHandsGlovesFingerlessInsulated
-          weight: 0.5
-        - id: ClothingHandsGlovesColorYellow
-          weight: 1
-        - id: ClothingHandsGlovesConducting
-          weight: 0.1
+      # <Goob>
+      - !type:NestedSelector
+        weight: 2
+        tableId: InsulsTable
+      # - !type:GroupSelector
+      #   children:
+      #   - id: ClothingHandsGlovesColorYellowBudget
+      #     weight: 5
+      #   - id: ClothingHandsGlovesFingerlessInsulated
+      #     weight: 0.5
+      #   - id: ClothingHandsGlovesColorYellow
+      #     weight: 1
+      #   - id: ClothingHandsGlovesConducting
+      #     weight: 0.1
+      # </Goob>
       # Uncommon Group
     - !type:GroupSelector
       weight: 23
@@ -554,6 +559,10 @@
   id: InsulsTable
   table: !type:GroupSelector
     children:
+    - id: ClothingHandsGlovesInsulatedSingleRight # goob
+      weight: 100
+    - id: ClothingHandsGlovesInsulatedSingleRight # goob
+      weight: 100
     - id: ClothingHandsGlovesColorYellowBudget # budget insuls
       weight: 85
     - id: ClothingHandsGlovesColorYellow # true insuls

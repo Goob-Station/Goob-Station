@@ -63,3 +63,14 @@
   targetNode: meddiagHud
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  name: insuls
+  id: ClothingHandsGlovesColorYellow
+  graph: ClothingHandsGlovesColorYellow
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: These gloves will protect the wearer from electric shocks.
+  icon: { sprite: Clothing/Hands/Gloves/Color/yellow.rsi, state: icon}
+  objectType: Item

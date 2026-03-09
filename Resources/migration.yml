@@ -1061,3 +1061,6 @@ DVSmartFridgeMedical: SmartFridgeMedical
 
 # 2026-01-10 Goobstation Change Mapped Chem to Energy Chem by default
 ChemDispenser: EnergyChemDispenser
+
+# 2026-03-09 Goob
+ClothingHandsGlovesColorYellow: MaintenanceInsulsSpawner # Engis get their insuls from lockers or engivend anyway

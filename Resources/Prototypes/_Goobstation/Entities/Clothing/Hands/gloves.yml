@@ -465,3 +465,35 @@
     grabEscapeModifier: -0.1
     grabEscapeMultiplier: 0.8
     grabMoveSpeedMultiplier: 2 # 0.8 speed modifier on hard grab
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesInsulatedSingleLeft
+  name: insulated glove
+  description: Wait, where's the second one?
+  components:
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/single_left_insul.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/single_left_insul.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-yellow
+  - type: Tag
+    tags:
+    - SingleInsulatedGlove
+  - type: Armor
+    modifiers:
+      coefficients:
+        Shock: 0.9
+
+- type: entity
+  parent: ClothingHandsGlovesInsulatedSingleLeft
+  id: ClothingHandsGlovesInsulatedSingleRight
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/single_right_insul.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/single_right_insul.rsi
