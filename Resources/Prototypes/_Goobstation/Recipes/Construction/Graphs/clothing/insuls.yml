@@ -1,23 +1,12 @@
 - type: constructionGraph
   id: ClothingHandsGlovesColorYellow
-  start: start
   graph:
     - node: start
       edges:
-        - to: end
-          steps:
+      - to: insuls
+        steps:
+        - tag: SingleInsulatedGlove
+          name: construction-graph-tag-insul
 
-            - tag: SingleInsulatedGlove
-              name: insul
-              icon:
-                sprite: _Goobstation/Clothing/Hands/Gloves/single_left_insul.rsi
-                state: icon
-
-            - tag: SingleInsulatedGlove
-              name: insul
-              icon:
-                sprite: _Goobstation/Clothing/Hands/Gloves/single_right_insul.rsi
-                state: icon
-
-    - node: end
+    - node: insuls
       entity: ClothingHandsGlovesColorYellow

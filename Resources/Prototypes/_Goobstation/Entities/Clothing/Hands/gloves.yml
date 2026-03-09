@@ -488,6 +488,9 @@
     modifiers:
       coefficients:
         Shock: 0.9
+  - type: Construction
+    graph: ClothingHandsGlovesColorYellow
+    node: start
 
 - type: entity
   parent: ClothingHandsGlovesInsulatedSingleLeft

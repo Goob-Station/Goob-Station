@@ -452,7 +452,7 @@
   components: # Goob
   - type: Construction
     graph: ClothingHandsGlovesColorYellow
-    node: end
+    node: insuls
 
 # Budget Insulated Gloves
 - type: entity
