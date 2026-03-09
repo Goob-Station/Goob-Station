@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 264.0.0
+  engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/25/2026 17:02:19
-  entityCount: 292
+  time: 03/07/2026 18:59:12
+  entityCount: 294
 maps: []
 grids:
 - 1
@@ -504,6 +504,8 @@ entities:
     - type: DeviceList
       devices:
       - 9
+    - type: Fixtures
+      fixtures: {}
 - proto: AirCanister
   entities:
   - uid: 3
@@ -588,12 +590,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,-1.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 201
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,3.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 12
@@ -1121,12 +1127,16 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 289
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,1.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ClothingHeadHatWelding
   entities:
   - uid: 107
@@ -1685,6 +1695,104 @@ entities:
     - type: Transform
       pos: 3.6688561,-0.3847009
       parent: 1
+- proto: NoticeBoard
+  entities:
+  - uid: 293
+    components:
+    - type: MetaData
+      desc: Нам очень важно ваше мнение.
+      name: доска отзывов
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,2.5
+      parent: 1
+    - type: Storage
+      storedItems:
+        294:
+          position: 0,0
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 294
+    - type: Fixtures
+      fixtures: {}
+- proto: Paper
+  entities:
+  - uid: 294
+    components:
+    - type: Transform
+      parent: 293
+    - type: Paper
+      stampState: paper_stamp-signature
+      stampedBy:
+      - stampedColor: '#2F4F4FFF'
+        stampedName: Алазель Ратселхаф
+      content: >-
+        [color=#1b487e]███░███░░░░██░░░░[/color]
+
+        [color=#1b487e]░██░████░░░██░░░░[/color]      [bold]Бланк документа[/bold]
+
+        [color=#1b487e]░░█░██░██░░██░█░░[/color]               [bold]NanoTrasen[/bold]
+
+        [color=#1b487e]░░░░██░░██░██░██░[/color] [bold]NTTG Бокс EV-242 ПД-ЦК[/bold]
+
+        =============================================
+                                 [bold]ОБРАЩЕНИЕ[/bold]
+        =============================================
+
+        [bold]Время от начала смены и дата:[/bold] [italic]00:50:44 07.03.3026[/italic]
+
+        [bold]Составитель документа:[/bold] [italic]Алазель Ратселхаф[/italic]
+
+        [bold]Должность составителя:[/bold] [italic][color=#c44c4c]Пилот Службы Безопасности[/color][/italic]
+
+
+        Я, [italic]Алазель Ратселхаф[/italic], в должности [italic][color=#c44c4c]Пилота Службы Безопасности[/color][/italic], прошу рассмотреть [color=#57a343]Департаментом Архитектуры NanoTrasen[/color] моё обращение.
+
+        [bold]Содержание обращения:[/bold]
+
+
+        [italic]Уважаемый Департамент Архитектуры NanoTrasen. Главный Инженер постройки пилотируемого оружейного модуля "Патрульный NT-91" для научно-исследовательской станции "NTTN Бокс EV-242". Я, Алазель Ратселхаф, в должности пилота данного оружейного модуля, не способен сдержать своих эмоций, стоило мне увидеть и начать использовать оборудование, продуманное до самых мелочей.[/italic]
+
+        [italic]Как пилот, я ставлю наивысшую оценку данному шаттлу и искренне прошу, чтобы такой формат присутствовал не только на текущей станции.[/italic]
+
+
+        [italic]Система безопасности на высоте. Самозарядные стационарные пулемёт "Сеалин" и тяжёлый энергобластер "Перфоратор" на шарнирном каркасе не оставляют и шанса космическим угрозам. Продуманная аварийная кнопка закрытия гермостворок исключают критические повреждения по жизненно важному отсеку пилота. Сам отсек пилота так же не может не радовать, вы не пощадили установить больше окон чтобы создать самые идеальные условия проверки обшивки станции без ухудшения зрения. Спасибо отдельно за аптечку, зарядное устройство и личный шкаф.[/italic]
+
+
+        [italic]Техническое обеспечение великолепно.[/italic]
+
+        [italic]Достаточно защищённые двигатели, их количество, а так же автономное питание - дают стратегическое преимущество. Спасибо за консоль контроля питания, помогает вычислить состояние поломок.[/italic]
+
+
+        [italic]Отсек службы безопасности - вы тщательно позаботились о безопасности и тех кого мне следует лично довозить и перевозить. Две кабинки достаточно, кроме того, для заключённых и переведённых есть скафандр аварийного снаряжения, сами кабинки обладают дополнительными защитными перилами и пожарными шлюзами. Я обожаю такое внимание.[/italic]
+
+
+        [italic]Ну и наконец, покраска. Нанесённых декалей очень много, вы делали этот шаттл с душой. Даже внешний контур с космоса был обработан краскопультом. Вы действительно великие работники, архитекторы и инженеры. Спасибо вам огромное.[/italic]
+
+
+        [italic]Мною так же желаемо оставить пожелания и идеи касаемо улучшения шаттла, но, как выходит, что он сделан действительно на высшем уровне, посему я не имею понятия что ещё привнести в него. Проект сделан, действительно, на совесть.[/italic]
+
+
+        [bold]Причины его написания:[/bold]  
+
+        [italic]Искреннее восхищение и благодарность, наслаждение от пользования действительно качественным продуктом работы для такой сложной работы.[/italic]
+
+
+        =============================================
+
+                                    [italic]Место для печатей[/italic]
+    - type: Physics
+      canCollide: False
+    - type: Forensics
+      residues: []
+      dNAs: []
+      fibers: []
+      fingerprints: []
 - proto: Poweredlight
   entities:
   - uid: 68
@@ -1973,6 +2081,8 @@ entities:
           - Open
         - - On
           - Close
+    - type: Fixtures
+      fixtures: {}
 - proto: SMESBasic
   entities:
   - uid: 202
