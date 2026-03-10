@@ -19,14 +19,14 @@
     chaosScore: 40
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-mothroach-spawn-result-message
-    table: !type:GroupSelector # Goob-Mothroaches-Start
+    table: !type:GroupSelector
       children:
       - id: MobMothroach
-      - id: MobMothroachMustard # СorvaxGoob-Mothroaches-Start
+      - id: MobMothroachMustard # Goob-Mothroaches-Start
       - id: MobMothroachLeopard
       - id: MobMothroachCecropia
       - id: MobMothroachLunar
-        weight: 0.02 # СorvaxGoob-Mothroaches-End
+        weight: 0.02 # Goob-Mothroaches-End
 
 - type: entity
   parent: BaseGameRule
