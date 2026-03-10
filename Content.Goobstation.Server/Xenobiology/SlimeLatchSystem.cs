@@ -28,7 +28,6 @@ using Robust.Shared.Timing;
 using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Body.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Components;
 
@@ -48,7 +47,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
 
     public override void Initialize()
@@ -98,35 +96,29 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (stomachList.Count == 0)
             return;
 
-        FixedPoint2 AvailabaleVolume()
+        FixedPoint2 availabaleVolume = 0;
+        foreach (var stomach in stomachList)
         {
-            FixedPoint2 availabaleVolume = 0;
-            foreach (var stomach in stomachList)
-            {
-                if (_solutionContainer.ResolveSolution(stomach.Owner, StomachSystem.DefaultSolutionName, ref stomach.Comp1.Solution, out var sol))
-                    availabaleVolume += sol.AvailableVolume;
-            }
-            return availabaleVolume;
+            if (_solutionContainer.ResolveSolution(stomach.Owner, StomachSystem.DefaultSolutionName, ref stomach.Comp1.Solution, out var sol))
+                availabaleVolume += sol.AvailableVolume;
         }
 
-        if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
+        if (TryComp<BloodstreamComponent>(ent, out var bloodstream)
+            && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood)
+            && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chem))
         {
-            if (_solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood)
-                && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chem))
+            FixedPoint2 bloodProportion = blood.Volume/(chem.Volume + blood.Volume);
+            FixedPoint2 chemProportion = 1 - bloodProportion;
+            FixedPoint2 bloodTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * bloodProportion, availabaleVolume * bloodProportion);
+            FixedPoint2 chemTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * chemProportion, availabaleVolume * chemProportion);
+            foreach (var stomach in stomachList)
             {
-                FixedPoint2 bloodProportion = blood.Volume/(chem.Volume + blood.Volume);
-                FixedPoint2 chemProportion = 1 - bloodProportion;
-                FixedPoint2 bloodTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * bloodProportion, AvailabaleVolume() * bloodProportion);
-                FixedPoint2 chemTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * chemProportion, AvailabaleVolume() * chemProportion);
-                foreach (var stomach in stomachList)
-                {
-                    var bloodSolution = blood.SplitSolutionWithout(bloodTransfer/FixedPoint2.New(stomachList.Count), ent.Comp.ToxinReagent); // we don't want slime sucking it's own toxin
-                    _stomach.TryTransferSolution(stomach.Owner, bloodSolution, stomach); // blood first, other chemicals later
-                    var chemSolution = blood.SplitSolution(chemTransfer/FixedPoint2.New(stomachList.Count));
-                    _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
-                }
-                chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits);
+                var bloodSolution = blood.SplitSolutionWithout(bloodTransfer/FixedPoint2.New(stomachList.Count), ent.Comp.ToxinReagent); // we don't want slime sucking it's own toxin instad of drinking blood
+                _stomach.TryTransferSolution(stomach.Owner, bloodSolution, stomach); // blood first, other chemicals later
+                var chemSolution = blood.SplitSolution(chemTransfer/FixedPoint2.New(stomachList.Count));
+                _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
             }
+            chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits);
         }
     }
 
