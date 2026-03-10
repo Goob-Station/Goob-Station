@@ -12,7 +12,7 @@
 reagent-name-tranquility = спокойствие
 reagent-desc-tranquility = Ты чувствуешь странное спокойствие...
 reagent-popup-tranquility = Ты чувствуешь странное спокойствие...
-reagent-name-binglejuice = бинл-джус
+reagent-name-binglejuice = бингл сок
 reagent-desc-binglejuice = Бинг бонг.
 reagent-popup-binglejuice = Мысль, должно быть, приходила тебе в голову. Мысль, что ты зашёл слишком далеко. Мысль, что это — односторонняя дорога. Так зачем бороться с неизбежным? Лучше принять это. Просто ляг и отдохни. В этой темноте есть красота, которую можно использовать, чтобы привести к чему-то новому.
 reagent-name-carpolin = карполин
