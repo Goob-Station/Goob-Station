@@ -1,0 +1,34 @@
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: HypnoflashSyndicate
+  name: hypnoflash
+  suffix: syndicate
+  description: A special flash, manufactured by the Brainwash dot co, capable of erasing temporal memory of anyone it flashes, rendering the first words heard echo through the mind of the flashed.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Antag/hypnoflash.rsi
+    layers:
+    - state: icon-off
+      map: [ "enum.FlashVisualLayers.BaseLayer" ]
+    - state: icon
+      visible: false
+      map: [ "enum.FlashVisualLayers.LightLayer" ]
+  - type: Hypnoflash
+    event: !type:HypnoflashedEvent {}
+    eventOnUser: !type:HypnoflashActivatedEvent {}
+    unremoveable: true # will make the item unremoveable for the duration of the flash
+    protoOnFlash: AdminInstantEffectFlash
+  - type: UseDelay
+    delay: 8
+  - type: Appearance
+  - type: ItemToggle
+    onActivate: false
+  - type: GenericVisualizer
+    visuals:
+      enum.FlashVisuals.Burnt:
+        enum.FlashVisualLayers.BaseLayer:
+          True: {state: icon-off}
+      enum.FlashVisuals.Flashing:
+        enum.FlashVisualLayers.LightLayer:
+          True: {visible: true}
+          False: {visible: false}
