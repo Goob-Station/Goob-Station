@@ -617,9 +617,14 @@ public enum LogType
     /// Antag objective info.
     /// </summary>
     AntagObjective = 10004, // Goobstation
-
+    
     /// <summary>
-    /// Guess
+    /// Silicon law changes.
     /// </summary>
-    AntagToken = 10005, // Goobstation
+    SiliconLaws = 10005, // Goobstation
+    
+    /// <summary>
+    /// Antag token usage/disable
+    /// </summary>
+    AntagToken = 10006, // Goobstation
 }
