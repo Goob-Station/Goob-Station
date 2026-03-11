@@ -108,6 +108,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Ensnaring;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -153,6 +154,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
     [Dependency] private readonly SharedInternalResourcesSystem _resources = default!;
+    [Dependency] private readonly EnsnareableSystem _snare = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -214,7 +216,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnGetAntagBlocker(Entity<ChangelingComponent> ent, ref GetAntagSelectionBlockerEvent args)
     {
-        args.IsChangeling = true;
+        args.Blocked = true;
     }
 
     private void OnMindswapAttempt(Entity<ChangelingComponent> ent, ref BeforeMindSwappedEvent args)
