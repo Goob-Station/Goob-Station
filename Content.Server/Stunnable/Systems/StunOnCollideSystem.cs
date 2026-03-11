@@ -14,7 +14,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
 using Content.Server.Stunnable.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Movement.Systems;
