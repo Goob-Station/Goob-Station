@@ -14,7 +14,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
 using Content.Server.Stunnable.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Movement.Systems;
@@ -40,7 +39,7 @@ internal sealed class StunOnCollideSystem : EntitySystem
 
     private void TryDoCollideStun(Entity<StunOnCollideComponent> ent, EntityUid target)
     {
-        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, DropHeldItemsBehavior.AlwaysDrop); // Goob DropHeldItemsBehavior
+        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, true); // goob edit
 
         if (ent.Comp.Refresh)
         {
