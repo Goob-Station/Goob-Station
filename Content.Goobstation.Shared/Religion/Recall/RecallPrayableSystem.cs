@@ -68,7 +68,7 @@ public sealed partial class RecallPrayableSystem : EntitySystem
 
     private void OnDoAfter(Entity<RecallPrayableComponent> ent, ref RecallPrayDoAfterEvent args)
     {
-        //I don't know why adding this check will not crash your client
+        //Prevent PVS crash on client
         if (_net.IsClient)
             return;
 
@@ -112,6 +112,10 @@ public sealed partial class RecallPrayableSystem : EntitySystem
     {
         switch (nullrod.Comp.RecallType)
         {
+            case NullrodRecallType.None:
+                RecallNone(nullrod, user);
+                break;
+
             case NullrodRecallType.Normal:
                 RecallNormal(nullrod, user);
                 break;
@@ -128,6 +132,11 @@ public sealed partial class RecallPrayableSystem : EntitySystem
                 RecallEmbedded(nullrod, user);
                 break;
         }
+    }
+    private void RecallNone(Entity<NullrodComponent> nullrod, EntityUid user)
+    {
+        _popup.PopupEntity(Loc.GetString("chaplain-recall-none", ("nullrod", nullrod.Owner)), user, user);
+        return;
     }
 
     private void RecallNormal(Entity<NullrodComponent> nullrod, EntityUid user)

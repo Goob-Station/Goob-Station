@@ -10,6 +10,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
 
@@ -72,11 +73,13 @@ public sealed partial class NullrodComponent : Component
     /// Used to recall certain state of nullrod
     /// </summary>
     [DataField]
-    public NullrodRecallType RecallType = NullrodRecallType.Normal;
+    public NullrodRecallType RecallType = NullrodRecallType.None;
 }
 
-public enum NullrodRecallType
+[Serializable, NetSerializable]
+public enum NullrodRecallType : byte
 {
+    None, //Can't be recalled
     Normal, //Nothing special
     Unremoveable, //e.g Hand of God
     Embedded, //e.g Ancient Spear

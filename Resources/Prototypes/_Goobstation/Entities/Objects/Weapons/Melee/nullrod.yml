@@ -214,7 +214,6 @@
     DamageOnUntrainedUse:
       types:
         Burn: 40
-    recallType: Unremoveable
     UntrainedUseString: nullrod-godhand-untrained-usage-popup
   - type: Execution # It's not sharp per se, but who's against executing heretics with a giant flaming hand from god?
     doAfterDuration: 4.0
@@ -313,6 +312,7 @@
       types:
         Slash: 20
     UntrainedUseString: nullrod-atheistfedora-untrained-usage-popup
+    recallType: Normal
   - type: LandAtCursor
   - type: Boomerang
   - type: DamageOtherOnHit
@@ -537,7 +537,6 @@
     DamageOnUntrainedUse:
       types:
         Blunt: 50
-    recallType: Unremoveable
     UntrainedUseString: nullrod-uristhand-untrained-usage-popup
   - type: MeleeThrowOnHit
     distance: 1
@@ -566,7 +565,6 @@
     DamageOnUntrainedUse:
       types:
         Slash: 50
-    recallType: Unremoveable
     UntrainedUseString: nullrod-chainsaw-untrained-usage-popup
   - type: Unremoveable
   - type: Sharp
@@ -700,8 +698,6 @@
     size: Normal
     sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
   - type: Unremoveable
-  - type: Nullrod
-    recallType: Unremoveable
   - type: MeleeWeapon
     wideAnimationRotation: 90
     attackRate: 0.75
