@@ -17,3 +17,15 @@
         - ReagentId: SpaceLube
           Quantity: 30
 
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleBloodMassive
+  suffix: Blood (900u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 900

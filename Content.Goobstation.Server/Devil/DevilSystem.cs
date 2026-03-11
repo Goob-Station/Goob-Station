@@ -4,18 +4,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Server.Devil.Condemned;
 using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.CheatDeath;
-using Content.Goobstation.Common.CrematorImmune;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Devil.Components;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
@@ -30,6 +31,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
+using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Zombies;
@@ -46,10 +48,11 @@ using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Popups;
-using Content.Shared.Shuttles.Components;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
+using Content.Shared.Popups;
+using Content.Shared.Shuttles.Components;
+using Content.Shared.Store.Components;
 using Content.Shared.Temperature.Components;
 using Robust.Server.Containers;
 using Robust.Shared.Audio;
@@ -57,6 +60,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Content.Goobstation.Server.Devil;
 
@@ -69,7 +74,6 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
@@ -94,6 +98,8 @@ public sealed partial class DevilSystem : EntitySystem
         SubscribeLocalEvent<DevilComponent, PowerLevelChangedEvent>(OnPowerLevelChanged);
         SubscribeLocalEvent<DevilComponent, ExorcismDoAfterEvent>(OnExorcismDoAfter);
 
+        SubscribeLocalEvent<DevilComponent, DevilOpenStoreEvent>(OnShop);
+
         SubscribeLocalEvent<IdentityBlockerComponent, InventoryRelayedEvent<IsEyesCoveredCheckEvent>>(OnEyesCoveredCheckEvent);
 
         InitializeHandshakeSystem();
@@ -113,13 +119,19 @@ public sealed partial class DevilSystem : EntitySystem
         RemComp<CondemnedComponent>(devil);
         RemComp<DestructibleComponent>(devil);
 
+        // All skills
+        EnsureComp<DevilHeresyComponent>(devil);
+        EnsureComp<HellstepActionComponent>(devil);
+        //EnsureComp<FireImmunityActionComponent>(devil);
+        EnsureComp<DevilAuthorityComponent>(devil);
+        EnsureComp<DevilSummonPitchforkComponent>(devil);
+        EnsureComp<DevilTransformComponent>(devil);
+
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);
         EnsureComp<BreathingImmunityComponent>(devil);
         EnsureComp<PressureImmunityComponent>(devil);
-        EnsureComp<ActiveListenerComponent>(devil);
         EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;
-        EnsureComp<CrematoriumImmuneComponent>(devil);
         EnsureComp<AntagImmuneComponent>(devil);
         EnsureComp<SupermatterImmuneComponent>(devil);
         EnsureComp<PreventChasmFallingComponent>(devil).DeleteOnUse = false;
@@ -164,6 +176,34 @@ public sealed partial class DevilSystem : EntitySystem
         devil.Comp.Souls += args.Amount;
         _popup.PopupEntity(Loc.GetString("contract-soul-added"), args.User, args.User, PopupType.MediumCaution);
 
+        if (_prototype.TryIndex(devil.Comp.DevilBranchPrototype, out var proto))
+        {
+            foreach (var unlock in proto.ConditionalUnlocks)
+            {
+                var compReg = EntityManager.ComponentFactory.GetRegistration(unlock.RequiredComponent);
+
+                if (!EntityManager.HasComponent(devil, compReg.Type))
+                    continue;
+
+                if (devil.Comp.SoulsWhileLesser < unlock.SoulsRequired)
+                    continue;
+
+                foreach (var action in unlock.Actions)
+                    _actions.AddAction(devil, action);
+            }
+        }
+
+        // Used for store currency.
+        if (TryComp<StoreComponent>(devil, out var store))
+        {
+            const string currencyId = "SoulsStored";
+
+            if (!store.Balance.ContainsKey(currencyId))
+                store.Balance[currencyId] = 0;
+
+            store.Balance[currencyId] += args.Amount;
+        }
+
         if (devil.Comp.Souls is > 1 and < 7 && devil.Comp.Souls % 2 == 0)
         {
             devil.Comp.PowerLevel = (DevilPowerLevel)(devil.Comp.Souls / 2); // malicious casting to enum
@@ -175,6 +215,14 @@ public sealed partial class DevilSystem : EntitySystem
 
         if (_mind.TryGetObjectiveComp<SignContractConditionComponent>(mindId, out var objectiveComp, mind))
             objectiveComp.ContractsSigned += args.Amount;
+    }
+
+    private void OnShop(Entity<DevilComponent> ent, ref DevilOpenStoreEvent args)
+    {
+        if (!TryComp<StoreComponent>(ent, out var store))
+            return;
+
+        _store.ToggleUi(args.Performer, ent, store);
     }
 
     private void OnPowerLevelChanged(Entity<DevilComponent> devil, ref PowerLevelChangedEvent args)
@@ -240,14 +288,14 @@ public sealed partial class DevilSystem : EntitySystem
         if (HasComp<BibleUserComponent>(args.Source))
         {
             _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName * devil.Comp.BibleUserDamageMultiplier, true);
-            _stun.TryUpdateParalyzeDuration(devil, devil.Comp.ParalyzeDurationOnTrueName * devil.Comp.BibleUserDamageMultiplier);
+            _stun.TryAddStunDuration(devil, devil.Comp.ParalyzeDurationOnTrueName * devil.Comp.BibleUserDamageMultiplier);
 
             var popup = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", devil));
             _popup.PopupEntity(popup, devil, PopupType.LargeCaution);
         }
         else
         {
-            _stun.TryUpdateParalyzeDuration(devil, devil.Comp.ParalyzeDurationOnTrueName);
+            _stun.TryAddStunDuration(devil, devil.Comp.ParalyzeDurationOnTrueName);
             _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName, true);
 
             var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", devil));
@@ -263,7 +311,16 @@ public sealed partial class DevilSystem : EntitySystem
             return;
 
         _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", Name(devil))), devil, PopupType.LargeCaution);
-        _condemned.StartCondemnation(target, behavior: CondemnedBehavior.Banish, doFlavor: false);
+        devil.Comp.TimesExorcised++;
+
+        var behavior = devil.Comp.TimesExorcised <= DevilComponent.MaxBanishedBeforePermanent
+            ? CondemnedBehavior.Banish
+            : CondemnedBehavior.Delete;
+
+        _condemned.StartCondemnation(
+            target,
+            behavior: behavior,
+            doFlavor: false);
 
     }
 

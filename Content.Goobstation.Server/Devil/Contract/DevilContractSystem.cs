@@ -68,7 +68,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         SubscribeLocalEvent<DevilContractComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<DevilContractComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
-        SubscribeLocalEvent<DevilContractComponent, FullyEatenEvent>(OnEaten);
+        //SubscribeLocalEvent<DevilContractComponent, AfterFullyEatenEvent>(OnEaten);
 
         _sawmill = Logger.GetSawmill("devil-contract");
     }
@@ -133,7 +133,8 @@ public sealed partial class DevilContractSystem : EntitySystem
         args.PushMarkup(Loc.GetString("devil-contract-examined", ("weight", contract.Comp.ContractWeight)));
     }
 
-    private void OnEaten(Entity<DevilContractComponent> contract, ref FullyEatenEvent args)
+    // Something removed this event and I've no clue where
+    /*private void OnEaten(Entity<DevilContractComponent> contract, ref AfterFullyEatenEvent args)
     {
         _explosion.QueueExplosion(
             args.User,
@@ -143,7 +144,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             maxTileIntensity: 1,
             maxTileBreak: 0,
             addLog: false);
-    }
+    }*/
 
     #region Signing Steps
 
@@ -330,7 +331,17 @@ public sealed partial class DevilContractSystem : EntitySystem
             var targetKey = match.Groups["target"].Value.Trim().ToLowerInvariant().Replace(" ", "");
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
+            //var locId = _targetResolvers.Keys.FirstOrDefault(id => Loc.GetString(id).Equals(targetKey, StringComparison.OrdinalIgnoreCase));
+            //var resolver = _targetResolvers[locId];
+
             var locId = _targetResolvers.Keys.FirstOrDefault(id => Loc.GetString(id).Equals(targetKey, StringComparison.OrdinalIgnoreCase));
+
+            if (locId == "devil-contract-contractor")
+            {
+                _sawmill.Info($"Skipping clause {clauseKey} because it targets the contractor.");
+                continue;
+            }
+
             var resolver = _targetResolvers[locId];
 
             if (resolver(contract.Comp) == null)
