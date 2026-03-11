@@ -21587,3 +21587,131 @@ Entries:
       message: Added a translation implanter for sign language
   id: 2457
   time: '2026-02-28T22:11:04.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Brought back the new traitor briefing.
+    - type: Add
+      message: >-
+        Brought Champion of Evil and Postal Dude from Game Postal Game to
+        traitor flavor text.
+    - type: Add
+      message: More codewords.
+  id: 2458
+  time: '2026-02-28T22:25:10.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Capoeira push kick reworked, check the guidebook.
+    - type: Fix
+      message: >-
+        Capoeira sweep kick now properly increases grab speed instead of
+        reducing it.
+  id: 2459
+  time: '2026-02-28T22:28:20.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix void prison not working supposedly.
+    - type: Fix
+      message: Fix realignment not removing stuns and knockdowns.
+    - type: Tweak
+      message: Void mark applies 3 chill stacks again.
+    - type: Tweak
+      message: >-
+        Void conduit applies 1 stack up to 5 again, but every 2 second instead
+        of 1 and also it gradually expands from 0 tile range to 8.
+    - type: Tweak
+      message: >-
+        Being frozen in ice cube gives you brute resits, stamina damage can melt
+        the cube similarly to normal damage.
+    - type: Tweak
+      message: Alert carving can trigger when borg steps on it.
+    - type: Tweak
+      message: Alert carving disappears when you teleport on it.
+  id: 2460
+  time: '2026-02-28T22:29:45.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: fixed legendary ling checking forbidden technique
+  id: 2461
+  time: '2026-02-28T22:32:33.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Fix
+      message: >-
+        Fixed remote eating of a target with a slime when unhooking it with a
+        slime cannon.
+    - type: Fix
+      message: >-
+        Fixed the eternal eating of a target by a slime when a slime splits on
+        it.
+  id: 2462
+  time: '2026-02-28T22:36:14.0000000+00:00'
+- author: Misandry, Marty
+  changes:
+    - type: Add
+      message: Thunderdome
+  id: 2463
+  time: '2026-03-02T02:32:15.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: Alot of toggleable jumpsuits
+    - type: Add
+      message: Salvage Specialist and Shaft Miner selectable Jumpsuits
+    - type: Add
+      message: Roboticist unique loadout instead of the same as scientist
+    - type: Add
+      message: Paramedic/Sci Jumpsuit import from TG
+    - type: Add
+      message: Cargo jumpsuits/skirts/overalls from Paradise
+    - type: Add
+      message: various jumpsuit/skirts
+    - type: Tweak
+      message: various jumpsuit/skirt minor recolors
+    - type: Tweak
+      message: sec and syndies get fat pockets
+    - type: Fix
+      message: PDA pen overlay now functions as intended
+  id: 2464
+  time: '2026-03-02T03:31:11.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Error sign inhand for Security and Warden Jumpskirt
+    - type: Fix
+      message: Kimono sprite pathing
+  id: 2465
+  time: '2026-03-03T19:45:38.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed xenovac interaction bug.
+  id: 2466
+  time: '2026-03-04T00:27:40.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: Anti-stun reagents remove stun again
+  id: 2467
+  time: '2026-03-04T00:55:21.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Fixed servers crashing on round restart.
+  id: 2468
+  time: '2026-03-04T01:03:50.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: DT-2 'Justice' resprite
+  id: 2469
+  time: '2026-03-04T11:18:43.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Remove
+      message: Removed Hristov from the ThunderDome.
+  id: 2470
+  time: '2026-03-05T03:34:31.0000000+00:00'
