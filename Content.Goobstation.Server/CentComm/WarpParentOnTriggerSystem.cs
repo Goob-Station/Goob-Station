@@ -8,6 +8,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Content.Shared.Popups;
 using Content.Shared.Trigger;
+using Content.Shared.Mobs;
 
 namespace Content.Goobstation.Server.CentComm;
 public sealed partial class WarpParentOnTriggerSystem : EntitySystem
@@ -25,7 +26,19 @@ public sealed partial class WarpParentOnTriggerSystem : EntitySystem
     }
     public void OnTrigger(Entity<WarpParentOnTriggerComponent> ent, ref TriggerEvent args)
     {
-        if (!WarpParent(ent))
+        var transform = Transform(ent.Owner);
+        var parentUid = transform.ParentUid;
+
+        if (parentUid == EntityUid.Invalid)
+            return;
+
+        if (!TryComp<MobStateComponent>(parentUid, out var mobState))
+            return;
+
+        if (mobState.CurrentState is MobState.Invalid or MobState.Alive)
+            return;
+
+        if (!WarpParent(ent, parentUid))
         {
             _popup.PopupEntity(Loc.GetString("lifeline-trigger-fail"), ent.Owner, PopupType.Medium);
             EntityManager.QueueDeleteEntity(Transform(ent.Owner).ParentUid);
@@ -34,17 +47,11 @@ public sealed partial class WarpParentOnTriggerSystem : EntitySystem
         args.Handled = true;
     }
 
-    private bool WarpParent(Entity<WarpParentOnTriggerComponent> ent)
+    private bool WarpParent(Entity<WarpParentOnTriggerComponent> ent, EntityUid parentUid)
     {
         var location = FindWarpPoint(ent.Comp.WarpLocation);
 
         if (location == null)
-            return false;
-
-        var transform = Transform(ent.Owner);
-        var parentUid = transform.ParentUid;
-
-        if (parentUid == EntityUid.Invalid || !HasComp<MobStateComponent>(parentUid))
             return false;
 
         // Reset mind - can be considered if greentext is a concern
@@ -63,10 +70,12 @@ public sealed partial class WarpParentOnTriggerSystem : EntitySystem
         var coords = _transform.GetMapCoordinates(location.Value);
         _transform.SetMapCoordinates(parentUid, coords);
 
+        /* Uncomment if you want to rejuvenate 
         if (_config.GetCVar(GoobCVars.LifeLineRejuvenate))
         {
             RaiseLocalEvent(parentUid, new RejuvenateEvent());
         }
+        */
 
         QueueDel(ent.Owner);
         return true;
