@@ -290,7 +290,7 @@
   icon:
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
-  product: CrateHolySupplies
+  product: JanitorialTrolley # bibl
   cost: 2000
   category: cargoproduct-category-name-service
   group: market

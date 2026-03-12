@@ -21352,7 +21352,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 18.5,-0.5
       parent: 4
-- proto: ChaplainUndeterminedBible
+- proto: ChemistryBottleUnstableMutagen # bibl
   entities:
   - uid: 412
     components:
