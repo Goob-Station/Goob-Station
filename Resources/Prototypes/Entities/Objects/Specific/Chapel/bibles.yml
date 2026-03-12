@@ -86,169 +86,169 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-#START SET SELECTION
-- type: entity
-  id: ChaplainUndeterminedBible
-  name: bluespace scripture beacon
-  description: Though I walk through the valley of the shadow of death I will fear no evil, for you are with me.
-  parent: [ BaseItem, BaseSetSelector ]
-  components:
-  - type: Sprite
-    sprite: _ShitChap/Objects/scripturebeacon.rsi
-    state: icon
-  - type: SetSelector
-    possibleSets:
-    - BibleSet
-    - QuaranSet
-    - TanakhSet
-    - ClockworkSet
-    maxSelectedSets: 1
-
-- type: selectableSet
-  id: BibleSet
-  name: The Holy Bible
-  description: Sever any tie, but the ties that bind me to your service and to your heart.
-  sprite:
-    sprite: Objects/Specific/Chapel/bible.rsi
-    state: icon
-  content:
-  - Bible
-
-- type: selectableSet
-  id: QuaranSet
-  name: The Quaran
-  description: Then which of your Lord’s favours will you ˹humans and jinn˺ both deny?
-  sprite:
-    sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
-    state: icon
-  content:
-  - BibleQuaran
-
-- type: selectableSet
-  id: TanakhSet
-  name: The Tanakh Scrolls
-  description: As you teach, you learn.
-  sprite:
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
-    state: scroll2
-  content:
-  - BibleTanakh
-
-- type: selectableSet
-  id: ClockworkSet
-  name: The Clockwork Slab
-  description: A link between you and the Celestial Derelict. It contains information, recites scripture, and is your most vital tool as a Servant.
-  sprite:
-    sprite: _ShitChap/Objects/clockwork_slab.rsi
-    state: icon
-  content:
-  - BibleSlabClockwork
-##END SET SELECTION
-
-- type: entity
-  name: bible
-  description: New Interstellar Version 2340.
-  parent: BaseStorageItem
-  id: Bible
-  components:
-  - type: UseDelay
-    delay: 10.0
-  - type: Bible
-    damage:
-      groups:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 15
-    damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
-      groups:
-        Burn: 10
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Holy: 5 # Goobstation - bro wtf
-        Blunt: 1
-  #- type: Prayable - no, use the altar
-  #  bibleUserOnly: true
-  - type: AlternatePrayable # Goobstation
-    requireBibleUser: false
-  - type: Summonable
-    specialItem: SpawnPointGhostRemilia
-  - type: ReactionMixer
-    mixMessage: "bible-mixing-success"
-    reactionTypes:
-    - Holy
-  - type: Sprite
-    sprite: Objects/Specific/Chapel/bible.rsi
-    state: icon
-  - type: Item
-    size: Small
-    sprite: Objects/Specific/Chapel/bible.rsi
-  - type: Clothing
-    slots:
-    - Belt
-  - type: Storage
-    grid:
-    - 0,0,0,1
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  - type: Material
-  - type: Tag
-    tags:
-    - Bible
-  - type: StealTarget
-    stealGroup: Bible
-  - type: EnchantingTool # Goobstation
-  - type: StatusEffectOnCollideGhost # Goobstation
-    whitelist:
-      tags:
-      - WeakToSalt
-    statusEffect: Corporeal
-    duration: 5
-
-- type: entity
-  parent: [Bible, BaseSyndicateContraband]
-  name: necronomicon
-  description: "There's a note: Klatuu, Verata, Nikto -- Don't forget it again!"
-  id: BibleNecronomicon
-  components:
-  - type: Bible
-    damage:
-      types:
-        Caustic: 20 ## ~15 dps
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      types:
-        Caustic: 50
-    failChance: 0
-    locPrefix: "necro"
-    healSound: "/Audio/Effects/lightburn.ogg"
-  - type: Summonable
-    specialItem: SpawnPointGhostCerberus
-    respawnTime: 300
-  - type: Sprite
-    sprite: Objects/Specific/Chapel/necronomicon.rsi
-  - type: Item
-    sprite: Objects/Specific/Chapel/necronomicon.rsi
-
-- type: entity
-  parent: BaseAction
-  id: ActionBibleSummon
-  name: Summon familiar
-  description: Summon a familiar that will aid you and gain humanlike intelligence once inhabited by a soul.
-  components:
-  - type: Action
-    icon: { sprite: Clothing/Head/Hats/witch.rsi, state: icon }
-    useDelay: 1
-  - type: InstantAction
-    event: !type:SummonActionEvent
+#
+##START SET SELECTION
+#- type: entity
+#  id: ChaplainUndeterminedBible
+#  name: bluespace scripture beacon
+#  description: Though I walk through the valley of the shadow of death I will fear no evil, for you are with me.
+#  parent: [ BaseItem, BaseSetSelector ]
+#  components:
+#  - type: Sprite
+#    sprite: _ShitChap/Objects/scripturebeacon.rsi
+#    state: icon
+#  - type: SetSelector
+#    possibleSets:
+#    - BibleSet
+#    - QuaranSet
+#    - TanakhSet
+#    - ClockworkSet
+#    maxSelectedSets: 1
+#
+##- type: selectableSet
+##  id: BibleSet
+##  name: The Holy Bible
+##  description: Sever any tie, but the ties that bind me to your service and to your heart.
+##  sprite:
+##    sprite: Objects/Specific/Chapel/bible.rsi
+##    state: icon
+##  content:
+##  - Bible
+#
+#- type: selectableSet
+#  id: QuaranSet
+#  name: The Quaran
+#  description: Then which of your Lord’s favours will you ˹humans and jinn˺ both deny?
+#  sprite:
+#    sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
+#    state: icon
+#  content:
+#  - BibleQuaran
+#
+#- type: selectableSet
+#  id: TanakhSet
+#  name: The Tanakh Scrolls
+#  description: As you teach, you learn.
+#  sprite:
+#    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+#    state: scroll2
+#  content:
+#  - BibleTanakh
+#
+#- type: selectableSet
+#  id: ClockworkSet
+#  name: The Clockwork Slab
+#  description: A link between you and the Celestial Derelict. It contains information, recites scripture, and is your most vital tool as a Servant.
+#  sprite:
+#    sprite: _ShitChap/Objects/clockwork_slab.rsi
+#    state: icon
+#  content:
+#  - BibleSlabClockwork
+###END SET SELECTION
+#
+#- type: entity
+#  name: bible
+#  description: New Interstellar Version 2340.
+#  parent: BaseStorageItem
+#  id: Bible
+#  components:
+#  - type: UseDelay
+#    delay: 10.0
+#  - type: Bible
+#    damage:
+#      groups:
+#        Brute: -15
+#        Burn: -15
+#    damageOnFail:
+#      groups:
+#        Brute: 15
+#        Airloss: 15
+#    damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
+#      groups:
+#        Burn: 10
+#  - type: MeleeWeapon
+#    soundHit:
+#      collection: Punch
+#    damage:
+#      types:
+#        Holy: 5 # Goobstation - bro wtf
+#        Blunt: 1
+#  #- type: Prayable - no, use the altar
+#  #  bibleUserOnly: true
+#  - type: AlternatePrayable # Goobstation
+#    requireBibleUser: false
+#  - type: Summonable
+#    specialItem: SpawnPointGhostRemilia
+#  - type: ReactionMixer
+#    mixMessage: "bible-mixing-success"
+#    reactionTypes:
+#    - Holy
+#  - type: Sprite
+#    sprite: Objects/Specific/Chapel/bible.rsi
+#    state: icon
+#  - type: Item
+#    size: Small
+#    sprite: Objects/Specific/Chapel/bible.rsi
+#  - type: Clothing
+#    slots:
+#    - Belt
+#  - type: Storage
+#    grid:
+#    - 0,0,0,1
+#  - type: UserInterface
+#    interfaces:
+#      enum.StorageUiKey.Key:
+#        type: StorageBoundUserInterface
+#  - type: Material
+##  - type: Tag
+##    tags:
+##    - Bible
+##  - type: StealTarget
+##    stealGroup: Bible
+#  - type: EnchantingTool # Goobstation
+#  - type: StatusEffectOnCollideGhost # Goobstation
+#    whitelist:
+#      tags:
+#      - WeakToSalt
+#    statusEffect: Corporeal
+#    duration: 5
+#
+#- type: entity
+#  parent: [Bible]
+#  name: necronomicon
+#  description: "There's a note: Klatuu, Verata, Nikto -- Don't forget it again!"
+#  id: BibleNecronomicon
+#  components:
+#  - type: Bible
+#    damage:
+#      types:
+#        Caustic: 20 ## ~15 dps
+#    damageOnFail:
+#      groups:
+#        Brute: 15
+#        Airloss: 25
+#    damageOnUntrainedUse:
+#      types:
+#        Caustic: 50
+#    failChance: 0
+#    locPrefix: "necro"
+#    healSound: "/Audio/Effects/lightburn.ogg"
+#  - type: Summonable
+#    specialItem: SpawnPointGhostCerberus
+#    respawnTime: 300
+#  - type: Sprite
+#    sprite: Objects/Specific/Chapel/necronomicon.rsi
+#  - type: Item
+#    sprite: Objects/Specific/Chapel/necronomicon.rsi
+#
+#- type: entity
+#  parent: BaseAction
+#  id: ActionBibleSummon
+#  name: Summon familiar
+#  description: Summon a familiar that will aid you and gain humanlike intelligence once inhabited by a soul.
+#  components:
+#  - type: Action
+#    icon: { sprite: Clothing/Head/Hats/witch.rsi, state: icon }
+#    useDelay: 1
+#  - type: InstantAction
+#    event: !type:SummonActionEvent
