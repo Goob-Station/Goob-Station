@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseObjective
+  id: HypnotizedObjective
+  name: Hypnotized
+  description: Your mind goes silent.
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: brain
+    issuer: objective-issuer-hypnotized
+    difficulty: 1
+  - type: HypnotizedCondition

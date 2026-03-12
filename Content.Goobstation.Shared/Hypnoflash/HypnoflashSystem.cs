@@ -1,8 +1,12 @@
+using Content.Shared.Charges.Components;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 using Content.Shared.Flash;
+using Content.Shared.Inventory;
+using Content.Shared.Mind;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
@@ -16,6 +20,8 @@ public sealed class HypnoflashSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -27,15 +33,20 @@ public sealed class HypnoflashSystem : EntitySystem
     {
         if (args.Handled || comp.EndTime != null)
             return;
+        if (TryComp<LimitedChargesComponent>(uid, out var charges)
+            && _sharedCharges.IsEmpty((uid, charges)))
+            return;
+
+        _sharedCharges.TryUseCharge((uid, charges));
 
         args.Handled = true;
         comp.Activator = args.User;
 
         var curTime = _timing.CurTime;
-        comp.EndTime = curTime + comp.Duration;
+        comp.EndTime = curTime + comp.FullDuration;
 
         if (comp.ProtoOnFlash != null)
-            comp.SpawnEndTime = curTime + comp.SpawnDelay;
+            comp.SpawnEndTime = curTime + comp.Duration;
 
         if (comp.Unremoveable)
         {
@@ -59,21 +70,11 @@ public sealed class HypnoflashSystem : EntitySystem
             if (comp.SpawnEndTime != null && currentTime >= comp.SpawnEndTime)
             {
                 comp.SpawnEndTime = null;
-
-                if (comp.ProtoOnFlash != null)
-                    Spawn(comp.ProtoOnFlash, xform.Coordinates);
-            }
-
-            if (comp.EndTime != null && currentTime >= comp.EndTime)
-            {
-                comp.EndTime = null;
                 var activator = comp.Activator;
                 comp.Activator = null;
 
-                if (comp.Unremoveable)
-                    RemComp<UnremoveableComponent>(uid);
-
-                _appearance.SetData(uid, FlashVisuals.Flashing, false);
+                if (comp.ProtoOnFlash != null)
+                    Spawn(comp.ProtoOnFlash, xform.Coordinates);
 
                 var gamers = new HashSet<EntityUid>();
                 _lookup.GetEntitiesInRange(xform.Coordinates, comp.Radius, gamers);
@@ -86,6 +87,9 @@ public sealed class HypnoflashSystem : EntitySystem
                         continue;
 
                     if (comp.Whitelist != null && !_whitelist.IsValid(comp.Whitelist, gamer))
+                        continue;
+
+                    if (comp.CheckEyeProt && _inventory.TryGetSlotEntity(gamer, "eyes", out var eyes))
                         continue;
 
                     validTargets.Add(gamer);
@@ -106,6 +110,16 @@ public sealed class HypnoflashSystem : EntitySystem
                     else
                         RaiseLocalEvent(activator.Value, new HypnoflashActivatedEvent(uid));
                 }
+            }
+
+            if (comp.EndTime != null && currentTime >= comp.EndTime)
+            {
+                comp.EndTime = null;
+
+                if (comp.Unremoveable)
+                    RemComp<UnremoveableComponent>(uid);
+
+                _appearance.SetData(uid, FlashVisuals.Flashing, false);
             }
         }
     }
