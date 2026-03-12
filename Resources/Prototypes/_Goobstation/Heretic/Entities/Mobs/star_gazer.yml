@@ -61,11 +61,9 @@
     rules: ghostrole-ghoul-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
+    - MindRoleGhostSoloAntagonistGoob # Bad idc
     raffle:
       settings: short
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
   - type: CollectiveMind
     defaultChannel: MansusLink
     channels:

@@ -130,7 +130,7 @@
   - type: ShowHealthBars
     damageContainers:
     - Inorganic
-    - Silicon.
+    - Silicon
     - SiliconRadiation # Goobstation - Make IPCs take radiation
   - type: ShowAccessReaderSettings
   - type: Tag

@@ -1,0 +1,17 @@
+- type: antag
+  id: GenericGhostAntagonistGoob
+  name: roles-antag-generic-solo-antagonist-name
+  antagonist: true
+  objective: never-shown
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 18000 #5 hours
+
+- type: antag
+  id: GenericFreeAgentGoob
+  name: roles-antag-generic-free-agent-name
+  antagonist: true
+  objective: never-shown
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 18000 #5 hours

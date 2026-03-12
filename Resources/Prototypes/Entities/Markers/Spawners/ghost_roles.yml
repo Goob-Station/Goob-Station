@@ -114,12 +114,9 @@
     description: ghost-role-information-rat-king-description
     rules: ghost-role-information-antagonist-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
   - type: GhostRoleMobSpawner
     prototype: MobRatKing
   - type: Sprite
@@ -208,11 +205,6 @@
     rules: ghost-role-information-loneop-rules
     mindRoles:
     - MindRoleLoneops
-    - MindRoleGhostRoleSoloAntagonist # Goobstation? Remove probably. todo marty
-    requirements: # Goobstation - ghost roles requirements
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 #5 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -267,9 +259,7 @@
     rules: ghost-role-information-space-dragon-rules
     mindRoles:
     - MindRoleDragon
-    requirements: # Goobstation - ghost roles requirements
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+    - MindRoleGhostRoleSoloAntagonistGoob
   - type: Sprite
     layers:
     - state: green
@@ -287,11 +277,9 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleNinja
+    -
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -342,12 +330,9 @@
     rules: ghost-role-information-silicon-rules
     mindRoles:
     - MindRoleSubvertedSilicon
+    - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
-    - !type:RoleTimeRequirement
-      role: JobBorg
-      time: 3600 #1 hour
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -433,7 +418,7 @@
     name: ghost-role-information-wizard-name
     description: ghost-role-information-wizard-desc
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
   - type: Sprite
