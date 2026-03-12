@@ -26,5 +26,6 @@
     rules: ghost-role-information-antagonist-rules
     raffle:
       settings: default
-    mindRoles: MindRoleGhostRoleSoloAntagonistGoob
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonistGoob
 
