@@ -162,3 +162,94 @@
     - id: ChemistryBottleNecrosol
     - id: ChemistryBottleOpporozidone
     - id: ChemistryBottleHaloperidol
+
+- type: entity
+  id: ChemistryBottleHeartbreakerToxin
+  suffix: heartbreakertoxin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-heartbreakertoxin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HeartbreakerToxin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleMindbreakerToxin
+  suffix: mindbreakertoxin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-mindbreakertoxin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleImpedrezene
+  suffix: impedrezene
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-impedrezene
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Impedrezene
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleLexorin
+  suffix: lexorin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-lexorin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lexorin
+          Quantity: 30
+
+
+- type: entity
+  id: ChemistryBottleSpaceDrugs
+  suffix: spacedrugs
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-spacedrugs
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleLipolicide
+  suffix: lipolicide
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-lipolicide
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lipolicide
+          Quantity: 30
