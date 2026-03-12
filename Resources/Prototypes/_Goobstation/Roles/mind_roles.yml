@@ -98,40 +98,6 @@
     roleType: SoloAntagonist
     subtype: role-subtype-contractor
 
-# Abductor
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleLoneAbductor
-  name: Abductor Role
-  components:
-  - type: MindRole
-    roleType: SoloAntagonist
-    subtype: role-subtype-abductor
-    exclusiveAntag: true
-    antagPrototype: LoneAbductorAntag
-
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleAbductorScientist
-  name: Abductor Role
-  components:
-  - type: MindRole
-    roleType: SoloAntagonist
-    subtype: role-subtype-abductor
-    exclusiveAntag: true
-    antagPrototype: AbductorScientistAntag
-
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleAbductorAgent
-  name: Abductor Role
-  components:
-  - type: MindRole
-    roleType: TeamAntagonist
-    subtype: role-subtype-abductor
-    exclusiveAntag: true
-    antagPrototype: AbductorAgentAntag
-
 # Other shit but idc this codebase is dying.
 
 - type: entity
