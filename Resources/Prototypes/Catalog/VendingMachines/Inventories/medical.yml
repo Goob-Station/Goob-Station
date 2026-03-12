@@ -98,20 +98,57 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: vendingMachineInventory
+  id: NanoMedInventory
+  startingInventory:
+    HandheldHealthAnalyzer: 1
+    Gauze: 3
+    Brutepack: 3
+    Ointment: 3
+    Bloodpack: 3
+    ChemistryBottleEpinephrine: 3
+    Syringe: 3
+    PillCanisterTricordrazine: 2
+  contrabandInventory:
+    PillCanisterRandom: 1
+    PowerCellSmall: 2
+
+- type: vendingMachineInventory
+  id: NanoMedCivilianWallInventory
+  startingInventory:
+    HandheldHealthAnalyzer: 1
+    AloeCream: 2
+    Gauze: 3
+    Brutepack: 3
+    Ointment: 2
+    Bloodpack: 3
+    ChemistryBottleEpinephrine: 3
+    Syringe: 3
+    PillCanisterTricordrazine: 2
+  contrabandInventory:
+    PillCanisterRandom: 1
+    PowerCellSmall: 2
+
+- type: vendingMachineInventory
   id: NanoMedPlusInventory
   startingInventory:
     HandheldHealthAnalyzer: 3
-    Gauze: 5 # Goobstation
+    Gauze: 5
     Brutepack: 5
     Ointment: 5
     Bloodpack: 5
+    Tourniquet: 6 # Goobstation
     ChemistryBottleEpinephrine: 3
+    ChemistryBottleBicaridine: 1
     Syringe: 5
     BoxBottle: 3
+    PillCanisterTricordrazine: 3
+    PillCanisterIron: 1
+    PillCanisterCopper: 1
+    PillCanisterPotassiumIodide: 1
+    SyringeIpecac: 1
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
-    Tourniquet: 6 # Goobstation - start
-    MedicalPatchPrefilledBicaridine: 3
+    MedicalPatchPrefilledBicaridine: 3 # Goobstation - start
     MedicalPatchPrefilledDermaline: 3
     MedicalPatchBasic: 5 # so people don't rip clothes to get them shift start
     CigPackMedical: 2 # same as above
@@ -129,4 +166,28 @@
     FoodSnackLollypopWrappedLexorin: 3
     FoodSnackLollypopWrappedMysteryEvil: 5 # Goobstation - end
   contrabandInventory:
+    PillCanisterRandom: 3
+    PillSpaceDrugs: 3
+    FoodApple: 1
+
+- type: vendingMachineInventory
+  id: NanoMedCivilianInventory
+  startingInventory:
+    HandheldHealthAnalyzer: 3
+    AloeCream: 3
+    Gauze: 5
+    Brutepack: 5
+    Ointment: 4
+    Bloodpack: 5
+    Tourniquet: 1
+    ChemistryBottleEpinephrine: 3
+    Syringe: 5
+    BoxBottle: 3
+    PillCanisterTricordrazine: 2
+    PillCanisterIron: 1
+    PillCanisterCopper: 1
+    PillCanisterPotassiumIodide: 1
+  contrabandInventory:
+    PillCanisterRandom: 1
+    PillSpaceDrugs: 3
     FoodApple: 1
