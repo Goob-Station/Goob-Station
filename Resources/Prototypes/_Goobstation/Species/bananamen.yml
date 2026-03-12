@@ -12,7 +12,7 @@
   sprites: MobBananaMenSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobBananaMenDummy
-  skinColoration: NoColor
+  #skinColoration: NoColor todo marty
 
 - type: speciesBaseSprites
   id: MobBananaMenSprites

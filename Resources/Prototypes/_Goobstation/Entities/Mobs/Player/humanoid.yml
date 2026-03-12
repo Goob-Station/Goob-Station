@@ -442,7 +442,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVANoReq
