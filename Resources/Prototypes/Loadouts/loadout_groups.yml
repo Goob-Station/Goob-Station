@@ -905,7 +905,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
-  - CargoTechnicianHeadMail # Goob/DeltaV - Mail # fixmail
+  #- CargoTechnicianHeadMail # Goob/DeltaV - Mail # fixmail
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -914,8 +914,8 @@
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
   - CargoTechnicianOveralls #Goob
-  - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
-  - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
+  #- CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail # Fixmail
+  #- CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
   - CargoTechMJ # goob
 
 - type: loadoutGroup
@@ -933,7 +933,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
-  - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail # todo marty fixmail
+  #- CargoTechnicianWintercoatMail # Goob/DeltaV - Mail # todo marty fixmail
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
