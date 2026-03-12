@@ -140,12 +140,9 @@
     description: ghost-role-information-revenant-description
     rules: ghost-role-information-antagonist-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob # Goob hour req
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
   - type: GhostTakeoverAvailable
   - type: Revenant
     malfunctionWhitelist:

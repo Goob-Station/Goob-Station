@@ -153,7 +153,7 @@
   - type: Action
     # TODO: Make a sprite for the station map interface.
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
-    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
     keywords: [ "AI", "console", "interface" ]
     priority: -8
   - type: InstantAction

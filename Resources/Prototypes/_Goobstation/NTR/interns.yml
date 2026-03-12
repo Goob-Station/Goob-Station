@@ -13,9 +13,7 @@
     name: ghost-role-lead-intern-name
     description: ghost-role-intern-desc
     rules: ghost-role-lead-intern-rules
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hours
+    job: NanotrasenRepresentative
   - type: GhostRoleMobSpawner
     prototype: LeadIntern
 

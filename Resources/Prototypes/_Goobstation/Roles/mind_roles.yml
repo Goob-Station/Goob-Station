@@ -85,7 +85,7 @@
   - type: MindRole
     roleType: SentientAnimal
     sortWeight: 30
-    
+
 #contractor
 - type: entity
   parent: BaseMindRoleAntag
@@ -97,3 +97,65 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-contractor
+
+# Abductor
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleLoneAbductor
+  name: Abductor Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    subtype: role-subtype-abductor
+    exclusiveAntag: true
+    antagPrototype: LoneAbductorAntag
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleAbductorScientist
+  name: Abductor Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    subtype: role-subtype-abductor
+    exclusiveAntag: true
+    antagPrototype: AbductorScientistAntag
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleAbductorAgent
+  name: Abductor Role
+  components:
+  - type: MindRole
+    roleType: TeamAntagonist
+    subtype: role-subtype-abductor
+    exclusiveAntag: true
+    antagPrototype: AbductorAgentAntag
+
+# Other shit but idc this codebase is dying.
+
+- type: entity
+  parent: BaseMindRole
+  id: BaseMindRoleAntagGhostGoob
+  abstract: true
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: GenericGhostAntagonistGoob
+    roleType: SoloAntagonist
+    sortWeight: 50
+
+- type: entity
+  parent: [ BaseMindRoleAntagGhostGoob, MindRoleGhostRoleNeutral ]
+  id: MindRoleGhostRoleSoloAntagonistGoob
+  name: Ghost Role (Solo Antagonist)
+
+- type: entity
+  parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
+  id: MindRoleGhostRoleFreeAgentGoob
+  name: Ghost Role (Free Agent)
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    antagPrototype: GenericFreeAgentGoob
+    sortWeight: 30
