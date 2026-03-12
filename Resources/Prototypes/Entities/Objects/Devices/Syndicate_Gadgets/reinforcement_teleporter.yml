@@ -169,7 +169,7 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-    - MindRoleGhostRoleTeamAntagonistGoob # Im not making another base mindrole fuck off
+    - MindRoleGhostRoleSoloAntagonistGoob # Im not making another base mindrole fuck off
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
