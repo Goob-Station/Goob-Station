@@ -23,4 +23,22 @@ public sealed partial class SharpComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ButcherDelayModifier = 1.0f;
+
+    /// <summary>
+    /// Shitmed: Whether this item had <c>SurgeryToolComponent</c> before sharp was added.
+    /// </summary>
+    [DataField]
+    public bool HadSurgeryTool;
+
+    /// <summary>
+    /// Shitmed: Whether this item had <c>ScalpelComponent</c> before sharp was added.
+    /// </summary>
+    [DataField]
+    public bool HadScalpel;
+
+    /// <summary>
+    /// Shitmed: Whether this item had <c>BoneSawComponent</c> before sharp was added.
+    /// </summary>
+    [DataField]
+    public bool HadBoneSaw;
 }

@@ -212,6 +212,20 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
         if (args.Handled)
             return;
 
+        // Goobstation - start
+        // Todo goobstation goobmod this event and handle it.
+        if (HasComp<ChangelingRoleComponent>(args.Dragged))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(args.Dragged, EntityManager)), ("this", args.User)), args.Dragged, args.User);
+            return ;
+        }
+        if (HasComp<AbsorbedComponent>(args.Dragged))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-absorbed", ("victim", Identity.Entity(args.Dragged, EntityManager)), ("this", args.User)), args.Dragged, args.User);
+            return;
+        }
+        // Goobstation - end
+
         ShowPopups("comp-kitchen-spike-begin-hook-self",
             "comp-kitchen-spike-begin-hook-self-other",
             "comp-kitchen-spike-begin-hook-other-self",
@@ -239,19 +253,6 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
     {
         if (args.Handled || args.Cancelled || !args.Target.HasValue)
             return;
-
-        // Goobstation - start
-        if (HasComp<ChangelingRoleComponent>(args.Target.Value)) // todo marty placeholder fix ling here.
-        {
-            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(args.Target.Value, EntityManager)), ("this", args.User)), args.Target.Value, args.User);
-            return ;
-        }
-        if (HasComp<AbsorbedComponent>(args.Target.Value))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-absorbed", ("victim", Identity.Entity(args.Target.Value, EntityManager)), ("this", args.User)), args.Target.Value, args.User);
-            return;
-        }
-        // Goobstation - end
 
         if (_containerSystem.Insert(args.Target.Value, ent.Comp.BodyContainer))
         {

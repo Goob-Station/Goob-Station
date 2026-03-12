@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Identity;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Clothing;
@@ -28,6 +29,7 @@ public sealed class IdentitySystem : EntitySystem
     [Dependency] private readonly SharedCriminalRecordsConsoleSystem _criminalRecordsConsole = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Update component state on component toggle
 
     // The name of the container holding the identity entity
     private const string SlotName = "identity";
@@ -53,6 +55,9 @@ public sealed class IdentitySystem : EntitySystem
         SubscribeLocalEvent<IdentityComponent, DidUnequipHandEvent>((uid, _, _) => QueueIdentityUpdate(uid));
         SubscribeLocalEvent<IdentityComponent, WearerMaskToggledEvent>((uid, _, _) => QueueIdentityUpdate(uid));
         SubscribeLocalEvent<IdentityComponent, EntityRenamedEvent>((uid, _, _) => QueueIdentityUpdate(uid));
+
+        SubscribeLocalEvent<IdentityBlockerComponent, ComponentInit>(BlockerUpdateIdentity); // Goobstation - Update component state on component toggle
+        SubscribeLocalEvent<IdentityBlockerComponent, ComponentRemove>(BlockerUpdateIdentity); // Goobstation - Update component state on component toggle
     }
 
     /// <summary>
@@ -209,8 +214,20 @@ public sealed class IdentitySystem : EntitySystem
     /// Gets an 'identity representation' of an entity, with their true name being the entity name
     /// and their 'presumed name' and 'presumed job' being the name/job on their ID card, if they have one.
     /// </summary>
-    private IdentityRepresentation GetIdentityRepresentation(Entity<InventoryComponent?, HumanoidAppearanceComponent?> target)
+    private IdentityRepresentation GetIdentityRepresentation(Entity<InventoryComponent?, HumanoidAppearanceComponent?> target,
+    bool raiseIdentityRepresentationEntityEvent = true // Goobstation start
+        )
     {
+
+        if (raiseIdentityRepresentationEntityEvent)
+        {
+            var ev = new GetIdentityRepresentationEntityEvent();
+            RaiseLocalEvent(target, ref ev);
+            if (ev.Uid != null)
+                return GetIdentityRepresentation(ev.Uid.Value, raiseIdentityRepresentationEntityEvent: false);
+        }
+        // Goobstation end
+
         var age = 18;
         var gender = Gender.Epicene;
         var species = SharedHumanoidAppearanceSystem.DefaultSpecies;
@@ -240,6 +257,17 @@ public sealed class IdentitySystem : EntitySystem
 
         // If it didn't find a job, that's fine.
         return new(trueName, gender, ageString, presumedName, presumedJob);
+    }
+
+    // Goobstation - Update component state on component toggle
+    private void BlockerUpdateIdentity(EntityUid uid, IdentityBlockerComponent component, EntityEventArgs args)
+    {
+        var target = uid;
+
+        if (_inventorySystem.TryGetContainingEntity(uid, out var containing))
+            target = containing.Value;
+
+        QueueIdentityUpdate(target);
     }
 
     #endregion
