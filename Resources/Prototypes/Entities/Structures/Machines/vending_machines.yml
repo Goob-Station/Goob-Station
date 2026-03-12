@@ -2696,9 +2696,9 @@
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/wallmed.rsi
     layers:
-    - state: "off-civilian"
+    - state: "off" # Goob
       map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off-civilian"
+    - state: "off" # Goob
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
     - texture: Structures/Machines/VendingMachines/maintenance_panel.png
