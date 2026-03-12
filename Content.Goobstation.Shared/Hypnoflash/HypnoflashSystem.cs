@@ -54,8 +54,9 @@ public sealed class HypnoflashSystem : EntitySystem
             _popup.PopupClient(Loc.GetString(comp.PopupMessage), uid, args.User);
         }
 
-        _audio.PlayEntity(comp.ActivationSound, uid, uid);
+        _audio.PlayPredicted(comp.ActivationSound, uid, args.User);
         _appearance.SetData(uid, FlashVisuals.Flashing, true); // goida
+        Dirty(uid, comp);
     }
 
     public override void Update(float frameTime)
@@ -117,7 +118,7 @@ public sealed class HypnoflashSystem : EntitySystem
                 comp.EndTime = null;
 
                 if (comp.Unremoveable)
-                    RemComp<UnremoveableComponent>(uid);
+                    RemCompDeferred<UnremoveableComponent>(uid);
 
                 _appearance.SetData(uid, FlashVisuals.Flashing, false);
             }

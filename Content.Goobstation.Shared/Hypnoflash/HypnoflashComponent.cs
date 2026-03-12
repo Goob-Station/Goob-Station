@@ -42,6 +42,6 @@ public sealed partial class HypnoflashComponent : Component
     [AutoNetworkedField]
     public TimeSpan? SpawnEndTime;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? Activator;
 }

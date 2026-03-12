@@ -45,7 +45,7 @@ public sealed class HypnotizedSystem : EntitySystem
         {
             comp.Timer -= frameTime;
             if (comp.Timer <= 0)
-                RemComp<HypnotizedComponent>(uid);
+                RemCompDeferred<HypnotizedComponent>(uid);
         }
     }
 
@@ -64,16 +64,16 @@ public sealed class HypnotizedSystem : EntitySystem
         _meta.SetEntityDescription(objectiveId, message, meta);
         _mind.AddObjective(mindId, mind, objectiveId);
 
-        RemComp<HypnotizedComponent>(uid);
-        RemComp<ActiveListenerComponent>(uid);
-        RemComp<MutedComponent>(uid);
+        RemCompDeferred<HypnotizedComponent>(uid);
+        RemCompDeferred<ActiveListenerComponent>(uid);
+        RemCompDeferred<MutedComponent>(uid);
         _stunSystem.TryKnockdown(uid, TimeSpan.FromSeconds(4));
     }
 
     private void OnShutdown(EntityUid uid, HypnotizedComponent comp, ref ComponentShutdown args)
     {
-        RemComp<ActiveListenerComponent>(uid);
-        RemComp<MutedComponent>(uid);
+        RemCompDeferred<ActiveListenerComponent>(uid);
+        RemCompDeferred<MutedComponent>(uid);
     }
     private void OnGetProgress(EntityUid uid, HypnotizedConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
