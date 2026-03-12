@@ -1,11 +1,10 @@
-using Robust.Shared.GameObjects;
-
 namespace Content.Goobstation.Shared.Hypnoflash;
 
 /// <summary>
 /// raised on the entities in the hypnoflash radius
 /// </summary>
-public sealed class HypnoflashedEvent : EntityEventArgs
+[Serializable]
+public sealed partial class HypnoflashedEvent : EntityEventArgs
 {
     public HypnoflashedEvent() {}
     public EntityUid Flasher;
@@ -19,7 +18,8 @@ public sealed class HypnoflashedEvent : EntityEventArgs
 /// <summary>
 /// raised on the entity that originally activated the hypnoflash
 /// </summary>
-public sealed class HypnoflashActivatedEvent : EntityEventArgs
+[Serializable]
+public sealed partial class HypnoflashActivatedEvent : EntityEventArgs
 {
     public HypnoflashActivatedEvent() {} // fun. (kys)
     public EntityUid FlashEntity;

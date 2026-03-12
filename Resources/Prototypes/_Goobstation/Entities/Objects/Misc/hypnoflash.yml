@@ -14,8 +14,8 @@
       visible: false
       map: [ "enum.FlashVisualLayers.LightLayer" ]
   - type: Hypnoflash
-    event: !type:HypnoflashedEvent
-    eventOnUser: !type:HypnoflashActivatedEvent
+    event: !type:HypnoflashedEvent {}
+    eventOnUser: !type:HypnoflashActivatedEvent {}
     unremoveable: true # will make the item unremoveable for the duration of the flash so you cant just activate it and toss it into a crowd
     protoOnFlash: AdminInstantEffectFlash
     blacklist:
