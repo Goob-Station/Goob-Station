@@ -19,7 +19,6 @@ public sealed class GoobModPack : ModulePack
         RequiredAssembly.Client("Content.Goobstation.UIKit"),
         RequiredAssembly.Server("Content.Goobstation.Server"),
         RequiredAssembly.Shared("Content.Goobstation.Maths"),
-        RequiredAssembly.Shared("Content.Goobstation.Shared"),
         RequiredAssembly.Shared("Content.Goobstation.Common"),
     };
 }
