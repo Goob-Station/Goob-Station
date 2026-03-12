@@ -85,6 +85,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 #nullable enable
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Content.IntegrationTests.Pair;
@@ -182,13 +183,15 @@ public sealed class ContentPoolManager : PoolManager<TestPair>
     {
         DefaultCvars.AddRange(PoolManager.TestCvars);
 
-        var shared = extraAssemblies
-                .Append(typeof(Shared.Entry.EntryPoint).Assembly)
-                .Append(typeof(PoolManager).Assembly)
-                .ToArray();
+        // <Goob> - used discovered modules
+        PoolManager.DiscoverModules();
+        var shared = new List<Assembly>(extraAssemblies);
+        shared.AddRange(PoolManager.Shared);
+        shared.Add(PoolManager.CurrentAssembly);
 
-        Startup([typeof(Client.Entry.EntryPoint).Assembly],
-            [typeof(Server.Entry.EntryPoint).Assembly],
-            shared);
+        base.Startup(PoolManager.Client.ToArray(),
+            PoolManager.Server.ToArray(),
+            shared.ToArray());
+        // </Goob>
     }
 }
