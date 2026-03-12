@@ -277,7 +277,7 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleNinja
-    -
+    - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
   - type: Sprite
