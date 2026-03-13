@@ -33,8 +33,6 @@ public sealed class BindRecallSystem : EntitySystem
             Text = "Bind Item",
             Act = () =>
             {
-                ent.Comp.BoundUser = user;
-
                 var recallComp = EnsureComp<RecallBoundItemComponent>(user);
 
                 if (recallComp.BoundItems.ContainsKey(ent.Owner))
