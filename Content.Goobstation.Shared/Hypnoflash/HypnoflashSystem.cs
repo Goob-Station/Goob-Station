@@ -73,9 +73,10 @@ public sealed class HypnoflashSystem : EntitySystem
                 comp.SpawnEndTime = null;
                 var activator = comp.Activator;
                 comp.Activator = null;
+                Dirty(uid, comp);
 
                 if (comp.ProtoOnFlash != null)
-                    Spawn(comp.ProtoOnFlash, xform.Coordinates);
+                    PredictedSpawnAtPosition(comp.ProtoOnFlash, xform.Coordinates);
 
                 var gamers = new HashSet<EntityUid>();
                 _lookup.GetEntitiesInRange(xform.Coordinates, comp.Radius, gamers);
@@ -121,6 +122,7 @@ public sealed class HypnoflashSystem : EntitySystem
                     RemCompDeferred<UnremoveableComponent>(uid);
 
                 _appearance.SetData(uid, FlashVisuals.Flashing, false);
+                Dirty(uid, comp);
             }
         }
     }
