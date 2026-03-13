@@ -1,9 +1,7 @@
 using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
 using Content.Goobstation.Shared.Interaction.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using System;
 
 namespace Content.Shared.Interaction.EntitySystems;
 
@@ -11,7 +9,6 @@ public sealed class BindRecallSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly EntityManager _entMan = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     public override void Initialize()
@@ -31,24 +28,26 @@ public sealed class BindRecallSystem : EntitySystem
 
         var verb = new ActivationVerb
         {
-            Text = "Bind Item",
+            Text = Loc.GetString("recall-item-bind"),
             Act = () =>
             {
                 var recallComp = EnsureComp<RecallBoundItemComponent>(user);
 
-                if (recallComp.BoundItems.ContainsKey(ent.Owner))
+                // User already has a bound item
+                if (recallComp.BoundItem != null)
                 {
-                    _popup.PopupEntity(Loc.GetString("recall-item-already-bound"), user, user);
+                    _popup.PopupEntity(Loc.GetString("recall-item-already-have"), user, user);
                     return;
                 }
 
                 EntityUid? action = null;
 
-                _actions.AddAction(user, ref action, ent.Comp.RecallAction);
+                _actions.AddAction(user, ref action, recallComp.RecallAction);
 
                 if (action != null)
                 {
-                    recallComp.BoundItems[ent.Owner] = action.Value;
+                    recallComp.BoundItem = ent.Owner;
+                    recallComp.RecallActionEntity = action;
 
                     var itemName = Name(ent.Owner);
 

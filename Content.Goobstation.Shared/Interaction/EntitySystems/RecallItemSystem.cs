@@ -3,9 +3,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Goobstation.Shared.Interaction;
 using Content.Goobstation.Shared.Interaction.Components;
 using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobtstation.Shared.Interaction.EntitySystems;
+namespace Content.Goobstation.Shared.Interaction.EntitySystems;
 
 public sealed class RecallItemSystem : EntitySystem
 {
@@ -21,28 +20,25 @@ public sealed class RecallItemSystem : EntitySystem
     private void OnRecall(Entity<RecallBoundItemComponent> ent, ref RecallBoundItemEvent args)
     {
         var user = args.Performer;
-        var action = args.Action.Owner;
 
-        foreach (var (item, actionEnt) in ent.Comp.BoundItems)
+        if (ent.Comp.BoundItem == null)
+            return;
+
+        var item = ent.Comp.BoundItem.Value;
+
+        if (_hands.IsHolding(user, item))
         {
-            if (actionEnt != action)
-                continue;
-
-            if (_hands.IsHolding(user, item))
-            {
-                _popup.PopupEntity(Loc.GetString("recall-item-already-held"), user, user);
-                args.Handled = true;
-                return;
-            }
-
-            if (_hands.TryPickupAnyHand(user, item))
-                _popup.PopupEntity(Loc.GetString("recall-item-success"), user, user);
-            else
-                _popup.PopupEntity(Loc.GetString("recall-item-hands-full"), user, user);
-
+            _popup.PopupEntity(Loc.GetString("recall-item-already-held"), user, user);
             args.Handled = true;
             return;
         }
+
+        if (_hands.TryPickupAnyHand(user, item))
+            _popup.PopupEntity(Loc.GetString("recall-item-success"), user, user);
+        else
+            _popup.PopupEntity(Loc.GetString("recall-item-hands-full"), user, user);
+
+        args.Handled = true;
     }
 
     private void OnBoundItemDeleted(Entity<BoundRecallComponent> ent, ref EntityTerminatingEvent args)
@@ -53,16 +49,17 @@ public sealed class RecallItemSystem : EntitySystem
 
         while (query.MoveNext(out var userUid, out var recallComp))
         {
-            if (!recallComp.BoundItems.TryGetValue(item, out var action))
+            if (recallComp.BoundItem != item)
                 continue;
 
-            recallComp.BoundItems.Remove(item);
+            recallComp.BoundItem = null;
 
-            if (Exists(action))
-                QueueDel(action);
+            if (recallComp.RecallActionEntity != null && Exists(recallComp.RecallActionEntity.Value))
+                QueueDel(recallComp.RecallActionEntity.Value);
+
+            recallComp.RecallActionEntity = null;
 
             Dirty(userUid, recallComp);
         }
-
     }
 }

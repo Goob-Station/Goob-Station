@@ -7,16 +7,19 @@ namespace Content.Goobstation.Shared.Interaction.Components;
 public sealed partial class RecallBoundItemComponent : Component
 {
     /// <summary>
-    /// Item UID + Action UID
+    /// The item bound to this user.
     /// </summary>
     [DataField]
-    public Dictionary<EntityUid, EntityUid> BoundItems = new();
+    public EntityUid? BoundItem;
 
     /// <summary>
-    /// Gets or sets the prototype identifier for the recall action associated with a bound item.
+    /// Prototype of the recall action.
     /// </summary>
     [DataField]
     public EntProtoId RecallAction = "ActionRecallBoundItem";
 
+    /// <summary>
+    /// The spawned action entity.
+    /// </summary>
     public EntityUid? RecallActionEntity;
 }
