@@ -122,6 +122,10 @@ public sealed partial class PullableComponent : Component
     [AutoNetworkedField, DataField]
     public bool PrevFixedRotation;
 
+    /// <summary>
+    /// A bool that allows someone to be unpullable.
+    /// </summary>
+    public bool PreventPulling;
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent
