@@ -102,3 +102,12 @@
     back:
       - Stimpack
       - Stimpack
+
+- type: startingGear
+  id: ThunderdomeCapoeira
+  equipment:
+    suitstorage: CapoeiraManual
+  storage:
+    back:
+    - BruteAutoInjector
+    - BurnAutoInjector
