@@ -52,11 +52,7 @@ public sealed partial class ThunderdomeRuleComponent : Component
     public List<ThunderdomeWeaponLoadout> WeaponLoadouts = new();
 
     [DataField]
-    public TimeSpan CleanupInterval = TimeSpan.FromSeconds(25);
-
-    [DataField]
     public float SweepDespawnTime = 10f;
 
-    [DataField]
-    public TimeSpan NextCleanup;
+    public List<EntityCoordinates> SpawnPoints = new();
 }

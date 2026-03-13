@@ -39,7 +39,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
 using Robust.Shared.Spawners;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.MisandryBox.Thunderdome;
 
@@ -48,7 +47,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
@@ -89,21 +87,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomePlayerComponent, GetAntagSelectionBlockerEvent>(OnAntagSelectionBlocker);
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, ExaminedEvent>(OnOriginalBodyExamined);
         SubscribeLocalEvent<ThunderdomePlayerComponent, PlayerDetachedEvent>(OnPlayerDetached);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        if (_ruleEntity != null && TryComp<ThunderdomeRuleComponent>(_ruleEntity.Value, out var rule) && rule.Active)
-        {
-            var now = _timing.CurTime;
-            if (now >= rule.NextCleanup)
-            {
-                rule.NextCleanup = now + rule.CleanupInterval;
-                SweepLooseItems(rule);
-            }
-        }
+        SubscribeLocalEvent<EntParentChangedMessage>(OnEntityParentChanged);
     }
 
     private void EnsureRule()
@@ -139,6 +123,8 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             }
 
             rule.Players.Clear();
+            rule.Kills.Clear();
+            rule.Deaths.Clear();
             rule.Active = false;
             BroadcastPlayerCount(rule);
         }
@@ -158,6 +144,42 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         ent.Comp.ArenaGrids.UnionWith(args.Grids);
         ent.Comp.Active = true;
         WorldGuard(args.Map);
+
+        var spawnQuery = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
+        while (spawnQuery.MoveNext(out _, out var spawn, out var xform))
+        {
+            if (spawn.SpawnType != SpawnPointType.LateJoin)
+                continue;
+            if (xform.GridUid is not { } grid || !ent.Comp.ArenaGrids.Contains(grid))
+                continue;
+            ent.Comp.SpawnPoints.Add(xform.Coordinates);
+        }
+
+        if (ent.Comp.SpawnPoints.Count == 0)
+        {
+            var fallbackQuery = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
+            while (fallbackQuery.MoveNext(out _, out _, out var xform))
+            {
+                if (xform.GridUid is not { } grid || !ent.Comp.ArenaGrids.Contains(grid))
+                    continue;
+                ent.Comp.SpawnPoints.Add(xform.Coordinates);
+            }
+        }
+
+        var existingItems = new HashSet<Entity<ItemComponent>>();
+        _lookup.GetEntitiesOnMap(args.Map, existingItems);
+        foreach (var (uid, _) in existingItems)
+        {
+            MarkForDespawn(uid, ent.Comp.SweepDespawnTime, checkContainer: true);
+        }
+
+        var existingPuddles = new HashSet<Entity<PuddleComponent>>();
+        _lookup.GetEntitiesOnMap(args.Map, existingPuddles);
+        foreach (var (uid, _) in existingPuddles)
+        {
+            MarkForDespawn(uid, ent.Comp.SweepDespawnTime);
+        }
+
         BroadcastPlayerCount(ent.Comp);
     }
 
@@ -423,22 +445,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         QueueDel(currentEntity);
     }
 
-    private void SweepLooseItems(ThunderdomeRuleComponent rule)
-    {
-        if (rule.ArenaMap is not { } map)
-            return;
-
-        var items = new HashSet<Entity<ItemComponent>>();
-        _lookup.GetEntitiesOnMap(map, items);
-        foreach (var (uid, _) in items)
-            MarkForDespawn(uid, rule.SweepDespawnTime, checkContainer: true);
-
-        var puddles = new HashSet<Entity<PuddleComponent>>();
-        _lookup.GetEntitiesOnMap(map, puddles);
-        foreach (var (uid, _) in puddles)
-            MarkForDespawn(uid, rule.SweepDespawnTime);
-    }
-
     private static void OnAntagSelectionBlocker(Entity<ThunderdomePlayerComponent> ent, ref GetAntagSelectionBlockerEvent args)
     {
         args.Blocked = true;
@@ -494,6 +500,36 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             RemComp<TimedDespawnComponent>(ent);
     }
 
+    private void OnEntityParentChanged(ref EntParentChangedMessage args)
+    {
+        if (_ruleEntity == null
+            || !TryComp<ThunderdomeRuleComponent>(_ruleEntity.Value, out var rule)
+            || !rule.Active
+            || rule.ArenaMap == null)
+            return;
+
+        var xform = args.Transform;
+
+        if (xform.MapID != rule.ArenaMap)
+            return;
+
+        if (xform.GridUid is not { } grid || !rule.ArenaGrids.Contains(grid))
+            return;
+
+        var uid = args.Entity;
+
+        if (HasComp<ItemComponent>(uid))
+        {
+            MarkForDespawn(uid, rule.SweepDespawnTime, checkContainer: true);
+            return;
+        }
+
+        if (HasComp<PuddleComponent>(uid))
+        {
+            MarkForDespawn(uid, rule.SweepDespawnTime);
+        }
+    }
+
     private void MarkForDespawn(EntityUid uid, float lifetime, bool checkContainer = false)
     {
         if (HasComp<TimedDespawnComponent>(uid))
@@ -516,35 +552,9 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private EntityCoordinates? GetRandomSpawnPoint(ThunderdomeRuleComponent rule)
     {
-        if (rule.ArenaMap == null)
-            return null;
-
-        var spawns = new List<EntityCoordinates>();
-        var query = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
-        while (query.MoveNext(out _, out var spawn, out var xform))
-        {
-            if (spawn.SpawnType != SpawnPointType.LateJoin)
-                continue;
-
-            if (xform.GridUid is not { } grid || !rule.ArenaGrids.Contains(grid))
-                continue;
-
-            spawns.Add(xform.Coordinates);
-        }
-
-        if (spawns.Count == 0)
-        {
-            var fallbackQuery = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
-            while (fallbackQuery.MoveNext(out _, out _, out var xform))
-            {
-                if (xform.GridUid is not { } grid || !rule.ArenaGrids.Contains(grid))
-                    continue;
-
-                spawns.Add(xform.Coordinates);
-            }
-        }
-
-        return spawns.Count > 0 ? _random.Pick(spawns) : null;
+        return rule.SpawnPoints.Count > 0
+            ? _random.Pick(rule.SpawnPoints)
+            : null;
     }
 
     private void CheckKillStreak(Entity<ThunderdomePlayerComponent> killer, ThunderdomeRuleComponent rule)
@@ -572,6 +582,10 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         var ev = new ThunderdomePlayerCountEvent(rule.Players.Count);
         foreach (var session in _playerManager.Sessions)
         {
+            if (session.AttachedEntity is not { Valid: true } entity
+                || !HasComp<GhostComponent>(entity))
+                continue;
+
             RaiseNetworkEvent(ev, session.Channel);
         }
     }
