@@ -6,14 +6,10 @@ namespace Content.Goobstation.Shared.Hypnoflash;
 /// raised on the entities in the hypnoflash radius
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class HypnoflashedEvent : EntityEventArgs
-{
-}
+public readonly record struct HypnoflashedEvent;
 
 /// <summary>
 /// raised on the entity that originally activated the hypnoflash
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class HypnoflashActivatedEvent : EntityEventArgs
-{
-}
+public readonly record struct HypnoflashActivatedEvent;
