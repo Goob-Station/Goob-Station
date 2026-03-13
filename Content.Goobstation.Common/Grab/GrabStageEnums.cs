@@ -7,8 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace  Content.Goobstation.Common.MartialArts;
+using Robust.Shared.Serialization;
 
+namespace  Content.Goobstation.Common.Grab;
+
+[Serializable, NetSerializable]
 public enum GrabStage
 {
     No = 0,
@@ -27,5 +30,12 @@ public enum GrabResistResult
 {
     TooSoon,
     Failed,
-    Succeeded
+    Succeeded,
+}
+
+public enum GrabAttemptResult
+{
+    Succeeded,
+    OnCooldown,
+    Failed,
 }
