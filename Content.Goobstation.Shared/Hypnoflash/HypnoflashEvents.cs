@@ -1,15 +1,17 @@
+using Robust.Shared.Serialization;
+
 namespace Content.Goobstation.Shared.Hypnoflash;
 
 /// <summary>
 /// raised on the entities in the hypnoflash radius
 /// </summary>
-[Serializable]
+[Serializable, NetSerializable]
 public sealed partial class HypnoflashedEvent : EntityEventArgs
 {
     public HypnoflashedEvent() {}
-    public EntityUid Flasher;
+    public NetEntity Flasher;
 
-    public HypnoflashedEvent(EntityUid flasher)
+    public HypnoflashedEvent(NetEntity flasher)
     {
         Flasher = flasher;
     }
@@ -18,13 +20,13 @@ public sealed partial class HypnoflashedEvent : EntityEventArgs
 /// <summary>
 /// raised on the entity that originally activated the hypnoflash
 /// </summary>
-[Serializable]
+[Serializable, NetSerializable]
 public sealed partial class HypnoflashActivatedEvent : EntityEventArgs
 {
     public HypnoflashActivatedEvent() {} // fun. (kys)
-    public EntityUid FlashEntity;
+    public NetEntity FlashEntity;
 
-    public HypnoflashActivatedEvent(EntityUid flashEntity)
+    public HypnoflashActivatedEvent(NetEntity flashEntity)
     {
         FlashEntity = flashEntity;
     }

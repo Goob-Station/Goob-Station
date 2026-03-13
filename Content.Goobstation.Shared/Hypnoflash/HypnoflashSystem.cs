@@ -101,7 +101,7 @@ public sealed class HypnoflashSystem : EntitySystem
                     if (comp.Event != null)
                         RaiseLocalEvent(target, comp.Event);
                     else
-                        RaiseLocalEvent(target, new HypnoflashedEvent(uid));
+                        RaiseLocalEvent(target, new HypnoflashedEvent(GetNetEntity(uid)));
                 }
 
                 if (activator != null && activator.Value.Valid)
@@ -109,7 +109,7 @@ public sealed class HypnoflashSystem : EntitySystem
                     if (comp.EventOnUser != null)
                         RaiseLocalEvent(activator.Value, comp.EventOnUser);
                     else
-                        RaiseLocalEvent(activator.Value, new HypnoflashActivatedEvent(uid));
+                        RaiseLocalEvent(activator.Value, new HypnoflashActivatedEvent(GetNetEntity(uid)));
                 }
             }
 
