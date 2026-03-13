@@ -12,6 +12,7 @@ public sealed class BindRecallSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly EntityManager _entMan = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {
@@ -48,6 +49,12 @@ public sealed class BindRecallSystem : EntitySystem
                 if (action != null)
                 {
                     recallComp.BoundItems[ent.Owner] = action.Value;
+
+                    var itemName = Name(ent.Owner);
+
+                    _metaData.SetEntityName(action.Value, Loc.GetString("recall-item-action-name", ("item", itemName)));
+
+                    _metaData.SetEntityDescription(action.Value, Loc.GetString("recall-item-action-desc", ("item", itemName)));
                 }
 
                 _popup.PopupEntity(Loc.GetString("recall-item-bound"), user, user);

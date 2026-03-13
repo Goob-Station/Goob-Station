@@ -8,4 +8,6 @@ recall-item-bound = The item binds to you.
 
 recall-item-already-bound = The item is already bound.
 
+recall-item-action-name = Recall {$item}
 
+recall-item-action-desc = Teleports the bound {$item} back to your hand.
