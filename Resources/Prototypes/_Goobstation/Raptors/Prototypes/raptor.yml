@@ -1,0 +1,92 @@
+# Defines raptor breeds.
+
+- type: raptor
+  id: Red
+  color: red
+  babySprite: baby_red
+  babyDeadSprite: baby_red_dead
+  adultSprite: raptor_red
+  adultDeadSprite: dead_raptor_red
+  growthPath: BaseRaptor
+  maxHealth: 270
+  meleeDamageLower: 16
+  meleeDamageUpper: 22
+
+
+- type: raptor
+  id: Yellow
+  color: yellow
+  babySprite: baby_yellow
+  babyDeadSprite: baby_yellow_dead
+  adultSprite: raptor_yellow
+  adultDeadSprite: dead_raptor_yellow
+  growthPath: BaseRaptor
+  maxHealth: 230
+  meleeDamageLower: 10
+  meleeDamageUpper: 14
+
+
+- type: raptor
+  id: Green
+  color: green
+  babySprite: baby_green
+  babyDeadSprite: baby_green_dead
+  adultSprite: raptor_green
+  adultDeadSprite: dead_raptor_green
+  growthPath: BaseRaptor
+  maxHealth: 340
+  meleeDamageLower: 12
+  meleeDamageUpper: 16
+  miner: true
+
+- type: raptor
+  id: Purple
+  color: purple
+  babySprite: baby_purple
+  babyDeadSprite: baby_purple_dead
+  adultSprite: raptor_purple
+  adultDeadSprite: dead_raptor_purple
+  growthPath: BaseRaptor
+  maxHealth: 260
+  meleeDamageLower: 11
+  meleeDamageUpper: 15
+  storage: true
+
+- type: raptor
+  id: White
+  color: white
+  babySprite: baby_white
+  babyDeadSprite: baby_white_dead
+  adultSprite: raptor_white
+  adultDeadSprite: dead_raptor_white
+  growthPath: BaseRaptor
+  maxHealth: 250
+  meleeDamageLower: 10
+  meleeDamageUpper: 14
+  healer: true
+
+- type: raptor
+  id: Blue
+  color: blue
+  babySprite: baby_blue
+  babyDeadSprite: baby_blue_dead
+  adultSprite: raptor_blue
+  adultDeadSprite: dead_raptor_blue
+  growthPath: BaseRaptor
+  maxHealth: 250
+  meleeDamageLower: 10
+  meleeDamageUpper: 14
+  milkProducer: true
+
+
+- type: raptor
+  id: Black
+  color: black
+  babySprite: baby_black
+  babyDeadSprite: baby_black_dead
+  adultSprite: raptor_black
+  adultDeadSprite: dead_raptor_black
+  growthPath: BaseRaptor
+  maxHealth: 340
+  meleeDamageLower: 18
+  meleeDamageUpper: 24

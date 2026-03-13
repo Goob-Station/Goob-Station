@@ -1,0 +1,79 @@
+# Base adult raptor.
+
+- type: entity
+  id: BaseRaptor
+  name: raptor
+  description: A trusty, powerful steed.
+  parent: LavalandMobBase
+  components:
+  - type: Raptor
+    raptorType: Red
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_red
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_red
+      Dead:
+        Base: dead_raptor_red
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resomi
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+  - type: NoSlip
+  - type: Pullable
+  - type: InputMover
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 90
+    sound:
+      collection: RaptorIdle
+      params:
+        volume: -8
+        maxDistance: 10
+        variation: 0.05
+  - type: MobMover
+  - type: NPCRetaliation
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+      - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Vehicle
+    renderOver: East, SouthEast, South, SouthWest, West
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: Hardclaw
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+      - FootstepSound
+  - type: Grammar
+    gender: Epicene
