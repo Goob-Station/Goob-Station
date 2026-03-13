@@ -41,8 +41,6 @@ public sealed class BindRecallSystem : EntitySystem
                     return;
                 }
 
-                ent.Comp.BoundUser = user;
-
                 EntityUid? action = null;
 
                 _actions.AddAction(user, ref action, ent.Comp.RecallAction);
