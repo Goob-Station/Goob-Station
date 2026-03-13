@@ -23,7 +23,7 @@ public sealed class BindRecallSystem : EntitySystem
         if (!args.CanInteract)
             return;
 
-        if (ent.Comp.Owner != null)
+        if (ent.Comp.BoundUser != null)
             return;
 
         var user = args.User;
@@ -33,7 +33,7 @@ public sealed class BindRecallSystem : EntitySystem
             Text = "Bind Item",
             Act = () =>
             {
-                ent.Comp.Owner = user;
+                ent.Comp.BoundUser = user;
 
                 var recallComp = EnsureComp<RecallBoundItemComponent>(user);
 
@@ -43,7 +43,7 @@ public sealed class BindRecallSystem : EntitySystem
                     return;
                 }
 
-                ent.Comp.Owner = user;
+                ent.Comp.BoundUser = user;
 
                 EntityUid? action = null;
 

@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.Interaction.Components;
 public sealed partial class BoundRecallComponent : Component
 {
     [DataField]
-    public EntityUid? Owner;
+    public EntityUid? BoundUser;
 
     // Action prototype used
     [DataField]
