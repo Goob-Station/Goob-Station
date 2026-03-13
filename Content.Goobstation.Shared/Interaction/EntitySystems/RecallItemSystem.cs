@@ -11,11 +11,11 @@ public sealed class RecallItemSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RecallBoundItemComponent, RecallBoundItemEvent>(OnRecall);
+        SubscribeLocalEvent<BoundRecallComponent, EntityTerminatingEvent>(OnBoundItemDeleted);
     }
 
     private void OnRecall(Entity<RecallBoundItemComponent> ent, ref RecallBoundItemEvent args)
@@ -43,5 +43,26 @@ public sealed class RecallItemSystem : EntitySystem
             args.Handled = true;
             return;
         }
+    }
+
+    private void OnBoundItemDeleted(Entity<BoundRecallComponent> ent, ref EntityTerminatingEvent args)
+    {
+        var item = ent.Owner;
+
+        var query = EntityQueryEnumerator<RecallBoundItemComponent>();
+
+        while (query.MoveNext(out var userUid, out var recallComp))
+        {
+            if (!recallComp.BoundItems.TryGetValue(item, out var action))
+                continue;
+
+            recallComp.BoundItems.Remove(item);
+
+            if (Exists(action))
+                QueueDel(action);
+
+            Dirty(userUid, recallComp);
+        }
+
     }
 }
