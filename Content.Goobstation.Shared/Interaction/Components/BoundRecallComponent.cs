@@ -14,12 +14,4 @@ public sealed partial class BoundRecallComponent : Component
     // Action prototype used
     [DataField]
     public EntProtoId RecallAction = "ActionRecallBoundItem";
-
-    // Icon used in the hotbar
-    [DataField]
-    public SpriteSpecifier? Icon;
-
-    // Sound played when recalling
-    [DataField]
-    public SoundSpecifier? RecallSound;
 }

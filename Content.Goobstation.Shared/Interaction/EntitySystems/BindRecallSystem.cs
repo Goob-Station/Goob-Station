@@ -48,9 +48,6 @@ public sealed class BindRecallSystem : EntitySystem
                 if (action != null)
                 {
                     recallComp.BoundItems[ent.Owner] = action.Value;
-
-                    if (ent.Comp.Icon != null)
-                        _actions.SetIcon(action.Value, ent.Comp.Icon);
                 }
 
                 _popup.PopupEntity(Loc.GetString("recall-item-bound"), user, user);
