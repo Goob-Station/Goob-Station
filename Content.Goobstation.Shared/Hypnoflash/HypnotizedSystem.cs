@@ -29,11 +29,11 @@ public sealed class HypnotizedSystem : EntitySystem
         SubscribeLocalEvent<MindContainerComponent, HypnoflashedEvent>(OnHypnotized);
     }
 
-    private void OnInit(EntityUid uid, HypnotizedComponent comp, ref ComponentInit args)
+    private void OnInit(Entity<HypnotizedComponent> ent, ref ComponentInit args)
     {
-        EnsureComp<ActiveListenerComponent>(uid);
-        EnsureComp<MutedComponent>(uid); // so you dont hypnotize yourself by mistake
-        _stunSystem.TryKnockdown(uid, TimeSpan.FromSeconds(4));
+        EnsureComp<ActiveListenerComponent>(ent);
+        EnsureComp<MutedComponent>(ent); // so you dont hypnotize yourself by mistake
+        _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(4));
     }
 
     public override void Update(float frameTime) // so you dont stay muted forever idk
@@ -49,14 +49,14 @@ public sealed class HypnotizedSystem : EntitySystem
         }
     }
 
-    private void OnListen(EntityUid uid, HypnotizedComponent comp, ref ListenEvent args)
+    private void OnListen(Entity<HypnotizedComponent> ent, ref ListenEvent args)
     {
         var message = args.Message.Trim();
 
         if (string.IsNullOrWhiteSpace(message))
             return;
 
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+        if (!_mind.TryGetMind(ent, out var mindId, out var mind))
             return;
 
         var objectiveId = Spawn("HypnotizedObjective"); // goida
@@ -64,26 +64,26 @@ public sealed class HypnotizedSystem : EntitySystem
         _meta.SetEntityDescription(objectiveId, message, meta);
         _mind.AddObjective(mindId, mind, objectiveId);
 
-        RemCompDeferred<HypnotizedComponent>(uid);
-        RemCompDeferred<ActiveListenerComponent>(uid);
-        RemCompDeferred<MutedComponent>(uid);
-        _stunSystem.TryKnockdown(uid, TimeSpan.FromSeconds(4));
+        RemCompDeferred<HypnotizedComponent>(ent);
+        RemCompDeferred<ActiveListenerComponent>(ent);
+        RemCompDeferred<MutedComponent>(ent);
+        _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(4));
     }
 
-    private void OnShutdown(EntityUid uid, HypnotizedComponent comp, ref ComponentShutdown args)
+    private void OnShutdown(Entity<HypnotizedComponent> ent, ref ComponentShutdown args)
     {
-        RemCompDeferred<ActiveListenerComponent>(uid);
-        RemCompDeferred<MutedComponent>(uid);
+        RemCompDeferred<ActiveListenerComponent>(ent);
+        RemCompDeferred<MutedComponent>(ent);
     }
     private void OnGetProgress(EntityUid uid, HypnotizedConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         args.Progress = 0f; // "Objective X(xx/nxx) of john goida (xx/nxx) didnt set a progress value!" error my ass
     }
 
-    private void OnHypnotized(EntityUid uid, MindContainerComponent comp, ref HypnoflashedEvent args)
+    private void OnHypnotized(Entity<MindContainerComponent> ent, ref HypnoflashedEvent args)
     {
-        EnsureComp<HypnotizedComponent>(uid);
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
+        EnsureComp<HypnotizedComponent>(ent.Owner);
+        if (_mind.TryGetMind(ent.Owner, out var mindId, out var mind))
             _role.MindAddRole(mindId, "MindRoleHypnotized"); // free agent status, but still must follow his objectives right? change to familiar if shitters be shitters
     }
 }

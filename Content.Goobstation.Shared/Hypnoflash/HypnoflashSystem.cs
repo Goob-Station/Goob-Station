@@ -29,34 +29,34 @@ public sealed class HypnoflashSystem : EntitySystem
         SubscribeLocalEvent<HypnoflashComponent, UseInHandEvent>(OnUseInHand);
     }
 
-    private void OnUseInHand(EntityUid uid, HypnoflashComponent comp, UseInHandEvent args)
+    private void OnUseInHand(Entity<HypnoflashComponent> ent, ref UseInHandEvent args)
     {
-        if (args.Handled || comp.EndTime != null)
+        if (args.Handled || ent.Comp.EndTime != null)
             return;
-        if (TryComp<LimitedChargesComponent>(uid, out var charges)
-            && _sharedCharges.IsEmpty((uid, charges)))
+        if (TryComp<LimitedChargesComponent>(ent, out var charges)
+            && _sharedCharges.IsEmpty((ent, charges)))
             return;
 
-        _sharedCharges.TryUseCharge((uid, charges));
+        _sharedCharges.TryUseCharge((ent, charges));
 
         args.Handled = true;
-        comp.Activator = args.User;
+        ent.Comp.Activator = args.User;
 
         var curTime = _timing.CurTime;
-        comp.EndTime = curTime + comp.FullDuration;
+        ent.Comp.EndTime = curTime + ent.Comp.FullDuration;
 
-        if (comp.ProtoOnFlash != null)
-            comp.SpawnEndTime = curTime + comp.Duration;
+        if (ent.Comp.ProtoOnFlash != null)
+            ent.Comp.SpawnEndTime = curTime + ent.Comp.Duration;
 
-        if (comp.Unremoveable)
+        if (ent.Comp.Unremoveable)
         {
-            EnsureComp<UnremoveableComponent>(uid);
-            _popup.PopupClient(Loc.GetString(comp.PopupMessage), uid, args.User);
+            EnsureComp<UnremoveableComponent>(ent);
+            _popup.PopupClient(Loc.GetString(ent.Comp.PopupMessage), ent, args.User);
         }
 
-        _audio.PlayPredicted(comp.ActivationSound, uid, args.User);
-        _appearance.SetData(uid, FlashVisuals.Flashing, true); // goida
-        Dirty(uid, comp);
+        _audio.PlayPredicted(ent.Comp.ActivationSound, ent, args.User);
+        _appearance.SetData(ent, FlashVisuals.Flashing, true); // goida
+        Dirty(ent, ent.Comp);
     }
 
     public override void Update(float frameTime)
