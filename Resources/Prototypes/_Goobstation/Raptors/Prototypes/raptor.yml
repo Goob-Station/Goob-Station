@@ -11,59 +11,8 @@
   maxHealth: 270
   meleeDamageLower: 16
   meleeDamageUpper: 22
-
-
-- type: raptor
-  id: Yellow
-  color: yellow
-  babySprite: baby_yellow
-  babyDeadSprite: baby_yellow_dead
-  adultSprite: raptor_yellow
-  adultDeadSprite: dead_raptor_yellow
-  growthPath: BaseRaptor
-  maxHealth: 230
-  meleeDamageLower: 10
-  meleeDamageUpper: 14
-
-
-- type: raptor
-  id: Green
-  color: green
-  babySprite: baby_green
-  babyDeadSprite: baby_green_dead
-  adultSprite: raptor_green
-  adultDeadSprite: dead_raptor_green
-  growthPath: BaseRaptor
-  maxHealth: 340
-  meleeDamageLower: 12
-  meleeDamageUpper: 16
-  miner: true
-
-- type: raptor
-  id: Purple
-  color: purple
-  babySprite: baby_purple
-  babyDeadSprite: baby_purple_dead
-  adultSprite: raptor_purple
-  adultDeadSprite: dead_raptor_purple
-  growthPath: BaseRaptor
-  maxHealth: 260
-  meleeDamageLower: 11
-  meleeDamageUpper: 15
-  storage: true
-
-- type: raptor
-  id: White
-  color: white
-  babySprite: baby_white
-  babyDeadSprite: baby_white_dead
-  adultSprite: raptor_white
-  adultDeadSprite: dead_raptor_white
-  growthPath: BaseRaptor
-  maxHealth: 250
-  meleeDamageLower: 10
-  meleeDamageUpper: 14
-  healer: true
+  mixableWith: [Blue]
+  mixResult: Purple
 
 - type: raptor
   id: Blue
@@ -77,7 +26,67 @@
   meleeDamageLower: 10
   meleeDamageUpper: 14
   milkProducer: true
+  mixableWith: [Red]
+  mixResult: Purple
 
+- type: raptor
+  id: Yellow
+  color: yellow
+  babySprite: baby_yellow
+  babyDeadSprite: baby_yellow_dead
+  adultSprite: raptor_yellow
+  adultDeadSprite: dead_raptor_yellow
+  growthPath: BaseRaptor
+  maxHealth: 230
+  meleeDamageLower: 10
+  meleeDamageUpper: 14
+  mixableWith: [Green]
+  mixResult: White
+
+- type: raptor
+  id: Green
+  color: green
+  babySprite: baby_green
+  babyDeadSprite: baby_green_dead
+  adultSprite: raptor_green
+  adultDeadSprite: dead_raptor_green
+  growthPath: BaseRaptor
+  maxHealth: 340
+  meleeDamageLower: 12
+  meleeDamageUpper: 16
+  miner: true
+  mixableWith: [Yellow]
+  mixResult: White
+
+- type: raptor
+  id: Purple
+  color: purple
+  babySprite: baby_purple
+  babyDeadSprite: baby_purple_dead
+  adultSprite: raptor_purple
+  adultDeadSprite: dead_raptor_purple
+  growthPath: BaseRaptor
+  maxHealth: 260
+  meleeDamageLower: 11
+  meleeDamageUpper: 15
+  storage: true
+  mixableWith: [White]
+  mixResult: Black
+
+- type: raptor
+  id: White
+  color: white
+  babySprite: baby_white
+  babyDeadSprite: baby_white_dead
+  adultSprite: raptor_white
+  adultDeadSprite: dead_raptor_white
+  growthPath: BaseRaptor
+  maxHealth: 250
+  meleeDamageLower: 10
+  meleeDamageUpper: 14
+  healer: true
+  mixableWith: [Purple]
+  mixResult: Black
 
 - type: raptor
   id: Black
@@ -90,3 +99,5 @@
   maxHealth: 340
   meleeDamageLower: 18
   meleeDamageUpper: 24
+  mixableWith: [Black]
+  mixResult: Black

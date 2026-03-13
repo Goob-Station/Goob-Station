@@ -44,5 +44,12 @@ namespace Content.Shared.Raptors.Prototypes
 
         [DataField]
         public bool MilkProducer;
+
+        [DataField]
+        public List<string> MixableWith = new();
+
+        [DataField]
+        public string? MixResult;
+
     }
 }

@@ -1,9 +1,12 @@
 using Content.Goobstation.Shared.Raptors.Components;
 using Content.Goobstation.Shared.Raptors.Genetics;
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Shared.Raptors.Prototypes;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.Raptors.Systems
 {
@@ -11,6 +14,9 @@ namespace Content.Goobstation.Shared.Raptors.Systems
     {
         [Dependency] private readonly IEntityManager _entMan = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
+        private List<RaptorPrototype>? _raptorTypes;
 
         public override void Initialize()
         {
@@ -105,45 +111,66 @@ namespace Content.Goobstation.Shared.Raptors.Systems
         {
             var coords = Transform(motherUid).Coordinates;
 
-            var baby = _entMan.SpawnEntity("BaseBabyRaptor", coords);
+            var baby = _entMan.SpawnEntity("BabyRaptor", coords);
 
             var babyComp = Comp<RaptorComponent>(baby);
+            var config = Comp<RaptorBreedingConfigComponent>(baby);
+
+            babyComp.RaptorType = DetermineRaptorType(mother, father, config);
 
             babyComp.Mother = MetaData(motherUid).EntityPrototype?.ID;
             babyComp.Father = MetaData(fatherUid).EntityPrototype?.ID;
 
-            babyComp.Genes = GenerateGenes(mother, father);
+            babyComp.Genes = GenerateGenes(mother, father, config);
 
             var grammar = EnsureComp<GrammarComponent>(baby);
 
             grammar.Gender = _random.Prob(0.5f)
                 ? Gender.Male
                 : Gender.Female;
+
+            UpdateBabySprite(baby, babyComp);
         }
 
         /// <summary>
         /// Creates genetic modifiers for a baby raptor.
         /// </summary>
-        private RaptorGenes GenerateGenes(RaptorComponent mother, RaptorComponent father)
+        private RaptorGenes GenerateGenes(RaptorComponent mother, RaptorComponent father, RaptorBreedingConfigComponent config)
         {
             var genes = new RaptorGenes();
 
-            genes.AttackModifier =
-                (mother.Genes.AttackModifier + father.Genes.AttackModifier) / 2f;
+            genes.AttackModifier = MutateStat(
+                (mother.Genes.AttackModifier + father.Genes.AttackModifier) / 2f,
+                config);
 
-            genes.HealthModifier =
-                (mother.Genes.HealthModifier + father.Genes.HealthModifier) / 2f;
+            genes.HealthModifier = MutateStat(
+                (mother.Genes.HealthModifier + father.Genes.HealthModifier) / 2f,
+                config);
 
-            genes.GrowthModifier =
-                (mother.Genes.GrowthModifier + father.Genes.GrowthModifier) / 2f;
+            genes.GrowthModifier = MutateStat(
+                (mother.Genes.GrowthModifier + father.Genes.GrowthModifier) / 2f,
+                config);
 
-            genes.AbilityModifier =
-                (mother.Genes.AbilityModifier + father.Genes.AbilityModifier) / 2f;
+            genes.AbilityModifier = MutateStat(
+                (mother.Genes.AbilityModifier + father.Genes.AbilityModifier) / 2f,
+                config);
 
-            ApplyMutation(genes);
             InheritTraits(genes, mother, father);
 
             return genes;
+        }
+
+        private void UpdateBabySprite(EntityUid uid, RaptorComponent comp)
+        {
+            if (!TryComp<MobGrowthComponent>(uid, out var growth))
+                return;
+
+            var proto = _prototypeManager.Index(comp.RaptorType);
+
+            foreach (var (stage, data) in growth.Stages)
+            {
+                data.Sprite = $"{stage}_{proto.Color}";
+            }
         }
 
         /// <summary>
@@ -159,6 +186,28 @@ namespace Content.Goobstation.Shared.Raptors.Systems
             genes.AttackModifier += _random.NextFloat(-0.1f, 0.1f);
             genes.HealthModifier += _random.NextFloat(-0.1f, 0.1f);
             genes.GrowthModifier += _random.NextFloat(-0.1f, 0.1f);
+        }
+
+        public void InitializeWildBaby(EntityUid baby)
+        {
+            if (!TryComp<RaptorComponent>(baby, out var comp))
+                return;
+
+            _raptorTypes = _prototypeManager.EnumeratePrototypes<RaptorPrototype>().ToList();
+
+            var proto = _random.Pick(_raptorTypes);
+
+            comp.RaptorType = proto.ID;
+
+            comp.Genes = new RaptorGenes
+            {
+                AttackModifier = _random.NextFloat(0.8f, 1.2f),
+                HealthModifier = _random.NextFloat(0.8f, 1.2f),
+                GrowthModifier = _random.NextFloat(0.8f, 1.2f),
+                AbilityModifier = _random.NextFloat(0.8f, 1.2f)
+            };
+
+            UpdateBabySprite(baby, comp);
         }
 
         /// <summary>
@@ -178,5 +227,33 @@ namespace Content.Goobstation.Shared.Raptors.Systems
                     genes.Traits.Add(trait);
             }
         }
+
+        private ProtoId<RaptorPrototype> DetermineRaptorType(RaptorComponent mother, RaptorComponent father, RaptorBreedingConfigComponent config)
+        {
+            var motherProto = _prototypeManager.Index(mother.RaptorType);
+            var fatherProto = _prototypeManager.Index(father.RaptorType);
+
+            // Mutation roll for color mix
+            if (_random.Prob(config.ColorMutationChance))
+            {
+                if (motherProto.MixableWith.Contains(fatherProto.ID) && motherProto.MixResult != null)
+                    return new ProtoId<RaptorPrototype>(motherProto.MixResult);
+
+                if (fatherProto.MixableWith.Contains(motherProto.ID) && fatherProto.MixResult != null)
+                    return new ProtoId<RaptorPrototype>(fatherProto.MixResult);
+            }
+
+            // Otherwise inherit one parent color
+            return _random.Pick(new[] { mother.RaptorType, father.RaptorType });
+        }
+
+        private float MutateStat(float value, RaptorBreedingConfigComponent config)
+        {
+            if (!_random.Prob(config.StatMutationChance))
+                return value;
+
+            return value + _random.NextFloat(-config.StatMutationRange, config.StatMutationRange);
+        }
+
     }
 }

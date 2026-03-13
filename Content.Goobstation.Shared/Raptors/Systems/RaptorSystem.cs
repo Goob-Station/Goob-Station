@@ -18,6 +18,8 @@ namespace Content.Goobstation.Shared.Raptors.Systems
             base.Initialize();
 
             SubscribeLocalEvent<MobGrowthComponent, ComponentHandleState>(OnGrowthStageChanged);
+            SubscribeLocalEvent<RaptorComponent, ComponentInit>(OnRaptorInit);
+
         }
 
         public override void Update(float frameTime)
@@ -39,7 +41,10 @@ namespace Content.Goobstation.Shared.Raptors.Systems
 
             // TO DO: More complex shit later, this is for testing purposes
             if (comp.CurrentStage == "adult")
+            {
                 raptor.BreedingMood = true;
+                ApplyStats(uid, raptor);
+            }
         }
 
         /// <summary>
@@ -79,5 +84,21 @@ namespace Content.Goobstation.Shared.Raptors.Systems
 
             // Motherly -> boost baby growth nearby
         }
+
+        private void OnRaptorInit(EntityUid uid, RaptorComponent comp, ref ComponentInit args)
+        {
+            if (comp.Mother != null || comp.Father != null)
+                return;
+
+            if (!TryComp<MobGrowthComponent>(uid, out var growth))
+                return;
+
+            if (growth.CurrentStage != "baby")
+                return;
+
+            var breeding = EntityManager.System<RaptorBreedingSystem>();
+            breeding.InitializeWildBaby(uid);
+        }
+
     }
 }
