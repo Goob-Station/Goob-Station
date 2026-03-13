@@ -37,7 +37,7 @@ public sealed class BindRecallSystem : EntitySystem
 
                 if (recallComp.BoundItems.ContainsKey(ent.Owner))
                 {
-                    _popup.PopupEntity("This item is already bound.", user, user);
+                    _popup.PopupEntity(Loc.GetString("recall-item-already-bound"), user, user);
                     return;
                 }
 
@@ -55,7 +55,7 @@ public sealed class BindRecallSystem : EntitySystem
                         _actions.SetIcon(action.Value, ent.Comp.Icon);
                 }
 
-                _popup.PopupEntity("The item binds to you.", user, user);
+                _popup.PopupEntity(Loc.GetString("recall-item-bound"), user, user);
             }
         };
 

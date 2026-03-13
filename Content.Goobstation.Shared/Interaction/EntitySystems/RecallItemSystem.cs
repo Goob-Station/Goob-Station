@@ -28,10 +28,17 @@ public sealed class RecallItemSystem : EntitySystem
             if (actionEnt != action)
                 continue;
 
+            if (_hands.IsHolding(user, item))
+            {
+                _popup.PopupEntity(Loc.GetString("recall-item-already-held"), user, user);
+                args.Handled = true;
+                return;
+            }
+
             if (_hands.TryPickupAnyHand(user, item))
-                _popup.PopupEntity("The item teleports back to your hand!", user, user);
+                _popup.PopupEntity(Loc.GetString("recall-item-success"), user, user);
             else
-                _popup.PopupEntity("Your hands are full.", user, user);
+                _popup.PopupEntity(Loc.GetString("recall-item-hands-full"), user, user);
 
             args.Handled = true;
             return;
