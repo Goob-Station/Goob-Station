@@ -41,7 +41,6 @@
     damage:
       types:
         Piercing: 17
-      armorPenetration: 0.15 # Goobstation
 
 - type: entity
   id: BulletRiflePractice
