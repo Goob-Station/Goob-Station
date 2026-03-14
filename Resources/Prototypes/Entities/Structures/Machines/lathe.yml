@@ -449,6 +449,7 @@
     - SecurityAmmoStaticGoob
     - SyndicateAmmoLightStatic
     - ScienceExplosives
+    - SecurityHypoStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
