@@ -1,0 +1,51 @@
+- type: entity
+  name: clockwork defender
+  parent: LavalandMobBase
+  id: MobClockworkDefender
+  description: A traitorous clockwork knight who lived on, despite its creators destruction.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Clockwork_defender.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: base
+  - type: NpcFactionMember
+    factions:
+    - Lavafauna
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard: # highly aggressive
+      VisionRadius: !type:Single
+        9
+      AggroVisionRadius: !type:Single
+        9
+      NavSmash: !type:Bool
+        true
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: base
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 13
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      140: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Butcherable
+    spawned:
+    - id: SheetBrass1 # stub
+      amount: 3
+      prob: 0.5
+  - type: NoSlip
+  - type: IgnoreSpiderWeb
+  - type: AntiGravityClothing
+  - type: CombatMode

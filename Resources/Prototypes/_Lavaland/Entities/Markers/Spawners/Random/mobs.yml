@@ -10,9 +10,11 @@
     - !type:GroupSelector
       children:
       - id: MobLavalandGoliath
-        weight: 99
+        weight: 75
       - id: MobLavalandGoliathAncient
         weight: 1
+      - id: MobClockworkDefender
+        weight: 24
     - id: MobLegion
 
 - type: entityTable
