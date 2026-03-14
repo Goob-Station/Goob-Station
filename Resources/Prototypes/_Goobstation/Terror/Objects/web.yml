@@ -1,0 +1,122 @@
+- type: entity
+  id: TerrorSpiderWeb
+  parent: SpiderWeb
+  name: terror web
+  components:
+  - type: TerrorWeb
+  - type: InvisibleOnTile
+
+- type: entity
+  id: TerrorSpiderWebSlimy
+  parent: TerrorHeavyWebBase
+  name: slimy web
+  description: This web is partly composed of strands of green slime.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Structures/slimyweb.rsi
+    state: full
+  - type: IconSmooth
+    key: slimyweb
+    base: web_
+    additionalKeys:
+    - walls
+  - type: TerrorWeb
+  - type: SlimyWeb
+    reagentId: Vodka
+    alcoholAmount: 20  
+
+- type: entity
+  id: TerrorSpiderWebPoison
+  parent: TerrorHeavyWebBase
+  name: sinister web
+  description: This web has beads of a dark fluid on its strands.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Structures/sinisterweb.rsi
+    state: full
+  - type: IconSmooth
+    key: sinisterweb
+    base: web_
+    additionalKeys:
+    - walls
+  - type: TerrorWeb
+  - type: PoisonWeb
+    reagentId: Toxin
+    reagentAmount: 5
+
+- type: entity
+  id: TerrorSpiderWebInfested
+  parent: TerrorHeavyWebBase
+  name: infested web
+  description: This web is covered in hundreds of tiny, biting spiders - and their eggs.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Structures/eggweb.rsi
+    state: full
+  - type: IconSmooth
+    key: infestedweb
+    base: web_
+    additionalKeys:
+    - walls
+  - type: TerrorWeb
+  - type: InfestedWeb
+
+- type: entity
+  id: TerrorHeavyWebBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: "/Audio/Weapons/slash.ogg"
+  - type: Sprite
+    sprite: _Goobstation/Terror/Structures/web.rsi
+    state: heavyWeb
+    drawdepth: Overdoors
+  - type: Appearance
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: StepTrigger
+    stepOn: true
+  - type: AtmosExposed
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.8
+    sprintSpeedModifier: 0.8
+    ignoreWhitelist:
+      components:
+      - IgnoreSpiderWeb
+
+- type: entity
+  id: TerrorHeavyWeb
+  parent: TerrorHeavyWebBase
+  name: thick web
+  description: This web is so thick, most cannot see beyond it.
+  components:
+  - type: Occluder  
