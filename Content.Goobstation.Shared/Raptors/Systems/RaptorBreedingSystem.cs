@@ -21,6 +21,8 @@ namespace Content.Goobstation.Shared.Raptors.Systems
         public override void Initialize()
         {
             base.Initialize();
+
+            _raptorTypes = _prototypeManager.EnumeratePrototypes<RaptorPrototype>().ToList();
         }
 
         /// <summary>
@@ -173,29 +175,12 @@ namespace Content.Goobstation.Shared.Raptors.Systems
             }
         }
 
-        /// <summary>
-        /// Random mutation system.
-        /// </summary>
-        private void ApplyMutation(RaptorGenes genes)
-        {
-            const float mutationChance = 0.1f;
-
-            if (!_random.Prob(mutationChance))
-                return;
-
-            genes.AttackModifier += _random.NextFloat(-0.1f, 0.1f);
-            genes.HealthModifier += _random.NextFloat(-0.1f, 0.1f);
-            genes.GrowthModifier += _random.NextFloat(-0.1f, 0.1f);
-        }
-
         public void InitializeWildBaby(EntityUid baby)
         {
             if (!TryComp<RaptorComponent>(baby, out var comp))
                 return;
 
-            _raptorTypes = _prototypeManager.EnumeratePrototypes<RaptorPrototype>().ToList();
-
-            var proto = _random.Pick(_raptorTypes);
+            var proto = _random.Pick(_raptorTypes!);
 
             comp.RaptorType = proto.ID;
 
@@ -217,13 +202,13 @@ namespace Content.Goobstation.Shared.Raptors.Systems
         {
             foreach (var trait in mother.Genes.Traits)
             {
-                if (_random.Prob(0.5f))
+                if (_random.Prob(0.5f) && !genes.Traits.Contains(trait))
                     genes.Traits.Add(trait);
             }
 
             foreach (var trait in father.Genes.Traits)
             {
-                if (_random.Prob(0.5f))
+                if (_random.Prob(0.5f) && !genes.Traits.Contains(trait))
                     genes.Traits.Add(trait);
             }
         }

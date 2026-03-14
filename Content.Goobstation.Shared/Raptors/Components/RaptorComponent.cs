@@ -17,7 +17,7 @@ namespace Content.Goobstation.Shared.Raptors.Components
         /// Breed definition (Red, Yellow, etc).
         /// </summary>
         [DataField, AutoNetworkedField]
-        public ProtoId<RaptorPrototype> RaptorType;
+        public ProtoId<RaptorPrototype> RaptorType = "Red";
 
         /// <summary>
         /// Genetic modifiers inherited from parents.
@@ -35,25 +35,13 @@ namespace Content.Goobstation.Shared.Raptors.Components
         /// Cooldown preventing constant breeding.
         /// </summary>
         [DataField, AutoNetworkedField]
-        public TimeSpan NextBreedTime;
-
-        /// <summary>
-        /// Current health (used by breeding and stat inheritance).
-        /// </summary>
-        [DataField, AutoNetworkedField]
-        public float CurrentHealth;
+        public float NextBreedTime;
 
         /// <summary>
         /// Happiness affects growth, combat bonuses, and milk production.
         /// </summary>
         [DataField, AutoNetworkedField]
         public float Happiness;
-
-        /// <summary>
-        /// Hunger affects happiness decay and behavior.
-        /// </summary>
-        [DataField, AutoNetworkedField]
-        public float Hunger;
 
         /// <summary>
         /// Parent prototypes used for breeding calculations.

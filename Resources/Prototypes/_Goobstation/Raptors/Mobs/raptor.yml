@@ -5,19 +5,19 @@
   abstract: true
   components:
   - type: MobState
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Resomi
   - type: NoSlip
   - type: Pullable
   - type: InputMover
   - type: MobMover
   - type: NPCRetaliation
+    attackMemoryLength: 5 # stop caring fast if you don't keep hitting
+  - type: GroupRetaliation
+    range: 8
   - type: FactionException
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-raptor
-    interactFailureString: petting-failure-raptor
+    interactFailureString: petting-failure-raptor}
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Dragon
@@ -32,6 +32,9 @@
       types:
         Bloodloss:
           -0.25
+  - type: Stamina
+    critThreshold: 20
+    animationThreshold: 10
   - type: NpcFactionMember
     factions:
     - Passive
@@ -49,10 +52,11 @@
       Starving: 0.0005 # We don't want our raptors dying from hunger.
       Dead: 0.0005
     baseDecayRate: 0.5
-    starvingSlowdownModifier: 0.1
+    starvingSlowdownModifier: 0.9
   - type: HTN
+    constantlyReplan: false
     rootTask:
-      task: SimpleHostileCompound
+      task: MouseCompound
   - type: Grammar
     gender: Epicene
 
@@ -71,7 +75,8 @@
     drawdepth: Mobs
     sprite: _Goobstation/Raptors/babyraptor.rsi
     layers:
-    - state: baby_red
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: baby_red
   - type: DamageStateVisuals
     states:
       Alive:
@@ -98,6 +103,7 @@
     damage:
       types:
         Slash: 3
+  - type: RaptorBreedingConfig
   - type: MobGrowth
     currentStage: baby
     growthInterval: 20
@@ -128,7 +134,8 @@
     drawdepth: Mobs
     sprite: _Goobstation/Raptors/raptoricebox.rsi
     layers:
-    - state: raptor_red
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: raptor_red
   - type: DamageStateVisuals
     states:
       Alive:

@@ -7,31 +7,37 @@ namespace Content.Goobstation.Shared.Raptors.Genetics
     /// These modify base stats from the prototype.
     /// </summary>
     [Serializable, NetSerializable]
-    public sealed class RaptorGenes
+    [DataDefinition]
+    public sealed partial class RaptorGenes
     {
         /// <summary>
         /// Attack modifier inherited from parents.
         /// </summary>
+        [DataField]
         public float AttackModifier = 1f;
 
         /// <summary>
         /// Health modifier inherited from parents.
         /// </summary>
+        [DataField]
         public float HealthModifier = 1f;
 
         /// <summary>
         /// Growth speed modifier.
         /// </summary>
+        [DataField]
         public float GrowthModifier = 1f;
 
         /// <summary>
         /// Ability modifier (used for healing, mining, etc).
         /// </summary>
+        [DataField]
         public float AbilityModifier = 1f;
 
         /// <summary>
         /// Personality traits inherited or randomly assigned.
         /// </summary>
-        public HashSet<RaptorTrait> Traits = new();
+        [DataField]
+        public List<RaptorTrait> Traits = new();
     }
 }

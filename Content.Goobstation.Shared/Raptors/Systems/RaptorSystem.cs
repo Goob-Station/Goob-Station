@@ -17,7 +17,7 @@ namespace Content.Goobstation.Shared.Raptors.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<MobGrowthComponent, ComponentHandleState>(OnGrowthStageChanged);
+            SubscribeLocalEvent<RaptorComponent, ComponentStartup>(OnRaptorStartup);
             SubscribeLocalEvent<RaptorComponent, ComponentInit>(OnRaptorInit);
 
         }
@@ -34,16 +34,15 @@ namespace Content.Goobstation.Shared.Raptors.Systems
             }
         }
 
-        private void OnGrowthStageChanged(EntityUid uid, MobGrowthComponent comp, ref ComponentHandleState args)
+        private void OnRaptorStartup(EntityUid uid, RaptorComponent comp, ref ComponentStartup args)
         {
-            if (!TryComp<RaptorComponent>(uid, out var raptor))
+            if (!TryComp<MobGrowthComponent>(uid, out var growth))
                 return;
 
-            // TO DO: More complex shit later, this is for testing purposes
-            if (comp.CurrentStage == "adult")
+            if (growth.CurrentStage == "adult")
             {
-                raptor.BreedingMood = true;
-                ApplyStats(uid, raptor);
+                comp.BreedingMood = true;
+                ApplyStats(uid, comp);
             }
         }
 
