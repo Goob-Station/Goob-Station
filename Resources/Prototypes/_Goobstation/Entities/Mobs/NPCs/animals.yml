@@ -928,3 +928,59 @@
       Male: ClownGoblin
       Female: ClownGoblin
       Unsexed: ClownGoblin
+
+- type: entity
+  name: mustard mothroach
+  parent: MobMothroach
+  id: MobMothroachMustard
+  description: A delightful result of the world's chefs crossing meat with sauce.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/mustard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_mustard
+
+- type: entity
+  name: leopard mothroach
+  parent: MobMothroach
+  id: MobMothroachLeopard
+  description: A charming result of numerous attempts to crossbreed insects with predators.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/leopard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_leopard
+
+- type: entity
+  name: Cecropia mothroach
+  parent: MobMothroach
+  id: MobMothroachCecropia
+  description: A charming result of numerous attempts to cross a genus of the nettle family with cockroaches.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/cecropia_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_cecropia
+
+- type: entity
+  name: Lunar mothroach
+  parent: MobMothroach
+  id: MobMothroachLunar
+  description: Someone left the moth under the moonlight.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/lunar_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_lunar
