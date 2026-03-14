@@ -114,7 +114,14 @@ public sealed class XenomorphEggSystem : EntitySystem
         _appearance.SetData(uid, XenomorphEggKey.Key, XenomorphEggVisualsStatus.Burst);
 
         var coordinates = Transform(uid).Coordinates;
-        var spawned = Spawn(component.FaceHuggerPrototype, coordinates);
+
+        // Goobstation begin - Randomly choose between normal and sentient facehugger
+        var prototypeToSpawn = _random.Prob(component.SentientSpawnChance)
+            ? component.SentientFaceHuggerPrototype
+            : component.FaceHuggerPrototype;
+
+        var spawned = Spawn(prototypeToSpawn, coordinates);
+        // Goobstation end
 
         if (!TryComp<FaceHuggerComponent>(spawned, out var equipOn))
             return;

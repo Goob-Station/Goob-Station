@@ -33,7 +33,10 @@ using Content.Shared.Throwing;
 using Content.Shared.Atmos.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Components;
-
+using Content.Shared.Mind.Components;
+using Content.Server.Actions;
+using Content.Server.Mind;
+using Content.Server._White.Xenomorphs.Infection;
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -55,6 +58,8 @@ public sealed class FaceHuggerSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!; // Goobstation
+    [Dependency] private readonly MindSystem _mind = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -70,10 +75,32 @@ public sealed class FaceHuggerSystem : EntitySystem
         // Goobstation - Throwing behavior
         SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrownEvent>(OnThrown);
         SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowDoHitEvent>(OnThrowDoHit);
+
+        // Goobstation - Leap action
+        SubscribeLocalEvent<FaceHuggerLeapComponent, ComponentStartup>(OnLeapStartup);
+        SubscribeLocalEvent<FaceHuggerLeapComponent, ThrowDoHitEvent>(OnLeapHit);
+    }
+
+    /// <summary>
+    /// Goobstation - Checks if a facehugger is sentient.
+    /// </summary>
+    private bool IsSentient(EntityUid uid)
+    {
+        if (TryComp<MindContainerComponent>(uid, out var mindContainer)
+            && mindContainer.HasMind)
+            return true;
+
+        return false;
     }
 
     private void OnCollideEvent(EntityUid uid, FaceHuggerComponent component, StartCollideEvent args)
-        => TryEquipFaceHugger(uid, args.OtherEntity, component);
+    {
+        // Goobstation - Sentient facehuggers should not auto-attach.
+        if (IsSentient(uid))
+            return;
+
+        TryEquipFaceHugger(uid, args.OtherEntity, component);
+    }
 
     private void OnMeleeHit(EntityUid uid, FaceHuggerComponent component, MeleeHitEvent args)
     {
@@ -84,10 +111,20 @@ public sealed class FaceHuggerSystem : EntitySystem
     }
 
     private void OnPickedUp(EntityUid uid, FaceHuggerComponent component, GotEquippedHandEvent args)
-        => TryEquipFaceHugger(uid, args.User, component);
+    {
+        // Goobstation - Sentient facehuggers should not auto-attach.
+        if (IsSentient(uid))
+            return;
+
+        TryEquipFaceHugger(uid, args.User, component);
+    }
 
     private void OnStepTriggered(EntityUid uid, FaceHuggerComponent component, ref StepTriggeredOffEvent args)
     {
+        // Goobstation - Sentient facehuggers should not auto-attach.
+        if (IsSentient(uid))
+            return;
+
         if (component.Active)
             TryEquipFaceHugger(uid, args.Tripper, component);
     }
@@ -176,7 +213,9 @@ public sealed class FaceHuggerSystem : EntitySystem
             // Goobstaion end
 
             // Check for nearby entities to latch onto
-            if (faceHugger.Active && clothing?.InSlot == null)
+            // Goobstation - Sentient facehuggers should not auto-attach
+            if (faceHugger.Active && clothing?.InSlot == null
+                && !IsSentient(uid))
             {
                 foreach (var entity in _entityLookup.GetEntitiesInRange<InventoryComponent>(Transform(uid).Coordinates,
                              1.5f))
@@ -211,6 +250,17 @@ public sealed class FaceHuggerSystem : EntitySystem
             QueueDel(organ);
             return;
         }
+
+        // Goobstation - Transfer mind from sentient facehugger to embryo
+        if (IsSentient(uid)
+            && _mind.TryGetMind(uid, out var mindId, out var mindComp))
+        {
+            var sentientInfection = EnsureComp<SentientInfectionComponent>(organ);
+            sentientInfection.SourceMindId = mindId;
+
+            _mind.TransferTo(mindId, organ, mind: mindComp);
+        }
+        // Goobstation end
 
         _damageable.TryChangeDamage(uid, component.DamageOnInfect, true);
     }
@@ -430,5 +480,32 @@ public sealed class FaceHuggerSystem : EntitySystem
             faceHugger.Active = true;
     }
 
+    #endregion
+
+    #region Leap Action
+    /// <summary>
+    /// Goobstation Facehugger Leap Action
+    /// </summary>
+    private void OnLeapStartup(EntityUid uid, FaceHuggerLeapComponent component, ComponentStartup args)
+    {
+        _actions.AddAction(uid, ref component.LeapActionEntity, component.LeapAction);
+    }
+
+    private void OnLeapHit(EntityUid uid, FaceHuggerLeapComponent component, ThrowDoHitEvent args)
+    {
+        if (!component.IsLeaping)
+            return;
+
+        component.IsLeaping = false;
+
+        if (!HasComp<MobStateComponent>(args.Target))
+            return;
+
+        if (TryComp<FaceHuggerComponent>(uid, out var faceHugger))
+            TryEquipFaceHugger(uid, args.Target, faceHugger);
+    }
+    /// <summary>
+    /// Goobstation end
+    /// </summary>
     #endregion
 }

@@ -65,9 +65,9 @@
       Dead: XenomorphDead
   - type: SlowOnDamage
     speedModifierThresholds:
-      105: 0.9
-      125: 0.7
-      150: 0.6
+#      105: 0.9 # Goobstation
+      125: 0.9 # Goobstation 0.7 to 0.9
+      150: 0.8 # Goobstation 0.6 to 0.8
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Xenomorph
