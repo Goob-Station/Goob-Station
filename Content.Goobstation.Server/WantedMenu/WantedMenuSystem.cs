@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.WantedMenu;
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
@@ -10,19 +11,13 @@ using Content.Shared.CriminalRecords;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
-using global::Content.Shared.Access.Components;
-using global::Content.Shared.Access.Systems;
-using global::Content.Shared.CriminalRecords;
-using global::Content.Shared.IdentityManagement;
-using global::Content.Shared.Security;
-using global::Content.Shared.StationRecords;
 using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Goobstation.Shared.CriminalRecords.Systems; // Goobstation-WantedMenu
+namespace Content.Goobstation.Server.WantedMenu;
 
-public sealed class WantedMenuSystem : EntitySystem
+public sealed class WantedMenuSystem : SharedWantedMenuSystem
 {
     [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
@@ -34,6 +29,8 @@ public sealed class WantedMenuSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         Subs.BuiEvents<IdExaminableComponent>(SetWantedVerbMenu.Key, subs => // Goobstation-WantedMenu
         {
             subs.Event<BoundUIOpenedEvent>(UpdateUserInterface);
@@ -128,7 +125,7 @@ public sealed class WantedMenuSystem : EntitySystem
         if (msg.Reason != null)
         {
             reason = msg.Reason.Trim();
-            if (reason.Length < 1 || reason.Length > ent.Comp.MaxStringLength)
+            if (reason.Length < 1 || reason.Length > 256)
                 return;
         }
 
@@ -196,7 +193,7 @@ public sealed class WantedMenuSystem : EntitySystem
             _ => "not-wanted"
         };
         _radio.SendRadioMessage(msg.Actor, Loc.GetString($"criminal-records-console-{statusString}", args),
-            ent.Comp.SecurityChannel, ent);
+            "Security", ent);
 
         UpdateUserInterface(ent);
     }
@@ -207,11 +204,4 @@ public sealed class WantedMenuSystem : EntitySystem
         RaiseLocalEvent(tryGetIdentityShortInfoEvent);
         officer = tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("criminal-records-console-unknown-officer");
     }
-}
-
-
-[NetSerializable, Serializable]
-public enum SetWantedVerbMenu : byte
-{
-    Key,
 }
