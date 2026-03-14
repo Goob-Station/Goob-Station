@@ -95,7 +95,7 @@ public sealed partial class HereticAbilitySystem
     {
         var uid = ent.Owner;
 
-        if (!TryUseAbility(uid, args))
+        if (!TryUseAbility(ent, args))
             return;
 
         args.Handled = true;

@@ -141,8 +141,8 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Clothing/Back/Backpacks/backpack.rsi
-      state: icon
+      sprite: _Goobstation/Actions/implants/implants.rsi # goob edit
+      state: storage
     useDelay: 1
   - type: InstantAction
     event: !type:OpenStorageImplantEvent
@@ -170,8 +170,8 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: gib
+      sprite: _Goobstation/Actions/implants/implants.rsi # goob edit
+      state: acidify
 
 - type: entity
   parent: BaseImplantAction
@@ -198,8 +198,8 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Objects/Devices/communication.rsi
-      state: radio
+      sprite: _Goobstation/Actions/implants/implants.rsi # goob edit
+      state: uplink
   - type: InstantAction
     event: !type:OpenUplinkImplantEvent
 
@@ -215,8 +215,8 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Objects/Weapons/Grenades/empgrenade.rsi
-      state: icon
+      sprite: _Goobstation/Actions/implants/implants.rsi # goob edit
+      state: emp
 
 - type: entity
   parent: BaseImplantAction
@@ -232,8 +232,8 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Structures/Specific/anomaly.rsi
-      state: anom4
+      sprite: _Goobstation/Actions/implants/implants.rsi # goob edit
+      state: scram
 
 - type: entity
   parent: BaseImplantAction
@@ -249,8 +249,8 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
-      state: icon
+      sprite: _Goobstation/Actions/implants/implants.rsi # goob edit
+      state: scrambler
 
 - type: entity
   parent: BaseAction

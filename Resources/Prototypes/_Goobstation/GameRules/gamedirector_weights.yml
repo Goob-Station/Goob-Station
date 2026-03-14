@@ -25,6 +25,7 @@
     BlobGameMode: 0.05
     Wizard: 0.025
     CosmicCult: 0.05 # make it semi often so we can test it
+    BloodCult: 0.05 # same as coscult
     #HonkOps: 0.01 # this test fail was real holy shit it was only a preset the entire a time i was lied too by myself
 
 
@@ -91,3 +92,14 @@
   - BlobGameMode
   - CosmicCult
   - Heretic
+
+- type: incompatibleModes
+  id: BloodCult
+  modes:
+  - Nukeops
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+  #- CosmicCult # wait for it to war
+  #- Heretic # wait for it to war

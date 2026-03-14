@@ -25,7 +25,6 @@
   name: eldritch blade
   description: A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
   components:
-  - type: UnholyItem
   - type: HereticBlade
   - type: Sharp
   - type: Sprite
@@ -142,7 +141,7 @@
     sprite: _Goobstation/Heretic/Blades/blade_flesh-inhand.rsi
 
 - type: entity
-  parent: [HereticBladeFleshGhoul, BaseRandomTeleportBlade]
+  parent: [ HereticBladeFleshGhoul, BaseRandomTeleportBlade ]
   id: HereticBladeFlesh
   name: bloody blade
   suffix: Flesh

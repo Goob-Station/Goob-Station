@@ -140,7 +140,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
     [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
     [Dependency] private   readonly ExamineSystemShared _examine = default!;
-    [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
     [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
     [Dependency] private   readonly MobThresholdSystem _threshold = default!;
@@ -792,23 +791,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (ItemValid(held))
         {
-            if (TryComp(ev.Action, out ConfirmableActionComponent? confirmable))
-            {
-                // if not primed, prime it and cancel the action
-                if (confirmable.NextConfirm is not { } confirm)
-                {
-                    _confirmableAction.Prime((ev.Action, confirmable), ev.Performer);
-                    return;
-                }
-
-                // primed but the delay isnt over, cancel the action
-                if (Timing.CurTime < confirm)
-                    return;
-
-                // primed and delay has passed, let the action go through
-                _confirmableAction.Unprime((ev.Action, confirmable));
-            }
-
             MarkItem(held.Value);
             return;
         }
