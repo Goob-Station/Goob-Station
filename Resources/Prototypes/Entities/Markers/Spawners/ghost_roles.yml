@@ -343,7 +343,7 @@
   parent: BaseAntagSpawner
   components:
   - type: GhostRoleMobSpawner
-    prototype: AncientRogueKingToken
+    prototype: CMMobXenoRogueKingSentient
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

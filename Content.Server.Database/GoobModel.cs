@@ -6,6 +6,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Content.Server.Database;
 
+[Table("player_antag_tokens")]
+public sealed class PlayerAntagToken
+{
+    [Key]
+    public int Id { get; set; }
+
+    [Required]
+    public Guid PlayerUserId { get; set; }
+
+    public Player Player { get; set; } = default!;
+
+    public int TokenCount { get; set; }
+
+    public int LastConsumedRound { get; set; }
+}
+
 [Table("polls")]
 [Index(nameof(StartTime))]
 [Index(nameof(EndTime))]

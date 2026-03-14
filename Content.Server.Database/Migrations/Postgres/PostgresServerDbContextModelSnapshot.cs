@@ -790,6 +790,36 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.PlayerAntagToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("player_antag_tokens_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("LastConsumedRound")
+                        .HasColumnType("integer")
+                        .HasColumnName("last_consumed_round");
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<int>("TokenCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("token_count");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_antag_tokens");
+
+                    b.HasIndex("PlayerUserId")
+                        .IsUnique();
+
+                    b.ToTable("player_antag_tokens", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Poll", b =>
                 {
                     b.Property<int>("Id")
@@ -2107,6 +2137,19 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
 
                     b.Navigation("LastSeenHWId");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PlayerAntagToken", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_player_antag_tokens_player_player_id");
+
+                    b.Navigation("Player");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Poll", b =>

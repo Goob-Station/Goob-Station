@@ -128,24 +128,6 @@ ghost-role-information-rules-default-xeno = You are a [color={role-type-team-ant
                                             Your objective is to protect your Queen and expand your Hive.
                                             Achieve this by bringing your Queen crewmembers to infest.
 
-# Token Roles
-
-ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!
-
-ghost-role-information-space-ninja-name-token = Space Ninja (Token)
-ghost-role-information-space-dragon-name-token = Space Dragon (Token)
-ghost-role-information-revenant-name-token = Revenant (Token)
-ghost-role-information-loneop-name-token = Lone Operative (Token)
-ghost-role-information-derelict-cyborg-syndicate-name-token = Derelict Assault Cyborg (Token)
-ghost-role-information-bingle-name-token = Bingle (Token)
-blob-carrier-role-name-token = Blob Carrier (Token)
-abductor-lone-ghost-role-name-token = Lone Abductor (Token)
-roles-wizard-name-token = Wizard (Token)
-roles-slaughter-demon-name-token = Slaughter Demon (Token)
-roles-laughter-demon-name-token = Laughter Demon (Token)
-ghost-role-information-ancient-rogue-king-name-token = Ancient Rogue King (Token)
-ghost-role-information-wraith-name-token = Wraith (Token)
-
 # Misc-Midround Antags
 
 ghost-role-information-grey-tide-name = The Grey Tide
@@ -195,14 +177,13 @@ ghost-role-information-clown-goblin-description = A terrible creature, born out 
 ghost-role-information-santa-name = Santa Claus
 ghost-role-information-santa-description = Spread christmas cheer around the station!
 
-ghost-role-information-slasher-token = The Slasher (Token)
- 
+
+
 ghost-role-information-sentientanimal-rules = You are a [color={role-type-sentient-animal-color}][bold]{role-type-sentient-animal-name}[/bold][/color]. You are a neutral animal who may act in self defense but otherwise not seek to harm crew.
                                               You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                               You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc, however you are not knowledgeable in advanced roles.
                                               You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
 ghost-role-information-contractor-name = Syndicate Contractor
-ghost-role-information-contractor-token = Syndicate Contractor (Token)
 ghost-role-information-contractor-description = GET DA... tider..?
 contractor-role-greeting = You are a [color=#611b2b]Syndicate Contractor[/color], a bounty hunter, you are tasked with retreving targets from the station, dead or alive.

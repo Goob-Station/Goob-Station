@@ -860,6 +860,72 @@ namespace Content.Server.Database
             return dbPlayer.ServerCurrency;
         }
 
+        public async Task<int> GetAntagTokenCount(NetUserId userId) // Goobstation
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.PlayerAntagTokens
+                .Where(t => t.PlayerUserId == userId)
+                .Select(t => t.TokenCount)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task<int> IncrementAntagTokens(NetUserId userId, int amount, int cap) // Goobstation
+        {
+            await using var db = await GetDb();
+
+            var token = await db.DbContext.PlayerAntagTokens
+                .Where(t => t.PlayerUserId == userId)
+                .SingleOrDefaultAsync();
+
+            if (token == null)
+            {
+                token = new PlayerAntagToken
+                {
+                    PlayerUserId = userId,
+                    TokenCount = Math.Min(amount, cap),
+                    LastConsumedRound = 0,
+                };
+                db.DbContext.PlayerAntagTokens.Add(token);
+            }
+            else
+            {
+                token.TokenCount = Math.Min(token.TokenCount + amount, cap);
+            }
+
+            await db.DbContext.SaveChangesAsync();
+            return token.TokenCount;
+        }
+
+        public async Task<bool> ConsumeAntagToken(NetUserId userId, int roundId) // Goobstation
+        {
+            await using var db = await GetDb();
+
+            var token = await db.DbContext.PlayerAntagTokens
+                .Where(t => t.PlayerUserId == userId)
+                .SingleOrDefaultAsync();
+
+            if (token == null || token.TokenCount <= 0)
+                return false;
+
+            token.TokenCount--;
+            token.LastConsumedRound = roundId;
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<(int Count, int LastConsumedRound)> GetAntagTokenState(NetUserId userId) // Goobstation
+        {
+            await using var db = await GetDb();
+
+            var token = await db.DbContext.PlayerAntagTokens
+                .Where(t => t.PlayerUserId == userId)
+                .Select(t => new { t.TokenCount, t.LastConsumedRound })
+                .SingleOrDefaultAsync();
+
+            return token != null ? (token.TokenCount, token.LastConsumedRound) : (0, 0);
+        }
+
         public async Task<TimeSpan> GetLastRolledAntag(NetUserId userId) // Goobstation
         {
             await using var db = await GetDb();
