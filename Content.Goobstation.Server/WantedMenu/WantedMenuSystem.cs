@@ -1,27 +1,49 @@
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Goobstation.Shared.WantedMenu.Systems;
+using Content.Server.CriminalRecords.Systems;
+using Content.Server.Popups;
+using Content.Server.Radio.EntitySystems;
+using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
+using Content.Server.StationRecords.Systems;
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
+using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Server.CriminalRecords.Systems; // Goobstation-WantedMenu
+namespace Content.Goobstation.Server.WantedMenu;
 
-public sealed partial class CriminalRecordsConsoleSystem
+public sealed class WantedMenuSystem : SharedWantedMenuSystem
 {
+    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly StationRecordsSystem _records = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        Subs.BuiEvents<IdExaminableComponent>(SetWantedVerbMenu.Key, subs => // Goobstation-WantedMenu
+        {
+            subs.Event<BoundUIOpenedEvent>(UpdateUserInterface);
+            subs.Event<CriminalRecordChangeStatus>(OnChangeStatus);
+        });
+    }
+
     private void UpdateUserInterface<T>(Entity<IdExaminableComponent> ent, ref T args)
     {
         UpdateUserInterface(ent);
     }
 
-    public bool TryGetTargetRecord(EntityUid target, out KeyValuePair<uint,string>? targetRecord, out EntityUid? owningStation)
+    public bool TryGetTargetRecord(EntityUid target, out KeyValuePair<uint, string>? targetRecord, out EntityUid? owningStation)
     {
         targetRecord = default;
         owningStation = _station.GetOwningStation(target);
@@ -40,7 +62,7 @@ public sealed partial class CriminalRecordsConsoleSystem
     private void UpdateUserInterface(Entity<IdExaminableComponent> ent)
     {
         CriminalRecordsConsoleState? state;
-        var ( uid, component ) = ent;
+        var (uid, component) = ent;
         if (!TryGetTargetRecord(uid, out var targetRecord, out var owningStation))
         {
             state = new CriminalRecordsConsoleState(null, null);
@@ -103,7 +125,7 @@ public sealed partial class CriminalRecordsConsoleSystem
         if (msg.Reason != null)
         {
             reason = msg.Reason.Trim();
-            if (reason.Length < 1 || reason.Length > ent.Comp.MaxStringLength)
+            if (reason.Length < 1 || reason.Length > 256)
                 return;
         }
 
@@ -171,8 +193,15 @@ public sealed partial class CriminalRecordsConsoleSystem
             _ => "not-wanted"
         };
         _radio.SendRadioMessage(msg.Actor, Loc.GetString($"criminal-records-console-{statusString}", args),
-            ent.Comp.SecurityChannel, ent);
+            "Security", ent);
 
         UpdateUserInterface(ent);
+    }
+
+    private void GetOfficer(EntityUid uid, out string officer)
+    {
+        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, uid);
+        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
+        officer = tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("criminal-records-console-unknown-officer");
     }
 }
