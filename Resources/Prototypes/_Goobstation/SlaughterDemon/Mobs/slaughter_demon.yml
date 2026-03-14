@@ -43,6 +43,8 @@
   - type: InteractionOutline
   - type: NoSlip
   - type: Clickable
+  - type: Butcherable
+    butcherDelay: 15
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
