@@ -47,6 +47,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         SubscribeLocalEvent<SlimeLatchEvent>(OnLatchAttempt);
         SubscribeLocalEvent<SlimeComponent, SlimeLatchDoAfterEvent>(OnSlimeLatchDoAfter);
+        SubscribeLocalEvent<SlimeComponent, DoAfterAttemptEvent<SlimeLatchDoAfterEvent>>(OnDoAfterAttempt);
 
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnMobStateChangedSOD);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnMobStateChangedSlime);
@@ -165,18 +166,33 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             return false;
         }
 
-        var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", ent), ("ent", target));
-        _popup.PopupEntity(attemptPopup, ent, PopupType.MediumCaution);
+        if (HasComp<BeingLatchedComponent>(target))
+        {
+            var maxEntitiesPopup = Loc.GetString("slime-latch-fail-already-latched", ("ent", target));
+            _popup.PopupEntity(maxEntitiesPopup, ent, ent);
+
+            return false;
+        }
 
         var doAfterArgs = new DoAfterArgs(EntityManager, ent, ent.Comp.LatchDoAfterDuration, new SlimeLatchDoAfterEvent(), ent, target)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
         };
 
-        EnsureComp<BeingLatchedComponent>(target);
-        _doAfter.TryStartDoAfter(doAfterArgs);
+        if (!_doAfter.TryStartDoAfter(doAfterArgs))
+            return false;
+
+        var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", ent), ("ent", target));
+        _popup.PopupEntity(attemptPopup, ent, PopupType.MediumCaution);
         return true;
+    }
+
+    private void OnDoAfterAttempt(EntityUid uid, SlimeComponent comp, ref DoAfterAttemptEvent<SlimeLatchDoAfterEvent> args)
+    {
+        if (HasComp<BeingLatchedComponent>(args.Event.Target))
+            args.Cancel();
     }
 
     private void OnSlimeLatchDoAfter(Entity<SlimeComponent> ent, ref SlimeLatchDoAfterEvent args)
@@ -185,10 +201,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             return;
 
         if (args.Handled || args.Cancelled)
-        {
-            RemCompDeferred<BeingLatchedComponent>(target);
             return;
-        }
 
         Latch(ent, target);
         args.Handled = true;
@@ -230,6 +243,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         ent.Comp.LatchedTarget = target;
 
+        EnsureComp<BeingLatchedComponent>(target);
         EnsureComp(target, out SlimeDamageOvertimeComponent comp);
         comp.SourceEntityUid = ent;
 
