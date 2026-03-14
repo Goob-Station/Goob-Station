@@ -377,16 +377,23 @@
       collection: VoxScreams
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    #Cough: # Goob
+    #  path: /Audio/Voice/Vox/vox_cough.ogg
+    #Sigh: # Goob
+    #  path: /Audio/Voice/Vox/vox_sigh.ogg
     Bagawk: # Mono
       collection: Bagawk # Mono
     Honk:
       collection: BikeHorn
+    #Crying: # Goob
+    #  path: /Audio/Voice/Vox/vox_cry.ogg
     Weh:
       collection: Weh
     Hew:
       collection: Hew
+    # Goob start
     CatMeow:
-      collection: CatMeows #Goob content start
+      collection: CatMeows
     Sneeze:
       path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg
     Cough:
@@ -423,6 +430,11 @@
       collection: VoxHiss
     Caw:
       collection: HarpyCaws
+    # Goob end
+    #Gasp: # Goob
+    #  path: /Audio/Effects/Gasp/vox_gasp.ogg
+    #DefaultDeathgasp:
+    #  path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
   params:
     variation: 0.125
 
@@ -869,6 +881,8 @@
   sounds:
     Clap:
       collection: Claps
+    ClapSingle:
+      collection: ClapSingle
     Snap:
       collection: Snaps
       params:
@@ -883,6 +897,9 @@
   sounds:
     Clap:
       path: /Audio/Voice/Diona/diona_clap.ogg
+    # TODO: Replace this with a similar wood themed single clap
+    ClapSingle:
+      collection: ClapSingle
     Snap:
       path: /Audio/Voice/Diona/diona_snap.ogg
       params:
@@ -903,6 +920,8 @@
         variation: 0.125
     Clap:
       collection: Claps
+    ClapSingle:
+      collection: ClapSingle
     Snap:
       collection: Snaps
       params:

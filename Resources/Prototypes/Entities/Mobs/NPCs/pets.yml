@@ -896,6 +896,22 @@
     stampLargeIcon: "large_stamp-hamster"
 
 - type: entity
+  parent: MobHamsterHamlet
+  id: MobHamsterHamletSlippery
+  suffix: Slippery
+  components:
+  - type: Slippery
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: GibOnTrigger
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Animals/mouse_squeak.ogg"
+    positional: true
+    predicted: true
+
+- type: entity
   name: Shiva
   parent: MobGiantSpider
   id: MobSpiderShiva
@@ -1073,8 +1089,6 @@
   - type: Item
     sprite: Mobs/Pets/Smile/smile.rsi
     size: Huge
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
     price: 3000 # it is a truly valuable creature
   - type: GhostRole
@@ -1110,12 +1124,9 @@
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
-    - !type:RoleTimeRequirement
-      role: JobBartender
-      time: 54000 #15 hour
     mindRoles:
     - MindRoleGhostRoleNeutral
+    job: Bartender # Goob
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike

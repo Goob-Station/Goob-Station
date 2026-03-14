@@ -213,15 +213,17 @@
   - type: StorageFill
     contents:
     - id: Paper
-      amount: 15
+      amount: 12
+    - id: PaperOffice
+      amount: 6
     - id: Pen
       amount: 2
-    - id: BoxFolderClipboard
+    - id: BoxFolderClipboardEmpty
       amount: 2
     - id: HandLabeler
-    - id: BoxFolderBlue
-    - id: BoxFolderRed
-    - id: BoxFolderYellow
+    - id: BoxFolderBlueEmpty
+    - id: BoxFolderRedEmpty
+    - id: BoxFolderYellowEmpty
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
@@ -445,18 +447,18 @@
         amount: 2
 
 
-- type: entity
-  id: CrateHolySupplies
-  parent: CratePlastic
-  name: holy supplies crate
-  description: Contains a Bible and 2 Jugs of holy water for religious needs
-  components:
-    - type: StorageFill
-      contents:
-        - id: JugHolyWater
-          amount: 2
-        - id: Bible
-          amount: 1
+#- type: entity
+#  id: CrateHolySupplies
+#  parent: CratePlastic
+#  name: holy supplies crate
+#  description: Contains a Bible and 2 Jugs of holy water for religious needs
+#  components:
+#    - type: StorageFill
+#      contents:
+#        - id: JugHolyWater
+#          amount: 2
+#        - id: Bible
+#          amount: 1
 
 
 - type: entity

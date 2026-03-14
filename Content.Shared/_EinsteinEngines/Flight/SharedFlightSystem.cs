@@ -272,7 +272,7 @@ public abstract class SharedFlightSystem : EntitySystem
 
     private void OnStandingStateFlightAttempt(EntityUid uid, StandingStateComponent component, ref FlightAttemptEvent args)
     {
-        if (!_standing.IsDown(uid, component))
+        if (!_standing.IsDown(uid))
             return;
 
         _popupSystem.PopupClient(Loc.GetString("no-flight-while-lying"), uid, uid, PopupType.Medium);

@@ -32,7 +32,7 @@
     sprite: _Goobstation/Wizard/actions.rsi
     state: fireball
   - type: Action
-    useDelay: 6
+    useDelay: 6 # Goobstation?
     itemIconStyle: BigAction
     raiseOnUser: true
     sound: !type:SoundPathSpecifier
@@ -43,12 +43,10 @@
   - type: TargetAction
     range: 60
     checkCanAccess: false
-  - type: EntityTargetAction # Goobstation
-    canTargetSelf: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
-      speed: 20
+      speed: 20 # Goobstation?
   - type: SpeakOnAction
     sentence: action-speech-spell-fireball
   - type: ActionUpgrade
@@ -63,7 +61,7 @@
   description: Fires a fireball, but faster!
   components:
   - type: Action
-    useDelay: 4
+    useDelay: 4 # Goob edit
 
 - type: entity
   parent: ActionFireball
@@ -72,4 +70,4 @@
   description: The fastest fireball in the west!
   components:
   - type: Action
-    useDelay: 2
+    useDelay: 2 # Goob edit

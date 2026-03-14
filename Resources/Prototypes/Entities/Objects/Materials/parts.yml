@@ -40,10 +40,6 @@
     state: rods
   - type: Item
     sprite: Objects/Materials/parts.rsi
-  - type: Tag
-    tags:
-      - DroneUsable # Goobstation
-      - PartBase # Goobstation
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
@@ -55,6 +51,11 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - ConstructionMaterial
+    - DroneUsable # Goobstation
+    - PartBase # Goobstation
 
 - type: entity
   parent: PartBase
@@ -117,6 +118,7 @@
   - type: Tag
     tags:
     - RodMetal1
+    - ConstructionMaterial
     - DroneUsable # Goobstation
   - type: Sprite
     state: rods
@@ -132,44 +134,9 @@
   - type: Tag
     tags:
     - RodMetal1
+    - ConstructionMaterial
     - DroneUsable # Goobstation
   - type: Sprite
     state: rods
   - type: Stack
     count: 1
-
-- type: entity
-  parent: PartRodMetal
-  id: PartRodMetalLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
-  parent: FloorTileItemSteel
-  id: FloorTileItemSteelLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
-  parent: FloorTileItemWhite
-  id: FloorTileItemWhiteLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
-  parent: FloorTileItemDark
-  id: FloorTileItemDarkLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0

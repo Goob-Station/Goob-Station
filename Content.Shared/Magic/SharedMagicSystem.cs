@@ -103,6 +103,8 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Charges.Components;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Doors.Components;
@@ -177,6 +179,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
     [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     public override void Initialize()
     {
@@ -193,6 +196,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<ChargeSpellEvent>(OnChargeSpell);
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
+        SubscribeLocalEvent<VoidApplauseSpellEvent>(OnVoidApplause);
 
 
         // Spell wishlist
@@ -563,13 +567,22 @@ public abstract class SharedMagicSystem : EntitySystem
         // Goobstation end
 
         var transform = Transform(args.Performer);
-
-        if (transform.MapID != args.Target.GetMapId(EntityManager) || !_interaction.InRangeUnobstructed(args.Performer, args.Target, range: 1000F, collisionMask: CollisionGroup.Opaque, popup: true))
+        if (transform.MapID != _transform.GetMapId(args.Target) || !_interaction.InRangeUnobstructed(args.Performer, args.Target, range: 1000F, collisionMask: CollisionGroup.Opaque, popup: true))
             return;
 
         _transform.SetCoordinates(args.Performer, args.Target);
         _transform.AttachToGridOrMap(args.Performer, transform);
         args.Handled = true;
+    }
+
+    public virtual void OnVoidApplause(VoidApplauseSpellEvent ev)
+    {
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        ev.Handled = true;
+
+        _transform.SwapPositions(ev.Performer, ev.Target);
     }
     // End Teleport Spells
     #endregion
@@ -696,16 +709,20 @@ public abstract class SharedMagicSystem : EntitySystem
 
         ev.Handled = true;
 
-        if (wand == null || !TryComp<BasicEntityAmmoProviderComponent>(wand, out var basicAmmoComp) || basicAmmoComp.Count == null)
+        if (wand == null)
             return;
 
-        _gunSystem.UpdateBasicEntityAmmoCount(wand.Value, basicAmmoComp.Count.Value + ev.Charge, basicAmmoComp);
+        if (TryComp<BasicEntityAmmoProviderComponent>(wand, out var basicAmmoComp) && basicAmmoComp.Count != null)
+            _gunSystem.UpdateBasicEntityAmmoCount(wand.Value, basicAmmoComp.Count.Value + ev.Charge, basicAmmoComp);
+        else if (TryComp<LimitedChargesComponent>(wand, out var charges))
+            _charges.AddCharges((wand.Value, charges), ev.Charge);
     }
     // End Charge Spells
     #endregion
     #region Global Spells
 
-    private void OnRandomGlobalSpawnSpell(RandomGlobalSpawnSpellEvent ev)
+    // TODO: Change this into a "StartRuleAction" when actions with multiple events are supported
+    protected virtual void OnRandomGlobalSpawnSpell(RandomGlobalSpawnSpellEvent ev)
     {
         if (!_net.IsServer || ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer) || ev.Spawns is not { } spawns)
             return;
@@ -720,6 +737,9 @@ public abstract class SharedMagicSystem : EntitySystem
                 continue;
 
             var ent = human.Comp.OwnedEntity.Value;
+
+            if (_tag.HasTag(ent, "InvalidForGlobalSpawnSpell"))
+                continue;
 
             var mapCoords = _transform.GetMapCoordinates(ent);
             foreach (var spawn in EntitySpawnCollection.GetSpawns(spawns, _random))

@@ -18,6 +18,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <DefaultWindow
     xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="clr-namespace:Content.Client.Materials.UI"
     Title="{Loc 'lathe-menu-title'}"
     MinSize="550 450"
@@ -139,6 +140,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             HorizontalAlignment="Left"
                             Margin="130 0 0 0">
                         </Label>
+                        <Button
+                            Name="DeleteFabricating"
+                            Margin="0"
+                            Text="✖"
+                            SetSize="38 32"
+                            HorizontalAlignment="Right"
+                            ToolTip="{Loc 'lathe-menu-delete-fabricating-tooltip'}">
+                            <Button.StyleClasses>
+                                <system:String>Caution</system:String>
+                                <system:String>OpenLeft</system:String>
+                            </Button.StyleClasses>
+                        </Button>
                     </PanelContainer>
                 </BoxContainer>
                 <ScrollContainer VerticalExpand="True" HScrollEnabled="False">

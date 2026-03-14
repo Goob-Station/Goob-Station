@@ -194,7 +194,7 @@ public abstract class SharedSprintingSystem : EntitySystem
 
     private void OnStandingStateSprintAttempt(EntityUid uid, StandingStateComponent component, ref SprintAttemptEvent args)
     {
-        if (!_standing.IsDown(uid, component))
+        if (!_standing.IsDown(uid))
             return;
 
         _popupSystem.PopupClient(Loc.GetString("no-sprint-while-lying"), uid, uid, PopupType.Medium);

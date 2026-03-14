@@ -53,8 +53,8 @@ public sealed class JumpSystem : EntitySystem
 
     private void OnThrowDoHit(EntityUid uid, JumpComponent component, ThrowDoHitEvent args)
     {
-        if (args.Handled)
-            return;
+        //if (args.Handled) //todo marty
+        //    return;
 
         _throwingItem.StopThrow(uid, args.Component);
 
@@ -66,7 +66,7 @@ public sealed class JumpSystem : EntitySystem
 
         _stun.TryKnockdown(args.Target, component.StunTime, true);
 
-        args.Handled = true;
+        //args.Handled = true; //todo marty
     }
 }
 

@@ -184,6 +184,7 @@
         - GPS
         - WeldingMask
         - RemoteSignaller
+        - UtilityKnife
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation
@@ -272,6 +273,7 @@
         - HolofanProjector
         - Multitool
         - AppraisalTool
+        - UtilityKnife
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation
@@ -325,6 +327,8 @@
           - Wrench
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: StealTarget
+    stealGroup: ChiefEngineerToolBelt
 
 - type: entity
   parent: ClothingBeltStorageBase

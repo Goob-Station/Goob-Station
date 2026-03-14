@@ -117,8 +117,8 @@
         mask:
         - TableMask
         layer:
-        - TableLayer
         - BulletImpassable #Goobstation
+        - TableLayer
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
@@ -739,6 +739,31 @@
       collection: FootstepCarpet
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: CosmicTable
+
+- type: entity
+  parent: TableBase
+  id: TableXeno
+  name: xeno table
+  description: I wouldn't put the silverware on it.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/xeno.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/xeno.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepFloor
 
 # Fancy tables
 

@@ -112,8 +112,8 @@ ui-options-interface-label = Interface
 
 
 ui-options-auto-fill-highlights = Auto-fill the highlights with the character's information
-ui-options-highlights-color = Highlighs color:
-ui-options-highlights-color-example = This is an highlighted text!
+ui-options-highlights-color = Highlights color:
+ui-options-highlights-color-example = This is highlighted text.
 ui-options-show-held-item = Show held item next to cursor
 ui-options-show-combat-mode-indicators = Show combat mode indicators with cursor
 ui-options-opaque-storage-window = Opaque storage window
@@ -225,6 +225,9 @@ ui-options-static-storage-ui = Lock storage window to hotbar
 
 ui-options-function-smart-equip-backpack = Smart-equip to backpack
 ui-options-function-smart-equip-belt = Smart-equip to belt
+ui-options-function-smart-equip-suit-storage = Smart-equip to suit storage
+ui-options-function-smart-equip-pocket1 = Smart-equip to pocket 1
+ui-options-function-smart-equip-pocket2 = Smart-equip to pocket 2
 ui-options-function-smart-equip-back = Smart-equip to back slot
 ui-options-function-open-backpack = Open backpack
 ui-options-function-open-belt = Open belt

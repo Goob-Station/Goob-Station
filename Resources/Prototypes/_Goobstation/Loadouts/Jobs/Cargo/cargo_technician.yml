@@ -3,31 +3,31 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Head
-- type: loadout
-  id: CargoTechnicianHeadMail
-  equipment:
-    head: ClothingHeadMailCarrier
-
-
-# Jumpsuit
-- type: loadout
-  id: CargoTechnicianJumpsuitMail
-  equipment:
-    jumpsuit: ClothingUniformMailCarrier
-
-
-- type: loadout
-  id: CargoTechnicianJumpskirtMail
-  equipment:
-    jumpsuit: ClothingUniformSkirtMailCarrier
-
-
-# OuterClothing
-- type: loadout
-  id: CargoTechnicianWintercoatMail
-  equipment:
-    outerClothing: ClothingOuterWinterCoatMail
+# Head todo <mailfix>
+#- type: loadout
+#  id: CargoTechnicianHeadMail
+#  equipment:
+#    head: ClothingHeadMailCarrier
+#
+#
+## Jumpsuit
+#- type: loadout
+#  id: CargoTechnicianJumpsuitMail
+#  equipment:
+#    jumpsuit: ClothingUniformMailCarrier
+#
+#
+#- type: loadout
+#  id: CargoTechnicianJumpskirtMail
+#  equipment:
+#    jumpsuit: ClothingUniformSkirtMailCarrier
+#
+#
+## OuterClothing
+#- type: loadout
+#  id: CargoTechnicianWintercoatMail
+#  equipment:
+#    outerClothing: ClothingOuterWinterCoatMail
 
 - type: loadout
   id: CargoTechnicianEnvirosuit

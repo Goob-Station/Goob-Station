@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Input;
@@ -237,10 +229,10 @@ public class RadialMenu : BaseWindow
 /// from interactions.
 /// </summary>
 [Virtual]
-public class RadialMenuTextureButtonBase : TextureButton
+public abstract class RadialMenuButtonBase : BaseButton
 {
     /// <inheritdoc />
-    protected RadialMenuTextureButtonBase()
+    protected RadialMenuButtonBase()
     {
         EnableAllKeybinds = true;
     }
@@ -250,7 +242,9 @@ public class RadialMenuTextureButtonBase : TextureButton
     {
         if (args.Function == EngineKeyFunctions.UIClick
             || args.Function == ContentKeyFunctions.AltActivateItemInWorld)
+        {
             base.KeyBindUp(args);
+        }
     }
 }
 
@@ -261,8 +255,14 @@ public class RadialMenuTextureButtonBase : TextureButton
 /// works only if control have parent, and ActiveContainer property is set.
 /// Also considers all space outside of radial menu buttons as itself for clicking.
 /// </summary>
-public sealed class RadialMenuContextualCentralTextureButton : RadialMenuTextureButtonBase
+public sealed class RadialMenuContextualCentralTextureButton : TextureButton
 {
+    /// <inheritdoc />
+    public RadialMenuContextualCentralTextureButton()
+    {
+        EnableAllKeybinds = true;
+    }
+
     public float InnerRadius { get; set; }
 
     public Vector2? ParentCenter { get; set; }
@@ -279,15 +279,25 @@ public sealed class RadialMenuContextualCentralTextureButton : RadialMenuTexture
 
         var innerRadiusSquared = InnerRadius * InnerRadius;
 
-        // comparing to squared values is faster then making sqrt
+        // comparing to squared values is faster, then making sqrt
         return distSquared < innerRadiusSquared;
+    }
+
+    /// <inheritdoc />
+    protected override void KeyBindUp(GUIBoundKeyEventArgs args)
+    {
+        if (args.Function == EngineKeyFunctions.UIClick
+            || args.Function == ContentKeyFunctions.AltActivateItemInWorld)
+        {
+            base.KeyBindUp(args);
+        }
     }
 }
 
 /// <summary>
 /// Menu button for outer area of radial menu (covers everything 'outside').
 /// </summary>
-public sealed class RadialMenuOuterAreaButton : RadialMenuTextureButtonBase
+public sealed class RadialMenuOuterAreaButton : RadialMenuButtonBase
 {
     public float OuterRadius { get; set; }
 
@@ -296,8 +306,6 @@ public sealed class RadialMenuOuterAreaButton : RadialMenuTextureButtonBase
     /// <inheritdoc />
     protected override bool HasPoint(Vector2 point)
     {
-        return false; // Goobstation edit
-
         if (ParentCenter == null)
         {
             return base.HasPoint(point);
@@ -313,7 +321,7 @@ public sealed class RadialMenuOuterAreaButton : RadialMenuTextureButtonBase
 }
 
 [Virtual]
-public class RadialMenuTextureButton : RadialMenuTextureButtonBase
+public class RadialMenuButton : RadialMenuButtonBase
 {
     /// <summary>
     /// Upon clicking this button the radial menu will be moved to the layer of this control.
@@ -329,9 +337,8 @@ public class RadialMenuTextureButton : RadialMenuTextureButtonBase
     /// <summary>
     /// A simple texture button that can move the user to a different layer within a radial menu
     /// </summary>
-    public RadialMenuTextureButton()
+    public RadialMenuButton()
     {
-        EnableAllKeybinds = true;
         OnButtonUp += OnClicked;
     }
 
@@ -401,7 +408,7 @@ public interface IRadialMenuItemWithSector
 }
 
 [Virtual]
-public class RadialMenuTextureButtonWithSector : RadialMenuTextureButton, IRadialMenuItemWithSector
+public class RadialMenuButtonWithSector : RadialMenuButton, IRadialMenuItemWithSector
 {
     private Vector2[]? _sectorPointsForDrawing;
 
@@ -510,7 +517,7 @@ public class RadialMenuTextureButtonWithSector : RadialMenuTextureButton, IRadia
     /// <summary>
     /// A simple texture button that can move the user to a different layer within a radial menu
     /// </summary>
-    public RadialMenuTextureButtonWithSector()
+    public RadialMenuButtonWithSector()
     {
     }
 

@@ -636,7 +636,7 @@
   - type: TimedDespawn #delete the egg after the chicken spawns
     lifetime: 21
 
-- type: entity # TODO: figure out how to make these guys gib when stepped on
+- type: entity
   name: cockroach
   parent: SimpleMobBase
   id: MobCockroach
@@ -722,14 +722,21 @@
         gibContents: Skip # Shitmed Change
         recursive: false
   - type: NonSpreaderZombie
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 0.2
+  - type: GibOnTrigger
+  - type: ProtectedFromStepTriggers
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - Hissing
     understands:
     - Hissing
     - TauCetiBasic
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-organic
+  - type: SentienceTarget # Goobstation
+    flavorKind: station-event-random-sentience-flavor-organic # Goobstation
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -1158,6 +1165,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune
 
 - type: entity
   name: cow
@@ -2752,6 +2760,7 @@
     - Penguin
     - TauCetiBasic
 
+# TODO: Make grenade penguin voice activated like the rest of the stealth items.
 - type: entity
   name: grenade penguin
   parent: [ MobPenguin, MobCombat, BaseSyndicateContraband ]
@@ -2939,6 +2948,8 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
+  - type: Puller
+    needsHands: false
   - type: NoSlip
   - type: Spider
   - type: IgnoreSpiderWeb
@@ -3394,6 +3405,7 @@
     spawned:
     - id: FoodMeat
       amount: 2
+  # Goob start
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Dog
@@ -3411,6 +3423,7 @@
       gender: epicene
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-corgi
+  # Goob end
   - type: Tag
     tags:
     - VimPilot

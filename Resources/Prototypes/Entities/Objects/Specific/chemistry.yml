@@ -217,8 +217,11 @@
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: beaker
+    destroyOnEmpty: false
+    utensil: None
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
@@ -271,65 +274,6 @@
 
 - type: entity
   parent: BaseItem
-  id: BorgBeaker
-  name: integrated beaker
-  description: An internal compartment installed into a cyborg. Rated for 50 units of any liquid.
-  components:
-  # 3 morbillion components are to avoid inheriting breakable since borgs can't replace beakers.
-  - type: Tag
-    tags:
-    - GlassBeaker
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-    layers:
-      - state: beaker
-      - state: beaker1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Item
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-  - type: MeleeWeapon
-    soundNoDamage:
-      path: "/Audio/Effects/Fluids/splat.ogg"
-    damage:
-      types:
-        Blunt: 0
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 50
-  - type: MixableSolution
-    solution: beaker
-  - type: FitsInDispenser
-    solution: beaker
-  - type: RefillableSolution
-    solution: beaker
-  - type: DrainableSolution
-    solution: beaker
-  - type: ExaminableSolution
-    solution: beaker
-    exactVolume: true
-  - type: DrawableSolution
-    solution: beaker
-  - type: InjectableSolution
-    solution: beaker
-  - type: SolutionTransfer
-    canChangeTransferAmount: true
-  - type: SolutionItemStatus
-    solution: beaker
-  - type: UserInterface
-    interfaces:
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
-  - type: Drink
-    solution: beaker
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: beaker
-
-- type: entity
-  parent: BaseItem
   id: BaseBeakerMetallic
   abstract: true
   components:
@@ -378,8 +322,11 @@
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: beaker
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
@@ -531,10 +478,13 @@
     injectOnly: false
     ignoreMobs: true
     ignoreClosed: false
-    minTransferAmount: 1
-    maxTransferAmount: 5
-    transferAmount: 1
-    toggleState: 1 # draw
+    transferAmounts:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    currentTransferAmount: 1
   - type: ExaminableSolution
     solution: dropper
     exactVolume: true
@@ -611,6 +561,10 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
+    transferAmounts:
+    - 5
+    - 10
+    - 15
   - type: ExaminableSolution
     solution: injector
     exactVolume: true
@@ -627,7 +581,7 @@
       path: /Audio/Weapons/pierce.ogg
   ##- type: CombatDoAfter - This is just problematic and unfun
   ##  trigger: !type:CombatSyringeTriggerEvent
-  ##  breakOnDamage: true
+    ##  breakOnDamage: true
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -689,12 +643,13 @@
     - Syringe
     - SyringeGunAmmo # GoobStation
 
+
 - type: entity
   parent: BaseSyringe
   id: Syringe
   components:
   - type: Injector
-    transferAmount: 15
+    currentTransferAmount: 15
     toggleState: Draw
   - type: Tag
     tags:
@@ -771,6 +726,7 @@
 #    - SyringeGunAmmo
 
 - type: entity
+  abstract: true
   parent: BaseSyringe
   id: PrefilledSyringe
   components:
@@ -840,11 +796,12 @@
         maxVol: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
         canReact: false
   - type: Injector
-    delay: 2
+    delay: 2 # Goobstation
     injectOnly: false
-    minTransferAmount: 5
-    maxTransferAmount: 20
-    transferAmount: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+    transferAmounts:
+    - 5
+    - 20
+    currentTransferAmount: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   - type: Tag
     tags:
     - Syringe
@@ -854,7 +811,6 @@
     materialComposition:
       Steel: 62
       Plastic: 12
-
 
 - type: entity
   name: pill

@@ -246,7 +246,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
             _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
-            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true);
         }
 
         var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);

@@ -59,7 +59,7 @@ public sealed class ContrabandSystem : EntitySystem
         Dirty(uid, contraband);
     }
 
-    private void OnDetailedExamine(Entity<ContrabandComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
+    private void OnDetailedExamine(Entity<ContrabandComponent> component, ref GetVerbsEvent<ExamineVerb> args)
     {
 
         if (!_contrabandExamineEnabled)
@@ -81,17 +81,13 @@ public sealed class ContrabandSystem : EntitySystem
         // two strings:
         // one, the actual informative 'this is restricted'
         // then, the 'you can/shouldn't carry this around' based on the ID the user is wearing
-        var localizedDepartments = ent.Comp.AllowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
-        var jobs = ent.Comp.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
-        var localizedJobs = jobs.Select(p => Loc.GetString("contraband-job-plural", ("job", p)));
-        var severity = _proto.Index(ent.Comp.Severity);
+        var severity = _proto.Index(component.Comp.Severity); // Goobstation?
         String departmentExamineMessage;
         if (severity.ShowDepartmentsAndJobs)
         {
-            //creating a combined list of jobs and departments for the restricted text
-            var list = ContentLocalizationManager.FormatList(localizedDepartments.Concat(localizedJobs).ToList());
             // department restricted text
-            departmentExamineMessage = Loc.GetString("contraband-examine-text-Restricted-department", ("departments", list));
+            departmentExamineMessage =
+                GenerateDepartmentExamineMessage(component.Comp.AllowedDepartments, component.Comp.AllowedJobs); // Goobstation?
         }
         else
         {
@@ -110,10 +106,11 @@ public sealed class ContrabandSystem : EntitySystem
             }
         }
 
+        var jobs = component.Comp.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray(); //Goobstation?
         // if it is fully restricted, you're department-less, or your department isn't in the allowed list, you cannot carry it. Otherwise, you can.
         var carryingMessage = Loc.GetString("contraband-examine-text-avoid-carrying-around");
         var iconTexture = "/Textures/Interface/VerbIcons/lock-red.svg.192dpi.png";
-        if (departments.Intersect(ent.Comp.AllowedDepartments).Any()
+        if (departments.Intersect(component.Comp.AllowedDepartments).Any() // Goobstation?
             || jobs.Contains(jobId))
         {
             carryingMessage = Loc.GetString("contraband-examine-text-in-the-clear");
@@ -121,10 +118,23 @@ public sealed class ContrabandSystem : EntitySystem
         }
         var examineMarkup = GetContrabandExamine(departmentExamineMessage, carryingMessage);
         _examine.AddHoverExamineVerb(args,
-            ent.Comp,
+            component.Comp,// Goobstation?
             Loc.GetString("contraband-examinable-verb-text"),
             examineMarkup.ToMarkup(),
             iconTexture);
+    }
+
+    public string GenerateDepartmentExamineMessage(HashSet<ProtoId<DepartmentPrototype>> allowedDepartments, HashSet<ProtoId<JobPrototype>> allowedJobs, ContrabandItemType itemType = ContrabandItemType.Item)
+    {
+        var localizedDepartments = allowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
+        var jobs = allowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
+        var localizedJobs = jobs.Select(p => Loc.GetString("contraband-job-plural", ("job", p)));
+
+        //creating a combined list of jobs and departments for the restricted text
+        var list = ContentLocalizationManager.FormatList(localizedDepartments.Concat(localizedJobs).ToList());
+
+        // department restricted text
+        return Loc.GetString("contraband-examine-text-Restricted-department", ("departments", list), ("type", itemType));
     }
 
     private FormattedMessage GetContrabandExamine(String deptMessage, String carryMessage)
@@ -145,4 +155,13 @@ public sealed class ContrabandSystem : EntitySystem
     {
         _contrabandExamineOnlyInHudEnabled = val;
     }
+}
+
+/// <summary>
+/// The item type that the contraband text should follow in the description text.
+/// </summary>
+public enum ContrabandItemType
+{
+    Item,
+    Reagent
 }

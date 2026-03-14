@@ -9,6 +9,9 @@
 
 using Content.Shared.Cargo;
 using Content.Shared.CartridgeLoader.Cartridges;
+/*
+
+ Upstreamer todo Merge these todo <mailfix>
 
 namespace Content.Server._DV.Cargo.Components;
 
@@ -21,3 +24,4 @@ public sealed partial class StationLogisticStatsComponent : Component
     [DataField]
     public MailStats Metrics { get; set; }
 }
+*/

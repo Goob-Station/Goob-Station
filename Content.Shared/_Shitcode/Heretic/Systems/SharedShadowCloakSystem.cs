@@ -280,7 +280,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         _appearance.SetData(cloakEntity,
             RotationVisuals.RotationState,
-            _standing.IsDown(ent) ? RotationState.Horizontal : RotationState.Vertical);
+            _standing.IsDown(ent.Owner) ? RotationState.Horizontal : RotationState.Vertical);
     }
 
     private void ResetAbilityCooldown(EntityUid uid, TimeSpan cooldown)

@@ -8,6 +8,7 @@
 
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Labels.Components;
 using Content.Shared.Popups;
@@ -35,6 +36,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
 
         SubscribeLocalEvent<HandLabelerComponent, AfterInteractEvent>(AfterInteractOn);
         SubscribeLocalEvent<HandLabelerComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
+        SubscribeLocalEvent<HandLabelerComponent, ExaminedEvent>(OnExamined);
         // Bound UI subscriptions
         SubscribeLocalEvent<HandLabelerComponent, HandLabelerLabelChangedMessage>(OnHandLabelerLabelChanged);
         SubscribeLocalEvent<HandLabelerComponent, ComponentGetState>(OnGetState);
@@ -149,5 +151,16 @@ public abstract class SharedHandLabelerSystem : EntitySystem
         // Log label change
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(args.Actor):user} set {ToPrettyString(uid):labeler} to apply label \"{handLabeler.AssignedLabel}\"");
+    }
+
+    private void OnExamined(Entity<HandLabelerComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        var text = ent.Comp.AssignedLabel == string.Empty
+            ? Loc.GetString("hand-labeler-examine-blank")
+            : Loc.GetString("hand-labeler-examine-label-text", ("label-text", ent.Comp.AssignedLabel));
+        args.PushMarkup(text);
     }
 }

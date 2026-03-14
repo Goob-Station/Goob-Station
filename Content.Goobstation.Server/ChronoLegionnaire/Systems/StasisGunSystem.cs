@@ -21,7 +21,7 @@ public sealed partial class StasisGunSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<StasisGunComponent, DroppedEvent>(OnWeaponDrop);
-        SubscribeLocalEvent<StasisGunComponent, ThrownEvent>(OnWeaponThrown);
+        SubscribeLocalEvent<StasisGunComponent, ThrowEvent>(OnWeaponThrown);
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ public sealed partial class StasisGunSystem : EntitySystem
     /// <summary>
     /// Return weapon on belt when it thrown
     /// </summary>
-    private void OnWeaponThrown(Entity<StasisGunComponent> gun, ref ThrownEvent args)
+    private void OnWeaponThrown(Entity<StasisGunComponent> gun, ref ThrowEvent args)
     {
         if (!HasComp<Shared.ChronoLegionnaire.Components.StasisImmunityComponent>(args.User))
             return;

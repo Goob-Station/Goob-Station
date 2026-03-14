@@ -920,7 +920,7 @@ LeadChemistryBottle: ChemistryBottleLead
 ToxinChemistryBottle: ChemistryBottleToxin
 
 # Goob - making wizden maps compatible to support mapping efforts. 2025-04-13.
-CargoMailTeleporter: MailTeleporter
+# CargoMailTeleporter: MailTeleporter # see 2026-2-14
 ClothingMaskBlushingMime: ClothingMaskSexyMime
 ClothingMaskBlushingClown: ClothingMaskSexyMime
 MachineMaterialSilo: null
@@ -1019,6 +1019,27 @@ SpawnHonkBot: SpawnMobHonkBot
 CrateFoodPizzaLarge: CrateFoodPizza
 CrateFoodSoftdrinksLarge: CrateFoodSoftdrinks
 
+# 2025-06-03
+FloorTileItemGCircuit4: FloorTileItemGCircuit
+FloorTileItemBCircuit4: FloorTileItemBCircuit
+FloorTileItemRCircuit4: FloorTileItemRCircuit
+
+# 2025-06-06
+MagazineLightRifleMaxim: null
+MagazineLightRiflePkBox: null
+MagazineCaselessRifle10x24: null
+BaseMagazineCaselessRifleShort: null
+MagazineCaselessRifleShort: null
+MagazineCaselessRifleShortPractice: null
+BaseMagazineMagnumSubMachineGun: null
+MagazineMagnumSubMachineGunEmpty: null
+MagazineMagnumSubMachineGun: null
+MagazineMagnumSubMachineGunPractice: null
+MagazineMagnumSubMachineGunUranium: null
+MagazineMagnumSubMachineGunPiercing: null
+BoxMagazineMagnumSubMachineGun: null
+BoxMagazineMagnumSubMachineGunPractice: null
+
 # 2025-06-09
 BarSignAlignTile: BarSign
 BarSignComboCafeAlignTile: BarSignComboCafe
@@ -1050,8 +1071,21 @@ BarSignWhiskeyEchoesAlignTile: BarSignWhiskeyEchoes
 # 2025-06-21
 ClothingNeckHeadphones: ClothingMultipleHeadphones
 
-# 2025-10-09
+# 2025-07-17
+RipleyChassis: null
+HonkerChassis: null
+HamtrChassis: null
+VimChassis: null
+
+# 2025-10-09 & # 2025-08-01 ????
 FoodDonutJellySlugcat: FoodDonutJellyScurret
+
+# 2025-08-11
+ClothingUniformJumpsuitChiefEngineerNT: ClothingUniformJumpsuitChiefEngineer
+ClothingUniformJumpsuitParamedicNT: ClothingUniformJumpsuitParamedic
+
+# 2025-08-29
+PrefilledSyringe: Syringe
 
 # 2026-01-04
 GhostBarSpawner: null
@@ -1061,3 +1095,6 @@ DVSmartFridgeMedical: SmartFridgeMedical
 
 # 2026-01-10 Goobstation Change Mapped Chem to Energy Chem by default
 ChemDispenser: EnergyChemDispenser
+
+# 2026-02-14 Goobstation, upstreaming. wild.
+MailTeleporter: CargoMailTeleporter

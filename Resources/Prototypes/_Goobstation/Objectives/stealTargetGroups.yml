@@ -58,3 +58,10 @@
   sprite:
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: WeaponEnergyGunMultiphase
+  name: steal-target-groups-gemini-projector
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    state: icon

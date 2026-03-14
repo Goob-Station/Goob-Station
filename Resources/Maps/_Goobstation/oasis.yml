@@ -126701,7 +126701,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: Gauze10Lingering
+- proto: Gauze
   entities:
   - uid: 17923
     components:

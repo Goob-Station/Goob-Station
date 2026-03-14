@@ -210,6 +210,8 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  - type: PlacementReplacement
+    key: lights
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 10
   - type: Tag # Goobstation - Prevent RCD from making lights in one tile

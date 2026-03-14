@@ -73,7 +73,6 @@ using Content.Shared.CombatMode;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.Gravity;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mech.Components; // Goobstation
@@ -94,7 +93,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
@@ -126,7 +124,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private   readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
-    [Dependency] private   readonly SharedGravitySystem _gravity = default!;
     [Dependency] protected readonly SharedPointLightSystem Lights = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
@@ -317,13 +314,14 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Attempts to shoot at the target coordinates. Resets the shot counter after every shot.
     /// </summary>
-    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates, EntityUid? target = null)
+    public bool AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates, EntityUid? target = null)
     {
         gun.ShootCoordinates = toCoordinates;
-        AttemptShoot(user, gunUid, gun);
-        gun.ShotCounter = 0;
         gun.Target = target;
+        var result = AttemptShoot(user, gunUid, gun);
+        gun.ShotCounter = 0;
         DirtyField(gunUid, gun, nameof(GunComponent.ShotCounter));
+        return result;
     }
 
     // Goobstation - Crawling turret fix
@@ -338,26 +336,27 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Shoots by assuming the gun is the user at default coordinates.
     /// </summary>
-    public void AttemptShoot(EntityUid gunUid, GunComponent gun)
+    public bool AttemptShoot(EntityUid gunUid, GunComponent gun)
     {
         var coordinates = new EntityCoordinates(gunUid, gun.DefaultDirection);
         gun.ShootCoordinates = coordinates;
-        AttemptShoot(gunUid, gunUid, gun);
+        var result = AttemptShoot(gunUid, gunUid, gun);
         gun.ShotCounter = 0;
+        return result;
     }
 
-    private void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
+    private bool AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
     {
         if (gun.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
         {
-            return;
+            return false;
         }
 
         var toCoordinates = gun.ShootCoordinates;
 
         if (toCoordinates == null)
-            return;
+            return false;
 
         var curTime = Timing.CurTime;
 
@@ -369,16 +368,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         };
         RaiseLocalEvent(gunUid, ref prevention);
         if (prevention.Cancelled)
-            return;
+            return false;
 
         RaiseLocalEvent(user, ref prevention);
         if (prevention.Cancelled)
-            return;
+            return false;
 
         // Need to do this to play the clicking sound for empty automatic weapons
         // but not play anything for burst fire.
         if (gun.NextFire > curTime)
-            return;
+            return false;
 
         var fireRate = TimeSpan.FromSeconds(1f / gun.FireRateModified);
 
@@ -442,7 +441,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
             gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
-            return;
+            return false;
         }
 
         var fromCoordinates = Transform(user).Coordinates;
@@ -472,7 +471,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             if (isRechargingGun)
             {
                 gun.NextFire = lastFire; // for empty PKAs, don't play no-ammo sound and don't trigger the reload
-                return;
+                return false;
             }
 
             if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
@@ -491,10 +490,10 @@ public abstract partial class SharedGunSystem : EntitySystem
                 // May cause prediction issues? Needs more tweaking
                 gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
                 Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
-                return;
+                return false;
             }
 
-            return;
+            return false;
         }
 
         // Handle burstfire
@@ -523,15 +522,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         RaiseLocalEvent(user, shotBodyEv); // Shitmed Change
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
-            return;
+            return true;
 
         var shooterEv = new ShooterImpulseEvent();
         RaiseLocalEvent(user, ref shooterEv);
 
-        if (shooterEv.Push || _gravity.IsWeightless(user, userPhysics))
+        if (shooterEv.Push)
             CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
 
         UpdateAmmoCount(gunUid); //GoobStation - Multishot
+        return true;
     }
 
     public void Shoot(

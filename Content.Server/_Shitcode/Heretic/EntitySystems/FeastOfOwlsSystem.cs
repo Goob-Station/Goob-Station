@@ -53,7 +53,7 @@ public sealed class FeastOfOwlsSystem : EntitySystem
             }
 
             _jitter.DoJitter(uid, comp.JitterStutterTime, true, 10f, 10f,  true, status);
-            _stutter.DoStutter(uid, comp.JitterStutterTime, true, status);
+            _stutter.DoStutter(uid, comp.JitterStutterTime, true);
 
             if (vocalQuery.TryGetComponent(uid, out var vocal))
                 _chat.TryEmoteWithChat(uid, vocal.ScreamId);

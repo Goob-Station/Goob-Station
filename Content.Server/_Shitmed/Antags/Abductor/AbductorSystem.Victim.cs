@@ -12,6 +12,7 @@ using Content.Server.Roles;
 using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
+using Content.Shared._Shitmed.Roles;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Robust.Shared.Player;

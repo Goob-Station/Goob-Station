@@ -154,22 +154,15 @@
     children:
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
-    - id: CargoBountyComputerCircuitboard
-    - id: CargoRequestComputerCircuitboard
-    - id: CargoSaleComputerCircuitboard
-    - id: CargoShuttleConsoleCircuitboard
-    - id: SalvageMagnetMachineCircuitboard
+    - id: BoxQMCircuitboards
+    - id: BoxQMStamps
     - id: CigPackGreen
       prob: 0.75
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
-    - id: RubberStampApproved
-    - id: RubberStampDenied
-    - id: RubberStampQm
     - id: LavalandShuttleConsoleCircuitboard # Goobstation - Mining Shuttle Board
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
-    - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
     - id: CargoMegaphone # goob - loudspeaker
@@ -196,7 +189,7 @@
     - id: ClothingBeltSheathFilled
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
-    - id: CommsComputerCircuitboard
+    - id: BoxCaptainCircuitboards
     - id: DoorRemoteCustom
     - id: MedalCase
     - id: NukeDisk
@@ -277,6 +270,8 @@
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset
+    - id: BoxHoPCircuitboards
+    - id: BoxHoPStamps
     - id: BoxID
     - id: BoxPDA
     - id: CigarGoldCase
@@ -289,12 +284,8 @@
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
-    - id: IDComputerCircuitboard
     - id: ComputerFundingAllocationFlatpack # Goobstation
     - id: ComputerCargoRequestServiceFlatpack # Goobstation
-    - id: RubberStampApproved
-    - id: RubberStampDenied
-    - id: RubberStampHop
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
@@ -324,7 +315,7 @@
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
-    - id: CargoRequestEngineeringComputerCircuitboard
+    - id: BoxCECircuitboards
     # - id: RCD # Goobstation
     - id: RCDAmmo
     - id: RPD
@@ -396,7 +387,7 @@
     - id: DoorRemoteMedical
     # - id: HandheldCrewMonitor # Goobstation - in webbing
     - id: Hypospray
-    - id: MedicalTechFabCircuitboard
+    - id: BoxCMOCircuitboards
     - id: ComputerCargoRequestMedicalFlatpack # Goobstation
     - id: MedkitFilled
     - id: RubberStampCMO
@@ -462,13 +453,11 @@
     children:
     - id: Intellicard
     - id: BoxEncryptionKeyScience
-    #- id: CircuitImprinterMachineCircuitboard # Goobstation - Science Techfab
+    - id: BoxRDCircuitboards
     - id: ClothingBeltUtilityFilled
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
     - id: HandTeleporter
-    #- id: ProtolatheMachineCircuitboard # Goobstation - Science Techfab
-    - id: ResearchComputerCircuitboard
     - id: ComputerCargoRequestScienceFlatpack # Goobstation
     - id: RubberStampRd
     # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
@@ -535,7 +524,9 @@
     - id: DoorRemoteSecurity
     #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
-    - id: SecurityTechFabCircuitboard
+    - id: BoxHoSCircuitboards
+    - id: WeaponDisabler
+    - id: WeaponTaser
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     - id: WantedListCartridge

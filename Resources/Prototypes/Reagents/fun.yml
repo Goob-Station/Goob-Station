@@ -79,6 +79,7 @@
   group: Toxins
   desc: reagent-desc-buzzochloric-bees
   physicalDesc: reagent-physical-desc-buzzy
+  contrabandSeverity: Minor
   flavor: bee
   color: "#FFD35D"
   tileReactions:
@@ -202,6 +203,7 @@
   group: Toxins
   desc: reagent-desc-licoxide
   physicalDesc: reagent-physical-desc-electric
+  contrabandSeverity: Minor
   flavor: shocking
   color: "#FDD023"
   metabolisms:
@@ -258,6 +260,8 @@
     requiredSlipSpeed: 3.5
   desc: reagent-desc-fresium
   physicalDesc: reagent-physical-desc-frosty
+  allowedDepartments:
+  - Medical
   flavor: cold
   color: "#b3f1ff"
   boilingPoint: 50.0
