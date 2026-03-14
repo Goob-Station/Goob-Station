@@ -1,21 +1,40 @@
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Server.CriminalRecords.Systems;
+using Content.Server.Popups;
+using Content.Server.Radio.EntitySystems;
+using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
+using Content.Server.StationRecords.Systems;
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
+using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Server.CriminalRecords.Systems; // Goobstation-WantedMenu
+namespace Content.Goobstation.Server.CriminalRecords.Systems; // Goobstation-WantedMenu
 
-public sealed partial class CriminalRecordsConsoleSystem
+public sealed class WantedMenuSystem : EntitySystem
 {
+    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly StationRecordsSystem _records = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+
+    public override void Initialize()
+    {
+        Subs.BuiEvents<IdExaminableComponent>(SetWantedVerbMenu.Key, subs => // Goobstation-WantedMenu
+        {
+            subs.Event<BoundUIOpenedEvent>(UpdateUserInterface);
+            subs.Event<CriminalRecordChangeStatus>(OnChangeStatus);
+        });
+    }
+
     private void UpdateUserInterface<T>(Entity<IdExaminableComponent> ent, ref T args)
     {
         UpdateUserInterface(ent);
@@ -174,5 +193,12 @@ public sealed partial class CriminalRecordsConsoleSystem
             ent.Comp.SecurityChannel, ent);
 
         UpdateUserInterface(ent);
+    }
+
+    private void GetOfficer(EntityUid uid, out string officer)
+    {
+        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, uid);
+        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
+        officer = tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("criminal-records-console-unknown-officer");
     }
 }
