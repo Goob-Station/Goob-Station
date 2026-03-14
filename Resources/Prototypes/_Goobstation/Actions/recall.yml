@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionRecallBoundItem
+  name: Recall Item
+  description: Recall the bound item to your hand.
+  components:
+  - type: Action
+    useDelay: 2
+    icon:
+      sprite: /Textures/_Goobstation/Effects/bluespace_lifeline.rsi # Placeholder
+      state: bluespace_lifeline # Placeholder
+  - type: InstantAction
+    event: !type:RecallBoundItemEvent {}
