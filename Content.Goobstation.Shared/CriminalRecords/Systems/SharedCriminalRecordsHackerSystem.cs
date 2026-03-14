@@ -1,5 +1,6 @@
+using Content.Goobstation.Shared.CriminalRecords.Components;
+using Content.Shared.Access.Components;
 using Content.Shared.CriminalRecords.Components;
-using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Power.EntitySystems;
 
@@ -12,10 +13,14 @@ public abstract class SharedCriminalRecordsHackerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CriminalRecordsHackerComponent, BeforeInteractHandEvent>(OnBeforeInteractHand, before: [typeof(Content.Shared.CriminalRecords.Systems.SharedCriminalRecordsHackerSystem)]);
+        SubscribeLocalEvent<GoobCriminalRecordsHackerComponent, BeforeInteractHandEvent>(OnBeforeInteractHand, before: [typeof(Content.Shared.CriminalRecords.Systems.SharedCriminalRecordsHackerSystem)]);
+
+        SubscribeLocalEvent<CriminalRecordsHackerComponent, MapInitEvent>(Attach);
+        SubscribeLocalEvent<CriminalRecordsHackerComponent, ComponentStartup>(Attach);
+        SubscribeLocalEvent<CriminalRecordsHackerComponent, ComponentShutdown>(Detach);
     }
 
-    private void OnBeforeInteractHand(Entity<CriminalRecordsHackerComponent> ent, ref BeforeInteractHandEvent args)
+    private void OnBeforeInteractHand(Entity<GoobCriminalRecordsHackerComponent> ent, ref BeforeInteractHandEvent args)
     {
         // Block the event if target is not powered.
         if (args.Handled || _powerReceiverSystem.IsPowered(args.Target))

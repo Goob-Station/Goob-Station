@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.WantedMenu.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Examine;
@@ -8,7 +9,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.WantedMenu;
+namespace Content.Goobstation.Shared.WantedMenu.Systems;
 
 public abstract class SharedWantedMenuSystem : EntitySystem
 {
@@ -20,21 +21,25 @@ public abstract class SharedWantedMenuSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IdExaminableComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
-        SubscribeLocalEvent<IdExaminableComponent, GetVerbsEvent<AlternativeVerb>>(OnWantedMenuOpen);
+        SubscribeLocalEvent<WantedMenuTargettableComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+        SubscribeLocalEvent<WantedMenuTargettableComponent, GetVerbsEvent<AlternativeVerb>>(OnWantedMenuOpen);
+
+        SubscribeLocalEvent<IdExaminableComponent, MapInitEvent>(Attach);
+        SubscribeLocalEvent<IdExaminableComponent, ComponentStartup>(Attach);
+        SubscribeLocalEvent<IdExaminableComponent, ComponentShutdown>(Detach);
     }
 
-    private void OnGetExamineVerbs(EntityUid uid, IdExaminableComponent component, GetVerbsEvent<ExamineVerb> args)
+    private void OnGetExamineVerbs(EntityUid uid, WantedMenuTargettableComponent _, ref GetVerbsEvent<ExamineVerb> args)
     {
         if (!CanAccessWantedMenu(args.User, uid))
             return;
 
         var detailsRange = _examineSystem.IsInDetailsRange(args.User, uid);
         var info = GetMessage(uid);
-
+        var user = args.User;
         var wantedVerb = new ExamineVerb()
         {
-            Act = () => OpenWantedUI(args.User, uid),
+            Act = () => OpenWantedUI(user, uid),
             Text = Loc.GetString("criminal-verb-name"),
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
@@ -46,15 +51,16 @@ public abstract class SharedWantedMenuSystem : EntitySystem
     }
 
     private void OnWantedMenuOpen(EntityUid uid,
-            IdExaminableComponent _,
-            GetVerbsEvent<AlternativeVerb> args)
+            WantedMenuTargettableComponent _,
+            ref GetVerbsEvent<AlternativeVerb> args)
     {
+        var user = args.User;
         if (!args.CanInteract || !args.CanAccess || !CanAccessWantedMenu(args.User, uid))
             return;
 
         args.Verbs.Add(new AlternativeVerb()
         {
-            Act = () => OpenWantedUI(args.User, uid),
+            Act = () => OpenWantedUI(user, uid),
             Text = Loc.GetString("criminal-verb-name"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/_Goobstation/Interface/VerbIcons/wanted.png")),
             Priority = 3

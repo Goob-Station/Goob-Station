@@ -18,8 +18,9 @@ public sealed class IdExaminableSystem : EntitySystem
         SubscribeLocalEvent<IdExaminableComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
     }
 
-    private void OnGetExamineVerbs(EntityUid uid, IdExaminableComponent component, GetVerbsEvent<ExamineVerb> args)
+    private void OnGetExamineVerbs(EntityUid uid, IdExaminableComponent component, ref GetVerbsEvent<ExamineVerb> args)
     {
+        var user = args.User;
         var detailsRange = _examineSystem.IsInDetailsRange(args.User, uid);
         var info = GetMessage(uid);
 
@@ -29,7 +30,7 @@ public sealed class IdExaminableSystem : EntitySystem
             {
                 var markup = FormattedMessage.FromMarkupOrThrow(info);
 
-                _examineSystem.SendExamineTooltip(args.User, uid, markup, false, false);
+                _examineSystem.SendExamineTooltip(user, uid, markup, false, false);
             },
             Text = Loc.GetString("id-examinable-component-verb-text"),
             Category = VerbCategory.Examine,

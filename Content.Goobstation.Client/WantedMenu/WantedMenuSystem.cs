@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.WantedMenu;
+using Content.Goobstation.Shared.WantedMenu.Systems;
 
 namespace Content.Goobstation.Client.WantedMenu;
 

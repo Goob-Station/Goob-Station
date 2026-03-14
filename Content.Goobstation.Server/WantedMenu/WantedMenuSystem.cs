@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.WantedMenu;
+using Content.Goobstation.Shared.WantedMenu.Systems;
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
