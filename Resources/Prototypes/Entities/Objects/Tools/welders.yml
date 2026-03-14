@@ -312,6 +312,9 @@
     price: 50
   - type: WeldingSparks # Goobstation
     effect: EffectWeldingSparksExp
+  - type: Tag
+    tags:
+    - WelderExperimental # Goobstation
 
 - type: entity
   name: emergency welding tool

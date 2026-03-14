@@ -77,6 +77,9 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - AmmoBox35AutoBase # Goobstation
 
 - type: entity
   parent: BaseMagazineBoxPistol
@@ -109,6 +112,9 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: incendiary
+  - type: Tag
+    tags:
+    - AmmoBox35AutoIncendiary # Goobstation
 
 - type: entity
   id: MagazineBoxPistolUranium
@@ -125,3 +131,6 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: uranium
+  - type: Tag
+    tags:
+    - AmmoBox35AutoUranium # Goobstation

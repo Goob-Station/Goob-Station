@@ -1,0 +1,130 @@
+- type: constructionGraph
+  id: GraphCrateShipmentScience
+  graph:
+    - node: start
+      edges:
+      #MARK: Anomaly
+      - to: shipmentScienceAnomaly
+        steps:
+          - tag: NoticeScienceAnomaly
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: AnomalyLocatorTool
+            name: "4x anomaly locator"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: AnomalyLocatorTool
+            name: "3x anomaly locator"
+            doAfter: 0.1
+          - tag: AnomalyLocatorTool
+            name: "2x anomaly locator"
+            doAfter: 0.1
+          - tag: AnomalyLocatorTool
+            name: "1x anomaly locator"
+            doAfter: 0.1
+          - tag: AnomalyLocatorWideSpectrum
+            name: "4x wide spectrum anomaly locator"
+            doAfter: 0.1
+          - tag: AnomalyLocatorWideSpectrum
+            name: "3x wide spectrum anomaly locator"
+            doAfter: 0.1
+          - tag: AnomalyLocatorWideSpectrum
+            name: "2x wide spectrum anomaly locator"
+            doAfter: 0.1
+          - tag: AnomalyLocatorWideSpectrum
+            name: "1x wide spectrum anomaly locator"
+            doAfter: 0.1
+          - tag: AnomalyScannerTool
+            name: "4x anomaly scanner"
+            doAfter: 0.1
+          - tag: AnomalyScannerTool
+            name: "3x anomaly scanner"
+            doAfter: 0.1
+          - tag: AnomalyScannerTool
+            name: "2x anomaly scanner"
+            doAfter: 0.1
+          - tag: AnomalyScannerTool
+            name: "1x anomaly scanner"
+            doAfter: 0.1
+          - material: Plasma
+            amount: 30
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CratePlasticLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+      #MARK: Workstation
+      - to: shipmentScienceWorkstation
+        steps:
+          - tag: NoticeScienceWorkstation
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 0
+            #Content of the shipment start
+          - tag: AutolatheBoard
+            name: "1x autolathe circuit board"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 1
+          - tag: ProtolatheBoard
+            name: "1x protolathe circuit board"
+            doAfter: 0.1
+          - tag: ImprinterBoard
+            name: "1x circuit imprinter circuit board"
+            doAfter: 0.1
+          - tag: ExofabBoard
+            name: "1x exosuit fabricator circuit board"
+            doAfter: 0.1
+          - tag: FlatpackerBoard
+            name: "1x flatpacker 1001 circuit board"
+            doAfter: 0.1
+          - material: Steel
+            amount: 30
+            doAfter: 0.1
+          - material: Glass
+            amount: 15
+            doAfter: 0.1
+          - material: Cable
+            amount: 5
+            doAfter: 0.1
+            #Content of the shipment end
+          - tag: CratePlasticLid
+            name: "the respective crate lid"
+            doAfter: 0.1
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 2
+          - material: Plasteel
+            amount: 2
+            doAfter: 0.4
+            completed:
+              - !type:VisualizerDataInt
+                key: "enum.ConstructionVisuals.Key"
+                data: 3
+    - node: shipmentScienceAnomaly
+      entity: CrateShipmentScienceAnomaly
+    - node: shipmentScienceWorkstation
+      entity: CrateShipmentScienceWorkstation
