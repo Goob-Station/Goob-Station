@@ -40,5 +40,5 @@ public sealed partial class MansusGraspComponent : Component
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
     [DataField]
-    public LocId Invocation = "heretic-speech-mansusgrasp";
+    public LocId? Invocation = "heretic-speech-mansusgrasp";
 }

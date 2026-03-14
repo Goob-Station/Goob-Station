@@ -18,6 +18,10 @@ heretic-ability-fail-tile-occupied = Targeted tile is occupied!
 heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this surface!
 heretic-ability-fail-target-ghoul = Target is ghoul already!
 heretic-ability-fail-target-no-mind = Target has no soul!
+heretic-ability-fail-other-minds-nearby = Other minds nearby!
+
+heretic-ability-lose-focus-shadow-cloak = As you lose your focus, you are pulled out of the shadows!
+heretic-ability-lose-focus-last-refuge = Without a focus, your refuge weakens and dissipates!
 
 heretic-cosmic-rune-fail-star-mark = Blocked by star mark!
 heretic-cosmic-rune-fail-unlinked = No linked rune!
@@ -38,6 +42,8 @@ heretic-cant-shoot = I can't use { THE($entity) } because of my sacred pledge to
 ## paths exclusive
 heretic-rust-mark-itembreak = {$name} shatters into dust!
 mansus-infused-item-examine = [color=purple]The item's sheer presence alone gives you shivers. Should you really pick it up?[/color]
+heretic-lock-unlocked = unlocked!
+heretic-last-refuge-examine-message = [color=purple]{CAPITALIZE(SUBJECT($target))} is enveloped in an unholy haze![/color]
 
 ## mansus link
 heretic-manselink-fail-exists = This creature is already connected!
@@ -90,6 +96,8 @@ heretic-speech-star-touch = ST'R 'N'RG'!!
 heretic-speech-star-blast = R'T'T' ST'R!!
 heretic-speech-cosmic-expansion = C'SM'S 'XP'ND!
 heretic-speech-stargaze = SH''P D' W''P
+
+heretic-speech-bulglar-finesse = Y'O'K!
 
 heretic-speech-cleave = CL'VE!
 heretic-speech-bloodsiphon = FL'MS O'ET'RN'ITY!

@@ -89,6 +89,12 @@ public sealed partial class TrailComponent : Component
     public Angle EndAngle;
 
     /// <summary>
+    /// Controls the randomness of angle
+    /// </summary>
+    [DataField]
+    public float AngleVariation;
+
+    /// <summary>
     /// The less this value is, the more frequent the particles will be. This is basically time of each cycle.
     /// </summary>
     [DataField, AutoNetworkedField]

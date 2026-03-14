@@ -434,6 +434,13 @@ public sealed class HealingSystem : EntitySystem
                 targetedWoundable = woundablesQueue.Dequeue();
                 if (!TryComp<WoundableComponent>(targetedWoundable, out var woundableComp2))
                     continue;
+
+                if (_wounds.GetWoundableWounds(targetedWoundable, woundableComp2).Any(wound => !_wounds.CanHealWound(wound, wound.Comp)))
+                {
+                    leftoverHealAndTrauma = true;
+                    continue;
+                }
+
                 if (TraumaSystem.TraumasBlockingHealing.Any(traumaType => _trauma.HasWoundableTrauma(targetedWoundable, traumaType, woundableComp2, false)))
                 {
                     canHeal = false;
