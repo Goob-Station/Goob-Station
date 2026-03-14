@@ -40,6 +40,8 @@
   - type: Clickable
   - type: Butcherable
     butcherDelay: 15
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
