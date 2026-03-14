@@ -1,0 +1,62 @@
+- type: listing
+  id: WerewolfDirewolf
+  name: werewolf-store-choose-direwolf-name
+  description: werewolf-store-choose-direwolf-desc
+  icon:
+    sprite: _Goobstation/Werewolf/Mutations/direwolf.rsi
+    state: icon
+  productEvent: !type:EventWerewolfChangeType
+    werewolfType: WerewolfTransformDirewolf
+  raiseProductEventOnUser: true
+  cost:
+    Fury: 15
+  categories:
+  - WerewolfChoose
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: WerewolfHowlUpgrade
+  name: werewolf-store-howl-direwolf-name
+  description: werewolf-store-howl-direwolf-desc
+  icon:
+    sprite: _Goobstation/Actions/werewolf.rsi
+    state: howl-red
+  productEvent: !type:EventWerewolfUpgradeAbility
+    oldActionId: ActionWerewolfHowl
+    newActionId: ActionWerewolfHowlDire
+  raiseProductEventOnUser: true
+  cost:
+    Fury: 5
+  categories:
+  - WerewolfDire
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - WerewolfDirewolf
+
+
+- type: listing
+  id: WerewolfBiteDire
+  name: werewolf-store-bite-direwolf-name
+  description: werewolf-store-bite-direwolf-desc
+  icon:
+    sprite: _Goobstation/Actions/werewolf.rsi
+    state: bleeding-bite
+  productEvent: !type:EventWerewolfUpgradeAbility
+    newActionId: ActionWerewolfBiteDire
+  raiseProductEventOnUser: true
+  cost:
+    Fury: 10
+  categories:
+  - WerewolfDire
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - WerewolfDirewolf
+

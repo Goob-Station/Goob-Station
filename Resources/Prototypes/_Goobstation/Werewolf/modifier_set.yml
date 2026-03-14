@@ -1,0 +1,10 @@
+- type: damageModifierSet
+  id: WerewolfBase
+  coefficients:
+    Blunt: 0.15
+    Slash: 0.15
+    Piercing: 0.15
+    Heat: 0.30
+    Cold: 0.85 # fur
+    Holy: 3.0
+  ignoreArmorPierceFlags: All # Goobstation
