@@ -6,11 +6,13 @@
 
 using Content.Goobstation.Common.DelayedDeath;
 using Content.Goobstation.Shared.CheatDeath;
+using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devour.Events;
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Jittering;
+using Content.Shared.Actions.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -131,6 +133,12 @@ public sealed partial class CheatDeathSystem : EntitySystem
         // Revive entity
         _rejuvenateSystem.PerformRejuvenate(ent);
         _jitter.DoJitter(ent, TimeSpan.FromSeconds(5), true);
+
+        // Remove the action from devil after using it.
+        _actionsSystem.RemoveAction(ent.Owner, args.Action.AsNullable());
+
+        if (ent.Comp.ActionEntity == args.Action)
+            ent.Comp.ActionEntity = null;
 
         // Decrement remaining revives.
         if (!ent.Comp.InfiniteRevives)

@@ -39,3 +39,23 @@
       time: 18000 # 5 hours
     raffle:
       settings: default
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostSlaughterDemon
+  id: SpawnPointGhostSlaughterDemonTimed
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-timed-demon-name
+    description: ghost-role-information-timed-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: short
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 6000

@@ -1,6 +1,7 @@
 slaughter-round-end-agent-name = slaughter demon
 laughter-round-end-agent-name = laughter demon
 lesser-slaughter-round-end-agent-name = lesser slaughter demon
+contracted-slaughter-round-end-agent-name = contracted slaughter demon
 
 objective-issuer-slaughter-satan = [color=#FF0000]Satan[/color]
 objective-issuer-slaughter-bubblegum = [color=#9F2B68]Bubblegum[/color]

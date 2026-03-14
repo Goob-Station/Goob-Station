@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Cloning; // Goobstation
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Cloning.Components;
@@ -161,6 +162,9 @@ public sealed class CloningPodSystem : EntitySystem
     public bool TryCloning(EntityUid uid, EntityUid bodyToClone, Entity<MindComponent> mindEnt, CloningPodComponent? clonePod, float failChanceModifier = 1)
     {
         if (!Resolve(uid, ref clonePod))
+            return false;
+
+        if (HasComp<CondemnedComponent>(uid)) // Goobstation change, devil rework
             return false;
 
         if (HasComp<ActiveCloningPodComponent>(uid))

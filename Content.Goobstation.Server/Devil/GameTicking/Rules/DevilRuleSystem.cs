@@ -17,6 +17,9 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Store;
+using Content.Shared.Store.Components;
+
 
 namespace Content.Goobstation.Server.Devil.GameTicking.Rules;
 
@@ -26,6 +29,9 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
+
+    public readonly ProtoId<CurrencyPrototype> Currency = "SoulsStored";
+    public readonly int StartingCurrency = 0;
     public override void Initialize()
     {
         base.Initialize();
@@ -49,6 +55,14 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
         _npcFaction.RemoveFaction(target, rule.NanotrasenFaction);
         _npcFaction.AddFaction(target, rule.DevilFaction);
+
+        // add store
+        var store = EnsureComp<StoreComponent>(target);
+
+        store.Categories.Add(rule.StoreCategory);
+
+        store.CurrencyWhitelist.Add(Currency);
+        store.Balance.Add(Currency, StartingCurrency);
 
         return true;
     }
