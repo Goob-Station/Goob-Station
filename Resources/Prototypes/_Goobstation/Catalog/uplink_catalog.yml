@@ -903,6 +903,20 @@
     stock: 1
 
 - type: listing
+  id: AncientToolboxUplink
+  name: uplink-ancient-toolbox-name
+  description: uplink-ancient-toolbox-desc
+  productEntity: AncientToolboxFilled
+  cost:
+    Telecrystal: 10 
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Passenger
+  
+- type: listing
   id: UplinkAdvMimery
   name: uplink-adv-mimery-name
   description: uplink-adv-mimery-desc
