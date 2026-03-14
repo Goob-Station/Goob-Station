@@ -134,5 +134,7 @@
       amount: 1
     - id: BoxTearGas
       amount: 1
-    - id: Bola # replace with 4 e-bolas when added
+    - id: BoxGrenadesSecurityEmp #Goobstation
+      amount: 1
+    - id: BolaEnergy #Goobstation
       amount: 4

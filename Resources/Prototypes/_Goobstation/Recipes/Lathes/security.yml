@@ -34,6 +34,15 @@
     Plastic: 100
 
 - type: latheRecipe
+  id: SecurityEmpGrenade
+  result: SecurityEmpGrenade
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+    Plasma: 200
+
+- type: latheRecipe
   id: HoloprojectorSecurityAdvanced
   result: HoloprojectorSecurityAdvanced
   completetime: 6
@@ -773,4 +782,3 @@
     Plastic: 250
     Cloth: 200
 
-  
