@@ -597,6 +597,9 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType # Goobstation - XenobioSlime
+            type: XenobioSlime
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -613,6 +616,9 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType # Goobstation - XenobioSlime
+            type: XenobioSlime # slimes shouldn't vomit from blood and raw meat
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -624,6 +630,9 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType # Goobstation - XenobioSlime
+          type: XenobioSlime
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -631,6 +640,12 @@
         conditions:
         - !type:OrganType
           type: Animal
+        reagent: Protein
+        amount: 0.5
+      - !type:AdjustReagent # Goobstation - XenobioSlime
+        conditions:
+        - !type:OrganType
+          type: XenobioSlime
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent

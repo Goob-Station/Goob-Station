@@ -108,7 +108,7 @@
         messages: [ "slime-hurt-by-water-popup" ]
         probability: 0.25
   - type: Body
-    prototype: Slimes
+    prototype: XenobioSlimes
     requiredLegs: 1
   - type: MeleeWeapon
     damage:
