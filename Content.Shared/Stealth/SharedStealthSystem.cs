@@ -237,5 +237,19 @@ public abstract class SharedStealthSystem : EntitySystem
             return;
         comp.ThermalsImmune = value;
     }
+
+    public void SetRevealOnAttack(Entity<StealthComponent> ent, bool state)
+    {
+        ent.Comp.RevealOnAttack = state;
+
+        Dirty(ent);
+    }
+
+    public void SetRevealOnDamage(Entity<StealthComponent> ent, bool state)
+    {
+        ent.Comp.RevealOnDamage = state;
+
+        Dirty(ent);
+    }
     // Goobstation end
 }
