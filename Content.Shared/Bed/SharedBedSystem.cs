@@ -80,10 +80,10 @@ public abstract class SharedBedSystem : EntitySystem
 
     private void OnStasisEmagged(Entity<StasisBedComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareProtoId(args.Type, "Interaction")) // goob edit
             return;
 
-        if (_emag.CheckFlag(ent, EmagType.Interaction))
+        if (_emag.CheckProtoId(ent, "Interaction")) // goob edit
             return;
 
         ent.Comp.Multiplier = 1f / ent.Comp.Multiplier;
