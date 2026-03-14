@@ -1,11 +1,4 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Chat.Systems;
-using Content.Server.Power.EntitySystems; // Goobstation - Check power
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.CriminalRecords;
@@ -27,7 +20,6 @@ public sealed class CriminalRecordsHackerSystem : SharedCriminalRecordsHackerSys
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!; // Goobstation - check power
     public override void Initialize()
     {
         base.Initialize();
@@ -37,7 +29,7 @@ public sealed class CriminalRecordsHackerSystem : SharedCriminalRecordsHackerSys
 
     private void OnDoAfter(Entity<CriminalRecordsHackerComponent> ent, ref CriminalRecordsHackDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || args.Target == null || !_powerReceiverSystem.IsPowered(args.Target.Value)) // Goobstation - check power
+        if (args.Cancelled || args.Handled || args.Target == null)
             return;
 
         if (_station.GetOwningStation(ent) is not {} station)
