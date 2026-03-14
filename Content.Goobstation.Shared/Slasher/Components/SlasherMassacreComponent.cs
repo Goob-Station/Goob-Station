@@ -1,4 +1,4 @@
-using Content.Shared.Actions;
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -8,23 +8,33 @@ namespace Content.Goobstation.Shared.Slasher.Components;
 /// <summary>
 /// Added to the Slasher user to track status.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlasherMassacreUserComponent : Component
 {
     /// <summary>
     /// Currently chained victim being massacred. Reset if miss or victim changes.
     /// </summary>
-    [ViewVariables] public EntityUid? CurrentVictim;
+    [ViewVariables, AutoNetworkedField] public EntityUid? CurrentVictim;
 
     /// <summary>
     /// Number of consecutive successful hits in current chain.
     /// </summary>
-    [ViewVariables] public int HitCount;
+    [ViewVariables, AutoNetworkedField] public int HitCount;
 
     /// <summary>
     /// Whether massacre mode is active.
     /// </summary>
-    [ViewVariables] public bool Active;
+    [ViewVariables, AutoNetworkedField] public bool Active;
+
+    /// <summary>
+    /// Time when the last attack occurred. Used for timeout tracking.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField] public TimeSpan? LastAttackTime;
+
+    /// <summary>
+    /// How long before the chain automatically ends.
+    /// </summary>
+    [DataField] public float ChainTimeoutSeconds = 10f;
 
     [DataField]
     public SoundSpecifier MassacreIntro =
@@ -35,6 +45,36 @@ public sealed partial class SlasherMassacreUserComponent : Component
                  .WithRolloffFactor(8f)
                  .WithMaxDistance(10f)
          };
+}
+
+/// <summary>
+/// Temporarily added to victims being attacked during massacre mode.
+/// Used to track when they die and apply kill bonuses.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class SlasherMassacreVictimComponent : Component
+{
+    /// <summary>
+    /// The attacker performing the massacre.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField] public EntityUid? Attacker;
+
+    /// <summary>
+    /// Reference to the weapon component.
+    /// </summary>
+    [ViewVariables] public SlasherMassacreMacheteComponent? WeaponComp;
+
+    /// <summary>
+    /// The sound to play on kill.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier MassacreFinale =
+             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreEnd.ogg")
+             {
+                 Params = AudioParams.Default
+                     .WithRolloffFactor(8f)
+                     .WithMaxDistance(10f)
+             };
 }
 
 /// <summary>
@@ -59,24 +99,45 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
     [DataField] public int PerHitBonus = 3;
 
     /// <summary>
-    /// On reaching this many hits start attempting random limb severs each hit (10 by design).
+    /// On reaching this many hits sever a random limb. Limb is severed every multiple of this value.
     /// </summary>
     [DataField] public int LimbSeverHits = 4;
-
-    /// <summary>
-    /// Chance to sever a random limb.
-    /// </summary>
-    [DataField] public float LimbSeverChance = 0.40f;
 
     /// <summary>
     /// How many hits to decapitate
     /// </summary>
     [DataField] public int DecapitateHit = 13;
 
+    /// <summary>
+    /// Speed bonus multiplier per hit when killing a target.
+    /// </summary>
+    [DataField] public float SpeedBonusPerHit = 0.01f;
+
+    /// <summary>
+    /// Duration of speed boost in seconds.
+    /// </summary>
+    [DataField] public float SpeedBoostDuration = 10f;
+
+    /// <summary>
+    /// Amount of healing reagent to inject per hit when killing a target.
+    /// </summary>
+    [DataField] public float HealAmountPerHit = 0.5f;
+
+    /// <summary>
+    /// The healing reagent to inject on kill.
+    /// </summary>
+    [DataField] public ProtoId<ReagentPrototype> HealReagent = "slasherium";
+
+    /// <summary>
+    /// The MassacreAction.
+    /// </summary>
     [DataField] public EntProtoId MassacreActionId = "ActionSlasherMassacre";
 
     [ViewVariables] public EntityUid? MassacreActionEntity;
 
+    /// <summary>
+    /// Sound played when massacre is turned on.
+    /// </summary>
     [DataField]
     public SoundSpecifier MassacreIntro =
              new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreIntro.ogg")
@@ -86,6 +147,9 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
                      .WithMaxDistance(10f)
              };
 
+    /// <summary>
+    /// Sound to play when doing normal hits.
+    /// </summary>
     [DataField]
     public SoundSpecifier MassacreSlash =
              new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreSlash.ogg")
@@ -95,6 +159,9 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
                      .WithMaxDistance(10f)
              };
 
+    /// <summary>
+    /// Sound to play when delimbing.
+    /// </summary>
     [DataField]
     public SoundSpecifier MassacreDelimb =
              new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreDelimb.ogg")
