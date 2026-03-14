@@ -2294,6 +2294,21 @@
       tags:
       - Mouse
   - type: MobCallable
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: mouse
+    templateId: mouse
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Animals/mouse/displacement.rsi
+            state: head
   # </Goobstation>
 
 - type: entity

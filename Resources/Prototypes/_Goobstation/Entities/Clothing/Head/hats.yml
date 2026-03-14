@@ -263,6 +263,7 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable
 
 - type: entity
   parent: ClothingHeadHatCapcap
@@ -277,7 +278,7 @@
     sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
   - type: Item
     sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTinfoilHat
