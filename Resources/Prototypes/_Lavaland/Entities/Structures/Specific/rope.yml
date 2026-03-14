@@ -1,0 +1,99 @@
+- type: entity
+  parent: BaseStructure
+  id: BaseRopeRailing
+  abstract: true
+  name: rope
+  description: Basic rope meant to protect idiots like you from falling.
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Lavaland/Structures/Specific/rope.rsi
+    state: rope
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Climbable
+
+- type: entity
+  parent: BaseRopeRailing
+  id: RopeRailing
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Lavaland/Structures/Specific/rope.rsi
+    state: rope
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.44"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/snap.ogg
+          params:
+            volume: -6
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: RopeRailingPillarLeft
+  name: rope stake
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Lavaland/Structures/Specific/rope.rsi
+    state: pillarleft
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/snap.ogg
+          params:
+            volume: -6
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Structure
+  - type: Tag
+    tags:
+      - Structure
+
+- type: entity
+  parent: RopeRailingPillarLeft
+  id: RopeRailingPillarRight
+  name: rope stake
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Lavaland/Structures/Specific/rope.rsi
+    state: pillarright

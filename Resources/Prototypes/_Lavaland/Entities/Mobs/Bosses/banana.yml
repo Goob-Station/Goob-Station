@@ -1,0 +1,210 @@
+- type: entity
+  id: MobChildishOni
+  name: Childish oni
+  description: The oni of the demonic capital.
+  components:
+  - type: Vocal
+    sounds:
+      Female: FemaleHuman # No oni sadge
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
+  - type: Speech
+    speechVerb: Oni
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.6,0.35,0.6"
+        density: 10000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite:  /Textures/_Lavaland/Mobs/Bosses/banana.rsi
+    noRot: true
+    state: drinking
+  - type: Clickable
+  - type: InteractionOutline
+  - type: LagCompensation
+  - type: Actions
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: RequireProjectileTarget
+    active: False
+  - type: CombatMode
+  - type: MobState
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant # Should use a more generic name, Rounded. This works for all bosses tbh
+  - type: NoSlip
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: DamageOnCollide # To prevent getting stuck on objects.
+    ignoreWhitelist:
+      components:
+        - ChildishOni
+    inverted: true
+    damage:
+      types:
+        Structural: 1000
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2600: Dead
+  - type: Tag
+    tags:
+    - CannotSuicide
+  # Actual boss from here
+  - type: ActionGrant
+    actions:
+    - ActionDemonicHandSpiral
+    - ActionOniRampage
+    - ActionRingOfFireClose
+    - ActionRingOfFireWide
+    - ActionFlamingSlash
+    - ActionClawSlash
+    - ActionFlurryOfSlashes
+    - ActionOniHandFarSide
+    - ActionOniHandFarBarrage
+  - type: Fauna
+  - type: Anger
+    totalHp: 2600
+  - type: Aggressive
+    forgiveRange: 25
+  - type: MobPhases
+    phaseThresholds:
+      0:    1
+      1:    2
+      700:  3
+      1600: 4
+  - type: MobPhaseSprite
+    phases:
+      1:
+        rsi: /Textures/_Lavaland/Mobs/Bosses/banana.rsi
+        changeSprite: true
+        state: drinking
+        layer: 0
+      2:
+        rsi: /Textures/_Lavaland/Mobs/Bosses/banana.rsi
+        changeSprite: true
+        state: childish-oni
+        layer: 0
+      3:
+        rsi: /Textures/_Lavaland/Mobs/Bosses/banana.rsi
+        changeSprite: true
+        state: phase2
+        layer: 0
+      4:
+        rsi: /Textures/_Lavaland/Mobs/Bosses/banana3.rsi
+        changeSprite: true
+        state: phase3
+        layer: 0
+  - type: BossMusic
+    soundId: ChildishOni
+  - type: SpawnLootOnDeath # Future - make this have weights instead of drop all
+    table: !type:AllSelector
+      children:
+      - id: BananaBoneSword
+      - id: ClothingOuterBananaDress
+      - id: ClothingHandsBananaClaws
+      - id: ClothingShoesBananaClaws
+      - id: ClothingBeltBananaRope
+      - id: ClothingHeadBananaBelt
+    deleteOnDeath: true
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: Banana
+  - type: AngerPlayerScaling
+    angerScale: 1.5
+    hpScale: 1.2
+  - type: MegafaunaFieldGenerator
+    wallId: WallMagma
+    wallShape: !type:NestedEntityShape
+      id: BoxHollow
+      size: 12 # Radius of the arena
+  - type: RingOfFire
+  - type: OniRampage
+    landDamageRange: 1
+    shouldSpeak: true
+    damage:
+      types:
+        Blunt: 1
+        Heat: 1
+  - type: MegafaunaProjectileFlurry # Special attack comp
+    projectileNumber: 20
+    speed: 10
+    spawnDelay: 0.1
+    shouldSpeak: true
+  - type: MegafaunaChaseTarget # Makes the boss chase target when unachored
+    whitelist:
+      components:
+        - HumanoidAppearance
+    chaseNow: true
+    movementSpeed: 7
+  - type: MegafaunaDamageTrigger # Triggers phase changes and boss music from non predicted sources
+  - type: MegafaunaDirectionalSpawn # Special attack comp
+  - type: MegafaunaAnchor # Keeps anchored until fight starts
+  - type: MegafaunaGodmode # Godmode against any damage not coming from player
+  - type: MegafaunaRejuvenate # Regens on fight over
+  - type: MegafaunaPhaseSpeech # Boss speaks different lines per phase and on phase change
+    phases:
+      1:
+        speech:
+          - oni-idle-1
+          - oni-idle-2
+          - oni-idle-3
+          - oni-idle-4
+          - oni-idle-5
+          - oni-idle-6
+          - oni-idle-7
+      2:
+        speechOnPhaseChange: oni-change-1
+        speech:
+          - oni-taunt-1
+          - oni-taunt-2
+          - oni-taunt-3
+          - oni-taunt-4
+          - oni-taunt-5
+          - oni-taunt-6
+          - oni-taunt-7
+          - oni-taunt-8
+      3:
+        speechOnPhaseChange: oni-change-2
+        speech:
+          - oni-rage-1
+          - oni-rage-2
+          - oni-rage-3
+          - oni-rage-4
+          - oni-rage-5
+          - oni-rage-6
+          - oni-rage-7
+      4:
+        speechOnPhaseChange: oni-change-3
+        speech:
+          - oni-true-1
+          - oni-true-2
+          - oni-true-3
+          - oni-true-4
+          - oni-true-5
+          - oni-true-6
+          - oni-true-7
+          - oni-true-8
+          - oni-true-9
