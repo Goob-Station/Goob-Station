@@ -50,7 +50,17 @@
     - id: LavalandVampirismCrystal
     # TODO add more interesting obtain methods for crusher upgrades (from megafauna, ruins, etc.)
     - id: CrusherUpgradeMainRudeBuster
-
+    - id: LavalandAmuletMementoMori
+    - id: LavalandAmuletImmortalityTalisman
+    - id: LavalandMinersChalice
+    - id: LavalandInvisibilityCloak
+    - id: LavalandBookofBabel
+    - id: LavalandLifeforceTalisman
+    - id: LavalandHardsuitBerserker
+    - !type:AllSelector
+      children:
+      - id: LavalandCubeRed
+      - id: LavalandCubeBlue
     - !type:NestedSelector
       weight: 2
       tableId: LavalandMaterialRare
