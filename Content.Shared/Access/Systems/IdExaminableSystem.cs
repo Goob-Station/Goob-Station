@@ -1,12 +1,8 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Examine;
-using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Overlays;
 using Content.Shared.PDA;
 using Content.Shared.Verbs;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Access.Systems;
@@ -33,16 +29,18 @@ public sealed class IdExaminableSystem : EntitySystem
             {
                 var markup = FormattedMessage.FromMarkupOrThrow(info);
 
-                _examineSystem.SendExamineTooltip(args.User, uid, markup, true, false);
+                _examineSystem.SendExamineTooltip(args.User, uid, markup, false, false);
             },
             Text = Loc.GetString("id-examinable-component-verb-text"),
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
             Message = detailsRange ? null : Loc.GetString("id-examinable-component-verb-disabled"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/character.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/character.svg.192dpi.png"))
         };
+
         args.Verbs.Add(verb);
     }
+
     public string GetMessage(EntityUid uid)
     {
         return GetInfo(uid) ?? Loc.GetString("id-examinable-component-verb-no-id");
