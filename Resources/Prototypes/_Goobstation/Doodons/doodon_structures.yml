@@ -1,0 +1,287 @@
+- type: entity
+  abstract: true
+  parent: BaseMachine
+  id: BaseDoodonStructure               # Base
+  components:
+  - type: Transform
+    anchored: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+          params:
+            variation: 0.125
+            volume: -2
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: DoodonBuilding
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: "#FF6F00"
+
+- type: entity
+  parent: BaseDoodonStructure       # Town Hall
+  id: DoodonTownHall
+  name: doodon town hall
+  description: The heart of the Doodon village.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: townhall
+  - type: DoodonTownHall
+    influenceRadius: 7
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#FF6F00"
+  - type: DoodonTownHallFeral
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300 # High HP since it's very important to the doodons
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+          params:
+            variation: 0.125
+            volume: -2
+    
+- type: entity
+  parent: BaseDoodonStructure       # Dwelling
+  id: DoodonDwelling
+  name: doodon dwelling
+  description: The place Doodon workers call home. Can hold one worker Doodon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: dwelling
+  - type: DoodonBuilding
+    housingType: Worker
+    housingCapacity: 2
+    resinCost: 3 # Resin cost for the Building itself
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: dwelling
+  - type: DoodonMachine
+    outputPrototype: WorkerDoodon
+    resinStack: DoodonResin
+    resinCost: 1  # Resin cost for the Unit to respawn
+    processTime: 3
+    respectPopulationCap: true
+    spawnOnMapInit: true
+    producedHousing: Worker
+
+    
+- type: entity
+  parent: BaseDoodonStructure       # Warrior Hut
+  id: DoodonWarriorHut
+  name: doodon warrior hut
+  description: Training grounds for doodon warriors. Can hold one warrior Doodon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: warriorhut
+  - type: DoodonBuilding
+    housingType: Warrior
+    housingCapacity: 1 
+    resinCost: 6
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: warriorhut
+  - type: DoodonMachine
+    outputPrototype: WarriorDoodon
+    resinStack: DoodonResin
+    resinCost: 3
+    processTime: 3
+    respectPopulationCap: true
+    spawnOnMapInit: true
+    producedHousing: Warrior
+  
+- type: entity          # Metal refiner
+  parent: BaseDoodonStructure
+  id: DoodonMetalRefiner
+  name: doodon metal refiner
+  description: A doodon specifically cultivated to digest steel. Due to its diet, it has a metallic skin. Shiny.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: metalrefiner
+  - type: DoodonBuilding
+    resinCost: 4
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: metalrefiner
+  - type: DoodonMachine
+    outputPrototype: MaterialDoodonResin1
+    resinStack: Steel
+    resinCost: 3
+    processTime: 5
+    respectPopulationCap: false
+    spawnOnMapInit: false
+    insertSound:
+      path: /Audio/_Goobstation/Doodon/chomp.ogg
+    
+        
+- type: entity              # Glass refiner
+  parent: BaseDoodonStructure
+  id: DoodonGlassRefiner
+  name: doodon glass refiner
+  description: A doodon specifically cultivated to digest glass. Due to its diet, it's translucent. Look! You can see its insides!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: glassrefiner
+  - type: DoodonBuilding
+    resinCost: 4
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: glassrefiner
+  - type: DoodonMachine
+    outputPrototype: MaterialDoodonResin1
+    resinStack: Glass
+    resinCost: 3
+    processTime: 5
+    respectPopulationCap: false
+    spawnOnMapInit: false
+    insertSound:
+      path: /Audio/_Goobstation/Doodon/chomp.ogg
+      
+- type: entity              # Pasture
+  parent: BaseDoodonStructure
+  id: DoodonPasture
+  name: doodon pasture
+  description: The doodon pasture, makes moodons which can be milked or juiced for omnizine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: pasture
+  - type: DoodonBuilding
+    housingType: Moodon
+    housingCapacity: 3
+    resinCost: 3
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: pasture
+  - type: DoodonMachine
+    outputPrototype: Moodon
+    resinStack: DoodonResin
+    resinCost: 1
+    processTime: 2
+    respectPopulationCap: false
+    spawnOnMapInit: true
+    
+    # Not implemented due to Arti stuff
+# - type: entity                  # Doohickery
+  # parent: BaseDoodonStructure
+  # id: DoodonDoohickery
+  # name: doodon doohickery
+  # description: A building dedicated to making doohickeys. Science can make use of these.
+  # components:
+  # - type: Sprite
+    # sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    # state: doohickery
+  # - type: Construction
+    # graph: DoodonDoohickeryGraph
+    # node: DoohickeryComplete
+    # placementMode: SnapgridCenter
+  # - type: DoodonBuilding
+    # resinCost: 3
+    # buildIcon:
+      # sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      # state: glassrefiner
+  # - type: DoodonMachine
+    # outputPrototype: MaterialDoodonResin1
+    # resinStack: Steel
+    # resinCost: 4
+    # processTime: 3
+    # respectPopulationCap: false
+    # spawnOnMapInit: false
+    
+- type: entity                      # Shieldsmith
+  parent: BaseDoodonStructure
+  id: DoodonShieldsmith
+  name: doodon shieldsmith
+  description: A place to mold resin into a flat shield.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: shieldsmith
+  - type: DoodonBuilding
+    resinCost: 3
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: shieldsmith
+  - type: DoodonMachine
+    outputPrototype: DoodonShield
+    resinStack: DoodonResin
+    resinCost: 3
+    processTime: 3
+    respectPopulationCap: false
+    spawnOnMapInit: false
+    
+- type: entity                      # Swordsmith
+  parent: BaseDoodonStructure
+  id: DoodonSwordsmith
+  name: doodon swordsmith
+  description: A place to shape resin into a sharp implement.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: swordsmith
+  - type: DoodonBuilding
+    resinCost: 3
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: swordsmith
+  - type: DoodonMachine
+    outputPrototype: DoodonSword
+    resinStack: DoodonResin
+    resinCost: 3
+    processTime: 3
+    respectPopulationCap: false
+    spawnOnMapInit: false
+    
+- type: entity                          # Gem Cutter
+  parent: BaseDoodonStructure
+  id: DoodonGemCutter
+  name: doodon gem cutter
+  description: This building can press resin into a valuable doodon gem.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: gemcutter
+  - type: DoodonBuilding
+    resinCost: 3
+    buildIcon:
+      sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+      state: gemcutter
+  - type: DoodonMachine
+    outputPrototype: DoodonGem
+    resinStack: DoodonResin
+    resinCost: 5
+    processTime: 6
+    respectPopulationCap: false
+    spawnOnMapInit: false

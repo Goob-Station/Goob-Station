@@ -20,7 +20,10 @@
       "name": "hex_1"
     },
     {
-      "name": "screw_1"
+        "name": "screw_1"
+    },
+    {
+        "name": "doodon_resin"
     }
   ]
 }
