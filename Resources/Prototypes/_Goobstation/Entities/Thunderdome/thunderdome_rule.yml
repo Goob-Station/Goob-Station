@@ -5,7 +5,6 @@
   components:
     - type: ThunderdomeRule
       gear: ThunderdomeBaseGear
-      baseTimePenalty: 180 # 3 min
       weaponLoadouts:
         - gear: ThunderdomeShotgun
           name: thunderdome-loadout-shotgun
@@ -47,16 +46,21 @@
           description: thunderdome-desc-inspector
           category: thunderdome-category-revolvers
           sprite: WeaponRevolverInspector
-        - gear: ThunderdomeHristov
-          name: thunderdome-loadout-hristov
-          description: thunderdome-desc-hristov
-          category: thunderdome-category-snipers
-          sprite: WeaponSniperHristov
+#        - gear: ThunderdomeHristov
+#          name: thunderdome-loadout-hristov
+#          description: thunderdome-desc-hristov
+#          category: thunderdome-category-snipers
+#          sprite: WeaponSniperHristov
         - gear: ThunderdomeEsword
           name: thunderdome-loadout-esword
           description: thunderdome-desc-esword
           category: thunderdome-category-melee
           sprite: EnergySword
+        - gear: ThunderdomeCapoeira
+          description: thunderdome-desc-capo
+          name: thunderdome-loadout-capo
+          category: thunderdome-category-melee
+          sprite: CapoeiraManual
     - type: LoadMapRule
       mapPath: /Maps/_Goobstation/Nonstations/dm01-entryway.yml
     - type: RuleGrids

@@ -235,8 +235,13 @@
     whitelist:
       components:
       - Cuffable # useless if you cant be cuffed
+      - Ensnareable # Goob
   - type: TriggerOnActivateImplant
   - type: UncuffOnTrigger
+    targetUser: true
+  - type: RemoveSnareOnTrigger # Goob
+    targetUser: true
+  - type: ParalyzePullerOnTrigger # Goob
     targetUser: true
 
 - type: entity
