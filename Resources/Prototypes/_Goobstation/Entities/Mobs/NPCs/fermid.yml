@@ -10,6 +10,7 @@
   abstract: true
   description: Extremely hostile asteroid-dwelling bugs. Best to avoid them wherever possible.
   components:
+  - type: Insulated # Ants don't get zapped by electric fences and shiet, so they don't get zapped here either
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Body # Shitmed Change
     prototype: SpaceSpider

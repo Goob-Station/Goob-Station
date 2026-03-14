@@ -17,3 +17,16 @@
         - ReagentId: SpaceLube
           Quantity: 30
 
+- type: entity
+  id: EffectRipplePermanent
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+        state: ripple
+  - type: EffectVisuals
+  - type: AnimationPlayer
