@@ -2,16 +2,17 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Interaction.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BoundRecallComponent : Component
 {
     /// <summary>
     /// Gets or sets the unique identifier of the user entity that is bound to this object, if any.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? BoundUser;
 
     /// <summary>

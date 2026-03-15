@@ -21,45 +21,81 @@ public sealed class BindRecallSystem : EntitySystem
         if (!args.CanInteract)
             return;
 
-        if (ent.Comp.BoundUser != null)
-            return;
-
         var user = args.User;
+        var recallComp = CompOrNull<RecallBoundItemComponent>(user);
 
-        var verb = new ActivationVerb
+        // ------------------
+        // Bind verb
+        // ------------------
+        if (ent.Comp.BoundUser == null)
         {
-            Text = Loc.GetString("recall-item-bind"),
-            Act = () =>
+            var bindVerb = new ActivationVerb
             {
-                var recallComp = EnsureComp<RecallBoundItemComponent>(user);
-
-                // User already has a bound item
-                if (recallComp.BoundItem != null)
+                Text = Loc.GetString("recall-item-bind"),
+                Act = () =>
                 {
-                    _popup.PopupEntity(Loc.GetString("recall-item-already-have"), user, user);
-                    return;
+                    var recall = EnsureComp<RecallBoundItemComponent>(user);
+
+                    if (recall.BoundItem != null)
+                    {
+                        _popup.PopupEntity(Loc.GetString("recall-item-already-have"), user, user);
+                        return;
+                    }
+
+                    EntityUid? action = null;
+                    _actions.AddAction(user, ref action, recall.RecallAction);
+
+                    if (action != null)
+                    {
+                        recall.BoundItem = ent.Owner;
+                        recall.RecallActionEntity = action;
+
+                        ent.Comp.BoundUser = user; // Yes, it probably should not be here, but I am still testing stuff here.
+                        Dirty(ent);
+
+                        var itemName = Name(ent.Owner);
+
+                        _metaData.SetEntityName(action.Value,
+                            Loc.GetString("recall-item-action-name", ("item", itemName)));
+
+                        _metaData.SetEntityDescription(action.Value,
+                            Loc.GetString("recall-item-action-desc", ("item", itemName)));
+                    }
+
+                    _popup.PopupEntity(Loc.GetString("recall-item-bound"), user, user);
                 }
+            };
 
-                EntityUid? action = null;
+            args.Verbs.Add(bindVerb);
+        }
 
-                _actions.AddAction(user, ref action, recallComp.RecallAction);
-
-                if (action != null)
+        // ------------------
+        // Unbind verb
+        // ------------------
+        if (ent.Comp.BoundUser == user && recallComp != null)
+        {
+            var unbindVerb = new ActivationVerb
+            {
+                Text = Loc.GetString("recall-item-unbind"),
+                Act = () =>
                 {
-                    recallComp.BoundItem = ent.Owner;
-                    recallComp.RecallActionEntity = action;
+                    if (recallComp.RecallActionEntity != null &&
+                        Exists(recallComp.RecallActionEntity.Value))
+                    {
+                        QueueDel(recallComp.RecallActionEntity.Value);
+                    }
 
-                    var itemName = Name(ent.Owner);
+                    recallComp.BoundItem = null;
+                    recallComp.RecallActionEntity = null;
 
-                    _metaData.SetEntityName(action.Value, Loc.GetString("recall-item-action-name", ("item", itemName)));
+                    ent.Comp.BoundUser = null; // Yes, it probably should not be here, but I am still testing stuff here.
+                    Dirty(ent);
 
-                    _metaData.SetEntityDescription(action.Value, Loc.GetString("recall-item-action-desc", ("item", itemName)));
+                    _popup.PopupEntity(Loc.GetString("recall-item-unbound"), user, user);
                 }
+            };
 
-                _popup.PopupEntity(Loc.GetString("recall-item-bound"), user, user);
-            }
-        };
-
-        args.Verbs.Add(verb);
+            args.Verbs.Add(unbindVerb);
+        }
     }
 }
