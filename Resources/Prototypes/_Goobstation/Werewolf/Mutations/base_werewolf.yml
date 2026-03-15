@@ -93,3 +93,4 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WerewolfBase
+  - type: NoSlip
