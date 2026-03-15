@@ -2,10 +2,11 @@ using Content.Goobstation.Shared.Interaction;
 using Content.Goobstation.Shared.Interaction.Components;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 
-namespace Content.Shared.Interaction.EntitySystems;
+namespace Content.Goobstation.Shared.Interaction.EntitySystems;
 
 public sealed class BindRecallSystem : EntitySystem
 {
@@ -19,6 +20,7 @@ public sealed class BindRecallSystem : EntitySystem
         SubscribeLocalEvent<BoundRecallComponent, GetVerbsEvent<ActivationVerb>>(OnGetVerb);
         SubscribeLocalEvent<BoundRecallComponent, BindRecallDoAfterEvent>(OnBindDoAfter);
         SubscribeLocalEvent<BoundRecallComponent, UnbindRecallDoAfterEvent>(OnUnbindDoAfter);
+        SubscribeLocalEvent<BoundRecallComponent, ExaminedEvent>(OnExamine);
     }
 
     private void OnGetVerb(Entity<BoundRecallComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
@@ -146,5 +148,23 @@ public sealed class BindRecallSystem : EntitySystem
 
         ent.Comp.BoundUser = null; // Prob not needed, but will figure it out.
         Dirty(ent);
+    }
+
+    private void OnExamine(Entity<BoundRecallComponent> ent, ref ExaminedEvent args)
+    {
+        if (!ent.Comp.Examinable)
+            return;
+
+        if (!args.IsInDetailsRange)
+            return;
+
+        if (ent.Comp.BoundUser == null)
+        {
+            args.PushMarkup(Loc.GetString("recall-bound-item-examine-free"));
+        }
+        else
+        {
+            args.PushMarkup(Loc.GetString("recall-bound-item-examine-owned"));
+        }
     }
 }

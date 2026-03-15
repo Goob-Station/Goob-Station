@@ -22,4 +22,10 @@ public sealed partial class BoundRecallComponent : Component
     /// Changing this value affects which action is triggered when a recall is performed.</remarks>
     [DataField]
     public EntProtoId RecallAction = "ActionRecallBoundItem";
+
+    /// <summary>
+    /// Allows the item to display binding info on examine.
+    /// </summary>
+    [DataField]
+    public bool Examinable = true;
 }
