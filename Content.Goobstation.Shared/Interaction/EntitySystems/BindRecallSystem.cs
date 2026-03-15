@@ -61,8 +61,6 @@ public sealed class BindRecallSystem : EntitySystem
                         _metaData.SetEntityDescription(action.Value,
                             Loc.GetString("recall-item-action-desc", ("item", itemName)));
                     }
-
-                    _popup.PopupEntity(Loc.GetString("recall-item-bound"), user, user);
                 }
             };
 
@@ -90,8 +88,6 @@ public sealed class BindRecallSystem : EntitySystem
 
                     ent.Comp.BoundUser = null; // Yes, it probably should not be here, but I am still testing stuff here.
                     Dirty(ent);
-
-                    _popup.PopupEntity(Loc.GetString("recall-item-unbound"), user, user);
                 }
             };
 
