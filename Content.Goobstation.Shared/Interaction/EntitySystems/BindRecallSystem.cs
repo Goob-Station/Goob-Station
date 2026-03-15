@@ -39,6 +39,15 @@ public sealed class BindRecallSystem : EntitySystem
                 Text = Loc.GetString("recall-item-bind"),
                 Act = () =>
                 {
+                    var recall = EnsureComp<RecallBoundItemComponent>(user);
+
+                    // Check BEFORE the DoAfter
+                    if (recall.BoundItem != null)
+                    {
+                        _popup.PopupEntity(Loc.GetString("recall-item-already-have"), user, user);
+                        return;
+                    }
+
                     var doAfter = new DoAfterArgs(EntityManager, user, 5f,
                         new BindRecallDoAfterEvent(),
                         ent.Owner)
