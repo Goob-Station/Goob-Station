@@ -20,8 +20,8 @@ paper-text-hypnoflash-info = SPESSMAN ARE YOU....
     SAY MANGO TO GET EXTRA DISCOUNT!
 
     Before use, make sure that:
-    1. You or your affiliates wear eye protection of any kind.
-    2. Your targets do not wear eye protection of any kind.
+    1. You or your affiliates wear eye protection.
+    2. Your targets do not wear eye protection.
     3. Your targets do not have mindshield implant.
     4. There are no sound sources nearby.
 

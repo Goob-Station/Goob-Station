@@ -23,6 +23,9 @@ public sealed class HypnoflashSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
+    private readonly HashSet<EntityUid> _gamers = new();
+    private readonly List<EntityUid> _validTargets = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -78,12 +81,12 @@ public sealed class HypnoflashSystem : EntitySystem
                 if (comp.ProtoOnFlash != null)
                     PredictedSpawnAtPosition(comp.ProtoOnFlash, xform.Coordinates);
 
-                var gamers = new HashSet<EntityUid>();
-                _lookup.GetEntitiesInRange(xform.Coordinates, comp.Radius, gamers);
+                _gamers.Clear();
+                _validTargets.Clear();
 
-                var validTargets = new List<EntityUid>();
+                _lookup.GetEntitiesInRange(xform.Coordinates, comp.Radius, _gamers);
 
-                foreach (var gamer in gamers)
+                foreach (var gamer in _gamers)
                 {
                     if (comp.Blacklist != null && _whitelist.IsValid(comp.Blacklist, gamer))
                         continue;
@@ -91,13 +94,19 @@ public sealed class HypnoflashSystem : EntitySystem
                     if (comp.Whitelist != null && !_whitelist.IsValid(comp.Whitelist, gamer))
                         continue;
 
-                    if (comp.CheckEyeProt && _inventory.TryGetSlotEntity(gamer, "eyes", out var eyes))
-                        continue;
+                    if (comp.CheckEyeProt)
+                    {
+                        var ev = new FlashAttemptEvent(gamer, activator, uid);
+                        RaiseLocalEvent(gamer, ref ev);
 
-                    validTargets.Add(gamer);
+                        if (ev.Cancelled)
+                            continue;
+                    }
+
+                    _validTargets.Add(gamer);
                 }
 
-                foreach (var target in validTargets)
+                foreach (var target in _validTargets)
                     if (comp.Event != null)
                         RaiseLocalEvent(target, comp.Event);
 
