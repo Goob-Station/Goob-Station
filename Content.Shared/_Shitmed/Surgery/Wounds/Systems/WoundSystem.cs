@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.CCVar;
@@ -261,13 +251,6 @@ public sealed partial class WoundSystem : EntitySystem
 
                     var ev1 = new WoundAddedEvent(component, parentWoundable, woundableRoot);
                     RaiseLocalEvent(holdingWoundable, ref ev1);
-
-                    var bodyPart = Comp<BodyPartComponent>(holdingWoundable);
-                    if (bodyPart.Body.HasValue)
-                    {
-                        var ev2 = new WoundAddedOnBodyEvent((uid, component), parentWoundable, woundableRoot);
-                        RaiseLocalEvent(bodyPart.Body.Value, ref ev2);
-                    }
                 }
             }
         }
