@@ -31,8 +31,14 @@ public sealed class HypnotizedSystem : EntitySystem
 
     private void OnInit(Entity<HypnotizedComponent> ent, ref ComponentInit args)
     {
+        var muted = false;
+        if (HasComp<MutedComponent>(ent))
+            muted = true;
+
+        if (muted == false)
+            EnsureComp<MutedComponent>(ent); // so you dont hypnotize yourself by mistake
         EnsureComp<ActiveListenerComponent>(ent);
-        EnsureComp<MutedComponent>(ent); // so you dont hypnotize yourself by mistake
+
         _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(4));
     }
 
@@ -61,12 +67,17 @@ public sealed class HypnotizedSystem : EntitySystem
 
         var objectiveId = Spawn("HypnotizedObjective"); // goida
         var meta = Comp<MetaDataComponent>(objectiveId);
+        var muted = false;
         _meta.SetEntityDescription(objectiveId, message, meta);
         _mind.AddObjective(mindId, mind, objectiveId);
 
+        if (HasComp<MutedComponent>(ent))
+            muted = true;
+
+        if (muted == false)
+            RemCompDeferred<MutedComponent>(ent); // when the mimes talk...
         RemCompDeferred<HypnotizedComponent>(ent);
         RemCompDeferred<ActiveListenerComponent>(ent);
-        RemCompDeferred<MutedComponent>(ent);
         _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(4));
     }
 
