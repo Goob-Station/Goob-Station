@@ -32,6 +32,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Damage.Prototypes;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,6 +41,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
 public sealed partial class WoundSystem : EntitySystem
 {
+    private Dictionary<string, DamageGroupPrototype?> _damageTypeToGroup = new();
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
 
@@ -106,6 +108,29 @@ public sealed partial class WoundSystem : EntitySystem
         InitWounding();
         Subs.CVar(_cfg, SurgeryCVars.MedicalHealingTickrate, val => _medicalHealingTickrate = val, true);
         Subs.CVar(_cfg, SurgeryCVars.MinimumTimeBeforeHeal, val => _minimumTimeBeforeHeal = TimeSpan.FromSeconds(val), true);
+
+        BuildDamageTypeToGroupCache();
+        _prototype.PrototypesReloaded += OnPrototypesReloaded;
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _prototype.PrototypesReloaded -= OnPrototypesReloaded;
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        if (args.WasModified<DamageGroupPrototype>())
+            BuildDamageTypeToGroupCache();
+    }
+
+    private void BuildDamageTypeToGroupCache()
+    {
+        _damageTypeToGroup.Clear();
+        foreach (var group in _prototype.EnumeratePrototypes<DamageGroupPrototype>())
+            foreach (var damageType in group.DamageTypes)
+                _damageTypeToGroup[damageType] = group;
     }
 
     public override void Update(float frameTime)

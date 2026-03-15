@@ -68,6 +68,7 @@ public sealed partial class WoundSystem
         comp.RootWoundable = uid;
         comp.Wounds = _container.EnsureContainer<Container>(uid, WoundContainerId);
         comp.Bone = _container.EnsureContainer<Container>(uid, BoneContainerId);
+        comp.SortedThresholds = comp.Thresholds.OrderByDescending(kv => kv.Value).ToArray();
     }
 
     private void OnWoundableMapInit(EntityUid uid, WoundableComponent comp, MapInitEvent args)
@@ -342,9 +343,7 @@ public sealed partial class WoundSystem
 
     public DamageGroupPrototype? GetDamageGroupByType(string id)
     {
-        return (from @group in _prototype.EnumeratePrototypes<DamageGroupPrototype>()
-                where @group.DamageTypes.Contains(id)
-                select @group).FirstOrDefault();
+        return _damageTypeToGroup.GetValueOrDefault(id);
     }
 
     public bool TryInduceWounds(
@@ -388,10 +387,7 @@ public sealed partial class WoundSystem
             woundId,
             severity,
             out woundInduced,
-            (from @group in _prototype.EnumeratePrototypes<DamageGroupPrototype>()
-                where @group.DamageTypes.Contains(woundId)
-                select @group).FirstOrDefault()
-                ?.ID,
+            GetDamageGroupByType(woundId)?.ID,
             woundable);
         return wound;
     }
@@ -1300,7 +1296,7 @@ public sealed partial class WoundSystem
             return;
 
         var nearestSeverity = component.WoundSeverity;
-        foreach (var (severity, value) in _woundThresholds.OrderByDescending(kv => kv.Value))
+        foreach (var (severity, value) in WoundThresholds)
         {
             var scaledThreshold = value * (woundableComp.IntegrityCap / 100);
             if (component.WoundSeverityPoint < scaledThreshold)
@@ -1337,7 +1333,7 @@ public sealed partial class WoundSystem
             return;
 
         var nearestSeverity = component.WoundableSeverity;
-        foreach (var (severity, value) in component.Thresholds.OrderByDescending(kv => kv.Value))
+        foreach (var (severity, value) in component.SortedThresholds ?? component.Thresholds.OrderByDescending(kv => kv.Value).ToArray())
         {
             if (component.WoundableIntegrity >= component.IntegrityCap)
             {
@@ -1475,7 +1471,7 @@ public sealed partial class WoundSystem
             var nearestSeverity = WoundableSeverity.Severed;
             var damage = damageable.TotalDamage;
 
-            foreach (var (severity, threshold) in woundable.Thresholds.OrderByDescending(kv => kv.Value))
+            foreach (var (severity, threshold) in woundable.SortedThresholds ?? woundable.Thresholds.OrderByDescending(kv => kv.Value).ToArray())
             {
                 if (damage <= 0)
                 {
@@ -1521,7 +1517,7 @@ public sealed partial class WoundSystem
             var damageFeeling = woundable.WoundableIntegrity * nerve.PainFeels;
 
             var nearestSeverity = woundable.WoundableSeverity;
-            foreach (var (severity, value) in woundable.Thresholds.OrderByDescending(kv => kv.Value))
+            foreach (var (severity, value) in woundable.SortedThresholds ?? woundable.Thresholds.OrderByDescending(kv => kv.Value).ToArray())
             {
                 if (damageFeeling <= 0)
                 {
@@ -1691,6 +1687,10 @@ public sealed partial class WoundSystem
     /// <param name="targetEntity">Entity that owns the woundable</param>
     /// <param name="targetWoundable">Woundable component</param>
     /// <returns>An enumerable pointing to one of the found wounds</returns>
+    /// <summary>
+    /// Get the wounds on a woundable. Callers must not modify the wound container
+    /// during iteration without materializing to a list first.
+    /// </summary>
     public IEnumerable<Entity<WoundComponent>> GetWoundableWounds(EntityUid targetEntity,
         WoundableComponent? targetWoundable = null)
     {
@@ -1699,7 +1699,7 @@ public sealed partial class WoundSystem
             || targetWoundable.Wounds.Count == 0)
             yield break;
 
-        foreach (var woundEntity in targetWoundable.Wounds.ContainedEntities.ToList())
+        foreach (var woundEntity in targetWoundable.Wounds.ContainedEntities)
         {
             yield return (woundEntity, Comp<WoundComponent>(woundEntity));
         }
