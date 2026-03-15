@@ -1,0 +1,21 @@
+- type: entity
+  name: tower-cap ashwood log
+  description: It's better than bad, it's good!
+  id: AshwoodLog
+  parent: ProduceBase
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Hydroponics/ashlog.rsi
+    state: produce
+  - type: Item
+    heldPrefix: produce
+  - type: SolutionContainerManager
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: Produce
+    seedId: towercap
+  - type: Log
+    spawnedPrototype: MaterialAshwoodPlank1
+    spawnCount: 1
