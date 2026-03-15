@@ -73,6 +73,9 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     {
         base.Initialize();
 
+        if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
+            return;
+
         Subs.CVar(_cfg, ThunderdomeCVars.ThunderdomeRefill, value => _refillOnKill = value, true);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnding);
@@ -184,13 +187,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
             return;
-
-        // CorvaxGoob-Thunderdome-start
-        var duration = _ticker.RoundDuration();
-        if (_cfg.GetCVar(ThunderdomeCVars.ActivationDelayEnabled) &&
-            (_cfg.GetCVar(ThunderdomeCVars.ActivationDelay) > (int) duration.TotalMinutes))
-            return;
-        // CorvaxGoob-Thunderdome-end
 
         EnsureRule();
 
@@ -523,6 +519,9 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private EntityCoordinates? GetRandomSpawnPoint(ThunderdomeRuleComponent rule)
     {
+        if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
+            return null;
+
         if (rule.ArenaMap == null)
             return null;
 
@@ -576,6 +575,9 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private void BroadcastPlayerCount(ThunderdomeRuleComponent rule)
     {
+        if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
+            return;
+
         var ev = new ThunderdomePlayerCountEvent(rule.Players.Count);
         foreach (var session in _playerManager.Sessions)
         {

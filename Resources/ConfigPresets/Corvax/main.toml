@@ -32,3 +32,6 @@ tags = "lang:ru,rp:low,rp:med,region:eu_e,tts"
 
 [jobs]
 mrp_enabled = false
+
+[thunderdome]
+enabled = false
