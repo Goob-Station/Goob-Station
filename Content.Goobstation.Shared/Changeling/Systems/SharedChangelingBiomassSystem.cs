@@ -88,19 +88,19 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
             case "Second":
 
-                _stun.TryStun(ent, ent.Comp.SecondWarnStun, false);
-                DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
+            _stun.TryUpdateStunDuration(ent, ent.Comp.SecondWarnStun);
+            DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
 
                 break;
 
             case "Third":
 
-                _stun.TryStun(ent, ent.Comp.ThirdWarnStun, false);
+            _stun.TryUpdateStunDuration(ent, ent.Comp.ThirdWarnStun);
 
                 if (!_blood.TryModifyBloodLevel(ent.Owner, -ent.Comp.BloodCoughAmount)
                     || !_bloodQuery.TryComp(ent, out var bloodComp))
                 {
-                    _stun.TryKnockdown(ent, ent.Comp.ThirdWarnStun, false); // knockdown if there isnt any blood to cough up
+                    _stun.TryKnockdown(ent.Owner, ent.Comp.ThirdWarnStun, false); // knockdown if there isnt any blood to cough up
                     return;
                 }
 

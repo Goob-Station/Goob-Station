@@ -172,8 +172,12 @@
       item2:
       - WeaponPistolJackal
   - type: DivineIntervention
+    validSpellDenialSlots:
+    - BELT
   - type: Reflect
     reflectProb: 1
+    slotFlags:
+    - BELT
     reflects:
     - Magic
   - type: Tag
