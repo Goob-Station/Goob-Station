@@ -23,7 +23,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Prototypes;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -159,15 +158,24 @@ public sealed partial class WoundSystem : EntitySystem
         if (!woundable.Comp.CanHealDamage)
             return;
 
-        var woundsToHeal = GetWoundableWounds(woundable)
-            .Where(wound => CanHealWound(wound, wound))
-            .ToList();
+        var healableCount = 0;
+        foreach (var wound in GetWoundableWounds(woundable))
+        {
+            if (CanHealWound(wound, wound))
+                healableCount++;
+        }
 
-        var healAmount = -woundable.Comp.HealAbility / woundsToHeal.Count;
+        if (healableCount == 0)
+            return;
+
+        var healAmount = -woundable.Comp.HealAbility / healableCount;
         var damageSpecifier = new DamageSpecifier();
         var anythingToHeal = false;
-        foreach (var wound in woundsToHeal)
+        foreach (var wound in GetWoundableWounds(woundable))
         {
+            if (!CanHealWound(wound, wound))
+                continue;
+
             if (wound.Comp.SelfHealMultiplier <= 0)
                 continue;
 
@@ -202,8 +210,6 @@ public sealed partial class WoundSystem : EntitySystem
                     : NetEntity.Invalid,
 
             WoundSeverityPoint = comp.WoundSeverityPoint,
-            WoundableIntegrityMultiplier = comp.WoundableIntegrityMultiplier,
-
             WoundType = comp.WoundType,
 
             DamageGroup = comp.DamageGroup,
@@ -234,7 +240,7 @@ public sealed partial class WoundSystem : EntitySystem
         {
             if (holdingWoundable == EntityUid.Invalid)
             {
-                if (TryComp(holdingWoundable, out WoundableComponent? oldParentWoundable) &&
+                if (TryComp(component.HoldingWoundable, out WoundableComponent? oldParentWoundable) &&
                     TryComp(oldParentWoundable.RootWoundable, out WoundableComponent? oldWoundableRoot))
                 {
                     var ev2 = new WoundRemovedEvent(component, oldParentWoundable, oldWoundableRoot);
@@ -268,7 +274,6 @@ public sealed partial class WoundSystem : EntitySystem
         }
 
         component.WoundSeverityPoint = state.WoundSeverityPoint;
-        component.WoundableIntegrityMultiplier = state.WoundableIntegrityMultiplier;
 
         if (component.HoldingWoundable != EntityUid.Invalid)
         {
@@ -299,6 +304,18 @@ public sealed partial class WoundSystem : EntitySystem
 
     private void OnWoundableComponentGet(EntityUid uid, WoundableComponent comp, ref ComponentGetState args)
     {
+        var childWoundables = new HashSet<NetEntity>(comp.ChildWoundables.Count);
+        foreach (var woundable in comp.ChildWoundables)
+            childWoundables.Add(TryGetNetEntity(woundable, out var ne) ? ne.Value : NetEntity.Invalid);
+
+        var severityMultipliers = new Dictionary<NetEntity, WoundableSeverityMultiplier>(comp.SeverityMultipliers.Count);
+        foreach (var (key, value) in comp.SeverityMultipliers)
+            severityMultipliers[TryGetNetEntity(key, out var ne) ? ne.Value : NetEntity.Invalid] = value;
+
+        var healingMultipliers = new Dictionary<NetEntity, WoundableHealingMultiplier>(comp.HealingMultipliers.Count);
+        foreach (var (key, value) in comp.HealingMultipliers)
+            healingMultipliers[TryGetNetEntity(key, out var ne) ? ne.Value : NetEntity.Invalid] = value;
+
         var state = new WoundableComponentState
         {
             ParentWoundable = TryGetNetEntity(comp.ParentWoundable, out var parentWoundable) ? parentWoundable : null,
@@ -306,12 +323,7 @@ public sealed partial class WoundSystem : EntitySystem
                 ? rootWoundable.Value
                 : NetEntity.Invalid,
 
-            ChildWoundables =
-                comp.ChildWoundables
-                    .Select(woundable => TryGetNetEntity(woundable, out var ne)
-                        ? ne.Value
-                        : NetEntity.Invalid)
-                    .ToHashSet(),
+            ChildWoundables = childWoundables,
             // Attached and Detached -Woundable events are handled on client with containers
 
             AllowWounds = comp.AllowWounds,
@@ -323,18 +335,8 @@ public sealed partial class WoundSystem : EntitySystem
             WoundableIntegrity = comp.WoundableIntegrity,
             HealAbility = comp.HealAbility,
 
-            SeverityMultipliers =
-                comp.SeverityMultipliers
-                    .Select(multiplier
-                        => (TryGetNetEntity(multiplier.Key, out var ne) ? ne.Value : NetEntity.Invalid,
-                            multiplier.Value))
-                    .ToDictionary(),
-            HealingMultipliers =
-                comp.HealingMultipliers
-                    .Select(multiplier
-                        => (TryGetNetEntity(multiplier.Key, out var ne) ? ne.Value : NetEntity.Invalid,
-                            multiplier.Value))
-                    .ToDictionary(),
+            SeverityMultipliers = severityMultipliers,
+            HealingMultipliers = healingMultipliers,
 
             WoundableSeverity = comp.WoundableSeverity,
         };
@@ -351,10 +353,12 @@ public sealed partial class WoundSystem : EntitySystem
         TryGetEntity(state.RootWoundable, out var rootWoundable);
         component.RootWoundable = rootWoundable ?? EntityUid.Invalid;
 
-        component.ChildWoundables = state.ChildWoundables
-            .Select(x => TryGetEntity(x, out var y) ? y.Value : EntityUid.Invalid)
-            .Where(x => x.Valid)
-            .ToHashSet();
+        component.ChildWoundables.Clear();
+        foreach (var netChild in state.ChildWoundables)
+        {
+            if (TryGetEntity(netChild, out var child) && child.Value.Valid)
+                component.ChildWoundables.Add(child.Value);
+        }
         // Attached and Detached -Woundable events are handled on client with containers
 
         component.AllowWounds = state.AllowWounds;
@@ -365,16 +369,18 @@ public sealed partial class WoundSystem : EntitySystem
         component.HealAbility = state.HealAbility;
         component.Bleeds = state.Bleeds;
 
-        component.SeverityMultipliers =
-            state.SeverityMultipliers
-                .Select(multiplier
-                    => (TryGetEntity(multiplier.Key, out var ne) ? ne.Value : EntityUid.Invalid, multiplier.Value))
-                .ToDictionary();
-        component.HealingMultipliers =
-            state.HealingMultipliers
-                .Select(multiplier
-                    => (TryGetEntity(multiplier.Key, out var ne) ? ne.Value : EntityUid.Invalid, multiplier.Value))
-                .ToDictionary();
+        component.SeverityMultipliers.Clear();
+        foreach (var (key, value) in state.SeverityMultipliers)
+        {
+            if (TryGetEntity(key, out var entityKey))
+                component.SeverityMultipliers[entityKey.Value] = value;
+        }
+        component.HealingMultipliers.Clear();
+        foreach (var (key, value) in state.HealingMultipliers)
+        {
+            if (TryGetEntity(key, out var entityKey))
+                component.HealingMultipliers[entityKey.Value] = value;
+        }
 
         if (component.WoundableIntegrity != state.WoundableIntegrity)
         {

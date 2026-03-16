@@ -24,7 +24,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 /// It contains methods for updating the pain state after wounds are healed,
 /// and for halting all bleeding on a given entity.
 /// </summary>
-public partial class WoundSystem
+public sealed partial class WoundSystem
 {
     [Dependency] private readonly PainSystem _pain = default!;
 
@@ -238,8 +238,8 @@ public partial class WoundSystem
         foreach (var wound in woundsToHeal)
         {
             var heal = ignoreMultipliers
-                ? ApplyHealingRateMultipliers(wound, woundable, -healNumba, component)
-                : -healNumba;
+                ? -healNumba
+                : ApplyHealingRateMultipliers(wound, woundable, -healNumba, component);
 
             actualHeal += -heal;
             ApplyWoundSeverity(wound, heal, wound);
@@ -330,8 +330,8 @@ public partial class WoundSystem
         foreach (var wound in woundsToHeal)
         {
             var heal = ignoreMultipliers
-                ? ApplyHealingRateMultipliers(wound, woundable, -healNumba, component)
-                : -healNumba;
+                ? -healNumba
+                : ApplyHealingRateMultipliers(wound, woundable, -healNumba, component);
 
             actualHeal += -heal;
             ApplyWoundSeverity(wound, heal, wound);

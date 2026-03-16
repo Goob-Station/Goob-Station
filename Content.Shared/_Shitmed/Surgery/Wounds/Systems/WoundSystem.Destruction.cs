@@ -10,7 +10,7 @@ using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Goobstation.Common.Medical;
 using Robust.Shared.Audio;
-using Robust.Shared.Random;
+
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
@@ -93,17 +93,7 @@ public sealed partial class WoundSystem
 
             DropWoundableOrgans(woundableEntity, woundableComp);
 
-            if (TryInduceWound(parentWoundableEntity, "Blunt", 0f, out var woundEnt))
-            {
-                _trauma.AddTrauma(
-                    parentWoundableEntity,
-                    (parentWoundableEntity, Comp<WoundableComponent>(parentWoundableEntity)),
-                    (woundEnt.Value.Owner, EnsureComp<TraumaInflicterComponent>(woundEnt.Value.Owner)),
-                    TraumaType.Dismemberment,
-                    15f);
-
-                ApplyDismembermentBleeding(parentWoundableEntity);
-            }
+            ApplyDismembermentBleeding(parentWoundableEntity);
             _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
             DestroyWoundableChildren(woundableEntity, woundableComp);
 
@@ -144,17 +134,19 @@ public sealed partial class WoundSystem
 
         AmputateWoundableSafely(parentWoundableEntity, woundableEntity);
 
-        foreach (var wound in GetWoundableWounds(parentWoundableEntity))
+        if (TryComp<WoundableComponent>(parentWoundableEntity, out var parentWoundable)
+            && parentWoundable.CanBleed)
         {
-            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
-                || !TryComp<WoundableComponent>(parentWoundableEntity, out var parentWoundable)
-                || !parentWoundable.CanBleed)
-                continue;
+            foreach (var wound in GetWoundableWounds(parentWoundableEntity))
+            {
+                if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
+                    continue;
 
-            bleeds.BleedingAmountRaw += 20f;
-            bleeds.Scaling = 1f;
-            bleeds.ScalingLimit = 1f;
-            bleeds.IsBleeding = true;
+                bleeds.BleedingAmountRaw += 20f;
+                bleeds.Scaling = 1f;
+                bleeds.ScalingLimit = 1f;
+                bleeds.IsBleeding = true;
+            }
         }
 
 
@@ -293,8 +285,7 @@ public sealed partial class WoundSystem
 
     private bool TryFumble(string message, SoundPathSpecifier sound, EntityUid body, float odds)
     {
-        var rand = new System.Random((int) _timing.CurTick.Value);
-        if (rand.NextFloat() < odds)
+        if (_random.NextFloat() < odds)
         {
             _popup.PopupClient(Loc.GetString(message), body, PopupType.Medium);
             var ev = new DropHandItemsEvent();

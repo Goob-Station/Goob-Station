@@ -281,8 +281,8 @@ public sealed partial class WoundSystem
 
         Dirty(woundable, component);
 
-        var bodyPart = Comp<BodyPartComponent>(woundable);
-        if (bodyPart.Body == null)
+        if (!TryComp<BodyPartComponent>(woundable, out var bodyPart)
+            || bodyPart.Body == null)
             return;
 
         if (!TryComp<TargetingComponent>(bodyPart.Body.Value, out var targeting))
@@ -322,11 +322,10 @@ public sealed partial class WoundSystem
         var ev = new WoundableIntegrityChangedEvent(component.WoundableIntegrity, newIntegrity);
         RaiseLocalEvent(uid, ref ev);
         var bodySeverity = FixedPoint2.Zero;
-        var bodyPart = Comp<BodyPartComponent>(uid);
 
-        if (bodyPart.Body.HasValue)
+        if (TryComp<BodyPartComponent>(uid, out var bodyPart) && bodyPart.Body.HasValue)
         {
-            var rootPart = Comp<BodyComponent>(bodyPart.Body.Value)?.RootContainer?.ContainedEntity;
+            var rootPart = TryComp<BodyComponent>(bodyPart.Body.Value, out var bodyComp) ? bodyComp.RootContainer?.ContainedEntity : null;
             if (rootPart.HasValue)
             {
                 foreach (var child in GetAllWoundableChildren(rootPart.Value))

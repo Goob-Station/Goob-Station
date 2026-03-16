@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
@@ -345,8 +344,7 @@ public sealed partial class WoundSystem
             && targetWoundable.WoundableIntegrity > 0)
             return targetPart;
 
-        EntityUid? torso = null;
-        var candidates = new List<EntityUid>();
+        EntityUid? fallback = null;
 
         foreach (var (partId, partComp) in _body.GetBodyChildren(body, bodyComp))
         {
@@ -358,15 +356,12 @@ public sealed partial class WoundSystem
                 continue;
 
             if (partComp.PartType == BodyPartType.Chest)
-                torso = partId;
-            else
-                candidates.Add(partId);
+                return partId;
+
+            fallback ??= partId;
         }
 
-        if (torso != null)
-            return torso;
-
-        return candidates.Count > 0 ? candidates[0] : null;
+        return fallback;
     }
 
     /// <summary>
@@ -396,9 +391,12 @@ public sealed partial class WoundSystem
 
     private void UpdateWoundableAppearance(EntityUid woundable)
     {
-        var woundList = new List<NetEntity>();
-        foreach (var w in GetWoundableWounds(woundable))
-            woundList.Add(GetNetEntity(w));
+        if (!TryComp<WoundableComponent>(woundable, out var comp) || comp.Wounds == null)
+            return;
+
+        var woundList = new List<NetEntity>(comp.Wounds.Count);
+        foreach (var woundEntity in comp.Wounds.ContainedEntities)
+            woundList.Add(GetNetEntity(woundEntity));
 
         _appearance.SetData(woundable,
             WoundableVisualizerKeys.Wounds,
@@ -451,8 +449,10 @@ public sealed partial class WoundSystem
 
         // We prevent removal if theres at least one wound holding traumas left.
         foreach (var trauma in _trauma.GetAllWoundTraumas(woundEntity))
-            if (Traumas.Systems.TraumaSystem.TraumasBlockingHealing.Contains(trauma.Comp.TraumaType))
+        {
+            if (Array.IndexOf(Traumas.Systems.TraumaSystem.TraumasBlockingHealing, trauma.Comp.TraumaType) >= 0)
                 return false;
+        }
 
         _container.Remove(woundEntity, woundable.Wounds!, false, true);
 

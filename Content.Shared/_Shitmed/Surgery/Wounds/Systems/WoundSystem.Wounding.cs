@@ -1,26 +1,14 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
-using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Weapons.Melee.Events;
 using Content.Shared._Shitmed.Weapons.Ranged.Events;
-using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Gibbing.Events;
-using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
@@ -30,6 +18,7 @@ public sealed partial class WoundSystem
 {
     private const string WoundContainerId = "Wounds";
     private const string BoneContainerId = "Bone";
+    private bool _redirectingDamage;
     private void InitWounding()
     {
         SubscribeLocalEvent<WoundableComponent, ComponentInit>(OnWoundableInit);
@@ -100,10 +89,11 @@ public sealed partial class WoundSystem
             !TryComp(oldParentWoundable.RootWoundable, out WoundableComponent? oldWoundableRoot))
             return;
 
+        var oldHoldingWoundable = wound.HoldingWoundable;
         wound.HoldingWoundable = EntityUid.Invalid;
 
         var ev = new WoundRemovedEvent(wound, oldParentWoundable, oldWoundableRoot);
-        RaiseLocalEvent(wound.HoldingWoundable, ref ev);
+        RaiseLocalEvent(oldHoldingWoundable, ref ev);
 
         if (_net.IsServer && !IsClientSide(woundableEntity))
             QueueDel(woundableEntity);
@@ -140,7 +130,10 @@ public sealed partial class WoundSystem
         if (args.ExcludedContainers == null)
             args.ExcludedContainers = new List<string> { WoundContainerId, BoneContainerId };
         else
-            args.ExcludedContainers.AddRange(new List<string> { WoundContainerId, BoneContainerId });
+        {
+            args.ExcludedContainers.Add(WoundContainerId);
+            args.ExcludedContainers.Add(BoneContainerId);
+        }
     }
 
     private void HealWoundsOnWoundableAttempt(Entity<WoundableComponent> woundable, ref WoundHealAttemptOnWoundableEvent args)
@@ -175,24 +168,31 @@ public sealed partial class WoundSystem
     private void OnDamageChanged(EntityUid uid, WoundableComponent component, ref DamageChangedEvent args)
     {
         // Skip if there was no damage delta or if wounds aren't allowed
-        if (args.UncappedDamage == null // Goobstation
+        if (args.UncappedDamage == null
             || !component.AllowWounds
-            || !_net.IsServer)
+            || !_net.IsServer
+            || _redirectingDamage)
             return;
+
+        Dictionary<EntityUid, DamageSpecifier>? redirectedDamage = null;
+        TryComp<DamageableComponent>(uid, out var damageable);
+        BodyPartComponent? bp = null;
+        var needsRedirect = component.WoundableIntegrity <= 0
+            && TryComp(uid, out bp)
+            && bp.Body.HasValue;
 
         // Create or update wounds based on damage changes
         foreach (var (damageType, damageValue) in args.UncappedDamage.DamageDict)
         {
             if (damageValue == 0)
-                continue; // Only create wounds for damage or healing
+                continue;
 
-            if (TryComp<DamageableComponent>(uid, out var damageable)
+            if (damageable != null
                     && !damageable.Damage.DamageDict.ContainsKey(damageType))
                 continue;
 
             if (damageValue < 0)
             {
-                // Use HealWoundsCore directly to avoid redundant Update+Check per type
                 HealWoundsCore(uid, -damageValue, damageType, out _, component, ignoreBlockers: args.IgnoreBlockers);
             }
             else
@@ -201,16 +201,66 @@ public sealed partial class WoundSystem
                 if (!IsWoundPrototypeValid(damageType))
                     continue;
 
-                TryInduceWound(uid,
+                var woundTarget = uid;
+                var woundTargetComp = component;
+
+                if (needsRedirect && bp!.Body.HasValue)
+                {
+                    var redirect = GetDamageRedirectTarget(bp.Body.Value, uid, damageType);
+                    if (redirect != null
+                        && redirect.Value != uid
+                        && TryComp<WoundableComponent>(redirect.Value, out var redirectComp))
+                    {
+                        woundTarget = redirect.Value;
+                        woundTargetComp = redirectComp;
+
+                        redirectedDamage ??= [];
+                        if (!redirectedDamage.TryGetValue(woundTarget, out var spec))
+                        {
+                            spec = new DamageSpecifier();
+                            redirectedDamage[woundTarget] = spec;
+                        }
+                        spec.DamageDict[damageType] = damageValue;
+                    }
+                }
+
+                TryInduceWound(woundTarget,
                     damageType,
                     damageValue *
                     args.UncappedDamage.WoundSeverityMultipliers.GetValueOrDefault(damageType, 1),
                     out _,
-                    component);
+                    woundTargetComp);
             }
         }
 
-        // Update woundable integrity based on new damage, once for all types
+        if (redirectedDamage != null)
+        {
+            _redirectingDamage = true;
+
+            var undoDamage = new DamageSpecifier();
+            foreach (var (target, spec) in redirectedDamage)
+            {
+                _damageable.TryChangeDamage(target, spec, ignoreResistances: true);
+                foreach (var (type, value) in spec.DamageDict)
+                {
+                    undoDamage.DamageDict.TryGetValue(type, out var existing);
+                    undoDamage.DamageDict[type] = existing - value;
+                }
+            }
+            _damageable.TryChangeDamage(uid, undoDamage, ignoreResistances: true);
+
+            _redirectingDamage = false;
+
+            foreach (var (target, _) in redirectedDamage)
+            {
+                if (TryComp<WoundableComponent>(target, out var targetWoundable))
+                {
+                    UpdateWoundableIntegrity(target, targetWoundable);
+                    CheckWoundableSeverityThresholds(target, targetWoundable);
+                }
+            }
+        }
+
         UpdateWoundableIntegrity(uid, component);
         CheckWoundableSeverityThresholds(uid, component);
     }
@@ -256,7 +306,7 @@ public sealed partial class WoundSystem
         {
             if (woundComp.WoundSeverity != WoundSeverity.Healed)
                 return;
-            RemoveWound(ent); // Remove wound method will perform the check on if there are any other wounds pending treatment
+            RemoveWound(ent);
         }
     }
 
