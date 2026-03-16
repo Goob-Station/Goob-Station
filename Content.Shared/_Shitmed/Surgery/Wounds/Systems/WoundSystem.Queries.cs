@@ -411,12 +411,11 @@ public sealed partial class WoundSystem
         WoundableComponent? woundableComponent = null,
         WoundComponent? woundComponent = null)
     {
-        if (!_net.IsServer
+        if (!_timing.IsFirstTimePredicted
             || !Resolve(target, ref woundableComponent)
             || !Resolve(wound, ref woundComponent)
             || woundableComponent.Wounds == null
             || woundableComponent.Wounds.Contains(wound)
-            || !_timing.IsFirstTimePredicted
             || !woundableComponent.AllowWounds)
             return false;
 
@@ -651,7 +650,7 @@ public sealed partial class WoundSystem
             || !Resolve(uid, ref woundable))
             return false;
 
-        var wound = Spawn(woundProtoId);
+        var wound = EntityManager.PredictedSpawn(woundProtoId); // why isnt predicted spawn not exposed to entitysystems?
         if (AddWound(uid, wound, severity, damageGroup))
         {
             woundCreated = (wound, Comp<WoundComponent>(wound));
@@ -659,8 +658,7 @@ public sealed partial class WoundSystem
         else
         {
             // The wound failed some important checks, and we cannot let an invalid wound to be spawned!
-            if (_net.IsServer && !IsClientSide(wound))
-                QueueDel(wound);
+            PredictedQueueDel(wound);
 
             return false;
         }

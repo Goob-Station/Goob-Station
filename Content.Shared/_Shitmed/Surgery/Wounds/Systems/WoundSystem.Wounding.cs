@@ -95,14 +95,12 @@ public sealed partial class WoundSystem
         var ev = new WoundRemovedEvent(wound, oldParentWoundable, oldWoundableRoot);
         RaiseLocalEvent(oldHoldingWoundable, ref ev);
 
-        if (_net.IsServer && !IsClientSide(woundableEntity))
-            QueueDel(woundableEntity);
+        PredictedQueueDel(woundableEntity);
     }
 
     private void OnWoundableInserted(EntityUid parentEntity, WoundableComponent parentWoundable, EntInsertedIntoContainerMessage args)
     {
-        if (!TryComp<WoundableComponent>(args.Entity, out var childWoundable)
-            || !_net.IsServer)
+        if (!TryComp<WoundableComponent>(args.Entity, out var childWoundable))
             return;
 
         InternalAddWoundableToParent(parentEntity, args.Entity, parentWoundable, childWoundable);
@@ -114,8 +112,7 @@ public sealed partial class WoundSystem
 
     private void OnWoundableRemoved(EntityUid parentEntity, WoundableComponent parentWoundable, EntRemovedFromContainerMessage args)
     {
-        if (!TryComp<WoundableComponent>(args.Entity, out var childWoundable)
-            || !_net.IsServer)
+        if (!TryComp<WoundableComponent>(args.Entity, out var childWoundable))
             return;
 
         InternalRemoveWoundableFromParent(parentEntity, args.Entity, parentWoundable, childWoundable);
@@ -170,7 +167,7 @@ public sealed partial class WoundSystem
         // Skip if there was no damage delta or if wounds aren't allowed
         if (args.UncappedDamage == null
             || !component.AllowWounds
-            || !_net.IsServer
+            || !_timing.IsFirstTimePredicted
             || _redirectingDamage)
             return;
 

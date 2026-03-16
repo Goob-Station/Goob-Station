@@ -30,8 +30,7 @@ public sealed partial class WoundSystem
         if (bodyPart.Body == null)
         {
             DropWoundableOrgans(woundableEntity, woundableComp);
-            if (_net.IsServer && !IsClientSide(woundableEntity))
-                PredictedQueueDel(woundableEntity);
+            PredictedQueueDel(woundableEntity);
         }
         else
         {
@@ -97,8 +96,7 @@ public sealed partial class WoundSystem
             _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
             DestroyWoundableChildren(woundableEntity, woundableComp);
 
-            if (_net.IsServer && !IsClientSide(woundableEntity))
-                QueueDel(woundableEntity);
+            PredictedQueueDel(woundableEntity);
         }
     }
 

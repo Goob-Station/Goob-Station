@@ -116,8 +116,7 @@ public sealed partial class WoundSystem
         WoundableComponent? component = null)
     {
         if (!Resolve(uid, ref component)
-            || component.Wounds == null
-            || !_net.IsServer)
+            || component.Wounds == null)
             return false;
 
         if (!component.SeverityMultipliers.TryAdd(owner, new WoundableSeverityMultiplier(change, identifier)))
@@ -144,8 +143,7 @@ public sealed partial class WoundSystem
         WoundableComponent? component = null)
     {
         if (!Resolve(uid, ref component)
-            || component.Wounds == null
-            || !_net.IsServer)
+            || component.Wounds == null)
             return false;
 
         if (!TryFindMultiplierByIdentifier(component.SeverityMultipliers, identifier, out var foundKey))
@@ -177,8 +175,7 @@ public sealed partial class WoundSystem
         WoundableComponent? component = null)
     {
         if (!Resolve(uid, ref component)
-            || component.Wounds == null
-            || !_net.IsServer)
+            || component.Wounds == null)
             return false;
 
         if (!TryFindMultiplierByIdentifier(component.SeverityMultipliers, identifier, out var foundKey))
@@ -219,8 +216,7 @@ public sealed partial class WoundSystem
         WoundableComponent? woundableComp = null)
     {
         if (!Resolve(wound, ref component, false)
-            || !Resolve(woundable, ref woundableComp)
-            || !_net.IsServer)
+            || !Resolve(woundable, ref woundableComp))
             return;
 
         var nearestSeverity = component.WoundSeverity;
