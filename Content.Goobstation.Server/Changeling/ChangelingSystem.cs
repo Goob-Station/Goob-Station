@@ -48,6 +48,7 @@ using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
@@ -108,6 +109,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Grab;
 using Content.Server.Ensnaring;
 
 namespace Content.Goobstation.Server.Changeling;
@@ -452,7 +454,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     /// </summary>
     public bool IsHardGrabbed(EntityUid uid)
     {
-        return (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage > GrabStage.Soft);
+        return TryComp<GrabbableComponent>(uid, out var grabbable) && grabbable.GrabStage > GrabStage.Soft;
     }
 
     public float? GetEquipmentChemCostOverride(ChangelingIdentityComponent comp, EntProtoId proto)
