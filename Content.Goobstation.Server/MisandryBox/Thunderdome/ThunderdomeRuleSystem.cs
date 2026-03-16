@@ -275,12 +275,13 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         var originalBody = mindComp.OwnedEntity != ghostEntity ? mindComp.OwnedEntity : null;
 
         var mob = _stationSpawning.SpawnPlayerMob(spawnCoords.Value, null, profile, null);
-        _stationSpawning.EquipStartingGear(mob, rule.Gear);
-        SpawnLoadoutItems(mob, weaponIdx, rule);
 
         var tdPlayer = EnsureComp<ThunderdomePlayerComponent>(mob);
         tdPlayer.RuleEntity = ruleEntity;
         tdPlayer.WeaponSelection = weaponIdx;
+
+        _stationSpawning.EquipStartingGear(mob, rule.Gear);
+        SpawnLoadoutItems(mob, weaponIdx, rule);
 
         if (originalBody is { Valid: true } body && !HasComp<ThunderdomeOriginalBodyComponent>(body))
         {
