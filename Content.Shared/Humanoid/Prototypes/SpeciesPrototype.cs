@@ -149,7 +149,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     ///     Characters younger than this appear young.
     /// </summary>
     [DataField]
-    public int YoungAge = 30;
+    public int YoungAge = 40; // Corvax-Goob
 
     /// <summary>
     ///     Characters older than this appear old. Characters in between young and old age appear middle aged.
