@@ -62,6 +62,9 @@ public sealed class GoobJetpackSystem : EntitySystem
         {
             var (jetpack, user) = pending;
 
+            if (TerminatingOrDeleted(jetpack) || TerminatingOrDeleted(user))
+                continue;
+
             if (!TryComp<JetpackComponent>(jetpack, out var jetpackComp))
                 continue;
 
