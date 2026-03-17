@@ -17,6 +17,7 @@ public sealed class DoodonBuildSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
 
     private const string ResinStackTypeId = "DoodonResin";
 
@@ -39,7 +40,7 @@ public sealed class DoodonBuildSystem : EntitySystem
         var selected = builder.GetSelected();
         if (selected is null)                                   // If they didn't select a structure
         {
-            _popup.PopupEntity("Select a structure first.", performer, performer);
+            _popup.PopupEntity(Loc.GetString("doodon-build-select-structure-first"), performer, performer);
             return;
         }
 
@@ -57,7 +58,7 @@ public sealed class DoodonBuildSystem : EntitySystem
                 ? pFail.Name
                 : selected.Value.ToString();
 
-            _popup.PopupEntity($"Not enough resin to build {nameFail} (need {cost}).", performer, performer);
+            _popup.PopupEntity(Loc.GetString("doodon-build-not-enough-resin", ("name", nameFail), ("cost", cost)), performer, performer);
             return;
         }
 
@@ -68,10 +69,7 @@ public sealed class DoodonBuildSystem : EntitySystem
           ? pOk.Name
           : selected.Value.ToString();
 
-        var message = Loc.GetString(
-            "doodon-build-success",
-            ("name", nameOk),
-            ("cost", cost));
+        var message = Loc.GetString("doodon-build-success", ("name", nameOk), ("cost", cost));
 
         _popup.PopupEntity(message, performer, performer);
     }
@@ -89,16 +87,15 @@ public sealed class DoodonBuildSystem : EntitySystem
     private bool TryGetBuildCost(EntProtoId protoId, out int cost)
     {
         cost = 0;
+
         if (!_proto.TryIndex<EntityPrototype>(protoId, out var proto))
             return false;
 
-        if (proto.TryGetComponent(out DoodonBuildingComponent? buildingComp))
-        {
-            cost = Math.Max(0, buildingComp.ResinCost);
-            return true;
-        }
+        if (!proto.TryGetComponent(out DoodonBuildingComponent? buildingComp, _compFactory))
+            return false;
 
-        return false;
+        cost = Math.Max(0, buildingComp.ResinCost);
+        return true;
     }
 
     private bool TryConsumeResin(EntityUid builder, int amount)

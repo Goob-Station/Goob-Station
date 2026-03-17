@@ -129,9 +129,7 @@ public sealed class DoodonTownHallSystem : EntitySystem
 
         // Remove from old hall if it had one
         if (building.TownHall is { } oldHallUid && TryComp<DoodonTownHallComponent>(oldHallUid, out var oldHall))
-        {
             oldHall.Buildings.Remove(uid);
-        }
 
         // No Town Hall nearby → building is inactive and unassigned
         if (closestHall is null)
@@ -343,10 +341,6 @@ public sealed class DoodonTownHallSystem : EntitySystem
 
             building.TownHall = null;
             building.Active = false;
-
-            // IMPORTANT:
-            // Don't Dirty() unless DoodonBuildingComponent is networked.
-            // If you need the client UI to update, trigger it via Appearance / Examine, not Dirty on non-networked comps.
         }
 
         // Unassign doodons too (optional but usually correct)

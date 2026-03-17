@@ -7,6 +7,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
 using Robust.Shared.Map;
@@ -30,51 +31,15 @@ public sealed class PapaDoodonSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
 
-    private const float CheckInterval = 1.0f;
-    private float _accum;
-
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<PapaDoodonComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<PapaDoodonComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<PapaDoodonComponent, DoodonSetWarriorModeEvent>(OnSetMode);
         SubscribeLocalEvent<PapaDoodonComponent, AfterPointedAtEvent>(OnPointedAt);
         SubscribeLocalEvent<PapaDoodonComponent, DoodonEstablishTownHallEvent>(OnEstablishTownHall);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        _accum += frameTime;
-        if (_accum < CheckInterval)
-            return;
-
-        _accum = 0f;
-
-        var query = EntityQueryEnumerator<PapaDoodonComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            // Only give actions to a controlled Papa
-            if (!_mind.TryGetMind(uid, out _, out _))
-                continue;
-
-            EnsureAction(uid, ref comp.OrderStayActionEntity, comp.OrderStayAction);
-            EnsureAction(uid, ref comp.OrderFollowActionEntity, comp.OrderFollowAction);
-            EnsureAction(uid, ref comp.OrderAttackActionEntity, comp.OrderAttackAction);
-            EnsureAction(uid, ref comp.OrderLooseActionEntity, comp.OrderLooseAction);
-
-            // IMPORTANT: only SetToggled here (no StartUseDelay)
-            UpdateOrderToggles(comp);
-
-            // Establish hall is one-time.
-            if (!comp.HallPlaced)
-                EnsureAction(uid, ref comp.EstablishHallActionEntity, comp.EstablishHallAction);
-            else
-                RemoveAction(uid, ref comp.EstablishHallActionEntity);
-
-            Dirty(uid, comp);
-        }
     }
 
     private void EnsureAction(EntityUid owner, ref EntityUid? actionEnt, EntProtoId proto)
@@ -186,8 +151,6 @@ public sealed class PapaDoodonSystem : EntitySystem
 
             _htn.Replan(htnComp);
         }
-
-        // UI highlight should already be AttackTarget, but harmless
         UpdateOrderToggles(comp);
     }
 
@@ -200,7 +163,7 @@ public sealed class PapaDoodonSystem : EntitySystem
 
         if (comp.HallPlaced)
         {
-            _popup.PopupEntity("You have already established a Town Hall.", uid, uid);
+            _popup.PopupEntity(Loc.GetString("doodon-townhall-already-established"), uid, uid);
             return;
         }
 
@@ -208,10 +171,39 @@ public sealed class PapaDoodonSystem : EntitySystem
         Spawn(comp.TownHallPrototype, coords);
 
         comp.HallPlaced = true;
+        Dirty(uid, comp);
 
         RemoveAction(uid, ref comp.EstablishHallActionEntity);
 
-        _popup.PopupEntity("You establish a Doodon Town Hall.", uid, uid);
-        Dirty(uid, comp);
+        _popup.PopupEntity(Loc.GetString("doodon-townhall-established"), uid, uid);
+    }
+
+    private void OnMapInit(EntityUid uid, PapaDoodonComponent comp, MapInitEvent args)
+    {
+        TryEnsurePapaActions(uid, comp);
+        UpdateOrderToggles(comp);
+
+        if (!comp.HallPlaced)
+            EnsureAction(uid, ref comp.EstablishHallActionEntity, comp.EstablishHallAction);
+    }
+
+    private void OnMindAdded(EntityUid uid, PapaDoodonComponent comp, MindAddedMessage args)
+    {
+        TryEnsurePapaActions(uid, comp);
+        UpdateOrderToggles(comp);
+
+        if (!comp.HallPlaced)
+            EnsureAction(uid, ref comp.EstablishHallActionEntity, comp.EstablishHallAction);
+    }
+
+    private void TryEnsurePapaActions(EntityUid uid, PapaDoodonComponent comp)
+    {
+        if (!_mind.TryGetMind(uid, out _, out _))
+            return;
+
+        EnsureAction(uid, ref comp.OrderStayActionEntity, comp.OrderStayAction);
+        EnsureAction(uid, ref comp.OrderFollowActionEntity, comp.OrderFollowAction);
+        EnsureAction(uid, ref comp.OrderAttackActionEntity, comp.OrderAttackAction);
+        EnsureAction(uid, ref comp.OrderLooseActionEntity, comp.OrderLooseAction);
     }
 }

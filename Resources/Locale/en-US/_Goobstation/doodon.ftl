@@ -58,3 +58,8 @@ doodon-build-success = Built { $name } (-{ $cost } resin).
 
 doodon-show-town-hall = Showing town hall radius.
 doodon-hide-town-hall = Hiding town hall radius.
+
+doodon-build-select-structure-first = Select a structure first.
+doodon-build-not-enough-resin = Not enough resin to build {$name} (need {$cost}).
+doodon-townhall-already-established = You have already established a Town Hall.
+doodon-townhall-established = You establish a Doodon Town Hall.

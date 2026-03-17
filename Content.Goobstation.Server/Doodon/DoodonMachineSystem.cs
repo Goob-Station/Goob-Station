@@ -20,9 +20,6 @@ namespace Content.Goobstation.Server.Doodons;
 
 /// <summary>
 /// Production machines for the Doodon village.
-/// FIXED: Warriors spawned by machines now immediately inherit Papa's CURRENT ORDER
-/// (blackboard + component sync + follow policy + ordered target clearing + HTN replan),
-/// so they behave correctly even if they spawn after Papa already chose an order.
 /// </summary>
 public sealed class DoodonMachineSystem : EntitySystem
 {

@@ -26,19 +26,19 @@ public sealed partial class DoodonBuildingComponent : Component
     /// <summary>
     /// How much doodon resin it costs to create this building via the doodon build ability.
     /// </summary>
-    [DataField("resinCost")]
+    [DataField]
     public int ResinCost = 0;
 
     /// <summary>
     /// Optional: time in seconds to build (if you later add DoAfter).
     /// </summary>
-    [DataField("buildTime")]
+    [DataField]
     public float BuildTime = 0f;
 
     /// <summary>
     /// Icon used in the doodon build radial menu.
     /// </summary>
-    [DataField("buildIcon")]
+    [DataField]
     public SpriteSpecifier? BuildIcon;
 }
 
