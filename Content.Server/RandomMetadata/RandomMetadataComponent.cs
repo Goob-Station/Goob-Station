@@ -23,6 +23,14 @@ public sealed partial class RandomMetadataComponent : Component
     [DataField]
     public List<ProtoId<LocalizedDatasetPrototype>>? NameSegments;
 
+    // CorvaxGoob-start: not localizated value
+    [DataField]
+    public List<ProtoId<DatasetPrototype>>? DescriptionValueSegments; // added
+
+    [DataField]
+    public List<ProtoId<DatasetPrototype>>? NameValueSegments;// added
+    // CorvaxGoob-end
+
     /// <summary>
     /// LocId of the formatting string to use to assemble the <see cref="NameSegments"/> into the entity's name.
     /// Segments will be passed to the localization system with this string as variables named $part0, $part1, $part2, etc.

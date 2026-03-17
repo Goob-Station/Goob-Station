@@ -43,12 +43,24 @@ public sealed class RandomMetadataSystem : EntitySystem
         {
             _metaData.SetEntityName(uid, GetRandomFromSegments(component.NameSegments, component.NameFormat), meta);
         }
+        // CorvaxGoob-start: not localizated value
+        else if (component.NameValueSegments != null)
+        {
+            _metaData.SetEntityName(uid, GetRandomFromValues(component.NameValueSegments, component.NameFormat), meta);
+        }
+        // CorvaxGoob-end
 
         if (component.DescriptionSegments != null)
         {
             _metaData.SetEntityDescription(uid,
                 GetRandomFromSegments(component.DescriptionSegments, component.DescriptionFormat), meta);
         }
+        // CorvaxGoob-start: not localizated value
+        else if (component.DescriptionValueSegments != null)
+        {
+            _metaData.SetEntityDescription(uid, GetRandomFromValues(component.DescriptionValueSegments, component.DescriptionFormat), meta);
+        }
+        // CorvaxGoob-end
     }
 
     /// <summary>
@@ -64,6 +76,19 @@ public sealed class RandomMetadataSystem : EntitySystem
         for (var i = 0; i < segments.Count; ++i)
         {
             var localizedProto = _prototype.Index(segments[i]);
+            _outputSegments.Add(($"part{i}", _random.Pick(localizedProto)));
+        }
+
+        return Loc.GetString(format, _outputSegments.ToArray());
+    }
+
+    [PublicAPI]
+    public string GetRandomFromValues(List<ProtoId<DatasetPrototype>> values, LocId format)
+    {
+        _outputSegments.Clear();
+        for (var i = 0; i < values.Count; ++i)
+        {
+            var localizedProto = _prototype.Index(values[i]);
             _outputSegments.Add(($"part{i}", _random.Pick(localizedProto)));
         }
 
