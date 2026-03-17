@@ -39,5 +39,6 @@
     icon:
       sprite: _Trauma/Mobs/ShadowDemon/actions.rsi
       state: shadow_crawl
+    useDelay: 2 # applied only when entering jaunt
   - type: InstantAction
     event: !type:ShadowCrawlEvent

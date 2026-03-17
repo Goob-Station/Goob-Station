@@ -3,9 +3,9 @@
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.PhaseShift;
 using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Popups;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared._Trauma.ShadowDemon;
 
@@ -14,6 +14,16 @@ public sealed class ShadowCrawlSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    /// <summary>
+    /// Actions that should be enabled during crawling.
+    /// Defaults to Shadow Crawl and Night Vision
+    /// </summary>
+    public HashSet<EntProtoId> WhitelistedActions = new()
+    {
+        "ShadowCrawlAction",
+        "ToggleNightVision"
+    };
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -61,7 +71,7 @@ public sealed class ShadowCrawlSystem : EntitySystem
             RaiseLocalEvent(ent.Owner, ref deactivateEv);
 
             // Re-enable all actions
-            ToggleActions(args.Action, ent.Owner, true);
+            ToggleActions(WhitelistedActions, ent.Owner, true);
 
             // Activate cooldown only when exiting jaunt
             _actions.SetCooldown(args.Action.Owner, ent.Comp.ActionCooldown);
@@ -87,7 +97,7 @@ public sealed class ShadowCrawlSystem : EntitySystem
         RaiseLocalEvent(ent.Owner, ref activateEv);
 
         // Disable all actions while in jaunt except the jaunt itself
-        ToggleActions(args.Action, ent.Owner, false);
+        ToggleActions(WhitelistedActions, ent.Owner, false);
 
         // Ensures we don't attack people while invisible
         _combat.SetInCombatMode(ent.Owner, false);
@@ -148,12 +158,12 @@ public sealed class ShadowCrawlSystem : EntitySystem
     /// Disables or enables all actions on the user for use.
     /// This is meant to prevent using actions while in jaunt
     /// </summary>
-    private void ToggleActions(Entity<ActionComponent> ignoreAction, EntityUid uid, bool toggle)
+    private void ToggleActions(HashSet<EntProtoId> whitelistedActions, EntityUid uid, bool toggle)
     {
         var actions = _actions.GetActions(uid);
         foreach (var action in actions)
         {
-            if (action == ignoreAction)
+            if (Prototype(action) is not {} actionProto || whitelistedActions.Contains(actionProto))
                 continue;
 
             _actions.SetEnabled((action.Owner, action.Comp), toggle);

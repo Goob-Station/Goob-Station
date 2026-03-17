@@ -81,19 +81,21 @@ public sealed class ShadowGrappleSystem : EntitySystem
             return;
 
         var target = args.Target;
-        _throwing.TryThrow(shooter, Transform(target).Coordinates, 10f, shooter, doSpin: true);
 
-        // Body, apply damage
+        // Body, apply damage and throw them to us
         if (_mobStateQuery.HasComp(target))
         {
             _damage.TryChangeDamage(target, ent.Comp.DamageOnHit);
             BreakLightsOnTarget(target);
 
             _stun.TryAddParalyzeDuration(target, ent.Comp.StunTime);
+
+            _throwing.TryThrow(target, Transform(shooter).Coordinates, 10f, target, doSpin: true);
             return;
         }
 
-        // Not a body, just destroy nearby lights
+        // Not a body, just destroy nearby lights and throw us there
+        _throwing.TryThrow(shooter, Transform(target).Coordinates, 10f, shooter, doSpin: true);
         BreakNearbyLights(target, args.Shooter, ent.Comp.BreakLightsRange);
     }
 
@@ -145,4 +147,4 @@ public sealed class ShadowGrappleSystem : EntitySystem
     private bool CanRemove(EntityUid uid)
         => !_container.TryGetContainingContainer(uid, out var container) || _container.CanRemove(uid, container);
     #endregion
- }
+}
