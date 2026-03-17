@@ -1,0 +1,48 @@
+# Animals:
+- type: loadout
+  id: Hamster
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HamsterLoadoutRequirement
+  storage:
+    back:
+    - MobHamster
+
+- type: loadoutEffectGroup
+  id: HamsterLoadoutRequirement
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 720000 # 200 hours
+
+- type: loadout
+  id: Moproach
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MoproachLoadoutRequirement
+  storage:
+    back:
+    - MobMoproach
+
+- type: loadoutEffectGroup
+  id: MoproachLoadoutRequirement
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 720000 # 200 hours
+
+- type: loadout
+  id: Butterfly
+  storage:
+    back:
+    - MobButterfly
+
+- type: loadout
+  id: Cockroach
+  storage:
+    back:
+    - MobCockroach

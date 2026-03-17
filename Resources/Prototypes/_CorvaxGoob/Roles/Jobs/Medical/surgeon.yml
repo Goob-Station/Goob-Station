@@ -33,7 +33,6 @@
     shoes: ClothingShoesColorWhite
     id: SurgeonPDA
     mask: ClothingMaskSterile
-    gloves: ClothingHandsGlovesNitrile
 
 - type: chameleonOutfit
   id: SurgeonChameleonOutfit

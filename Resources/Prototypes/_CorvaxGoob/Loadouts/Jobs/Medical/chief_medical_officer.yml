@@ -1,0 +1,5 @@
+# Очки
+- type: loadout
+  id: CMOGlasses
+  equipment:
+    eyes: ClothingEyesGlassesMed

@@ -23,7 +23,7 @@
   id: RoboticistGear
   equipment:
     ears: ClothingHeadsetRobotics
-    eyes: ClothingEyesHudDiagnostic
+#   eyes: ClothingEyesHudDiagnostic # CorvaxGoob-loadouts: replaced on a RoboticistGlasses loadout
 
 - type: chameleonOutfit
   id: RoboticistChameleonOutfit

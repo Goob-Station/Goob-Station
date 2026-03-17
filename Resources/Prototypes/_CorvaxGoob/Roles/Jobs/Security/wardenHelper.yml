@@ -34,7 +34,6 @@
 - type: startingGear
   id: WardenHelperGear
   equipment:
-    head: ClothingHeadHatWardenHelper
     eyes: ClothingEyesGlassesSecurity
     id: WardenHelperPDA
     ears: ClothingHeadsetSecurity

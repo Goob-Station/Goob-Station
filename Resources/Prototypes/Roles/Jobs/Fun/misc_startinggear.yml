@@ -248,7 +248,7 @@
 - type: startingGear
   id: BrigmedicGear
   equipment: # Heavily goob edited
-    eyes: ClothingEyesGlassesMedSec
+#   eyes: ClothingEyesGlassesMedSec  # CorvaxGoob-loadouts: replaced on a BrigmedicGlasses loadout
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic # EE parity like i was told to do
     belt: ClothingBeltMedicalEMTFilled

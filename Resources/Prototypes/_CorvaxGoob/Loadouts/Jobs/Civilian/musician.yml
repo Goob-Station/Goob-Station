@@ -1,0 +1,28 @@
+# Glasses:
+- type: loadout
+  id: Sunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    
+# Head:
+- type: loadout
+  id: MusicianHelmetGolden
+  equipment:
+    head: ClothingHeadHelmetGoldenMusician
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 360000 #100 hours
+
+- type: loadout
+  id: MusicianHelmetSilver
+  equipment:
+    head: ClothingHeadHelmetSilverMusician
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 360000 #100 hours

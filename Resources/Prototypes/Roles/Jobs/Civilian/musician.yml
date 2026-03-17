@@ -75,7 +75,7 @@
 - type: startingGear
   id: MusicianGear
   equipment:
-    eyes: ClothingEyesGlassesSunglasses
+#   eyes: ClothingEyesGlassesSunglasses # CorvaxGoob-loadouts: replaced on a MusicianGlasses loadout
     shoes: ClothingShoesBootsLaceup
     id: MusicianPDA
     ears: ClothingHeadsetService

@@ -82,30 +82,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# CorvaxGoob - Musician's Helmet - Start
-- type: loadout
-  id: MusicianHelmetGolden
-  equipment:
-    head: ClothingHeadHelmetGoldenMusician
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMusician
-      time: 360000 #100 hrs
-
-- type: loadout
-  id: MusicianHelmetSilver
-  equipment:
-    head: ClothingHeadHelmetSilverMusician
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMusician
-      time: 360000 #100 hrs
-# CorvaxGoob - Musician's Helmet - End
-
 # Jumpsuit
 - type: loadout
   id: MusicianJumpsuit

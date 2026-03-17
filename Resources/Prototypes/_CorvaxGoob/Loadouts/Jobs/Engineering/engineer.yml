@@ -1,0 +1,36 @@
+# Other:
+- type: loadout
+  id: EngineerWelderIndustrial
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineer
+  storage:
+    back:
+    - WelderIndustrial
+  
+- type: loadout
+  id: EngineerWelderAdvanced
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ExpertEngineer
+  storage:
+    back:
+    - WelderIndustrialAdvanced
+    
+- type: loadoutEffectGroup
+  id: SeniorEngineer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 187200 # 52 hours
+
+- type: loadoutEffectGroup
+  id: ExpertEngineer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 720000 # 200 hours

@@ -21,13 +21,19 @@
   minLimit: 0
   loadouts:
   - SurgeonScalpelLaser
-  
+
 - type: loadoutGroup
-  id: Inventory
-  name: loadout-group-inventory
+  id: ChiefMedicalOfficerGlasses
+  name: loadout-group-chief-medical-officer-glasses
   minLimit: 0
-  maxLimit: 5
-  loadouts: []
+  loadouts:
+  - CMOGlasses
+  - MedicalHud
+  - MedicalEyePatchHud
+  - Glasses
+  - CheapSunglasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: ChiefEngineerBackpack
@@ -81,3 +87,96 @@
   - BrigmedicSecurityMedicalRespirator
   - BrigmedicGasSecurity
   - BrigmedicMedicalSecurity
+  
+- type: loadoutGroup
+  id: BrigmedicGlasses
+  name: loadout-group-brigmedic-glasses
+  loadouts:
+  - BrigmedicGlasses
+  - BrigmedicHud
+  - Glasses
+  - CheapSunglasses
+  - GlassesJamjar
+  - GlassesJensen
+  
+- type: loadoutGroup
+  id: WardenBackpack
+  name: loadout-group-warden-backpack
+  loadouts:
+  - SecurityBackpack
+  - SecuritySatchel
+  - SecurityDuffel
+  - SecurityMessenger
+  - WardenBackpackAlt
+
+# Science
+- type: loadoutGroup
+  id: RoboticistGlasses
+  name: loadout-group-roboticist-glasses
+  loadouts:
+  - RoboticistGlasses
+  - RoboticistHud
+  - RoboticistMonoHud
+  - Glasses
+  - CheapSunglasses
+  - GlassesJamjar
+  - GlassesJensen
+  
+# Command
+- type: loadoutGroup
+  id: HoPGlasses
+  name: loadout-group-head-of-personnel-glasses
+  minLimit: 0
+  loadouts:
+  - HoPGlasses
+  - HoPHud
+  - Glasses
+  - CheapSunglasses
+  - GlassesJamjar
+  - GlassesJensen
+  
+# Service
+- type: loadoutGroup
+  id: MusicianGlasses
+  name: loadout-group-musician-glasses
+  minLimit: 0
+  loadouts:
+  - Sunglasses
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+  
+- type: loadoutGroup
+  id: RadiohostGlasses
+  name: loadout-group-radiohost-glasses
+  minLimit: 0
+  loadouts:
+  - Sunglasses
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
+  id: MusicianHelmet
+  name: loadout-group-musician-helmet
+  minLimit: 0
+  loadouts:
+  - MusicianHelmetGolden
+  - MusicianHelmetSilver
+  
+# Engineering
+- type: loadoutGroup
+  id: EngineeringWelder
+  name: loadout-group-engineering-welder
+  minLimit: 0
+  loadouts:
+  - EngineerWelderIndustrial
+  - EngineerWelderAdvanced
+
+# Other
+- type: loadoutGroup
+  id: Inventory
+  name: loadout-group-inventory
+  minLimit: 0
+  maxLimit: 5
+  loadouts: []

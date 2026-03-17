@@ -86,3 +86,14 @@
   id: BrigmedicWinterSec
   equipment:
     shoes: ClothingShoesBootsWinterSecFilled
+
+# Очки
+- type: loadout
+  id: BrigmedicGlasses
+  equipment:
+    eyes: ClothingEyesGlassesMedSec
+
+- type: loadout
+  id: BrigmedicHud
+  equipment:
+    eyes: ClothingEyesHudMedSec

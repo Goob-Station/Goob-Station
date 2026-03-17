@@ -7,4 +7,15 @@
 - type: loadout
   id: HoPJumpskirtTurtleneck
   equipment:
-    jumpsuit: ClothingUniformJumpskirtHoPTurtleneck
+    jumpsuit: ClothingUniformJumpskirtHoPTurtleneck  
+
+# Glasses
+- type: loadout
+  id: HoPGlasses
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+    
+- type: loadout
+  id: HoPHud
+  equipment:
+    eyes: ClothingEyesHudCommand

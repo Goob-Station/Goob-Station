@@ -20,3 +20,21 @@
       !type:RoleTimeRequirement
       role: JobWarden
       time: 187200 # 52 hours
+      
+# Backpack:
+- type: loadout
+  id: WardenBackpackAlt
+  equipment:
+    head: ClothingBackpackWarden
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorWardenBackpack
+    
+- type: loadoutEffectGroup
+  id: SeniorWardenBackpack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobWarden
+      time: 187200 # 52 hours

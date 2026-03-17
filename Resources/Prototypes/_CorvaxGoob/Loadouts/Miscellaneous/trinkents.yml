@@ -1,4 +1,4 @@
-# pins
+# Pins:
 - type: loadout
   id: ClothingNeckAtharaPin
   storage:
@@ -52,3 +52,22 @@
   storage:
     back:
     - ClothingNeckWhiteListPin
+    
+# Lolypops:
+- type: loadout
+  id: FoodSnackLollypopWrappedTricordrazine
+  storage:
+    back:
+    - FoodSnackLollypopWrappedTricordrazine
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LollypopTricordrazine
+    
+- type: loadoutEffectGroup
+  id: LollypopTricordrazine
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Medical
+      time: 360000 # 100 hours
