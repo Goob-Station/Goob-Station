@@ -90,7 +90,7 @@ public sealed class ShadowGrappleSystem : EntitySystem
 
             _stun.TryAddParalyzeDuration(target, ent.Comp.StunTime);
 
-            _throwing.TryThrow(target, Transform(shooter).Coordinates, 10f, target, doSpin: true);
+            _throwing.TryThrow(target, Transform(shooter).Coordinates, 10f, shooter, doSpin: true);
             return;
         }
 
