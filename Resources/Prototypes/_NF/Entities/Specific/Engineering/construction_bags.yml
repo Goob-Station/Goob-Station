@@ -10,58 +10,60 @@
   name: construction bag
   description: A robust bag for construction specialists and engineers alike to carry large amounts of construction materials. Magnetises any nearby construction materials when attached to a belt.
   components:
-  - type: MagnetPickup
-  - type: Sprite
-    sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
-    layers:
-    - state: icon
-    - state: icon-on
-      shader: unshaded
-      visible: false
-      map: [ "enum.ToggleableVisuals.Layer" ]
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
-          True: { visible: true }
-          False: { visible: false }
-  - type: Clothing
-    sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
-    quickEquip: false
-    slots:
-    - belt
-  - type: Item
-    size: Ginormous
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        shader: unshaded
-      right:
-      - state: inhand-right
-        shader: unshaded
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,9,3
-    quickInsert: true
-    areaInsert: true
-    whitelist:
-      tags:
-      - Sheet
-      - CableCoil
-      - RawMaterial
-      - PartBase
-  - type: Dumpable
-  - type: ItemToggle
-    soundActivate:
-      collection: sparks
-      params:
-        variation: 0.250
-    soundDeactivate:
-      collection: sparks
-      params:
-        variation: 0.250
+    - type: MagnetPickup
+    - type: Sprite
+      sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
+      layers:
+        - state: icon
+        - state: icon-on
+          shader: unshaded
+          visible: false
+          map: ["enum.ToggleableVisuals.Layer"]
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ToggleableVisuals.Enabled:
+          enum.ToggleableVisuals.Layer:
+            True: { visible: true }
+            False: { visible: false }
+    - type: Clothing
+      sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
+      quickEquip: false
+      slots:
+        - belt
+    - type: Item
+      size: Ginormous
+      inhandVisuals:
+        left:
+          - state: inhand-left
+            shader: unshaded
+        right:
+          - state: inhand-right
+            shader: unshaded
+    - type: Storage
+      maxItemSize: Normal
+      grid:
+        - 0,0,9,3
+      quickInsert: true
+      areaInsert: true
+      whitelist:
+        tags:
+          - Sheet
+          - CableCoil
+          - RawMaterial
+          - PartBase
+        components:
+          - FloorTile # CorvaxGoob
+    - type: Dumpable
+    - type: ItemToggle
+      soundActivate:
+        collection: sparks
+        params:
+          variation: 0.250
+      soundDeactivate:
+        collection: sparks
+        params:
+          variation: 0.250
 
 - type: entity
   parent: ConstructionBag
@@ -80,7 +82,7 @@
           shader: unshaded
         - state: icon-on-bluespace
           visible: false
-          map: [ "enum.ToggleableVisuals.Layer" ]
+          map: ["enum.ToggleableVisuals.Layer"]
     - type: Item
       size: Huge
       inhandVisuals:
