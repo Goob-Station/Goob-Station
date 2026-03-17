@@ -18,4 +18,6 @@
     - id: ClothingBackpackXenoBioTankFilled
     - id: SprayBottleWater
     - id: SlimeScannerXenobio
-
+    - id: BoxSyringe # CorvaxGoob start
+    - id: PlasmaChemistryVial
+    - id: MonkeyCubeBox # CorvaxGoob end
