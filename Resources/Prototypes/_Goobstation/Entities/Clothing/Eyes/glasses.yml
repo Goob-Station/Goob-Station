@@ -146,9 +146,9 @@
     isEquipment: true
     color: "#98EEFB"
     lightRadius: 15
-  - type: ChameleonClothing
-    slot: [ eyes ]
-    default: ClothingEyesGlassesDeathsquad
+#  - type: ChameleonClothing # CorvaxGoob: commented because the function doesn't make sense + doesn't work
+#    slot: [ eyes ]
+#    default: ClothingEyesGlassesDeathsquad
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -158,6 +158,17 @@
     - type: KravMaga # Silly
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  # CorvaxGoob-changes-start:
+  - type: NightVision
+    flashDurationMultiplier: 2
+    isEquipment: true
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - SiliconRadiation 
+    - Biological
+   # CorvaxGoob-changes-end
 
 - type: entity
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]

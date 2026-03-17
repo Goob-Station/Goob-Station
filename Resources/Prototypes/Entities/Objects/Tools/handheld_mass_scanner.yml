@@ -84,6 +84,9 @@
     materialComposition:
       Steel: 200
       Glass: 75
+  - type: Tag # CorvaxGoob
+    tags:
+    - HandHeldMassScanner
 
 - type: entity
   id: HandHeldMassScannerEmpty
