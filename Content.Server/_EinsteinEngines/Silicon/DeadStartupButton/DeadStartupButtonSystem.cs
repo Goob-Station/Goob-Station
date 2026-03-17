@@ -115,9 +115,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
         {
             // notify them they're being revived
             if (mind.CurrentEntity != uid)
-            {
                 _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _player), playerSession);
-            }
         }
     }
 
