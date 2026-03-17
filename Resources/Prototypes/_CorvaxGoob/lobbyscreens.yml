@@ -1,285 +1,425 @@
 - type: lobbyBackground
   id: BarLife
   background: /Textures/_CorvaxGoob/LobbyScreens/bar-life.webp
+  name: "Барная жизнь"
+  artist: "just_art_" 
 
 - type: lobbyBackground
   id: DeadInSpace
   background: /Textures/_CorvaxGoob/LobbyScreens/dead-in-space.webp
+  name: "Мёртв в космосе"
+  artist: ".coffee_with_milk."
 
 - type: lobbyBackground
   id: Deadsquad
   background: /Textures/_CorvaxGoob/LobbyScreens/deadsquad.webp
+  name: "Эскадрон"
+  artist: "livesey28041"
 
 - type: lobbyBackground
   id: Detective
   background: /Textures/_CorvaxGoob/LobbyScreens/detective.webp
+  name: "Детектив"
+  artist: "kukurudznik"
 
 - type: lobbyBackground
   id: EngineersChill
   background: /Textures/_CorvaxGoob/LobbyScreens/engineers-chill.webp
+  name: "Инженерный отдых"
+  artist: "gasper_horned"
 
 - type: lobbyBackground
   id: Greytide
   background: /Textures/_CorvaxGoob/LobbyScreens/greytide.webp
+  name: "Грейтайд"
+  artist: "giliof"
 
 - type: lobbyBackground
   id: Hydroponics
   background: /Textures/_CorvaxGoob/LobbyScreens/hydroponics.webp
+  name: "Гидропоника"
+  artist: "nyan_cat._."
 
 - type: lobbyBackground
   id: IntoSpace
   background: /Textures/_CorvaxGoob/LobbyScreens/into-space.webp
+  name: "Сингалуз"
+  artist: "mefedronov"
 
 - type: lobbyBackground
   id: Jailbreak
   background: /Textures/_CorvaxGoob/LobbyScreens/jailbreak.webp
+  name: "Побег"
+  artist: "muchs"
 
 - type: lobbyBackground
   id: Kosmologistika
   background: /Textures/_CorvaxGoob/LobbyScreens/kosmologistika.webp
+  name: "Космологистика"
+  artist: "drodn"
 
 - type: lobbyBackground
   id: LizardBar
   background: /Textures/_CorvaxGoob/LobbyScreens/lizard-bar.webp
+  name: "Унатхи в баре"
+  artist: "_mosley_ "
 
 - type: lobbyBackground
   id: Lofi
   background: /Textures/_CorvaxGoob/LobbyScreens/lofi.webp
+  name: "Лофи"
+  artist: "buryatus"
 
 - type: lobbyBackground
   id: MaintenanceClown
   background: /Textures/_CorvaxGoob/LobbyScreens/maintenance-clown.webp
+  name: "Клоун в техах"
+  artist: ".nijn0"
 
 - type: lobbyBackground
   id: MedDepart
   background: /Textures/_CorvaxGoob/LobbyScreens/med-depart.webp
+  name: "Медотдел"
+  artist: "vetochka_igrit"
 
 - type: lobbyBackground
   id: NukiesHere
   background: /Textures/_CorvaxGoob/LobbyScreens/nukies-here.webp
+  name: "Оперативники тут!"
+  artist: "bib5784"
 
 - type: lobbyBackground
   id: RegularShift
   background: /Textures/_CorvaxGoob/LobbyScreens/regular-shift.webp
+  name: "Работка"
+  artist: "gasper_horned"
 
 - type: lobbyBackground
   id: Russellmart
   background: /Textures/_CorvaxGoob/LobbyScreens/russellmart.webp
+  name: "В безысходности"
+  artist: "sonnov"
 
 - type: lobbyBackground
   id: Sidor
   background: /Textures/_CorvaxGoob/LobbyScreens/sidor.webp
+  name: "«Меченный, где печать?»"
+  artist: "kukurudznik"
 
 - type: lobbyBackground
   id: Singulord
   background: /Textures/_CorvaxGoob/LobbyScreens/singulord.webp
+  name: "Сингулорд"
+  artist: "Ast#5705"
 
 - type: lobbyBackground
   id: SpaceMudaki
   background: /Textures/_CorvaxGoob/LobbyScreens/space-mudaki.webp
+  name: "Kosmicheskie mudaki"
+  artist: "ivan_gotsin"
 
 - type: lobbyBackground
   id: Traitor
   background: /Textures/_CorvaxGoob/LobbyScreens/traitor.webp
+  name: "Агент"
+  artist: "nezniykycb"
 
 - type: lobbyBackground
   id: NukieDudes
   background: /Textures/_CorvaxGoob/LobbyScreens/nukie-dudes.webp
+  name: "Нюкеры"
+  artist: "ROBUSTyanka#3178"
 
 - type: lobbyBackground
   id: LostAndPowerless
   background: /Textures/_CorvaxGoob/LobbyScreens/lost-and-powerless.webp
+  name: "Потеряны и безсильны"
+  artist: "dreamlyjack"
 
 - type: lobbyBackground
   id: MenAtWork
   background: /Textures/_CorvaxGoob/LobbyScreens/men-at-work.webp
+  name: "Мужская работа"
+  artist: "dreamlyjack"
 
 - type: lobbyBackground
   id: FleshAnom
   background: /Textures/_CorvaxGoob/LobbyScreens/fleshanom.webp
+  name: "Плоть"
+  artist: "alisw_a"
 
 - type: lobbyBackground
   id: Revenant
   background: /Textures/_CorvaxGoob/LobbyScreens/revenant.webp
+  name: "Ревенант"
+  artist: "mrzipka"
 
 - type: lobbyBackground
   id: DeathNettle
   background: /Textures/_CorvaxGoob/LobbyScreens/deathnettle.webp
+  name: "Смертокрапива"
+  artist: "werkas"
 
 - type: lobbyBackground
   id: Xeno
   background: /Textures/_CorvaxGoob/LobbyScreens/xeno.webp
+  name: "Ксено..."
+  artist: "_agent666_"
 
 - type: lobbyBackground
   id: ClownSpider
   background: /Textures/_CorvaxGoob/LobbyScreens/clownspider.webp
+  name: "Хонко-паучки"
+  artist: "ko4erga"
 
 - type: lobbyBackground
   id: AIMia
   background: /Textures/_CorvaxGoob/LobbyScreens/ai-mia.webp
+  name: "ИИ «Миа»"
+  artist: "ko4erga"
 
 - type: lobbyBackground
   id: XenoAttack
   background: /Textures/_CorvaxGoob/LobbyScreens/xenosattack.webp
+  name: "Ксеноатака!"
+  artist: "gasper_horned"
 
 - type: lobbyBackground
   id: SingulordCage
   background: /Textures/_CorvaxGoob/LobbyScreens/singulord-cage.webp
+  name: "Поле сингуло"
+  artist: "gasper_horned"
 
 - type: lobbyBackground
   id: YouLookLonely
   background: /Textures/_CorvaxGoob/LobbyScreens/you-look-lonely.webp
+  name: "Я могу исправить это"
+  artist: "dreamlyjack"
 
 - type: lobbyBackground
   id: GrayTide
   background: /Textures/_CorvaxGoob/LobbyScreens/gray-tide.webp
+  name: "Грейтайд"
+  artist: "limemint"
 
 - type: lobbyBackground
   id: NewYearBar
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-bar.webp
+  name: "Новогодний бар"
+  artist: "ko4erga"
 
 - type: lobbyBackground
   id: NewYearSec
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-sec.webp
+  name: "Новгодняя погоня"
+  artist: "davidskeleton25"
 
 - type: lobbyBackground
   id: NewYearSave
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-save.webp
+  name: "Спасение"
+  artist: "phelcka"
 
 - type: lobbyBackground
   id: NewYearComfort
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-comfort.webp
+  name: "Новогодний уют"
+  artist: "gasper_horned"
 
 - type: lobbyBackground
   id: NewYearParty
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-party.webp
+  name: "Новгодняя вечеринка"
+  artist: "thevictorplumber"
 
 - type: lobbyBackground
   id: NewYearPine
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-pine.webp
+  name: "Новогодняя ёлка из труб"
+  artist: "kawoshechka"
 
 - type: lobbyBackground
   id: NewYearExplosion
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-explosion.webp
+  name: "Новогодний взрыв"
+  artist: "_mosley_"
 
 - type: lobbyBackground
   id: SpaceNuke
   background: /Textures/_CorvaxGoob/LobbyScreens/space-nuke.webp
+  name: "После взрыва"
+  artist: "fiodosich"
 
 - type: lobbyBackground
   id: NewYearPenguins
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-penguins.webp
+  name: "Пингвины!"
+  artist: "gasper_horned"
 
 - type: lobbyBackground
   id: NewYearNuke
   background: /Textures/_CorvaxGoob/LobbyScreens/new-year-nuke.webp
+  name: "Новогодняя ядерка"
+  artist: "vladimir.s"
 
 - type: lobbyBackground
   id: ArnoldIntelligence
   background: /Textures/_CorvaxGoob/LobbyScreens/arnold-intelligence.webp
+  name: "В тени"
+  artist: "kawoshechka"
 
 - type: lobbyBackground
   id: MimesInTechs
   background: /Textures/_CorvaxGoob/LobbyScreens/mimes-in-techs.webp
+  name: "Мима в техах"
+  artist: "zdhh"
 
 - type: lobbyBackground
   id: NukieWar
   background: /Textures/_CorvaxGoob/LobbyScreens/nukie-war.webp
+  name: "Варопсы"
+  artist: "slvtr455"
 
 - type: lobbyBackground
   id: EngineersVsZombies
   background: /Textures/_CorvaxGoob/LobbyScreens/engineers-vs-zombies.webp
+  name: "Инженеры против зомби"
+  artist: "ukrainianlad"
 
 - type: lobbyBackground
   id: SillyIsland
   background: /Textures/_CorvaxGoob/LobbyScreens/silly-island.webp
+  name: "Силли"
+  artist: "alexsandr_the_great2"
 
 - type: lobbyBackground
   id: EchoTeam
   background: /Textures/_CorvaxGoob/LobbyScreens/echo-team.webp
+  name: "Эхо эха"
+  artist: "ukrainianlad"
 
 - type: lobbyBackground
   id: YouAreNotFunny
   background: /Textures/_CorvaxGoob/LobbyScreens/you-are-not-funny.webp
+  name: "Ты не смешной"
+  artist: "prazat911"
 
 - type: lobbyBackground
   id: NarSieCult
   background: /Textures/_CorvaxGoob/LobbyScreens/nar-sie.webp
+  name: "Нар'Си"
+  artist: "ugog"
 
 - type: lobbyBackground
   id: End
   background: /Textures/_CorvaxGoob/LobbyScreens/end.webp
+  name: "Конец"
+  artist: "ugog"
 
 - type: lobbyBackground
   id: CyborgNinja
   background: /Textures/_CorvaxGoob/LobbyScreens/cyborg-ninja.webp
+  name: "Кибер-ниндзя"
+  artist: "golden_jerusalem"
 
 - type: lobbyBackground
   id: Security
   background: /Textures/_CorvaxGoob/LobbyScreens/security.webp
+  name: "Служба безопасности"
+  artist: "qulezza"
 
 - type: lobbyBackground
   id: Summer2025GreytidePilgrim
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-greytide-pilgrim.webp
+  name: "Грейтайд на пилигриме"
+  artist: "aalexshadow"
 
 - type: lobbyBackground
   id: Summer2025DragonLeash
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-dragon-leash.webp
+  name: "Суета на пляже"
+  artist: "dreamlyjack"
 
 - type: lobbyBackground
   id: Summer2025ASecondBefore
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-a-second-before.webp
+  name: "Волейбол на пляже"
+  artist: "mdegrante"
 
 - type: lobbyBackground
   id: Summer2025Why
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-why.webp
+  name: "Почему"
+  artist: "mifi2069"
 
 - type: lobbyBackground
   id: Summer2025ExtremeFishing
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-extreme-fishing.webp
+  name: "Экстремальная рыбалка"
+  artist: "macabreb"
 
 - type: lobbyBackground
   id: Summer2025Expedition
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-expedition.webp
+  name: "Экспедиция"
+  artist: "reynir_exe"
 
 - type: lobbyBackground
   id: Summer2025BeachGames
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-beach-games.webp
+  name: "Игры на пляже"
+  artist: "kog_markuss"
 
 - type: lobbyBackground
   id: Summer2025Invite
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-invite.webp
+  name: "Приглашение"
+  artist: "artista.rar_furrista"
 
 - type: lobbyBackground
   id: Summer2025Afterparty
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-afterparty.webp
+  name: "афтепати"
+  artist: "ugog"
 
 - type: lobbyBackground
   id: Summer2025Dome
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-dome.webp
+  name: "Купол"
+  artist: "zdhh"
 
 - type: lobbyBackground
   id: Summer2025Crash
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-crash.webp
+  name: "Крушение"
+  artist: "asc_art"
 
 - type: lobbyBackground
   id: Summer2025Survivour
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-survivour.webp
+  name: "Выживание"
+  artist: ".overlod"
 
 - type: lobbyBackground
   id: Summer2025Syndicill
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-syndicill.webp
+  name: "Синдика на отдыхе"
+  artist: "johi6640"
 
 - type: lobbyBackground
   id: Summer2025WorksDone
   background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-works-done.webp
+  name: "Купол"
+  artist: "033333312233"
 
 - type: lobbyBackground
   id: SoleSurvivor
   background: /Textures/_CorvaxGoob/LobbyScreens/sole-survivor.webp
+  name: "Последний выживший"
+  artist: "rozycosmic"
 
 - type: lobbyBackground
   id: AwesomeShuttle
-  name: "Замечательный шаттл"
-  artist: qulezza
   background: /Textures/_CorvaxGoob/LobbyScreens/awesome-shuttle.webp
+  name: "Замечательный шаттл"
+  artist: "qulezza"
