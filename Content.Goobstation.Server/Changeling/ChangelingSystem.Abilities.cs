@@ -206,6 +206,8 @@ public sealed partial class ChangelingSystem
         _blood.SpillAllSolutions(target);
 
         EnsureComp<AbsorbedComponent>(target);
+        if (_mind.TryGetMind(target, out var mindIdTakeTwo, out var targetMind))
+            EnsureComp<AbsorbedMindComponent>(mindIdTakeTwo);
         EnsureComp<UnrevivableComponent>(target);
 
         TryComp<ChangelingChemicalComponent>(uid, out var chemComp); // user's chemical component

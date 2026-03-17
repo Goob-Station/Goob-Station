@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Changeling; // Goobstation
 using Content.Goobstation.Common.Cloning; // Goobstation
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
@@ -210,6 +211,16 @@ public sealed class CloningPodSystem : EntitySystem
         }
 
         // end of biomass checks
+
+        // goob edit start
+        if (_mindSystem.TryGetMind(bodyToClone, out var mindId, out var targetMindComponent)
+            && HasComp<AbsorbedMindComponent>(mindId))
+        {
+            if (clonePod.ConnectedConsole != null)
+                _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-uncloneable-trait-error"), InGameICChatType.Speak, false);
+            return false;
+        }
+        // goob edit end
 
         // genetic damage checks
         if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
