@@ -28,6 +28,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Content.Shared.Body.Part;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Audio;
 using Robust.Server.Player;
@@ -519,7 +520,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         var uid = args.Entity;
 
-        if (HasComp<ItemComponent>(uid))
+        if (HasComp<ItemComponent>(uid) && !HasComp<BodyPartComponent>(uid))
         {
             MarkForDespawn(uid, rule.SweepDespawnTime, checkContainer: true);
             return;
