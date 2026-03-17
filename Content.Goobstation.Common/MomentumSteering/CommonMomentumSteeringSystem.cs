@@ -17,12 +17,14 @@ public abstract class CommonMomentumSteeringSystem : EntitySystem
         friction *= MathHelper.Lerp(1f, comp.FrictionReductionAtSpeed, speedFactor);
     }
 
-    public bool TryAdjustedWishDir(
+    public virtual bool TryAdjustedWishDir(
+        EntityUid uid,
         MomentumSteeringComponent comp,
         Vector2 velocity,
         Vector2 wishDir,
         out Vector2 adjustedWishDir,
-        out float speed)
+        out float speed,
+        float bonusFactor = 0f)
     {
         speed = velocity.Length();
         adjustedWishDir = wishDir;
@@ -33,7 +35,7 @@ public abstract class CommonMomentumSteeringSystem : EntitySystem
         var speedFactor = MathHelper.Clamp(
             (speed - comp.SpeedThreshold) / (comp.MaxSpeed - comp.SpeedThreshold),
             0f,
-            1f);
+            1f) * (1f - bonusFactor);
         var steeringPenalty = MathHelper.Lerp(1f, comp.MinSteeringFactor, speedFactor);
 
         var velNorm = velocity.Normalized();
