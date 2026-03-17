@@ -28,7 +28,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
-using Content.Shared.Body.Part;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Audio;
 using Robust.Server.Player;
@@ -498,7 +497,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private void OnDespawnPickedUp(Entity<TimedDespawnComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (HasComp<ThunderdomePlayerComponent>(args.Container.Owner))
+        if (IsOwned(ent))
             RemComp<TimedDespawnComponent>(ent);
     }
 
@@ -520,7 +519,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         var uid = args.Entity;
 
-        if (HasComp<ItemComponent>(uid) && !HasComp<BodyPartComponent>(uid))
+        if (HasComp<ItemComponent>(uid))
         {
             MarkForDespawn(uid, rule.SweepDespawnTime, checkContainer: true);
             return;
@@ -541,6 +540,18 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             return;
 
         EnsureComp<TimedDespawnComponent>(uid).Lifetime = lifetime;
+    }
+
+    private bool IsOwned(EntityUid uid)
+    {
+        var cur = uid;
+        while (_container.TryGetContainingContainer(cur, out var container))
+        {
+            if (HasComp<ThunderdomePlayerComponent>(container.Owner))
+                return true;
+            cur = container.Owner;
+        }
+        return false;
     }
 
     private void SpawnLoadoutItems(EntityUid mob, int weaponIdx, ThunderdomeRuleComponent rule)
