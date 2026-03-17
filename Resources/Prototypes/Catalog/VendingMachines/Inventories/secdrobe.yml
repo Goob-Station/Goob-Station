@@ -71,6 +71,7 @@
     ClothingHeadHelmetJustice: 1
     ClothingHeadHelmetBasic: 2
     ClothingHeadHelmetBasicAlt: 2
+    ClothingUniformJumpsuitDSS: 3 # _CorvaxGoob
   contrabandInventory:
     ClothingMaskClownSecurity: 1
     ClothingMaskMimeSecurity: 1

@@ -1379,6 +1379,7 @@
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
+  - UniformJumpsuitDSS # _CorvaxGoob
 
 - type: loadoutGroup
   id: SecurityBackpack

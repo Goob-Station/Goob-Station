@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTurtleneckTactick
+  name: tactical turtleneck
+  description: Tactical jumpsuit for real CQB lovers.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/turtleneck_tactick.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/turtleneck_tactick.rsi
+  - type: StaticPrice
+    price: 15

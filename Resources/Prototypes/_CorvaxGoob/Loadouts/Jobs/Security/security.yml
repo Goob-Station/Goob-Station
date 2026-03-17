@@ -9,3 +9,9 @@
   id: ArmorVestSec
   equipment:
     outerClothing: ClothingOuterVestArmorSec
+
+# Jumpsuit
+- type: loadout
+  id: UniformJumpsuitDSS
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDSS
