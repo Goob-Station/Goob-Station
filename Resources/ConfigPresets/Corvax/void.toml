@@ -5,6 +5,9 @@ maxplayers = 180
 soft_max_players = 90
 map_rotation = true
 
+[thunderdome]
+activation.delay.enabled = true
+
 [server]
 lobby_name = "️🛰️ CorvaxGoob — 🌌 Войд ☄️ [MRP] [TTS]"
 
@@ -23,6 +26,3 @@ time = 30.0
 [hub]
 advertise = true
 tags = "lang:ru,rp:med,region:eu_e,tts"
-
-[thunderdome]
-enabled = false

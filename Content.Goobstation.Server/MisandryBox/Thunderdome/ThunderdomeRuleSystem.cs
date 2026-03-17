@@ -73,8 +73,10 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     {
         base.Initialize();
 
+        // CorvaxGoob-Thunderdome-start
         if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
             return;
+        // CorvaxGoob-Thunderdome-end
 
         Subs.CVar(_cfg, ThunderdomeCVars.ThunderdomeRefill, value => _refillOnKill = value, true);
 
@@ -97,6 +99,13 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        // CorvaxGoob-Thunderdome-start
+        var duration = _ticker.RoundDuration();
+        if (_cfg.GetCVar(ThunderdomeCVars.ActivationDelayEnabled) &&
+            (_cfg.GetCVar(ThunderdomeCVars.ActivationDelay) > (int) duration.TotalMinutes))
+            return;
+        // CorvaxGoob-Thunderdome-end
 
         if (_ruleEntity != null && TryComp<ThunderdomeRuleComponent>(_ruleEntity.Value, out var rule) && rule.Active)
         {
@@ -187,6 +196,13 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
         if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
             return;
+
+        // CorvaxGoob-Thunderdome-start
+        var duration = _ticker.RoundDuration();
+        if (_cfg.GetCVar(ThunderdomeCVars.ActivationDelayEnabled) &&
+            (_cfg.GetCVar(ThunderdomeCVars.ActivationDelay) > (int) duration.TotalMinutes))
+            return;
+        // CorvaxGoob-Thunderdome-end
 
         EnsureRule();
 
@@ -519,9 +535,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private EntityCoordinates? GetRandomSpawnPoint(ThunderdomeRuleComponent rule)
     {
-        if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
-            return null;
-
         if (rule.ArenaMap == null)
             return null;
 
@@ -575,9 +588,6 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
 
     private void BroadcastPlayerCount(ThunderdomeRuleComponent rule)
     {
-        if (!_cfg.GetCVar(ThunderdomeCVars.ThunderdomeEnabled))
-            return;
-
         var ev = new ThunderdomePlayerCountEvent(rule.Players.Count);
         foreach (var session in _playerManager.Sessions)
         {
