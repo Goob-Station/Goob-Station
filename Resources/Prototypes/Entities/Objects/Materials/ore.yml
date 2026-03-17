@@ -74,7 +74,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawGold: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      RawGold: 500 # Goobstation - was 100 
   - type: Extractable
     grindableSolutionName: goldore
   - type: SolutionContainerManager
@@ -144,7 +144,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawIron: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      RawIron: 300 # Goobstation - was 100 
   - type: Extractable
     grindableSolutionName: ironore
   - type: SolutionContainerManager
@@ -177,7 +177,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawPlasma: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      RawPlasma: 500 # Goobstation - was 100 
   - type: PointLight
     radius: 1.2
     energy: 0.6
@@ -219,7 +219,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawSilver: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      RawSilver: 500 # Goobstation - was 100 
   - type: Extractable
     grindableSolutionName: silverore
   - type: SolutionContainerManager
@@ -256,7 +256,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawQuartz: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      RawQuartz: 300 # Goobstation - was 100 
   - type: Extractable
     grindableSolutionName: quartzore
   - type: SolutionContainerManager
@@ -289,7 +289,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawUranium: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      RawUranium: 500 # Goobstation - was 100 
   - type: PointLight
     radius: 1.2
     energy: 0.8
@@ -334,7 +334,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawBananium: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      RawBananium: 300 # Goobstation - was 100 
   - type: PointLight
     radius: 1.2
     energy: 1
@@ -396,7 +396,7 @@
           Quantity: 0.1
   - type: PhysicalComposition
     materialComposition:
-      Coal: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      Coal: 300 # Goobstation - was 100 
   - type: Item
     heldPrefix: coal
 
@@ -445,7 +445,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawSalt: 200 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
+      RawSalt: 300 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
   - type: Extractable
     grindableSolutionName: saltore
   - type: SolutionContainerManager

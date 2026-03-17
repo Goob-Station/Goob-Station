@@ -37,16 +37,16 @@
   result: SheetSteel1
   completetime: 0
   materials:
-    RawIron: 100
-    Coal: 30
+    RawIron: 20
+    Coal: 10
 
 - type: latheRecipe
   id: SheetSteel30
   result: SheetSteel
   completetime: 2
   materials:
-    RawIron: 3000
-    Coal: 1000
+    RawIron: 600
+    Coal: 300
 
 - type: latheRecipe
   id: SheetGlass1
