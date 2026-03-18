@@ -8,6 +8,15 @@
   id: HeadofSecurityJumpskirtBlack
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSBlack
+    
+#Shoulder Mantle
+- type: loadout
+  id: ClothingNeckMantleHOSShoulder
+  equipment:
+    neck: ClothingNeckMantleHOSShoulder
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
 
 - type: loadout
   id: HeadofSecurityCloakExperimental
