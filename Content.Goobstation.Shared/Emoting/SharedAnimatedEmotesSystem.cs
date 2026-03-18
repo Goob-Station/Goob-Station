@@ -43,10 +43,9 @@ public abstract class SharedAnimatedEmotesSystem : EntitySystem
         if (args.Emote.ID != "Flip")
             return;
 
-        if (!TryComp<StaminaComponent>(ent, out var stamina))
-            return;
-
-        if (stamina.Critical || stamina.StaminaDamage + FlipStaminaCost >= stamina.CritThreshold)
+        if (!TryComp<StaminaComponent>(ent, out var stamina)
+            || stamina.Critical
+            || stamina.StaminaDamage + FlipStaminaCost >= stamina.CritThreshold)
             args.Cancel();
     }
 
