@@ -1093,7 +1093,7 @@
     - Nostalgia
     - CrapoToxin
     - Profanol
-  - type: Edible # todo marty does drink exist
+  - type: Edible
     edible: Drink
     solution: anomaly
     destroyOnEmpty: false

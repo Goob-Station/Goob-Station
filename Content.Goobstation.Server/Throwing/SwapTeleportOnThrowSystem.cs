@@ -15,34 +15,34 @@ public sealed class SwapTeleportOnThrowSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SwapTeleportOnThrowComponent, ThrowDoHitEvent>(OnThrowHit);
+        SubscribeLocalEvent<SwapTeleportOnThrowComponent, ThrowAttemptEvent>(OnThrowHit);
     }
 
-    private void OnThrowHit(Entity<SwapTeleportOnThrowComponent> ent, ref ThrowDoHitEvent args)
+    private void OnThrowHit(Entity<SwapTeleportOnThrowComponent> ent, ref ThrowAttemptEvent args)
     {
-        //if (args.Handled) todo marty
-            //return;
-
-        var thrower = args.Component.Thrower;
-        var target = args.Target;
-
-        if (thrower == null
-            || !HasComp<MobStateComponent>(target))
+        if (args.Cancelled
+            || args.TargetUid == null)
             return;
 
-        var throwerTransform = Transform(thrower.Value);
-        var targetTransform = Transform(target);
+        var thrower = args.Uid;
+        var target = args.TargetUid;
+
+        if (!HasComp<MobStateComponent>(target))
+            return;
+
+        var throwerTransform = Transform(thrower);
+        var targetTransform = Transform(target.Value);
 
         var throwerPos = throwerTransform.Coordinates;
         var targetPos = targetTransform.Coordinates;
 
-        _transform.SetCoordinates(thrower.Value, targetPos);
-        _transform.SetCoordinates(target, throwerPos);
+        _transform.SetCoordinates(thrower, targetPos);
+        _transform.SetCoordinates(target.Value, throwerPos);
 
         _audio.PlayPvs(ent.Comp.OriginSound, throwerPos);
         _audio.PlayPvs(ent.Comp.TargetSound, targetPos);
 
         PredictedQueueDel(ent.Owner);
-        //args.Handled = true; todo marty
+        args.Cancel();
     }
 }

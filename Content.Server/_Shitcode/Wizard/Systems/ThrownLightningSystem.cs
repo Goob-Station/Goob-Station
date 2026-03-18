@@ -64,11 +64,6 @@ public sealed class ThrownLightningSystem : EntitySystem
         if (Deleting(ent))
             return;
 
-        //if (args.Handled) todo marty
-            //return;
-
-        //args.Handled = true;
-
         if (!TryComp(args.Target, out StatusEffectsComponent? status))
             return;
 
