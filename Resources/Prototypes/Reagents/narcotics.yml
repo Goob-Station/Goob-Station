@@ -104,7 +104,7 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3
         type: Remove
@@ -160,8 +160,8 @@
             Cold: -0.5
             Radiation: -0.5
       - !type:MovespeedModifier
-        walkSpeedModifier: 1.25
-        sprintSpeedModifier: 1.25
+        walkSpeedModifier: 1.19
+        sprintSpeedModifier: 1.19 # goob edit mrowwww
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -174,13 +174,13 @@
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
       - !type:Jitter
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
-        time: 1
+        time: 0.8
         type: Remove
       - !type:GenericStatusEffect
         key: KnockedDown
-        time: 1
+        time: 0.8
         type: Remove
       - !type:ModifyStatusEffect
         conditions:
@@ -258,7 +258,7 @@
           min: 1
         reagent: ChloralHydrate
         amount: -10
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3
         type: Remove
@@ -705,7 +705,7 @@
     Narcotic:
       effects:
       - !type:Jitter
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3
         type: Remove
