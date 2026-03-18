@@ -97,13 +97,14 @@
             Asphyxiation: 2
     Narcotic:
       effects:
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.17
-        sprintSpeedModifier: 1.17
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
+      - !type:ModifyStatusEffect 
+        effectProto: StatusEffectStunned
+        time: 3
+        type: Remove
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 3
