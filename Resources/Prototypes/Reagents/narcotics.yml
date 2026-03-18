@@ -176,11 +176,11 @@
       - !type:Jitter
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
-        time: 0.8
+        time: 0.8 # goob edit
         type: Remove
       - !type:GenericStatusEffect
         key: KnockedDown
-        time: 0.8
+        time: 0.8 # goob edit
         type: Remove
       - !type:ModifyStatusEffect
         conditions:
