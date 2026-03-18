@@ -52,7 +52,7 @@ public abstract class SharedAnimatedEmotesSystem : EntitySystem
 
     public void ApplyFlipEffects(EntityUid uid)
     {
-        _stamina.TakeStaminaDamage(uid, FlipStaminaCost);
+        _stamina.TakeStaminaDamage(uid, FlipStaminaCost, logDamage: true);
 
         var immunity = EnsureComp<ProjectileImmunityComponent>(uid);
         immunity.ExpireTime = _timing.CurTime + FlipDuration;
