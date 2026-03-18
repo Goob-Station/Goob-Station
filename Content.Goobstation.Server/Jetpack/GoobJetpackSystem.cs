@@ -25,6 +25,8 @@ public sealed class GoobJetpackSystem : EntitySystem
 
     private EntityQuery<WoundableComponent> _woundableQuery;
 
+    private readonly Queue<(EntityUid Jetpack, EntityUid User)> _pendingFlings = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -46,16 +48,37 @@ public sealed class GoobJetpackSystem : EntitySystem
 
         var user = jetpackComp.JetpackUser.Value;
 
-        if (!_hands.IsHolding(user, jetpack, out var handId))
+        if (!_hands.IsHolding(user, jetpack, out _))
             return;
 
-        if (HasComp<UnremoveableComponent>(jetpack))
-            SmartassCountermeasure(jetpack, jetpackComp, user, handId);
-        else
-            Fling(jetpack, jetpackComp, user);
+        _pendingFlings.Enqueue((jetpack, user));
     }
 
-    private void Fling(EntityUid jetpack, JetpackComponent jetpackComp, EntityUid user)
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        while (_pendingFlings.TryDequeue(out var pending))
+        {
+            var (jetpack, user) = pending;
+
+            if (TerminatingOrDeleted(jetpack) || TerminatingOrDeleted(user))
+                continue;
+
+            if (!TryComp<JetpackComponent>(jetpack, out var jetpackComp))
+                continue;
+
+            if (!_hands.IsHolding(user, jetpack, out var handId))
+                continue;
+
+            if (HasComp<UnremoveableComponent>(jetpack))
+                SmartassCountermeasure(jetpack, jetpackComp, user, handId);
+            else
+                Fling(jetpack, jetpackComp, user);
+        }
+    }
+
+    private void Fling(EntityUid jetpack, JetpackComponent _, EntityUid user)
     {
         _popup.PopupEntity(Loc.GetString("jetpack-inhand-fly-away"), user, user, PopupType.SmallCaution);
 
@@ -91,6 +114,9 @@ public sealed class GoobJetpackSystem : EntitySystem
             return;
 
         _jetpack.SetEnabled(jetpack, jetpackComp, false, user);
+        // Is still needs to drop though, if we amputate with an unremovable item - it just gets deleted
+        RemComp<UnremoveableComponent>(jetpack);
+        _hands.TryDrop(user, jetpack, checkActionBlocker: false);
 
         _popup.PopupEntity(Loc.GetString("jetpack-inhand-arm-torn"), user, user, PopupType.LargeCaution);
 
