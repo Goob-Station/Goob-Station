@@ -104,7 +104,7 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3
         type: Remove
@@ -174,7 +174,7 @@
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
       - !type:Jitter
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 1
         type: Remove
@@ -258,10 +258,6 @@
           min: 1
         reagent: ChloralHydrate
         amount: -10
-      - !type:ModifyStatusEffect 
-        effectProto: StatusEffectStunned
-        time: 3
-        type: Remove
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 3
@@ -291,7 +287,7 @@
         component: DelayedKnockdown
         locale: reagent-effect-guidebook-remove-delayed-knockdown
       - !type:TakeStaminaDamage # goob edit
-        amount: -10
+        amount: -5
         immediate: true
       - !type:SuppressPain
           amount: 1.2
@@ -705,7 +701,7 @@
     Narcotic:
       effects:
       - !type:Jitter
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3
         type: Remove
