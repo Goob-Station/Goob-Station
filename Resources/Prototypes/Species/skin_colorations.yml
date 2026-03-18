@@ -19,3 +19,13 @@
 - type: skinColoration
   id: HumanToned
   strategy: !type:HumanTonedSkinColoration {}
+
+# Goob start.
+# Probably move this under _GoobStation later but this is also kinda better organized here.
+
+- type: skinColoration
+  id: AnimalFur # Okay fuck off I'm just porting the old values here but these are borderline uncapped so if you're here to change them then yeah, please do.
+  strategy: !type:ClampedHsvColoration
+    hue: [ 0.056, 0.125 ]
+    saturation: [ 0, 1.0 ]
+    value: [ 0, 1 ]
