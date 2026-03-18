@@ -107,12 +107,16 @@ public sealed class HypnoflashSystem : EntitySystem
                 }
 
                 foreach (var target in _validTargets)
-                    if (comp.Event != null)
-                        RaiseLocalEvent(target, comp.Event);
+                {
+                    var ev = new HypnoflashedEvent();
+                    RaiseLocalEvent(target, ref ev);
+                }
 
                 if (activator != null && activator.Value.Valid)
-                    if (comp.EventOnUser != null)
-                        RaiseLocalEvent(activator.Value, comp.EventOnUser);
+                {
+                    var ev = new HypnoflashActivatedEvent();
+                    RaiseLocalEvent(activator.Value, ref ev);
+                }
             }
 
             if (comp.EndTime != null && currentTime >= comp.EndTime)

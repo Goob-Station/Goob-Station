@@ -39,12 +39,6 @@ public sealed partial class HypnoflashComponent : Component
     [DataField]
     public LocId PopupMessage = "hypnoflash-latch";
 
-    [DataField]
-    public object? Event = new HypnoflashedEvent();
-
-    [DataField]
-    public object? EventOnUser = new HypnoflashActivatedEvent();
-
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField]
     public TimeSpan? EndTime;
