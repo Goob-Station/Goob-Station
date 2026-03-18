@@ -18,7 +18,7 @@
   sprites: MobYowieSprites
   markingLimits: MobYowieMarkingLimits
   dollPrototype: MobYowieDummy
-  #skinColoration: NoColor todo marty this better not be a required field
+  skinColoration: TintedHues
   defaultSkinTone: "#7d7d7d" # added here to make skin-tone markings work better
   naming: First
   maleFirstNames: NamesYowieMale
