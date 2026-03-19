@@ -312,9 +312,3 @@
   name: Mrjajkes - The Greytide Song
   path:
     path: /Audio/_Goobstation/Music/the_gray_tide_song.ogg
-
-- type: jukebox
-  id: blatantly_nuclear
-  name: mrjajkes - One Against All
-  path:
-    path: /Audio/StationEvents/one_against_all.ogg
