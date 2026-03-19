@@ -203,10 +203,6 @@
   # - type: Sprite
     # sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     # state: doohickery
-  # - type: Construction
-    # graph: DoodonDoohickeryGraph
-    # node: DoohickeryComplete
-    # placementMode: SnapgridCenter
   # - type: DoodonBuilding
     # resinCost: 3
     # buildIcon:

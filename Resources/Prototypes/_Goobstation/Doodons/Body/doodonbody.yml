@@ -1,7 +1,7 @@
 - type: body
   id: Doodon
   name: "doodon"
-  root: chest
+  root: chest           # copied human mainly for the hands.
   slots:
     head:
       part: HeadHuman
