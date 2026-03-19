@@ -46,9 +46,6 @@ public sealed partial class ThunderdomeRuleComponent : Component
     public bool Active;
 
     [DataField]
-    public float BaseTimePenalty; // in seconds
-
-    [DataField]
     public string Gear = "ThunderdomeBaseGear";
 
     [DataField]
@@ -56,6 +53,9 @@ public sealed partial class ThunderdomeRuleComponent : Component
 
     [DataField]
     public TimeSpan CleanupInterval = TimeSpan.FromSeconds(25);
+
+    [DataField]
+    public float SweepDespawnTime = 10f;
 
     [DataField]
     public TimeSpan NextCleanup;

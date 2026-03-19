@@ -27,6 +27,8 @@
     min: 0.5
     max: 0.5
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive # Weak explosion in a very small radius. Doesn't break underplating.
     explosionType: Default
     totalIntensity: 130
