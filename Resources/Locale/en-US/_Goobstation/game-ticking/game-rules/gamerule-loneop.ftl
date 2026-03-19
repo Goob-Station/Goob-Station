@@ -12,7 +12,7 @@ loneop-crewmajor = [color=green]Crew major victory![/color]
 loneop-cond-nukeexplodedoncorrectstation = The lone operative managed to blow up the station.
 loneop-cond-nukeexplodedonincorrectlocation = The nuclear bomb was detonated off-station.
 loneop-cond-nukeactiveinstation = The nuclear bomb was left armed on-station.
-loneop-cond-nukeactiveatcentcom = The nuclear bomb was delivered to Central Command! Good work, Agent!
+loneop-cond-nukeactiveatcentcom = The lone operative delivered the nuclear bomb to Central Command! Holy shit!
 loneop-cond-nukediskoncentcom = The crew escaped with the nuclear authentication disk.
 loneop-cond-nukedisknotoncentcom = The crew left the nuclear authentication disk behind.
 loneop-cond-nukiesabandoned = The Nuclear operatives were abandoned.
