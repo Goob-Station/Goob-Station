@@ -46,6 +46,7 @@
     ClothingOuterCoatBomber: 3
     ClothingHeadHatCanadaBeanie: 4
     ClothingHeadHatSantahat: 2
+    ClothingHeadHatUshanka: 3 # CorvaxGoob
     ClothingHeadHatXmasCrown: 2
   contrabandInventory:
     ClothingOuterDavidsJacket: 1 # Goobstation
