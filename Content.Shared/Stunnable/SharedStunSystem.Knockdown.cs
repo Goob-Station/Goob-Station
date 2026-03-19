@@ -1,4 +1,3 @@
-﻿using Content.Goobstation.Common.Standing;
 using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
@@ -246,7 +245,7 @@ public abstract partial class SharedStunSystem
 
         if (!Resolve(entity, ref entity.Comp2, false))
         {
-            TryKnockdown(entity.Owner, entity.Comp1.DefaultKnockedDuration, true, false, DropHeldItemsBehavior.NoDrop); // Goob - DropHeldItemsBehavior
+            TryKnockdown(entity.Owner, entity.Comp1.DefaultKnockedDuration, true, false, false); // Goob edit
             return;
         }
 
@@ -284,8 +283,7 @@ public abstract partial class SharedStunSystem
 
         var doAfterArgs = new DoAfterArgs(EntityManager, entity, ev.DoAfterTime, new TryStandDoAfterEvent(), entity, entity)
         {
-            BreakOnDamage = true,
-            DamageThreshold = 5,
+            MultiplyDelay = false, // Goob
             CancelDuplicate = true,
             RequireCanInteract = false,
             BreakOnHandChange = true
