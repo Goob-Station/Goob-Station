@@ -167,8 +167,8 @@
 - type: entity
   parent: ClothingOuterBaseToggleable
   id: ClothingOuterSchemaMonk
-  name: chaplain's hoodie
-  description: Black and strict chaplain hoodie.
+  name: monastic vestments
+  description: Modern monastic vestments with built-in protection and a comfortable hood.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi

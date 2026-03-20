@@ -65,8 +65,8 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodSchemaMonk
   categories: [ HideSpawnMenu ]
-  name: chaplain's hood
-  description: Maximum piety in this star system.
+  name: hood of a monastic vestments
+  description: Comfortable hood of monastic vestment.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hoods/schema_monk.rsi
