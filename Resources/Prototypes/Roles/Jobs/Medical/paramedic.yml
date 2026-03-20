@@ -80,10 +80,12 @@
   name: job-name-paramedic
   description: job-description-paramedic
   playTimeTracker: JobParamedic
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Medical
-    time: 9000 #2.5 hrs
+  # Goob - Kill Role Timers Start
+  # requirements:
+  # - !type:DepartmentTimeRequirement
+  #   department: Medical
+  #   time: 9000 #2.5 hrs
+  # Goob - Kill Role Timers End
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo

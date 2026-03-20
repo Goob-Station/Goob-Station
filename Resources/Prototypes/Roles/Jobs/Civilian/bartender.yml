@@ -72,9 +72,11 @@
   name: job-name-bartender
   description: job-description-bartender
   playTimeTracker: JobBartender
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1800 # 30 Minutes
+  # Goob - Kill Role Timers Start
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 1800 # 30 Minutes
+  # Goob - Kill Role Timers End
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop

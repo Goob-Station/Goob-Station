@@ -65,10 +65,12 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 #5 hrs
+  # Goob - Kill Role Timers Start
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Medical
+  #     time: 18000 #5 hrs
+  # Goob - Kill Role Timers End
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo

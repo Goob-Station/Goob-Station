@@ -68,9 +68,11 @@
   name: job-name-chaplain
   description: job-description-chaplain
   playTimeTracker: JobChaplain
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 # 15 hours
+    # Goob - Kill Role Timers Start
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 18000 # 15 hours
+    # Goob - Kill Role Timers End
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop

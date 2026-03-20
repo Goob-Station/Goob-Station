@@ -52,9 +52,11 @@
   name: job-name-borg
   description: job-description-borg
   playTimeTracker: JobBorg
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+  # Goob - Kill Role Timers Start
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 36000 # 10 hrs
+  # Goob - Kill Role Timers End
   canBeAntag: false
   goobcoins: 20 #Goob content
   icon: JobIconBorg

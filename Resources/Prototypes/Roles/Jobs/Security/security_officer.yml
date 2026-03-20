@@ -88,10 +88,12 @@
   name: job-name-security
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 9000 #2.5 hrs
+  # Goob - Kill Role Timers Start
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Security
+  #     time: 9000 #2.5 hrs
+  # Goob - Kill Role Timers End
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

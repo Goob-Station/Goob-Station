@@ -136,15 +136,17 @@
   description: job-description-cmo
   playTimeTracker: JobChiefMedicalOfficer
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobChemist
-      time: 18000 #5 hrs
-    - !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 28000 #8 hrs
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 #10 hrs
+    # Goob - Kill Role Timers Start
+    # - !type:RoleTimeRequirement
+    #   role: JobChemist
+    #   time: 18000 #5 hrs
+    # - !type:RoleTimeRequirement
+    #   role: JobMedicalDoctor
+    #   time: 28000 #8 hrs
+    # - !type:DepartmentTimeRequirement
+    #   department: Medical
+    #   time: 36000 #10 hrs
+    # Goob - Kill Role Timers End
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:

@@ -82,9 +82,11 @@
   name: job-name-chef
   description: job-description-chef
   playTimeTracker: JobChef
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1800 # 30 Minutes
+  # Goob - Kill Role Timers Start
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 1800 # 30 Minutes
+  # Goob - Kill Role Timers End
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop

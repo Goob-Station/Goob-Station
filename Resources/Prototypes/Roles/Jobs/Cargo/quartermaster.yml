@@ -130,15 +130,17 @@
   description: job-description-qm
   playTimeTracker: JobQuartermaster
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobCargoTechnician
-      time: 18000 #5 hrs
-    - !type:RoleTimeRequirement
-      role: JobSalvageSpecialist
-      time: 9000 #2.5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 36000 #10 hours
+    # Goob - Kill Role Timers Start
+    # - !type:RoleTimeRequirement
+    #   role: JobCargoTechnician
+    #   time: 18000 #5 hrs
+    # - !type:RoleTimeRequirement
+    #   role: JobSalvageSpecialist
+    #   time: 9000 #2.5 hrs
+    # - !type:DepartmentTimeRequirement
+    #   department: Cargo
+    #   time: 36000 #10 hours
+    # Goob - Kill Role Timers End
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:

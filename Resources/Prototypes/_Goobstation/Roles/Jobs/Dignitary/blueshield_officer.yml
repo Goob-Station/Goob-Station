@@ -33,15 +33,6 @@
   description: "Act as a bodyguard and advisor for Command and CentCom VIPs."
   playTimeTracker: JobBlueshieldOfficer
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 90000 # 25 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 54000 # 15 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
     - !type:SpeciesRequirement # Goob - None Felinid

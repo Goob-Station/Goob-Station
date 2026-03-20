@@ -73,10 +73,12 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 9000 #2.5 hrs
+  # Goob - Kill Role Timers Start
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Science
+  #     time: 9000 #2.5 hrs
+  # Goob - Kill Role Timers End
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd

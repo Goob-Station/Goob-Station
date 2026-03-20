@@ -4,10 +4,6 @@
   name: job-name-shaftminer
   description: job-description-shaftminer
   playTimeTracker: JobShaftMiner
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Cargo
-    time: 9000 # 2.5 hrs
   icon: "JobIconLavaShaftMiner" # Wizden's icon is already called shaft miner for whatever reason.
   startingGear: ShaftMinerGear
   guides:

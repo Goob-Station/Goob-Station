@@ -68,10 +68,12 @@
   name: job-name-detective
   description: job-description-detective
   playTimeTracker: JobDetective
-  requirements:
-  - !type:RoleTimeRequirement
-    role: JobSecurityOfficer
-    time: 18000 #5 hrs
+  # Goob - Kill Role Timers Start
+  # requirements:
+  # - !type:RoleTimeRequirement
+  #   role: JobSecurityOfficer
+  #   time: 18000 #5 hrs
+  # Goob - Kill Role Timers End
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos

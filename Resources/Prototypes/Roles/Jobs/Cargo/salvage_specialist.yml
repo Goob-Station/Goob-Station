@@ -74,9 +74,11 @@
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 9000 # 2.5 hrs
+    # Goob - Kill Role Timers Start
+    # - !type:DepartmentTimeRequirement
+    #   department: Cargo
+    #   time: 9000 # 2.5 hrs
+    # Goob - Kill Role Timers End
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   guides: # goobstation

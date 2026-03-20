@@ -79,9 +79,11 @@
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
   requirements:
-  - !type:DepartmentTimeRequirement
-    department: Civilian
-    time: 1800 #0.5 hr
+  # Goob - Kill Role Timers Start
+  # - !type:DepartmentTimeRequirement
+  #   department: Civilian
+  #   time: 1800 #0.5 hr
+  # Goob - Kill Role Timers End
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service

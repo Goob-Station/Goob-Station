@@ -77,10 +77,12 @@
   name: job-name-doctor
   description: job-description-doctor
   playTimeTracker: JobMedicalDoctor
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 9000 #2.5 hrs
+  # Goob - Kill Role Timers Start
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Medical
+  #     time: 9000 #2.5 hrs
+  # Goob - Kill Role Timers End
   startingGear: DoctorGear
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-cmo

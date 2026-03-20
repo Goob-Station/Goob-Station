@@ -100,8 +100,10 @@
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
+    # Goob - Kill Role Timers Start
+    # - !type:OverallPlaytimeRequirement
+    #   time: 36000 #10 hrs
+    # Goob - Kill Role Timers End
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 #10 hrs
