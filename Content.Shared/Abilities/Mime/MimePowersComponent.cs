@@ -42,6 +42,13 @@ public sealed partial class MimePowersComponent : Component
     public bool ReadyToRepent = false;
 
     /// <summary>
+    /// Goobstation
+    /// Whether this mime is able to break vow
+    /// </summary>
+    [DataField]
+    public bool CanBreakVow = true;
+
+    /// <summary>
     /// Time when the mime can repent their vow
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
@@ -71,13 +78,6 @@ public sealed partial class MimePowersComponent : Component
     /// </summary>
     [DataField]
     public LocId FailWriteMessage = "paper-component-illiterate-mime";
-
-    /// <summary>
-    /// Goobstation
-    /// Whether this mime is able to break vow
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool CanBreakVow = true;
 
     public override bool SendOnlyToOwner => true;
 }

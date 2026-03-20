@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -42,6 +43,12 @@ public abstract partial class BaseCapoeiraEvent : EntityEventArgs
 
 public sealed partial class PushKickPerformedEvent : BaseCapoeiraEvent
 {
+    [DataField]
+    public EntProtoId StatusEffectProto = "StatusEffectMeleeVulnerability";
+
+    [DataField]
+    public DamageModifierSet ModifierSet = default!;
+
     [DataField]
     public float ThrowRange = 1f;
 }

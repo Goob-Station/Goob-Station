@@ -342,8 +342,10 @@
       lightningExplode: false
     - type: ComplexInteraction
     - type: Carriable
+    - type: GrabIntent # wilted rose
+    - type: Grabbable 
     - type: Targeting
-    - type: LayingDown
+    - type: Crawler
     - type: Consciousness
       cap: 190
       threshold: 95

@@ -61,13 +61,12 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
+#  Goob disabled due to h/w slider probably. # Goobstation: port EE height/width sliders (below is not needed with height/width sliders implemented)
+#  - type: ScaleVisuals
+#    scale: 1, 0.8
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-# Goobstation: port EE height/width sliders (below is not needed with height/width sliders implemented)
-#    scale: 1.1, 0.75 # goob value
-#  - type: ScaleData # Goobstation
-#    scale: 1.1, 0.75
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -127,7 +126,8 @@
   id: MobDwarfDummy
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
+  - type: Sprite #goob edit
+#  - type: ScaleVisuals #goob sliders
 #    scale: 1, 0.8
   - type: Inventory
     femaleDisplacements:
