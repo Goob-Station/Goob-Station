@@ -273,6 +273,10 @@ public sealed partial class WoundSystem
             if (damageValue == 0)
                 continue; // Only create wounds for damage or healing
 
+            if (TryComp<DamageableComponent>(uid, out var damageable)
+                    && !damageable.Damage.DamageDict.ContainsKey(damageType))
+                continue;
+
             if (damageValue < 0)
             {
                 TryHealWoundsOnWoundable(uid, -damageValue, damageType, out var healed, component, ignoreBlockers: args.IgnoreBlockers);
