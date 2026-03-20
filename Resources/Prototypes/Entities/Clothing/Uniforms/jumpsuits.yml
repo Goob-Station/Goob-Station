@@ -587,7 +587,7 @@
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/kimono.rsi # Goob
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/kimono.rsi # Goob
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/kimono.rsi # Goob
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob

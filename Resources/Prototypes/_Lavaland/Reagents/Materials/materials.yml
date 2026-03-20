@@ -15,3 +15,12 @@
   icon: { sprite: _Lavaland/Objects/Materials/ore.rsi, state: artifact }
   color: "#ff35e4"
   price: 0.75
+
+- type: material
+  id: Ashwood
+  stackEntity: MaterialWoodPlank1
+  name: materials-ashwood
+  unit: materials-unit-plank
+  icon: { sprite: _Lavaland/Objects/Materials/ashwood.rsi, state: wood }
+  color: "#6d6b68"
+  price: 0.15 # $15 for 1 unit

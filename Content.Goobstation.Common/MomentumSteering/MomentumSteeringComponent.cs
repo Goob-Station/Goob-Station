@@ -24,6 +24,9 @@ public sealed partial class MomentumSteeringComponent : Component
     public float BrakingFactor = 0.125f;
 
     [DataField, AutoNetworkedField]
+    public float JetpackSteeringBonus = 0.8f;
+
+    [DataField, AutoNetworkedField]
     public float JitterSpeedThreshold = 5.0f;
 
     [DataField, AutoNetworkedField]
@@ -32,6 +35,6 @@ public sealed partial class MomentumSteeringComponent : Component
     [DataField, AutoNetworkedField]
     public float JitterFrequency = 2.0f;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables]
     public TimeSpan LastJitterTime = TimeSpan.Zero;
 }
