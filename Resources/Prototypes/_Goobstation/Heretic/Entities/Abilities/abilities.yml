@@ -297,8 +297,17 @@
     anchored: true
   - type: Physics
     bodyType: Static
-    canCollide: false
   - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 1
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: RequireProjectileTarget
   - type: Sprite
     layers:
     - sprite: _Goobstation/Heretic/void_overlay.rsi
@@ -307,7 +316,7 @@
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: InorganicMetaphysical
   - type: Destructible
     thresholds:
     - trigger:
