@@ -2,6 +2,7 @@ using Content.Shared.Verbs;
 using Content.Goobstation.Shared.Silicon.Components;
 using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Containers;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Silicon;
 
@@ -39,7 +40,8 @@ public abstract partial class SharedStationAiEarlyLeaveSystem : EntitySystem
             args.Verbs.Add(new Verb()
             {
                 Text = Loc.GetString("station-ai-earlyleave-button"),
-                Act = () => RequestEarlyLeave(insertedAi)
+                Act = () => RequestEarlyLeave(insertedAi),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
             });
         }
     }
