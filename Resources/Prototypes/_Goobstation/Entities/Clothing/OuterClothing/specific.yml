@@ -168,7 +168,7 @@
   parent: ClothingOuterBaseToggleable
   id: ClothingOuterSchemaMonk
   name: monastic vestments
-  description: Modern monastic vestments with built-in protection and a comfortable hood.
+  description: A sign of complete renunciation of the world and the acceptance of heroism. It is worn by those who have chosen the path of prayer and struggle for the human soul. In the silence of the cosmos, it seems especially appropriate.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
