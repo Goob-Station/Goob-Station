@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Common.BlockTeleport;
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
@@ -138,7 +139,7 @@ public sealed class CosmicRunesSystem : EntitySystem
             .ToHashSet();
         toTeleport.Add(user);
         EntityUid? pulling = null;
-        var grabStage = GrabStage.No;
+        GrabStage? grabStageOverride = null;
         PullerComponent? puller = null;
 
         var isUserCosmosHeretic = HasComp<StarGazerComponent>(user) ||
@@ -147,7 +148,6 @@ public sealed class CosmicRunesSystem : EntitySystem
         if (isUserCosmosHeretic && TryComp(user, out puller) && puller.Pulling != null)
         {
             pulling = puller.Pulling.Value;
-            grabStage = puller.GrabStage;
             toTeleport.Add(pulling.Value);
         }
 
@@ -159,7 +159,7 @@ public sealed class CosmicRunesSystem : EntitySystem
         }
 
         if (pulling != null)
-            _pulling.TryStartPull(user, pulling.Value, puller, null, grabStage, force: true);
+            _pulling.TryStartPull(user, pulling.Value, puller, null, grabStageOverride, force: true);
 
         return true;
     }
