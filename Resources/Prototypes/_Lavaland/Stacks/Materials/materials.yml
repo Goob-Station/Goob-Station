@@ -111,3 +111,10 @@
   icon: { sprite: Objects/Specific/Xenoarchaeology/artifact_fragments.rsi, state: ancientball1 }
   spawn: ArtifactFragmentOre1Unprocessed
   maxCount: 30
+
+- type: stack
+  id: AshwoodPlank
+  name: stack-ashwood-plank
+  icon: { sprite: _Lavaland/Objects/Materials/ashwood.rsi, state: wood }
+  spawn: MaterialAshwoodPlank1
+  maxCount: 30
