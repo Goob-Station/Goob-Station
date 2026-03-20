@@ -1,6 +1,7 @@
 using Content.Goobstation.Common.ExplodeServer;
 using Content.Server.GameTicking;
 using Content.Shared.Audio;
+using Robust.Server;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -12,6 +13,7 @@ public sealed class ExplodeServerSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IBaseServer _server = default!;
     private TimeSpan _roundEndTimer; // to restart the server
 
     public override void Update(float frameTime)
@@ -20,7 +22,7 @@ public sealed class ExplodeServerSystem : EntitySystem
         if (_roundEndTimer < _gameTiming.CurTime && _roundEndTimer != TimeSpan.Zero)
         {
             _roundEndTimer = TimeSpan.Zero;
-            _gameTicker.RestartRound(); // restart round now
+            _server.Shutdown(null); // shutdown server
         }
     }
     
