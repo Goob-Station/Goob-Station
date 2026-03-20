@@ -958,7 +958,7 @@
     insertingState: inserting_mothroach_leopard
 
 - type: entity
-  name: Cecropia mothroach
+  name: cecropia mothroach
   parent: MobMothroach
   id: MobMothroachCecropia
   description: A charming result of numerous attempts to cross a genus of the nettle family with cockroaches.
@@ -972,7 +972,7 @@
     insertingState: inserting_mothroach_cecropia
 
 - type: entity
-  name: Lunar mothroach
+  name: lunar mothroach
   parent: MobMothroach
   id: MobMothroachLunar
   description: Someone left the moth under the moonlight.
