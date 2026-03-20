@@ -222,9 +222,24 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
             return;
 
         // if we have a session, we use that to add back in all the job slots the player had.
-        // Goobstation - CleanPlayerJobs function
         if (userId != null)
-            _stationJobs.CleanPlayerJobs(userId.Value, _station);
+        {
+            foreach (var uniqueStation in _station.GetStationsSet())
+            {
+                if (!TryComp<StationJobsComponent>(uniqueStation, out var stationJobs))
+                    continue;
+
+                if (!_stationJobs.TryGetPlayerJobs(uniqueStation, userId.Value, out var jobs, stationJobs))
+                    continue;
+
+                foreach (var job in jobs)
+                {
+                    _stationJobs.TryAdjustJobSlot(uniqueStation, job, 1, clamp: true);
+                }
+
+                _stationJobs.TryRemovePlayerJobs(uniqueStation, userId.Value, stationJobs);
+            }
+        }
 
         _audio.PlayPvs(cryostorageComponent.RemoveSound, ent);
 

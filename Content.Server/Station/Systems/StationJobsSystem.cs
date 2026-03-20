@@ -296,27 +296,6 @@ public sealed partial class StationJobsSystem : EntitySystem
         return jobsComponent.PlayerJobs.Remove(userId);
     }
 
-    // Goobstation - CleanPlayerJobs function
-    // Removes all jobs from the player and frees up their job slots
-    public void CleanPlayerJobs(NetUserId userId, StationSystem stationSystem)
-    {
-        foreach (var uniqueStation in stationSystem.GetStationsSet())
-        {
-            if (!TryComp<StationJobsComponent>(uniqueStation, out var stationJobs))
-                continue;
-
-            if (!TryGetPlayerJobs(uniqueStation, userId, out var jobs, stationJobs))
-                continue;
-
-            foreach (var job in jobs)
-            {
-                TryAdjustJobSlot(uniqueStation, job, 1, clamp: true);
-            }
-
-            TryRemovePlayerJobs(uniqueStation, userId, stationJobs);
-        }
-    }
-
     /// <inheritdoc cref="TrySetJobSlot(Robust.Shared.GameObjects.EntityUid,string,int,bool,Content.Server.Station.Components.StationJobsComponent?)"/>
     /// <param name="station">Station to adjust the job slot on.</param>
     /// <param name="jobPrototype">Job prototype to adjust.</param>

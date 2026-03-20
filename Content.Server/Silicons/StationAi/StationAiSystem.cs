@@ -40,6 +40,8 @@ using static Content.Server.Chat.Systems.ChatSystem;
 using Robust.Shared.Network;
 using Content.Server.EUI;
 using Content.Server.Station.Systems;
+using Content.Server.Station.Components;
+
 
 namespace Content.Server.Silicons.StationAi;
 
@@ -85,7 +87,22 @@ public sealed class StationAiSystem : SharedStationAiSystem
     {
         var station = _station.GetOwningStation(insertedAi);
 
-        _jobs.CleanPlayerJobs(userId, _station);
+        // removes all of player's jobs on all stations
+        foreach (var uniqueStation in _station.GetStationsSet())
+        {
+            if (!TryComp<StationJobsComponent>(uniqueStation, out var stationJobs))
+                continue;
+
+            if (!_jobs.TryGetPlayerJobs(uniqueStation, userId, out var jobs, stationJobs))
+                continue;
+
+            foreach (var job in jobs)
+            {
+                _jobs.TryAdjustJobSlot(uniqueStation, job, 1, clamp: true);
+            }
+
+            _jobs.TryRemovePlayerJobs(uniqueStation, userId, stationJobs);
+        }
 
         if (station is not { })
             return;
