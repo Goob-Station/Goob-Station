@@ -48,6 +48,7 @@ using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
@@ -108,6 +109,8 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Grab;
+using Content.Server.Ensnaring;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -153,6 +156,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
     [Dependency] private readonly SharedInternalResourcesSystem _resources = default!;
+    [Dependency] private readonly EnsnareableSystem _snare = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -214,7 +218,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnGetAntagBlocker(Entity<ChangelingComponent> ent, ref GetAntagSelectionBlockerEvent args)
     {
-        args.IsChangeling = true;
+        args.Blocked = true;
     }
 
     private void OnMindswapAttempt(Entity<ChangelingComponent> ent, ref BeforeMindSwappedEvent args)
@@ -450,7 +454,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     /// </summary>
     public bool IsHardGrabbed(EntityUid uid)
     {
-        return (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage > GrabStage.Soft);
+        return TryComp<GrabbableComponent>(uid, out var grabbable) && grabbable.GrabStage > GrabStage.Soft;
     }
 
     public float? GetEquipmentChemCostOverride(ChangelingIdentityComponent comp, EntProtoId proto)
