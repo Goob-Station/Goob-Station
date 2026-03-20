@@ -37,12 +37,24 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using static Content.Server.Chat.Systems.ChatSystem;
 
+using Robust.Shared.Network;
+using Content.Server.EUI;
+using Content.Server.Station.Systems;
+
 namespace Content.Server.Silicons.StationAi;
 
 public sealed class StationAiSystem : SharedStationAiSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
+
+    // Goobstation - ai cryo
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private readonly StationJobsSystem _jobs = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
     private readonly ProtoId<ChatNotificationPrototype> _turretIsAttackingChatNotificationPrototype = "TurretIsAttacking";
@@ -55,6 +67,43 @@ public sealed class StationAiSystem : SharedStationAiSystem
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
         SubscribeLocalEvent<StationAiTurretComponent, AmmoShotEvent>(OnAmmoShot);
     }
+
+    // Goobstation - ai cryo start
+    protected override void RequestAiCryo(Entity<StationAiCoreComponent> ent)
+    {
+        if (GetInsertedAI(ent) is { } insertedAi &&
+            _player.TryGetSessionByEntity(insertedAi, out var aiSession))
+        {
+
+            if (aiSession == null)
+                return;
+
+            _euiManager.OpenEui(new StationAiCryoEui(insertedAi, aiSession.UserId, this), aiSession);
+        }
+    }
+    public void CryoAi(EntityUid insertedAi, NetUserId userId)
+    {
+        var station = _station.GetOwningStation(insertedAi);
+
+        _jobs.CleanPlayerJobs(userId, _station);
+
+        if (station is not { })
+            return;
+
+        // lowkirk this is stupid but im uncreative
+        _chat.DispatchStationAnnouncement(station.Value,
+            Loc.GetString(
+                "earlyleave-cryo-announcement",
+                ("character", Name(insertedAi)),
+                ("entity", insertedAi),
+                ("job", "Station AI")
+            ), Loc.GetString("earlyleave-cryo-sender"),
+            playDefaultSound: false
+        );
+
+        QueueDel(insertedAi);
+    }
+    // Goobstation - ai cryo end
 
     private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
     {
