@@ -65,7 +65,6 @@ using Robust.Shared.Utility;
 using Content.Shared._CorvaxNext.Silicons.Borgs;
 using System.Diagnostics.CodeAnalysis;
 
-
 namespace Content.Shared.Silicons.StationAi;
 
 public abstract partial class SharedStationAiSystem : EntitySystem
@@ -73,7 +72,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly   ISharedAdminManager _admin = default!;
     [Dependency] private readonly   IGameTiming _timing = default!;
     [Dependency] private readonly   INetManager _net = default!;
-    [Dependency] protected readonly   ItemSlotsSystem _slots = default!; // Goobstation - ai cryo
+    [Dependency] private readonly   ItemSlotsSystem _slots = default!;
     [Dependency] private readonly   ItemToggleSystem _toggles = default!;
     [Dependency] private readonly   ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly   MetaDataSystem _metadata = default!;
@@ -96,7 +95,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly   IPrototypeManager _protoManager = default!;
 
     [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!; // Corvax-Next-AiRemoteControl
-
 
     // StationAiHeld is added to anything inside of an AI core.
     // StationAiHolder indicates it can hold an AI positronic brain (e.g. holocard / core).
@@ -170,8 +168,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             });
         }
 
-        // Add the station AI's personal verbs
-        // Goobstation edit: ai cryo
+        // Option to open the station AI customization menu
         if (TryGetHeld((ent, ent.Comp), out var insertedAi) && insertedAi == user)
         {
             args.Verbs.Add(new Verb()
@@ -180,14 +177,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
                 Act = () => _uiSystem.TryOpenUi(ent.Owner, StationAiCustomizationUiKey.Key, insertedAi),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/emotes.svg.192dpi.png")),
             });
-            args.Verbs.Add(new Verb()
-            {
-                Text = Loc.GetString("station-ai-cryo-button"),
-                Act = () => RequestAiCryo(ent),
-            });
         }
     }
-    protected virtual void RequestAiCryo(Entity<StationAiCoreComponent> ent) {}
 
     private void OnAiAccessible(Entity<StationAiOverlayComponent> ent, ref AccessibleOverrideEvent args)
     {
@@ -530,8 +521,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         _metadata.SetEntityName(ent.Comp.RemoteEntity.Value, eyeName);
     }
 
-    // Goobstation - ai cryo (changed to protected)
-    protected EntityUid? GetInsertedAI(Entity<StationAiCoreComponent> ent)
+    private EntityUid? GetInsertedAI(Entity<StationAiCoreComponent> ent)
     {
         if (!_containers.TryGetContainer(ent.Owner, StationAiHolderComponent.Container, out var container) ||
             container.ContainedEntities.Count != 1)

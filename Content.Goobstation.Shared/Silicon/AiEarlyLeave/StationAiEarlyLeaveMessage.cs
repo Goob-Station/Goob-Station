@@ -1,13 +1,13 @@
 using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Silicons.StationAi;
+namespace Content.Goobstation.Shared.Silicons;
 
 [Serializable, NetSerializable]
-public sealed class StationAiCryoMessage : EuiMessageBase
+public sealed class StationAiEarlyLeaveMessage : EuiMessageBase
 {
     public readonly bool Confirmed;
-    public StationAiCryoMessage(bool confirmed)
+    public StationAiEarlyLeaveMessage(bool confirmed)
     {
         Confirmed = confirmed;
     }

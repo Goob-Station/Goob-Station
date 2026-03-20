@@ -2,27 +2,28 @@ using Content.Client.Eui;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 
-using Content.Client.Silicons.StationAi;
-using Content.Shared.Silicons.StationAi;
+using Content.Goobstation.Shared.Silicons;
+
+namespace Content.Goobstation.Client.Silicon;
 
 [UsedImplicitly]
-public sealed class StationAiCryoEui : BaseEui
+public sealed class StationAiEarlyLeaveEui : BaseEui
 {
-    private readonly StationAiCryoMenu _menu;
+    private readonly StationAiEarlyLeaveMenu _menu;
 
-    public StationAiCryoEui()
+    public StationAiEarlyLeaveEui()
     {
-        _menu = new StationAiCryoMenu();
+        _menu = new StationAiEarlyLeaveMenu();
 
         _menu.DenyButton.OnPressed += _ =>
         {
-            SendMessage(new StationAiCryoMessage(false));
+            SendMessage(new StationAiEarlyLeaveMessage(false));
             _menu.Close();
         };
 
         _menu.ConfirmButton.OnPressed += _ =>
         {
-            SendMessage(new StationAiCryoMessage(true));
+            SendMessage(new StationAiEarlyLeaveMessage(true));
             _menu.Close();
         };
     }
@@ -37,7 +38,7 @@ public sealed class StationAiCryoEui : BaseEui
     {
         base.Closed();
 
-        SendMessage(new StationAiCryoMessage(false));
+        SendMessage(new StationAiEarlyLeaveMessage(false));
         _menu.Close();
     }
 

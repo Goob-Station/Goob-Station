@@ -4,15 +4,16 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
-namespace Content.Client.Silicons.StationAi;
-public sealed class StationAiCryoMenu : DefaultWindow
+namespace Content.Goobstation.Client.Silicon;
+
+public sealed class StationAiEarlyLeaveMenu : DefaultWindow
 {
     public readonly Button DenyButton;
     public readonly Button ConfirmButton;
 
-    public StationAiCryoMenu()
+    public StationAiEarlyLeaveMenu()
     {
-        Title = Loc.GetString("station-ai-cryo-menu-title");
+        Title = Loc.GetString("station-ai-earlyleave-menu-title");
         Contents.AddChild(new BoxContainer
         {
             Orientation = LayoutOrientation.Vertical,
@@ -25,7 +26,7 @@ public sealed class StationAiCryoMenu : DefaultWindow
                     {
                         (new Label()
                         {
-                            Text = Loc.GetString("station-ai-cryo-menu-text")
+                            Text = Loc.GetString("station-ai-earlyleave-menu-text")
                         }),
                         new BoxContainer
                         {
@@ -35,7 +36,7 @@ public sealed class StationAiCryoMenu : DefaultWindow
                             {
                                 (ConfirmButton = new Button
                                 {
-                                    Text = Loc.GetString("station-ai-cryo-menu-confirm")
+                                    Text = Loc.GetString("station-ai-earlyleave-menu-confirm")
                                 }),
 
                                 (new Control()
@@ -45,7 +46,7 @@ public sealed class StationAiCryoMenu : DefaultWindow
 
                                 (DenyButton = new Button
                                 {
-                                    Text = Loc.GetString("station-ai-cryo-menu-deny")
+                                    Text = Loc.GetString("station-ai-earlyleave-menu-deny")
                                 })
                             }
                         }
