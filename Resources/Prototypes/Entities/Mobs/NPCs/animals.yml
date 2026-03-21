@@ -4114,6 +4114,8 @@
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
+  # Goobstation - Diona nymphs can see over friendly kudzu too.
+  - type: SeeOverKudzu
   - type: Sprite
     drawdepth: Mobs
     layers:

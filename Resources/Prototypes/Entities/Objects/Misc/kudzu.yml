@@ -61,6 +61,7 @@
         Brute:
           path:
             "/Audio/Weapons/slash.ogg"
+    - type: KudzuSeeOverVisuals
     - type: Sprite
       sprite: Objects/Misc/kudzu.rsi
       state: kudzu_11
@@ -152,6 +153,9 @@
   description: A colorful carpet of flowers sprawling in every direction. You're not sure whether to take it down or leave it up.
   parent: Kudzu
   components:
+    - type: KudzuSeeOverVisuals
+      normalDrawDepth: -5
+      seeOverDrawDepth: -5
     - type: Sprite
       drawdepth: HighFloorObjects
       sprite: Objects/Misc/kudzuflower.rsi

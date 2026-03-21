@@ -46,6 +46,8 @@
   id: BaseMobDiona
   abstract: true
   components:
+  # Goobstation - Diona can see over friendly kudzu.
+  - type: SeeOverKudzu
   - type: HumanoidAppearance
     species: Diona
   - type: Hunger
