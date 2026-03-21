@@ -155,8 +155,8 @@
   canBeAntag: false
   guides: # goobstation
   - Medical
-  - ChiefMedicalOfficer SOP
-  - Medical SOP
+  - ChiefMedicalOfficerSOP
+  - MedicalSOP
   - Command
   - Chemicals
   - Virology

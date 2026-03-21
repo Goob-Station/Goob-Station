@@ -89,9 +89,5 @@
     tags:
     - Slice
   - type: FoodSequenceElement
-    sprite:
-      sprite: _Goobstation/Objects/Consumable/Food/freedom_cheese.rsi
-      state: cheese_slice_burger
     entries:
-      burger:
-        name: food-sequence-content-cheese
+      Burger: FSE_FoodFreedomCheeseSlice

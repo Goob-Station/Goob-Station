@@ -250,6 +250,8 @@
         enum.WizardTeleportUiKey.Key: # Goobstation - wizard
           type: WizardTeleportBoundUserInterface
           requireInputValidation: false
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
     - type: Emoting
     - type: Grammar
       attributes:
@@ -340,8 +342,10 @@
       lightningExplode: false
     - type: ComplexInteraction
     - type: Carriable
+    - type: GrabIntent # wilted rose
+    - type: Grabbable 
     - type: Targeting
-    - type: LayingDown
+    - type: Crawler
     - type: Consciousness
       cap: 190
       threshold: 95

@@ -96,7 +96,7 @@
   - type: HomingProjectile
     homingSpeed: 1080
   - type: KnockdownOnCollide
-    behavior: DropIfStanding
+    dropItems: true
   - type: Ammo
     muzzleFlash: null
 
@@ -303,12 +303,12 @@
       types:
         Heat: 0
   - type: PolymorphOnTrigger
+    targetUser: true
     polymorph: WizardWabbajack
-  - type: TriggerWhitelist
-    whitelist:
+  - type: WhitelistTriggerCondition
+    userWhitelist:
       components:
       - Body
-  - type: TriggerOnProjectileHit
   - type: Reflective
     reflective: Magic
   - type: Ammo
@@ -333,6 +333,8 @@
         - Impassable
         - BulletImpassable
         - Opaque # So that it can hit holographic mobs
+  - type: TriggerOnCollide
+    fixtureID: projectile
 
 - type: entity
   id: ProjectileDeathBolt
@@ -574,7 +576,8 @@
     reflective: Magic
   - type: Ammo
     muzzleFlash: null
-  - type: TriggerOnProjectileHit
+  - type: TriggerOnCollide
+    fixtureID: projectile
   - type: EmpOnTrigger
     range: 3
     energyConsumption: 50000
@@ -754,7 +757,7 @@
   - type: Slippery
     slipData:
       slipOnStep: false
-      paralyzeTime: 10
+      stunTime: 10
       launchForwardsMultiplier: 1
   - type: ProjectileHitShooterAfterDelay
     delay: 0.5

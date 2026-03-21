@@ -93,6 +93,8 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+      params:
+        volume: -7
   - type: AmmoCounter
   - type: Appearance
   - type: GenericVisualizer
