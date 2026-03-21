@@ -29,14 +29,10 @@ public sealed partial class WarpParentOnTriggerSystem : EntitySystem
         var transform = Transform(ent.Owner);
         var parentUid = transform.ParentUid;
 
-        if (parentUid == EntityUid.Invalid)
-            return;
-
-        if (!TryComp<MobStateComponent>(parentUid, out var mobState))
-            return;
-
-        if (mobState.CurrentState is MobState.Invalid or MobState.Alive)
-            return;
+        if (parentUid == EntityUid.Invalid
+                || (!TryComp<MobStateComponent>(parentUid, out var mobState))
+                && mobState.CurrentState is MobState.Invalid or MobState.Alive)
+                return;
 
         if (!WarpParent(ent, parentUid))
         {
