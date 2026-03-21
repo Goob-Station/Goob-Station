@@ -9,6 +9,13 @@ using Robust.Shared.Network;
 using Content.Server.Station.Components;
 using Content.Goobstation.Server.Silicons;
 using Content.Server.Station.Systems;
+using Content.Server.Radio.EntitySystems;
+using Robust.Shared.Prototypes;
+using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
+using Content.Server.Radio.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Ghost;
 
 public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
 {
@@ -17,10 +24,12 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly StationJobsSystem _jobs = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+    private readonly string _alertChannelName = "Command";
 
-
-    protected override void RequestEarlyLeave(EntityUid insertedAi)
+    protected override void RequestEarlyLeave(Entity<StationAiCoreComponent> aiCore, EntityUid insertedAi)
     {
         if (!_player.TryGetSessionByEntity(insertedAi, out var aiSession))
             return;
@@ -28,9 +37,10 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
         if (aiSession == null)
             return;
 
-        _euiManager.OpenEui(new StationAiEarlyLeaveEui(insertedAi, aiSession.UserId, this), aiSession);
+        _euiManager.OpenEui(new StationAiEarlyLeaveEui(aiCore, insertedAi, aiSession.UserId, this), aiSession);
     }
-    public void EarlyLeave(EntityUid insertedAi, NetUserId userId)
+
+    public void EarlyLeave(Entity<StationAiCoreComponent> aiCore, EntityUid insertedAi, NetUserId userId)
     {
         var station = _station.GetOwningStation(insertedAi);
 
@@ -54,14 +64,46 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
         if (station is not { })
             return;
 
-        // lowkirk this is stupid but im uncreative
-        _chat.DispatchStationAnnouncement(station.Value,
+        var channel = _prototypeManager.Index<RadioChannelPrototype>(_alertChannelName);
+
+        var filter = Filter.Empty();
+        var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
+
+        // get people with access to the radio
+        // me when no separate function for checking radio access in RadioSystem
+        while (radioQuery.MoveNext(out var receiver, out var radio, out var transform))
+        {
+            if (!radio.ReceiveAllChannels)
+            {
+                if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom)
+                                                            && !intercom.SupportedChannels.Contains(channel.ID)))
+                    continue;
+            }
+
+            var parent = transform.ParentUid;
+
+            if (TryComp(parent, out ActorComponent? actor))
+            {
+                filter.AddPlayer(actor.PlayerSession);
+            }
+        }
+        // also add ghosts its probably fine
+        var ghostQuery = EntityQueryEnumerator<GhostComponent>();
+        while (ghostQuery.MoveNext(out var ghost, out var _))
+        {
+            if (TryComp<ActorComponent>(ghost, out var actor))
+            {
+                filter.AddPlayer(actor.PlayerSession);
+            }
+        }
+
+        // filtered announcement cuz just not good to announce that ai is offline to literally everyone IC
+        _chat.DispatchFilteredAnnouncement(filter,
             Loc.GetString(
                 "station-ai-earlyleave-announcement",
                 ("character", Name(insertedAi)),
                 ("entity", insertedAi)
-            ), Loc.GetString("station-ai-earlyleave-announcement-sender"),
-            playDefaultSound: false
+            ), insertedAi, Loc.GetString("station-ai-earlyleave-announcement-sender")
         );
 
         QueueDel(insertedAi);

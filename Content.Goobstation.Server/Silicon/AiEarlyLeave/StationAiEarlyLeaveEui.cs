@@ -4,17 +4,20 @@ using Robust.Shared.Network;
 
 using Content.Server.Silicons.StationAi;
 using Content.Goobstation.Shared.Silicons;
+using Content.Shared.Silicons.StationAi;
 
 namespace Content.Goobstation.Server.Silicons;
 
 public sealed class StationAiEarlyLeaveEui : BaseEui
 {
-    private readonly NetUserId _userId;
+    private readonly Entity<StationAiCoreComponent> _aiCore;
     private readonly EntityUid _ai;
+    private readonly NetUserId _userId;
     private readonly StationAiEarlyLeaveSystem _leaveSystem;
 
-    public StationAiEarlyLeaveEui(EntityUid ai, NetUserId userId, StationAiEarlyLeaveSystem leaveSystem)
+    public StationAiEarlyLeaveEui(Entity<StationAiCoreComponent> aiCore, EntityUid ai, NetUserId userId, StationAiEarlyLeaveSystem leaveSystem)
     {
+        _aiCore = aiCore;
         _ai = ai;
         _userId = userId;
         _leaveSystem = leaveSystem;
@@ -31,7 +34,7 @@ public sealed class StationAiEarlyLeaveEui : BaseEui
             return;
         }
 
-        _leaveSystem.EarlyLeave(_ai, _userId);
+        _leaveSystem.EarlyLeave(_aiCore, _ai, _userId);
 
         Close();
     }

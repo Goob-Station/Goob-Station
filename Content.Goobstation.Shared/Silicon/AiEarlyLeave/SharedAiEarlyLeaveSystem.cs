@@ -40,13 +40,13 @@ public abstract partial class SharedStationAiEarlyLeaveSystem : EntitySystem
             args.Verbs.Add(new Verb()
             {
                 Text = Loc.GetString("station-ai-earlyleave-button"),
-                Act = () => RequestEarlyLeave(insertedAi),
+                Act = () => RequestEarlyLeave(aiCore, insertedAi),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
             });
         }
     }
 
-    protected virtual void RequestEarlyLeave(EntityUid insertedAi)
+    protected virtual void RequestEarlyLeave(Entity<StationAiCoreComponent> aiCore, EntityUid insertedAi)
     {
 
     }
