@@ -9,16 +9,21 @@ public sealed class NoEorgPopupSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private NoEorgPopup? _window;
+    private bool _skipPopup;
+    private bool _eorgPopup;
 
     public override void Initialize()
     {
         base.Initialize();
+        Subs.CVar(_cfg, DCCVars.RoundEndNoEorgPopup, val => _eorgPopup = val, true);
+        Subs.CVar(_cfg, DCCVars.SkipRoundEndNoEorgPopup, val => _skipPopup = val, true);
+
         SubscribeNetworkEvent<RoundEndMessageEvent>(OnRoundEnd);
     }
 
     private void OnRoundEnd(RoundEndMessageEvent ev)
     {
-        if (_cfg.GetCVar(DCCVars.SkipRoundEndNoEorgPopup) || _cfg.GetCVar(DCCVars.RoundEndNoEorgPopup) == false)
+        if (_skipPopup || !_eorgPopup)
             return;
 
         OpenNoEorgPopup();
