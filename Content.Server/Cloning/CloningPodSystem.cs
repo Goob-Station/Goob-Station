@@ -62,6 +62,7 @@ public sealed class CloningPodSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!; // Goobstation 
 
     // Goobstation - killed
     //public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
@@ -194,10 +195,12 @@ public sealed class CloningPodSystem : EntitySystem
         if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
             return false;
 
-        var cloningCost = (int)Math.Round(physics.FixturesMass);
+        var cloningCost = (int) Math.Round(physics.FixturesMass);
 
-        if (_configManager.GetCVar(CCVars.BiomassEasyMode))
-            cloningCost = (int)Math.Round(cloningCost * EasyModeCloningCost);
+        /* Goobstation - Cloning require 100% material now
+         * if (_configManager.GetCVar(CCVars.BiomassEasyMode))
+            cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
+        */
 
         // biomass checks
         var biomassAmount = _material.GetMaterialAmount(uid, clonePod.RequiredMaterial);
@@ -308,6 +311,8 @@ public sealed class CloningPodSystem : EntitySystem
 
         if (clonePod.BodyContainer.ContainedEntity is not { Valid: true } entity || clonePod.CloningProgress < clonePod.CloningTime)
             return;
+
+        _damage.TryChangeDamage(entity, clonePod.CloneDamage, true); // Goobstation - Damage the clone if successful
 
         RemComp<BeingClonedComponent>(entity);
         _containerSystem.Remove(entity, clonePod.BodyContainer);
