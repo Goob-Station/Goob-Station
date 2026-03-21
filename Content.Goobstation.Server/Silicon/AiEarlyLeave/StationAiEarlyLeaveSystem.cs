@@ -57,11 +57,10 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
         // lowkirk this is stupid but im uncreative
         _chat.DispatchStationAnnouncement(station.Value,
             Loc.GetString(
-                "earlyleave-cryo-announcement",
+                "station-ai-earlyleave-announcement",
                 ("character", Name(insertedAi)),
-                ("entity", insertedAi),
-                ("job", "Station AI")
-            ), Loc.GetString("earlyleave-cryo-sender"),
+                ("entity", insertedAi)
+            ), Loc.GetString("station-ai-earlyleave-announcement-sender"),
             playDefaultSound: false
         );
 
