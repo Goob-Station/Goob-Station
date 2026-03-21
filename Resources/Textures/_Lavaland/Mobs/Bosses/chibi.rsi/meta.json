@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-3.0",
+  "copyright": "Sprited by OnsenCapy (Github)",
+  "size": {
+    "x": 16,
+    "y": 16
+  },
+  "states": [
+    {
+      "name": "dochi",
+      "directions": 4
+    },
+    {
+      "name": "doragon",
+      "directions": 4
+    },
+    {
+      "name": "goomba",
+      "directions": 4
+    },
+    {
+      "name": "hime",
+      "directions": 4
+    },
+    {
+      "name": "tayou",
+      "directions": 4
+    },
+    {
+      "name": "tortilla",
+      "directions": 4
+    },
+    {
+      "name": "wagahai",
+      "directions": 4
+    },
+    {
+      "name": "zombi",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+- type: entity
+  id: MobIdolProducer
+  parent: BaseMobAsteroid
+  name: Strange light
+  description: Intangible light, seems to support the troupe.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/evildorito.rsi
+    state: evildorito
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100000: Dead # Not meant to be killed directly, but still needs health to be affected.
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 10000 # 10 tons. Can't really push this thing
+        mask:
+        - MobMask
+        layer:
+        - Opaque
+  - type: Clickable
+  - type: InteractionOutline
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: LagCompensation
+  - type: MobMover
+  - type: Actions
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: RequireProjectileTarget
+    active: False
+  - type: CombatMode
+  - type: MobState
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: NpcFactionMember
+    factions:
+    - Lavaland
+  - type: PointLight
+    color: SkyBlue
+    radius: 5
+    energy: 2
+    netsync: false
+  # Actual boss from here
+  - type: ActionGrant
+    actions:
+    - ActionHierophantBox
+  - type: Fauna
+  - type: Anger
+    totalHp: 2500
+  - type: Aggressive
+    forgiveRange: 25
+  - type: MobPhases
+    phaseThresholds:
+      0:    1
+      25000: 2
+      50000: 3
+      75000: 4
+  - type: BossMusic
+    soundId: Hierophant
+  - type: DamageSquareImmunity
+  - type: SpawnLootOnDeath
+    table: !type:AllSelector
+      children:
+      - id: LavalandHierophantClub
+    deleteOnDeath: true
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: Hierophant
+  - type: AngerPlayerScaling # No scaling
+    angerScale: 1
+    hpScale: 1
+  - type: MegafaunaAnchor
+  - type: MegafaunaGodmode
+  - type: MegafaunaRejuvenate
+
+# ENTER: STUPID WEEB SHIT
+
+- type: entity
+  id: MobIdolDragon
+  parent: LavalandMobBase
+  name: Dragon idol
+  description: Not seen in the past 500 years. Sets you on fire on contact.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: doragon
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: NpcFactionMember
+    factions:
+    - Lavaland
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolOni
+  parent: LavalandMobBase
+  name: Oni idol
+  description: Wondering which way to go. Deals powerful slash damage.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: dochi
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: NpcFactionMember
+    factions:
+    - Lavaland
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolSports
+  parent: LavalandMobBase
+  name: Sports idol
+  description: The sun of the group. Buffs surrounding idols.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: tayou # Epic mispelling
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: NpcFactionMember
+    factions:
+    - Lavaland
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolShark
+  parent: LavalandMobBase
+  name: Shark idol
+  description: A small idol with a shark tail. Dashes forward.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: goomba
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - Lavaland
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolPhoenix
+  parent: LavalandMobBase
+  name: Phoenix idol
+  description: Has an annoying laugh. Revives if not killed properly.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: hime
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      350: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - Lavaland
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolDevil
+  parent: LavalandMobBase
+  name: Devil idol
+  description: Not related to the archdevil. Pulls devlish pranks. 
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: tortilla
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - Lavaland
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolZombie
+  parent: LavalandMobBase
+  name: Zombie idol
+  description: Has a sword going through her head. Weak to heat, nearly immune to everything else.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: zombi
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - Lavaland
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
