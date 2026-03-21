@@ -86,7 +86,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-        [Dependency] private readonly DamageableSystem _damage = default!;
+        [Dependency] private readonly DamageableSystem _damage = default!; // Goobstation
 
         public override void Initialize()
         {
