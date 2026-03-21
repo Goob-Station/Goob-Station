@@ -22,9 +22,11 @@ public sealed partial class NoEorgPopup : FancyWindow
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
+        _cfg.OnValueChanged(DCCVars.RoundEndNoEorgPopupTime, duration => _remainingTime = duration, true);
+        _cfg.OnValueChanged(DCCVars.SkipRoundEndNoEorgPopup, val => _initialSkipState = val, true);
+
         InitializeUI();
         InitializeEvents();
-        ResetTimer();
     }
 
     private void InitializeUI()
@@ -34,8 +36,6 @@ public sealed partial class NoEorgPopup : FancyWindow
         RuleLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("no-eorg-popup-rule")));
         RuleTextLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("no-eorg-popup-rule-text")));
         AntagRuleTextLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("no-eorg-popup-antag-text")));
-
-        _cfg.OnValueChanged(DCCVars.SkipRoundEndNoEorgPopup, val => _initialSkipState = val, true);
 
         SkipCheckBox.Pressed = _initialSkipState;
         NoEorgCloseButton.Disabled = true;
@@ -47,12 +47,6 @@ public sealed partial class NoEorgPopup : FancyWindow
     {
         OnClose += SaveSkipState; // Only change the CVar once the close button is pressed
         NoEorgCloseButton.OnPressed += OnClosePressed;
-    }
-
-    private void ResetTimer()
-    {
-        _cfg.OnValueChanged(DCCVars.RoundEndNoEorgPopupTime, duration => _remainingTime = duration, true);
-        UpdateCloseButtonText();
     }
 
     private void SaveSkipState()
