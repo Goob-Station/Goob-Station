@@ -1,0 +1,143 @@
+- type: Tag
+  id: AdvancedMagboots
+
+- type: Tag
+  id: Apple
+
+- type: Tag
+  id: Butt
+
+- type: Tag
+  id: CartridgeRPG2
+
+- type: Tag
+  id: CartridgeTurret
+
+- type: Tag
+  id: CookedEgg
+
+- type: Tag
+  id: CyberButt
+
+- type: Tag
+  id: DataChip
+
+- type: Tag
+  id: Ed209Shell
+
+- type: Tag
+  id: Ed209Hat
+
+- type: Tag
+  id: Ed209LegR
+
+- type: Tag
+  id: Ed209LegL
+
+- type: Tag
+  id: Ed209AiControl
+
+- type: Tag
+  id: Ed209IFF
+
+- type: Tag
+  id: Ed209WeaponsControl
+
+- type: Tag
+  id: EncryptionRevolutionary
+
+- type: Tag
+  id: FlamethrowerBackpack
+
+- type: Tag
+  id: FlamethrowerGun
+
+- type: Tag
+  id: FlamethrowerTank
+
+- type: Tag
+  id: ForceHereticMinion
+
+- type: Tag
+  id: ForgeMold
+
+- type: Tag
+  id: FusionCore
+
+- type: Tag
+  id: Gunpowder
+
+- type: Tag
+  id: HandTeleporter
+
+- type: Tag
+  id: MagazineTurret
+
+- type: Tag
+  id: MimicToolbox
+
+- type: Tag
+  id: QMBoard
+
+- type: Tag
+  id: RCD
+
+- type: Tag
+  id: RevArmorPlate
+
+- type: Tag
+  id: RevID
+
+- type: Tag
+  id: RevFuelTank
+
+- type: Tag
+  id: RevRocket
+
+- type: Tag
+  id: RevReflectivePlate
+
+- type: Tag
+  id: RevTurretBoard
+
+- type: Tag
+  id: RitualAscension
+
+- type: Tag
+  id: RitualBladeBlade
+
+- type: Tag
+  id: RitualFeastOfOwls
+
+- type: Tag
+  id: RitualKnowledge
+
+- type: Tag
+  id: SpellIgnoreForestAdmonitions
+
+- type: Tag
+  id: TechfabMachineBoard
+
+- type: Tag
+  id: T45Frame
+
+- type: Tag
+  id: T45LegL
+
+- type: Tag
+  id: T45LegR
+
+- type: Tag
+  id: T45ArmR
+
+- type: Tag
+  id: T45ArmL
+
+- type: Tag
+  id: T45Chest
+
+- type: Tag
+  id: T45Helmet
+
+- type: Tag
+  id: WelderExperimental

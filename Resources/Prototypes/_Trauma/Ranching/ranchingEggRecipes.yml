@@ -1,6 +1,7 @@
 - type: eggRecipe
-  id: WhiteHenEgg
-  egg: WhiteHenEgg
+  id: SilkieHenEgg
+  egg: SilkieHenEgg
   requiredChicken: MobWhiteChicken
-  happinessRequired: 10
-  needsSpecialFood: false
+  happinessRequired: 30
+  FoodTagsRequired:
+  - Apple

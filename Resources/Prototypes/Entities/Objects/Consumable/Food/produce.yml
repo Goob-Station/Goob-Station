@@ -1138,6 +1138,7 @@
   - type: Tag
     tags:
     - Fruit
+    - Apple # Trauma
   - type: FoodSequenceElement
     entries:
       Burger: Apple
@@ -1180,6 +1181,7 @@
   - type: Tag
     tags:
     - Fruit
+    - Apple # Trauma
   - type: FoodSequenceElement
     entries:
       Burger: GoldenApple

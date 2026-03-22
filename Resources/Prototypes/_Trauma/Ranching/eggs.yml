@@ -2,6 +2,7 @@
   abstract: true
   parent: FoodEggBase
   id: BaseRanchingEgg
+  name: egg
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chickens.rsi
@@ -9,8 +10,8 @@
   - type: Timer
   - type: TimedSpawner
     prototypes:
-    - MobWhiteChicken
-    intervalSeconds: 60
+    - MobChickWhite
+    intervalSeconds: 61
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: TimedDespawn
@@ -19,3 +20,13 @@
 - type: entity
   parent: BaseRanchingEgg
   id: WhiteHenEgg
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SilkieHenEgg
+  components:
+  - type: Sprite
+    state: egg-silkie
+  - type: TimedSpawner
+    prototypes:
+    - MobChickSilkie

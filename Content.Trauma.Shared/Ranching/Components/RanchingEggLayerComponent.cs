@@ -23,13 +23,13 @@ public sealed partial class RanchingEggLayerComponent : Component
     ///     Minimum cooldown used for the egg laying.
     /// </summary>
     [DataField]
-    public float EggLayCooldownMin = 1f;
+    public float EggLayCooldownMin = 5f;
 
     /// <summary>
     ///     Maximum cooldown used for the egg laying.
     /// </summary>
     [DataField]
-    public float EggLayCooldownMax = 2f;
+    public float EggLayCooldownMax = 10f;
 
     /// <summary>
     ///     The amount of nutrient consumed on eggLay.

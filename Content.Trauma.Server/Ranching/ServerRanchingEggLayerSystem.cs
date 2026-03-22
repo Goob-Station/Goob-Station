@@ -33,6 +33,9 @@ public sealed class ServerRanchingEggLayerSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        var toLayEgg = new List<(EntityUid uid, RanchingEggLayerComponent comp)>();
+
         var query = EntityQueryEnumerator<RanchingEggLayerComponent>();
         while (query.MoveNext(out var uid, out var eggLayer))
         {
@@ -47,6 +50,11 @@ public sealed class ServerRanchingEggLayerSystem : EntitySystem
 
             eggLayer.NextGrowth += TimeSpan.FromSeconds(_random.NextFloat(eggLayer.EggLayCooldownMin, eggLayer.EggLayCooldownMax));
 
+            toLayEgg.Add((uid, eggLayer));
+        }
+
+        foreach (var (uid, eggLayer) in toLayEgg)
+        {
             TryLayEgg(uid, eggLayer);
         }
     }
@@ -62,19 +70,12 @@ public sealed class ServerRanchingEggLayerSystem : EntitySystem
         if (_hunger.GetHunger(hunger) < egglayer.HungerUsage)
         {
             _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-too-hungry"), uid, uid);
-
-            if (!egglayer.HungerRequired)
-            {
-                var ev = new RanchingEggLayAttemptEvent((uid, egglayer),false);
-                RaiseLocalEvent(uid, ref ev);
-            }
-
             return;
         }
 
         _hunger.ModifyHunger(uid, -egglayer.HungerUsage, hunger);
 
-        var evfood = new RanchingEggLayAttemptEvent((uid, egglayer),true);
+        var evfood = new RanchingEggLayAttemptEvent((uid, egglayer));
         RaiseLocalEvent(uid, ref evfood);
     }
 }

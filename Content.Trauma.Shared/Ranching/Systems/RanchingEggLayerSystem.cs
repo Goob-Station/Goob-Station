@@ -42,12 +42,14 @@ public sealed class RanchingEggLayerSystem : EntitySystem
             return;
 
         var sortedRecipes = _proto.EnumeratePrototypes<EggRecipePrototype>()
-            .OrderBy(p => p.HappinessRequired);
+            .OrderByDescending(p => p.HappinessRequired);
 
         var currentHappiness = _happiness.GetHappiness((ent.Owner, happiness));
 
         if (currentHappiness is null)
             return;
+
+        Log.Debug(currentHappiness.ToString() ?? "poop");
 
         foreach (var proto in sortedRecipes)
         {
@@ -55,11 +57,10 @@ public sealed class RanchingEggLayerSystem : EntitySystem
                 continue;
 
             var entityPrototype = MetaData(ent.Owner).EntityPrototype;
-
             if (entityPrototype is null)
                 continue;
 
-            if (proto.RequiredChicken != entityPrototype)
+            if (proto.RequiredChicken != entityPrototype.ID)
                 continue;
 
             if (!proto.NeedsSpecialFood)
@@ -69,7 +70,7 @@ public sealed class RanchingEggLayerSystem : EntitySystem
             }
 
             if (foodTags.Tag is null)
-                return;
+                continue;
 
             foreach (var tag in foodTags.Tag)
             {
@@ -79,6 +80,9 @@ public sealed class RanchingEggLayerSystem : EntitySystem
                     break;
                 }
             }
+
+            if (eggToLay is not null)
+                break;
         }
 
         if (eggToLay is null)

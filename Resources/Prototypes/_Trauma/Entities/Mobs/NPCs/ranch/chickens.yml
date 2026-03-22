@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   parent: SimpleMobBase
-  id: BaseMobChickenRanch
+  id: BaseMobChickRanch
   name: chicken
   description: Comes before an egg, and IS a dinosaur!
   components:
@@ -9,18 +9,15 @@
     sprite: _Trauma/Mobs/Ranch/chickens.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: hen-brown
-  - type: RanchingEggLayer
-  - type: MostRecentlyEatenFoodTags
-  - type: Happiness
+      state: chick-white
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: hen-brown
+        Base: chick-white
       Critical:
-        Base: hen-brown-dead
+        Base: chick-white-dead
       Dead:
-        Base: hen-brown-dead
+        Base: chick-white-dead
   - type: Fixtures
     fixtures:
       fix1:
@@ -60,6 +57,47 @@
   - type: ExaminableHunger
 
 - type: entity
+  abstract: true
+  parent: BaseMobChickRanch
+  id: BaseMobChickenRanch
+  components:
+  - type: RanchingEggLayer
+  - type: MostRecentlyEatenFoodTags
+  - type: Happiness
+
+# The Chicks
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickWhite
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobWhiteChicken
+    intervalSeconds: 60
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 61
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickSilkie
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobSilkieChicken
+    intervalSeconds: 60
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 61
+
+# The Chickens
+
+- type: entity
   parent: BaseMobChickenRanch
   id: MobWhiteChicken
   name: White Chicken
@@ -77,3 +115,22 @@
         Base: hen-white-dead
       Dead:
         Base: hen-white-dead
+
+- type: entity
+  parent: BaseMobChickenRanch
+  id: MobSilkieChicken
+  name: Silkie Chicken
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chickens.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: hen-silkie
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hen-silkie
+      Critical:
+        Base: hen-silkie-dead
+      Dead:
+        Base: hen-silkie-dead
