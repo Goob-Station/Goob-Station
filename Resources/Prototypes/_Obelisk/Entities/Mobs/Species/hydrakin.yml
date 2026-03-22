@@ -65,7 +65,8 @@
     sweatHeatRegulation: 350
     shiveringHeatRegulation: 800
     normalBodyTemperature: 210.15
-    thermalRegulationTemperatureThreshold: 2
+    thermalRegulationTemperatureThreshold: 30
+    processWhileCrit: false
   - type: PassiveHeatGeneration
     watts: 3900
     mobStateModifier:

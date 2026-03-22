@@ -71,4 +71,16 @@ public sealed partial class ThermalRegulatorComponent : Component
     /// </summary>
     [DataField]
     public float ThermalRegulationTemperatureThreshold;
+
+    /// <summary>
+    /// Process regulation while they're dead if there is a MobStateComponent? - Mono Hydrakin
+    /// </summary>
+    [DataField]
+    public bool ProcessWhileDead = false;
+
+    /// <summary>
+    /// Process regulation in critical condition if there is a MobStateComponent? - Mono Hydrakin
+    /// </summary>
+    [DataField]
+    public bool ProcessWhileCrit = true;
 }
