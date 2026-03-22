@@ -1,0 +1,7 @@
+- type: internalResources
+  id: Happiness
+  name: internal-resources-happiness-name
+  description: internal-resources-happiness-desc
+  maxAmount: 1000
+  regenerationRate: -0.05
+  startingAmount: 20

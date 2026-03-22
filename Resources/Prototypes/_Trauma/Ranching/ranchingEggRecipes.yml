@@ -1,0 +1,6 @@
+- type: eggRecipe
+  id: WhiteHenEgg
+  egg: WhiteHenEgg
+  requiredChicken: MobWhiteChicken
+  happinessRequired: 10
+  needsSpecialFood: false

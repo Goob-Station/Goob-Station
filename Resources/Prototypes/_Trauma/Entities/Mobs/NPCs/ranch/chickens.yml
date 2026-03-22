@@ -1,0 +1,79 @@
+- type: entity
+  abstract: true
+  parent: SimpleMobBase
+  id: BaseMobChickenRanch
+  name: chicken
+  description: Comes before an egg, and IS a dinosaur!
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chickens.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hen-brown
+  - type: RanchingEggLayer
+  - type: MostRecentlyEatenFoodTags
+  - type: Happiness
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hen-brown
+      Critical:
+        Base: hen-brown-dead
+      Dead:
+        Base: hen-brown-dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 8
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Speech
+    speechVerb: SmallMob
+    speechSounds: Cluck
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Chicken
+    - VimPilot
+  - type: Appearance
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 1
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-bird
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/chicken_cluck_happy.ogg
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
+  - type: ExaminableHunger
+
+- type: entity
+  parent: BaseMobChickenRanch
+  id: MobWhiteChicken
+  name: White Chicken
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chickens.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: hen-white
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hen-white
+      Critical:
+        Base: hen-white-dead
+      Dead:
+        Base: hen-white-dead
