@@ -20,7 +20,7 @@ public abstract class SharedAnimatedEmotesSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
 
-    private const float FlipStaminaCost = 10f;
+    private const float FlipStaminaCost = 33f;
     private const string FlipDodgeEffect = "EffectParry";
 
     public static readonly TimeSpan FlipDuration = TimeSpan.FromMilliseconds(500);
