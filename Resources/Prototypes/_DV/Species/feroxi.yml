@@ -22,7 +22,6 @@
     Chest: MobFeroxiChest
     Groin: MobFeroxiGroin
     HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobFeroxiLArm
@@ -46,13 +45,10 @@
     Head:
       points: 3
       required: false
-    HeadSide:
+    HeadTop:
       points: 1
       required: true
       defaultMarkings: [ FeroxiEars ]
-    HeadTop:
-      points: 2
-      required: false
     Snout:
       points: 1
       required: true

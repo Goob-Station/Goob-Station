@@ -1,8 +1,8 @@
 # Default
 - type: marking
   id: FeroxiEars
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi #RedTerror Goob Resprite
@@ -33,8 +33,8 @@
 # Ears Markings
 - type: marking
   id: FeroxiEarsTips
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi #RedTerror Goob Resprite
@@ -428,8 +428,8 @@
 # Goob Ears Markings
 - type: marking
   id: FeroxiEarsTiger
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
@@ -441,8 +441,8 @@
 
 - type: marking
   id: FeroxiEarsPierced
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
@@ -450,8 +450,8 @@
 
 - type: marking
   id: FeroxiEarsPiercedTiger
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
@@ -461,8 +461,8 @@
 
 - type: marking
   id: FeroxiEarsAlt
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
@@ -472,8 +472,8 @@
 
 - type: marking
   id: FeroxiEarsAltTips
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
@@ -485,8 +485,8 @@
 
 - type: marking
   id: FeroxiEarsAltTiger
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [ Feroxi ]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/ear_markings.rsi
