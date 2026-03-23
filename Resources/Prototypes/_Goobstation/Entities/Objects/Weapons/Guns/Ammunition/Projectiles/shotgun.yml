@@ -135,7 +135,7 @@
     damage:
       types:
         Piercing: 65
-    armorPenetration: 0.31 # goob, 20ish AP dmg
+      armorPenetration: 0.31 # goob, 20ish AP dmg
 
 - type: entity
   id: BulletSlugEnsnaring
