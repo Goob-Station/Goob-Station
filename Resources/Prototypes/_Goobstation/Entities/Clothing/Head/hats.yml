@@ -215,7 +215,7 @@
     - state: icon-up
       map: ["foldedLayer"]
       visible: false
-    - type: Armor
+  - type: Armor
     coverage:
     - Head
     traumaDeductions:
