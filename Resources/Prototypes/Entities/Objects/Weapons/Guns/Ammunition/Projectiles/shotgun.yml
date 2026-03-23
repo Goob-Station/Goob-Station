@@ -123,7 +123,7 @@
       types:
         Piercing: 40
         Structural: 15
-    armorPenetration: 0.31 # goob, 15ish AP dmg
+    armorPenetration: 0.25 # goob, 15ish AP dmg
 
 
 - type: entity
