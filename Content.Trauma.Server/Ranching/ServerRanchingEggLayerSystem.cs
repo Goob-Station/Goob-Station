@@ -73,8 +73,6 @@ public sealed class ServerRanchingEggLayerSystem : EntitySystem
             return;
         }
 
-        _hunger.ModifyHunger(uid, -egglayer.HungerUsage, hunger);
-
         var evfood = new RanchingEggLayAttemptEvent((uid, egglayer));
         RaiseLocalEvent(uid, ref evfood);
     }

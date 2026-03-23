@@ -1,7 +1,15 @@
 - type: eggRecipe
+  id: WhiteHenEgg
+  egg: WhiteHenEgg
+  requiredChicken: MobWhiteChicken
+  happinessRequired: 10
+  foodTagsRequired:
+  - ChickenFeed # makes it so chickens only lay eggs once they've been fed a chicken feed
+
+- type: eggRecipe
   id: SilkieHenEgg
   egg: SilkieHenEgg
   requiredChicken: MobWhiteChicken
   happinessRequired: 30
-  FoodTagsRequired:
+  foodTagsRequired:
   - Apple

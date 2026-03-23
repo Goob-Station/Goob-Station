@@ -1,0 +1,8 @@
+namespace Content.Trauma.Shared.AnimalAgeing.Events;
+
+/// <summary>
+/// Raise on the mob and kills it
+/// </summary>
+/// <param name="Mob">The mob raised on</param>
+[ByRefEvent]
+public record struct OldAgeDeathEvent(Entity<AnimalAgeingComponent> Mob);

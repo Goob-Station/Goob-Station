@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Trauma.Shared.Ranching.Components;
 using Content.Trauma.Shared.Ranching.Events;
@@ -17,6 +19,7 @@ public sealed class RanchingEggLayerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly HappinessSystem _happiness = default!;
+    [Dependency] private readonly HungerSystem _hunger = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -31,6 +34,17 @@ public sealed class RanchingEggLayerSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.EggLaySound, ent.Owner);
         _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-user"), ent.Owner, ent.Owner);
         _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-others", ("entity", ent.Owner)), ent.Owner, Filter.PvsExcept(ent.Owner), true);
+
+        if (!TryComp<HungerComponent>(ent.Owner, out var hunger))
+            return;
+
+        _hunger.ModifyHunger(ent.Owner, -ent.Comp.HungerUsage, hunger);
+
+        if (!TryComp<MostRecentlyEatenFoodTagsComponent>(ent.Owner, out var foodTags))
+            return;
+
+        if (foodTags.Tag is not null)
+            foodTags.Tag.Clear();
     }
 
     private void OnEggLayAttempt(Entity<RanchingEggLayerComponent> ent, ref RanchingEggLayAttemptEvent args)
@@ -57,17 +71,12 @@ public sealed class RanchingEggLayerSystem : EntitySystem
                 continue;
 
             var entityPrototype = MetaData(ent.Owner).EntityPrototype;
+
             if (entityPrototype is null)
                 continue;
 
             if (proto.RequiredChicken != entityPrototype.ID)
                 continue;
-
-            if (!proto.NeedsSpecialFood)
-            {
-                eggToLay = proto.Egg;
-                break;
-            }
 
             if (foodTags.Tag is null)
                 continue;

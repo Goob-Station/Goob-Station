@@ -26,7 +26,4 @@ public sealed partial class EggRecipePrototype : IPrototype
 
     [DataField]
     public List<Component>? ComponentsRequired { get; set; }
-
-    [DataField]
-    public bool NeedsSpecialFood { get; set; } = true;
 }

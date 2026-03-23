@@ -10,6 +10,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: chick-white
+  - type: AnimalAgeing
   - type: DamageStateVisuals
     states:
       Alive:
