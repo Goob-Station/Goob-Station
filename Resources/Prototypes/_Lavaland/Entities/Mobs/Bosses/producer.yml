@@ -1,0 +1,155 @@
+- type: entity
+  id: MobIdolProducer
+  parent: BaseMobAsteroid
+  name: Strange light
+  description: Made of intangible light. Try using a knife.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/evildorito.rsi
+    state: evildorito
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100000: Dead # Not meant to be killed directly, but still needs health to be affected.
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 10000 # 10 tons. Can't really push this thing
+        mask:
+        - MobMask
+        layer:
+        - Opaque
+  - type: Clickable
+  - type: InteractionOutline
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: LagCompensation
+  - type: MobMover
+  - type: Actions
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: RequireProjectileTarget
+    active: False
+  - type: CombatMode
+  - type: MobState
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Producer
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: PointLight
+    color: SkyBlue
+    radius: 5
+    energy: 2
+    netsync: false
+  # Actual boss from here
+  - type: ActionGrant
+    actions:
+    - ActionIdolSpawnSingle
+    - ActionIdolSpawnGroup
+    - ActionIdolSpawnReplenish
+  - type: Fauna
+  - type: Anger
+    totalHp: 10000
+  - type: Aggressive
+    forgiveRange: 25
+  - type: MobPhases
+    phaseThresholds:
+      0:    1
+      25000: 2
+      50000: 3
+      75000: 4
+  #- type: MobPhaseSprite
+  #  phases:
+  #    1:
+  #      rsi: /Textures/_Lavaland/Mobs/Bosses/evildorito.rsi
+  #      changeSprite: true
+  #      state: evildorito
+  #      layer: 0
+  #    2:
+  #      rsi: /Textures/_Lavaland/Mobs/Bosses/evildorito.rsi
+  #      changeSprite: true
+  #      state: orange
+  #      layer: 0
+  #    3:
+  #      rsi: /Textures/_Lavaland/Mobs/Bosses/evildorito.rsi
+  #      changeSprite: true
+  #      state: red
+  #      layer: 0
+  - type: BossMusic
+    soundId: Producer
+  - type: DamageSquareImmunity
+  - type: SpawnLootOnDeath
+    table: !type:AllSelector
+      children:
+      - id: LavalandHierophantClub
+    deleteOnDeath: true
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: Producer
+  - type: AngerPlayerScaling # No scaling
+    angerScale: 1
+    hpScale: 1
+  - type: MegafaunaAnchor
+  - type: MegafaunaGodmode
+  - type: MegafaunaRejuvenate
+  # idol spawning system data
+  - type: IdolProducer
+    singleSpawnAction: ActionIdolSpawnSingle
+    groupSpawnAction: ActionIdolSpawnGroup
+    replenishSpawnAction: ActionIdolSpawnReplenish
+    spawnOffset: 1.5
+    replenishCooldown: 5
+    # Full pool of individual idols available for phase 1 and phase 3.
+    # The system picks randomly and won't re-summon one that's still alive.
+    singleIdolPool:
+    - MobIdolDragon
+    - MobIdolOni
+    - MobIdolSun
+    - MobIdolShark
+    - MobIdolPhoenix
+    - MobIdolDevil
+    - MobIdolZombie
+    - MobIdolChained
+    # Groups used in phase 2. Each entry is a bundle spawned simultaneously.
+    idolGroupPool:
+    - - MobIdolSun
+      - MobIdolDragon
+      - MobIdolOni
+    - - MobIdolChained
+      - MobIdolShark
+      - MobIdolDevil
+    - - MobIdolZombie
+      - MobIdolPhoenix
+    - - MobIdolSun 
+      - MobIdolChained
+      - MobIdolZombie
+      - MobIdolDevil
+    - - MobIdolDragon
+      - MobIdolPhoenix
+    - - MobIdolOni 
+      - MobIdolShark
+      - MobIdolDevil

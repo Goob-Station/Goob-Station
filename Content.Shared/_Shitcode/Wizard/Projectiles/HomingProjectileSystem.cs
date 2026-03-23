@@ -11,6 +11,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Shared._Goobstation.Wizard.Projectiles;
 
@@ -23,6 +24,7 @@ public sealed class HomingProjectileSystem : EntitySystem
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<FrozenComponent> _frozenQuery;
+    private EntityQuery<ActorComponent> _actorQuery;
 
     public override void Initialize()
     {
@@ -30,6 +32,7 @@ public sealed class HomingProjectileSystem : EntitySystem
 
         _xformQuery = GetEntityQuery<TransformComponent>();
         _frozenQuery = GetEntityQuery<FrozenComponent>();
+        _actorQuery = GetEntityQuery<ActorComponent>();
     }
 
     public override void Update(float frameTime)
@@ -54,7 +57,16 @@ public sealed class HomingProjectileSystem : EntitySystem
             if (_frozenQuery.HasComp(uid))
                 continue;
 
-            if (!_xformQuery.TryComp(homing.Target, out var targetXform))
+            EntityUid? target = homing.Target;
+
+            if (homing.TargetNearestPlayer)
+            {
+                var nearest = GetNearestActor(uid, xform);
+                if (nearest != null)
+                    target = nearest;
+            }
+
+            if (target == null || !_xformQuery.TryComp(target.Value, out var targetXform))
                 continue;
 
             var goalAngle = (_transform.GetMapCoordinates(targetXform).Position -
@@ -70,5 +82,29 @@ public sealed class HomingProjectileSystem : EntitySystem
             var velocity = _transform.GetWorldRotation(xform).ToWorldVec() * projectileSpeed;
             _physics.SetLinearVelocity(uid, velocity, true, true, fix, physics);
         }
+    }
+
+    // Just a fallback so I don't have to make the projectile be part of an action teehee XD
+    private EntityUid? GetNearestActor(EntityUid uid, TransformComponent xform)
+    {
+        var origin = _transform.GetMapCoordinates(xform).Position;
+
+        EntityUid? closest = null;
+        var closestDist = float.MaxValue;
+
+        var query = EntityQueryEnumerator<ActorComponent, TransformComponent>();
+        while (query.MoveNext(out var actorUid, out _, out var actorXform))
+        {
+            var pos = _transform.GetMapCoordinates(actorXform).Position;
+            var dist = (pos - origin).LengthSquared();
+
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closest = actorUid;
+            }
+        }
+
+        return closest;
     }
 }

@@ -30,4 +30,10 @@ public sealed partial class HomingProjectileComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public float HomingAccumulator;
+
+    /// <summary>
+    /// If true, will chase nearest ActorComp. For use when there is no target set.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool TargetNearestPlayer;
 }

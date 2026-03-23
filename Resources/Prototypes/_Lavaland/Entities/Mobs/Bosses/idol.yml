@@ -1,0 +1,250 @@
+- type: entity
+  id: MobBaseIdol
+  parent: LavalandMobBase
+  name: The perfect idol
+  description: Wow! Please sign my autograph!!!
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: doragon
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Idol
+  - type: Idol
+    damageOnDeath: 2500
+
+- type: entity
+  id: MobIdolDragon
+  parent: MobBaseIdol
+  name: Dragon idol
+  description: Not seen in the past 500 years. Sets you on fire on contact.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: doragon
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Idol
+    damageOnDeath: 5000
+
+- type: entity
+  id: MobIdolOni
+  parent: MobBaseIdol
+  name: Oni idol
+  description: Wondering which way to go. Deals powerful slash damage.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: dochi
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolSun
+  parent: MobBaseIdol
+  name: Sun idol
+  description: The sun of the group. Buffs surrounding idols.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: tayou # Epic mispelling
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - IdolScreamEffect
+    intervalSeconds: 10
+  - type: Idol
+    damageOnDeath: 1000
+
+- type: entity
+  id: MobIdolShark
+  parent: MobBaseIdol
+  name: Shark idol
+  description: A small idol with a shark tail. Dashes forward.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: goomba
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolPhoenix
+  parent: MobBaseIdol
+  name: Phoenix idol
+  description: Has an annoying laugh. Revives if not killed properly.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: hime
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      350: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolDevil
+  parent: MobBaseIdol
+  name: Devil idol
+  description: Not related to the archdevil. Pulls devlish pranks. 
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: tortilla
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: MobIdolZombie
+  parent: MobBaseIdol
+  name: Zombie idol
+  description: Has a sword going through her head. Weak to heat, nearly immune to everything else.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: zombi
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: IdolZombie
+  - type: Idol
+    damageOnDeath: 5000
+
+- type: entity
+  id: MobIdolChained
+  parent: MobBaseIdol
+  name: Chained idol
+  description: Has two large horns almost as big as her head. Shoots slow moving homing projectiles that will MESS YOU UP.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+    state: wagahai
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectileHomingDoom
+    fireCost: 1
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 2
+    fireRate: 0.2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Effects/singularity_collapse.ogg
+  - type: Idol
+    damageOnDeath: 5000

@@ -19,3 +19,30 @@
     Structural: 0.5
   flatReductions:
     Blunt: 6 # Just a bit more tough
+
+- type: damageModifierSet
+  id: Producer
+  coefficients:
+    Blunt: 0
+    Slash: 0
+    Piercing: 0
+    Heat: 0
+    Structural: 0
+  flatReductions:
+    Blunt: 100
+
+- type: damageModifierSet
+  id: Idol
+  coefficients:
+    Heat: 0 # Immune
+    Piercing: 0.2 # Use a real weapon.
+
+- type: damageModifierSet
+  id: IdolZombie
+  coefficients:
+    Blunt: 0.2
+    Slash: 0.3
+    Piercing: 0.1
+    Heat: 10 # Mega death
+  flatReductions:
+    Blunt: 5

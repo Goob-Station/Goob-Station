@@ -68,3 +68,12 @@
   positionOnEnd: 0
   sound:
     path: /Audio/_Lavaland/Mobs/Bosses/miniboss_fight.ogg
+
+- type: bossMusic
+  id: Producer
+  fade: true
+  fadeInTime: 5
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/producer.ogg

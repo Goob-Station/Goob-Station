@@ -12,3 +12,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/blob/master/sound/effects/meteorimpact.ogg"
+
+- files: ["meteorimpact.ogg"]
+  license: "Custom"
+  copyright: "Made by Reitanna"
+  source: "https://pixabay.com/sound-effects/people-wah-103118/"

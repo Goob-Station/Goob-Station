@@ -1,0 +1,52 @@
+- type: entity
+  id: ActionBaseProducer
+  parent: BaseAction
+  name: idol producer action
+  abstract: true
+  components:
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Mobs/Bosses/chibi.rsi
+      state: wagahai
+    itemIconStyle: NoItem
+  - type: TargetAction
+    checkCanAccess: false
+    range: 20
+
+- type: entity
+  id: ActionIdolSpawnSingle
+  parent: ActionBaseProducer
+  name: Spawn idol
+  description: Picks a random idol to spawn in.
+  components:
+  - type: AngerDelayAction
+    minDelay: 8
+    maxDelay: 10
+  - type: InstantAction
+    event: !type:ProducerSingleIdolSpawnEvent
+
+- type: entity
+  id: ActionIdolSpawnGroup
+  parent: ActionBaseProducer
+  name: Spawn idol
+  description: Picks a random idol group to spawn in.
+  components:
+  - type: AngerDelayAction
+    minDelay: 8
+    maxDelay: 10
+  - type: InstantAction
+    event: !type:ProducerGroupIdolSpawnEvent
+
+- type: entity
+  id: ActionIdolSpawnReplenish
+  parent: ActionBaseProducer
+  name: Spawn idol
+  description: Constantly spawns back in any idol that dies.
+  components:
+  - type: AngerDelayAction
+    minDelay: 2
+    maxDelay: 5
+  - type: InstantAction
+    event: !type:ProducerReplenishIdolSpawnEvent
