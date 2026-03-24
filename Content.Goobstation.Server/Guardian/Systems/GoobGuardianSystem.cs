@@ -55,7 +55,7 @@ public sealed class GoobGuardianSystem : EntitySystem
         _dialog.OpenDialog(guardianActor.PlayerSession, Loc.GetString("guardian-whisper-title"), Loc.GetString("guardian-whisper-prompt"), (string message) =>
         {
             _prayer.SendSubtleMessage(hostActor.PlayerSession, guardianActor.PlayerSession, message, Loc.GetString("guardian-whisper-popup", ("guardian", ent.Owner)));
-            _popups.PopupEntity(Loc.GetString("guardian-whisper-whisper"), ent.Owner);
+            _popups.PopupEntity(Loc.GetString("guardian-whisper-whisper"), ent.Owner, ent.Owner);
         });
     }
 
