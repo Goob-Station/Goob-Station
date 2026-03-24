@@ -98,7 +98,7 @@ public sealed partial class NukeopsRuleComponent : Component
     ///     This amount of TC will be given to each nukie
     /// </summary>
     [DataField]
-    public int WarTcAmountPerNukie = 200;
+    public int WarTcAmountPerNukie = 100; //Goobstation
 
     // Goobstation start
     /// <summary>
