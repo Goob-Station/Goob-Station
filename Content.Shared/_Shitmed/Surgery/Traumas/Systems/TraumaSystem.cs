@@ -1,4 +1,5 @@
-﻿using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+﻿using Content.Shared._Shitmed.CCVar;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Alert;
@@ -42,11 +43,18 @@ public sealed partial class TraumaSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alert = default!;
 
     private string _brokenBonesAlertId = "BrokenBones";
+
+    private bool _beheadingEnabled;
+    private float _beheadingDamageThreshold;
+
     public override void Initialize()
     {
         base.Initialize();
         InitProcess();
         InitBones();
         InitOrgans();
+
+        Subs.CVar(_cfg, SurgeryCVars.BeheadingEnabled, val => _beheadingEnabled = val, true);
+        Subs.CVar(_cfg, SurgeryCVars.BeheadingDamageThreshold, val => _beheadingDamageThreshold = val, true);
     }
 }

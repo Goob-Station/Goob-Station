@@ -502,6 +502,11 @@ public partial class TraumaSystem
         if (!parentWoundable.HasValue)
             return false;
 
+        if (bodyPart.PartType == BodyPartType.Head
+            && (!_beheadingEnabled
+                || Comp<WoundComponent>(woundInflicter).WoundSeverityPoint < _beheadingDamageThreshold))
+            return false;
+
         if (bodyPart.PartType == BodyPartType.Chest
             || bodyPart.PartType == BodyPartType.Groin
             && Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity != WoundableSeverity.Mangled)

@@ -90,3 +90,7 @@ enabled = true
 
 [voice]
 barks_enabled = true
+
+[traumas]
+beheading_enabled = false
+beheading_damage_threshold = 150.0

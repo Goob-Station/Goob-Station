@@ -90,6 +90,18 @@ public sealed class SurgeryCVars : CVars
     public static readonly CVarDef<float> DestroySeverityMultiplier =
         CVarDef.Create("traumas.destroy_severity_multiplier", 4f, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// Whether beheading (dismemberment of the head) is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> BeheadingEnabled =
+        CVarDef.Create("traumas.beheading_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// The minimum wound severity required to behead someone.
+    /// </summary>
+    public static readonly CVarDef<float> BeheadingDamageThreshold =
+        CVarDef.Create("traumas.beheading_damage_threshold", 100f, CVar.SERVER | CVar.REPLICATED);
+
     #endregion
 
     #region Bleeding CVars
