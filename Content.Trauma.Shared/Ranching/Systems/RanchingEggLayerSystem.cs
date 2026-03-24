@@ -63,8 +63,6 @@ public sealed class RanchingEggLayerSystem : EntitySystem
         if (currentHappiness is null)
             return;
 
-        Log.Debug(currentHappiness.ToString() ?? "poop");
-
         foreach (var proto in sortedRecipes)
         {
             if (proto.HappinessRequired > currentHappiness)
@@ -77,6 +75,12 @@ public sealed class RanchingEggLayerSystem : EntitySystem
 
             if (proto.RequiredChicken != entityPrototype.ID)
                 continue;
+
+            if (!proto.RequiresSpecialFood)
+            {
+                eggToLay = proto.Egg;
+                break;
+            }
 
             if (foodTags.Tag is null)
                 continue;

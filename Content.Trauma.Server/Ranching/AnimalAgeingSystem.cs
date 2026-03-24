@@ -1,5 +1,4 @@
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition.Components;
 using Content.Trauma.Shared.AnimalAgeing;
 using Content.Trauma.Shared.AnimalAgeing.Events;
 using Robust.Shared.Random;
@@ -8,7 +7,7 @@ using Robust.Shared.Timing;
 namespace Content.Trauma.Server.Ranching;
 
 /// <summary>
-/// This handles...
+/// This handles raising the age up event on mobs
 /// </summary>
 public sealed class AnimalAgeingSystem : EntitySystem
 {
@@ -43,7 +42,13 @@ public sealed class AnimalAgeingSystem : EntitySystem
 
     public void AttemptAddAgeToMob(Entity<AnimalAgeingComponent> ent)
     {
-        var ev = new AddAgeToMobAttemptEvent(ent, ent.Comp.YearsPerUpdate);
+        var attemptev = new AddAgeToMobAttemptEvent(ent, ent.Comp.YearsPerUpdate);
+        RaiseLocalEvent(ent.Owner, ref attemptev);
+
+        if (attemptev.Cancelled)
+            return;
+
+        var ev = new AddAgeToMobEvent(ent, attemptev.Years);
         RaiseLocalEvent(ent.Owner, ref ev);
     }
 }

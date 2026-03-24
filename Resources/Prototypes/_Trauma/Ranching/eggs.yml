@@ -7,15 +7,8 @@
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chickens.rsi
     state: egg-white
-  - type: Timer
-  - type: TimedSpawner
-    prototypes:
-    - MobChickWhite
-    intervalSeconds: 61
-    minimumEntitiesSpawned: 1
-    maximumEntitiesSpawned: 1
-  - type: TimedDespawn
-    lifetime: 61
+  - type: TimedReplace
+    entity: MobChickWhite
 
 - type: entity
   parent: BaseRanchingEgg
@@ -27,6 +20,5 @@
   components:
   - type: Sprite
     state: egg-silkie
-  - type: TimedSpawner
-    prototypes:
-    - MobChickSilkie
+  - type: TimedReplace
+    entity: MobChickSilkie

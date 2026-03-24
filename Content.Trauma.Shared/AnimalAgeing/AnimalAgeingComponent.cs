@@ -5,7 +5,7 @@ namespace Content.Trauma.Shared.AnimalAgeing;
 /// <summary>
 /// Animals with this component will age up a mob a "year" each ageing update
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
+[RegisterComponent, AutoGenerateComponentState, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class AnimalAgeingComponent : Component
 {
     [DataField]
@@ -17,7 +17,7 @@ public sealed partial class AnimalAgeingComponent : Component
     [DataField]
     public int DeathYear = 35;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int YearsOld;
 
     /// <summary>
@@ -35,7 +35,7 @@ public sealed partial class AnimalAgeingComponent : Component
     [DataField]
     public int YearsPerUpdate = 1;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public AnimalAgeState CurrentAgeState = AnimalAgeState.Baby;
 
     [DataField, AutoPausedField]

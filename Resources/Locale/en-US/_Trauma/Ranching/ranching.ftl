@@ -1,6 +1,6 @@
 internal-resources-happiness-name = happiness
 internal-resources-happiness-desc = Kuwabara kuwabara...
 
-age-markup-baby = It's so cute!
+age-markup-baby = [color=#e6d925]It's so cute![/color]
 age-markup-adult = It's in it's golden years
-age-markup-senior = It's movements are slow and it's hairs are turning gray
+age-markup-senior = [color=#d1d1d1]It's movements are slow and it's hairs are turning gray[/color]

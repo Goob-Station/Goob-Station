@@ -22,6 +22,9 @@ public sealed partial class EggRecipePrototype : IPrototype
     public int HappinessRequired { get; set; }
 
     [DataField]
+    public bool RequiresSpecialFood { get; set; } = true;
+
+    [DataField]
     public HashSet<ProtoId<TagPrototype>>? FoodTagsRequired { get; set; }
 
     [DataField]
