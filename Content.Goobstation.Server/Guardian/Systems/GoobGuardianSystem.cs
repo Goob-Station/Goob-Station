@@ -29,7 +29,7 @@ public sealed class GoobGuardianSystem : EntitySystem
 
         SubscribeLocalEvent<GuardianWhisperComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<GuardianWhisperComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<GuardianComponent, WhisperGuardianEvent>(OnWhisperGuardian);
+        SubscribeLocalEvent<GuardianWhisperComponent, WhisperGuardianEvent>(OnWhisperGuardian);
         SubscribeLocalEvent<GuardianComponent, GuardianToggleSelfActionEvent>(OnPerformSelfAction);
     }
 
@@ -43,13 +43,13 @@ public sealed class GoobGuardianSystem : EntitySystem
         _action.RemoveAction(ent.Owner, ent.Comp.ActionUid);
     }
 
-    private void OnWhisperGuardian(Entity<GuardianComponent> ent, ref WhisperGuardianEvent args)
+    private void OnWhisperGuardian(Entity<GuardianWhisperComponent> ent, ref WhisperGuardianEvent args)
     {
-        if (!HasComp<GuardianWhisperComponent>(ent.Owner))
+        if (!TryComp<GuardianComponent>(ent.Owner, out var comp))
             return;
 
         if (!TryComp<ActorComponent>(ent.Owner, out var guardianActor)
-        || !TryComp<ActorComponent>(ent.Comp.Host, out var hostActor))
+        || !TryComp<ActorComponent>(comp.Host, out var hostActor))
             return;
 
         _dialog.OpenDialog(guardianActor.PlayerSession, Loc.GetString("guardian-whisper-title"), Loc.GetString("guardian-whisper-prompt"), (string message) =>
