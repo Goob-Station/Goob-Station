@@ -23,6 +23,7 @@
 
 
 - type: entity
+  abstract: true
   parent: ClothingHeadBase
   id: ClothingHeadHatArmoredCC
   components:
