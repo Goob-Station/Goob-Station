@@ -342,6 +342,8 @@
       lightningExplode: false
     - type: ComplexInteraction
     - type: Carriable
+    - type: GrabIntent # wilted rose
+    - type: Grabbable 
     - type: Targeting
     - type: Crawler
     - type: Consciousness
