@@ -242,6 +242,7 @@
         - CannotSuicide
     # <Goobstation>
     - type: MovementIgnoreGravity
+    - type: GuardianWhisper
     - type: ActionGrant
       actions:
         - ActionSelfToggleGuardian

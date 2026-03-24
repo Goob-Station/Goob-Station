@@ -1,0 +1,12 @@
+- type: entity
+  id: GuardianWhisperAction
+  name: Whisper
+  description: Whisper to your owner silently.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/SlaughterDemon/abilities.rsi
+      state: whisper
+  - type: InstantAction
+    event: !type:WhisperGuardianEvent
