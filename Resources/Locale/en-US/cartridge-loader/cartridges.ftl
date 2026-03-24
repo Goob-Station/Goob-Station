@@ -108,6 +108,10 @@ wanted-list-status-label = [color=darkgray]status:[/color] {$status ->
         [detained] [color=#b18644]detained[/color]
         [paroled] [color=green]paroled[/color]
         [discharged] [color=green]discharged[/color]
+        [search] [color=#33cccc]search[/color]
+        [perma] [color=#343434]perma[/color]
+        [dangerous] [color=red]dangerous[/color]
+        [demote] [color=red]demote[/color]
         *[other] none
     }
 
