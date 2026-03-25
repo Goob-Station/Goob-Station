@@ -56,6 +56,14 @@ public sealed class ThermalVisionOverlay : Overlay
         ZIndex = -1;
     }
 
+    protected override bool BeforeDraw(in OverlayDrawArgs args)
+    {
+        if (!_entity.TryGetComponent(_player.LocalEntity, out EyeComponent? eyeComp))
+            return false;
+
+        return args.Viewport.Eye == eyeComp.Eye;
+    }
+
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (ScreenTexture is null || Comp is null)
