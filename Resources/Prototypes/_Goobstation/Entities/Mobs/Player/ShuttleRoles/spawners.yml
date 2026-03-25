@@ -16,3 +16,124 @@
   - type: RandomSpawner
     prototypes:
     - RandomHumanoidVisitorAlien
+
+# Captain Scurret Spawner
+- type: entity
+  name: visiting captain scurret spawner
+  id: VisitorCapScurretSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobCaptainScurret
+
+# HoP Scurret Spawner
+- type: entity
+  name: visiting head of personnel scurret spawner
+  id: VisitorHOPScurretSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobHoPScurret
+
+# HoS Scurret Spawner
+- type: entity
+  name: visiting head of security scurret spawner
+  id: VisitorHOSScurretSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobHoSScurret
+
+# CMO Scurret Spawner
+- type: entity
+  name: visiting chief medical officer scurret spawner
+  id: VisitorCMOScurretSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobCMOScurret
+
+# CE Scurret Spawner
+- type: entity
+  name: visiting chief engineer scurret spawner
+  id: VisitorCEScurretSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobCEScurret
+
+# QM Scurret Spawner
+- type: entity
+  name: visiting quartermaster scurret spawner
+  id: VisitorQMScurretSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobQMScurret
+
+# RD Scurret Spawner
+- type: entity
+  name: visiting research director scurret spawner
+  id: VisitorRDScurretSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobRDScurret
+
+# Legally-Distinct Chameleon Lizard Spawner
+- type: entity
+  parent: SpawnMobLizard
+  id: SpawnMobCamoLizard
+  name: Chameleon Lizard Spawner
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCamoLizard 
+
+- type: entity
+  parent: MobLizard
+  id: MobCamoLizard
+  name: Chameleon Lizard
+  description: A legally-distinct, probably harmless, little lizard.
+  components:
+  - type: Stealth
+    enabledOnDeath: false
+    maxVisibility: 1.2
+  - type: StealthOnMove
+    passiveVisibilityRate: -0.25
+    movementVisibilityRate: 0.75

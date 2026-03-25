@@ -31,3 +31,13 @@
     chaosScore: -80
   - type: LoadMapRule
     preloadedGrid: AlienTourist
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleCMDScurret
+  components:
+  - type: StationEvent
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+  - type: LoadMapRule
+    preloadedGrid: ShuttleCMDScurret

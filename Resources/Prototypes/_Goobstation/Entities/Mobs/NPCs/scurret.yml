@@ -1,0 +1,71 @@
+# Visiting scurrets from Planet Wawa shuttle
+
+# Captain
+- type: entity
+  name: Captain Scurret
+  id: MobCaptainScurret
+  parent: MobEmotionalSupportScurret
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, this one seems to be a Captain of its own little shuttle!
+  components:
+    - type: Loadout
+      prototypes: [ CaptainScurretGear ]
+
+# Head of Personnel
+- type: entity
+  name: Head of Personnel Scurret
+  id: MobHoPScurret
+  parent: MobEmotionalSupportScurret
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, this one seems to be the Head of Personnel of a little shuttle!
+  components:
+    - type: Loadout
+      prototypes: [ HoPScurretGear ]
+
+# Head of Security
+- type: entity
+  name: Head of Security Scurret
+  id: MobHoSScurret
+  parent: MobEmotionalSupportScurret
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, this one seems to be the Head of Security of a little shuttle!
+  components:
+    - type: Loadout
+      prototypes: [ HoSScurretGear ]
+
+# Chief Medical Officer
+- type: entity
+  name: Chief Medical Officer Scurret
+  id: MobCMOScurret
+  parent: MobEmotionalSupportScurret
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, this one seems to be the Chief Medical Officer of a little shuttle!
+  components:
+    - type: Loadout
+      prototypes: [ CMOScurretGear ]
+
+# Chief Engineer
+- type: entity
+  name: Chief Engineer Scurret
+  id: MobCEScurret
+  parent: MobEmotionalSupportScurret
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, this one seems to be the Chief Engineer of a little shuttle!
+  components:
+    - type: Loadout
+      prototypes: [ CEScurretGear ]
+
+# Quartermaster
+- type: entity
+  name: Quartermaster Scurret
+  id: MobQMScurret
+  parent: MobEmotionalSupportScurret
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, this one seems to be the Quartermaster of a little shuttle!
+  components:
+    - type: Loadout
+      prototypes: [ QMScurretGear ]
+
+# Research Director
+- type: entity
+  name: Research Director Scurret
+  id: MobRDScurret
+  parent: MobEmotionalSupportScurret
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, this one seems to be the Research Director of a little shuttle!
+  components:
+    - type: Loadout
+      prototypes: [ RDScurretGear ]

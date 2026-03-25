@@ -1,0 +1,71 @@
+# Command Scurret Gear template
+- type: startingGear
+  id: CommandScurretGear
+  parent: EmotionalSupportScurretGear
+  inhand:
+    - Spear
+
+# Captain Scurret
+- type: startingGear
+  id: CaptainScurretGear
+  parent: CommandScurretGear
+  equipment:
+    head: ClothingHeadHatCapcap
+    jumpsuit: ClothingUniformJumpsuitCaptain
+    gloves: ClothingHandsGlovesCaptain
+  inhand:
+    - SpearReinforced
+    
+
+# HoP Scurret
+- type: startingGear
+  id: HoPScurretGear
+  parent: CommandScurretGear
+  equipment:
+    head: ClothingHeadHatHopcap
+    jumpsuit: ClothingUniformJumpsuitHoP
+
+# HoS Scurret
+- type: startingGear
+  id: HoSScurretGear
+  parent: CommandScurretGear
+  equipment:
+    head: ClothingHeadHatHoshat
+    jumpsuit: ClothingUniformJumpsuitHoSAlt
+    gloves: ClothingHandsGlovesCombat
+
+# CMO Scurret
+- type: startingGear
+  id: CMOScurretGear
+  parent: CommandScurretGear
+  equipment:
+    head: ClothingHeadHatBeretCmo
+    jumpsuit: ClothingUniformJumpsuitCMOTurtle
+    gloves: ClothingHandsGlovesNitrile
+
+# CE Scurret
+- type: startingGear
+  id: CEScurretGear
+  parent: CommandScurretGear
+  equipment:
+    head: ClothingHeadHatBeretEngineering
+    jumpsuit: ClothingUniformJumpsuitChiefEngineerTurtle
+    gloves: ClothingHandsGlovesColorYellow
+
+# QM Scurret
+- type: startingGear
+  id: QMScurretGear
+  parent: CommandScurretGear
+  equipment:
+    head: ClothingHeadHatQMsoft
+    jumpsuit: ClothingUniformJumpsuitQMTurtleneck
+    gloves: ClothingHandsGlovesColorBrown
+
+# RD Scurret
+- type: startingGear
+  id: RDScurretGear
+  parent: CommandScurretGear
+  equipment:
+    head: ClothingHeadHatBeretRND
+    jumpsuit: ClothingUniformJumpsuitResearchDirectorAlt
+    gloves: ClothingHandsGlovesColorPurple
