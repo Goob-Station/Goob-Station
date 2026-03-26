@@ -43,12 +43,12 @@
   category: construction-category-clothing
   objectType: Item
 
-- type: construction
-  id: MedicalSecurityGlasses
-  graph: GlassesMedSecHUD
-  targetNode: glassesMedSec
-  category: construction-category-clothing
-  objectType: Item
+# - type: construction      CorvaxGoob-remove-medsec
+#  id: MedicalSecurityGlasses
+#  graph: GlassesMedSecHUD
+#  targetNode: glassesMedSec
+#  category: construction-category-clothing
+#  objectType: Item
 
 - type: construction
   id: GlassesMedDiag

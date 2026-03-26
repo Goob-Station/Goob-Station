@@ -87,13 +87,13 @@
   category: construction-category-clothing
   objectType: Item
 
-- type: construction
-  id: ClothingEyesHudMedSec
-  graph: HudMedSec
-  startNode: start
-  targetNode: medsecHud
-  category: construction-category-clothing
-  objectType: Item
+# - type: construction CorvaxGoob-remove-medsec
+#  id: ClothingEyesHudMedSec
+#  graph: HudMedSec
+#  startNode: start
+#  targetNode: medsecHud
+#  category: construction-category-clothing
+#  objectType: Item
 
 - type: construction
   id: ClothingShoeSlippersDuck
