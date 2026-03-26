@@ -6,7 +6,7 @@
   description: Comes before an egg, and IS a dinosaur!
   components:
   - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chickens.rsi
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: chick-white
@@ -60,11 +60,45 @@
 - type: entity
   abstract: true
   parent: BaseMobChickRanch
-  id: BaseMobChickenRanch
+  id: BaseMobRoosterRanch
+  components:
+  - type: MostRecentlyEatenFoodTags
+  - type: Happiness
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: rooster-white
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: rooster-white
+      Critical:
+        Base: rooster-white-dead
+      Dead:
+        Base: rooster-white-dead
+
+- type: entity
+  abstract: true
+  parent: BaseMobRoosterRanch
+  id: BaseMobHenRanch
   components:
   - type: RanchingEggLayer
   - type: MostRecentlyEatenFoodTags
   - type: Happiness
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hen-white
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hen-white
+      Critical:
+        Base: hen-white-dead
+      Dead:
+        Base: hen-white-dead
 
 # The Chicks
 
@@ -81,16 +115,29 @@
   components:
   - type: SpawnEntityOnAgeUp
     entToSpawn: MobSilkieChicken
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: chick-silkie
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: chick-silkie
+      Critical:
+        Base: chick-silkie-dead
+      Dead:
+        Base: chick-silkie-dead
 
 # The Chickens
 
 - type: entity
-  parent: BaseMobChickenRanch
+  parent: BaseMobHenRanch
   id: MobWhiteChicken
   name: White Chicken
   components:
   - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chickens.rsi
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: hen-white
@@ -104,12 +151,12 @@
         Base: hen-white-dead
 
 - type: entity
-  parent: BaseMobChickenRanch
+  parent: BaseMobHenRanch
   id: MobSilkieChicken
   name: Silkie Chicken
   components:
   - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chickens.rsi
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: hen-silkie

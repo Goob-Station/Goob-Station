@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "chick-tron",
+      "name": "chick-silkie",
       "directions": 4,
       "delays": [
         [
@@ -30,29 +30,29 @@
       ]
     },
     {
-      "name": "chick-tron-multi",
+      "name": "hen-silkie",
       "directions": 4,
       "delays": [
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ]
       ]
     },
     {
-      "name": "hen-white-stack",
+      "name": "rooster-silkie",
       "directions": 4,
       "delays": [
         [
@@ -72,6 +72,15 @@
           0.4
         ]
       ]
+    },
+    {
+      "name": "chick-silkie-dead"
+    },
+    {
+      "name": "hen-silkie-dead"
+    },
+    {
+      "name": "rooster-silkie-dead"
     }
   ]
 }

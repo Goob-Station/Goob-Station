@@ -16,7 +16,7 @@ public sealed partial class EggRecipePrototype : IPrototype
     public required EntProtoId Egg { get; set; }
 
     [DataField]
-    public required EntProtoId RequiredChicken { get; set; }
+    public required List<EntProtoId> RequiredChicken { get; set; }
 
     [DataField]
     public int HappinessRequired { get; set; }
@@ -28,5 +28,11 @@ public sealed partial class EggRecipePrototype : IPrototype
     public HashSet<ProtoId<TagPrototype>>? FoodTagsRequired { get; set; }
 
     [DataField]
-    public List<Component>? ComponentsRequired { get; set; }
+    public required List<EntProtoId> NoSpecialFoodRequiredChickens { get; set; }
+
+    [DataField]
+    public Dictionary<EntProtoId, int>? ChickensRequireDifferentHappiness { get; set; }
+
+    [DataField]
+    public ComponentRegistry? ComponentsRequired { get; set; }
 }

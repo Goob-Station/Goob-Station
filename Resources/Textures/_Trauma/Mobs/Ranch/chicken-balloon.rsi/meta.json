@@ -6,9 +6,10 @@
     "x": 32,
     "y": 32
   },
-  "states": [
+  "states": 
+    [
     {
-      "name": "chick-tron",
+      "name": "chick-balloon",
       "directions": 4,
       "delays": [
         [
@@ -30,29 +31,29 @@
       ]
     },
     {
-      "name": "chick-tron-multi",
+      "name": "hen-balloon",
       "directions": 4,
       "delays": [
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ]
       ]
     },
     {
-      "name": "hen-white-stack",
+      "name": "rooster-balloon",
       "directions": 4,
       "delays": [
         [
@@ -72,6 +73,15 @@
           0.4
         ]
       ]
+    },
+    {
+      "name": "chick-balloon-dead"
+    },
+    {
+      "name": "hen-balloon-dead"
+    },
+    {
+      "name": "rooster-balloon-dead"
     }
-  ]
+    ]
 }

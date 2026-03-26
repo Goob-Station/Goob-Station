@@ -10,10 +10,10 @@ public sealed partial class TimedReplaceComponent : Component
     public EntProtoId Entity;
 
     [DataField]
-    public int MinTime = 40;
+    public float MinTime = 40f;
 
     [DataField]
-    public int MaxTime = 60;
+    public float MaxTime = 60f;
 
     [DataField, AutoPausedField]
     public TimeSpan SpawnTime = TimeSpan.Zero;

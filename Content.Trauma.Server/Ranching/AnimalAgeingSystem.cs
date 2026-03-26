@@ -14,6 +14,17 @@ public sealed class AnimalAgeingSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<AnimalAgeingComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnMapInit(Entity<AnimalAgeingComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.NextAgeTime = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(ent.Comp.AgeTimeMin, ent.Comp.AgeTimeMax));
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -34,9 +45,9 @@ public sealed class AnimalAgeingSystem : EntitySystem
             toAgeUp.Add((uid, ageComp));
         }
 
-        foreach (var (uid, eggLayer) in toAgeUp)
+        foreach (var (uid, ageing) in toAgeUp)
         {
-            AttemptAddAgeToMob((uid, eggLayer));
+            AttemptAddAgeToMob((uid, ageing));
         }
     }
 

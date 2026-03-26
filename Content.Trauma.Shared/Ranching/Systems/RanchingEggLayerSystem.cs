@@ -63,23 +63,73 @@ public sealed class RanchingEggLayerSystem : EntitySystem
         if (currentHappiness is null)
             return;
 
+        var entityPrototype = MetaData(ent.Owner).EntityPrototype;
+
+        if (entityPrototype is null)
+            return;
+
         foreach (var proto in sortedRecipes)
         {
-            if (proto.HappinessRequired > currentHappiness)
+            int requiredHappiness;
+
+            requiredHappiness = proto.HappinessRequired;
+
+            if (proto.ChickensRequireDifferentHappiness is not null)
+            {
+                foreach (var chicken in proto.ChickensRequireDifferentHappiness)
+                {
+                    if (chicken.Key == entityPrototype.ID)
+                    {
+                        requiredHappiness = chicken.Value;
+                        break;
+                    }
+                }
+            }
+
+            if (requiredHappiness > currentHappiness)
                 continue;
 
-            var entityPrototype = MetaData(ent.Owner).EntityPrototype;
+            var hascomps = true;
 
-            if (entityPrototype is null)
+            if (proto.ComponentsRequired is not null)
+            {
+                foreach (var (name, reg) in proto.ComponentsRequired)
+                {
+                    if (!HasComp(ent.Owner, reg.Component.GetType()))
+                        hascomps = false;
+                }
+            }
+
+            if (!hascomps)
                 continue;
 
-            if (proto.RequiredChicken != entityPrototype.ID)
+            bool chickenAccepted = false;
+
+            foreach (var chicken in proto.RequiredChicken)
+            {
+                if (chicken == entityPrototype.ID)
+                {
+                    chickenAccepted = true;
+                    break;
+                }
+            }
+
+            if (!chickenAccepted)
                 continue;
 
             if (!proto.RequiresSpecialFood)
             {
                 eggToLay = proto.Egg;
                 break;
+            }
+
+            foreach (var chicken in proto.NoSpecialFoodRequiredChickens)
+            {
+                if (chicken == entityPrototype.ID)
+                {
+                    eggToLay = proto.Egg;
+                    break;
+                }
             }
 
             if (foodTags.Tag is null)

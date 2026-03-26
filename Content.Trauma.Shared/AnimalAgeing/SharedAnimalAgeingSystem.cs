@@ -6,6 +6,8 @@ using Content.Shared.Examine;
 using Content.Shared.Traits.Assorted;
 using Content.Trauma.Shared.AnimalAgeing.Components;
 using Content.Trauma.Shared.AnimalAgeing.Events;
+using Content.Trauma.Shared.Ranching.Components;
+using Content.Trauma.Shared.Ranching.Systems;
 
 namespace Content.Trauma.Shared.AnimalAgeing;
 
@@ -15,6 +17,7 @@ namespace Content.Trauma.Shared.AnimalAgeing;
 public sealed class SharedAnimalAgeingSystem : EntitySystem
 {
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+    [Dependency] private readonly HappinessSystem _happiness = default!;
 
     public override void Initialize()
     {
@@ -24,9 +27,20 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         SubscribeLocalEvent<AnimalAgeingComponent, OldAgeDeathEvent>(OnOldAgeDeath);
 
         SubscribeLocalEvent<AnimalAgeingComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<HappinessComponent, ExaminedEvent>(OnExamineHappiness);
 
         SubscribeLocalEvent<ChangeComponentsOnAgeUpComponent, ChangeMobAgeStateEvent>(OnStateChanged);
         SubscribeLocalEvent<SpawnEntityOnAgeUpComponent, ChangeMobAgeStateEvent>(OnStateChangedAgeSpawn);
+    }
+
+    private void OnExamineHappiness(Entity<HappinessComponent> ent, ref ExaminedEvent args)
+    {
+        var happiness = _happiness.GetHappiness(ent);
+
+        if (happiness == null)
+            return;
+
+        args.PushMarkup(happiness.ToString() ?? "No happiness");
     }
 
     private void OnOldAgeDeath(Entity<AnimalAgeingComponent> ent, ref OldAgeDeathEvent args)
@@ -91,6 +105,8 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
                 args.PushMarkup(Loc.GetString("age-markup-senior"));
                 break;
         }
+
+        args.PushMarkup(ent.Comp.YearsOld.ToString());
     }
 
     private void OnChangeState(Entity<AnimalAgeingComponent> ent, ref ChangeMobAgeStateEvent args)
@@ -107,6 +123,7 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
 
         var attemptev = new ChangeMobAgeStateAttemptEvent();
         attemptev.Mob = ent;
+        attemptev.NewState = ent.Comp.CurrentAgeState;
 
         if (yearsOld >= ent.Comp.AdultHoodYear && ent.Comp.CurrentAgeState == AnimalAgeState.Baby)
             attemptev.NewState = AnimalAgeState.Adult;
@@ -127,12 +144,15 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         }
 
         Dirty(ent);
-        RaiseLocalEvent(ent.Owner, ref attemptev);
+        if (attemptev.NewState != ent.Comp.CurrentAgeState)
+        {
+            RaiseLocalEvent(ent.Owner, ref attemptev);
 
-        if (attemptev.Cancelled)
-            return;
+            if (attemptev.Cancelled)
+                return;
 
-        var ev = new ChangeMobAgeStateEvent(ent, attemptev.NewState);
-        RaiseLocalEvent(ent.Owner, ref ev);
+            var ev = new ChangeMobAgeStateEvent(ent, attemptev.NewState);
+            RaiseLocalEvent(ent.Owner, ref ev);
+        }
     }
 }

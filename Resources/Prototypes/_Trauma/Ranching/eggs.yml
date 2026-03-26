@@ -5,7 +5,7 @@
   name: egg
   components:
   - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chickens.rsi
+    sprite: _Trauma/Objects/Misc/eggs.rsi
     state: egg-white
   - type: TimedReplace
     entity: MobChickWhite

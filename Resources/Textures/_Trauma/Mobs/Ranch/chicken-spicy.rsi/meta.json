@@ -6,9 +6,22 @@
     "x": 32,
     "y": 32
   },
-  "states": [
+  "states": 
+    [
     {
-      "name": "chick-tron",
+      "name": "chick-spicy-dead"
+    },
+    {
+      "name": "hen-spicy-dead"
+    },
+    {
+      "name": "rooster-spicy-dead"
+    },
+    {
+      "name": "egg-spicy"
+    },
+    {
+      "name": "chick-spicy",
       "directions": 4,
       "delays": [
         [
@@ -30,29 +43,29 @@
       ]
     },
     {
-      "name": "chick-tron-multi",
+      "name": "rooster-spicy",
       "directions": 4,
       "delays": [
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ],
         [
-          0.2,
-          0.2
+          0.4,
+          0.4
         ]
       ]
     },
     {
-      "name": "hen-white-stack",
+      "name": "hen-spicy",
       "directions": 4,
       "delays": [
         [
@@ -73,5 +86,5 @@
         ]
       ]
     }
-  ]
+    ]
 }

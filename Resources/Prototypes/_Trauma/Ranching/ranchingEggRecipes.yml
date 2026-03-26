@@ -1,14 +1,32 @@
 - type: eggRecipe
   id: WhiteHenEgg
   egg: WhiteHenEgg
-  requiredChicken: MobWhiteChicken
+  requiredChicken:
+  - MobWhiteChicken
   requiresSpecialFood: false
   happinessRequired: 10
 
 - type: eggRecipe
   id: SilkieHenEgg
   egg: SilkieHenEgg
-  requiredChicken: MobWhiteChicken
+  requiredChicken:
+  - MobWhiteChicken
+  - MobSilkieChicken
+  noSpecialFoodRequiredChickens:
+  - MobSilkieChicken
   happinessRequired: 30
   foodTagsRequired:
   - Apple
+
+- type: eggRecipe
+  id: TestEgg
+  egg: TeslaEnergyBall
+  requiredChicken:
+  - MobWhiteChicken
+  - MobSilkieChicken
+  happinessRequired: 30
+  chickensRequireDifferentHappiness:
+    MobWhiteChicken: 15
+  componentsRequired:
+  - type: DeepFried
+  requiresSpecialFood: false
