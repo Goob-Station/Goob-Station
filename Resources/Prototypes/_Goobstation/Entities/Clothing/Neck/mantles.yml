@@ -19,3 +19,15 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Mantle/bsomantle.rsi
 
+#Senior Security mantle
+- type: entity
+  parent: [ ClothingNeckBase ]
+  id: ClothingNeckMantleSeniorSecurity
+  name: senior security mantle
+  description: A well-balanced, protective mantle, designed for optimal bodyguarding efficiency.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/senior_security.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Mantle/senior_security.rsi
+

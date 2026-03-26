@@ -488,3 +488,15 @@
       - state: inhand-right
         color: "#620b73"
         sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+
+#senior sec
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSeniorSecurity
+  name: Senior Security Jumpsuit
+  description: Stained Black from his duty.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_black.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_black.rsi

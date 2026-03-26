@@ -551,3 +551,14 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
+#senior security
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorSeniorSecurity
+  name: Senior security armor pads
+  description: A bulkier Security armor, modified over months of service
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/senior_security.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/senior_security.rsi
