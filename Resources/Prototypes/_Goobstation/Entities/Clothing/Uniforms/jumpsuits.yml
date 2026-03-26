@@ -494,7 +494,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorSecurity
   name: Senior Security Jumpsuit
-  description: Stained Black from his duty.
+  description: An airy version of the standard security jumpsuit, normally given on shifts with a lacking atmos department
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_black.rsi

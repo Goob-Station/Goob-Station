@@ -23,8 +23,8 @@
 - type: entity
   parent: [ ClothingNeckBase ]
   id: ClothingNeckMantleSeniorSecurity
-  name: senior security mantle
-  description: A well-balanced, protective mantle, designed for optimal bodyguarding efficiency.
+  name: senior security's mantle
+  description: Personally awarded by HOS for repealing a Syndicate attack, looking at it seems to boost your morale by a bit
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Mantle/senior_security.rsi
