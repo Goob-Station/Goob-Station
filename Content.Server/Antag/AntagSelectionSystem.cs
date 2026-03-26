@@ -101,6 +101,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.GameTicking.Rules;
+using Content.Goobstation.Shared.MisandryBox.Thunderdome;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
@@ -719,6 +720,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return true;
 
         if (HasComp<PendingClockInComponent>(entity))
+            return false;
+
+        // Goobstation - Thunderdome players should not be eligible for antag roles
+        if (HasComp<ThunderdomePlayerComponent>(entity))
             return false;
 
         if (!def.AllowNonHumans && !HasComp<HumanoidAppearanceComponent>(entity))

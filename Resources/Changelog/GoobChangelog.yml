@@ -21677,3 +21677,41 @@ Entries:
       message: PDA pen overlay now functions as intended
   id: 2464
   time: '2026-03-02T03:31:11.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Fix
+      message: Error sign inhand for Security and Warden Jumpskirt
+    - type: Fix
+      message: Kimono sprite pathing
+  id: 2465
+  time: '2026-03-03T19:45:38.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed xenovac interaction bug.
+  id: 2466
+  time: '2026-03-04T00:27:40.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: Anti-stun reagents remove stun again
+  id: 2467
+  time: '2026-03-04T00:55:21.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Fixed servers crashing on round restart.
+  id: 2468
+  time: '2026-03-04T01:03:50.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: DT-2 'Justice' resprite
+  id: 2469
+  time: '2026-03-04T11:18:43.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Remove
+      message: Removed Hristov from the ThunderDome.
+  id: 2470
+  time: '2026-03-05T03:34:31.0000000+00:00'

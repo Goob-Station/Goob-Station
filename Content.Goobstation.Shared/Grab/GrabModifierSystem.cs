@@ -22,7 +22,7 @@ public sealed class GrabModifierSystem : EntitySystem
     {
         var ev = new GrabModifierEvent(args.User, (GrabStage) args.Stage);
         RaiseLocalEvent(args.User, ref ev);
-        args.NewStage = (int?) ev.NewStage;
+        args.NewStage = ev.NewStage;
         args.Modifier += ev.Modifier;
         args.Multiplier *= ev.Multiplier;
         args.SpeedMultiplier *= ev.SpeedMultiplier;
