@@ -97,7 +97,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 1
+    speedModifier: 2.5 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: GuideHelp
     guides: [ Autodoc ]
 
@@ -110,7 +110,7 @@
   - type: Machine
     board: AutodocSyndieCircuitboard
   - type: SurgerySpeedModifier
-    speedModifier: 1.0 # as good as a surgeon using a multitool, nukies need it or something
+    speedModifier: 2.5 # CorvaxGoob-Skills-autodoc-surgery-speed
 
 # Autodoc tools
 
@@ -121,24 +121,24 @@
   components:
   - type: Unremoveable
   - type: Hemostat
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: Scalpel
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: Drill
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: BoneSetter
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: Retractor
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: Cautery
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: BoneGel
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: BoneSaw
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: Tweezers
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: Tending
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
   - type: Stitches
-    speed: 2
+    speed: 1 # CorvaxGoob-Skills-autodoc-surgery-speed
