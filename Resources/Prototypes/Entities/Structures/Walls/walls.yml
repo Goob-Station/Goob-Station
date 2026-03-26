@@ -798,7 +798,7 @@
       behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
-            Girder:
+            GirderDiagonal: # CorvaxGob: diagonal-walls-crafts
               min: 1
               max: 1
         - !type:DoActsBehavior
@@ -972,7 +972,7 @@
         damage: 300
       behaviors:
       - !type:ChangeConstructionNodeBehavior
-        node: girder
+        node: girderDiagonal # CorvaxGob: diagonal-walls-crafts
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
@@ -982,6 +982,13 @@
     resistance: 5
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
+    # CorvaxGoob-diagonal-walls-crafts-start
+  - type: Construction
+    graph: GirderDiagonal
+    node: reinforcedWallDiagonal
+  - type: StaticPrice
+    price: 200
+    # CorvaxGoob-diagonal-walls-crafts-end
 
 # Riveting
 - type: entity
@@ -1150,15 +1157,17 @@
         damage: 300
       behaviors:
       - !type:ChangeConstructionNodeBehavior
-        node: girder
+        node: girderDiagonal # CorvaxGob: diagonal-walls-crafts
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Construction
-    graph: Girder
-    node: diagonalshuttleWall
+    # CorvaxGoob-diagonal-walls-crafts-start
+    graph: GirderDiagonal
+    node: shuttleWallDiagonal
+    # CorvaxGoob-diagonal-walls-crafts-end
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
   - type: Penetratable # Goobstation - Better snipers
@@ -1329,12 +1338,17 @@
         damage: 200
       behaviors:
       - !type:ChangeConstructionNodeBehavior
-        node: girder
+        node: girderDiagonal # CorvaxGob: diagonal-walls-crafts
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    # CorvaxGoob-diagonal-walls-crafts-start
+  - type: Construction
+    graph: GirderDiagonal
+    node: wallDiagonal
+    # CorvaxGoob-diagonal-walls-crafts-end
 
 - type: entity
   parent: WallSolid
@@ -1612,7 +1626,7 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          Girder:
+          GirderDiagonal: # CorvaxGob: diagonal-walls-crafts
             min: 1
             max: 1
       - !type:PlaySoundBehavior
@@ -1940,4 +1954,4 @@
     base: card
   - type: Occluder 
   - type: BlockWeather
-  - type: SunShadowCast
+  - type: SunShadowCast 

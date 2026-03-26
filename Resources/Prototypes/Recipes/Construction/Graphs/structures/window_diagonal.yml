@@ -69,6 +69,16 @@
               amount: 2
               doAfter: 3
 
+    # CorvaxGoob-diagonal-walls-crafts-start
+        - to: shuttleWindowDiagonal
+          steps:
+            - material: Plasteel
+              amount: 1
+            - material: ReinforcedGlass
+              amount: 1
+              doAfter: 4
+    # CorvaxGoob-diagonal-walls-crafts-end
+
     - node: windowDiagonal
       entity: WindowDiagonal
       edges:
@@ -213,3 +223,36 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
+
+    # CorvaxGoob-diagonal-walls-crafts-start
+    - node: shuttleWindowDiagonal
+      entity: ShuttleWindowDiagonal
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: SheetRGlass1
+              amount: 1
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 6
+            - tool: Screwing
+              doAfter: 2
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 1
+            - tool: Prying
+              doAfter: 2
+            - tool: Welding
+              doAfter: 4
+            - tool: Anchoring
+              doAfter: 1
+    # CorvaxGoob-diagonal-walls-crafts-end
+ 

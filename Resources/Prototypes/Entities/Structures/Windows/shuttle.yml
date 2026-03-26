@@ -117,3 +117,9 @@
   - type: DamageVisuals
     damageOverlay:
       sprite: Structures/Windows/cracks_diagonal.rsi
+    # CorvaxGoob-diagonal-walls-crafts-start
+  - type: Construction
+    graph: WindowDiagonal
+    node: shuttleWindowDiagonal
+    # CorvaxGoob-diagonal-walls-crafts-end
+ 

@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by Mefedronov(Github) for Space Station 14",
+    "states": [
+                {
+            "name": "reinforced_wall_girder"
+        },
+                {
+            "name": "wall_girder"
+        }
+    ]
+} 

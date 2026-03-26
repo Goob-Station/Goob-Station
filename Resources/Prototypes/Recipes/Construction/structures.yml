@@ -293,9 +293,9 @@
 - type: construction
   id: DiagonalShuttleWall
   name: construction-recipe-diagonal-shuttle-wall
-  graph: Girder
+  graph: GirderDiagonal # CorvaxGob: diagonal-walls-crafts
   startNode: start
-  targetNode: diagonalshuttleWall
+  targetNode: shuttleWallDiagonal # CorvaxGob: diagonal-walls-crafts
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
@@ -303,6 +303,7 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+      failIfSpace: false # CorvaxGob: diagonal-walls-crafts
 
 - type: construction
   id: ClownWall
@@ -1479,3 +1480,4 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+ 
