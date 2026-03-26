@@ -37,8 +37,7 @@
   - type: CanEscapeInventory
   - type: Body # Change later
     bodyType: Complex
-    prototype: Doodon
-    requiredLegs: 2 
+    prototype: Doodon 
   - type: Clumsy        # no guns for doodons
     gunShootFailDamage:
       types:
@@ -345,17 +344,6 @@
         1.5
       FollowRange: !type:Single
         3.0
-  - type: Fixtures      # Too big to fit under doors
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.40
-        density: 100
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
