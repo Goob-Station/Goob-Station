@@ -493,7 +493,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorSecurity
-  name: Senior Security Jumpsuit
+  name: Airy Security Jumpsuit
   description: An airy version of the standard security jumpsuit, normally given on shifts with a lacking atmos department
   components:
   - type: Sprite
