@@ -53,7 +53,7 @@ selectable-set-syndicate-hitman-name = Набор наёмника
 selectable-set-syndicate-hitman-description =
     Находи и устраняй цели тихо и эффективно с этим набором.
     Включает: пистолет Кобра с 3 запасными магазинами, руководство по CQC,
-    специальный бронежилет, нескользящую обувь, пакет трав Interdyne,
+    специальный бронежилет, подкованную обувь, пакет трав Interdyne,
     боевой набор медикаментов, стильный прикид и ключ шифрования синдиката.
 selectable-set-syndicate-implants-name = Набор киберпсихоза
 selectable-set-syndicate-implants-description =
