@@ -27,24 +27,30 @@ thunderdome-loadout-python = Питон
 thunderdome-loadout-inspector = Инспектор
 thunderdome-loadout-hristov = Христов
 thunderdome-loadout-esword = Энергетический меч
+thunderdome-loadout-capo = Капоэйра
 
 # Weapon descriptions (tooltips)
 thunderdome-desc-shotgun = Дробовик + 1 коробка картечи, 1 коробка ружейных патронов
 thunderdome-desc-doublebarreled = Двустволка + 2 коробки картечи
 thunderdome-desc-smg = Пистолет пулемёт + 2 пары магазинов
 thunderdome-desc-wt550 = Пистолет пулемёт + 2 пары магазинов
-thunderdome-desc-lecter = Винтовка + 2 Стандартных магазина, 1 Зажигательный магазин
+thunderdome-desc-lecter = Винтовка + 2 стандартных магазина, 1 зажигательный магазин
 thunderdome-desc-akms = Штурмовая винтовка + 2 пары магазинов
 thunderdome-desc-python = Заряженный бронебойный револьвер + 1 спидлоадер с бронебойными
 thunderdome-desc-inspector = Револьвер + 2 спидлоадера
 thunderdome-desc-hristov = Анти-материальная снайперская винтовка + 2 пары магазинов
-thunderdome-desc-esword = Энергетический меч + 2 Инъектора стимуляторов
+thunderdome-desc-esword = Энергетический меч + 2 инъектора стимуляторов
+thunderdome-desc-capo = Пособие по Капоэйре + 2 автоинъектора
 
 # Kill streak announcements
-thunderdome-streak-3 = Серия убийств!
-thunderdome-streak-5 = Зверь!
-thunderdome-streak-7 = Маньяк!
-thunderdome-streak-10 = БЕСПОЩАДНЫЙ!
+thunderdome-streak-3 = {$player} совершил серию убийств!
+thunderdome-streak-4 = {$player} доминирует!
+thunderdome-streak-5 = {$player} совершил Мега Убийство!
+thunderdome-streak-6 = {$player} Беспощаден!
+thunderdome-streak-7 = {$player} Ужасен!
+thunderdome-streak-8 = {$player} Монстр!
+thunderdome-streak-9 = {$player} БОЖЕСТВЕННЫЙ!
+thunderdome-streak-12 = {$player} ВЫШЕ БОГОВ!
 
 # Revival
 thunderdome-revival-title = Тело Воскрешено
