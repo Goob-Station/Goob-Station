@@ -329,9 +329,9 @@
   description: A beret with the cargo department's insignia.
   components:
   - type: Sprite
-    sprite: _GoobStation/Clothing/Head/Hats/beret_qm.rsi # Goob Station - beret edit
+    sprite: _Goobstation/Clothing/Head/Hats/beret_qm.rsi # Goob Station - beret edit
   - type: Clothing
-    sprite: _GoobStation/Clothing/Head/Hats/beret_qm.rsi # Goob Station - beret edit
+    sprite: _Goobstation/Clothing/Head/Hats/beret_qm.rsi # Goob Station - beret edit
   - type: Tag
     tags:
     - PetWearable
