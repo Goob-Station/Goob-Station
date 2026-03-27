@@ -67,6 +67,7 @@ public abstract partial class SharedIntellicardExtrasSystem : EntitySystem
             && cardMindContainer.Mind is null)
         {
             _popup.PopupClient(Loc.GetString("intellicard-extras-contained-missing"), args.User, args.User, PopupType.MediumCaution);
+            QueueDel(cardBrain);
             args.Handled = true;
             return;
         }
