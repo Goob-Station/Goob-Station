@@ -221,13 +221,9 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 48000 # Goobstation
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 18000 # Goobstation
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      job: DeathSquad
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -719,13 +715,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 36000 # ten hours
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 18000 # five hours
+      job: CBURN
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirst
@@ -756,6 +746,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
+      job: CentralCommandOfficial
     - type: Loadout
       prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]

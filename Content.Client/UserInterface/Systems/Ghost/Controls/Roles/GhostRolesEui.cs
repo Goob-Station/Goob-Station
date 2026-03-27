@@ -175,25 +175,25 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
             var requirementsManager = IoCManager.Resolve<JobRequirementsManager>();
 
-            // We only use the name and description for grouping,
-            // and take the requirements from the first role in each group.
-            // TLDR: DON'T USE THE SAME NAME AND DESC FOR DIFFERENT ROLE REQUIREMENTS OR I WILL BEAT YOU WITH HAMMERS (PLURAL)
+            // Grouping roles
             var groupedRoles = ghostState.GhostRoles.GroupBy(
-                role => (role.Name, role.Description)); //goobstation edit, less polluted ghost spawners menu
+                role => (
+                    role.Name,
+                    role.Description,
+                    //  Check the prototypes for role requirements and bans
+                    requirementsManager.IsAllowed(role.RolePrototypes.Item1, role.RolePrototypes.Item2, null, out var reason),
+                    reason));
 
             // Add a new entry for each role group
             foreach (var group in groupedRoles)
             {
+                var reason = group.Key.reason;
                 var name = group.Key.Name;
                 var description = group.Key.Description;
-                var groupReq = group.First(); //goobstation edit - since reqs can't be grouped fuckery
-                var hasAccess = requirementsManager.CheckRoleRequirements(
-                    groupReq.Requirements, //goobstation edit, less polluted ghost spawners menu
-                    null,
-                    out var reason);
+                var prototypesAllowed = group.Key.Item3;
 
                 // Adding a new role
-                _window.AddEntry(name, description, hasAccess, reason, group, spriteSystem);
+                _window.AddEntry(name, description, prototypesAllowed, reason, group, spriteSystem);
             }
 
             // Restore the Collapsible box state if it is saved

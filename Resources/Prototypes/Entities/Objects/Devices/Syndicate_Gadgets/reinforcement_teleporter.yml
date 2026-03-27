@@ -201,8 +201,6 @@
       - MindRoleGhostRoleSilicon
       raffle:
         settings: default
-      requirements: # Goobstation - ghost roles requirements
-      - !type:OverallPlaytimeRequirement
-        time: 18000 #5 hours
+      job: Borg
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateAssaultBattery
