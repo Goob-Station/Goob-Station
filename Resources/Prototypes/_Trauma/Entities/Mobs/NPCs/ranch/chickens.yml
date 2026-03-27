@@ -24,14 +24,9 @@
         Base: chick-dead
       Dead:
         Base: chick-dead
-  - type: Hunger
-    thresholds:
-      Overfed: 100
-      Okay: 50
-      Peckish: 25
-      Starving: 10
-      Dead: 0
-    baseDecayRate: 0.02
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
   - type: Fixtures
     fixtures:
       fix1:
@@ -128,47 +123,72 @@
 - type: entity
   parent: BaseMobChickRanch
   id: MobChickWhite
+  name: white chick
   components:
   - type: SpawnEntityOnAgeUp
     entToSpawn:
-    - MobWhiteChicken
+    - MobWhiteHen
     - MobWhiteRooster
 
 - type: entity
   parent: BaseMobChickRanch
   id: MobChickSilkie
+  name: silkie chick
   components:
   - type: SpawnEntityOnAgeUp
     entToSpawn:
-    - MobSilkieChicken
+    - MobSilkieHen
     - MobSilkieRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickBlackSilkie
+  name: black silkie chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobBlackSilkieHen
+    - MobBlackSilkieRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
 
 # The Hens
 
 - type: entity
   parent: BaseMobHenRanch
-  id: MobWhiteChicken
-  name: White Chicken
+  id: MobWhiteHen
+  name: white hen
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
 
 - type: entity
   parent: BaseMobHenRanch
-  id: MobSilkieChicken
-  name: Silkie Chicken
+  id: MobSilkieHen
+  name: silkie hen
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobBlackSilkieHen
+  name: black silkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
 
 # The Roosters
 
 - type: entity
   parent: BaseMobRoosterRanch
   id: MobWhiteRooster
-  name: White Rooster
+  name: white rooster
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
@@ -176,7 +196,15 @@
 - type: entity
   parent: BaseMobRoosterRanch
   id: MobSilkieRooster
-  name: Silkie Rooster
+  name: silkie rooster
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobBlackSilkieRooster
+  name: black silkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi

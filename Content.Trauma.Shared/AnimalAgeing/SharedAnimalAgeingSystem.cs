@@ -33,6 +33,30 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
 
         SubscribeLocalEvent<ChangeComponentsOnAgeUpComponent, ChangeMobAgeStateEvent>(OnStateChanged);
         SubscribeLocalEvent<SpawnEntityOnAgeUpComponent, ChangeMobAgeStateEvent>(OnStateChangedAgeSpawn);
+
+        SubscribeLocalEvent<SpawnEntityOnOldAgeDeathComponent, OldAgeDeathEvent>(OnOldAgeDeathSpawn);
+    }
+
+    private void OnOldAgeDeathSpawn(Entity<SpawnEntityOnOldAgeDeathComponent> ent, ref OldAgeDeathEvent args)
+    {
+        if (!TryComp<HappinessComponent>(ent.Owner,  out var happy))
+            return;
+
+        var happiness = _happiness.GetHappiness((ent.Owner, happy));
+
+        if (happiness == null)
+            return;
+
+        if (ent.Comp.GreaterThan && happiness < ent.Comp.RequiredHappiness)
+            return;
+
+        if (!ent.Comp.GreaterThan && happiness > ent.Comp.RequiredHappiness)
+            return;
+
+        foreach (var entity in ent.Comp.EntToSpawn)
+        {
+            SpawnAtPosition(entity, ent.Owner.ToCoordinates());
+        }
     }
 
     private void OnExamineHappiness(Entity<HappinessComponent> ent, ref ExaminedEvent args)

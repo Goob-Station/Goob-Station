@@ -12,13 +12,22 @@
 
 - type: entity
   parent: BaseRanchingEgg
-  id: WhiteHenEgg
+  id: WhiteEgg
 
 - type: entity
   parent: BaseRanchingEgg
-  id: SilkieHenEgg
+  id: SilkieEgg
   components:
   - type: Sprite
     state: egg-silkie
   - type: TimedReplace
     entity: MobChickSilkie
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: BlackSilkieEgg
+  components:
+  - type: Sprite
+    state: egg-silkie_black
+  - type: TimedReplace
+    entity: MobChickBlackSilkie

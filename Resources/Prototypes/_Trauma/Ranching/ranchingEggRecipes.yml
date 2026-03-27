@@ -1,19 +1,31 @@
 - type: eggRecipe
-  id: WhiteHenEgg
-  egg: WhiteHenEgg
+  id: WhiteEgg
+  egg: WhiteEgg
   requiredChicken:
-  - MobWhiteChicken
+  - MobWhiteHen
   requiresSpecialFood: false
-  happinessRequired: 10
+  happinessRequired: 5
 
 - type: eggRecipe
-  id: SilkieHenEgg
-  egg: SilkieHenEgg
+  id: SilkieEgg
+  egg: SilkieEgg
   requiredChicken:
-  - MobWhiteChicken
-  - MobSilkieChicken
+  - MobWhiteHen
+  - MobSilkieHen
   noSpecialFoodRequiredChickens:
-  - MobSilkieChicken
+  - MobSilkieHen
   happinessRequired: 30
   foodTagsRequired:
   - Apple
+
+- type: eggRecipe
+  id: BlackSilkieEgg
+  egg: BlackSilkieEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobBlackSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobBlackSilkieHen
+  happinessRequired: 20
+  foodTagsRequired:
+  - DeliciousLookingApple
