@@ -31,8 +31,8 @@ public abstract partial class SharedIntellicardExtrasSystem : EntitySystem
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
-    private static readonly EntProtoId DefaultAi = "StationAiBrain";
 
+    private static readonly EntProtoId DefaultAi = "StationAiBrain";
     private readonly ProtoId<ChatNotificationPrototype> _downloadChatNotificationPrototype = "IntellicardDownload";
 
     public override void Initialize()
