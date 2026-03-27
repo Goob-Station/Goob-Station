@@ -32,12 +32,12 @@
     neck: ClothingNeckCWPSec
 
 - type: loadout
-  id: ClothingNeckMantleSeniorSecurity
+  id: ClothingNeckMantleVeteranSecurity
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
-    neck: ClothingNeckMantleSeniorSecurity
+    neck: ClothingNeckMantleVeteranSecurity
 
 - type: loadout
   id: SeniorOfficerArmor
@@ -45,15 +45,15 @@
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
-    outerClothing: ClothingOuterArmorSeniorSecurity
+    outerClothing: ClothingOuterArmorVeteranSecurity
 
 - type: loadout
-  id: SeniorOfficerBlackJumpsuit
+  id: VeteranOfficerBlackJumpsuit
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
+    proto: VeteranOfficer
   equipment:
-    innerClothing: ClothingUniformJumpsuitSeniorSecurity
+    innerClothing: ClothingUniformJumpsuitVeteranSecurity
 
 
 - type: loadout

@@ -492,7 +492,7 @@
 #senior sec
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitSeniorSecurity
+  id: ClothingUniformJumpsuitVeteranSecurity
   name: Airy Security Jumpsuit
   description: An airy version of the standard security jumpsuit, normally given on shifts with a lacking atmos department
   components:
