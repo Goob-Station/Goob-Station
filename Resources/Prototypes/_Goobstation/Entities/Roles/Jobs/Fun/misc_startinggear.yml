@@ -2,8 +2,8 @@
 - type: startingGear
   id: CommandScurretGear
   parent: EmotionalSupportScurretGear
-  inhand:
-    - Spear
+  equipment:
+    suitstorage: Spear
 
 # Captain Scurret
 - type: startingGear
@@ -13,8 +13,7 @@
     head: ClothingHeadHatCapcap
     jumpsuit: ClothingUniformJumpsuitCaptain
     gloves: ClothingHandsGlovesCaptain
-  inhand:
-    - SpearReinforced
+    suitstorage: SpearReinforced
     
 
 # HoP Scurret
