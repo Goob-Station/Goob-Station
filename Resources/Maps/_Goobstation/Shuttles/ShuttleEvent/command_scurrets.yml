@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/25/2026 20:13:17
-  entityCount: 402
+  time: 03/27/2026 16:56:30
+  entityCount: 405
 maps: []
 grids:
 - 1
@@ -876,7 +876,8 @@ entities:
             0: 13056
             1: 32832
           1,-3:
-            0: 30579
+            0: 22387
+            2: 8192
           1,-2:
             0: 28916
           2,-4:
@@ -918,6 +919,25 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -1136,6 +1156,11 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-6.5
+      parent: 1
+  - uid: 216
+    components:
+    - type: Transform
+      pos: 2.5,-12.5
       parent: 1
   - uid: 226
     components:
@@ -1405,22 +1430,22 @@ entities:
   - uid: 282
     components:
     - type: Transform
-      pos: 3.5,-11.5
+      pos: 3.5,-12.5
       parent: 1
   - uid: 283
     components:
     - type: Transform
-      pos: 3.5,-10.5
+      pos: 0.5,-9.5
       parent: 1
   - uid: 284
     components:
     - type: Transform
-      pos: 2.5,-10.5
+      pos: 0.5,-12.5
       parent: 1
   - uid: 285
     components:
     - type: Transform
-      pos: 1.5,-10.5
+      pos: 1.5,-12.5
       parent: 1
   - uid: 286
     components:
@@ -1436,6 +1461,16 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-7.5
+      parent: 1
+  - uid: 318
+    components:
+    - type: Transform
+      pos: 0.5,-11.5
+      parent: 1
+  - uid: 319
+    components:
+    - type: Transform
+      pos: 0.5,-10.5
       parent: 1
   - uid: 320
     components:
@@ -1616,6 +1651,28 @@ entities:
       anchored: True
       pos: 5.5,-8.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: Physics
       bodyType: Static
     - type: Pullable
@@ -1626,12 +1683,12 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 162
-          - 158
           - 147
-          - 160
-          - 161
+          - 158
           - 164
+          - 161
+          - 160
+          - 162
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
