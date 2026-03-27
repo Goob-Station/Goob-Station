@@ -14,6 +14,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using static Content.Shared.Movement.Systems.SharedContentEyeSystem;
 
 namespace Content.Goobstation.Shared.Silicon;
 
@@ -24,13 +25,13 @@ public abstract partial class SharedIntellicardExtrasSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
 
     private static readonly EntProtoId DefaultAi = "StationAiBrain";
     private readonly ProtoId<ChatNotificationPrototype> _downloadChatNotificationPrototype = "IntellicardDownload";
@@ -48,7 +49,7 @@ public abstract partial class SharedIntellicardExtrasSystem : EntitySystem
         if (args.Handled || !args.CanReach || args.Target == null)
             return;
 
-        if (!HasComp<IntellicardableMindComponent>(args.Target))
+        if (!TryComp(args.Target, out IntellicardableMindComponent? intellicardableMind))
             return;
         if (!TryComp(args.Used, out StationAiHolderComponent? cardAiHolder))
             return;
@@ -63,7 +64,6 @@ public abstract partial class SharedIntellicardExtrasSystem : EntitySystem
         // otherwise a braindead ai clogs the card without any clear indicator.
         EntityUid? cardBrain = _slots.GetItemOrNull(ent.Owner, "station_ai_mind_slot");
         if (TryComp<MindContainerComponent>(cardBrain, out MindContainerComponent? cardMindContainer)
-            && cardMindContainer is { }
             && cardMindContainer.Mind is null)
         {
             _popup.PopupClient(Loc.GetString("intellicard-extras-contained-missing"), args.User, args.User, PopupType.MediumCaution);
@@ -88,7 +88,13 @@ public abstract partial class SharedIntellicardExtrasSystem : EntitySystem
             return;
         }
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? ent.Comp.UploadTime : ent.Comp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            args.User,
+            cardHasAi ? ent.Comp.UploadTime * intellicardableMind.UploadTimeFactor : ent.Comp.DownloadTime * intellicardableMind.DownloadTimeFactor,
+            new IntellicardDoAfterEvent(),
+            args.Target,
+            ent.Owner)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -159,6 +165,9 @@ public abstract partial class SharedIntellicardExtrasSystem : EntitySystem
             _mind.UnVisit(targetMind);
 
             _audio.PlayPvs(cardAiHolder.Slot.InsertSound, cardUid);
+
+            // for some godforsaken reason the fov gets fucked
+            _eye.SetDrawFov(newCardBrain, true);
 
             args.Handled = true;
             return;
