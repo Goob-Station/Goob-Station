@@ -111,10 +111,11 @@
   - type: DemonicWhisper # allows the demon to demonic whisper
   - type: DemonicAccent # the accent
   - type: Puller
+    needsHands: false
+  - type: GrabIntent
     stageChangeCooldown: 0.5
     grabThrowDamageModifier: 6.0
     throwingDistance: 30
-    needsHands: false
   - type: Targeting
   - type: Speech
     speechVerb: SlaughterDemon
@@ -184,6 +185,11 @@
         Heat: 0
     heatDamageThreshold: 666
     coldDamageThreshold: 66
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
 
 # laughter demon
 - type: entity
