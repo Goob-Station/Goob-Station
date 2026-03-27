@@ -3,6 +3,7 @@
   id: CommandScurretGear
   parent: EmotionalSupportScurretGear
   equipment:
+    ears: ClothingHeadsetAltCommand
     suitstorage: Spear
 
 # Captain Scurret
