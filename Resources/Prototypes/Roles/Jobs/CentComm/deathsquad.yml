@@ -42,7 +42,7 @@
   id: DeathSquadGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitDeathSquad
-    back: ClothingBackpackDeathSquad
+    back: ClothingDeathSquadronBackpack # CorvaxGoob
     mask: ClothingMaskGasDeathSquad
     eyes: ClothingEyesGlassesDeathsquad # Goobstation
     neck: ExecutiveIDCard # Executive Access!
