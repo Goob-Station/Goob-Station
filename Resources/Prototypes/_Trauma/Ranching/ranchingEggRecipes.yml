@@ -17,16 +17,3 @@
   happinessRequired: 30
   foodTagsRequired:
   - Apple
-
-- type: eggRecipe
-  id: TestEgg
-  egg: TeslaEnergyBall
-  requiredChicken:
-  - MobWhiteChicken
-  - MobSilkieChicken
-  happinessRequired: 30
-  chickensRequireDifferentHappiness:
-    MobWhiteChicken: 15
-  componentsRequired:
-  - type: DeepFried
-  requiresSpecialFood: false

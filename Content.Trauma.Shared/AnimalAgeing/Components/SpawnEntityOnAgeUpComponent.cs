@@ -7,7 +7,7 @@ namespace Content.Trauma.Shared.AnimalAgeing.Components;
 public sealed partial class SpawnEntityOnAgeUpComponent : Component
 {
     [DataField]
-    public EntProtoId EntToSpawn;
+    public List<EntProtoId> EntToSpawn;
 
     [DataField]
     public AnimalAgeState AgeToChangeAt = AnimalAgeState.Adult;

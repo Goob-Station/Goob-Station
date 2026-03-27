@@ -9,7 +9,7 @@
   "states": 
     [
     {
-      "name": "chick-codersprite",
+      "name": "chick",
       "delays": [
         [
           0.5,
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "name": "chicken-codersprite",
+      "name": "chicken",
       "delays": [
         [
           0.5,
@@ -27,10 +27,10 @@
       ]
     },
     {
-      "name": "chick-dead-codersprite"
+      "name": "chick-dead"
     },
     {
-      "name": "chicken-dead-codersprite"
+      "name": "chicken-dead"
     }
     ]
 }

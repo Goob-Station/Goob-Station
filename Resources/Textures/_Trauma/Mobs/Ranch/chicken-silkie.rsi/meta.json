@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "chick-silkie",
+      "name": "chick",
       "directions": 4,
       "delays": [
         [
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "name": "hen-silkie",
+      "name": "hen",
       "directions": 4,
       "delays": [
         [
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "name": "rooster-silkie",
+      "name": "rooster",
       "directions": 4,
       "delays": [
         [
@@ -74,13 +74,13 @@
       ]
     },
     {
-      "name": "chick-silkie-dead"
+      "name": "chick-dead"
     },
     {
-      "name": "hen-silkie-dead"
+      "name": "hen-dead"
     },
     {
-      "name": "rooster-silkie-dead"
+      "name": "rooster-dead"
     }
   ]
 }

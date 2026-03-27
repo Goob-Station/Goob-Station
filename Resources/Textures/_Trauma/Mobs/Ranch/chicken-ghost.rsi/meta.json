@@ -9,7 +9,7 @@
   "states": 
     [
     {
-      "name": "chick-ghost",
+      "name": "chick",
       "directions": 4,
       "delays": [
         [
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "name": "hen-ghost",
+      "name": "hen",
       "directions": 4,
       "delays": [
         [
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "name": "rooster-ghost",
+      "name": "rooster",
       "directions": 4,
       "delays": [
         [
@@ -75,13 +75,13 @@
       ]
     },
     {
-      "name": "chick-ghost-dead"
+      "name": "chick-dead"
     },
     {
-      "name": "hen-ghost-dead"
+      "name": "hen-dead"
     },
     {
-      "name": "rooster-ghost-dead"
+      "name": "rooster-dead"
     }
     ]
 }

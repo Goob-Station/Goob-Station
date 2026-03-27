@@ -8,6 +8,7 @@ using Content.Trauma.Shared.AnimalAgeing.Components;
 using Content.Trauma.Shared.AnimalAgeing.Events;
 using Content.Trauma.Shared.Ranching.Components;
 using Content.Trauma.Shared.Ranching.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Trauma.Shared.AnimalAgeing;
 
@@ -18,6 +19,7 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
 {
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
     [Dependency] private readonly HappinessSystem _happiness = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -62,7 +64,8 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         if (animalAgeing.CurrentAgeState != ent.Comp.AgeToChangeAt)
             return;
 
-        var spawnedEnt = PredictedSpawnAtPosition(ent.Comp.EntToSpawn, ent.Owner.ToCoordinates());
+        var enttospawn = _random.Pick(ent.Comp.EntToSpawn);
+        var spawnedEnt = PredictedSpawnAtPosition(enttospawn, ent.Owner.ToCoordinates());
 
         CopyComps(ent.Owner, spawnedEnt);
 

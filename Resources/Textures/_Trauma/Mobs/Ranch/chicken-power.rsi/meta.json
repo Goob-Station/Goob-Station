@@ -82,9 +82,8 @@
     },
     {
       "name": "rooster-power_gold-dead"
-    }
-
-        {
+    },
+    {
       "name": "chick-power_blue",
       "directions": 4,
       "delays": [

@@ -9,16 +9,29 @@
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: chick-white
+      state: chick
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      20: Critical
+      50: Dead
   - type: AnimalAgeing
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: chick-white
+        Base: chick
       Critical:
-        Base: chick-white-dead
+        Base: chick-dead
       Dead:
-        Base: chick-white-dead
+        Base: chick-dead
+  - type: Hunger
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 0.02
   - type: Fixtures
     fixtures:
       fix1:
@@ -62,27 +75,37 @@
   parent: BaseMobChickRanch
   id: BaseMobRoosterRanch
   components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Critical
+      100: Dead
   - type: MostRecentlyEatenFoodTags
   - type: Happiness
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: rooster-white
+      state: rooster
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: rooster-white
+        Base: rooster
       Critical:
-        Base: rooster-white-dead
+        Base: rooster-dead
       Dead:
-        Base: rooster-white-dead
+        Base: rooster-dead
 
 - type: entity
   abstract: true
   parent: BaseMobRoosterRanch
   id: BaseMobHenRanch
   components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      90: Dead
   - type: RanchingEggLayer
   - type: MostRecentlyEatenFoodTags
   - type: Happiness
@@ -90,15 +113,15 @@
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: hen-white
+      state: hen
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: hen-white
+        Base: hen
       Critical:
-        Base: hen-white-dead
+        Base: hen-dead
       Dead:
-        Base: hen-white-dead
+        Base: hen-dead
 
 # The Chicks
 
@@ -107,29 +130,22 @@
   id: MobChickWhite
   components:
   - type: SpawnEntityOnAgeUp
-    entToSpawn: MobWhiteChicken
+    entToSpawn:
+    - MobWhiteChicken
+    - MobWhiteRooster
 
 - type: entity
   parent: BaseMobChickRanch
   id: MobChickSilkie
   components:
   - type: SpawnEntityOnAgeUp
-    entToSpawn: MobSilkieChicken
+    entToSpawn:
+    - MobSilkieChicken
+    - MobSilkieRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: chick-silkie
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: chick-silkie
-      Critical:
-        Base: chick-silkie-dead
-      Dead:
-        Base: chick-silkie-dead
 
-# The Chickens
+# The Hens
 
 - type: entity
   parent: BaseMobHenRanch
@@ -138,17 +154,6 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: hen-white
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: hen-white
-      Critical:
-        Base: hen-white-dead
-      Dead:
-        Base: hen-white-dead
 
 - type: entity
   parent: BaseMobHenRanch
@@ -157,14 +162,21 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: hen-silkie
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: hen-silkie
-      Critical:
-        Base: hen-silkie-dead
-      Dead:
-        Base: hen-silkie-dead
+
+# The Roosters
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobWhiteRooster
+  name: White Rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobSilkieRooster
+  name: Silkie Rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi

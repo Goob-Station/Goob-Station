@@ -9,19 +9,16 @@
   "states": 
     [
     {
-      "name": "chick-spicy-dead"
+      "name": "chick-dead"
     },
     {
-      "name": "hen-spicy-dead"
+      "name": "hen-dead"
     },
     {
-      "name": "rooster-spicy-dead"
+      "name": "rooster-dead"
     },
     {
-      "name": "egg-spicy"
-    },
-    {
-      "name": "chick-spicy",
+      "name": "chick",
       "directions": 4,
       "delays": [
         [
@@ -43,7 +40,7 @@
       ]
     },
     {
-      "name": "rooster-spicy",
+      "name": "rooster",
       "directions": 4,
       "delays": [
         [
@@ -65,7 +62,7 @@
       ]
     },
     {
-      "name": "hen-spicy",
+      "name": "hen",
       "directions": 4,
       "delays": [
         [
