@@ -1334,7 +1334,7 @@
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
-  - SeniorOfficerBlackJumpsuit # Goobstation
+  - VeteranOfficerBlackJumpsuit # Goobstation
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1361,7 +1361,7 @@
   - ArmorVestSlim
   - SecurityOfficerWintercoat
   - WinterCoatSeniorSecArmored # Goobstation
-  - SeniorOfficerArmor # Goobstation
+  - VeteranOfficerArmor # Goobstation
 
 - type: loadoutGroup
   id: SecurityShoes

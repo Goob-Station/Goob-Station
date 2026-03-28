@@ -35,15 +35,15 @@
   id: ClothingNeckMantleVeteranSecurity
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
+    proto: VeteranOfficer
   equipment:
     neck: ClothingNeckMantleVeteranSecurity
 
 - type: loadout
-  id: SeniorOfficerArmor
+  id: VeteranOfficerArmor
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
+    proto: VeteranOfficer
   equipment:
     outerClothing: ClothingOuterArmorVeteranSecurity
 
