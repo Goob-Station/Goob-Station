@@ -34,7 +34,7 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
 
         SubscribeLocalEvent<FloatingVisualsComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<FloatingVisualsComponent, WeightlessnessChangedEvent>(OnWeightlessnessChanged);
-        //todo marty flight event probably goob
+        SubscribeLocalEvent<FloatingVisualsComponent, FlightEvent>(OnFlight); // Goobstation
     }
 
     /// <summary>
@@ -66,4 +66,17 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
         if (args.Weightless)
             FloatAnimation(entity, entity.Comp.Offset, entity.Comp.AnimationKey, entity.Comp.AnimationTime);
     }
+
+    // Goobstation Start
+    private void OnFlight(EntityUid uid, FloatingVisualsComponent component, FlightEvent args)
+    {
+        component.CanFloat = args.IsFlying;
+
+        if (!args.IsFlying
+            || !args.IsAnimated)
+            return;
+
+        FloatAnimation(uid, component.Offset, component.AnimationKey, component.AnimationTime);
+    }
+    // Goobstation End
 }

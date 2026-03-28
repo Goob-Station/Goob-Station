@@ -207,7 +207,7 @@ namespace Content.Shared.Throwing
                     $"{ToPrettyString(component.Thrower.Value):thrower} is attempting to throw {ToPrettyString(thrown):thrown} targeting {ToPrettyString(target):target}.");
 
                 var ev = new ThrowAttemptEvent(component.Thrower.Value, thrown, target);
-                RaiseLocalEvent(thrown, ref ev);
+                RaiseLocalEvent(thrown, ev);
                 if (ev.Cancelled)
                     return;
                 // Goob end.
