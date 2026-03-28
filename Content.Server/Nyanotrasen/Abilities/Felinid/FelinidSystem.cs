@@ -28,8 +28,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Medical;
 
-namespace Content.Server.Abilities.Felinid;
+namespace Content.Server.Nyanotrasen.Abilities.Felinid;
 
 public sealed partial class FelinidSystem : EntitySystem
 {
