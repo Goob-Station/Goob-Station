@@ -48,7 +48,7 @@
 - type: ninjaHackingThreat
   id: WizardMidRoundThreat
   announcement: terror-wizard
-  rule: WizardMidRound
+  rule: WizardMidround
 
 #- type: ninjaHackingThreat
 #  id: Wraith
