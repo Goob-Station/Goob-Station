@@ -188,6 +188,9 @@
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation
+        - WeldingMask # Goobstation
+        - GPS # Goobstation
+        - MesonGoggles # Goobstation
       components:
         - StationMap
         - SprayPainter
@@ -201,6 +204,7 @@
         - TrayScanner
         - GasAnalyzer
         - HandLabeler
+        - RadarConsole # Goobstation
   - type: ItemMapper
     mapLayers:
       drill:
@@ -235,6 +239,18 @@
         whitelist:
           tags:
             - Multitool
+      weldmask:
+        whitelist:
+          tags:
+            - WeldingMask
+      mass_scanner:
+        whitelist:
+          tags:
+           - GPS
+      meson:
+        whitelist:
+          tags:
+           - MesonGoggles
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
   - type: Tag
@@ -277,6 +293,9 @@
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation
+        - WeldingMask # Goobstation
+        - GPS # Goobstation
+        - MesonGoggles #Goobstation
       components:
         - StationMap
         - SprayPainter
@@ -291,6 +310,7 @@
         - Geiger
         - TrayScanner
         - GasAnalyzer
+        - RadarConsole # Goobstation
   - type: ItemMapper
     mapLayers:
       drill:
@@ -325,6 +345,20 @@
         whitelist:
           tags:
           - Wrench
+      weldmask:
+        whitelist:
+          tags:
+          - WeldingMask
+      mass_scanner:
+        whitelist:
+          tags:
+          - GPS
+          components:
+          - RadarConsole
+      meson:
+        whitelist:
+          tags:
+          - MesonGoggles
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
   - type: StealTarget

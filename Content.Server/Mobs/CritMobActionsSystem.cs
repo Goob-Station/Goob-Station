@@ -82,6 +82,9 @@ public sealed partial class CritMobActionsSystem : EntitySystem
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
+        if (args.Handled) // goob edit
+            return;
+
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("action-name-crit-last-words"), "",
             (string lastWords) =>
             {

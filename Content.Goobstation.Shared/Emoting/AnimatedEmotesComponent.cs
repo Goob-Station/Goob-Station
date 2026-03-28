@@ -13,6 +13,7 @@ using Content.Shared.Chat.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Emoting;
 
@@ -28,6 +29,16 @@ namespace Content.Goobstation.Shared.Emoting;
 [RegisterComponent, NetworkedComponent] public sealed partial class AnimatedEmotesComponent : Component
 {
     [DataField] public ProtoId<EmotePrototype>? Emote;
+}
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+public sealed partial class PendingAnimatedEmoteComponent : Component
+{
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan ExpireTime;
+
+    [DataField, AutoNetworkedField]
+    public bool KnockDownLast;
 }
 
 [Serializable, NetSerializable] public sealed partial class AnimatedEmotesComponentState : ComponentState

@@ -250,7 +250,7 @@ namespace Content.IntegrationTests.Tests
             //"Exo",          // Fuck off. I'm not even risking this list doing anything with it present.
             "Fland",
             "FlandHighPop",
-            "Gate",           // Not in pool
+            "Gate",
             "Kettle",
             "Lambda",         // Not in pool
             "Lavatest",       // Dev map
@@ -293,7 +293,7 @@ namespace Content.IntegrationTests.Tests
             //"Exo",            // Not in pool.
               "Fland",
               "FlandHighPop",
-            //"Gate",           // Not in pool
+              "Gate",
               "Kettle",
             //"Lambda",         // Not in pool
               "Lavatest",       //Dev map

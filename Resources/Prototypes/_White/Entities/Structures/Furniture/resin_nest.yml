@@ -72,3 +72,7 @@
   - type: Transform
     anchored: true
     noRot: true
+  - type: MeleeSound #omu
+    soundGroups:
+      Brute:
+        collection: XenoResinBreak

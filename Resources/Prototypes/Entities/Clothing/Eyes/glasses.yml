@@ -200,6 +200,8 @@
     coverage: EYES
   - type: Tag
     tags:
+    - PetWearable
+    - MesonGoggles
     - CorgiWearable
     - WhitelistChameleon
     - PetWearable # Goobstation?
@@ -460,6 +462,11 @@
         Steel: 50
         Plastic: 75
         Glass: 125
+    - type: Tag
+      tags:
+      - PetWearable
+      - WhitelistChameleon
+      - HudChemistry #omu edit
     #  Goob end
 
 - type: entity

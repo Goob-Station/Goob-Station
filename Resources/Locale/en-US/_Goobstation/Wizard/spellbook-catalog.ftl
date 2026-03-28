@@ -185,3 +185,9 @@ spellbook-smite-name = Smite
 spellbook-smite-desc =
     This spell charges your hand with an unholy energy that can be used to cause a touched victim to violently explode.
     Requires wizard's robe and hat to cast.
+
+spellbook-rathen-name = Rathen's Secret
+spellbook-rathen-desc =
+    Summons a powerful shockwave around you that knocks everyone down, forcing them to defecate their appendix.
+    if your victim has already lost their appendix they instead take 10 brute with a high chance of tearing off their other external limbs.
+    Requires wizard's robe and hat to cast.

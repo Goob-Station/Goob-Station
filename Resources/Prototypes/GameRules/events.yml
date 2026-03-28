@@ -209,6 +209,8 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    - id: SlasherSpawn # Goobstation - The Slasher
+    - id: SpacePirates # Goobstation - you probably can read whom this rule spawns
     - id: GreyTideAntagMidround # Goobstation - New Midrounds
     - id: SingulothKnightsMidround # Goobstation - New Midrounds
     #- id: DarkLordMidround # Goobstation - New Midrounds
@@ -887,7 +889,7 @@
     earliestStart: 35
     weight: 2.5 # Goobstation - was 5.5
     minimumPlayers: 50 # Goobstation - was 20
-    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
+    duration: 720 # Goobstation - required for custom nuke music. 720s to ensure loneop can hear the music and still have space for other midrounds incase of failure
     chaos: # Goobstation
       Hostile: 200
       Medical: 200
@@ -899,6 +901,7 @@
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
+    localePrefix: "loneop-" #Goobstation
     roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
