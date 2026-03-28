@@ -272,7 +272,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             case BlobChemType.ElectromagneticWeb:
             {
                 if (_random.Prob(0.2f))
-                    _empSystem.EmpPulse(_transform.GetMapCoordinates(target), 3f, 50f, 3f);
+                    _empSystem.EmpPulse(_transform.GetMapCoordinates(target), 3f, 50f, TimeSpan.FromSeconds(3f));
                 break;
             }
             case BlobChemType.BlazingOil:

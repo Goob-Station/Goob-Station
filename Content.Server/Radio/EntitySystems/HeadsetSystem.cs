@@ -20,6 +20,7 @@ using Content.Shared.Radio.Components;
 using Content.Server.Speech;
 using Content.Server._EinsteinEngines.Language;
 using Content.Shared.Chat;
+using Content.Shared.Emp;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;

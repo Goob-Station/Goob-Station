@@ -28,6 +28,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
+using Content.Shared.Power;
 using Content.Shared.Preferences;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Audio;

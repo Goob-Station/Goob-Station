@@ -58,7 +58,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Whitelist;
-using Content.Server.Emp; // Goobstation
+using Content.Server.Emp;
+using Content.Shared.Emp; // Goobstation
 
 namespace Content.Server.Mech.Systems;
 

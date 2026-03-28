@@ -90,6 +90,7 @@ using Content.Shared.Item;
 using Content.Shared.Tag;
 using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Shared._Shitcode.Wizard.Components;
+using Content.Shared.Power.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
@@ -197,7 +198,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         var coords = TransformSystem.GetMapCoordinates(ev.Performer);
         foreach (var uid in Lookup.GetEntitiesInRange(coords, ev.Range))
         {
-            _emp.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
+            _emp.TryEmpEffects(uid, ev.EnergyConsumption, TimeSpan.FromSeconds(ev.DisableDuration));
         }
 
         Spawn(ev.Effect, coords);

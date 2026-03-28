@@ -7,6 +7,7 @@ using Content.Goobstation.Shared.Silicon.AiCameraWarping;
 using Content.Server.Station.Systems;
 using Content.Server.SurveillanceCamera;
 using Content.Shared.Silicons.StationAi;
+using Content.Shared.SurveillanceCamera.Components;
 using Microsoft.VisualBasic;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
