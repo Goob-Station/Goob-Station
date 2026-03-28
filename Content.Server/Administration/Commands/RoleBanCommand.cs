@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -36,9 +24,10 @@ public sealed class RoleBanCommand : IConsoleCommand
     public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         string target;
-        string job;
+        string role;
         string reason;
         uint minutes;
+
         if (!Enum.TryParse(_cfg.GetCVar(CCVars.RoleBanDefaultSeverity), out NoteSeverity severity))
         {
             Logger.WarningS("admin.role_ban", "Role ban severity could not be parsed from config! Defaulting to medium.");
@@ -49,30 +38,33 @@ public sealed class RoleBanCommand : IConsoleCommand
         {
             case 3:
                 target = args[0];
-                job = args[1];
+                role = args[1];
                 reason = args[2];
                 minutes = 0;
+
                 break;
             case 4:
                 target = args[0];
-                job = args[1];
+                role = args[1];
                 reason = args[2];
 
                 if (!uint.TryParse(args[3], out minutes))
                 {
                     shell.WriteError(Loc.GetString("cmd-roleban-minutes-parse", ("time", args[3]), ("help", Help)));
+
                     return;
                 }
 
                 break;
             case 5:
                 target = args[0];
-                job = args[1];
+                role = args[1];
                 reason = args[2];
 
                 if (!uint.TryParse(args[3], out minutes))
                 {
                     shell.WriteError(Loc.GetString("cmd-roleban-minutes-parse", ("time", args[3]), ("help", Help)));
+
                     return;
                 }
 
@@ -86,26 +78,44 @@ public sealed class RoleBanCommand : IConsoleCommand
             default:
                 shell.WriteError(Loc.GetString("cmd-roleban-arg-count"));
                 shell.WriteLine(Help);
-                return;
-        }
 
-        if (!_proto.HasIndex<JobPrototype>(job))
-        {
-            shell.WriteError(Loc.GetString("cmd-roleban-job-parse",("job", job)));
-            return;
+                return;
         }
 
         var located = await _locator.LookupIdByNameOrIdAsync(target);
         if (located == null)
         {
             shell.WriteError(Loc.GetString("cmd-roleban-name-parse"));
+
             return;
         }
 
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
 
-        _bans.CreateRoleBan(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, job, minutes, severity, reason, DateTimeOffset.UtcNow);
+        var banInfo = new CreateRoleBanInfo(reason);
+        if (minutes > 0)
+            banInfo.WithMinutes(minutes);
+        banInfo.AddUser(targetUid, located.Username);
+        banInfo.WithBanningAdmin(shell.Player?.UserId);
+        banInfo.AddHWId(targetHWid);
+        banInfo.WithSeverity(severity);
+
+        if (_proto.HasIndex<JobPrototype>(role))
+        {
+            banInfo.AddJob(new ProtoId<JobPrototype>(role));
+        }
+        else if (_proto.HasIndex<AntagPrototype>(role))
+        {
+            banInfo.AddAntag(new ProtoId<AntagPrototype>(role));
+        }
+        else
+        {
+            shell.WriteError(Loc.GetString("cmd-roleban-job-parse", ("job", role)));
+            return;
+        }
+
+        _bans.CreateRoleBan(banInfo);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

@@ -64,18 +64,9 @@
         description: abductor-lone-ghost-role-desc
         rules: abductors-ghost-role-rules
         mindRoles:
-        - MindRoleGhostRoleSoloAntagonist
+        - MindRoleLoneAbductor
         raffle:
           settings: default
-        requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 180000 #50 hours
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 7200 #2 hours
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 7200 #2 hours
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
@@ -167,15 +158,9 @@
         description: abductor-scientist-ghost-role-desc
         rules: abductors-ghost-role-rules
         mindRoles:
-        - MindRoleGhostRoleTeamAntagonist
+        - MindRoleAbductorScientist
         raffle:
           settings: default
-        requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 180000 #50 hours
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 10800 #3 hours
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
@@ -220,15 +205,9 @@
         description: abductor-agent-ghost-role-desc
         rules: abductors-ghost-role-rules
         mindRoles:
-        - MindRoleGhostRoleTeamAntagonist
+        - MindRoleAbductorAgent
         raffle:
           settings: default
-        requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 10800 #3 hours
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
