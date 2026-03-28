@@ -492,11 +492,11 @@
   - ActionResetStarGazerConsciousness
 
 ### side paths
-- type: hereticKnowledge
-  id: RitualOfKnowledge
-  sideKnowledge: true
-  ritualPrototypes:
-  - RitualOfKnowledge
+#- type: hereticKnowledge
+#  id: RitualOfKnowledge
+#  sideKnowledge: true
+#  ritualPrototypes:
+#  - RitualOfKnowledge
 
 ## stage 3
 - type: hereticKnowledge
