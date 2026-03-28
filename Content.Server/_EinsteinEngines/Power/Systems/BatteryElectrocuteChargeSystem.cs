@@ -9,6 +9,7 @@ using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Electrocution;
+using Content.Shared.Power.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server._EinsteinEngines.Power.Systems;

@@ -53,6 +53,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Events;
+using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;

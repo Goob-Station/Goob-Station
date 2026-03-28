@@ -16,6 +16,7 @@ using Content.Shared.Light.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Physics;
+using Content.Shared.SurveillanceCamera.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Spawners;

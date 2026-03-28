@@ -15,6 +15,7 @@ using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Power;
 using Content.Shared.PowerCell.Components;
 
 namespace Content.Server._White.Blocking;

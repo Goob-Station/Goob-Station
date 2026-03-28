@@ -91,6 +91,7 @@ using Content.Shared.Item;
 using Content.Shared.Tag;
 using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Shared._Shitcode.Wizard.Components;
+using Content.Shared.Power.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
@@ -202,7 +203,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (_divineIntervention.TouchSpellDenied(uid))
                 continue;
 
-            _emp.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
+            _emp.TryEmpEffects(uid, ev.EnergyConsumption, TimeSpan.FromSeconds(ev.DisableDuration));
         }
 
 

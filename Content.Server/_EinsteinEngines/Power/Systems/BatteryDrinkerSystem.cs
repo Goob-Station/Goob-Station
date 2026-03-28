@@ -24,6 +24,7 @@ using Robust.Shared.Containers;
 // Goobstation Start - Energycrit
 using Content.Shared._EinsteinEngines.Power.Components;
 using Content.Shared._EinsteinEngines.Power.Systems;
+using Content.Shared.Power.Components;
 using Content.Shared.Whitelist;
 // Goobstation End
 

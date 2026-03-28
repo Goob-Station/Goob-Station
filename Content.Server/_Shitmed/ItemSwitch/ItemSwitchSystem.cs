@@ -16,6 +16,7 @@ using Content.Shared._Shitmed.ItemSwitch;
 using Content.Shared._Shitmed.ItemSwitch.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._Shitmed.ItemSwitch;

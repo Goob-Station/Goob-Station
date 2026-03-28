@@ -13,6 +13,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mech.Equipment.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Goobstation.Server.Mech.Equipment.EntitySystems;
