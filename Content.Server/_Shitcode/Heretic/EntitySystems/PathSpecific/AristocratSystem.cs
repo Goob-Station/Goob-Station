@@ -80,6 +80,7 @@ public sealed class AristocratSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
 
     private static readonly EntProtoId IceTilePrototype = "IceCrust";
     private static readonly ProtoId<ContentTileDefinition> SnowTilePrototype = "FloorAstroSnow";
@@ -338,7 +339,7 @@ public sealed class AristocratSystem : EntitySystem
                 if (ignored.Contains(ent))
                     continue;
 
-                if (hereticQuery.HasComp(ent) || ghoulQuery.HasComp(ent))
+                if (_heretic.IsHereticOrGhoul(ent))
                 {
                     ignored.Add(ent);
                     if (statusQuery.TryComp(ent, out var status))

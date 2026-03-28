@@ -257,6 +257,7 @@
     defaultChannel: Binary
     channels:
     - Binary
+  - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: HealthExaminable
     examinableTypes:
     - Blunt
@@ -529,7 +530,7 @@
         reagent: Tricordrazine
         quantity: 30
         minDamage: 0
-        maxDamage: 50
+        maxDamage: 100 # Goobstation
       Critical:
         reagent: Inaprovaline
         quantity: 15

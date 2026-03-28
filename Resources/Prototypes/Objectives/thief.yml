@@ -417,16 +417,16 @@
   - type: Objective
     difficulty: 0.3
 
-- type: entity
-  parent: BaseThiefStealObjective
-  id: BibleStealObjective
-  components:
-  - type: NotJobRequirement
-    job: Chaplain
-  - type: StealCondition
-    stealGroup: Bible
-  - type: Objective
-    difficulty: 0.4
+#- type: entity
+#  parent: BaseThiefStealObjective
+#  id: BibleStealObjective
+#  components:
+#  - type: NotJobRequirement
+#    job: Chaplain
+#  - type: StealCondition
+#    stealGroup: Bible
+#  - type: Objective
+#    difficulty: 0.4
 
 - type: entity                                      #Other subgroup
   parent: BaseThiefStealObjective

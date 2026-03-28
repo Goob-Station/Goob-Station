@@ -37,6 +37,9 @@ public sealed partial class SlasherSummonMacheteEvent : InstantActionEvent;
 [ByRefEvent]
 public sealed partial class SlasherSummonMeatSpikeEvent : InstantActionEvent;
 
+[ByRefEvent]
+public sealed partial class SlasherRelentlessGrabEvent : InstantActionEvent;
+
 /// <summary>
 /// DoAfter event raised when Soul Steal completes.
 /// </summary>
