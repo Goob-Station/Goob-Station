@@ -7,7 +7,7 @@
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Abilities.Felinid;
+namespace Content.Server.Nyanotrasen.Abilities.Felinid;
 
 [RegisterComponent]
 public sealed partial class FelinidComponent : Component
