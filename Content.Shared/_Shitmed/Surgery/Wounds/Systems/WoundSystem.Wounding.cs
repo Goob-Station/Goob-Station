@@ -164,12 +164,19 @@ public sealed partial class WoundSystem
 
     private void OnDamageChanged(EntityUid uid, WoundableComponent component, ref DamageChangedEvent args)
     {
-        // Skip if there was no damage delta or if wounds aren't allowed
         if (args.UncappedDamage == null
             || !component.AllowWounds
-            || !_timing.IsFirstTimePredicted
             || _redirectingDamage)
             return;
+
+        if (!_timing.IsFirstTimePredicted)
+        {
+            if (!_timing.InPrediction)
+                return;
+
+            UndoRedirectedDamage(uid, component, args.UncappedDamage);
+            return;
+        }
 
         Dictionary<EntityUid, DamageSpecifier>? redirectedDamage = null;
         TryComp<DamageableComponent>(uid, out var damageable);
@@ -260,6 +267,50 @@ public sealed partial class WoundSystem
 
         UpdateWoundableIntegrity(uid, component);
         CheckWoundableSeverityThresholds(uid, component);
+    }
+
+    /// <summary>
+    /// During re-prediction the engine replays the original damage onto this part,
+    /// but server state already includes the redirect. We just undo the replayed
+    /// damage on the source without adding to targets (they're already correct)
+    /// This is literally the only way I could find to make this work, its fucked. :joel:
+    /// </summary>
+    private void UndoRedirectedDamage(EntityUid uid, WoundableComponent component, DamageSpecifier uncapped)
+    {
+        if (component.WoundableIntegrity > 0
+            || !TryComp(uid, out BodyPartComponent? bp)
+            || !bp.Body.HasValue)
+            return;
+
+        TryComp<DamageableComponent>(uid, out var damageable);
+
+        var undoDamage = new DamageSpecifier();
+        foreach (var (damageType, damageValue) in uncapped.DamageDict)
+        {
+            if (damageValue <= 0)
+                continue;
+
+            if (damageable != null
+                    && !damageable.Damage.DamageDict.ContainsKey(damageType))
+                continue;
+
+            if (!IsWoundPrototypeValid(damageType))
+                continue;
+
+            var redirect = GetDamageRedirectTarget(bp.Body!.Value, uid, damageType);
+            if (redirect != null && redirect.Value != uid)
+            {
+                undoDamage.DamageDict.TryGetValue(damageType, out var existing);
+                undoDamage.DamageDict[damageType] = existing - damageValue;
+            }
+        }
+
+        if (undoDamage.DamageDict.Count == 0)
+            return;
+
+        _redirectingDamage = true;
+        _damageable.TryChangeDamage(uid, undoDamage, ignoreResistances: true);
+        _redirectingDamage = false;
     }
 
     private void OnGetDoAfterDelayMultiplier(EntityUid uid, WoundableComponent component, ref GetDoAfterDelayMultiplierEvent args)
