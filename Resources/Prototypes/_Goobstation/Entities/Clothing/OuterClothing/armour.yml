@@ -555,7 +555,7 @@
 - type: entity
   parent: ClothingOuterArmorBase
   id: ClothingOuterArmorVeteranSecurity
-  name: Senior security's old armor
+  name: Veteran security's old armor
   description: An old version of the standard NanoTrasen bulletproof vest, its design provides better protection agaisnt surprise attacks by clowns, it still meets NT's protection standarts
   components:
   - type: Sprite
