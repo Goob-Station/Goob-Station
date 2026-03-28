@@ -148,7 +148,7 @@
     outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: FlashlightSeclite
   storage:
@@ -173,7 +173,7 @@
     outerClothing: ClothingOuterHardsuitERTLeader
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: FlashlightSeclite
   storage:
@@ -446,7 +446,7 @@
     outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
     pocket2: FlashlightSeclite
   storage:
@@ -471,7 +471,7 @@
     outerClothing: ClothingOuterHardsuitERTSecurity
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Death to Crew aligned Ballistics
     pocket2: FlashlightSeclite
   storage:

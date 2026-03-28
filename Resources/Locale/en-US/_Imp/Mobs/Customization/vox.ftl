@@ -82,8 +82,6 @@ marking-VoxBeakSplit-split2 = Bottom
 marking-VoxBeakTipped = Tipped Beak
 marking-VoxBeakTipped-tipped = Tipped Beak
 
-marking-VoxBeak = Default Beak
-
 # Eyes
 
 # RArm

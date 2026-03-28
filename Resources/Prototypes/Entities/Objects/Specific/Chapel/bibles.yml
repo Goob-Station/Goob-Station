@@ -263,6 +263,12 @@
     sprite: Objects/Specific/Chapel/tanakh.rsi
   - type: Item
     sprite: Objects/Specific/Chapel/tanakh.rsi
+  - type: MeleeWeapon # Goobstation.
+    soundHit:
+      collection: AlienClaw
+    damage:
+      types:
+        Blunt: 3
 
 - type: entity
   id: BibleDruid

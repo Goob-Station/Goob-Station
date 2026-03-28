@@ -1311,7 +1311,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingBeltAssault
+- proto: ClothingBeltMilitaryWebbing
   entities:
   - uid: 475
     components:

@@ -337,6 +337,42 @@
     damageCoefficient: 0.1
   - type: StaticPrice
     price: 500
+  # Goobstaton start?
+  - type: Storage
+    whitelist:
+      tags:
+        - CigPack
+        - Taser
+        - SecBeltEquip
+        - HandheldCrewMonitor
+        - EnergySpeedloader
+        - Sidearm
+        - PepperSpray
+      components:
+        - Stunbaton
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - Ammo
+  - type: ItemMapper
+    mapLayers:
+      flashbang:
+        whitelist:
+          components:
+          - FlashOnTrigger
+      stunbaton:
+        whitelist:
+          components:
+          - Stunbaton
+      tear_gas_grenade:
+        whitelist:
+          components:
+          - SmokeOnTrigger
+    sprite: Clothing/Belt/belt_overlay.rsi
+  - type: Appearance
+  # Goobstation end
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
