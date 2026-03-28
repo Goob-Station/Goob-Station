@@ -91,21 +91,21 @@
   - !type:HereticPathCondition
     stage: 2
 
-- type: listing
-  id: HereticSidePathKnowledge
-  name: knowledge-path-side-knowledge-name
-  description: knowledge-path-side-knowledge-desc
-  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon }
-  productHereticKnowledge: RitualOfKnowledge
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathSide
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:HereticPathCondition
-    stage: 0
+#- type: listing
+#  id: HereticSidePathKnowledge
+#  name: knowledge-path-side-knowledge-name
+#  description: knowledge-path-side-knowledge-desc
+#  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon }
+#  productHereticKnowledge: RitualOfKnowledge
+#  cost:
+#    KnowledgePoint: 1
+#  categories:
+#  - HereticPathSide
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:HereticPathCondition
+#    stage: 0
 
 - type: listing
   id: HereticSidePath6RustWalker
