@@ -38,12 +38,12 @@
   id: MobReptilianSprites
   sprites:
     Head: MobReptilianHead
-    Face: MobHumanoidAnyMarking
+    Face: MobHumanoidAnyMarking # Goob?
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
-    Chest: MobReptilianChest
-    Groin: MobReptilianGroin
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobReptilianTorso
+    Groin: MobReptilianGroin # Goob
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -81,14 +81,14 @@
     HeadSide:
       points: 6 # WWDP-Edit
       required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 8
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
       required: false
     RightLeg:
       points: 2
