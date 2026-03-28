@@ -85,6 +85,7 @@ namespace Content.Shared.VendingMachines
 
         public string? NextItemToEject;
 
+        [DataField]
         public bool Broken;
 
         /// <summary>
@@ -318,5 +319,7 @@ namespace Content.Shared.VendingMachines
         public TimeSpan? DenyEnd;
 
         public TimeSpan? DispenseOnHitEnd;
+
+        public bool Broken;
     }
 }

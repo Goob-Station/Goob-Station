@@ -44,6 +44,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Power.Components;
+using Content.Shared.Power;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 

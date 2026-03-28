@@ -99,10 +99,8 @@
 using System.Numerics;
 using Content.Server.Access.Systems;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Emp;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Shared.DeviceNetwork.Components;
-using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Medical.SuitSensors;
 using Robust.Shared.Timing;
 
@@ -113,14 +111,6 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SuitSensorComponent, EmpPulseEvent>(OnEmpPulse);
-        SubscribeLocalEvent<SuitSensorComponent, EmpDisabledRemoved>(OnEmpFinished);
-    }
 
     public override void Update(float frameTime)
     {
@@ -169,23 +159,5 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
 
             _deviceNetworkSystem.QueuePacket(uid, sensor.ConnectedServer, payload, device: device);
         }
-    }
-
-    private void OnEmpPulse(Entity<SuitSensorComponent> ent, ref EmpPulseEvent args)
-    {
-        args.Affected = true;
-        args.Disabled = true;
-
-        ent.Comp.PreviousMode = ent.Comp.Mode;
-        SetSensor(ent.AsNullable(), SuitSensorMode.SensorOff, null);
-
-        ent.Comp.PreviousControlsLocked = ent.Comp.ControlsLocked;
-        ent.Comp.ControlsLocked = true;
-    }
-
-    private void OnEmpFinished(Entity<SuitSensorComponent> ent, ref EmpDisabledRemoved args)
-    {
-        SetSensor(ent.AsNullable(), ent.Comp.PreviousMode, null);
-        ent.Comp.ControlsLocked = ent.Comp.PreviousControlsLocked;
     }
 }

@@ -94,7 +94,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     protected override void OnGotUnequipped(EntityUid uid, HeadsetComponent component, GotUnequippedEvent args)
     {
         base.OnGotUnequipped(uid, component, args);
-        component.IsEquipped = false;
         RemComp<ActiveRadioComponent>(uid);
         RemComp<WearingHeadsetComponent>(args.Equipee);
     }
@@ -106,6 +105,9 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         if (component.Enabled == value)
             return;
+
+        component.Enabled = value;
+        Dirty(uid, component);
 
         if (!value)
         {

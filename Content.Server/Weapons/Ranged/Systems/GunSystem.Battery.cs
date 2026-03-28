@@ -22,6 +22,7 @@
 using Content.Server.Power.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
+using Content.Shared.Power;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged;
@@ -120,6 +121,7 @@ public sealed partial class GunSystem
 
         var abs = Math.Abs(ap);
         args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
+        // Goobstation End
     }
 
     private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)
