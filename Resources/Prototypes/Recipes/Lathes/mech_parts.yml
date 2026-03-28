@@ -64,6 +64,10 @@
   result: RipleyLArm
   categories:
   - Ripley # Goobstation
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 1200
 
 - type: latheRecipe
   parent: BaseRipleyLimbRecipe
@@ -132,6 +136,10 @@
   result: HamtrHarness
   categories:
   - Hamptr # Goobstation
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 1200
 
 - type: latheRecipe
   parent: BaseHamtrLimbRecipe
