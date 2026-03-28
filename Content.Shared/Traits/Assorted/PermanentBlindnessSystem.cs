@@ -18,6 +18,7 @@ using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.IdentityManagement;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Traits.Assorted;
 
@@ -46,7 +47,7 @@ public sealed class PermanentBlindnessSystem : EntitySystem
         else if (args.IsInDetailsRange && !_net.IsClient && blindness.Comp.Blindness == 4) /// Goobstation
         {
             args.PushMarkup(Loc.GetString("poor-vision-trait-examined", ("target", Identity.Entity(blindness, EntityManager))));
-        }  
+        }
     }
 
     private void OnShutdown(Entity<PermanentBlindnessComponent> blindness, ref ComponentShutdown args)

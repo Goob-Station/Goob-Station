@@ -85,6 +85,6 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
             }
         }
 
-        base.UpdateEntityAppearance(entity, prototype);
+        base.UpdateEntityAppearance(entity, prototype, subtypePrototype); // Goob pass along subtypePrototype. No i don't know what the fuck happened here and im too tired to care.
     }
 }
