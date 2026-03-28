@@ -4,8 +4,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.IoC;
 using Robust.Shared.Log;
 using Robust.Shared.Network;
+using Robust.Shared;
 using SpaceWizards.Sodium;
-using CVars = Robust.Shared.CVars;
 
 namespace Content.Servesey.Server.Harmony.Patches;
 
