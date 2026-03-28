@@ -55,9 +55,16 @@
     Innocent: "#f6f439" # Monky
     Angry: "#dc5864" # Hunty
     Perceptive: "#222222" # Watchy
-    Eldritch: "#dc5864"
-    Fat: "#fefcab"
-    Violent: "#ab3430"
-    Speedy: "#679cfe"
-    Mutated: "#7824a0"
-    Damned: "#98e652"
+    # Goob edit - removed duplicate colour here
+    Fat: "#fad8ac" # Goob colour edit
+    Violent: "#9b384d" # Goob colour edit
+    Speedy: "#a2e8ff" # Goob colour edit
+    Mutated: "#5d47a4" # Goob colour edit
+    Damned: "#96fd21" # Goob colour edit
+    Pink: "#ffb6c1" # Goob addition
+    Orange: "#ffa500" # Goob addition
+    Grey: "#808080" # Goob addition
+    Teal: "#008080" # Goob addition
+    Purple: "#4b0082" # Goob addition
+    Blue: "#08619C" # Goob addition
+    Magenta: "#ff00ff" # Goob addition
