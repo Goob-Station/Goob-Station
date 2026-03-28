@@ -94,11 +94,6 @@
     consumerFixtureId: EventHorizonConsumer
     consumeTiles: false
     consumeEntities: false
-  # <Goobstation>
-  - type: Tag
-    tags:
-    - Tesla
-  # </Goobstation>
   - type: TeslaEnergyBall
     spawnProto: TeslaMiniEnergyBall
     soundCollapse:
@@ -121,6 +116,7 @@
   - type: Tag
     tags:
     - GhostOnlyWarp
+    - Tesla # Goob
   - type: WarpPoint
     follow: true
     location: tesla ball

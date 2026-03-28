@@ -67,3 +67,60 @@
           - PressureDamageChange
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+
+# Shitmed Modules
+
+- type: entity
+  id: BorgModuleSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-surgery
+  - type: ItemBorgModule
+    hands:
+    - item: Scalpel
+    - item: SawElectric
+    - item: Drill
+    - item: Retractor
+    - item: Hemostat
+    - item: Cautery
+    - item: MedicalStitches
+    - item: BoneGel
+    - item: Bonesetter
+    - item: OrganHumanBrain
+      hand:
+        emptyLabel: borg-slot-organs-empty-goob
+        emptyRepresentative: OrganHumanBrain
+        whitelist:
+          components:
+          - BodyPart
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
+
+- type: entity
+  id: BorgModuleAdvancedSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: advanced surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-advanced-surgery
+  - type: ItemBorgModule
+    hands:
+    - item: EnergyScalpel
+    - item: EnergyCautery
+    - item: AdvancedRetractor
+    - item: AdvancedBoneGel
+    - item: OrganHumanBrain
+      hand:
+        emptyLabel: borg-slot-organs-empty-goob
+        emptyRepresentative: OrganHumanBrain
+        whitelist:
+          components:
+          - BodyPart
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }

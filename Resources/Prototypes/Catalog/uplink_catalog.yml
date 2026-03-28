@@ -2346,7 +2346,7 @@
   id: uplinkNecronomicon
   name: uplink-necronomicon-name
   description: uplink-necronomicon-desc
-  productEntity: HolyHandGrenade # bibl
+  productEntity: BibleNecronomicon
   cost:
     Telecrystal: 20 # goob
   categories:

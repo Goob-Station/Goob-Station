@@ -15,7 +15,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: _DV/Actions/escapeinventory.rsi/cancel-escape.png
+    icon: { sprite: _DV/Actions/escapeinventory.rsi, state: cancel-escape }
     useDelay: 2
   - type: InstantAction
     event: !type:EscapeInventoryCancelActionEvent

@@ -1734,11 +1734,11 @@
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
        !type:String
-       pda-syndi-agent
+       pda-syndi-corpsman # Goobstation?
   - type: PdaBorderColor
     borderColor: "#891417"
   - type: Icon
-    state: pda-syndi-agent
+    state: pda-syndi-corpsman # Goobstation?
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:

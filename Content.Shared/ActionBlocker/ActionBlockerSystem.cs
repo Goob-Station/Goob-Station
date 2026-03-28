@@ -216,7 +216,7 @@ namespace Content.Shared.ActionBlocker
 
         public bool CanThrow(EntityUid user, EntityUid itemUid)
         {
-            var ev = new ThrowAttemptEvent(user, itemUid);
+            var ev = new ThrowAttemptEvent(user, itemUid, null); // Goob pass target.
             RaiseLocalEvent(user, ev);
 
             if (ev.Cancelled)

@@ -28,7 +28,7 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
     {
         if (EnsureComp<SurgeryToolComponent>(ent, out var tool))
         {
-            //ent.Comp.HadSurgeryTool = true; // todo marty
+            ent.Comp.HadSurgeryTool = true;
         }
         else
         {
@@ -39,7 +39,7 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
 
         if (EnsureComp<ScalpelComponent>(ent, out var scalpel))
         {
-            //ent.Comp.HadScalpel = true; // todo marty
+            ent.Comp.HadScalpel = true;
         }
         else
         {
@@ -49,7 +49,7 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
 
         if (EnsureComp<BoneSawComponent>(ent, out var saw))
         {
-            //ent.Comp.HadBoneSaw = true; //todo marty
+            ent.Comp.HadBoneSaw = true;
         }
         else
         {
@@ -60,13 +60,13 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
 
     private void OnSharpShutdown(Entity<SharpComponent> ent, ref ComponentShutdown args)
     {
-        //if (!ent.Comp.HadSurgeryTool) // todo marty
+        if (!ent.Comp.HadSurgeryTool)
             RemComp<SurgeryToolComponent>(ent);
 
-        //if (!ent.Comp.HadScalpel)
+        if (!ent.Comp.HadScalpel)
             RemComp<ScalpelComponent>(ent);
 
-        //if (!ent.Comp.HadBoneSaw)
+        if (!ent.Comp.HadBoneSaw)
             RemComp<BoneSawComponent>(ent);
     }
 }
