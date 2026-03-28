@@ -96,7 +96,7 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    #- ChaplainUndeterminedBible # bibl
+    - ChaplainUndeterminedBible
     - RubberStampChaplain
     - Nullrod
     - ArmamentsBeacon # Goobstation
