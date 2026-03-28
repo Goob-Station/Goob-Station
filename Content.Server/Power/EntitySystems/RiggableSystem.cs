@@ -14,6 +14,7 @@ using Content.Server.Kitchen.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
+using Content.Shared.Power.Components;
 using Content.Shared.Rejuvenate;
 
 namespace Content.Server.Power.EntitySystems;

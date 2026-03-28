@@ -69,7 +69,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Cargo.Systems;
-using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Access.Components;
@@ -105,7 +104,6 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
-            SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
             SubscribeLocalEvent<VendingMachineComponent, TryVocalizeEvent>(OnTryVocalize);
 
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
@@ -156,6 +154,7 @@ namespace Content.Server.VendingMachines
         private void OnBreak(EntityUid uid, VendingMachineComponent vendComponent, BreakageEventArgs eventArgs)
         {
             vendComponent.Broken = true;
+            Dirty(uid, vendComponent);
             TryUpdateVisualState((uid, vendComponent));
         }
 
@@ -164,6 +163,7 @@ namespace Content.Server.VendingMachines
             if (!args.DamageIncreased && component.Broken)
             {
                 component.Broken = false;
+                Dirty(uid, component);
                 TryUpdateVisualState((uid, component));
                 return;
             }
@@ -325,16 +325,6 @@ namespace Content.Server.VendingMachines
             }
 
             args.Price += priceSets.Max();
-        }
-
-        private void OnEmpPulse(EntityUid uid, VendingMachineComponent component, ref EmpPulseEvent args)
-        {
-            if (!component.Broken && this.IsPowered(uid, EntityManager))
-            {
-                args.Affected = true;
-                args.Disabled = true;
-                component.NextEmpEject = Timing.CurTime;
-            }
         }
 
         private void OnTryVocalize(Entity<VendingMachineComponent> ent, ref TryVocalizeEvent args)

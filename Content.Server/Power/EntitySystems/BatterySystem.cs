@@ -35,6 +35,9 @@ using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Shared.Emp; // Goobstation
 using Content.Shared.Examine;
+using Content.Shared.Power;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
@@ -44,7 +47,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.Power.EntitySystems
 {
     [UsedImplicitly]
-    public sealed class BatterySystem : EntitySystem
+    public sealed class BatterySystem : SharedBatterySystem
     {
         [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
         [Dependency] private readonly IGameTiming Timing = default!;
@@ -59,7 +62,6 @@ namespace Content.Server.Power.EntitySystems
             SubscribeLocalEvent<PowerNetworkBatteryComponent, RejuvenateEvent>(OnNetBatteryRejuvenate);
             SubscribeLocalEvent<BatteryComponent, RejuvenateEvent>(OnBatteryRejuvenate);
             SubscribeLocalEvent<BatteryComponent, PriceCalculationEvent>(CalculateBatteryPrice);
-            SubscribeLocalEvent<BatteryComponent, EmpPulseEvent>(OnEmpPulse);
             SubscribeLocalEvent<BatteryComponent, ChangeChargeEvent>(OnChangeCharge);
             SubscribeLocalEvent<BatteryComponent, GetChargeEvent>(OnGetCharge);
 
@@ -89,7 +91,7 @@ namespace Content.Server.Power.EntitySystems
                 if (effectiveMax == 0)
                     effectiveMax = 1;
                 var chargeFraction = batteryComponent.CurrentCharge / effectiveMax;
-                var chargePercentRounded = (int) (chargeFraction * 100);
+                var chargePercentRounded = (int)(chargeFraction * 100);
                 args.PushMarkup(
                     Loc.GetString(
                         "examinable-battery-component-examine-detail",
@@ -176,7 +178,7 @@ namespace Content.Server.Power.EntitySystems
             args.MaxCharge += entity.Comp.MaxCharge;
         }
 
-        public float UseCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        public override float UseCharge(EntityUid uid, float value, BatteryComponent? battery = null)
         {
             if (value <= 0 || !Resolve(uid, ref battery) || battery.CurrentCharge == 0)
                 return 0;
@@ -184,7 +186,7 @@ namespace Content.Server.Power.EntitySystems
             return ChangeCharge(uid, -value, battery);
         }
 
-        public void SetMaxCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        public override void SetMaxCharge(EntityUid uid, float value, BatteryComponent? battery = null)
         {
             if (!Resolve(uid, ref battery))
                 return;
@@ -219,7 +221,7 @@ namespace Content.Server.Power.EntitySystems
         /// <summary>
         /// Changes the current battery charge by some value
         /// </summary>
-        public float ChangeCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        public override float ChangeCharge(EntityUid uid, float value, BatteryComponent? battery = null)
         {
             if (!Resolve(uid, ref battery))
                 return 0;
@@ -235,10 +237,7 @@ namespace Content.Server.Power.EntitySystems
             return delta;
         }
 
-        /// <summary>
-        /// Checks if the entity has a self recharge and puts it on cooldown if applicable.
-        /// </summary>
-        public void TrySetChargeCooldown(EntityUid uid, float value = -1)
+        public override void TrySetChargeCooldown(EntityUid uid, float value = -1)
         {
             if (!TryComp<BatterySelfRechargerComponent>(uid, out var batteryself))
                 return;
@@ -273,7 +272,7 @@ namespace Content.Server.Power.EntitySystems
         /// <summary>
         ///     If sufficient charge is available on the battery, use it. Otherwise, don't.
         /// </summary>
-        public bool TryUseCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        public override bool TryUseCharge(EntityUid uid, float value, BatteryComponent? battery = null)
         {
             if (!Resolve(uid, ref battery, false) || value > battery.CurrentCharge)
                 return false;
