@@ -16,6 +16,9 @@ public sealed class HarmonyManager : IHarmonyManager
     {
         _sawmill.Info("Servesey initialized");
 
+        // LocalBuild SUCKS on .NET 9 for some reason and I cant be fucked to figure why
+        Environment.SetEnvironmentVariable("MONOMOD_DMD_TYPE", "dynamicmethod");
+
         _harmony = new HarmonyLib.Harmony(HarmonyId);
 
         var assembly = typeof(HarmonyManager).Assembly;
@@ -32,14 +35,17 @@ public sealed class HarmonyManager : IHarmonyManager
                 var record = new PatchRecord(patchType.FullName ?? patchType.Name, true);
                 _appliedPatches.Add(record);
 
-                _sawmill.Debug($"  Applied patch: {record.Name}");
+                _sawmill.Debug($"Applied patch: {record.Name}");
+
+                var initMethod = patchType.GetMethod("Initialize", BindingFlags.Public | BindingFlags.Static, Type.EmptyTypes);
+                initMethod?.Invoke(null, null);
             }
             catch (Exception ex)
             {
                 var record = new PatchRecord(patchType.FullName ?? patchType.Name, false);
                 _appliedPatches.Add(record);
 
-                _sawmill.Error($"  Failed to apply patch '{record.Name}': {ex}");
+                _sawmill.Error($"Failed to apply patch '{record.Name}': {ex}");
             }
         }
 
