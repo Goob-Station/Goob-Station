@@ -1,0 +1,16 @@
+- type: utilityQuery
+  id: NearbyEggs
+  query:
+  - !type:ComponentQuery
+    components:
+    - type: TimedReplace
+  - !type:ComponentFilter
+    components:
+    - type: InIncubator
+    retainWithComp: false
+  considerations:
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve

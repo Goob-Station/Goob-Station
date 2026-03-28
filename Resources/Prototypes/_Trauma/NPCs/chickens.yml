@@ -1,0 +1,25 @@
+- type: htnCompound
+  id: RoosterCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: MeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FoodCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FertilizeCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: HenCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FoodCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound

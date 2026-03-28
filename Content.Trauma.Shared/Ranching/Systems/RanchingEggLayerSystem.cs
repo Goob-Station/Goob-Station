@@ -1,12 +1,17 @@
 using System.Linq;
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Trauma.Shared.Ranching.Components;
 using Content.Trauma.Shared.Ranching.Events;
+using Content.Trauma.Shared.TimedReplace;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
@@ -20,11 +25,37 @@ public sealed class RanchingEggLayerSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly HappinessSystem _happiness = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<RanchingEggLayerComponent, RanchingEggLayAttemptEvent>(OnEggLayAttempt);
         SubscribeLocalEvent<RanchingEggLayerComponent, RanchingEggLayEvent>(OnEggLay);
+
+        SubscribeLocalEvent<TimedReplaceComponent, ActivateInWorldEvent>(OnInteraction);
+        SubscribeLocalEvent<TimedReplaceComponent, FertilizeDoAfterEvent>(OnFertilize);
+    }
+
+
+    private void OnFertilize(Entity<TimedReplaceComponent> ent, ref FertilizeDoAfterEvent args)
+    {
+        ent.Comp.SpawnTime = _timing.CurTime;
+    }
+
+    private void OnInteraction(Entity<TimedReplaceComponent> ent, ref ActivateInWorldEvent args)
+    {
+        if (!TryComp<EggFertilizerComponent>(args.User, out var user))
+            return;
+
+        var doAfter =
+            new DoAfterArgs(EntityManager, args.User, user.DoAfter, new FertilizeDoAfterEvent(), ent.Owner)
+            {
+                BreakOnMove = true,
+                BreakOnDamage = true,
+            };
+
+        _doAfter.TryStartDoAfter(doAfter);
     }
 
     private void OnEggLay(Entity<RanchingEggLayerComponent> ent, ref RanchingEggLayEvent args)

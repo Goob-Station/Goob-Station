@@ -1,0 +1,81 @@
+- type: htnCompound
+  id: WantedInnateRangedCombatCompound
+  branches:
+  - preconditions:
+    - !type:GunAmmoPrecondition
+      minPercent: 0.001
+    - !type:GunCanFirePrecondition
+    tasks:
+    - !type:HTNCompoundTask
+      task: WantedGunCombatCompound
+
+- type: htnCompound
+  id: WantedGunCombatCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:PickNearbyWantedOperator
+        targetKey: Target
+        targetMoveKey: TargetCoordinates
+        criminalStatus: SecurityIconHostile
+        targetFoundSound: !type:SoundCollectionSpecifier
+          collection: Ed209TargetFound
+
+    - !type:HTNPrimitiveTask
+      operator: !type:SpeakOperator
+        speech: !type:LocalizedSetSpeakOperatorSpeech
+          lineSet: ED209Intimidation
+        hidden: true
+
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: false
+        removeKeyOnFinish: false
+        stopOnLineOfSight: true
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      operator: !type:GunOperator
+        targetKey: Target
+      services:
+      - !type:UtilityService
+        id: RangedService
+        proto: NearbyGunTargets
+        key: Target
+
+- type: htnCompound
+  id: FertilizeCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:HungryPrecondition
+        minHungerState: Okay
+      operator: !type:UtilityOperator
+        proto: NearbyEggs
+        targetKey: Target
+        targetMoveKey: TargetCoordinates
+
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: true
+        removeKeyOnFinish: false
+        targetKey: TargetCoordinates
+        pathfindKey: TargetPathfind
+        rangeKey: MeleeRange
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      operator: !type:InteractWithOperator
+        targetKey: Target
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+      operator: !type:WaitOperator
+        key: IdleTime

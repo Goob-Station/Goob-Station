@@ -5,6 +5,9 @@
   name: chicken
   description: Comes before an egg, and IS a dinosaur!
   components:
+  - type: NpcFactionMember
+    factions:
+    - Chicken
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
     layers:
@@ -67,7 +70,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseMobChickRanch
+  parent: [BaseMobChickRanch, MobCombat]
   id: BaseMobRoosterRanch
   components:
   - type: MobThresholds
@@ -75,7 +78,21 @@
       0: Alive
       60: Critical
       100: Dead
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 10
+  - type: NPCRetaliation
+    attackMemoryLength: 60
+  - type: GroupRetaliation
+    range: 5
   - type: MostRecentlyEatenFoodTags
+  - type: EggFertilizer
+  - type: HTN
+    rootTask:
+      task: RoosterCompound
   - type: Happiness
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
@@ -104,6 +121,9 @@
   - type: RanchingEggLayer
   - type: MostRecentlyEatenFoodTags
   - type: Happiness
+  - type: HTN
+    rootTask:
+      task: HenCompound
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
     layers:
