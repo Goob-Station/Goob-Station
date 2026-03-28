@@ -350,7 +350,7 @@
 
 - type: entity
   parent: BaseTraitorStealObjective
-  id: EnergyMagnumStealObjective
+  id: EnergyShotgunStealObjective
   components:
   - type: Objective
     # Warden will have this on them a lot of the time so..
