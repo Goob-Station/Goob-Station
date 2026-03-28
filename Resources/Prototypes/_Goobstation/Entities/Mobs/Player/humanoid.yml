@@ -296,7 +296,6 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
-      requirements:
 
 ## ERT Leader
 
@@ -319,7 +318,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVANoReq
@@ -340,7 +338,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 ## ERT Chaplain
 
@@ -363,7 +360,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVANoReq
@@ -384,7 +380,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 ## ERT Janitor
 
@@ -407,7 +402,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVANoReq
@@ -428,7 +422,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 ## ERT Engineer
 
@@ -451,7 +444,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVANoReq
@@ -472,7 +464,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
 
 ## ERT Security
 
@@ -495,7 +486,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
       job: ERTSecurity
 
 - type: entity
@@ -517,7 +507,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
       job: ERTSecurity
 
 ## ERT Medic
@@ -541,7 +530,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
       job: ERTMedical
 
 - type: entity
@@ -563,7 +551,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
       job: ERTMedical
 
 ## CBURN
@@ -586,4 +573,3 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
