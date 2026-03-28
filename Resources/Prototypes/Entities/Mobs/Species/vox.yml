@@ -144,6 +144,16 @@
   - type: Body
     prototype: Vox
     requiredLegs: 2
+  - type: HumanoidAppearance
+    species: Vox
+    undergarmentTop: UndergarmentTopTanktopVox
+    undergarmentBottom: UndergarmentBottomBoxersVox
+    markingsDisplacement: # Goobstation?
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hair
     #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
@@ -242,6 +252,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
@@ -278,14 +290,6 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_vox" # Not default
       visible: false
-  - type: HumanoidAppearance
-    species: Vox
-    markingsDisplacement:
-      Hair:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vox/displacement.rsi
-            state: hair
   - type: Inventory
     speciesId: vox
     displacements:
@@ -329,7 +333,7 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
-      outerClothing: # Goob 
+      outerClothing: # Goob
         sizeMaps:
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
@@ -397,7 +401,7 @@
   - type: Carriable # Goobstation
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
   - type: GrabIntent # wilted rose
-  - type: Grabbable 
+  - type: Grabbable
   # Goobstation end
   - type: Hands
     leftHandDisplacement:
@@ -426,7 +430,9 @@
   components:
   - type: HumanoidAppearance
     species: Vox
-    markingsDisplacement:
+    undergarmentTop: UndergarmentTopTanktopVox
+    undergarmentBottom: UndergarmentBottomBoxersVox
+    markingsDisplacement: # Goobstation?
       Hair:
         sizeMaps:
           32:
