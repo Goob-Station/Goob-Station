@@ -792,8 +792,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Goob edit end
         if (message.Length == 0)
             return;
-        //todo marty Something is off here below.
-        var obfuscatedMessage = ObfuscateMessageReadability(message, 0.2f);
 
         // get the entity's name by visual identity (if no override provided).
         string nameIdentity = FormattedMessage.EscapeText(nameOverride ?? Identity.Name(source, EntityManager));
@@ -811,6 +809,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
         name = FormattedMessage.EscapeText(name);
 
+        // Goobstation start
+
         if (!language.SpeechOverride.RequireSpeech && language.SpeechOverride.RequireLOS)
         {
             // Since this is basically an emote, make it act like an emote for identity.
@@ -821,6 +821,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         var languageObfuscatedMessage = SanitizeInGameICMessage(source, _language.ObfuscateSpeech(message, language), out var emoteStr, true, _configurationManager.GetCVar(CCVars.ChatPunctuation),
         (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
         || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en")); // Einstein Engines - Language
+
+        // Goobstation End
 
         foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
         {
