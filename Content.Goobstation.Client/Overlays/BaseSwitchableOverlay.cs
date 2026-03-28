@@ -9,7 +9,6 @@
 using System.Numerics;
 using Content.Goobstation.Shared.Overlays;
 using Robust.Client.Graphics;
-using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
@@ -17,8 +16,7 @@ namespace Content.Goobstation.Client.Overlays;
 
 public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : SwitchableVisionOverlayComponent
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override bool RequestScreenTexture => true;
@@ -41,12 +39,7 @@ public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : Switcha
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
         if (RestrictToPlayerViewport)
-        {
-            if (!_entityManager.TryGetComponent(_playerManager.LocalEntity, out EyeComponent? eyeComp))
-                return false;
-
-            return args.Viewport.Eye == eyeComp.Eye;
-        }
+            return args.Viewport.Eye == _eyeManager.CurrentEye;
 
         return true;
     }
