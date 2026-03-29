@@ -56,13 +56,14 @@ public sealed class LubedSystem : EntitySystem
     /// </remarks>
     private void OnHandPickUp(Entity<LubedComponent> ent, ref BeforeGettingEquippedHandEvent args)
     {
+        /* todo marty move this
         // <Goobstation>
         var ev = new CanLubedInsertEvent(args.Container);
         RaiseLocalEvent(uid, ref ev);
 
         if (ev.CanInsert)
             return;
-        // </Goobstation>
+        */// </Goobstation>
 
         if (args.Cancelled)
             return;
