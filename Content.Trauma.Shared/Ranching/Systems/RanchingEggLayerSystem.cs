@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
@@ -74,8 +73,7 @@ public sealed class RanchingEggLayerSystem : EntitySystem
         if (!TryComp<MostRecentlyEatenFoodTagsComponent>(ent.Owner, out var foodTags))
             return;
 
-        if (foodTags.Tag is not null)
-            foodTags.Tag.Clear();
+        foodTags.Tag.Clear();
     }
 
     private void OnEggLayAttempt(Entity<RanchingEggLayerComponent> ent, ref RanchingEggLayAttemptEvent args)
@@ -87,7 +85,8 @@ public sealed class RanchingEggLayerSystem : EntitySystem
             return;
 
         var sortedRecipes = _proto.EnumeratePrototypes<EggRecipePrototype>()
-            .OrderByDescending(p => p.HappinessRequired);
+            .OrderByDescending(p => p.RequiresSpecialFood)
+            .ThenByDescending(p => p.HappinessRequired);
 
         var currentHappiness = _happiness.GetHappiness((ent.Owner, happiness));
 

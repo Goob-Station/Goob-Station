@@ -10,9 +10,38 @@
   - type: TimedReplace
     entity: MobChickWhite
 
+# First generation
+
 - type: entity
   parent: BaseRanchingEgg
   id: WhiteEgg
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: BrownEgg
+  components:
+  - type: Sprite
+    state: egg-brown
+  - type: TimedReplace
+    entity: MobChickBrown
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: VoidEgg
+  components:
+  - type: Sprite
+    state: egg-purple
+  - type: TimedReplace
+    entity: MobChickVoid
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: IxworthEgg
+  components:
+  - type: Sprite
+    state: egg-pet
+  - type: TimedReplace
+    entity: MobChickIxworth
 
 - type: entity
   parent: BaseRanchingEgg
@@ -31,3 +60,23 @@
     state: egg-silkie_black
   - type: TimedReplace
     entity: MobChickBlackSilkie
+
+# second generation
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: DreamEgg
+  components:
+  - type: Sprite
+    state: egg-dream
+  - type: TimedReplace
+    entity: MobChickDream
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: PoultrygeistEgg
+  components:
+  - type: Sprite
+    state: egg-ghost
+  - type: TimedReplace
+    entity: MobChickPoultrygeist

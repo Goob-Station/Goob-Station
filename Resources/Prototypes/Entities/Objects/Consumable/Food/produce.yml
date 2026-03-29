@@ -970,6 +970,7 @@
     tags:
     - Fruit
     - Vegetable
+    - Tomato # Trauma
   - type: FoodSequenceElement
     entries:
       Skewer: TomatoSkewer
@@ -1105,6 +1106,7 @@
     tags:
     - Fruit
     - Vegetable
+    - EggPlant # Trauma
 
 - type: entity
   name: apple
@@ -1181,7 +1183,6 @@
   - type: Tag
     tags:
     - Fruit
-    - DeliciousLookingApple # Trauma
   - type: FoodSequenceElement
     entries:
       Burger: GoldenApple
@@ -1516,6 +1517,7 @@
   - type: Tag
     tags:
     - Vegetable
+    - Chili # Trauma
   - type: FoodSequenceElement
     entries:
       Taco: ChiliPepper
@@ -2024,6 +2026,11 @@
           Quantity: 10
   - type: Produce
     seedId: rice
+    # <Trauma>
+  - type: Tag
+    tags:
+    - Rice
+    # </Trauma>
 
 - type: entity
   name: soybeans
@@ -2489,6 +2496,7 @@
   - type: Tag
     tags:
     - Vegetable
+    - Peas # Trauma
   - type: FoodSequenceElement
     entries:
       Taco: Pea

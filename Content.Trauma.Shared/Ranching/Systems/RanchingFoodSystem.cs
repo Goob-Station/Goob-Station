@@ -1,7 +1,7 @@
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
-using Content.Shared.Heretic;
 using Content.Shared.Tag;
+using Content.Trauma.Common.Heretic;
 using Content.Trauma.Common.Nutrition;
 using Content.Trauma.Shared.Ranching.Components;
 using Robust.Shared.Prototypes;

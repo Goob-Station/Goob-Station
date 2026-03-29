@@ -73,11 +73,21 @@
   parent: [BaseMobChickRanch, MobCombat]
   id: BaseMobRoosterRanch
   components:
+  - type: Hunger
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 35
+      Starving: 20
+      Dead: 15
   - type: MobThresholds
     thresholds:
       0: Alive
       60: Critical
       100: Dead
+  - type: AnimalAgeing # Not exactly needed, but probably should do for spawning in
+    currentAgeState: Adult
+    yearsOld: 15
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -149,6 +159,54 @@
     entToSpawn:
     - MobWhiteHen
     - MobWhiteRooster
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickBrown
+  name: brown chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobBrownHen
+    - MobBrownRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickVoid
+  name: void chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobVoidHen
+    - MobVoidRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
+  - type: FavoriteFood
+    tag:
+    - EggPlant
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickIxworth
+  name: ixworth chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobIxworthHen
+    - MobIxworthRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
+  - type: FavoriteFood
+    tag:
+    - Tomato
 
 - type: entity
   parent: BaseMobChickRanch
@@ -174,6 +232,30 @@
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
 
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickDream
+  name: dream chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobDreamHen
+    - MobDreamRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickPoultrygeist
+  name: poultrygeist chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobPoultrygeistHen
+    - MobPoultrygeistRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+
 # The Hens
 
 - type: entity
@@ -183,9 +265,31 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
-  - type: FavoriteFood
-    tag:
-    - DeliciousLookingApple
+  - type: VomitCounter
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobBrownHen
+  name: brown hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobVoidHen
+  name: void hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobIxworthHen
+  name: ixworth hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
 
 - type: entity
   parent: BaseMobHenRanch
@@ -202,6 +306,25 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+  - type: SpawnEntityOnOldAgeDeath
+    happyDeathEnt: DreamEgg
+    sadDeathEnt: PoultrygeistEgg
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobDreamHen
+  name: dream hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobPoultrygeistHen
+  name: poultrygeist hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
 
 # The Roosters
 
@@ -212,6 +335,30 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobBrownRooster
+  name: brown rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobVoidRooster
+  name: void rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobIxworthRooster
+  name: ixworth rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -228,3 +375,19 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobDreamRooster
+  name: dream rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobPoultrygeistRooster
+  name: poultrygeist rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi

@@ -8,6 +8,7 @@ using Content.Trauma.Shared.AnimalAgeing.Components;
 using Content.Trauma.Shared.AnimalAgeing.Events;
 using Content.Trauma.Shared.Ranching.Components;
 using Content.Trauma.Shared.Ranching.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Trauma.Shared.AnimalAgeing;
@@ -47,16 +48,15 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         if (happiness == null)
             return;
 
-        if (ent.Comp.GreaterThan && happiness < ent.Comp.RequiredHappiness)
-            return;
+        EntProtoId entity = new();
 
-        if (!ent.Comp.GreaterThan && happiness > ent.Comp.RequiredHappiness)
-            return;
+        if (happiness <= ent.Comp.UnHappinessRequired)
+            entity = ent.Comp.SadDeathEnt;
 
-        foreach (var entity in ent.Comp.EntToSpawn)
-        {
-            SpawnAtPosition(entity, ent.Owner.ToCoordinates());
-        }
+        if (happiness >= ent.Comp.HappinessRequired)
+            entity = ent.Comp.HappyDeathEnt;
+
+        SpawnAtPosition(entity, ent.Owner.ToCoordinates());
     }
 
     private void OnExamineHappiness(Entity<HappinessComponent> ent, ref ExaminedEvent args)
@@ -89,15 +89,8 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
             return;
 
         var enttospawn = _random.Pick(ent.Comp.EntToSpawn);
-        var spawnedEnt = PredictedSpawnAtPosition(enttospawn, ent.Owner.ToCoordinates());
 
-        CopyComps(ent.Owner, spawnedEnt);
-
-        // Directly copy age as CopyComps doesn't copy variables for some reason
-        var addedAgeingComponent = CopyComp(ent.Owner,  spawnedEnt, animalAgeing);
-
-        Dirty(spawnedEnt, addedAgeingComponent);
-        PredictedDel(ent.Owner);
+        CopyAndReplaceEntity(enttospawn, ent.Owner);
     }
     private void OnStateChanged(Entity<ChangeComponentsOnAgeUpComponent> ent, ref ChangeMobAgeStateEvent args)
     {
@@ -182,4 +175,24 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
             RaiseLocalEvent(ent.Owner, ref ev);
         }
     }
+
+    #region Helpers
+
+    public void CopyAndReplaceEntity(EntProtoId entToSpawn, EntityUid uid)
+    {
+        if (!TryComp<AnimalAgeingComponent>(uid, out var animalAgeing))
+            return;
+
+        var spawnedEnt = PredictedSpawnAtPosition(entToSpawn, uid.ToCoordinates());
+
+        CopyComps(uid, spawnedEnt);
+
+        // Directly copy age as CopyComps doesn't copy variables for some reason
+        var addedAgeingComponent = CopyComp(uid,  spawnedEnt, animalAgeing);
+
+        Dirty(spawnedEnt, addedAgeingComponent);
+        PredictedDel(uid);
+    }
+
+    #endregion
 }

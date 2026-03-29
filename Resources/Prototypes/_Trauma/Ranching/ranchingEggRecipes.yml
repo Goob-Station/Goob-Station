@@ -4,7 +4,29 @@
   requiredChicken:
   - MobWhiteHen
   requiresSpecialFood: false
-  happinessRequired: 5
+  happinessRequired: 10
+
+- type: eggRecipe
+  id: BrownEgg
+  egg: BrownEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobBrownHen
+  chickensRequireDifferentHappiness:
+    MobBrownHen: 10
+  requiresSpecialFood: false
+  happinessRequired: 35
+
+- type: eggRecipe
+  id: IxworthEgg
+  egg: IxworthEgg
+  requiredChicken:
+  - MobWhiteHen
+  noSpecialFoodRequiredChickens:
+  - MobIxworthHen
+  happinessRequired: 10
+  foodTagsRequired:
+  - Tomato
 
 - type: eggRecipe
   id: SilkieEgg
@@ -19,6 +41,27 @@
   - Apple
 
 - type: eggRecipe
+  id: VoidEgg
+  egg: VoidEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobVoidHen
+  noSpecialFoodRequiredChickens:
+  - MobVoidHen
+  requiresSpecialFood: false
+  happinessRequired: 15
+  componentsRequired:
+  - type: VomitedEnoughMarker
+
+- type: eggRecipe
+  id: VoidEggSelf
+  egg: VoidEgg
+  requiredChicken:
+  - MobVoidHen
+  happinessRequired: 10
+  requiresSpecialFood: false
+
+- type: eggRecipe
   id: BlackSilkieEgg
   egg: BlackSilkieEgg
   requiredChicken:
@@ -26,6 +69,26 @@
   - MobBlackSilkieHen
   noSpecialFoodRequiredChickens:
   - MobBlackSilkieHen
-  happinessRequired: 20
+  happinessRequired: 10
   foodTagsRequired:
   - DeliciousLookingApple
+
+- type: eggRecipe
+  id: DreamEgg
+  egg: DreamEgg
+  requiredChicken:
+  - MobDreamHen
+  noSpecialFoodRequiredChickens:
+  - MobDreamHen
+  requiresSpecialFood: false
+  happinessRequired: 10
+
+- type: eggRecipe
+  id: PoultrygeistEgg
+  egg: PoultrygeistEgg
+  requiredChicken:
+  - MobPoultrygeistHen
+  noSpecialFoodRequiredChickens:
+  - MobPoultrygeistHen
+  requiresSpecialFood: false
+  happinessRequired: 10

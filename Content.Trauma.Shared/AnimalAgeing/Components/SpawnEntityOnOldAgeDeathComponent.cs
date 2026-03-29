@@ -7,11 +7,14 @@ namespace Content.Trauma.Shared.AnimalAgeing.Components;
 public sealed partial class SpawnEntityOnOldAgeDeathComponent : Component
 {
     [DataField]
-    public List<EntProtoId> EntToSpawn;
+    public EntProtoId HappyDeathEnt;
 
     [DataField]
-    public float RequiredHappiness;
+    public EntProtoId SadDeathEnt;
 
     [DataField]
-    public bool GreaterThan = true;
+    public float HappinessRequired = 30f;
+
+    [DataField]
+    public float UnHappinessRequired;
 }
