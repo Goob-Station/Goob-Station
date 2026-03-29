@@ -41,7 +41,9 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobResomiChest
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    Chest: MobResomiTorso
     Groin: MobResomiGroin
     Eyes: MobResomiEyes
     LArm: MobResomiLArm
@@ -78,10 +80,10 @@
     Chest:
       points: 10
       required: false
-    Underwear:
+    UndergarmentBottom:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
     RightLeg:
@@ -134,22 +136,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobResomiChest
+  id: MobResomiTorso
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobResomiChestMale
+  id: MobResomiTorsoMale
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobResomiChestFemale
+  id: MobResomiTorsoFemale
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: chest_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobResomiGroin

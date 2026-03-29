@@ -23,9 +23,9 @@
     Head: MobGingerbreadHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
-    Chest: MobGingerbreadChest
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    Chest: MobGingerbreadTorso
     Groin: MobGingerbreadGroin
     Eyes: MobGingerbreadEyes
     LArm: MobGingerbreadLArm
@@ -62,22 +62,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadChest
+  id: MobGingerbreadTorso
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadChestMale
+  id: MobGingerbreadTorsoMale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadChestFemale
+  id: MobGingerbreadTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: chest_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobGingerbreadGroin

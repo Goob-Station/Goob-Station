@@ -27,7 +27,7 @@
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
-    state: "chest_m"
+    state: "torso_m"
 
 - type: entity
   id: GroinOni
