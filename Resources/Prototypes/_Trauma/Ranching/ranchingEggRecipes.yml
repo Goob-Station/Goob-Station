@@ -92,3 +92,15 @@
   - MobPoultrygeistHen
   requiresSpecialFood: false
   happinessRequired: 10
+
+- type: eggRecipe
+  id: SpicyEgg
+  egg: SpicyEgg
+  requiredChicken:
+  - MobBrownHen
+  - MobSpicyHen
+  noSpecialFoodRequiredChickens:
+  - MobSpicyHen
+  happinessRequired: 10
+  foodTagsRequired:
+  - Chili

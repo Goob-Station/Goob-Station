@@ -256,6 +256,21 @@
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
 
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickSpicy
+  name: spicy chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSpicyHen
+    - MobSpicyRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
+
 # The Hens
 
 - type: entity
@@ -326,6 +341,14 @@
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
 
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobSpicyHen
+  name: spicy hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+
 # The Roosters
 
 - type: entity
@@ -391,3 +414,11 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobSpicyRooster
+  name: spicy rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi

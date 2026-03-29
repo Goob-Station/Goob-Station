@@ -80,3 +80,12 @@
     state: egg-ghost
   - type: TimedReplace
     entity: MobChickPoultrygeist
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SpicyEgg
+  components:
+  - type: Sprite
+    state: egg-spicy
+  - type: TimedReplace
+    entity: MobChickSpicy
