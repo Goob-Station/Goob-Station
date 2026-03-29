@@ -1,3 +1,4 @@
+# Do NOT put anything after the Entries section, in order to prevent merge conflict with new CL entries
 Entries:
 - author: BIGZi0348, slarticodefast
   changes:

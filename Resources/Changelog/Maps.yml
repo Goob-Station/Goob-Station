@@ -1,4 +1,6 @@
-﻿Entries:
+﻿Order: 1
+# Do NOT put anything after the Entries section, in order to prevent merge conflict with new CL entries
+Entries:
 - author: ArtisticRoomba
   changes:
   - message: The mapping changelog has been added! This primarily serves as a way
