@@ -22,7 +22,7 @@
   sprites:
     Head: MobPlasmamanHead
     Face: MobHumanoidAnyMarking
-    Chest: MobPlasmamanChest
+    Chest: MobPlasmamanTorso
     Groin: MobPlasmamanGroin
     Eyes: MobPlasmamanEyes
     LArm: MobPlasmamanLArm
@@ -88,22 +88,22 @@
     state: eyes
 
 - type: humanoidBaseSprite
-  id: MobPlasmamanChest
+  id: MobPlasmamanTorso
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobPlasmamanChestMale
+  id: MobPlasmamanTorsoMale
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobPlasmamanChestFemale
+  id: MobPlasmamanTorsoFemale
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
-    state: chest_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobPlasmamanGroin

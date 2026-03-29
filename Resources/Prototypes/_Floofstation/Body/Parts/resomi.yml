@@ -28,7 +28,7 @@
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: "chest_m"
+    state: "torso_m"
 
 - type: entity
   id: GroinResomi

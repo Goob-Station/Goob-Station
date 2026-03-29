@@ -183,11 +183,19 @@
       - DiscreteHealthAnalyzer
       - SurgeryTool
       - Dropper
+      - Tourniquet #Goobstation
+      - MedicalPatch # Goobstation
+      - AutoinjectorCartridge # Goobstation
+      - HandheldCrewMonitor # Goobstation
       components:
       - Hypospray
       - Injector
       - Pill
       - HandLabeler
+      - SurgeryTool # Shitmed Change
+      - Defibrillator # Goobstation
+      - SyringeGun # Goobstation
+      - GunApplySolution # Goobstation - Syndicate dart gun
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:

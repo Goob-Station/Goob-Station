@@ -5,7 +5,7 @@
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
-    state: "chest_m"
+    state: "torso_m"
   - type: BodyPart
     species: Shadowling
   - type: Extractable

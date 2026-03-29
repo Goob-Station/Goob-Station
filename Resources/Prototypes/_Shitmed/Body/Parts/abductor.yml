@@ -34,9 +34,9 @@
   name: "abductor chest"
   components:
   - type: Sprite
-    state: chest
+    state: torso
   - type: Icon
-    state: chest
+    state: torso
   - type: Extractable
     juiceSolution:
       reagents:

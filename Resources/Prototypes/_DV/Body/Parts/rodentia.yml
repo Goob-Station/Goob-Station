@@ -34,10 +34,10 @@
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: "chest_m"
+    state: "torso_m"
   - type: Icon
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: "chest_m"
+    state: "torso_m"
 
 - type: entity
   parent: [ PartRodentiaBase, BaseGroin ]
