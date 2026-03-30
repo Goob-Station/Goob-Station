@@ -173,7 +173,7 @@
     sprite: Structures/Machines/cloning.rsi
     state: pod_0
   result: CloningPodMachineCircuitboard
-  completeTime: 10
+  completetime: 10
 
 - type: latheRecipe
   parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
@@ -182,10 +182,10 @@
     sprite: Structures/Machines/scanner.rsi
     state: open
   result: MedicalScannerMachineCircuitboard
-  completeTime: 10
+  completetime: 10
 
 - type: latheRecipe
   parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
   id: CloningConsoleComputerCircuitboardRecipe
   result: CloningConsoleComputerCircuitboard
-  completeTime: 10
+  completetime: 10
