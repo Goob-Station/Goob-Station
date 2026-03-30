@@ -195,7 +195,7 @@ public sealed class CloningPodSystem : EntitySystem
         if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
             return false;
 
-        var cloningCost = (int) Math.Round(physics.FixturesMass);
+        var cloningCost = (int)Math.Round(physics.FixturesMass);
 
         /* Goobstation - Cloning require 100% material now
          * if (_configManager.GetCVar(CCVars.BiomassEasyMode))
