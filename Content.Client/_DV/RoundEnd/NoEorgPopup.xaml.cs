@@ -15,7 +15,6 @@ public sealed partial class NoEorgPopup : FancyWindow
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private float _remainingTime;
-    private bool _initialSkipState;
 
     public NoEorgPopup()
     {
@@ -23,7 +22,6 @@ public sealed partial class NoEorgPopup : FancyWindow
         RobustXamlLoader.Load(this);
 
         _cfg.OnValueChanged(DCCVars.RoundEndNoEorgPopupTime, duration => _remainingTime = duration, true);
-        _cfg.OnValueChanged(DCCVars.SkipRoundEndNoEorgPopup, val => _initialSkipState = val, true);
 
         InitializeUI();
         InitializeEvents();
@@ -34,10 +32,7 @@ public sealed partial class NoEorgPopup : FancyWindow
         TitleLabel.Text = Loc.GetString("no-eorg-popup-label");
         MessageLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("no-eorg-popup-message")));
         RuleLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("no-eorg-popup-rule")));
-        RuleTextLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("no-eorg-popup-rule-text")));
-        AntagRuleTextLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("no-eorg-popup-antag-text")));
 
-        SkipCheckBox.Pressed = _initialSkipState;
         NoEorgCloseButton.Disabled = true;
 
         UpdateCloseButtonText();
@@ -45,16 +40,13 @@ public sealed partial class NoEorgPopup : FancyWindow
 
     private void InitializeEvents()
     {
-        OnClose += SaveSkipState; // Only change the CVar once the close button is pressed
+        OnClose += SaveCloseState; // Only change the CVar once the close button is pressed
         NoEorgCloseButton.OnPressed += OnClosePressed;
     }
 
-    private void SaveSkipState()
+    private void SaveCloseState()
     {
-        if (SkipCheckBox.Pressed == _initialSkipState)
-            return;
-
-        _cfg.SetCVar(DCCVars.SkipRoundEndNoEorgPopup, SkipCheckBox.Pressed);
+        _cfg.SetCVar(DCCVars.LastReadRoundEndNoEorgPopup, DateTime.UtcNow.ToString("O"));
         _cfg.SaveToFile();
     }
 

@@ -89,10 +89,16 @@ public sealed partial class DCCVars
         CVarDef.Create("game.round_end_eorg_popup_enabled", false, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    /// Skip the no EORG popup.
+    /// How long until the next EORG popup can be shown after previous one.
     /// </summary>
-    public static readonly CVarDef<bool> SkipRoundEndNoEorgPopup =
-        CVarDef.Create("game.skip_round_end_eorg_popup", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<int> AskRoundEndNoEorgPopup =
+        CVarDef.Create("game.last_read_end_eorg_popup", 14, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Set the last shown of EORG popup to client current time.
+    /// </summary>
+    public static readonly CVarDef<string> LastReadRoundEndNoEorgPopup =
+        CVarDef.Create("game.last_read_end_eorg_popup_time", "", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// How long to display the EORG popup for.
