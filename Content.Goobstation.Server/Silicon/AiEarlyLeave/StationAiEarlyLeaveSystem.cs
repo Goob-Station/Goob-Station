@@ -75,8 +75,9 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
         {
             if (!radio.ReceiveAllChannels)
             {
-                if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom)
-                                                            && !intercom.SupportedChannels.Contains(channel.ID)))
+                if (!radio.Channels.Contains(channel.ID) 
+                || (TryComp<IntercomComponent>(receiver, out var intercom)
+                && !intercom.SupportedChannels.Contains(channel.ID)))
                     continue;
             }
 
