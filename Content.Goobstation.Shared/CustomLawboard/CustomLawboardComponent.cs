@@ -10,7 +10,6 @@ public sealed partial class CustomLawboardComponent : Component
     /// <summary>
     /// The laws of this custom lawboard.
     /// </summary>
-    [AutoNetworkedField]
-    [DataField]
+    [DataField, AutoNetworkedField]
     public List<SiliconLaw> Laws = new();
 }
