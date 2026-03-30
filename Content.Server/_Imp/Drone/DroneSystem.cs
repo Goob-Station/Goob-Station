@@ -208,9 +208,7 @@ namespace Content.Server._Imp.Drone
 
             var chargePercent = new short();
             if (_battery.TryGetBatteryComponent(ent.Owner, out var batteryComponent, out var _))
-            {
                 chargePercent = (short) MathF.Round(batteryComponent.CurrentCharge / batteryComponent.MaxCharge * 10f);
-            }
 
             if (chargePercent == 5 && chargePercent < ent.Comp.LastChargePercent)
             {
