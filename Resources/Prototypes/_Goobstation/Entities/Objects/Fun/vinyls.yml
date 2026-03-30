@@ -539,6 +539,17 @@
       path: /Audio/_Goobstation/RadioStation/music/goonstation/xtra.ogg
 
 - type: entity
+  name: "vinyl disk: trap ops"
+  id: VinylDiskTuff
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/NUKIES_TRAP.ogg
+
+- type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
   parent: BaseVinylDisk

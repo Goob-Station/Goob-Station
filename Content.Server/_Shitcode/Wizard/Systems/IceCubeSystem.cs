@@ -11,6 +11,8 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
 using Content.Shared.Whitelist;
@@ -31,7 +33,21 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
 
         SubscribeLocalEvent<IceCubeComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
         SubscribeLocalEvent<IceCubeComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<IceCubeComponent, BeforeStaminaDamageEvent>(OnStaminaDamage, before: [typeof(SharedStaminaSystem)]);
         SubscribeLocalEvent<IceCubeOnProjectileHitComponent, ProjectileHitEvent>(OnHit);
+    }
+
+    private void OnStaminaDamage(Entity<IceCubeComponent> ent, ref BeforeStaminaDamageEvent args)
+    {
+        if (args.Value <= 0)
+            return;
+
+        if (!TryComp(ent, out TemperatureComponent? temperature))
+            return;
+
+        ent.Comp.SustainedDamage += args.Value * ent.Comp.StaminaDamageMeltProbabilityMultiplier;
+        if (ShouldUnfreeze(ent, temperature.CurrentTemperature))
+            RemCompDeferred(ent, ent.Comp);
     }
 
     private void OnHit(Entity<IceCubeOnProjectileHitComponent> ent, ref ProjectileHitEvent args)
@@ -64,26 +80,28 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
         if (realDamage <= 0f)
             return;
 
-        ent.Comp.SustainedDamage += realDamage;
-        if (ent.Comp.SustainedDamage <= comp.DamageMeltProbabilityThreshold)
-            return;
+        ent.Comp.SustainedDamage += realDamage * ent.Comp.SustainedDamageMeltProbabilityMultiplier;
 
-        var probability = Math.Clamp(ent.Comp.SustainedDamage * ent.Comp.SustainedDamageMeltProbabilityMultiplier /
-            100f * InverseLerp(ent.Comp.FrozenTemperature,
-            ent.Comp.UnfrozenTemperature,
-            temperature.CurrentTemperature),
+        if (ShouldUnfreeze(ent, temperature.CurrentTemperature))
+            RemCompDeferred(ent.Owner, ent.Comp);
+    }
+
+    private bool ShouldUnfreeze(Entity<IceCubeComponent> ent, float curTemp)
+    {
+        if (ent.Comp.SustainedDamage <= ent.Comp.DamageMeltProbabilityThreshold)
+            return false;
+
+        var probability = Math.Clamp(ent.Comp.SustainedDamage /
+            100f * Math.Clamp(InverseLerp(ent.Comp.FrozenTemperature, ent.Comp.UnfrozenTemperature, curTemp), 0.2f, 1f),
             0.2f, // At least 20%
             1f);
 
-        if (_random.Prob(probability))
-            RemCompDeferred(ent.Owner, ent.Comp);
+        return _random.Prob(probability);
+    }
 
-        return;
-
-        float InverseLerp(float min, float max, float value)
-        {
-            return max <= min ? 1f : Math.Clamp((value - min) / (max - min), 0f , 1f);
-        }
+    private float InverseLerp(float min, float max, float value)
+    {
+        return max <= min ? 1f : Math.Clamp((value - min) / (max - min), 0f , 1f);
     }
 
     private void OnTemperatureChange(Entity<IceCubeComponent> ent, ref OnTemperatureChangeEvent args)

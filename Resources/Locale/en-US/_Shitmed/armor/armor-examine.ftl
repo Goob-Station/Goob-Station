@@ -1,4 +1,4 @@
-armor-coverage-value = - [color=yellow]This armor reduces incoming damage to your { $type }[/color]
+armor-coverage-value = - This armor protects your [color=yellow]{ $type }[/color].
 armor-coverage-type-arm = arms
 armor-coverage-type-hand = hands
 armor-coverage-type-foot = feet

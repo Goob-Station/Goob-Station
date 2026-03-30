@@ -256,6 +256,18 @@
     materialComposition:
       Steel: 125
       Plastic: 125
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 100
+        mask:
+          - MobMask
+        layer:
+          - None # can't be hit by projectiles or lasers
+        hard: true
 
 - type: entity
   parent: VehicleWheelchair

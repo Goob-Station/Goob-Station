@@ -384,6 +384,7 @@
     quickEquip: false
     slots:
     - back
+    - suitstorage
   - type: MeleeDash
   - type: UseDelay
     delay: 10
