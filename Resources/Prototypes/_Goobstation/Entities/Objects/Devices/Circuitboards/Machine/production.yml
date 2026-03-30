@@ -79,6 +79,23 @@
         defaultPrototype: Beaker
 
 - type: entity
+  id: ERTTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: ERT techfab machine board
+  description: A machine printed circuit board for a ERT techfab.
+  components:
+  - type: Sprite
+    state: ert
+  - type: MachineBoard
+    prototype: ERTTechFab
+    stackRequirements:
+      Manipulator: 4
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
   id: TeslaCoilCircuitboard
   parent: BaseMachineCircuitboard
   name: tesla coil board

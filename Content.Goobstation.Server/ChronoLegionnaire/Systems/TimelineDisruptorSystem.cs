@@ -11,6 +11,7 @@ using Content.Goobstation.Shared.ChronoLegionnaire.EntitySystems;
 using Content.Server.Storage.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
+using Content.Shared.Storage.Components;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;

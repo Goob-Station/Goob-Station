@@ -79,7 +79,13 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         // MeleeHitEvent is weird, so we have to filter to make sure we actually
         // hit something and aren't just examining the weapon.
         if (args.IsHit)
+        {
             TryInjectTargets((entity.Owner, entity.Comp), args.HitEntities, args.User);
+            // goob start
+            if (TryComp<InjectorComponent>(entity.Owner, out var injector))
+                injector.ToggleState = InjectorToggleMode.Draw;
+            // goob end
+        }
     }
 
     private void OnInjectOverTime(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref InjectOverTimeEvent args)

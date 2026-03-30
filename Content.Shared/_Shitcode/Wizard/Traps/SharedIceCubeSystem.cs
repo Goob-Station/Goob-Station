@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ActionBlocker;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Emoting;
 using Content.Shared.Interaction.Events;
@@ -64,6 +65,12 @@ public abstract class SharedIceCubeSystem : EntitySystem
         SubscribeLocalEvent<IceCubeComponent, StandAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<IceCubeComponent, DownAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<IceCubeComponent, ChangeDirectionAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<IceCubeComponent, DamageModifyEvent>(OnModify);
+    }
+
+    private void OnModify(Entity<IceCubeComponent> ent, ref DamageModifyEvent args)
+    {
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.DamageReduction);
     }
 
     private void OnStartCollide(Entity<IceCubeComponent> ent, ref StartCollideEvent args)

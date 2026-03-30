@@ -154,7 +154,7 @@ public abstract partial class SharedHereticAbilitySystem
         _starMark.ApplyStarMarkInRange(coords, args.Shooter, ent.Comp.StarMarkRadius);
 
         if (TryComp(args.Target, out StatusEffectsComponent? targetStatus))
-            _stun.KnockdownOrStun(args.Target, ent.Comp.KnockdownTime, true, targetStatus);
+            _stun.KnockdownOrStun(args.Target, ent.Comp.KnockdownTime, true);
     }
 
     private void PullVictims(EntityUid user, EntityCoordinates coords, int strength)

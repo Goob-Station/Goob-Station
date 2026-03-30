@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Ghost.Roles.Raffles;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Ghost.Roles.Raffles;

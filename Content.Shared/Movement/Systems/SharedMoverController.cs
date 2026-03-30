@@ -164,6 +164,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly SharedInteractionSystem _interaction = default!; // Tile Movement Change
     [Dependency] private   readonly StandingStateSystem _standing = default!; // Goobstation - kil mofs
     [Dependency] private   readonly CommonMomentumSteeringSystem _momentumSteering = default!; // Goobstation - momentum steering
+    [Dependency] private   readonly CommonMomentumThrustSystem _momentumThrust = default!; // Goobstation - jetpack thrust falloff
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
@@ -196,6 +197,8 @@ public abstract partial class SharedMoverController : VirtualController
     /// Cache the mob movement calculation to re-use elsewhere.
     /// </summary>
     public Dictionary<EntityUid, bool> UsedMobMovement = new();
+
+    private readonly HashSet<EntityUid> _aroundColliderSet = [];
 
     public override void Initialize()
     {
@@ -460,8 +463,9 @@ public abstract partial class SharedMoverController : VirtualController
         // Goobstation - momentum steering
         if (weightless && touching && wishDir != Vector2.Zero
             && MomentumSteeringQuery.TryComp(uid, out var momSteer2)
-            && _momentumSteering.TryAdjustedWishDir(momSteer2, velocity, wishDir, out var adjWishDir, out var momSpeed))
+            && _momentumSteering.TryAdjustedWishDir(uid, momSteer2, velocity, wishDir, out var adjWishDir, out var momSpeed))
         {
+            _momentumThrust.AdjustWishDir(uid, momSteer2, wishDir, ref adjWishDir, momSpeed); // Goobstation - jetpack thrust falloff
             Accelerate(ref velocity, in adjWishDir, accel, frameTime);
             _momentumSteering.TryApplyMomentumJitter(uid, momSteer2, momSpeed);
         }
@@ -631,7 +635,9 @@ public abstract partial class SharedMoverController : VirtualController
         var (uid, collider, mover, transform) = entity;
         var enlargedAABB = _lookup.GetWorldAABB(entity.Owner, transform).Enlarged(mover.GrabRange);
 
-        foreach (var otherEntity in lookupSystem.GetEntitiesIntersecting(transform.MapID, enlargedAABB))
+        _aroundColliderSet.Clear();
+        lookupSystem.GetEntitiesIntersecting(transform.MapID, enlargedAABB, _aroundColliderSet);
+        foreach (var otherEntity in _aroundColliderSet)
         {
             if (otherEntity == uid)
                 continue; // Don't try to push off of yourself!
