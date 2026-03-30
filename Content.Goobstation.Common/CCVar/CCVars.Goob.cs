@@ -138,7 +138,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    /// Whether or not to enable the clone biomass easy mode which if true make clone pod take 70% resources instead of 100%
+    /// Easy mode for biomass requirements on cloning. If true, 30% less biomass is required to clone mobs.
     /// </summary>
     public static readonly CVarDef<bool> CloneBiomassEasyMode =
         CVarDef.Create("goob.clone_biomass_easy_mode", false, CVar.SERVER | CVar.SERVER);
