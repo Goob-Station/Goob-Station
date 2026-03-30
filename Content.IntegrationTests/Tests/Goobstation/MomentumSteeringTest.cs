@@ -2,6 +2,7 @@
 using System.Numerics;
 using Content.Goobstation.Common.MomentumSteering;
 using Content.IntegrationTests.Pair;
+using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests.Goobstation;
 
@@ -35,7 +36,7 @@ public sealed class MomentumSteeringTest
             var velocity = new Vector2(2f, 0f);
             var wishDir = new Vector2(0f, 1f);
 
-            var result = _sys.TryAdjustedWishDir(_comp, velocity, wishDir, out var adjusted, out _);
+            var result = _sys.TryAdjustedWishDir(EntityUid.Invalid, _comp, velocity, wishDir, out var adjusted, out _);
 
             Assert.That(result, Is.False, "Should return false below speed threshold");
             Assert.That(adjusted, Is.EqualTo(wishDir), "WishDir should be unchanged below threshold");
@@ -50,7 +51,7 @@ public sealed class MomentumSteeringTest
             var velocity = new Vector2(_comp.MaxSpeed, 0f);
             var wishDir = Vector2.Normalize(new Vector2(1f, 1f));
 
-            var result = _sys.TryAdjustedWishDir(_comp, velocity, wishDir, out var adjusted, out _);
+            var result = _sys.TryAdjustedWishDir(EntityUid.Invalid, _comp, velocity, wishDir, out var adjusted, out _);
 
             Assert.That(result, Is.True);
             Assert.That(adjusted.X, Is.EqualTo(wishDir.X).Within(0.01f),
@@ -68,7 +69,7 @@ public sealed class MomentumSteeringTest
             var velocity = new Vector2(_comp.MaxSpeed, 0f);
             var wishDir = new Vector2(-1f, 0f);
 
-            var result = _sys.TryAdjustedWishDir(_comp, velocity, wishDir, out var adjusted, out _);
+            var result = _sys.TryAdjustedWishDir(EntityUid.Invalid, _comp, velocity, wishDir, out var adjusted, out _);
 
             Assert.That(result, Is.True);
             Assert.That(adjusted.X, Is.EqualTo(-_comp.BrakingFactor).Within(0.01f),
@@ -109,7 +110,7 @@ public sealed class MomentumSteeringTest
             var velocity = new Vector2(_comp.MaxSpeed, 0f);
             var wishDir = Vector2.Normalize(new Vector2(-1f, -1f));
 
-            var result = _sys.TryAdjustedWishDir(_comp, velocity, wishDir, out var adjusted, out _);
+            var result = _sys.TryAdjustedWishDir(EntityUid.Invalid, _comp, velocity, wishDir, out var adjusted, out _);
 
             Assert.That(result, Is.True);
 
