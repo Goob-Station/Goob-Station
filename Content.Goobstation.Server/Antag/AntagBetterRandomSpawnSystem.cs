@@ -61,11 +61,11 @@ public sealed class AntagBetterRandomSpawnSystem : GameRuleSystem<AntagBetterRan
     /// <summary>
     /// Attempts to find a safe random location that avoids cameras and solid objects.
     /// </summary>
-    private bool TryFindSafeRandomLocation(AntagBetterRandomSpawnComponent comp, out EntityCoordinates coords)
+    public bool TryFindSafeRandomLocation(out EntityCoordinates coords, int maxAttempts = 2000, float cameraCheckRange = 15f)
     {
         coords = EntityCoordinates.Invalid;
 
-        for (var attempt = 0; attempt < comp.MaxAttempts; attempt++)
+        for (var attempt = 0; attempt < maxAttempts; attempt++)
         {
             if (!TryFindRandomTile(out var tile, out _, out var targetGrid, out var tileCoords))
                 continue;
@@ -79,7 +79,7 @@ public sealed class AntagBetterRandomSpawnSystem : GameRuleSystem<AntagBetterRan
             if (mapUid != null && !_atmosphere.IsTileMixtureProbablySafe(targetGrid, mapUid.Value, tile))
                 continue;
 
-            if (HasCameraLineOfSight(tileCoords, comp.CameraCheckRange))
+            if (HasCameraLineOfSight(tileCoords, cameraCheckRange))
                 continue;
 
             if (IsInsideSolidObject(tileCoords))
@@ -91,6 +91,12 @@ public sealed class AntagBetterRandomSpawnSystem : GameRuleSystem<AntagBetterRan
 
         return false;
     }
+
+    /// <summary>
+    /// Attempts to find a safe random location that avoids cameras and solid objects.
+    /// </summary>
+    private bool TryFindSafeRandomLocation(AntagBetterRandomSpawnComponent comp, out EntityCoordinates coords)
+        => TryFindSafeRandomLocation(out coords, comp.MaxAttempts, comp.CameraCheckRange);
 
     /// <summary>
     /// Checks if any active surveillance cameras have line of sight.
