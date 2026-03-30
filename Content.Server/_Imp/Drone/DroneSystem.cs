@@ -126,13 +126,14 @@ namespace Content.Server._Imp.Drone
 
         private void OnPowerCellChanged(EntityUid uid, DroneComponent component, PowerCellChangedEvent args)
         {
+        	if (TerminatingOrDeleted(uid))
+        		return;
+        	
             UpdateBatteryAlert((uid, component));
 
             // if we run out of charge & the drone isn't being deleted, kill the drone
-            if (!TerminatingOrDeleted(uid) && !_powerCell.HasDrawCharge(uid))
-            {
+            if (!_powerCell.HasDrawCharge(uid))
                 _mobStateSystem.ChangeMobState(uid, MobState.Dead);
-            }
 
             UpdateUI(uid, component);
         }
