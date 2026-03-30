@@ -611,6 +611,12 @@ public sealed partial class GoobCVars
         CVarDef.Create("ui.auto_focus_search_on_build_menu", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// When enabled, action hotbar slots can only be drag-reordered while the actions menu is open.
+    /// </summary>
+    public static readonly CVarDef<bool> LockActionBarDrag =
+        CVarDef.Create("ui.lock_action_bar_drag", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     /// Whether or not to show detailed examine text.
     /// </summary>
     public static readonly CVarDef<bool> DetailedExamine =
