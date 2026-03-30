@@ -66,9 +66,12 @@ public sealed class FlashbangSystem : EntitySystem
         if (comp is { KnockdownTime: <= 0, StunTime: <= 0 })
             return;
 
+        var vulnerableEv = new CheckFlashVulnerable();
+        RaiseLocalEvent(args.Target, ref vulnerableEv);
+
         var protectionRange = args.Range;
         if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag)
-            && !HasComp<FlashVulnerableComponent>(args.Target))
+            && !vulnerableEv.Vulnerable)
         {
             var ev = new GetFlashbangedEvent(MathF.Max(args.Range, ent.Comp.MinProtectionRange + 1f));
             RaiseLocalEvent(args.Target, ev);

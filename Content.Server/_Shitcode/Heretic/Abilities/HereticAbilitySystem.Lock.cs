@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.GameTicking.Rules;
+using Content.Server.Heretic.EntitySystems;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions.Components;
@@ -25,12 +26,6 @@ public sealed partial class HereticAbilitySystem
 {
     private void SubscribeLock()
     {
-        SubscribeLocalEvent<HereticComponent, EventHereticBulglarFinesse>(OnBulglarFinesse);
-        SubscribeLocalEvent<HereticComponent, EventHereticLastRefugee>(OnLastRefugee);
-        // add eldritch id here
-
-        SubscribeLocalEvent<HereticComponent, HereticAscensionLockEvent>(OnAscensionLock);
-
         SubscribeLocalEvent<GhoulComponent, EventHereticShapeshift>(OnShapeshift);
 
         SubscribeLocalEvent<ShapeshiftActionComponent, HereticShapeshiftMessage>(OnShapeshiftMessage);
@@ -71,7 +66,7 @@ public sealed partial class HereticAbilitySystem
             TryComp(polymorphed.Value, out DamageableComponent? polymorphedDamage))
             _dmg.SetDamage(polymorphed.Value, polymorphedDamage, userDamage.Damage);
 
-        _npcFaction.AddFaction(polymorphed.Value, HereticRuleSystem.HereticFactionId);
+        _npcFaction.AddFaction(polymorphed.Value, HereticSystem.HereticFactionId);
 
         if (TryComp(polymorphed, out GhoulComponent? ghoul))
             ghoul.ExamineMessage = null;
@@ -100,19 +95,5 @@ public sealed partial class HereticAbilitySystem
             return;
 
         _ui.TryOpenUi(args.Action.Owner, HereticShapeshiftUiKey.Key, ent);
-    }
-
-    private void OnBulglarFinesse(Entity<HereticComponent> ent, ref EventHereticBulglarFinesse args)
-    {
-
-    }
-    private void OnLastRefugee(Entity<HereticComponent> ent, ref EventHereticLastRefugee args)
-    {
-
-    }
-
-    private void OnAscensionLock(Entity<HereticComponent> ent, ref HereticAscensionLockEvent args)
-    {
-
     }
 }
