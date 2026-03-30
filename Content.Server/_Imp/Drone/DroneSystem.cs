@@ -231,9 +231,7 @@ namespace Content.Server._Imp.Drone
             // we make sure 0 only shows if they have absolutely no battery.
             // also account for floating point imprecision
             if (chargePercent == 0 && _powerCell.HasDrawCharge(ent.Owner))
-            {
                 chargePercent = 1;
-            }
 
             ent.Comp.LastChargePercent = chargePercent;
 
