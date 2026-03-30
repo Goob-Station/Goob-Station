@@ -19,11 +19,9 @@ public abstract partial class SharedStationAiEarlyLeaveSystem : EntitySystem
 
     private EntityUid? GetInsertedAI(Entity<StationAiCoreComponent> ent)
     {
-        if (!_containers.TryGetContainer(ent.Owner, StationAiHolderComponent.Container, out var container) ||
-            container.ContainedEntities.Count != 1)
-        {
+        if (!_containers.TryGetContainer(ent.Owner, StationAiHolderComponent.Container, out var container) 
+        || container.ContainedEntities.Count != 1)
             return null;
-        }
 
         return container.ContainedEntities[0];
     }
