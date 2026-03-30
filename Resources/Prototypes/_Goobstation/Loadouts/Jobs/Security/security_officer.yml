@@ -32,6 +32,31 @@
     neck: ClothingNeckCWPSec
 
 - type: loadout
+  id: ClothingNeckMantleVeteranSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranOfficer
+  equipment:
+    neck: ClothingNeckMantleVeteranSecurity
+
+- type: loadout
+  id: VeteranOfficerArmor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranOfficer
+  equipment:
+    outerClothing: ClothingOuterArmorVeteranSecurity
+
+- type: loadout
+  id: VeteranOfficerBlackJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranOfficer
+  equipment:
+    innerClothing: ClothingUniformJumpsuitVeteranSecurity
+
+
+- type: loadout
   id: SecurityMeleeKnife
   storage:
     back:

@@ -11,6 +11,29 @@
   - StationAiIconDorf
   - StationAiIconHeartline
   - StationAiIconSmiley
+  # <Trauma>
+  - StationAiIconFirewall
+  - StationAiIconDatabase
+  - StationAiIconGlitchman
+  - StationAiIconHades
+  - StationAiIconMatrix
+  - StationAiIconMonochrome
+  - StationAiIconMurica
+  - StationAiIconNanotrasen
+  - StationAiIconPresident
+  - StationAiIconRedDot
+  - StationAiIconRed
+  - StationAiIconTooDeep
+  - StationAiIconTriumvirate
+  - StationAiIconNotMalf
+  - StationAiIconHelios
+  - StationAiIconHouse
+  - StationAiIconRainbow
+  - StationAiIconAlien
+  - StationAiIconGoon
+  - StationAiIconWeird
+  - StationAiIconInverted
+  # </Trauma>
 
 - type: stationAiCustomizationGroup
   id: StationAiHolograms
@@ -164,21 +187,3 @@
     Hologram:
       sprite: Mobs/Silicon/holograms.rsi
       state: ai_dog
-
-- type: stationAiCustomization
-  id: StationAiHologramKobold
-  name: station-ai-hologram-kobold
-  previewKey: Hologram
-  layerData:
-    Hologram:
-      sprite: Mobs/Silicon/holograms.rsi
-      state: ai_kobold
-
-- type: stationAiCustomization
-  id: StationAiHologramMonkey
-  name: station-ai-hologram-monkey
-  previewKey: Hologram
-  layerData:
-    Hologram:
-      sprite: Mobs/Silicon/holograms.rsi
-      state: ai_monkey

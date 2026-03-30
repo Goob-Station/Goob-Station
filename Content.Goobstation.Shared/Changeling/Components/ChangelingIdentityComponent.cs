@@ -61,9 +61,7 @@ public sealed partial class ChangelingIdentityComponent : Component
         "ActionAbsorbDNA",
         "ActionStingExtractDNA",
         "ActionChangelingTransformCycle",
-        "ActionChangelingTransform",
-        "ActionEnterStasis",
-        "ActionExitStasis"
+        "ActionChangelingTransform"
     };
 
     /// <summary>
@@ -76,9 +74,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     #endregion
 
     [DataField]
-    public bool IsInStasis = false;
-
-    [DataField]
     public bool StrainedMusclesActive = false;
 
     [DataField]
@@ -87,33 +82,9 @@ public sealed partial class ChangelingIdentityComponent : Component
     [DataField]
     public bool IsInLastResort = false;
 
-    [DataField]
-    public bool ChameleonActive = false;
-
     public List<EntityUid>? ActiveArmor = null;
 
     public Dictionary<string, EntityUid?> Equipment = new();
-
-    /// <summary>
-    ///     The default stasis time (in s).
-    /// </summary>
-    public readonly int DefaultStasisTime = 15;
-
-    /// <summary>
-    ///     The typical longest time that stasis can last (in s).
-    /// </summary>
-    public readonly int MaxStasisTime = 45;
-
-    /// <summary>
-    ///     The time a changeling must stay in stasis upon taking catastrophic damage (in s).
-    /// </summary>
-    public readonly int CatastrophicStasisTime = 60;
-
-    /// <summary>
-    ///     Time in seconds the changeling must spend in stasis.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float StasisTime;
 
     /// <summary>
     ///     Total evolution points gained by the changeling.

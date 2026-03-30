@@ -87,3 +87,10 @@
   id: EnvirosuitExtinguisherRefill
   recipes:
   - EnvirosuitExtinguisherRefill
+
+- type: latheRecipePack
+  id: MedicalCloning
+  recipes:
+  - CloningPodMachineCircuitboardRecipe
+  - MedicalScannerMachineCircuitboardRecipe
+  - CloningConsoleComputerCircuitboardRecipe

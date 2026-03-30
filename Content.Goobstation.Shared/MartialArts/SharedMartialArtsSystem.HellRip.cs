@@ -116,7 +116,7 @@ public partial class SharedMartialArtsSystem
 
         knockdownTime *= ev.Value;
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -147,7 +147,7 @@ public partial class SharedMartialArtsSystem
         var targetPos = _transform.GetMapCoordinates(target).Position;
         var direction = targetPos - entPos; // vector from ent to target
 
-        _grabThrowing.Throw(target, ent, direction, 25, behavior: proto.DropHeldItemsBehavior);
+        _grabThrowing.Throw(target, ent, direction, 25, behavior: proto.DropItems);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
         ComboPopup(ent, target, proto.Name);

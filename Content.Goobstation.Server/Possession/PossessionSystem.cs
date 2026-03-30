@@ -147,7 +147,7 @@ public sealed partial class PossessionSystem : EntitySystem
             coordinates = _transform.ToMapCoordinates(possessed.Comp.OriginalEntity.ToCoordinates());
 
         // Paralyze, so you can't just magdump them.
-        _stun.TryParalyze(possessed, TimeSpan.FromSeconds(2), false);
+        _stun.TryUpdateParalyzeDuration(possessed, TimeSpan.FromSeconds(10));
         _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", possessed)), possessed, PopupType.LargeCaution);
 
         // Teleport to the entity, kinda like you're popping out of their head!
@@ -226,7 +226,6 @@ public sealed partial class PossessionSystem : EntitySystem
         List<(Type, string)> blockers =
         [
             (typeof(DevilComponent), "devil"),
-            (typeof(HereticComponent), "heretic"),
             (typeof(GhoulComponent), "ghoul"),
             (typeof(GhostComponent), "ghost"),
             (typeof(SpectralComponent), "ghost"),

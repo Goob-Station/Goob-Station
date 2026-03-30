@@ -513,13 +513,13 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
+    fireRate: 4 # Goobstation
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 62.5
-  # Goobstation
+    fireCost: 50 # Goobstation
   - type: Item
     size: Large
 
@@ -694,7 +694,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2 # Goobstation
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
@@ -948,6 +948,23 @@
   - type: PacifismAllowedGun
   - type: GunExecutionBlacklist # Goobstation
 
+
+- type: entity
+  name: elite taser
+  parent: [ BaseCentcommContraband, WeaponTaser ]
+  id: WeaponTaserSuper
+  suffix: ADMEME
+  description: A low-capacity, energy-based stun gun used by elite security teams to disable even the toughest of targets.
+  components:
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Effects/tesla_collapse.ogg # The wrath of god...
+      params:
+        volume: -6
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletTaserSuper
+    fireCost: 200
 
 - type: entity
   name: antique laser pistol

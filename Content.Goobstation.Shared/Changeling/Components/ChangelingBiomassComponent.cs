@@ -21,7 +21,7 @@ public sealed partial class ChangelingBiomassComponent : Component
     /// <summary>
     /// The InternalResourcesData of the prototype.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public InternalResourcesData? ResourceData;
 
     /// <summary>

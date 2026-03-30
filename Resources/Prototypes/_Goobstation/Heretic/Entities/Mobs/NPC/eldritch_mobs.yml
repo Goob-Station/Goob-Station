@@ -119,8 +119,7 @@
     - ActionHereticJaunt
     # basically an EMP implant. don't feel like making 1 more emp action
     - ActionActivateEmpImplant
-    - ActionHereticShapeshift
-  - type: TriggerImplantAction
+  - type: TriggerOnActivateImplant
   - type: EmpOnTrigger
     range: 5
     energyConsumption: 50000
@@ -178,7 +177,7 @@
   - type: HealingAura
     selfHealMultiplier: 2
     componentHealMultipliers:
-      Heretic: 1
+      FleshPassive: 1
       Ghoul: 2
   - type: NightVision
     color: white

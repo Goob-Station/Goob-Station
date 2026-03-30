@@ -20,8 +20,14 @@
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-mothroach-spawn-result-message
   - type: VentCrittersRule
-    table: # DeltaV: EntityTable instead of spawn entries
-      id: MobMothroach
+    table: !type:GroupSelector
+      children:
+      - id: MobMothroach
+      - id: MobMothroachMustard # Goob-Mothroaches-Start
+      - id: MobMothroachLeopard
+      - id: MobMothroachCecropia
+      - id: MobMothroachLunar
+        weight: 0.02 # Goob-Mothroaches-End
 
 - type: entity
   parent: BaseGameRule

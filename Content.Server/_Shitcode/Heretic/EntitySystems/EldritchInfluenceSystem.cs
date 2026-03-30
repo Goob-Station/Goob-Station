@@ -10,7 +10,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text.RegularExpressions;
+using Content.Goobstation.Common.Heretic;
 using Content.Server.Chat.Managers;
+using Content.Server.EntityEffects;
 using Content.Server.Heretic.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -39,7 +41,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityEffectSystem _effect = default!;
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!;
 
     public override void Initialize()
     {
@@ -52,9 +54,9 @@ public sealed class EldritchInfluenceSystem : EntitySystem
 
     private void OnExamine(Entity<EldritchInfluenceComponent> ent, ref ExaminedEvent args)
     {
-        if (HasComp<HereticComponent>(args.Examiner) || HasComp<GhoulComponent>(args.Examiner) ||
-            HasComp<SpectralComponent>(args.Examiner) || HasComp<GhostComponent>(args.Examiner) |
-            HasComp<WizardComponent>(args.Examiner) || HasComp<ApprenticeComponent>(args.Examiner))
+        if (HasComp<SpectralComponent>(args.Examiner) || HasComp<GhostComponent>(args.Examiner) ||
+            HasComp<WizardComponent>(args.Examiner) || HasComp<ApprenticeComponent>(args.Examiner) ||
+            _heretic.IsHereticOrGhoul(args.Examiner))
             return;
 
         if (!_mind.TryGetMind(args.Examiner, out _, out var mind))
@@ -81,7 +83,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         }
     }
 
-    public bool CollectInfluence(Entity<EldritchInfluenceComponent> influence, Entity<HereticComponent> user, EntityUid? used = null)
+    public bool CollectInfluence(Entity<EldritchInfluenceComponent> influence, EntityUid user, EntityUid? used = null)
     {
         if (influence.Comp.Spent)
             return false;
@@ -107,32 +109,28 @@ public sealed class EldritchInfluenceSystem : EntitySystem
 
     private void OnInteract(Entity<EldritchInfluenceComponent> ent, ref InteractHandEvent args)
     {
-        if (args.Handled
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        if (args.Handled || !_heretic.TryGetHereticComponent(args.User, out _, out _))
             return;
 
-        args.Handled = CollectInfluence(ent, (args.User, heretic));
+        args.Handled = CollectInfluence(ent, args.User);
     }
     private void OnInteractUsing(Entity<EldritchInfluenceComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        if (args.Handled || !_heretic.TryGetHereticComponent(args.User, out _, out _))
             return;
 
-        args.Handled = CollectInfluence(ent, (args.User, heretic), args.Used);
+        args.Handled = CollectInfluence(ent, args.User, args.Used);
     }
     private void OnDoAfter(Entity<EldritchInfluenceComponent> ent, ref EldritchInfluenceDoAfterEvent args)
     {
-        if (args.Cancelled
-        || args.Target == null
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        if (args.Cancelled || args.Target == null || !_heretic.TryGetHereticComponent(args.User, out var heretic, out _))
             return;
 
         var knowledge = TryComp(args.Used, out EldritchInfluenceDrainerComponent? drainer)
             ? drainer.KnowledgePerInfluence
             : 1f;
 
-        _heretic.UpdateKnowledge(args.User, heretic, knowledge);
+        _heretic.UpdateKnowledge(args.User, knowledge);
 
         Spawn("EldritchInfluenceIntermediate", Transform(args.Target.Value).Coordinates);
         QueueDel(args.Target);
