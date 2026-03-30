@@ -151,26 +151,25 @@ public sealed class JoinQueueManager : IJoinQueueManager
         if (isDisconnect)
             players--;
 
-        var haveFreeSlot = players < _configuration.GetCVar(CCVars.SoftMaxPlayers);
-        var patronQueueContains = _patronQueue.Count > 0;
-        var regularQueueContains = _queue.Count > 0;
+        var softMax = _configuration.GetCVar(CCVars.SoftMaxPlayers);
 
-        if (haveFreeSlot && (patronQueueContains || regularQueueContains))
+        while (players < softMax && (_patronQueue.Count > 0 || _queue.Count > 0))
         {
             ICommonSession session;
-            if (patronQueueContains)
+            if (_patronQueue.Count > 0)
             {
-                session = _patronQueue.First();
-                _patronQueue.Remove(session);
+                session = _patronQueue[0];
+                _patronQueue.RemoveAt(0);
             }
             else
             {
-                session = _queue.First();
-                _queue.Remove(session);
+                session = _queue[0];
+                _queue.RemoveAt(0);
             }
 
             SendToGame(session);
             QueueTimings.WithLabels("Waited").Observe((DateTime.UtcNow - connectedTime).TotalSeconds);
+            players++;
         }
 
         SendUpdateMessages();
