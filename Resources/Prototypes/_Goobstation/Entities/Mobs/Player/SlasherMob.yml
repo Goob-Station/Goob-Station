@@ -23,7 +23,7 @@
       collection: EyeOpen
     deactivateSound: !type:SoundCollectionSpecifier
       collection: EyeClose
-  - type: Puller
+  - type: GrabIntent
     grabThrownSpeed: 10
     throwingDistance: 8
     softGrabSpeedModifier: 1
