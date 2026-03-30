@@ -780,7 +780,6 @@ public sealed partial class ChangelingSystem
         eggComp.lingComp = comp;
         eggComp.lingMind = (EntityUid) mind;
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-        eggComp.AugmentedEyesightPurchased = HasComp<Shared.Overlays.ThermalVisionComponent>(uid);
 
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
@@ -833,11 +832,11 @@ public sealed partial class ChangelingSystem
             QueueDel(cuff);
         }
 
-        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
+        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) &&
+            ensnareable.IsEnsnared && ensnareable.Container.ContainedEntities.Count > 0)
         {
             var bola = ensnareable.Container.ContainedEntities[0];
-            // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, 0, new EnsnareableDoAfterEvent(), uid, uid, bola));
+            _snare.ForceFree(bola, Comp<EnsnaringComponent>(bola));
             QueueDel(bola);
         }
 
@@ -848,7 +847,7 @@ public sealed partial class ChangelingSystem
         {
             if (weldable.IsWelded)
             {
-            _weldable.SetWeldedState(parent, false);
+                _weldable.SetWeldedState(parent, false);
             }
         }
         // Goobstation end

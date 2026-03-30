@@ -11,6 +11,7 @@
     Dragon: 0.3
     SlaughterDemon: 0.3
     LaughterDemon: 0.3
+    WizardMidRoundThreat: 0.1
 
 # Threats
 
@@ -45,10 +46,9 @@
   rule: UnknownShuttleInstigator
 
 - type: ninjaHackingThreat
-  id: GreyTide
-  announcement: terror-grey-tide
-  rule: GreyTideAntagMidround
-
+  id: WizardMidRoundThreat
+  announcement: terror-wizard
+  rule: WizardMidround
 
 - type: ninjaHackingThreat
   id: Slasher
