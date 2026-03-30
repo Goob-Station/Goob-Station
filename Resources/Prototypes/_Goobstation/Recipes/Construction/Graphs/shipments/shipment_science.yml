@@ -21,44 +21,44 @@
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: AnomalyLocatorTool
-            name: "3x anomaly locator"
+            name: shipment-anomaly-locator
             doAfter: 0.1
           - tag: AnomalyLocatorTool
-            name: "2x anomaly locator"
+            name: shipment-anomaly-locator
             doAfter: 0.1
           - tag: AnomalyLocatorTool
-            name: "1x anomaly locator"
+            name: shipment-anomaly-locator
             doAfter: 0.1
           - tag: AnomalyLocatorWideSpectrum
-            name: "4x wide spectrum anomaly locator"
+            name: shipment-wide-spectrum-anomaly-locator
             doAfter: 0.1
           - tag: AnomalyLocatorWideSpectrum
-            name: "3x wide spectrum anomaly locator"
+            name: shipment-wide-spectrum-anomaly-locator
             doAfter: 0.1
           - tag: AnomalyLocatorWideSpectrum
-            name: "2x wide spectrum anomaly locator"
+            name: shipment-wide-spectrum-anomaly-locator
             doAfter: 0.1
           - tag: AnomalyLocatorWideSpectrum
-            name: "1x wide spectrum anomaly locator"
+            name: shipment-wide-spectrum-anomaly-locator
             doAfter: 0.1
           - tag: AnomalyScannerTool
-            name: "4x anomaly scanner"
+            name: shipment-anomaly-scanner
             doAfter: 0.1
           - tag: AnomalyScannerTool
-            name: "3x anomaly scanner"
+            name: shipment-anomaly-scanner
             doAfter: 0.1
           - tag: AnomalyScannerTool
-            name: "2x anomaly scanner"
+            name: shipment-anomaly-scanner
             doAfter: 0.1
           - tag: AnomalyScannerTool
-            name: "1x anomaly scanner"
+            name: shipment-anomaly-scanner
             doAfter: 0.1
           - material: Plasma
             amount: 30
             doAfter: 0.1
             #Content of the shipment end
           - tag: CratePlasticLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -82,23 +82,23 @@
                 data: 0
             #Content of the shipment start
           - tag: AutolatheBoard
-            name: "1x autolathe circuit board"
+            name: shipment-autolathe-circuit-board
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: ProtolatheBoard
-            name: "1x protolathe circuit board"
+            name: shipment-protolathe-circuit-board
             doAfter: 0.1
           - tag: ImprinterBoard
-            name: "1x circuit imprinter circuit board"
+            name: shipment-circuit-imprinter-circuit-board
             doAfter: 0.1
           - tag: ExofabBoard
-            name: "1x exosuit fabricator circuit board"
+            name: shipment-exosuit-fabricator-circuit-board
             doAfter: 0.1
           - tag: FlatpackerBoard
-            name: "1x flatpacker 1001 circuit board"
+            name: shipment-flatpacker-1001-circuit-board
             doAfter: 0.1
           - material: Steel
             amount: 30
@@ -111,7 +111,7 @@
             doAfter: 0.1
             #Content of the shipment end
           - tag: CratePlasticLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt

@@ -31,7 +31,7 @@
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateExperimentalLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -81,7 +81,7 @@
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateExperimentalLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt

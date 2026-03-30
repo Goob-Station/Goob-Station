@@ -14,51 +14,51 @@
                 data: 0
             #Content of the shipment start
           - tag: Crowbar
-            name: "2x crowbar"
+            name: shipment-crowbar
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: Crowbar
-            name: "1x crowbar"
+            name: shipment-crowbar
             doAfter: 0.1
           - tag: Wrench
-            name: "2x wrench"
+            name: shipment-wrench
             doAfter: 0.1
           - tag: Wrench
-            name: "1x wrench"
+            name: shipment-wrench
             doAfter: 0.1
           - tag: Multitool
-            name: "2x multitool"
+            name: shipment-multitool
             doAfter: 0.1
           - tag: Multitool
-            name: "1x multitool"
+            name: shipment-multitool
             doAfter: 0.1
           - tag: WeldingTool
-            name: "2x welder"
+            name: shipment-welder
             doAfter: 0.1
           - tag: WeldingTool
-            name: "1x welder"
+            name: shipment-welder
             doAfter: 0.1
           - tag: Screwdriver
-            name: "2x screwdriver"
+            name: shipment-screwdriver
             doAfter: 0.1
           - tag: Screwdriver
-            name: "1x screwdriver"
+            name: shipment-screwdriver
             doAfter: 0.1
           - tag: Wirecutter
-            name: "2x wirecutter"
+            name: shipment-wirecutter
             doAfter: 0.1
           - tag: Wirecutter
-            name: "1x wirecutter"
+            name: shipment-wirecutter
             doAfter: 0.1
           - material: Steel
             amount: 30
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateEngineeringLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -82,26 +82,26 @@
                 data: 0
             #Content of the shipment start
           - tag: JawsOfLife
-            name: "2x pair of jaws of life"
+            name: shipment-pair-of-jaws-of-life
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: JawsOfLife
-            name: "1x pair of jaws of life"
+            name: shipment-pair-of-jaws-of-life
             doAfter: 0.1
           - tag: Powerdrill
-            name: "2x power drill"
+            name: shipment-power-drill
             doAfter: 0.1
           - tag: Powerdrill
-            name: "1x power drill"
+            name: shipment-power-drill
             doAfter: 0.1
           - tag: WelderExperimental
-            name: "2x experimental welder"
+            name: shipment-experimental-welder
             doAfter: 0.1
           - tag: WelderExperimental
-            name: "1x experimental welder"
+            name: shipment-experimental-welder
             doAfter: 0.1
           - material: ReinforcedUraniumGlass
             amount: 30
@@ -117,7 +117,7 @@
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateEngineeringLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt

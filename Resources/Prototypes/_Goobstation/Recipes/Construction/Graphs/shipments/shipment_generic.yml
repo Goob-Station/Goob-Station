@@ -14,36 +14,36 @@
                 data: 0
             #Content of the shipment start
           - tag: Spear
-            name: "4x spear"
+            name: shipment-spear
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: Spear
-            name: "3x spear"
+            name: shipment-spear
             doAfter: 0.1
           - tag: Spear
-            name: "2x spear"
+            name: shipment-spear
             doAfter: 0.1
           - tag: Spear
-            name: "1x spear"
+            name: shipment-spear
             doAfter: 0.1
           - tag: GasMask
-            name: "4x gas mask"
+            name: shipment-gas-mask
             doAfter: 0.1
           - tag: GasMask
-            name: "3x gas mask"
+            name: shipment-gas-mask
             doAfter: 0.1
           - tag: GasMask
-            name: "2x gas mask"
+            name: shipment-gas-mask
             doAfter: 0.1
           - tag: GasMask
-            name: "1x gas mask"
+            name: shipment-gas-mask
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateSteelLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -67,66 +67,66 @@
                 data: 0
             #Content of the shipment start
           - tag: ClothingUniforms
-            name: "6x uniform"
+            name: shipment-uniform
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: ClothingUniforms
-            name: "5x uniform"
+            name: shipment-uniform
             doAfter: 0.1
           - tag: ClothingUniforms
-            name: "4x uniform"
+            name: shipment-uniform
             doAfter: 0.1
           - tag: ClothingUniforms
-            name: "3x uniform"
+            name: shipment-uniform
             doAfter: 0.1
           - tag: ClothingUniforms
-            name: "2x uniform"
+            name: shipment-uniform
             doAfter: 0.1
           - tag: ClothingUniforms
-            name: "1x uniform"
+            name: shipment-uniform
             doAfter: 0.1
           - tag: ClothingShoes
-            name: "6x pair of shoes"
+            name: shipment-pair-of-shoes
             doAfter: 0.1
           - tag: ClothingShoes
-            name: "5x pair of shoes"
+            name: shipment-pair-of-shoes
             doAfter: 0.1
           - tag: ClothingShoes
-            name: "4x pair of shoes"
+            name: shipment-pair-of-shoes
             doAfter: 0.1
           - tag: ClothingShoes
-            name: "3x pair of shoes"
+            name: shipment-pair-of-shoes
             doAfter: 0.1
           - tag: ClothingShoes
-            name: "2x pair of shoes"
+            name: shipment-pair-of-shoes
             doAfter: 0.1
           - tag: ClothingShoes
-            name: "1x pair of shoes"
+            name: shipment-pair-of-shoes
             doAfter: 0.1
           - tag: ClothingHats
-            name: "6x hat"
+            name: shipment-hat
             doAfter: 0.1
           - tag: ClothingHats
-            name: "5x hat"
+            name: shipment-hat
             doAfter: 0.1
           - tag: ClothingHats
-            name: "4x hat"
+            name: shipment-hat
             doAfter: 0.1
           - tag: ClothingHats
-            name: "3x hat"
+            name: shipment-hat
             doAfter: 0.1
           - tag: ClothingHats
-            name: "2x hat"
+            name: shipment-hat
             doAfter: 0.1
           - tag: ClothingHats
-            name: "1x hat"
+            name: shipment-hat
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateSteelLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt

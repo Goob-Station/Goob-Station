@@ -14,60 +14,60 @@
                 data: 0
             #Content of the shipment start
           - tag: BolaEnergy
-            name: "8x energy bola"
+            name: shipment-energy-bola
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: BolaEnergy
-            name: "7x energy bola"
+            name: shipment-energy-bola
             doAfter: 0.1
           - tag: BolaEnergy
-            name: "6x energy bola"
+            name: shipment-energy-bola
             doAfter: 0.1
           - tag: BolaEnergy
-            name: "5x energy bola"
+            name: shipment-energy-bola
             doAfter: 0.1
           - tag: BolaEnergy
-            name: "4x energy bola"
+            name: shipment-energy-bola
             doAfter: 0.1
           - tag: BolaEnergy
-            name: "3x energy bola"
+            name: shipment-energy-bola
             doAfter: 0.1
           - tag: BolaEnergy
-            name: "2x energy bola"
+            name: shipment-energy-bola
             doAfter: 0.1
           - tag: BolaEnergy
-            name: "1x energy bola"
+            name: shipment-energy-bola
             doAfter: 0.1
           - tag: Stunbaton
-            name: "4x Stunbaton"
+            name: shipment-Stunbaton
             doAfter: 0.1
           - tag: Stunbaton
-            name: "3x Stunbaton"
+            name: shipment-Stunbaton
             doAfter: 0.1
           - tag: Stunbaton
-            name: "2x Stunbaton"
+            name: shipment-Stunbaton
             doAfter: 0.1
           - tag: Stunbaton
-            name: "1x Stunbaton"
+            name: shipment-Stunbaton
             doAfter: 0.1
           - tag: CombatKnife
-            name: "4x combat knife"
+            name: shipment-combat-knife
             doAfter: 0.1
           - tag: CombatKnife
-            name: "3x combat knife"
+            name: shipment-combat-knife
             doAfter: 0.1
           - tag: CombatKnife
-            name: "2x combat knife"
+            name: shipment-combat-knife
             doAfter: 0.1
           - tag: CombatKnife
-            name: "1x combat knife"
+            name: shipment-combat-knife
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateSecurityLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -91,30 +91,30 @@
                 data: 0
             #Content of the shipment start
           - tag: AmmoBox35AutoBase
-            name: "2x .35 Auto ammo box"
+            name: shipment-35-Auto-ammo-box
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
                 key: "enum.ConstructionVisuals.Key"
                 data: 1
           - tag: AmmoBox35AutoBase
-            name: "1x .35 Auto ammo box"
+            name: shipment-35-Auto-ammo-box
             doAfter: 0.1
           - tag: AmmoBox20RifleBase
-            name: "2x .20 Rifle ammo box"
+            name: shipment-20-Rifle-ammo-box
             doAfter: 0.1
           - tag: AmmoBox20RifleBase
-            name: "1x .20 Rifle ammo box"
+            name: shipment-20-Rifle-ammo-box
             doAfter: 0.1
           - tag: AmmoBox12GaugeBase
-            name: "2x shotgun 12 gauge ammo box"
+            name: shipment-shotgun-12-gauge-ammo-box
             doAfter: 0.1
           - tag: AmmoBox12GaugeBase
-            name: "1x shotgun 12 gauge ammo box"
+            name: shipment-shotgun-12-gauge-ammo-box
             doAfter: 0.1
             #Content of the shipment end
           - tag: CrateSecurityLid
-            name: "the respective crate lid"
+            name: shipment-respective-crate-lid
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
