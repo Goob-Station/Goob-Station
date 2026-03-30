@@ -1221,6 +1221,9 @@
   id: Mouse
 
 - type: Tag
+  id: MouseWearable # Goobstation - Mice hats
+
+- type: Tag
   id: Multitool
 
 - type: Tag
