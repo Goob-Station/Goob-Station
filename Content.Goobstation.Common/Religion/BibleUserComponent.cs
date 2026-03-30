@@ -13,7 +13,7 @@ using Robust.Shared.GameStates; // Goobstation
 
 namespace Content.Goobstation.Common.Religion;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goobstation - Network that bitch!
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BibleUserComponent : Component
 {
     /// <summary>
