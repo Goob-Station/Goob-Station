@@ -37,7 +37,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.CCVar; // Goobstation
 
 namespace Content.Server.Cloning;
 
