@@ -19,6 +19,7 @@
     chaosScore: 40
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-mothroach-spawn-result-message
+  - type: VentCrittersRule
     table: !type:GroupSelector
       children:
       - id: MobMothroach
