@@ -332,6 +332,14 @@
   id: FoodBanana
   description: Rich in potassium.
   components:
+  # <Trauma>
+  - type: AddComponentsOnEaten
+    whiteList:
+    - MobWhiteRooster
+    components:
+    - type: EggFertilizer
+      specialReplacement: MobChickClown
+  # </Trauma>
   - type: FlavorProfile
     flavors:
       - banana

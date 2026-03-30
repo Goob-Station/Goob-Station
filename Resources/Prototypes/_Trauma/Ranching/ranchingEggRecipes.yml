@@ -136,3 +136,27 @@
   - MobGoldenHen
   requiresSpecialFood: false
   happinessRequired: 70
+
+- type: eggRecipe
+  id: ClownEgg
+  egg: ClownEgg
+  requiredChicken:
+  - MobClownHen
+  requiresSpecialFood: false
+  happinessRequired: 15
+
+- type: eggRecipe
+  id: WaterBalloonEggRed
+  egg: WaterBalloonEggRed
+  requiredChicken:
+  - MobClownHen
+  requiresSpecialFood: false
+  happinessRequired: 50
+
+- type: eggRecipe
+  id: WaterBalloonEggBlue
+  egg: WaterBalloonEggBlue
+  requiredChicken:
+  - MobClownHen
+  requiresSpecialFood: false
+  happinessRequired: 100

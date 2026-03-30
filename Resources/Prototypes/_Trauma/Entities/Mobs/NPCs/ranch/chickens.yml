@@ -521,7 +521,7 @@
   - type: SpawnEntityOnAgeUp
     entToSpawn:
     - MobGoldenHen
-    - MobCandyRooster
+    - MobGoldenRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
 
@@ -535,8 +535,38 @@
 
 - type: entity
   parent: BaseMobRoosterRanch
-  id: MobGoldRooster
+  id: MobGoldenRooster
   name: golden rooster
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+
+# Clown
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickClown
+  name: clown chick #TODO think of a funny pun to use instead
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobClownHen
+    - MobClownRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobClownHen
+  name: henk
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobClownRooster
+  name: henkster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi

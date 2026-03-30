@@ -171,3 +171,12 @@
     state: egg-golden
   - type: TimedReplace
     entity: MobChickGolden
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: ClownEgg
+  components:
+  - type: Sprite
+    state: egg-honk
+  - type: TimedReplace
+    entity: MobChickClown

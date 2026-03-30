@@ -1,0 +1,51 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: WaterBalloonBase
+  name: egg?
+  description: doesn't look very eggy to me.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Misc/eggs.rsi
+    state: egg-balloon-blue
+  - type: SolutionContainerManager
+    solutions:
+      balloon:
+        reagents:
+        - ReagentId: Water
+          Quantity: 20
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+
+- type: entity
+  parent: WaterBalloonBase
+  id: WaterBalloonEggRed
+  components:
+  - type: Sprite
+    state: egg-balloon
+
+- type: entity
+  parent: WaterBalloonBase
+  id: WaterBalloonEggBlue
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      balloon:
+        reagents:
+        - ReagentId: Water
+          Quantity: 50

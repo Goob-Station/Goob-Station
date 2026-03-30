@@ -11,4 +11,7 @@ public sealed partial class AddComponentsOnEatenComponent : Component
 {
     [DataField]
     public ComponentRegistry Components;
+
+    [DataField]
+    public List<EntProtoId>? WhiteList;
 }
