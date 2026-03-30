@@ -4,6 +4,7 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
+
 public sealed partial class BindNullrodSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
