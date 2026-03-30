@@ -20,28 +20,16 @@
   tier: 1
 
 # - type: influence
-#   id: InfluenceNullGlare
-#   name: influence-name-glare
-#   influenceType: influence-type-active
-#   cost: 10
-#   description: influence-description-glare
-#   icon:
-#     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-#     state: glare
-#   action: ActionCosmicGlare
-#   tier: 1
-
-- type: influence
-  id: InfluenceShuntSubjectivity
-  name: influence-name-shunt
-  influenceType: influence-type-active
-  cost: 4
-  description: influence-description-shunt
-  icon:
-    sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-    state: blank
-  action: ActionCosmicBlank
-  tier: 1
+# id: InfluenceShuntSubjectivity
+# name: influence-name-shunt
+# influenceType: influence-type-active
+# cost: 4
+# description: influence-description-shunt
+# icon:
+#   sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+#   state: blank
+# action: ActionCosmicBlank
+# tier: 1
 
 - type: influence
   id: InfluenceForceIngress
@@ -53,6 +41,18 @@
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: ingress
   action: ActionCosmicIngress
+  tier: 2
+
+- type: influence
+  id: InfluenceNullGlare
+  name: influence-name-glare
+  influenceType: influence-type-active
+  cost: 5
+  description: influence-description-glare
+  icon:
+    sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: glare
+  action: ActionCosmicGlare
   tier: 2
 
 - type: influence

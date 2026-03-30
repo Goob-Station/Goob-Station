@@ -88,7 +88,6 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Jittering;
 using Content.Shared.Speech.EntitySystems;
-using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Common.Stunnable;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Interaction;
@@ -114,8 +113,6 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
 
     public override void Initialize()
     {
@@ -262,7 +259,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (!Resolve(entity, ref entity.Comp, false))
             return false;
 
-        return TryKnockdown(entity, time, refresh, autoStand, DropHeldItemsBehavior.DropIfStanding, force); // Goob DropHeldItemsBehaviour
+        return TryKnockdown(entity, time, refresh, autoStand, drop, force); // goob edit
     }
 
     /// <inheritdoc cref="TryCrawling(Entity{CrawlerComponent?},TimeSpan?,bool,bool,bool,bool)"/>
@@ -276,7 +273,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (!Resolve(entity, ref entity.Comp, false))
             return false;
 
-        return TryKnockdown(entity, entity.Comp.DefaultKnockedDuration, refresh, autoStand, DropHeldItemsBehavior.DropIfStanding, force); // Goob DropHeldItemsBehaviour
+        return TryKnockdown(entity, entity.Comp.DefaultKnockedDuration, refresh, autoStand, drop, force); // goob edit
     }
 
     /// <summary>
@@ -284,7 +281,7 @@ public abstract partial class SharedStunSystem : EntitySystem
     ///     Try knockdown, if it fails - stun.
     ///     Refresh true by default on either, statuseffectcomp is handled by each system separately
     /// </summary>
-    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh = true)
+    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh = true) // todo goobstation kill this shit
     {
         return TryKnockdown(uid, time, refresh) || TryUpdateStunDuration(uid, time);
     }
@@ -343,28 +340,13 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// <param name="drop">Whether we should drop items.</param>
     /// <param name="force">Should we force the status effect?</param>
     public bool TryKnockdown(Entity<CrawlerComponent?> entity, TimeSpan? time, bool refresh = true, bool autoStand = true,
-        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.DropIfStanding, // Goob custom drop behaviour.
+        bool drop = true, // goob edit
         bool force = false)
-    {
+     {
         //goob start stunmodifiers todo goob these are fucking broke anyway apparently
         var modifierEv = new GetClothingStunModifierEvent(entity);
         RaiseLocalEvent(modifierEv);
         time *= modifierEv.Modifier;
-
-        // Goob - Listen, listen to me. I know this makes more sense as an enum (as it orignally is), but hear me out,
-        // i would rather NOT touch upstream code as much as possible and change 1 (one) method, while keeping our yaml-defined drop behavior,
-        // instead of changing every method down the line to use the enum.
-        // so deadass im just using a switch statement here to turn our behavior into a bool for the methods down the line.
-        // turboshitcode, but hopefully makes upstreaming easier cause they change the stun code like once a month.
-        if (!TryComp<StandingStateComponent>(entity, out var standing))
-            return false;
-        bool drop = behavior switch
-        {
-            DropHeldItemsBehavior.DropIfStanding => standing.Standing,
-            DropHeldItemsBehavior.NoDrop        => false,
-            DropHeldItemsBehavior.AlwaysDrop    => true,
-            _ => standing.Standing //default
-        };
         //goob end
 
         if (!CanKnockdown(entity.Owner, ref time, ref autoStand, ref drop, force))
@@ -397,28 +379,24 @@ public abstract partial class SharedStunSystem : EntitySystem
             RefreshKnockedMovement((uid, component));
             CancelKnockdownDoAfter((uid, component));
         }
-        else
-        {
+        //else // Goob edit, we handle dropitembehaviour differently and its gonna bite me in the ass cause i know it gets decoupled later
+        //{ Goob
             // Only drop items the first time we want to fall...
-            if (drop)
-            {
-                var ev = new DropHandItemsEvent();
-                RaiseLocalEvent(uid, ref ev);
-            }
+        if (drop)
+        {
+            var ev = new DropHandItemsEvent();
+            RaiseLocalEvent(uid, ref ev);
+        }
 
             // Only update Autostand value if it's our first time being knocked down...
-            SetAutoStand((uid, component), autoStand);
-        }
+        SetAutoStand((uid, component), autoStand);
+        //} Goob
 
         var knockedEv = new KnockedDownEvent();
         RaiseLocalEvent(uid, ref knockedEv);
 
         if (time != null)
         {
-            // goob edit
-            _jitter.DoJitter(uid, time.Value, true);
-            _stutter.DoStutter(uid, time.Value, true);
-            // goob edit end
             UpdateKnockdownTime((uid, component), time.Value, refresh);
             _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} was knocked down for {time.Value.Seconds} seconds");
         }

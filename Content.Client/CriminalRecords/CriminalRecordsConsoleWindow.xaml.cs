@@ -292,9 +292,10 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             return;
         }
 
-        var entries = listing.Select(i => new ItemList.Item(RecordListing) {
-                Text = i.Value,
-                Metadata = i.Key
+        var entries = listing.Select(i => new ItemList.Item(RecordListing)
+        {
+            Text = i.Value,
+            Metadata = i.Key
         }).ToList();
         entries.Sort((a, b) => string.Compare(a.Text, b.Text, StringComparison.Ordinal));
         RecordListing.SetItems(entries, (a,b) => string.Compare(a.Text, b.Text));
@@ -355,7 +356,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         if (status == SecurityStatus.Wanted
             || status == SecurityStatus.Suspected
             || status == SecurityStatus.Search
-            || status == SecurityStatus.Dangerous)
+            || status == SecurityStatus.Dangerous
+            || status == SecurityStatus.Demote) // Goobstation
         {
             GetReason(status);
             return;
@@ -404,6 +406,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             SecurityStatus.Search => "hud_search",
             SecurityStatus.Perma => "hud_perma",
             SecurityStatus.Dangerous => "hud_dangerous",
+            SecurityStatus.Demote => "hud_demote", // Goobstation
             _ => "SecurityIconNone"
         };
     }

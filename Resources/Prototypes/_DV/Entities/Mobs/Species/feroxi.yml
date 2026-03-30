@@ -11,31 +11,31 @@
     - Snout
   - type: Hunger
   # - type: Carriable # ShibaStation - disabled because broken, for now.
-  - type: Inventory
-    speciesId: feroxi
   - type: Thirst
     baseDecayRate: 0.2
   - type: Icon
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: full
   - type: Body
     prototype: Feroxi
   - type: Speech
     speechSounds: Tenor
     speechVerb: Feroxi
-    allowedEmotes: [ "Gnash" ]
+    allowedEmotes: [ "Gnash", "Thump" ] #goob edit
   - type: Vocal
     sounds:
       Male: MaleFeroxi
       Female: FemaleFeroxi
       Unsexed: MaleFeroxi
+  - type: BodyEmotes #goob edit
+    soundsId: FeroxiBodyEmotes
   - type: Sprite
     netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -109,6 +109,31 @@
     understands:
     - TauCetiBasic
     - Nehina
+  - type: Inventory
+    speciesId: feroxi
+    femaleDisplacements: # Goob-Feroxi-Resprite-Start
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    # Goob-Feroxi-Resprite-End
 
 - type: entity
   parent: MobHumanDummy
@@ -127,8 +152,8 @@
     noRot: true
     drawdepth: Mobs
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]

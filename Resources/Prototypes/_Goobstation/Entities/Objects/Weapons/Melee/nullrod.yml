@@ -312,6 +312,7 @@
       types:
         Slash: 20
     UntrainedUseString: nullrod-atheistfedora-untrained-usage-popup
+    recallType: Normal
   - type: LandAtCursor
   - type: Boomerang
   - type: DamageOtherOnHit
@@ -384,6 +385,7 @@
     quickEquip: false
     slots:
     - back
+    - suitstorage
   - type: MeleeDash
   - type: UseDelay
     delay: 10
@@ -445,7 +447,7 @@
         volume: 3
   - type: KnockdownOnHit
     duration: 0.2
-    dropHeldItemsBehavior: NoDrop
+    dropItems: false
   - type: UseDelay
     delay: 3
   - type: UseDelayBlockKnockdown
@@ -615,6 +617,7 @@
     DamageOnUntrainedUse:
       types:
         Heat: 20
+    recallType: DualWield
     UntrainedUseString: nullrod-pistol-untrained-usage-popup
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi
@@ -715,6 +718,7 @@
     DamageOnUntrainedUse:
       types:
         Piercing: 20
+    recallType: Embedded
     UntrainedUseString: nullrod-spear-untrained-usage-popup
   - type: Item
     size: Large # Goob edit
@@ -891,9 +895,9 @@
       woundSeverityMultipliers:
         Slash: 2
   - type: MeleeWeapon
-    animationRotation: -45 
+    animationRotation: -45
     autoAttack: true
-    heavyStaminaCost: 10 
+    heavyStaminaCost: 10
     wideAnimationRotation: -135
     attackRate: 1.2
     damage:

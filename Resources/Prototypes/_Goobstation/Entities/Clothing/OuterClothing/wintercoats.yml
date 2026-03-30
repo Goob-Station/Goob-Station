@@ -54,7 +54,7 @@
         Piercing: 0.65
         Heat: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.95
+    damageCoefficient: 0.65
 
 - type: entity
   parent: ClothingOuterWinterSecArmored

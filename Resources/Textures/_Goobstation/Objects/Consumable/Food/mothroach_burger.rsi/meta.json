@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by Arraydeess",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cecropia_mothroach"
+    },
+    {
+      "name": "leopard_mothroach"
+    },
+    {
+      "name": "lunar_mothroach"
+    },
+    {
+      "name": "mustard_mothroach"
+    }
+  ]
+}
