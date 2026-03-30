@@ -1,4 +1,4 @@
-using Content.Shared.Chemistry.Reagent;
+﻿using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -14,27 +14,32 @@ public sealed partial class SlasherMassacreUserComponent : Component
     /// <summary>
     /// Currently chained victim being massacred. Reset if miss or victim changes.
     /// </summary>
-    [ViewVariables, AutoNetworkedField] public EntityUid? CurrentVictim;
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? CurrentVictim;
 
     /// <summary>
     /// Number of consecutive successful hits in current chain.
     /// </summary>
-    [ViewVariables, AutoNetworkedField] public int HitCount;
+    [ViewVariables, AutoNetworkedField]
+    public int HitCount;
 
     /// <summary>
     /// Whether massacre mode is active.
     /// </summary>
-    [ViewVariables, AutoNetworkedField] public bool Active;
+    [ViewVariables, AutoNetworkedField]
+    public bool Active;
 
     /// <summary>
     /// Time when the last attack occurred. Used for timeout tracking.
     /// </summary>
-    [ViewVariables, AutoNetworkedField] public TimeSpan? LastAttackTime;
+    [ViewVariables, AutoNetworkedField]
+    public TimeSpan? LastAttackTime;
 
     /// <summary>
     /// How long before the chain automatically ends.
     /// </summary>
-    [DataField] public float ChainTimeoutSeconds = 10f;
+    [DataField]
+    public float ChainTimeoutSeconds = 10f;
 
     [DataField]
     public SoundSpecifier MassacreIntro =
@@ -57,12 +62,14 @@ public sealed partial class SlasherMassacreVictimComponent : Component
     /// <summary>
     /// The attacker performing the massacre.
     /// </summary>
-    [ViewVariables, AutoNetworkedField] public EntityUid? Attacker;
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? Attacker;
 
     /// <summary>
     /// Reference to the weapon component.
     /// </summary>
-    [ViewVariables] public SlasherMassacreMacheteComponent? WeaponComp;
+    [ViewVariables]
+    public SlasherMassacreMacheteComponent? WeaponComp;
 
     /// <summary>
     /// The sound to play on kill.
@@ -91,49 +98,59 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
     /// <summary>
     /// Flat damage penalty applied on first hit while massacre active.
     /// </summary>
-    [DataField] public int BaseDamagePenalty = 9;
+    [DataField]
+    public int BaseDamagePenalty = 9;
 
     /// <summary>
     /// Bonus damage added per successful chained hit.
     /// </summary>
-    [DataField] public int PerHitBonus = 3;
+    [DataField]
+    public int PerHitBonus = 3;
 
     /// <summary>
     /// On reaching this many hits sever a random limb. Limb is severed every multiple of this value.
     /// </summary>
-    [DataField] public int LimbSeverHits = 4;
+    [DataField]
+    public int LimbSeverHits = 4;
 
     /// <summary>
     /// How many hits to decapitate
     /// </summary>
-    [DataField] public int DecapitateHit = 13;
+    [DataField]
+    public int DecapitateHit = 13;
 
     /// <summary>
     /// Speed bonus multiplier per hit when killing a target.
     /// </summary>
-    [DataField] public float SpeedBonusPerHit = 0.01f;
+    [DataField]
+    public float SpeedBonusPerHit = 0.01f;
 
     /// <summary>
     /// Duration of speed boost in seconds.
     /// </summary>
-    [DataField] public float SpeedBoostDuration = 10f;
+    [DataField]
+    public float SpeedBoostDuration = 10f;
 
     /// <summary>
     /// Amount of healing reagent to inject per hit when killing a target.
     /// </summary>
-    [DataField] public float HealAmountPerHit = 0.5f;
+    [DataField]
+    public float HealAmountPerHit = 0.5f;
 
     /// <summary>
     /// The healing reagent to inject on kill.
     /// </summary>
-    [DataField] public ProtoId<ReagentPrototype> HealReagent = "slasherium";
+    [DataField]
+    public ProtoId<ReagentPrototype> HealReagent = "slasherium";
 
     /// <summary>
     /// The MassacreAction.
     /// </summary>
-    [DataField] public EntProtoId MassacreActionId = "ActionSlasherMassacre";
+    [DataField]
+    public EntProtoId MassacreActionId = "ActionSlasherMassacre";
 
-    [ViewVariables] public EntityUid? MassacreActionEntity;
+    [ViewVariables]
+    public EntityUid? MassacreActionEntity;
 
     /// <summary>
     /// Sound played when massacre is turned on.

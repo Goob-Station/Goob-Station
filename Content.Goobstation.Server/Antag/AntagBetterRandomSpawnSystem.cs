@@ -26,6 +26,7 @@ public sealed class AntagBetterRandomSpawnSystem : GameRuleSystem<AntagBetterRan
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
+
     public override void Initialize()
     {
         base.Initialize();

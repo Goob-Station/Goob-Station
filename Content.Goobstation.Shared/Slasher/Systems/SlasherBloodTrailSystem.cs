@@ -81,9 +81,6 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
 
     private void OnIncorporealize(Entity<SlasherBloodTrailComponent> ent, ref SlasherIncorporealizeDoAfterEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         // Only disable the trail if the slasher successfully entered incorporeal state.
         if (args.Cancelled)
             return;
@@ -100,9 +97,6 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<SlasherBloodTrailComponent> ent, ref MobStateChangedEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         if (args.NewMobState == MobState.Dead && ent.Comp.IsActive)
         {
             ent.Comp.IsActive = false;
@@ -117,7 +111,7 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
         base.Update(frameTime);
 
         // Only the server should actually spawn puddles.
-        if (_net.IsClient)
+        if (!_net.IsServer)
             return;
 
         var enumerator = EntityQueryEnumerator<SlasherBloodTrailComponent>();
@@ -142,20 +136,12 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
 
     private void StartFunkyslasher(EntityUid uid, SlasherBloodTrailComponent comp)
     {
-        if (!_net.IsServer)
-            return;
-
         if (comp.FunkyslasherStream != null)
             comp.FunkyslasherStream = _audio.Stop(comp.FunkyslasherStream);
 
         comp.FunkyslasherStream = _audio.PlayPvs(comp.Funkyslasher, uid)?.Entity;
     }
 
-    private void StopFunkyslasher(EntityUid uid, SlasherBloodTrailComponent comp)
-    {
-        if (!_net.IsServer)
-            return;
-
+    private void StopFunkyslasher(EntityUid uid, SlasherBloodTrailComponent comp) =>
         comp.FunkyslasherStream = _audio.Stop(comp.FunkyslasherStream);
-    }
 }
