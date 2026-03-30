@@ -530,7 +530,7 @@
         reagent: Tricordrazine
         quantity: 30
         minDamage: 0
-        maxDamage: 100
+        maxDamage: 100 # Goobstation
       Critical:
         reagent: Inaprovaline
         quantity: 15
