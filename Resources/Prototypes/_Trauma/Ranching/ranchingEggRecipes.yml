@@ -4,7 +4,7 @@
   requiredChicken:
   - MobWhiteHen
   requiresSpecialFood: false
-  happinessRequired: 10
+  happinessRequired: 15
 
 - type: eggRecipe
   id: BrownEgg
@@ -13,9 +13,9 @@
   - MobWhiteHen
   - MobBrownHen
   chickensRequireDifferentHappiness:
-    MobBrownHen: 10
+    MobBrownHen: 15
   requiresSpecialFood: false
-  happinessRequired: 35
+  happinessRequired: 50
 
 - type: eggRecipe
   id: IxworthEgg
@@ -24,7 +24,7 @@
   - MobWhiteHen
   noSpecialFoodRequiredChickens:
   - MobIxworthHen
-  happinessRequired: 10
+  happinessRequired: 15
   foodTagsRequired:
   - Tomato
 
@@ -36,7 +36,7 @@
   - MobSilkieHen
   noSpecialFoodRequiredChickens:
   - MobSilkieHen
-  happinessRequired: 30
+  happinessRequired: 15
   foodTagsRequired:
   - Apple
 
@@ -58,7 +58,7 @@
   egg: VoidEgg
   requiredChicken:
   - MobVoidHen
-  happinessRequired: 10
+  happinessRequired: 15
   requiresSpecialFood: false
 
 - type: eggRecipe
@@ -69,7 +69,7 @@
   - MobBlackSilkieHen
   noSpecialFoodRequiredChickens:
   - MobBlackSilkieHen
-  happinessRequired: 10
+  happinessRequired: 15
   foodTagsRequired:
   - DeliciousLookingApple
 
@@ -81,7 +81,7 @@
   noSpecialFoodRequiredChickens:
   - MobDreamHen
   requiresSpecialFood: false
-  happinessRequired: 10
+  happinessRequired: 15
 
 - type: eggRecipe
   id: PoultrygeistEgg
@@ -91,7 +91,7 @@
   noSpecialFoodRequiredChickens:
   - MobPoultrygeistHen
   requiresSpecialFood: false
-  happinessRequired: 10
+  happinessRequired: 15
 
 - type: eggRecipe
   id: SpicyEgg
@@ -101,6 +101,38 @@
   - MobSpicyHen
   noSpecialFoodRequiredChickens:
   - MobSpicyHen
-  happinessRequired: 10
+  happinessRequired: 15
   foodTagsRequired:
   - Chili
+
+- type: eggRecipe
+  id: PigeonEgg
+  egg: PigeonEgg
+  requiredChicken:
+  - MobPigeonHen
+  - MobSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobPigeonHen
+  happinessRequired: 15
+  foodTagsRequired:
+  - Peas
+
+- type: eggRecipe
+  id: CandyEgg
+  egg: CandyEgg
+  requiredChicken:
+  - MobCandyHen
+  - MobSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobCandyHen
+  happinessRequired: 20
+  foodTagsRequired:
+  - Sugar
+
+- type: eggRecipe
+  id: GoldenEgg
+  egg: GoldenEgg
+  requiredChicken:
+  - MobGoldenHen
+  requiresSpecialFood: false
+  happinessRequired: 70

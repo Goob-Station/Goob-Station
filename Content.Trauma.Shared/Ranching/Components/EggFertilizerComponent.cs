@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Shared.Ranching.Components;
 
@@ -7,4 +8,7 @@ public sealed partial class EggFertilizerComponent : Component
 {
     [DataField]
     public float DoAfter = 15f;
+
+    [DataField]
+    public EntProtoId? SpecialReplacement;
 }

@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.InternalResources.Components;
+using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Shared.Coordinates;
@@ -13,17 +14,16 @@ public sealed class HappinessSystem : EntitySystem
 {
     [Dependency] private readonly SharedInternalResourcesSystem _internalResources = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedAnimalAgeingSystem _ageingSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<HappinessComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HappinessComponent, InteractionSuccessEvent>(OnSuccessPet);
 
-        SubscribeLocalEvent<ReplaceOnHappyComponent, InternalResourcesAmountChangedEvent>(OnHappinessChanged);
+        SubscribeLocalEvent<AddComponentOnHappyComponent, InternalResourcesAmountChangedEvent>(OnHappinessChanged);
     }
 
-    private void OnHappinessChanged(Entity<ReplaceOnHappyComponent> ent, ref InternalResourcesAmountChangedEvent args)
+    private void OnHappinessChanged(Entity<AddComponentOnHappyComponent> ent, ref InternalResourcesAmountChangedEvent args)
     {
         if (!TryComp<HappinessComponent>(ent.Owner, out var happiness))
             return;
@@ -33,7 +33,7 @@ public sealed class HappinessSystem : EntitySystem
         if (enthappiness is null || enthappiness < ent.Comp.HappinessRequired)
             return;
 
-        _ageingSystem.CopyAndReplaceEntity(ent.Comp.Entity, ent.Owner);
+        EntityManager.AddComponents(ent.Owner, ent.Comp.Components);
     }
 
     private void OnSuccessPet(Entity<HappinessComponent> ent, ref InteractionSuccessEvent args)
@@ -54,6 +54,20 @@ public sealed class HappinessSystem : EntitySystem
     {
         var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
         _internalResources.EnsureInternalResources(ent.Owner, happinessResource, out _);
+    }
+
+    public void SetHappiness(Entity<HappinessComponent> ent, float setTo)
+    {
+        if (!TryComp<InternalResourcesComponent>(ent, out var internalResources))
+            return;
+
+        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
+
+        foreach (var type in internalResources.CurrentInternalResources)
+        {
+            if (type.InternalResourcesType == happinessResource)
+                type.CurrentAmount = setTo;
+        }
     }
 
     public float? GetHappiness(Entity<HappinessComponent> ent)

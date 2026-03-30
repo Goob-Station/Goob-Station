@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
@@ -39,7 +40,18 @@ public sealed class RanchingEggLayerSystem : EntitySystem
 
     private void OnFertilize(Entity<TimedReplaceComponent> ent, ref FertilizeDoAfterEvent args)
     {
-        ent.Comp.SpawnTime = _timing.CurTime;
+        if (!TryComp<EggFertilizerComponent>(args.User, out var fertilizer) || !TryComp<HappinessComponent>(args.User, out var happiness))
+            return;
+
+        if (fertilizer.SpecialReplacement is null)
+            ent.Comp.SpawnTime = _timing.CurTime;
+        else
+        {
+            ent.Comp.Entity = fertilizer.SpecialReplacement.Value;
+            ent.Comp.SpawnTime = _timing.CurTime;
+            fertilizer.SpecialReplacement = null;
+            _happiness.SetHappiness((args.User, happiness), 30f);
+        }
     }
 
     private void OnInteraction(Entity<TimedReplaceComponent> ent, ref ActivateInWorldEvent args)

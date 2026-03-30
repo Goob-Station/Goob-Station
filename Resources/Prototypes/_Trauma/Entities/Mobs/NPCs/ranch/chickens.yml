@@ -148,7 +148,7 @@
       Dead:
         Base: hen-dead
 
-# The Chicks
+# White
 
 - type: entity
   parent: BaseMobChickRanch
@@ -162,6 +162,25 @@
   - type: FavoriteFood
     tag:
     - Rice
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobWhiteHen
+  name: white hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+  - type: VomitCounter
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobWhiteRooster
+  name: white rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+
+# Brown
 
 - type: entity
   parent: BaseMobChickRanch
@@ -179,6 +198,28 @@
     - Chili
 
 - type: entity
+  parent: BaseMobHenRanch
+  id: MobBrownHen
+  name: brown hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobBrownRooster
+  name: brown rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
+  - type: AddComponentOnHappy
+    components:
+    - type: EggFertilizer
+      specialReplacement: MobChickGolden
+
+# Void
+
+- type: entity
   parent: BaseMobChickRanch
   id: MobChickVoid
   name: void chick
@@ -192,6 +233,24 @@
   - type: FavoriteFood
     tag:
     - EggPlant
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobVoidHen
+  name: void hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobVoidRooster
+  name: void rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
+
+# Ixworth
 
 - type: entity
   parent: BaseMobChickRanch
@@ -209,6 +268,24 @@
     - Tomato
 
 - type: entity
+  parent: BaseMobHenRanch
+  id: MobIxworthHen
+  name: ixworth hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobIxworthRooster
+  name: ixworth rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
+
+# Silkie
+
+- type: entity
   parent: BaseMobChickRanch
   id: MobChickSilkie
   name: silkie chick
@@ -219,6 +296,24 @@
     - MobSilkieRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobSilkieHen
+  name: silkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobSilkieRooster
+  name: silkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+
+# Black Silkie
 
 - type: entity
   parent: BaseMobChickRanch
@@ -233,6 +328,27 @@
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
 
 - type: entity
+  parent: BaseMobHenRanch
+  id: MobBlackSilkieHen
+  name: black silkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+  - type: SpawnEntityOnOldAgeDeath
+    happyDeathEnt: DreamEgg
+    sadDeathEnt: PoultrygeistEgg
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobBlackSilkieRooster
+  name: black silkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+
+# Dream
+
+- type: entity
   parent: BaseMobChickRanch
   id: MobChickDream
   name: dream chick
@@ -245,6 +361,24 @@
     sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
 
 - type: entity
+  parent: BaseMobRoosterRanch
+  id: MobDreamRooster
+  name: dream rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobDreamHen
+  name: dream hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+
+# Poultrygeist
+
+- type: entity
   parent: BaseMobChickRanch
   id: MobChickPoultrygeist
   name: poultrygeist chick
@@ -255,6 +389,24 @@
     - MobPoultrygeistRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobPoultrygeistHen
+  name: poultrygeist hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobPoultrygeistRooster
+  name: poultrygeist rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+
+# Spicy
 
 - type: entity
   parent: BaseMobChickRanch
@@ -271,76 +423,6 @@
     tag:
     - Chili
 
-# The Hens
-
-- type: entity
-  parent: BaseMobHenRanch
-  id: MobWhiteHen
-  name: white hen
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
-  - type: VomitCounter
-
-- type: entity
-  parent: BaseMobHenRanch
-  id: MobBrownHen
-  name: brown hen
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
-
-- type: entity
-  parent: BaseMobHenRanch
-  id: MobVoidHen
-  name: void hen
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
-
-- type: entity
-  parent: BaseMobHenRanch
-  id: MobIxworthHen
-  name: ixworth hen
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
-
-- type: entity
-  parent: BaseMobHenRanch
-  id: MobSilkieHen
-  name: silkie hen
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
-
-- type: entity
-  parent: BaseMobHenRanch
-  id: MobBlackSilkieHen
-  name: black silkie hen
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
-  - type: SpawnEntityOnOldAgeDeath
-    happyDeathEnt: DreamEgg
-    sadDeathEnt: PoultrygeistEgg
-
-- type: entity
-  parent: BaseMobHenRanch
-  id: MobDreamHen
-  name: dream hen
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
-
-- type: entity
-  parent: BaseMobHenRanch
-  id: MobPoultrygeistHen
-  name: poultrygeist hen
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
-
 - type: entity
   parent: BaseMobHenRanch
   id: MobSpicyHen
@@ -349,72 +431,6 @@
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
 
-# The Roosters
-
-- type: entity
-  parent: BaseMobRoosterRanch
-  id: MobWhiteRooster
-  name: white rooster
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
-
-- type: entity
-  parent: BaseMobRoosterRanch
-  id: MobBrownRooster
-  name: brown rooster
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
-
-- type: entity
-  parent: BaseMobRoosterRanch
-  id: MobVoidRooster
-  name: void rooster
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
-
-- type: entity
-  parent: BaseMobRoosterRanch
-  id: MobIxworthRooster
-  name: ixworth rooster
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
-
-- type: entity
-  parent: BaseMobRoosterRanch
-  id: MobSilkieRooster
-  name: silkie rooster
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
-
-- type: entity
-  parent: BaseMobRoosterRanch
-  id: MobBlackSilkieRooster
-  name: black silkie rooster
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
-
-- type: entity
-  parent: BaseMobRoosterRanch
-  id: MobDreamRooster
-  name: dream rooster
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
-
-- type: entity
-  parent: BaseMobRoosterRanch
-  id: MobPoultrygeistRooster
-  name: poultrygeist rooster
-  components:
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
-
 - type: entity
   parent: BaseMobRoosterRanch
   id: MobSpicyRooster
@@ -422,3 +438,105 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+
+# Pigeon
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickPigeon
+  name: carrier pigeon chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobPigeonHen
+    - MobPigeonRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pigeon.rsi
+  - type: FavoriteFood
+    tag:
+    - Peas
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobPigeonHen
+  name: carrier pigeon hen
+  components:
+  - type: SpawnLootOnDeath
+    table:
+      id: PigeonEggInedible
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pigeon.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobPigeonRooster
+  name: carrier pigeon rooster
+  components:
+  - type: SpawnLootOnDeath
+    table:
+      id: PigeonEggInedible
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pigeon.rsi
+
+# Cotton Candy
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickCandy
+  name: cotten candy chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobCandyHen
+    - MobCandyRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+  - type: FavoriteFood
+    tag:
+    - Sugar
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobCandyHen
+  name: cotten candy hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobCandyRooster
+  name: cotten candy rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+
+# Golden
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickGolden
+  name: golden chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobGoldenHen
+    - MobCandyRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobGoldenHen
+  name: golden hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobGoldRooster
+  name: golden rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi

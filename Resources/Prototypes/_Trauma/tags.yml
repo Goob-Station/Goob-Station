@@ -131,6 +131,9 @@
   id: SpellIgnoreForestAdmonitions
 
 - type: Tag
+  id: Sugar
+
+- type: Tag
   id: TechfabMachineBoard
 
 - type: Tag
