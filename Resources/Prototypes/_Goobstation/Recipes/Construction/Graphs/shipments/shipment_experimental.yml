@@ -23,7 +23,7 @@
           - material: Bananium
             amount: 30
             doAfter: 0.1
-          - material: MaterialBSCrystal
+          - material: BSCrystal
             amount: 5
             doAfter: 0.1
           - material: Diamond
