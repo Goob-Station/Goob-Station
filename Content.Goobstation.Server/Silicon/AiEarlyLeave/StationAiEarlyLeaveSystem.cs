@@ -84,9 +84,7 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
             var parent = transform.ParentUid;
 
             if (TryComp(parent, out ActorComponent? actor))
-            {
                 filter.AddPlayer(actor.PlayerSession);
-            }
         }
         // also add ghosts its probably fine
         var ghostQuery = EntityQueryEnumerator<GhostComponent>();
