@@ -16,6 +16,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Goobstation.Common.CCVar;
 using Content.Server._RMC14.LinkAccount;
+using Content.Server.Database;
 using Content.Goobstation.Common.JoinQueue;
 
 namespace Content.Goobstation.Server.JoinQueue;
@@ -48,6 +49,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IServerNetManager _net = default!;
     [Dependency] private readonly LinkAccountManager _linkAccount = default!;
+    [Dependency] private readonly UserDbDataManager _userDb = default!;
 
     /// <summary>
     ///     Queue of active player sessions
@@ -119,6 +121,15 @@ public sealed class JoinQueueManager : IJoinQueueManager
         if (!_isEnabled)
         {
             SendToGame(session);
+            return;
+        }
+
+        try
+        {
+            await _userDb.WaitLoadComplete(session);
+        }
+        catch (OperationCanceledException)
+        {
             return;
         }
 
