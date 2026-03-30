@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Weapons;
 using Content.Goobstation.Shared.Slasher.Components;
@@ -56,7 +57,7 @@ public sealed class SlasherRelentlessGrabSystem : EntitySystem
         if (!ent.Comp.Ready || args.Target == null)
             return;
 
-        if (!_pulling.CanGrab(args.User, args.Target.Value))
+        if (!_pulling.CanPull(args.User, args.Target.Value))
             return;
 
         if (!_pulling.TryStartPull(args.User, args.Target.Value, grabStageOverride: GrabStage.Hard, force: true))
