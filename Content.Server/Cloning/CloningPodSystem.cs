@@ -37,6 +37,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Goobstation.Common.CCVar;
 
 namespace Content.Server.Cloning;
 
@@ -197,10 +198,8 @@ public sealed class CloningPodSystem : EntitySystem
 
         var cloningCost = (int)Math.Round(physics.FixturesMass);
 
-        /* Goobstation - Cloning require 100% material now
-         * if (_configManager.GetCVar(CCVars.BiomassEasyMode))
+        if (_configManager.GetCVar(GoobCVars.CloneBiomassEasyMode)) // Goobstation - Changed the cvar
             cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
-        */
 
         // biomass checks
         var biomassAmount = _material.GetMaterialAmount(uid, clonePod.RequiredMaterial);
