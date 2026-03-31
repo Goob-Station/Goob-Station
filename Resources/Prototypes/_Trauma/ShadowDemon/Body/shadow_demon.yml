@@ -53,5 +53,17 @@
   - type: OrganComponents
     onAdd:
     - type: ShadowGrapple # Only grants you the action, check shadow_grapple.yml for damage values instead
+    # fuck you
+    - type: LightDetection
+      onLightLevel: 0.5
+    - type: LightDetectionDamage
+      detectionValueRegeneration: 1
+      maxDetection: 8
+      damageToDeal:
+        types:
+          Heat: 16
+    - type: LightSpeedModifier # Makes you run faster on light or darkness
+      walkModifier: 1.5
+      sprintModifier: 1.5
   - type: StaticPrice
     price: 10000
