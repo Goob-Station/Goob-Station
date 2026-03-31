@@ -1,15 +1,15 @@
 ﻿- type: entity
-  name: injection claw
+  name: pneumatic claw
   parent: [ BaseItem, BaseSyndicateContraband, BaseSword ]
-  id: InjectionClaw
+  id: PneumaticClaw
   description: Intedyne's combat injector made of plasteel syringes with forearm-mounted reagent tanks. Delivers chemicals on hit.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/injection_claw.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/pneumatic_claw.rsi
     layers:
-    - state: injection_claw
+    - state: pneumatic_claw
       map: ["enum.SolutionContainerLayers.Base"]
-    - state: injection_claw-1
+    - state: pneumatic_claw-1
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: Item
@@ -39,7 +39,7 @@
     pierceArmor: true
   - type: SolutionContainerVisuals
     maxFillLevels: 6
-    fillBaseName: injection_claw-
+    fillBaseName: pneumatic_claw-
     inHandsFillBaseName: -fill-
     inHandsMaxFillLevels: 3
   - type: Appearance

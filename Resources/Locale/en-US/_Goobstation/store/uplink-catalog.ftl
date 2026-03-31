@@ -146,8 +146,8 @@ uplink-combat-shotgun-desc = A pump action shotgun when you need to repel target
 uplink-he1sg8-bundle-name = HE1S-G8 Bundle
 uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
 
-uplink-injectionclaw-name = Injection Claw
-uplink-injectionclaw-desc = Big Pharma agent's on-hit injector that can hold up to 30u of reagents. Comes empty. Interdyne inc. denies any "fear toxin" allegations!
+uplink-pneumaticclaw-name = Pneumatic Claw
+uplink-pneumaticclaw-desc = Big Pharma agent's on-hit injector that can hold up to 30u of reagents. Comes empty. Interdyne inc. denies any "fear toxin" allegations!
 
 # Ammo
 

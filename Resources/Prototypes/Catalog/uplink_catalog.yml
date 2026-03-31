@@ -466,11 +466,11 @@
       - ContractorUplink
 
 - type: listing
-  id: UplinkInjectionClaw
-  name: uplink-injectionclaw-name
-  description: uplink-injectionclaw-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Melee/injection_claw.rsi, state: injection_claw }
-  productEntity: InjectionClaw
+  id: UplinkPneumaticClaw
+  name: uplink-pneumaticclaw-name
+  description: uplink-pneumaticclaw-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/pneumatic_claw.rsi, state: pneumatic_claw }
+  productEntity: PneumaticClaw
   cost:
     Telecrystal: 30
   categories:

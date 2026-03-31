@@ -8,25 +8,25 @@
     },
     "states": [
         {
-            "name": "injection_claw"
+            "name": "pneumatic_claw"
         },
         {
-            "name": "injection_claw-1"
+            "name": "pneumatic_claw-1"
         },
         {
-            "name": "injection_claw-2"
+            "name": "pneumatic_claw-2"
         },
         {
-            "name": "injection_claw-3"
+            "name": "pneumatic_claw-3"
         },
         {
-            "name": "injection_claw-4"
+            "name": "pneumatic_claw-4"
         },
         {
-            "name": "injection_claw-5"
+            "name": "pneumatic_claw-5"
         },
         {
-            "name": "injection_claw-6"
+            "name": "pneumatic_claw-6"
         },
         {
             "name": "inhand-left",
