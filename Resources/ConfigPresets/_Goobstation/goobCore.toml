@@ -38,7 +38,6 @@ enabled = 1
 see_own_notes = 1
 deadmin_on_join = 1
 bypass_max_players = 1
-override_adminname_in_client_ahelp = "Xeve"
 
 [hub]
 advertise = 1

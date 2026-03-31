@@ -160,6 +160,11 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> RoundEndNoEorgPopupTime =
         CVarDef.Create("game.round_end_eorg_popup_time", 5f, CVar.SERVER | CVar.REPLICATED);
+  
+    /// Easy mode for biomass requirements on cloning. If true, 30% less biomass is required to clone mobs.
+    /// </summary>
+    public static readonly CVarDef<bool> CloneBiomassEasyMode =
+        CVarDef.Create("goob.clone_biomass_easy_mode", false, CVar.SERVER | CVar.SERVER);
 
     #region Player Listener
 
@@ -622,7 +627,7 @@ public sealed partial class GoobCVars
     /// Applies to Brute and Burn damage
     /// </summary>
     public static readonly CVarDef<float> ExplosionWoundMultiplier =
-        CVarDef.Create("explosion.wounding_multiplier", 8f, CVar.SERVERONLY);
+        CVarDef.Create("explosion.wounding_multiplier", 4f, CVar.SERVERONLY);
 
     #endregion
 
@@ -633,6 +638,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AutoFocusSearchOnBuildMenu =
         CVarDef.Create("ui.auto_focus_search_on_build_menu", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// When enabled, action hotbar slots can only be drag-reordered while the actions menu is open.
+    /// </summary>
+    public static readonly CVarDef<bool> LockActionBarDrag =
+        CVarDef.Create("ui.lock_action_bar_drag", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Whether or not to show detailed examine text.

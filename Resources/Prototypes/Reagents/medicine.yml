@@ -1136,6 +1136,10 @@
             Blunt: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Slash: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Piercing: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+      - !type:ImmunityModifier #Goobstation
+        gainRateModifier: 0.0045 #3x stronger than Immurin
+        strengthModifier: 0.02 #Twice as strong
+        statusLifetime: 3
 
 - type: reagent
   id: Ultravasculine
