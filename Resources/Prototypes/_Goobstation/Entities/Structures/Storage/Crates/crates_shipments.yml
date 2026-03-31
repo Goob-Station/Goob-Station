@@ -74,6 +74,7 @@
 #MARK: Base Lid
 - type: entity
   parent: BaseItem
+  id: BaseCrateLid
   abstract: true
   suffix: Empty
   components:
