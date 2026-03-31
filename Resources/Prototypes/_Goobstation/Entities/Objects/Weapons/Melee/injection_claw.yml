@@ -1,0 +1,50 @@
+﻿- type: entity
+  name: injection claw
+  parent: [ BaseItem, BaseSyndicateContraband, BaseSword ]
+  id: InjectionClaw
+  description: Intedyne's combat injector made of plasteel syringes with forearm-mounted reagent tanks. Delivers chemicals on hit.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/injection_claw.rsi
+    layers:
+    - state: injection_claw
+      map: ["enum.SolutionContainerLayers.Base"]
+    - state: injection_claw-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Normal
+  - type: MeleeWeapon
+    range: 1.5
+    attackRate: 1
+    damage:
+      types:
+        Slash: 10
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/hypoblade.ogg
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 30 # Same as a chem's dart gun
+  - type: Injector
+    delay: 3
+    maxTransferAmount: 15
+    minTransferAmount: 5
+    injectOnly: false
+  - type: MeleeChemicalInjector
+    transferAmount: 5
+    solution: injector
+    pierceArmor: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: injection_claw-
+    inHandsFillBaseName: -fill-
+    inHandsMaxFillLevels: 3
+  - type: Appearance
+  - type: Scalpel
+    speed: 0.65    # 65
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg

@@ -465,6 +465,22 @@
       tags:
       - ContractorUplink
 
+- type: listing
+  id: UplinkInjectionClaw
+  name: uplink-injectionclaw-name
+  description: uplink-injectionclaw-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/injection_claw.rsi, state: injection_claw }
+  productEntity: InjectionClaw
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWeaponry
+  #Goobstation
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
 
 # Explosives
 
