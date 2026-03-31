@@ -14,7 +14,7 @@
                 data: 0
             #Content of the shipment start
           - tag: AnomalyLocatorTool
-            name: "4x anomaly locator"
+            name: shipment-anomaly-locator
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
