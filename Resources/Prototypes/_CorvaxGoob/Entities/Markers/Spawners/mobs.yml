@@ -10,3 +10,17 @@
     - type: ConditionalSpawner
       prototypes:
         - MobGorillaLargo
+
+- type: entity
+  name: Cargo Bingle Spawner
+  id: SpawnMobBingleCargo
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - state: ai
+    - type: ConditionalSpawner
+      prototypes:
+        - MobBingleCargo
+
