@@ -11,3 +11,4 @@
   abstract: true
   components:
   - type: Blinking
+  - type: ManualBreathing

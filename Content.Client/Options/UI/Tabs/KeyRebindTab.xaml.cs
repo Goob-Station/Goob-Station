@@ -222,9 +222,10 @@ namespace Content.Client.Options.UI.Tabs
             AddCheckBox("ui-options-hotkey-keymap", _cfg.GetCVar(CVars.DisplayUSQWERTYHotkeys), HandleToggleUSQWERTYCheckbox);
 
 
-            // Goob - Blinking
+            // Goob - April Fools
             AddHeader("ui-options-header-aprilfools");
             AddButton(ContentKeyFunctions.Blink);
+            AddButton(ContentKeyFunctions.Breathe);
 
             AddHeader("ui-options-header-movement");
             AddButton(EngineKeyFunctions.MoveUp);

@@ -5,7 +5,6 @@
 // Additional Use Restrictions apply:
 // See /LICENSES/SITE14-ADDENDUM.md
 
-using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Input;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Input.Binding;

@@ -50,3 +50,9 @@
   id: BlinkEyelid
   kind: source
   path: "/Textures/_Goobstation/Shaders/blink_eyelid.swsl"
+
+# Breathing
+- type: shader
+  id: BreathSuffocate
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/breath_suffocate.swsl"

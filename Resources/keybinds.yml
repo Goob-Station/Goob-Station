@@ -137,6 +137,9 @@ binds:
 - function: Blink
   type: State
   key: Space
+- function: Breathe
+  type: State
+  key: B
 # Goobstation - END
 - function: UIClick
   type: State

@@ -20,7 +20,7 @@ public sealed partial class BlinkingComponent : Component
     public float MaxTimeWithoutBlink = 100000f;
 
     [DataField, AutoNetworkedField]
-    public float BlurStartTime = 3f;
+    public float BlurStartTime = 6f;
 
     [DataField, AutoNetworkedField]
     public float BlurGrowthRate = 0.15f;
