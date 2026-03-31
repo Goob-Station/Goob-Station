@@ -21,16 +21,26 @@
         Blunt: 5
   - type: Damageable
     damageContainer: Inorganic
+    damageModifierSet: FlimsyGlass
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: GlassBreak
-      - !type:SpillBehavior { }
+          path: /Audio/Effects/gib1.ogg
+      - !type:SpillBehavior
+        solution: balloon
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: WaterBalloonBase

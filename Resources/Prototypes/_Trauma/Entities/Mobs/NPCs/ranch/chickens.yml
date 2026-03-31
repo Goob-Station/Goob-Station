@@ -544,7 +544,32 @@
 # Clown
 
 - type: entity
-  parent: BaseMobChickRanch
+  abstract: true
+  id: BaseChickenClown
+  components:
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-bird
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Items/Toys/pushHornHonk.ogg
+  - type: MeleeWeapon
+    soundHit:
+      collection: BikeHorn
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+  - type: SpamEmitSound
+    minInterval: 2
+    maxInterval: 12
+    sound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+
+- type: entity
+  parent: [BaseChickenClown, BaseMobChickRanch]
   id: MobChickClown
   name: clown chick #TODO think of a funny pun to use instead
   components:
@@ -554,19 +579,28 @@
     - MobClownRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: Tag
+    tags:
+    - FootstepSound
 
 - type: entity
-  parent: BaseMobHenRanch
+  parent: [BaseChickenClown, BaseMobHenRanch]
   id: MobClownHen
   name: henk
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: Tag
+    tags:
+    - FootstepSound
 
 - type: entity
-  parent: BaseMobRoosterRanch
+  parent: [BaseChickenClown, BaseMobRoosterRanch]
   id: MobClownRooster
   name: henkster
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: Tag
+    tags:
+    - FootstepSound

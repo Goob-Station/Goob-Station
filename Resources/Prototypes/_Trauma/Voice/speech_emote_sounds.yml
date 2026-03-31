@@ -1,0 +1,156 @@
+# Emotes that every mob's emotes inherit from
+- type: emoteSounds
+  abstract: true
+  id: BaseEmotes
+  params:
+    variation: 0.125
+  sounds:
+    Surprised:
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+    # reagents and stuff can make you do these emotes
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+    RobotBeep:
+      collection: RobotBeeps
+
+- type: emoteSounds
+  abstract: true
+  parent: BaseEmotes
+  id: BaseMobEmotes
+  sounds:
+    Gulp:
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    CatMeow: # caused by CatDrugs
+      collection: CatMeows
+
+# Emotes for different mobs
+
+- type: emoteSounds
+  abstract: true
+  parent: BaseMobEmotes
+  id: BaseHuman
+  sounds:
+    Gulp:
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg # non exotic :(
+
+- type: emoteSounds
+  abstract: true
+  parent: BaseMobEmotes
+  id: BaseReptilian
+  sounds:
+    Yip:
+      collection: Yip
+    Hiss:
+      collection: ReptilianHiss
+
+- type: emoteSounds
+  abstract: true
+  parent: BaseMobEmotes
+  id: BaseSlime
+  sounds:
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+
+- type: emoteSounds
+  abstract: true
+  parent: BaseMobEmotes
+  id: BaseVox
+  sounds:
+    Bagawk:
+      collection: Bagawk
+    CatMeow:
+      collection: CatMeows
+    Sneeze:
+      path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_Goobstation/Voice/Vox/vox_yawn.ogg
+    Snore:
+      path: /Audio/_Goobstation/Voice/Vox/vox_snore.ogg
+    Whistle:
+      collection: Whistles
+
+- type: emoteSounds
+  abstract: true
+  parent: BaseMobEmotes
+  id: BaseDiona
+  sounds:
+    Crying:
+      collection: Dionacry
+    Whistle:
+      collection: Dionawhistle
+    Cough:
+      collection: Dionacough
+    Yawn:
+      collection: Dionayawn
+    Sigh:
+      collection: Dionasigh
+
+- type: emoteSounds
+  abstract: true
+  parent: BaseMobEmotes
+  id: BaseMoth
+  sounds:
+    # it had none
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+
+- type: emoteSounds
+  abstract: true
+  parent: BaseEmotes
+  id: BaseSilicon
+  sounds:
+    Boop:
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+    Whirr:
+      collection: IPCWhirrs
+      params:
+        variation: 0
+    Laugh:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
+      params:
+        variation: 0.125
+    Sigh:
+      path: /Audio/Voice/Talk/pai.ogg
+      params:
+        variation: 0.125
+    Crying:
+      path: /Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg
+      params:
+        variation: 0.125
+    Whistle:
+      path: /Audio/_EinsteinEngines/Voice/IPC/pai_whistle.ogg
+      params:
+        variation: 0.125
+
+- type: emoteSounds
+  parent: BaseMobEmotes
+  id: ClownChicken
+  params:
+    variation: 0.125
+  sounds:
+    Honk:
+      collection: BikeHorn
