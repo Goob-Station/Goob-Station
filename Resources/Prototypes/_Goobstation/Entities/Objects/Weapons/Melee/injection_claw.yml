@@ -16,10 +16,10 @@
     size: Normal
   - type: MeleeWeapon
     range: 1.5
-    attackRate: 1
+    attackRate: 2
     damage:
       types:
-        Slash: 10
+        Slash: 6 #7
     angle: 0
     animation: WeaponArcThrust
     soundHit:
