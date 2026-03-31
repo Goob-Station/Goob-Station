@@ -30,6 +30,6 @@ public sealed partial class QueueGui : Control
     {
         QueueTotal.Text = total.ToString();
         QueuePosition.Text = position.ToString();
-        PatronText.Visible = isPatron;
+        PatronPanel.Visible = isPatron;
     }
 }

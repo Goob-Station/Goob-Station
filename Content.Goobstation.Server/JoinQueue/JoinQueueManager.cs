@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Server.Connection;
 using Content.Shared.CCVar;
@@ -16,6 +11,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Goobstation.Common.CCVar;
 using Content.Server._RMC14.LinkAccount;
+using Content.Server.Database;
 using Content.Goobstation.Common.JoinQueue;
 
 namespace Content.Goobstation.Server.JoinQueue;
@@ -48,6 +44,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IServerNetManager _net = default!;
     [Dependency] private readonly LinkAccountManager _linkAccount = default!;
+    [Dependency] private readonly UserDbDataManager _userDb = default!;
 
     /// <summary>
     ///     Queue of active player sessions
@@ -63,7 +60,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
     private bool _patreonIsEnabled = true;
 
     public int PlayerInQueueCount => _queue.Count + _patronQueue.Count;
-    public int ActualPlayersCount => _player.PlayerCount - PlayerInQueueCount; // Now it's only real value with actual players count that in game
+    public int ActualPlayersCount => _player.PlayerCount - PlayerInQueueCount;
 
 
     public void Initialize()
@@ -73,6 +70,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
         _configuration.OnValueChanged(GoobCVars.QueueEnabled, OnQueueCVarChanged, true);
         _configuration.OnValueChanged(GoobCVars.PatreonSkip, OnPatronCvarChanged, true);
         _player.PlayerStatusChanged += OnPlayerStatusChanged;
+        _userDb.AddOnFinishLoad(OnPlayerDataLoaded);
     }
 
 
@@ -99,7 +97,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
         {
             var wasInQueue = _queue.Remove(e.Session) || _patronQueue.Remove(e.Session);
 
-            if (!wasInQueue && e.OldStatus != SessionStatus.InGame) // Process queue only if player disconnected from InGame or from queue
+            if (!wasInQueue && e.OldStatus != SessionStatus.InGame)
                 return;
 
             ProcessQueue(true, e.Session.ConnectedTime);
@@ -109,18 +107,16 @@ public sealed class JoinQueueManager : IJoinQueueManager
         }
         else if (e.NewStatus == SessionStatus.Connected)
         {
-            OnPlayerConnected(e.Session);
+            if (!_isEnabled)
+                SendToGame(e.Session);
         }
     }
 
 
-    private async void OnPlayerConnected(ICommonSession session)
+    private async void OnPlayerDataLoaded(ICommonSession session)
     {
         if (!_isEnabled)
-        {
-            SendToGame(session);
             return;
-        }
 
         var isPrivileged = await _connection.HasPrivilegedJoin(session.UserId);
         var isPatron = _linkAccount.GetPatron(session)?.Tier != null;
@@ -153,7 +149,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
     {
         var players = ActualPlayersCount;
         if (isDisconnect)
-            players--; // Decrease currently disconnected session but that has not yet been deleted
+            players--;
 
         var haveFreeSlot = players < _configuration.GetCVar(CCVars.SoftMaxPlayers);
         var patronQueueContains = _patronQueue.Count > 0;
