@@ -4,3 +4,5 @@ ent-SpawnPointSurgeon = хирург
     .desc = { ent-SpawnPointJobBase.desc }
 ent-SpawnPointWardenHelper = помощник смотрителя
     .desc = { ent-SpawnPointJobBase.desc }
+ent-SpawnPointMagistrate = магистрат
+    .desc = { ent-SpawnPointJobBase.desc }

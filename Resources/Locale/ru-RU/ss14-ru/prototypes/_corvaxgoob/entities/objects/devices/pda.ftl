@@ -4,3 +4,5 @@ ent-WardenHelperPDA = КПК помощника смотрителя
     .desc = { ent-BaseSecurityPDA.desc }
 ent-PilotPDA = КПК пилота
     .desc = Имеет защиту от космической радиации.
+ent-MagistratePDA = КПК магистрата
+    .desc = Корпорация и прибыль лучшие друзья.

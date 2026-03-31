@@ -36,3 +36,16 @@
           state: idwardenhelper
     - type: PresetIdCard
       job: WardenHelper
+
+- type: entity
+  parent: IDCardStandard
+  id: MagistrateIDCard
+  name: magistrate's ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: centcom
+        - sprite: _CorvaxGoob/Objects/Misc/id_cards.rsi
+          state: idmagistrate
+    - type: PresetIdCard
+      job: Magistrate

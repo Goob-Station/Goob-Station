@@ -169,6 +169,7 @@
     - Security
     - Service
     - Supply
+    - Legal #Corvax Magistrate
     defaultChannel: Command
   - type: Sprite
     layers:

@@ -1,0 +1,11 @@
+- type: entity
+  name: legal department pen
+  parent: BaseAdvancedPen
+  id: PenLegal
+  description: Writes sentences and more.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Misc/pens.rsi
+    state: legal_pen
+  - type: Item
+    heldPrefix: legal_pen

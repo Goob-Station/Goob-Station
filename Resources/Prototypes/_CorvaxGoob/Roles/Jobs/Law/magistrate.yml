@@ -1,0 +1,65 @@
+- type: job
+  id: Magistrate
+  name: job-name-magistrate
+  description: job-description-magistrate
+  playTimeTracker: JobMagistrate
+  whitelisted: true #No-Ki сказал, что договорился!
+  requirements:
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    - Muted
+  - !type:SpeciesRequirement # CorvaxGoob-Species
+    inverted: true
+    species:
+    - Abductor
+  startingGear: MagistrateGear
+  icon: "JobIconMagistrate"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Command
+  - Brig
+  - Maintenance
+  - External
+  - Security
+  - Lawyer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+    - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
+      soulOwnedNotDevil: true
+
+- type: startingGear
+  id: MagistrateGear
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+    neck: ClothingNeckLawyerbadge
+    id: MagistratePDA
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesColorWhite
+    ears: ClothingHeadsetMagistrate
+    pocket1: BoxFolderBlack
+  storage:
+    back:
+    - Flash
+    - TelescopicBaton # Goobstation
+    - MagistrateGavel
+    - GavelBlock
+    - RubberStampMagistrate
+
+- type: chameleonOutfit
+  id: MagistrateChameleonOutfit
+  job: Magistrate
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatPwigFancy
+    jumpsuit: ClothingUniformJumpsuitMagistrate
+    eyes: ClothingEyesGlassesSunglasses
+    neck: ClothingNeckLawyerbadge
+    gloves: ClothingHandsGlovesColorWhite
+    mask: ClothingMaskBreath
+    shoes: ClothingShoesBootsLaceup

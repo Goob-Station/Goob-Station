@@ -1,0 +1,44 @@
+- type: loadout
+  id: MagistrateJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMagistrate
+
+- type: loadout
+  id: MagistrateJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMagistrate
+
+- type: loadout
+  id: MagistrateJumpsuitFormal
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMagistrateFormal
+
+- type: loadout
+  id: MagistrateOuterClothingRobe
+  equipment:
+    outerClothing: ClothingOuterRobesMagistrate
+
+- type: loadout
+  id: MagistrateOuterClothingRobeAlt
+  equipment:
+    outerClothing: ClothingOuterRobesMagistrateAlt
+    
+- type: loadout
+  id: MagistrateOuterClothingRobeFancy
+  equipment:
+    outerClothing: ClothingOuterRobesMagistrateFancy
+
+- type: loadout
+  id: MagistrateOuterClothingRobeRed
+  equipment:
+    outerClothing: ClothingOuterRobesMagistrateRed
+
+- type: loadout
+  id: MagistrateHeadPwig
+  equipment:
+    head: ClothingHeadHatPwig
+
+- type: loadout
+  id: MagistrateHeadPwigFancy
+  equipment:
+    head: ClothingHeadHatPwigFancy

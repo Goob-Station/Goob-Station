@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseItem
+  id: GavelBlock
+  name: gavel block
+  description: Hammer here.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Misc/gavelblock.rsi
+    state: icon
+  - type: Physics
+    bodyType: Dynamic
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Item
+    size: Tiny

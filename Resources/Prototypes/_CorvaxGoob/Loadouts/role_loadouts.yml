@@ -1,4 +1,16 @@
 - type: roleLoadout
+  id: JobMagistrate
+  groups:
+  - Inventory
+  - MagistrateHead
+  - MagistrateJumpsuit
+  - MagistrateOuterClothing
+  - CommonBackpack
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
   id: JobSurgeon
   groups:
   - Inventory

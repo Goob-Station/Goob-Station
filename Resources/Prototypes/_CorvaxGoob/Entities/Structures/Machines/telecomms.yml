@@ -1,0 +1,9 @@
+- type: entity
+  parent: TelecomServer
+  id: TelecomServerFilledLegal
+  suffix: Legal
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyLegal

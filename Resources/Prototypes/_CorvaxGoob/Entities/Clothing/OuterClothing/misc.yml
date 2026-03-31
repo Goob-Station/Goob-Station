@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterRobesMagistrate
+  name: magistrate's robe
+  description: This robe commands authority.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Misc/magistrate.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Misc/magistrate.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterRobesMagistrateAlt
+  name: magistrate's robe
+  description: An alternative robe that commands authority.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Misc/magistrate_alt.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Misc/magistrate_alt.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterRobesMagistrateFancy
+  name: fancy magistrate's robe
+  description: Fancy robe for fancy man! Or woman...
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Misc/magistrate_fancy.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Misc/magistrate_fancy.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterRobesMagistrateRed
+  name: blood-red magistrate's robe
+  description: Is this blood?
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Misc/magistrate_red.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Misc/magistrate_red.rsi

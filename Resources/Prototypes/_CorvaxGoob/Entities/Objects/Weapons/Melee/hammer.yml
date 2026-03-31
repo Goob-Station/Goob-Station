@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseItem
+  id: MagistrateGavel
+  name: judge's gavel
+  description: Give a verdict.
+  components:
+    - type: Sprite
+      sprite: _CorvaxGoob/Objects/Weapons/Melee/hammer.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: _CorvaxGoob/Objects/Weapons/Melee/hammer.rsi
+    - type: Appearance
+    - type: DisarmMalus
+      malus: 0
+    - type: MeleeWeapon
+      attackRate: 3
+      soundHit: 
+        path: /Audio/_CorvaxGoob/Weapons/knock.ogg
+        params:
+            variation: 0.03
+            volume: 3
+      soundNoDamage: 
+        path: /Audio/_CorvaxGoob/Weapons/knock.ogg
+        params:
+            variation: 0.03
+            volume: 3
+      damage:
+        types:
+          Blunt: 1

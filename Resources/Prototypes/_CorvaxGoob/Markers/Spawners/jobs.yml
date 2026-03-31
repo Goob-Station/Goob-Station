@@ -1,0 +1,13 @@
+# Law
+
+- type: entity
+  id: SpawnPointMagistrate
+  parent: SpawnPointJobBase
+  name: Magistrate
+  components:
+  - type: SpawnPoint
+    job_id: Magistrate
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lawyer

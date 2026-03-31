@@ -20,3 +20,5 @@ ent-ClothingUniformJumpskirtRDClassical = классическая юбка-ко
     .desc = Это классический костюм с юбкой научного руководителя.
 ent-ClothingUniformJumpskirtPilot = юбка-комбинезон пилота службы безопасности
     .desc = Это юбка пилота службы безопасности.
+ent-ClothingUniformJumpskirtMagistrate = юбка-комбинезон магистрата
+    .desc = Это комбинезон судьи космического закона.

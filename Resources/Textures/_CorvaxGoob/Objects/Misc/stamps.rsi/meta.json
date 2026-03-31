@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/fb1012102257b7b0a08d861fd2b8ba963c416e93",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/fb1012102257b7b0a08d861fd2b8ba963c416e93, Magistrate stamp by _Svist_. (Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,9 @@
     },
     {
       "name": "stamp-iaa"
+    },
+    {
+      "name": "stamp-magistrate"
     }
   ]
 }

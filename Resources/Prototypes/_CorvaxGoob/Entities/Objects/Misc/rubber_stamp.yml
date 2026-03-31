@@ -11,3 +11,17 @@
     - type: Sprite
       sprite: _CorvaxGoob/Objects/Misc/stamps.rsi
       state: stamp-iaa
+
+- type: entity
+  name: magistrate's rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampMagistrate
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-magistrate
+    stampedColor: "#eebe35"
+    stampState: "paper_stamp-qm"
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Misc/stamps.rsi
+    state: stamp-magistrate

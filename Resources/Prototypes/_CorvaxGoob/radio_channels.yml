@@ -1,0 +1,7 @@
+- type: radioChannel
+  id: Legal
+  name: chat-radio-legal
+  keycode: 'ю' # Corvax-Localization
+  frequency: 1353
+  color: "#755C48"
+  longRange: false

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by kbas5(Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "legal_pen"
+    },
+    {
+      "name": "legal_pen-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "legal_pen-inhand-right",
+      "directions": 4
+    }
+  ]
+}

@@ -118,3 +118,14 @@
       sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/pilot.rsi
     - type: Clothing
       sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/pilot.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMagistrate
+  name: magistrate's jumpskirt
+  description: Judge of space law.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/magistrate.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/magistrate.rsi

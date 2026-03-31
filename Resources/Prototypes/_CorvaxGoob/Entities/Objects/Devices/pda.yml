@@ -61,3 +61,30 @@
       accentVColor: "#DFDFDF"
     - type: Icon
       state: pda-seniorofficer
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: MagistratePDA
+  name: magistrate's PDA
+  description: Corporation and profit are best friends.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Devices/pda.rsi
+    state: pda-magistrat
+  - type: Pda
+    id: MagistrateIDCard
+    penSlot:
+      startingItem: PenLegal
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-magistrate
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    sprite: _CorvaxGoob/Objects/Devices/pda.rsi
+    state: pda-magistrate
