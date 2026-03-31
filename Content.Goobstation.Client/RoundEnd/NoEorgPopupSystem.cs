@@ -1,8 +1,8 @@
 using Content.Shared.GameTicking;
-using Content.Shared._DV.CCVars;
 using Robust.Shared.Configuration;
+using Content.Goobstation.Common.CCVar;
 
-namespace Content.Client._DV.RoundEnd;
+namespace Content.Goobstation.Client.RoundEnd;
 
 public sealed class NoEorgPopupSystem : EntitySystem
 {
@@ -16,9 +16,9 @@ public sealed class NoEorgPopupSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        Subs.CVar(_cfg, DCCVars.RoundEndNoEorgPopup, val => _eorgPopup = val, true);
-        Subs.CVar(_cfg, DCCVars.AskRoundEndNoEorgPopup, val => _neededTime = val, true);
-        Subs.CVar(_cfg, DCCVars.LastReadRoundEndNoEorgPopup, val => _lastShown = val, true);
+        Subs.CVar(_cfg, GoobCVars.RoundEndNoEorgPopup, val => _eorgPopup = val, true);
+        Subs.CVar(_cfg, GoobCVars.AskRoundEndNoEorgPopup, val => _neededTime = val, true);
+        Subs.CVar(_cfg, GoobCVars.LastReadRoundEndNoEorgPopup, val => _lastShown = val, true);
 
         SubscribeNetworkEvent<RoundEndMessageEvent>(OnRoundEnd);
     }
