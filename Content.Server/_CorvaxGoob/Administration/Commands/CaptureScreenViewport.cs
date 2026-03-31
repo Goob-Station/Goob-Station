@@ -1,5 +1,6 @@
 using Content.Server._CorvaxGoob.Photo;
 using Content.Server.Administration;
+using Content.Shared._CorvaxGoob.Photo;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
@@ -7,16 +8,16 @@ using Robust.Shared.Console;
 namespace Content.Server._CorvaxGoob.Administration.Commands;
 
 [AdminCommand(AdminFlags.Moderator)]
-public sealed class CaptureCommand : IConsoleCommand
+public sealed class CaptureViewportCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IEntityManager _manager = default!;
 
-    public string Command => "capturescreen";
-    public string Description => Loc.GetString("cmd-capturescreen-desc");
-    public string Help => Loc.GetString("cmd-capturescreen-help", ("command", Command));
+    public string Command => "capturescreenviewport";
+    public string Description => "Capture screen of target via third party renderers.";
+    public string Help => "capturescreenviewport <username>";
 
-    public async void Execute(IConsoleShell shell, string argStr, string[] args)
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (shell.Player is null)
         {
@@ -24,7 +25,7 @@ public sealed class CaptureCommand : IConsoleCommand
             return;
         }
 
-        if (args[0] is null)
+        if (args.Length == 0 || string.IsNullOrWhiteSpace(args[0]))
         {
             shell.WriteLine(Loc.GetString("shell-target-player-does-not-exist"));
             return;
@@ -36,14 +37,14 @@ public sealed class CaptureCommand : IConsoleCommand
             return;
         }
 
-        _manager.System<CaptureSystem>().RequestScreenCapture(session, shell.Player);
+        _manager.System<CaptureSystem>().RequestScreenCapture(session, shell.Player, PhotoCaptureType.Viewport);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
         {
-            return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("shell-argument-username-hint"));
+            return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(),Loc.GetString("shell-argument-username-hint"));
         }
 
         return CompletionResult.Empty;

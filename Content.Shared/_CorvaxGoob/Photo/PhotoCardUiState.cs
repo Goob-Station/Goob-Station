@@ -21,7 +21,14 @@ public enum PhotoCardUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class CaptureScreenRequestEvent : EntityEventArgs;
+public sealed class CaptureScreenRequestEvent : EntityEventArgs
+{
+    public PhotoCaptureType Type;
+    public CaptureScreenRequestEvent(PhotoCaptureType type)
+    {
+        Type = type;
+    }
+}
 
 [Serializable, NetSerializable]
 public sealed class CaptureScreenResponseEvent : EntityEventArgs
