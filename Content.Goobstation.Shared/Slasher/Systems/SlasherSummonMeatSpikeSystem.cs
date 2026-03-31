@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -15,6 +16,7 @@ public sealed class SlasherSummonMeatSpikeSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -37,9 +39,9 @@ public sealed class SlasherSummonMeatSpikeSystem : EntitySystem
 
     private void OnSummon(Entity<SlasherSummonMeatSpikeComponent> ent, ref SlasherSummonMeatSpikeEvent args)
     {
-        Spawn(ent.Comp.MeatSpikePrototype, _xform.GetMoverCoordinates(ent.Owner));
         _audio.PlayPredicted(ent.Comp.SummonSound, ent.Owner, ent.Owner);
         _popup.PopupPredicted(Loc.GetString("slasher-summon-meatspike-popup"), ent.Owner, ent.Owner, PopupType.MediumCaution);
+        PredictedSpawnAtPosition(ent.Comp.MeatSpikePrototype, _xform.GetMoverCoordinates(ent.Owner));
         args.Handled = true;
     }
 }

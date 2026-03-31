@@ -137,6 +137,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MaxDrunkTime =
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// Easy mode for biomass requirements on cloning. If true, 30% less biomass is required to clone mobs.
+    /// </summary>
+    public static readonly CVarDef<bool> CloneBiomassEasyMode =
+        CVarDef.Create("goob.clone_biomass_easy_mode", false, CVar.SERVER | CVar.SERVER);
+
     #region Player Listener
 
     /// <summary>
@@ -609,6 +615,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AutoFocusSearchOnBuildMenu =
         CVarDef.Create("ui.auto_focus_search_on_build_menu", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// When enabled, action hotbar slots can only be drag-reordered while the actions menu is open.
+    /// </summary>
+    public static readonly CVarDef<bool> LockActionBarDrag =
+        CVarDef.Create("ui.lock_action_bar_drag", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Whether or not to show detailed examine text.

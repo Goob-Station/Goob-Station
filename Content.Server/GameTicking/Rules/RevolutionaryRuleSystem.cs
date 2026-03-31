@@ -73,7 +73,6 @@ using Content.Shared.Revolutionary.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Zombies;
-using Content.Shared.Heretic;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
@@ -246,8 +245,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
 
         // goob - event instead of whatever the fuck the hascomp obelisk below is (whoever did this needs to be flogged)
-        var convEv = new BeforeConversionEvent();
-        RaiseLocalEvent(ev.Target, ref convEv);
+        var convEv = new BeforeConversionEvent(ev.Target);
+        RaiseLocalEvent(ev.Target, ref convEv, true);
 
         if (HasComp<RevolutionaryComponent>(ev.Target) ||
             HasComp<MindShieldComponent>(ev.Target) ||
@@ -255,7 +254,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target) ||
-            HasComp<HereticComponent>(ev.Target) || // goob edit - no more heretic revs
             HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {
             if (ev.User != null)
