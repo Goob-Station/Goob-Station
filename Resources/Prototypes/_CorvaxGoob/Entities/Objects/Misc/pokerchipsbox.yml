@@ -1,0 +1,98 @@
+- type: entity
+  parent: [BoxCardboard, BaseBagOpenClose]
+  id: PokerChipsBox
+  name: poker chips box
+  description: Please put them in the right places.
+  components:
+    - type: Sprite
+      sprite: _CorvaxGoob/Objects/Storages/pokerchipsbox.rsi
+      state: box-closed
+      layers:
+        - state: box-closed
+          map: ["closeLayer"]
+        - state: box-open
+          map: ["openLayer"]
+          visible: false
+        - state: box1
+          map: ["box1"]
+          visible: false
+        - state: box2
+          map: ["box2"]
+          visible: false
+        - state: box3
+          map: ["box3"]
+          visible: false
+        - state: box4
+          map: ["box4"]
+          visible: false
+        - state: box5
+          map: ["box5"]
+          visible: false
+        - state: box6
+          map: ["box6"]
+          visible: false
+        - state: box7
+          map: ["box7"]
+          visible: false
+        - state: box8
+          map: ["box8"]
+          visible: false
+        - state: box9
+          map: ["box9"]
+          visible: false
+        - state: box10
+          map: ["box10"]
+          visible: false
+        - state: box11
+          map: ["box11"]
+          visible: false
+        - state: box12
+          map: ["box12"]
+          visible: false
+    - type: Storage
+      grid:
+        - 0,0,1,2
+        - 3,0,4,2
+      whitelist:
+        tags:
+          - PokerChip
+    - type: Item
+      size: Normal
+      shape:
+        - 0,0,2,1
+      storedOffset: 0,-6
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children:
+            # cuz it fills top lines first
+            - id: PokerChip5
+            - id: PokerChip25
+            - id: PokerChip50
+            - id: PokerChip100
+            - id: PokerChip5
+            - id: PokerChip25
+            - id: PokerChip50
+            - id: PokerChip100
+            - id: PokerChip5
+            - id: PokerChip25
+            - id: PokerChip50
+            - id: PokerChip100
+    - type: ItemCounter
+      count:
+        tags: [PokerChip]
+      composite: true
+      layerStates:
+        - box1
+        - box2
+        - box3
+        - box4
+        - box5
+        - box6
+        - box7
+        - box8
+        - box9
+        - box10
+        - box11
+        - box12
+    - type: Appearance

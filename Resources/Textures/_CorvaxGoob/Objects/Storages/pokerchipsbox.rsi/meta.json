@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Taken from cmss13-pve at https://github.com/cmss13-devs/cmss13-pve/blob/69c55cd83d32f977f73bd0b7cfbb55af8524a56a/icons/obj/items/storage/kits.dmi, edited by ArZarLordOfMango",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+		{
+            "name": "box-open"
+        },
+        {
+            "name": "box-closed"
+        },
+        {
+            "name": "box1"
+        },
+        {
+            "name": "box2"
+        },
+        {
+            "name": "box3"
+        },
+        {
+            "name": "box4"
+        },
+        {
+            "name": "box5"
+        },
+        {
+            "name": "box6"
+        },
+        {
+            "name": "box7"
+        },
+        {
+            "name": "box8"
+        },
+        {
+            "name": "box9"
+        },
+        {
+            "name": "box10"
+        },
+        {
+            "name": "box11"
+        },
+        {
+            "name": "box12"
+        }
+    ]
+}

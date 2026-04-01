@@ -32,45 +32,46 @@
   description: A square piece of metal standing on four metal legs.
   abstract: true
   components:
-  - type: Animateable
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: PlaceableSurface
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
-        density: 55
-        mask: # tables should collide with other tables
-        - TableMask
-        layer:
-        - TableLayer
-        - BulletImpassable # Goobstation - Crawling
-  - type: SpriteFade
-  - type: Sprite
-  - type: Icon
-    state: full
-  - type: IconSmooth
-    key: state
-    base: state_
-  - type: Climbable
-  - type: Bonkable
-    bonkDamage:
-      types:
-        Blunt: 4
-  - type: Clickable
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepHull
-  - type: Tag
-    tags:
-    - ForceFixRotations
-  - type: RequireProjectileTarget # Goobstation - Crawling
-    ignoreThrow: true
-
+    - type: Animateable
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Metallic
+    - type: PlaceableSurface
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.45,-0.45,0.45,0.45"
+          density: 55
+          mask: # tables should collide with other tables
+            - TableMask
+          layer:
+            - TableLayer
+            - BulletImpassable # Goobstation - Crawling
+    - type: SpriteFade
+    - type: Sprite
+    - type: Icon
+      state: full
+    - type: IconSmooth
+      key: state
+      base: state_
+    - type: Climbable
+    - type: Bonkable
+      bonkDamage:
+        types:
+          Blunt: 4
+    - type: Clickable
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepHull
+    - type: Tag
+      tags:
+        - ForceFixRotations
+    - type: RequireProjectileTarget # Goobstation - Crawling
+      ignoreThrow: true
+    - type: InteractionVerbs # CorvaxGoob-Poker
+      allowedVerbs:
+        - KnockOn
 
 - type: entity
   id: CounterBase
@@ -78,15 +79,14 @@
   name: counter
   abstract: true
   components:
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
-        density: 55
-        mask:
-        - TableMask
-        layer:
-        - TableLayer 
-        - BulletImpassable # Goobstation - Crawling
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.45,-0.45,0.45,0.45"
+          density: 55
+          mask:
+            - TableMask
+          layer:
+            - TableLayer
+            - BulletImpassable # Goobstation - Crawling
