@@ -39,6 +39,7 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     private EntityQuery<AbsorbedComponent> _absorbQuery;
     private EntityQuery<BodyComponent> _bodyQuery;
@@ -311,13 +312,9 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
     private void SetPreventGhosting(Entity<ChangelingStasisComponent> ent, bool state)
     {
-        if (!_mindQuery.TryComp(ent, out var mindContainer)
-            || !mindContainer.HasMind)
+        if (!_mind.TryGetMind(ent, out _, out var mind))
             return;
 
-        var mindEnt = mindContainer.Mind.Value;
-
-        var mind = Comp<MindComponent>(mindEnt);
         mind.PreventGhosting = state;
     }
 
