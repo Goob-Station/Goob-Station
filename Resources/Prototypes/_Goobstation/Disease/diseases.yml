@@ -33,7 +33,6 @@
       DiseaseBehaviorHeadache: 0.8
       DiseaseBehaviorCough: 0.6
       DiseaseBehaviorOwO: 1
-      DiseaseBehaviorSpreadOnContact: 0.2
 
 - type: entity
   id: DiseaseCancer
@@ -74,3 +73,14 @@
     genotype: 666323
     effects:
       DiseaseBehaviorGunemia: 1
+
+- type: entity
+  id: DiseaseBaseParasite
+  parent: DiseaseBase
+  components:
+  - type: Disease
+    diseaseType: Parasite
+    effects:
+      DiseaseBehaviorVomit: 1
+      DiseaseBehaviorFeelUnwell: 1
+      DiseaseBehaviorSpreadOnContact: 1
