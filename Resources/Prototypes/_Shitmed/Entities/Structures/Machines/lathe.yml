@@ -7,7 +7,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseLathe
+  parent: [BaseLathe, BaseSiloUtilizer] # CorvaxGoob-changes: add BaseSiloUtilizer
   id: MedicalBiofabricator
   name: medical biofabricator
   description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.

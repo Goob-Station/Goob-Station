@@ -697,7 +697,7 @@
 
 - type: entity
   id: Biofabricator
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # CorvaxGoob-changes: add BaseSiloUtilizer
   name: biocube fabricator
   description: Produces animal cubes using biomass.
   components:
@@ -975,7 +975,7 @@
 
 - type: entity
   id: Biogenerator
-  parent: BaseLathe
+  parent: [BaseLathe, BaseSiloUtilizer] # CorvaxGoob-changes: add BaseSiloUtilizer
   name: biogenerator
   description: Converts plants into biomass, which can be used to construct useful items.
   components:
@@ -1079,7 +1079,7 @@
     - AdvancedSmelting
 
 - type: entity
-  parent: BaseLathe
+  parent: [BaseLathe, BaseSiloUtilizer] # CorvaxGoob-changes: add BaseSiloUtilizer
   id: Sheetifier
   name: sheet-meister 2000
   description: A very sheety machine.
@@ -1100,7 +1100,7 @@
     canEjectStoredMaterials: false
     whitelist:
       tags:
-      - Raw
+      - Meat # CorvaxGoob-changes: Raw > meat
       - Wooden
       - Boll
   - type: Lathe
