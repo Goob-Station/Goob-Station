@@ -70,6 +70,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
         _configuration.OnValueChanged(GoobCVars.QueueEnabled, OnQueueCVarChanged, true);
         _configuration.OnValueChanged(GoobCVars.PatreonSkip, OnPatronCvarChanged, true);
         _player.PlayerStatusChanged += OnPlayerStatusChanged;
+        _userDb.AddOnFinishLoad(OnPlayerDataLoaded);
     }
 
 
@@ -106,27 +107,16 @@ public sealed class JoinQueueManager : IJoinQueueManager
         }
         else if (e.NewStatus == SessionStatus.Connected)
         {
-            OnPlayerConnected(e.Session);
+            if (!_isEnabled)
+                SendToGame(e.Session);
         }
     }
 
 
-    private async void OnPlayerConnected(ICommonSession session)
+    private async void OnPlayerDataLoaded(ICommonSession session)
     {
         if (!_isEnabled)
-        {
-            SendToGame(session);
             return;
-        }
-
-        try
-        {
-            await _userDb.WaitLoadComplete(session);
-        }
-        catch (OperationCanceledException)
-        {
-            return;
-        }
 
         var isPrivileged = await _connection.HasPrivilegedJoin(session.UserId);
         var isPatron = _linkAccount.GetPatron(session)?.Tier != null;

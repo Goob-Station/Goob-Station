@@ -1161,6 +1161,9 @@
   id: Maints
 
 - type: Tag
+  id: MaintenanceCloset
+
+- type: Tag
   id: Matchstick
 
 - type: Tag
