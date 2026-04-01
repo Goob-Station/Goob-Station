@@ -17,6 +17,8 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Goobstation.Common.Weapons.Ranged;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
@@ -66,6 +68,7 @@ public sealed class SandevistanSystem : EntitySystem
         SubscribeLocalEvent<ActiveSandevistanUserComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<ActiveSandevistanUserComponent, EndCollideEvent>(OnEndCollide);
         SubscribeLocalEvent<ActiveSandevistanUserComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<ActiveSandevistanUserComponent, AmmoShotUserEvent>(OnAmmoShot);
 
         SubscribeLocalEvent<PhysicsUpdateAfterSolveEvent>(OnPhysicsUpdateAfterSolve);
     }
@@ -368,6 +371,17 @@ public sealed class SandevistanSystem : EntitySystem
     #endregion
 
     #region Slowfield Methods
+
+    private void OnAmmoShot(Entity<ActiveSandevistanUserComponent> ent, ref AmmoShotUserEvent args)
+    {
+        var comp = Comp<SandevistanUserComponent>(ent);
+
+        if (!comp.SlowfieldEnabled)
+            return;
+
+        foreach (var projectile in args.FiredProjectiles)
+            ApplySlowdown(ent, projectile, comp);
+    }
 
     private void CreateSlowfieldFixture(EntityUid uid, SandevistanUserComponent comp)
     {
