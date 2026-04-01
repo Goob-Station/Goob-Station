@@ -33,6 +33,7 @@
       DiseaseBehaviorHeadache: 0.8
       DiseaseBehaviorCough: 0.6
       DiseaseBehaviorOwO: 1
+      DiseaseBehaviorSpreadOnContact: 0.2
 
 - type: entity
   id: DiseaseCancer

@@ -71,3 +71,22 @@
   - type: DiseasePeriodicCondition
     delayMin: 10
     delayMax: 30
+
+- type: entity
+  id: DiseaseBehaviorSpreadOnContact
+  parent: DiseaseBehaviorBase
+  name: collide spread
+  description: can now transmit on contact
+  components:
+  - type: DiseaseEffect
+    complexity: 20 # incresed spread
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: DiseaseOnCollide
+      whiteList:
+        components:
+        - DiseaseCarrier
+      spreadParams:
+        chance: 0.1
+        power: 1
+        spreadType: Blood
