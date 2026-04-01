@@ -38,3 +38,27 @@
   path: "/Textures/_Goobstation/Shaders/sandevistan_glitch.swsl"
   params:
     intensity: 1.0
+
+# SPDX-FileCopyrightText: 2026 Site-14 Contributors
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+# Additional Use Restrictions apply:
+# See /LICENSES/SITE14-ADDENDUM.md
+
+# Blinking
+- type: shader
+  id: BlinkBlur
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/blink_blur.swsl"
+
+- type: shader
+  id: BlinkEyelid
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/blink_eyelid.swsl"
+
+# Breathing
+- type: shader
+  id: BreathSuffocate
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/breath_suffocate.swsl"
