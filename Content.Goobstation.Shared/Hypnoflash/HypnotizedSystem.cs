@@ -7,6 +7,7 @@ using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Stunnable;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Hypnoflash;
 
@@ -16,6 +17,7 @@ public sealed class HypnotizedSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -31,17 +33,11 @@ public sealed class HypnotizedSystem : EntitySystem
 
     private void OnInit(Entity<HypnotizedComponent> ent, ref ComponentInit args)
     {
-        var muted = false;
-        if (HasComp<MutedComponent>(ent))
-            muted = true;
-
-        if (muted == false)
-            EnsureComp<MutedComponent>(ent); // so you dont hypnotize yourself by mistake
+        EnsureComp<MutedComponent>(ent); // so you dont hypnotize yourself by mistake
         EnsureComp<ActiveListenerComponent>(ent);
 
         _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(4));
     }
-
     public override void Update(float frameTime) // so you dont stay muted forever idk
     {
         base.Update(frameTime);
@@ -49,12 +45,10 @@ public sealed class HypnotizedSystem : EntitySystem
         var query = EntityQueryEnumerator<HypnotizedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            comp.Timer -= frameTime;
-            if (comp.Timer <= 0)
+            if (_timing.CurTime >= comp.EndTime)
                 RemCompDeferred<HypnotizedComponent>(uid);
         }
     }
-
     private void OnListen(Entity<HypnotizedComponent> ent, ref ListenEvent args)
     {
         var message = args.Message.Trim();
@@ -66,16 +60,10 @@ public sealed class HypnotizedSystem : EntitySystem
             return;
 
         var objectiveId = Spawn("HypnotizedObjective"); // goida
-        var meta = Comp<MetaDataComponent>(objectiveId);
-        var muted = false;
-        _meta.SetEntityDescription(objectiveId, message, meta);
+        _meta.SetEntityDescription(objectiveId, message);
         _mind.AddObjective(mindId, mind, objectiveId);
 
-        if (HasComp<MutedComponent>(ent))
-            muted = true;
-
-        if (muted == false)
-            RemCompDeferred<MutedComponent>(ent); // when the mimes talk...
+        RemCompDeferred<MutedComponent>(ent); // when the mimes talk...
         RemCompDeferred<HypnotizedComponent>(ent);
         RemCompDeferred<ActiveListenerComponent>(ent);
         _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(4));
@@ -90,7 +78,6 @@ public sealed class HypnotizedSystem : EntitySystem
     {
         args.Progress = 0f; // "Objective X(xx/nxx) of john goida (xx/nxx) didnt set a progress value!" error my ass
     }
-
     private void OnHypnotized(Entity<MindContainerComponent> ent, ref HypnoflashedEvent args)
     {
         EnsureComp<HypnotizedComponent>(ent.Owner);
