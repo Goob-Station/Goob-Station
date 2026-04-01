@@ -18,7 +18,6 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Goobstation.Common.Weapons.Ranged;
-using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
@@ -374,9 +373,7 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnAmmoShot(Entity<ActiveSandevistanUserComponent> ent, ref AmmoShotUserEvent args)
     {
-        var comp = Comp<SandevistanUserComponent>(ent);
-
-        if (!comp.SlowfieldEnabled)
+        if (!TryComp<SandevistanUserComponent>(ent, out var comp) || !comp.SlowfieldEnabled)
             return;
 
         foreach (var projectile in args.FiredProjectiles)
