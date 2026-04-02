@@ -26,7 +26,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.DoAfter;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Targeting; // Goobstation
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components; // Goobstation
