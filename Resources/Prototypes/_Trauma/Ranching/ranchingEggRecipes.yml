@@ -74,6 +74,42 @@
   - DeliciousLookingApple
 
 - type: eggRecipe
+  id: WhiteSilkieEgg
+  egg: WhiteSilkieEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobWhiteSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobWhiteSilkieHen
+  happinessRequired: 15
+  foodTagsRequired:
+  - MethApple
+
+- type: eggRecipe
+  id: SeaEgg
+  egg: SeaEgg
+  requiredChicken:
+  - MobWhiteSilkieHen
+  - MobSelkieHen
+  noSpecialFoodRequiredChickens:
+  - MobSelkieHen
+  happinessRequired: 20
+  foodTagsRequired:
+  - Fish
+
+- type: eggRecipe
+  id: SnowEgg
+  egg: SnowEgg
+  requiredChicken:
+  - MobWhiteSilkieHen
+  - MobSnowHen
+  noSpecialFoodRequiredChickens:
+  - MobSnowHen
+  happinessRequired: 20
+  foodTagsRequired:
+  - Chilly
+
+- type: eggRecipe
   id: DreamEgg
   egg: DreamEgg
   requiredChicken:
@@ -138,17 +174,17 @@
   happinessRequired: 70
 
 - type: eggRecipe
-  id: WaterBalloonEggRed
-  egg: WaterBalloonEggRed
-  requiredChicken:
-  - MobClownHen
-  requiresSpecialFood: false
-  happinessRequired: 50
-
-- type: eggRecipe
-  id: WaterBalloonEggBlue
-  egg: WaterBalloonEggBlue
+  id: ClownEgg
+  egg: ClownEgg
   requiredChicken:
   - MobClownHen
   requiresSpecialFood: false
   happinessRequired: 60
+
+- type: eggRecipe
+  id: CluwneEgg
+  egg: CluwneEgg
+  requiredChicken:
+  - MobCluwneHen
+  requiresSpecialFood: false
+  happinessRequired: -50 # THE HORDE

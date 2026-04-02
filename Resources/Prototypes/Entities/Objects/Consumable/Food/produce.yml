@@ -1564,6 +1564,11 @@
       Taco: ChillyPepper
       Burger: ChillyPepper
       Skewer: ChillyPepperSkewer
+  # <Trauma>
+  - type: Tag
+    tags:
+    - Chilly
+    # </Trauma>
 
 - type: entity
   name: aloe

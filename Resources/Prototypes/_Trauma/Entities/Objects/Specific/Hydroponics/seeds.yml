@@ -21,8 +21,18 @@
 
 - type: entity
   parent: AppleSeeds
-  name: packet of apple seeds
+  name: packet of delicious apple seeds
   id: DeliciousAppleSeeds
   components:
   - type: Seed
     seedId: deliciousApple
+
+- type: entity
+  parent: AppleSeeds
+  name: packet of meth apple seeds
+  id: MethAppleSeeds
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
+  - type: Seed
+    seedId: methApple

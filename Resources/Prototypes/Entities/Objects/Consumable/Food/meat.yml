@@ -160,6 +160,7 @@
     tags:
     - Raw
     - Meat
+    - Fish # Trauma
   - type: Sprite
     state: fish
   - type: SolutionContainerManager

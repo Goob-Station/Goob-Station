@@ -346,6 +346,104 @@
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
 
+# White Silkie
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickWhiteSilkie
+  name: white silkie chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobWhiteSilkieHen
+    - MobWhiteSilkieRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobWhiteSilkieHen
+  name: white silkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobWhiteSilkieRooster
+  name: white silkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+
+# Selkie Silkie
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickSelkie
+  name: selkie chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSelkieHen
+    - MobSelkieRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-sea.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobSelkieHen
+  name: selkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-sea.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobSelkieRooster
+  name: selkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-sea.rsi
+
+# Snow chicken
+
+- type: entity
+  abstract: true
+  id: BaseChickenCold
+  components:
+  - type: TemperatureDamage
+    heatDamageThreshold: 273.15
+    coldDamageThreshold: 200
+
+- type: entity
+  parent: [BaseChickenCold, BaseMobChickRanch]
+  id: MobChickSnow
+  name: snow chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSnowHen
+    - MobSnowRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-snow.rsi
+
+- type: entity
+  parent: [BaseChickenCold, BaseMobHenRanch]
+  id: MobSnowHen
+  name: snow hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-snow.rsi
+
+- type: entity
+  parent: [BaseChickenCold, BaseMobRoosterRanch]
+  id: MobSnowRooster
+  name: snow rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-snow.rsi
+
 # Dream
 
 - type: entity
@@ -590,6 +688,11 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: ReplaceOnUnhappy
+    ent: MobCluwneHen
+  - type: FavoriteFood
+    tag:
+    - Banana
   - type: Tag
     tags:
     - FootstepSound
@@ -601,6 +704,53 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: ReplaceOnUnhappy
+    ent: MobCluwneRooster
+  - type: FavoriteFood
+    tag:
+    - Banana
   - type: Tag
     tags:
     - FootstepSound
+
+# Cluwne
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickCluwne
+  name: huOnkHoNkHoeNKs
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
+  - type: Cluwne
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobCluwneHen
+    - MobCluwneRooster
+  - type: FavoriteFood
+    tag:
+    - Banana
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobCluwneHen
+  name: huOnkHoNkHoeNKs
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
+  - type: Cluwne
+  - type: FavoriteFood
+    tag:
+    - Banana
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobCluwneRooster
+  name: huOnkHoNkHoeNKs
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
+  - type: Cluwne
+  - type: FavoriteFood
+    tag:
+    - Banana

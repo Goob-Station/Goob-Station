@@ -80,5 +80,31 @@
   - type: Tag
     tags:
     - Fruit
-    - Apple
     - DeliciousLookingApple
+
+- type: entity
+  name: meth apple
+  parent: FoodApple
+  id: FoodMethApple
+  description: It's a meth up'ed piece of Eden.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
+    state: produce
+  - type: Produce
+    seedId: apple
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Desoxyephedrine
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+    - MethApple

@@ -2,8 +2,6 @@
   abstract: true
   parent: BaseItem
   id: WaterBalloonBase
-  name: egg?
-  description: doesn't look very eggy to me.
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Misc/eggs.rsi
@@ -36,26 +34,8 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/gib1.ogg
+          collection: desecration
       - !type:SpillBehavior
         solution: balloon
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-
-- type: entity
-  parent: WaterBalloonBase
-  id: WaterBalloonEggRed
-  components:
-  - type: Sprite
-    state: egg-balloon
-
-- type: entity
-  parent: WaterBalloonBase
-  id: WaterBalloonEggBlue
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      balloon:
-        reagents:
-        - ReagentId: Water
-          Quantity: 50

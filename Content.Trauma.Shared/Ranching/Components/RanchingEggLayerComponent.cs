@@ -35,7 +35,7 @@ public sealed partial class RanchingEggLayerComponent : Component
     ///     The amount of nutrient consumed on eggLay.
     /// </summary>
     [DataField]
-    public float HungerUsage = 10f;
+    public float HungerUsage = 20f;
 
     /// <summary>
     ///     Whether given entity needs to have Hunger in order to lay eggs

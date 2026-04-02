@@ -14,6 +14,7 @@ public sealed class HappinessSystem : EntitySystem
 {
     [Dependency] private readonly SharedInternalResourcesSystem _internalResources = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedAnimalAgeingSystem _ageing = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -21,6 +22,13 @@ public sealed class HappinessSystem : EntitySystem
         SubscribeLocalEvent<HappinessComponent, InteractionSuccessEvent>(OnSuccessPet);
 
         SubscribeLocalEvent<AddComponentOnHappyComponent, InternalResourcesAmountChangedEvent>(OnHappinessChanged);
+        SubscribeLocalEvent<ReplaceOnUnhappyComponent, InternalResourcesAmountChangedEvent>(OnHappinessChangedReplace);
+    }
+
+    private void OnHappinessChangedReplace(Entity<ReplaceOnUnhappyComponent> ent, ref InternalResourcesAmountChangedEvent args)
+    {
+        if (args.NewAmount <= ent.Comp.HappinessRequired)
+            _ageing.CopyAndReplaceEntity(ent.Comp.Ent, ent.Owner);
     }
 
     private void OnHappinessChanged(Entity<AddComponentOnHappyComponent> ent, ref InternalResourcesAmountChangedEvent args)

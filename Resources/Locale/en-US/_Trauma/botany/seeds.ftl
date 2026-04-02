@@ -6,3 +6,6 @@ seeds-cocaplant-display-name = coca plant
 
 seeds-appledelicious-name = delicious looking apple
 seeds-appledelicious-display-name = delicious looking apple tree
+
+seeds-applemeth-name = meth apple
+seeds-applemeth-display-name = meth apple tree

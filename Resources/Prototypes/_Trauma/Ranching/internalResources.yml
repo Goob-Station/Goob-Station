@@ -2,6 +2,7 @@
   id: Happiness
   name: internal-resources-happiness-name
   description: internal-resources-happiness-desc
+  baseMinAmount: -1000
   maxAmount: 1000
   regenerationRate: -0.05
   startingAmount: 20

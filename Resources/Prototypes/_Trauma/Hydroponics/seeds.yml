@@ -61,7 +61,7 @@
   noun: seeds-noun-seeds
   displayName: seeds-appledelicious-display-name
   plantRsi: Objects/Specific/Hydroponics/apple.rsi
-  packetPrototype: AppleSeeds
+  packetPrototype: DeliciousAppleSeeds
   productPrototypes:
   - FoodDeliciousApple
   mutationPrototypes:
@@ -82,3 +82,33 @@
       Min: 1
       Max: 4
       PotencyDivisor: 25
+
+- type: seed
+  id: methApple
+  name: seeds-applemeth-name
+  noun: seeds-noun-seeds
+  displayName: seeds-applemeth-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
+  packetPrototype: MethAppleSeeds # Maybe make it only give normal apple seeds?
+  productPrototypes:
+  - FoodMethApple
+  harvestRepeat: Repeat # LMK if too op or something, what can you even do with meth?
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 2
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+    Desoxyephedrine:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 10

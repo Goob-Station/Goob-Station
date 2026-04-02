@@ -60,6 +60,15 @@
 
 - type: entity
   parent: BaseRanchingEgg
+  id: WhiteSilkieEgg
+  components:
+  - type: Sprite
+    state: egg-silkie_white
+  - type: TimedReplace
+    entity: MobChickWhiteSilkie
+
+- type: entity
+  parent: BaseRanchingEgg
   id: BlackSilkieEgg
   components:
   - type: Sprite
@@ -68,6 +77,15 @@
     entity: MobChickBlackSilkie
 
 # second generation
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SelkieEgg
+  components:
+  - type: Sprite
+    state: egg-sea
+  - type: TimedReplace
+    entity: MobChickSelkie
 
 - type: entity
   parent: BaseRanchingEgg
@@ -165,6 +183,15 @@
 
 - type: entity
   parent: BaseRanchingEgg
+  id: SeaEgg
+  components:
+  - type: Sprite
+    state: egg-sea
+  - type: TimedReplace
+    entity: MobChickSelkie
+
+- type: entity
+  parent: BaseRanchingEgg
   id: GoldenEgg
   components:
   - type: Sprite
@@ -173,10 +200,28 @@
     entity: MobChickGolden
 
 - type: entity
-  parent: BaseRanchingEgg
+  parent: WaterBalloonBase
   id: ClownEgg
+  name: egg?
+  description: doesn't look very eggy to me.
   components:
   - type: Sprite
     state: egg-honk
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: CluwneEgg
+  components:
+  - type: Sprite
+    state: egg-cluwne
   - type: TimedReplace
-    entity: MobChickClown
+    entity: MobChickCluwne
+
+- type: entity
+  parent: [BaseChickenCold, BaseRanchingEgg]
+  id: SnowEgg
+  components:
+  - type: Sprite
+    state: egg-snow
+  - type: TimedReplace
+    entity: MobChickSnow
