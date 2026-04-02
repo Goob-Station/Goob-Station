@@ -111,6 +111,7 @@
       - EncryptionKeyCommand
       - EncryptionKeyCentCom
       - EncryptionKeyCommon
+      - EncryptionKeySecurity
   - type: Sprite
     sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi
   - type: Clothing
