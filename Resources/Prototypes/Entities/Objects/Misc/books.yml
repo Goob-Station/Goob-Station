@@ -132,7 +132,7 @@
     - state: overlay_null
       map: [ "overlay" ]
   - type: Paper
-    contentSize: 12000
+    contentSize: 30000 # CorvaxGoob-changes: 12000 > 30000
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
     requiresComplex: false

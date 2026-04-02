@@ -240,6 +240,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: Paper
+    contentSize: 15000 # CorvaxGoob
   - type: PaperLabelType
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
@@ -490,7 +491,7 @@
   description: 'A sheet for your Carps and Crypts characters.'
   components:
   - type: Paper
-    contentSize: 10000
+    contentSize: 15000 # CorvaxGoob-changes: 10000 > 15000
     content: book-cnc-sheet
   - type: Sprite
     layers:
