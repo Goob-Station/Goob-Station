@@ -556,9 +556,6 @@ public sealed partial class RathenEvent : InstantActionEvent
     public TimeSpan StunTime = TimeSpan.FromSeconds(5);
 
     [DataField]
-    public EntProtoId EffectProto = "EffectRepulse";
-
-    [DataField]
     public EntProtoId SmokeProt = "Smoke";
 
     [DataField]
@@ -566,9 +563,6 @@ public sealed partial class RathenEvent : InstantActionEvent
 
     [DataField]
     public int SmokeAmount = 5;
-
-    [DataField]
-    public EntProtoId ButtProt = "Butt";
 
     [DataField]
     public DamageSpecifier SuperFartDamage = new()
