@@ -163,3 +163,39 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticCostume
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterSchemaMonk
+  name: monastic vestments
+  description: A sign of complete renunciation of the world and the acceptance of heroism. It is worn by those who have chosen the path of prayer and struggle for the human soul. In the silence of the cosmos, it seems especially appropriate.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodSchemaMonk
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.5
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0.0
+      NerveDamage: 0.0

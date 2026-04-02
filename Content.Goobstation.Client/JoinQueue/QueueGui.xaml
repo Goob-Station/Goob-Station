@@ -6,27 +6,44 @@
     <parallax:ParallaxControl />
     <Control HorizontalAlignment="Center" VerticalAlignment="Center">
         <PanelContainer StyleClasses="AngleRect" />
-        <BoxContainer Orientation="Vertical" MinSize="200 200">
-            <BoxContainer Orientation="Horizontal">
-                <Label Margin="8 0 0 0" Text="{Loc 'queue-title'}"
-                       StyleClasses="LabelHeading" VAlign="Center" />
+        <BoxContainer Orientation="Vertical" MinSize="300 0" Margin="12 8">
+            <!-- Header -->
+            <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                <Label Text="{Loc 'queue-title'}"
+                       StyleClasses="LabelHeadingBigger" VerticalAlignment="Center"
+                       HorizontalExpand="True" />
                 <Button Name="QuitButton" Text="{Loc 'queue-quit'}"
-                        HorizontalAlignment="Right" HorizontalExpand="True" />
+                        StyleClasses="Caution"
+                        HorizontalAlignment="Right" />
             </BoxContainer>
             <controls:HighDivider />
-            <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="0 20 0 0">
-                <BoxContainer Orientation="Vertical">
-                    <BoxContainer Orientation="Vertical" VerticalExpand="True">
-                        <Label Text="{Loc 'queue-position'}" Align="Center" />
-                        <Label Name="QueuePosition" StyleClasses="LabelHeading" Align="Center" />
-                    </BoxContainer>
-                    <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="0 10 0 0">
-                        <Label Text="{Loc 'queue-total'}" Align="Center" />
-                        <Label Name="QueueTotal" StyleClasses="LabelHeading" Align="Center" />
-                    </BoxContainer>
-                    <Label Name="PatronText" Text="{Loc 'queue-patreon'}" Align="Center" />
+
+            <!-- Queue stats -->
+            <BoxContainer Orientation="Horizontal" Margin="0 16 0 12"
+                          HorizontalAlignment="Center" SeparationOverride="24">
+                <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
+                    <Label Text="{Loc 'queue-position-label'}"
+                           StyleClasses="LabelSecondaryColor" Align="Center" />
+                    <Label Name="QueuePosition"
+                           StyleClasses="LabelHeadingBigger" Align="Center"
+                           Margin="0 2 0 0" />
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
+                    <Label Text="{Loc 'queue-total-label'}"
+                           StyleClasses="LabelSecondaryColor" Align="Center" />
+                    <Label Name="QueueTotal"
+                           StyleClasses="LabelHeadingBigger" Align="Center"
+                           Margin="0 2 0 0" />
                 </BoxContainer>
             </BoxContainer>
+
+            <!-- Patron message -->
+            <PanelContainer Name="PatronPanel" StyleClasses="AngleRect"
+                            Margin="0 0 0 4" Visible="False">
+                <Label Name="PatronText" Text="{Loc 'queue-patreon'}"
+                       StyleClasses="LabelKeyText" Align="Center"
+                       Margin="8 6" />
+            </PanelContainer>
         </BoxContainer>
     </Control>
 </Control>

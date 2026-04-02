@@ -111,3 +111,14 @@
     back:
     - BruteAutoInjector
     - BurnAutoInjector
+
+- type: startingGear
+  id: ThunderdomeMosin
+  equipment:
+    suitstorage: WeaponSniperMosin
+  storage:
+    back:
+    - SpeedLoaderLightRifle
+    - SpeedLoaderLightRifle
+    - ClothingHeadHatUshanka
+    - DrinkPremiumVodkaBottleFull
