@@ -1,0 +1,9 @@
+- type: entity
+  name: paper target
+  id: TargetPaper
+  parent: BaseTarget
+  description: A shooting target. This one is a made out of paper.
+  components:
+  - type: Sprite
+    sprite:  /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: target_paper

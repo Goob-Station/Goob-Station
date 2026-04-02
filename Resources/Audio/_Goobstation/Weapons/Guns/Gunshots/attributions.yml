@@ -38,3 +38,8 @@
   license: "CC-BY-4.0"
   copyright: "made by john john"
   source: "https://github.com/JohnJJohn"
+
+- files: ["kinetic_accel_boosted.ogg"]
+  license: "CC-BY-3.0""
+  copyright: "OnsenCapy"
+  source: "https://github.com/OnsenCapy"
