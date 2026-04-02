@@ -219,6 +219,7 @@
   - type: Tag
     tags:
     - AllowGhostShownByEvent
+    - NoConsoleSound # CorvaxGoob-GhostUIViewing
   # <Goobstation>
   - type: UserInterface
     interfaces:

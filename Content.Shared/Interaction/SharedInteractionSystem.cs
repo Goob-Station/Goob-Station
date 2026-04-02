@@ -300,12 +300,26 @@ namespace Content.Shared.Interaction
         private void OnBoundInterfaceInteractAttempt(Entity<UserInterfaceComponent> ent, ref BoundUserInterfaceMessageAttempt ev)
         {
             _uiQuery.TryComp(ev.Target, out var aUiComp);
+
+            // CorvaxGoob-GhostUIViewing-Start
+            if (TryComp<GhostComponent>(ev.Actor, out var ghost) && !ghost.CanGhostInteract) // Полностью игнорить если не гост или который может прямо взамоимодействовать с UI
+            {
+                if (ev.Message is not OpenBoundInterfaceMessage // Проверяем если не банальное открытие 
+                    || !ghost.CanGhostOpenUI
+                    || aUiComp is not null && (aUiComp.SingleUser || aUiComp.BlockSpectators)) // Доп проверки
+                    ev.Cancel();
+
+                return;
+            }
+            // CorvaxGoob-GhostUIViewing-End
+
+            // _uiQuery.TryComp(ev.Target, out var aUiComp); CorvaxGoob-GhostUIViewing : смещено повыше
             if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target))
             {
                 // We permit ghosts to open uis unless explicitly blocked
                 if (ev.Message is not OpenBoundInterfaceMessage
-                    || !HasComp<GhostComponent>(ev.Actor)
-                    || aUiComp?.BlockSpectators == true
+                    // || !HasComp<GhostComponent>(ev.Actor) // CorvaxGoob-GhostUIGuest
+                    // || aUiComp?.BlockSpectators == true // CorvaxGoob-GhostUIGuest
                     || _tagSystem.HasTag(ev.Actor, "CantInteract")) // Shitmed change
                 {
                     ev.Cancel();

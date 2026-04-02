@@ -93,6 +93,13 @@ public sealed partial class GhostComponent : Component
     [DataField("canInteract"), AutoNetworkedField]
     public bool CanGhostInteract;
 
+    // CorvaxGoob-GhostUIViewing
+    /// <summary>
+    /// Позволяет гостам открывать интерфейсы без прямого взаимодействия с ними.
+    /// </summary>
+    [DataField("canGhostUIGuest"), AutoNetworkedField]
+    public bool CanGhostOpenUI = true;
+
     /// <summary>
     /// Is this ghost player allowed to return to their original body?
     /// </summary>
