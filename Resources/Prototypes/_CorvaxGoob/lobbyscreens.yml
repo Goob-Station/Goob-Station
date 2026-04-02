@@ -421,5 +421,21 @@
 - type: lobbyBackground
   id: AwesomeShuttle
   background: /Textures/_CorvaxGoob/LobbyScreens/awesome-shuttle.webp
-  name: "Замечательный шаттл"
-  artist: "qulezza"
+
+- type: lobbyBackground  
+  id: EvacQul  
+  background: /Textures/_CorvaxGoob/LobbyScreens/evac-qul.webp  
+  name: "Эвакуация"  
+  artist: qulezza
+
+- type: lobbyBackground  
+  id: HereticQul  
+  background: /Textures/_CorvaxGoob/LobbyScreens/heretic-qul.webp  
+  name: "Культист"  
+  artist: qulezza
+
+- type: lobbyBackground  
+  id: AfterNewYear  
+  background: /Textures/_CorvaxGoob/LobbyScreens/after-new-year.webp  
+  name: "После нового года"  
+  artist: "Сообщество художников"
