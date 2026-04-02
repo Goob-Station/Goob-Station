@@ -16,3 +16,13 @@
       number: 2
     - !type:CreateEntityReactionEffect
       entity: EffectFlashBluespace
+
+- type: reaction
+  id: Lye
+  reactants:
+    Water:
+      amount: 1
+    Ash:
+      amount: 1
+  products:
+    Lye: 2

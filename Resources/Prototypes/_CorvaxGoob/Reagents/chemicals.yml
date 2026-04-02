@@ -1,0 +1,14 @@
+- type: reagent
+  id: Lye
+  name: reagent-name-lye
+  desc: reagent-desc-lye
+  flavor: alkaline
+  physicalDesc: reagent-physical-desc-alkaline
+  color: "#e5420b"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
