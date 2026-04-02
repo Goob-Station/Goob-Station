@@ -26,12 +26,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.DoAfter;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components; // Goobstation
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.CombatMode;
@@ -50,6 +51,8 @@ public abstract class SharedCombatModeSystem : EntitySystem
         SubscribeLocalEvent<CombatModeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CombatModeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CombatModeComponent, ToggleCombatActionEvent>(OnActionPerform);
+        SubscribeLocalEvent<CombatModeComponent, MindAddedMessage>(OnMindAdded); // Goobstation - NPC Targetting
+        SubscribeLocalEvent<CombatModeComponent, MindRemovedMessage>(OnMindRemoved); // Goobstation - NPC Targetting
     }
 
     private void OnMapInit(EntityUid uid, CombatModeComponent component, MapInitEvent args)
@@ -129,6 +132,19 @@ public abstract class SharedCombatModeSystem : EntitySystem
             RemComp<NoRotateOnMoveComponent>(uid);
         }
     }
+
+    // Goobstation - Start
+    private void OnMindAdded(Entity<CombatModeComponent> ent, ref MindAddedMessage args)
+    {
+        EnsureComp<TargetingComponent>(ent.Owner);
+    }
+
+    private void OnMindRemoved(Entity<CombatModeComponent> ent, ref MindRemovedMessage args)
+    {
+        if (HasComp<TargetingComponent>(ent.Owner))
+            RemComp<TargetingComponent>(ent.Owner);
+    }
+    // Goobstation - End
 
     // todo: When we stop making fucking garbage abstract shared components, remove this shit too.
     protected abstract bool IsNpc(EntityUid uid);
