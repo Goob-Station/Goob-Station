@@ -556,15 +556,6 @@ public sealed partial class RathenEvent : InstantActionEvent
     public TimeSpan StunTime = TimeSpan.FromSeconds(5);
 
     [DataField]
-    public EntProtoId SmokeProt = "Smoke";
-
-    [DataField]
-    public float SmokeDuration = 2f;
-
-    [DataField]
-    public int SmokeAmount = 5;
-
-    [DataField]
     public DamageSpecifier SuperFartDamage = new()
     {
         DamageDict = { { "Blunt", 10 } },

@@ -696,10 +696,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
             Stun.KnockdownOrStun(target, stunTime, true);
 
-            var smokeEnt = Spawn(ev.SmokeProt, Transform(target).Coordinates);
-            if (TryComp<SmokeComponent>(smokeEnt, out var smoke))
-                _smoke.StartSmoke(smokeEnt, new Solution("CrapoToxin", 10), ev.SmokeDuration, ev.SmokeAmount, smoke);
-
             if (!fart.SuperFarted)
             {
                 fart.FartInhale = true;
