@@ -113,13 +113,13 @@
 
 - type: reaction
   id: Licoxide
-  maxTemp: 265
+  maxTemp: 265 # goob edit
   reactants:
     Lead:
       amount: 1
     Zinc:
       amount: 1
-    Lithium:
+    Lithium: # goob edit
       amount: 1
   products:
     Licoxide: 1
