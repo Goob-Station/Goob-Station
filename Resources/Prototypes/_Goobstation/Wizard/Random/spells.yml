@@ -43,6 +43,7 @@
     ActionTeleportWizard: 2
     ActionSwapSpell: 1
     ActionKnock: 1
+    ActionRathenSpell: 1
 
 - type: weightedRandomEntity
   id: FullRandomSpellTable
