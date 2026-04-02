@@ -81,6 +81,5 @@ public sealed class XenomorphLarvaSystem : EntitySystem
         damage.DamageDict.Add("Blunt", 120);
         damage.DamageDict.Add("Piercing", 80);
         _damageableSystem.TryChangeDamage(uid: victim, damage: damage, ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.Chest);
-        //_body.GibBody(victim); // Omu end
     }
 }
