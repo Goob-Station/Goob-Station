@@ -1161,6 +1161,9 @@
   id: Maints
 
 - type: Tag
+  id: MaintenanceCloset
+
+- type: Tag
   id: Matchstick
 
 - type: Tag
@@ -1219,6 +1222,9 @@
 
 - type: Tag
   id: Mouse
+
+- type: Tag
+  id: MouseWearable # Goobstation - Mice hats
 
 - type: Tag
   id: Multitool

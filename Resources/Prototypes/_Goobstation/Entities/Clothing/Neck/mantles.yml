@@ -19,3 +19,15 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Mantle/bsomantle.rsi
 
+#Senior Security mantle
+- type: entity
+  parent: [ ClothingNeckBase ]
+  id: ClothingNeckMantleVeteranSecurity
+  name: veteran security's mantle
+  description: Personally awarded by HOS for repealing a Syndicate attack, looking at it seems to boost your morale by a bit
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/veteran_security.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Mantle/veteran_security.rsi
+

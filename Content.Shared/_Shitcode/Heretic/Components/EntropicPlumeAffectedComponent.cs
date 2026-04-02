@@ -14,6 +14,9 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class EntropicPlumeAffectedComponent : Component
 {
+    [DataField, AutoNetworkedField]
+    public EntityUid ExcludedEntity;
+
     [DataField]
     public float Duration = 10f;
 

@@ -35,7 +35,7 @@ public sealed class IceSpearSystem : EntitySystem
 
         var hitNullRodUser = IsTouchSpellDenied(args.Target); // hit a null rod
 
-        if (!HasComp<HereticComponent>(args.Target) && !HasComp<GhostComponent>(args.Target) &&
+        if (!HasComp<GhostComponent>(args.Target) &&
             HasComp<TemperatureComponent>(args.Target) && !hitNullRodUser)
             EnsureComp<IceCubeComponent>(args.Target);
 
