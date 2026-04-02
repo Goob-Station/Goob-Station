@@ -884,6 +884,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - SalvageSpecialist
+    - ShaftMiner
 
 - type: listing
   id: UplinkGreyTide
