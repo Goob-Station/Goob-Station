@@ -109,9 +109,9 @@
 - type: loadoutGroup
   id: BrigmedicMask
   name: loadout-group-brigmedic-mask
+  minLimit: 0
   loadouts:
   - BrigmedicSecurityMedicalRespirator
-  - BrigmedicGasSecurity
   - BrigmedicMedicalSecurity
   
 - type: loadoutGroup

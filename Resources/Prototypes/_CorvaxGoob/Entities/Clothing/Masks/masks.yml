@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingMaskBreathMedical
+  parent: [ClothingMaskBreathMedical, BaseSecurityContraband]
   id: ClothingMaskSecurityMedicalRespirator
   name: security medical respirator
   description: A respirator that provides protection against viruses, dust and more.
@@ -11,7 +11,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Caustic: 0.9

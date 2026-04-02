@@ -1,3 +1,4 @@
+# Голова
 - type: loadout
   id: BrigmedicSecurityHat
   equipment:
@@ -18,12 +19,7 @@
   id: BrigmedicSecurityMedicalRespirator
   equipment:
     mask: ClothingMaskSecurityMedicalRespirator
-
-- type: loadout
-  id: BrigmedicGasSecurity
-  equipment:
-    mask: ClothingMaskGasSecurity
-
+ 
 - type: loadout
   id: BrigmedicMedicalSecurity
   equipment:
