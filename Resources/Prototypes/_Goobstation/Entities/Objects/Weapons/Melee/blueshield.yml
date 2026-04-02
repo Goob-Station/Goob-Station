@@ -99,6 +99,8 @@
           False: {state: icon-off}
   - type: StaticPrice
     price: 1000
+  - type: MartialArtBlocked # CorvaxGoob judo+baton fix 
+    form: CorporateJudo
 
 - type: entity
   name: combat injector

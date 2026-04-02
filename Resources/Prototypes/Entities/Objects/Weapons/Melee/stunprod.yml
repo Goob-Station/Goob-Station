@@ -105,3 +105,5 @@
   - type: Construction
     graph: makeshiftstunprod
     node: msstunprod
+  - type: MartialArtBlocked # CorvaxGoob judo+baton fix  
+    form: CorporateJudo
