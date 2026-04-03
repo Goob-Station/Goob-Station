@@ -110,6 +110,7 @@
       key_slots:
       - EncryptionKeyCommand
       - EncryptionKeyCentCom
+      - EncryptionKeySecurity #CorvaxGoob
       - EncryptionKeyCommon
   - type: Sprite
     sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi
