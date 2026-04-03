@@ -27,7 +27,6 @@ public sealed class HypnotizedSystem : EntitySystem
         SubscribeLocalEvent<HypnotizedComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HypnotizedComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<HypnotizedConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-
         SubscribeLocalEvent<MindContainerComponent, HypnoflashedEvent>(OnHypnotized);
     }
 
@@ -36,9 +35,10 @@ public sealed class HypnotizedSystem : EntitySystem
         EnsureComp<MutedComponent>(ent); // so you dont hypnotize yourself by mistake
         EnsureComp<ActiveListenerComponent>(ent);
 
-        ent.Comp.EndTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.Timer);
+        ent.Comp.EndTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.Duration);
         _stunSystem.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(4));
     }
+
     public override void Update(float frameTime) // so you dont stay muted forever idk
     {
         base.Update(frameTime);

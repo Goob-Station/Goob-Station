@@ -23,7 +23,7 @@ public sealed class HypnoflashSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
-    private readonly HashSet<EntityUid> _gamers = new();
+    private readonly HashSet<EntityUid> _players = new();
     private readonly List<EntityUid> _validTargets = new();
 
     public override void Initialize()
@@ -81,12 +81,12 @@ public sealed class HypnoflashSystem : EntitySystem
                 if (comp.ProtoOnFlash != null)
                     PredictedSpawnAtPosition(comp.ProtoOnFlash, xform.Coordinates);
 
-                _gamers.Clear();
+                _players.Clear();
                 _validTargets.Clear();
 
-                _lookup.GetEntitiesInRange(xform.Coordinates, comp.Radius, _gamers);
+                _lookup.GetEntitiesInRange(xform.Coordinates, comp.Radius, _players);
 
-                foreach (var gamer in _gamers)
+                foreach (var gamer in _players)
                 {
                     if (comp.Blacklist != null && _whitelist.IsValid(comp.Blacklist, gamer))
                         continue;

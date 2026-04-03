@@ -1,3 +1,5 @@
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
 namespace Content.Goobstation.Shared.Hypnoflash;
 
 /// <summary>
@@ -7,8 +9,8 @@ namespace Content.Goobstation.Shared.Hypnoflash;
 public sealed partial class HypnotizedComponent : Component
 {
     [DataField]
-    public float Timer = 8; // you have 8 seconds to hear something or else you just dont do anything
+    public float Duration = 8; // you have 8 seconds to hear something or else you just dont do anything
 
-    [ViewVariables]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan EndTime;
 }
