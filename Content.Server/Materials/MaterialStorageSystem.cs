@@ -85,6 +85,10 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (!Exists(uid))
             return;
 
+        // CorvaxGoob-GhostUIViewing : Сын щиткода. Ограничение на проверки взаимодействия гостов стоит зачастую на BUI, а тут разраб пошёл другим путём из-за чего проверка не работает
+        if (!_actionBlocker.CanComplexInteract(player))
+            return;
+
         if (!_actionBlocker.CanInteract(player, uid))
             return;
 
