@@ -1,3 +1,4 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Hypnoflash;
@@ -5,7 +6,7 @@ namespace Content.Goobstation.Shared.Hypnoflash;
 /// <summary>
 /// given to the entity that will add the first thing it hears into their objectives
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class HypnotizedComponent : Component
 {
     [DataField]
