@@ -80,6 +80,6 @@
     - !type:ExplosionReactionEffect
       explosionType: HardBomb # very high detonation velocity
       maxIntensity: 20
-      intensityPerUnit: 2.5 # 2.5 from 3 goob edit
-      intensitySlope: 1.5 # 1.5 from 2 goob edit
-      maxTotalIntensity: 1000 # 1000 from 3000 goob edit
+      intensityPerUnit: 3 # Lower because hardbomb
+      intensitySlope: 2 # very high detonation velocity
+      maxTotalIntensity: 3000 # very high detonation velocity # this sounds horrifying, but we'll just have to see whether it should be tweaked - Speebro
