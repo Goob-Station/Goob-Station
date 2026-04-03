@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.Hypnoflash;
 public sealed partial class HypnotizedComponent : Component
 {
     [DataField]
-    public float Duration = 8; // you have 8 seconds to hear something or else you just dont do anything
+    public TimeSpan Duration = TimeSpan.FromSeconds(8); // you have 8 seconds to hear something or else you just dont do anything
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan EndTime;
