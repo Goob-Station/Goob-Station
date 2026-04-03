@@ -271,9 +271,5 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction MappingRemoveDecal = "MappingRemoveDecal";
         public static readonly BoundKeyFunction MappingCancelEraseDecal = "MappingCancelEraseDecal";
         public static readonly BoundKeyFunction MappingOpenContextMenu = "MappingOpenContextMenu";
-
-        // Goob - April Fools
-        public static readonly BoundKeyFunction Blink = "Blink";
-        public static readonly BoundKeyFunction Breathe = "Breathe";
     }
 }
