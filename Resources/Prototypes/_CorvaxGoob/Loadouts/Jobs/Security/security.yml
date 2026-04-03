@@ -4,6 +4,11 @@
   equipment:
     shoes: ClothingShoesBootsJackSecFilled
 
+- type: loadout
+  id: ClothingShoesSwatBoots
+  equipment:
+    shoes: ClothingShoesSwat
+
 # Outerclothing
 - type: loadout
   id: ArmorVestSec

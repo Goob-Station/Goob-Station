@@ -1411,6 +1411,7 @@
   - JackBoots
   - CombatBoots # Goobstation
   - SecurityWinterBoots
+  - ClothingShoesSwatBoots # CorvaxGoob
 
 - type: loadoutGroup
   id: SecurityPDA
