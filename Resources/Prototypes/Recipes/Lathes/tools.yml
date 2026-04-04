@@ -215,6 +215,14 @@
     Plastic: 200
 
 - type: latheRecipe
+  parent: BaseToolRecipe
+  id: GeigerCounter
+  result: GeigerCounter
+  materials:
+    Steel: 100
+    Plastic: 200
+
+- type: latheRecipe
   parent: Multitool
   id: NetworkConfigurator
   result: NetworkConfigurator
