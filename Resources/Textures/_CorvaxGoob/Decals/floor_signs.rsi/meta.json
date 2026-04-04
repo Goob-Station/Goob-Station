@@ -1,0 +1,134 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Taken from https://github.com/vgstation-coders/vgstation13/blob/e71d6c4fba5a51f99b81c295dcaec4fc2f58fb19/icons/mob/screen1.dmi  | Zombie icon made by RamZ | Zookeper by netwy (discort) | PartyMaker by lzk228 (github) | Comms, grav, mail, trash, Taken from https://github.com/discordia-space/CEV-Eris at commit 4e0bbe682d0a00192d24708fdb7031008aa03f18 and bee station at commit https://github.com/BeeStation/BeeStation-Hornet/commit/13dd5ac712385642574138f6d7b30eea7c2fab9c, radio host made by John John | all resprited by ArZarLordOfMango",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "assistant"
+        },
+        {
+            "name": "atmos"
+        },
+        {
+            "name": "bar"
+        },
+        {
+            "name": "borg"
+        },
+        {
+            "name": "botanis"
+        },
+        {
+            "name": "boxer"
+        },
+        {
+            "name": "bs"
+        },
+        {
+            "name": "captain"
+        },
+        {
+            "name": "cargo"
+        },
+        {
+            "name": "chaplain"
+        },
+        {
+            "name": "chef"
+        },
+        {
+            "name": "chemist"
+        },
+        {
+            "name": "clown"
+        },
+        {
+            "name": "eng"
+        },
+        {
+            "name": "hop"
+        },
+        {
+            "name": "jani"
+        },
+        {
+            "name": "lawyer"
+        },
+        {
+            "name": "lib"
+        },
+        {
+            "name": "magnify"
+        },
+        {
+            "name": "med"
+        },
+        {
+            "name": "mime"
+        },
+        {
+            "name": "miner"
+        },
+        {
+            "name": "music"
+        },
+        {
+            "name": "nt"
+        },
+        {
+            "name": "ntr"
+        },
+        {
+            "name": "party"
+        },
+        {
+            "name": "prison"
+        },
+        {
+            "name": "radio"
+        },
+        {
+            "name": "rd"
+        },
+        {
+            "name": "reporter"
+        },
+        {
+            "name": "robotics"
+        },
+        {
+            "name": "sec"
+        },
+        {
+            "name": "service"
+        },
+        {
+            "name": "skull"
+        },
+        {
+            "name": "viro"
+        },
+        {
+            "name": "zoo"
+        },
+        {
+            "name": "mail"
+        },
+        {
+            "name": "comms"
+        },
+        {
+            "name": "grav"
+        },
+        {
+            "name": "trash"
+        },
+        {
+            "name": "laws"
+        }
+    ]
+}

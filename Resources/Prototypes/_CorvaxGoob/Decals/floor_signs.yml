@@ -1,0 +1,245 @@
+- type: decal
+  id: FloorSignAssistant
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: assistant
+
+- type: decal
+  id: FloorSignAtmos
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: atmos
+
+- type: decal
+  id: FloorSignBar
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: bar
+
+- type: decal
+  id: FloorSignBorg
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: borg
+
+- type: decal
+  id: FloorSignBotanis
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: botanis
+
+- type: decal
+  id: FloorSignBoxer
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: boxer
+
+- type: decal
+  id: FloorSignBs
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: bs
+
+- type: decal
+  id: FloorSignCaptain
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: captain
+
+- type: decal
+  id: FloorSignCargo
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: cargo
+
+- type: decal
+  id: FloorSignChaplain
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: chaplain
+
+- type: decal
+  id: FloorSignChef
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: chef
+
+- type: decal
+  id: FloorSignChemist
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: chemist
+
+- type: decal
+  id: FloorSignClown
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: clown
+
+- type: decal
+  id: FloorSignEng
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: eng
+
+- type: decal
+  id: FloorSignHop
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: hop
+
+- type: decal
+  id: FloorSignJani
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: jani
+
+- type: decal
+  id: FloorSignLawyer
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: lawyer
+
+- type: decal
+  id: FloorSignLib
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: lib
+
+- type: decal
+  id: FloorSignMagnify
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: magnify
+
+- type: decal
+  id: FloorSignMed
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: med
+
+- type: decal
+  id: FloorSignMime
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: mime
+
+- type: decal
+  id: FloorSignMiner
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: miner
+
+- type: decal
+  id: FloorSignMusic
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: music
+
+- type: decal
+  id: FloorSignNt
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: nt
+
+- type: decal
+  id: FloorSignNtr
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: ntr
+
+- type: decal
+  id: FloorSignParty
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: party
+
+- type: decal
+  id: FloorSignPrison
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: prison
+
+- type: decal
+  id: FloorSignRadio
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: radio
+
+- type: decal
+  id: FloorSignRd
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: rd
+
+- type: decal
+  id: FloorSignReporter
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: reporter
+
+- type: decal
+  id: FloorSignRobotics
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: robotics
+
+- type: decal
+  id: FloorSignSec
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: sec
+
+- type: decal
+  id: FloorSignService
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: service
+
+- type: decal
+  id: FloorSignSkull
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: skull
+
+- type: decal
+  id: FloorSignViro
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: viro
+
+- type: decal
+  id: FloorSignZoo
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: zoo
+
+- type: decal
+  id: FloorSignMail
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: mail
+
+- type: decal
+  id: FloorSignComms
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: comms
+
+- type: decal
+  id: FloorSignGrav
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: grav
+
+- type: decal
+  id: FloorSignLaws
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: laws
+
+- type: decal
+  id: FloorSignTrash
+  sprite:
+    sprite: _CorvaxGoob/Decals/floor_signs.rsi
+    state: trash

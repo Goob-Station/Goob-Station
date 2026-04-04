@@ -1,0 +1,545 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "sprited by willowzeta (github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "blockc"
+        },
+        {
+            "name": "blockccheve"
+        },
+        {
+            "name": "blockcchevfille"
+        },
+        {
+            "name": "blockcchevfilln"
+        },
+        {
+            "name": "blockcchevfills"
+        },
+        {
+            "name": "blockcchevfillw"
+        },
+        {
+            "name": "blockcchevn"
+        },
+        {
+            "name": "blockcchevs"
+        },
+        {
+            "name": "blockcchevw"
+        },
+        {
+            "name": "blocke"
+        },
+        {
+            "name": "blockecheve"
+        },
+        {
+            "name": "blockechevfille"
+        },
+        {
+            "name": "blockechevfilln"
+        },
+        {
+            "name": "blockechevfills"
+        },
+        {
+            "name": "blockechevfillw"
+        },
+        {
+            "name": "blockechevn"
+        },
+        {
+            "name": "blockechevs"
+        },
+        {
+            "name": "blockechevw"
+        },
+        {
+            "name": "blockn"
+        },
+        {
+            "name": "blockncheve"
+        },
+        {
+            "name": "blocknchevfille"
+        },
+        {
+            "name": "blocknchevfilln"
+        },
+        {
+            "name": "blocknchevfills"
+        },
+        {
+            "name": "blocknchevfillw"
+        },
+        {
+            "name": "blocknchevn"
+        },
+        {
+            "name": "blocknchevs"
+        },
+        {
+            "name": "blocknchevw"
+        },
+        {
+            "name": "blockne"
+        },
+        {
+            "name": "blocknecheve"
+        },
+        {
+            "name": "blocknechevfille"
+        },
+        {
+            "name": "blocknechevfilln"
+        },
+        {
+            "name": "blocknechevfills"
+        },
+        {
+            "name": "blocknechevfillw"
+        },
+        {
+            "name": "blocknechevn"
+        },
+        {
+            "name": "blocknechevs"
+        },
+        {
+            "name": "blocknechevw"
+        },
+        {
+            "name": "blocknw"
+        },
+        {
+            "name": "blocknwcheve"
+        },
+        {
+            "name": "blocknwchevfille"
+        },
+        {
+            "name": "blocknwchevfilln"
+        },
+        {
+            "name": "blocknwchevfills"
+        },
+        {
+            "name": "blocknwchevfillw"
+        },
+        {
+            "name": "blocknwchevn"
+        },
+        {
+            "name": "blocknwchevs"
+        },
+        {
+            "name": "blocknwchevw"
+        },
+        {
+            "name": "blocks"
+        },
+        {
+            "name": "blockscheve"
+        },
+        {
+            "name": "blockschevfille"
+        },
+        {
+            "name": "blockschevfilln"
+        },
+        {
+            "name": "blockschevfills"
+        },
+        {
+            "name": "blockschevfillw"
+        },
+        {
+            "name": "blockschevn"
+        },
+        {
+            "name": "blockschevs"
+        },
+        {
+            "name": "blockschevw"
+        },
+        {
+            "name": "blockse"
+        },
+        {
+            "name": "blocksecheve"
+        },
+        {
+            "name": "blocksechevfille"
+        },
+        {
+            "name": "blocksechevfilln"
+        },
+        {
+            "name": "blocksechevfills"
+        },
+        {
+            "name": "blocksechevfillw"
+        },
+        {
+            "name": "blocksechevn"
+        },
+        {
+            "name": "blocksechevs"
+        },
+        {
+            "name": "blocksechevw"
+        },
+        {
+            "name": "blocksw"
+        },
+        {
+            "name": "blockswcheve"
+        },
+        {
+            "name": "blockswchevfille"
+        },
+        {
+            "name": "blockswchevfilln"
+        },
+        {
+            "name": "blockswchevfills"
+        },
+        {
+            "name": "blockswchevfillw"
+        },
+        {
+            "name": "blockswchevn"
+        },
+        {
+            "name": "blockswchevs"
+        },
+        {
+            "name": "blockswchevw"
+        },
+        {
+            "name": "blockw"
+        },
+        {
+            "name": "blockwcheve"
+        },
+        {
+            "name": "blockwchevfille"
+        },
+        {
+            "name": "blockwchevfilln"
+        },
+        {
+            "name": "blockwchevfills"
+        },
+        {
+            "name": "blockwchevfillw"
+        },
+        {
+            "name": "blockwchevn"
+        },
+        {
+            "name": "blockwchevs"
+        },
+        {
+            "name": "blockwchevw"
+        },
+        {
+            "name": "byielddc"
+        },
+        {
+            "name": "byielddl"
+        },
+        {
+            "name": "byielddr"
+        },
+        {
+            "name": "cyieldbb"
+        },
+        {
+            "name": "cyieldbch"
+        },
+        {
+            "name": "cyieldbcv"
+        },
+        {
+            "name": "cyieldbl"
+        },
+        {
+            "name": "cyieldbr"
+        },
+        {
+            "name": "cyieldbt"
+        },
+        {
+            "name": "cyielddc"
+        },
+        {
+            "name": "cyielddl"
+        },
+        {
+            "name": "cyielddr"
+        },
+        {
+            "name": "cyieldlb"
+        },
+        {
+            "name": "cyieldlc"
+        },
+        {
+            "name": "cyieldlt"
+        },
+        {
+            "name": "cyieldrb"
+        },
+        {
+            "name": "cyieldrc"
+        },
+        {
+            "name": "cyieldrt"
+        },
+        {
+            "name": "cyielduc"
+        },
+        {
+            "name": "cyieldul"
+        },
+        {
+            "name": "cyieldur"
+        },
+        {
+            "name": "endbottomcenter"
+        },
+        {
+            "name": "endbottomleft"
+        },
+        {
+            "name": "endbottomright"
+        },
+        {
+            "name": "endleftbottom"
+        },
+        {
+            "name": "endleftcenter"
+        },
+        {
+            "name": "endlefttop"
+        },
+        {
+            "name": "endrightbottom"
+        },
+        {
+            "name": "endrightcenter"
+        },
+        {
+            "name": "endrighttop"
+        },
+        {
+            "name": "endtopcenter"
+        },
+        {
+            "name": "endtopleft"
+        },
+        {
+            "name": "endtopright"
+        },
+        {
+            "name": "lyieldrb"
+        },
+        {
+            "name": "lyieldrc"
+        },
+        {
+            "name": "lyieldrt"
+        },
+        {
+            "name": "prefab_bendcenter"
+        },
+        {
+            "name": "prefab_bendcenterchevd"
+        },
+        {
+            "name": "prefab_bendcenterchevu"
+        },
+        {
+            "name": "prefab_bendinner"
+        },
+        {
+            "name": "prefab_bendouter"
+        },
+        {
+            "name": "prefab_bendouterchevd"
+        },
+        {
+            "name": "prefab_bendouterchevu"
+        },
+        {
+            "name": "prefab_hbottom"
+        },
+        {
+            "name": "prefab_hbottomchevl"
+        },
+        {
+            "name": "prefab_hbottomchevljunc"
+        },
+        {
+            "name": "prefab_hbottomchevr"
+        },
+        {
+            "name": "prefab_hbottomchevrjunc"
+        },
+        {
+            "name": "prefab_hcenter"
+        },
+        {
+            "name": "prefab_hcenterchevl"
+        },
+        {
+            "name": "prefab_hcenterchevljunc"
+        },
+        {
+            "name": "prefab_hcenterchevr"
+        },
+        {
+            "name": "prefab_hcenterchevrjunc"
+        },
+        {
+            "name": "prefab_htop"
+        },
+        {
+            "name": "prefab_htopchevl"
+        },
+        {
+            "name": "prefab_htopchevljunc"
+        },
+        {
+            "name": "prefab_htopchevr"
+        },
+        {
+            "name": "prefab_htopchevrjunc"
+        },
+        {
+            "name": "prefab_vcenter"
+        },
+        {
+            "name": "prefab_vcenterchevd"
+        },
+        {
+            "name": "prefab_vcenterchevdjunc"
+        },
+        {
+            "name": "prefab_vcenterchevu"
+        },
+        {
+            "name": "prefab_vcenterchevujunc"
+        },
+        {
+            "name": "prefab_vleft"
+        },
+        {
+            "name": "prefab_vleftchevd"
+        },
+        {
+            "name": "prefab_vleftchevdjunc"
+        },
+        {
+            "name": "prefab_vleftchevu"
+        },
+        {
+            "name": "prefab_vleftchevujunc"
+        },
+        {
+            "name": "prefab_vright"
+        },
+        {
+            "name": "prefab_vrightchevd"
+        },
+        {
+            "name": "prefab_vrightchevdjunc"
+        },
+        {
+            "name": "prefab_vrightchevu"
+        },
+        {
+            "name": "prefab_vrightchevujunc"
+        },
+        {
+            "name": "ryieldlb"
+        },
+        {
+            "name": "ryieldlc"
+        },
+        {
+            "name": "ryieldlt"
+        },
+        {
+            "name": "symconch"
+        },
+        {
+            "name": "symconcv"
+        },
+        {
+            "name": "symconeh"
+        },
+        {
+            "name": "symconev"
+        },
+        {
+            "name": "symconneh"
+        },
+        {
+            "name": "symconnev"
+        },
+        {
+            "name": "symconnh"
+        },
+        {
+            "name": "symconnv"
+        },
+        {
+            "name": "symconnwh"
+        },
+        {
+            "name": "symconnwv"
+        },
+        {
+            "name": "symconseh"
+        },
+        {
+            "name": "symconsev"
+        },
+        {
+            "name": "symconsh"
+        },
+        {
+            "name": "symconsv"
+        },
+        {
+            "name": "symconswh"
+        },
+        {
+            "name": "symconswv"
+        },
+        {
+            "name": "symconwh"
+        },
+        {
+            "name": "symconwv"
+        },
+        {
+            "name": "tyielduc"
+        },
+        {
+            "name": "tyieldul"
+        },
+        {
+            "name": "tyieldur"
+        }
+    ]
+}

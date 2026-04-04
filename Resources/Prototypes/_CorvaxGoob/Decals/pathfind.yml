@@ -1,0 +1,1079 @@
+- type: decal
+  id: PathfindEndTopLeft
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endtopleft
+
+- type: decal
+  id: PathfindEndTopCenter
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endtopcenter
+
+- type: decal
+  id: PathfindEndTopRight
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endtopright
+
+- type: decal
+  id: PathfindEndLeftTop
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endlefttop
+
+- type: decal
+  id: PathfindEndLeftCenter
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endleftcenter
+
+- type: decal
+  id: PathfindEndLeftBottom
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endleftbottom
+
+- type: decal
+  id: PathfindEndRightTop
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endrighttop
+
+- type: decal
+  id: PathfindEndRightCenter
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endrightcenter
+
+- type: decal
+  id: PathfindEndRightBottom
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endrightbottom
+
+- type: decal
+  id: PathfindEndBottomLeft
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endbottomleft
+
+- type: decal
+  id: PathfindEndBottomCenter
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endbottomcenter
+
+- type: decal
+  id: PathfindEndBottomRight
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: endbottomright
+
+# flat blocks
+
+- type: decal
+  id: PathfindBlockNW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknw
+
+- type: decal
+  id: PathfindBlockN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockn
+
+- type: decal
+  id: PathfindBlockNE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockne
+
+- type: decal
+  id: PathfindBlockW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockw
+
+- type: decal
+  id: PathfindBlockC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockc
+
+- type: decal
+  id: PathfindBlockE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocke
+
+- type: decal
+  id: PathfindBlockSW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksw
+
+- type: decal
+  id: PathfindBlockS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocks
+
+- type: decal
+  id: PathfindBlockSE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockse
+
+# chevron blocks
+
+- type: decal
+  id: PathfindBlockNWChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknwchevn
+
+- type: decal
+  id: PathfindBlockNWChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknwchevw
+
+- type: decal
+  id: PathfindBlockNWChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknwcheve
+
+- type: decal
+  id: PathfindBlockNWChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknwchevs
+
+- type: decal
+  id: PathfindBlockNChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknchevn
+
+- type: decal
+  id: PathfindBlockNChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknchevw
+
+- type: decal
+  id: PathfindBlockNChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockncheve
+
+- type: decal
+  id: PathfindBlockNChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknchevs
+
+- type: decal
+  id: PathfindBlockNEChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknechevn
+
+- type: decal
+  id: PathfindBlockNEChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknechevw
+
+- type: decal
+  id: PathfindBlockNEChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknecheve
+
+- type: decal
+  id: PathfindBlockNEChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknechevs
+
+- type: decal
+  id: PathfindBlockWChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockwchevn
+
+- type: decal
+  id: PathfindBlockWChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockwchevw
+
+- type: decal
+  id: PathfindBlockWChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockwcheve
+
+- type: decal
+  id: PathfindBlockWChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockwchevs
+
+- type: decal
+  id: PathfindBlockCChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockcchevn
+
+- type: decal
+  id: PathfindBlockCChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockcchevw
+
+- type: decal
+  id: PathfindBlockCChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockccheve
+
+- type: decal
+  id: PathfindBlockCChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockcchevs
+
+- type: decal
+  id: PathfindBlockEChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockechevn
+
+- type: decal
+  id: PathfindBlockEChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockechevw
+
+- type: decal
+  id: PathfindBlockEChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockecheve
+
+- type: decal
+  id: PathfindBlockEChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockechevs
+
+- type: decal
+  id: PathfindBlockSWChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockswchevn
+
+- type: decal
+  id: PathfindBlockSWChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockswchevw
+
+- type: decal
+  id: PathfindBlockSWChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockswcheve
+
+- type: decal
+  id: PathfindBlockSWChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockswchevs
+
+- type: decal
+  id: PathfindBlockSChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockschevn
+
+- type: decal
+  id: PathfindBlockSChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockschevw
+
+- type: decal
+  id: PathfindBlockSChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockscheve
+
+- type: decal
+  id: PathfindBlockSChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockschevs
+
+- type: decal
+  id: PathfindBlockSEChevronN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksechevn
+
+- type: decal
+  id: PathfindBlockSEChevronW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksechevw
+
+- type: decal
+  id: PathfindBlockSEChevronE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksecheve
+
+- type: decal
+  id: PathfindBlockSEChevronS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksechevs
+
+# chevron fill pieces
+
+- type: decal
+  id: PathfindBlockNWChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknwchevfilln
+
+- type: decal
+  id: PathfindBlockNWChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknwchevfillw
+
+- type: decal
+  id: PathfindBlockNWChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknwchevfille
+
+- type: decal
+  id: PathfindBlockNWChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknwchevfills
+
+- type: decal
+  id: PathfindBlockNChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknchevfilln
+
+- type: decal
+  id: PathfindBlockNChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknchevfillw
+
+- type: decal
+  id: PathfindBlockNChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknchevfille
+
+- type: decal
+  id: PathfindBlockNChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknchevfills
+
+- type: decal
+  id: PathfindBlockNEChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknechevfilln
+
+- type: decal
+  id: PathfindBlockNEChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknechevfillw
+
+- type: decal
+  id: PathfindBlockNEChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknechevfille
+
+- type: decal
+  id: PathfindBlockNEChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocknechevfills
+
+- type: decal
+  id: PathfindBlockWChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockwchevfilln
+
+- type: decal
+  id: PathfindBlockWChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockwchevfillw
+
+- type: decal
+  id: PathfindBlockWChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockwchevfille
+
+- type: decal
+  id: PathfindBlockWChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockwchevfills
+
+- type: decal
+  id: PathfindBlockCChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockcchevfilln
+
+- type: decal
+  id: PathfindBlockCChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockcchevfillw
+
+- type: decal
+  id: PathfindBlockCChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockcchevfille
+
+- type: decal
+  id: PathfindBlockCChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockcchevfills
+
+- type: decal
+  id: PathfindBlockEChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockechevfilln
+
+- type: decal
+  id: PathfindBlockEChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockechevfillw
+
+- type: decal
+  id: PathfindBlockEChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockechevfille
+
+- type: decal
+  id: PathfindBlockEChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockechevfills
+
+- type: decal
+  id: PathfindBlockSWChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockswchevfilln
+
+- type: decal
+  id: PathfindBlockSWChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockswchevfillw
+
+- type: decal
+  id: PathfindBlockSWChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockswchevfille
+
+- type: decal
+  id: PathfindBlockSWChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockswchevfills
+
+- type: decal
+  id: PathfindBlockSChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockschevfilln
+
+- type: decal
+  id: PathfindBlockSChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockschevfillw
+
+- type: decal
+  id: PathfindBlockSChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockschevfille
+
+- type: decal
+  id: PathfindBlockSChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blockschevfills
+
+- type: decal
+  id: PathfindBlockSEChevronFillN
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksechevfilln
+
+- type: decal
+  id: PathfindBlockSEChevronFillW
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksechevfillw
+
+- type: decal
+  id: PathfindBlockSEChevronFillE
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksechevfille
+
+- type: decal
+  id: PathfindBlockSEChevronFillS
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: blocksechevfills
+
+# symbol containers
+
+- type: decal
+  id: PathfindSymbolContainerNWH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconnwh
+
+- type: decal
+  id: PathfindSymbolContainerNWV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconnwv
+
+- type: decal
+  id: PathfindSymbolContainerNH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconnh
+
+- type: decal
+  id: PathfindSymbolContainerNV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconnv
+
+- type: decal
+  id: PathfindSymbolContainerNEH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconneh
+
+- type: decal
+  id: PathfindSymbolContainerNEV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconnev
+
+- type: decal
+  id: PathfindSymbolContainerWH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconwh
+
+- type: decal
+  id: PathfindSymbolContainerWV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconwv
+
+- type: decal
+  id: PathfindSymbolContainerCH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconch
+
+- type: decal
+  id: PathfindSymbolContainerCV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconcv
+
+- type: decal
+  id: PathfindSymbolContainerEH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconeh
+
+- type: decal
+  id: PathfindSymbolContainerEV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconev
+
+- type: decal
+  id: PathfindSymbolContainerSWH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconswh
+
+- type: decal
+  id: PathfindSymbolContainerSWV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconswv
+
+- type: decal
+  id: PathfindSymbolContainerSH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconsh
+
+- type: decal
+  id: PathfindSymbolContainerSV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconsv
+
+- type: decal
+  id: PathfindSymbolContainerSEH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconseh
+
+- type: decal
+  id: PathfindSymbolContainerSEV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: symconsev
+
+# yield pieces
+
+- type: decal
+  id: PathfindYieldLeftRT
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: lyieldrt
+
+- type: decal
+  id: PathfindYieldLeftRC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: lyieldrc
+
+- type: decal
+  id: PathfindYieldLeftRB
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: lyieldrb
+
+- type: decal
+  id: PathfindYieldTopUL
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: tyieldul
+
+- type: decal
+  id: PathfindYieldTopUC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: tyielduc
+
+- type: decal
+  id: PathfindYieldTopUR
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: tyieldur
+
+- type: decal
+  id: PathfindYieldCenterLT
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldlt
+
+- type: decal
+  id: PathfindYieldCenterLC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldlc
+
+- type: decal
+  id: PathfindYieldCenterLB
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldlb
+
+- type: decal
+  id: PathfindYieldCenterDL
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyielddl
+
+- type: decal
+  id: PathfindYieldCenterDC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyielddc
+
+- type: decal
+  id: PathfindYieldCenterDR
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyielddr
+
+- type: decal
+  id: PathfindYieldCenterRT
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldrt
+
+- type: decal
+  id: PathfindYieldCenterRC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldrc
+
+- type: decal
+  id: PathfindYieldCenterRB
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldrb
+
+- type: decal
+  id: PathfindYieldCenterUL
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldul
+
+- type: decal
+  id: PathfindYieldCenterUC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyielduc
+
+- type: decal
+  id: PathfindYieldCenterUR
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldur
+
+- type: decal
+  id: PathfindYieldCenterBT
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldbt
+
+- type: decal
+  id: PathfindYieldCenterBCV
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldbcv
+
+- type: decal
+  id: PathfindYieldCenterBB
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldbb
+
+- type: decal
+  id: PathfindYieldCenterBL
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldbl
+
+- type: decal
+  id: PathfindYieldCenterBCH
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldbch
+
+- type: decal
+  id: PathfindYieldCenterBR
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: cyieldbr
+
+- type: decal
+  id: PathfindYieldRightLT
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: ryieldlt
+
+- type: decal
+  id: PathfindYieldRightLC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: ryieldlc
+
+- type: decal
+  id: PathfindYieldRightLB
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: ryieldlb
+
+- type: decal
+  id: PathfindYieldBottomDC
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: byielddc
+
+- type: decal
+  id: PathfindYieldBottomDL
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: byielddl
+
+- type: decal
+  id: PathfindYieldBottomDR
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: byielddr
+
+# prefabs to save time
+
+- type: decal
+  id: PathfindPrefabBendCenter
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_bendcenter
+
+- type: decal
+  id: PathfindPrefabBendCenterChevD
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_bendcenterchevd
+
+- type: decal
+  id: PathfindPrefabBendCenterChevU
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_bendcenterchevu
+
+- type: decal
+  id: PathfindPrefabBendInner
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_bendinner
+
+- type: decal
+  id: PathfindPrefabBendOuter
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_bendouter
+
+- type: decal
+  id: PathfindPrefabBendOuterChevD
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_bendouterchevd
+
+- type: decal
+  id: PathfindPrefabBendOuterChevU
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_bendouterchevu
+
+- type: decal
+  id: PathfindPrefabHBottom
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hbottom
+
+- type: decal
+  id: PathfindPrefabHBottomChevL
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hbottomchevl
+
+- type: decal
+  id: PathfindPrefabHBottomChevLJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hbottomchevljunc
+
+- type: decal
+  id: PathfindPrefabHBottomChevR
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hbottomchevr
+
+- type: decal
+  id: PathfindPrefabHBottomChevRJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hbottomchevrjunc
+
+- type: decal
+  id: PathfindPrefabHCenter
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hcenter
+
+- type: decal
+  id: PathfindPrefabHCenterChevL
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hcenterchevl
+
+- type: decal
+  id: PathfindPrefabHCenterChevLJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hcenterchevljunc
+
+- type: decal
+  id: PathfindPrefabHCenterChevR
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hcenterchevr
+
+- type: decal
+  id: PathfindPrefabHCenterChevRJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_hcenterchevrjunc
+
+- type: decal
+  id: PathfindPrefabHTop
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_htop
+
+- type: decal
+  id: PathfindPrefabHTopChevL
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_htopchevl
+
+- type: decal
+  id: PathfindPrefabHTopChevLJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_htopchevljunc
+
+- type: decal
+  id: PathfindPrefabHTopChevR
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_htopchevr
+
+- type: decal
+  id: PathfindPrefabHTopChevRJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_htopchevrjunc
+
+- type: decal
+  id: PathfindPrefabVCenter
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vcenter
+
+- type: decal
+  id: PathfindPrefabVCenterChevD
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vcenterchevd
+
+- type: decal
+  id: PathfindPrefabVCenterChevDJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vcenterchevdjunc
+
+- type: decal
+  id: PathfindPrefabVCenterChevU
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vcenterchevu
+
+- type: decal
+  id: PathfindPrefabVCenterChevUJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vcenterchevujunc
+
+- type: decal
+  id: PathfindPrefabVLeft
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vleft
+
+- type: decal
+  id: PathfindPrefabVLeftChevD
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vleftchevd
+
+- type: decal
+  id: PathfindPrefabVLeftChevDJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vleftchevdjunc
+
+- type: decal
+  id: PathfindPrefabVLeftChevU
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vleftchevu
+
+- type: decal
+  id: PathfindPrefabVLeftChevUJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vleftchevujunc
+
+- type: decal
+  id: PathfindPrefabVRight
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vright
+
+- type: decal
+  id: PathfindPrefabVRightChevD
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vrightchevd
+
+- type: decal
+  id: PathfindPrefabVRightChevDJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vrightchevdjunc
+
+- type: decal
+  id: PathfindPrefabVRightChevU
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vrightchevu
+
+- type: decal
+  id: PathfindPrefabVRightChevUJunc
+  sprite:
+    sprite: _CorvaxGoob/Decals/pathfind.rsi
+    state: prefab_vrightchevujunc
