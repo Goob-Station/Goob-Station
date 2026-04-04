@@ -51,7 +51,7 @@ public sealed class CaptureSystem : EntitySystem
         _captureScreenRequests.RemoveAll(req => req.TimeoutTime < _timing.CurTime);
     }
 
-    public void RequestScreenCapture(ICommonSession session, ICommonSession requestBy, PhotoCaptureType type)
+    public void RequestScreenCapture(ICommonSession session, ICommonSession requestBy)
     {
         if (_captureScreenRequests.Any(req => req.RequestBy == requestBy))
         {
@@ -59,15 +59,14 @@ public sealed class CaptureSystem : EntitySystem
             return;
         }
 
-        var requestHolder = new CaptureScreenRequest
-        {
-            Player = session,
-            RequestBy = requestBy,
-            TimeoutTime = _timing.CurTime + _requestTimeoutTime
-        };
+        var requestHolder = new CaptureScreenRequest();
+
+        requestHolder.Player = session;
+        requestHolder.RequestBy = requestBy;
+        requestHolder.TimeoutTime = _timing.CurTime + _requestTimeoutTime;
 
         _captureScreenRequests.Add(requestHolder);
-        RaiseNetworkEvent(new CaptureScreenRequestEvent(type), session);
+        RaiseNetworkEvent(new CaptureScreenRequestEvent(), session);
     }
 
     private void CaptureScreenResponse(CaptureScreenResponseEvent ev, EntitySessionEventArgs args)
