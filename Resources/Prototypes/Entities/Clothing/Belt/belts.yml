@@ -351,8 +351,6 @@
         whitelist:
           tags:
           - GPS
-      mass_scanner:
-        whitelist:
           components:
           - RadarConsole
       meson:
