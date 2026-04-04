@@ -1,0 +1,19 @@
+- type: entity
+  id: RubberStampChameleon
+  parent: RubberStampBase
+  name: APPROVED rubber stamp
+  suffix: Chameleon
+  components:
+  - type: ActivatableUI
+    key: enum.ChameleonStampUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonStampUiKey.Key:
+        type: ChameleonStampUserInterface
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-approved
+    stampedColor: "#00be00"
+    stampState: "paper_stamp-ok"
+  - type: Sprite
+    state: stamp-ok
+  - type: ChameleonStamp

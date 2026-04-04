@@ -1,0 +1,44 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+            Title="{Loc 'ui-chameleon-stamp-title'}"
+            MinSize="770 270"
+            SetSize="770 270">
+    <BoxContainer Orientation="Horizontal">
+        <BoxContainer Orientation="Vertical" Margin="10 10">
+            <PanelContainer SetSize="180 180" MaxSize="180 180">
+                <SpriteView Name="SpritePreview" Access="Public"
+                        Margin="10 0 0 0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        OverrideDirection="South"
+                        Scale="5 5"/>
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+        </BoxContainer>
+            <BoxContainer Margin="0 10" Orientation="Horizontal" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" >
+                    <LineEdit Name="StampMetaDataName" MinSize="100 0" HorizontalExpand="True" Access="Public"/>
+                    <LineEdit Name="StampMetaDataDescription" MinSize="100 0" HorizontalExpand="True" Margin="0 5 0 0" Access="Public"/>
+                    <ColorSelectorSliders Name="StampColorSelector" Access="Public" SetSize="250 120" Margin="0 5"/>
+                </BoxContainer>
+                <BoxContainer Margin="10 0" Orientation="Vertical" HorizontalExpand="True" >
+                    <LineEdit Name="StampedNameLineEdit" MinSize="150 0" HorizontalExpand="True" Margin="0 0 0 0" Access="Public"/>
+                    
+                    <RichTextLabel Text="{Loc 'ui-chameleon-stamp-color'}"/>
+                    <OptionButton Name="StampColorOptionButton" Access="Public" HorizontalExpand="True" Margin="0 0"/>
+                    
+                    <RichTextLabel Text="{Loc 'ui-chameleon-stamp-sprite'}"/>
+                    <OptionButton Name="StampSpriteOptionButton" Access="Public" HorizontalExpand="True" Margin="0 0"/>
+                    
+                    <RichTextLabel Text="{Loc 'ui-chameleon-stamp-state'}"/>
+                    <OptionButton Name="StampStateOptionButton" Access="Public" HorizontalExpand="True" Margin="0 0"/>
+                    
+                    <Button Name="ApplyButton" Text="{Loc 'ui-chameleon-stamp-apply-button'}" SetWidth="150" Margin="0 5" Access="Public"/>
+                </BoxContainer>
+            </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
