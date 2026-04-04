@@ -1,3 +1,4 @@
+using Content.Shared.Access;
 using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 
@@ -42,4 +43,24 @@ public sealed partial class CargoAccountPrototype : IPrototype
     /// </summary>
     [DataField]
     public EntProtoId AcquisitionSlip;
+
+    // CorvaxGoob-CargoFeatures-Start
+    /// <summary>
+    /// Доступ, который будет проверяться на возможность установки на ящик, и который будет устанавливаться в случае заказа такого.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<AccessLevelPrototype>> SecureCrateOrderAccess = new();
+
+    /// <summary>
+    /// Название для отдела, куда будет указывать доставка по умолчанию.
+    /// </summary>
+    [DataField]
+    public LocId? DepartmentDestinationName;
+
+    /// <summary>
+    /// Прототип для ящика, который будет спавнится при одобрении заказа с пометкой о защите заказа.
+    /// </summary>
+    [DataField]
+    public EntProtoId? SecureCratePrototype;
+    // CorvaxGoob-CargoFeatures-End
 }

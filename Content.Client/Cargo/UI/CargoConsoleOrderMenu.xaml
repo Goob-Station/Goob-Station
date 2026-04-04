@@ -36,14 +36,24 @@ SPDX-License-Identifier: MIT
             <Label Text="{Loc 'cargo-console-order-menu-requester-label'}"
                    StyleClasses="LabelKeyText" />
 
+            <!-- CorvaxGoob-CargoFeatures : Убрана редактируемость -->
             <LineEdit Name="Requester"
-                      Access="Public" />
+                      Access="Public" Editable="False"/>
 
-            <Label Text="{Loc 'cargo-console-order-menu-reason-label'}"
+            <!-- CorvaxGoob-CargoFeatures -->
+            <Label Text="{Loc 'cargo-console-order-menu-delivery-destination'}"
                    StyleClasses="LabelKeyText" />
 
-            <LineEdit Name="Reason"
-                      Access="Public" />
+            <!-- CorvaxGoob-CargoFeatures-Start -->
+            <LineEdit Name="DeliveryDestination"
+                      Access="Public" PlaceHolder="{Loc 'cargo-console-paper-delivery-destination-default'}"/>
+
+            <Label Text="{Loc 'cargo-console-order-menu-note'}"
+                StyleClasses="LabelKeyText" />
+
+            <LineEdit Name="Note"
+                      Access="Public" PlaceHolder="{Loc 'cargo-console-paper-note-default'}"/>
+            <!-- CorvaxGoob-CargoFeatures-End -->
 
             <Label Text="{Loc 'cargo-console-order-menu-amount-label'}"
                    StyleClasses="LabelKeyText" />
@@ -52,6 +62,10 @@ SPDX-License-Identifier: MIT
                      Access="Public"
                      HorizontalExpand="True"
                      Value="1" />
+
+            <!-- CorvaxGoob-CargoFeatures -->
+            <CheckBox Name="ToggleDepartmentSecureCrate" Access="Public" Text="{Loc 'cargo-console-secure-order-checkbox'}" />
+
         </GridContainer>
         <Control VerticalExpand="True"/>
         <PanelContainer StyleClasses="LowDivider" Margin="0 6 0 2"/>

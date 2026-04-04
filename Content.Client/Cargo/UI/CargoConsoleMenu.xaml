@@ -14,8 +14,10 @@ SPDX-License-Identifier: MIT
     xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    MinSize="540 390"
-    SetSize="995 600">
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    MinSize="700 390" 
+    SetSize="1300 600">
+    <!-- CorvaxGoob Resize window -->
 
     <!-- Main Container -->
     <BoxContainer Orientation="Vertical"
@@ -198,11 +200,38 @@ SPDX-License-Identifier: MIT
                   <OptionButton Name="ActionOptions"/>
               </BoxContainer>
               <Control MinHeight="5"/>
-              <BoxContainer Orientation="Horizontal">
-                  <RichTextLabel Name="AmountText" Text="{ Loc 'cargo-console-menu-account-action-amount'}"/>
-                  <SpinBox Name="TransferSpinBox" MinWidth="100" Value="10"/>
+              <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                  <BoxContainer Orientation="Horizontal">
+                      <RichTextLabel Name="AmountText" Text="{ Loc 'cargo-console-menu-account-action-amount'}"/>
+                      <SpinBox Name="TransferSpinBox" MinWidth="100" Value="10"/>
+                  </BoxContainer>
+                </BoxContainer>
+              <!-- CorvaxGoob-CargoFeatures-Start -->
+              <BoxContainer Orientation="Vertical"
+                                HorizontalExpand="True"
+                                Margin="0 5 0 10">
+                  <controls:TableContainer Columns="2" HorizontalExpand="True" VerticalExpand="True">
+                      <RichTextLabel Name="PrimaryCutLabel" Text="{Loc 'cargo-funding-alloc-console-label-primary-cut'}"/>
+                      <LineEdit Name="PrimaryCut" Editable="False" MinWidth="30"/>
+                      <RichTextLabel Name="LockboxCutLabel" Text="{Loc 'cargo-funding-alloc-console-label-lockbox-cut'}"/>
+                      <LineEdit Name="LockboxCut" Editable="False" MinWidth="30"/>
+                  </controls:TableContainer>
+                  <Label Name="HelpLabel" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="0 10"/>
+                  <PanelContainer VerticalExpand="True" HorizontalExpand="True" VerticalAlignment="Top" MaxHeight="250">
+                      <PanelContainer.PanelOverride>
+                          <graphics:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+                      </PanelContainer.PanelOverride>
+                      <controls:TableContainer Name="EntriesContainer" Columns="4" HorizontalExpand="True" VerticalExpand="True" Margin="5 0">
+                          <RichTextLabel Text="{Loc 'cargo-funding-alloc-console-label-account'}" HorizontalAlignment="Center"/>
+                          <RichTextLabel Text="{Loc 'cargo-funding-alloc-console-label-code'}" HorizontalAlignment="Center"/>
+                          <RichTextLabel Text="{Loc 'cargo-funding-alloc-console-label-balance'}" HorizontalAlignment="Center"/>
+                          <RichTextLabel Text="{Loc 'cargo-funding-alloc-console-label-cut'}" HorizontalAlignment="Center"/>
+                      </controls:TableContainer>
+                  </PanelContainer>
               </BoxContainer>
-                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" VerticalAlignment="Bottom" Margin="8">
+              <!-- CorvaxGoob-CargoFeatures-End -->
+
+              <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" VerticalAlignment="Bottom" Margin="8">
                     <!-- Left button -->
                     <Button Name="AccountLimitToggleButton"
                             Text="{Loc 'cargo-console-menu-toggle-account-lock-button'}"

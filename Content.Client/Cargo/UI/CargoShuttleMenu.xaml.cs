@@ -65,8 +65,12 @@ namespace Content.Client.Cargo.UI
                              ("accountColor", account.Color),
                              ("account", Loc.GetString(account.Code)))
                      },
-                     Description = {Text = Loc.GetString("cargo-console-menu-order-reason-description",
-                         ("reason", order.Reason))}
+                     // CorvaxGoob-CargoFeatures-Start
+                     DeliveryDestination = {Text = Loc.GetString("cargo-console-menu-order-delivery-destination",
+                         ("destination", order.DeliveryDestination ?? Loc.GetString("cargo-console-paper-delivery-destination-default")))},
+                     Note = {Text = Loc.GetString("cargo-console-menu-order-note",
+                         ("note", order.Note ?? Loc.GetString("cargo-console-paper-note-default")))}
+                     // CorvaxGoob-CargoFeatures-End
                  };
 
                  row.Approve.Visible = false;

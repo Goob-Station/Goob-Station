@@ -86,6 +86,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
                     qty,
                     Loc.GetString(component.Sender),
                     Loc.GetString(component.Description),
+                    null, // CorvaxGoob-CargoFeatures : added null
                     Loc.GetString(component.Dest),
                     cargoDb,
                     component.Account,

@@ -56,12 +56,21 @@ SPDX-License-Identifier: MIT
                        VerticalExpand="True"
                        StyleClasses="LabelSubText" />
 
-                <Label Name="Description"
+                <!-- CorvaxGoob-CargoFeatures-Start -->
+                <Label Name="DeliveryDestination"
                        Access="Public"
                        HorizontalExpand="True"
                        VerticalExpand="True"
                        StyleClasses="LabelSubText"
                        ClipText="True" />
+                <Label Name="Note"
+                       Access="Public"
+                       HorizontalExpand="True"
+                       VerticalExpand="True"
+                       StyleClasses="LabelSubText"
+                       ClipText="True" />
+                <!-- CorvaxGoob-CargoFeatures-End -->
+
             </BoxContainer>
         </BoxContainer>
 

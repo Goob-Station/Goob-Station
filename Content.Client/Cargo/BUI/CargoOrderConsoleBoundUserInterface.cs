@@ -24,8 +24,8 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Cargo;
 using Content.Client.Cargo.UI;
+using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
@@ -33,14 +33,15 @@ using Content.Shared.Cargo.Prototypes;
 using Content.Shared.IdentityManagement;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
-using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.Cargo.BUI
 {
     public sealed class CargoOrderConsoleBoundUserInterface : BoundUserInterface
     {
+        [Dependency] private readonly IPrototypeManager _protoManager = default!; // CorvaxGoob-CargoFeatures
         private readonly SharedCargoSystem _cargoSystem;
 
         [ViewVariables]
@@ -80,17 +81,19 @@ namespace Content.Client.Cargo.BUI
             base.Open();
 
             var spriteSystem = EntMan.System<SpriteSystem>();
+
             var dependencies = IoCManager.Instance!;
             _menu = new CargoConsoleMenu(Owner, EntMan, dependencies.Resolve<IPrototypeManager>(), spriteSystem);
             var localPlayer = dependencies.Resolve<IPlayerManager>().LocalEntity;
             var description = new FormattedMessage();
 
-            string orderRequester;
+            // CorvaxGoob-CargoFeatures : Алгоритм генерации имени перенесено вниз
+            /*string orderRequester;
 
             if (EntMan.EntityExists(localPlayer))
                 orderRequester = Identity.Name(localPlayer.Value, EntMan);
             else
-                orderRequester = string.Empty;
+                orderRequester = string.Empty;*/
 
             _orderMenu = new CargoConsoleOrderMenu();
 
@@ -101,6 +104,8 @@ namespace Content.Client.Cargo.BUI
                 if (args.Button.Parent?.Parent is not CargoProductRow row) // Goobstation
                     return;
 
+                _orderMenu.ToggleDepartmentSecureCrate.Pressed = false; // CorvaxGoob-CargoFeatures : дефолт знач при каждом открытии
+
                 description.Clear();
                 description.PushColor(Color.White); // Rich text default color is grey
                 if (row.MainButton.ToolTip != null)
@@ -110,14 +115,32 @@ namespace Content.Client.Cargo.BUI
                 _product = row.Product;
                 _orderMenu.ProductName.Text = row.ProductName.Text;
                 _orderMenu.PointCost.Text = row.PointCost.Text;
-                _orderMenu.Requester.Text = orderRequester;
-                _orderMenu.Reason.Text = "";
                 _orderMenu.Amount.Value = 1;
+
+                // CorvaxGoob-CargoFeatures-Start
+                if (EntMan.TryGetComponent<CargoOrderConsoleComponent>(Owner, out var orderConsole))
+                {
+                    _orderMenu.Requester.Editable = orderConsole.EditableRequesterName;
+
+                    if (_protoManager.TryIndex<CargoAccountPrototype>(orderConsole.Account, out var accountPrototype))
+                        _orderMenu.DeliveryDestination.PlaceHolder = Loc.GetString(accountPrototype.DepartmentDestinationName ?? "cargo-console-paper-delivery-destination-default");
+
+                    _orderMenu.Requester.Text = localPlayer.HasValue ? _cargoSystem.GenerateRequesterName((Owner, orderConsole), localPlayer.Value) : string.Empty;
+
+                    _orderMenu.ToggleDepartmentSecureCrate.Text = Loc.GetString("cargo-console-secure-order-checkbox", ("cost", orderConsole.SecureOrderCost));
+
+                    if (_product is not null && _protoManager.TryIndex<EntityPrototype>(_product.Product, out var cargoProductEntPrototype))
+                        _orderMenu.ToggleDepartmentSecureCrate.Disabled = !_cargoSystem.CanBeSecuredDelivery((Owner, orderConsole), cargoProductEntPrototype);
+                }
+                // CorvaxGoob-CargoFeatures-End
 
                 _orderMenu.OpenCentered();
             };
             _menu.OnOrderApproved += ApproveOrder;
             _menu.OnOrderCanceled += RemoveOrder;
+
+            _orderMenu.ToggleDepartmentSecureCrate.OnToggled += ToggleDepartmentSecureCrate_OnToggled; // CorvaxGoob-CargoFeatures
+
             _orderMenu.SubmitButton.OnPressed += (_) =>
             {
                 if (AddOrder())
@@ -139,6 +162,20 @@ namespace Content.Client.Cargo.BUI
             _menu.OpenCentered();
         }
 
+        // CorvaxGoob-CargoFeatures-Start
+        private void ToggleDepartmentSecureCrate_OnToggled(ButtonToggledEventArgs obj)
+        {
+            if (_product is null
+                || _orderMenu is null
+                || !EntMan.TryGetComponent<CargoOrderConsoleComponent>(Owner, out var orderConsole))
+                return;
+
+            int cost = obj.Pressed ? _product.Cost + orderConsole.SecureOrderCost : _product.Cost; // Цена либо с защищённым либо нет
+
+            _orderMenu.PointCost.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", cost));
+        }
+        // CorvaxGoob-CargoFeatures-End
+
         private void Populate(List<CargoOrderData> orders)
         {
             if (_menu == null)
@@ -148,6 +185,7 @@ namespace Content.Client.Cargo.BUI
             _menu.PopulateCategories();
             _menu.PopulateOrders(orders);
             _menu.PopulateAccountActions();
+            _menu.PopulateAccounts(); // CorvaxGoob-CargoFeatures
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -186,6 +224,10 @@ namespace Content.Client.Cargo.BUI
 
         private bool AddOrder()
         {
+            // CorvaxGoob-CargoFeatures
+            if (!EntMan.TryGetComponent<CargoOrderConsoleComponent>(Owner, out var orderConsole))
+                return false;
+
             var orderAmt = _orderMenu?.Amount.Value ?? 0;
             if (orderAmt < 1 || orderAmt > OrderCapacity)
             {
@@ -193,10 +235,12 @@ namespace Content.Client.Cargo.BUI
             }
 
             SendMessage(new CargoConsoleAddOrderMessage(
-                _orderMenu?.Requester.Text ?? "",
-                _orderMenu?.Reason.Text ?? "",
+                orderConsole.EditableRequesterName ? _orderMenu?.Requester.Text : null, // CorvaxGoob-CargoFeatures
+                _orderMenu?.DeliveryDestination.Text == "" ? _orderMenu?.DeliveryDestination.PlaceHolder : _orderMenu?.DeliveryDestination.Text, // CorvaxGoob-CargoFeatures
+                _orderMenu?.Note.Text == "" ? null : _orderMenu?.Note.Text, // CorvaxGoob-CargoFeatures
                 _product?.ID ?? "",
-                orderAmt));
+                orderAmt,
+                _orderMenu?.ToggleDepartmentSecureCrate.Pressed ?? false)); // CorvaxGoob-CargoFeatures
 
             return true;
         }

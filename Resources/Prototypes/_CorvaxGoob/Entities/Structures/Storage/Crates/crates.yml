@@ -62,3 +62,10 @@
     sprite: _CorvaxGoob/Bluespace/Crates/limited_secure.rsi
   - type: AccessReader
     access: [["Command"]]
+
+- type: entity
+  parent: CratePrivateSecure
+  id: CratePrivateCargoSecure
+  components:
+  - type: AccessReader
+    access: [["Cargo"]]

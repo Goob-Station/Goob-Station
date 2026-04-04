@@ -203,13 +203,29 @@ public sealed partial class CargoSystem
         msg.PushNewline();
         msg.AddText(Loc.GetString("bounty-manifest-list-start"));
         msg.PushNewline();
+
+        // CorvaxGoob-CargoFeatures-Start
+        string detailBountyInfo = string.Empty;
+
+        int i = 1;
         foreach (var entry in prototype.Entries)
         {
+            var name = Loc.GetString(entry.Name);
+
             msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry",
                 ("amount", entry.Amount),
-                ("item", Loc.GetString(entry.Name)))}");
+                ("item", name))}");
             msg.PushNewline();
+            detailBountyInfo += Loc.GetString("cargo-console-bounty-manifest-name-entry", ("detailName", name), ("detailQuantity", entry.Amount));
+            if (i != prototype.Entries.Count)
+                detailBountyInfo += ", ";
+
+            i++;
         }
+
+        _metaSystem.SetEntityName(uid, Loc.GetString("cargo-console-bounty-manifest-name", ("entries", detailBountyInfo)));
+        // CorvaxGoob-CargoFeatures-End
+
         msg.AddMarkupOrThrow(Loc.GetString("bounty-console-manifest-reward", ("reward", prototype.Reward)));
         _paperSystem.SetContent((uid, paper), msg.ToMarkup());
     }
