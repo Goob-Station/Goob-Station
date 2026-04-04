@@ -92,6 +92,7 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Storage
+    maxItemSize: Huge # CorvaxGoob-Autodoc-Augmentation-fix
     clickInsert: false # incredibly annoying for linking it
     openOnActivate: false # use the verb, UI is higher priority
     grid:

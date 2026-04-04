@@ -9,3 +9,4 @@
   wires:
   - !type:PowerWireAction
   - !type:AutodocSafetyWireAction
+  - !type:SpeechWireAction # CorvaxGoob-Autodoc-Augmentation-fix
