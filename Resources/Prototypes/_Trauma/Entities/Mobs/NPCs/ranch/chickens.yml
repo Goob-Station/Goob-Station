@@ -5,6 +5,7 @@
   name: chicken
   description: Comes before an egg, and IS a dinosaur!
   components:
+  - type: Happiness
   - type: NpcFactionMember
     factions:
     - Chicken
@@ -103,6 +104,11 @@
   - type: HTN
     rootTask:
       task: RoosterCompound
+    blackboard:
+      MinimumIdleTime: !type:Single
+        5
+      MaximumIdleTime: !type:Single
+        60
   - type: Happiness
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
@@ -754,3 +760,132 @@
   - type: FavoriteFood
     tag:
     - Banana
+
+# Glass chicken
+
+- type: entity
+  abstract: true
+  id: GlassChickenBase
+  description: Looks very fragile...
+  components:
+  - type: DealDamageOnPulled
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PopupBehavior
+        popup: grabbed-shatter-popup
+        popupType: LargeCaution
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior
+        solution: bloodstream
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: [GlassChickenBase, BaseMobChickRanch]
+  id: MobChickGlass
+  name: glass chick
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-glass.rsi
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobGlassHen
+    - MobGlassRooster
+
+- type: entity
+  parent: [GlassChickenBase, BaseMobHenRanch]
+  id: MobGlassHen
+  name: glass hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-glass.rsi
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: [GlassChickenBase, BaseMobRoosterRanch]
+  id: MobGlassRooster
+  name: glass rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-glass.rsi
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+# Raptor
+
+- type: entity
+  id: BaseChickenRaptor
+  abstract: true
+  description: It looks hungry...
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5.5
+    baseSprintSpeed: 5.5
+  - type: MeleeWeapon
+    attackRate: 2
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+        Piercing: 5
+  - type: NpcFactionMember
+    factions:
+    - Raptor
+
+- type: entity
+  parent: [BaseChickenRaptor, BaseMobChickRanch]
+  id: MobChickRaptor
+  name: raptor chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobRaptorHen
+    - MobRaptorRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-raptor.rsi
+  - type: FavoriteFood
+    tag:
+    - Meat
+
+- type: entity
+  parent: [BaseChickenRaptor, BaseMobHenRanch]
+  id: MobRaptorHen
+  name: raptor hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-raptor.rsi
+
+- type: entity
+  parent: [BaseChickenRaptor, BaseMobRoosterRanch]
+  id: MobRaptorRooster
+  name: tiercel # the truecell roosters
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-raptor.rsi
+  - type: HTN
+    rootTask:
+      task: RaptorRoosterCompound

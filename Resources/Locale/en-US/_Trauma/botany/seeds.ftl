@@ -9,3 +9,6 @@ seeds-appledelicious-display-name = delicious looking apple tree
 
 seeds-applemeth-name = meth apple
 seeds-applemeth-display-name = meth apple tree
+
+seeds-clearcorn-name = clear corn
+seeds-clearcorn-display-name = ears of clear corn

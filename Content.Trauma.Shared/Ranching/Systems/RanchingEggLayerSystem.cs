@@ -40,7 +40,13 @@ public sealed class RanchingEggLayerSystem : EntitySystem
 
     private void OnFertilize(Entity<TimedReplaceComponent> ent, ref FertilizeDoAfterEvent args)
     {
-        if (!TryComp<EggFertilizerComponent>(args.User, out var fertilizer) || !TryComp<HappinessComponent>(args.User, out var happiness) || args.Cancelled)
+        if (args.Cancelled)
+        {
+            EnsureComp<EggFertilizationTargetComponent>(ent.Owner);
+            return;
+        }
+
+        if (!TryComp<EggFertilizerComponent>(args.User, out var fertilizer) || !TryComp<HappinessComponent>(args.User, out var happiness))
             return;
 
         if (fertilizer.SpecialReplacement is null)
@@ -56,7 +62,7 @@ public sealed class RanchingEggLayerSystem : EntitySystem
 
     private void OnInteraction(Entity<TimedReplaceComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (!TryComp<EggFertilizerComponent>(args.User, out var user))
+        if (!TryComp<EggFertilizerComponent>(args.User, out var user) || !HasComp<EggFertilizationTargetComponent>(ent.Owner))
             return;
 
         var doAfter =
@@ -66,6 +72,7 @@ public sealed class RanchingEggLayerSystem : EntitySystem
                 BreakOnDamage = true,
             };
 
+        RemComp<EggFertilizationTargetComponent>(ent.Owner);
         _doAfter.TryStartDoAfter(doAfter);
     }
 

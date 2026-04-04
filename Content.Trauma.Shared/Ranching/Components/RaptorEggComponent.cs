@@ -3,4 +3,4 @@ using Robust.Shared.GameStates;
 namespace Content.Trauma.Shared.Ranching.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class InIncubatorComponent : Component;
+public sealed partial class RaptorEggComponent : Component;

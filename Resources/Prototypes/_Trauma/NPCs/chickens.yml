@@ -8,6 +8,19 @@
     - !type:HTNCompoundTask
       task: FoodCompound
   - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:RandomOperator
+        targetKey: IdleTime
+        minKey: MinimumIdleTime
+        maxKey: MaximumIdleTime
+
+    - !type:HTNPrimitiveTask
+      operator: !type:WaitOperator
+        key: IdleTime
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+
     - !type:HTNCompoundTask
       task: FertilizeCompound
   - tasks:
@@ -20,6 +33,25 @@
   - tasks:
     - !type:HTNCompoundTask
       task: FoodCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: RaptorRoosterCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: MeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FoodCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: RaptorFertilizeCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: SimpleHostileCompound
   - tasks:
     - !type:HTNCompoundTask
       task: IdleCompound

@@ -3,14 +3,27 @@
   query:
   - !type:ComponentQuery
     components:
-    - type: TimedReplace
-  - !type:ComponentFilter
-    components:
-    - type: InIncubator
-    retainWithComp: false
+    - type: EggFertilizationTarget
   considerations:
   - !type:TargetDistanceCon
     curve: !type:PresetCurve
       preset: TargetDistance
   - !type:TargetAccessibleCon
+    curve: !type:BoolCurve
+  - !type:TargetInLOSOrCurrentCon
+    curve: !type:BoolCurve
+
+- type: utilityQuery
+  id: NearbyRaptorEggs
+  query:
+  - !type:ComponentQuery
+    components:
+    - type: RaptorEgg
+  considerations:
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve
+  - !type:TargetInLOSOrCurrentCon
     curve: !type:BoolCurve

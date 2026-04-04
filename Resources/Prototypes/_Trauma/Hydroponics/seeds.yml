@@ -89,10 +89,10 @@
   noun: seeds-noun-seeds
   displayName: seeds-applemeth-display-name
   plantRsi: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
-  packetPrototype: MethAppleSeeds # Maybe make it only give normal apple seeds?
+  packetPrototype: MethAppleSeeds
   productPrototypes:
   - FoodMethApple
-  harvestRepeat: Repeat # LMK if too op or something, what can you even do with meth?
+  harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
   production: 6
@@ -111,4 +111,36 @@
     Desoxyephedrine:
       Min: 1
       Max: 3
+      PotencyDivisor: 10
+
+- type: seed
+  id: clearCorn
+  name: seeds-clearcorn-name
+  noun: seeds-noun-seeds
+  displayName: seeds-clearcorn-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/clear_corn.rsi
+  packetPrototype: ClearCornSeeds
+  productPrototypes:
+  - FoodClearCorn
+  lifespan: 25
+  maturation: 8
+  production: 6
+  yield: 2
+  potency: 20
+  growthStages: 3
+  idealLight: 8
+  waterConsumption: 0.60
+  idealHeat: 298
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 20
+    Cornmeal:
+      Min: 5
+      Max: 15
+      PotencyDivisor: 10
+    Ethanol:
+      Min: 15
+      Max: 60
       PotencyDivisor: 10

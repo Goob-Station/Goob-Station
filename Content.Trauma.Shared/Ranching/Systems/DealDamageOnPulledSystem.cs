@@ -1,0 +1,23 @@
+using Content.Shared.Damage.Systems;
+using Content.Shared.Pulling.Events;
+using Content.Trauma.Shared.Ranching.Components;
+
+namespace Content.Trauma.Shared.Ranching.Systems;
+
+/// <summary>
+/// This handles gibing stuff when its pulled
+/// </summary>
+public sealed class DealDamageOnPulledSystem : EntitySystem
+{
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<DealDamageOnPulledComponent, BeingPulledAttemptEvent>(OnPullAttempt);
+    }
+
+    private void OnPullAttempt(Entity<DealDamageOnPulledComponent> ent, ref BeingPulledAttemptEvent args)
+    {
+        _damageable.ChangeDamage(ent.Owner, ent.Comp.Damage, origin: args.Puller);
+    }
+}

@@ -2,3 +2,60 @@
   id: Chicken
   friendly:
   - Chicken
+
+- type: npcFaction
+  id: Raptor
+  friendly:
+  - Raptor
+  hostile:
+  - Chicken
+  - Changeling
+  - Heretic
+  - Blob
+  - Shadowling
+  - PirateFaction
+  - Wraith
+  - Lavafauna
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Xenoborg
+  - NanoTrasen
+
+- type: npcFaction
+  id: Insurgent
+  hostile:
+  - Changeling
+  - Heretic
+  - Blob
+  - Shadowling
+  - PirateFaction
+  - Wraith
+  - Lavafauna
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Xenoborg
+
+- type: npcFaction
+  id: InsurgentDestroyer9000
+  hostile:
+  - Insurgent

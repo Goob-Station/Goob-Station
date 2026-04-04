@@ -36,3 +36,13 @@
     sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
   - type: Seed
     seedId: methApple
+
+- type: entity
+  parent: SeedBase
+  name: packet of clear corn seeds
+  id: ClearCornSeeds
+  components:
+  - type: Seed
+    seedId: clearCorn
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/clear_corn.rsi

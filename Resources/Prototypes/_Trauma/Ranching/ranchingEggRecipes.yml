@@ -11,7 +11,7 @@
   egg: BrownEgg
   requiredChicken:
   - MobWhiteHen
-  - MobBrownHen
+  - BrownEgg
   chickensRequireDifferentHappiness:
     MobBrownHen: 15
   requiresSpecialFood: false
@@ -188,3 +188,27 @@
   - MobCluwneHen
   requiresSpecialFood: false
   happinessRequired: -50 # THE HORDE
+
+- type: eggRecipe
+  id: GlassEgg
+  egg: GlassEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobGlassHen
+  noSpecialFoodRequiredChickens:
+  - MobGlassHen
+  happinessRequired: 15
+  foodTagsRequired:
+  - ClearCorn
+
+- type: eggRecipe
+  id: RaptorEgg
+  egg: RaptorEgg
+  requiredChicken:
+  - MobBrownHen
+  - MobRaptorHen
+  noSpecialFoodRequiredChickens:
+  - MobRaptorHen
+  happinessRequired: 15
+  foodTagsRequired:
+  - Meat

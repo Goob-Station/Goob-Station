@@ -44,6 +44,9 @@
   id: CyberButt
 
 - type: Tag
+  id: ClearCorn
+
+- type: Tag
   id: DataChip
 
 - type: Tag

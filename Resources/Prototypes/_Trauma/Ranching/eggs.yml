@@ -13,6 +13,7 @@
   - type: Sprite
     sprite: _Trauma/Objects/Misc/eggs.rsi
     state: egg-white
+  - type: EggFertilizationTarget
   - type: TimedReplace
     entity: MobChickWhite
 
@@ -198,6 +199,8 @@
     state: egg-golden
   - type: TimedReplace
     entity: MobChickGolden
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   parent: WaterBalloonBase
@@ -225,3 +228,22 @@
     state: egg-snow
   - type: TimedReplace
     entity: MobChickSnow
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: GlassEgg
+  components:
+  - type: Sprite
+    state: egg-glass
+  - type: TimedReplace
+    entity: MobChickGlass
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: RaptorEgg
+  components:
+  - type: Sprite
+    state: egg-raptor
+  - type: RaptorEgg
+  - type: TimedReplace
+    entity: MobChickRaptor

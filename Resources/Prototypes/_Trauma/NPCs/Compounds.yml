@@ -79,3 +79,38 @@
         key: IdleTime
       operator: !type:WaitOperator
         key: IdleTime
+
+- type: htnCompound
+  id: RaptorFertilizeCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:HungryPrecondition
+        minHungerState: Okay
+      operator: !type:UtilityOperator
+        proto: NearbyRaptorEggs
+        targetKey: Target
+        targetMoveKey: TargetCoordinates
+
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: true
+        removeKeyOnFinish: false
+        targetKey: TargetCoordinates
+        pathfindKey: TargetPathfind
+        rangeKey: MeleeRange
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      operator: !type:InteractWithOperator
+        targetKey: Target
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+      operator: !type:WaitOperator
+        key: IdleTime

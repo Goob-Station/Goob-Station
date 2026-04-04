@@ -108,3 +108,27 @@
     tags:
     - Fruit
     - MethApple
+
+- type: entity
+  parent: FoodCorn
+  id: FoodClearCorn
+  name: clear corn
+  description: Corn, but clear!
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/clear_corn.rsi
+    state: produce
+  - type: Tag
+    tags:
+    - ClearCorn
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100 # its clear so it can store alot of things
+        reagents:
+        - ReagentId: Cornmeal
+          Quantity: 15
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Ethanol
+          Quantity: 15
