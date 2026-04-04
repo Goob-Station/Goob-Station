@@ -349,6 +349,8 @@
           - WeldingMask
       mass_scanner:
         whitelist:
+          tags:
+          - GPS
           components:
           - RadarConsole
       meson:
