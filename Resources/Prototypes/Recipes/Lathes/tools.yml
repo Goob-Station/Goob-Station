@@ -214,7 +214,7 @@
     Steel: 200
     Plastic: 200
 
-- type: latheRecipe
+- type: latheRecipe # Goob Station
   parent: BaseToolRecipe
   id: GeigerCounter
   result: GeigerCounter
