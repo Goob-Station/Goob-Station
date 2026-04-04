@@ -189,7 +189,7 @@
         - MagazineNailgun # Goobstation
         - WeldingMask # Goobstation
         - GPS # Goobstation
-        - MesonGoggles #Goobstation
+        - MesonGoggles # Goobstation
       components:
         - StationMap
         - SprayPainter
@@ -203,6 +203,7 @@
         - TrayScanner
         - GasAnalyzer
         - HandLabeler
+        - RadarConsole # Goobstation
   - type: ItemMapper
     mapLayers:
       drill:
@@ -307,6 +308,7 @@
         - Geiger
         - TrayScanner
         - GasAnalyzer
+        - RadarConsole # Goobstation
   - type: ItemMapper
     mapLayers:
       drill:
@@ -349,6 +351,8 @@
         whitelist:
           tags:
           - GPS
+          components:
+          - RadarConsole
       meson:
         whitelist:
           tags:
