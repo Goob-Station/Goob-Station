@@ -678,7 +678,7 @@
   icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
   productEntity: ClothingHandsGlovesGuerrilla
   cost:
-    Telecrystal: 30
+    Telecrystal: 65 # CorvaxGoob guerilla price
   categories:
   - UplinkWearables
   conditions:
@@ -694,7 +694,7 @@
   icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
   productEntity: ClothingHandsGlovesGuerrilla
   cost:
-    Telecrystal: 60 #double the price
+    Telecrystal: 120 #double the price # CorvaxGoob guerilla price
   categories:
   - UplinkWearables
   conditions:
