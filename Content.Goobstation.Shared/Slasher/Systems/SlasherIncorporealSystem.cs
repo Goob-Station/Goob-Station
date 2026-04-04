@@ -40,6 +40,7 @@ using Content.Goobstation.Shared.Sprinting;
 using Content.Shared.Stunnable;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Triggers;
+using Content.Goobstation.Common.Materials;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -257,6 +258,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         // Supermatter immunity
         _ = EnsureComp<SupermatterImmuneComponent>(uid);
 
+        // Recycler immunity
+        _ = EnsureComp<MaterialReclaimerImmuneComponent>(uid);
+
         // Raise event for server systems to handle additional logic (like disabling lights)
         var enteredEv = new SlasherIncorporealEnteredEvent();
         RaiseLocalEvent(uid, ref enteredEv);
@@ -312,6 +316,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         // Remove supermatter immunity
         _ = RemComp<SupermatterImmuneComponent>(uid);
+
+        // Remove recycler immunity
+        _ = RemComp<MaterialReclaimerImmuneComponent>(uid);
     }
 
     // Goida as shit.. I couldn't find a better way stop cooldowns
