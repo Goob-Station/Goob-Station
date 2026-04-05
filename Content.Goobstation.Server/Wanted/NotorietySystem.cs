@@ -64,7 +64,7 @@ public sealed class NotorietySystem : EntitySystem
         if (args.Status is not (SecurityStatus.Wanted or SecurityStatus.Dangerous or SecurityStatus.Perma))
             return;
 
-        if (!IsValid(args.Entity))
+        if (!EntityManager.IsValid(args.Entity))
             return;
 
         var comp = EnsureComp<NotorietyComponent>(args.Entity);
