@@ -75,7 +75,7 @@
       DiseaseBehaviorGunemia: 1
 
 - type: entity
-  id: DiseaseBaseParasite
+  id: DiseaseBaseParasite  # work in progress
   parent: DiseaseBase
   components:
   - type: Disease

@@ -317,3 +317,4 @@
   - type: Tag
     tags:
     - DNASolutionScannable
+  - type: DiseaseCarrier #Goobstation - puddles can hold diseases

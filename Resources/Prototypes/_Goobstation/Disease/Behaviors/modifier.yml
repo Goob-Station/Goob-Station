@@ -80,13 +80,11 @@
   components:
   - type: DiseaseEffect
     complexity: 20 # incresed spread
-  - type: DiseaseGrantComponentEffect
-    components:
-    - type: DiseaseOnCollide
-      whiteList:
-        components:
-        - DiseaseCarrier
-      spreadParams:
-        chance: 0.1
-        power: 1
-        spreadType: Blood
+  - type: DiseaseOnCollide
+    whiteList:
+      components:
+      - DiseaseCarrier # standard target
+    spreadParams:
+      chance: 1
+      power: 1
+      spreadType: Blood
