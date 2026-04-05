@@ -74,11 +74,10 @@ public sealed class NotorietySystem : EntitySystem
         comp.TotalEscalations++;
         Dirty(args.Entity, comp);
 
-        // If this entity is only Wanted (not already Dangerous) but their notoriety
-        // is high, upgrade the HUD icon so security knows they're a serious threat.
+        // Upgrade the HUD icon to Dangerous for high-notoriety criminals so security
+        // can immediately see they are a serious threat, regardless of their recorded status.
         if (comp.Level >= DangerousIconThreshold
-            && TryComp<CriminalRecordComponent>(args.Entity, out var crimRecord)
-            && crimRecord.StatusIcon == "SecurityIconWanted")
+            && TryComp<CriminalRecordComponent>(args.Entity, out var crimRecord))
         {
             crimRecord.StatusIcon = "SecurityIconDangerous";
             Dirty(args.Entity, crimRecord);

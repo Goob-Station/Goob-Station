@@ -33,7 +33,7 @@
       Hostile: 20
     eventType: HostilesSpawn
     startAudio:
-      path: /Audio/Announcements/alert.ogg
+      path: /Audio/Announcements/attention.ogg
   - type: GameRule
     chaosScore: 80
   - type: ManhuntRule
