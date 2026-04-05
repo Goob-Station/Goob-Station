@@ -7,6 +7,7 @@ using Content.Goobstation.Common.Wanted;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.StationEvents.Events;
 
@@ -59,6 +60,7 @@ public sealed class ManhuntRule : StationEventSystem<ManhuntRuleComponent>
         var announcement = Loc.GetString("manhunt-announcement",
             ("criminals", sb.ToString().TrimEnd()));
 
-        ChatSystem.DispatchStationAnnouncement(uid, announcement, colorOverride: Color.OrangeRed);
+        var allPlayers = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
+        ChatSystem.DispatchFilteredAnnouncement(allPlayers, announcement, playSound: false, colorOverride: Color.OrangeRed);
     }
 }

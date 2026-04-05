@@ -38,7 +38,7 @@
     chaosScore: 80
   - type: ManhuntRule
     minNotorietyLevel: 3
-    minTotalNotoriety: 8
+    minTotalNotoriety: 4
     maxListed: 5
   - type: Tag
     tags:
