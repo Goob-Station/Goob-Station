@@ -8,3 +8,5 @@ ent-SpaceItalianTranslatorImplant = advanced space italian translator implant
     .desc = Provides you the ability to speak the language of the kitchen.
 ent-YowKriolTranslatorImplant = Yow Kriol translator implant
     .desc = An implant giving the ability to understand and speak Yow Kriol.
+ent-SignTranslatorImplant = sign translator implant
+    .desc = An implant giving the ability to understand and speak Sign Language.

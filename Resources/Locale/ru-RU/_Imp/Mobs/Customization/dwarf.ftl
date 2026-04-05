@@ -22,9 +22,7 @@ marking-DwarfHeadGlow-glow = Светящаяся звезда
 
 # Snout
 
-
 # Eyes
-
 
 # RArm
 
@@ -48,9 +46,7 @@ marking-DwarfConstellationLLeg-constellation = Созвездие на ноге 
 
 # UndergarmentBottom
 
-
 # UndergarmentTop
-
 
 # LFoot
 
@@ -78,12 +74,9 @@ marking-DwarfMarkKangarooRHand-markkangaroo = Знак Кенгуру (прав�
 
 # HeadSide
 
-
 # HeadTop
 
-
 # Tail
-
 
 # RArmExtension
 

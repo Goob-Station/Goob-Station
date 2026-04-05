@@ -38,3 +38,5 @@ ent-ClothingHeadHatCapcapSenior = cap cap senior
     .suffix = DO NOT MAP
 ent-ClothingHeadHatTinfoilHat = tinfoil hat
     .desc = A high tech helmet crafted from aluminum foil.
+ent-ClothingHeadHatOuterCommandcap = outer command cap
+    .desc = Purple gilded cap with Terra-Gov insignia.

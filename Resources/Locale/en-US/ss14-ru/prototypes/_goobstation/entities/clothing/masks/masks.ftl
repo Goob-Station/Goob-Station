@@ -19,3 +19,6 @@ ent-ClothingMaskGasUnremoveable = { ent-ClothingMaskGas }
     .desc = { ent-ClothingMaskGas.desc }
 ent-ClothingBSOMaskGasSwat = Blueshield SWAT gas mask
     .desc = A standard issue gas mask for BlueShield Officers
+ent-ClothingMaskGasThunderdome = Thunderdome gas mask
+    .desc = ARE YOU READY TO RUMBLEEEE?
+    .suffix = DONT MAP

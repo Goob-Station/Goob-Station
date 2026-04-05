@@ -14,3 +14,5 @@ ent-ClothingOuterCoatRDPurpleOpened = research director's experimental lab coat
     .desc = { ent-ClothingOuterStorageFoldableBaseOpened.desc }
 ent-ClothingOuterCoatHoPLong = hop's longcoat
     .desc = A smart longcoat for the Head of Personnel.
+ent-ClothingOuterArmoredJacketOuterCommand = outer command jacket
+    .desc = A purple jacket with very fancy elements. There is a Terra-Gov insignia on the back.

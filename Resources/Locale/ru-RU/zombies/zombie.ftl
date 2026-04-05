@@ -7,3 +7,4 @@ zombie-role-desc = Зловещий мертвец.
 zombie-role-rules = Вы - [color={ role-type-team-antagonist-color }][bold]{ role-type-team-antagonist-name }[/bold][/color]. Ищите и кусайте живых людей, чтобы заразить их и превратить в зомби. Работайте сообща с другими зомби, чтобы захватить станцию.
 zombie-permadeath = В этот раз вы мертвы по-настоящему.
 zombification-resistance-coefficient-value = - Шанс [color=violet]заражения[/color] уменьшен на [color=lightblue]{ $value }%[/color].
+zombie-roleban-ghosted = Вы стали призраком, так как вам запрещено играть за роль Зомби.

@@ -4,3 +4,5 @@ ent-SurgeonIDCard = surgeon ID card
     .desc = { ent-IDCardStandard.desc }
 ent-WardenHelperIDCard = warden assistant ID card
     .desc = { ent-IDCardStandard.desc }
+ent-MagistrateIDCard = magistrate's ID card
+    .desc = { ent-IDCardStandard.desc }

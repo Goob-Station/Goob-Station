@@ -40,3 +40,5 @@ ent-RoboticistPDA = roboticist PDA
     .desc = It's covered with failed ambitions.
 ent-RadioHostPDA = radio host PDA
     .desc = You're listening to the smooth sounds of 145.9 FM.
+ent-OuterCommandPDA = outer command PDA
+    .desc = Purple pda for outer command members.

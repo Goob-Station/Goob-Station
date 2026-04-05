@@ -40,3 +40,5 @@ ent-RadioHostIDCard = radio host ID card
     .desc = { ent-IDCardStandard.desc }
 ent-VirologistIDCard = virology ID card
     .desc = { ent-IDCardStandard.desc }
+ent-OuterCommandIDCard = Outer Command ID card
+    .desc = { ent-CentcomIDCardNavyCaptain.desc }

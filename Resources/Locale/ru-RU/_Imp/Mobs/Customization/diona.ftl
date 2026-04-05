@@ -72,12 +72,9 @@ marking-ShelfHead-shelf = Пластинка
 
 # Snout
 
-
 # Eyes
 
-
 # RArm
-
 
 # LArm
 
@@ -88,36 +85,25 @@ marking-MycenaArmGlow-mycena = Мицена
 
 # RLeg
 
-
 # LLeg
-
 
 # UndergarmentBottom
 
-
 # UndergarmentTop
-
 
 # LFoot
 
-
 # RFoot
-
 
 # LHand
 
-
 # RHand
-
 
 # FacialHair
 
-
 # Hair
 
-
 # HeadSide
-
 
 # HeadTop
 
@@ -125,7 +111,6 @@ marking-DionaMoonBloom = Лунный цветок
 marking-DionaMoonBloom-dionamoonbloom = Лунный цветок
 
 # Tail
-
 
 # RArmExtension
 

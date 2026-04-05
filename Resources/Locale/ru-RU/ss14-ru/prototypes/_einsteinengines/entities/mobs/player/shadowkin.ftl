@@ -1,2 +1,2 @@
 ent-MobShadowkin = Урист МакТень
-    .desc = {" "}
+    .desc = { " " }

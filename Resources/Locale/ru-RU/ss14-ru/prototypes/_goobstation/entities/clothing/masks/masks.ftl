@@ -19,3 +19,4 @@ ent-ClothingMaskGasUnremoveable = { ent-ClothingMaskGas }
     .desc = { ent-ClothingMaskGas.desc }
 ent-ClothingBSOMaskGasSwat = боевой противогаз Синего Щита
     .desc = Стандартный противогаз офицеров Синего Щита.
+

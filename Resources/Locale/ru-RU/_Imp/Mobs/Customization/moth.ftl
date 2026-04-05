@@ -97,9 +97,7 @@ marking-LegTwistingLeftMoth-twisting = Крученый шрам (Левая н�
 
 # UndergarmentBottom
 
-
 # UndergarmentTop
-
 
 # LFoot
 
@@ -131,9 +129,7 @@ marking-HandTwistingRightMoth-twisting = Крученый шрам (Правая
 
 # FacialHair
 
-
 # Hair
-
 
 # HeadSide
 

@@ -23,6 +23,7 @@ job-name-navy-captain = капитан ВКФ
 job-name-navy-officer-undercover = офицер под прикрытием
 job-name-navycaptain = капитан ВКФ
 job-name-diplomat = дипломат NanoTrasen
+job-name-outercommander = офицер ОПЗ
 job-name-inspector = инспектор ЦК
 job-name-nct = наставник ЦК
 job-name-special-operations-officer = офицер спецопераций

@@ -1,11 +1,11 @@
 shared-solution-container-component-on-examine-empty-container = Не содержит вещества.
-shared-solution-container-component-on-examine-main-text = Содержит {INDEFINITE($desc)} [color={$color}]{$desc}[/color] { $chemCount ->
-    [1] вещество.
-   *[other] смесь химических веществ.
+shared-solution-container-component-on-examine-main-text =
+    Содержит { INDEFINITE($desc) } [color={ $color }]{ $desc }[/color] { $chemCount ->
+        [1] вещество.
+       *[other] смесь химических веществ.
     }
 shared-solution-container-component-on-examine-worded-amount-one-reagent = вещество.
 examinable-solution-recognized = [color={ $color }]{ $chemical }[/color]
-
 examinable-solution-on-examine-volume = Ёмкость { $fillLevel ->
     [exact] содержит [color=white]{$current}/{$max}u[/color].
    *[other] [bold]{ -solution-vague-fill-level(fillLevel: $fillLevel) }[/bold].

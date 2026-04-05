@@ -64,7 +64,6 @@ marking-VoxBeak = Стандартный клюв
 
 # Eyes
 
-
 # RArm
 
 marking-SpotsArmR = Пятнистая правая рука
@@ -177,7 +176,6 @@ marking-VoxStreamers-streamers2 = Пламя
 marking-VoxStreamers-streamers3 = Глаз
 
 # HeadTop
-
 
 # Tail
 

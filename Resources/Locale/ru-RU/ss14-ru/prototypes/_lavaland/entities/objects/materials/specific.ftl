@@ -30,8 +30,7 @@ ent-MaterialLegionSkull1 = { ent-MaterialLegionSkull }
 ent-MaterialLegionSkull5 = { ent-MaterialLegionSkull }
     .suffix = 5
     .desc = { ent-MaterialLegionSkull.desc }
-ent-AshwoodLog = бревно пепельного дерева
-    .desc = Это лучше чем ничего!
+
 ent-MaterialAshwoodPlank = доска пепельного дерева
     .suffix = 30
     .desc = Сырой материал
@@ -40,4 +39,4 @@ ent-MaterialAshwoodPlank1 = { ent-MaterialAshwoodPlank }
     .desc = { ent-MaterialAshwoodPlank.desc }
 ent-MaterialAshwoodPlank10 = { ent-MaterialAshwoodPlank }
     .suffix = 10
-    .desc= { ent-MaterialAshwoodPlank.desc }
+    .desc = { ent-MaterialAshwoodPlank.desc }

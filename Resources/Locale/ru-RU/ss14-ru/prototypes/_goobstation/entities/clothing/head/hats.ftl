@@ -38,3 +38,5 @@ ent-ClothingHeadHatCapcapSenior = фуражка старшего капитан
     .suffix = НЕ МАППИТЬ
 ent-ClothingHeadHatTinfoilHat = шапочка из фольги
     .desc = Высокотехнологичный шлем, состоящий из алюминиевой фольги.
+ent-ClothingHeadHatOuterCommandcap = фуражка офицера ОПЗ
+    .desc = Пурпурная позолоченная фуражка с эмблемой ОПЗ.

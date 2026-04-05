@@ -1,4 +1,4 @@
-ent-FoodSnackLollypopWrappedBase = { ent-FoodBase }
+ent-FoodSnackLollypopWrappedBase = { ent-BaseItem }
     .desc = A plain old lollypop. It's still in a wrapper.
 ent-FoodSnackLollypopBase = { ent-FoodBase }
     .desc = A plain old lollypop. It's cherry flavoured.

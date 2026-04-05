@@ -1,20 +1,16 @@
 # Scurrets from Planet Wawa have two parts to their name - a 'chosen' and 'qualitative' name.
 
-
 # The qualitative name is usually related to an important feature
 # of Wawa's wetland habitats that the scurret is associated with
 # by their community.
-
 
 # Scurret pups, due to both their quantity and complete lack
 # of any survival instinct, lack a qualitative name entirely.
 # Researchers believe their parents simply give them a number.
 
-
 # Given that the scurret language is untranslated, these names are
 # usually deduced via the showing of photographs, annoyed and
 # repeated pointing at nearby objects, or games of Pictionary.
-
 
 # When all else fails, to NT and her crews, Wa is as good a name as any.
 

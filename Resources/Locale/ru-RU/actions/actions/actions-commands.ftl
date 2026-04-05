@@ -1,6 +1,5 @@
 ## Actions Commands loc
 
-
 ## Upgradeaction command loc
 
 upgradeaction-command-need-one-argument = Требует хотя бы один аргумент — UID действия. Второй аргумент необязателен и указывает конкретный уровень.

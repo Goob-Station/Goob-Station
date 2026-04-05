@@ -1,6 +1,5 @@
 # UI
 
-
 ## Window
 
 air-alarm-ui-title = Воздушная сигнализация

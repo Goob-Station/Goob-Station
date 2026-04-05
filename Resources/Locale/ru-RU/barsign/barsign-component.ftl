@@ -4,7 +4,6 @@ barsign-ui-set-label = Выбрать вывеску:
 
 # Bar signs prototypes
 
-
 ## The Harmbaton
 
 barsign-prototype-name-harmbaton = Хармбатон

@@ -44,6 +44,7 @@ accent-medieval-prefix-37 = Эй, что за,
 accent-medieval-prefix-38 = Эй вы,
 accent-medieval-prefix-39 = О лорд,
 accent-medieval-prefix-40 = Батюшки,
+accent-medieval-prefix-41 = Вот те на,
 accent-medieval-words-1 = Я не буду переводить эту херню.
 accent-medieval-words-replace-1 = Я не буду переводить эту херню.
 accent-medieval-words-2 = это
@@ -532,4 +533,3 @@ accent-medieval-words-244 = ученым
 accent-medieval-words-replace-244 = алхимикам
 accent-medieval-words-245 = хорошо
 accent-medieval-words-replace-245 = как вам угодно
-

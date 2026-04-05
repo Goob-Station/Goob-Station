@@ -20,3 +20,5 @@ ent-ClothingUniformJumpskirtRDClassical = research director's classical skirt
     .desc = It's Research Director's classical skirt.
 ent-ClothingUniformJumpskirtPilot = pilot skirt
     .desc = Security pilot skirt.
+ent-ClothingUniformJumpskirtMagistrate = magistrate's jumpskirt
+    .desc = Judge of space law.
