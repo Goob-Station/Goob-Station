@@ -11,7 +11,38 @@
 # SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 #
+# SPDX-FileCopyrightText: 2026 Goob-Station Contributors <https://github.com/Goob-Station/Goob-Station>
+#
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Manhunt — broadcasts open bounties on the most notorious criminals currently on the station.
+# Only fires when enough accumulated notoriety is present (handled in ManhuntRule.cs).
+- type: entity
+  parent: BaseGameRule
+  id: ManhuntMidround
+  components:
+  - type: StationEvent
+    weight: 6
+    earliestStart: 20
+    minimumPlayers: 10
+    maxOccurrences: 3
+    reoccurrenceDelay: 25
+    duration: 1
+    isSelectable: true
+    chaos:
+      Hostile: 20
+    eventType: HostilesSpawn
+    startAudio:
+      path: /Audio/Announcements/alert.ogg
+  - type: GameRule
+    chaosScore: 80
+  - type: ManhuntRule
+    minNotorietyLevel: 3
+    minTotalNotoriety: 8
+    maxListed: 5
+  - type: Tag
+    tags:
+      - MidroundAntag
 
 - type: entity
   parent: Traitor

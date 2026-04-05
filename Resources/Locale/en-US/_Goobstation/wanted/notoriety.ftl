@@ -12,3 +12,14 @@ notoriety-level-5 = Most wanted
 
 ## Examine text
 notoriety-examine-bounty = A bounty of [color=yellow]{ $credits } credits[/color] has been placed on this person's head.
+
+## Manhunt station event
+manhunt-announcement =
+    SECURITY ALERT: Station Command has authorized open bounties on the following individuals.
+    All crew are advised to report sightings immediately.
+
+    { $criminals }
+
+    NanoTrasen will reimburse the listed credit amounts upon confirmed apprehension.
+
+manhunt-criminal-entry = - { $name } | Notoriety { $level } | Bounty: { $bounty } cr
