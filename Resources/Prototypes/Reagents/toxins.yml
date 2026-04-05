@@ -816,7 +816,7 @@
     Poison:
       effects:
       - !type:Electrocute
-        probability: 0.8
+        probability: 0.5 #goob edit
 
 - type: reagent
   id: Lipolicide
