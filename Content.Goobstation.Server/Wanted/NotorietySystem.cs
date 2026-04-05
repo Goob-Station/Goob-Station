@@ -4,23 +4,30 @@
 
 using Content.Goobstation.Common.Wanted;
 using Content.Shared.CriminalRecords.Systems;
+using Content.Shared.Examine;
 using Content.Shared.Security;
+using Content.Shared.Security.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Wanted;
 
 /// <summary>
 /// Manages the notoriety system — tracks escalating criminal history on entities,
-/// decays notoriety over time when criminals lay low, and provides bounty information
-/// to other systems (e.g. the manhunt station event).
+/// decays notoriety over time when criminals lay low, upgrades their HUD security icon
+/// when notoriety is high, and shows bounty info in the examine panel.
 /// </summary>
 public sealed class NotorietySystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <summary>
+    /// Notoriety level at which the HUD icon is upgraded from Wanted → Dangerous.
+    /// </summary>
+    private const int DangerousIconThreshold = 4;
+
+    /// <summary>
     /// How long a criminal must stay out of trouble before losing one notoriety level.
-    /// A level-5 criminal takes 5 × this interval (75 min) to fully clear their record.
+    /// A level-5 criminal takes 5 × this interval (75 min) to fully clear.
     /// </summary>
     private static readonly TimeSpan DecayInterval = TimeSpan.FromMinutes(15);
 
@@ -35,6 +42,7 @@ public sealed class NotorietySystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<CriminalStatusUpdatedEvent>(OnStatusUpdated);
+        SubscribeLocalEvent<NotorietyComponent, ExaminedEvent>(OnExamined);
     }
 
     public override void Update(float frameTime)
@@ -68,6 +76,25 @@ public sealed class NotorietySystem : EntitySystem
         comp.LastEscalationTime = _timing.CurTime;
         comp.TotalEscalations++;
         Dirty(args.Entity, comp);
+
+        // If this entity is only Wanted (not already Dangerous) but their notoriety
+        // is high, upgrade the HUD icon so security knows they're a serious threat.
+        if (comp.Level >= DangerousIconThreshold
+            && TryComp<CriminalRecordComponent>(args.Entity, out var crimRecord)
+            && crimRecord.StatusIcon == "SecurityIconWanted")
+        {
+            crimRecord.StatusIcon = "SecurityIconDangerous";
+            Dirty(args.Entity, crimRecord);
+        }
+    }
+
+    private void OnExamined(Entity<NotorietyComponent> ent, ref ExaminedEvent args)
+    {
+        if (ent.Comp.Level <= 0)
+            return;
+
+        args.PushMarkup(Loc.GetString("notoriety-examine-bounty",
+            ("credits", ent.Comp.BountyAmount)));
     }
 
     // ── Decay ────────────────────────────────────────────────────────────────
