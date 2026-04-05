@@ -29,7 +29,7 @@
   - type: DiseaseEffect
     complexity: 20 # incresed spread
   - type: DiseaseOnCollide
-    whiteList:
+    whitelist:
       components:
       - DiseaseCarrier # standard target
     spreadParams:

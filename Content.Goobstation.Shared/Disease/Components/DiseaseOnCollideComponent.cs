@@ -29,7 +29,7 @@ public sealed partial class DiseaseOnCollideComponent : Component
     /// Entities which we should not infect on collide
     /// </summary>
     [DataField]
-    public EntityWhitelist? BlackList;
+    public EntityWhitelist? Blacklist;
 
     /// <summary>
     /// if the host only transmitt disease on colition if the host is dead

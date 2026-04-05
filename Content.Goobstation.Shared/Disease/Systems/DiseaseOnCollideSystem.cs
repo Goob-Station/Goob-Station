@@ -32,7 +32,7 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
             return;
         if (!_container.TryGetContainingContainer(ent.Owner, out var container))
             return;
-        
+
         var proto = MetaData(container.Owner).EntityPrototype;
         if (proto == null)
             return;
@@ -48,7 +48,7 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
         if (!_mobstate.IsDead(host)  && ent.Comp.OnlyIfDead)
             return;
 
-        if (!_whitelist.CheckBoth(target, ent.Comp.BlackList,ent.Comp.Whitelist))
+        if (!_whitelist.CheckBoth(target, ent.Comp.Blacklist,ent.Comp.Whitelist))
             return;
 
         if (ent.Comp.Disease != null)
