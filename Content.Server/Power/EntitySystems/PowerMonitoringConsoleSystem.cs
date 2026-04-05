@@ -852,8 +852,15 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
     private void UpdateCollectionChildMetaData(EntityUid child, EntityUid master)
     {
+
+        if (TerminatingOrDeleted(child) || TerminatingOrDeleted(master))
+            return;
+
+        if (!TryComp<TransformComponent>(child, out var xform))
+            return;
+
         var netEntity = GetNetEntity(child);
-        var xform = Transform(child);
+        var masterNet = GetNetEntity(master);
 
         var query = AllEntityQuery<PowerMonitoringConsoleComponent, TransformComponent>();
         while (query.MoveNext(out var ent, out var entConsole, out var entXform))
@@ -864,7 +871,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             if (!entConsole.PowerMonitoringDeviceMetaData.TryGetValue(netEntity, out var metaData))
                 continue;
 
-            metaData.CollectionMaster = GetNetEntity(master);
+            metaData.CollectionMaster = masterNet;
             entConsole.PowerMonitoringDeviceMetaData[netEntity] = metaData;
 
             Dirty(ent, entConsole);
