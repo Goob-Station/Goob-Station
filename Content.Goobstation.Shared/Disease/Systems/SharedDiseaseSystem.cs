@@ -51,6 +51,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         InitializeConditions();
         InitializeEffects();
         InitializeImmunity();
+        InitializeRelay();
     }
 
     public override void Update(float frameTime)

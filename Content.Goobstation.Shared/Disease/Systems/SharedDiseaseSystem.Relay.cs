@@ -4,12 +4,12 @@ using Robust.Shared.Physics.Events;
 namespace Content.Goobstation.Shared.Disease.Systems;
 
 /// <summary>
-/// This handles...
+/// This handles the relay of events from the host to the diseases
 /// </summary>
 public partial class SharedDiseaseSystem
 {
 
-    protected virtual void InitializeConditions()
+    private void InitializeRelay()
     {
         SubscribeLocalEvent<DiseaseCarrierComponent,StartCollideEvent>(RelayDiseaseEvent);
     }
@@ -24,11 +24,11 @@ public partial class SharedDiseaseSystem
         RelayEvent((uid, component), args);
     }
 
-    private void RelayEvent<T>(Entity<DiseaseCarrierComponent> carryer, ref T args) where T : notnull
+    private void RelayEvent<T>(Entity<DiseaseCarrierComponent> carrier, ref T args) where T : notnull
     {
         var ev = new DiseaseRelayedEvent<T>(args);
 
-        foreach (var disease in carryer.Comp.Diseases.ContainedEntities)
+        foreach (var disease in carrier.Comp.Diseases.ContainedEntities)
         {
             RaiseLocalEvent(disease, ev); // raise event on disease
             if(!TryComp<DiseaseComponent>(disease, out var component))
@@ -41,11 +41,11 @@ public partial class SharedDiseaseSystem
         args = ev.Args;
     }
 
-    private void RelayEvent<T>(Entity<DiseaseCarrierComponent> carryer, T args) where T : notnull
+    private void RelayEvent<T>(Entity<DiseaseCarrierComponent> carrier, T args) where T : notnull
     {
         var ev = new DiseaseRelayedEvent<T>(args);
 
-        foreach (var disease in carryer.Comp.Diseases.ContainedEntities)
+        foreach (var disease in carrier.Comp.Diseases.ContainedEntities)
         {
             RaiseLocalEvent(disease, ev); // raise event on disease
             if(!TryComp<DiseaseComponent>(disease, out var component))
