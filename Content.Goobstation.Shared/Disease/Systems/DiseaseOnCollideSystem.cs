@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Shared.Disease.Systems;
@@ -14,6 +15,7 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
     [Dependency] private readonly SharedDiseaseSystem _disease = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MobStateSystem _mobstate = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -23,12 +25,15 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
 
     private void OnStartup(Entity<DiseaseOnCollideComponent> ent, ComponentStartup arg)
     {
-        if (ent.Comp.Disease is not null)
+        // set this disease as the only  being transmitted
+        if (ent.Comp.Disease != null)
             return;
-        if (!TryComp<DiseaseComponent>(ent.Owner, out var disease))
+        if (!TryComp<DiseaseComponent>(ent, out _))
             return;
-
-        var proto = MetaData(ent).EntityPrototype;
+        if (!_container.TryGetContainingContainer(ent.Owner, out var container))
+            return;
+        
+        var proto = MetaData(container.Owner).EntityPrototype;
         if (proto == null)
             return;
 
