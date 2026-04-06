@@ -1,0 +1,45 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+               xmlns:controls="using:Content.Client.UserInterface.Controls"
+               Title="{Loc 'stock-market-console-title'}"
+               Resizable="True"
+               SetSize="750 500"
+               MinSize="650 400">
+    <BoxContainer Orientation="Vertical" Margin="5">
+        <!-- Header -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+            <Label Name="AccountLabel" StyleClasses="LabelHeading" />
+            <Control HorizontalExpand="True" />
+            <Label Name="BalanceLabel" StyleClasses="LabelHeading" />
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <!-- Column headers -->
+        <BoxContainer Orientation="Horizontal" Margin="5 5 5 2">
+            <Label Text="{Loc 'stock-market-header-name'}" MinWidth="140" StyleClasses="LabelSubText" />
+            <Label Text="{Loc 'stock-market-header-category'}" MinWidth="100" StyleClasses="LabelSubText" />
+            <Label Text="{Loc 'stock-market-header-price'}" MinWidth="80" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
+            <Label Text="{Loc 'stock-market-header-change'}" MinWidth="70" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
+            <Label Text="{Loc 'stock-market-header-owned'}" MinWidth="60" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
+            <Control HorizontalExpand="True" />
+            <Label Text="{Loc 'stock-market-header-actions'}" MinWidth="160" StyleClasses="LabelSubText" HorizontalAlignment="Center" />
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <!-- Stock list -->
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+            <BoxContainer Name="StockList" Orientation="Vertical" />
+        </ScrollContainer>
+
+        <!-- Footer -->
+        <PanelContainer StyleClasses="LowDivider" />
+        <BoxContainer Orientation="Horizontal" Margin="5 2 5 0">
+            <Label Text="{Loc 'stock-market-footer-left'}" StyleClasses="WindowFooterText" />
+            <Label Text="{Loc 'stock-market-footer-right'}" StyleClasses="WindowFooterText"
+                    HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
+            <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                    VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
