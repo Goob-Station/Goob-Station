@@ -2,8 +2,8 @@
                xmlns:controls="using:Content.Client.UserInterface.Controls"
                Title="{Loc 'stock-market-console-title'}"
                Resizable="True"
-               SetSize="750 500"
-               MinSize="650 400">
+               SetSize="800 500"
+               MinSize="700 400">
     <BoxContainer Orientation="Vertical" Margin="5">
         <!-- Header -->
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
@@ -16,11 +16,12 @@
 
         <!-- Column headers -->
         <BoxContainer Orientation="Horizontal" Margin="5 5 5 2">
-            <Label Text="{Loc 'stock-market-header-name'}" MinWidth="140" StyleClasses="LabelSubText" />
-            <Label Text="{Loc 'stock-market-header-category'}" MinWidth="100" StyleClasses="LabelSubText" />
-            <Label Text="{Loc 'stock-market-header-price'}" MinWidth="80" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
-            <Label Text="{Loc 'stock-market-header-change'}" MinWidth="70" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
-            <Label Text="{Loc 'stock-market-header-owned'}" MinWidth="60" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
+            <Label Text="{Loc 'stock-market-header-name'}" MinWidth="80" StyleClasses="LabelSubText" />
+            <Label Text="{Loc 'stock-market-header-category'}" MinWidth="90" StyleClasses="LabelSubText" />
+            <Label Text="{Loc 'stock-market-header-price'}" MinWidth="70" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
+            <Label Text="{Loc 'stock-market-header-change'}" MinWidth="60" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
+            <Label Text="{Loc 'stock-market-header-graph'}" MinWidth="100" StyleClasses="LabelSubText" HorizontalAlignment="Center" Margin="4 0 4 0" />
+            <Label Text="{Loc 'stock-market-header-owned'}" MinWidth="50" StyleClasses="LabelSubText" HorizontalAlignment="Right" />
             <Control HorizontalExpand="True" />
             <Label Text="{Loc 'stock-market-header-actions'}" MinWidth="160" StyleClasses="LabelSubText" HorizontalAlignment="Center" />
         </BoxContainer>

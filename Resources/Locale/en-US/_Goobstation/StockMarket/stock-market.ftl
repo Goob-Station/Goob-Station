@@ -8,6 +8,7 @@ stock-market-header-name = Stock
 stock-market-header-category = Category
 stock-market-header-price = Price
 stock-market-header-change = Change
+stock-market-header-graph = Trend
 stock-market-header-owned = Owned
 stock-market-header-actions = Actions
 

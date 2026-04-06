@@ -2006,6 +2006,10 @@
             "directions": 4
         },
         {
+            "name": "stockmarket",
+            "directions": 4
+        },
+        {
             "name": "nanotrasen",
             "directions": 4,
             "delays": [
