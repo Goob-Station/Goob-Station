@@ -23,23 +23,6 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
         SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<StartCollideEvent>>(OnCollide);
     }
 
-    private void OnStartup(Entity<DiseaseOnCollideComponent> ent, ComponentStartup arg)
-    {
-        // set this disease as the only  being transmitted
-        if (ent.Comp.Disease != null)
-            return;
-        if (!TryComp<DiseaseComponent>(ent, out _))
-            return;
-        if (!_container.TryGetContainingContainer(ent.Owner, out var container))
-            return;
-
-        var proto = MetaData(container.Owner).EntityPrototype;
-        if (proto == null)
-            return;
-
-        ent.Comp.Disease = proto.ID;
-    }
-
     private void OnCollide(Entity<DiseaseOnCollideComponent> ent, ref DiseaseRelayedEvent<StartCollideEvent> arg)
     {
         var host = arg.Args.OurEntity;
@@ -55,10 +38,12 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
         {
             _disease.DoInfectionAttempt(target, ent.Comp.Disease.Value, ent.Comp.SpreadParams);
         }
-        else if(TryComp<DiseaseCarrierComponent>(host, out var carrier))
+        else
         {
-                foreach (var disease in carrier.Diseases.ContainedEntities)
-                    _disease.DoInfectionAttempt(target, disease, ent.Comp.SpreadParams);
+            if (!_container.TryGetContainingContainer(ent.Owner, out var container))
+                return;
+
+            _disease.DoInfectionAttempt(target, container.Owner, ent.Comp.SpreadParams);
         }
     }
 
