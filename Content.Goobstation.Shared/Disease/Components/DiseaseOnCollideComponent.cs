@@ -32,7 +32,7 @@ public sealed partial class DiseaseOnCollideComponent : Component
     public EntityWhitelist? Blacklist;
 
     /// <summary>
-    /// if the host only transmitt disease on colition if the host is dead
+    /// The host only transmit this disease on collision if the host is dead
     /// </summary>
     [DataField]
     public bool OnlyIfDead = false;

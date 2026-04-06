@@ -28,7 +28,7 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
         var host = arg.Args.OurEntity;
         var target = arg.Args.OtherEntity;
 
-        if (!_mobstate.IsDead(host)  && ent.Comp.OnlyIfDead)
+        if (!_mobstate.IsDead(host) && ent.Comp.OnlyIfDead)
             return;
 
         if (!_whitelist.CheckBoth(target, ent.Comp.Blacklist,ent.Comp.Whitelist))
