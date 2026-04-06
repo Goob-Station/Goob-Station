@@ -85,4 +85,7 @@
       settings: default
   - type: GhostTakeoverAvailable
   - type: VentCrawler
+  - type: Butcherable
+    spawned:
+    - id: ClothingHeadHelmetTerrorQueen
 

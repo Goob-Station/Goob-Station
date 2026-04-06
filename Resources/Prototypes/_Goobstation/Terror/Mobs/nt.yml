@@ -1,0 +1,112 @@
+- type: entity
+  id: NTTerrorSpider
+  name: calm spider
+  parent: [ SimpleMobBase, MobCombat ]
+  description: A friendly spider that detests hostile fauna. Will follow whoever wears the crown.
+  components:
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: NT
+      Dead:
+        Base: NT_dead
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: CombatMode
+  - type: InputMover
+  - type: MobMover
+  - type: Physics
+    bodyType: KinematicController
+  - type: HTN
+    rootTask:
+      task: DragonCarpCompound
+    blackboard:
+      IdleRange: !type:Single
+        3.5
+      FollowCloseRange: !type:Single
+        2.0
+      FollowRange: !type:Single
+        3.0
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: NT
+    drawdepth: Mobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 250
+        mask: [SmallMobMask]
+        layer: [SmallMobLayer]
+  - type: MobState
+    allowedStates: [Alive, Dead]
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Dead # Not very tough but can help a little before being replaced.
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 4 # Meant to be an extra to a fight, not the deciding factor
+        Poison: 1
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - TauCetiBasic
+  - type: InteractionPopup
+    successChance: 0.1
+    interactSuccessString: petting-success-tarantula
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/snake_hiss.ogg
+  - type: NoSlip
+  - type: IgnoreSpiderWeb
+  - type: Bloodstream
+    bloodMaxVolume: 150
+    bloodReagent: CopperBlood
+  - type: Speech
+    speechVerb: Arachnid
+    speechSounds: Arachnid
+    allowedEmotes: ['Click', 'Chitter']
+  - type: Vocal
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
+  - type: TypingIndicator
+    proto: spider
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: ThermalVision
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+    thermalShader: null
+  - type: SpiderPet
+  - type: PassiveDamage
+    allowedStates:
+      - Alive
+    damage:
+      groups:
+        Brute: -1
+        Burn: -1
+        Toxin: -3
+        Genetic: -3

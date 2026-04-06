@@ -1,0 +1,25 @@
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseSecurityContraband]
+  id: ClothingHeadHelmetTerrorQueen
+  name: Crown of terror
+  description: This crown makes you queen. Put it on to summon a friendly spider, take it off to make it dissapear. The spider will fight hostile fauna for you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Objects/crown.rsi # This could use a better sprite, but I ain't got the smarts for it.
+  - type: Clothing
+    sprite: _Goobstation/Terror/Objects/crown.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 1.1 # Makes you slightly weaker for wearing it. The pet is pretty strong.
+        Slash: 1.1
+        Piercing: 0.95
+        Caustic: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: FlashSoundSuppression
+  - type: FaceHuggerBlocker
+  - type: SpiderPetCrown
+    petPrototype: NTTerrorSpider

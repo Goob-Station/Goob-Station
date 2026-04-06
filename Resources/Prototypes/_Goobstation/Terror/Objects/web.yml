@@ -5,7 +5,7 @@
   components:
   - type: TerrorWeb
   - type: StepTrap
-    snareTime: 00:00:05
+    snareTime: 5
   - type: InvisibleOnTile
 
 - type: entity
@@ -108,7 +108,7 @@
   - type: StepTrigger
     stepOn: true
   - type: StepTrap
-    snareTime: 00:00:05
+    snareTime: 5
   - type: AtmosExposed
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.8

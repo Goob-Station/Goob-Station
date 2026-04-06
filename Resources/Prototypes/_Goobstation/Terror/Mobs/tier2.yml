@@ -146,7 +146,7 @@
   - type: ProximityLeash
     leashGroup: terrorSpider
     maxDistance: 20
-    tickInterval: 00:00:02
+    tickInterval: 2
     breakThreshold: 15
   - type: ActionGrant
     actions:

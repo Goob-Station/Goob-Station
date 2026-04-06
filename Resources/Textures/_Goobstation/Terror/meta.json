@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise Station 13 https://github.com/ParadiseSS13/Paradise/blob/d6ed342a6deb49b91e347827b4d6247e1b899a33/icons/mob/terrorspider.dmi",
+    "copyright": "Taken from Paradise Station 13 https://github.com/ParadiseSS13/Paradise/blob/d6ed342a6deb49b91e347827b4d6247e1b899a33/icons/mob/terrorspider.dmi, NT made by OnsenCapy (Github)",
     "size": {
         "x": 32,
         "y": 32
@@ -65,6 +65,11 @@
         {
             "name": "spiderling"
         },
-        { "name": "spiderling_dead" }
+        { "name": "spiderling_dead" },
+        {
+            "name": "NT",
+            "directions": 4
+        },
+        { "name": "NT_dead" }
     ]
 }
