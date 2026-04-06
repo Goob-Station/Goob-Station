@@ -1,45 +1,31 @@
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Components;
-using Content.Goobstation.Shared.Religion;
-using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Server.Actions;
-using Content.Server.Antag.Components;
-using Content.Server.Atmos.Components;
-using Content.Server.Speech.Components;
-using Content.Server.Zombies;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Mind;
-using Content.Shared.Shuttles.Components;
+using System.Linq;
 
 namespace Content.Goobstation.Server.Devil.Systems;
 
 public sealed class DevilTransformSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+
+    private EntityQuery<ActionsComponent> _actionsQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        _actionsQuery = GetEntityQuery<ActionsComponent>();
+
         SubscribeLocalEvent<DevilComponent, BecomeLesserDevilEvent>(OnBecomeLesser);
         SubscribeLocalEvent<DevilComponent, BecomeArchdevilEvent>(OnBecomeArch);
-        SubscribeLocalEvent<DevilTransformComponent, MapInitEvent>(OnMapInit);
-    }
-
-    private void OnMapInit(EntityUid uid, DevilTransformComponent comp, MapInitEvent args)
-    {
-        if (HasComp<ArchdevilComponent>(uid))
-        {
-            // Archdevil gets archfire
-            if (comp.ArchFireActionEntity == null)
-                _actions.AddAction(uid, ref comp.ArchFireActionEntity, comp.ArchFireAction);
-        }
     }
 
     private void OnBecomeLesser(EntityUid uid, DevilComponent comp, BecomeLesserDevilEvent args)
@@ -54,103 +40,69 @@ public sealed class DevilTransformSystem : EntitySystem
 
     private void Transform(EntityUid uid, string prototype, bool lesser)
     {
-        if (!TryComp<DevilTransformComponent>(uid, out var comp))
+        if (!TryComp<DevilTransformComponent>(uid, out var oldComp))
             return;
 
-        var xform = Transform(uid);
-        var newEntity = Spawn(prototype, xform.Coordinates);
+        var coords = Transform(uid).Coordinates;
+        var newEntity = Spawn(prototype, coords);
 
-        // Transfer mind
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
-        {
-            _mind.TransferTo(mindId, newEntity, mind: mind);
-        }
+        EntityManager.CopyComponents(uid, newEntity);
 
-        // Transfer actions
-        if (TryComp<ActionsContainerComponent>(uid, out var oldActions) &&
-            TryComp<ActionsContainerComponent>(newEntity, out var newActions))
-        {
-            _actionContainer.TransferAllActionsWithNewAttached(uid, newEntity, newEntity);
-
-            // Prevent shutdown systems from trying to remove already-transferred actions
-            RemCompDeferred<ActionsContainerComponent>(uid);
-        }
-
-        if (TryComp<DevilComponent>(uid, out var oldDevil))
-        {
-            var newDevil = EnsureComp<DevilComponent>(newEntity);
-            newDevil.Souls = oldDevil.Souls;
-            newDevil.PowerLevel = oldDevil.PowerLevel;
-        }
-
-        CopyDevilComponents(uid, newEntity);
-        EnsureComp<CombatModeComponent>(newEntity);
-
-        // Get the transform component from the new entity
         if (!TryComp<DevilTransformComponent>(newEntity, out var newComp))
         {
             Del(uid);
             return;
         }
 
+        // Transfer soul/power state explicitly because DevilComponent values
+        if (TryComp<DevilComponent>(uid, out var oldDevil) &&
+            TryComp<DevilComponent>(newEntity, out var newDevil))
+        {
+            newDevil.Souls = oldDevil.Souls;
+            newDevil.PowerLevel = oldDevil.PowerLevel;
+        }
+
+        // Clear the old entity's action bar entries before transferring,
+        if (_actionsQuery.TryComp(uid, out var oldActionsComp))
+        {
+            foreach (var actionId in oldActionsComp.Actions.ToArray())
+            {
+                _actions.RemoveAction((uid, oldActionsComp), actionId);
+            }
+        }
+
+        if (TryComp<ActionsContainerComponent>(uid, out _) &&
+            TryComp<ActionsContainerComponent>(newEntity, out _))
+        {
+            _actionContainer.TransferAllActionsWithNewAttached(uid, newEntity, newEntity);
+        }
+
+        // Transfer mind last, after the new entity is fully set up.
+        if (_mind.TryGetMind(uid, out var mindId, out var mind))
+            _mind.TransferTo(mindId, newEntity, mind: mind);
+
+        EnsureComp<CombatModeComponent>(newEntity);
+
         if (lesser)
         {
             EnsureComp<DevilLesserFormComponent>(newEntity);
+
+            // Lesser devils don't get jaunt or archfire.
             _actions.RemoveAction(newEntity, newComp.JauntActionEntity);
+            _actions.RemoveAction(newEntity, newComp.ArchFireActionEntity);
         }
         else
         {
             RemComp<DevilLesserFormComponent>(newEntity);
             EnsureComp<ArchdevilComponent>(newEntity);
 
-            if (newComp.HellfireActionEntity != null)
-            {
-                _actions.RemoveAction(newEntity, newComp.HellfireActionEntity);
-            }
+            // Archdevils lose hellfire, gain archfire.
+            _actions.RemoveAction(newEntity, newComp.HellfireActionEntity);
 
             if (newComp.ArchFireActionEntity == null)
-            {
                 _actions.AddAction(newEntity, ref newComp.ArchFireActionEntity, newComp.ArchFireAction);
-            }
         }
 
-        // Delete old entity
         Del(uid);
-    }
-
-
-    private void CopyIfExists<T>(EntityUid oldUid, EntityUid newUid)
-        where T : Component, new()
-    {
-        if (HasComp<T>(oldUid))
-            EnsureComp<T>(newUid);
-    }
-
-    private void CopyDevilComponents(EntityUid oldUid, EntityUid newUid)
-    {
-        // Abilities
-        CopyIfExists<DevilAuthorityComponent>(oldUid, newUid);
-        CopyIfExists<DevilGripComponent>(oldUid, newUid);
-        CopyIfExists<DevilHeresyComponent>(oldUid, newUid);
-        CopyIfExists<DevilSummonPitchforkComponent>(oldUid, newUid);
-        CopyIfExists<HellstepActionComponent>(oldUid, newUid);
-
-        // Grip effects
-        CopyIfExists<GripSidegradeRotComponent>(oldUid, newUid);
-        CopyIfExists<GripSidegradeStunComponent>(oldUid, newUid);
-
-        // Traits
-        CopyIfExists<NoLimbForYouComponent>(oldUid, newUid);
-        CopyIfExists<PreventBucklingComponent>(oldUid, newUid);
-        CopyIfExists<UncontainableComponent>(oldUid, newUid);
-
-        // Original traits
-        CopyIfExists<ZombieImmuneComponent>(oldUid, newUid);
-        CopyIfExists<BreathingImmunityComponent>(oldUid, newUid);
-        CopyIfExists<PressureImmunityComponent>(oldUid, newUid);
-        CopyIfExists<WeakToHolyComponent>(oldUid, newUid);
-        CopyIfExists<AntagImmuneComponent>(oldUid, newUid);
-        CopyIfExists<SupermatterImmuneComponent>(oldUid, newUid);
-        CopyIfExists<FTLSmashImmuneComponent>(oldUid, newUid);
     }
 }

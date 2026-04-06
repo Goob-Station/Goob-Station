@@ -1,32 +1,30 @@
 using Content.Goobstation.Shared.Devil.Components;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Popups;
+using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Pulling.Events;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Devil.Systems;
 
 /// <summary>
-/// This system is used to prevent an entity from being put into any container or from being pulled.
+/// Prevents an entity from being inserted into any container or pulled.
 /// </summary>
 public sealed class UncontainableSystem : EntitySystem
 {
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<UncontainableComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
-        SubscribeLocalEvent<UncontainableComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<UncontainableComponent, BeingPulledAttemptEvent>(OnPullAttempt);
     }
+
     private void OnInsertAttempt(EntityUid uid, UncontainableComponent component, ContainerGettingInsertedAttemptEvent args)
     {
         args.Cancel();
     }
 
-    private void OnMapInit(EntityUid uid, UncontainableComponent component, MapInitEvent args)
+    private void OnPullAttempt(EntityUid uid, UncontainableComponent component, BeingPulledAttemptEvent args)
     {
-        if (TryComp<PullableComponent>(uid, out var pullable))
-        {
-            pullable.PreventPulling = true;
-            Dirty(uid, pullable);
-        }
+        args.Cancel();
     }
-
 }

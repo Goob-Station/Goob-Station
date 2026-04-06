@@ -121,11 +121,6 @@ public sealed partial class PullableComponent : Component
     [Access(typeof(Systems.PullingSystem), Other = AccessPermissions.ReadExecute)]
     [AutoNetworkedField, DataField]
     public bool PrevFixedRotation;
-
-    /// <summary>
-    /// A bool that allows someone to be unpullable.
-    /// </summary>
-    public bool PreventPulling;
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent

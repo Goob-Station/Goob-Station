@@ -543,11 +543,6 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
-        if (pullableComp.PreventPulling)
-        {
-            return false;
-        }
-
         if (!TryComp<PhysicsComponent>(pullableUid, out var physics))
         {
             return false;
