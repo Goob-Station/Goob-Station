@@ -45,6 +45,8 @@
       - SemiAuto
     soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: TerrorQueen
+  - type: ProximityLeashAnchor # Used to keep purple terrors near the queen.
+    leashGroup: terrorSpider
   - type: TerrorQueenSense
   - type: MeleeChemicalInjector
     solution: melee

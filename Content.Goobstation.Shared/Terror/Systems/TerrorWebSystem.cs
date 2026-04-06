@@ -1,4 +1,5 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.StepTrap;
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -6,87 +7,60 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Popups;
-using Content.Shared.Spider;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Stunnable;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
 /// <summary>
-/// Stuns and knocks down whoever steps on this web.
+/// Handles terror-specific web effects when a step trap is triggered:
+/// infested, poison, slimy, or plain sticky web popups and reagent injection.
 /// </summary>
-public sealed class StickyWebTrapSystem : EntitySystem
+public sealed class TerrorWebSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<TerrorWebComponent, StepTriggeredOnEvent>(OnStepOn);
-        SubscribeLocalEvent<TerrorWebComponent, StepTriggerAttemptEvent>(OnAttemptTrigger);
+        SubscribeLocalEvent<TerrorWebComponent, StepTrapTriggeredEvent>(OnTriggered);
     }
 
-    private void OnAttemptTrigger(EntityUid uid, TerrorWebComponent comp, ref StepTriggerAttemptEvent args)
+    private void OnTriggered(EntityUid uid, TerrorWebComponent _, ref StepTrapTriggeredEvent ev)
     {
-        args.Continue = true;
-    }
-
-    private void OnStepOn(EntityUid uid, TerrorWebComponent comp, ref StepTriggeredOnEvent args)
-    {
-        //Spooder does not get stunned
-        if (HasComp<IgnoreSpiderWebComponent>(args.Tripper))
-            return;
-
-        _stun.TryAddParalyzeDuration(args.Tripper, comp.SnareTime);
-
-        _audio.PlayPredicted(comp.CaughtSound, args.Tripper, args.Tripper);
-
         if (HasComp<InfestedWebComponent>(uid))
         {
             _popup.PopupPredicted(
                 Loc.GetString("sticky-web-infested"),
-                args.Tripper,
-                args.Tripper,
+                ev.Tripper, ev.Tripper,
                 PopupType.MediumCaution);
-
-            EnsureComp<InfestedComponent>(args.Tripper);
+            EnsureComp<InfestedComponent>(ev.Tripper);
         }
         else if (TryComp<PoisonWebComponent>(uid, out var poison))
         {
             _popup.PopupPredicted(
                 Loc.GetString("sticky-web-poison"),
-                args.Tripper,
-                args.Tripper,
+                ev.Tripper, ev.Tripper,
                 PopupType.MediumCaution);
-
-            Inject(args.Tripper, poison.ReagentId, poison.ReagentAmount);
+            Inject(ev.Tripper, poison.ReagentId, poison.ReagentAmount);
         }
         else if (TryComp<SlimyWebComponent>(uid, out var slimy))
         {
             _popup.PopupPredicted(
                 Loc.GetString("sticky-web-slimy"),
-                args.Tripper,
-                args.Tripper,
+                ev.Tripper, ev.Tripper,
                 PopupType.MediumCaution);
-
-            Inject(args.Tripper, slimy.ReagentId, slimy.AlcoholAmount);
+            Inject(ev.Tripper, slimy.ReagentId, slimy.AlcoholAmount);
         }
         else
         {
             _popup.PopupPredicted(
                 Loc.GetString("sticky-web-generic"),
-                args.Tripper,
-                args.Tripper,
+                ev.Tripper, ev.Tripper,
                 PopupType.MediumCaution);
         }
-
     }
+
     private void Inject(EntityUid target, ProtoId<ReagentPrototype> reagent, FixedPoint2 amount)
     {
         if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
@@ -94,9 +68,6 @@ public sealed class StickyWebTrapSystem : EntitySystem
 
         var solution = new Solution();
         solution.AddReagent(reagent, amount);
-
         _bloodstream.TryAddToChemicals((target, bloodstream), solution);
     }
-
-
 }

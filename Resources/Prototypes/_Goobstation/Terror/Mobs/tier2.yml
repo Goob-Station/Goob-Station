@@ -143,6 +143,11 @@
       path: /Audio/Items/crowbar.ogg
   - type: BerserkerRage
   - type: PurpleTerror
+  - type: ProximityLeash
+    leashGroup: terrorSpider
+    maxDistance: 20
+    tickInterval: 00:00:02
+    breakThreshold: 15
   - type: ActionGrant
     actions:
       - ActionTerrorThickWeb
