@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerStockMarket
+  name: stock market console
+  description: A console for trading stocks and commodities on the galactic market. Buy low, sell high!
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: stockmarket # TODO: custom sprite needed
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#1EDD1E"
+  - type: StockMarketConsole
+    account: Cargo
+  - type: ActivatableUI
+    key: enum.StockMarketConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.StockMarketConsoleUiKey.Key:
+          type: StockMarketConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface

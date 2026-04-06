@@ -1,0 +1,117 @@
+# Commodities - prices fluctuate based on supply/demand fiction
+- type: stockMarket
+  id: StockPlasma
+  name: stock-plasma-name
+  description: stock-plasma-desc
+  category: stock-category-commodity
+  basePrice: 150
+  volatility: 0.06
+  drift: 0.001
+  minPrice: 20
+  maxPrice: 1500
+
+- type: stockMarket
+  id: StockSteel
+  name: stock-steel-name
+  description: stock-steel-desc
+  category: stock-category-commodity
+  basePrice: 50
+  volatility: 0.03
+  minPrice: 10
+  maxPrice: 500
+
+- type: stockMarket
+  id: StockGlass
+  name: stock-glass-name
+  description: stock-glass-desc
+  category: stock-category-commodity
+  basePrice: 30
+  volatility: 0.03
+  minPrice: 5
+  maxPrice: 300
+
+- type: stockMarket
+  id: StockGold
+  name: stock-gold-name
+  description: stock-gold-desc
+  category: stock-category-commodity
+  basePrice: 300
+  volatility: 0.04
+  drift: 0.002
+  minPrice: 50
+  maxPrice: 3000
+
+- type: stockMarket
+  id: StockSilver
+  name: stock-silver-name
+  description: stock-silver-desc
+  category: stock-category-commodity
+  basePrice: 200
+  volatility: 0.04
+  drift: 0.001
+  minPrice: 30
+  maxPrice: 2000
+
+- type: stockMarket
+  id: StockUranium
+  name: stock-uranium-name
+  description: stock-uranium-desc
+  category: stock-category-commodity
+  basePrice: 400
+  volatility: 0.07
+  minPrice: 50
+  maxPrice: 4000
+
+# Corporations
+- type: stockMarket
+  id: StockNanotrasen
+  name: stock-nanotrasen-name
+  description: stock-nanotrasen-desc
+  category: stock-category-corporation
+  basePrice: 500
+  volatility: 0.02
+  drift: 0.001
+  minPrice: 100
+  maxPrice: 5000
+
+- type: stockMarket
+  id: StockDonkCo
+  name: stock-donkco-name
+  description: stock-donkco-desc
+  category: stock-category-corporation
+  basePrice: 80
+  volatility: 0.05
+  minPrice: 10
+  maxPrice: 800
+
+- type: stockMarket
+  id: StockCybersun
+  name: stock-cybersun-name
+  description: stock-cybersun-desc
+  category: stock-category-corporation
+  basePrice: 350
+  volatility: 0.04
+  drift: -0.001
+  minPrice: 50
+  maxPrice: 3500
+
+- type: stockMarket
+  id: StockInterdyne
+  name: stock-interdyne-name
+  description: stock-interdyne-desc
+  category: stock-category-corporation
+  basePrice: 250
+  volatility: 0.05
+  minPrice: 30
+  maxPrice: 2500
+
+- type: stockMarket
+  id: StockGorlex
+  name: stock-gorlex-name
+  description: stock-gorlex-desc
+  category: stock-category-corporation
+  basePrice: 120
+  volatility: 0.08
+  drift: -0.002
+  minPrice: 10
+  maxPrice: 1200

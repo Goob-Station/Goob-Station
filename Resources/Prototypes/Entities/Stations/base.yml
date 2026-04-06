@@ -82,6 +82,7 @@
         Service: [ ]
     - type: StationCargoBountyDatabase
     - type: StationXenobiologyBountyDatabase # Goobstaton
+    - type: StationStockMarket # Goobstation
 
 - type: entity
   id: BaseStationJobsSpawning
