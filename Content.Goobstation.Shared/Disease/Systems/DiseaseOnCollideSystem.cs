@@ -1,5 +1,4 @@
 using Content.Goobstation.Shared.Disease.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -34,17 +33,26 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
         if (!_whitelist.CheckBoth(target, ent.Comp.Blacklist,ent.Comp.Whitelist))
             return;
 
+        var ev = new DiseaseOutgoingSpreadAttemptEvent(
+            ent.Comp.SpreadParams.Power,
+            ent.Comp.SpreadParams.Chance,
+            ent.Comp.SpreadParams.Type
+        );
+        RaiseLocalEvent(host, ref ev);
+
+        if (ev.Power < 0 || ev.Chance < 0)
+            return;
+
         if (ent.Comp.Disease != null)
         {
-            _disease.DoInfectionAttempt(target, ent.Comp.Disease.Value, ent.Comp.SpreadParams);
+            _disease.DoInfectionAttempt(target, ent.Comp.Disease.Value, ev.Power, ev.Chance, ent.Comp.SpreadParams.Type);
         }
         else
         {
             if (!_container.TryGetContainingContainer(ent.Owner, out var container))
                 return;
 
-            _disease.DoInfectionAttempt(target, container.Owner, ent.Comp.SpreadParams);
+            _disease.DoInfectionAttempt(target, container.Owner,  ev.Power, ev.Chance, ent.Comp.SpreadParams.Type);
         }
     }
-
 }
