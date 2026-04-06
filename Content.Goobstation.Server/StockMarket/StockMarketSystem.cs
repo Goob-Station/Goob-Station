@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.StockMarket;
 using Content.Server.Cargo.Systems;
 using Content.Server.Station.Systems;
-using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -102,20 +101,18 @@ public sealed class StockMarketSystem : SharedStockMarketSystem
         if (!TryComp<StationStockMarketComponent>(stationUid, out var market))
             return;
 
-        if (!TryComp<StationBankAccountComponent>(stationUid, out var bank))
-            return;
-
         if (!market.Stocks.TryGetValue(args.StockId, out var entry))
             return;
 
         var totalCost = (int) MathF.Ceiling(entry.Price * args.Amount);
         var accountId = console.Account;
 
-        if (!bank.Accounts.TryGetValue(accountId, out var balance) || balance < totalCost)
+        var balance = _cargo.GetBalanceFromAccount(stationUid.Value, accountId);
+        if (balance < totalCost)
             return;
 
         // Deduct funds
-        _cargo.UpdateBankAccount((stationUid.Value, bank), -totalCost, accountId);
+        _cargo.UpdateBankAccount(stationUid.Value, -totalCost, accountId);
 
         // Add shares
         entry.OwnedShares.TryGetValue(accountId, out var currentShares);
@@ -137,9 +134,6 @@ public sealed class StockMarketSystem : SharedStockMarketSystem
         if (!TryComp<StationStockMarketComponent>(stationUid, out var market))
             return;
 
-        if (!TryComp<StationBankAccountComponent>(stationUid, out var bank))
-            return;
-
         if (!market.Stocks.TryGetValue(args.StockId, out var entry))
             return;
 
@@ -151,7 +145,7 @@ public sealed class StockMarketSystem : SharedStockMarketSystem
 
         // Add funds
         var totalValue = (int) MathF.Floor(entry.Price * args.Amount);
-        _cargo.UpdateBankAccount((stationUid.Value, bank), totalValue, accountId);
+        _cargo.UpdateBankAccount(stationUid.Value, totalValue, accountId);
 
         // Remove shares
         entry.OwnedShares[accountId] = currentShares - args.Amount;
@@ -174,10 +168,7 @@ public sealed class StockMarketSystem : SharedStockMarketSystem
                 continue;
 
             var accountId = console.Account;
-            var balance = 0;
-
-            if (TryComp<StationBankAccountComponent>(station, out var bank))
-                bank.Accounts.TryGetValue(accountId, out balance);
+            var balance = _cargo.GetBalanceFromAccount(station, accountId);
 
             var stockData = new Dictionary<string, StockDisplayData>();
             foreach (var (stockId, entry) in market.Stocks)
