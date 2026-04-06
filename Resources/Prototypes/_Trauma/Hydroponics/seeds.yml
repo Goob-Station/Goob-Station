@@ -84,7 +84,7 @@
       PotencyDivisor: 25
 
 - type: seed
-  id: methApple
+  id: MethApple
   name: seeds-applemeth-name
   noun: seeds-noun-seeds
   displayName: seeds-applemeth-display-name
@@ -114,7 +114,7 @@
       PotencyDivisor: 10
 
 - type: seed
-  id: clearCorn
+  id: ClearCorn
   name: seeds-clearcorn-name
   noun: seeds-noun-seeds
   displayName: seeds-clearcorn-display-name
@@ -144,3 +144,27 @@
       Min: 15
       Max: 60
       PotencyDivisor: 10
+
+- type: seed
+  id: Peanut
+  name: seeds-peanut-name
+  noun: seeds-noun-seeds
+  displayName: seeds-peanut-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/peanut.rsi
+  packetPrototype: PeanutSeeds
+  productPrototypes:
+  - FoodPeanut
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 6
+  production: 3
+  yield: 3
+  potency: 5
+  growthStages: 3
+  idealLight: 8
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 20

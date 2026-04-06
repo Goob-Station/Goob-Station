@@ -212,3 +212,15 @@
   happinessRequired: 15
   foodTagsRequired:
   - Meat
+
+- type: eggRecipe
+  id: OnagadoriEgg
+  egg: OnagadoriEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobOnagadoriHen
+  noSpecialFoodRequiredChickens:
+  - MobOnagadoriHen
+  happinessRequired: 15
+  foodTagsRequired:
+  - Peanut

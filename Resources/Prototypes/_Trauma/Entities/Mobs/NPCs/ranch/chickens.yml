@@ -855,6 +855,9 @@
   - type: NpcFactionMember
     factions:
     - Raptor
+  - type: FavoriteFood
+    tag:
+    - Nugget
 
 - type: entity
   parent: [BaseChickenRaptor, BaseMobChickRanch]
@@ -867,9 +870,6 @@
     - MobRaptorRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-raptor.rsi
-  - type: FavoriteFood
-    tag:
-    - Meat
 
 - type: entity
   parent: [BaseChickenRaptor, BaseMobHenRanch]
@@ -889,3 +889,42 @@
   - type: HTN
     rootTask:
       task: RaptorRoosterCompound
+
+# Onagadori
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickOnagadori
+  name: onagadori chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobOnagadoriHen
+    - MobOnagadoriRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-onagadori.rsi
+  - type: FavoriteFood
+    tag:
+    - Peanut
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobOnagadoriHen
+  name: onagadori hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-onagadori.rsi
+  - type: FavoriteFood
+    tag:
+    - Peanut
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobOnagadoriRooster
+  name: onagadori rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-onagadori.rsi
+  - type: FavoriteFood
+    tag:
+    - Peanut

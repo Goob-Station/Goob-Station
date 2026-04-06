@@ -247,3 +247,12 @@
   - type: RaptorEgg
   - type: TimedReplace
     entity: MobChickRaptor
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: OnagadoriEgg
+  components:
+  - type: Sprite
+    state: egg-onagadori
+  - type: TimedReplace
+    entity: MobChickOnagadori

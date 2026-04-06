@@ -1782,6 +1782,7 @@
     - FoodPeaPod
   mutationPrototypes:
     - laughinPea
+    - Peanut # Trauma
   lifespan: 25
   growthStages: 3
   maturation: 8

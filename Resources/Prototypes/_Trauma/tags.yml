@@ -149,6 +149,9 @@
   id: Peas
 
 - type: Tag
+  id: Peanut
+
+- type: Tag
   id: PlasteelScraps
 
 - type: Tag

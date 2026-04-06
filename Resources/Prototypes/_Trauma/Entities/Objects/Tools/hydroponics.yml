@@ -1,0 +1,42 @@
+- type: entity
+  name: watering can
+  parent: [BaseItem, DrinkBase]
+  id: HydroponicsWateringCan
+  description: A botanists best friend.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Tools/watering-can.rsi
+    state: icon
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 300
+
+- type: entity
+  name: golden watering can
+  parent: HydroponicsWateringCan
+  id: HydroponicsGoldenWateringCan
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Tools/watering-can-gold.rsi
+
+- type: entity
+  name: rainbow watering can
+  parent: HydroponicsWateringCan
+  id: HydroponicsRainbowWateringCan
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Tools/watering-can-rainbow.rsi
+
+- type: entity
+  name: weed watering can
+  parent: HydroponicsWateringCan
+  id: HydroponicsWeedWateringCan
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Tools/watering-can-weed.rsi

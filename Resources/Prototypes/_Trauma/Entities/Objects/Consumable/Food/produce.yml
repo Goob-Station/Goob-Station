@@ -90,7 +90,6 @@
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
-    state: produce
   - type: Produce
     seedId: apple
   - type: SolutionContainerManager
@@ -117,7 +116,6 @@
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/clear_corn.rsi
-    state: produce
   - type: Tag
     tags:
     - ClearCorn
@@ -132,3 +130,17 @@
           Quantity: 5
         - ReagentId: Ethanol
           Quantity: 15
+
+- type: entity
+  name: peanut
+  description: A pea, but with nut.
+  id: FoodPeanut
+  parent: FoodProduceBase
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/peanut.rsi
+  - type: Produce
+    seedId: Peanut
+  - type: Tag
+    tags:
+    - Peanut
