@@ -1,14 +1,11 @@
-// SPDX-FileCopyrightText: 2026 Goob-Station Contributors <https://github.com/Goob-Station/Goob-Station>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Common.Wanted;
 
 /// <summary>
 /// Tracks a crew member's notoriety — accumulated over time as they commit crimes and become marked as wanted.
-/// Notoriety persists even after criminal status is cleared, and decays slowly over time while the criminal lays low.
+/// Notoriety persists even after criminal status is cleared.
 /// High notoriety can trigger a station-wide manhunt event.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -29,9 +26,8 @@ public sealed partial class NotorietyComponent : Component
 
     /// <summary>
     /// Timestamp of the last escalation (status set to Wanted/Dangerous/Perma).
-    /// Used to calculate when notoriety should begin to decay.
     /// </summary>
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan LastEscalationTime = TimeSpan.Zero;
 
     /// <summary>

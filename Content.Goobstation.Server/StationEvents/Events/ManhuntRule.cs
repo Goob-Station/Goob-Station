@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Goob-Station Contributors <https://github.com/Goob-Station/Goob-Station>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Text;
 using Content.Goobstation.Common.Wanted;
 using Content.Goobstation.Server.StationEvents.Components;

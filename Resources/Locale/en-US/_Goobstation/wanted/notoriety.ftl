@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Goob-Station Contributors <https://github.com/Goob-Station/Goob-Station>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 ## Notoriety level names (shown in examine and records)
 notoriety-level-0 = No notoriety
 notoriety-level-1 = Minor offender
