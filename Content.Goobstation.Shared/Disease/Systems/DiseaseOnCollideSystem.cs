@@ -19,10 +19,10 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<StartCollideEvent>>(OnCollide);
-        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<PullStartedMessage>>(OnPull);
-        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<InteractHandEvent>>(OnHand);
-        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<BeforeInteractHandEvent>>(OnHand);
+        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<StartCollideEvent>>(OnCollide); //When stepping to close to others
+        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<PullStartedMessage>>(OnPull); //when pulling or being pulled
+        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<InteractHandEvent>>(OnHand); // when being given hug
+        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<BeforeInteractHandEvent>>(OnHand); //when giving hug
 
     }
 
@@ -86,7 +86,7 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
 
         if (!TryComp<DiseaseComponent>(diseaseUid, out var diseaseComponent))
             return;
-        
+
         OnContact(ent, host, target, (diseaseUid, diseaseComponent));
     }
 
