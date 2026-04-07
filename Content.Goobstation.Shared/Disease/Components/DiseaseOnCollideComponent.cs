@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Robust.Shared.Prototypes;
 using Content.Shared.Whitelist;
 
@@ -7,7 +8,7 @@ namespace Content.Goobstation.Shared.Disease.Components;
 /// This is used for spreading diseases on collide events
 /// </summary>
 [RegisterComponent]
-public sealed partial class DiseaseOnCollideComponent : Component
+public sealed partial class DiseaseOnCollideComponent : Robust.Shared.GameObjects.Component
 {
     /// <summary>
     /// Disease to give to entities hit with this
@@ -31,9 +32,10 @@ public sealed partial class DiseaseOnCollideComponent : Component
     [DataField]
     public EntityWhitelist? Blacklist;
 
-    /// <summary>
-    /// The host only transmit this disease on collision if the host is dead
-    /// </summary>
     [DataField]
-    public bool OnlyIfDead = false;
+    public TimeSpan CooldownInterval = TimeSpan.FromSeconds(15);
+
+    // not datafield as its for internal
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(0);
+
 }

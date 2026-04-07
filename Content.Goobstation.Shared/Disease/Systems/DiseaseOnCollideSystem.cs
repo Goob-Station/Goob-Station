@@ -1,8 +1,8 @@
 using Content.Goobstation.Shared.Disease.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Disease.Systems;
 
@@ -13,8 +13,8 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
 {
     [Dependency] private readonly SharedDiseaseSystem _disease = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -24,13 +24,13 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
 
     private void OnCollide(Entity<DiseaseOnCollideComponent> ent, ref DiseaseRelayedEvent<StartCollideEvent> arg)
     {
+        if (_timing.CurTime < ent.Comp.Cooldown)
+            return;
+
         var host = arg.Args.OurEntity;
         var target = arg.Args.OtherEntity;
 
-        if (!_mobstate.IsDead(host) && ent.Comp.OnlyIfDead)
-            return;
-
-        if (!_whitelist.CheckBoth(target, ent.Comp.Blacklist,ent.Comp.Whitelist))
+        if (!_whitelist.CheckBoth(target, ent.Comp.Blacklist, ent.Comp.Whitelist))
             return;
 
         var ev = new DiseaseOutgoingSpreadAttemptEvent(
@@ -44,15 +44,10 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
             return;
 
         if (ent.Comp.Disease != null)
-        {
             _disease.DoInfectionAttempt(target, ent.Comp.Disease.Value, ev.Power, ev.Chance, ent.Comp.SpreadParams.Type);
-        }
-        else
-        {
-            if (!_container.TryGetContainingContainer(ent.Owner, out var container))
-                return;
-
+        else  if (_container.TryGetContainingContainer(ent.Owner, out var container))
             _disease.DoInfectionAttempt(target, container.Owner,  ev.Power, ev.Chance, ent.Comp.SpreadParams.Type);
-        }
+
+        ent.Comp.Cooldown = ent.Comp.CooldownInterval + _timing.CurTime;
     }
 }
