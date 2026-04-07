@@ -120,6 +120,7 @@
     - DoorBumpOpener
     - Unimplantable
     - GhostOnlyWarp # Prevents it from being warped to or being a warp location bombing target
+    - TaserImmune
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
