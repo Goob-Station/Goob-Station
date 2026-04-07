@@ -28,6 +28,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     private readonly SpriteSystem _spriteSystem;
+    private readonly HereticSystem _heretic;
 
     public event Action<ProtoId<HereticRitualPrototype>>? SendHereticRitualRuneMessageAction;
 
@@ -38,6 +39,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
         _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
+        _heretic = _entitySystem.GetEntitySystem<HereticSystem>();
     }
 
     public void SetEntity(EntityUid uid)
@@ -54,7 +56,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 
         var player = _playerManager.LocalEntity;
 
-        if (!_entityManager.TryGetComponent<HereticComponent>(player, out var heretic))
+        if (player == null || !_heretic.TryGetHereticComponent(player.Value, out var heretic, out _))
             return;
 
         foreach (var ritual in heretic.KnownRituals)

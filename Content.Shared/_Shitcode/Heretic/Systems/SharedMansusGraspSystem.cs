@@ -70,7 +70,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
         if (hereticComp.PathStage >= 2)
         {
-            if (!ApplyGraspEffect((user, hereticComp), target, grasp, out var applyMark, out triggerGrasp))
+            if (!ApplyGraspEffect(user, hereticComp, target, grasp, out var applyMark, out triggerGrasp))
                 return false;
 
             if (!applyMark)
@@ -96,7 +96,8 @@ public abstract class SharedMansusGraspSystem : EntitySystem
         return true;
     }
 
-    public bool ApplyGraspEffect(Entity<HereticComponent> user,
+    public bool ApplyGraspEffect(EntityUid performer,
+        HereticComponent heretic,
         EntityUid target,
         EntityUid? grasp,
         out bool applyMark,
@@ -104,7 +105,6 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     {
         applyMark = true;
         triggerGrasp = true;
-        var (performer, heretic) = user;
 
         switch (heretic.CurrentPath)
         {
@@ -154,7 +154,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 _door.StartOpening(target, door);
                 _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"),
                     target,
-                    user);
+                    performer);
                 break;
             }
 
@@ -166,19 +166,20 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     if (HasComp<GhoulComponent>(target))
                     {
                         if (_net.IsServer)
-                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-ghoul"), user, user);
+                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-ghoul"), performer, performer);
                         break;
                     }
 
                     if (!_mind.TryGetMind(target, out _, out _))
                     {
                         if (_net.IsServer)
-                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-no-mind"), user, user);
+                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-no-mind"), performer, performer);
                         break;
                     }
 
+                    EnsureComp<HereticMinionComponent>(target).BoundHeretic = performer;
+
                     var ghoul = _compFactory.GetComponent<GhoulComponent>();
-                    ghoul.BoundHeretic = performer;
                     ghoul.GiveBlade = true;
 
                     AddComp(target, ghoul);
