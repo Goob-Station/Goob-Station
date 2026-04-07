@@ -22,7 +22,7 @@
     transferName: false
     transferHumanoidAppearance: false
     inventory: Drop
-    revertOnDeath: false
+    revertOnDeath: true
     revertOnCrit: false
 
 - type: polymorph
@@ -33,7 +33,7 @@
     transferName: false
     transferHumanoidAppearance: false
     inventory: Drop
-    revertOnDeath: false
+    revertOnDeath: true
     revertOnCrit: false
 
 - type: polymorph
