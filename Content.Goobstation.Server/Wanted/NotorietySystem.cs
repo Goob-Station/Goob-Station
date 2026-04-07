@@ -20,7 +20,8 @@ public sealed class NotorietySystem : SharedNotorietySystem
 
     private void OnStatusUpdated(CriminalStatusUpdatedEvent args)
     {
-        if (args.Status is not (SecurityStatus.Wanted or SecurityStatus.Dangerous or SecurityStatus.Perma))
+        var status = (SecurityStatus) args.Status;
+        if (status is not (SecurityStatus.Wanted or SecurityStatus.Dangerous or SecurityStatus.Perma))
             return;
 
         var comp = EnsureComp<NotorietyComponent>(args.Entity);

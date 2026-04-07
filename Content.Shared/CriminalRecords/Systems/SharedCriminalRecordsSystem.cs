@@ -38,7 +38,7 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
                 SetCriminalIcon(name, status, uid);
 
             // Goobstation - notify notoriety system of the status change on this entity
-            RaiseLocalEvent(new CriminalStatusUpdatedEvent(uid, status));
+            RaiseLocalEvent(new CriminalStatusUpdatedEvent(uid, (byte) status));
         }
     }
 
