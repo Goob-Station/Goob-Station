@@ -35,7 +35,7 @@
     spreadParams:
       chance: 1
       power: 1
-      spreadType: Blood
+      spreadType: Contact
 
 - type: entity
   id: DiseaseBehaviorSpreadOnContactIgnorePuddles

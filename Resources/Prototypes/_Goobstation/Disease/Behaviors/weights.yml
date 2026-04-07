@@ -14,7 +14,8 @@
     DiseaseBehaviorHyperactive: 0.5
     DiseaseBehaviorHealing: 0.5
     DiseaseBehaviorRapidMutation: 0.5
-    # total of 0.05 for gravitosis 
+    # total of 0.05 for gravitosis
     # DiseaseBehaviorGravitosisA: 0.025
     # DiseaseBehaviorGravitosisB: 0.0125
     # DiseaseBehaviorGravitosisC: 0.0125
+    # DiseaseBehaviorSpreadOnContact: 0.01

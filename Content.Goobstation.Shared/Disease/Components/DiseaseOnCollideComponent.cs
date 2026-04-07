@@ -1,5 +1,3 @@
-using System.ComponentModel;
-using Robust.Shared.Prototypes;
 using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.Disease.Components;
@@ -10,13 +8,6 @@ namespace Content.Goobstation.Shared.Disease.Components;
 [RegisterComponent]
 public sealed partial class DiseaseOnCollideComponent : Robust.Shared.GameObjects.Component
 {
-    /// <summary>
-    /// Disease to give to entities hit with this
-    /// If null, will spread diseases had by this entity
-    /// </summary>
-    [DataField]
-    public EntProtoId? Disease;
-
     [DataField]
     public DiseaseSpreadSpecifier SpreadParams = new(1f, 1f, "Debug");
 
@@ -32,10 +23,13 @@ public sealed partial class DiseaseOnCollideComponent : Robust.Shared.GameObject
     [DataField]
     public EntityWhitelist? Blacklist;
 
+    // minimum progress required to infect
+    [DataField]
+    public float InfectionProgressRequired = 0.1f;
+
+    // Cooldown
     [DataField]
     public TimeSpan CooldownInterval = TimeSpan.FromSeconds(15);
-
-    // not datafield as its for internal
-    public TimeSpan Cooldown = TimeSpan.FromSeconds(0);
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(0); // no datafield as it's for internal
 
 }

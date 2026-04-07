@@ -75,11 +75,16 @@
       DiseaseBehaviorGunemia: 1
 
 - type: entity
-  id: DiseaseBaseParasite  # work in progress
+  id: DiseaseLyme  # spreads fast but very slow to mutate
   parent: DiseaseBase
+  name: lyme
+  description: Lyme disease is a infection spread to people through the bite of ticks
   components:
   - type: Disease
-    diseaseType: Parasite
+    diseaseType: Bacterial
+    mutationRate: 0.001
+    mutationMutationCoefficient: 0.001
+    genotype: 336699
     effects:
       DiseaseBehaviorVomit: 1
       DiseaseBehaviorFeelUnwell: 1
