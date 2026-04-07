@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Wanted; // Goobstation - notoriety
 using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Security;
@@ -87,23 +88,3 @@ public record struct CriminalHistoryAddedEvent(CrimeHistory History);
 
 [ByRefEvent]
 public record struct CriminalHistoryRemovedEvent(CrimeHistory History);
-
-// Goobstation - Notoriety system
-/// <summary>
-/// Broadcast event raised whenever a crew member's criminal status is applied to their in-world entity.
-/// Fired after the HUD icon has already been updated.
-/// </summary>
-public sealed class CriminalStatusUpdatedEvent : EntityEventArgs
-{
-    /// <summary>The entity whose criminal status changed.</summary>
-    public readonly EntityUid Entity;
-
-    /// <summary>The new security status applied to the entity.</summary>
-    public readonly SecurityStatus Status;
-
-    public CriminalStatusUpdatedEvent(EntityUid entity, SecurityStatus status)
-    {
-        Entity = entity;
-        Status = status;
-    }
-}

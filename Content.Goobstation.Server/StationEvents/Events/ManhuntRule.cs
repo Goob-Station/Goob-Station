@@ -1,5 +1,5 @@
 using System.Text;
-using Content.Goobstation.Common.Wanted;
+using Content.Goobstation.Shared.Wanted;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;

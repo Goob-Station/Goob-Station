@@ -1,14 +1,14 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Goobstation.Common.Wanted;
+namespace Content.Goobstation.Shared.Wanted;
 
 /// <summary>
 /// Tracks a crew member's notoriety — accumulated over time as they commit crimes and become marked as wanted.
 /// Notoriety persists even after criminal status is cleared.
 /// High notoriety can trigger a station-wide manhunt event.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class NotorietyComponent : Component
 {
     public const int MaxLevel = 5;
@@ -27,13 +27,13 @@ public sealed partial class NotorietyComponent : Component
     /// <summary>
     /// Timestamp of the last escalation (status set to Wanted/Dangerous/Perma).
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan LastEscalationTime = TimeSpan.Zero;
 
     /// <summary>
     /// Total number of notoriety escalations this entity has accumulated this round.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int TotalEscalations = 0;
 
     /// <summary>

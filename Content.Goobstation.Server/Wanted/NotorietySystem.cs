@@ -1,13 +1,12 @@
 using Content.Goobstation.Common.Wanted;
-using Content.Shared.CriminalRecords.Systems;
-using Content.Shared.Examine;
+using Content.Goobstation.Shared.Wanted;
 using Content.Shared.Security;
 using Content.Shared.Security.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Wanted;
 
-public sealed class NotorietySystem : EntitySystem
+public sealed class NotorietySystem : SharedNotorietySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -17,7 +16,6 @@ public sealed class NotorietySystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<CriminalStatusUpdatedEvent>(OnStatusUpdated);
-        SubscribeLocalEvent<NotorietyComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnStatusUpdated(CriminalStatusUpdatedEvent args)
@@ -41,24 +39,5 @@ public sealed class NotorietySystem : EntitySystem
             crimRecord.StatusIcon = "SecurityIconDangerous";
             Dirty(args.Entity, crimRecord);
         }
-    }
-
-    private void OnExamined(Entity<NotorietyComponent> ent, ref ExaminedEvent args)
-    {
-        if (ent.Comp.Level <= 0)
-            return;
-
-        args.PushMarkup(Loc.GetString("notoriety-examine-bounty",
-            ("credits", ent.Comp.BountyAmount)));
-    }
-
-    public int GetLevel(EntityUid uid)
-    {
-        return TryComp<NotorietyComponent>(uid, out var comp) ? comp.Level : 0;
-    }
-
-    public int GetBounty(EntityUid uid)
-    {
-        return TryComp<NotorietyComponent>(uid, out var comp) ? comp.BountyAmount : 0;
     }
 }
