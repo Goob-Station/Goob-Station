@@ -150,13 +150,6 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodUnrobustable
-  - type: Armor
-    coverage:
-    - Chest
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
