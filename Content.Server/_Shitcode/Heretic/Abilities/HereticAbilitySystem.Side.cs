@@ -20,12 +20,12 @@ public sealed partial class HereticAbilitySystem
     {
         base.SubscribeSide();
 
-        SubscribeLocalEvent<HereticComponent, EventHereticCleave>(OnCleave);
+        SubscribeLocalEvent<EventHereticCleave>(OnCleave);
     }
 
-    private void OnCleave(Entity<HereticComponent> ent, ref EventHereticCleave args)
+    private void OnCleave(EventHereticCleave args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
         args.Handled = true;
@@ -42,12 +42,12 @@ public sealed partial class HereticAbilitySystem
         var targets = Lookup.GetEntitiesInRange<MobStateComponent>(args.Target, args.Range, LookupFlags.Dynamic);
         foreach (var (target, _) in targets)
         {
-            if (target == ent.Owner || HasComp<HereticComponent>(target) || HasComp<GhoulComponent>(target))
+            if (target == args.Performer)
                 continue;
 
             hasTargets = true;
 
-            _dmg.TryChangeDamage(target, args.Damage, true, origin: ent.Owner);
+            _dmg.TryChangeDamage(target, args.Damage, true, origin: args.Performer);
 
             if (!bloodQuery.TryComp(target, out var blood))
                 continue;

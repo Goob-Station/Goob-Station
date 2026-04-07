@@ -18,15 +18,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class GhoulComponent : Component
 {
-    /// <summary>
-    ///     Indicates who ghouled the entity.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? BoundHeretic;
-
     /// <summary>
     ///     Total health for ghouls.
     /// </summary>
@@ -55,11 +49,6 @@ public sealed partial class GhoulComponent : Component
 
     [DataField]
     public SoundSpecifier? BladeDeleteSound = new SoundCollectionSpecifier("gib");
-
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "GhoulHereticMaster";
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> GhoulIcon { get; set; } = "GhoulFaction";
 
     [DataField]
     public LocId GhostRoleName = "ghostrole-ghoul-name";

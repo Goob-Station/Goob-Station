@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/dc89ef0239830774bd3d9d7d6c8da2856da2b869, Keyring by SolsticeOfTheWinter for Goobstation",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/dc89ef0239830774bd3d9d7d6c8da2856da2b869, Keyring by SolsticeOfTheWinter for Goobstation, meson, weldmask, and mass_scanner by r.p.r for Goobstation",
   "size": {
     "x": 32,
     "y": 32
@@ -141,6 +141,15 @@
     },
 	{
       "name": "keyring"
+    },
+    {
+      "name": "meson"
+    },
+    {
+      "name": "weldmask"
+    },
+	{
+      "name": "mass_scanner"
     },
     {
       "name": "analyzer-equipped-BELT",

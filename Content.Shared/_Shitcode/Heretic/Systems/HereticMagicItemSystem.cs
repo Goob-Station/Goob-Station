@@ -7,14 +7,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 
 namespace Content.Shared.Heretic.Systems;
 
-public sealed partial class HereticMagicItemSystem : EntitySystem
+public sealed class HereticMagicItemSystem : EntitySystem
 {
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -34,7 +37,7 @@ public sealed partial class HereticMagicItemSystem : EntitySystem
 
     private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner))
+        if (!_heretic.TryGetHereticComponent(args.Examiner, out _, out _))
             return;
 
         args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));

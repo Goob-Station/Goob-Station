@@ -25,8 +25,7 @@ public sealed partial class RitualPathBasedSpawnBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return;
+        var heretic = args.Mind.Comp;
 
         var coords = args.EntityManager.GetComponent<TransformComponent>(args.Platform).Coordinates;
 

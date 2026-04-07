@@ -1,8 +1,5 @@
 using System.Linq;
 using Content.Goobstation.Common.BlockTeleport;
-using Content.Goobstation.Common.Body.Components;
-using Content.Goobstation.Common.Temperature.Components;
-using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -13,37 +10,33 @@ public abstract partial class SharedHereticAbilitySystem
 {
     protected virtual void SubscribeVoid()
     {
-        SubscribeLocalEvent<HereticComponent, HereticAristocratWayEvent>(OnAristocratWay);
-        SubscribeLocalEvent<HereticComponent, HereticVoidBlinkEvent>(OnVoidBlink);
-        SubscribeLocalEvent<HereticComponent, HereticVoidPullEvent>(OnVoidPull);
-        SubscribeLocalEvent<HereticComponent, HereticVoidConduitEvent>(OnVoidConduit);
+        SubscribeLocalEvent<HereticVoidBlinkEvent>(OnVoidBlink);
+        SubscribeLocalEvent<HereticVoidPullEvent>(OnVoidPull);
+        SubscribeLocalEvent<HereticVoidConduitEvent>(OnVoidConduit);
     }
 
-    private void OnAristocratWay(Entity<HereticComponent> ent, ref HereticAristocratWayEvent args)
+    private void OnVoidConduit(HereticVoidConduitEvent args)
     {
-        EnsureComp<SpecialLowTempImmunityComponent>(ent);
-        if (args.GrantBreathingImmunity)
-            EnsureComp<SpecialBreathingImmunityComponent>(ent);
-    }
-
-    private void OnVoidConduit(Entity<HereticComponent> ent, ref HereticVoidConduitEvent args)
-    {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        args.Handled = true;
-
-        PredictedSpawnAtPosition(args.VoidConduit, Transform(ent).Coordinates);
+        PredictedSpawnAtPosition(args.VoidConduit, Transform(args.Performer).Coordinates);
     }
 
-    private void OnVoidBlink(Entity<HereticComponent> ent, ref HereticVoidBlinkEvent args)
+    private void OnVoidBlink(HereticVoidBlinkEvent args)
     {
+        if (!TryUseAbility(args, false))
+            return;
+
+        Heretic.TryGetHereticComponent(args.Performer, out var heretic, out _);
+
+        var ent = args.Performer;
+
+        var path = heretic?.CurrentPath ?? "Void";
+
         var ev = new TeleportAttemptEvent();
         RaiseLocalEvent(ent, ref ev);
         if (ev.Cancelled)
-            return;
-
-        if (!TryUseAbility(ent, args))
             return;
 
         var target = _transform.ToMapCoordinates(args.Target);
@@ -54,16 +47,16 @@ public abstract partial class SharedHereticAbilitySystem
             return;
         }
 
-        var people = GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath);
+        var people = GetNearbyPeople(ent, args.Radius, path);
         var xform = Transform(ent);
 
         PredictedSpawnAtPosition(args.InEffect, xform.Coordinates);
         _transform.SetCoordinates(ent, xform, args.Target);
         PredictedSpawnAtPosition(args.OutEffect, args.Target);
 
-        var condition = ent.Comp.CurrentPath == "Void";
+        var condition = path == "Void";
 
-        people.AddRange(GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath));
+        people.AddRange(GetNearbyPeople(ent, args.Radius, path));
         foreach (var pookie in people.ToHashSet())
         {
             if (condition)
@@ -79,13 +72,17 @@ public abstract partial class SharedHereticAbilitySystem
         args.Handled = true;
     }
 
-    private void OnVoidPull(Entity<HereticComponent> ent, ref HereticVoidPullEvent args)
+    private void OnVoidPull(HereticVoidPullEvent args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        var path = ent.Comp.CurrentPath;
-        var condition = ent.Comp.CurrentPath == "Void";
+        Heretic.TryGetHereticComponent(args.Performer, out var heretic, out _);
+
+        var ent = args.Performer;
+
+        var path = heretic?.CurrentPath ?? "Void";
+        var condition = path == "Void";
         var coords = Transform(ent).Coordinates;
 
         var pookies = GetNearbyPeople(ent, args.Radius, path);
@@ -108,7 +105,5 @@ public abstract partial class SharedHereticAbilitySystem
         }
 
         PredictedSpawnAtPosition(args.InEffect, coords);
-
-        args.Handled = true;
     }
 }

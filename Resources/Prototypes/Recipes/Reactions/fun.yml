@@ -113,10 +113,13 @@
 
 - type: reaction
   id: Licoxide
+  maxTemp: 265 # goob edit
   reactants:
     Lead:
       amount: 1
     Zinc:
+      amount: 1
+    Lithium: # goob edit
       amount: 1
   products:
     Licoxide: 1
@@ -135,7 +138,7 @@
       amount: 4 # Goob edit - revert that once we get energy chem
   effects:
     - !type:CreateEntityReactionEffect
-      entity: SheetPlastic10  
+      entity: SheetPlastic10
 
 - type: reaction
   id: FlashFreezeIce

@@ -20,5 +20,7 @@ public record struct AlternatePrayEvent(EntityUid User);
 [Serializable, NetSerializable]
 public sealed partial class AlternatePrayDoAfterEvent : SimpleDoAfterEvent;
 
+[Serializable, NetSerializable]
+public sealed partial class RecallPrayDoAfterEvent : SimpleDoAfterEvent;
 
 

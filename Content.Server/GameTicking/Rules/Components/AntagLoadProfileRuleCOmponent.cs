@@ -45,4 +45,10 @@ public sealed partial class AntagLoadProfileRuleComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<SpeciesPrototype>? SpeciesHardOverride;
+
+    /// <summary>
+    /// Goobstation - If true, forces the spawned entity to use maximum height and width for their species
+    /// </summary>
+    [DataField]
+    public bool ForceMaxSize = false;
 }
