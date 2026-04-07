@@ -231,10 +231,10 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // no mouse don't eat the uranium-235
-                if (avoidBadFood && (HasComp<BadFoodComponent>(targetUid) || TotalFoodUtilityConditioned(targetUid, owner).IsToxic))
+                if (avoidBadFood && (HasComp<BadFoodComponent>(targetUid) || TotalFoodUtilityConditioned(targetUid, owner).IsToxic)) // Goobstation edit
                     return 0f;
 
-                var nutrition = TotalFoodUtilityConditioned(targetUid, owner).TotalNutrition;
+                var nutrition = TotalFoodUtilityConditioned(targetUid, owner).TotalNutrition; // Goobstation edit
                 if (nutrition <= 1.0f)
                     return 0f;
 
@@ -251,13 +251,13 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // no janicow don't drink the blood puddle
-                if (HasComp<BadDrinkComponent>(targetUid) || TotalFoodUtilityConditioned(targetUid, owner).IsToxic)
+                if (HasComp<BadDrinkComponent>(targetUid) || TotalFoodUtilityConditioned(targetUid, owner).IsToxic) // Goobstation edit
                     return 0f;
 
                 // needs to have something that will satiate thirst, mice wont try to drink 100% pure mutagen.
                 // We don't check if the solution is metabolizable cause all drinks should be currently.
                 // If that changes then simply use the other overflow.
-                var hydration = TotalFoodUtilityConditioned(targetUid, owner).TotalHydration;
+                var hydration = TotalFoodUtilityConditioned(targetUid, owner).TotalHydration; // Goobstation edit
                 if (hydration <= 1.0f)
                     return 0f;
 
