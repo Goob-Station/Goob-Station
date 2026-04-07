@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Robust.Shared.Physics.Events;
 
@@ -16,6 +17,8 @@ public partial class SharedDiseaseSystem
         SubscribeLocalEvent<DiseaseCarrierComponent, StartCollideEvent>(RelayDiseaseEvent);
         SubscribeLocalEvent<DiseaseCarrierComponent, PullStartedMessage>(RelayDiseaseEvent);
         SubscribeLocalEvent<DiseaseCarrierComponent, InteractHandEvent>(RelayDiseaseEvent);
+        SubscribeLocalEvent<DiseaseCarrierComponent, BeforeInteractHandEvent>(RelayDiseaseEvent);
+
     }
 
     private void RefRelayDiseaseEvent<T>(EntityUid uid, DiseaseCarrierComponent component, ref T args) where T : notnull

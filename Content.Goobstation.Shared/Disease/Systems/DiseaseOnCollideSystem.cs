@@ -22,6 +22,7 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
         SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<StartCollideEvent>>(OnCollide);
         SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<PullStartedMessage>>(OnPull);
         SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<InteractHandEvent>>(OnHand);
+        SubscribeLocalEvent<DiseaseOnCollideComponent, DiseaseRelayedEvent<BeforeInteractHandEvent>>(OnHand);
 
     }
 
@@ -71,6 +72,21 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
         if (!TryComp<DiseaseComponent>(diseaseUid, out var diseaseComponent))
             return;
 
+        OnContact(ent, host, target, (diseaseUid, diseaseComponent));
+    }
+
+    private void OnHand(Entity<DiseaseOnCollideComponent> ent, ref DiseaseRelayedEvent<BeforeInteractHandEvent> arg)
+    {
+        var diseaseUid = Transform(ent.Owner).ParentUid;
+        var host = Transform(diseaseUid).ParentUid;
+        var target = arg.Args.Target;
+
+        if (host == target)
+            return;
+
+        if (!TryComp<DiseaseComponent>(diseaseUid, out var diseaseComponent))
+            return;
+        
         OnContact(ent, host, target, (diseaseUid, diseaseComponent));
     }
 
