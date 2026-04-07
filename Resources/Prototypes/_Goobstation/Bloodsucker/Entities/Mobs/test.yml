@@ -1,0 +1,22 @@
+- type: entity
+  name: Bloodsucker
+  id: MobVampireTest
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  description: Eats your blood.
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Bloodsucker/Entities/Mobs/test.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: vampire
+    scale: 0.2, 0.2
+  - type: Puller
+  #Actual bloodsucker test from here.
+  - type: Bloodsucker
+  - type: BloodsuckerFeed
+  - type: ActionGrant
+    actions:
+    - ActionBloodsuckerFeed

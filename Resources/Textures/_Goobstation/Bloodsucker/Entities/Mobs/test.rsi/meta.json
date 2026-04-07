@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "This is getting deleted.",
+    "size": {
+        "x": 128,
+        "y": 200
+    },
+    "states": [
+        {
+            "name": "vampire"
+        }
+    ]
+}

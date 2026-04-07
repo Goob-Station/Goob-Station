@@ -1,0 +1,21 @@
+- type: entity
+  id: ActionBloodsuckerFeed
+  name: Feed
+  description: Draw the heartsblood of living victims in your grasp. You will break the Masquerade if seen feeding.
+  components:
+  - type: Action
+    useDelay: 5
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: hook
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:BloodsuckerFeedEvent
