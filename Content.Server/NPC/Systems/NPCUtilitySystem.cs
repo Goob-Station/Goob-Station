@@ -663,11 +663,6 @@ public sealed class NPCUtilitySystem : EntitySystem
         foreach (var quantity in solution.Contents)
             queue.Enqueue(quantity);
 
-        FixedPoint2 quantityPerSipMultiplier = 1;
-        if (ingestable.Comp.TransferAmount is not null
-            && solution.Volume > ingestable.Comp.TransferAmount)
-            quantityPerSipMultiplier *= (FixedPoint2) (ingestable.Comp.TransferAmount / solution.Volume);
-
         while (queue.Any())
         {
             var quantity = queue.Dequeue();
@@ -689,8 +684,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                         && metabolizers is not null)
                         metabolizingOrgan = metabolizers.First(met => (met.Comp1.MetabolismGroups ?? []).Any(group => group.Id == metabolism));
 
-                    var quantityPerSip = quantity.Quantity * quantityPerSipMultiplier;
-                    var args = new EntityEffectReagentArgs(consumer, _entityManager, metabolizingOrgan, solution, quantityPerSip, reagent, ReactionMethod.Ingestion, 1f);
+                    var args = new EntityEffectReagentArgs(consumer, _entityManager, metabolizingOrgan, solution, quantity.Quantity, reagent, ReactionMethod.Ingestion, 1f);
                     if (effect.Conditions is not null
                         && !effect.Conditions.All(x => x.Condition(args)))
                         continue;
@@ -708,7 +702,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                     if (effect is AdjustReagent newReagent
                         && newReagent.Reagent is not null
                         && newReagent.Amount > 0f)
-                        queue.Enqueue(new ReagentQuantity(newReagent.Reagent, quantity.Quantity /* (newReagent.Amount / entry.MetabolismRate)*/));
+                        queue.Enqueue(new ReagentQuantity(newReagent.Reagent, quantity.Quantity * (newReagent.Amount / entry.MetabolismRate)));
                 }
             }
         }
