@@ -1,0 +1,133 @@
+# Base keypad entity
+- type: entity
+  id: BaseKeypad
+  name: keypad
+  description: Inputting the correct code may open something.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    drawdepth: WallMountedItems
+    sprite: Structures/Storage/tanks.rsi # TODO: replace with proper sprite
+    state: pepperdispenser
+  - type: Keypad
+    maxLength: 4
+  - type: UserInterface
+    interfaces:
+      enum.KeypadUiKey.Key:
+        type: KeypadBoundUserInterface
+  - type: ActivatableUI
+    key: enum.KeypadUiKey.Key
+  - type: DeviceLinkSource
+    ports:
+      - KeypadCorrect
+      - KeypadIncorrect
+
+# Base paper entity for keypad codes
+- type: entity
+  id: BaseKeypadCodePaper
+  name: access code
+  description: A piece of paper with an access code written on it.
+  parent: Paper
+  abstract: true
+  components:
+  - type: KeypadCodePaper # keypadGroup must be set by child
+
+# ── Bunker entrance ────────────────────────────────────────────────────────────────────
+
+- type: entity
+  id: DungeonBunkerKeypad
+  name: bunker keypad
+  description: A keypad securing the bunker door. Someone must know the code.
+  parent: BaseKeypad
+  components:
+  - type: Keypad
+    keypadGroup: bunker_entrance
+
+- type: entity
+  id: DungeonBunkerCodePaper
+  name: bunker access code
+  description: A scrawled note with a numeric code on it.
+  parent: BaseKeypadCodePaper
+  components:
+  - type: KeypadCodePaper
+    keypadGroup: bunker_entrance
+
+# ── Armory ───────────────────────────────────────────────────────────────────
+
+- type: entity
+  id: DungeonArmoryKeypad
+  name: armory keypad
+  description: A keypad securing the armory. The code must be around here somewhere.
+  parent: BaseKeypad
+  components:
+  - type: Keypad
+    keypadGroup: dungeon_armory
+
+- type: entity
+  id: DungeonArmoryCodePaper
+  name: armory access code
+  description: A sticky note with a numeric code jotted down.
+  parent: BaseKeypadCodePaper
+  components:
+  - type: KeypadCodePaper
+    keypadGroup: dungeon_armory
+
+# ── Laboratory ───────────────────────────────────────────────────────────────
+
+- type: entity
+  id: DungeonLabKeypad
+  name: laboratory keypad
+  description: A keypad securing a restricted laboratory. The researchers probably left the code somewhere.
+  parent: BaseKeypad
+  components:
+  - type: Keypad
+    keypadGroup: dungeon_lab
+
+- type: entity
+  id: DungeonLabCodePaper
+  name: laboratory access code
+  description: A laminated card with a numeric access code printed on it.
+  parent: BaseKeypadCodePaper
+  components:
+  - type: KeypadCodePaper
+    keypadGroup: dungeon_lab
+
+# ── Command Office ───────────────────────────────────────────────────────────
+
+- type: entity
+  id: DungeonCommandKeypad
+  name: command keypad
+  description: A keypad securing a command office. High-ranking personnel only.
+  parent: BaseKeypad
+  components:
+  - type: Keypad
+    keypadGroup: dungeon_command
+    maxLength: 6
+
+- type: entity
+  id: DungeonCommandCodePaper
+  name: command office access code
+  description: A folded slip of paper with a long numeric code written in careful handwriting.
+  parent: BaseKeypadCodePaper
+  components:
+  - type: KeypadCodePaper
+    keypadGroup: dungeon_command
