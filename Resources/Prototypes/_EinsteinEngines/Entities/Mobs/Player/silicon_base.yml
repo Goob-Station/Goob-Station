@@ -45,6 +45,7 @@
       damageModifierSet: IPC
     - type: InteractionOutline
     - type: MovementSpeedModifier
+    - type: MindControllable # Goobstation - shadowling
       baseWalkSpeed: 4
       baseSprintSpeed: 3
     - type: ZombieImmune
@@ -341,7 +342,7 @@
     - type: ComplexInteraction
     - type: Carriable
     - type: GrabIntent # wilted rose
-    - type: Grabbable 
+    - type: Grabbable
     - type: Targeting
     - type: Crawler
     - type: Consciousness
