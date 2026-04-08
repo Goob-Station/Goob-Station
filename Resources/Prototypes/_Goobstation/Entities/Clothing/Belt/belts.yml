@@ -435,6 +435,9 @@
           angle: 60
           animation: WeaponArcThrust
           soundHit:
-            path: /Audio/Effects/metal_thud1.ogg
+            path: /Audio/_Goobstation/Weapons/Effects/whip.ogg
+            params:
+              variation: 0.125
+              volume: -2
         soundStateActivate:
           path: /Audio/_Goobstation/Items/card_swipe.ogg
