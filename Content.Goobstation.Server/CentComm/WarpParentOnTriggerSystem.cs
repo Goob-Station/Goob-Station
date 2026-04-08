@@ -66,12 +66,10 @@ public sealed partial class WarpParentOnTriggerSystem : EntitySystem
         var coords = _transform.GetMapCoordinates(location.Value);
         _transform.SetMapCoordinates(parentUid, coords);
 
-        /* Uncomment if you want to rejuvenate 
         if (_config.GetCVar(GoobCVars.LifeLineRejuvenate))
         {
             RaiseLocalEvent(parentUid, new RejuvenateEvent());
         }
-        */
 
         QueueDel(ent.Owner);
         return true;
