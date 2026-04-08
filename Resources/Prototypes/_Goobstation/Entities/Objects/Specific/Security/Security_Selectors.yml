@@ -1,0 +1,13 @@
+- type: entity
+  id: SergeantGunCase
+  name: sergeant duty case
+  description: A case, used to securely store your duty weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/guncases/officercase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - WeaponCeremonialRifleSet
+    maxSelectedSets: 1

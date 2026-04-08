@@ -540,6 +540,18 @@
   content:
   - ClothingModsuitHeadOfSecurityPowerCell
 
+# Sergeant
+
+- type: selectableSet
+  id: WeaponCeremonialRifleSet
+  name: selectable-set-ceremonial-rifle-name
+  description: selectable-set-ceremonial-rifle-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+    state: base
+  content:
+  - WeaponSniperMosinSergeant
+
 # engineer
 
 - type: selectableSet

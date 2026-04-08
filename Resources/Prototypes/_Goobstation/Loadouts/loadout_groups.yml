@@ -421,6 +421,56 @@
   maxLimit: 1
   loadouts:
   - BlackEnvirogloves
+  
+#Sergeant
+- type: loadoutGroup
+  id: TrinketsSecuritySergeant
+  name: loadout-group-trinkets-job
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecuritySergeantGunCase
+  - SecurityOfficerMk58
+  - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerTerminus
+  - WeaponPistolMk58Gold
+  - SecuritySergeantMosin
+
+- type: loadoutGroup
+  id: SecuritySergeantPDA
+  name: loadout-group-security-id
+  loadouts:
+  - SecuritySergeantPDA
+
+- type: loadoutGroup
+  id: SergeantJumpsuit
+  name: loadout-group-sergeant-jumpsuit
+  loadouts:
+  - SecurityJumpsuit
+  - SecurityJumpskirt
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  - SergeantJumpsuit
+  - SergeantJumpskirt
+
+- type: loadoutGroup
+  id: SergeantHead
+  name: loadout-group-sergeant-head
+  minLimit: 0
+  loadouts:
+  - SergeantHat
+  - SergeantBeret
+  - SecurityHelmet
+  - SecurityHelmetAlt
+  - SecurityBeret
+
+- type: loadoutGroup
+  id: SergeantNeck
+  name: loadout-group-sergeant-neck
+  loadouts:
+  - SergeantCloak
+  - ClothingNeckCWPSec
+
 
 # Security Cadet
 

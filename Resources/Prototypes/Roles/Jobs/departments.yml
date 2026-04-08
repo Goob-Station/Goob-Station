@@ -227,6 +227,7 @@
   weight: 20
   roles:
   - HeadOfSecurity
+  - SecuritySergeant # OmuPort
   - SecurityCadet
   - SecurityOfficer
   - Detective

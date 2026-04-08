@@ -1,0 +1,53 @@
+- type: loadout
+  id: SecuritySergeantMosin
+  dummyEntity: WeaponSniperMosinSergeant
+  equipment:
+    suitstorage: WeaponSniperMosinSergeant
+#  storage:
+#    back:
+#    - MagazinePistol # Todo: repalce these with whatever ammo mosin uses.
+#    - MagazinePistol
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: SecuritySergeantGunCase
+  equipment:
+    pocket1: SergeantGunCase
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: SecuritySergeantPDA
+  equipment:
+    id: SecuritySergeantPDA
+  groupBy: "ID"
+  
+  # Sergeant Jumpsuits
+
+- type: loadout
+  id: SergeantJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformSergeantUniform
+
+- type: loadout
+  id: SergeantJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformSergeantSkirt
+
+# Sergeant Hats
+
+- type: loadout
+  id: SergeantBeret
+  equipment:
+    head: ClothingHeadHatBeretSergeant
+
+- type: loadout
+  id: SergeantHat
+  equipment:
+    head: ClothingHeadHatCapSergeant
+
+# Sergeant Neck
+
+- type: loadout
+  id: SergeantCloak
+  equipment:
+    neck: ClothingNeckCloakSergeant

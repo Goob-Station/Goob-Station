@@ -79,3 +79,6 @@
   
 - type: playTimeTracker
   id: JobOuterCommander
+
+- type: playTimeTracker
+  id: JobSecuritySergeant
