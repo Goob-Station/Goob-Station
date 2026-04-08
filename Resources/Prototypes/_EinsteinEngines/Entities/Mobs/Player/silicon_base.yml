@@ -45,9 +45,9 @@
       damageModifierSet: IPC
     - type: InteractionOutline
     - type: MovementSpeedModifier
-    - type: MindControllable # Goobstation - shadowling
       baseWalkSpeed: 4
       baseSprintSpeed: 3
+    - type: MindControllable # Goobstation - shadowling
     - type: ZombieImmune
     - type: DoAfter
     - type: RotationVisuals
