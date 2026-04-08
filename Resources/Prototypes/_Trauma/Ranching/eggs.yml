@@ -256,3 +256,12 @@
     state: egg-onagadori
   - type: TimedReplace
     entity: MobChickOnagadori
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: WizardEgg
+  components:
+  - type: Sprite
+    state: egg-wizard
+  - type: TimedReplace
+    entity: MobChickWizard

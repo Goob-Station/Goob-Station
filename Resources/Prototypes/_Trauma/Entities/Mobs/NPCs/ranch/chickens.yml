@@ -928,3 +928,69 @@
   - type: FavoriteFood
     tag:
     - Peanut
+
+# Wizard
+
+- type: entity
+  abstract: true
+  id: BaseChickenWizard
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileMagicMissileLesser
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 5
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/_Goobstation/Wizard/magic_missile.ogg
+  - type: HTN
+    rootTask:
+      task: MagicRoosterCompound
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickWizard
+  name: onagadori chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobWizardHen
+    - MobWizardRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-wizard.rsi
+  - type: FavoriteFood
+    tag:
+    - MagicMushroom
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobWizardHen
+  name: witchen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-wizard.rsi
+  - type: SpawnLootOnDeath
+    table:
+      id: ClothingHeadHatWizard
+  - type: FavoriteFood
+    tag:
+    - MagicMushroom
+
+- type: entity
+  parent: [BaseChickenWizard, BaseMobRoosterRanch]
+  id: MobWizardRooster
+  name: wizter
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-wizard.rsi
+  - type: SpawnLootOnDeath
+    table:
+      id: ClothingHeadHatWizard
+  - type: FavoriteFood
+    tag:
+    - MagicMushroom

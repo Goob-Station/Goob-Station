@@ -144,3 +144,26 @@
   - type: Tag
     tags:
     - Peanut
+
+- type: entity
+  name: magic mushrooms
+  parent: FoodProduceBase
+  id: FoodMagicMushroom
+  description: Mushrooms with just a little bit of magic.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: THC
+          Quantity: 15
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/magicmushrooms.rsi
+  - type: Produce
+    seedId: MagicMushrooms
+  - type: Tag
+    tags:
+    - MagicMushroom
+    - Mushroom

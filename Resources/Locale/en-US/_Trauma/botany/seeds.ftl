@@ -15,3 +15,6 @@ seeds-clearcorn-display-name = ears of clear corn
 
 seeds-peanut-name = peanut
 seeds-peanut-display-name = peanut plant
+
+seeds-magicmush-name = magic mushrooms
+seeds-magicmush-display-name = magic mushrooms

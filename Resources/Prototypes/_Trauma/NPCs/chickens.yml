@@ -55,3 +55,32 @@
   - tasks:
     - !type:HTNCompoundTask
       task: IdleCompound
+
+- type: htnCompound
+  id: MagicRoosterCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: InnateRangedCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FoodCompound
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:RandomOperator
+        targetKey: IdleTime
+        minKey: MinimumIdleTime
+        maxKey: MaximumIdleTime
+
+    - !type:HTNPrimitiveTask
+      operator: !type:WaitOperator
+        key: IdleTime
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+
+    - !type:HTNCompoundTask
+      task: FertilizeCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound

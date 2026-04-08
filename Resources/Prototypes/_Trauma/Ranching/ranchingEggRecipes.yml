@@ -224,3 +224,15 @@
   happinessRequired: 15
   foodTagsRequired:
   - Peanut
+
+- type: eggRecipe
+  id: WizardEgg
+  egg: WizardEgg
+  requiredChicken:
+  - MobGlassHen
+  - MobWizardHen
+  noSpecialFoodRequiredChickens:
+  - MobWizardHen
+  happinessRequired: 16
+  foodTagsRequired:
+  - MagicMushroom

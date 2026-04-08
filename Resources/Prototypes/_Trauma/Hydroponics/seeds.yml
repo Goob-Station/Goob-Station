@@ -168,3 +168,32 @@
       Min: 1
       Max: 20
       PotencyDivisor: 20
+
+- type: seed
+  id: MagicMushrooms
+  name: seeds-magicmush-name
+  noun: seeds-noun-spores
+  displayName: seeds-magicmush-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/magicmushrooms.rsi
+  packetPrototype: MagicMushroomSeeds
+  productPrototypes:
+  - FoodMagicMushroom
+  lifespan: 35
+  maturation: 10
+  production: 7
+  yield: 5
+  potency: 1
+  growthStages: 3
+  lightTolerance: 6
+  waterConsumption: 0.60
+  nutrientConsumption: 0.50
+  idealHeat: 288
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 25
+      PotencyDivisor: 25
+    THC:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
