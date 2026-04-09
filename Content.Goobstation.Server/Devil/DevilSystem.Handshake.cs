@@ -56,7 +56,7 @@ public sealed partial class DevilSystem
             Act = () => OfferHandshake(args.User, args.Target),
             Text = Loc.GetString("hand-shake-prompt-verb", ("target", args.Target)),
             Icon = HandshakeIcon,
-            Priority = HandshakeVerbPriority
+            Priority = HandshakeVerbPriority // Higher priority than default verbs
         });
     }
 
@@ -93,9 +93,11 @@ public sealed partial class DevilSystem
         pending.Offerer = user;
         pending.ExpiryTime = _timing.CurTime + HandshakeOfferDuration;
 
+        // Notify target
         var popupMessage = Loc.GetString("handshake-offer-popup", ("user", user));
         _popup.PopupEntity(popupMessage, target, target);
 
+        // Notify self
         var selfPopup = Loc.GetString("handshake-offer-popup-self", ("target", target));
         _popup.PopupEntity(selfPopup, user, user);
     }
