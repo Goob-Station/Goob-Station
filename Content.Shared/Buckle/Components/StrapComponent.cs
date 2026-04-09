@@ -225,6 +225,12 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField]
     public bool BlockMovement = true;
+
+    /// <summary>
+    /// Whether buckling do-after should be cancelled when the user takes damage.
+    /// </summary>
+    [DataField]
+    public bool BuckleBreakOnDamage = true;
     // </Goobstation>
 
     // WD EDIT START

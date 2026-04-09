@@ -33,7 +33,7 @@ public sealed class ActivatableUiUserWhitelistSystem : EntitySystem
     public bool CheckWhitelist(EntityUid uid, EntityUid user, ActivatableUiUserWhitelistComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
-            return false;
+            return true;
 
         var result = _whitelist.IsValid(component.Whitelist, user);
 

@@ -53,7 +53,7 @@
   - !type:GroupLoadoutEffect
     proto: VeteranOfficer
   equipment:
-    innerClothing: ClothingUniformJumpsuitVeteranSecurity
+    jumpsuit: ClothingUniformJumpsuitVeteranSecurity
 
 
 - type: loadout
