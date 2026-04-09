@@ -379,6 +379,9 @@
     clothingVisuals:
       belt:
       - state: equipped-BELT
+    equippedPrefix: buckled
+  - type: Item
+    heldPrefix: buckled
   - type: ItemSwitch
     needsPower: false
     defaultState: buckled
