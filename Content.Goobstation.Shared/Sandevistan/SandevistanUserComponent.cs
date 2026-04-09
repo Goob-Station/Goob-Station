@@ -1,6 +1,5 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -17,9 +16,6 @@ public sealed partial class SandevistanUserComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan LastEnabled = TimeSpan.Zero;
-
-    [DataField]
-    public TimeSpan StatusEffectTime = TimeSpan.FromSeconds(5);
 
     [DataField]
     public TimeSpan PopupDelay = TimeSpan.FromSeconds(3);
@@ -45,23 +41,22 @@ public sealed partial class SandevistanUserComponent : Component
         { SandevistanState.Disable, 60 },
     };
 
+    [DataField]
+    public Dictionary<SandevistanState, SandevistanEffect[]> Effects = new()
+    {
+        { SandevistanState.Shaking,  [new SandevistanJitterEffect()] },
+        { SandevistanState.Stamina,  [new SandevistanStaminaDamageEffect()] },
+        { SandevistanState.Damage,   [new SandevistanDamageEffect()] },
+        { SandevistanState.Knockdown,[new SandevistanKnockdownEffect()] },
+        { SandevistanState.Disable,  [new SandevistanDisableEffect()] },
+        { SandevistanState.Death,    [new SandevistanDeathEffect()] },
+    };
+
     /// <summary>
     /// How long the toggle action is disabled after an overload (Disable state).
     /// </summary>
     [DataField]
     public TimeSpan DisableCooldown = TimeSpan.FromSeconds(4);
-
-    [DataField]
-    public float StaminaDamage = 5f;
-
-    [DataField]
-    public DamageSpecifier Damage = new()
-    {
-        DamageDict = new()
-        {
-            { "Blunt", 6.5 },
-        },
-    };
 
     [DataField, AutoNetworkedField]
     public float MovementSpeedModifier = 2f;
@@ -89,9 +84,6 @@ public sealed partial class SandevistanUserComponent : Component
 
     [DataField]
     public SoundSpecifier? EndSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_end.ogg");
-
-    [DataField]
-    public SoundSpecifier? OverloadSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_overload.ogg");
 
     [DataField]
     public SoundSpecifier? LoopSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_loop.ogg")

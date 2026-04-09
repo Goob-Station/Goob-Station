@@ -1,19 +1,14 @@
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.Abilities;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Doors.Components;
-using Content.Shared.Jittering;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -34,15 +29,10 @@ public sealed class SandevistanSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
@@ -117,26 +107,6 @@ public sealed class SandevistanSystem : EntitySystem
                 Dirty(uid, comp);
             }
 
-            var stateActions = new Dictionary<int, Action>
-            {
-                { 1, () => _jittering.DoJitter(uid, comp.StatusEffectTime, true)},
-                { 2, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage * frameTime)},
-                { 3, () => _damageable.TryChangeDamage(uid, comp.Damage * frameTime, ignoreResistances: true)},
-                { 4, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
-                { 5, () =>
-                {
-                    if (_netManager.IsServer)
-                    {
-                        var glitchComp = EnsureComp<SandevistanGlitchComponent>(uid);
-                        glitchComp.ExpiresAt = _timing.CurTime + TimeSpan.FromSeconds(3);
-                        Dirty(uid, glitchComp);
-                    }
-                    _audio.PlayPredicted(comp.OverloadSound, uid, null);
-                    Disable(uid, comp);
-                }},
-                { 6, () => _mobState.ChangeMobState(uid, MobState.Dead)},
-            };
-
             var filteredStates = new List<int>();
             foreach (var stateThreshold in comp.Thresholds)
                 if (comp.CurrentLoad >= stateThreshold.Value)
@@ -144,8 +114,13 @@ public sealed class SandevistanSystem : EntitySystem
 
             filteredStates.Sort((a, b) => b.CompareTo(a));
             foreach (var state in filteredStates)
-                if (stateActions.TryGetValue(state, out var action))
-                    action();
+            {
+                if (!comp.Effects.TryGetValue((SandevistanState) state, out var effects))
+                    continue;
+
+                foreach (var effect in effects)
+                    effect.Effect(uid, comp, EntityManager, frameTime);
+            }
 
             if (comp.NextPopupTime > _timing.CurTime)
             {
@@ -246,7 +221,7 @@ public sealed class SandevistanSystem : EntitySystem
         _alerts.ClearAlert(ent.Owner, ent.Comp.LoadAlert);
     }
 
-    private void Disable(EntityUid uid, SandevistanUserComponent comp)
+    public void Disable(EntityUid uid, SandevistanUserComponent comp)
     {
         var wasActive = comp.Active;
         if (comp.Active)
@@ -460,7 +435,6 @@ public sealed class SandevistanSystem : EntitySystem
         // Mobs
         if (HasComp<MobStateComponent>(target))
         {
-            slowed.IsMob = true;
             slowed.SpeedMultiplier = comp.MobSpeedMultiplier;
             _speed.RefreshMovementSpeedModifiers(target);
             EnsureComp<DogVisionComponent>(target);
@@ -469,7 +443,6 @@ public sealed class SandevistanSystem : EntitySystem
         // Bullets
         else if (TryComp<ProjectileComponent>(target, out _))
         {
-            slowed.IsProjectile = true;
             slowed.SpeedMultiplier = comp.ProjectileSpeedMultiplier;
             ApplyProjectileSlowdown(target, slowed);
         }
@@ -477,7 +450,6 @@ public sealed class SandevistanSystem : EntitySystem
         // Thrown items
         else if (TryComp<ThrownItemComponent>(target, out var thrown))
         {
-            slowed.IsThrown = true;
             slowed.SpeedMultiplier = comp.ThrownItemSpeedMultiplier;
             ApplyThrownItemSlowdown(target, slowed, thrown);
         }
@@ -522,7 +494,7 @@ public sealed class SandevistanSystem : EntitySystem
         ent.Comp.IsSlowed = false;
 
         // Mobs
-        if (ent.Comp.IsMob)
+        if (HasComp<MobStateComponent>(ent))
         {
             _speed.RefreshMovementSpeedModifiers(ent);
             if (HasComp<DogVisionComponent>(ent))
@@ -535,8 +507,7 @@ public sealed class SandevistanSystem : EntitySystem
             _physics.SetLinearVelocity(ent, ent.Comp.OriginalLinearVelocity, body: physics);
 
         // Thrown items
-        if (ent.Comp.IsThrown
-            && TryComp<ThrownItemComponent>(ent, out var thrown)
+        if (TryComp<ThrownItemComponent>(ent, out var thrown)
             && thrown.LandTime != null
             && ent.Comp.SpeedMultiplier > 0)
         {
@@ -549,7 +520,7 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnSlowedRefreshSpeed(Entity<SandevistanSlowedComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        if (ent.Comp.IsMob && ent.Comp.IsSlowed)
+        if (HasComp<MobStateComponent>(ent) && ent.Comp.IsSlowed)
             args.ModifySpeed(ent.Comp.SpeedMultiplier, ent.Comp.SpeedMultiplier);
     }
 
@@ -561,7 +532,7 @@ public sealed class SandevistanSystem : EntitySystem
         var query = EntityQueryEnumerator<SandevistanSlowedComponent>();
         while (query.MoveNext(out var uid, out var slowed))
         {
-            if (!slowed.IsSlowed || !slowed.IsThrown || slowed.OriginalLinearVelocity.LengthSquared() <= 0.01f)
+            if (!slowed.IsSlowed || !HasComp<ThrownItemComponent>(uid) || slowed.OriginalLinearVelocity.LengthSquared() <= 0.01f)
                 continue;
 
             var targetVelocity = slowed.OriginalLinearVelocity * slowed.SpeedMultiplier;

@@ -12,24 +12,6 @@ public sealed partial class SandevistanSlowedComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid Source;
 
-    /// <summary>
-    /// Whether this entity is a mob.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool IsMob;
-
-    /// <summary>
-    /// Whether this entity is a thrown item.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool IsThrown;
-
-    /// <summary>
-    /// Whether this entity is a projectile (bullet).
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool IsProjectile;
-
     [DataField, AutoNetworkedField]
     public float SpeedMultiplier = 1f;
 
