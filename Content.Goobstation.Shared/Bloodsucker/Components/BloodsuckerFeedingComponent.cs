@@ -1,17 +1,32 @@
 using Robust.Shared.GameObjects;
-using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Components;
 
 /// <summary>
-/// Present on a bloodsucker while a Feed session is active.
+/// Added to a bloodsucker while they are actively feeding.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class BloodsuckerFeedingComponent : Component
 {
-    /// <summary>
-    /// Network-safe reference to the current feed target.
-    /// </summary>
-    [DataField, AutoNetworkedField]
+    /// <summary>Net entity ID of the current feed target.</summary>
+    [DataField]
     public NetEntity NetTarget = NetEntity.Invalid;
+
+    /// <summary>
+    /// False while the vampire is in the aggressive-grab.
+    /// Used to decide whether to show the interrupt message when the feed breaks.
+    /// </summary>
+    [DataField]
+    public bool Silent = true;
+
+    /// <summary>
+    /// Whether the initial bite message has been shown.
+    /// </summary>
+    [DataField]
+    public bool HasBitten = false;
+
+    /// <summary>
+    /// The victim's blood fraction.
+    /// </summary>
+    public float LastWarnedBloodFraction = 1f;
 }

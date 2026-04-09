@@ -1,15 +1,20 @@
 using Content.Goobstation.Common.Grab;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Bloodsuckers.Components;
 using Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 using Content.Goobstation.Shared.Bloodsuckers.Events;
 using Content.Goobstation.Shared.GrabIntent;
+using Content.Shared._Starlight.VentCrawling;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Systems;
@@ -25,6 +30,8 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
     [Dependency] private readonly BloodsuckerHumanitySystem _humanity = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    // TO DO: BloodsuckerMasqueradeSystem
 
     private EntityQuery<PullerComponent> _pullerQuery;
 
@@ -50,20 +57,33 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (!InRange(ent.Owner, target))
             return;
 
+        // eating rats and stuff makes the vamp recoil and kills the little fella instantly.
+        if (IsSmallAnimal(target))
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-feed-mouse"), ent.Owner, ent.Owner, PopupType.SmallCaution);
+            _bloodstream.TryModifyBloodLevel(
+                new Entity<BloodstreamComponent?>(ent.Owner, null),
+                FixedPoint2.New(25));
+            QueueDel(target);
+            return;
+        }
+
         if (!TryUseCosts(ent, comp))
             return;
 
         var feeding = EnsureComp<BloodsuckerFeedingComponent>(ent);
         feeding.NetTarget = GetNetEntity(target);
 
+        // visible only to vamp
+        _popup.PopupPredicted(
+            Loc.GetString("bloodsucker-feed-starting", ("target", target)),
+            ent.Owner, ent.Owner, PopupType.Small);
+
         StartDoAfter(ent, target, comp.StartDelay);
     }
 
     private void OnFeedDoAfter(Entity<BloodsuckerComponent> ent, ref BloodsuckerFeedDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled)
-            return;
-
         if (!TryComp(ent, out BloodsuckerFeedingComponent? feeding))
             return;
 
@@ -74,26 +94,211 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (!TryComp(ent, out BloodsuckerFeedComponent? comp))
             return;
 
+        // Interrupted
+        if (args.Cancelled || args.Handled)
+        {
+            if (!feeding.Silent)
+            {
+                // Visible to everyone nearby
+                _popup.PopupPredicted(
+                    Loc.GetString("bloodsucker-feed-interrupt-others",
+                        ("user", ent.Owner),
+                        ("target", target),
+                        ("target_their", Loc.GetString("their", ("ent", target)))),
+                    Loc.GetString("bloodsucker-feed-interrupt-user",
+                        ("target", target),
+                        ("target_their", Loc.GetString("their", ("ent", target)))),
+                    ent.Owner, ent.Owner, PopupType.LargeCaution);
+
+                if (TryComp(target, out BloodstreamComponent? targetBloodstream))
+                {
+                    var spillAmount = comp.BloodDrainAmount;
+
+                    _bloodstream.TryModifyBloodLevel(
+                        new Entity<BloodstreamComponent?>(target, targetBloodstream),
+                        -spillAmount);
+                }
+            }
+
+            CleanupFeeding(ent);
+            return;
+        }
+
         if (!InRange(ent.Owner, target))
         {
-            RemCompDeferred<BloodsuckerFeedingComponent>(ent);
+            // Fell out of range without a hard cancel which gets treated as interrupt.
+            if (!feeding.Silent)
+            {
+                _popup.PopupPredicted(
+                    Loc.GetString("bloodsucker-feed-interrupt-others",
+                        ("user", ent.Owner), ("target", target)),
+                    Loc.GetString("bloodsucker-feed-interrupt-user",
+                        ("target", target)),
+                    ent.Owner, ent.Owner, PopupType.LargeCaution);
+            }
+
+            CleanupFeeding(ent);
             return;
+        }
+
+        // play the bite animation as well as message and check for witnesses
+        if (!feeding.HasBitten)
+        {
+            feeding.HasBitten = true;
+            PlayBiteMessage(ent, target, feeding, comp);
+            CheckMasquerade(ent, target);
         }
 
         PerformDrain(ent, target, comp);
 
-        // Debug blood levels just to see if its working. until I add UI.
-        if (TryComp(target, out BloodstreamComponent? targetBlood)
-            && TryComp(ent.Owner, out BloodstreamComponent? vampBlood)
-            && targetBlood.BloodSolution is { } tSol
-            && vampBlood.BloodSolution is { } vSol)
+        CheckVictimBloodWarnings(ent, target, comp, feeding);
+
+        StartDoAfter(ent, target, comp.SipDelay);
+    }
+
+    private void PlayBiteMessage(
+        Entity<BloodsuckerComponent> ent,
+        EntityUid target,
+        BloodsuckerFeedingComponent feeding,
+        BloodsuckerFeedComponent comp)
+    {
+        var isAggressiveGrab = _pullerQuery.TryComp(ent.Owner, out var puller)
+                               && puller.Pulling == target
+                               && TryComp(target, out GrabbableComponent? grabbable)
+                               && grabbable.GrabStage >= GrabStage.Hard;
+
+        if (isAggressiveGrab)
         {
-            var msg = $"Target: {tSol.Comp.Solution.Volume}u | Vampire: {vSol.Comp.Solution.Volume}u";
-            _popup.PopupPredicted(msg, ent.Owner, ent.Owner, PopupType.Small);
+            // aggressive grab puts target to sleep.
+            feeding.Silent = false;
+
+            _popup.PopupPredicted(
+                 Loc.GetString("bloodsucker-feed-start-neck-others",
+                     ("user", ent.Owner),
+                     ("target", target),
+                     ("user_their", Loc.GetString("their", ("ent", ent.Owner)))),
+                 Loc.GetString("bloodsucker-feed-start-neck-user",
+                     ("target", target)),
+                 ent.Owner, ent.Owner, PopupType.LargeCaution);
+
+            _status.TryAddStatusEffect(
+                target, "ForcedSleep", out _,
+                TimeSpan.FromSeconds(comp.SleepDuration));
+        }
+        else
+        {
+            feeding.Silent = true;
+
+            var dazedSuffix = IsAlive(target)
+                ? " " + Loc.GetString("bloodsucker-feed-dazed", ("target", target))
+                : string.Empty;
+
+            // pop up to any looky loos
+            foreach (var watcher in GetNearbyLiving(ent.Owner, comp.FeedNoticeRange))
+            {
+                if (watcher == ent.Owner || watcher == target)
+                    continue;
+                _popup.PopupPredicted(
+                    Loc.GetString("bloodsucker-feed-start-wrist-others",
+                        ("user", ent.Owner),
+                        ("target", target),
+                        ("user_their", Loc.GetString("their", ("ent", ent.Owner)))),
+                    watcher, watcher, PopupType.Small);
+            }
+
+            // vamp only
+            _popup.PopupPredicted(
+                Loc.GetString("bloodsucker-feed-start-wrist-user",
+                    ("target", target)) + dazedSuffix,
+                ent.Owner, ent.Owner, PopupType.Small);
+        }
+    }
+
+    private void CheckMasquerade(Entity<BloodsuckerComponent> ent, EntityUid target)
+    {
+        if (!TryComp(ent, out BloodsuckerFeedComponent? comp))
+            return;
+
+        foreach (var watcher in GetNearbyLiving(ent.Owner, comp.FeedNoticeRange))
+        {
+            if (watcher == ent.Owner || watcher == target)
+                continue;
+
+            // Skip other bloodsuckers, vassals, chaplains, and blind mobs.
+            if (HasComp<BloodsuckerComponent>(watcher))
+                continue;
+            if (HasComp<BibleUserComponent>(watcher))
+                continue;
+            if (HasComp<PermanentBlindnessComponent>(watcher))
+                continue;
+            //if (HasComp<BloodsuckerVassalComponent>(watcher))
+            //    continue;
+
+            _popup.PopupPredicted(
+                Loc.GetString("bloodsucker-feed-noticed"),
+                ent.Owner, ent.Owner, PopupType.SmallCaution);
+
+            // TO DO: _masquerade.GiveInfraction(ent.Owner);
+            break; // one infraction per feed
+        }
+    }
+
+    private void CheckVictimBloodWarnings(
+        Entity<BloodsuckerComponent> ent,
+        EntityUid target,
+        BloodsuckerFeedComponent comp,
+        BloodsuckerFeedingComponent feeding)
+    {
+        if (!TryComp(target, out BloodstreamComponent? bs))
+            return;
+
+        if (bs.BloodSolution is not { } sol)
+            return;
+
+        var current = (float) sol.Comp.Solution.Volume;
+        var max = (float) sol.Comp.Solution.MaxVolume;
+        if (max <= 0f)
+            return;
+
+        var fraction = current / max;
+
+        // Warn only when we cross into a new (lower) threshold band,
+        if (fraction <= comp.BloodWarningFatal && feeding.LastWarnedBloodFraction > comp.BloodWarningFatal)
+        {
+            _popup.PopupPredicted(
+                Loc.GetString("bloodsucker-feed-warning-fatal"),
+                ent.Owner, ent.Owner, PopupType.LargeCaution);
+        }
+        else if (fraction <= comp.BloodWarningDanger && feeding.LastWarnedBloodFraction > comp.BloodWarningDanger)
+        {
+            _popup.PopupPredicted(
+                Loc.GetString("bloodsucker-feed-warning-danger"),
+                ent.Owner, ent.Owner, PopupType.MediumCaution);
+        }
+        else if (fraction <= comp.BloodWarningSafe && feeding.LastWarnedBloodFraction > comp.BloodWarningSafe)
+        {
+            _popup.PopupPredicted(
+                Loc.GetString("bloodsucker-feed-warning-safe"),
+                ent.Owner, ent.Owner, PopupType.SmallCaution);
         }
 
-        StartDoAfter(ent, target, 1f);
+        feeding.LastWarnedBloodFraction = fraction;
     }
+
+    private void StopFeeding(Entity<BloodsuckerComponent> ent, EntityUid target)
+    {
+        _popup.PopupPredicted(
+            Loc.GetString("bloodsucker-feed-stop", ("target", target)),
+            ent.Owner, ent.Owner, PopupType.Small);
+
+        CleanupFeeding(ent);
+    }
+
+    private void CleanupFeeding(Entity<BloodsuckerComponent> ent)
+    {
+        RemCompDeferred<BloodsuckerFeedingComponent>(ent);
+    }
+
     private void PerformDrain(Entity<BloodsuckerComponent> ent, EntityUid target, BloodsuckerFeedComponent comp)
     {
         float amount = comp.BloodDrainAmount;
@@ -106,7 +311,6 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (!TryComp(ent.Owner, out BloodstreamComponent? vampireBloodstream))
             return;
 
-        // Resolve the target's blood solution directly
         if (!_bloodstream.SolutionContainer.ResolveSolution(target, targetBloodstream.BloodSolutionName,
                 ref targetBloodstream.BloodSolution, out var targetBloodSolution))
             return;
@@ -116,12 +320,10 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (actualAmount <= FixedPoint2.Zero)
             return;
 
-        // delete blood from target
         _bloodstream.TryModifyBloodLevel(
             new Entity<BloodstreamComponent?>(target, targetBloodstream),
             -actualAmount);
 
-        // Expand vampire max capacity if needed, then add blood
         if (_bloodstream.SolutionContainer.ResolveSolution(ent.Owner, vampireBloodstream.BloodSolutionName,
                 ref vampireBloodstream.BloodSolution, out var vampBloodSolution))
         {
@@ -136,15 +338,6 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         _bloodstream.TryModifyBloodLevel(
             new Entity<BloodstreamComponent?>(ent.Owner, vampireBloodstream),
             actualAmount);
-
-        // Sleep if hard grabbed
-        if (_pullerQuery.TryComp(ent.Owner, out var puller)
-            && puller.Pulling == target
-            && TryComp(target, out GrabbableComponent? grabbable)
-            && grabbable.GrabStage >= GrabStage.Hard)
-        {
-            _status.TryAddStatusEffect(target, "ForcedSleep", out _, TimeSpan.FromSeconds(comp.SleepDuration));
-        }
 
         _audio.PlayPredicted(comp.DrinkSound, ent, ent);
     }
@@ -171,7 +364,6 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (comp.DisabledInFrenzy && HasComp<BloodsuckerFrenzyComponent>(ent))
             return false;
 
-        // Deduct blood cost from the vampire's own bloodstream
         if (comp.BloodCost > 0f)
         {
             if (!TryComp(ent.Owner, out BloodstreamComponent? bloodstream))
@@ -189,11 +381,14 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         }
 
         if (comp.HumanityCost != 0f && TryComp(ent, out BloodsuckerHumanityComponent? humanity))
-            _humanity.ChangeHumanity(new Entity<BloodsuckerHumanityComponent>(ent.Owner, humanity), -comp.HumanityCost);
+            _humanity.ChangeHumanity(
+                new Entity<BloodsuckerHumanityComponent>(ent.Owner, humanity),
+                -comp.HumanityCost);
 
         return true;
     }
 
+    #region Helpers
     private bool InRange(EntityUid a, EntityUid b)
     {
         if (!TryComp(a, out TransformComponent? ta) ||
@@ -206,4 +401,32 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         var delta = ta.WorldPosition - tb.WorldPosition;
         return MathF.Abs(delta.X) <= 1.5f && MathF.Abs(delta.Y) <= 1.5f;
     }
+
+    // Returns all living mobs within range.
+    private IEnumerable<EntityUid> GetNearbyLiving(EntityUid origin, float range)
+    {
+        var coords = Transform(origin).Coordinates;
+        foreach (var nearby in _lookup.GetEntitiesInRange<MobStateComponent>(coords, range))
+        {
+            if (nearby.Comp.CurrentState == MobState.Dead)
+                continue;
+            yield return nearby.Owner;
+        }
+    }
+
+    // If its small creatures rather than humans and etc the vampire finds it nasty.
+    private bool IsSmallAnimal(EntityUid uid)
+    {
+        // TO DO: Change this so that you can actually make a list of animals that taste bad. Bandaid solution.
+        return HasComp<VentCrawlerComponent>(uid);
+    }
+
+    // Returns true if the target is alive. Self explanatory.
+    private bool IsAlive(EntityUid uid)
+    {
+        return TryComp(uid, out MobStateComponent? state)
+               && state.CurrentState != MobState.Dead;
+    }
+
+    #endregion
 }

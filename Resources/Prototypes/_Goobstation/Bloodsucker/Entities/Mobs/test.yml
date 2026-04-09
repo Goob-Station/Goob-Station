@@ -1,34 +1,9 @@
 - type: entity
   name: Bloodsucker
   id: MobVampireTest
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  parent: [ BaseMobHuman, FlyingMobBase, MobCombat ]
   description: Eats your blood.
   components:
-  - type: InputMover
-  - type: MobMover
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: _Goobstation/Bloodsucker/Entities/Mobs/test.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: vampire
-    scale: 0.2, 0.2
-  - type: Puller
-  - type: GrabIntent
-  - type: Grabbable
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    angle: 30
-    animation: WeaponArcFist
-    attackRate: 1
-    damage:
-      types:
-        Blunt: 5
-  - type: Hands
-  - type: ComplexInteraction
-  - type: Climbing
-  #- type: Cuffable the fuck you mean I need a cuff sprite for this to not error out, bro...
   #Actual bloodsucker test from here.
   - type: Bloodsucker
   - type: BloodsuckerFeed

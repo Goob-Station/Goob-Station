@@ -22,6 +22,12 @@ public sealed partial class BloodsuckerFeedComponent : Component
     public float StartDelay = 4f;
 
     /// <summary>
+    /// How long it takes inbetween each sip.
+    /// </summary>
+    [DataField]
+    public float SipDelay = 2f;
+
+    /// <summary>
     /// How long the target sleeps when fed upon while held in an aggressive grab.
     /// </summary>
     [DataField]
@@ -32,6 +38,31 @@ public sealed partial class BloodsuckerFeedComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? DrinkSound = new SoundPathSpecifier("/Audio/Items/drink.ogg");
+
+    /// <summary>
+    /// The range at which your feeding is noticed by others.
+    /// </summary>
+    [DataField]
+    public float FeedNoticeRange = 2f;
+
+    /// <summary>
+    /// The first warning as to the level of the target's blood level.
+    /// </summary>
+    [DataField]
+    public float BloodWarningSafe = 0.75f;
+
+    /// <summary>
+    /// The second warning as to the level of the target's blood level.
+    /// </summary>
+    [DataField]
+    public float BloodWarningDanger = 0.50f;
+
+    /// <summary>
+    /// <summary>
+    /// The final warning as to the level of the target's blood level.
+    /// </summary>
+    [DataField]
+    public float BloodWarningFatal = 0.25f;
 
     #region Generic
 

@@ -1,9 +1,12 @@
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bloodsuckers.Components;
 using Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 using Content.Goobstation.Shared.Bloodsuckers.Events;
 using Content.Shared.DoAfter;
+using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
 
@@ -15,6 +18,8 @@ public sealed class BloodsuckerMesmerizeSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly BloodsuckerHumanitySystem _humanity = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -48,6 +53,13 @@ public sealed class BloodsuckerMesmerizeSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
+        _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize"), ent.Owner, ent.Owner, PopupType.Small);
+
+        if (HasComp<BibleUserComponent>(args.Target))
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-chaplain-fail"), args.Target, args.Target, PopupType.MediumCaution);
+        }
+        //"You feel your eyes burn for a while, but it passes." (Chaplain warning popup)
     }
 
     private void OnMesmerizeDoAfter(Entity<BloodsuckerComponent> ent, ref BloodsuckerMesmerizeDoAfterEvent args)
