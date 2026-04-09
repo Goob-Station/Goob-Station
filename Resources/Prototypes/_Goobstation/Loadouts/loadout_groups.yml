@@ -421,7 +421,7 @@
   maxLimit: 1
   loadouts:
   - BlackEnvirogloves
-  
+
 #Sergeant
 - type: loadoutGroup
   id: TrinketsSecuritySergeant
@@ -430,10 +430,6 @@
   maxLimit: 1
   loadouts:
   - SecuritySergeantGunCase
-  - SecurityOfficerMk58
-  - SecurityOfficerSecurityDutyRevolver
-  - SecurityOfficerTerminus
-  - WeaponPistolMk58Gold
   - SecuritySergeantMosin
 
 - type: loadoutGroup

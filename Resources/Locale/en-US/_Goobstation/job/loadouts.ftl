@@ -1,0 +1,1 @@
+loadout-group-sergeant-trinkets = Sergeant Trinkets
