@@ -4,34 +4,18 @@ using Robust.Shared.GameStates;
 namespace Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 
 /// <summary>
-/// Configuration for the Feed action.
+/// Configuration for the trespass action.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class BloodsuckerFeedComponent : Component
+public sealed partial class BloodsuckerTrespassComponent : Component
 {
     /// <summary>
-    /// Blood volume transferred from target to vampire per drain tick.
+    /// How far away you can potentially teleport.
     /// </summary>
-    [DataField]
-    public float BloodDrainAmount = 10f;
+    public float TeleportRange = 2f;
 
-    /// <summary>
-    /// Initial do-after delay before the first drain tick fires.
-    /// </summary>
     [DataField]
-    public float StartDelay = 4f;
-
-    /// <summary>
-    /// How long the target sleeps when fed upon while held in an aggressive grab.
-    /// </summary>
-    [DataField]
-    public float SleepDuration = 60f;
-
-    /// <summary>
-    /// The sound that plays once the doafter completes.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? DrinkSound = new SoundPathSpecifier("/Audio/Items/drink.ogg");
+    public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
 
     #region Generic
 

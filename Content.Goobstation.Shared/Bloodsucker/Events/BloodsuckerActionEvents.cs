@@ -2,23 +2,24 @@ using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
+using System.Numerics;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Events;
 
-public sealed partial class BloodsuckerCloakEvent : InstantActionEvent;
-
 public sealed partial class BloodsuckerFeedEvent : EntityTargetActionEvent;
+public sealed partial class BloodsuckerBrawlEvent : EntityTargetActionEvent;
+public sealed partial class BloodsuckerLungeEvent : EntityTargetActionEvent;
+public sealed partial class BloodsuckerMesmerizeEvent : EntityTargetActionEvent;
+public sealed partial class BloodsuckerHasteEvent : WorldTargetActionEvent;
+public sealed partial class BloodsuckerTrespassEvent : WorldTargetActionEvent;
 
 [Serializable, NetSerializable]
-public sealed partial class BloodsuckerFeedDoAfterEvent : DoAfterEvent
-{
-    [DataField]
-    public NetEntity NetTarget;
+public sealed partial class BloodsuckerFeedDoAfterEvent : SimpleDoAfterEvent;
 
-    public BloodsuckerFeedDoAfterEvent(NetEntity netTarget)
-    {
-        NetTarget = netTarget;
-    }
+[Serializable, NetSerializable]
+public sealed partial class BloodsuckerMesmerizeDoAfterEvent : SimpleDoAfterEvent;
 
-    public override DoAfterEvent Clone() => this;
-}
+[Serializable, NetSerializable]
+public sealed partial class BloodsuckerLungeDoAfterEvent : SimpleDoAfterEvent;
+//[ByRefEvent] public record struct BloodsuckerHasteTrailEvent(Vector2 From, Vector2 To);
+//[ByRefEvent] public record struct BloodsuckerTrespassMistEvent(Vector2 From, Vector2 To);

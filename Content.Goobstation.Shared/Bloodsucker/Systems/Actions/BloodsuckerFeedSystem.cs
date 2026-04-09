@@ -4,15 +4,13 @@ using Content.Goobstation.Shared.Bloodsuckers.Components;
 using Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 using Content.Goobstation.Shared.Bloodsuckers.Events;
 using Content.Goobstation.Shared.GrabIntent;
-using Content.Shared._White.Grab;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
-using Robust.Shared.GameObjects;
-using System;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Systems;
 
@@ -23,9 +21,10 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly BloodsuckerHumanitySystem _humanity = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private EntityQuery<PullerComponent> _pullerQuery;
 
@@ -54,6 +53,9 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (!TryUseCosts(ent, comp))
             return;
 
+        var feeding = EnsureComp<BloodsuckerFeedingComponent>(ent);
+        feeding.NetTarget = GetNetEntity(target);
+
         StartDoAfter(ent, target, comp.StartDelay);
     }
 
@@ -62,7 +64,12 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (args.Cancelled || args.Handled)
             return;
 
-        var target = EnsureEntity<BloodsuckerFeedingComponent>(args.NetTarget, ent.Owner);
+        if (!TryComp(ent, out BloodsuckerFeedingComponent? feeding))
+            return;
+
+        var target = GetEntity(feeding.NetTarget);
+        if (target == EntityUid.Invalid)
+            return;
 
         if (!TryComp(ent, out BloodsuckerFeedComponent? comp))
             return;
@@ -73,19 +80,22 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
             return;
         }
 
-        // Keep feeding state alive
-        var feeding = EnsureComp<BloodsuckerFeedingComponent>(ent);
-        feeding.NetTarget = GetNetEntity(target);
-
         PerformDrain(ent, target, comp);
 
-        // Queue the next tick
+        // Debug blood levels just to see if its working. until I add UI.
+        if (TryComp(target, out BloodstreamComponent? targetBlood)
+            && TryComp(ent.Owner, out BloodstreamComponent? vampBlood)
+            && targetBlood.BloodSolution is { } tSol
+            && vampBlood.BloodSolution is { } vSol)
+        {
+            var msg = $"Target: {tSol.Comp.Solution.Volume}u | Vampire: {vSol.Comp.Solution.Volume}u";
+            _popup.PopupPredicted(msg, ent.Owner, ent.Owner, PopupType.Small);
+        }
+
         StartDoAfter(ent, target, 1f);
     }
-
     private void PerformDrain(Entity<BloodsuckerComponent> ent, EntityUid target, BloodsuckerFeedComponent comp)
     {
-        // Frenzy multiplier
         float amount = comp.BloodDrainAmount;
         if (TryComp(ent, out BloodsuckerFrenzyComponent? frenzy))
             amount *= frenzy.FeedMultiplier;
@@ -93,26 +103,41 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (!TryComp(target, out BloodstreamComponent? targetBloodstream))
             return;
 
-        if (!_solution.TryGetSolution(target, targetBloodstream.BloodSolutionName, out _, out var targetBloodSolution))
+        if (!TryComp(ent.Owner, out BloodstreamComponent? vampireBloodstream))
             return;
 
-        // Clamp to what the target actually has
-        var actualAmount = MathF.Min(amount, (float) targetBloodSolution.Volume);
-        if (actualAmount <= 0f)
+        // Resolve the target's blood solution directly
+        if (!_bloodstream.SolutionContainer.ResolveSolution(target, targetBloodstream.BloodSolutionName,
+                ref targetBloodstream.BloodSolution, out var targetBloodSolution))
             return;
 
-        // They looze da blood
+        var targetVolume = targetBloodSolution.Volume;
+        var actualAmount = FixedPoint2.New(MathF.Min(amount, (float) targetVolume));
+        if (actualAmount <= FixedPoint2.Zero)
+            return;
+
+        // delete blood from target
         _bloodstream.TryModifyBloodLevel(
             new Entity<BloodstreamComponent?>(target, targetBloodstream),
-            FixedPoint2.New(-actualAmount));
+            -actualAmount);
 
-        // I soock the bloood
-        if (TryComp(ent.Owner, out BloodstreamComponent? vampireBloodstream))
-            _bloodstream.TryModifyBloodLevel(
-                new Entity<BloodstreamComponent?>(ent.Owner, vampireBloodstream),
-                FixedPoint2.New(actualAmount));
+        // Expand vampire max capacity if needed, then add blood
+        if (_bloodstream.SolutionContainer.ResolveSolution(ent.Owner, vampireBloodstream.BloodSolutionName,
+                ref vampireBloodstream.BloodSolution, out var vampBloodSolution))
+        {
+            var needed = vampBloodSolution.Volume + actualAmount;
+            if (needed > vampBloodSolution.MaxVolume)
+            {
+                vampBloodSolution.MaxVolume = needed;
+                _bloodstream.SolutionContainer.UpdateChemicals(vampireBloodstream.BloodSolution!.Value);
+            }
+        }
 
-        // Sleep if hardgrab
+        _bloodstream.TryModifyBloodLevel(
+            new Entity<BloodstreamComponent?>(ent.Owner, vampireBloodstream),
+            actualAmount);
+
+        // Sleep if hard grabbed
         if (_pullerQuery.TryComp(ent.Owner, out var puller)
             && puller.Pulling == target
             && TryComp(target, out GrabbableComponent? grabbable)
@@ -120,17 +145,17 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         {
             _status.TryAddStatusEffect(target, "ForcedSleep", out _, TimeSpan.FromSeconds(comp.SleepDuration));
         }
+
+        _audio.PlayPredicted(comp.DrinkSound, ent, ent);
     }
 
     private void StartDoAfter(Entity<BloodsuckerComponent> ent, EntityUid target, float delay)
     {
-        var netTarget = GetNetEntity(target);
-
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
             ent.Owner,
             delay,
-            new BloodsuckerFeedDoAfterEvent(netTarget),
+            new BloodsuckerFeedDoAfterEvent(),
             ent.Owner,
             target)
         {

@@ -14,9 +14,34 @@
       state: vampire
     scale: 0.2, 0.2
   - type: Puller
+  - type: GrabIntent
+  - type: Grabbable
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Climbing
+  #- type: Cuffable the fuck you mean I need a cuff sprite for this to not error out, bro...
   #Actual bloodsucker test from here.
   - type: Bloodsucker
   - type: BloodsuckerFeed
+  - type: BloodsuckerBrawl
+  - type: BloodsuckerLunge
+  - type: BloodsuckerHaste
+  - type: BloodsuckerMesmerize
+  - type: BloodsuckerTrespass
   - type: ActionGrant
     actions:
     - ActionBloodsuckerFeed
+    - ActionBloodsuckerBrawl
+    - ActionBloodsuckerLunge
+    - ActionBloodsuckerHaste
+    - ActionBloodsuckerMesmerize
+    - ActionBloodsuckerTrespass

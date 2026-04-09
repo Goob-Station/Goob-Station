@@ -1,37 +1,23 @@
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 
 /// <summary>
-/// Configuration for the Feed action.
+/// Configuration for the predatory lunge action.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class BloodsuckerFeedComponent : Component
+public sealed partial class BloodsuckerMesmerizeComponent : Component
 {
     /// <summary>
-    /// Blood volume transferred from target to vampire per drain tick.
+    /// Initial do-after delay before mesmerizing.
     /// </summary>
     [DataField]
-    public float BloodDrainAmount = 10f;
+    public float StartDelay = 5f;
 
     /// <summary>
-    /// Initial do-after delay before the first drain tick fires.
+    /// How long to paralyze the target for.
     /// </summary>
-    [DataField]
-    public float StartDelay = 4f;
-
-    /// <summary>
-    /// How long the target sleeps when fed upon while held in an aggressive grab.
-    /// </summary>
-    [DataField]
-    public float SleepDuration = 60f;
-
-    /// <summary>
-    /// The sound that plays once the doafter completes.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? DrinkSound = new SoundPathSpecifier("/Audio/Items/drink.ogg");
+    public float ParalyzeDuration = 90f;
 
     #region Generic
 

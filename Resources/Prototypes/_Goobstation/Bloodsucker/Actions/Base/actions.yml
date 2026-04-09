@@ -5,12 +5,10 @@
   components:
   - type: Action
     useDelay: 5
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wraith/Mobs/actions.rsi
-      state: hook
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_feed
   - type: TargetAction
     range: 2
   - type: EntityTargetAction
@@ -19,3 +17,93 @@
       - Body
     canTargetSelf: false
     event: !type:BloodsuckerFeedEvent
+
+- type: entity
+  id: ActionBloodsuckerBrawl
+  name: Brawn
+  description: Snap restraints, break lockers and doors, or deal terrible damage with your bare hands.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_strength
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:BloodsuckerBrawlEvent
+
+- type: entity
+  id: ActionBloodsuckerHaste
+  name: Immortal Haste
+  description: Dash somewhere with supernatural speed. Those nearby may be knocked away, stunned, or left empty-handed.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_speed
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:BloodsuckerHasteEvent
+
+- type: entity
+  id: ActionBloodsuckerLunge
+  name: Predatory Lunge
+  description: Spring at your target to grapple them without warning, or tear the dead's heart out. Attacks from concealment or the rear may even knock them down if strong enough.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_lunge
+  - type: TargetAction
+    range: 8
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:BloodsuckerLungeEvent
+
+- type: entity
+  id: ActionBloodsuckerMesmerize
+  name: Mesmerize
+  description: Dominate the mind of a mortal who can see your eyes.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_mez
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:BloodsuckerMesmerizeEvent
+
+- type: entity
+  id: ActionBloodsuckerTrespass
+  name: Trespass
+  description: Become mist and advance two tiles in one direction. Useful for skipping past doors and barricades.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_tres
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:BloodsuckerTrespassEvent
+
