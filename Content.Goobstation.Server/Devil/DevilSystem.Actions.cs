@@ -32,13 +32,9 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(args))
             return;
 
-        var contract = Spawn(devil.Comp.ContractPrototype, Transform(devil).Coordinates);
-        _hands.TryPickupAnyHand(devil, contract);
-
-        if (!TryComp<DevilContractComponent>(contract, out var contractComponent))
-            return;
-
-        contractComponent.ContractOwner = args.Performer;
+        var contract = SpawnAndPickup(devil, devil.Comp.ContractPrototype);
+        if (TryComp<DevilContractComponent>(contract, out var contractComponent))
+            contractComponent.ContractOwner = args.Performer;
 
         PlayFwooshSound(devil);
         DoContractFlavor(devil, Identity.Name(devil, EntityManager));
@@ -49,16 +45,21 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(args))
             return;
 
-        var contract = Spawn(devil.Comp.RevivalContractPrototype, Transform(devil).Coordinates);
-        _hands.TryPickupAnyHand(devil, contract);
-
-        if (!TryComp<RevivalContractComponent>(contract, out var contractComponent))
-            return;
-
-        contractComponent.ContractOwner = args.Performer;
+        var contract = SpawnAndPickup(devil, devil.Comp.RevivalContractPrototype);
+        if (TryComp<RevivalContractComponent>(contract, out var contractComponent))
+            contractComponent.ContractOwner = args.Performer;
 
         PlayFwooshSound(devil);
         DoContractFlavor(devil, Identity.Name(devil, EntityManager));
+    }
+
+    private EntityUid SpawnAndPickup(Entity<DevilComponent> devil, string prototype)
+    {
+        var coords = Transform(devil).Coordinates;
+        var entity = Spawn(prototype, coords);
+
+        _hands.TryPickupAnyHand(devil, entity);
+        return entity;
     }
 
     private void OnShadowJaunt(Entity<DevilComponent> devil, ref ShadowJauntEvent args)
@@ -66,8 +67,9 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(args))
             return;
 
-        Spawn(devil.Comp.JauntAnimationProto, Transform(devil).Coordinates);
-        Spawn(devil.Comp.PentagramEffectProto, Transform(devil).Coordinates);
+        var coords = Transform(devil).Coordinates;
+        Spawn(devil.Comp.JauntAnimationProto, coords);
+        Spawn(devil.Comp.PentagramEffectProto, coords);
 
         if (TryComp<CuffableComponent>(devil, out var cuffableComponent))
             _container.EmptyContainer(cuffableComponent.Container, true);
@@ -112,14 +114,15 @@ public sealed partial class DevilSystem
             return;
 
         if (devil.Comp.PowerLevel != DevilPowerLevel.None)
-            devil.Comp.PossessionDuration *= (int)devil.Comp.PowerLevel;
+            devil.Comp.PossessionDuration *= (int) devil.Comp.PowerLevel;
 
         // Only mark as handled if possession succeeds to avoid wasting the cooldown.
         if (!_possession.TryPossessTarget(args.Target, args.Performer, devil.Comp.PossessionDuration, true, polymorphPossessor: true))
             return;
 
-        Spawn(devil.Comp.JauntAnimationProto, Transform(args.Target).Coordinates);
-        Spawn(devil.Comp.PentagramEffectProto, Transform(args.Target).Coordinates);
+        var targetCoords = Transform(args.Target).Coordinates;
+        Spawn(devil.Comp.JauntAnimationProto, targetCoords);
+        Spawn(devil.Comp.PentagramEffectProto, targetCoords);
 
         args.Handled = true;
     }

@@ -132,7 +132,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Change damage modifier
         if (TryComp<DamageableComponent>(devil, out var damageableComp))
-           _damageable.SetDamageModifierSetId(devil, devil.Comp.DevilDamageModifierSet, damageableComp);
+            _damageable.SetDamageModifierSetId(devil, devil.Comp.DevilDamageModifierSet, damageableComp);
 
         // No decapitating the devil
         foreach (var part in _body.GetBodyChildren(devil))
@@ -166,7 +166,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         if (devil.Comp.Souls is > 1 and < 7 && devil.Comp.Souls % 2 == 0)
         {
-            devil.Comp.PowerLevel = (DevilPowerLevel)(devil.Comp.Souls / 2); // malicious casting to enum
+            devil.Comp.PowerLevel = (DevilPowerLevel) (devil.Comp.Souls / 2); // malicious casting to enum
 
             // Raise event
             var ev = new PowerLevelChangedEvent(args.User, devil.Comp.PowerLevel);

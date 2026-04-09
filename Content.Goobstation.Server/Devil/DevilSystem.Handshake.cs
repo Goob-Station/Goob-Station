@@ -18,73 +18,88 @@ namespace Content.Goobstation.Server.Devil;
 
 public sealed partial class DevilSystem
 {
+    private static readonly SpriteSpecifier HandshakeIcon =
+        new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract");
+
+    private const int HandshakeVerbPriority = 1;
+    private static readonly TimeSpan HandshakeOfferDuration = TimeSpan.FromSeconds(15);
+
     private void InitializeHandshakeSystem()
     {
         SubscribeLocalEvent<DevilComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
         SubscribeLocalEvent<PendingHandshakeComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbsPending);
     }
+
+    private bool CanOfferHandshake(EntityUid user, EntityUid target)
+    {
+        return user != target
+               && !HasComp<CondemnedComponent>(target)
+               && HasComp<MobStateComponent>(target)
+               && !_state.IsIncapacitated(target)
+               && _body.BodyHasPartType(user, BodyPartType.Hand)
+               && _body.BodyHasPartType(target, BodyPartType.Hand)
+               && _contract.IsUserValid(target, out _);
+    }
+
     private void OnGetVerbs(EntityUid uid, DevilComponent comp, GetVerbsEvent<InnateVerb> args)
     {
         // Can't shake your own hand, and you can't shake from a distance
-        if (!args.CanAccess
-        || !args.CanInteract
-        || _state.IsIncapacitated(args.Target)
-        || !HasComp<MobStateComponent>(args.Target)
-        || HasComp<CondemnedComponent>(args.Target)
-        || args.Target == args.User
-        || !_body.BodyHasPartType(uid, BodyPartType.Hand) // cant shake if you have no hands
-        || !_body.BodyHasPartType(args.Target, BodyPartType.Hand) // or if they have none
-        || !_contract.IsUserValid(args.Target, out _))
+        if (!args.CanAccess ||
+            !args.CanInteract ||
+            !CanOfferHandshake(args.User, args.Target))
+        {
             return;
+        }
 
-        InnateVerb handshakeVerb = new()
+        args.Verbs.Add(new InnateVerb
         {
             Act = () => OfferHandshake(args.User, args.Target),
             Text = Loc.GetString("hand-shake-prompt-verb", ("target", args.Target)),
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
-            Priority = 1 // Higher priority than default verbs
-        };
-        args.Verbs.Add(handshakeVerb);
+            Icon = HandshakeIcon,
+            Priority = HandshakeVerbPriority
+        });
     }
 
     private void OnGetVerbsPending(EntityUid uid, PendingHandshakeComponent comp, GetVerbsEvent<InnateVerb> args)
     {
-        if (!args.CanAccess
-            || !args.CanInteract
-            || _state.IsIncapacitated(args.Target)
-            || !HasComp<MobStateComponent>(args.Target)
-            || args.Target != comp.Offerer)
+        if (!args.CanAccess ||
+            !args.CanInteract ||
+            _state.IsIncapacitated(args.Target) ||
+            !HasComp<MobStateComponent>(args.Target) ||
+            args.Target != comp.Offerer)
+        {
             return;
+        }
 
-        InnateVerb handshakeVerb = new()
+        args.Verbs.Add(new InnateVerb
         {
             Act = () => HandleHandshake(args.Target, args.User),
             Text = Loc.GetString("hand-shake-accept-verb", ("target", args.Target)),
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
-            Priority = 1 // Higher priority than default verbs
-        };
-        args.Verbs.Add(handshakeVerb);
+            Icon = HandshakeIcon,
+            Priority = HandshakeVerbPriority
+        });
     }
 
     private void OfferHandshake(EntityUid user, EntityUid target)
     {
-        if (HasComp<DevilComponent>(target)
-            || HasComp<PendingHandshakeComponent>(target)
-            || !_contract.IsUserValid(target, out _))
+        if (HasComp<DevilComponent>(target) ||
+            HasComp<PendingHandshakeComponent>(target) ||
+            !_contract.IsUserValid(target, out _))
+        {
             return;
+        }
 
         var pending = AddComp<PendingHandshakeComponent>(target);
         pending.Offerer = user;
-        pending.ExpiryTime = _timing.CurTime + TimeSpan.FromSeconds(15);
+        pending.ExpiryTime = _timing.CurTime + HandshakeOfferDuration;
 
-        // Notify target
         var popupMessage = Loc.GetString("handshake-offer-popup", ("user", user));
         _popup.PopupEntity(popupMessage, target, target);
 
-        // Notify self
         var selfPopup = Loc.GetString("handshake-offer-popup-self", ("target", target));
         _popup.PopupEntity(selfPopup, user, user);
     }
+
     private void HandleHandshake(EntityUid user, EntityUid target)
     {
         if (!_contract.TryTransferSouls(user, target, 1))
@@ -94,8 +109,9 @@ public sealed partial class DevilSystem
             return;
         }
 
-        var handshakeSucess = Loc.GetString("handshake-success", ("user", user));
-        _popup.PopupEntity(handshakeSucess, target, target);
+        var handshakeSuccess = Loc.GetString("handshake-success", ("user", user));
+        _popup.PopupEntity(handshakeSuccess, target, target);
+
         _rejuvenate.PerformRejuvenate(target);
 
         var cheatdeath = EnsureComp<CheatDeathComponent>(target);
