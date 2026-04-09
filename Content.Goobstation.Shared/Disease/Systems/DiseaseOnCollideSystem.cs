@@ -59,6 +59,10 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
 
     private void OnHand(Entity<DiseaseOnCollideComponent> ent, ref DiseaseRelayedEvent<InteractHandEvent> arg)
     {
+        if (_timing.CurTime < ent.Comp.Cooldown)
+            return;
+        ent.Comp.Cooldown = ent.Comp.CooldownInterval + _timing.CurTime;
+
         if (arg.Args.User == arg.Args.Target)
             return;
 
@@ -77,6 +81,10 @@ public sealed class DiseaseOnCollideSystem : EntitySystem
 
     private void OnHand(Entity<DiseaseOnCollideComponent> ent, ref DiseaseRelayedEvent<BeforeInteractHandEvent> arg)
     {
+        if (_timing.CurTime < ent.Comp.Cooldown)
+            return;
+        ent.Comp.Cooldown = ent.Comp.CooldownInterval + _timing.CurTime;
+
         var diseaseUid = Transform(ent.Owner).ParentUid;
         var host = Transform(diseaseUid).ParentUid;
         var target = arg.Args.Target;
