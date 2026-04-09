@@ -33,6 +33,7 @@ public sealed partial class DevilSystem
             return;
 
         var contract = SpawnAndPickup(devil, devil.Comp.ContractPrototype);
+        _hands.TryPickupAnyHand(devil, contract);
         if (TryComp<DevilContractComponent>(contract, out var contractComponent))
             contractComponent.ContractOwner = args.Performer;
 
@@ -46,6 +47,7 @@ public sealed partial class DevilSystem
             return;
 
         var contract = SpawnAndPickup(devil, devil.Comp.RevivalContractPrototype);
+        _hands.TryPickupAnyHand(devil, contract);
         if (TryComp<RevivalContractComponent>(contract, out var contractComponent))
             contractComponent.ContractOwner = args.Performer;
 
