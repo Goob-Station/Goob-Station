@@ -2048,3 +2048,18 @@
     whitelist:
       tags:
       - ContractorUplink
+
+- type: listing
+  id: UplinkJestographicSequencer
+  name: uplink-jestographic-sequencer-name
+  description: uplink-jestographic-sequencer-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Tools/jestographic_sequencer.rsi, state: icon }
+  productEntity: JestographicSequencerLimited
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown

@@ -820,6 +820,7 @@
   name: clown recorder
   description: When you just can't get those laughs coming the natural way!
   components:
+  - type: ClownRecorder # Goobstation - Jestographic
   - type: Sprite
     sprite: Objects/Fun/clownrecorder.rsi
     state: icon

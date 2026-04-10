@@ -1,0 +1,25 @@
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: JestographicSequencerUnlimited
+  suffix: Unlimited
+  name: jestographic sequencer
+  description: It's a card coated in a slurry of electromagnetic bananium.
+  components:
+  - type: Emag
+    emagType: Jestographic
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/jestographic_sequencer.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/jestographic_sequencer.rsi
+  - type: Tag
+    tags:
+    - Hacking
+
+- type: entity
+  parent: JestographicSequencerUnlimited
+  suffix: Limited
+  id: JestographicSequencerLimited
+  components:
+  - type: LimitedCharges
+  - type: AutoRecharge
