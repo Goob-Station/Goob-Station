@@ -101,7 +101,7 @@
     sprite: Objects/Weapons/Grenades/stingergrenade.rsi
     state: icon
   product: CrateSecNonlethalThrowables
-  cost: 2500
+  cost: 2800 # Goobstation - Added EMP grenades
   category: cargoproduct-category-name-security
   group: market
 
