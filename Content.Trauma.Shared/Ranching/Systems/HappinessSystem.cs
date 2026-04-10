@@ -32,16 +32,12 @@ public sealed class HappinessSystem : EntitySystem
         if (!args.DamageIncreased)
             return;
 
-        if (!TryComp<InternalResourcesComponent>(ent, out var internalResources))
-            return;
+        ChangeHappiness(ent, ent.Comp.DamageDecrease);
+    }
 
-        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
-
-        foreach (var type in internalResources.CurrentInternalResources)
-        {
-            if (type.InternalResourcesType == happinessResource)
-                _internalResources.TryUpdateResourcesAmount(ent.Owner, type, -ent.Comp.HappinessIncrease);
-        }
+    private void OnSuccessPet(Entity<HappinessComponent> ent, ref InteractionSuccessEvent args)
+    {
+        ChangeHappiness(ent, ent.Comp.HappinessIncrease);
     }
 
     private void OnHappinessChangedReplace(Entity<ReplaceOnUnhappyComponent> ent, ref InternalResourcesAmountChangedEvent args)
@@ -63,20 +59,6 @@ public sealed class HappinessSystem : EntitySystem
         EntityManager.AddComponents(ent.Owner, ent.Comp.Components);
     }
 
-    private void OnSuccessPet(Entity<HappinessComponent> ent, ref InteractionSuccessEvent args)
-    {
-        if (!TryComp<InternalResourcesComponent>(ent, out var internalResources))
-            return;
-
-        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
-
-        foreach (var type in internalResources.CurrentInternalResources)
-        {
-            if (type.InternalResourcesType == happinessResource)
-                _internalResources.TryUpdateResourcesAmount(ent.Owner, type, ent.Comp.HappinessIncrease);
-        }
-    }
-
     private void OnMapInit(Entity<HappinessComponent> ent, ref MapInitEvent args)
     {
         var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
@@ -94,6 +76,20 @@ public sealed class HappinessSystem : EntitySystem
         {
             if (type.InternalResourcesType == happinessResource)
                 type.CurrentAmount = setTo;
+        }
+    }
+
+    public void ChangeHappiness(Entity<HappinessComponent> ent, float amount)
+    {
+        if (!TryComp<InternalResourcesComponent>(ent, out var internalResources))
+            return;
+
+        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
+
+        foreach (var type in internalResources.CurrentInternalResources)
+        {
+            if (type.InternalResourcesType == happinessResource)
+                type.CurrentAmount += amount;
         }
     }
 

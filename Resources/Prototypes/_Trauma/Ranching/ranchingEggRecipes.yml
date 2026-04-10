@@ -236,3 +236,15 @@
   happinessRequired: 16
   foodTagsRequired:
   - MagicMushroom
+
+- type: eggRecipe
+  id: SynthEgg
+  egg: SynthEgg
+  requiredChicken:
+  - MobBrownHen
+  - MobSynthHen
+  noSpecialFoodRequiredChickens:
+  - MobSynthHen
+  happinessRequired: 16
+  foodTagsRequired:
+  - SynthMeat

@@ -265,3 +265,18 @@
     state: egg-wizard
   - type: TimedReplace
     entity: MobChickWizard
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SynthEgg
+  components:
+  - type: Sprite
+    state: egg-plant
+  - type: TimedReplace
+    entity: MobChickSynth
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 15

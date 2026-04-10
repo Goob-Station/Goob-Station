@@ -15,4 +15,7 @@ public sealed partial class HappinessComponent : Component
 
     [DataField]
     public float HappinessIncrease = 5f;
+
+    [DataField]
+    public float DamageDecrease = -10f;
 }

@@ -67,13 +67,8 @@
       reagents:
       - ReagentId: Blood
         Quantity: 100
+  - type: Unrevivable
   - type: ExaminableHunger
-
-- type: entity
-  abstract: true
-  parent: [BaseMobChickRanch, MobCombat]
-  id: BaseMobRoosterRanch
-  components:
   - type: Hunger
     thresholds:
       Overfed: 100
@@ -81,6 +76,15 @@
       Peckish: 35
       Starving: 20
       Dead: 15
+    starvationDamage:
+      types:
+        Asphyxiation: 1
+
+- type: entity
+  abstract: true
+  parent: [BaseMobChickRanch, MobCombat]
+  id: BaseMobRoosterRanch
+  components:
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -955,7 +959,7 @@
 - type: entity
   parent: BaseMobChickRanch
   id: MobChickWizard
-  name: onagadori chick
+  name: wiz chick
   components:
   - type: SpawnEntityOnAgeUp
     entToSpawn:
@@ -994,3 +998,42 @@
   - type: FavoriteFood
     tag:
     - MagicMushroom
+
+# Synth Chicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickSynth
+  name: synth chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSynthHen
+    - MobSynthRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobSynthHen
+  name: synth hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobSynthRooster
+  name: synth rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat

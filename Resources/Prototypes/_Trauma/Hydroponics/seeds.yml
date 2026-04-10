@@ -197,3 +197,30 @@
       Min: 1
       Max: 10
       PotencyDivisor: 10
+
+- type: seed
+  id: SynthMeat
+  name: seeds-synthmeat-name
+  noun: seeds-noun-seeds
+  displayName: seeds-synthmeat-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/synthmeat.rsi
+  packetPrototype: SynthMeatSeeds
+  productPrototypes:
+  - FoodSynthMeat
+  lifespan: 25
+  maturation: 6
+  production: 3
+  yield: 3
+  growthStages: 3
+  potency: 5
+  idealLight: 8
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 20
+    Synthflesh:
+      Min: 5
+      Max: 20
+      PotencyDivisor: 20

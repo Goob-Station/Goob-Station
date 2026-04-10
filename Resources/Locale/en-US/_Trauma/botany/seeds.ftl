@@ -18,3 +18,6 @@ seeds-peanut-display-name = peanut plant
 
 seeds-magicmush-name = magic mushrooms
 seeds-magicmush-display-name = magic mushrooms
+
+seeds-synthmeat-name = synthmeat
+seeds-synthmeat-display-name = synthmeat plant

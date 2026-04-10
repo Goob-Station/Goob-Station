@@ -70,9 +70,9 @@
     - id: LemonGrenade
 
 - type: entity
-  name: delicious looking apple
   parent: FoodApple
   id: FoodDeliciousApple
+  name: delicious looking apple
   description: It's a delicious piece of Eden.
   components:
   - type: Produce
@@ -83,9 +83,9 @@
     - DeliciousLookingApple
 
 - type: entity
-  name: meth apple
   parent: FoodApple
   id: FoodMethApple
+  name: meth apple
   description: It's a meth up'ed piece of Eden.
   components:
   - type: Sprite
@@ -132,10 +132,10 @@
           Quantity: 15
 
 - type: entity
+  parent: FoodProduceBase
+  id: FoodPeanut
   name: peanut
   description: A pea, but with nut.
-  id: FoodPeanut
-  parent: FoodProduceBase
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/peanut.rsi
@@ -146,9 +146,9 @@
     - Peanut
 
 - type: entity
-  name: magic mushrooms
   parent: FoodProduceBase
   id: FoodMagicMushroom
+  name: magic mushrooms
   description: Mushrooms with just a little bit of magic.
   components:
   - type: SolutionContainerManager
@@ -167,3 +167,23 @@
     tags:
     - MagicMushroom
     - Mushroom
+
+- type: entity
+  parent: FoodProduceBase
+  id: FoodSynthMeat
+  name: synthmeat
+  description: Synthetic meat grown in hydroponics.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/synthmeat.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Synthflesh
+          Quantity: 10
+  - type: Produce
+    seedId: SynthMeat
+  - type: Tag
+    tags:
+    - SynthMeat
