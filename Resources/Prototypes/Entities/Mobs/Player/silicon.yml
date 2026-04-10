@@ -327,6 +327,7 @@
     needsPower: false
   - type: StationAiCore
   - type: StationAiVision
+  - type: StationAiEarlyLeave # Goobstation
   - type: InteractionOutline
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
@@ -428,6 +429,48 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Schechi
+    - NewKinPidgin
+    understands:
+    - TauCetiBasic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Sign
+    - Schechi
+    - NewKinPidgin
   - type: SpeechSynthesis # Corvax-Frontier-Barks
     voice: Borg
 

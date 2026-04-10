@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent:
     - SimpleSpaceMobBase
@@ -43,6 +38,9 @@
   - type: InteractionOutline
   - type: NoSlip
   - type: Clickable
+  - type: Butcherable
+    butcherDelay: 15
+    spawned: [ ]
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -111,10 +109,11 @@
   - type: DemonicWhisper # allows the demon to demonic whisper
   - type: DemonicAccent # the accent
   - type: Puller
+    needsHands: false
+  - type: GrabIntent
     stageChangeCooldown: 0.5
     grabThrowDamageModifier: 6.0
     throwingDistance: 30
-    needsHands: false
   - type: Targeting
   - type: Speech
     speechVerb: SlaughterDemon
@@ -184,6 +183,11 @@
         Heat: 0
     heatDamageThreshold: 666
     coldDamageThreshold: 66
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
 
 # laughter demon
 - type: entity

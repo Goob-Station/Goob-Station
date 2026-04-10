@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Lidgren.Network;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
@@ -17,26 +12,45 @@ public sealed class QueueUpdateMessage : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.Command;
 
-    /// <summary>
-    ///     Total players in queue
-    /// </summary>
+    // Queue info
     public int Total { get; set; }
-
-    /// <summary>
-    ///     Player current position in queue (starts from 1)
-    /// </summary>
     public int Position { get; set; }
+    public bool IsPatron { get; set; }
 
-    /// <summary>
-    ///     If player is a patron. Defaults to false.
-    /// </summary>
-    public bool IsPatron { get; set; } = false;
+    // Estimated wait
+    public float EstimatedWaitSeconds { get; set; } = -1f;
+
+    // Server info
+    public string MapName { get; set; } = string.Empty;
+    public string GameMode { get; set; } = string.Empty;
+    public int ServerPlayerCount { get; set; }
+    public int MaxPlayerCount { get; set; }
+    public int RoundDurationMinutes { get; set; }
+
+    // Critter display
+    public string YourName { get; set; } = string.Empty;
+    public List<string> PlayerNames { get; set; } = new();
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         Total = buffer.ReadInt32();
         Position = buffer.ReadInt32();
         IsPatron = buffer.ReadBoolean();
+        EstimatedWaitSeconds = buffer.ReadFloat();
+
+        MapName = buffer.ReadString();
+        GameMode = buffer.ReadString();
+        ServerPlayerCount = buffer.ReadInt32();
+        MaxPlayerCount = buffer.ReadInt32();
+        RoundDurationMinutes = buffer.ReadInt32();
+
+        YourName = buffer.ReadString();
+        var count = buffer.ReadInt32();
+        PlayerNames = new List<string>(count);
+        for (var i = 0; i < count; i++)
+        {
+            PlayerNames.Add(buffer.ReadString());
+        }
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
@@ -44,5 +58,19 @@ public sealed class QueueUpdateMessage : NetMessage
         buffer.Write(Total);
         buffer.Write(Position);
         buffer.Write(IsPatron);
+        buffer.Write(EstimatedWaitSeconds);
+
+        buffer.Write(MapName);
+        buffer.Write(GameMode);
+        buffer.Write(ServerPlayerCount);
+        buffer.Write(MaxPlayerCount);
+        buffer.Write(RoundDurationMinutes);
+
+        buffer.Write(YourName);
+        buffer.Write(PlayerNames.Count);
+        foreach (var name in PlayerNames)
+        {
+            buffer.Write(name);
+        }
     }
 }

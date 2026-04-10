@@ -96,6 +96,15 @@
       department: Security
       time: 216000 # 60 hrs
 
+- type: loadoutEffectGroup
+  id: VeteranOfficer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 # 100 hrs
+
 #Security Star
 - type: loadoutEffectGroup
   id: SecurityStarWorthy

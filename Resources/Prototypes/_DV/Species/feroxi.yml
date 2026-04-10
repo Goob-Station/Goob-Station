@@ -22,7 +22,6 @@
     Chest: MobFeroxiChest
     Groin: MobFeroxiGroin
     HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobFeroxiLArm
@@ -58,10 +57,22 @@
       points: 3
       required: false
     Arms:
-      points: 1
+      points: 4
       required: false
     Legs:
-      points: 1
+      points: 4
+      required: false
+    RightHand:
+      points: 2
+      required: false
+    LeftHand:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
       required: false
     Tail:
       points: 1
@@ -71,101 +82,101 @@
 - type: humanoidBaseSprite
   id: MobFeroxiHead
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobFeroxiHeadMale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobFeroxiHeadFemale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobFeroxiChest
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobFeroxiChestMale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobFeroxiChestFemale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: chest_f
 
 - type: humanoidBaseSprite
   id: MobFeroxiGroin
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobFeroxiGroinMale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobFeroxiGroinFemale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: groin_f
 
 - type: humanoidBaseSprite
   id: MobFeroxiLLeg
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobFeroxiLHand
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobFeroxiLArm
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobFeroxiLFoot
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobFeroxiRLeg
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobFeroxiRHand
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobFeroxiRArm
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobFeroxiRFoot
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: r_foot
