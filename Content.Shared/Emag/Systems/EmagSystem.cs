@@ -144,6 +144,21 @@ public sealed class EmagSystem : EntitySystem
     }
 
     /// <summary>
+    /// Goobstation - Checks whether an entity has the EmaggedComponent with specified flag.
+    /// </summary>
+    /// <param name="target">The target entity to check for the flag.</param>
+    /// <param name="flag">The EmagType flag to check for.</param>
+    /// <returns>True if entity has EmaggedComponent and the provided flag. False if the entity lacks EmaggedComponent or provided flag.</returns>
+    /// <remarks> Use this if you want to check specific flag inside a populated emag flags </remarks>
+    public bool CheckAnyFlag(EntityUid? target, EmagType flag)
+    {
+        if (!TryComp<EmaggedComponent>(target, out var comp))
+            return false;
+
+        return (comp.EmagType & flag) != EmagType.None;
+    }
+
+    /// <summary>
     /// Compares a flag to the target.
     /// </summary>
     /// <param name="target">The target flag to check.</param>
@@ -155,6 +170,18 @@ public sealed class EmagSystem : EntitySystem
             return true;
 
         return false;
+    }
+
+    /// <summary>
+    /// Goobstation - Compares a specified flag to the target.
+    /// </summary>
+    /// <param name="target">The target flag to check.</param>
+    /// <param name="flag">The flag to check for within the target.</param>
+    /// <returns>True if target contains flag. Otherwise false.</returns>
+    /// <remarks> Use this if you want to check specific flag inside a populated emag flags </remarks>
+    public bool CompareAnyFlag(EmagType? target, EmagType flag)
+    {
+        return (target & flag) != EmagType.None;
     }
 }
 

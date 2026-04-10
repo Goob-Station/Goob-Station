@@ -142,6 +142,8 @@ using Content.Server.Research.Systems;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Tag;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Server.Popups;
+using Content.Shared.Popups;
 namespace Content.Server.Silicons.Laws;
 
 public sealed class SiliconLawSystem : SharedSiliconLawSystem
@@ -161,8 +163,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
-
-
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -340,6 +341,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         Spawn("PranksimovCircuitBoard", position);
         QueueDel(ent);
+
+        _popup.PopupEntity(Loc.GetString("emag-board-success"), ent.Owner, PopupType.Medium);
 
         args.Handled = true;
     }

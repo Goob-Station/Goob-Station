@@ -11,6 +11,7 @@ public sealed partial class CleanEmagSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
@@ -25,7 +26,7 @@ public sealed partial class CleanEmagSystem : EntitySystem
         if (args.Target == null || !args.CanReach || args.Handled)
             return;
 
-        if (!TryComp<EmaggedComponent>(args.Target, out var emag) || emag.EmagType != EmagType.Jestographic)
+        if (!_emag.CheckAnyFlag(args.Target, EmagType.Jestographic))
             return;
 
         var doAfter = new DoAfterArgs(EntityManager, args.User, ent.Comp.CleanDuration, new CleaningEmaggedDeviceDoAfterEvent(), args.Target, args.Target)
@@ -37,7 +38,7 @@ public sealed partial class CleanEmagSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(doAfter);
 
-        _popup.PopupPredicted(Loc.GetString("emag-cleaning", ("device", ent.Owner)), args.User, args.User);
+        _popup.PopupPredicted(Loc.GetString("emag-cleaning", ("device", args.Target)), args.User, args.User);
 
         args.Handled = true;
     }
