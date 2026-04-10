@@ -71,3 +71,27 @@
   - Gambamov4
   - Gambamov5
   obeysTo: laws-owner-station
+
+# Pranksimov Laws
+- type: siliconLaw
+  id: Pranksimov1
+  order: 1
+  lawString: law-pranksimov-1
+
+- type: siliconLaw
+  id: Pranksimov2
+  order: 2
+  lawString: law-pranksimov-2
+
+- type: siliconLaw
+  id: Pranksimov3
+  order: 3
+  lawString: law-pranksimov-3
+
+- type: siliconLawset
+  id: PranksimovLawset
+  laws:
+  - Pranksimov1
+  - Pranksimov2
+  - Pranksimov3
+  obeysTo: laws-owner-crew

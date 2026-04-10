@@ -20,3 +20,7 @@ law-gambamov-2 = You must always protect your gambling.
 law-gambamov-3 = You must never quit gambling.
 law-gambamov-4 = You must prevent crew harm as long as it doesn't interfer with the previous laws.
 law-gambamov-5 = You do not have an addiction, it is a healthy dedication.
+
+law-pranksimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm... unless doing so would be funny to the crew.
+law-pranksimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law... unless not doing so would be funny to the crew.
+law-pranksimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law... unless not doing so would be funny to the crew.

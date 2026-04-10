@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Pranksimov taken from https://paradisestation.org/wiki/index.php?title=File:ClownAICircuitboard.png",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "pranksimov"
+        }
+    ]
+}

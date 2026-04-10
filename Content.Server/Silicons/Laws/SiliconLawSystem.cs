@@ -179,6 +179,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         SubscribeLocalEvent<SiliconLawProviderComponent, MindAddedMessage>(OnLawProviderMindAdded);
         SubscribeLocalEvent<SiliconLawProviderComponent, MindRemovedMessage>(OnLawProviderMindRemoved);
         SubscribeLocalEvent<SiliconLawProviderComponent, SiliconEmaggedEvent>(OnEmagLawsAdded);
+        SubscribeLocalEvent<SiliconLawProviderComponent, GotEmaggedEvent>(OnGotEmagged); // Goobstation - Jestographic
     }
 
     private void OnMapInit(EntityUid uid, SiliconLawBoundComponent component, MapInitEvent args)
@@ -318,6 +319,29 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         });
 
         _adminLogger.Add(LogType.SiliconLaws, LogImpact.High, $"{ToPrettyString(uid):entity} laws changed due to emag by {ToPrettyString(args.user):user} to:{component.Lawset!.LoggingString()}"); // goob
+    }
+
+    private void OnGotEmagged(Entity<SiliconLawProviderComponent> ent, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Jestographic))
+            return;
+
+        if (_emag.CheckFlag(ent.Owner, EmagType.Jestographic))
+            return;
+
+        var currentLaws = ent.Comp.Laws.Id;
+
+        //Prevent emag spam
+        if (currentLaws.Contains("PranksimovLawset"))
+            return;
+
+        var transform = Transform(ent);
+        var position = transform.Coordinates;
+
+        Spawn("PranksimovCircuitBoard", position);
+        QueueDel(ent);
+
+        args.Handled = true;
     }
 
     protected override void EnsureSubvertedSiliconRole(EntityUid mindId)
