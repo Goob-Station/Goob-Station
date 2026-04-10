@@ -21,7 +21,6 @@ public sealed partial class ChangelingEggComponent : Component
     public ChangelingIdentityComponent lingComp;
     public EntityUid lingMind;
     public StoreComponent lingStore;
-    public bool AugmentedEyesightPurchased;
 
     /// <summary>
     ///     Countdown before spawning monkey.

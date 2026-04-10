@@ -21,3 +21,10 @@
         damage:
           types:
             Poison: -1
+      - !type:ImmunityModifier
+        gainRateModifier: 0.00075 #1/2 of immurin, given they both suck
+        strengthModifier: 0.01
+        statusLifetime: 3 # 3s per 1u
+      - !type:DiseaseProgressChange
+        affectedType: Viral
+        progressModifier: -0.01 #1/8th of devirate

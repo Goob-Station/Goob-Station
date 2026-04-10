@@ -17,6 +17,9 @@
       "name": "id_overlay"
     },
 	{
+      "name": "insert_overlay"
+    },
+	{
       "name": "light_overlay"
     },
     {
