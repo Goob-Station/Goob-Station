@@ -46,7 +46,13 @@ public sealed partial class CleanEmagSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        RemCompDeferred<EmaggedComponent>(ent.Owner);
+        // Only remove the jestographic flag
+        ent.Comp.EmagType &= ~EmagType.Jestographic;
+
+        Dirty(ent);
+
+        if (ent.Comp.EmagType == EmagType.None)
+            RemCompDeferred<EmaggedComponent>(ent.Owner);
 
         var ev = new EmagCleanedEvent(args.User);
         RaiseLocalEvent(ent.Owner, ref ev);
