@@ -183,3 +183,9 @@
   name: lavaland-ruin-temple
   path: /Maps/Lavaland/temple.yml
   priority: 30
+
+- type: lavalandGridRuin
+  id: XenoNest
+  name: lavaland-ruin-abductor # its the same as ufo crash site so you never know
+  path: /Maps/_Lavaland/Lavaland/ruin_xeno_nest.yml
+  priority: 5
