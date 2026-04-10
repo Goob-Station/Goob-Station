@@ -19,6 +19,7 @@ public sealed partial class CleanEmagSystem : EntitySystem
         SubscribeLocalEvent<CleanEmagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<EmaggedComponent, CleaningEmaggedDeviceDoAfterEvent>(OnCleaningEmaggedDevice);
     }
+
     private void OnAfterInteract(Entity<CleanEmagComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Target == null || !args.CanReach || args.Handled)
