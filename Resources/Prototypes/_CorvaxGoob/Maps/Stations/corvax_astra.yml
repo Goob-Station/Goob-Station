@@ -40,11 +40,12 @@
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Surgeon: [ 1, 1 ]
-            Virologist: [ 1, 1 ]
+            Virologist: [ 1, 2 ]
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 6 ]
             ResearchAssistant: [ 3, 4 ]
+            Roboticist: [ 1, 1 ]
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -54,7 +55,9 @@
             Detective: [ 1, 1 ]
             Pilot: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
-            Lawyer: [ 1, 1 ]
+            # court
+            Lawyer: [ 2, 3 ]
+            Magistrate: [ 1, 1 ]
             # service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
@@ -73,7 +76,7 @@
             Passenger: [ -1, -1 ]
             # silicon
             StationAi: [ 1, 1 ]
-            Borg: [ 2, 2 ]
+            Borg: [ 2, 4 ]
         - type: StationGoal
           goals:
           - Singularity
