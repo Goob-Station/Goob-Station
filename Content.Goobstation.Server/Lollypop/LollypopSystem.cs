@@ -78,9 +78,9 @@ public sealed class LollypopSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(ent.Owner, edible.Solution, out var soln, out var solution))
             return;
 
-        var transferAmount = FixedPoint2.Min( ent.Comp.Ammount, solution.Volume);
+        var transferAmount = FixedPoint2.Min(ent.Comp.Amount, solution.Volume);
         var split = _solutionContainer.SplitSolution(soln.Value, transferAmount);
-        
+
         // Get the stomach with the highest available solution volume
         var highestAvailable = FixedPoint2.Zero;
         Entity<StomachComponent>? stomachToUse = null;
