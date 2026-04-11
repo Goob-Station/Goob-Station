@@ -120,3 +120,17 @@
   - type: InstantAction
     event: !type:BloodsuckerCloakEvent
 
+- type: entity
+  id: ActionBloodsuckerHelpVassal
+  name: Help Vassal
+  description: Bring an ex-Vassal back into the fold. Sacrifices some blood to create a blood bag if not holding onto an ex-vassal.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_torpor
+  - type: InstantAction
+    event: !type:BloodsuckerHelpVassalEvent
+

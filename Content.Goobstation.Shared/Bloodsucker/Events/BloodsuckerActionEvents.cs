@@ -6,12 +6,30 @@ using System.Numerics;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Events;
 
+#region Targeted
+
 public sealed partial class BloodsuckerFeedEvent : EntityTargetActionEvent;
 public sealed partial class BloodsuckerBrawlEvent : EntityTargetActionEvent;
 public sealed partial class BloodsuckerLungeEvent : EntityTargetActionEvent;
 public sealed partial class BloodsuckerMesmerizeEvent : EntityTargetActionEvent;
 public sealed partial class BloodsuckerHasteEvent : WorldTargetActionEvent;
 public sealed partial class BloodsuckerTrespassEvent : InstantActionEvent;
+
+#endregion
+
+#region Non-targeted
+public sealed partial class BloodsuckerCloakEvent : InstantActionEvent;
+public sealed partial class BloodsuckerFortitudeEvent : InstantActionEvent;
+public sealed partial class BloodsuckerVanishingActEvent : InstantActionEvent;
+public sealed partial class BloodsuckerMasqueradeEvent : InstantActionEvent;
+public sealed partial class BloodsuckerAcquireScentEvent : InstantActionEvent;
+public sealed partial class BloodsuckerFollowScentEvent : InstantActionEvent;
+public sealed partial class BloodsuckerHelpVassalEvent : InstantActionEvent;
+public sealed partial class BloodsuckerVeilEvent : InstantActionEvent;
+
+#endregion
+
+#region Do-afters
 
 [Serializable, NetSerializable]
 public sealed partial class BloodsuckerBrawlDoAfterEvent : SimpleDoAfterEvent
@@ -30,7 +48,5 @@ public sealed partial class BloodsuckerMesmerizeDoAfterEvent : SimpleDoAfterEven
 
 [Serializable, NetSerializable]
 public sealed partial class BloodsuckerLungeDoAfterEvent : SimpleDoAfterEvent;
-//[ByRefEvent] public record struct BloodsuckerHasteTrailEvent(Vector2 From, Vector2 To);
-//[ByRefEvent] public record struct BloodsuckerTrespassMistEvent(Vector2 From, Vector2 To);
 
-public sealed partial class BloodsuckerCloakEvent : InstantActionEvent;
+#endregion

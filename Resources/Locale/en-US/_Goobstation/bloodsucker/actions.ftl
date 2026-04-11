@@ -68,3 +68,12 @@ bloodsucker-cloak-fell-off = Your Cloak of Darkness fell away as you lost consci
 bloodsucker-cloak-fail-witnessed = You can only vanish unseen.
 bloodsucker-cloak-run-penalty = You attempt to run, crushing yourself!
 bloodsucker-cloak-light-exposed = The light dissolves your cloak!
+
+# Help vassal
+
+bloodsucker-help-vassal-start = You begin drawing {$target} back into the fold...
+bloodsucker-help-vassal-success-user = You bring {$target} back into your service.
+bloodsucker-help-vassal-success-others = {$target} is drawn back into the fold.
+bloodsucker-help-vassal-fail-not-exvassal = They are no longer a former vassal.
+bloodsucker-help-vassal-no-blood = You don't have enough blood for this.
+bloodsucker-help-vassal-bag-created = You fill a blood bag from your own veins.

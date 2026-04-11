@@ -13,6 +13,7 @@
   - type: BloodsuckerMesmerize
   - type: BloodsuckerTrespass
   - type: BloodsuckerCloak
+  - type: BloodsuckerHelpVassal
   - type: ActionGrant
     actions:
     - ActionBloodsuckerFeed
@@ -22,3 +23,4 @@
     - ActionBloodsuckerMesmerize
     - ActionBloodsuckerTrespass
     - ActionBloodsuckerCloak
+    - ActionBloodsuckerHelpVassal
