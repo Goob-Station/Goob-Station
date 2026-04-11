@@ -10,11 +10,15 @@
     {
       "name": "icon"
     },
-	{
+    {
       "name": "icon-filled"
     },
     {
       "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "equipped-NECK",
       "directions": 4
     },
     {
