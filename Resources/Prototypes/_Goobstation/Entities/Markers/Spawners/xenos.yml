@@ -1,18 +1,4 @@
-# Gamemode xeno spawners for mapping
-
-- type: entity
-  parent: MarkerBase
-  id: SpawnMobXenomorphFaceHugger
-  name: xeno facehugger spawner
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: _Trauma/Mobs/Xenos/facehugger.rsi
-      state: facehugger
-  - type: ConditionalSpawner
-    prototypes:
-    - MobXenomorphFaceHugger
+# Xeno spawners for mapping
 
 - type: entity
   parent: MarkerBase
@@ -40,7 +26,7 @@
       state: xenomorph
   - type: ConditionalSpawner
     prototypes:
-    - MobXenomorphDrone
+    - MobXenomorphDroneDungeon
 
 - type: entity
   parent: MarkerBase
@@ -54,7 +40,7 @@
       state: xenomorph
   - type: ConditionalSpawner
     prototypes:
-    - MobXenomorphHunter
+    - MobXenomorphHunterDungeon
 
 - type: entity
   parent: MarkerBase
@@ -68,7 +54,7 @@
       state: xenomorph
   - type: ConditionalSpawner
     prototypes:
-    - MobXenomorphPraetorian
+    - MobXenomorphPraetorianDungeon
 
 - type: entity
   parent: MarkerBase
@@ -82,7 +68,7 @@
       state: xenomorph
   - type: ConditionalSpawner
     prototypes:
-    - MobXenomorphSentinel
+    - MobXenomorphSentinelDungeon
 
 - type: entity
   parent: MarkerBase
@@ -92,8 +78,8 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _Trauma/Mobs/Xenos/queen.rsi
+    - sprite: _White/Mobs/Aliens/Xenomorphs/queen.rsi
       state: xenomorph
   - type: ConditionalSpawner
     prototypes:
-    - MobXenomorphQueen
+    - MobXenomorphQueenDungeon
