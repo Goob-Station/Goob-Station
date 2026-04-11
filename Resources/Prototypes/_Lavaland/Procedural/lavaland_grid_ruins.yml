@@ -56,6 +56,12 @@
   priority: 5
 
 - type: lavalandGridRuin
+  id: XenoNest
+  name: lavaland-ruin-desk #"Station debris"
+  path: /Maps/_Lavaland/Lavaland/ruin_xeno_nest.yml
+  priority: 5
+
+- type: lavalandGridRuin
   id: Ratvar
   name: lavaland-ruin-laboratory
   path: /Maps/_Lavaland/Lavaland/ruin_ratvar.yml
@@ -184,8 +190,3 @@
   path: /Maps/Lavaland/temple.yml
   priority: 30
 
-- type: lavalandGridRuin
-  id: XenoNest
-  name: lavaland-ruin-abductor # its the same as ufo crash site so you never know
-  path: /Maps/_Lavaland/Lavaland/ruin_xeno_nest.yml
-  priority: 5
