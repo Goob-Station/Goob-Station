@@ -83,7 +83,6 @@ public sealed class CloningPodSystem : EntitySystem
         SubscribeLocalEvent<CloningPodComponent, AnchorStateChangedEvent>(OnAnchor);
         SubscribeLocalEvent<CloningPodComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CloningPodComponent, GotEmaggedEvent>(OnEmagged);
-        SubscribeLocalEvent<CloningPodComponent, EmagCleanedEvent>(OnEmagCleaned); // Goobstation - Jestographic
     }
 
     private void OnComponentInit(Entity<CloningPodComponent> ent, ref ComponentInit args)
@@ -314,18 +313,6 @@ public sealed class CloningPodSystem : EntitySystem
             return;
 
         _popupSystem.PopupEntity(Loc.GetString("cloning-pod-component-upgrade-emag-requirement"), ent.Owner);
-        args.Handled = true;
-    }
-
-    // Goobstation - Jestographic. Do something here idk
-    private void OnEmagCleaned(Entity<CloningPodComponent> ent, ref EmagCleanedEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (ent.Comp.FailedComponents == null)
-            return;
-
         args.Handled = true;
     }
 

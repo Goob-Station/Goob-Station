@@ -127,8 +127,15 @@ public sealed partial class LoudspeakerSystem : EntitySystem
             var speechEv = new GetLoudspeakerDataEvent();
             RaiseLocalEvent(loudspeaker, ref speechEv);
 
+            var comp = EnsureComp<LoudspeakerComponent>(loudspeaker);
+
             if (speechEv.SpeechSounds != null)
             {
+                if (_emag.CheckFlag(loudspeaker, EmagType.Jestographic))
+                {
+                    _audio.PlayPredicted(comp.ScrambledSound, loudspeaker, loudspeaker);
+                    return;
+                }
                 args.SpeechSoundProtoId = speechEv.SpeechSounds;
                 return;
             }

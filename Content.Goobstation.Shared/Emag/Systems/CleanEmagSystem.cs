@@ -26,7 +26,7 @@ public sealed partial class CleanEmagSystem : EntitySystem
         if (args.Target == null || !args.CanReach || args.Handled)
             return;
 
-        if (!_emag.CheckAnyFlag(args.Target, EmagType.Jestographic))
+        if (!_emag.CheckFlag(args.Target.Value, EmagType.Jestographic))
             return;
 
         var doAfter = new DoAfterArgs(EntityManager, args.User, ent.Comp.CleanDuration, new CleaningEmaggedDeviceDoAfterEvent(), args.Target, args.Target)

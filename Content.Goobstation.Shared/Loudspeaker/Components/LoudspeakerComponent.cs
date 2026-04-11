@@ -73,4 +73,10 @@ public sealed partial class LoudspeakerComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<LocalizedDatasetPrototype>? ScrambledMessages = "LoudspeakerScrambledMessages";
+
+    /// <summary>
+    /// The sounds that will be played when the megaphone is emagged
+    /// </summary>
+    [DataField]
+    public SoundSpecifier ScrambledSound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg");
 }
