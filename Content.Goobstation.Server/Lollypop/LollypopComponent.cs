@@ -7,7 +7,7 @@ namespace Content.Goobstation.Server.Lollypop;
 public sealed partial class LollypopComponent : Component
 {
     [DataField]
-    public FixedPoint2 Amount = FixedPoint2.New(0.10);
+    public FixedPoint2 Amount = FixedPoint2.New(0.1);
 
     [DataField]
     public EntityUid? HeldBy = null;
