@@ -106,3 +106,17 @@
   - type: InstantAction
     event: !type:BloodsuckerTrespassEvent
 
+- type: entity
+  id: ActionBloodsuckerCloak
+  name: Cloak of Darkness
+  description: Blend into the shadows and become invisible to the untrained and Artificial eye.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_cloak
+  - type: InstantAction
+    event: !type:BloodsuckerCloakEvent
+

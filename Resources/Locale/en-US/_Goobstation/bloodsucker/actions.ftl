@@ -59,3 +59,12 @@ bloodsucker-lunge-heart-others = {$user} tears {$target}'s heart out!
 
 bloodsucker-haste-start = You dash into the air!
 bloodsucker-haste-fail-grabbed = You're being grabbed!
+
+# Cloak
+
+bloodsucker-cloak-on = You vanish into the shadows.
+bloodsucker-cloak-off = You step back into the light.
+bloodsucker-cloak-fell-off = Your Cloak of Darkness fell away as you lost consciousness!
+bloodsucker-cloak-fail-witnessed = You can only vanish unseen.
+bloodsucker-cloak-run-penalty = You attempt to run, crushing yourself!
+bloodsucker-cloak-light-exposed = The light dissolves your cloak!

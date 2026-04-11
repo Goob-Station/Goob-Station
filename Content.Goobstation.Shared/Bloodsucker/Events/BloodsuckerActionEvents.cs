@@ -32,3 +32,5 @@ public sealed partial class BloodsuckerMesmerizeDoAfterEvent : SimpleDoAfterEven
 public sealed partial class BloodsuckerLungeDoAfterEvent : SimpleDoAfterEvent;
 //[ByRefEvent] public record struct BloodsuckerHasteTrailEvent(Vector2 From, Vector2 To);
 //[ByRefEvent] public record struct BloodsuckerTrespassMistEvent(Vector2 From, Vector2 To);
+
+public sealed partial class BloodsuckerCloakEvent : InstantActionEvent;
