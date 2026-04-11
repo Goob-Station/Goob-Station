@@ -1,23 +1,43 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 
 /// <summary>
-/// Configuration for the predatory lunge action.
+/// Configuration for the haste action.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BloodsuckerHasteComponent : Component
 {
     /// <summary>
-    /// Initial do-after delay before lunging.
+    /// Speed at which the vampire is thrown toward the destination.
     /// </summary>
     [DataField]
-    public float StartDelay = 2f;
+    public float DashSpeed = 25f;
 
     /// <summary>
-    /// How quickly to move towards the target.
+    /// Base knockdown on entities hit during the dash, in seconds.
+    /// Scales with level: base + level * KnockdownPerLevel.
     /// </summary>
-    public float DashSpeed = 8f;
+    [DataField]
+    public float KnockdownBase = 1f;
+
+    [DataField]
+    public float KnockdownPerLevel = 0.5f;
+
+    [DataField]
+    public SoundSpecifier? DashSound = new SoundPathSpecifier("/Audio/Weapons/punchmiss.ogg");
+
+    [DataField]
+    public SoundSpecifier? HitSound = new SoundPathSpecifier("/Audio/Weapons/punch1.ogg");
+
+    /// <summary>True while the vampire is mid-dash, gates collision handling.</summary>
+    [DataField]
+    public bool IsDashing;
+
+    /// <summary>Entities already hit this dash, so we don't double-apply.</summary>
+    [DataField]
+    public HashSet<EntityUid> AlreadyHit = new();
 
     #region Generic
 

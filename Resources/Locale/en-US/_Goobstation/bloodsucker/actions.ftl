@@ -54,3 +54,8 @@ bloodsucker-lunge-success-user = You lunge at {$target}!
 bloodsucker-lunge-success-others = {$user} lunges at {$target}!
 bloodsucker-lunge-heart-user = You tear {$target}'s heart out!
 bloodsucker-lunge-heart-others = {$user} tears {$target}'s heart out!
+
+# Haste
+
+bloodsucker-haste-start = You dash into the air!
+bloodsucker-haste-fail-grabbed = You're being grabbed!
