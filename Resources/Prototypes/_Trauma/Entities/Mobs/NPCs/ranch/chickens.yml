@@ -306,6 +306,9 @@
     - MobSilkieRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
 
 - type: entity
   parent: BaseMobHenRanch
@@ -314,6 +317,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -322,6 +328,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
 
 # Black Silkie
 
@@ -336,6 +345,9 @@
     - MobBlackSilkieRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
 
 - type: entity
   parent: BaseMobHenRanch
@@ -347,6 +359,9 @@
   - type: SpawnEntityOnOldAgeDeath
     happyDeathEnt: DreamEgg
     sadDeathEnt: PoultrygeistEgg
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -355,6 +370,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
 
 # White Silkie
 
@@ -369,6 +387,9 @@
     - MobWhiteSilkieRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
 
 - type: entity
   parent: BaseMobHenRanch
@@ -377,6 +398,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -385,6 +409,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
 
 # Selkie Silkie
 
@@ -538,6 +565,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -546,6 +576,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
 
 # Pigeon
 
@@ -574,6 +607,9 @@
       id: PigeonEggInedible
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-pigeon.rsi
+  - type: FavoriteFood
+    tag:
+    - Peas
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -585,6 +621,9 @@
       id: PigeonEggInedible
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-pigeon.rsi
+  - type: FavoriteFood
+    tag:
+    - Peas
 
 # Cotton Candy
 
@@ -610,6 +649,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+  - type: FavoriteFood
+    tag:
+    - Sugar
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -618,6 +660,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+  - type: FavoriteFood
+    tag:
+    - Sugar
 
 # Golden
 
@@ -632,6 +677,9 @@
     - MobGoldenRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+  - type: FavoriteFood
+    tag:
+    - ClearCorn
 
 - type: entity
   parent: BaseMobHenRanch
@@ -640,6 +688,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+  - type: FavoriteFood
+    tag:
+    - ClearCorn
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -648,6 +699,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+  - type: FavoriteFood
+    tag:
+    - ClearCorn
 
 # Clown
 
@@ -655,6 +709,9 @@
   abstract: true
   id: BaseChickenClown
   components:
+  - type: FavoriteFood
+    tag:
+    - Banana
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -700,9 +757,6 @@
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
   - type: ReplaceOnUnhappy
     ent: MobCluwneHen
-  - type: FavoriteFood
-    tag:
-    - Banana
   - type: Tag
     tags:
     - FootstepSound
@@ -716,9 +770,6 @@
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
   - type: ReplaceOnUnhappy
     ent: MobCluwneRooster
-  - type: FavoriteFood
-    tag:
-    - Banana
   - type: Tag
     tags:
     - FootstepSound
@@ -813,6 +864,9 @@
     entToSpawn:
     - MobGlassHen
     - MobGlassRooster
+  - type: FavoriteFood
+    tag:
+    - Rice
 
 - type: entity
   parent: [GlassChickenBase, BaseMobHenRanch]
