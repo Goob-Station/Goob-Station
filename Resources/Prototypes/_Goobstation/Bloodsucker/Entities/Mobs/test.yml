@@ -14,6 +14,7 @@
   - type: BloodsuckerTrespass
   - type: BloodsuckerCloak
   - type: BloodsuckerHelpVassal
+  - type: BloodsuckerFortitude
   - type: ActionGrant
     actions:
     - ActionBloodsuckerFeed
@@ -24,3 +25,4 @@
     - ActionBloodsuckerTrespass
     - ActionBloodsuckerCloak
     - ActionBloodsuckerHelpVassal
+    - ActionBloodsuckerFortitude

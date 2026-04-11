@@ -134,3 +134,18 @@
   - type: InstantAction
     event: !type:BloodsuckerHelpVassalEvent
 
+- type: entity
+  id: ActionBloodsuckerFortitude
+  name: Fortitude
+  description: Withstand egregious physical wounds and walk away from attacks that would stun, pierce, and dismember lesser beings.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_fortitude
+  - type: InstantAction
+    event: !type:BloodsuckerFortitudeEvent
+

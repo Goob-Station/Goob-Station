@@ -77,3 +77,9 @@ bloodsucker-help-vassal-success-others = {$target} is drawn back into the fold.
 bloodsucker-help-vassal-fail-not-exvassal = They are no longer a former vassal.
 bloodsucker-help-vassal-no-blood = You don't have enough blood for this.
 bloodsucker-help-vassal-bag-created = You fill a blood bag from your own veins.
+
+# Fortitude
+
+bloodsucker-fortitude-on = Your flesh, skin, and muscles become as steel.
+bloodsucker-fortitude-off = You relax your unnatural hardiness.
+bloodsucker-fortitude-run-penalty = You attempt to run, crushing yourself!
