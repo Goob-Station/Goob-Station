@@ -50,7 +50,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Emag;
+using Content.Goobstation.Shared.Emag;
 using Content.Server.Administration.Logs;
+using Content.Server.Clothing.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost;
 using Content.Server.Popups;
@@ -63,12 +66,14 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Materials;
 using Content.Shared.Mind;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Repairable;
 using Content.Shared.Stacks;
@@ -77,7 +82,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared.Humanoid;
 
 namespace Content.Server.Materials;
 
@@ -96,6 +100,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly OutfitSystem _outfit = default!; // Goobstation - Jestographic
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -110,6 +115,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         SubscribeLocalEvent<MaterialReclaimerComponent, BreakageEventArgs>(OnBreakage);
         SubscribeLocalEvent<MaterialReclaimerComponent, RepairedEvent>(OnRepaired);
+        SubscribeLocalEvent<MaterialReclaimerComponent, EmagCleanedEvent>(OnEmagCleaned); // Goobstation - Jestographic
     }
 
     private void OnPowerChanged(Entity<MaterialReclaimerComponent> entity, ref PowerChangedEvent args)
@@ -187,6 +193,16 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         SetBroken(ent, false);
     }
 
+    private void OnEmagCleaned(Entity<MaterialReclaimerComponent> ent, ref EmagCleanedEvent args) // Goobstation
+    {
+        if (args.Handled)
+            return;
+
+        _appearance.SetData(ent.Owner, RecyclerVisuals.Clowned, false);
+
+        args.Handled = true;
+    }
+
     public void SetBroken(Entity<MaterialReclaimerComponent> ent, bool val)
     {
         if (ent.Comp.Broken == val)
@@ -245,6 +261,19 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             SpawnChemicalsFromComposition(uid, item, completion, false, component, xform);
             _body.GibBody(item, true);
             _appearance.SetData(uid, RecyclerVisuals.Bloody, true);
+        }
+        else if (CanCluwnified(uid, item, component))
+        {
+            EnsureComp<CluwneImmuneComponent>(item);
+            _audio.PlayPvs(component.HonkSound, uid);
+            _outfit.SetOutfit(item, "CluwneGear");
+
+            _popup.PopupEntity(Loc.GetString("emag-material-reclaimer-transform", ("victim", item)), uid, PopupType.LargeCaution);
+
+            _appearance.SetData(uid, RecyclerVisuals.Clowned, true);
+
+            // Return early so victim doesn't get deleted
+            return;
         }
         else
         {

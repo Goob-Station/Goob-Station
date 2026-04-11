@@ -50,7 +50,6 @@ public sealed partial class CleanEmagSystem : EntitySystem
 
         // Only remove the jestographic flag
         ent.Comp.EmagType &= ~EmagType.Jestographic;
-
         Dirty(ent);
 
         if (ent.Comp.EmagType == EmagType.None)

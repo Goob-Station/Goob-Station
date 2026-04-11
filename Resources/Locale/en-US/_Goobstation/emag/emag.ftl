@@ -1,2 +1,3 @@
 emag-cleaning = You begin cleaning the emag trace off of {THE($device)}...
 emag-board-success = Something has permanently changed with this ($lawboard).
+emag-material-reclaimer-transform = {CAPITALIZE(THE($victim))} became a clown! Shame on them.
