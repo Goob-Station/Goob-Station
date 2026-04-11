@@ -28,14 +28,13 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<SlimeEatCorpseEvent>(OnSlimeEatCorpseAttempt);
+        SubscribeLocalEvent<CorpseEaterComponent, SlimeEatCorpseEvent>(OnSlimeEatCorpseAttempt);
     }
 
-    private void OnSlimeEatCorpseAttempt(SlimeEatCorpseEvent args)
+    private void OnSlimeEatCorpseAttempt(Entity<CorpseEaterComponent> ent, ref SlimeEatCorpseEvent args)
     {
         if (TerminatingOrDeleted(args.Target)
-        || TerminatingOrDeleted(args.Performer)
-        || !TryComp<SlimeComponent>(args.Performer, out var slime))
+        || TerminatingOrDeleted(args.Performer))
             return;
 
         TryComp<BodyPartComponent>(args.Target, out var part);
@@ -53,9 +52,7 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
         if (part is null)
             return;
 
-        var ent = new Entity<SlimeComponent>(args.Performer, slime);
-
-        if (!_body.GetPartContainers(targetPart).Any(x => x.ContainedEntities.Any(y => IsEatableOrganOrBodyPart(y))))
+        if (!_body.GetPartContainers(targetPart).Any(x => x.ContainedEntities.Any(y => IsEatableOrganOrBodyPart(ent, y))))
         {
             var notEatablePopup = Loc.GetString("slime-eat-corpse-fail-not-eatable", ("target", args.Target));
             _popup.PopupEntity(notEatablePopup, ent, ent);
@@ -71,19 +68,20 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
         }
     }
 
-    private bool IsEatableOrganOrBodyPart(EntityUid uid)
+    private bool IsEatableOrganOrBodyPart(Entity<CorpseEaterComponent> eater, EntityUid food)
     {
-        if (HasComp<BadFoodComponent>(uid))
+        CorpseEaterComponent
+        if (HasComp<BadFoodComponent>(food))
             return false;
 
-        var notDeadPopup = Loc.GetString(uid.ToString());
-        _popup.PopupEntity(notDeadPopup, uid);
+        var notDeadPopup = Loc.GetString(food.ToString());
+        _popup.PopupEntity(notDeadPopup, food);
 
-        if (HasComp<OrganComponent>(uid))
-            return (HasComp<FoodComponent>(uid) || HasComp<EdibleComponent>(uid)) // TODO: remove food component check when it wouldn't used anymore
-                && !_tag.HasTag(uid, _slimeTag);
+        if (HasComp<OrganComponent>(food))
+            return HasComp<EdibleComponent>(food)
+                && !_tag.HasTag(food, _slimeTag);
 
-        if (TryComp<BodyPartComponent>(uid, out var part))
+        if (TryComp<BodyPartComponent>(food, out var part))
             return part.PartComposition == BodyPartComposition.Organic;
 
         return false;

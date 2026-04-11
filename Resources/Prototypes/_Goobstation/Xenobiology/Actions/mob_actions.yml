@@ -52,4 +52,4 @@
       components:
       - Slime
     canTargetSelf: false
-    event: !type:SlimeEatCorpseEvent {}
+    event: !type:SlimeEatCorpseEvent
