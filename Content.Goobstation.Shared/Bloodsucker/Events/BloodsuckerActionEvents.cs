@@ -11,7 +11,16 @@ public sealed partial class BloodsuckerBrawlEvent : EntityTargetActionEvent;
 public sealed partial class BloodsuckerLungeEvent : EntityTargetActionEvent;
 public sealed partial class BloodsuckerMesmerizeEvent : EntityTargetActionEvent;
 public sealed partial class BloodsuckerHasteEvent : WorldTargetActionEvent;
-public sealed partial class BloodsuckerTrespassEvent : WorldTargetActionEvent;
+public sealed partial class BloodsuckerTrespassEvent : InstantActionEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class BloodsuckerBrawlDoAfterEvent : SimpleDoAfterEvent
+{
+    /// <summary>
+    /// True = bashing a door, false = bashing a locker.
+    /// </summary>
+    public bool UserData;
+}
 
 [Serializable, NetSerializable]
 public sealed partial class BloodsuckerFeedDoAfterEvent : SimpleDoAfterEvent;

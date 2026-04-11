@@ -10,7 +10,7 @@
       sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
       state: power_feed
   - type: TargetAction
-    range: 2
+    range: 1
   - type: EntityTargetAction
     whitelist:
       components:
@@ -24,6 +24,7 @@
   description: Snap restraints, break lockers and doors, or deal terrible damage with your bare hands.
   components:
   - type: Action
+    checkCanInteract: false
     useDelay: 5
     itemIconStyle: BigAction
     icon:
@@ -83,7 +84,7 @@
       sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
       state: power_mez
   - type: TargetAction
-    range: 2
+    range: 8
   - type: EntityTargetAction
     whitelist:
       components:
@@ -94,7 +95,7 @@
 - type: entity
   id: ActionBloodsuckerTrespass
   name: Trespass
-  description: Become mist and advance two tiles in one direction. Useful for skipping past doors and barricades.
+  description: Become mist for a very short duration. Useful for skipping past doors and barricades.
   components:
   - type: Action
     useDelay: 5
@@ -102,8 +103,6 @@
     icon:
       sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
       state: power_tres
-  - type: TargetAction
-    range: 2
-  - type: WorldTargetAction
+  - type: InstantAction
     event: !type:BloodsuckerTrespassEvent
 

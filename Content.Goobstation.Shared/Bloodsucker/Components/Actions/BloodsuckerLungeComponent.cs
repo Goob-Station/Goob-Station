@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
@@ -13,15 +14,35 @@ public sealed partial class BloodsuckerLungeComponent : Component
     public NetEntity CurrentTarget = NetEntity.Invalid;
 
     /// <summary>
-    /// Initial do-after delay before lunging.
+    /// Do-after wind-up delay before the lunge (waived at level 4+).
     /// </summary>
     [DataField]
     public float StartDelay = 2f;
 
     /// <summary>
-    /// How quickly to move towards the target.
+    /// Speed at which the vampire is thrown toward the target.
     /// </summary>
-    public float DashSpeed = 8f;
+    [DataField]
+    public float DashSpeed = 18f;
+
+    /// <summary>
+    /// Base knockdown duration when hitting from behind/darkness, in seconds.
+    /// Scales with level: base + level * KnockdownPerLevel.
+    /// </summary>
+    [DataField]
+    public float KnockdownBase = 1f;
+
+    [DataField]
+    public float KnockdownPerLevel = 0.5f;
+
+    [DataField]
+    public SoundSpecifier? LungeSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
+
+    /// <summary>
+    /// True while the vampire is mid-lunge, used to gate the collision handler.
+    /// </summary>
+    [DataField]
+    public bool IsLeaping;
 
     #region Generic
 

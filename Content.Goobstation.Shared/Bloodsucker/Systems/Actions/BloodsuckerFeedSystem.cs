@@ -311,33 +311,34 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (!TryComp(ent.Owner, out BloodstreamComponent? vampireBloodstream))
             return;
 
+        // Resolve the target's blood solution
         if (!_bloodstream.SolutionContainer.ResolveSolution(target, targetBloodstream.BloodSolutionName,
                 ref targetBloodstream.BloodSolution, out var targetBloodSolution))
             return;
 
-        var targetVolume = targetBloodSolution.Volume;
-        var actualAmount = FixedPoint2.New(MathF.Min(amount, (float) targetVolume));
+        // Clamp to what's actually available
+        var actualAmount = FixedPoint2.New(MathF.Min(amount, (float) targetBloodSolution.Volume));
         if (actualAmount <= FixedPoint2.Zero)
             return;
 
-        _bloodstream.TryModifyBloodLevel(
-            new Entity<BloodstreamComponent?>(target, targetBloodstream),
-            -actualAmount);
+        // Pull the blood out (shit method name btw)
+        var stolen = _bloodstream.SolutionContainer.SplitSolution(
+            targetBloodstream.BloodSolution!.Value,
+            actualAmount);
 
-        if (_bloodstream.SolutionContainer.ResolveSolution(ent.Owner, vampireBloodstream.BloodSolutionName,
+        // Resolve vampire's blood solution and expand max volume if needed
+        if (!_bloodstream.SolutionContainer.ResolveSolution(ent.Owner, vampireBloodstream.BloodSolutionName,
                 ref vampireBloodstream.BloodSolution, out var vampBloodSolution))
+            return;
+
+        if (vampBloodSolution.Volume + actualAmount > vampBloodSolution.MaxVolume)
         {
-            var needed = vampBloodSolution.Volume + actualAmount;
-            if (needed > vampBloodSolution.MaxVolume)
-            {
-                vampBloodSolution.MaxVolume = needed;
-                _bloodstream.SolutionContainer.UpdateChemicals(vampireBloodstream.BloodSolution!.Value);
-            }
+            vampBloodSolution.MaxVolume = vampBloodSolution.Volume + actualAmount;
+            _bloodstream.SolutionContainer.UpdateChemicals(vampireBloodstream.BloodSolution!.Value);
         }
 
-        _bloodstream.TryModifyBloodLevel(
-            new Entity<BloodstreamComponent?>(ent.Owner, vampireBloodstream),
-            actualAmount);
+        // Pour stolen blood into vampire
+        _bloodstream.SolutionContainer.TryAddSolution(vampireBloodstream.BloodSolution!.Value, stolen);
 
         _audio.PlayPredicted(comp.DrinkSound, ent, ent);
     }

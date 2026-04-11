@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
@@ -15,9 +16,22 @@ public sealed partial class BloodsuckerMesmerizeComponent : Component
     public float StartDelay = 5f;
 
     /// <summary>
-    /// How long to paralyze the target for.
+    /// How long to paralyze the target for, in seconds. Scales with level: base + level * 15.
     /// </summary>
-    public float ParalyzeDuration = 90f;
+    [DataField]
+    public float ParalyzeBase = 90f;
+
+    [DataField]
+    public float ParalyzePerLevel = 15f;
+
+    /// <summary>
+    /// Range within which mesmerize can be used.
+    /// </summary>
+    [DataField]
+    public float Range = 8f;
+
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg");
 
     #region Generic
 

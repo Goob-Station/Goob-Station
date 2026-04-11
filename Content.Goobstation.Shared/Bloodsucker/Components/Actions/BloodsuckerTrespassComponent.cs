@@ -1,5 +1,7 @@
+using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 
@@ -9,13 +11,11 @@ namespace Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BloodsuckerTrespassComponent : Component
 {
-    /// <summary>
-    /// How far away you can potentially teleport.
-    /// </summary>
-    public float TeleportRange = 2f;
+    [DataField]
+    public ProtoId<PolymorphPrototype> MistPolymorph = "BloodsuckerMist";
 
     [DataField]
-    public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Bloodsucker/Effects/summon_karp.ogg");
 
     #region Generic
 

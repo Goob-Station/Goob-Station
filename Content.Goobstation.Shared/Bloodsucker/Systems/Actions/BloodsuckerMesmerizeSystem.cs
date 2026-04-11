@@ -3,12 +3,16 @@ using Content.Goobstation.Shared.Bloodsuckers.Components;
 using Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 using Content.Goobstation.Shared.Bloodsuckers.Events;
 using Content.Shared.DoAfter;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.IdentityManagement.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Serialization;
+using System.Numerics;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Systems;
 
@@ -33,11 +37,69 @@ public sealed class BloodsuckerMesmerizeSystem : EntitySystem
         if (!TryComp(ent, out BloodsuckerMesmerizeComponent? comp))
             return;
 
-        if (args.Target == EntityUid.Invalid || args.Target == ent.Owner)
+        var target = args.Target;
+
+        if (target == EntityUid.Invalid || target == ent.Owner)
             return;
 
-        if (!TryUseCosts(ent, comp))
+        // Target must be alive and conscious
+        if (!TryComp(target, out MobStateComponent? mobState)
+            || mobState.CurrentState != MobState.Alive)
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-fail-unconscious", ("target", target)),
+                ent.Owner, ent.Owner, PopupType.Small);
             return;
+        }
+
+        // Bloodsuckers are immune
+        if (HasComp<BloodsuckerComponent>(target))
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-fail-bloodsucker"),
+                ent.Owner, ent.Owner, PopupType.Small);
+            return;
+        }
+
+        // Vampire eyes covered? (waived at level 3+)
+        if (comp.ActionLevel < 3 && IsEyesCovered(ent.Owner))
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-fail-eyes-covered"),
+                ent.Owner, ent.Owner, PopupType.Small);
+            return;
+        }
+
+        // Vampire or target blind?
+        if (HasComp<PermanentBlindnessComponent>(ent.Owner))
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-fail-blind-self"),
+                ent.Owner, ent.Owner, PopupType.Small);
+            return;
+        }
+
+        if (HasComp<PermanentBlindnessComponent>(target))
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-fail-blind-target", ("target", target)),
+                ent.Owner, ent.Owner, PopupType.Small);
+            return;
+        }
+
+        // Facing checks (level 5 waives the target-must-face-you requirement)
+        if (!IsFacing(ent.Owner, target))
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-fail-not-facing", ("target", target)),
+                ent.Owner, ent.Owner, PopupType.Small);
+            return;
+        }
+
+        if (comp.ActionLevel < 5 && !IsFacing(target, ent.Owner))
+        {
+            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-fail-target-not-facing", ("target", target)),
+                ent.Owner, ent.Owner, PopupType.Small);
+            return;
+        }
+
+        _popup.PopupPredicted(
+            Loc.GetString("bloodsucker-mesmerize-starting", ("target", target)),
+            ent.Owner, ent.Owner, PopupType.Small);
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
@@ -45,7 +107,7 @@ public sealed class BloodsuckerMesmerizeSystem : EntitySystem
             comp.StartDelay,
             new BloodsuckerMesmerizeDoAfterEvent(),
             ent.Owner,
-            args.Target)
+            target)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -53,34 +115,59 @@ public sealed class BloodsuckerMesmerizeSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
-        _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize"), ent.Owner, ent.Owner, PopupType.Small);
-
-        if (HasComp<BibleUserComponent>(args.Target))
-        {
-            _popup.PopupPredicted(Loc.GetString("bloodsucker-mesmerize-chaplain-fail"), args.Target, args.Target, PopupType.MediumCaution);
-        }
-        //"You feel your eyes burn for a while, but it passes." (Chaplain warning popup)
     }
 
     private void OnMesmerizeDoAfter(Entity<BloodsuckerComponent> ent, ref BloodsuckerMesmerizeDoAfterEvent args)
     {
-        if (args.Target is not EntityUid target)
-            return;
-
         if (args.Cancelled || args.Handled)
             return;
 
-        args.Handled = true;
+        if (args.Target is not EntityUid target)
+            return;
 
         if (!TryComp(ent, out BloodsuckerMesmerizeComponent? comp))
             return;
 
-        var duration = TimeSpan.FromSeconds(comp.ParalyzeDuration);
+        args.Handled = true;
 
-        // Paralyze
-        _stun.TryAddStunDuration(target, duration);
-        _stun.TryKnockdown(target, duration, true);
-        _status.TryAddStatusEffect(target, "Muted", duration, true);
+        // for Chaplain warn them, fail silently for vamp
+        if (HasComp<BibleUserComponent>(target))
+        {
+            _popup.PopupPredicted(
+                Loc.GetString("bloodsucker-mesmerize-fail-chaplain"),
+                ent.Owner, ent.Owner, PopupType.SmallCaution);
+            _popup.PopupPredicted(
+                Loc.GetString("bloodsucker-mesmerize-chaplain-resist"),
+                target, target, PopupType.MediumCaution);
+            return;
+        }
+
+        // Already mesmerized
+        if (_status.HasStatusEffect(target, "Muted"))
+        {
+            _popup.PopupPredicted(
+                Loc.GetString("bloodsucker-mesmerize-fail-already", ("target", target)),
+                ent.Owner, ent.Owner, PopupType.Small);
+            return;
+        }
+
+        // Costs only consumed on success
+        if (!TryUseCosts(ent, comp))
+            return;
+
+        var duration = TimeSpan.FromSeconds(comp.ParalyzeBase + comp.ActionLevel * comp.ParalyzePerLevel);
+
+        _stun.TryAddParalyzeDuration(target, duration);
+
+        // Mute at level 1+
+        if (comp.ActionLevel >= 1)
+            _status.TryAddStatusEffect(target, "Muted", out _, duration);
+
+        _audio.PlayPredicted(comp.Sound, ent.Owner, ent.Owner);
+
+        _popup.PopupPredicted(
+            Loc.GetString("bloodsucker-mesmerize-success", ("target", target)),
+            ent.Owner, ent.Owner, PopupType.Medium);
     }
 
     private bool TryUseCosts(Entity<BloodsuckerComponent> ent, BloodsuckerMesmerizeComponent comp)
@@ -89,8 +176,36 @@ public sealed class BloodsuckerMesmerizeSystem : EntitySystem
             return false;
 
         if (comp.HumanityCost != 0f && TryComp(ent, out BloodsuckerHumanityComponent? humanity))
-            _humanity.ChangeHumanity(new Entity<BloodsuckerHumanityComponent>(ent.Owner, humanity), -comp.HumanityCost);
+            _humanity.ChangeHumanity(
+                new Entity<BloodsuckerHumanityComponent>(ent.Owner, humanity),
+                -comp.HumanityCost);
 
         return true;
+    }
+
+    // Checks if entity A is facing roughly toward entity B using their world rotation.
+    private bool IsFacing(EntityUid a, EntityUid b)
+    {
+        if (!TryComp(a, out TransformComponent? ta) || !TryComp(b, out TransformComponent? tb))
+            return false;
+
+        var delta = tb.WorldPosition - ta.WorldPosition;
+        if (delta.LengthSquared() < 0.01f)
+            return true;
+
+        var angle = ta.WorldRotation;
+        var dir = angle.ToWorldVec();
+
+        // Dot product > 0 means roughly facing
+        return Vector2.Dot(dir, Vector2.Normalize(delta)) > 0f;
+    }
+
+    // Basically anything that might block the vamp's eyes.
+    // This might have some false positives but I'm not adding a YAML list of every single item that blocks vision.
+    private bool IsEyesCovered(EntityUid uid)
+    {
+        return HasComp<BlindfoldComponent>(uid) ||
+               HasComp<EyeProtectionComponent>(uid) ||
+               HasComp<IdentityBlockerComponent>(uid);
     }
 }
