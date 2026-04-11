@@ -115,13 +115,11 @@ public abstract class SharedBloodsuckerFortitudeSystem : EntitySystem
             Deactivate(ent);
         }
     }
-
     protected void CheckRunning(Entity<BloodsuckerFortitudeComponent> ent)
     {
         if (!TryComp(ent.Owner, out InputMoverComponent? mover) || !mover.Sprinting)
             return;
 
-        // Only penalize if actually moving, not just holding sprint with no input
         if (!TryComp(ent.Owner, out Robust.Shared.Physics.Components.PhysicsComponent? physics)
             || physics.LinearVelocity.LengthSquared() < 0.5f)
             return;

@@ -83,3 +83,71 @@ bloodsucker-help-vassal-bag-created = You fill a blood bag from your own veins.
 bloodsucker-fortitude-on = Your flesh, skin, and muscles become as steel.
 bloodsucker-fortitude-off = You relax your unnatural hardiness.
 bloodsucker-fortitude-run-penalty = You attempt to run, crushing yourself!
+
+# Claim
+
+bloodsucker-claim-start = You begin to consecrate this coffin as your lair...
+bloodsucker-claim-switching = You will abandon your previous lair once this is complete.
+bloodsucker-claim-success = You have claimed {$coffin} as your place of immortal rest.
+bloodsucker-claim-unclaimed = You release your hold on your coffin.
+bloodsucker-claim-already-taken = This coffin has already been claimed by another.
+
+# Materialize
+
+bloodsucker-materialize-no-lair = You must be near your lair to materialize a structure.
+bloodsucker-materialize-no-blood = You don't have enough blood to materialize this.
+bloodsucker-materialize-success = You pour your essence into the material world.
+
+# Sense
+
+bloodsucker-sense-no-cycle = You cannot sense the cycle.
+bloodsucker-sense-daytime = The sun burns above. {$seconds} seconds until nightfall.
+bloodsucker-sense-day-ending-soon = Nightfall is close — {$seconds} seconds remain of daylight.
+bloodsucker-sense-day-ending-imminent = Night falls in mere seconds!
+bloodsucker-sense-nighttime = The night protects you. {$minutes} minutes until dawn.
+bloodsucker-sense-night-ending-soon = Dawn approaches in {$minutes} minutes. Seek cover.
+bloodsucker-sense-night-ending-imminent = Dawn is seconds away! Find cover immediately!
+
+# Vassalize
+
+bloodsucker-vassalize-already-vassal = {$target} is already a vassal.
+bloodsucker-vassalize-is-bloodsucker = You cannot vassalize another bloodsucker.
+bloodsucker-vassalize-not-strapped = {$target} must be strapped to a persuasion rack.
+bloodsucker-vassalize-wrong-rack = {$target} is not strapped to a persuasion rack.
+bloodsucker-vassalize-dead = {$target} is already dead.
+bloodsucker-vassalize-start-user = You begin the ritual of vassalization on {$target}...
+bloodsucker-vassalize-start-others = {$user} begins performing a dark ritual on {$target}!
+bloodsucker-vassalize-interrupted = The ritual was interrupted — the victim is no longer secured.
+bloodsucker-vassalize-success-user = You have bound {$target} to your will.
+bloodsucker-vassalize-success-others = {$user} binds {$target} to their will!
+bloodsucker-vassalize-target-message = Your mind bends to the will of {$user}. You are now their vassal.
+
+# Go home
+
+bloodsucker-gohome-no-coffin = You have no claimed coffin to return to.
+bloodsucker-gohome-coffin-destroyed = Your coffin has been destroyed! The ritual is broken.
+bloodsucker-gohome-no-blood = You don't have enough blood for the vanishing act.
+bloodsucker-gohome-start = You begin to dissolve into the shadows...
+bloodsucker-gohome-arrived = You reform within your coffin.
+
+# Veil
+
+bloodsucker-veil-on = You mystify the air around your person. Your identity is now altered.
+bloodsucker-veil-off = The illusion fades. You are yourself once more.
+bloodsucker-veil-no-blood = You don't have enough blood to weave the veil.
+
+# Masquerade
+
+bloodsucker-masquerade-on = Your heart beats falsely within your lifeless chest. You may yet pass for a mortal.
+bloodsucker-masquerade-off = Your heart beats one final time as your icy pallor returns.
+
+bloodsucker-health-analyzer-detected = Your scanner detects that {$target} is an undead bloodsucker!
+bloodsucker-examined-pale = {$target} looks unnaturally pale, with cold, lifeless skin.
+
+# Sol
+
+bloodsucker-sol-warn-first = Solar flares will bombard the station in {$minutes} minutes. Seek cover in a coffin or closet.
+bloodsucker-sol-warn-final = Solar flares are imminent! You have {$seconds} seconds to find cover!
+bloodsucker-sol-warn-imminent = Seek cover, for Sol rises!
+bloodsucker-sol-day-start = Solar flares bombard the station! Stay in cover for the next {$minutes} minutes!
+bloodsucker-sol-night-start = The solar flare has ended. The night is yours.

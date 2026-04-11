@@ -59,7 +59,19 @@
       "name": "power_olfac"
     },
     {
+      "name": "power_rack"
+    },
+    {
+      "name": "power_claim"
+    },
+    {
+      "name": "power_sense"
+    },
+    {
       "name": "blood_display"
+    },
+    {
+      "name": "power_vassalize"
     },
     {
       "name": "rank_up",

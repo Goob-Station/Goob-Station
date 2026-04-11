@@ -15,6 +15,12 @@
   - type: BloodsuckerCloak
   - type: BloodsuckerHelpVassal
   - type: BloodsuckerFortitude
+  - type: BloodsuckerClaim
+  - type: BloodsuckerMaterialize
+  - type: BloodsuckerVassalize
+  - type: BloodsuckerGoHome
+  - type: BloodsuckerVeil
+  - type: BloodsuckerMasquerade
   - type: ActionGrant
     actions:
     - ActionBloodsuckerFeed
@@ -26,3 +32,15 @@
     - ActionBloodsuckerCloak
     - ActionBloodsuckerHelpVassal
     - ActionBloodsuckerFortitude
+    - ActionBloodsuckerClaim
+    - ActionBloodsuckerMaterialize
+    - ActionBloodsuckerSense
+    - ActionBloodsuckerVassalize
+    - ActionBloodsuckerGoHome
+    - ActionBloodsuckerVeil
+    - ActionBloodsuckerMasquerade
+
+- type: entity
+  id: BloodsuckerDayNightManager
+  components:
+  - type: BloodsuckerDayNight
