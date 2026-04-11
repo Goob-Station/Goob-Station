@@ -1,0 +1,13 @@
+- type: entity
+  parent: [BaseKeepAliveObjective, BaseNinjaObjective]
+  id: NinjaProtectObjective
+  name: Protect Crewmember
+  description: The Spider Clan has reported that there are those who want to take your client's life.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/shields.rsi
+      state: cardshield-icon
+  - type: TargetObjective
+    title: objective-condition-other-alive-title
+  - type: PickRandomPerson

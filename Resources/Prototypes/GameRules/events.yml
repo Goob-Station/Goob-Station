@@ -452,6 +452,7 @@
     - TerrorObjective
     - MassArrestObjective
     - NinjaSurviveObjective
+    - NinjaProtectObjective # CorvaxGoob
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
     definitions:
