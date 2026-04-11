@@ -1,0 +1,30 @@
+- type: marking
+  id: MothEyesSoft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _CorvaxGoob/Mobs/Customization/Moth/moth_parts.rsi
+    state: eyes_soft
+  - sprite: _CorvaxGoob/Mobs/Customization/Moth/moth_parts.rsi
+    state: eyes_soft_skin
+
+- type: marking
+  id: HeterochromiaMothSoft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: _CorvaxGoob/Mobs/Customization/Moth/moth_parts.rsi
+    state: eyes_heterochromia_soft
