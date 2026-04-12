@@ -149,7 +149,6 @@
   - WardenSOP
   - OfficerCadetSOP
   - DetectiveSOP
-  - SecuritySergeantSOP
 
 - type: guideEntry
   id: ServiceSOP
@@ -420,11 +419,6 @@
   name: guide-entry-sop-warden
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
   
-- type: guideEntry
-  id: SecuritySergeantSOP
-  name: guide-entry-sop-security-sergeant
-  text: /ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SergeantSOP.xml
-
 
 # Service SOP Entries
 - type: guideEntry

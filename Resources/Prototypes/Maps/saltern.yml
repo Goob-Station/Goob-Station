@@ -83,6 +83,7 @@
             Warden: [ 1, 1 ]
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 4, 4 ]
+            SecuritySergeant: [ 1, 1 ]
             SecurityCadet: [ 4, 4 ]
             Brigmedic: [ 1, 1 ]
             #supply

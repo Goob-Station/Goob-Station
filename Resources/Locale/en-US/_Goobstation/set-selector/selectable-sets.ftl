@@ -185,12 +185,6 @@ selectable-set-ert-pulse-description =
     Includes: A modified pulse carbine.
     EG-4 revolver, pulse cells.
 
-# Sec Misc
-selectable-set-ceremonial-rifle-name = Ceremonial rifle
-selectable-set-ceremonial-rifle-description =
-    A weapon exclusively for sergeants,
-    this relic of a rifle has been in service for over 670 years.
-
 # Voidsuit selectors
 
 selectable-set-paramedic-voidsuit-name = Paramedic hardsuit

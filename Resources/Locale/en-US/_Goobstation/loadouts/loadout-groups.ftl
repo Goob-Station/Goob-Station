@@ -83,12 +83,6 @@ loadout-group-security-cadet-envirohelm = Security Cadet envirohelm
 loadout-group-security-cadet-envirosuit = Security Cadet envirosuit
 loadout-group-security-cadet-envirogloves = Security Cadet envirogloves
 
-#Sergeant
-loadout-group-security-gun = Security Gun
-loadout-group-sergeant-jumpsuit = Sergeant jumpsuit
-loadout-group-sergeant-head = Sergeant head
-loadout-group-sergeant-neck = Sergeant neck
-
 # Detective
 loadout-group-detective-envirohelm = Detective envirohelm
 loadout-group-detective-envirosuit = Detective envirosuit

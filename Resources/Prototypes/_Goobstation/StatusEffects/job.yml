@@ -107,12 +107,3 @@
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: radiohost
   jobName: job-name-radiohost
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconSecuritySergeant
-  icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
-    state: securitysergeant
-  jobName: job-name-security-sergeant
-  

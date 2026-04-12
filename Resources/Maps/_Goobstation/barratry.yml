@@ -89295,6 +89295,28 @@ entities:
     - type: Transform
       pos: -60.5,54.5
       parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 91431
+    components:
+    - type: Transform
+      pos: -62.5,54.5
+      parent: 2
+  - uid: 91432
+    components:
+    - type: Transform
+      pos: -62.5,52.5
+      parent: 2
+  - uid: 91433
+    components:
+    - type: Transform
+      pos: -60.5,52.5
+      parent: 2
+  - uid: 91434
+    components:
+    - type: Transform
+      pos: -60.5,54.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 6930

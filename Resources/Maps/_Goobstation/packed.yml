@@ -81284,6 +81284,23 @@ entities:
     - type: Transform
       pos: 30.5,18.5
       parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 15529
+    components:
+    - type: Transform
+      pos: 30.5,20.5
+      parent: 2
+  - uid: 15530
+    components:
+    - type: Transform
+      pos: 30.5,19.5
+      parent: 2
+  - uid: 15531
+    components:
+    - type: Transform
+      pos: 30.5,18.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 12020

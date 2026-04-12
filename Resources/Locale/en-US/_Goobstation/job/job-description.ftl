@@ -36,6 +36,3 @@ job-description-radiohost = Host the stations local radio station, play vinyls, 
 
 # Viro
 job-description-virologist = Study spreading viruses, produce cures for ailing crewmembers, experiment in creating beneficial viruses. Make sure pandemics don't spread.
-
-#SecMisc
-job-description-security-sergeant = Train security, advise the department, lead the charge into battle, die gloriously on the Frontline.

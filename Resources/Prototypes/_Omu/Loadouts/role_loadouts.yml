@@ -1,0 +1,25 @@
+- type: roleLoadout
+  id: JobSecuritySergeant
+  groups:
+  - SergeantHead
+  - SergeantJumpsuit
+  - SecurityBackpack
+  - SecurityMelee # Goobstation
+  - TrinketsSecuritySergeant # Actually is their guns, not trinkets.
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SergeantNeck
+  - SecuritySergeantPDA
+  - SecurityBelt
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityStar
+  - Animals
+  - GroupSpeciesBreathToolSecurity
+  # Goobstation - EE Plasmeme Change.
+  - SecurityOfficerEnvirohelm
+  - SecurityOfficerEnvirosuit
+  - SecurityOfficerEnvirogloves
+  
+# gives plasmaman a plasma breathing tank
+# other species get nothing

@@ -69,5 +69,5 @@ loadout-group-virologist-backpack = Virologist backpack
 loadout-group-virologist-outerclothing = Virologist outer clothing
 loadout-group-virologist-id = Virologist ID
 
-#RadioHost
+# RadioHost
 loadout-group-radiohost-jumpsuit = Shirt

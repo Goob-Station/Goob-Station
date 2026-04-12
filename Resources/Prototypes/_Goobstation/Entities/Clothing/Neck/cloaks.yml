@@ -45,41 +45,6 @@
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloak.rsi
 
 - type: entity
-  parent: [ClothingNeckBase, BaseSecurityContraband]
-  id: ClothingNeckCloakSergeant
-  name: sergeant's shoulder cloak
-  description: A cloak fit for a sergeant, it looks fancy. Comes equipped with a bodycam on the pin.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Cloaks/sergeantcloak.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Cloaks/sergeantcloak.rsi
-  - type: DeviceNetwork
-    deviceNetId: Wired
-    receiveFrequencyId: SurveillanceCameraSecurity
-    transmitFrequencyId: SurveillanceCamera
-  - type: SurveillanceCamera
-    networkSet: true
-    nameSet: true
-    mobile: true
-    id: Bodycam
-  - type: Eye
-  - type: WirelessNetworkConnection
-    range: 200
-  - type: SurveillanceCameraMicrophone
-    blacklist:
-      components:
-      - SurveillanceCamera
-      - SurveillanceCameraMonitor
-      - RadioSpeaker
-  - type: ActiveListener
-    range: 10
-  - type: ClothingGrantComponent
-    component:
-      - type: StationAiVision
-        range: 4
-
-- type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarpAlt
   name: carp cloak

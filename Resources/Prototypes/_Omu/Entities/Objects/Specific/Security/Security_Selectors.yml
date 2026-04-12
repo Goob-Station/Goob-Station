@@ -5,7 +5,7 @@
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/guncases/officercase.rsi
+    sprite: _Omu/Objects/Misc/guncases/officercase.rsi
     state: icon
   - type: SetSelector
     possibleSets:

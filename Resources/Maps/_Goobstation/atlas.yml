@@ -49106,6 +49106,28 @@ entities:
     - type: Transform
       pos: 0.5,17.5
       parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 79431
+    components:
+    - type: Transform
+      pos: -0.5,17.5
+      parent: 2
+  - uid: 79432
+    components:
+    - type: Transform
+      pos: -0.5,16.5
+      parent: 2
+  - uid: 79433
+    components:
+    - type: Transform
+      pos: 0.5,16.5
+      parent: 2
+  - uid: 79434
+    components:
+    - type: Transform
+      pos: 0.5,17.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 7455

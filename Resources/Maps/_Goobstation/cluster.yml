@@ -68672,6 +68672,13 @@ entities:
     - type: Transform
       pos: 13.5,9.5
       parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 128641
+    components:
+    - type: Transform
+      pos: 13.5,9.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 10351

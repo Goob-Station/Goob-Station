@@ -144143,6 +144143,28 @@ entities:
     - type: Transform
       pos: 9.5,37.5
       parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 27697
+    components:
+    - type: Transform
+      pos: 9.5,40.5
+      parent: 2
+  - uid: 27698
+    components:
+    - type: Transform
+      pos: 9.5,39.5
+      parent: 2
+  - uid: 27699
+    components:
+    - type: Transform
+      pos: 9.5,38.5
+      parent: 2
+  - uid: 27700
+    components:
+    - type: Transform
+      pos: 9.5,37.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 22285
