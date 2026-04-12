@@ -4,6 +4,7 @@
   parent: MarkerBase
   id: SpawnMobXenomorphLarva
   name: xeno larva spawner
+  suffix: Cant Evolve
   components:
   - type: Sprite
     layers:
@@ -12,7 +13,7 @@
       state: xenomorph
   - type: ConditionalSpawner
     prototypes:
-    - MobXenomorphLarva
+    - MobXenomorphLarvaDungeon
 
 - type: entity
   parent: MarkerBase
