@@ -53,7 +53,7 @@ public sealed partial class CleanEmagSystem : EntitySystem
         Dirty(ent);
 
         if (ent.Comp.EmagType == EmagType.None)
-            RemCompDeferred<EmaggedComponent>(ent.Owner);
+            RemComp<EmaggedComponent>(ent.Owner);
 
         var ev = new EmagCleanedEvent(args.User);
         RaiseLocalEvent(ent.Owner, ref ev);
