@@ -51,7 +51,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Emag;
-using Content.Goobstation.Shared.Emag;
 using Content.Server.Administration.Logs;
 using Content.Server.Clothing.Systems;
 using Content.Server.Fluids.EntitySystems;

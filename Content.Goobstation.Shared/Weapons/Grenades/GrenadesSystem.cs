@@ -1,5 +1,5 @@
+using Content.Goobstation.Common.Emag;
 using Content.Goobstation.Shared.Boomerang;
-using Content.Goobstation.Shared.Emag;
 using Content.Shared.Emag.Systems;
 
 namespace Content.Goobstation.Shared.Weapons.Grenades;

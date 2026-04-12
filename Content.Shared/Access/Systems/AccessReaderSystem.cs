@@ -108,6 +108,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Goobstation.Common.Emag;
 
 namespace Content.Shared.Access.Systems;
 
@@ -134,12 +135,14 @@ public sealed class AccessReaderSystem : EntitySystem
 
         SubscribeLocalEvent<AccessReaderComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<AccessReaderComponent, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<AccessReaderComponent, EmagCleanedEvent>(OnEmagCleaned); // Goobstation - Jestographic
+
     }
 
     private void OnGetState(EntityUid uid, AccessReaderComponent component, ref ComponentGetState args)
     {
         args.State = new AccessReaderComponentState(component.Enabled, component.DenyTags, component.AccessLists,
-            _recordsSystem.Convert(component.AccessKeys), component.AccessLog, component.AccessLogLimit);
+            _recordsSystem.Convert(component.AccessKeys), component.AccessLog, component.AccessLogLimit, component.Inverted);
     }
 
     private void OnHandleState(EntityUid uid, AccessReaderComponent component, ref ComponentHandleState args)
@@ -161,6 +164,7 @@ public sealed class AccessReaderSystem : EntitySystem
         component.DenyTags = new(state.DenyTags);
         component.AccessLog = new(state.AccessLog);
         component.AccessLogLimit = state.AccessLogLimit;
+        component.Inverted = state.Inverted; // Goobstation - Jestographic
     }
 
     private void OnLinkAttempt(EntityUid uid, AccessReaderComponent component, LinkAttemptEvent args)
@@ -171,25 +175,51 @@ public sealed class AccessReaderSystem : EntitySystem
             args.Cancel();
     }
 
-    private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)
+    private void OnEmagged(Entity<AccessReaderComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Access))
+        if (!_emag.CompareAnyFlag(args.Type, EmagType.Access | EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (!reader.BreakOnAccessBreaker)
+        if (_emag.CheckFlag(ent.Owner, EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (!GetMainAccessReader(uid, out var accessReader))
+        if (!ent.Comp.BreakOnAccessBreaker)
+            return;
+
+        if (!GetMainAccessReader(ent.Owner, out var accessReader))
             return;
 
         if (accessReader.Value.Comp.AccessLists.Count < 1)
             return;
 
-        args.Repeatable = true;
+        // Goob edit - start
+        if (_emag.CompareFlag(args.Type, EmagType.Access))
+        {
+            args.Repeatable = true;
+            accessReader.Value.Comp.AccessLists.Clear();
+            accessReader.Value.Comp.AccessLog.Clear();
+        }
+        else if (_emag.CompareFlag(args.Type, EmagType.Jestographic))
+        {
+            InvertAccess(accessReader.Value, true);
+        }
+
         args.Handled = true;
-        accessReader.Value.Comp.AccessLists.Clear();
-        accessReader.Value.Comp.AccessLog.Clear();
-        Dirty(uid, reader);
+        Dirty(ent);
+        // Goob edit - end
+    }
+
+    private void OnEmagCleaned(Entity<AccessReaderComponent> ent, ref EmagCleanedEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!GetMainAccessReader(ent.Owner, out var accessReader))
+            return;
+
+        InvertAccess(accessReader.Value, false);
+
+        args.Handled = true;
     }
 
     /// <summary>
@@ -316,6 +346,22 @@ public sealed class AccessReaderSystem : EntitySystem
 
         if (reader.AccessLists.Count == 0)
             return true;
+
+        // Goob edit - Start
+        if (reader.Inverted)
+        {
+            // Don't allow no ID people
+            if (accessTags.Count == 0)
+                return false;
+
+            foreach (var set in reader.AccessLists)
+            {
+                if (set.IsSubsetOf(accessTags))
+                    return false;
+            }
+            return true;
+        }
+        // Goob edit - end
 
         foreach (var set in reader.AccessLists)
         {
@@ -578,6 +624,24 @@ public sealed class AccessReaderSystem : EntitySystem
     public void RemoveAccess(Entity<AccessReaderComponent> ent, ProtoId<AccessLevelPrototype> access, bool dirty = true)
     {
         RemoveAccess(ent, new HashSet<ProtoId<AccessLevelPrototype>>() { access }, dirty);
+    }
+
+    /// <summary>
+    /// Sets the <see cref="AccessReaderComponent.Inverted"/>
+    /// </summary>
+    /// <param name="ent">The access reader entity frm which the access permisision is being inverted </param>
+    /// <param name="invert">If true, denies everyone that matches <see cref="AccessReaderComponent.AccessLists"/> </param>
+    /// <param name="dirty">If true, the component will be marked as changed afterward. </param>
+    /// <remarks>This does not modify <see cref="AccessReaderComponent.AccessLists"/></remarks>
+    public void InvertAccess(Entity<AccessReaderComponent> ent, bool invert = false, bool dirty = true)
+    {
+        ent.Comp.Inverted = invert;
+
+        if (!dirty)
+            return;
+
+        Dirty(ent);
+        RaiseLocalEvent(ent, new AccessReaderConfigurationChangedEvent());
     }
 
     #endregion
