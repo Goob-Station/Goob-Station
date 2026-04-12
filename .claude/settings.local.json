@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python -)",
-      "Bash(grep -l \"SpawnPointSecurityOfficer\" \"c:/Users/gurug/Desktop/SS14 Modding/Goob-Station/Resources/Maps/_Goobstation/\"*.yml)"
-    ]
-  }
-}
