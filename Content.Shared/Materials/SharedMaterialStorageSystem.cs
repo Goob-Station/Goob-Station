@@ -218,6 +218,28 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         return true;
     }
 
+    // Goobstation start
+    /// <summary>
+    /// Checks if the specified materials can be changed by the specified volumes.
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="materials"></param>
+    /// <returns>If the amount can be changed</returns>
+    public bool CanChangeMaterialAmount(Entity<MaterialStorageComponent?> entity, Dictionary<ProtoId<MaterialPrototype>, int> materials)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return false;
+
+        foreach (var (material, amount) in materials)
+        {
+            if (!CanChangeMaterialAmount(entity, material, amount, entity.Comp))
+                return false;
+        }
+
+        return true;
+    }
+    // Goobstation end
+
     /// <summary>
     /// Changes the amount of a specific material in the storage.
     /// Still respects the filters in place.
@@ -296,6 +318,35 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         Dirty(entity, entity.Comp);
         return true;
     }
+
+    // Goobstation start
+    /// <summary>
+    /// Changes the amount of a specific material in the storage.
+    /// Still respects the filters in place.
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="materials"></param>
+    /// <returns>If the amount can be changed</returns>
+    public bool TryChangeMaterialAmount(Entity<MaterialStorageComponent?> entity, Dictionary<ProtoId<MaterialPrototype>, int> materials)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return false;
+
+        if (!CanChangeMaterialAmount(entity, materials))
+            return false;
+
+        foreach (var (material, amount) in materials)
+        {
+            if (!TryChangeMaterialAmount(entity, material, amount, entity.Comp, false))
+                return false;
+        }
+
+        if (entity.Comp.ConnectToSilo) // Goobstation
+            _silo.DirtySilo(entity);
+        Dirty(entity, entity.Comp);
+        return true;
+    }
+    // Goobstation end
 
     /// <summary>
     /// Tries to set the amount of material in the storage to a specific value.

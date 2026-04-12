@@ -39,6 +39,19 @@
   - type: DeviceLinkSink
     ports:
       - FillbotAnyItem
+  - type: MaterialProducer
+    isWorkingWithoutElectricity: true
+    materialsProduce:
+      Steel: 150
+      Glass: 150
+      Plastic: 150
+      Cloth: 20
+      Gold: 20
+      Silver: 20
+      Plasma: 20
+      Uranium: 20
+      Diamond: 2
+
 
 - type: entity
   id: BaseSiloUtilizer
