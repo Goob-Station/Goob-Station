@@ -1,0 +1,37 @@
+# CorvaxGoob Pacification
+
+- type: entity  
+  parent: SurgeryStepBase  
+  id: SurgeryStepPacify  
+  name: Pacify patient  
+  categories: [ HideSpawnMenu ]  
+  components:  
+  - type: SurgeryStep  
+    tool:  
+    - type: Drill  
+    addOrganOnAdd:  
+      brain:  
+      - type: Pacified  
+    duration: 5  
+  - type: Sprite  
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi  
+    state: drill  
+  - type: SurgeryStepEmoteEffect    
+  
+- type: entity  
+  parent: SurgeryStepBase  
+  id: SurgeryStepRemovePacification  
+  name: Remove pacification  
+  categories: [ HideSpawnMenu ]  
+  components:  
+  - type: SurgeryStep  
+    tool:  
+    - type: Hemostat  
+    duration: 4  
+    removeOrganOnAdd:  
+      brain:  
+      - type: Pacified  
+  - type: Sprite  
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi  
+    state: hemostat  
+  - type: SurgeryStepEmoteEffect

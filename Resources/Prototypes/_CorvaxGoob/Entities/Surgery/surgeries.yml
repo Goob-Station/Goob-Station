@@ -1,0 +1,43 @@
+# CorvaxGoob Pacification
+- type: entity  
+  parent: SurgeryBase  
+  id: SurgeryPacify  
+  name: Pacify patient  
+  categories: [ HideSpawnMenu ]  
+  components:  
+  - type: Surgery  
+    requirement: SurgeryOpenIncision  
+    steps:  
+    - SurgeryStepPacify  
+    - SurgeryStepCloseIncision  
+  - type: SurgeryOrganCondition  
+    organ:  
+    - type: Brain  
+  - type: SurgeryOrganOnAddCondition  
+    components:  
+      brain:  
+      - type: Pacified  
+    inverse: true  
+  - type: SurgeryPartCondition  
+    parts: [ Head ]  
+  
+- type: entity  
+  parent: SurgeryBase  
+  id: SurgeryRemovePacification  
+  name: Remove pacification  
+  categories: [ HideSpawnMenu ]  
+  components:  
+  - type: Surgery  
+    requirement: SurgeryOpenIncision  
+    steps:  
+    - SurgeryStepRemovePacification  
+    - SurgeryStepCloseIncision  
+  - type: SurgeryOrganCondition  
+    organ:  
+    - type: Brain  
+  - type: SurgeryOrganOnAddCondition  
+    components:  
+      brain:  
+      - type: Pacified  
+  - type: SurgeryPartCondition  
+    parts: [ Head ]
