@@ -2,7 +2,7 @@
   parent: BaseSecurityPDA
   id: SecuritySergeantPDA
   name: sergeant PDA
-  description: Beaten, battered and broken, but just barely useable.
+  description: Beatened and battered, this PDA has seen better days. It still functions, but it looks like it's been through a lot.
   components:
   - type: Pda
     id: SecuritySergeantIDCard

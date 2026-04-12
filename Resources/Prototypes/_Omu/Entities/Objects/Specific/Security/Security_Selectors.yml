@@ -1,7 +1,7 @@
 - type: entity
   id: SergeantGunCase
   name: sergeant duty case
-  description: A case, used to securely store your duty weapon of choice.
+  description: A case used by sergeants to carry their duty weapons.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
