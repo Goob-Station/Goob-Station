@@ -1294,10 +1294,10 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: IrishSlammer
+        - ReagentId: IrishCarBomb
           Quantity: 30
   - type: Icon
-    sprite: Objects/Consumable/Drinks/irishslammer.rsi
+    sprite: Objects/Consumable/Drinks/irishcarbomb.rsi
     state: icon
 
 - type: entity

@@ -146,13 +146,13 @@
   id: MobRodentiaTorsoMale
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
   id: MobRodentiaTorsoFemale
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobRodentiaGroin
