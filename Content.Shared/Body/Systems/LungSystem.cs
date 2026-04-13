@@ -37,6 +37,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Prototypes;
 using BreathToolComponent = Content.Shared.Atmos.Components.BreathToolComponent;
