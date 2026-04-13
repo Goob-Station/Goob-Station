@@ -20,7 +20,6 @@ public sealed class BloodsuckerHudSystem : EntitySystem
         if (args.Alert == ent.Comp.BloodAlert)
         {
             args.Amount = ent.Comp.CurrentBlood;
-            //args.Handled = true;
             return;
         }
 
@@ -28,7 +27,6 @@ public sealed class BloodsuckerHudSystem : EntitySystem
         if (args.Alert == ent.Comp.RankAlert)
         {
             args.Amount = ent.Comp.Rank;
-            //args.Handled = true;
             return;
         }
 
@@ -40,7 +38,6 @@ public sealed class BloodsuckerHudSystem : EntitySystem
                 return;
 
             args.Amount = (int) cycle.Value.Comp.TimeUntilCycle;
-            //args.Handled = true;
         }
     }
 

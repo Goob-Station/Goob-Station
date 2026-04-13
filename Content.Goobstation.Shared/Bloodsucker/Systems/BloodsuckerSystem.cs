@@ -92,6 +92,9 @@ public sealed class BloodsuckerSystem : EntitySystem
 
         if (args.Damage.DamageDict.TryGetValue("Asphyxiation", out _))
             args.Damage.DamageDict["Asphyxiation"] = 0;
+
+        if (args.Damage.DamageDict.TryGetValue("Bloodloss", out _))
+            args.Damage.DamageDict["Bloodloss"] = 0;
     }
 
     private void OnSleepStateChanged(Entity<BloodsuckerComponent> ent, ref SleepStateChangedEvent args)
