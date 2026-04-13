@@ -153,7 +153,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           groups:
@@ -235,7 +235,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           groups:
@@ -254,7 +254,7 @@
             reagent: Stimulants
             min: 20 # Goob edit
           - !type:MetabolizerTypeCondition # Goobstation - Yowie
-            type: [Yowie]
+            type: [ Yowie ]
             inverted: true
         damage:
           types:
@@ -396,7 +396,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           groups:
@@ -412,7 +412,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           types:
@@ -468,7 +468,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           groups:
@@ -506,7 +506,7 @@
           reagent: Nocturine
           min: 8
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         effectProto: StatusEffectForcedSleeping
         time: 6
@@ -660,7 +660,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           groups:

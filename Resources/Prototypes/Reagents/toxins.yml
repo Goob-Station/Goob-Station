@@ -134,14 +134,14 @@
       - !type:MovementSpeedModifier
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         effectProto: StatusEffectDrowsiness
         time: 4
@@ -152,7 +152,7 @@
           reagent: ChloralHydrate
           min: 20
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           types:
@@ -183,7 +183,7 @@
             reagent: GastroToxin
             min: 2
           - !type:MetabolizerTypeCondition # Goobstation - Yowie
-            type: [Yowie]
+            type: [ Yowie ]
             inverted: true
           probability: 0.2
 
@@ -477,7 +477,7 @@
           reagent: Histamine
           min: 45
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           groups:
@@ -540,7 +540,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           types:
@@ -762,7 +762,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           types:
@@ -783,7 +783,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           types:
@@ -812,7 +812,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           groups:
@@ -851,7 +851,7 @@
         - !type:HungerCondition
           max: 50
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
+          type: [ Yowie ]
           inverted: true
         damage:
           types:

@@ -284,7 +284,7 @@
         - !type:ReagentThreshold
           min: 3
         - !type:MetabolizerTypeCondition
-          type: [Dwarf]
+          type: [ Dwarf ]
         amount: 1 # Goobstation - Dwarf buff end
 # Goobstation End
       # Begin DeltaV Additons - Oni take less poison
@@ -412,7 +412,7 @@
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type:
           - Yowie
-          shouldHave: false
+          inverted: true
         damage:
           types:
             Poison: 1

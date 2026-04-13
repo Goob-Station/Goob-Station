@@ -1,6 +1,6 @@
 ﻿using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects.Body;

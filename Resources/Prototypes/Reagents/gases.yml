@@ -235,12 +235,12 @@
         minScale: 3
 # Goobstation start
         conditions:
-          - !type:MetabolizerTypeCondition
-            typee: [ Plasmaman ]
-            inverted: true
-          - !type:ReagentThreshold
-            min: 1.5
-# Goobstation end
+        - !type:MetabolizerTypeCondition
+          typee: [ Plasmaman ]
+          inverted: true
+        - !type:ReagentThreshold
+          min: 1.5
+        # Goobstation end
         clear: True
         time: 5
       - !type:Oxygenate

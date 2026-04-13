@@ -56,7 +56,7 @@ public sealed class SlasherObserverCheckSystem : EntitySystem
 
     private void UpdateAlert(Entity<SlasherObserverCheckComponent> ent, bool isObserved)
     {
-        _alerts.ShowAlert(ent, ent.Comp.Alert, (short) (isObserved ? 1 : 0));
+        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert, (short) (isObserved ? 1 : 0));
     }
 
     /// <summary>
