@@ -10,13 +10,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <Document>
   # Завеса Мансуса ослабевает
-  Итак, ты еретик? Приготовься к магии и битве. Собирай влияния, выполняй жертвоприношения, совершай ритуалы и вознесись к божественности.
+  Итак, ты еретик? Приготовься к магии и битве. Собирай сдвиги, выполняй жертвоприношения, совершай ритуалы и вознесись к божественности.
 
   Твоя главная цель — вознестись и стать всемогущим, но для этого нужно получить знания.
   Все знания стоят 1 очко, кроме "публичных", доступных с любого пути, и Вознесений.
 
   Ты можешь получать очки знаний и становиться сильнее несколькими способами:
-  - Поглощая влияния, которые случайно появляются по станции.
+  - Поглощая сдвиги, которые случайно появляются по станции.
   - Жертвуя членов экипажа, которых требуют твои тёмные покровители.
   - Автоматически получая по одному очку знаний каждые 20 минут.
 
@@ -26,22 +26,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Еретики могут лечить святой урон несколькими способами:
   - Стоя на руне трансмутации.
   - Пьянствуя из Эльдрической фляги.
-  - Using Nightwatcher's Rebirth ashen path ability.
-  - Standing on rust as rusted path heretic.
-  - Hitting living people with your blades as ascended blade heretic.
+  - Использую Возрождение Дозорного по пути пепла.
+  - Стоя на ржавчине по пути ржавчины.
+  - Нанося удары по живым существам по пути клинка после возвышения.
 
-  ## Сверхъестественные влияния
+  ## Сверхъестественные сдвиги
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluence" Caption=""/>
   </Box>
-  Влияния — простой способ получить очки силы. Когда на станции есть еретики, влияния случайно появляются по всей станции.
+  Сдвиги — простой способ получить очки силы. Когда на станции есть еретики, сдвиги случайно появляются по всей станции.
   Они невидимы для глаза обычного члена экипажа, но **станут видны** после сбора, кроме того, резко меняют цвет.
-  Совет: Используя **Кодекс Цикатрикс** на влиянии, ты соберёшь его быстрее и получишь вдвое больше очков знаний, но это сразу выдаст тебя окружающим как еретика.
+  Совет: Используя кодекс Цикатрикс на сдвиге, ты соберёшь его быстрее и получишь вдвое больше очков знаний, но это сразу выдаст тебя окружающим как еретика.
 
   <Box>
-    <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Собранное влияние. Обрати внимание на свечение."/>
+    <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Собранный сдвиг. Обрати внимание на свечение."/>
   </Box>
-  Каждое влияние можно собрать только один раз, поэтому еретик, который первым соберёт больше влияний, должен убивать и жертвовать меньше, чтобы достичь вознесения.
+  Каждый сдвиг можно собрать только один раз, поэтому еретик, который первым соберёт больше сдвигов, должен убивать и жертвовать меньше, чтобы достичь вознесения.
 
   ## Жертвы
   Теперь пора набраться храбрости и начать приносить в жертву членов экипажа ради очков.
@@ -64,8 +64,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Когда у тебя появятся очки знаний, начинай исследования! Открой хранилище знаний через кнопку действия.
   Меню исследований представляет собой ветвящееся дерево, и твой первый выбор — это путь, определяющий начальные способности и Финальное Вознесение.
   Ты можешь получить способности с других путей в ограниченной мере, но выбранный путь сильно влияет на стиль игры.
-  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target is incapacitated, they're ready to sacrifice.
-  Drag them over a transmutation rune and invoke the [color=yellow]Heartbeat of the Mansus[/color] to sacrifice them.
+  Следуйте за вашим [color=red]Живым сердцем[/color] к выбранной жертве и обезвредьте её любыми необходимыми средствами. Если ваша цель в критическом состоянии или мертва, она готова к жертвоприношению.
+  Перетащите их на руну трансмутации и проведите ритуал [color=yellow]Сердцебиение Мансуса[/color], чтобы принести их в жертву.
 
   ## Трансмутация – ключ к успеху
   В конце концов тебе понадобится использовать настоящую магию. Чтобы нарисовать руну трансмутации, нужен инструмент для письма, например ручка или мелок.
@@ -90,37 +90,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - \[ [color=red]Янтарный Фокус[/color] \] — Позволяет трансмутировать осколок стекла и пару глаз в Янтарный Фокус. Маленький предмет, надеваемый на шею, который даёт возможность кастовать продвинутые заклинания.
   - \[ [color=red]Живое Сердце[/color] \] — Позволяет определять цели. Издаёт слышимое сердцебиение, используй осторожно.
   - \[ [color=red]Неумолимое Сердцебиение[/color] \] — Позволяет трансмутировать сердце, ручку и бумагу для переброса целей, если закончились тела или хочешь другой подход.
-  - \[ [color=red]Кодекс Цикатрикс[/color] \] — Позволяет трансмутировать книгу, любую ручку и кусок мяса или несиликоновый орган в Кодекс Цикатрикс. Используется для сбора влияний с прибавкой знаний, но увеличивает риск быть замеченным. Также помогает рисовать и удалять руны и служит фокусом в крайнем случае.
+  - \[ [color=red]Кодекс Цикатрикс[/color] \] — Позволяет трансмутировать книгу, любую ручку и кусок мяса или несиликоновый орган в Кодекс Цикатрикс. Используется для сбора сдвигов с прибавкой знаний, но увеличивает риск быть замеченным. Также помогает рисовать и удалять руны и служит фокусом в крайнем случае.
   - \[ [color=red]Плащ Тени[/color] \] — Заклинание, скрывающее твою личность в густом пурпурном дыму, увеличивающее скорость передвижения и замедляющее взаимодействия. Требует фокус для кастования.
   - \[ [color=red]Пир Совы[/color] \] — Ритуал, дающий 5 очков знаний, но блокирующий вознесение. Маленькая жертва ради быстрой силы. Возврата нет.
   - \[ [color=red]Воспоминание[/color] \] — Еретические клинки ограничены. Можно создать от 2 до 4 клинков в зависимости от пути, выполнив ритуал создания клинка второго этапа. Ритуал Reminiscence позволяет трансмутировать стул, чтобы вернуть ранее созданный клинок к руне трансмутации.
 
-  ## Focus is Necessary
-  To cast more advanced spells, you must focus by wearing an [color=orange]Amber Focus[/color].
-  You can acquire Amber Focus using the eponymous ritual.
-  Some more powerful heretical equipment also functions as a focus - namely, the Ominous Armor from the Armorer's Ritual (when the hood is flipped up).
-  [color=yellow]Ascension[/color] disables the need for a focus.
-
-  ## Starting Knowledge
-  - \[ [color=red]Mansus Grasp[/color] \] - A short range spell that channels eldritch power straight to your palm. Upon contact, knocks down and confuses unsuspecting targets. It can be used as a surgical tool for obtaining organs.
-  - \[ [color=red]Heartbeat of the Mansus[/color] \] - Allows you to sacrifice targets who are dead to the Mansus, gibbing them and rewarding you with two knowledge point; three if your victim was a head of staff, security, or another heretic.
-  - \[ [color=red]Amber Focus[/color] \] - Allows you to transmute a sheet of glass and a pair of eyes into an Amber Focus. This is a small neck-worn item that allows you to cast advanced spells while worn.
-  - \[ [color=red]Living Heart[/color] \] - Allows you to pinpoint your targets. Plays an audible heartbeat sound, so use it carefully.
-  - \[ [color=red]Relentless Heartbeat[/color] \] - Allows you to transmute a heart, a pen and paper to reroll your target selection, in case you've run out of bodies or want a different approach.
-  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix. The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes faster, and as a spell focus in a pinch.
-  - \[ [color=red]Cloak of Shadow[/color] \] - A spell, which will conceal your identity in an obvious purple smoke, making you move faster but interact slower. Requires a focus to cast.
-  - \[ [color=red]Feast of Owls[/color] \] - Allows you to perform a ritual that grants you 5 knowledge points but locks you out of ascension. A small sacrifice to gain power quickly. There is no going back.
-  - \[ [color=red]Reminiscence[/color] \] - Heretic blades are limited. You can only create up to 2-4 blades depending on your path by performing stage 2 blade creation ritual. Reminiscence ritual allows you to transmute a chair to recall your lost blade that you have previously created to the transmutation rune.
-
-  ## Tips
-  - You can enchant items using your Codex Cicatrix and Transmutation rune. [textlink="For more info on enchanting, click here." link="Enchanting"]
-  - Be wary of other heretics. They worship false gods, and will sacrifice you for knowledge just as easily as they would any other heathen. However, you can sacrifice them to the Mansus as well. Let the strongest god win.
-  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend or wear a Mask of Madness!
-  - As a [color=purple]Raw Prophet[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a hivemind similar to changelings with +m key to talk privately.
-  - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
-  - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.
-  - Monkeys and other animals make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
-  - Most summoned ghouls will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
-  - [color=yellow]Eldritch Flask[/color], a stage 3 side path knowledge acts like a cryostasis beaker and has a total capacity of 100 units, meaning you can create deadly mixes that are easily triggered.
-  - [color=yellow]Eldritch Essence[/color], contained in eldritch flask is able to rust tiles upon splashing on them. Contrariwise, [color=yellow]Space Cola[/color] clears tile rusting, which is useful for crew when fighting Rusted Path heretic.
+  ## Советы
+  - Вы можете зачаровывать предметы, используя ваш кодекс Цикатрис и руну трансмутации. [textlink="Для получения дополнительной информации о зачаровании нажмите здесь." link="Enchanting"]
+  - Остерегайтесь других еретиков. Они поклоняются ложным богам и пожертвуют вами ради знаний так же легко, как и любым другим язычником. Однако вы тоже можете принести их в жертву Мансусу. Пусть победит сильнейший бог.
+  - На пути Пепла всегда носите с собой огнетушитель или бутылку воды! Хотя вы и можете создавать огненные шары, вы не застрахованы от них, пока не возвыситесь или не наденете маску безумия!
+  - Будучи [color=purple]нечестивым пророком[/color], ваша способность [color=green]связь с Мансусом[/color] чрезвычайно полезна для общения. Когда вы используете её на ком-то, он получает доступ к коллективному разуму, похожему на разум генокрадов, с клавишей +m для приватных разговоров.
+  - Ваша Хватка Мансуса временно исказит речь тех, на ком вы её используете. Это может позволить вам безнаказанно совершить убийство, пока связь работает, но будьте осторожны - это не дает стопроцентной гарантии.
+  - [color=purple]Сдвиги реальности[/color] могут появиться практически в любом месте на станции: от коридоров и общественных туалетов до [color=cyan]офисов командования[/color] и [color=red]запретных зон СБ[/color] в бриге. Лучше всего проверять каждую область, к которой у вас есть доступ, как общественную, так и закрытую.
+  - Обезьяны и другие животные являются отличными, обычно не вызывающими подозрений источниками органов или трупов для ваших еретических ритуалов.
+  - Большинство призванных гулей после смерти оставляют компоненты, использованные для их создания. Хотя их гибель нежелательна, вы можете легко забрать части и призвать нового.
+  - [color=yellow]Эльдрическая фляга[/color], побочное знание 3-й стадии, действует как криостазисная мензурка и имеет общую вместимость 100 единиц, что означает, что вы можете создавать смертоносные смеси, которые легко активируются.
+  - [color=yellow]Жуткая эссенция[/color], содержащаяся в эльдрической фляге, способна покрывать ржавчиной плитку при разбрызгивании. И наоборот, [color=yellow]спейс кола[/color] очищает плитку от ржавчины, что полезно для экипажа при борьбе с еретиком Ржавого пути.
 </Document>

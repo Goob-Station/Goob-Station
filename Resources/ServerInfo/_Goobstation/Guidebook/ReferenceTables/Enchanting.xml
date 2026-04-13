@@ -6,65 +6,65 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Enchanting
+# Зачарования
 
-Those who are magically inclined, such as Wizards, Heretic and Chaplains, have access to the arcane art of Enchanting.
+Те, кто склонен к магии, такие как волшебники, еретики и священники, имеют доступ к тайному искусству зачарования.
 
-# Enchanting an item
+# Зачарование предмета
 
-To enchant an item, you need a sacrificial offering and an item to enchant. Most often these are the cores of anomalies, but are occasionally more mundane components like Diamonds.
+Чтобы зачаровать предмет, вам понадобится подношение и предмет для зачарования. Чаще всего это ядра аномалий, но иногда и обычные вещи, такие как алмазы.
 <Box>
   <GuideEntityEmbed Entity="AltarConvert" Caption=""/>
 </Box>
-Place an item on an altar (or a Transmutation Rune) alongside the offering and hit the item with your magical tome. For wizards, this is their Wizard's Grimoire. For Chaplain, their Bible or other religious texts. For Heretics, their Codex Cicatrix.
+Поместите предмет на алтарь (или на руну трансмутации) вместе с подношением и ударьте по предмету вашим магическим томом. Для волшебников это гримуар. Для священника — библия или другие религиозные тексты. Для еретиков — кодекс Цикатрис.
 
-If the item and offering are compatible, the offering will be consumed and the item will become enchanted. If you use an anomaly core, those from critical anomalies are more potent than inert cores, and empower your item more effectively.
+Если предмет и подношение совместимы, подношение будет поглощено, а предмет станет зачарованным. При использовании ядер от критических аномалий (коллапсировавших) предмет будет усилен эффективнее, чем от обычных.
 
-# Enchantment limits
+# Лимиты для зачарования
 
-An item can only be enchanted with one kind of enchantment, unless you perform a ritual. By killing any living entity with a soul on top of an altar alongside your enchanted item, their soul will be consumed and increase the enchantment limit.
+Предмет можно зачаровать только одним видом зачарования, если вы не проведете ритуал: убийство любой живой сущности, обладающей душой, на алтаре рядом с вашим зачарованным предметом, ее душа будет поглощена, что увеличит лимит зачарований.
 
-The sacrifice will be possible to revive, but have the ill effects of losing their soul, akin to selling their soul to a Devil.
+Жертву можно будет оживить, но она испытает последствия потери души, подобные продаже души Дьяволу.
 
-# Types of enchantments
+# Виды зачарований
 
-  ### Fire Aspect
-Fire Aspect causes your weapon to set your foes on fire. Obtainable from Pyroclastic Anomaly cores.
+  ### Заговор огня
+Заговор огня заставляет оружие поджигать врагов. Можно получить из ядер пирокластической аномалии.
 
-  ### Lavaforged
-Lavaforged grants your equipment the ability to protect you from lava. Obtainable from Pyroclastic Anomaly cores.
+  ### Выкованный из лавы
+Выковка из лавы наделяет снаряжение способностью защищать вас от лавы. Можно получить из ядер пирокластической аномалии.
 
-  ### Knockback
-Knockback causes your weapon to knock people back on hit. Obtainable from Gravity Anomaly cores.
+  ### Отдача
+Отдача заставляет ваше оружие отбрасывать противников при попадании. Можно получить из ядер гравитационной аномалии.
 
-  ### Fire Protection
-Fire Protection grants your armor protection from... Fire. Obtainable from Ice Anomaly cores.
+  ### Защита от огня
+Защита от огня наделяет броню защитой от... огня. Можно получить из ядер ледяной аномалии.
 
-  ### Sharpness
-Sharpness sharpens your weapon and grants four bonus Slash damage per level. Obtainable from Flesh Anomaly cores.
+  ### Острота
+Острота затачивает ваше оружие и дает четыре бонусных единицы рубящего урона за каждый уровень. Можно получить из ядер мясной аномалии.
 
-  ### Unbreaking
-Unbreaking reduces all damage by 50%. Due to complicated magical law restrictions, this is only applicable to mice. Obtainable from Rock Anomaly cores.
+  ### Неразрушимость
+Неразрушимость снижает весь получаемый урон на 50%. Из-за сложных магических законодательных ограничений это применимо только к мышам. Можно получить из ядер каменной аномалии.
 
-  ### Protection
-Protection grants your equipment damage resistance. Obtainable from Rock Anomaly cores.
+  ### Защита
+Защита наделяет ваше снаряжение сопротивлением урону. Можно получить из ядер каменной аномалии.
 
-  ### Slippery
-Slippery makes any item slip people. Obtainable from Liquid Anomaly cores.
+  ### Скользящий
+Скользящий заставляет любой предмет поскальзывать людей. Можно получить из ядер жидкостной аномалии.
 
-  ### Unslippable
-Unslippable makes any shoes grant immunity to slipping. Obtainable from Liquid Anomaly cores.
+  ### Нескользящий
+Нескользящий наделяет любую обувь невосприимчивостью к поскальзыванию. Можно получить из ядер жидкостной аномалии.
 
-  ### Insulated?
-Insulated? grants a chance to not be shocked by sources of electricity to gloves. Obtainable from inert Elecricity Anomaly cores.
+  ### Изолированный(?)
+Изолированный(?) дает шанс не получить удар током от источников электричества при зачаровании перчаток. Можно получить из обычных ядер электрической аномалии.
 
-  ### Insulated
-Insulated grants gloves full insulation from electricity. Obtainable from critical Elecricity Anomaly cores.
+  ### Изолированный
+Изолированный наделяет перчатки полной изоляцией от электричества. Можно получить из критических ядер электрической аномалии.
 
-  ### Thorns
-Thorns can be applied to armor, and damages melee attackers with 4 slash damage per level. Obtainable from Floral Anomaly cores.
+  ### Шипы
+Шипы можно наложить на броню, которые наносят нападающим в ближнем бою 4 порезов за каждый уровень. Можно получить из ядер цветочной аномалии.
 
-  ### Fortune
-Fortune has a chance to increase ore yield for drills and pickaxes, chance proportional to enchantment level. Obtainable from Santa Anomaly cores and diamonds.
+  ### Удача
+Удача дает шанс увеличить количество добываемой руды при использовании буров и кирок, вероятность срабатывания пропорциональна уровню зачарования. Можно получить из ядер подарочной аномалии и алмазов.
 
 </Document>
