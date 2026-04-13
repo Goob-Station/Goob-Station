@@ -32,4 +32,4 @@ ent-SyringeCryostasis = криостазисный шприц
 ent-Pill = таблетка
     .desc = Это не свеча.
 ent-PillCanister = баночка для таблеток
-    .desc = Вмещает до 10 таблеток.
+    .desc = Вмещает до 15 таблеток.

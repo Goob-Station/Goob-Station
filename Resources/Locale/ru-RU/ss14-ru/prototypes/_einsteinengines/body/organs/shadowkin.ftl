@@ -17,4 +17,4 @@ ent-OrganShadowkinStomach = { ent-OrganHumanStomach }
 ent-OrganShadowkinLiver = { ent-OrganHumanLiver }
     .desc = Печень? Да я с ней даже не знаком!
 ent-OrganShadowkinKidneys = { ent-OrganHumanKidneys }
-    .desc = Верните ребёнку его колени, пожалуйста, это уже третий раз за неделю.
+    .desc = Верните ребёнку его почки, пожалуйста, это уже третий раз за неделю.
