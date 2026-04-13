@@ -28,6 +28,7 @@
     state: unlit-icon
   - type: Tag
     tags:
+      - Cigarette #CorvaxGoob
       - Cigar
       - Trash
   - type: Clothing
@@ -54,6 +55,7 @@
         maxVol: 20
   - type: Tag
     tags:
+      - Cigarette #CorvaxGoob
       - Cigar
       - Trash
       - Burnt
@@ -75,6 +77,8 @@
     size: Tiny
   - type: Tag
     tags:
+      - Cigar #CorvaxGoob
+      - Trash #CorvaxGoob
       - Cigarette #Goobstation - whitelisted cig pack strorage (added tag)
 
 - type: entity
@@ -90,3 +94,9 @@
     solutions:
       smokable:
         maxVol: 20
+  - type: Tag #CorvaxGoobStart
+    tags:
+      - Cigar 
+      - Trash 
+      - Cigarette 
+      - Burnt #CorvaxGoobEnd
