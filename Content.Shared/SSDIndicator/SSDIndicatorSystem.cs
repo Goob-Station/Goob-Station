@@ -7,6 +7,7 @@
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Examine; //Goob-Station-Edit
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -33,6 +34,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
         SubscribeLocalEvent<SSDIndicatorComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<SSDIndicatorComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<SSDIndicatorComponent, MapInitEvent>(OnMapInit);
+		SubscribeLocalEvent<SSDIndicatorComponent, ExaminedEvent>(OnExamined); //Goob-Station-Edit
 
         _cfg.OnValueChanged(CCVars.ICSSDSleep, obj => _icSsdSleep = obj, true);
         _cfg.OnValueChanged(CCVars.ICSSDSleepTime, obj => _icSsdSleepTime = obj, true);
@@ -100,4 +102,17 @@ public sealed class SSDIndicatorSystem : EntitySystem
             Dirty(uid, ssd);
         }
     }
+    
+	// Goob-Station-Start
+    private void OnExamined(EntityUid uid, SSDIndicatorComponent component, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange || !component.IsSSD)
+            return;
+
+		var curTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
+		var time = curTime - component.FallAsleepTime;
+		args.PushMarkup(Loc.GetString("comp-ssd-person-examined", ("ent", uid), ("time", (int) time.TotalSeconds)));
+		
+	}
+	// Goob-Station-End
 }
