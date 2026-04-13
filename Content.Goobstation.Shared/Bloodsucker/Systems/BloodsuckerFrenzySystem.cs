@@ -20,7 +20,7 @@ public sealed class BloodsuckerFrenzySystem : EntitySystem
     [Dependency] private readonly BloodsuckerHumanitySystem _humanity = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
 
-    private static readonly ProtoId<DamageTypePrototype> BurnDamageType = "Burn";
+    private static readonly ProtoId<DamageTypePrototype> BurnDamageType = "Heat";
 
     public override void Initialize()
     {
