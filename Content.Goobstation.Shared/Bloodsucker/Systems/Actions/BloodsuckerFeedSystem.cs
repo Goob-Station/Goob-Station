@@ -3,6 +3,7 @@ using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Bloodsuckers.Components;
 using Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
+using Content.Goobstation.Shared.Bloodsuckers.Components.Vassals;
 using Content.Goobstation.Shared.Bloodsuckers.Events;
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Shared._Starlight.VentCrawling;
@@ -231,8 +232,8 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
                 continue;
             if (HasComp<PermanentBlindnessComponent>(watcher))
                 continue;
-            //if (HasComp<BloodsuckerVassalComponent>(watcher))
-            //    continue;
+            if (HasComp<BloodsuckerVassalComponent>(watcher))
+                continue;
 
             _popup.PopupPredicted(
                 Loc.GetString("bloodsucker-feed-noticed"),

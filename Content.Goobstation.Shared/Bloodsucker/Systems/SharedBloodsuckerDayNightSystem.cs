@@ -4,13 +4,13 @@ using Robust.Shared.Random;
 namespace Content.Goobstation.Shared.Bloodsuckers.Systems;
 
 /// <summary>
-/// Raised when day begins (solar flare starts).
+/// Raised when day begins.
 /// </summary>
 [ByRefEvent]
 public record struct BloodsuckerDayStartedEvent;
 
 /// <summary>
-/// Raised when night begins (solar flare ends).
+/// Raised when night begins.
 /// </summary>
 [ByRefEvent]
 public record struct BloodsuckerNightStartedEvent;

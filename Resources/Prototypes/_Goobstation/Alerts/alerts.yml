@@ -155,3 +155,40 @@
   description: alerts-slasher-seen-desc
   minSeverity: 0
   maxSeverity: 1
+
+- type: alert
+  id: BloodsuckerBlood
+  name: alert-bloodsucker-blood-name
+  description: alert-bloodsucker-blood-desc
+  icons:
+  - sprite: /Textures/_Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+    state: blood_display
+  category: BloodsuckerBlood
+
+- type: alert
+  id: BloodsuckerRank
+  name: alert-bloodsucker-rank-name
+  description: alert-bloodsucker-rank-desc
+  icons:
+  - sprite: /Textures/_Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+    state: rank
+  category: BloodsuckerRank
+
+- type: alert
+  id: BloodsuckerSol
+  name: alert-bloodsucker-sol-name
+  description: alert-bloodsucker-sol-desc
+  minSeverity: 0
+  maxSeverity: 4
+  icons:
+  - sprite: /Textures/_Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+    state: sunlight_night      # severity 0 - safe night
+  - sprite: /Textures/_Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+    state: sunlight_90         # severity 1 - 90s warning
+  - sprite: /Textures/_Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+    state: sunlight_60         # severity 2 - 60s warning
+  - sprite: /Textures/_Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+    state: sunlight_30         # severity 3 - 30s warning
+  - sprite: /Textures/_Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+    state: sunlight_day        # severity 4 - daytime
+  category: BloodsuckerSol

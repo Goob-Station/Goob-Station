@@ -1,7 +1,9 @@
 using Content.Goobstation.Common.Traits;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Bloodsuckers.Components;
 using Content.Goobstation.Shared.Bloodsuckers.Events;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Speech.Muting;
@@ -16,6 +18,7 @@ public sealed class BloodsuckerFrenzySystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly BloodsuckerHumanitySystem _humanity = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
 
     private static readonly ProtoId<DamageTypePrototype> BurnDamageType = "Burn";
 
@@ -32,15 +35,37 @@ public sealed class BloodsuckerFrenzySystem : EntitySystem
         base.Update(frameTime);
 
         // Check whether any non-frenzied bloodsucker should enter frenzy.
-        var bloodsuckerQuery = EntityQueryEnumerator<BloodsuckerComponent, BloodstreamComponent>();
-        while (bloodsuckerQuery.MoveNext(out var uid, out var sucker, out var bloodstream))
+        var bloodsuckerQuery = EntityQueryEnumerator<BloodsuckerComponent>();
+        while (bloodsuckerQuery.MoveNext(out var uid, out var sucker))
         {
             if (HasComp<BloodsuckerFrenzyComponent>(uid))
                 continue;
 
+            if (!TryComp(uid, out BloodstreamComponent? bloodstream))
+                continue;
+
+            _bloodstream.TryModifyBloodLevel(
+                new Entity<BloodstreamComponent?>(uid, bloodstream),
+                -FixedPoint2.New(sucker.PassiveBloodDrainPerSecond * frameTime));
+
             var currentBlood = GetBloodVolume(bloodstream);
             if (currentBlood <= sucker.FrenzyThreshold)
                 EnterFrenzy(uid, sucker);
+        }
+
+        // New query at the end of Update():
+        var coffinQuery = EntityQueryEnumerator<BloodsuckerComponent, InsideCoffinComponent, BloodstreamComponent>();
+        while (coffinQuery.MoveNext(out var uid, out var sucker, out _, out var bloodstream))
+        {
+            // Heal brute slowly while in coffin
+            if (!TryComp(uid, out DamageableComponent? damageable))
+                continue;
+
+            var heal = new DamageSpecifier();
+            heal.DamageDict["Blunt"] = -sucker.CoffinHealPerSecond * frameTime;
+            heal.DamageDict["Slash"] = -sucker.CoffinHealPerSecond * frameTime;
+            heal.DamageDict["Piercing"] = -sucker.CoffinHealPerSecond * frameTime;
+            _damageable.TryChangeDamage(uid, heal, ignoreResistances: true);
         }
 
         // Tick burn DoT on frenzied bloodsuckers.
@@ -73,6 +98,7 @@ public sealed class BloodsuckerFrenzySystem : EntitySystem
         frenzy.BurnDamagePerSecond = burnDps;
 
         ApplySensoryDebuffs(uid, frenzy);
+        EnsureComp<BloodsuckerFrenzyOverlayComponent>(uid);
 
         RaiseLocalEvent(uid, new BloodsuckerFrenzyEnteredEvent { BurnDamagePerSecond = burnDps });
         Dirty(uid, frenzy);
@@ -84,6 +110,7 @@ public sealed class BloodsuckerFrenzySystem : EntitySystem
             return;
 
         RemoveSensoryDebuffs(uid, frenzy);
+        RemComp<BloodsuckerFrenzyOverlayComponent>(uid);
         RemComp<BloodsuckerFrenzyComponent>(uid);
         RaiseLocalEvent(uid, new BloodsuckerFrenzyExitedEvent());
     }

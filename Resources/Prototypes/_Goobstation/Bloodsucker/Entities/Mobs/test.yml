@@ -21,6 +21,7 @@
   - type: BloodsuckerGoHome
   - type: BloodsuckerVeil
   - type: BloodsuckerMasquerade
+  - type: BloodsuckerOlfaction
   - type: ActionGrant
     actions:
     - ActionBloodsuckerFeed
@@ -39,6 +40,7 @@
     - ActionBloodsuckerGoHome
     - ActionBloodsuckerVeil
     - ActionBloodsuckerMasquerade
+    - ActionBloodsuckerOlfactionAcquire
 
 - type: entity
   id: BloodsuckerDayNightManager

@@ -33,7 +33,7 @@
   - type: TargetAction
     range: 2
   - type: EntityTargetAction
-    canTargetSelf: false
+    canTargetSelf: true
     event: !type:BloodsuckerBrawlEvent
 
 - type: entity
@@ -125,6 +125,36 @@
       - Body
     canTargetSelf: false
     event: !type:BloodsuckerVassalizeEvent
+
+- type: entity
+  id: ActionBloodsuckerOlfactionAcquire
+  name: Sanguine Olfaction
+  description: Click near a blood puddle to lock onto its owner.
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_olfac
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:BloodsuckerOlfactionEvent
+
+- type: entity
+  id: ActionBloodsuckerOlfactionStop
+  name: Lose the Scent
+  description: Stop tracking your current target.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_olfac_stop
+  - type: InstantAction
+    event: !type:BloodsuckerOlfactionStopEvent
 
 # Non-targetted
 

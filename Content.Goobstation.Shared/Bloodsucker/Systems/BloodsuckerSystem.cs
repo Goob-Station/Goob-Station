@@ -4,11 +4,11 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Flash;
-using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
+using Robust.Shared.Containers;
+using Content.Shared.Alert;
 
 namespace Content.Goobstation.Shared.Bloodsuckers.Systems;
 
@@ -19,8 +19,7 @@ public sealed class BloodsuckerSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
 
     public override void Initialize()
     {
@@ -31,6 +30,22 @@ public sealed class BloodsuckerSystem : EntitySystem
         SubscribeLocalEvent<BloodsuckerComponent, SleepStateChangedEvent>(OnSleepStateChanged);
         SubscribeLocalEvent<BloodsuckerComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<BloodsuckerComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<BloodsuckerComponent, ComponentInit>(OnBloodsuckerInit);
+        SubscribeLocalEvent<BloodsuckerComponent, ComponentShutdown>(OnBloodsuckerShutdown);
+    }
+
+    private void OnBloodsuckerInit(Entity<BloodsuckerComponent> ent, ref ComponentInit args)
+    {
+        _alerts.ShowAlert(ent.Owner, ent.Comp.BloodAlert, 0);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.RankAlert, 0);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.SolAlert, 0);
+    }
+
+    private void OnBloodsuckerShutdown(Entity<BloodsuckerComponent> ent, ref ComponentShutdown args)
+    {
+        _alerts.ClearAlert(ent.Owner, ent.Comp.BloodAlert);
+        _alerts.ClearAlert(ent.Owner, ent.Comp.RankAlert);
+        _alerts.ClearAlert(ent.Owner, ent.Comp.SolAlert);
     }
 
     private void OnFlashAttempt(Entity<BloodsuckerComponent> ent, ref FlashDurationMultiplierEvent args)

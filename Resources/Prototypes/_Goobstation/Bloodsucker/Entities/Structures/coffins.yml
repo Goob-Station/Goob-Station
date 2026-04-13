@@ -1,0 +1,166 @@
+- type: entity
+  parent: CrateGeneric
+  id: BaseBloodsuckerCoffin
+  name: black coffin
+  description: For those departed who are not so dear.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/Crates/coffin.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 1
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Coffin
+
+- type: entity
+  parent: BaseBloodsuckerCoffin
+  id: BloodsuckerBlackCoffin
+  name: black coffin
+  description: For those departed who are not so dear.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Bloodsucker/Entities/Structures/black.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+
+- type: entity
+  parent: BaseBloodsuckerCoffin
+  id: BloodsuckerSecureCoffin
+  name: Secure coffin
+  description: For those too scared of having their place of rest disturbed.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Bloodsucker/Entities/Structures/secure.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlasteel:
+            min: 1
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseBloodsuckerCoffin
+  id: BloodsuckerMeatCoffin
+  name: Meat coffin
+  description: When you're ready to meat your maker, the steaks can never be too high.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Bloodsucker/Entities/Structures/meat.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: Gib
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: Gib
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FoodMeat:
+            min: 1
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseBloodsuckerCoffin
+  id: BloodsuckerMetalCoffin
+  name: Metal coffin
+  description: A big metal sardine can inside of another big metal sardine can, in space.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Bloodsucker/Entities/Structures/metal.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlasteel:
+            min: 4
+            max: 12
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

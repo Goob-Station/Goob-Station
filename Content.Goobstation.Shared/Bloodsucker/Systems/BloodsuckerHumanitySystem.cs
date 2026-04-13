@@ -23,7 +23,7 @@ public sealed class BloodsuckerHumanitySystem : EntitySystem
     }
 
     /// <summary>
-    /// Adjusts humanity (negative = lose humanity). Clamps to 0
+    /// Adjusts humanity. Clamps to 0
     /// </summary>
     public void ChangeHumanity(Entity<BloodsuckerHumanityComponent> ent, float delta)
     {

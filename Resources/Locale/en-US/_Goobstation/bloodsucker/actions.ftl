@@ -144,6 +144,20 @@ bloodsucker-masquerade-off = Your heart beats one final time as your icy pallor 
 bloodsucker-health-analyzer-detected = Your scanner detects that {$target} is an undead bloodsucker!
 bloodsucker-examined-pale = {$target} looks unnaturally pale, with cold, lifeless skin.
 
+# Olfaction
+
+bloodsucker-olfaction-no-blood = There is no blood here to track.
+bloodsucker-olfaction-own-blood = This is your own blood.
+bloodsucker-olfaction-acquired = You lock onto a scent...
+bloodsucker-olfaction-stopped = You lose the scent.
+bloodsucker-olfaction-target-lost = Your quarry has vanished from your senses.
+bloodsucker-olfaction-target-dead = Your quarry has gone cold.
+bloodsucker-olfaction-faraway = The heartbeat echoes from somewhere far, far away...
+bloodsucker-olfaction-pulse = You sense a heartbeat to the {$direction} — {$distance}.
+bloodsucker-olfaction-distance-close = very close
+bloodsucker-olfaction-distance-medium = nearby
+bloodsucker-olfaction-distance-far = far away
+
 # Sol
 
 bloodsucker-sol-warn-first = Solar flares will bombard the station in {$minutes} minutes. Seek cover in a coffin or closet.
@@ -151,3 +165,14 @@ bloodsucker-sol-warn-final = Solar flares are imminent! You have {$seconds} seco
 bloodsucker-sol-warn-imminent = Seek cover, for Sol rises!
 bloodsucker-sol-day-start = Solar flares bombard the station! Stay in cover for the next {$minutes} minutes!
 bloodsucker-sol-night-start = The solar flare has ended. The night is yours.
+
+bloodsucker-sol-burning = The solar flare sears your undead flesh!
+
+# Alerts
+
+alert-bloodsucker-blood-name = Blood
+alert-bloodsucker-blood-desc = Your current blood volume. Feed to replenish it.
+alert-bloodsucker-rank-name = Rank
+alert-bloodsucker-rank-desc = Your current vampire rank.
+alert-bloodsucker-sol-name = Solar Cycle
+alert-bloodsucker-sol-desc = Time until the next solar cycle change. Seek cover during daytime.

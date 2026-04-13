@@ -6,7 +6,7 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Goobstation/Bloodsucker/Entities/Objects/vamp_obj.rsi
+    sprite: _Goobstation/Bloodsucker/Entities/Structures/rack.rsi
     state: vassalrack
   - type: Damageable
     damageContainer: StructuralInorganic

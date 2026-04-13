@@ -7,6 +7,15 @@ namespace Content.Goobstation.Shared.Bloodsuckers.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class BloodsuckerDayNightComponent : Component
 {
+    [DataField]
+    public float DayBurnAccumulator;
+
+    [DataField]
+    public float DayBurnTickRate = 2f;
+
+    [DataField]
+    public float DayBurnDamage = 2f;
+
     /// <summary>
     /// Is it currently daytime?
     /// </summary>
