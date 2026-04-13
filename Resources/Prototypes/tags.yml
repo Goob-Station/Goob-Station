@@ -1242,6 +1242,9 @@
   id: NoConsoleSound
 
 - type: Tag
+  id: NoSlimeExtractSlowReset
+
+- type: Tag
   id: NozzleBackTank
 
 - type: Tag

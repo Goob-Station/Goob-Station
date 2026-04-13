@@ -3,6 +3,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using System.Text;
 
 namespace Content.Goobstation.Shared.Clothing.Systems;
@@ -11,6 +12,7 @@ namespace Content.Goobstation.Shared.Clothing.Systems;
 public partial class SharedClothingCoatingSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -27,6 +29,11 @@ public partial class SharedClothingCoatingSystem : EntitySystem
             return;
 
         var target = args.Target.Value;
+        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, target))
+        {
+            _popup.PopupEntity(Loc.GetString("clothing-coating-blocked", ("target", target), ("source", ent)), target, args.User);
+            return;
+        }
         EntityManager.AddComponents(target, ent.Comp.Components, false);
 
         var coated = EnsureComp<CoatedClothingComponent>(target);
