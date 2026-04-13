@@ -424,11 +424,7 @@
     - state: lollypop-captain
       map: [ "enum.AmmoVisualLayers.Tip" ]
   - type: PassiveConsumable
-<<<<<<< HEAD
     deleteOnEmpty: false
-=======
-    spawnTrashOnEmpty: false
->>>>>>> 54c5416e665eb27324edfdc2bcfb7aee78d0b5d9
 
 # CentComm
 
