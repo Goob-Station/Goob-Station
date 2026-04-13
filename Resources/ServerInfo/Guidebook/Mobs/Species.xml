@@ -18,32 +18,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Нанотразен нанимает разнообразные разумные виды.
 
   <Box>
-    <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-    <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-    <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-    <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/>
-    <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
+    <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
+    <GuideEntityEmbed Entity="MobDiona" Caption="Диона"/>
+    <GuideEntityEmbed Entity="MobDwarf" Caption="Дварф"/>
+    <GuideEntityEmbed Entity="MobGingerbread" Caption="Пряничный человечек"/>
+    <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпия"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
-    <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
-    <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-    <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
-    <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-    <GuideEntityEmbed Entity="MobResomi" Caption="Resomi"/>
-    <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
+    <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
+    <GuideEntityEmbed Entity="MobIPCDummy" Caption="КПБ"/>
+    <GuideEntityEmbed Entity="MobMoth" Caption="Ниан"/>
+    <GuideEntityEmbed Entity="MobOni" Caption="Они"/>
+    <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
+    <GuideEntityEmbed Entity="MobResomi" Caption="Резоми"/>
+    <GuideEntityEmbed Entity="MobRodentia" Caption="Родентия"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-    <GuideEntityEmbed Entity="MobTajaran" Caption="Tajaran"/>
-    <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
-    <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vulpkanin"/>
-    <GuideEntityEmbed Entity="MobYowie" Caption="Yowie"/>
-    <GuideEntityEmbed Entity="MobChitinid" Caption="Chitinid"/>
-    <GuideEntityEmbed Entity="MobFeroxi" Caption="Feroxi"/>
+    <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
+    <GuideEntityEmbed Entity="MobTajaran" Caption="Таяран"/>
+    <GuideEntityEmbed Entity="MobVox" Caption="Вокс"/>
+    <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульканин"/>
+    <GuideEntityEmbed Entity="MobYowie" Caption="Йови"/>
+    <GuideEntityEmbed Entity="MobChitinid" Caption="Хитинид"/>
+    <GuideEntityEmbed Entity="MobFeroxi" Caption="Ферокси"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="MobShadowkin" Caption="Shadowkin"/>
+    <GuideEntityEmbed Entity="MobShadowkin" Caption="Тенекин"/>
   </Box>
 
 </Document>
