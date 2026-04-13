@@ -32,6 +32,7 @@ public partial class SharedClothingCoatingSystem : EntitySystem
         if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, target))
         {
             _popup.PopupEntity(Loc.GetString("clothing-coating-blocked", ("target", target), ("source", ent)), target, args.User);
+            args.Handled = true;
             return;
         }
         EntityManager.AddComponents(target, ent.Comp.Components, false);
