@@ -17,7 +17,7 @@
   id: GameDirector
   weights:
     Traitor: 0.25
-    Changeling: 0.10
+#    Changeling: 0.10
     Nukeops: 0.05
     Revolutionary: 0.05
     Zombie: 0.04

@@ -42,41 +42,42 @@
 
 # GameModes
 
-- type: entity
-  parent: BaseGameRule
-  id: Changeling
-  components:
-  - type: ChangelingRule
-  - type: GameRule
-    minPlayers: 15
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroups
-    maxDifficulty: 5
-  - type: AntagObjectives
-    objectives:
-    - ChangelingSurviveObjective
-    - ChangelingStealDNAObjective
-    - ChangelingAbsorbObjective
-    - EscapeIdentityObjective
-  - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    agentName: changeling-roundend-name
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 4
-      playerRatio: 12
-      chaosScore: 200
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
-      blacklist:
-        components:
-        - CommandStaff
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
-  - type: Tag
-    tags:
-      - RoundstartAntag
+# Disabled until changeling refactored
+#- type: entity
+#  parent: BaseGameRule
+#  id: Changeling
+#  components:
+#  - type: ChangelingRule
+#  - type: GameRule
+#    minPlayers: 15
+#  - type: AntagRandomObjectives
+#    sets:
+#    - groups: ChangelingObjectiveGroups
+#    maxDifficulty: 5
+#  - type: AntagObjectives
+#    objectives:
+#    - ChangelingSurviveObjective
+#    - ChangelingStealDNAObjective
+#    - ChangelingAbsorbObjective
+#    - EscapeIdentityObjective
+#  - type: AntagSelection
+#    selectionTime: IntraPlayerSpawn
+#    agentName: changeling-roundend-name
+#    definitions:
+#    - prefRoles: [ Changeling ]
+#      max: 4
+#      playerRatio: 12
+#      chaosScore: 200
+#      jobBlacklist: [ Chaplain ] # GOOBSTATION | what?
+#      blacklist:
+#        components:
+#        - CommandStaff
+#      lateJoinAdditional: true
+#      mindRoles:
+#      - MindRoleChangeling
+#  - type: Tag
+#    tags:
+#      - RoundstartAntag
 
 - type: entity
   parent: BaseTraitorRule

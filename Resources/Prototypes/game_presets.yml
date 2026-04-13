@@ -109,7 +109,7 @@
     - KesslerSyndromeScheduler
     - Wizard
     - RampingStationEventScheduler
-    - Changeling # Goobstation - changeling playtest
+#    - Changeling # Goobstation - playtest over
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -141,7 +141,7 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
-    - Changeling # Goobstation - changeling playtest
+#    - Changeling # Goobstation - playtest over
     - Shadowling # Einstein Engines - Shadowlings
 
 - type: gamePreset

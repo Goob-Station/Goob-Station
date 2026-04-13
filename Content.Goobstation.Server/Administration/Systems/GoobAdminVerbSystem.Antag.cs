@@ -35,22 +35,22 @@ public sealed partial class GoobAdminVerbSystem
         if (!AntagVerbAllowed(args, out var targetPlayer))
             return;
 
-        // Changelings
-        Verb ling = new()
-        {
-            Text = Loc.GetString("admin-verb-text-make-changeling"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
-            Act = () =>
-            {
-                if (!HasComp<SiliconComponent>(args.Target))
-                    _antag.ForceMakeAntag<ChangelingRuleComponent>(targetPlayer, "Changeling");
-            },
-            Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-changeling"),
-        };
-        if (!HasComp<SiliconComponent>(args.Target))
-            args.Verbs.Add(ling);
+        // Changelings - if you are rebalancing this, decomment these lines to get changeling back in antag-menu
+//        Verb ling = new()
+//        {
+//            Text = Loc.GetString("admin-verb-text-make-changeling"),
+//            Category = VerbCategory.Antag,
+//            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
+//            Act = () =>
+//            {
+//                if (!HasComp<SiliconComponent>(args.Target))
+//                    _antag.ForceMakeAntag<ChangelingRuleComponent>(targetPlayer, "Changeling");
+//            },
+//            Impact = LogImpact.High,
+//            Message = Loc.GetString("admin-verb-make-changeling"),
+//        };
+//        if (!HasComp<SiliconComponent>(args.Target))
+//            args.Verbs.Add(ling);
 
         // Blob
         Verb blobAntag = new()
