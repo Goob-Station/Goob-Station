@@ -33,6 +33,7 @@ public sealed class ObraDinnHologramSystem : EntitySystem
         SubscribeLocalEvent<ObraDinnHologramComponent, ListenEvent>(Chat);
         SubscribeLocalEvent<ObraDinnHologramComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ObraDinnHologramComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ObraDinnHologramComponent, InsertIntoEntityStorageAttemptEvent>(OnStorage);
     }
 
     private void Chat(Entity<ObraDinnHologramComponent> ent, ref ListenEvent arg)
@@ -79,5 +80,10 @@ public sealed class ObraDinnHologramSystem : EntitySystem
     {
         var effect =SpawnAtPosition(ent.Comp.SpawnEffect,Transform(ent).Coordinates);
         _audio.PlayPvs(ent.Comp.Sound, effect );
+    }
+
+    private void OnStorage(Entity<ObraDinnHologramComponent> ent, ref InsertIntoEntityStorageAttemptEvent arg)
+    {
+        arg.Cancelled = true;
     }
 }
