@@ -109,7 +109,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: Gib
+          collection: MetalBreak
       - !type:DoActsBehavior
         acts: ["Destruction"]
     - trigger:
@@ -118,7 +118,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: Gib
+          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           FoodMeat:
