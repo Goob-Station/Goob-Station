@@ -103,47 +103,49 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
+using Content.Goobstation.Common.Emag;
+// Goobstation usings
+using Content.Goobstation.Common.Silicons.Components;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.CustomLawboard;
 using Content.Server.Administration;
+using Content.Server.Administration.Logs; // goob logging
 using Content.Server.Chat.Managers;
+using Content.Server.Popups;
 using Content.Server.Radio.Components;
+using Content.Server.Radio.EntitySystems;
+using Content.Server.Research.Systems;
 using Content.Server.Roles;
 using Content.Server.Station.Systems;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Shared._DV.Silicons.Laws;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
+using Content.Shared.Database; // goob logging
 using Content.Shared.Emag.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Popups;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Research.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Database; // goob logging
-using Content.Server.Administration.Logs; // goob logging
+// Corvax-Next-AiRemoteControl
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Toolshed;
-
-// Goobstation usings
-using Content.Goobstation.Common.Silicons.Components;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Goobstation.Shared.CustomLawboard;
 using Robust.Shared.Random;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Research.Components;
-using Content.Server.Radio.EntitySystems;
-using Content.Server.Research.Systems;
+using Robust.Shared.Toolshed;
+using System.Linq;
+using Content.Server._DV.Silicons.Laws; // Goob
 
-// Corvax-Next-AiRemoteControl
-using Content.Shared.Silicons.StationAi;
-using Content.Shared.Tag;
-using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
-using Content.Server.Popups;
-using Content.Shared.Popups;
 namespace Content.Server.Silicons.Laws;
 
 public sealed class SiliconLawSystem : SharedSiliconLawSystem
@@ -164,6 +166,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SlavedBorgSystem _slave = default!;
 
     public override void Initialize()
     {
@@ -181,6 +184,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         SubscribeLocalEvent<SiliconLawProviderComponent, MindRemovedMessage>(OnLawProviderMindRemoved);
         SubscribeLocalEvent<SiliconLawProviderComponent, SiliconEmaggedEvent>(OnEmagLawsAdded);
         SubscribeLocalEvent<SiliconLawProviderComponent, GotEmaggedEvent>(OnGotEmagged); // Goobstation - Jestographic
+
+        SubscribeLocalEvent<EmagSiliconLawComponent, EmagCleanedEvent>(OnEmagCleaned); // Goobstation - Jestographic
     }
 
     private void OnMapInit(EntityUid uid, SiliconLawBoundComponent component, MapInitEvent args)
@@ -234,7 +239,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     }
 
-
     private void OnToggleLawsScreen(EntityUid uid, SiliconLawBoundComponent component, ToggleLawsScreenEvent args)
     {
         if (args.Handled || !TryComp<ActorComponent>(uid, out var actor))
@@ -274,7 +278,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     private void OnIonStormLaws(EntityUid uid, SiliconLawProviderComponent component, ref IonStormLawsEvent args)
     {
         // Emagged borgs are immune to ion storm
-        if (!_emag.CheckFlag(uid, EmagType.Interaction))
+        // Goobstation - Jestographic emag now add IonStormLawset
+        if (_emag.CheckFlag(uid, EmagType.Jestographic) || !_emag.CheckFlag(uid, EmagType.Interaction))
         {
             component.Lawset = args.Lawset;
 
@@ -285,45 +290,60 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             component.Subverted = true;
 
             // new laws may allow antagonist behaviour so make it clear for admins
-            if(_mind.TryGetMind(uid, out var mindId, out _))
+            if (_mind.TryGetMind(uid, out var mindId, out _))
                 EnsureSubvertedSiliconRole(mindId);
-
         }
     }
 
     private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, ref SiliconEmaggedEvent args)
     {
-        if (component.Lawset == null)
-            component.Lawset = GetLawset(component.Laws);
-
-        // Corvax-Next-AiRemoteControl-Start
-        if (HasComp<AiRemoteControllerComponent>(uid)) // You can't emag controllable entities
-            return;
-        // Corvax-Next-AiRemoteControl-End
-
-        // Show the silicon has been subverted.
-        component.Subverted = true;
-
-        // Add the first emag law before the others
-        var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.user); // DeltaV: Reuse emagger name if possible
-        component.Lawset?.Laws.Insert(0, new SiliconLaw
+        switch (args.EmagType) // Goobstation - Jestographic
         {
-            LawString = Loc.GetString("law-emag-custom", ("name", name), ("title", Loc.GetString(component.Lawset.ObeysTo))), // DeltaV: pass name from variable
-            Order = -1 // Goobstation - AI/borg law changes - borgs obeying AI
-        });
+            case EmagType.Interaction:
+                if (component.Lawset == null)
+                    component.Lawset = GetLawset(component.Laws);
 
-        //Add the secrecy law after the others
-        component.Lawset?.Laws.Add(new SiliconLaw
-        {
-            LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
-            Order = component.Lawset.Laws.Max(law => law.Order) + 1
-        });
+                // Corvax-Next-AiRemoteControl-Start
+                if (HasComp<AiRemoteControllerComponent>(uid)) // You can't emag controllable entities
+                    return;
+                // Corvax-Next-AiRemoteControl-End
 
-        _adminLogger.Add(LogType.SiliconLaws, LogImpact.High, $"{ToPrettyString(uid):entity} laws changed due to emag by {ToPrettyString(args.user):user} to:{component.Lawset!.LoggingString()}"); // goob
+                // Show the silicon has been subverted.
+                component.Subverted = true;
+
+                // Add the first emag law before the others
+                var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.User); // DeltaV: Reuse emagger name if possible
+                component.Lawset?.Laws.Insert(0, new SiliconLaw
+                {
+                    LawString = Loc.GetString("law-emag-custom", ("name", name), ("title", Loc.GetString(component.Lawset.ObeysTo))), // DeltaV: pass name from variable
+                    Order = -1 // Goobstation - AI/borg law changes - borgs obeying AI
+                });
+
+                //Add the secrecy law after the others
+                component.Lawset?.Laws.Add(new SiliconLaw
+                {
+                    LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
+                    Order = component.Lawset.Laws.Max(law => law.Order) + 1
+                });
+
+                _adminLogger.Add(LogType.SiliconLaws, LogImpact.High, $"{ToPrettyString(uid):entity} laws changed due to emag by {ToPrettyString(args.User):user} to:{component.Lawset!.LoggingString()}"); // goob
+                break;
+
+            case EmagType.Jestographic:
+                var lawBound = EnsureComp<SiliconLawBoundComponent>(uid);
+                var ionStorm = EnsureComp<IonStormTargetComponent>(uid);
+
+                _ionStorm.IonStormTarget((uid, lawBound, ionStorm));
+                break;
+        }
     }
 
     private void OnGotEmagged(Entity<SiliconLawProviderComponent> ent, ref GotEmaggedEvent args)
     {
+        //Dont accidentally turn cyborg to pranksimov
+        if (HasComp<SiliconLawBoundComponent>(ent.Owner))
+            return;
+
         if (!_emag.CompareFlag(args.Type, EmagType.Jestographic))
             return;
 
@@ -345,6 +365,29 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         _popup.PopupEntity(Loc.GetString("emag-board-success"), ent.Owner, PopupType.Medium);
 
         args.Handled = true;
+    }
+
+    private void OnEmagCleaned(Entity<EmagSiliconLawComponent> ent, ref EmagCleanedEvent args)
+    {
+        if (!TryComp<SiliconLawProviderComponent>(ent, out var provider))
+            return;
+
+        if (!TryComp<SlavedBorgComponent>(ent, out var slave))
+            return;
+
+        provider.Lawset = null;
+        provider.Subverted = false;
+
+        var ev = new GetSiliconLawsEvent(ent);
+        RaiseLocalEvent(ent, ref ev);
+
+        provider.Lawset = ev.Laws;
+        _slave.AddLaw(provider.Lawset, slave.Law);
+
+        NotifyLawsChanged(ent, provider.LawUploadSound);
+
+        if (_mind.TryGetMind(ent, out var mindId, out _))
+            RemoveSubvertedSiliconRole(mindId);
     }
 
     protected override void EnsureSubvertedSiliconRole(EntityUid mindId)

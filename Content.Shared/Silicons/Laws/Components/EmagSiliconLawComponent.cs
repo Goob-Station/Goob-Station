@@ -13,13 +13,14 @@
 
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
+using Content.Shared.Emag.Systems;
 
 namespace Content.Shared.Silicons.Laws.Components;
 
 /// <summary>
 /// This is used for an entity that grants a special "obey" law when emagged.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedSiliconLawSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedSiliconLawSystem))]
 public sealed partial class EmagSiliconLawComponent : Component
 {
     /// <summary>
@@ -47,4 +48,9 @@ public sealed partial class EmagSiliconLawComponent : Component
     [DataField]
     public SoundSpecifier EmaggedSound = new SoundPathSpecifier("/Audio/Ambience/Antag/emagged_borg.ogg");
 
+    /// <summary>
+    /// Emag type when the silicon is emagged
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EmagType EmagType = EmagType.None;
 }
