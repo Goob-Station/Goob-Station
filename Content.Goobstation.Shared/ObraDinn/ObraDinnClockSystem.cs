@@ -57,7 +57,6 @@ public sealed class ObraDinnClockSystem : EntitySystem
 
         _popup.PopupPredicted(Loc.GetString("obradinn-activate-success"), args.User,args.User);
 
-
         WatchActivates(ent, args.User);
 
         ent.Comp.Location = null;
@@ -93,7 +92,6 @@ public sealed class ObraDinnClockSystem : EntitySystem
         Dirty(ent);
     }
 
-
     private void WatchActivates(Entity<ObraDinnClockComponent> ent, EntityUid user)
     {
         foreach (var witness in ent.Comp.Witnesses)
@@ -105,21 +103,21 @@ public sealed class ObraDinnClockSystem : EntitySystem
             if(proto == null)
                 continue;
 
-            var newUid = PredictedSpawnAtPosition (proto.ID, witness.Loc);
+            var hologram = PredictedSpawnAtPosition (proto.ID, witness.Loc);
 
-            _humanoidAppearance.CloneAppearance(witness.Uid, newUid );
+            _humanoidAppearance.CloneAppearance(witness.Uid, hologram );
 
-            _metaData.SetEntityName(newUid, Loc.GetString("obradinn-hologram-name"));
-            _mobstate.ChangeMobState(newUid, witness.MobState);
+            _metaData.SetEntityName(hologram, Loc.GetString("obradinn-hologram-name"));
+            _mobstate.ChangeMobState(hologram, witness.MobState);
 
             //add despawn
-            var despawn = EnsureComp<TimedDespawnComponent>(newUid);
+            var despawn = EnsureComp<TimedDespawnComponent>(hologram);
             despawn.Lifetime = ent.Comp.Lifetime;
 
-            EnsureComp<HologramVisualsComponent>(newUid);
+            EnsureComp<HologramVisualsComponent>(hologram);
 
-            var hologram = EnsureComp<ObraDinnHologramComponent>(newUid);
-            hologram.RealName = witness.Name;
+            var hologramComp = EnsureComp<ObraDinnHologramComponent>(hologram);
+            hologramComp.RealName = witness.Name;
         }
     }
 
