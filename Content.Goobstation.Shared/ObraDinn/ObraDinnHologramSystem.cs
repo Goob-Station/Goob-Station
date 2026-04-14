@@ -55,8 +55,8 @@ public sealed class ObraDinnHologramSystem : EntitySystem
         SpawnAtPosition(ent.Comp.SpawnEffect,Transform(ent).Coordinates);
         _audio.PlayPvs(ent.Comp.Sound, ent );
 
-        var lister= EnsureComp<ActiveListenerComponent>(ent.Owner);// needed for ListenEvent
-        lister.Range=ent.Comp.MinDistance;
+        var listenerr = EnsureComp<ActiveListenerComponent>(ent.Owner);// needed for ListenEvent
+        listenerr.Range=ent.Comp.MinDistance;
 
 
         // comps we dont want the hologram to have

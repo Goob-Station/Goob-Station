@@ -30,6 +30,8 @@ public sealed class ObraDinnBodySystem : EntitySystem
         ent.Comp.Witnesses.Clear();
         ent.Comp.Map = null;
 
+        Dirty(ent);
+
         if (args.NewMobState != MobState.Dead || TerminatingOrDeleted(ent))
             return;
 
@@ -49,5 +51,6 @@ public sealed class ObraDinnBodySystem : EntitySystem
                 mobStateComponent.CurrentState
                 ));
         }
+        Dirty(ent);
     }
 }

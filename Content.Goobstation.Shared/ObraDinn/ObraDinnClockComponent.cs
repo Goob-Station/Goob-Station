@@ -1,8 +1,9 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 
 namespace Content.Goobstation.Shared.ObraDinn;
 
-[RegisterComponent]
+[RegisterComponent,NetworkedComponent,AutoGenerateComponentState]
 public sealed partial class ObraDinnClockComponent : Component
 {
 
@@ -18,8 +19,8 @@ public sealed partial class ObraDinnClockComponent : Component
 
     [DataField]
     public List<ObraDinnWitness> Witnesses = new List<ObraDinnWitness>();
-    [DataField]
+    [DataField,AutoNetworkedField]
     public EntityCoordinates? Location = null;
-    [DataField]
+    [DataField,AutoNetworkedField]
     public MapId? Map = null;
 }
