@@ -29,7 +29,7 @@ public sealed class HappinessSystem : EntitySystem
 
     private void OnDamaged(Entity<HappinessComponent> ent, ref DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
+        if (!args.DamageIncreased || args.Origin is null || args.Origin == ent.Owner)
             return;
 
         ChangeHappiness(ent, ent.Comp.DamageDecrease);

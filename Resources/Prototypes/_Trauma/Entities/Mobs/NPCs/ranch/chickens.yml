@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, StripableInventoryBase]
   id: BaseMobChickRanch
   name: chicken
   description: Comes before an egg, and IS a dinosaur!
@@ -709,6 +709,15 @@
   abstract: true
   id: BaseChickenClown
   components:
+  - type: Inventory
+    templateId: RanchChicken
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
   - type: FavoriteFood
     tag:
     - Banana
@@ -738,12 +747,16 @@
   id: MobChickClown
   name: clown chick #TODO think of a funny pun to use instead
   components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
   - type: SpawnEntityOnAgeUp
     entToSpawn:
     - MobClownHen
     - MobClownRooster
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: ReplaceOnItemEquipped
+    ent: MobChickMime
+    requiredTags:
+    - Cigarette
   - type: Tag
     tags:
     - FootstepSound
@@ -755,6 +768,10 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: ReplaceOnItemEquipped
+    ent: MobMimeHen
+    requiredTags:
+    - Cigarette
   - type: ReplaceOnUnhappy
     ent: MobCluwneHen
   - type: Tag
@@ -768,6 +785,10 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: ReplaceOnItemEquipped
+    ent: MobMimeRooster
+    requiredTags:
+    - Cigarette
   - type: ReplaceOnUnhappy
     ent: MobCluwneRooster
   - type: Tag
@@ -1091,3 +1112,42 @@
   - type: FavoriteFood
     tag:
     - Synthmeat
+
+# Mime Chicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickMime
+  name: mime chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobMimeHen
+    - MobMimeRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-mime.rsi
+  - type: FavoriteFood
+    tag:
+    - Cigarette
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobMimeHen
+  name: mime hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-mime.rsi
+  - type: FavoriteFood
+    tag:
+    - Cigarette
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobMimeRooster
+  name: mime rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-mime.rsi
+  - type: FavoriteFood
+    tag:
+    - Cigarette

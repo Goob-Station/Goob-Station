@@ -280,3 +280,17 @@
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: MimeEgg
+  components:
+  - type: Sprite
+    state: egg-mime
+  - type: TimedReplace
+    entity: MobChickMime
+  - type: AddComponentsOnEaten
+    components:
+    - type: MimePowers
+      preventWriting: true
+    - type: FrenchAccent

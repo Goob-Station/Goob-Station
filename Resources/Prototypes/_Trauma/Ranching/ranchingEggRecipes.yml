@@ -11,7 +11,7 @@
   egg: BrownEgg
   requiredChicken:
   - MobWhiteHen
-  - BrownEgg
+  - MobBrownHen
   chickensRequireDifferentHappiness:
     MobBrownHen: 15
   requiresSpecialFood: false
@@ -248,3 +248,11 @@
   happinessRequired: 16
   foodTagsRequired:
   - SynthMeat
+
+- type: eggRecipe
+  id: MimeEgg
+  egg: MimeEgg
+  requiredChicken:
+  - MobMimeHen
+  requiresSpecialFood: false
+  happinessRequired: 15
