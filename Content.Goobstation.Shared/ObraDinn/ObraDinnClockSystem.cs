@@ -1,21 +1,9 @@
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Shared.Damage;
-using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Nyanotrasen.Holograms;
 using Content.Shared.Popups;
-using Content.Shared.SSDIndicator;
-using Content.Shared.Strip.Components;
-using Robust.Shared.Network;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
@@ -140,19 +128,6 @@ public sealed class ObraDinnClockSystem : EntitySystem
 
             var hologram = EnsureComp<ObraDinnHologramComponent>(newUid);
             hologram.RealName = witness.Name;
-
-            // comps we dont want the hologram to have
-            RemCompDeferred<PullableComponent>(newUid);
-            RemCompDeferred<WoundableComponent>(newUid);
-            RemCompDeferred<ActorComponent>(newUid);
-            RemCompDeferred<MindContainerComponent>(newUid);
-            RemCompDeferred<FixturesComponent>(newUid);
-            RemCompDeferred<PhysicsComponent>(newUid);
-            RemCompDeferred<StrippableComponent>(newUid);
-            RemCompDeferred<SSDIndicatorComponent>(newUid);
-            RemCompDeferred<GhostRoleMobSpawnerComponent>(newUid);
-            RemCompDeferred<DamageableComponent>(newUid);
-            RemCompDeferred<MobMoverComponent>(newUid);
         }
     }
 
