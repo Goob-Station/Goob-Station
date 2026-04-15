@@ -290,3 +290,22 @@
   - type: ConditionalSpawner
     prototypes:
     - MobSlug
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMosquito
+  name: Mosquito Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/mouse.rsi # I'm not making it
+      state: icon-2
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobMosquito
+    rareChance: 0.3
+    offset: 0
+    rarePrototypes:
+    - MobAngryMosquito

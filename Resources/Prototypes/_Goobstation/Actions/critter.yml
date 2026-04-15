@@ -1,0 +1,19 @@
+- type: entity
+  id: ActionBloodBite
+  name: Bite
+  description: Silently drain a small amount of blood over time.
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Actions/critter.rsi
+      state: bloodbite
+  - type: TargetAction
+    range: 1.5
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+    event: !type:BloodBiteEvent

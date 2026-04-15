@@ -71,6 +71,9 @@ ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 ghost-role-information-plague-mouse-name = Plague Mouse
 ghost-role-information-plague-mouse-description = A hungry and mischievous mouse. This one carries a disease and will spread it on bite.
 
+ghost-role-information-critter-name = Critter
+ghost-role-information-critter-description = You are a mischievous critter with unique actions. Your only objective in life is to be annoying and die annoying.
+
 ghost-role-information-trevor-name = Trevor
 ghost-role-information-trevor-description = Securities trusted battle steed.
 
