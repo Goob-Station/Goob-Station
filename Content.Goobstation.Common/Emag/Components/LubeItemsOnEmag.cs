@@ -4,4 +4,4 @@ namespace Content.Goobstation.Common.Emag.Components;
 /// Marker component for vending machines that will lube all of it's item when emagged with EmagType.Jestographic
 /// </summary>
 [RegisterComponent]
-public sealed partial class LubeItemsOnEmag : Component;
+public sealed partial class LubeItemsOnEmagComponent : Component;
