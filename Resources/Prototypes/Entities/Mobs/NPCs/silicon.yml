@@ -537,14 +537,22 @@
         quantity: 15
   - type: EmaggableMedibot
     replacements:
+      Interaction:
       # when you are fine, medibot will help you go sleep
-      Alive:
-        reagent: ChloralHydrate
-        quantity: 15
+        Alive:
+          reagent: ChloralHydrate
+          quantity: 15
       # when you are crit, medibot will help you have fun
-      Critical:
-        reagent: SpaceDrugs
-        quantity: 25
+        Critical:
+          reagent: SpaceDrugs
+          quantity: 25
+      Jestographic: # Goobstation - Added Jestographic
+        Alive:
+          reagent: Laughter
+          quantity: 15
+        Critical:
+          reagent: Honk
+          quantity: 15
   - type: RandomSprite
     available:
         - enum.DamageStateVisualLayers.Base:

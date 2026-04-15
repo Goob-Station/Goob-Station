@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Emag;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -42,25 +43,52 @@ public sealed class MedibotSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<EmaggableMedibotComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<EmaggableMedibotComponent, EmagCleanedEvent>(OnEmagCleaned); // Goobstation - Jestographic
         SubscribeLocalEvent<MedibotComponent, UserActivateInWorldEvent>(OnInteract);
         SubscribeLocalEvent<MedibotComponent, MedibotInjectDoAfterEvent>(OnInject);
     }
 
     private void OnEmagged(EntityUid uid, EmaggableMedibotComponent comp, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareAnyFlag(args.Type, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckFlag(uid, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic, don't allow more than 1 emag
             return;
 
         if (!TryComp<MedibotComponent>(uid, out var medibot))
             return;
 
-        foreach (var (state, treatment) in comp.Replacements)
+        if (!comp.Replacements.TryGetValue(args.Type, out var replacements)) // Goobstation - Jestographic
+            return;
+
+        // Goobstation start - Store original treatments so we can restore them
+        if (medibot.Treatments.Count == 0)
+            return;
+
+        comp.OriginalTreatments = medibot.Treatments;
+        // Goobstation end
+
+        foreach (var (state, treatment) in replacements) // Goobstation - Jestographic
         {
             medibot.Treatments[state] = treatment;
         }
+
+        args.Handled = true;
+    }
+
+    private void OnEmagCleaned(Entity<EmaggableMedibotComponent> ent, ref EmagCleanedEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryComp<MedibotComponent>(ent, out var medibot))
+            return;
+
+        if (ent.Comp.OriginalTreatments.Count == 0)
+            return;
+
+        medibot.Treatments = ent.Comp.OriginalTreatments;
 
         args.Handled = true;
     }

@@ -7,8 +7,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Emag.Systems; // Goobstation - Jestographic
 using Content.Shared.Mobs;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Silicons.Bots;
@@ -21,8 +21,14 @@ namespace Content.Shared.Silicons.Bots;
 public sealed partial class EmaggableMedibotComponent : Component
 {
     /// <summary>
+    /// Original treatments before it was emagged.
+    /// </summary>
+    [ViewVariables]
+    public Dictionary<MobState, MedibotTreatment> OriginalTreatments = new();
+
+    /// <summary>
     /// Treatments to replace from the original set.
     /// </summary>
-    [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
-    public Dictionary<MobState, MedibotTreatment> Replacements = new();
+    [DataField(required: true)]
+    public Dictionary<EmagType, Dictionary<MobState, MedibotTreatment>> Replacements = new(); // Goobstation - Jestographic, added EmagType
 }
