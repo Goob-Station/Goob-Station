@@ -15,122 +15,126 @@ using Content.Goobstation.Common.Emag.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Emag.Systems;
-using Content.Shared.Lube;
-using Content.Shared.Slippery;
-using Content.Shared.StepTrigger.Components;
-using Content.Shared.StepTrigger.Prototypes;
-using Content.Shared.StepTrigger.Systems;
+
+// Goobstation start
+using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects.Effects; 
+using Content.Shared.Slippery; 
 using Robust.Shared.Containers;
+// Goobstation end
 
-namespace Content.Shared.PDA
+namespace Content.Shared.PDA;
+
+public abstract class SharedPdaSystem : EntitySystem
 {
-    public abstract class SharedPdaSystem : EntitySystem
+    [Dependency] protected readonly ItemSlotsSystem ItemSlotsSystem = default!;
+    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
+    [Dependency] private readonly EmagSystem _emag = default!; // Goobstation - Jestographic
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // Goobstation - Jestographic
+
+    public override void Initialize()
     {
-        [Dependency] protected readonly ItemSlotsSystem ItemSlotsSystem = default!;
-        [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-        [Dependency] private readonly EmagSystem _emag = default!; // Goobstation - Jestographic
-        [Dependency] private readonly StepTriggerSystem _stepTrigger = default!; // Goobstation - Jestographic 
+        base.Initialize();
 
-        public override void Initialize()
-        {
-            base.Initialize();
+        SubscribeLocalEvent<PdaComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<PdaComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<PdaComponent, GotEmaggedEvent>(OnGotEmagged); // Goobstation - Jestographic
+        SubscribeLocalEvent<PdaComponent, EmagCleanedEvent>(OnEmagCleaned); // Goobstation - Jestographic
 
-            SubscribeLocalEvent<PdaComponent, ComponentInit>(OnComponentInit);
-            SubscribeLocalEvent<PdaComponent, ComponentRemove>(OnComponentRemove);
-            SubscribeLocalEvent<PdaComponent, GotEmaggedEvent>(OnGotEmagged); // Goobstation - Jestographic
-            SubscribeLocalEvent<PdaComponent, EmagCleanedEvent>(OnEmagCleaned); // Goobstation - Jestographic
+        SubscribeLocalEvent<PdaComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
+        SubscribeLocalEvent<PdaComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
 
-            SubscribeLocalEvent<PdaComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
-            SubscribeLocalEvent<PdaComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
+        SubscribeLocalEvent<PdaComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
+    }
+    protected virtual void OnComponentInit(EntityUid uid, PdaComponent pda, ComponentInit args)
+    {
+        if (pda.IdCard != null)
+            pda.IdSlot.StartingItem = pda.IdCard;
 
-            SubscribeLocalEvent<PdaComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
-        }
-        protected virtual void OnComponentInit(EntityUid uid, PdaComponent pda, ComponentInit args)
-        {
-            if (pda.IdCard != null)
-                pda.IdSlot.StartingItem = pda.IdCard;
+        ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaIdSlotId, pda.IdSlot);
+        ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPenSlotId, pda.PenSlot);
+        ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPaiSlotId, pda.PaiSlot);
 
-            ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaIdSlotId, pda.IdSlot);
-            ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPenSlotId, pda.PenSlot);
-            ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPaiSlotId, pda.PaiSlot);
+        UpdatePdaAppearance(uid, pda);
+    }
 
-            UpdatePdaAppearance(uid, pda);
-        }
+    private void OnComponentRemove(EntityUid uid, PdaComponent pda, ComponentRemove args)
+    {
+        ItemSlotsSystem.RemoveItemSlot(uid, pda.IdSlot);
+        ItemSlotsSystem.RemoveItemSlot(uid, pda.PenSlot);
+        ItemSlotsSystem.RemoveItemSlot(uid, pda.PaiSlot);
+    }
 
-        private void OnComponentRemove(EntityUid uid, PdaComponent pda, ComponentRemove args)
-        {
-            ItemSlotsSystem.RemoveItemSlot(uid, pda.IdSlot);
-            ItemSlotsSystem.RemoveItemSlot(uid, pda.PenSlot);
-            ItemSlotsSystem.RemoveItemSlot(uid, pda.PaiSlot);
-        }
+    protected virtual void OnItemInserted(EntityUid uid, PdaComponent pda, EntInsertedIntoContainerMessage args)
+    {
+        if (args.Container.ID == PdaComponent.PdaIdSlotId)
+            pda.ContainedId = args.Entity;
+        //goob addition for pen
+        if (args.Container.ID == PdaComponent.PdaPenSlotId)
+            pda.ContainedPen = args.Entity;
 
-        protected virtual void OnItemInserted(EntityUid uid, PdaComponent pda, EntInsertedIntoContainerMessage args)
-        {
-            if (args.Container.ID == PdaComponent.PdaIdSlotId)
-                pda.ContainedId = args.Entity;
-            //goob addition for pen
-            if (args.Container.ID == PdaComponent.PdaPenSlotId)
-                pda.ContainedPen = args.Entity;
+        UpdatePdaAppearance(uid, pda);
+    }
 
-            UpdatePdaAppearance(uid, pda);
-        }
+    protected virtual void OnItemRemoved(EntityUid uid, PdaComponent pda, EntRemovedFromContainerMessage args)
+    {
+        if (args.Container.ID == pda.IdSlot.ID)
+            pda.ContainedId = null;
+        //goob addition for pen
+        if (args.Container.ID == pda.PenSlot.ID)
+            pda.ContainedPen = null;
 
-        protected virtual void OnItemRemoved(EntityUid uid, PdaComponent pda, EntRemovedFromContainerMessage args)
-        {
-            if (args.Container.ID == pda.IdSlot.ID)
-                pda.ContainedId = null;
-            //goob addition for pen
-            if (args.Container.ID == pda.PenSlot.ID)
-                pda.ContainedPen = null;
+        UpdatePdaAppearance(uid, pda);
+    }
 
-            UpdatePdaAppearance(uid, pda);
-        }
+    private void OnGetAdditionalAccess(EntityUid uid, PdaComponent component, ref GetAdditionalAccessEvent args)
+    {
+        if (component.ContainedId is { } id)
+            args.Entities.Add(id);
+    }
 
-        private void OnGetAdditionalAccess(EntityUid uid, PdaComponent component, ref GetAdditionalAccessEvent args)
-        {
-            if (component.ContainedId is { } id)
-                args.Entities.Add(id);
-        }
+    // Goobstation start
+    private void OnGotEmagged(Entity<PdaComponent> ent, ref GotEmaggedEvent args)
+    {
+        // Don't emag already slippery PDA
+        if (HasComp<SlipperyComponent>(ent))
+            return;
 
-        // Goobstation start
-        private void OnGotEmagged(Entity<PdaComponent> ent, ref GotEmaggedEvent args)
-        {
-            if (!_emag.CompareFlag(args.Type, EmagType.Jestographic))
-                return;
+        if (!_emag.CompareFlag(args.Type, EmagType.Jestographic))
+            return;
 
-            if (_emag.CheckFlag(ent, EmagType.Jestographic))
-                return;
+        if (_emag.CheckFlag(ent, EmagType.Jestographic))
+            return;
 
-            EnsureComp<LubedComponent>(ent.Owner);
-            EnsureComp<SlipperyComponent>(ent.Owner);
-            var stepTrigger = EnsureComp<StepTriggerComponent>(ent.Owner);
-            _stepTrigger.SetTriggerGroup(ent.Owner, ent.Comp.Group, stepTrigger);
+        var effect = new EntityEffectBaseArgs(ent.Owner, EntityManager);
+        _effect.Effect(new Slipify(), effect);
 
-            args.Handled = true;
-        }
+        args.Handled = true;
+    }
 
-        private void OnEmagCleaned(Entity<PdaComponent> ent, ref EmagCleanedEvent args)
-        {
-            if (args.Handled)
-                return;
+    private void OnEmagCleaned(Entity<PdaComponent> ent, ref EmagCleanedEvent args)
+    {
+        if (args.Handled)
+            return;
 
-            RemCompDeferred<LubedComponent>(ent.Owner);
-            RemCompDeferred<SlipperyComponent>(ent.Owner);
-            RemCompDeferred<StepTriggerComponent>(ent.Owner);
-        }
-        // Goobstation end
-        
-        private void UpdatePdaAppearance(EntityUid uid, PdaComponent pda)
-        {
-            Appearance.SetData(uid, PdaVisuals.IdCardInserted, pda.ContainedId != null);
-            //goob addition for pen
-            Appearance.SetData(uid, PdaVisuals.PenInserted, pda.ContainedPen != null);
-        }
+        // I can't find a better idea than this
+        var effect = new EntityEffectBaseArgs(ent.Owner, EntityManager);
+        _effect.Effect(new Unslipify(), effect);
 
-        public virtual void UpdatePdaUi(EntityUid uid, PdaComponent? pda = null)
-        {
-            // This does nothing yet while I finish up PDA prediction
-            // Overriden by the server
-        }
+        args.Handled = true;
+    }
+    // Goobstation end
+
+    private void UpdatePdaAppearance(EntityUid uid, PdaComponent pda)
+    {
+        Appearance.SetData(uid, PdaVisuals.IdCardInserted, pda.ContainedId != null);
+        //goob addition for pen
+        Appearance.SetData(uid, PdaVisuals.PenInserted, pda.ContainedPen != null);
+    }
+
+    public virtual void UpdatePdaUi(EntityUid uid, PdaComponent? pda = null)
+    {
+        // This does nothing yet while I finish up PDA prediction
+        // Overriden by the server
     }
 }

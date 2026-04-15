@@ -313,7 +313,7 @@ namespace Content.Server.VendingMachines
             var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
 
             // Goobstation - Jestographic
-            if (_emag.CheckFlag(uid, EmagType.Jestographic) && HasComp<LubeItemsOnEmag>(uid))
+            if (_emag.CheckFlag(uid, EmagType.Jestographic) && HasComp<LubeItemsOnEmagComponent>(uid))
             {
                 EnsureComp<LubedComponent>(ent);
             }

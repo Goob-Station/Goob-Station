@@ -53,6 +53,8 @@ using Robust.Shared.GameStates;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.StepTrigger.Prototypes;
+using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects.Effects;
 
 namespace Content.Shared.PDA;
 
@@ -89,16 +91,4 @@ public sealed partial class PdaComponent : Component
     [ViewVariables] public string? StationName;
     [ViewVariables] public string? StationAlertLevel;
     [ViewVariables] public Color StationAlertColor = Color.White;
-
-    /// <summary>
-    /// Goobstation - Step trigger for emagged PDA with EmagType.Jestographic
-    /// </summary>
-    [DataField]
-    public StepTriggerGroup Group = new()
-    {
-        Types = new List<ProtoId<StepTriggerTypePrototype>>()
-        {
-            "SlipEntity"
-        }
-    };
 }
