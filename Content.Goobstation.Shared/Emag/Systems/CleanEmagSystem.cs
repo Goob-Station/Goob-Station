@@ -1,4 +1,4 @@
-using Content.Goobstation.Common.Emag;
+using Content.Goobstation.Common.Emag.Events;
 using Content.Goobstation.Shared.Emag.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;

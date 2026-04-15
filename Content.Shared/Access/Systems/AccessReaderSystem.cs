@@ -108,7 +108,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Goobstation.Common.Emag;
+using Content.Goobstation.Common.Emag.Events;
 
 namespace Content.Shared.Access.Systems;
 

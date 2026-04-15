@@ -103,7 +103,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Emag;
 // Goobstation usings
 using Content.Goobstation.Common.Silicons.Components;
 using Content.Goobstation.Maths.FixedPoint;
@@ -144,7 +143,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Toolshed;
 using System.Linq;
-using Content.Server._DV.Silicons.Laws; // Goob
+using Content.Server._DV.Silicons.Laws;
+using Content.Goobstation.Common.Emag.Events; // Goob
 
 namespace Content.Server.Silicons.Laws;
 

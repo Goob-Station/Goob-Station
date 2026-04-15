@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Common.Emag;
+namespace Content.Goobstation.Common.Emag.Events;
 /// <summary>
 /// Raised on the entity when it's emag is cleaned 
 /// </summary>

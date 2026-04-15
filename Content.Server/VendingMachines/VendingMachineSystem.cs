@@ -66,21 +66,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using System.Numerics;
+using Content.Goobstation.Common.Emag.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
 using Content.Server.Vocalization.Systems;
-using Content.Shared.Cargo;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Emp;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Lube;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Throwing;
@@ -92,6 +90,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Server.VendingMachines
 {
@@ -101,6 +101,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly EmagSystem _emag = default!; // Goobstation - Jestographic
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -311,12 +312,19 @@ namespace Content.Server.VendingMachines
 
             var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
 
+            // Goobstation - Jestographic
+            if (_emag.CheckFlag(uid, EmagType.Jestographic) && HasComp<LubeItemsOnEmag>(uid))
+            {
+                EnsureComp<LubedComponent>(ent);
+            }
+
             if (vendComponent.ThrowNextItem)
             {
                 var range = vendComponent.NonLimitedEjectRange;
                 var direction = new Vector2(_random.NextFloat(-range, range), _random.NextFloat(-range, range));
                 _throwingSystem.TryThrow(ent, direction, vendComponent.NonLimitedEjectForce);
             }
+
 
             vendComponent.NextItemToEject = null;
             vendComponent.ThrowNextItem = false;
