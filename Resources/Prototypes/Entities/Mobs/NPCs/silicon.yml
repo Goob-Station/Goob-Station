@@ -549,10 +549,10 @@
       Jestographic: # Goobstation - Added Jestographic
         Alive:
           reagent: Laughter
-          quantity: 15
+          quantity: 30
         Critical:
           reagent: Honk
-          quantity: 15
+          quantity: 30
   - type: RandomSprite
     available:
         - enum.DamageStateVisualLayers.Base:

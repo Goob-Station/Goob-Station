@@ -53,7 +53,7 @@ public sealed class MedibotSystem : EntitySystem
         if (!_emag.CompareAnyFlag(args.Type, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic, don't allow more than 1 emag
+        if (_emag.CheckAnyFlag(uid, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic, don't allow more than 1 emag
             return;
 
         if (!TryComp<MedibotComponent>(uid, out var medibot))
@@ -66,7 +66,7 @@ public sealed class MedibotSystem : EntitySystem
         if (medibot.Treatments.Count == 0)
             return;
 
-        comp.OriginalTreatments = medibot.Treatments;
+        comp.OriginalTreatments = new(medibot.Treatments);
         // Goobstation end
 
         foreach (var (state, treatment) in replacements) // Goobstation - Jestographic
