@@ -48,3 +48,17 @@
         - ReagentId: Ibuprofen
           Quantity: 30
 
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleHonk
+  suffix: Honk
+  components:
+  - type: Label
+    currentLabel: reagent-name-honk
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagenId: Ibuprofen
+          Quantity: 30

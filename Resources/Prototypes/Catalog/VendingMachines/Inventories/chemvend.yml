@@ -46,6 +46,7 @@
     ChemistryBottleLead: 2
   emaggedInventory: # Goobsation
     VestineChemistryVial: 1
+    ChemistryBottleHonk: 1
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
