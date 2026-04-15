@@ -306,7 +306,7 @@ public sealed class CloningPodSystem : EntitySystem
         if (!_emag.CompareAnyFlag(args.Type, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (_emag.CheckFlag(ent.Owner, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic. This make the cloning pod able to receive both emag type
+        if (_emag.CheckAnyFlag(ent.Owner, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic.
             return;
 
         if (!this.IsPowered(ent.Owner, EntityManager))
