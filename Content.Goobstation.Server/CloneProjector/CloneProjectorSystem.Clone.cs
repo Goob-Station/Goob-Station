@@ -60,8 +60,11 @@ public partial class CloneProjectorSystem
         if (!projector.Comp.DoStun)
             return;
 
-        _stun.TryUpdateParalyzeDuration(host, projector.Comp.StunDuration);
-        _damageable.TryChangeDamage(host, projector.Comp.DamageOnDestroyed, true, targetPart: TargetBodyPart.Groin);
+        if (HasComp<WearingCloneProjectorComponent>(host))
+        {
+            _stun.TryUpdateParalyzeDuration(host, projector.Comp.StunDuration);
+            _damageable.TryChangeDamage(host, projector.Comp.DamageOnDestroyed, true, targetPart: TargetBodyPart.Groin);
+        }
     }
     private void OnExamined(Entity<HolographicCloneComponent> clone, ref ExaminedEvent args)
     {
