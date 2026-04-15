@@ -349,7 +349,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 90
+    useDelay: 45
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -373,7 +373,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 90
+    useDelay: 45
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
