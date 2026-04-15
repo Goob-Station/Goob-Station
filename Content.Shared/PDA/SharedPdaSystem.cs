@@ -18,8 +18,8 @@ using Content.Shared.Emag.Systems;
 
 // Goobstation start
 using Content.Shared.EntityEffects;
-using Content.Shared.Slippery;
-using Content.Shared.StepTrigger.Components;
+using Content.Shared.EntityEffects.Effects; 
+using Content.Shared.Slippery; 
 using Robust.Shared.Containers;
 // Goobstation end
 
@@ -30,6 +30,7 @@ public abstract class SharedPdaSystem : EntitySystem
     [Dependency] protected readonly ItemSlotsSystem ItemSlotsSystem = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private readonly EmagSystem _emag = default!; // Goobstation - Jestographic
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // Goobstation - Jestographic
 
     public override void Initialize()
     {
@@ -105,8 +106,8 @@ public abstract class SharedPdaSystem : EntitySystem
         if (_emag.CheckFlag(ent, EmagType.Jestographic))
             return;
 
-        EnsureComp<SlipperyComponent>(ent.Owner);
-        EnsureComp<StepTriggerComponent>(ent.Owner);
+        var effect = new EntityEffectBaseArgs(ent.Owner, EntityManager);
+        _effect.Effect(new Slipify(), effect);
 
         args.Handled = true;
     }
@@ -116,8 +117,9 @@ public abstract class SharedPdaSystem : EntitySystem
         if (args.Handled)
             return;
 
-        RemComp<SlipperyComponent>(ent.Owner);
-        RemComp<StepTriggerComponent>(ent.Owner);
+        // I can't find a better idea than this
+        var effect = new EntityEffectBaseArgs(ent.Owner, EntityManager);
+        _effect.Effect(new Unslipify(), effect);
 
         args.Handled = true;
     }

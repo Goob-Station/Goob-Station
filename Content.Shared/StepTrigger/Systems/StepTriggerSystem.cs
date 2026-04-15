@@ -288,6 +288,16 @@ public sealed class StepTriggerSystem : EntitySystem
         Dirty(uid, component);
     }
 
+    // Goobstation
+    public void SetTriggerGroup(EntityUid uid, StepTriggerGroup? groups, StepTriggerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.TriggerGroups = groups;
+        Dirty(uid, component);
+    }
+
     private void OnTerminating(EntityUid uid, StepTriggerCleanupComponent component, ref EntityTerminatingEvent args) // Goobstation - Fix
     {
         if (!TryComp<StepTriggerComponent>(component.StepTrigger, out var step))
