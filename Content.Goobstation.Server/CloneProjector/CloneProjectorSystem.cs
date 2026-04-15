@@ -304,7 +304,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     public bool TryInsertClone(Entity<CloneProjectorComponent> projector, bool doCooldown = false)
     {
         if (projector.Comp.CloneUid is not { } clone
-            || _container.IsEntityOrParentInContainer(clone))
+            || !IsCloneDeployed(projector))
             return false;
 
         CleanClone(clone);
@@ -339,7 +339,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     private bool TryDeployClone(CloneProjectorComponent projector)
     {
         if (projector.CloneUid is not { } clone
-            || !_container.IsEntityOrParentInContainer(clone))
+            || IsCloneDeployed(projector))
             return false;
 
         return _container.TryRemoveFromContainer(clone);
