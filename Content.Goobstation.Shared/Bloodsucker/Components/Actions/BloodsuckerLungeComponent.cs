@@ -10,8 +10,7 @@ namespace Content.Goobstation.Shared.Bloodsuckers.Components.Actions;
 public sealed partial class BloodsuckerLungeComponent : Component
 {
 
-    [DataField]
-    public NetEntity CurrentTarget = NetEntity.Invalid;
+    public EntityUid CurrentTarget = EntityUid.Invalid;
 
     /// <summary>
     /// Do-after wind-up delay before the lunge (waived at level 4+).

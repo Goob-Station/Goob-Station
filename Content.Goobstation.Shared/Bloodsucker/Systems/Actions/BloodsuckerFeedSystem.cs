@@ -73,7 +73,7 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
             return;
 
         var feeding = EnsureComp<BloodsuckerFeedingComponent>(ent);
-        feeding.NetTarget = GetNetEntity(target);
+        feeding.Target = target;
 
         // visible only to vamp
         _popup.PopupPredicted(
@@ -88,8 +88,8 @@ public sealed class BloodsuckerFeedSystem : EntitySystem
         if (!TryComp(ent, out BloodsuckerFeedingComponent? feeding))
             return;
 
-        var target = GetEntity(feeding.NetTarget);
-        if (target == EntityUid.Invalid)
+        var target = feeding.Target;
+        if (target == EntityUid.Invalid || !Exists(target))
             return;
 
         if (!TryComp(ent, out BloodsuckerFeedComponent? comp))

@@ -8,9 +8,8 @@ namespace Content.Goobstation.Shared.Bloodsuckers.Components;
 [RegisterComponent]
 public sealed partial class BloodsuckerFeedingComponent : Component
 {
-    /// <summary>Net entity ID of the current feed target.</summary>
     [DataField]
-    public NetEntity NetTarget = NetEntity.Invalid;
+    public EntityUid Target = EntityUid.Invalid;
 
     /// <summary>
     /// False while the vampire is in the aggressive-grab.

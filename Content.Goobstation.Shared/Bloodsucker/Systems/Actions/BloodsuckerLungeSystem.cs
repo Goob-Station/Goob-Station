@@ -65,8 +65,7 @@ public sealed class BloodsuckerLungeSystem : EntitySystem
         if (!TryUseCosts(ent.Owner, ent.Comp))
             return;
 
-        ent.Comp.CurrentTarget = GetNetEntity(args.Target);
-        Dirty(ent);
+        ent.Comp.CurrentTarget = args.Target;
 
         // Level 4+ skips the wind-up entirely
         var delay = ent.Comp.ActionLevel >= 4 ? 0f : ent.Comp.StartDelay;
@@ -97,7 +96,7 @@ public sealed class BloodsuckerLungeSystem : EntitySystem
 
         args.Handled = true;
 
-        var target = GetEntity(ent.Comp.CurrentTarget);
+        var target = ent.Comp.CurrentTarget;
         if (target == EntityUid.Invalid || !Exists(target))
             return;
 
@@ -120,9 +119,6 @@ public sealed class BloodsuckerLungeSystem : EntitySystem
             return;
         }
 
-        ent.Comp.IsLeaping = true;
-        Dirty(ent);
-
         _audio.PlayPredicted(ent.Comp.LungeSound, ent.Owner, ent.Owner);
 
         // Throw toward target
@@ -135,7 +131,7 @@ public sealed class BloodsuckerLungeSystem : EntitySystem
         if (!ent.Comp.IsLeaping)
             return;
 
-        var target = GetEntity(ent.Comp.CurrentTarget);
+        var target = ent.Comp.CurrentTarget;
 
         // Only care about colliding with our actual target
         if (args.OtherEntity != target)
@@ -156,7 +152,7 @@ public sealed class BloodsuckerLungeSystem : EntitySystem
         Dirty(ent);
 
         // Landed without hitting the target, try to resolve anyway if adjacent
-        var target = GetEntity(ent.Comp.CurrentTarget);
+        var target = ent.Comp.CurrentTarget;
         if (target == EntityUid.Invalid || !Exists(target))
             return;
 
