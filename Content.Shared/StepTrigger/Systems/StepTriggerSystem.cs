@@ -25,6 +25,7 @@
 using Content.Shared.Gravity;
 using Content.Shared.Inventory; // Goobstation
 using Content.Shared.StepTrigger.Components;
+using Content.Shared.StepTrigger.Prototypes; // Goobstation
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -284,6 +285,16 @@ public sealed class StepTriggerSystem : EntitySystem
             return;
 
         component.IgnoreWeightless = ignore;
+        Dirty(uid, component);
+    }
+
+    // Goobstation
+    public void SetTriggerGroup(EntityUid uid, StepTriggerGroup? groups, StepTriggerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.TriggerGroups = groups;
         Dirty(uid, component);
     }
 

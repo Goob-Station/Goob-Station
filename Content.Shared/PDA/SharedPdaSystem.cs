@@ -11,8 +11,15 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Common.Emag.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Emag.Systems;
+using Content.Shared.Lube;
+using Content.Shared.Slippery;
+using Content.Shared.StepTrigger.Components;
+using Content.Shared.StepTrigger.Prototypes;
+using Content.Shared.StepTrigger.Systems;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.PDA
@@ -21,6 +28,8 @@ namespace Content.Shared.PDA
     {
         [Dependency] protected readonly ItemSlotsSystem ItemSlotsSystem = default!;
         [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
+        [Dependency] private readonly EmagSystem _emag = default!; // Goobstation - Jestographic
+        [Dependency] private readonly StepTriggerSystem _stepTrigger = default!; // Goobstation - Jestographic 
 
         public override void Initialize()
         {
@@ -28,6 +37,8 @@ namespace Content.Shared.PDA
 
             SubscribeLocalEvent<PdaComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<PdaComponent, ComponentRemove>(OnComponentRemove);
+            SubscribeLocalEvent<PdaComponent, GotEmaggedEvent>(OnGotEmagged); // Goobstation - Jestographic
+            SubscribeLocalEvent<PdaComponent, EmagCleanedEvent>(OnEmagCleaned); // Goobstation - Jestographic
 
             SubscribeLocalEvent<PdaComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
             SubscribeLocalEvent<PdaComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
@@ -81,6 +92,34 @@ namespace Content.Shared.PDA
                 args.Entities.Add(id);
         }
 
+        // Goobstation start
+        private void OnGotEmagged(Entity<PdaComponent> ent, ref GotEmaggedEvent args)
+        {
+            if (!_emag.CompareFlag(args.Type, EmagType.Jestographic))
+                return;
+
+            if (_emag.CheckFlag(ent, EmagType.Jestographic))
+                return;
+
+            EnsureComp<LubedComponent>(ent.Owner);
+            EnsureComp<SlipperyComponent>(ent.Owner);
+            var stepTrigger = EnsureComp<StepTriggerComponent>(ent.Owner);
+            _stepTrigger.SetTriggerGroup(ent.Owner, ent.Comp.Group, stepTrigger);
+
+            args.Handled = true;
+        }
+
+        private void OnEmagCleaned(Entity<PdaComponent> ent, ref EmagCleanedEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            RemCompDeferred<LubedComponent>(ent.Owner);
+            RemCompDeferred<SlipperyComponent>(ent.Owner);
+            RemCompDeferred<StepTriggerComponent>(ent.Owner);
+        }
+        // Goobstation end
+        
         private void UpdatePdaAppearance(EntityUid uid, PdaComponent pda)
         {
             Appearance.SetData(uid, PdaVisuals.IdCardInserted, pda.ContainedId != null);
