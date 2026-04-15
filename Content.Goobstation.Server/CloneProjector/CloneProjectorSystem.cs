@@ -328,6 +328,14 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         return true;
     }
 
+    private bool IsCloneDeployed(CloneProjectorComponent projector)
+    {
+        if (projector.CloneUid is not { } clone)
+            return false;
+
+        return !_container.IsEntityOrParentInContainer(clone);
+    }
+
     private bool TryDeployClone(CloneProjectorComponent projector)
     {
         if (projector.CloneUid is not { } clone
