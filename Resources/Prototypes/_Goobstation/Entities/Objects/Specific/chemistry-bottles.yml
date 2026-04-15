@@ -60,5 +60,5 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagenId: Ibuprofen
+        - ReagentId: Honk
           Quantity: 30
