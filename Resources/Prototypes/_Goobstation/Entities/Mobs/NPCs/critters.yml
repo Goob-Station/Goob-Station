@@ -14,10 +14,11 @@
     actions:
     - ActionBloodBite
   - type: BloodBite
-    bloodDrainAmount: 1
+    shouldPlaySound: false
+    bloodDrainAmount: 0.2
     initialBleedMultiplier: 0.25
-    startDelay: 1.2
-    sipDelay: 1.5
+    startDelay: 0.3
+    sipDelay: 0.5
     range: 1.2
     breakOnMove: true
     breakOnDamage: true
@@ -79,8 +80,8 @@
   - type: BloodBite
     bloodDrainAmount: 1.5
     initialBleedMultiplier: 0.4
-    startDelay: 0.8
-    sipDelay: 1.0
+    startDelay: 1
+    sipDelay: 0.5
     range: 1.3
     breakOnMove: false
     breakOnDamage: false

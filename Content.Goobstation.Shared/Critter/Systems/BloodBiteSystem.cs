@@ -81,7 +81,7 @@ public sealed class BloodBiteSystem : EntitySystem
         {
             _damageable.TryChangeDamage(uid, comp.HealSpecifier, true);
 
-            if (comp.DrinkSound != null)
+            if (comp.DrinkSound != null && comp.ShouldPlaySound)
                 _audio.PlayPredicted(comp.DrinkSound, uid, uid);
         }
 

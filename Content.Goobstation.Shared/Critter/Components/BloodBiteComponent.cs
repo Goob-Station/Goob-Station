@@ -72,4 +72,9 @@ public sealed partial class BloodBiteComponent : Component
 
     [DataField]
     public SoundSpecifier? DrinkSound = new SoundPathSpecifier("/Audio/Items/drink.ogg");
+
+    /// <summary>
+    /// Self explanatory.
+    /// </summary>
+    public bool ShouldPlaySound;
 }
