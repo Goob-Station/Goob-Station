@@ -169,11 +169,11 @@
     whitelist:
       tags:
         - Sheet
-        - ConstructionMaterial
+        #- ConstructionMaterial # Goob - borg hands not downstream yet
         - RawMaterial
         - Ingot
       components:
-        - ConstructionMaterial
+        #- ConstructionMaterial # Goob - borg hands not downstream yet
         - Circuitboard
         - Flatpack
         - FloorTile
