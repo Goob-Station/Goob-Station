@@ -216,7 +216,6 @@ namespace Content.IntegrationTests.Tests
             "Europa",         // Not in pool.
             "Fland",
             "FlandHighPop",
-            "Gate",
             "Kettle",
             "Lambda",         // Not in pool
             "Lavatest",       // Dev map
@@ -258,7 +257,7 @@ namespace Content.IntegrationTests.Tests
             //"Europa",         // Not in pool.
               "Fland",
               "FlandHighPop",
-              "Gate",
+            //"Gate",           // Not in pool
               "Kettle",
             //"Lambda",         // Not in pool
               "Lavatest",       //Dev map
