@@ -234,6 +234,10 @@ public sealed partial class BorgSystem
 
         if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold))
         {
+            // Goob - still work if mob has dead threshold but no crit threshold, due to drones not having one
+            if (_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold))
+                return 1 - ((FixedPoint2)(damageable.TotalDamage / deadThreshold)).Float();
+
             Log.Error($"Borg({ToPrettyString(uid)}), doesn't have critical threshold.");
             return 1;
         }
