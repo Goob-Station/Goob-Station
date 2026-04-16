@@ -671,9 +671,6 @@
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
   - type: IntrinsicRadioReceiver # can only use binary and xenoborg channel
-    channels:
-      - Xenoborg
-      #- Binary # Goob - moved binary to CM
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
