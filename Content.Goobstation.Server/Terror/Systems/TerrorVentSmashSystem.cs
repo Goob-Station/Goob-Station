@@ -3,32 +3,30 @@ using Content.Goobstation.Shared.Terror.Events;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Server.Terror.Systems
+namespace Content.Goobstation.Server.Terror.Systems;
+
+/// <summary>
+/// Smashes open welded vents.
+/// </summary>
+public sealed class TerrorVentSmashSystem : EntitySystem
 {
-    /// <summary>
-    /// Smashes open welded vents.
-    /// </summary>
-    public sealed class TerrorVentSmashSystem : EntitySystem
+    [Dependency] private readonly WeldableSystem _weldable = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+    public override void Initialize()
     {
-        [Dependency] private readonly WeldableSystem _weldable = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
+        base.Initialize();
+        SubscribeLocalEvent<TerrorVentSmashComponent, TerrorVentSmashEvent>(OnSmash);
+    }
 
-        public override void Initialize()
+    private void OnSmash(EntityUid uid, TerrorVentSmashComponent component, TerrorVentSmashEvent args)
+    {
+        var target = args.Target;
+
+        if (_weldable.IsWelded(target))
         {
-            base.Initialize();
-            SubscribeLocalEvent<TerrorVentSmashComponent, TerrorVentSmashEvent>(OnSmash);
+            _weldable.SetWeldedState(target, false);
+            _audio.PlayPvs(component.SmashSound, uid);
         }
-
-        private void OnSmash(EntityUid uid, TerrorVentSmashComponent component, TerrorVentSmashEvent args)
-        {
-            var target = args.Target;
-
-            if (_weldable.IsWelded(target))
-            {
-                _weldable.SetWeldedState(target, false);
-                _audio.PlayPvs(component.SmashSound, uid);
-            }
-        }
-
     }
 }

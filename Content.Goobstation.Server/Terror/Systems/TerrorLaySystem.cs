@@ -25,7 +25,8 @@ public sealed class TerrorLaySystem : EntitySystem
 
     private void OnLay(EntityUid uid, TerrorSpiderComponent comp, ref TerrorLayEvent args)
     {
-        var proto = _proto.Index(comp.SpiderType);
+        if (!_proto.TryIndex(comp.SpiderType, out var proto))
+            return;
 
         if (!proto.CanLay || proto.LayConfig is null)
             return;
@@ -49,6 +50,7 @@ public sealed class TerrorLaySystem : EntitySystem
 
         var roll = _random.NextFloat();
         var cumulative = 0f;
+        var selected = false;
 
         foreach (var tier in lay.Tiers)
         {
@@ -66,13 +68,23 @@ public sealed class TerrorLaySystem : EntitySystem
             if (roll < cumulative)
             {
                 TrySpawnFromList(tier.Prototypes, args.Target);
-                args.Handled = true;
-                return;
+                selected = true;
+                break;
             }
+        }
+
+        // Fallback to Tier 1
+        if (!selected)
+        {
+            var fallbackTier = lay.Tiers[0];
+
+            if (fallbackTier.Prototypes.Count > 0)
+                TrySpawnFromList(fallbackTier.Prototypes, args.Target);
         }
 
         args.Handled = true;
     }
+
     private void TrySpawnFromList(List<EntProtoId> list, EntityUid at)
     {
         if (list.Count == 0)

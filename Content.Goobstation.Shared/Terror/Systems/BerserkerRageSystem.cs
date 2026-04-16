@@ -14,6 +14,8 @@ public sealed class BerserkerRageSystem : EntitySystem
 {
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<BerserkerRageComponent, GetUserMeleeDamageEvent>(OnGetUserDamage);
     }
 

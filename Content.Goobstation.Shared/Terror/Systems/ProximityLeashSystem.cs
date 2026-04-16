@@ -39,6 +39,7 @@ public sealed class ProximityLeashSystem : EntitySystem
             {
                 leash.DamageAccumulator = 0;
                 leash.TickCounter = 0;
+                Dirty(uid, leash);
                 continue;
             }
 
@@ -47,6 +48,7 @@ public sealed class ProximityLeashSystem : EntitySystem
 
             leash.DamageAccumulator = 0;
             leash.TickCounter++;
+            Dirty(uid, leash);
 
             var tickEv = new ProximityLeashTickEvent(uid, anchor.Value, leash.TickCounter);
             RaiseLocalEvent(uid, ref tickEv);

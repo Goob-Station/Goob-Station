@@ -90,6 +90,7 @@
     lightRadius: 0
     toggleAction: null
     thermalShader: null
+  - type: VentCrawler
   - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against them.
     allowedStates:
       - Alive
@@ -151,7 +152,6 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: VentCrawler
   - type: BerserkerRage
   - type: GhostRole
     makeSentient: true
@@ -196,6 +196,10 @@
   - type: TerrorSpider
     spiderType: GrayTerror
   - type: BonusDamageOnStunned
+    damageMultiplier: 2
+    requiredStatusEffects:
+      - Stun
+      - KnockedDown
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -242,6 +246,7 @@
     actions:
       - ActionTerrorSlimyWeb
       - ActionTerrorLayEggs
+      - ActionTerrorWrap
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

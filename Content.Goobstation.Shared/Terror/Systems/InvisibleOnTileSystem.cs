@@ -16,9 +16,6 @@ public sealed class InvisibleOnTileSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    // Tracks remaining invisibility time per entity
-    private readonly Dictionary<EntityUid, float> _timers = new();
-
     public override void Initialize()
     {
         base.Initialize();
@@ -35,16 +32,17 @@ public sealed class InvisibleOnTileSystem : EntitySystem
         if (!TryComp<TerrorSpiderComponent>(tripper, out var spider))
             return;
 
-        var proto = _proto.Index(spider.SpiderType);
+        if (!_proto.TryIndex(spider.SpiderType, out var proto))
+            return;
 
         if (!proto.IsInvisibleOnWeb)
             return;
 
-        if (Deleted(tripper))
+        if (TerminatingOrDeleted(tripper))
             return;
 
-        // Refresh remaining time
-        _timers[tripper] = (float) _timing.CurTime.TotalSeconds + comp.ExpireTime;
+        var invis = EnsureComp<InvisibleOnTileComponent>(tripper);
+        invis.ExpireAt = _timing.CurTime + TimeSpan.FromSeconds(comp.ExpireTime);
 
         // Apply or refresh stealth
         var stealth = EnsureComp<StealthComponent>(tripper);
@@ -55,33 +53,19 @@ public sealed class InvisibleOnTileSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_timers.Count == 0)
-            return;
+        var now = _timing.CurTime;
 
-        var now = (float) _timing.CurTime.TotalSeconds;
+        var query = EntityQueryEnumerator<InvisibleOnTileComponent>();
 
-        // Collect entities that should expire
-        List<EntityUid>? toRemove = null;
-
-        foreach (var (ent, expireAt) in _timers)
+        while (query.MoveNext(out var uid, out var invis))
         {
-            if (now >= expireAt)
-            {
-                toRemove ??= new();
-                toRemove.Add(ent);
-            }
-        }
+            if (invis.ExpireAt == null || now < invis.ExpireAt)
+                continue;
 
-        if (toRemove == null)
-            return;
+            invis.ExpireAt = null;
 
-        // Expire invisibility
-        foreach (var ent in toRemove)
-        {
-            _timers.Remove(ent);
-
-            if (!Deleted(ent))
-                RemCompDeferred<StealthComponent>(ent);
+            if (!Deleted(uid))
+                RemCompDeferred<StealthComponent>(uid);
         }
     }
 }

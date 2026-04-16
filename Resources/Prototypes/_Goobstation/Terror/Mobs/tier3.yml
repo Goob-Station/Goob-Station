@@ -82,8 +82,8 @@
       groups:
         Brute: 15
   - type: Damageable
-    damageContainer: BiologicalMetaphysical # 50% resist to everything as a replacement to being immune to most basic weapons
-    damageModifierSet: DevilDealPositive
+    damageContainer: Biological
+    damageModifierSet: Web # Stronger against bullets, weak to fire and slash.
   - type: Prying
     pryPowered: true
     force: true

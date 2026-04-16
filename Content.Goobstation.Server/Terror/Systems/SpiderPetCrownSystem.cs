@@ -30,11 +30,11 @@ public sealed class SpiderPetCrownSystem : EntitySystem
         var pet = Spawn(comp.PetPrototype, Transform(args.Equipee).Coordinates);
         var petComp = EnsureComp<SpiderPetComponent>(pet);
         petComp.Owner = args.Equipee;
-        Dirty(pet, petComp);
         comp.Pet = pet;
 
         // Tell the HTN to always follow the wearer
         _npc.SetBlackboard(pet, NPCBlackboard.FollowTarget, new EntityCoordinates(args.Equipee, Vector2.Zero));
+        Dirty(pet, petComp);
     }
 
     private void OnUnequipped(EntityUid uid, SpiderPetCrownComponent comp, GotUnequippedEvent args)

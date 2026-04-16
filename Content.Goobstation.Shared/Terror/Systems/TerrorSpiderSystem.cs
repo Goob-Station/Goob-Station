@@ -44,6 +44,9 @@ public sealed class TerrorSpiderSystem : EntitySystem
 
         while (query.MoveNext(out var spiderPlayerUid, out var comp, out _))
         {
+            if (spiderPlayerUid == deadSpider.Owner)
+                continue;
+
             _popup.PopupPredicted(Loc.GetString("terror-spider-hive-death", ("spider", deadSpider.Owner)), spiderPlayerUid, spiderPlayerUid, PopupType.Medium);
 
             _audio.PlayPredicted(comp.DeathSound, spiderPlayerUid, spiderPlayerUid);

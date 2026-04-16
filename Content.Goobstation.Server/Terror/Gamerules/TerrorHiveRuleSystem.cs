@@ -54,33 +54,19 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 
         if (rule.TotalWrapped >= rule.RequiredWrapsForAnnouncement && !rule.InfestationAnnounced)
         {
-            DoInfestationAnnouncement(uid);
+            _chat.DispatchGlobalAnnouncement(
+                Loc.GetString("terror-hive-infestation-detected"), null,
+                true,
+                rule.DetectedAudio,
+                Color.Red);
+
             rule.InfestationAnnounced = true;
         }
 
         if (rule.TotalWrapped >= rule.RequiredWrapsForWin)
         {
-            var livingSpiders = GetLivingSpiders();
-
-            if (livingSpiders > 0 && IsQueenAlive(rule.Queen))
+            if (GetLivingSpiders() > 0 && IsQueenAlive(rule.Queen))
                 DoWinCondition(uid, rule);
-        }
-    }
-    private void DoInfestationAnnouncement(EntityUid uid)
-    {
-        var rules = QueryActiveRules();
-
-        while (rules.MoveNext(out var ruleUid, out _, out var ruleComp, out _))
-        {
-            if (ruleComp is not TerrorHiveRuleComponent rule)
-                continue;
-
-            _chat.DispatchGlobalAnnouncement(
-                Loc.GetString("terror-hive-infestation-detected"),
-                Loc.GetString("Station"),
-                true,
-                rule.DetectedAudio,
-                Color.Red);
         }
     }
 
@@ -128,8 +114,7 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         rule.RoundWon = true;
 
         _chat.DispatchGlobalAnnouncement(
-            Loc.GetString("terror-hive-infestation-victory"),
-            Loc.GetString("Station"),
+            Loc.GetString("terror-hive-infestation-victory"), null,
             true,
             rule.CriticalAudio,
             Color.Red);
@@ -159,8 +144,7 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         rule.HiveDefeated = true;
 
         _chat.DispatchGlobalAnnouncement(
-            Loc.GetString("terror-hive-defeated"),
-            Loc.GetString("Station"),
+            Loc.GetString("terror-hive-defeated"), null,
             true,
             rule.DetectedAudio,
             Color.Green);

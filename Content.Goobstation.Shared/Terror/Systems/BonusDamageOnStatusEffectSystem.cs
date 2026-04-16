@@ -1,24 +1,25 @@
 using Content.Goobstation.Shared.Terror.Components;
-using Content.Shared.StatusEffect;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Weapons.Melee.Events;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
 /// <summary>
-/// The name is self explanatory, but if the target is stunned, whichever entity has this comp will deal bonus damage on them.
+/// Deals bonus damage if the target has any of the configured status effects.
 /// </summary>
-public sealed class BonusDamageOnStunnedSystem : EntitySystem
+public sealed class BonusDamageOnStatusEffectSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<BonusDamageOnStunnedComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<BonusDamageOnStatusEffectComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void OnMeleeHit(Entity<BonusDamageOnStunnedComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<BonusDamageOnStatusEffectComponent> ent, ref MeleeHitEvent args)
     {
         if (!args.IsHit)
             return;
@@ -27,7 +28,11 @@ public sealed class BonusDamageOnStunnedSystem : EntitySystem
 
         foreach (var target in args.HitEntities)
         {
-            if (!TryComp<StatusEffectsComponent>(target, out _) ||(!_status.HasStatusEffect(target, "Stun") && !_status.HasStatusEffect(target, "KnockedDown")))
+            // erm, LINQ is cool, actually.
+            var hasRequiredEffect = ent.Comp.RequiredStatusEffects.Any(effect =>
+                _status.HasStatusEffect(target, effect));
+
+            if (!hasRequiredEffect)
                 continue;
 
             var extraDamage = new DamageSpecifier();

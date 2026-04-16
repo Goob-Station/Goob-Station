@@ -12,7 +12,7 @@ namespace Content.Goobstation.Shared.Terror.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SlimyWebComponent : Component
 {
-    [DataField(required: true)]
+    [DataField]
     public ProtoId<ReagentPrototype> ReagentId = "Vodka";
 
     [DataField]

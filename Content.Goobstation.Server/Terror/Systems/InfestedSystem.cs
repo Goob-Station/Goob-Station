@@ -6,9 +6,6 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Terror.Systems;
 
-/// <summary>
-/// Spawns spiderlings on someone until timer runs out.
-/// </summary>
 public sealed class InfestedSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -16,18 +13,25 @@ public sealed class InfestedSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-    // This is literally TimedSpawner but for Terror spider
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<InfestedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<InfestedComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnStartup(EntityUid uid, InfestedComponent comp, ComponentStartup args)
     {
-        // Pick random spawn count between 1 and 3 if not set
         if (comp.SpawnNumber <= 0)
             comp.SpawnNumber = _random.Next(1, 4);
+    }
+
+    private void OnShutdown(EntityUid uid, InfestedComponent comp, ComponentShutdown args)
+    {
+        _popup.PopupEntity(
+            Loc.GetString("spiderling-infested-cured"),
+            uid, uid,
+            PopupType.SmallCaution);
     }
 
     public override void Update(float frameTime)
@@ -37,52 +41,31 @@ public sealed class InfestedSystem : EntitySystem
         var query = EntityQueryEnumerator<InfestedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            var delta = TimeSpan.FromSeconds(frameTime);
+            comp.Accumulator += TimeSpan.FromSeconds(frameTime);
 
-            comp.Accumulator += delta;
-            comp.CureAccumulator += delta;
-
-            if (comp.CureAccumulator >= comp.TimeToCure)
-            {
-                _popup.PopupPredicted(
-                    Loc.GetString("spiderling-infested-cured"),
-                    uid,
-                    uid,
-                    PopupType.SmallCaution);
-                RemComp<InfestedComponent>(uid);
+            if (comp.Accumulator < comp.SpawnInterval)
                 continue;
-            }
 
-            if (comp.Accumulator >= comp.Timer)
-            {
-                comp.Accumulator -= comp.Timer;
-                SpawnSpiderlings(uid, comp);
-                _audio.PlayPredicted(comp.SpawnSound, uid, uid);
-
-                _popup.PopupPredicted(
-                    Loc.GetString("spiderling-infested-spawn"),
-                    uid,
-                    uid,
-                    PopupType.MediumCaution);
-            }
+            comp.Accumulator -= comp.SpawnInterval;
+            SpawnSpiderlings(uid, comp);
+            _audio.PlayPvs(comp.SpawnSound, uid);
+            _popup.PopupEntity(
+                Loc.GetString("spiderling-infested-spawn"),
+                uid, uid,
+                PopupType.MediumCaution);
         }
     }
 
     private void SpawnSpiderlings(EntityUid uid, InfestedComponent comp)
     {
-        if (!TryComp(uid, out TransformComponent? xform))
-            return;
-
-        var coords = xform.Coordinates;
+        var coords = Transform(uid).Coordinates;
 
         for (var i = 0; i < comp.SpawnNumber; i++)
         {
             var proto = _random.Pick(comp.EggsTier1);
 
-            if (!_proto.HasIndex<EntityPrototype>(proto))
-                continue;
-
-            Spawn(proto, coords);
+            if (_proto.HasIndex<EntityPrototype>(proto))
+                Spawn(proto, coords);
         }
     }
 }

@@ -42,7 +42,7 @@ terror-mother-briefing = As a Mother of Terror Spider, your role is to support o
     You can produce royal jelly for other spiders to consume for faster health regeneration.
     While you can open powered doors and bust open vents like a brown spider, you have low health and deal low damage, so you should avoid fights wherever possible.
 
-terror-queen-briefing = As a Queen of Terror Spider, your role is build and maintain a large nest.
+terror-queen-briefing = As a Queen of Terror Spider, your role is to build and maintain a large nest.
     You have high health and are armored, with weaker attacks being unable to harm you. While your melee attacks only deal moderate damage, you additionally have access to a powerful ranged acid attack.
     You can also open both powered doors and welded vents, and your webs are airtight - being capable of blocking off exposure to space.
     Your death means the death of the hive, so don't fight if you don't have to!

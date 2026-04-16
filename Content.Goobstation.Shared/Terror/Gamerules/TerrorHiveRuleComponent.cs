@@ -1,10 +1,8 @@
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Gamerules;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class TerrorHiveRuleComponent : Component
 {
     /// <summary>
@@ -23,13 +21,13 @@ public sealed partial class TerrorHiveRuleComponent : Component
     /// How many corpses are required to be wrapped for the terrors to be outed.
     /// </summary>
     [DataField]
-    public int RequiredWrapsForAnnouncement = 1; // TO DO: Change to 10
+    public int RequiredWrapsForAnnouncement = 10;
 
     /// <summary>
     /// How many corpses are required to be wrapped for the terrors to "win".
     /// </summary>
     [DataField]
-    public int RequiredWrapsForWin = 2; // TO DO: Change to 50
+    public int RequiredWrapsForWin = 50;
 
     /// <summary>
     /// If the spiders already got snitched on by the announcer.

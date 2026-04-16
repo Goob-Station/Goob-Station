@@ -1,24 +1,27 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
-/// <summary>
-/// Adds InfestedComponent to anyone hit by a WhiteTerror spider.
-/// </summary>
 public sealed class InfestOnHitSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<TerrorSpiderComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
     private void OnMeleeHit(Entity<TerrorSpiderComponent> ent, ref MeleeHitEvent args)
     {
-        var proto = _proto.Index(ent.Comp.SpiderType);
+        if (!_proto.TryIndex(ent.Comp.SpiderType, out var proto))
+            return;
 
         if (!proto.InfestsOnHit)
             return;
@@ -28,7 +31,13 @@ public sealed class InfestOnHitSystem : EntitySystem
             if (!HasComp<BodyComponent>(target))
                 continue;
 
-            EnsureComp<InfestedComponent>(target);
+            EntityUid? effect;
+            _status.TryAddStatusEffect(
+                target,
+                "Infested",
+                out effect,
+                TimeSpan.FromSeconds(180)
+            );
         }
     }
 }

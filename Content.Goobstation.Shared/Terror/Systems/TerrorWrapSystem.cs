@@ -37,9 +37,7 @@ public sealed class TerrorWrapSystem : EntitySystem
 
         var target = args.Target;
         var uid = ent.Owner;
-        //_popup.PopupPredicted(Loc.GetString("terror-wrap", ("user", ent.Owner), ("target", args.Target)), ent.Owner, args.Target, PopupType.LargeCaution);
 
-        // TO DO: Change this FTL
         if (!_mobState.IsDead(target))
         {
             _popup.PopupClient(Loc.GetString("terror-wrap-fail"), uid, uid);
@@ -74,9 +72,18 @@ public sealed class TerrorWrapSystem : EntitySystem
         if (!_netManager.IsServer)
             return;
 
-        // spawn cocoon and insert the body, server only cause crashes otherwise
+        // spawn cocoon and attempt to insert the body
         var cocoon = Spawn(ent.Comp.CocoonProto, Transform(target).Coordinates);
-        _storage.Insert(target, cocoon);
+
+        if (!_storage.Insert(target, cocoon))
+        {
+            // delete cocoon if insertion failed
+            QueueDel(cocoon);
+
+            _popup.PopupEntity(Loc.GetString("terror-wrap-insert-fail"), ent.Owner, ent.Owner);
+            _admin.Add(LogType.Action, LogImpact.Medium, $"Failed to insert {ToPrettyString(target)} into cocoon spawned by {ToPrettyString(ent.Owner)}");
+            return;
+        }
 
         if (HasComp<TerrorSpiderComponent>(ent.Owner))
             RaiseLocalEvent(ent.Owner, new TerrorWrappedCorpseEvent(ent.Owner));

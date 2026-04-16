@@ -19,7 +19,7 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        // Listen for the action event fired when the queen triggers her sense ability.
+
         SubscribeLocalEvent<TerrorQueenSenseComponent, TerrorQueenSenseEvent>(OnSense);
     }
 
@@ -56,7 +56,7 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
 
             found = true;
             var loc = _navMap.GetNearestBeaconString(uid);
-            var clean = FormattedMessage.RemoveMarkupOrThrow(loc);
+            var clean = FormattedMessage.RemoveMarkupPermissive(loc);
 
             var name = Comp<MetaDataComponent>(uid).EntityName;
             result.AppendLine($"{name} — {clean}");

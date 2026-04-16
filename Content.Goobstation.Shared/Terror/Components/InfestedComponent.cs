@@ -4,48 +4,28 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
-/// <summary>
-/// Component used to signify an entity is infested with spiderlings. It will periodically spawn spiderlings out of them and stun them in the process.
-/// </summary>
-
-[RegisterComponent, NetworkedComponent]
-
-// Yes this is just a remake of timed spawner, it's easier this way, maybe
+[RegisterComponent]
 public sealed partial class InfestedComponent : Component
 {
     /// <summary>
-    /// Time before spawns get triggered.
+    /// How often spiderlings burst out.
     /// </summary>
     [DataField]
-    public TimeSpan Timer = TimeSpan.FromSeconds(89);
+    public TimeSpan SpawnInterval = TimeSpan.FromSeconds(89);
 
-    /// <summary>
-    /// Time before spawns get triggered.
-    /// </summary>
-    [DataField]
-    public TimeSpan TimeToCure = TimeSpan.FromSeconds(180);
-
-    /// Internal accumulators for timing.
-     public TimeSpan Accumulator = TimeSpan.Zero;
-     public TimeSpan CureAccumulator = TimeSpan.Zero;
-
-    /// <summary>
-    /// Number of spiders to spawn, decided randomly at runtime.
-    /// </summary>
     [DataField]
     public int SpawnNumber;
 
     [DataField]
     public SoundSpecifier SpawnSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hiss/lowHiss3.ogg");
 
-    /// <summary>
-    /// List of entities that can be spawned by an infested mob.
-    /// </summary>
     [DataField]
     public List<EntProtoId> EggsTier1 = new()
-{
-    "SpiderlingRed",
-    "SpiderlingGray",
-    "SpiderlingGreen"
-};
+    {
+        "SpiderlingRed",
+        "SpiderlingGray",
+        "SpiderlingGreen"
+    };
+
+    public TimeSpan Accumulator = TimeSpan.Zero;
 }

@@ -26,3 +26,4 @@
         text: terror-queen-briefing
         sound: /Audio/_Goobstation/Terror/terrorspider.ogg
         color: Purple
+  - type: TerrorHiveRule

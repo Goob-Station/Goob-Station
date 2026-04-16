@@ -26,7 +26,6 @@
   </Box>
   Red Terrors are slow but extremely durable frontline spiders. Their melee damage increases as their own health decreases, making them extremely dangerous when wounded.
   - Slowest spider.
-  - Highest base HP of T1.
   - Deals more damage the lower its health is.
 
   ## Gray Terror
@@ -93,7 +92,7 @@
     <GuideEntityEmbed Entity="TerrorSpiderPrince" Caption=""/>
   </Box>
   A Tier 3 miniboss spider, designed for slaughter.
-  - Fast, high damage, high health.
+  - High damage, high health.
   - Can break most barriers.
   - Uses thick webs to pin victims.
   - Extremely dangerous without support.
@@ -123,7 +122,7 @@
   </Box>
   The apex of the hive.
   - Produces eggs that have higher chances of spawning high tier spiders the more creatures the hive has wrapped.
-  - Extremely strong but slow.
+  - Extremely strong in a fight inside her territory.
   - Killing the Queen disrupts the hive’s coordination and growth.
 
   # Fighting Terror Spiders

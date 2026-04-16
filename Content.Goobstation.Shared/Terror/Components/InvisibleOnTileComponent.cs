@@ -13,4 +13,7 @@ public sealed partial class InvisibleOnTileComponent : Component
     [DataField]
     public float ExpireTime = 3f;
 
+    [DataField]
+    public TimeSpan? ExpireAt;
+
 }
