@@ -76,5 +76,6 @@ public sealed partial class BloodBiteComponent : Component
     /// <summary>
     /// Self explanatory.
     /// </summary>
+    [DataField]
     public bool ShouldPlaySound;
 }

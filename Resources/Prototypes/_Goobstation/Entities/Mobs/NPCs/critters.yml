@@ -25,7 +25,7 @@
     hiddenDoAfter: true
     transferBlood: true
     healSpecifier:
-      damageDict:
+      types:
         Blunt: -1
   - type: NpcFactionMember
     factions:
@@ -88,5 +88,5 @@
     hiddenDoAfter: true
     transferBlood: true
     healSpecifier:
-      damageDict:
+      types:
         Blunt: -1.5
