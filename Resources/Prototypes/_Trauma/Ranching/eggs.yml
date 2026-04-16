@@ -40,6 +40,12 @@
     state: egg-purple
   - type: TimedReplace
     entity: MobChickVoid
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectShink
+      time: 30
+      type: Add
 
 - type: entity
   parent: BaseRanchingEgg
@@ -192,13 +198,12 @@
     entity: MobChickSelkie
 
 - type: entity
-  parent: BaseRanchingEgg
+  parent: BaseItem
   id: GoldenEgg
   components:
   - type: Sprite
+    sprite: _Trauma/Objects/Misc/eggs.rsi
     state: egg-golden
-  - type: TimedReplace
-    entity: MobChickGolden
   - type: StaticPrice
     price: 5000
 

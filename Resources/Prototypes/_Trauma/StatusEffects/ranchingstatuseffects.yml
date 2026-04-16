@@ -1,0 +1,6 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectShink
+  name: shrunk
+  components:
+  - type: ShrunkStatusEffect
