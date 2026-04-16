@@ -545,7 +545,6 @@
     - state: generic
     - state: icon-cables
   - type: ItemBorgModule
-    moduleId: Cable
     hands:
     - item: CableApcStack10
       hand:
@@ -585,7 +584,6 @@
     - state: generic
     - state: icon-fire-extinguisher
   - type: ItemBorgModule
-    moduleId: FireExtinguisher
     hands:
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
@@ -604,7 +602,6 @@
     - state: generic
     - state: icon-tools
   - type: ItemBorgModule
-    moduleId: Tool
     hands:
     - item: Crowbar
     - item: Wrench
@@ -627,7 +624,6 @@
     - state: cargo
     - state: icon-appraisal
   - type: ItemBorgModule
-    moduleId: Appraisal
     hands:
     - item: AppraisalTool
     - item: Pen
@@ -648,7 +644,6 @@
     - state: cargo
     - state: icon-mining
   - type: ItemBorgModule
-    moduleId: Mining
     hands:
     - item: MiningDrill
     #- item: Shovel # Goobstation
@@ -668,14 +663,12 @@
     - state: cargo
     - state: icon-mining-adv
   - type: ItemBorgModule
-    moduleId: AdvancedMining
     hands:
     - item: MiningDrillDiamond
     - item: Shovel
     - item: AdvancedMineralScannerUnpowered
     - item: OreBagOfHolding
     - item: WeaponProtoKineticAccelerator # Goob
-      moduleId: AdvancedMining
       hand:
         emptyLabel: borg-slot-pka-empty
         emptyRepresentative: WeaponProtoKineticAccelerator
@@ -695,7 +688,6 @@
     - state: cargo
     - state: icon-grappling-gun
   - type: ItemBorgModule
-    moduleId: GrapplingGun
     hands:
     - item: WeaponGrapplingGun
     - item: BorgFireExtinguisher
@@ -717,7 +709,6 @@
     - state: engineering
     - state: icon-tools-adv
   - type: ItemBorgModule
-    moduleId: AdvancedTool
     hands:
     - item: JawsOfLife
     - item: PowerDrill
@@ -746,7 +737,6 @@
     - state: engineering
     - state: icon-construction
   - type: ItemBorgModule
-    moduleId: Construction
     hands:
     - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
@@ -822,7 +812,6 @@
     - state: engineering
     - state: icon-rcd
   - type: ItemBorgModule
-    moduleId: RCD
     hands:
     - item: RCDRecharging
     - item: RPDRecharging # Goobstation
@@ -845,7 +834,6 @@
     - state: janitor
     - state: icon-light-replacer
   - type: ItemBorgModule
-    moduleId: LightReplacer
     hands:
     - item: LightReplacer
     - item: BorgTrashBag
@@ -870,7 +858,6 @@
     - state: janitor
     - state: icon-mop
   - type: ItemBorgModule
-    moduleId: Cleaning
     hands:
     - item: MopItem
     - item: BorgBucket
@@ -890,7 +877,6 @@
     - state: janitor
     - state: icon-mop-adv
   - type: ItemBorgModule
-    moduleId: AdvancedCleaning
     hands:
     - item: AdvMopItem
     - item: BorgMegaSprayBottle
@@ -917,7 +903,6 @@
     - state: medical
     - state: icon-diagnosis
   - type: ItemBorgModule
-    moduleId: Diagnosis
     hands:
     - item: HandheldHealthAnalyzerUnpowered
     - item: ClothingNeckStethoscope
@@ -934,7 +919,6 @@
     - state: generic
     - state: icon-treatment
   - type: ItemBorgModule
-    moduleId: Treatment
     hands:
     - item: HandheldHealthAnalyzerUnpowered
     - item: Gauze
@@ -978,7 +962,6 @@
     - state: medical
     - state: icon-defib
   - type: ItemBorgModule
-    moduleId: Defbirillator
     hands:
     - item: HandheldHealthAnalyzerUnpowered
     - item: DefibrillatorOneHandedUnpowered
@@ -998,7 +981,6 @@
     - state: medical
     - state: icon-chem
   - type: ItemBorgModule
-    moduleId: Chemical
     hands:
     - item: HandheldHealthAnalyzerUnpowered
     - item: Syringe
@@ -1038,7 +1020,6 @@
     - state: medical
     - state: icon-chemist
   - type: ItemBorgModule
-    moduleId: AdvancedTreatment
     hands:
     - item: HandheldHealthAnalyzerUnpowered
     - item: BorgHypo
@@ -1086,7 +1067,6 @@
     - state: science
     - state: icon-artifacts
   - type: ItemBorgModule
-    moduleId: Artifact
     hands:
     - item: NodeScanner
     - item: SprayBottle
@@ -1114,7 +1094,6 @@
     - state: science
     - state: icon-anomalies
   - type: ItemBorgModule
-    moduleId: Anomaly
     hands:
     - item: AnomalyScanner
     - item: AnomalyLocatorUnpowered
@@ -1146,7 +1125,6 @@
     - state: service
     - state: icon-pen
   - type: ItemBorgModule
-    moduleId: Service
     hands:
     - item: Pen
     - item: BooksBag
@@ -1197,7 +1175,6 @@
     - state: service
     - state: icon-musique
   - type: ItemBorgModule
-    moduleId: Musique
     hands:
     - item: SynthesizerInstrument
       hand:
@@ -1233,7 +1210,6 @@
     - state: service
     - state: icon-gardening
   - type: ItemBorgModule
-    moduleId: Gardening
     hands:
     - item: HydroponicsToolMiniHoe
     - item: HydroponicsToolSpade
@@ -1252,7 +1228,6 @@
     - state: service
     - state: icon-harvesting
   - type: ItemBorgModule
-    moduleId: Harvesting
     hands:
     - item: HydroponicsToolScythe
     - item: HydroponicsToolHatchet
@@ -1270,7 +1245,6 @@
     - state: service
     - state: icon-clown
   - type: ItemBorgModule
-    moduleId: Clowning
     hands:
     - item: BikeHorn
     - item: ClownRecorder
@@ -1289,7 +1263,6 @@
     - state: service
     - state: icon-clown-adv
   - type: ItemBorgModule
-    moduleId: AdvancedClowning
     hands:
     - item: HoloprojectorClownBorg
     - item: BorgLauncherCreamPie
@@ -1310,7 +1283,6 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
-    moduleId: SyndicateWeapon
     hands:
     - item: WeaponPistolEchis
     - item: EnergyDaggerLoud
@@ -1348,7 +1320,6 @@
       - state: syndicate
       - state: icon-syndicate
     - type: ItemBorgModule
-      moduleId: Operative
       hands:
       - item: SyndicateJawsOfLife # - Crowbar # Goobstation
       - item: Emag
@@ -1368,7 +1339,6 @@
       - state: syndicate
       - state: icon-syndicate
     - type: ItemBorgModule
-      moduleId: Esword
       hands:
       - item: CyborgEnergySwordDouble
       - item: PinpointerSyndicateNuclear
@@ -1386,7 +1356,6 @@
       - state: syndicate
       - state: icon-syndicate
     - type: ItemBorgModule
-      moduleId: L6C
       hands:
       - item: WeaponLightMachineGunL6C
       - item: PinpointerSyndicateNuclear
@@ -1404,7 +1373,6 @@
         - state: syndicateborgbomb
         - state: icon-bomb
     - type: ItemBorgModule
-      moduleId: Martyr
       hands:
       - item: SelfDestructSeq
     - type: BorgModuleIcon
@@ -1448,7 +1416,6 @@
     - state: xenoborg_generic
     - state: icon-xenoborg-tools
   - type: ItemBorgModule
-    moduleId: MothershipBasic # This makes this version of xenoborgs technically a backport which is so accursed.
     hands:
     - item: DoorRemoteXenoborg
     - item: MMI
@@ -1476,7 +1443,6 @@
     - state: medical
     - state: icon-surgery
   - type: ItemBorgModule
-    moduleId: Surgery
     hands:
     - item: Scalpel
     - item: SawElectric
@@ -1508,7 +1474,6 @@
     - state: medical
     - state: icon-advanced-surgery
   - type: ItemBorgModule
-    moduleId: AdvancedSurgery
     hands:
     - item: EnergyScalpel
     - item: EnergyCautery
@@ -1538,7 +1503,6 @@
     - state: xenoborg_generic
     - state: icon-xenoborg-basic
   - type: ItemBorgModule
-    moduleId: XenoborgBasic
     hands:
     - item: MaterialBag
     - item: PinpointerMothership
@@ -1557,7 +1521,6 @@
     - state: xenoborg_generic
     - state: icon-xenoborg-tools
   - type: ItemBorgModule
-    moduleId: XenoborgTool
     hands:
     - item: Crowbar
     - item: Wrench
@@ -1579,7 +1542,6 @@
     - state: xenoborg_engi
     - state: icon-xenoborg-access-breaker
   - type: ItemBorgModule
-    moduleId: XenoborgAccessBreaker
     hands:
     - item: AccessBreaker
   - type: BorgModuleIcon
@@ -1596,7 +1558,6 @@
     - state: xenoborg_engi
     - state: icon-xenoborg-fire-extinguisher
   - type: ItemBorgModule
-    moduleId: XenoborgFireExtinguisher
     hands:
     - item: SelfRechargingFireExtinguisher
   - type: BorgModuleIcon
@@ -1613,7 +1574,6 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-jammer
   - type: ItemBorgModule
-    moduleId: XenoborgJammer
     hands:
     - item: XenoborgRadioJammer
   - type: BorgModuleIcon
@@ -1630,7 +1590,6 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-laser
   - type: ItemBorgModule
-    moduleId: XenoborgLaser
     hands:
     - item: XenoborgLaserGun
   - type: BorgModuleIcon
@@ -1647,7 +1606,6 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-laser2
   - type: ItemBorgModule
-    moduleId: XenoborgHeavyLaser
     hands:
     - item: XenoborgHeavyLaserGun
   - type: BorgModuleIcon
@@ -1664,7 +1622,6 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-space-movement
   - type: ItemBorgModule
-    moduleId: XenoborgSpaceMovement
     hands:
     - item: HandheldGPSBasic
     - item: HandHeldMassScannerBorg
@@ -1685,7 +1642,6 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-sword
   - type: ItemBorgModule
-    moduleId: XenoborgSword
     hands:
     - item: KukriKnife
     - item: JetpackXenoborg
@@ -1703,7 +1659,6 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-sword2
   - type: ItemBorgModule
-    moduleId: XenoborgFastSword
     hands:
     - item: EnergyDaggerLoudBlue
     - item: JetpackXenoborg
@@ -1721,7 +1676,6 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-hypo
   - type: ItemBorgModule
-    moduleId: XenoborgHypo
     hands:
     - item: NocturineHypo
   - type: BorgModuleIcon
@@ -1738,7 +1692,6 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-projector
   - type: ItemBorgModule
-    moduleId: XenoborgChameleonProjector
     hands:
     - item: ChameleonProjector
   - type: BorgModuleIcon
@@ -1755,7 +1708,6 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-cloak
   - type: ItemBorgModule
-    moduleId: XenoborgCloakDevice
     hands:
     - item: CloakingDevice
   - type: BorgModuleIcon
@@ -1772,7 +1724,6 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-cloak2
   - type: ItemBorgModule
-    moduleId: SuperCloakDevice
     hands:
     - item: SuperCloakingDevice
   - type: BorgModuleIcon

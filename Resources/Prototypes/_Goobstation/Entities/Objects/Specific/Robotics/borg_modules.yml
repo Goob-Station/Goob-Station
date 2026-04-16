@@ -21,7 +21,6 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
-    moduleId: SyndicateWeaponAdvanced
     hands:
     - item: WeaponPistolAnaconda
     - item: EnergySword
@@ -39,7 +38,6 @@
     - state: icon-lollypop
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
-    moduleId: Lollypop
     hands:
     - item: LauncherLollypopRegenerating
     - item: LauncherLollypopRegeneratingTricordazine
@@ -58,7 +56,6 @@
     - state: icon-pka
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
-    moduleId: PKA
     hands:
     - item: WeaponProtoKineticAccelerator
       hand:

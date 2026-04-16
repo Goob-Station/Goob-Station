@@ -38,12 +38,6 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField]
     public string HoldingContainer = "holding_container";
-
-    /// <summary>
-    /// Frontier: a module ID to check for equivalence // TODO: why not to make it automatically set itself to the prototype of the component's owner?
-    /// </summary>
-    [DataField(required: true)]
-    public string ModuleId = default!;
 }
 
 [DataDefinition, Serializable, NetSerializable]
