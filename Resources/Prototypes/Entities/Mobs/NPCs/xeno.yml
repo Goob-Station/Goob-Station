@@ -297,11 +297,14 @@
     speechVerb: LargeMob
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Aliens/Xenos/praetorian.rsi
-    offset: 0,0.4
+    sprite: _White/Mobs/Aliens/Xenomorphs/praetorian.rsi
+    offset: 0,0.6
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: running
+      state: xenomorph
+      offset: 0, 0.6
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
   - type: MobThresholds
     thresholds:
       0: Alive
