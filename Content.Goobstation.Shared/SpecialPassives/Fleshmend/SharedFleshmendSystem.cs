@@ -59,6 +59,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
     {
         args.ModifySpeed(component.MovementSpeedDebuff, component.MovementSpeedDebuff);
     }
+
     private void OnMapInit(Entity<FleshmendComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
