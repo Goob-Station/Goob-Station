@@ -17,12 +17,13 @@ public sealed class TerrorSpiderSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<TerrorSpiderComponent, MobStateChangedEvent>(OnSpiderStateChanged);
-        SubscribeLocalEvent<TerrorWrappedCorpseEvent>(OnWrappedCorpse);
+        SubscribeLocalEvent<TerrorSpiderComponent, TerrorWrappedCorpseEvent>(OnWrappedCorpse);
     }
     private void OnSpiderStateChanged(EntityUid uid, TerrorSpiderComponent component, MobStateChangedEvent args)
     {
@@ -34,8 +35,7 @@ public sealed class TerrorSpiderSystem : EntitySystem
 
         BroadcastSpiderDeath((uid, component));
 
-        var ev = new TerrorSpiderDiedEvent(uid);
-        RaiseLocalEvent(ev);
+        RaiseLocalEvent(uid, new TerrorSpiderDiedEvent(uid));
     }
 
     private void BroadcastSpiderDeath(Entity<TerrorSpiderComponent> deadSpider)
@@ -49,13 +49,8 @@ public sealed class TerrorSpiderSystem : EntitySystem
             _audio.PlayPredicted(comp.DeathSound, spiderPlayerUid, spiderPlayerUid);
         }
     }
-    private void OnWrappedCorpse(TerrorWrappedCorpseEvent args)
+    private void OnWrappedCorpse(EntityUid uid, TerrorSpiderComponent comp, TerrorWrappedCorpseEvent args)
     {
-        var uid = args.Spider;
-
-        if (!TryComp(uid, out TerrorSpiderComponent? comp))
-            return;
-
         comp.WrappedAmount++;
         Dirty(uid, comp);
 
@@ -92,6 +87,8 @@ public sealed class TerrorSpiderSystem : EntitySystem
         }
 
         passive.Damage = newDamage;
+        if (_netManager.IsServer)
+            RaiseLocalEvent(uid, new TerrorHiveWrappedEvent());
         Dirty(uid, passive);
     }
 }

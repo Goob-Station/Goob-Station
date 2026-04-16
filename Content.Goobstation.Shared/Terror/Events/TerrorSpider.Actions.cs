@@ -23,3 +23,5 @@ public sealed partial class TerrorVentSmashEvent : EntityTargetActionEvent;
 public readonly record struct TerrorWrappedCorpseEvent(EntityUid Spider);
 
 public readonly record struct TerrorSpiderDiedEvent(EntityUid Spider);
+
+public sealed partial class TerrorHiveWrappedEvent : EntityEventArgs;

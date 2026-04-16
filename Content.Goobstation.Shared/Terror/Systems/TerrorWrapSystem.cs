@@ -67,28 +67,21 @@ public sealed class TerrorWrapSystem : EntitySystem
     private void OnWrapDoAfter(Entity<TerrorWrapComponent> ent, ref TerrorWrapDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || args.Target is not { } target)
-        {
             return;
-        }
 
-        var cocoon = PredictedSpawnAtPosition(ent.Comp.CocoonProto, Transform(target).Coordinates);
+        args.Handled = true;
 
+        if (!_netManager.IsServer)
+            return;
+
+        // spawn cocoon and insert the body, server only cause crashes otherwise
+        var cocoon = Spawn(ent.Comp.CocoonProto, Transform(target).Coordinates);
         _storage.Insert(target, cocoon);
 
-        if (!_netManager.IsServer) // TerrorHiveRule is serverside.
-            return;
-
         if (HasComp<TerrorSpiderComponent>(ent.Owner))
-        {
-            // Tell other systems a corpse was wrapped.
-            var ev = new TerrorWrappedCorpseEvent(ent.Owner);
-            RaiseLocalEvent(ev);
-        }
+            RaiseLocalEvent(ent.Owner, new TerrorWrappedCorpseEvent(ent.Owner));
 
-        // Used to increase the odds of better eggs being laid by the Queen.
-        var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
-
-        _admin.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner)} cocooned {ToPrettyString(target)} as a Terror Spider.");
-        args.Handled = true;
+        _admin.Add(LogType.Action, LogImpact.High,
+            $"{ToPrettyString(ent.Owner)} cocooned {ToPrettyString(target)} as a Terror Spider.");
     }
 }

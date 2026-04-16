@@ -22,7 +22,7 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         base.Initialize();
 
         SubscribeLocalEvent<TerrorSpiderComponent, TerrorSpiderDiedEvent>(OnSpiderDeath);
-        SubscribeLocalEvent<TerrorWrappedCorpseEvent>(OnWrappedCorpse);
+        SubscribeLocalEvent<TerrorSpiderComponent, TerrorHiveWrappedEvent>(OnWrappedCorpse);
         SubscribeLocalEvent<TerrorHiveRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
     }
     private void OnSelectAntag(
@@ -35,16 +35,14 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         Dirty(uid, rule);
     }
 
-    private void OnWrappedCorpse(TerrorWrappedCorpseEvent args)
+    private void OnWrappedCorpse(EntityUid uid, TerrorSpiderComponent spider, TerrorHiveWrappedEvent args)
     {
         var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
 
         while (rules.MoveNext(out var ruleUid, out var rule, out _))
         {
             rule.TotalWrapped++;
-
             CheckThresholds(ruleUid, rule);
-
             Dirty(ruleUid, rule);
         }
     }
@@ -100,10 +98,7 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         return count;
     }
 
-    private void OnSpiderDeath(
-        EntityUid spiderUid,
-        TerrorSpiderComponent spider,
-        ref TerrorSpiderDiedEvent args)
+    private void OnSpiderDeath(EntityUid spiderUid, TerrorSpiderComponent spider, TerrorSpiderDiedEvent args)
     {
         var rules = EntityQueryEnumerator<TerrorHiveRuleComponent, GameRuleComponent>();
 
