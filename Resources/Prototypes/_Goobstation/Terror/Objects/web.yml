@@ -23,9 +23,9 @@
     additionalKeys:
     - walls
   - type: TerrorWeb
-  - type: SlimyWeb
+  - type: InjectorTile
     reagentId: Vodka
-    alcoholAmount: 20  
+    amount: 20
 
 - type: entity
   id: TerrorSpiderWebPoison
@@ -42,9 +42,9 @@
     additionalKeys:
     - walls
   - type: TerrorWeb
-  - type: PoisonWeb
+  - type: InjectorTile
     reagentId: Toxin
-    reagentAmount: 5
+    amount: 5
 
 - type: entity
   id: TerrorSpiderWebInfested

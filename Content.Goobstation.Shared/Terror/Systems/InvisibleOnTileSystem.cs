@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Shared.Terror.Systems;
 
 /// <summary>
-/// Makes an entity transparent on top of a tile.
+/// Makes an entity transparent on top of a tile. Component goes on the tile rather than the person stepping on it.
 /// </summary>
 public sealed class InvisibleOnTileSystem : EntitySystem
 {
@@ -24,9 +24,6 @@ public sealed class InvisibleOnTileSystem : EntitySystem
 
     private void OnStepOn(EntityUid uid, InvisibleOnTileComponent comp, ref StepTriggeredOnEvent args)
     {
-        // uid = web entity
-        // args.Tripper = entity stepping on the web
-
         var tripper = args.Tripper;
 
         if (!TryComp<TerrorSpiderComponent>(tripper, out var spider))
@@ -35,10 +32,7 @@ public sealed class InvisibleOnTileSystem : EntitySystem
         if (!_proto.TryIndex(spider.SpiderType, out var proto))
             return;
 
-        if (!proto.IsInvisibleOnWeb)
-            return;
-
-        if (TerminatingOrDeleted(tripper))
+        if (!proto.IsInvisibleOnWeb || TerminatingOrDeleted(tripper))
             return;
 
         var invis = EnsureComp<InvisibleOnTileComponent>(tripper);

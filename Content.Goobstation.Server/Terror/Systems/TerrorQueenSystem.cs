@@ -11,7 +11,7 @@ using Robust.Shared.Random;
 namespace Content.Goobstation.Server.Terror.Systems;
 
 /// <summary>
-/// Handles all terror queen spider logic.
+/// Handles the core systems of the Terror Queen, but not all, because she has action systems that could work independently from her, and we follow ECS.
 /// </summary>
 public sealed class TerrorQueenSystem : EntitySystem
 {
@@ -48,7 +48,7 @@ public sealed class TerrorQueenSystem : EntitySystem
 
     private void BroadcastQueenDeath(EntityUid queenUid, TerrorQueenComponent comp)
     {
-        // Create a player filter from all terror spiders with ActorComponent
+        // Create a player filter from all terror spiders with ActorComponent. Serious business.
         var filter = Filter.Empty();
         var query = EntityQueryEnumerator<TerrorSpiderComponent, ActorComponent>();
 

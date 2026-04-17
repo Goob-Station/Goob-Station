@@ -2,8 +2,7 @@ terror-far-from-queen = You feel your life slipping away… the queen is too far
 
 sticky-web-generic = The sticky web ensnares you!
 sticky-web-infested = The sticky web ensnares you! Spiderlings begin to crawl all over you!
-sticky-web-poison = The sticky web ensnares you! You don't feel too good...
-sticky-web-slimy = The sticky web ensnares you! You start to feel woozy...
+sticky-web-injected = The sticky web ensnares you! You feel something burning through you...
 
 terror-wrap-fail = They must be dead to be wrapped.
 terror-wrap-insert-fail = Something got in the way of wrapping this corpse!

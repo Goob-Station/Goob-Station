@@ -52,6 +52,10 @@ public sealed partial class TerrorLayTier
     [DataField]
     public float? MaxChance;
 
+    /// <summary>
+    /// Exponential curve for scaling towards maxchance based on hive growth aka the number of people that got wrapped.
+    /// Lower values means the scaling goes faster, higher slows it down.
+    /// </summary>
     [DataField]
     public float? CurveK;
 

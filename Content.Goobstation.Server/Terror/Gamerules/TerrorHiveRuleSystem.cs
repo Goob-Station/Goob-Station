@@ -121,8 +121,6 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
             true,
             rule.CriticalAudio,
             Color.Red);
-
-        _roundEnd.RequestRoundEnd(null, false);
     }
     private void CheckLoseConditions(EntityUid uid, TerrorHiveRuleComponent rule)
     {
@@ -149,7 +147,5 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
             true,
             rule.DetectedAudio,
             Color.Green);
-
-        _roundEnd.RequestRoundEnd(null, false);
     }
 }
