@@ -15,9 +15,9 @@
       effects:
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         - !type:HasComponentCondition
           components:
             - Wizard
@@ -29,9 +29,9 @@
         probability: 0.2
       - !type:DropItemsEntityEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         - !type:HasComponentCondition
           components:
             - Wizard
@@ -80,7 +80,7 @@
             - Wizard
             - Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1.5
         conditions:
         - !type:HasComponentCondition
@@ -88,7 +88,7 @@
             - Wizard
             - Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
-      - !type:ChemCleanBloodstream
+      - !type:CleanBloodstream
         cleanseRate: 6
         conditions:
         - !type:HasComponentCondition

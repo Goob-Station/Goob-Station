@@ -22,12 +22,12 @@
   - type: EldritchInfluence
     possibleExamineEffects:
     # Ash
-    - - !type:FlammableReaction
+    - - !type:Flammable
         multiplier: 5
         multiplierOnExisting: 5
       - !type:Ignite
     # Rust
-    - - !type:ChemVomit
+    - - !type:Vomit
         thirstAmount: -50
         hungerAmount: -50
       - !type:GenericStatusEffect

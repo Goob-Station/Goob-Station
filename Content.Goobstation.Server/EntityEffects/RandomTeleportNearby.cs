@@ -16,19 +16,58 @@
 
 using System.Linq;
 using Content.Goobstation.Shared.Teleportation.Systems;
-using Content.Shared.Body.Components;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.EntityEffects;
 using Content.Shared.Examine;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Tag;
+using Content.Shared.Chemistry.Reaction;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.EntityEffects;
+// server cause i swear i saw this break some shit  at some point but i cant be bothered to replicate
+namespace Content.Goobstation.Server.EntityEffects;
 
-public sealed partial class RandomTeleportNearby : EntityEffect
+public sealed partial class RandomTeleportNearbySystem : EntityEffectSystem<ReactiveComponent, RandomTeleportNearby>
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly ExamineSystemShared _occlusion = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
+    protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<RandomTeleportNearby> args)
+    {
+        var uid = entity.Owner;
+        var xform = _transform.GetMapCoordinates(uid);
+
+        var entities = _lookup.GetEntitiesInRange<MobStateComponent>(xform, args.Effect.Range);
+
+        if (entities.Count == 0)
+            return;
+
+        //Prevent Positronic Brain to get teleported too
+        entities.RemoveWhere(ent => //todo upstreamtest
+            TryComp<TagComponent>(ent, out var tagComp) &&
+            _tag.HasTag(tagComp, "Brain"));
+
+        var range = args.Effect.Range;
+
+        var canTarget = entities
+            .Where(target => _occlusion.InRangeUnOccluded(uid, target, range))
+            .ToHashSet();
+
+        if (canTarget.Count == 0)
+            return;
+
+        foreach (var target in canTarget)
+        {
+            _teleport.RandomTeleport(target, args.Effect.Radius, args.Effect.TeleportAttempts);
+        }
+    }
+}
+
+public sealed partial class RandomTeleportNearby : EntityEffectBase<RandomTeleportNearby>
+{
     [DataField]
     public float Range = 7;
 
@@ -44,43 +83,6 @@ public sealed partial class RandomTeleportNearby : EntityEffect
     [DataField]
     public int TeleportAttempts = 10;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => null;
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        if (args is not EntityEffectReagentArgs reagentArgs)
-            return;
-
-        var entityManager = args.EntityManager;
-        var uid = args.TargetEntity;
-
-        var transformSystem = entityManager.System<SharedTransformSystem>();
-        var lookupSys = entityManager.System<EntityLookupSystem>();
-        var occlusionSys = entityManager.System<ExamineSystemShared>();
-        var teleportSystem = entityManager.System<SharedRandomTeleportSystem>();
-        var tagSystem = entityManager.System<TagSystem>();
-
-        var xform = transformSystem.GetMapCoordinates(uid);
-
-        var entities = lookupSys.GetEntitiesInRange<MobStateComponent>(xform, Range);
-
-        if (entities.Count == 0)
-            return;
-
-        //Prevent Positronic Brain to get teleported too
-        entities.RemoveWhere(ent => //todo upstreamtest
-            entityManager.TryGetComponent<TagComponent>(ent, out var tag) &&
-            tagSystem.HasTag(tag, "Brain"));
-
-        var canTarget = entities
-            .Where(entity => entity != null && occlusionSys.InRangeUnOccluded(uid, entity, Range))
-            .ToHashSet();
-
-        if (canTarget.Count == 0)
-            return;
-
-        foreach (var entity in canTarget)
-            teleportSystem.RandomTeleport(entity, Radius, TeleportAttempts);
-    }
 }

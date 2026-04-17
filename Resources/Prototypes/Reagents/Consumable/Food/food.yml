@@ -34,7 +34,7 @@
           groups:
             Brute: -0.2 #30 nutriment will heal 12 dmg/group, this will help make up for small, consistent damage, and make service more valued
             Burn: -0.2
-      - !type:ModifyBleedAmount #makes bleeding healable outside of med WOW....
+      - !type:ModifyBleed #makes bleeding healable outside of med WOW....
         amount: -0.1
       - !type:ModifyBloodLevel
         amount: 0.25 #GOOBEND

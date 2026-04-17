@@ -11,9 +11,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types: # methanol is bad for your health
             Poison: 3
@@ -42,9 +42,11 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Vox # Fuck it let vox eat C4
+          - Yowie
+          inverted: true
         damage:
           types: # do not eat C4
             Poison: 3
@@ -63,9 +65,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types: # Oil is not good
             Poison: 1
@@ -84,9 +86,11 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Yowie
+          - Vox # Fuck it let vox eat C4
+          inverted: true
         damage:
           types: # do not eat C4's bigger brother
             Poison: 2

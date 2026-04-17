@@ -13,7 +13,6 @@ using Content.Server.Radio.EntitySystems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
-using Content.Server.Radio.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Ghost;
 
@@ -75,7 +74,7 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
         {
             if (!radio.ReceiveAllChannels)
             {
-                if (!radio.Channels.Contains(channel.ID) 
+                if (!radio.Channels.Contains(channel.ID)
                 || (TryComp<IntercomComponent>(receiver, out var intercom)
                 && !intercom.SupportedChannels.Contains(channel.ID)))
                     continue;

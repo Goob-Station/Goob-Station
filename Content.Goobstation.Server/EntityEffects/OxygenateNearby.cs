@@ -5,26 +5,34 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Diagnostics;
-using System.Linq;
+using Content.Server.Body.Components;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
-using SixLabors.ImageSharp.PixelFormats;
 
-namespace Content.Goobstation.Shared.EntityEffects;
+namespace Content.Goobstation.Server.EntityEffects;
 
 /// <summary>
 ///     Saturates the lungs of nearby respirators.
 /// </summary>
-public sealed partial class OxygenateNearby : EventEntityEffect<OxygenateNearby>
+public sealed partial class OxygenateNearbySystem : EntityEffectSystem<RespiratorComponent, OxygenateNearby>
 {
+    protected override void Effect(Entity<RespiratorComponent> entity, ref EntityEffectEvent<OxygenateNearby> args)
+    {
+        var ev = new OxygenateNearby(args.Effect.Range, args.Effect.Factor);
+        EntityManager.EventBus.RaiseLocalEvent(entity.Owner, ev);
+    }
+}
 
+public sealed partial class OxygenateNearby : EntityEffectBase<OxygenateNearby>
+{
     [DataField]
     public float Range = 7;
 
     [DataField]
     public float Factor = 10f;
+
+    public OxygenateNearby() { }
 
     public OxygenateNearby(float range, float factor)
     {
@@ -34,19 +42,8 @@ public sealed partial class OxygenateNearby : EventEntityEffect<OxygenateNearby>
 
     public override bool ShouldLog => true;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-ignite", ("chance", Probability)); //In due time...
-
     public override LogImpact LogImpact => LogImpact.Medium;
 
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        if (args is not EntityEffectReagentArgs reagentArgs)
-            return;
-
-        var ev = new OxygenateNearby(Range, Factor);
-        args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ev);
-
-
-    }
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("reagent-effect-guidebook-ignite", ("chance", Probability)); //In due time...
 }

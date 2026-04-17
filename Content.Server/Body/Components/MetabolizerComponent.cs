@@ -79,6 +79,14 @@ namespace Content.Server.Body.Components
         public bool SolutionOnBody = true;
 
         /// <summary>
+        ///     How many reagents can this metabolizer process at once?
+        ///     Used to nerf 'stacked poisons' where having 5+ different poisons in a syringe, even at low
+        ///     quantity, would be muuuuch better than just one poison acting.
+        /// </summary>
+        [DataField("maxReagents")]
+        public int MaxReagentsProcessable = 3;
+
+        /// <summary>
         ///     List of metabolizer types that this organ is. ex. Human, Slime, Felinid, w/e.
         /// </summary>
         [DataField]

@@ -77,7 +77,6 @@ using Content.Shared.EntityConditions.Conditions.Body;
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects.Body;
 using Content.Shared.EntityEffects.Effects.Solution;
-using Content.Shared.FixedPoint;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
@@ -224,7 +223,6 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
             // we're done here entirely if this is true
             if (reagents >= ent.Comp1.MaxReagentsProcessable)
                 return;
-
 
             // loop over all our groups and see which ones apply
             if (ent.Comp1.MetabolismGroups is null)

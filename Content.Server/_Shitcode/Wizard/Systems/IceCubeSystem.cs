@@ -16,6 +16,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;

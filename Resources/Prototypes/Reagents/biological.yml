@@ -239,18 +239,17 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 4
       - !type:Vomit
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type:
-          - Yowie
-          shouldHave: false
+          type: [ Yowie ]
+          inverted: true
         probability: 0.25
 
 - type: reagent

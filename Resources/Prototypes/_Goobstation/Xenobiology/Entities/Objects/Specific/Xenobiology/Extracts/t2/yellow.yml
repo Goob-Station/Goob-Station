@@ -29,7 +29,7 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
+      - !type:SpawnEntity
         entity: XenobioVolatileOrgan
         number: 1
     - reagents: [ Blood ]
@@ -41,7 +41,7 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:EmpReactionEffect
+      - !type:Emp
   - type: Tag
     tags:
     - XenobiologyYellowExtract

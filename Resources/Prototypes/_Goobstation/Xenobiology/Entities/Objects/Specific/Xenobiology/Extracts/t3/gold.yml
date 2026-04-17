@@ -24,7 +24,7 @@
       - !type:Jitter
         time: 3
         frequency: 20
-      - !type:CreateEntityReactionEffect
+      - !type:SpawnEntity
         entity: RPassiveMobSpawner
         number: 5
         delay: 3
@@ -40,7 +40,7 @@
       - !type:Jitter
         time: 3
         frequency: 20
-      - !type:CreateEntityReactionEffect
+      - !type:SpawnEntity
         entity: RHostileMobSpawner
         number: 5
         delay: 3
@@ -56,7 +56,7 @@
       - !type:Jitter
         time: 3
         frequency: 20
-      - !type:CreateEntityReactionEffect
+      - !type:SpawnEntity
         entity: RNeutralMobSpawner
         number: 5
         delay: 3

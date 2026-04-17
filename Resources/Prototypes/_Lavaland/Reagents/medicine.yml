@@ -44,7 +44,7 @@
       - !type:ModifyBloodLevel
         amount: 1.5
         conditions:
-        - !type:PressureThreshold
+        - !type:PressureThresholdCondition
           min: 1
           max: 50
           worksOnLavaland: true
@@ -56,15 +56,16 @@
           types:
             Bloodloss: -1.25
         conditions:
-        - !type:PressureThreshold
+        - !type:PressureThresholdCondition
           min: 1
           max: 50
           worksOnLavaland: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: MinersSalve
           min: 21
-        - !type:PressureThreshold
+        - !type:PressureThresholdCondition
           min: 1
           max: 50
           worksOnLavaland: true
@@ -118,7 +119,7 @@
             Burn: -4
             Airloss: -1.5
         conditions:
-          - !type:PressureThreshold
+          - !type:PressureThresholdCondition
             min: 1
             max: 50
             worksOnLavaland: true
@@ -159,13 +160,14 @@
         damage:
           types:
             Bloodloss: -1
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
       - !type:ModifyBloodLevel
         amount: 1
       - !type:HealthChange # Overdose can cause blood to clot in the veins
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: SerakaExtract
           min: 8
         damage:
           groups:

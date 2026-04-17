@@ -10,6 +10,7 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.EntityEffects;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -18,8 +19,36 @@ namespace Content.Goobstation.Shared.EntityEffects;
 /// <summary>
 /// HealthChange but unique to Shadowlings and Thralls
 /// </summary>
+public sealed partial class HealShadowlingSystem
+    : EntityEffectSystem<SolutionContainerManagerComponent, HealShadowling>
+{
+    [Dependency] private readonly DamageableSystem _damage = default!;
+
+    protected override void Effect(Entity<SolutionContainerManagerComponent> entity, ref EntityEffectEvent<HealShadowling> args)
+    {
+        // If slings get custom organs, I will remove all of this code tbf
+        if (!HasComp<ShadowlingComponent>(entity.Owner) &&
+            !HasComp<ThrallComponent>(entity.Owner))
+        {
+            return;
+        }
+        FixedPoint2 scale;
+        scale = FixedPoint2.New(args.Scale);
+
+        _damage.TryChangeDamage(
+            entity.Owner,
+            args.Effect.Damage * scale,
+            args.Effect.IgnoreResistances,
+            interruptsDoAfters: false,
+            targetPart: TargetBodyPart.All,
+            partMultiplier: 0.5f,
+            splitDamage: SplitDamageBehavior.SplitEnsureAll,
+            canMiss: false);
+    }
+}
+
 [UsedImplicitly]
-public sealed partial class HealShadowling : EntityEffect
+public sealed partial class HealShadowling : EntityEffectBase<HealShadowling>
 {
     [DataField]
     public DamageSpecifier Damage = default!;
@@ -29,34 +58,7 @@ public sealed partial class HealShadowling : EntityEffect
 
     [DataField]
     public bool ScaleByQuantity;
-    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
+
+    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
         Loc.GetString("reagent-effect-guidebook-heal-sling", ("chance", Probability));
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        // If slings get custom organs, I will remove all of this code tbf
-        if (!args.EntityManager.HasComponent<ShadowlingComponent>(args.TargetEntity) &&
-            !args.EntityManager.HasComponent<ThrallComponent>(args.TargetEntity))
-        {
-            return;
-        }
-
-        var scale = FixedPoint2.New(1);
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-        {
-            scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
-        }
-
-        args.EntityManager.System<DamageableSystem>()
-            .TryChangeDamage(
-                args.TargetEntity,
-                Damage * scale,
-                IgnoreResistances,
-                interruptsDoAfters: false,
-                targetPart: TargetBodyPart.All,
-                partMultiplier: 0.5f,
-                splitDamage: SplitDamageBehavior.SplitEnsureAll,
-                canMiss: false);
-    }
 }

@@ -60,7 +60,7 @@
   # Lavaland Change start
     - !type:AdjustTemperature
       amount: 10000 # thermal energy, not temperature!
-    - !type:MovespeedModifier
+    - !type:MovementSpeedModifier
       walkSpeedModifier: 0.6
       sprintSpeedModifier: 0.6
   # Lavaland Change end

@@ -1,10 +1,6 @@
-using Content.Shared._DV.Pain;
 using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
-using Content.Server.Abilities.Psionics;
-using Content.Server.Psionics;
-using Content.Shared.Psionics.Glimmer;
 using Content.Shared._DV.CosmicCult.Components;
 
 namespace Content.Server._DV.EntityEffects.Effects;

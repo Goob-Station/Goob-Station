@@ -19,9 +19,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         - !type:MobStateCondition
           mobstate: Critical
         damage:
@@ -29,9 +29,9 @@
             Asphyxiation: -2 # should keep target in crit
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goob, Vox are stinky
+          type: [ Vox ]
+          inverted: true
         damage:
           types:
             Bloodloss: -7 # 20 bloodloss damage every 3 seconds when there are no blood in bloodsream
@@ -40,41 +40,39 @@
       effects:
       - !type:ModifyStatusEffect
         conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
         refresh: false
       - !type:Drunk
         conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         boozePower: 5
     Poison:
       metabolismRate: 0.1
       effects:
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Yowie # Goobstation - Yowie
+          - Slime
+          inverted: true
         emote: Yawn
         showInChat: true
         probability: 0.1
       - !type:ModifyStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Yowie # Goobstation - Yowie
+          - Slime
+          inverted: true
         effectProto: StatusEffectDrowsiness
         time: 2
         type: Add
@@ -93,7 +91,8 @@
       effects:
       - !type:ModifySlimeComponent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioJellyPurple
           min: 1
         extractBonus: 1
 
@@ -109,7 +108,8 @@
       effects:
       - !type:ModifySlimeComponent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioJellyBlue
           min: 1
         chanceModifier: -0.25
 
@@ -144,7 +144,8 @@
       effects:
       - !type:ModifySlimeComponent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioJellyCerulean
           min: 1
         offspringBonus: 2
 
@@ -160,7 +161,8 @@
       effects:
       - !type:ModifySlimeComponent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioJellyRed
           min: 1
         chanceModifier: 0.25
 
@@ -176,14 +178,16 @@
       effects:
       - !type:SpeciesChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioJellyGreen
           min: 10
         newSpecies: SlimePerson
       - !type:AdjustReagent
         reagent: XenobioJellyGreen
         amount: -50.0
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioJellyGreen
           min: 10
 
 - type: reagent
@@ -198,14 +202,16 @@
       effects:
       - !type:SpeciesChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioHumanToxin
           min: 10
         newSpecies: Human
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
         amount: -50.0
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioHumanToxin
           min: 10
 
 - type: reagent
@@ -220,7 +226,8 @@
       effects:
       - !type:ChangeFactionEntityEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioJellyPink
           min: 5
         newFaction: Passive
 
@@ -242,13 +249,15 @@
         - Shadowling # yeah.
         # add more here
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: AdvancedMutationToxin
           min: 10
       - !type:AdjustReagent
         reagent: AdvancedMutationToxin
         amount: -50.0
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: AdvancedMutationToxin
           min: 10
 
 - type: reagent
@@ -263,14 +272,16 @@
       effects:
       - !type:SpeciesChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioFelinidToxin
           min: 10
         newSpecies: Felinid
       - !type:AdjustReagent
         reagent: XenobioFelinidToxin
         amount: -50.0
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioFelinidToxin
           min: 10
 
 - type: reagent
@@ -285,11 +296,13 @@
       effects:
       - !type:SexChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioGenderFluid
           min: 5
       - !type:AdjustReagent
         reagent: XenobioGenderFluid
         amount: -50.0
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: XenobioGenderFluid
           min: 5

@@ -22,9 +22,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types: # black powder is bad for your health.
             Poison: 0.1 # 2 damage/u

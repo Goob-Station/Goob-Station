@@ -7,6 +7,7 @@
 
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
+using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.EntityEffects;
@@ -14,10 +15,20 @@ namespace Content.Goobstation.Shared.EntityEffects;
 /// <summary>
 ///     Scrambles the dna of nearby humanoids.
 /// </summary>
-public sealed partial class ScrambleNearbyEffect : EventEntityEffect<ScrambleNearbyEffect>
+public sealed partial class ScrambleNearbyEffectSystem : EntityEffectSystem<HumanoidAppearanceComponent, ScrambleNearbyEffect>
 {
+    protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<ScrambleNearbyEffect> args)
+    {
+        var ev = new ScrambleNearbyEffect(args.Effect.Radius);
+        EntityManager.EventBus.RaiseLocalEvent(entity.Owner, ev);
+    }
+}
 
+public sealed partial class ScrambleNearbyEffect : EntityEffectBase<ScrambleNearbyEffect>
+{
     [DataField] public float Radius = 7;
+
+    public ScrambleNearbyEffect() { }
 
     public ScrambleNearbyEffect(float radius)
     {
@@ -26,14 +37,8 @@ public sealed partial class ScrambleNearbyEffect : EventEntityEffect<ScrambleNea
 
     public override bool ShouldLog => true;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-scramble-nearby");
-
     public override LogImpact LogImpact => LogImpact.Medium;
 
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        var ev = new ScrambleNearbyEffect(Radius);
-        args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ev);
-    }
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("reagent-effect-guidebook-scramble-nearby");
 }
