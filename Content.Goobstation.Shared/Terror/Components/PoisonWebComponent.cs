@@ -16,6 +16,6 @@ public sealed partial class PoisonWebComponent : Component
     [DataField(required: true)]
     public ProtoId<ReagentPrototype> ReagentId;
 
-    [DataField, Required]
+    [DataField]
     public FixedPoint2 ReagentAmount = 1;
 }

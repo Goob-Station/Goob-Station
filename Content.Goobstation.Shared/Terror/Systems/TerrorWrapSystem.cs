@@ -86,7 +86,10 @@ public sealed class TerrorWrapSystem : EntitySystem
         }
 
         if (HasComp<TerrorSpiderComponent>(ent.Owner))
-            RaiseLocalEvent(ent.Owner, new TerrorWrappedCorpseEvent(ent.Owner));
+        {
+            var ev = new TerrorWrappedCorpseEvent(ent.Owner);
+            RaiseLocalEvent(ent.Owner, ref ev);
+        }
 
         _admin.Add(LogType.Action, LogImpact.High,
             $"{ToPrettyString(ent.Owner)} cocooned {ToPrettyString(target)} as a Terror Spider.");
