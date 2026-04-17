@@ -53,7 +53,7 @@ SPDX-License-Identifier: MIT
 
 Все workflow из этого раздела работают на встроенном `github.token` c явно заданными `permissions`.
 Отдельные PAT или кастомные bot-token secrets для них не нужны.
-Для workflow, которые ставят метки на PR, нужны оба права: `issues: write` и `pull-requests: write`.
+Для workflow, которые ставят метки или пишут комментарии в PR, нужны оба права: `issues: write` и `pull-requests: write`.
 
 - `check-author-repoban.yml`
   - Закрывает PR от soft-banned author ID и оставляет комментарий.

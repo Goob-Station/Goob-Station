@@ -49,6 +49,7 @@ jobs:
     permissions:
       contents: read
       issues: write
+      pull-requests: write # AltHub Space
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2

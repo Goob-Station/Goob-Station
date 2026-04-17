@@ -20,7 +20,7 @@ jobs:
     permissions:
       contents: read
       issues: write
-      pull-requests: read
+      pull-requests: write # AltHub Space
     steps:
       - name: Checkout trusted base repository
         uses: actions/checkout@v4
