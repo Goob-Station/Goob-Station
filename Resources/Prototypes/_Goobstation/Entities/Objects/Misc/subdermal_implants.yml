@@ -34,7 +34,7 @@
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
-  - type: TriggerImplantAction
+  - type: TriggerOnActivateImplant
   - type: DeleteParentOnTrigger
   - type: SpawnOnTrigger
     proto: BluespaceLifelineSpawnCore
@@ -89,11 +89,11 @@
   components:
     - type: SubdermalImplant
       implantAction: ActivateSmokeImplant
-    - type: TriggerImplantAction
+    - type: TriggerOnActivateImplant
     - type: SmokeOnTrigger
       spreadAmount: 25
       duration: 10
-    - type: SoundOnTrigger
+    - type: EmitSoundOnTrigger
       sound: /Audio/Effects/smoke.ogg
 
 - type: entity
@@ -258,22 +258,6 @@
 
 - type: entity
   parent: BaseSubdermalImplant
-  id: AntagImplantHeretic
-  name: heretic implant
-  description: This implant allows the user to connect to the powers of the mansus.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: ComponentsImplant
-    added:
-    - type: Heretic
-    - type: Store
-      currencyWhitelist:
-      - KnowledgePoint
-      balance:
-        KnowledgePoint: 2
-
-- type: entity
-  parent: BaseSubdermalImplant
   id: AntagImplantSpaceNinja
   name: ninja implant
   description: This implant allows the user to gain the skills of a space ninja.
@@ -316,7 +300,7 @@
     - type: TriggerOnMobstateChange
       mobState:
         - Dead
-    - type: TriggerImplantAction
+    - type: TriggerOnActivateImplant
     - type: DeleteParentOnTrigger
     - type: SpawnOnTrigger
       proto: RedspaceLifelineSpawnCore

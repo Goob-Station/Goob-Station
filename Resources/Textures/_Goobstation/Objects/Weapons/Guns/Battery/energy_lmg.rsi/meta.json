@@ -1,21 +1,12 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "made by imasleeping on Discord",
+    "copyright": "made by imasleeping on Discord, Resprite by RedTerror",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
-        {
-            "name": "icon"
-        },
-        {
-            "name": "base"
-        },
-        {
-            "name": "light"
-        },
         {
             "name": "inhand-left",
             "directions": 4

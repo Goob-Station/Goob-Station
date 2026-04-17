@@ -350,7 +350,7 @@
     attackRate: 1.2
     damage:
       types:
-        Slash: 5
+        Slash: 6 #goob - damage matches shiv
   - type: DamageOtherOnHit
     damage:
       types:
@@ -374,7 +374,7 @@
     sprite: Clothing/Head/Hats/brownflatcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/brownflatcap.rsi
-
+  
 - type: entity
   name: shiv
   parent: [BaseKnife, BaseMinorContraband]

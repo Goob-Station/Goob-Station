@@ -221,7 +221,11 @@ namespace Content.Shared.Interaction
         private EntityQuery<UseDelayComponent> _delayQuery;
         private EntityQuery<ActivatableUIComponent> _uiQuery;
 
-        private const CollisionGroup InRangeUnobstructedMask = CollisionGroup.Impassable | CollisionGroup.InteractImpassable;
+        /// <summary>
+        /// The collision mask used by default for
+        /// <see cref="InRangeUnobstructed(MapCoordinates,MapCoordinates,float,CollisionGroup,Ignored?,bool)" />
+        /// </summary>
+        public const CollisionGroup InRangeUnobstructedMask = CollisionGroup.Impassable | CollisionGroup.InteractImpassable;
 
         public const float InteractionRange = 1.5f;
         public const float InteractionRangeSquared = InteractionRange * InteractionRange;
@@ -335,6 +339,9 @@ namespace Content.Shared.Interaction
 
         private bool UiRangeCheck(Entity<TransformComponent?> user, Entity<TransformComponent?> target, float range)
         {
+            if (range < 0) // Goobstation
+                return true;
+
             if (!Resolve(target, ref target.Comp))
                 return false;
 

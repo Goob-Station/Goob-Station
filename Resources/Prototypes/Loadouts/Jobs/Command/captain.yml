@@ -89,6 +89,16 @@
       role: JobCaptain
       time: 72000 #20 hrs
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterCap
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000 # 100 hrs
+
 # Jumpsuit
 - type: loadout
   id: CaptainJumpsuit
@@ -131,6 +141,14 @@
   id: CaptainCap
   equipment:
     head: ClothingHeadHatCapcap
+
+- type: loadout # Goobstation - Ensembles
+  id: CaptainCapcapSenior
+  equipment:
+    head: ClothingHeadHatCapcapSenior
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterCap
 
 
 # Mask - Tbh idk if this should be here or in _goob but this is easier.
@@ -177,6 +195,14 @@
       !type:RoleTimeRequirement
       role: JobCaptain
       time: 360000 #100 hrs
+
+- type: loadout # Goobstation - Ensembles
+  id: CaptainEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleCaptain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterCap
 
 # Back
 - type: loadout

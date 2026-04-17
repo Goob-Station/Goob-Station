@@ -11,12 +11,22 @@ using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Body.Systems;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chemistry.Components;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 // This handles slime breeding and mutation.
 public partial class XenobiologySystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly StomachSystem _stomach = default!;
+
     private void SubscribeBreeding()
     {
         SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
@@ -93,6 +103,8 @@ public partial class XenobiologySystem
         var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
         _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
 
+        List<EntityUid> slimes = [];
+
         for (var i = 0; i < offspringCount; i++)
         {
             var selectedBreed = ent.Comp.Breed;
@@ -109,10 +121,48 @@ public partial class XenobiologySystem
                 newSlime.MutationChance = ent.Comp.MutationChance;
                 newSlime.MaxOffspring = ent.Comp.MaxOffspring;
                 newSlime.ExtractsProduced = ent.Comp.ExtractsProduced;
+                slimes.Add(sl.Value.Owner);
+            }
+        }
+
+        // transfer chem bloodstream and stomach chemicals to children evenly
+        var slimeScale = 1/(float)slimes.Count;
+        var parentStomachList = _body.GetBodyOrganEntityComps<StomachComponent>(ent.Owner);
+        var parentStomachSolutionTransfer = new Solution();
+        foreach (var stomach in parentStomachList)
+        {
+            if (_solutionContainer.ResolveSolution(stomach.Owner, StomachSystem.DefaultSolutionName, ref stomach.Comp1.Solution, out var sol))
+            {
+                parentStomachSolutionTransfer.AddSolution(sol, _proto);
+                sol.RemoveAllSolution();
+            }
+        }
+        parentStomachSolutionTransfer.ScaleSolution(slimeScale);
+
+        var parentChemSolutionTransfer = new Solution();
+        if (TryComp<BloodstreamComponent>(ent, out var parentBloodstream)
+            && _solutionContainer.ResolveSolution(ent.Owner, parentBloodstream.ChemicalSolutionName, ref parentBloodstream.ChemicalSolution, out var parentChem))
+        {
+            parentChemSolutionTransfer.AddSolution(parentChem, _proto);
+            parentChem.RemoveAllSolution();
+        }
+        parentChemSolutionTransfer.ScaleSolution(slimeScale);
+
+        foreach (var s in slimes)
+        {
+            if (TryComp<BloodstreamComponent>(s, out var childBloodstream)
+                && _solutionContainer.ResolveSolution(s, childBloodstream.ChemicalSolutionName, ref childBloodstream.ChemicalSolution, out var childChem))
+                childChem.AddSolution(parentChemSolutionTransfer, _proto);
+
+            var childStomachList = _body.GetBodyOrganEntityComps<StomachComponent>(s);
+            foreach (var stomach in childStomachList)
+            {
+                _stomach.TryTransferSolution(stomach.Owner, parentStomachSolutionTransfer, stomach);
             }
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
+        RaiseLocalEvent(ent, new SlimeMitosisEvent());
         QueueDel(ent);
     }
 

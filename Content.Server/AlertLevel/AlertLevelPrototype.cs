@@ -84,4 +84,11 @@ public sealed partial class AlertLevelDetail
     /// How long it takes for the shuttle to arrive when called.
     /// </summary>
     [DataField("shuttleTime")] public TimeSpan ShuttleTime { get; private set; } = TimeSpan.FromMinutes(5);
+
+    /// <summary>
+    /// Goobstation
+    /// Marks this alert level as eligible for announcement console EMAG-ing.
+    /// Exists so checks run in the right order.
+    /// </summary>
+    [DataField] public bool EmagSelectable { get; private set; }
 }

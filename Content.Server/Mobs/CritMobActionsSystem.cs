@@ -82,9 +82,16 @@ public sealed partial class CritMobActionsSystem : EntitySystem
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
+        if (args.Handled) // goob edit
+            return;
+
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("action-name-crit-last-words"), "",
             (string lastWords) =>
             {
+                // if a person is gibbed/deleted, they can't say last words
+                if (Deleted(uid))
+                    return;
+
                 // Intentionally does not check for muteness
                 if (actor.PlayerSession.AttachedEntity != uid
                     || !_mobState.IsCritical(uid))

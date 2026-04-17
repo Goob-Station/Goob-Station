@@ -28,7 +28,8 @@ public sealed class SharedStarTouchSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedStarGazerSystem _starGazer = default!;
-    [Dependency] private readonly SharedHereticAbilitySystem _heretic = default!;
+    [Dependency] private readonly SharedHereticAbilitySystem _hereticAbility = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
     public static readonly EntProtoId StarTouchStatusEffect = "StatusEffectStarTouched";
     public static readonly EntProtoId DrowsinessStatusEffect = "StatusEffectDrowsiness";
@@ -53,7 +54,7 @@ public sealed class SharedStarTouchSystem : EntitySystem
 
         args.Handled = true;
 
-        _heretic.InvokeTouchSpell(ent, args.User);
+        _hereticAbility.InvokeTouchSpell(ent, args.User);
 
         if (spawned)
             return;
@@ -202,8 +203,8 @@ public sealed class SharedStarTouchSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!TryComp<HereticComponent>(args.User, out var hereticComp) ||
-            TryComp<HereticComponent>(target, out var th) && th.CurrentPath == hereticComp.CurrentPath)
+        if (!_heretic.TryGetHereticComponent(args.User, out var hereticComp, out _) ||
+            _heretic.TryGetHereticComponent(args.Target.Value, out var th, out _) && th.CurrentPath == "Cosmos")
         {
             PredictedQueueDel(uid);
             return;
@@ -211,7 +212,7 @@ public sealed class SharedStarTouchSystem : EntitySystem
 
         if (_magic.IsTouchSpellDenied(target))
         {
-            _heretic.InvokeTouchSpell(ent, args.User);
+            _hereticAbility.InvokeTouchSpell(ent, args.User);
             return;
         }
 
@@ -227,7 +228,7 @@ public sealed class SharedStarTouchSystem : EntitySystem
         if (!HasComp<StarMarkComponent>(target))
         {
             _starMark.TryApplyStarMark((target, mobState));
-            _heretic.InvokeTouchSpell(ent, args.User);
+            _hereticAbility.InvokeTouchSpell(ent, args.User);
             return;
         }
 
@@ -245,6 +246,6 @@ public sealed class SharedStarTouchSystem : EntitySystem
             trail.Strength = hereticComp.PathStage;
         }
 
-        _heretic.InvokeTouchSpell(ent, args.User);
+        _hereticAbility.InvokeTouchSpell(ent, args.User);
     }
 }

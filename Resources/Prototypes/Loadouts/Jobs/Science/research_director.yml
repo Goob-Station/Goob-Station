@@ -85,6 +85,16 @@
       role: JobResearchDirector
       time: 72000 #20 hrs
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterRD
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 360000 # 100 hrs
+
 # Head
 - type: loadout
   id: ResearchDirectorBeret
@@ -121,12 +131,32 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
 
+# Goob start
+
+- type: loadout
+  id: ResearchDirectorJumpsuitAlt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitResearchDirectorAlt
+
+- type: loadout
+  id: ResearchDirectorJumpskirtAlt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtResearchDirectorAlt
+
+# Goob end
 
 - type: loadout # goob
   id: ResearchDirectorMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryResearchDirector
 
+- type: loadout # Goobstation - Ensembles
+  id: ResearchDirectorEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleResearchDirector
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterRD
 
 # OuterClothing
 - type: loadout

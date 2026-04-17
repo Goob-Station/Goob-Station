@@ -52,7 +52,6 @@
   - type: PressureDamageChange
   - type: Wieldable
   - type: GunRequiresWield
-  - type: MeleeRequiresWield
   - type: UseDelayBlockMelee
   - type: UseDelay
     delay: 1
@@ -177,6 +176,7 @@
     damage:
       types:
         Slash: 4
+        Structural: 8
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
@@ -210,6 +210,7 @@
     damage:
       types:
         Piercing: 3
+        Structural: 8
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
@@ -225,12 +226,11 @@
     damage:
       types:
         Blunt: 12
-    range: 1.5 # A bit shorter range (default)
   - type: IncreaseDamageOnWield
     damage:
       types:
         Blunt: 13
-        Structural: 15 # Decent at mining
+        Structural: 15 # Breaks weak rocks effectively
   - type: Item
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer-inhands.rsi
@@ -260,14 +260,14 @@
     range: 2.2
     damage:
       types:
-        Blunt: 8
-        Slash: 3
+        Slash: 6
+        Blunt: 5
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 6
+        Piercing: 3
         Slash: 3
-        Structural: 30 # Breaks weak rocks effectively
+        Structural: 15 # Breaks weak rocks effectively
 
 # Random upgrades
 - type: entity
