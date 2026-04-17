@@ -103,14 +103,50 @@ def get_last_changelog() -> str:
     session.headers["Accept"] = "Accept: application/vnd.github+json"
     session.headers["X-GitHub-Api-Version"] = "2022-11-28"
 
+    # AltHub Space -> start
+    current_run = get_current_run(session, github_repository, github_run)
     most_recent = get_most_recent_workflow(session, github_repository, github_run)
-    last_sha = most_recent["head_commit"]["id"]
-    print(f"Last successful publish job was {most_recent['id']}: {last_sha}")
-    last_changelog_stream = get_last_changelog_by_sha(
-        session, last_sha, github_repository
+    if most_recent is not None:
+        last_sha = most_recent["head_commit"]["id"]
+        print(f"Last successful publish job was {most_recent['id']}: {last_sha}")
+        last_changelog_stream = get_last_changelog_by_sha(
+            session, last_sha, github_repository
+        )
+        return last_changelog_stream
+
+    current_sha = current_run["head_sha"]
+    parent_sha = get_parent_commit_sha(session, github_repository, current_sha)
+    if parent_sha is not None:
+        print(
+            "No previous successful publish run found, "
+            f"falling back to parent commit {parent_sha}"
+        )
+        return get_last_changelog_by_sha(session, parent_sha, github_repository)
+
+    print(
+        "No previous successful publish run or parent commit found, "
+        "using the current changelog as baseline"
     )
+    last_changelog_stream = Path(CHANGELOG_FILE).read_text(encoding="utf-8")
+    # AltHub Space -> end
 
     return last_changelog_stream
+
+
+# AltHub Space -> start
+def get_parent_commit_sha(
+    sess: requests.Session, github_repository: str, sha: str
+) -> str | None:
+    resp = sess.get(f"{GITHUB_API_URL}/repos/{github_repository}/commits/{sha}")
+    resp.raise_for_status()
+    commit = resp.json()
+
+    parents = commit.get("parents", [])
+    if not parents:
+        return None
+
+    return parents[0]["sha"]
+# AltHub Space -> end
 
 
 def get_last_changelog_by_sha(
