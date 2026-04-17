@@ -38,8 +38,6 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
     private void OnSelectAntag(EntityUid uid, TerrorHiveRuleComponent rule, AfterAntagEntitySelectedEvent args)
     {
         rule.Queen ??= args.EntityUid;
-
-        Dirty(uid, rule);
     }
 
     private void OnWrappedCorpse(EntityUid uid, TerrorSpiderComponent spider, TerrorHiveWrappedEvent args)
@@ -50,7 +48,6 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         {
             rule.TotalWrapped++;
             CheckThresholds(ruleUid, rule);
-            Dirty(ruleUid, rule);
         }
     }
 
@@ -98,7 +95,6 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         while (rules.MoveNext(out var ruleUid, out var rule, out _))
         {
             CheckLoseConditions(ruleUid, rule);
-            Dirty(ruleUid, rule);
         }
     }
 
@@ -127,8 +123,6 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
             Color.Red);
 
         _roundEnd.RequestRoundEnd(null, false);
-
-        Dirty(uid, rule);
     }
     private void CheckLoseConditions(EntityUid uid, TerrorHiveRuleComponent rule)
     {
@@ -157,7 +151,5 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
             Color.Green);
 
         _roundEnd.RequestRoundEnd(null, false);
-
-        Dirty(uid, rule);
     }
 }
