@@ -17,18 +17,40 @@ name: Publish
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 10 * * *'
+    inputs:
+      target:
+        description: "target fork:"
+        required: true
+        type: choice
+        options:
+          - development
+          - production
+
+permissions:
+  actions: read
+  contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ inputs.target }}
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: self-hosted
+    environment: ${{ inputs.target }}
 
     steps:
+    - name: Validate target/branch combination
+      shell: bash
+      run: |
+        echo "Selected target: ${{ inputs.target }}"
+        echo "Selected ref: ${{ github.ref_name }}"
+
+        if [[ "${{ inputs.target }}" == "production" && "${{ github.ref_name }}" != "master" ]]; then
+          echo "Production publish is allowed only from master"
+          exit 1
+        fi
+
     - name: Fail if we are attempting to run on the master branch
       if: ${{GITHUB.REF_NAME == 'master' && github.repository == 'space-wizards/space-station-14'}}
       run: exit 1
@@ -79,12 +101,12 @@ jobs:
       run: Tools/publish_multi_request.py
       env:
         PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-        GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
 
     - name: Publish changelog (Discord)
       run: Tools/actions_changelogs_since_last_run.py
       env:
-        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
 
 #    - name: Publish changelog (RSS)
