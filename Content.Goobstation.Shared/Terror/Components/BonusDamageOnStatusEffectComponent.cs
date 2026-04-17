@@ -16,5 +16,5 @@ public sealed partial class BonusDamageOnStatusEffectComponent : Component
     /// Status effects that qualify for bonus damage.
     /// </summary>
     [DataField(required: true)]
-    public List<EntProtoId> RequiredStatusEffects = new();
+    public List<string> RequiredStatusEffects = new();
 }
