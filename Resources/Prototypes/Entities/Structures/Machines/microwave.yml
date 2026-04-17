@@ -109,7 +109,7 @@
 
 - type: entity
   id: KitchenMicrowave
-  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  parent: [ BaseMachinePowered, SmallConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
   name: microwave
   description: It's magic.
   components:
