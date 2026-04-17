@@ -458,8 +458,7 @@
     slots:
     - Snout
   - type: SpeakFont # Goob - clown speaks pink comic sans
-    fontid: Eatday
-    fontsize: 12
+    fontid: LDFComicSans
     color: "#e93790"
 
 - type: entity

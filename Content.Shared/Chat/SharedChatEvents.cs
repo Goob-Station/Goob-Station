@@ -30,7 +30,7 @@ public sealed class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelay
 
 public sealed class TransformSpeakerFontEvent : EntityEventArgs, IInventoryRelayEvent
 {
-    public SlotFlags TargetSlots { get; } = SlotFlags.All;
+    public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
     public EntityUid Sender;
     public string? FontId;
     public int? FontSize;
