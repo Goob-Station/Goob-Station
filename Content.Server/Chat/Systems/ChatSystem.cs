@@ -1292,8 +1292,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         Color? modFontColor = fontModifierEv.Color;
         // goob end - font modifiers
 
-
-
         // goob start - loudspeakers
 
         int? loudSpeakFont = null;
