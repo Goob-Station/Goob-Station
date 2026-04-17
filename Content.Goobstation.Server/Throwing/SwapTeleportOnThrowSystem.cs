@@ -40,14 +40,14 @@ public sealed class SwapTeleportOnThrowSystem : EntitySystem
         var throwerParent = throwerTransform.ParentUid;
         var targetParent = throwerTransform.ParentUid;
 
-        _transform.SetCoordinates(thrower.Value, targetPos);
-        _transform.SetCoordinates(target, throwerPos);
+        _transform.SetCoordinates(thrower, targetPos);
+        _transform.SetCoordinates(target.Value, throwerPos);
 
         if (!HasComp<MapGridComponent>(targetParent))
-            _transform.SetParent(thrower.Value, throwerParent);
+            _transform.SetParent(thrower, throwerParent);
 
         if (!HasComp<MapGridComponent>(throwerParent))
-            _transform.SetParent(target, targetParent);
+            _transform.SetParent(target.Value, targetParent);
 
         _audio.PlayPvs(ent.Comp.OriginSound, throwerPos);
         _audio.PlayPvs(ent.Comp.TargetSound, targetPos);

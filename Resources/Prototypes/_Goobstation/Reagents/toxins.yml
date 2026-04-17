@@ -28,9 +28,9 @@
             Blunt: 4
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 4
@@ -38,20 +38,22 @@
         reagent: Triclor
         amount: 0.5 # Counteracts some loss from vomiting, makes effects more linear
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Triclor
           max: 15 # Limit self-replication to prevent infinite accumulation
       - !type:AdjustReagent
         conditions: # Vomiting behaves weirdly and might leave unmetabolisable 0.1 at 40u (floating point errors?)
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Triclor
           max: 1
         reagent: Triclor
         amount: -0.5
-      - !type:ChemVomit
+      - !type:Vomit
       - !type:ModifyBloodLevel
         amount: -5
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: 0.5
-      - !type:MovespeedModifier # primairly to decrease speed for a while longer after finishing vomiting
+      - !type:MovementSpeedModifier # primairly to decrease speed for a while longer after finishing vomiting
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
         statusLifetime: 6
@@ -78,23 +80,23 @@
             Poison: 0.75 # 37.5 per 5u but pretty slow
             Asphyxiation: 0.25
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:Paralyze
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
+      - !type:ModifyParalysis
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         probability: 0.05
-        paralyzeTime: 2
+        time: 2
       - !type:Emote
         emote: Gasp
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
 
 - type: reagent
   id: Anacea
@@ -108,20 +110,20 @@
     Poison:
       metabolismRate: 0.05
       effects:
-      - !type:AdjustReagent
+      - !type:AdjustReagentsByGroup
         group: Medicine
         amount: -4.5
         conditions: # higher quality anti-poisons, save for calomel which is low effort but high risk
-        - !type:BloodReagentThreshold
+        - !type:BloodReagentThresholdCondition
           reagent: PentenicAcid
           max: 0.1
-        - !type:BloodReagentThreshold
+        - !type:BloodReagentThresholdCondition
           reagent: Calomel
           max: 0.1
-        - !type:BloodReagentThreshold
+        - !type:BloodReagentThresholdCondition
           reagent: Diphenhydramine
           max: 0.1
-      - !type:AdjustReagent
+      - !type:AdjustReagentsByGroup
         group: Medicine
         amount: -0.5
       - !type:HealthChange
@@ -129,9 +131,9 @@
           types:
             Poison: 0.2 # this works out to 20 per 5u
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
       - !type:ImmunityModifier
         gainRateModifier: -0.0024 #double spaceacilin penalty AND over a longer period of time
         strengthModifier: -0.008 #ditto
@@ -148,7 +150,7 @@
   metabolisms:
     Poison:
       effects:
-      - !type:AdjustReagent
+      - !type:AdjustReagentsByGroup
         group: Medicine
         amount: -5
       - !type:HealthChange
@@ -156,13 +158,13 @@
           types:
             Radiation: 2
         conditions:
-        - !type:TypedDamageThreshold
+        - !type:TypedDamageThresholdCondition
           damage:
             types:
               Radiation: 2 # kinda arbitrary, it'll trigger after some rads
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -182,7 +184,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Aluite
           min: 6
         damage:
           types:
@@ -218,18 +221,19 @@
         damage:
           types:
             Poison: 2
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:Paralyze
+      - !type:ModifyParalysis
         probability: 0.5
-        paralyzeTime: 4
+        time: 4
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sarin
           min: 5
       - !type:PopupMessage
         type: Local
@@ -252,7 +256,8 @@
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sarin
           min: 5
       - !type:Emote
         emote: Scream
@@ -261,7 +266,8 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sarin
           min: 2.5
   reactiveEffects:
     Acidic:
@@ -293,9 +299,9 @@
       effects:
       - !type:TakeStaminaDamage
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         amount: 13 # 13 parity
         immediate: false
 
@@ -311,13 +317,14 @@
     Poison:
       metabolismRate: 0.05
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NevcottaPowder
           min: 10
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         probability: 0.15
       - !type:HealthChange
         damage:
@@ -325,22 +332,22 @@
             Poison: 2
             Asphyxiation: 0.25
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 20
         refresh: false
-      - !type:Paralyze
+      - !type:ModifyParalysis
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         probability: 0.05
-        paralyzeTime: 2
+        time: 2
 
 - type: reagent
   id: Microplastics
@@ -364,25 +371,27 @@
           types:
             Poison: 0.25 #should be 0.02, dealt ~30 dmg (less due to Good code)
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-      - !type:ChemVomit
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
+      - !type:Vomit
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Microplastics
           min: 10
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-      - !type:MovespeedModifier
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.90
         sprintSpeedModifier: 0.90
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: Microplastics
           min: 20
       - !type:HealthChange
         probability: 0.5
@@ -390,6 +399,6 @@
           types:
             Poison: -0.25 #in reality i dont care if its a good medicine for vox bcz its funny
         conditions:
-        - !type:OrganType # Goob, Vox are stinky
-          type: Vox
-          shouldHave: true
+        - !type:MetabolizerTypeCondition # Goob, Vox are stinky
+          type: [ Vox ]
+          inverted: true

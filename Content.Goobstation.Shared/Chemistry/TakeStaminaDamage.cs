@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
@@ -15,8 +16,18 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.shared.Chemistry;
 
+public sealed partial class TakeStaminaDamageSystem : EntityEffectSystem<StaminaComponent, TakeStaminaDamage>
+{
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+
+    protected override void Effect(Entity<StaminaComponent> entity, ref EntityEffectEvent<TakeStaminaDamage> args)
+    {
+        _stamina.TakeStaminaDamage(entity.Owner, args.Effect.Amount, visual: false, immediate: args.Effect.Immediate);
+    }
+}
+
 [UsedImplicitly]
-public sealed partial class TakeStaminaDamage : EntityEffect
+public sealed partial class TakeStaminaDamage : EntityEffectBase<TakeStaminaDamage>
 {
     /// <summary>
     /// How much stamina damage to take.
@@ -30,22 +41,10 @@ public sealed partial class TakeStaminaDamage : EntityEffect
     [DataField]
     public bool Immediate;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-deal-stamina-damage",
             ("immediate", Immediate),
             ("amount", MathF.Abs(Amount)),
             ("chance", Probability),
             ("deltasign", MathF.Sign(Amount)));
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        if (args is EntityEffectReagentArgs reagentArgs)
-        {
-            if (reagentArgs.Scale != 1f)
-                return;
-        }
-
-        args.EntityManager.System<SharedStaminaSystem>()
-            .TakeStaminaDamage(args.TargetEntity, Amount, visual: false, immediate: Immediate);
-    }
 }

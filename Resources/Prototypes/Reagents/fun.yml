@@ -172,8 +172,8 @@
           type:
           - Yowie
           inverted: true
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
       - !type:HealthChange
         damage:
@@ -182,8 +182,8 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: Yowie
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
 # Goobstation yowie changes end
 

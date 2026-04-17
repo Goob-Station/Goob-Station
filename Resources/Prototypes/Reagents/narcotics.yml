@@ -67,8 +67,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
         damage:
           groups:
             Brute: -1
@@ -79,9 +79,9 @@
             Radiation: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 0.75
@@ -163,7 +163,7 @@
             Shock: -0.5
             Cold: -0.5
             Radiation: -0.5
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
       - !type:HealthChange
@@ -245,7 +245,7 @@
             Shock: -0.5
             Cold: -0.5
             Radiation: -0.5
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
       - !type:HealthChange
@@ -338,8 +338,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           groups:
             Brute: -1
@@ -369,8 +369,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           groups:
             Brute: -0.2
@@ -406,7 +406,7 @@
             Shock: -0.5
             Cold: -0.5
             Radiation: -0.5
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:HealthChange
@@ -439,8 +439,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           groups:
             Brute: -1
@@ -527,9 +527,9 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         key: Muted
         component: Muted
         type: Add
@@ -618,7 +618,8 @@
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Teargas
           min: 5
       - !type:Emote
         emote: Scream
@@ -754,5 +755,6 @@
       effects:
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NitrosylPlasmide
           min: 1

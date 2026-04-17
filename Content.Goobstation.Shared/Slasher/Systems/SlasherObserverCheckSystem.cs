@@ -36,7 +36,7 @@ public sealed class SlasherObserverCheckSystem : EntitySystem
 
     private void OnShutdown(Entity<SlasherObserverCheckComponent> ent, ref ComponentShutdown args)
     {
-        _alerts.ClearAlert(ent, ent.Comp.Alert);
+        _alerts.ClearAlert(ent.Owner, ent.Comp.Alert);
     }
 
     public override void Update(float frameTime)

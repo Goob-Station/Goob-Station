@@ -112,11 +112,10 @@
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Collections.Frozen;
 using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
 using System.Text.Json.Serialization;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Contraband;
@@ -244,7 +243,6 @@ namespace Content.Shared.Chemistry.Reagent
         /// </summary>
         [DataField]
         public bool SticksToSkin = true;
-
 
         /// <summary>
         /// If not null, makes something slippery. Also defines slippery interactions like stun time and launch mult.

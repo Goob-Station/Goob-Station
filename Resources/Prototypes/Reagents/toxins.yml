@@ -69,9 +69,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          invertd: true
         damage:
           types:
             Poison: 4
@@ -96,17 +96,17 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          invertd: true
         damage:
           types:
             Poison: 4
       - !type:PopupMessage
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          invertd: true
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
@@ -171,9 +171,9 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:OrganType # Goobstation - Yowie
-            type: Yowie
-            shouldHave: false
+          - !type:MetabolizerTypeCondition # Goobstation - Yowie
+            type: [ Yowie ]
+            invertd: true
           damage:
             types:
               Poison: 2
@@ -201,9 +201,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          invertd: true
         damage:
           types:
             Poison: 1
@@ -409,9 +409,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          invertd: true
         damage:
           types:
             Asphyxiation: 5
@@ -571,9 +571,9 @@
      effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType # Goob, Vox are stinky
-          type: Vox
-          shouldHave: true
+        - !type:MetabolizerTypeCondition # Goobstation - Vox
+          type: [ Vox ]
+          invertd: true
 
 - type: reagent
   id: Romerol
@@ -648,8 +648,8 @@
         amount: 0.5
       - !type:AdjustReagent # Goobstation - XenobioSlime
         conditions:
-        - !type:OrganType
-          type: XenobioSlime
+        - !type:MetabolizerTypeCondition # Goobstation - XenobioSlime
+          type: [ XenobioSlime ]
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
@@ -727,7 +727,8 @@
       - !type:SpeciesChange
         newSpecies: BananaMen
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Honk
           min: 30
       - !type:Emote
         emote: Honk

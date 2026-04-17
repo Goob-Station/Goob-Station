@@ -40,7 +40,7 @@
       - !type:IgniteNearbyEffect
         radius: 3
         fireStacks: 5
-      - !type:FlashReactionEffect
+      - !type:Flash
         maxRange: 7
         rangePerUnit: 1
         sound: /Audio/_Goobstation/Wizard/zapbang.ogg

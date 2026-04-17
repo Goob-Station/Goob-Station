@@ -1,16 +1,31 @@
 using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Shared.SecondSkin;
 using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects.Effects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.SecondSkin;
 
-public sealed partial class ModifyDisgustLevel : EntityEffect
+public sealed partial class ModifyDisgustLevelSystem : EntityEffectSystem<DisgustComponent, ModifyDisgustLevel>
+{
+    protected override void Effect(Entity<DisgustComponent> entity, ref EntityEffectEvent<ModifyDisgustLevel> args)
+    {
+        var amount = args.Effect.Delta * args.Scale;
+
+        if (amount == 0f)
+            return;
+
+        var ev = new ModifyDisgustEvent(amount);
+        EntityManager.EventBus.RaiseLocalEvent(entity.Owner, ref ev);
+    }
+}
+
+public sealed partial class ModifyDisgustLevel : EntityEffectBase<ModifyDisgustLevel>
 {
     [DataField(required: true)]
     public float Delta;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         if (Delta == 0f)
             return null;
@@ -20,22 +35,5 @@ public sealed partial class ModifyDisgustLevel : EntityEffect
             ("chance", Probability),
             ("deltasign", sign),
             ("amount", Delta * sign));
-    }
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        if (!args.EntityManager.TryGetComponent(args.TargetEntity, out DisgustComponent? disgust))
-            return;
-
-        var amount = Delta;
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-            amount *= reagentArgs.Scale.Float();
-
-        if (amount == 0f)
-            return;
-
-        var ev = new ModifyDisgustEvent(amount);
-        args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ref ev);
     }
 }

@@ -137,11 +137,10 @@
         conditions:
         - !type:ReagentCondition
           reagent: Dylovene
+          min: 20
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
-        - !type:ReagentThreshold
-          min: 20
         damage:
           groups:
             Brute: 2
@@ -161,12 +160,11 @@
         probability: 0.2
       - !type:Vomit
         conditions:
-        - !type:ReagentCondition
-          reagent: Dylovene
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dylovene
           min: 20
         probability: 0.02
       - !type:Drunk
@@ -271,7 +269,8 @@
         time: 30 # it accumulated 1.2 * quantity and then exists for 30 seconds.
       - !type:AdjustPainFeels
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Bicaridine
           min: 15
         amount: 0.04
       - !type:HealthChange
@@ -280,12 +279,11 @@
             Brute: -2.5 # Was 2, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         - !type:ReagentCondition
           reagent: Bicaridine
-        - !type:MetabolizerTypeConditon # Goobstation - Yowie
-          type: Yowie
-          inverted: true
-        - !type:ReagentThreshold
           min: 15
         damage:
           types:
@@ -295,11 +293,10 @@
         conditions:
         - !type:ReagentCondition
           reagent: Bicaridine
-        - !type:MetabolizerTypeConditon # Goobstation - Yowie
-          type: Yowie
-          inverted: true
-        - !type:ReagentThreshold
           min: 30
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         probability: 0.02
       - !type:Jitter
         conditions:
@@ -309,7 +306,8 @@
       - !type:Drunk
       - !type:AdjustConsciousness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Bicaridine
           min: 10
         allowNewModifiers: true
         modifierType: Pain
@@ -390,7 +388,8 @@
         time: 7
       - !type:AdjustPainFeels
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dermaline
           min: 10
         amount: 0.01
       - !type:HealthChange
@@ -401,12 +400,11 @@
             Cold: -2 # Was 1.5, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Dermaline
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: Yowie
           inverted: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dermaline
           min: 10
         damage:
           types:
@@ -436,7 +434,8 @@
         time: 12
       - !type:AdjustPainFeels
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dexalin
           min: 20
         amount: 0.04
       - !type:HealthChange
@@ -479,7 +478,8 @@
         time: 12
       - !type:AdjustPainFeels
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: DexalinPlus
           min: 25
         amount: 0.1
       - !type:HealthChange
@@ -609,12 +609,13 @@
         key: Adrenaline # Guess what epinephrine is...
         component: IgnoreSlowOnDamage
         time: 5 # lingers less than hivemind reagent to give it a niche
-      - !type:MovespeedModifier # Goob edit
+      - !type:MovementSpeedModifier # Goob edit
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
       - !type:AdjustConsciousness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Epinephrine
           min: 20
         allowNewModifiers: false
         modifierType: Pain
@@ -645,12 +646,11 @@
         probability: 0.02
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Hyronalin
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
           inverted: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Hyronalin
           min: 30
         damage:
           types:
@@ -796,9 +796,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Yowie ]
+          inverted: true
         probability: 0.3
         damage:
           types:
@@ -829,16 +829,16 @@
       - !type:Jitter
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Yowie ]
+          inverted: true
         emote: Scream
         probability: 0.2
       - !type:PopupMessage
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Yowie ]
+          inverted: true
         type: Local
         visualType: Large
         messages: [ "barozine-effect-skin-burning", "barozine-effect-muscle-contract" ]
@@ -929,7 +929,8 @@
         time: 12
       - !type:AdjustConsciousness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: PolypyryliumOligomers
           min: 30
         allowNewModifiers: true
         modifierType: Pain
@@ -999,14 +1000,14 @@
       effects:
         - !type:SatiateThirst
           conditions: # DeltaV nerf of saline for Feroxi
-          - !type:OrganType
-            type: Feroxi
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Feroxi ]
+            inverted: true
           factor: 6
         - !type:SatiateThirst # DeltaV nerf of saline for Feroxi
           conditions:
-          - !type:OrganType
-            type: Feroxi
+          - !type:MetabolizerTypeCondition
+            type: [ Feroxi ]
           factor: 2
         - !type:ModifyBloodLevel
           amount: 12 # Goobstation - buffed by two times due to shitmed changes
@@ -1068,9 +1069,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 2
@@ -1501,10 +1502,11 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-      - !type:CleanseCult # DeltaV - Cosmic Cult
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
+      #- !type:CleanseCult # DeltaV - Cosmic Cult # todo marty
+      #  conditions:
+      #  - !type:ReagentCondition
+      #    reagent: Holywater
+      #    min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamageCondition
@@ -1582,7 +1584,7 @@
         - !type:ReagentCondition
           reagent: Pyrazine
           min: 20
-        - !type:MetabolizerTypeConditon # Goobstation - Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
           inverted: true
         emote: Scream
@@ -1679,7 +1681,7 @@
       effects:
         - !type:ModifyBloodLevel # Goobstation - Cryo rebalance
           conditions:
-          - !type:Temperature
+          - !type:TemperatureCondition
             max: 213.0
           amount: 10
         - !type:HealthChange

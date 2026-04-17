@@ -21,7 +21,7 @@
         component: BlurryVision
         time: 6.0
       31:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         probability: 0.03
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7
@@ -38,7 +38,7 @@
           types:
             Poison: 1
       60:
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.06
         thirstAmount: -50
         hungerAmount: -50

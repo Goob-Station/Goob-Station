@@ -281,7 +281,8 @@
             Brute: -1
       - !type:ModifyBloodLevel
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 3
         - !type:MetabolizerTypeCondition
           type: [ Dwarf ]
@@ -290,7 +291,8 @@
       # Begin DeltaV Additons - Oni take less poison
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 15
         - !type:MetabolizerTypeCondition
           type: [ Oni ]
@@ -1628,9 +1630,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 1

@@ -71,9 +71,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Caustic: 1
@@ -205,9 +205,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Heat: 1.5
@@ -221,7 +221,8 @@
           type:
           - Yowie
           shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: SodiumHydroxide
           min: 5
         probability: 0.1
 

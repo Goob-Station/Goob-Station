@@ -1,39 +1,46 @@
+using System.Linq;
 using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects.Effects;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Linq;
-using Content.Shared.EntityEffects;
 
 namespace Content.Goobstation.Shared.EntityEffects;
-public sealed partial class RandomSpeciesChange : EntityEffect
-{
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-change-species-random");
 
+public sealed partial class RandomSpeciesChangeSystem
+    : EntityEffectSystem<HumanoidAppearanceComponent, RandomSpeciesChange>
+{
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+
+    protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<RandomSpeciesChange> args)
+    {
+        var effect = args.Effect;
+
+        var species = _proto.EnumeratePrototypes<SpeciesPrototype>();
+
+        if (effect.SpeciesWhitelist != null && effect.SpeciesWhitelist.Count > 0)
+            species = species.Where(q => effect.SpeciesWhitelist.Contains(q.ID));
+
+        if (effect.SpeciesBlacklist != null && effect.SpeciesBlacklist.Count > 0)
+            species = species.Where(q => !effect.SpeciesBlacklist.Contains(q.ID));
+
+        var list = species.ToList();
+        if (list.Count == 0)
+            return;
+
+        var sce = new SpeciesChange(_random.Pick(list).ID);
+        _effects.TryApplyEffect(entity.Owner, sce);
+    }
+}
+
+public sealed partial class RandomSpeciesChange : EntityEffectBase<RandomSpeciesChange>
+{
     [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesWhitelist;
     [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesBlacklist;
 
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        var protMan = IoCManager.Resolve<IPrototypeManager>();
-        var random = IoCManager.Resolve<IRobustRandom>();
-        var entityEffects = args.EntityManager.System<SharedEntityEffectSystem>();
-
-        // whatever, go my rngesus
-        var species = protMan.EnumeratePrototypes<SpeciesPrototype>();
-
-        if (SpeciesWhitelist != null && SpeciesWhitelist.Count > 0)
-            species = species.Where(q => SpeciesWhitelist.Any(w => q.ID == w));
-
-        if (SpeciesBlacklist != null && SpeciesBlacklist.Count > 0)
-            species = species.Where(q => !SpeciesBlacklist.Any(w => q.ID == w));
-
-        var sce = new SpeciesChange
-        {
-            NewSpecies = random.Pick(species.ToList()).ID,
-        };
-
-        entityEffects.Effect(sce, args);
-    }
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("reagent-effect-guidebook-change-species-random");
 }

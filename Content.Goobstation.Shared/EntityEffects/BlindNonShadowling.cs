@@ -3,11 +3,12 @@
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Humanoid;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -16,30 +17,35 @@ namespace Content.Goobstation.Shared.EntityEffects;
 /// <summary>
 /// Inflicts blindness on non-shadowlings and non-thralls
 /// </summary>
-[UsedImplicitly]
-public sealed partial class BlindNonShadowling : EntityEffect
+// todo migrate. or just kill slings i  stg.
+public sealed partial class BlindNonShadowlingSystem : EntityEffectSystem<HumanoidAppearanceComponent, BlindNonShadowling>
 {
-    /// <inheritdoc/>
-    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
-        Loc.GetString("reagent-effect-guidebook-blind-non-sling", ("chance", Probability));
-    public override void Effect(EntityEffectBaseArgs args)
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+
+    protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<BlindNonShadowling> args)
     {
-        if (args.EntityManager.HasComponent<ShadowlingComponent>(args.TargetEntity) ||
-            args.EntityManager.HasComponent<ThrallComponent>(args.TargetEntity))
+        if (HasComp<ShadowlingComponent>(entity.Owner) ||
+            HasComp<ThrallComponent>(entity.Owner))
         {
             return;
         }
 
-        if (!args.EntityManager.TryGetComponent<StatusEffectsComponent>(args.TargetEntity, out var statusEffects))
+        if (!TryComp<StatusEffectsComponent>(entity.Owner, out var statusEffects))
             return;
 
-        var statusEffectsSystem = args.EntityManager.System<StatusEffectsSystem>();
-
-        statusEffectsSystem.TryAddStatusEffect<TemporaryBlindnessComponent>(
-            args.TargetEntity,
+        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(
+            entity.Owner,
             "TemporaryBlindness",
             TimeSpan.FromSeconds(3),
             true,
             statusEffects);
     }
+}
+
+[UsedImplicitly]
+public sealed partial class BlindNonShadowling : EntityEffectBase<BlindNonShadowling>
+{
+    /// <inheritdoc/>
+    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
+        Loc.GetString("reagent-effect-guidebook-blind-non-sling", ("chance", Probability));
 }

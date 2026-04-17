@@ -1,11 +1,31 @@
 using Content.Goobstation.Shared.Stealth;
+using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.EntityEffects;
-public sealed partial class ForceStealthNearbyEffect : EntityEffect
+
+public sealed partial class ForceStealthNearbyEffectSystem : EntityEffectSystem<ReactiveComponent, ForceStealthNearbyEffect>
+{
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly ForcedStealthSystem _stealth = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
+    protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<ForceStealthNearbyEffect> args)
+    {
+        foreach (var target in _lookup.GetEntitiesInRange(entity.Owner, args.Effect.Radius))
+        {
+            if (args.Effect.Chance >= 1f || _random.Prob(args.Effect.Chance))
+            {
+                _stealth.TryApplyForceStealth(target, out _, args.Effect.Duration);
+            }
+        }
+    }
+}
+
+public sealed partial class ForceStealthNearbyEffect : EntityEffectBase<ForceStealthNearbyEffect>
 {
     [DataField] public float Radius = 5f;
 
@@ -15,20 +35,8 @@ public sealed partial class ForceStealthNearbyEffect : EntityEffect
 
     public override bool ShouldLog => true;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-stealth-entities");
-
     public override LogImpact LogImpact => LogImpact.Medium;
 
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        var entityManager = args.EntityManager;
-        var lookupSys = entityManager.System<EntityLookupSystem>();
-        var forceStealth = entityManager.System<ForcedStealthSystem>();
-        var rand = IoCManager.Resolve<IRobustRandom>();
-
-        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Radius))
-            if (Chance >= 1f || rand.Prob(Chance))
-                forceStealth.TryApplyForceStealth(entity, out _, Duration);
-    }
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("reagent-effect-guidebook-stealth-entities");
 }

@@ -76,14 +76,14 @@
         amount: 0.05
       - !type:Jitter # Goobstation: Coffee causes jitteriness and alters speed
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Coffee
           min: 25
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Coffee
           min: 25
           max: 99
@@ -91,14 +91,14 @@
         key: Stutter
         component: StutteringAccent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Coffee
           min: 75
-      - !type:MovespeedModifier # Goobstation: Drinking too much causes chest pain and slows you down
+      - !type:MovementSpeedModifier # Goobstation: Drinking too much causes chest pain and slows you down
         walkSpeedModifier: 0.70
         sprintSpeedModifier: 0.70
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Coffee
           min: 100
       - !type:PopupMessage
@@ -107,7 +107,7 @@
         type: Local
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Coffee
           min: 100
   metamorphicSprite:
@@ -315,9 +315,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 1
@@ -364,8 +364,8 @@
         factor: 4
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Plasmaman
+        - !type:MetabolizerTypeCondition
+          type: [ Plasmaman ]
         damage:
           groups:
             Brute: -0.90
@@ -459,9 +459,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 1
@@ -573,34 +573,34 @@
             Heat: 3
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Feroxi
+        - !type:MetabolizerTypeCondition
+          type: [ Feroxi ]
       - !type:SatiateThirst
         conditions:
-        - !type:OrganType
-          type: Feroxi
+        - !type:MetabolizerTypeCondition
+          type: [ Feroxi ]
         factor: 2
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: FeroxiDehydrated
+        - !type:MetabolizerTypeCondition
+          type: [ FeroxiDehydrated ]
       - !type:SatiateThirst
         conditions:
-        - !type:OrganType
-          type: FeroxiDehydrated
+        - !type:MetabolizerTypeCondition
+          type: [ FeroxiDehydrated ]
         factor: 2
       # DeltaV Converts H2O into CO2 for Feroxi
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Feroxi
+        - !type:MetabolizerTypeCondition
+          type: [ Feroxi ]
         ratios: # DeltaV no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: FeroxiDehydrated
+        - !type:MetabolizerTypeCondition
+          type: [ FeroxiDehydrated ]
         ratios: # DeltaV no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0

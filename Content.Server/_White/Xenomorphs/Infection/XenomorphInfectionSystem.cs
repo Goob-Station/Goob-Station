@@ -15,7 +15,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedEntityEffectSystem _effect = default!;
+    [Dependency] private readonly SharedEntityEffectsSystem _effect = default!;
 
     public override void Initialize()
     {
@@ -75,9 +75,10 @@ public sealed class XenomorphInfectionSystem : EntitySystem
 
             if (infection.Effects.TryGetValue(infection.GrowthStage, out var effects))
             {
-                var effectsArgs = new EntityEffectBaseArgs(infection.Infected.Value, EntityManager);
                 foreach (var effect in effects)
-                    _effect.Effect(effect, effectsArgs); // goob edit - use new effect system
+                {
+                    _effect.TryApplyEffect(infection.Infected.Value, effect);
+                }
             }
 
             if (infection.GrowthStage < infection.MaxGrowthStage)

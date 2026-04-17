@@ -38,7 +38,7 @@ namespace Content.Server._Lavaland.Weapons.Ranged.Upgrades;
 public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
 {
     [Dependency] private readonly PressureEfficiencyChangeSystem _pressure = default!;
-    [Dependency] private readonly SharedEntityEffectSystem _entityEffect = default!;
+    [Dependency] private readonly SharedEntityEffectsSystem _entityEffect = default!;
 
     public override void Initialize()
     {
@@ -128,7 +128,7 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
         {
             foreach (var effect in ent.Comp.Effects)
             {
-                _entityEffect.Effect(effect, new EntityEffectBaseArgs(hit, EntityManager));
+                _entityEffect.TryApplyEffect(hit, effect);
             }
         }
     }

@@ -1,11 +1,11 @@
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
-using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Polymorph.Systems;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Polymorph;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 

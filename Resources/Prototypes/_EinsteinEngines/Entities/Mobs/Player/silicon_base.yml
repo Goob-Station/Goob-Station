@@ -33,7 +33,7 @@
         - reagents: [Water, SpaceCleaner]
           methods: [Touch]
           effects:
-            - !type:WashCreamPieReaction
+            - !type:WashCreamPie
     - type: DamageOnHighSpeedImpact
       damage:
         types:
@@ -341,7 +341,7 @@
     - type: ComplexInteraction
     - type: Carriable
     - type: GrabIntent # wilted rose
-    - type: Grabbable 
+    - type: Grabbable
     - type: Targeting
     - type: Crawler
     - type: Consciousness
