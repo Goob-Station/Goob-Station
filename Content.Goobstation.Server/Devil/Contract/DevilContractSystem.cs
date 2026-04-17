@@ -271,7 +271,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     }
     public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
-        // Fatal error fix
         if (!Exists(target) || Deleted(target))
             return;
 
@@ -370,7 +369,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         //_sawmill.Debug($"Applying {clause.ID} effect to {ToPrettyString(target)}");
 
-        // Fatal error fix
         if (!Exists(target) || Deleted(target))
             return;
 
