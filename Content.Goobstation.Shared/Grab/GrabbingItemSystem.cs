@@ -31,10 +31,8 @@ public sealed class GrabbingItemSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<GrabbingItemComponent, MeleeHitEvent>(OnMeleeHitEvent);
-        SubscribeLocalEvent<GrabbingItemComponent, AttemptMeleeEvent>(OnMeleeAttempt);
         SubscribeLocalEvent<GrabbingItemComponent, HeldRelayedEvent<FindGrabbingItemEvent>>(OnGetGrabbingItem);
         SubscribeLocalEvent<GrabbingItemComponent, HeldRelayedEvent<StopGrabbingItemPullEvent>>(OnPullStopped);
-        SubscribeLocalEvent<GrabbingItemComponent, BeforeThrowEvent>(OnBeforeThrow);
     }
 
     private void OnPullStopped(Entity<GrabbingItemComponent> ent, ref HeldRelayedEvent<StopGrabbingItemPullEvent> args)
@@ -52,36 +50,6 @@ public sealed class GrabbingItemSystem : EntitySystem
             return;
 
         args.Args.GrabbingItem = ent;
-    }
-
-    private void OnBeforeThrow(Entity<GrabbingItemComponent> ent, ref BeforeThrowEvent args)
-    {
-        if (ent.Comp.ActivelyGrabbingEntity == null)
-            return;
-
-        args.Cancelled = true;
-
-        _grabbing.ThrowGrabbedEntity(args.PlayerUid, args.Direction);
-    }
-
-    private void OnMeleeAttempt(Entity<GrabbingItemComponent> ent, ref AttemptMeleeEvent args)
-    {
-        if (args.Cancelled)
-            return;
-
-        var grabbed = ent.Comp.ActivelyGrabbingEntity;
-
-        if (grabbed == null)
-            return;
-
-        if (!args.IsHeavyAttack && (!TryComp(args.User, out GrabIntentComponent? grabIntent) ||
-            grabIntent.GrabStage < GrabStage.Suffocate))
-            return;
-
-        args.Cancelled = true;
-        args.Message = Loc.GetString("grabbing-item-attack-fail",
-            ("item", Identity.Entity(ent.Owner, EntityManager)),
-            ("grabbed", Identity.Entity(grabbed.Value, EntityManager)));
     }
 
     private void OnMeleeHitEvent(Entity<GrabbingItemComponent> ent, ref MeleeHitEvent args)

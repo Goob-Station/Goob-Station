@@ -12,8 +12,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Throwing;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Map;
 
 namespace Content.Goobstation.Shared.Boomerang;
@@ -21,6 +24,8 @@ namespace Content.Goobstation.Shared.Boomerang;
 public sealed class BoomerangSystem : EntitySystem
 {
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     private List<(EntityUid, EntityCoordinates, float, EntityUid?)> _toThrow = new();
@@ -30,6 +35,23 @@ public sealed class BoomerangSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<BoomerangComponent, LandEvent>(OnLanded);
         SubscribeLocalEvent<BoomerangComponent, ThrownEvent>(OnThrown);
+        SubscribeLocalEvent<BoomerangComponent, ThrowDoHitEvent>(OnHit);
+    }
+
+    private void OnHit(Entity<BoomerangComponent> ent, ref ThrowDoHitEvent args)
+    {
+        if (!TryComp(args.Thrown, out PhysicsComponent? body) || args.Component.Thrower is not { } thrower)
+            return;
+
+        var ourCoords = _transform.GetMapCoordinates(args.Thrown);
+        var throwerCoords = _transform.GetMapCoordinates(thrower);
+
+        if (ourCoords.MapId != throwerCoords.MapId)
+            return;
+
+        var vec = (throwerCoords.Position - ourCoords.Position).Normalized() * body.LinearVelocity.Length();
+
+        _physics.SetLinearVelocity(args.Thrown, vec, body: body);
     }
 
     public override void Update(float frameTime)
@@ -38,8 +60,11 @@ public sealed class BoomerangSystem : EntitySystem
 
         foreach (var (uid, coords, speed, thrower) in _toThrow)
         {
-            if (!TerminatingOrDeleted(uid) && (thrower == null || !TerminatingOrDeleted(thrower)))
-                _throwingSystem.TryThrow(uid, coords, speed, user: thrower, recoil: false, playSound: false);
+            if (TerminatingOrDeleted(uid) || thrower != null && TerminatingOrDeleted(thrower))
+                continue;
+
+            _physics.SetLinearVelocity(uid, Vector2.Zero);
+            _throwingSystem.TryThrow(uid, coords, speed, user: thrower, recoil: false, playSound: false);
         }
 
         _toThrow.Clear();

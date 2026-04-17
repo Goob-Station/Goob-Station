@@ -497,7 +497,6 @@
     - prefRoles: [ InitialInfected ]
       max: 4
       playerRatio: 15
-      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
         - CommandStaff # Goobstation

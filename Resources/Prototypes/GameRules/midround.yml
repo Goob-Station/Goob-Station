@@ -54,7 +54,6 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - CommandStaff

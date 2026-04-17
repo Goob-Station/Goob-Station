@@ -67,7 +67,6 @@
       max: 4
       playerRatio: 12
       chaosScore: 200
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - CommandStaff
