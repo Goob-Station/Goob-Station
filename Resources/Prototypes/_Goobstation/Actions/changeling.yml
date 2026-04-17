@@ -349,7 +349,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 10
+    useDelay: 45
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -373,7 +373,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 15 #Do not make spammable
+    useDelay: 45
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -418,6 +418,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    useDelay: 1.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -448,6 +449,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    useDelay: 1.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -478,6 +480,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    useDelay: 1.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -508,6 +511,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    useDelay: 1.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -538,6 +542,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    useDelay: 1.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -725,11 +730,11 @@
   parent: BaseAction
   id: ActionFleshmend
   name: Fleshmend
-  description: Rapidly heal yourself. Costs 35 chemicals.
+  description: Rapidly heal yourself. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 15 #it lasts 10 seconds
+    useDelay: 30
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -742,7 +747,7 @@
     useInLesserForm: true
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
-    useAmount: 35
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
