@@ -39,7 +39,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Destructible.Thresholds.Triggers;
