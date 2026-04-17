@@ -27,3 +27,20 @@ public sealed class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelay
         SpeechVerb = null;
     }
 }
+
+public sealed class TransformSpeakerFontEvent : EntityEventArgs, IInventoryRelayEvent
+{
+    public SlotFlags TargetSlots { get; } = SlotFlags.All;
+    public EntityUid Sender;
+    public string? FontId;
+    public int? FontSize;
+    public Color? Color;
+
+    public TransformSpeakerFontEvent(EntityUid sender, string? fontid = null, int? fontsize = null, Color? color = null)
+    {
+        Sender = sender;
+        FontId = fontid;
+        FontSize = fontsize;
+        Color = color;
+    }
+}

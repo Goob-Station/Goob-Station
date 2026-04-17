@@ -457,6 +457,10 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: SpeakFont # Goob - clown speaks pink comic sans
+    fontid: Eatday
+    fontsize: 12
+    color: "#e93790"
 
 - type: entity
   parent: ClothingMaskClownBase
