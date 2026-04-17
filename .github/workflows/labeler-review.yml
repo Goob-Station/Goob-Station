@@ -20,21 +20,50 @@ jobs:
       contains(fromJson('["COLLABORATOR","MEMBER","OWNER"]'), github.event.review.author_association)
     permissions:
       issues: write
+      pull-requests: read # AltHub Space
     runs-on: ubuntu-latest
     steps:
-    - if: github.event.review.state == 'approved'
-      uses: actions-ecosystem/action-add-labels@v1
+    # AltHub Space -> start
+    - uses: actions/github-script@v7
       with:
-        labels: "S: Approved"
-    - if: github.event.review.state == 'approved'
-      uses: actions-ecosystem/action-remove-labels@v1
-      with:
-        labels: "S: Needs Review, S: Awaiting Changes"
-    - if: github.event.review.state == 'changes_requested'
-      uses: actions-ecosystem/action-add-labels@v1
-      with:
-        labels: "S: Awaiting Changes"
-    - if: github.event.review.state == 'changes_requested'
-      uses: actions-ecosystem/action-remove-labels@v1
-      with:
-        labels: "S: Needs Review, S: Approved"
+        script: |
+          const { owner, repo } = context.repo;
+          const issue_number = context.issue.number;
+          const reviewState = context.payload.review?.state;
+
+          let labelsToAdd = [];
+          let labelsToRemove = [];
+
+          if (reviewState === "approved") {
+            labelsToAdd = ["S: Approved"];
+            labelsToRemove = ["S: Needs Review", "S: Awaiting Changes"];
+          } else if (reviewState === "changes_requested") {
+            labelsToAdd = ["S: Awaiting Changes"];
+            labelsToRemove = ["S: Needs Review", "S: Approved"];
+          } else {
+            console.log(`Skipping unsupported review state: ${reviewState}`);
+            return;
+          }
+
+          await github.rest.issues.addLabels({
+            owner,
+            repo,
+            issue_number,
+            labels: labelsToAdd,
+          });
+
+          for (const name of labelsToRemove) {
+            try {
+              await github.rest.issues.removeLabel({
+                owner,
+                repo,
+                issue_number,
+                name,
+              });
+            } catch (error) {
+              if (error.status !== 404) {
+                throw error;
+              }
+            }
+          }
+    # AltHub Space -> end

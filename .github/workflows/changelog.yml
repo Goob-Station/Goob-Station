@@ -18,14 +18,14 @@ env:
 
 jobs:
   changelog:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest # AltHub Space
     if: github.event.pull_request.merged == true
     permissions:
       contents: write
       pull-requests: read
     steps:
       - name: Checkout Master
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.2.2 # AltHub Space
         with:
           token: ${{ github.token }}
           ref: "${{ env.CHANGELOG_BRANCH }}"
@@ -37,7 +37,7 @@ jobs:
         shell: bash
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # AltHub Space
         with:
           node-version: 18.x
 
@@ -46,19 +46,24 @@ jobs:
           cd "Tools/changelog"
           npm install
         shell: bash
-        continue-on-error: true
 
       - name: Generate Changelog
         run: |
           cd "Tools/changelog"
           node changelog.js
         shell: bash
-        continue-on-error: true
 
       - name: Commit Changelog
         run: |
           git add "${{ env.CHANGELOG_DIR }}"
+
+          # AltHub Space -> start
+          if git diff --cached --quiet; then
+            echo "No changelog changes to commit"
+            exit 0
+          fi
+
           git commit -m "${{ vars.CHANGELOG_MESSAGE }} (#${{ env.PR_NUMBER }})"
-          git push
+          git push origin "${{ env.CHANGELOG_BRANCH }}"
+          # AltHub Space -> end
         shell: bash
-        continue-on-error: true

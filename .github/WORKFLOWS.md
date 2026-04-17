@@ -51,9 +51,12 @@ SPDX-License-Identifier: MIT
 
 ### Автоматизация PR и меток
 
+Все workflow из этого раздела работают на встроенном `github.token` c явно заданными `permissions`.
+Отдельные PAT или кастомные bot-token secrets для них не нужны.
+
 - `check-author-repoban.yml`
   - Закрывает PR от soft-banned author ID и оставляет комментарий.
-  - Триггеры: `pull_request`.
+  - Триггеры: `pull_request_target`.
 
 - `close-master-pr.yml`
   - Закрывает PR, если он открыт из `master`, `main` или `develop`.

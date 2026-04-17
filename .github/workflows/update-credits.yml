@@ -59,7 +59,7 @@ jobs:
         run: echo "NOW=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7 # AltHub Space
         with:
           commit-message: Update Credits
           title: Update Credits

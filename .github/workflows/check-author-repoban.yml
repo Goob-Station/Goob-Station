@@ -1,8 +1,10 @@
-﻿name: soft-repoban check
+name: soft-repoban check
 
 on:
-  pull_request:
+  # AltHub Space -> start
+  pull_request_target:
     types: [opened, reopened]
+  # AltHub Space -> end
 
 env:
   BLOCKED_AUTHORS: "201311861"

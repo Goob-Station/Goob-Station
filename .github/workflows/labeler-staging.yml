@@ -18,7 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      pull-requests: read # AltHub Space
     steps:
-    - uses: actions-ecosystem/action-add-labels@v1
+    # AltHub Space -> start
+    - uses: actions/github-script@v7
       with:
-        labels: "Branch: Staging"
+        script: |
+          await github.rest.issues.addLabels({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            labels: ["Branch: Staging"],
+          });
+    # AltHub Space -> end

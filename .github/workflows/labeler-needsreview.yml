@@ -15,10 +15,32 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      pull-requests: read # AltHub Space
     steps:
-    - uses: actions-ecosystem/action-add-labels@v1
+    # AltHub Space -> start
+    - uses: actions/github-script@v7
       with:
-        labels: "S: Needs Review"
-    - uses: actions-ecosystem/action-remove-labels@v1
-      with:
-        labels: "S: Awaiting Changes"
+        script: |
+          const { owner, repo } = context.repo;
+          const issue_number = context.issue.number;
+
+          await github.rest.issues.addLabels({
+            owner,
+            repo,
+            issue_number,
+            labels: ["S: Needs Review"],
+          });
+
+          try {
+            await github.rest.issues.removeLabel({
+              owner,
+              repo,
+              issue_number,
+              name: "S: Awaiting Changes",
+            });
+          } catch (error) {
+            if (error.status !== 404) {
+              throw error;
+            }
+          }
+    # AltHub Space -> end

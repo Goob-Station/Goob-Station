@@ -84,12 +84,12 @@ jobs:
           echo "skip=false" >> $GITHUB_ENV
         fi
 
-    - uses: actions/checkout@v3.6.0
+    - uses: actions/checkout@v4.2.2 # AltHub Space
       with:
         submodules: 'recursive'
     - name: Setup .NET Core
       if: env.skip == 'false'
-      uses: actions/setup-dotnet@v3.2.0
+      uses: actions/setup-dotnet@v4.1.0 # AltHub Space
       with:
         dotnet-version: 9.0.x
 
