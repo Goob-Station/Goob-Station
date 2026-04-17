@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC0-1.0",
-  "copyright": "Created by EmoGarbage404 (github) for Space Station 14",
+  "copyright": "by Ko4erga (discord) and modified 'fill.png' by EmoGarbage",
   "size": {
     "x": 32,
     "y": 32
@@ -18,6 +18,9 @@
     },
     {
       "name": "open"
+    },
+    {
+      "name": "light"
     }
   ]
 }

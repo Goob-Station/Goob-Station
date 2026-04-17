@@ -1,12 +1,74 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from /tg/station at commit 85c26c1",
+  "copyright": "Taken from /tg/station at https://github.com/tgstation/tgstation/pull/75878, all icons under CC-BY-SA-3.0, unless otherwise indicated. All sprite some changed by JrInventor05(github)\nTaken from /tg/station at commit 85c26c1",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inserting",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "unlit",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "unlit-building",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "building",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "panel"
+    },
     {
       "name": "limbgrower_fill",
       "delays": [

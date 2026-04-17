@@ -14,10 +14,16 @@
       "name": "bolted_unlit"
     },
     {
+      "name": "bolted_open_unlit"
+    },
+    {
       "name": "closed"
     },
     {
       "name": "closed_unlit"
+    },
+    {
+      "name": "open_unlit"
     },
     {
       "name": "closing",
@@ -31,8 +37,8 @@
           0.2,
           0.2,
           0.2
+        ]
       ]
-    ]
     },
     {
       "name": "closing_unlit",
@@ -46,8 +52,8 @@
           0.2,
           0.2,
           0.2
+        ]
       ]
-    ]
     },
     {
       "name": "deny_unlit",
@@ -61,8 +67,8 @@
           0.2,
           0.2,
           0.2
+        ]
       ]
-    ]
     },
     {
       "name": "open"
@@ -79,8 +85,8 @@
           0.2,
           0.2,
           0.2
+        ]
       ]
-    ]
     },
     {
       "name": "opening_unlit",
@@ -94,8 +100,11 @@
           0.2,
           0.2,
           0.2
+        ]
       ]
-    ]
+    },
+    {
+      "name": "panel_closed"
     },
     {
       "name": "panel_closing",
@@ -109,8 +118,8 @@
           0.2,
           0.2,
           0.2
+        ]
       ]
-    ]
     },
     {
       "name": "panel_open"
@@ -127,8 +136,8 @@
           0.2,
           0.2,
           0.2
+        ]
       ]
-    ]
     },
     {
       "name": "welded"
@@ -141,6 +150,9 @@
           0.4
         ]
       ]
+    },
+    {
+      "name": "emergency_open_unlit"
     }
   ]
 }
