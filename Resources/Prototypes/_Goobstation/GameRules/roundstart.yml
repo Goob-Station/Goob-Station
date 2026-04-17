@@ -278,7 +278,6 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
         - CommandStaff
