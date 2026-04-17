@@ -41,7 +41,7 @@
     - type: SandevistanUser
       movementSpeedModifier: 1
       attackSpeedModifier: 1
-      doAfterSpeedEnabled: false
+      doAfterModifier: 1
       slowfieldEnabled: true
       thresholds:
         Warning: 6

@@ -52,12 +52,6 @@ public sealed partial class SandevistanUserComponent : Component
         { SandevistanState.Death,    [new SandevistanDeathEffect()] },
     };
 
-    /// <summary>
-    /// How long the toggle action is disabled after an overload (Disable state).
-    /// </summary>
-    [DataField]
-    public TimeSpan DisableCooldown = TimeSpan.FromSeconds(4);
-
     [DataField, AutoNetworkedField]
     public float MovementSpeedModifier = 2f;
 
@@ -65,7 +59,7 @@ public sealed partial class SandevistanUserComponent : Component
     public float AttackSpeedModifier = 2f;
 
     [DataField, AutoNetworkedField]
-    public bool DoAfterSpeedEnabled = true;
+    public float DoAfterModifier = 1.5f;
 
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public int ColorAccumulator = 0;

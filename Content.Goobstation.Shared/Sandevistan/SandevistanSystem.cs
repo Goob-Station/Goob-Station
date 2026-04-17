@@ -201,8 +201,8 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnModifyDoAfterDelay(Entity<SandevistanUserComponent> ent, ref GetDoAfterDelayMultiplierEvent args)
     {
-        if (ent.Comp.Active && ent.Comp.DoAfterSpeedEnabled)
-            args.Multiplier *= 0.5f;
+        if (ent.Comp.Active)
+            args.Multiplier *= ent.Comp.DoAfterModifier;
     }
 
     private void OnBeforeStaminaDamage(Entity<SandevistanUserComponent> ent, ref BeforeStaminaDamageEvent args)

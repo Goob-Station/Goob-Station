@@ -4,12 +4,20 @@ using Content.Shared.Jittering;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Stunnable;
+using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Sandevistan;
+
+[ImplicitDataDefinitionForInheritors]
+[MeansImplicitUse]
+public abstract partial class SandevistanEffect
+{
+    public abstract void Effect(EntityUid uid, SandevistanUserComponent comp, IEntityManager entityManager, float frameTime);
+}
 
 public sealed partial class SandevistanJitterEffect : SandevistanEffect
 {
@@ -84,3 +92,4 @@ public sealed partial class SandevistanDeathEffect : SandevistanEffect
     public override void Effect(EntityUid uid, SandevistanUserComponent comp, IEntityManager entityManager, float frameTime)
         => entityManager.System<MobStateSystem>().ChangeMobState(uid, MobState.Dead);
 }
+
