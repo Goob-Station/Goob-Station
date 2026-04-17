@@ -1,0 +1,18 @@
+ent-ClothingModsuitResponsoryEngineering = Engineering Responsory modsuit control unit
+  .desc = The main controller for a Engineering Responsory modsuit.
+
+ent-ClothingModsuitGauntletsResponsoryEngineering = Engineering Responsory modsuit gauntlets
+  .desc = A pair of gauntlets made for the Engineering Responsory modsuit.
+
+ent-ClothingModsuitHelmetResponsoryEngineering = Engineering Responsory modsuit helmet
+  .desc = A state-of-the-art helmet designed by NanoTrasen for the Engineering Responsory modsuit. It includes a built-in HUD.
+
+ent-ClothingModsuitChestplateResponsoryEngineering = Engineering Responsory modsuit chestplate
+  .desc = A state of the art chestplate designed by NanoTrasen for the Engineering Responsory modsuit. It incorporates powered servos to reduce the equipment load.
+
+ent-ClothingModsuitBootsResponsoryEngineering = Engineering Responsory modsuit boots
+  .desc = A state-of-the-art pair of magboots for the Engineering Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
+
+ent-SuitStorageResponsoryEngineering = { ent-SuitStorageBase }
+  .desc = { ent-SuitStorageBase.desc }
+  .suffix = Engineering Responsory Modsuit

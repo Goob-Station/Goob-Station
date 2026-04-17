@@ -1,4 +1,4 @@
-﻿cmd-pardon-desc = Pardon somebody's ban.
+cmd-pardon-desc = Снять чей-то бан.
 cmd-pardon-help = Использование: pardon <id бана>
 cmd-pardon-unable-to-parse =
     Не удалось разобрать { $id } как целое число id бана.

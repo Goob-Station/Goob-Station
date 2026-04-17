@@ -11,7 +11,7 @@ cmd-announce-help = { $command } <сообщение> [отправитель] [
 cmd-announce-sender = Центральное командование
 
 # Completion hints
-cmd-announce-arg-message = <сообщение>
-cmd-announce-arg-sender = [отправитель]
-cmd-announce-arg-color = [цвет]
-cmd-announce-arg-sound = [звук]
+cmd-announce-arg-message = <message>
+cmd-announce-arg-sender = [sender]
+cmd-announce-arg-color = [color]
+cmd-announce-arg-sound = [sound]

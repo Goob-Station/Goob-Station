@@ -18,7 +18,7 @@ condition-organ-rotting = • { $organ } гниёт!
 
 condition-none = • Нет обнаруженных состояний.
 group-organ-status = { $organ } функционирует на { $capacity }%
-group-solution-name = { $solution }
+group-solution-name = {$solution}
 group-solution-unknown = Неизвестно
 group-solution-contents = { $reagent }: { $quantity }
 

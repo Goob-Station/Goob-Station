@@ -1,0 +1,29 @@
+ent-SpawnPointGhostDerelictCyborgSyndicate = { ent-BaseAntagSpawner }
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-SpawnPointGhostGreyTide = grey tide antag spawn
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-SpawnPointGhostTunnelClown = tunnel clown antag spawn
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-SpawnPointGhostSingulothKnight = Singuloth Knights antag spawn
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-SpawnPointGhostDarkLord = Dark Lord antag spawn
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-SpawnPointGhostMimeAssassin = mime assassin antag spawn
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-SpawnPointGhostChosenOne = Chosen One spawn
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-SpawnPointGhostDarkPriest = Dark Priest Spawner
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-SpawnPointGhostVoxRaider = Vox Raider Spawner
+  .desc = { ent-BaseAntagSpawner.desc }
+
+ent-MaintsSpawnMarker = Maints Spawn Marker
+  .desc = { "" }

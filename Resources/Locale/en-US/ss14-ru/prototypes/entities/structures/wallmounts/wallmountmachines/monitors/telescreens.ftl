@@ -1,0 +1,6 @@
+ent-WallmountTelescreen = telescreen
+  .desc = Finally, some decent reception around here...
+  .suffix = camera monitor
+
+ent-WallmountTelescreenFrame = telescreen frame
+  .desc = Finally, some decent reception around here...

@@ -1,0 +1,18 @@
+ent-ClothingModsuitResponsoryJanitorial = Janitorial Responsory modsuit control unit
+  .desc = The main controller for a Janitorial Responsory modsuit.
+
+ent-ClothingModsuitGauntletsResponsoryJanitorial = Janitorial Responsory modsuit gauntlets
+  .desc = A pair of gauntlets made for the Janitorial Responsory modsuit.
+
+ent-ClothingModsuitHelmetResponsoryJanitorial = Janitorial Responsory modsuit helmet
+  .desc = A state-of-the-art helmet designed by NanoTrasen for the Janitorial Responsory modsuit. It includes a built-in HUD.
+
+ent-ClothingModsuitChestplateResponsoryJanitorial = Janitorial Responsory modsuit chestplate
+  .desc = A state of the art chestplate designed by NanoTrasen for the Janitorial Responsory modsuit. It incorporates powered servos to reduce the equipment load.
+
+ent-ClothingModsuitBootsResponsoryJanitorial = Janitorial Responsory modsuit boots
+  .desc = A state-of-the-art pair of magboots for the Janitorial Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
+
+ent-SuitStorageResponsoryJanitorial = { ent-SuitStorageBase }
+  .desc = { ent-SuitStorageBase.desc }
+  .suffix = Janitorial Responsory Modsuit

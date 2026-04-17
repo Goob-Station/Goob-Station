@@ -1,0 +1,14 @@
+ent-DrinkBasePlastic = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-DrinkFitnessShakerBlack = фитнес шейкер
+    .desc = Достаточно большой, чтобы вместить достаточно белка для идеального накачивания. Не обращайте внимания на частицы.
+
+ent-DrinkFitnessShakerRed = { ent-DrinkFitnessShakerBlack }
+  .desc = { ent-DrinkFitnessShakerBlack.desc }
+
+ent-DrinkFitnessShakerBlue = { ent-DrinkFitnessShakerBlack }
+  .desc = { ent-DrinkFitnessShakerBlack.desc }
+
+ent-DrinkMilkBottleFull = стакан молока
+    .desc = А как плазмалюды пьют из него?

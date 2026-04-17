@@ -1,0 +1,17 @@
+ent-BaseWeaponPistol = BasePistol
+  .desc = A rooty tooty point and shooty.
+
+ent-WeaponPistolViper = Viper
+  .desc = A sleek machine pistol designed by the Waffle Corporation. Boasting a selector switch that toggles between semi-auto and rock & roll, the Viper punches high above its weight class given its bulk and concealability. Feeds from .35 Auto pistol magazines.
+
+ent-WeaponPistolEchis = Echis
+  .desc = A cyborg-mounted weapon system based on the Viper platform. Creates ammunition on the fly from an internal fabricator, which slowly self-charges.
+
+ent-WeaponPistolCobra = Cobra
+  .desc = An integrally suppressed, semi-automatic pistol that leaves no trace. Being subsonic, the rounds are near silent at the cost of damage. Feeds from 9.5mm pistol magazines.
+
+ent-WeaponPistolMk58 = MK58
+  .desc = A bog standard semi-automatic pistol chambered in thirty-five. Slim, simple, and accurate in the right hands, it's one of NanoTrasen Small Arms' crown jewels and the most common sidearm in the free world. Feeds from .35 Auto pistol magazines.
+
+ent-WeaponPistolN1984 = N1984
+  .desc = A ridiculously overengineered hand cannon that fires a revolver cartridge. While the firerate is measured in malfunctions per second, it's become a sort of status symbol among the NanoTrasen elite due to its sheer power and gaudy price tag. Feeds from .45 Magnum pistol magazines. # Goobstation

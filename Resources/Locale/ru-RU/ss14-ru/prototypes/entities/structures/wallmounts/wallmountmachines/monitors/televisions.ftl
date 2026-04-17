@@ -1,0 +1,6 @@
+ent-WallmountTelevision = телевизор
+    .desc = Наконец-то тут появился нормальный сигнал...
+    .suffix = Развлечения
+
+ent-WallmountTelevisionFrame = каркас телевизора
+    .desc = Наконец-то тут появился нормальный сигнал...

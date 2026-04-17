@@ -1,10 +1,10 @@
 -entity-heater-setting-name =
     { $setting ->
-        [off] выкл
-        [low] низкий
-        [medium] средний
-        [high] высокий
-       *[other] неизвестно
+        [off] off
+        [low] low
+        [medium] medium
+        [high] high
+       *[other] unknown
     }
 
 entity-heater-examined =

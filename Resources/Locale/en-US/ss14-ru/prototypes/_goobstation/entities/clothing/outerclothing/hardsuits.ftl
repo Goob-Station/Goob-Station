@@ -1,0 +1,37 @@
+ent-ClothingOuterHardsuitChronolegioneer = futuristic hardsuit
+  .desc = A hardsuit covered in an unknown material that protects against most material and temporal damage.
+
+ent-ClothingOuterHardsuitChronolegioneerUnremoveable = { ent-ClothingOuterHardsuitChronolegioneer }
+  .desc = { ent-ClothingOuterHardsuitChronolegioneer.desc }
+  .suffix = Unremoveable
+
+ent-ClothingOuterHardsuitBlueshieldLight = 'praetorian' escort hardsuit
+  .desc = A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
+
+ent-ClothingOuterHardsuitCybersunStealth = cybersun stealth hardsuit
+  .desc = A hardsuit with photo-reactive plating for sneaky operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
+  .suffix = stealth
+
+ent-ClothingOuterHardsuitCybersunDreadnought = Cybersun dreadnought suit
+  .desc = The Syndicate places its glory on your shoulders, do not disappoint.
+
+ent-ClothingOuterVoidsuitSecurity = security hardsuit
+  .desc = A light hardsuit with an in-built plate carrier to provide moderate protection while remaining mobile.
+
+ent-ClothingOuterHardsuitHeadOfSecurityExperimental = FI-52 "Honor Guard" parade hardsuit
+  .desc = A special hardsuit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
+
+ent-ClothingOuterHardsuitExperimentalNanorep = NTX5-Mirrorduss
+  .desc = A crude dark exosuit of reinforced plating, etched with faintly glowing Bluespace circuits. You can tell someone attempted to scratch out part of the text — Prototype No. 2
+
+ent-ClothingSingulothArmor = singuloth knight's armor
+  .desc = A ceremonial armor from the chapter of the Singuloth Knights, It's made of pure forged adamantium.
+
+ent-ClothingOuterHardsuitVoxRaiderStealth = vox raider stealth suit
+  .desc = A sleek black suit. It seems to have a tail, and is very heavy.
+
+ent-ClothingOuterHardsuitDetective = detective hardsuit
+  .desc = A hardsuit custom-made for the Detective. It has a strong smell of alcohol and cigarettes.
+
+ent-ClothingOuterHardsuitContractor = contractor hardsuit
+  .desc = A light hardsuit with an in-built plate carrier to provide moderate protection while remaining mobile.

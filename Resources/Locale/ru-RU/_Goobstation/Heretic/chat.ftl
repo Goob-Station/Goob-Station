@@ -1,6 +1,6 @@
 # influence gain and fracture examine messages must have newlimes because otherwise they wouldn't fit
 
-influence-base-message = [textshader="{ $text }" font="DefaultBold" size={ $size } shader="Eldritch"]
+influence-base-message = [textshader="{$text}" font="DefaultBold" size={$size} shader="Eldritch"]
 
 influence-gain-message-1 =
     МЕРЦАНИЕ...

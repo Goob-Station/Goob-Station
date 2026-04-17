@@ -1,0 +1,27 @@
+ent-VehicleSecway = secway
+  .desc = The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
+
+ent-VehicleSyndicateSegway = syndicate segway
+  .desc = Be an enemy of the corporation, in style.
+
+ent-VehicleATV = ATV
+  .desc = All-Tile Vehicle.
+
+ent-VehicleJanicart = janicart
+  .desc = The janitor's trusty steed.
+
+ent-VehicleWheelchair = wheelchair
+  .desc = A chair with big wheels. It looks like you can move in these on your own.
+
+ent-VehicleWheelchairFolded = { ent-VehicleWheelchair }
+  .desc = { ent-VehicleWheelchair.desc }
+  .suffix = folded
+
+ent-VehicleHoverchair = hoverchair
+  .desc = A luxury hoverchair, kick back and relax.
+
+ent-VehicleForkliftOverlay = forklift overlay
+  .desc = { "" }
+
+ent-VehicleForklift = forklift
+  .desc = NanoTrasen approved Forklift Certification required.

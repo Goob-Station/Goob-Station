@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 atmos-alerts-window-title = Консоль атмосферной сигнализации
-atmos-alerts-window-station-name = [color=white][font size=14]{ $stationName }[/font][/color]
+atmos-alerts-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 atmos-alerts-window-unknown-location = Неизвестное место
 
 atmos-alerts-window-tab-no-alerts = Предупреждения

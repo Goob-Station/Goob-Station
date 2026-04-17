@@ -1,4 +1,4 @@
-﻿cmd-addrole-desc = Adds a role to a player's mind.
+cmd-addrole-desc = Добавляет роль разуму игрока.
 cmd-addrole-help = Использование: addrole <ID сессии> <роль>
 cmd-addrole-mind-not-found = Не удалось найти этот разум.
 cmd-addrole-role-not-found = Не удалось найти эту роль.

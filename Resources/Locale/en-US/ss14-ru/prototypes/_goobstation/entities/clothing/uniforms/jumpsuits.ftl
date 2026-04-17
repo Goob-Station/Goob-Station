@@ -1,0 +1,108 @@
+ent-ClothingUniformJumpsuitDurathread = durathread jumpsuit
+  .desc = A loose worn durathread shirt with a grey pants, its resilient fibres provide some protection to the wearer.
+
+ent-ClothingUniformJumpsuitResonant = resonant jumpsuit
+  .desc = Lets not play too rough. Neither you nor I can reach it just yet…
+
+ent-ClothingUniformJumpsuitWestern = authentic cowboy's jumpsuit
+  .desc = Let's show the head of security how we used to do things out west.
+
+ent-ClothingUniformJumpsuitNanotrasenRepresentative = nanotrasen representative suit
+  .desc = A black suit worn by officials.
+
+ent-ClothingUniformJumpsuitNanotrasenRepresentativeFancy = fancy nanotrasen representative suit
+  .desc = A fancy black suit worn by officials, embellished with more golden threads than Normal.
+
+ent-ClothingUniformJumpsuitCasualSyndicate = casual syndicate jumpsuit
+  .desc = Short sleeves, short temper.
+
+ent-ClothingUniformJumpsuitCasualCentcom = casual centcom jumpsuit
+  .desc = Paperwork's tough.
+
+ent-ClothingUniformJumpsuitCasualCommand = casual command jumpsuit
+  .desc = Wait, where's my PDA?.
+
+ent-ClothingUniformJumpsuitCasualEngineer = casual engineering jumpsuit
+  .desc = Sparks? Fiberglass? What about 'em?
+
+ent-ClothingUniformJumpsuitBlueshieldOfficer = blueshield officer jumpsuit
+  .desc = A short-sleeved grey and blue jumpsuit, made out of a sturdy material. Blueshield standard issue.
+
+ent-ClothingUniformJumpsuitBlueshieldShirt = blueshield officer blue shirt
+  .desc = An official security uniform. Pretty safe and pretty busy.
+
+ent-ClothingUniformMailCarrier = mail carrier's uniform
+  .desc = Enemy of dogs everywhere.
+
+ent-ClothingUniformHecu = HECU uniform
+  .desc = Hunt down the Freeman.
+
+ent-ClothingUniformJumpsuitNavyGold = navy officer's jumpsuit
+  .desc = A suit worn by high-ranking Central Command members. The rest is classified.
+
+ent-ClothingUniformJumpsuitSpecOps = special operations officer's jumpsuit
+  .desc = A suit worn by high-ranking spec ops officers. The rest is classified.
+
+ent-ClothingUniformJumpsuitDiplomat = diplomat's jumpsuit
+  .desc = A suit worn by diplomacy focused Central Command workers.
+
+ent-ClothingUniformJumpsuitCentralCommandLiaison = CentComm Liaison Jumpsuit
+  .desc = Rumor has it, the CCO that first saw the Outer Command uniform was so jealous that they stained it green with their envy.
+
+ent-ClothingCostumeAbductor = Alien Costume
+  .desc = The tag reads- Donk Co. not responsible for any security shootings caused by this product.
+
+ent-ClothingUniformJumpsuitTrainer = NCT Jumpsuit
+  .desc = A jumpsuit issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
+
+ent-ClothingUniformJumpsuitDevil = devilish suit
+  .desc = A stylish black suit made of materials not from this dimension. Warm to the touch.
+
+ent-ClothingUniformJumpsuitMercer = manhattan streetwear
+  .desc = Only someone who would try to run away with Earth's deadliest bioweapon would want to wear this.
+
+ent-ClothingUniformJumpsuitHoSSummer = head of security's summer shirt
+  .desc = The head of security's custom-commissioned summer outfit, for when chasing tiders gets hot.
+
+ent-ClothingUniformJumpsuitRDSummer = research director's summer shirt
+  .desc = The research director's custom-commissioned summer outfit, for when those fire anomalies are making you sweat.
+
+ent-ClothingUniformJumpsuitQMSummer = quartermaster's summer shirt
+  .desc = The quartermaster's custom-commissioned summer outfit, for when you want to show off your cash to the other departments.
+
+ent-ClothingUniformJumpsuitCaptainSummer = captain's summer shirt
+  .desc = The captain's custom-commissioned summer outfit, for when you've been in the green for a while.
+
+ent-ClothingUniformJumpsuitHoPSummer = head of personnel's summer shirt
+  .desc = The head of personnel's custom-commissioned summer outfit, for when you want to comfortably do paperwork.
+
+ent-ClothingUniformJumpsuitCESummer = chief engineer's summer shirt
+  .desc = The chief engineer's custom-commissioned summer outfit, for when you just want to lay down and look at the tesla.
+
+ent-ClothingUniformJumpsuitPassengerQuarterzip = grey quarterzip
+  .desc = A quarterzip for the sophisticated assistant.
+
+ent-ClothingUniformJumpsuitAncientUnremoveable = { ent-ClothingUniformJumpsuitAncient }
+  .desc = { ent-ClothingUniformJumpsuitAncient.desc }
+  .suffix = Unremoveable
+
+ent-ClothingUniformJumpsuitOuterCommand = outer command jumpsuit
+  .desc = A fancy purple suit with a Terra-Gov insignia.
+
+ent-ClothingUniformJumpsuitShaftMiner = shaft miner's jumpsuit
+  .desc = It's a snappy jumpsuit, looks a bit burnt.
+
+ent-ClothingUniformOverallsCargo = cargo tech's overalls
+  .desc = It's a sturdy set of overalls. It's a bit dusty.
+
+ent-ClothingUniformOverallsSalvageSpecialist = salvage specialist's overalls
+  .desc = It's a sturdy set of overalls. It's very dirty.
+
+ent-ClothingUniformOverallsShaftMiner = shaft miner's overalls
+  .desc = It's a sturdy set of overalls, looks a bit burnt.
+
+ent-ClothingUniformJumpsuitResearchDirectorAlt = research director's turtleneck
+  .desc = It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+
+ent-ClothingUniformJumpsuitVeteranSecurity = Airy Security Jumpsuit
+  .desc = An airy version of the standard security jumpsuit, normally given on shifts with a lacking atmos department

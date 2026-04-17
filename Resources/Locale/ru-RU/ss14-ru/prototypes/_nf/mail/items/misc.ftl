@@ -1,0 +1,37 @@
+ent-DelayedSmoke = отложенный дым
+    .desc = { ent-BaseItem.desc }
+    .suffix = (10сек)
+
+ent-AdminInstantEffectEMP7 = { ent-AdminInstantEffectBase }
+    .desc = { ent-AdminInstantEffectBase.desc }
+    .suffix = ЭМИ, 7 тайлов
+
+ent-DelayedEMP = отложенный ЭМИ (7 тайлов)
+    .desc = { ent-BaseItem.desc }
+
+ent-SyringeCognizine = шприц когнизина
+    .desc = { ent-Syringe.desc }
+
+ent-SyringeOpporozidone = шприц с оппорозидоном
+    .desc = { ent-Syringe.desc }
+
+ent-NecrosolChemistryBottle = флакон с некрозолем
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+
+ent-DrinkPremiumVodkaBottleFull = бутылка водки "Момент просветления"
+    .desc = Когда ситуация становится немного суматошной, все, что вам нужно это момент просветления.
+
+ent-DrinkPremiumGinBottleFull = бутылка джина "Гарри"
+    .desc = Интересный набор растительных компонентов, несомненно. Это тыква?
+
+ent-DrinkPremiumTequilaBottleFull = бутылка текилы "Дом Эорга"
+    .desc = Самое вкусное оставьте напоследок. Дом Эорга, 100% агава.
+
+ent-DrinkPremiumWhiskeyBottleFull = бутылка виски "Старый бродяга 18"
+    .desc = На удивление плавный, он имеет неприятную привычку подкрадываться незаметно.
+
+ent-DrinkPremiumRumBottleFull = Бутылка рома "Щедрость искупителя"
+    .desc = Что ж, вы сами напросились. Сила военно-морского флота!
+
+ent-DrinkPremiumAbsintheBottleFull = бутылка абсента "Поцелуй бюрократии"
+    .desc = Изысканный вкус, который долго сохраняется.

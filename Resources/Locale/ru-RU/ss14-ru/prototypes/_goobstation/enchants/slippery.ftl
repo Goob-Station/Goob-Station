@@ -1,0 +1,2 @@
+ent-EnchantSlippery = Скользящий
+  .desc = { "" }

@@ -17,7 +17,7 @@ power-monitoring-window-label-misc = Разное
 
 power-monitoring-window-object-array = { $name } массив [{ $count }]
 
-power-monitoring-window-station-name = [color=white][font size=14]{ $stationName }[/font][/color]
+power-monitoring-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 power-monitoring-window-unknown-location = Неизвестное местоположение
 power-monitoring-window-total-sources = Общая выработка генератора
 power-monitoring-window-total-battery-usage = Общее использование батареи

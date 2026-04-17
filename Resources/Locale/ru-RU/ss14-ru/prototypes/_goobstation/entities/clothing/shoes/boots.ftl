@@ -1,0 +1,49 @@
+ent-ClothingShoesBootsChrono = футуристические ботинки
+    .desc = Продвинутая футуристическая обувь, гарантирующая комфорт и отличное сцепление на любой поверхности.
+
+ent-ClothingShoesBootsChronoUnremoveable = { ent-ClothingShoesBootsChrono }
+    .desc = { ent-ClothingShoesBootsChrono.desc }
+    .suffix = Несъёмные
+
+ent-ClothingShoesResonant = резонансные туфли
+    .desc = Не пришло ли время… великолепному занавесу подняться?
+
+ent-ClothingShoesBootsMagEmergencyResponseTeam = тактические магнитные сапоги ОБР
+    .desc = Смотрите! Спасатель, мы в безопасности!
+
+ent-ClothingShoesBootsMagDeathsquad = магнитные сапоги Эскадрона Смерти
+    .desc = Звук этих ботинок — настоящий символ ужаса.
+
+ent-ClothingShoesRealJordans = эйр джорданы
+    .desc = Современные, официальные Джорданы без заломов, защищающие от скольжения при активации.
+    .suffix = Магнитные
+
+ent-ClothingShoesFakeJordans = поддельные эйр джорданы
+    .desc = При ближайшем рассмотрении что-то кажется не таким. Они что, с заломами? Нет, не может быть. Подождите, логотип выглядит немного странно...
+    .suffix = поддельные
+
+ent-ClothingShoesCreasedJordans = эйр джорданы с заломами
+    .desc = Нет, подождите... Не может быть... ОНИ С ЗАЛОМАМИ!
+
+ent-ClothingShoesBootsJackAdvanced = продвинутые офицерские сапоги
+    .desc = Магпространственно усиленные боевые ботинки безопасности NanoTrasen для боевых операций. Эта пара предназначена для начальника службы безопасности.
+
+ent-ClothingShoesRealJordansAutographed = эйр джорданы
+    .desc = Это не просто Джорданы — их подписал сам Майкл Джордан. Они должны стоить целое состояние.
+    .suffix = Дьявол
+
+ent-ClothingShoesBootsWinterSnowjackBso = зимние ботинки Синего Щита
+    .desc = Для тех случаев, когда нужно спасти главу от генокрада на исследовательской станции в Антарктиде.
+
+ent-ClothingShoesWinterCombatBoots = боевые снежные ботинки
+    .desc = Боевые ботинки службы безопасности NanoTrasen для боевых ситуаций. Теперь в зимнем исполнении.
+
+ent-ClothingShoesColorBlackUnremoveable = { ent-ClothingShoesColorBlack }
+    .desc = { ent-ClothingShoesColorBlack.desc }
+    .suffix = Неснимаемый
+
+ent-ClothingShoesBootsCowboyBrownRobust = истинные коричневые ковбойские ботинки
+    .desc = Для настоящих ковбоев.
+
+ent-ClothingShoesBootsJackGaloshes = галоши Сакуи
+    .desc = Эта пара галош была создана для элитных горничных. Возможно, самый желанный предмет на станции.

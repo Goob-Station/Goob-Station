@@ -1,4 +1,4 @@
-﻿# Chest
+# Chest
 
 marking-DwarfConstellationChest = Созвездие на груди
 marking-DwarfConstellationChest-constellation = Созвездие на груди

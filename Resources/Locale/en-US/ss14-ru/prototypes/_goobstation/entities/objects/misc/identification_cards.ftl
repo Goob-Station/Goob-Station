@@ -1,0 +1,65 @@
+ent-ChronoIDCard = futuristic ID card
+  .desc = The card that originally accessed everything in this universe
+
+ent-HelldiverIDCard = salvage diver ID card
+  .desc = { ent-SalvageIDCard.desc }
+
+ent-HecuIDCard = HECU ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-BlueshieldIDCard = blueshield officer ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-NanotrasenRepresentativeIDCard = nanotrasen representative ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-NanotrasenCareerTrainerIDCard = nanotrasen career trainer ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-ExecutiveIDCard = executive access card
+  .desc = Nanotrasen employees are legally obligated to listen to someone with one of these. It's also capable of overriding access locks on most devices.
+
+ent-ExecutiveIDCardChameleon = executive access card
+  .desc = Same features as the original version, but can change appearance.
+
+ent-CentcomIDCardNavyCaptain = Navy Captain's ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-CentcomIDCardNavyOfficer = Navy Officer's ID card
+  .desc = { ent-CentcomIDCardNavyCaptain.desc }
+
+ent-CentcomIDCardSpecialOperationsOfficer = Special Operations Officer's ID card
+  .desc = { ent-CentcomIDCardNavyCaptain.desc }
+
+ent-CentcomIDCardInspector = inspector's ID card
+  .desc = { ent-CentcomIDCardNavyCaptain.desc }
+
+ent-CentcomIDCardDiplomat = Diplomat's ID card
+  .desc = { ent-CentcomIDCardNavyCaptain.desc }
+
+ent-GmanIDCard = strange ID card
+  .desc = The card that originally accessed everything in this universe
+
+ent-HighCommandIDCard = high command ID card
+  .desc = A particularly extravagent Syndicate identification card. This one has an in-built access breaker to open nearly any door.
+
+ent-SecurityClownIDCard = security clown ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-CommandMaidIDCard = command maid ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-PartyMakerIDCard = party maker ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-RoboticistIDCard = roboticist ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-RadioHostIDCard = radio host ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-VirologistIDCard = virology ID card
+  .desc = { ent-IDCardStandard.desc }
+
+ent-OuterCommandIDCard = Outer Command ID card
+  .desc = { ent-CentcomIDCardNavyCaptain.desc }

@@ -1,0 +1,2 @@
+ent-EnchantUnbreaking = Unbreaking
+  .desc = { "" }

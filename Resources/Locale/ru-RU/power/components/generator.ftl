@@ -40,12 +40,11 @@ portable-generator-ui-network-stats-not-connected = Не подключён
 power-switchable-generator-examine = Выработанная энергия направлена на { $voltage }.
 power-switchable-generator-switched = Выход переключён на { $voltage }!
 
-power-switchable-voltage =
-    { $voltage ->
-        [HV] [color=orange]ВВ[/color]
-        [MV] [color=yellow]СВ[/color]
-       *[LV] [color=green]НВ[/color]
-    }
+power-switchable-voltage = { $voltage ->
+    [HV] [color=orange]HV[/color]
+    [MV] [color=yellow]MV[/color]
+    *[LV] [color=green]LV[/color]
+}
 power-switchable-switch-voltage = Переключить на { $voltage }
 
 fuel-generator-verb-disable-on = Сначала выключите генератор!

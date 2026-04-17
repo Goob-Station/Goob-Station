@@ -12,4 +12,4 @@ play-global-sound-command-player-not-found = Игрок "{ $username }" не н�
 play-global-sound-command-volume-parse = Задан неправильный уровень громкости { $volume }.
 play-global-sound-command-arg-path = <path>
 play-global-sound-command-arg-volume = [volume]
-play-global-sound-command-arg-usern = [user { $user }]
+play-global-sound-command-arg-usern = [user {$user}]

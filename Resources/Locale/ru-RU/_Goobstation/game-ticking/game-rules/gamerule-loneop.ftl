@@ -1,4 +1,4 @@
-﻿loneop-welcome =
+loneop-welcome =
     You are a nuclear operative. Your goal is to blow up {$station}, and ensure that it is nothing but a pile of rubble. Your bosses, the Syndicate, have provided you with the tools you'll need for the task, besides a team.
     Operation {$name} is a go! Good luck!
 loneop-briefing = Your objectives are simple. Deliver the payload and make sure it detonates. Begin mission.

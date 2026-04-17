@@ -1,0 +1,51 @@
+ent-BaseBeaker = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-BorgBeaker = integrated beaker
+  .desc = An internal compartment installed into a cyborg. Rated for 50 units of any liquid.
+
+ent-BaseBeakerMetallic = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-Beaker = beaker
+  .desc = Used to contain a moderate amount of chemicals and solutions.
+
+ent-CryoxadoneBeakerSmall = { ent-Beaker }
+  .desc = { ent-Beaker.desc }
+  .suffix = cryoxadone
+
+ent-LargeBeaker = large beaker
+  .desc = Used to contain a large amount of chemicals or solutions.
+
+ent-CryostasisBeaker = cryostasis beaker
+  .desc = Used to contain chemicals or solutions without reactions.
+
+ent-BluespaceBeaker = bluespace beaker
+  .desc = Powered by experimental bluespace technology.
+
+ent-Dropper = dropper
+  .desc = Used to transfer small amounts of chemical solution between containers.
+
+ent-BorgDropper = hydraulic pipette
+  .desc = State-of-the-art hydraulic dropper built for cyborgs. It features a higher capacity than hand-powered droppers, able to hold 15 units of liquid.
+
+ent-BaseSyringe = syringe
+  .desc = Used to draw blood samples from mobs, or to inject them with reagents.
+
+ent-Syringe = { ent-BaseSyringe }
+  .desc = { ent-BaseSyringe.desc }
+
+ent-PrefilledSyringe = { ent-BaseSyringe }
+  .desc = { ent-BaseSyringe.desc }
+
+ent-SyringeBluespace = bluespace syringe
+  .desc = Injecting with advanced bluespace technology.
+
+ent-SyringeCryostasis = cryostasis syringe
+  .desc = An improved syringe used to contain chemicals or solutions without reactions.
+
+ent-Pill = pill
+  .desc = It's not a suppository.
+
+ent-PillCanister = pill canister
+  .desc = Holds up to 15 pills.

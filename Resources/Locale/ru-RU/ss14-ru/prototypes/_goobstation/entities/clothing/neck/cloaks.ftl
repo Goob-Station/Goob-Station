@@ -1,0 +1,23 @@
+ent-ClothingNeckCloakHelldiver = плащ верного спасателя
+    .desc = Представление благодарности тем бесконечным экипажам, чье благополучие мы стремимся обеспечить.
+
+ent-ClothingNeckCloakResonant = резонантный плащ
+    .desc = Сцена зовёт нас. Мы должны с радостью сыграть свою роль.
+
+ent-ClothingNeckCloakCarp = карповый плащ
+    .desc = Замышляешь что-то рыбное, да?
+
+ent-ClothingNeckCloakCarpAlt = карповый плащ
+    .desc = Ограничено для внеземных существ. Это значит — не для тебя.
+
+ent-ClothingNeckCloakSanabi = плащ генерала-бригадира
+    .desc = Потрёпанный, но внушительный плащ, который носят элитные воины.
+
+ent-ClothingNeckCloakVetCap = плащ капитана-ветерана
+    .desc = Плащ с аурой капитана.
+
+ent-ClothingNeckCloakOuterCommand = плащ офицера ОПЗ
+    .desc = Стильный пурпурный плащ с эмблемой ОПЗ.
+
+ent-ClothingNeckCloakInquisitor = плащ инквизитора
+    .desc = Широкий плащ, украшенный священными письменами и символикой Инквизиции.

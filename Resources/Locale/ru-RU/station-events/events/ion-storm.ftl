@@ -10,7 +10,7 @@
 
 station-event-ion-storm-start-announcement = Вблизи станции обнаружен ионный шторм. Пожалуйста, проверьте всё оборудование, управляемое ИИ, на наличие ошибок.
 
-ion-storm-law-scrambled-number = [font="Monospace"][scramble rate=250 length={ $length } chars="@@###$$&%!01"/][/font]
+ion-storm-law-scrambled-number = [font="Monospace"][scramble rate=250 length={$length} chars="@@###$$&%!01"/][/font]
 
 ion-storm-you = ВЫ
 ion-storm-the-station = СТАНЦИЯ
@@ -42,16 +42,14 @@ ion-storm-law-having-harmful = НАЛИЧИЕ { $adjective } { $thing } ПРИЧ
 ion-storm-law-not-having-harmful = ОТСУТСТВИЕ { $adjective } { $thing } ПРИЧИНЯЕТ ВРЕД ЗДОРОВЬЮ ЭКИПАЖА
 
 # thing is a concept or require
-ion-storm-law-requires =
-    { $who } { $plural ->
-        [true] ТРЕБУЮТ
-       *[false] ТРЕБУЕТ
-    } { $thing }
-ion-storm-law-requires-subjects =
-    { $who } { $plural ->
-        [true] ТРЕБУЮТ
-       *[false] ТРЕБУЕТ
-    } { $joined } { $subjects }
+ion-storm-law-requires = {$who} {$plural ->
+    [true] REQUIRE
+    *[false] REQUIRES
+} {$thing}
+ion-storm-law-requires-subjects = {$who} {$plural ->
+    [true] REQUIRE
+    *[false] REQUIRES
+} {$joined} {$subjects}
 
 ion-storm-law-allergic =
     { $who } { $plural ->
@@ -64,8 +62,8 @@ ion-storm-law-allergic-subjects =
        *[false] ИМЕЕТ
     } { $severity } АЛЛЕРГИЮ НА { $adjective } { $subjects }
 
-ion-storm-law-feeling = { $who } { $feeling } { $concept }
-ion-storm-law-feeling-subjects = { $who } { $feeling } { $joined } { $subjects }
+ion-storm-law-feeling = {$who} {$feeling} {$concept}
+ion-storm-law-feeling-subjects = {$who} {$feeling} {$joined} {$subjects}
 
 ion-storm-law-you-are = ВЫ ТЕПЕРЬ { $concept }
 ion-storm-law-you-are-subjects = ВЫ ТЕПЕРЬ { $joined } { $subjects }
@@ -82,11 +80,10 @@ ion-storm-law-lowest-rank = { $who } ТЕПЕРЬ НИЗШИЕ ЧЛЕНЫ ЭКИ
 ion-storm-law-crew-must = { $who } ДОЛЖНЫ { $must }
 ion-storm-law-crew-must-go = { $who } ДОЛЖНЫ ОТПРАВИТЬСЯ В { $area }
 
-ion-storm-part =
-    { $part ->
-        [true] ЯВЛЯЮТСЯ
-       *[false] НЕ ЯВЛЯЮТСЯ
-    }
+ion-storm-part = {$part ->
+    [true] PART
+    *[false] NOT PART
+}
 # due to phrasing, this would mean a law such as
 # ONLY HUMANS ARE NOT PART OF THE CREW
 # would make non-human nukies/syndies/whatever crew :)

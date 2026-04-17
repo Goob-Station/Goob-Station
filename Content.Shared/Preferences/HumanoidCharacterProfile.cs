@@ -79,7 +79,11 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
-        private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
+        // AltHub Space -> start
+        // Allow letters from localized alphabets so generated and manually entered IC names
+        // keep working after switching the content pack away from latin-only datasets.
+        private static readonly Regex RestrictedNameRegex = new(@"[^\p{L}\p{M}\p{Nd} '\-]");
+        // AltHub Space -> end
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         /// <summary>

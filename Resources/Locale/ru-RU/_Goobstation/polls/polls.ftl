@@ -4,11 +4,10 @@ poll-voting-window-active-polls = Активные опросы
 poll-voting-window-refresh = Обновить
 poll-voting-window-loading = Загрузка опросов...
 poll-voting-window-no-polls = Нет активных опросов
-poll-voting-window-polls-count =
-    { $count } { $count ->
-        [one] активный опрос
-       *[other] активных опросов
-    }
+poll-voting-window-polls-count = {$count} {$count ->
+    [one] active poll
+    *[other] active polls
+}
 poll-voting-window-error = Ошибка: { $error }
 
 # Poll Control

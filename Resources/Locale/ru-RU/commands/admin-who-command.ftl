@@ -1,2 +1,2 @@
-﻿cmd-adminwho-desc = Returns a list of all admins currently online on the server.
+cmd-adminwho-desc = Выводит список всех администраторов на сервере.
 cmd-adminwho-help = Использование: adminwho

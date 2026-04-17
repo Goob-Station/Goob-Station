@@ -1,0 +1,14 @@
+ent-XenoExtractChronofield = sepia chronofield
+  .desc = { ent-Chronofield.desc }
+
+ent-XenoGooWall = gelatinous growth
+  .desc = This could very well be the blob from space LIDL.
+
+ent-RHostileMobSpawner = random hostile mob spawner
+  .desc = { "" }
+
+ent-RNeutralMobSpawner = random neutral mob spawner
+  .desc = { "" }
+
+ent-RPassiveMobSpawner = random passive mob spawner
+  .desc = { "" }

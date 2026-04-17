@@ -1,0 +1,61 @@
+ent-BaseCartridgeAutoinjector = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-SecHypo = security cartridge autoinjector
+  .desc = Used for rapid administration of medicine. Uses cartridges printable at the security techfab.
+
+ent-ParamedHypo = medical cartridge autoinjector
+  .desc = Used for rapid administration of medicine. Uses cartridges printable at the medical techfab.
+
+ent-AmnestizineHypospray = amnestic spray
+  .desc = A specialized cartridge injector intended for Central Command personnel. Primarily used to inject amnestics.
+  .suffix = DO NOT MAP
+
+ent-BaseAutoinjectorCartridge = autoinjector cartridge
+  .desc = Used in a cartridge autoinjector.
+
+ent-CartridgeEpinephrine = adrenaline autoinjector cartridge
+  .desc = Contains 7u of epinephrine and 3u of tranexamic acid, used in a cartridge autoinjector.
+
+ent-CartridgeSaline = airloss autoinjector cartridge
+  .desc = Contains 7u of saline and 3u of dexalin plus, used in a cartridge autoinjector.
+
+ent-CartridgeBicaridine = brute autoinjector cartridge
+  .desc = Contains 4u of bicaridine, 4u of ibuprofen, 1 unit of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
+
+ent-CartridgeDermaline = burn autoinjector cartridge
+  .desc = Contains 5u of kelotane, 4u of dermaline 1u of leporazine, used in a cartridge autoinjector.
+
+ent-CartridgeAtropine = emergency autoinjector cartridge
+  .desc = Contains 10u of atropine, used in a cartridge autoinjector.
+
+ent-CartridgePuncturase = piercing autoinjector cartridge
+  .desc = Contains 10u of puncturase, used in a cartridge autoinjector.
+
+ent-CartridgeEphedrine = stimulant autoinjector cartridge
+  .desc = Contains 10u of ephedrine, used in a cartridge autoinjector.
+
+ent-CartridgeTirizene = sedative autoinjector cartridge
+  .desc = Contains 4u of tirizene, 3u of impedrezene and 3u of haloperidol, used in a cartridge autoinjector.
+
+ent-CartridgeAmnestic = amnestic autoinjector cartridge
+  .desc = Contains 10u of dimtremethic-neuramincyl acid, used in a cartridge autoinjector.
+
+ent-StasiziumAutoInjector = futuristic medipen
+  .desc = A dose of medicinal substances from the future that can raise even the dead to their feet.
+  .suffix = DO NOT MAP
+
+ent-CentcommStimpack = centcomm advanced stimulant
+  .desc = According to a Nanotrasen funded study, it has zero addictive properties.
+  .suffix = DO NOT MAP
+
+ent-AmbuzolMedipen = biohazard medipen
+  .desc = A safe and effective way to treat infections. Does not prevent re-infection.
+  .suffix = DO NOT MAP
+
+ent-AmbuzolPlusMedipen = advanced biohazard medipen
+  .desc = A safer and extremely effective way to treat any infections. Prevents re-infection.
+  .suffix = DO NOT MAP
+
+ent-CentCommHypo = centcomm hypospray
+  .desc = Reserved for Nanotrasen's top doctors. It utilizes experimental bluespace technology.

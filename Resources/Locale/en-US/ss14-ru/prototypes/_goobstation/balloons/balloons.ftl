@@ -1,0 +1,35 @@
+ent-BaseBalloon = base balloon
+  .desc = { "" }
+
+ent-RedBalloon = red balloon
+  .desc = The weakest balloon.
+
+ent-BlueBalloon = blue balloon
+  .desc = A pretty chill balloon.
+
+ent-GreenBalloon = green balloon
+  .desc = The most strategically minded balloon of the bunch. Capable of planning advanced waves, if only it had a track to follow.
+
+ent-YellowBalloon = yellow balloon
+  .desc = The greediest balloon, always flaunting its wealth to the other balloons.
+
+ent-PinkBalloon = pink balloon
+  .desc = The most annoying and insufferable balloon.
+
+ent-BlackBalloon = black balloon
+  .desc = The edgiest balloon, never grew out of its emo phase. Immune to heat and shock damage!
+
+ent-WhiteBalloon = white balloon
+  .desc = The most emotionless balloon. Isn't even given a proper name, only a purpose. Immune to cold damage!
+
+ent-ZebraBalloon = zebra balloon
+  .desc = Belongs in a zoo. Immune to all burn damage!
+
+ent-SteelBalloon = steel balloon
+  .desc = The most armored balloon. So feared that even animals don't attack it. Immune to brute damage!
+
+ent-RainbowBalloon = rainbow balloon
+  .desc = The most evil balloon of them all. Don't let the pretty colors fool you.
+
+ent-CeramicBalloon = carp balloon
+  .desc = Is it a combination of balloon and carp DNA? Or a balloon in a carp suit? Nobody knows.

@@ -1,0 +1,68 @@
+ent-TimelineDisruptorFlatpack = timeline disruptor flatpack
+  .desc = A flatpack used for constructing a solar assembly.
+
+ent-ContrabandDetectorFlatpack = contraband detector flatpack
+  .desc = A flatpack used for constructing a contraband detector.
+
+ent-MedicalScannerFlatpack = Medical Scanner Flatpack
+  .desc = A flatpack used for constructing a Medical Scanner
+
+ent-CloningpodFlatpack = Cloning pod Flatpack
+  .desc = A flatpack used for constructing a Cloning pod
+
+ent-ComputerCloningConsoleFlatpack = Computer Cloning Console Flatpack
+  .desc = A flatpack used for constructing a Computer Cloning Console
+
+ent-BiomassReclaimerFlatpack = Biomass Reclaimer Flatpack
+  .desc = A flatpack used for constructing a Biomass Reclaimer
+
+ent-MedicalBiofabricatorFlatpack = Medical Biofabricator Flatpack
+  .desc = A flatpack used for constructing a Medical Biofabricator
+
+ent-ComputerNTRTasksFlatpack = ntr task computer flatpack
+  .desc = A flatpack used for constructing a NTR task computer.
+
+ent-MachinePowerTransmissionLaserFlatpack = power transmision laser flatpack
+  .desc = A flatpack used for constructing a power transmission laser
+
+ent-ComputerFundingAllocationFlatpack = funding allocation computer flatpack
+  .desc = A flatpack used for constructing a funding allocation computer
+
+ent-ComputerCargoRequestServiceFlatpack = service request computer flatpack
+  .desc = A flatpack used for constructing a service request computer
+
+ent-ComputerCargoRequestMedicalFlatpack = medical request computer flatpack
+  .desc = A flatpack used for constructing a medical request computer
+
+ent-ComputerCargoRequestScienceFlatpack = science request computer flatpack
+  .desc = A flatpack used for constructing a science request computer
+
+ent-ComputerCargoRequestSecurityFlatpack = security request computer flatpack
+  .desc = A flatpack used for constructing a security request computer
+
+ent-TegCirculatorFlatpack = circulator flatpack
+  .desc = A flatpack used for constructing a circulator for thermo-electric generator.
+
+ent-TegMiddleFlatpack = thermo-electric generator flatpack
+  .desc = A flatpack used for constructing a thermo-electric generator.
+
+ent-SlotMachineFlatpack = slot machine flatpack
+  .desc = A flatpack used for constructing a slot machine
+
+ent-SlotMachineHighRollerFlatPack = high roller slot machine flatpack
+  .desc = A flatpack used for constructing a high roller slot machine
+
+ent-CoinFlipperFlatPack = coin flipper flatpack
+  .desc = A flatpack used for constructing a coin flipper
+
+ent-ClawMachineFlatPack = claw machine flat pack
+  .desc = A flatpack used for constructing a claw machine
+
+ent-ChemistryHotplateFlatPack = hotplate flat pack
+  .desc = A flatpack used for constructing a hotplate.
+
+ent-DiseaseDiagnoserFlatPack = disease diagnoser flat pack
+  .desc = A flatpack used for constructing a disease diagnoser.
+
+ent-VaccinatorFlatPack = vaccinator machine flat pack
+  .desc = A flatpack used for constructing a vaccinator.

@@ -1,4 +1,4 @@
-﻿cmd-showaccessreaders-desc = Toggles showing access reader permissions on the map
+cmd-showaccessreaders-desc = Переключает отображение прав доступа ридеров на карте
 cmd-showaccessreaders-help =
     Информация о наложении:
     -Disabled | Ридер доступа отключен

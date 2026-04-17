@@ -1,0 +1,33 @@
+ent-ClothingHeadHelmetHardsuitChronolegioneer = futuristic helmet
+  .desc = The helmet of the fighters of the future, designed for special timeflow operations.
+
+ent-ClothingHeadHelmetHardsuitBlueshield = blueshield hardsuit helmet
+  .desc = The helmet of the captain's bodyguard's hardsuit.
+
+ent-ClothingHeadHelmetHardsuitCybersunStealth = cybersun stealth hardsuit helmet
+  .desc = A helmet with photo-reactive plating for stealth operations.
+  .suffix = stealth
+
+ent-ClothingHeadHelmetHardsuitDreadnought = Cybersun Dreadnought suit helmet
+  .desc = A helmet, looking at this you wonder if there anyone alive.
+
+ent-ClothingHeadHelmetVoidsuitSecurity = security hardsuit helmet
+  .desc = A well-built faceplate attached to the security hardsuit.
+
+ent-ClothingHeadHelmetHardsuitHeadOfSecurityExperimental = head of security's advanced hardsuit helmet
+  .desc = Security hardsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
+
+ent-ClothingHeadHelmetHardsuitExperimentalNanorep = NTX5-Mirrorduss helmet
+  .desc = A dark green helmet with glowing cyan nodes, a mirrored visor, and a mounted side light.
+
+ent-ClothingHeadSinguloth = singuloth knight's helm
+  .desc = An adamantium helmet from the chapter of the Singuloth Knights. It shines with a holy aura
+
+ent-ClothingHeadHelmetHardsuitVoxRaiderStealth = vox raider stealth helmet
+  .desc = A smoothly contoured, matte-black alien helmet.
+
+ent-ClothingHeadHelmetHardsuitDetective = detective hardsuit helmet
+  .desc = A helmet with a built-in fedora for the detective's hardsuit.
+
+ent-ClothingHeadHelmetHardsuitContractor = contractor hardsuit helmet
+  .desc = A well-built faceplate attached to the contractor hardsuit.

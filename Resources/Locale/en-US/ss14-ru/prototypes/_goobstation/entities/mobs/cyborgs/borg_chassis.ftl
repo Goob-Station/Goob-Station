@@ -1,0 +1,121 @@
+ent-BorgChassisDerelictSyndicateAssault = derelict syndicate assasult cyborg
+  .desc = A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair.
+
+ent-BorgChassisUrist = Urist McBorg
+  .desc = An abomination that supposedly assists in station activity.
+
+ent-PlayerBorgUrist = { ent-BorgChassisUrist }
+  .desc = { ent-BorgChassisUrist.desc }
+  .suffix = Battery, Module
+
+ent-PlayerBorgUristGhostRole = { ent-PlayerBorgUrist }
+  .desc = { ent-PlayerBorgUrist.desc }
+  .suffix = Ghost role
+
+ent-BorgChassisMiningBasic = basic mining cyborg
+  .desc = { ent-BorgChassisMining.desc }
+
+ent-BorgChassisMiningAdvanced = advanced mining cyborg
+  .desc = { ent-BorgChassisMining.desc }
+
+ent-BorgChassisMiningCoffin = coffin cyborg
+  .desc = { ent-BorgChassisMining.desc }
+
+ent-BorgChassisMiningLavaland = lavaland cyborg
+  .desc = { ent-BorgChassisMining.desc }
+
+ent-BorgChassisMiningCricket = cricket mining cyborg
+  .desc = { ent-BorgChassisMining.desc }
+
+ent-BorgChassisMiningSquat = squat cyborg
+  .desc = { ent-BorgChassisMining.desc }
+
+ent-BorgChassisMiningNoble = noble mining cyborg
+  .desc = { ent-BorgChassisMining.desc }
+
+ent-BorgChassisEngineerBasic = basic engineer cyborg
+  .desc = { ent-BorgChassisEngineer.desc }
+
+ent-BorgChassisEngineerAntique = antique engineer cyborg
+  .desc = { ent-BorgChassisEngineer.desc }
+
+ent-BorgChassisEngineerStandart = standart engineer cyborg
+  .desc = { ent-BorgChassisEngineer.desc }
+
+ent-BorgChassisEngineerNoble = noble engineer cyborg
+  .desc = { ent-BorgChassisEngineer.desc }
+
+ent-BorgChassisEngineerCricket = cricket engineer cyborg
+  .desc = { ent-BorgChassisEngineer.desc }
+
+ent-BorgChassisEngineerRover = rover engineer cyborg
+  .desc = { ent-BorgChassisEngineer.desc }
+
+ent-BorgChassisJanitorBasic = basic janitor cyborg
+  .desc = { ent-BorgChassisJanitor.desc }
+
+ent-BorgChassisJanitorMopbot = mopbot cyborg
+  .desc = { ent-BorgChassisJanitor.desc }
+
+ent-BorgChassisJanitorStandart = standart janitor cyborg
+  .desc = { ent-BorgChassisJanitor.desc }
+
+ent-BorgChassisJanitorCustodi = custodi cyborg
+  .desc = { ent-BorgChassisJanitor.desc }
+
+ent-BorgChassisJanitorNoble = noble janitor cyborg
+  .desc = { ent-BorgChassisJanitor.desc }
+
+ent-BorgChassisJanitorCricket = cricket janitor cyborg
+  .desc = { ent-BorgChassisJanitor.desc }
+
+ent-BorgChassisJanitorRover = rover janitor cyborg
+  .desc = { ent-BorgChassisJanitor.desc }
+
+ent-BorgChassisMedicalStandart = medical cyborg
+  .desc = { ent-BorgChassisMedical.desc }
+
+ent-BorgChassisMedicalMedbot = medbot cyborg
+  .desc = { ent-BorgChassisMedical.desc }
+
+ent-BorgChassisMedicalNeedles = needles cyborg
+  .desc = { ent-BorgChassisMedical.desc }
+
+ent-BorgChassisMedicalAdvanced = advanced medical cyborg
+  .desc = { ent-BorgChassisMedical.desc }
+
+ent-BorgChassisMedicalQualified = qualified medical cyborg
+  .desc = { ent-BorgChassisMedical.desc }
+
+ent-BorgChassisMedicalNoble = noble medical cyborg
+  .desc = { ent-BorgChassisMedical.desc }
+
+ent-BorgChassisMedicalCricket = cricket medical cyborg
+  .desc = { ent-BorgChassisMedical.desc }
+
+ent-BorgChassisMedicalRover = rover medical cyborg
+  .desc = { ent-BorgChassisMedical.desc }
+
+ent-BorgChassisServiceStandart = standart service cyborg
+  .desc = { ent-BorgChassisService.desc }
+
+ent-BorgChassisServiceBrobot = brobot cyborg
+  .desc = { ent-BorgChassisService.desc }
+
+ent-BorgChassisServiceWaitress = waitress cyborg
+  .desc = { ent-BorgChassisService.desc }
+
+ent-BorgChassisServiceCricket = cricket service cyborg
+  .desc = { ent-BorgChassisService.desc }
+
+ent-BorgChassisServiceKent = kent cyborg
+  .desc = { ent-BorgChassisService.desc }
+
+ent-BorgChassisServiceNoble = noble service cyborg
+  .desc = { ent-BorgChassisService.desc }
+
+ent-BorgChassisServiceRich = rich cyborg
+  .desc = { ent-BorgChassisService.desc }
+
+ent-BorgChassisServiceRover = rover service cyborg
+  .desc = { ent-BorgChassisService.desc }

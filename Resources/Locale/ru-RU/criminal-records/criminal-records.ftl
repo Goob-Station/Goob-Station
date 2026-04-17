@@ -70,7 +70,7 @@ criminal-records-console-not-perma = { $name } ({ $job }) освобожден �
 criminal-records-console-dangerous = { $officer } отметил { $name } ({ $job }) как опасного по причине: { $reason }.
 criminal-records-console-not-dangerous = { $name } ({ $job }) снят со списка опасных { $officer }.
 
-criminal-records-console-unknown-officer = <неизвестный>
+criminal-records-console-unknown-officer = <unknown>
 
 ## Filters
 
@@ -83,4 +83,4 @@ criminal-records-species-filter = Вид
 
 ## Arrest auto history lines
 criminal-records-console-auto-history = АРЕСТОВАН: { $reason }
-criminal-records-console-unspecified-reason = <причина не указана>
+criminal-records-console-unspecified-reason = <unspecified reason>

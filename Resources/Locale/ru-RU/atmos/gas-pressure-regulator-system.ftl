@@ -1,4 +1,4 @@
-﻿# Examine Text
+# Examine Text
 gas-pressure-regulator-system-examined =
     Клапан находится в состоянии [color={ $statusColor }]{ $open ->
         [true] открыт

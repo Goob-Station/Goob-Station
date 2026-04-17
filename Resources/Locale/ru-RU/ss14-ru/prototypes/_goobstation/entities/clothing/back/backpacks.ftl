@@ -1,0 +1,13 @@
+ent-ClothingBackpackCentcomm = рюкзак Центком
+    .desc = Роскошный рюкзак с запахом денег.
+
+ent-ClothingBackpackBlueshield = рюкзак Синего Щита
+    .desc = Очень защитный рюкзак с запахом энергетического пистолета.
+
+ent-ClothingBackpackUnremoveable = { ent-ClothingBackpack }
+    .desc = { ent-ClothingBackpack.desc }
+    .suffix = Неснимаемый
+
+ent-ClothingBackpackSantasSack = Мешочек Деда Мороза
+    .desc = Содержит всё необходимое для создания Новогоднего настроения!
+    .suffix = Неснимаемый

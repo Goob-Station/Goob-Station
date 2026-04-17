@@ -1,0 +1,32 @@
+ent-SpawnArmamentsCursader = crusader armour
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsStudent = student robe
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsAncient = ancient armour
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsWitchhunter = witch hunter garb
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsAdept = adept robes
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsClock = forgotten armour
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsMonk = monk's habit
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsBishop = bishop's robes
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsDraconic = dragon suit
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnArmamentsInquisitor = inquisitor armour
+  .desc = { ent-SpawnSupplyEmpty.desc }
+
+ent-SpawnSchemaMonk = monastic vestments
+  .desc = { ent-SpawnSupplyEmpty.desc }

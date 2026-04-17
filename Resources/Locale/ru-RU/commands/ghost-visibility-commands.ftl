@@ -1,4 +1,4 @@
-﻿cmd-toggleghostvisibility-desc = Toggles ghost visibility on the client.
+cmd-toggleghostvisibility-desc = Переключает видимость призраков на клиенте.
 cmd-toggleghostvisibility-help = Использование: toggleghostvisibility [true/false]
 
 cmd-toggleselfghost-desc = Переключает отображение собственного призрака.

@@ -16,8 +16,8 @@ cmd-roleban-help = Использование: roleban <name or user ID> <job> <
 cmd-roleban-hint-1 = <name or user ID>
 cmd-roleban-hint-2 = <job>
 cmd-roleban-hint-3 = <reason>
-cmd-roleban-hint-4 = [продолжительность в минутах, не указывать или 0 для навсегда]
-cmd-roleban-hint-5 = [тяжесть]
+cmd-roleban-hint-4 = [duration in minutes, leave out or 0 for permanent ban]
+cmd-roleban-hint-5 = [severity]
 
 cmd-roleban-hint-duration-1 = Навсегда
 cmd-roleban-hint-duration-2 = 1 день

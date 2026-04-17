@@ -100,12 +100,10 @@ stack-cardboard =
        *[other] листов
     } картона
 
-stack-bones =
-    { $amount ->
-        [1] кость
-        [few] кости
-       *[other] костей
-    }
+stack-bones = {$amount ->
+    [1] bone
+    *[other] bones
+}
 stack-cloth =
     { $amount ->
         [1] рулон
@@ -130,24 +128,20 @@ stack-hv-cable =
         [few] кабеля
        *[other] кабелей
     }
-stack-wood-plank =
-    { $amount ->
-        [1] доску
-        [few] доски
-       *[other] досок
-    }
+stack-wood-plank = {$amount ->
+    [1] wood plank
+    *[other] wood planks
+}
 stack-durathread =
     { $amount ->
         [1] рулон
         [few] рулона
        *[other] рулонов
     }  дюраткани
-stack-rods =
-    { $amount ->
-        [1] стержень
-        [few] стержня
-       *[other] стержней
-    }
+stack-rods = {$amount ->
+    [1] rod
+    *[other] rods
+}
 stack-meat-sheet =
     { $amount ->
         [1] лист
@@ -166,17 +160,14 @@ stack-paper =
         [few] листа
        *[other] листов
     } бумаги
-stack-diamond =
-    { $amount ->
-        [1] алмаз
-        [few] алмаза
-       *[other] алмазов
-    }
-stack-silk =
-    { $amount ->
-        [1] шёлк
-       *[other] шёлка
-    }
+stack-diamond = {$amount ->
+    [1] diamond
+    *[other] diamonds
+}
+stack-silk = {$amount ->
+    [1] silk
+    *[other] silks
+}
 stack-cotton =
     { $amount ->
         [1] шарик

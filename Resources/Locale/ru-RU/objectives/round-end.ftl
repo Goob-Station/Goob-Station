@@ -18,7 +18,7 @@ objectives-round-end-result =
 objectives-round-end-result-in-custody = { $custody } из { $count } { $agent } были арестованы.
 
 objectives-player-user-named = [color=White]{ $name }[/color] ([color=gray]{ $user }[/color])
-objectives-player-named = [color=White]{ $name }[/color]
+objectives-player-named = [color=White]{$name}[/color]
 
 # goob
 objectives-no-objectives = { $custody }{ $title } – { $agent }.

@@ -1,0 +1,2 @@
+ent-EnchantLavaforged = Lavaforged
+  .desc = { "" }

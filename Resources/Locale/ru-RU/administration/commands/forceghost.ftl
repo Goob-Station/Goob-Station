@@ -1,4 +1,4 @@
-﻿cmd-forceghost-desc = Makes a player an observer.
+cmd-forceghost-desc = Сделать игрока наблюдателем.
 cmd-forceghost-help = Использование: forceghost <player>
 
 cmd-forceghost-error-lobby = Игрок не может стать призраком сейчас. Он не в игре!

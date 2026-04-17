@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-disposal-tube-component-popup-directions-text = { $directions }
+disposal-tube-component-popup-directions-text = {$directions}
 
 ## TubeDirectionVerb
 

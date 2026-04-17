@@ -1,0 +1,29 @@
+ent-BaseWeaponRevolver = BaseWeaponRevolver
+  .desc = A rooty tooty point and shooty.
+
+ent-WeaponRevolverDeckard = Deckard
+  .desc = A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
+
+ent-WeaponRevolverInspector = Inspector
+  .desc = A single-action revolver cast of cold plasma-steel. Popular among civilians, private investigators and law enforcement alike, you feel lucky just holding it. Loads 6 rounds of .45 Magnum.
+
+ent-WeaponRevolverMateba = Mateba
+  .desc = A rare and beautiful semi-automatic revolver. Provided only to the Nanotrasen elite, the Mateba sports a unique barrel design that greatly reduces muzzle flip. Many have stared down the barrel of this gun, and even fewer have lived to tell the tale. Loads 6 rounds of .45 Magnum.
+
+ent-WeaponRevolverMatebaAP = { ent-WeaponRevolverMateba }
+  .desc = { ent-WeaponRevolverMateba.desc }
+  .suffix = armor-piercing
+
+ent-WeaponRevolverPython = Python
+  .desc = A powerful double-action revolver designed by the Waffle Corporation. Loud and flashy, and perfect for any agent looking to make a statement. Loads 6 rounds of .45 magnum.
+
+ent-WeaponRevolverPythonAP = { ent-WeaponRevolverPython }
+  .desc = { ent-WeaponRevolverPython.desc }
+  .suffix = armor-piercing
+
+ent-WeaponRevolverPirate = pirate revolver
+  .desc = A crude single-action revolver handmade by a space pirate. Old and covered in rust, it somehow still works. Loads 5 rounds of .45 magnum.
+
+ent-WeaponRevolverPirateEmpty = { ent-WeaponRevolverPirate }
+  .desc = { ent-WeaponRevolverPirate.desc }
+  .suffix = Empty

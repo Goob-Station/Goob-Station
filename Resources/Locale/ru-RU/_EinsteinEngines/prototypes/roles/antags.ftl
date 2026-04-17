@@ -1,4 +1,4 @@
-﻿# For Sol Alliance Navy Deserters
+# For Sol Alliance Navy Deserters
 ghost-role-information-deserter-name = Дезертир
 ghost-role-information-deserter-description = "Меня уже заебало что квартирмейстер не выдаёт зарплату! Давайте угоним один из кораблей, помародёрим и заплатим себе сами."
 ghost-role-information-deserter-rules =

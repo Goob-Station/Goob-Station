@@ -1,20 +1,17 @@
-stack-bscrystal =
-    { $amount ->
-        [1] блюспейс кристалл
-       *[other] блюспейс кристаллы
-    }
+stack-bscrystal = {$amount ->
+    [1] bluespace crystal
+    *[other] bluespace crystals
+}
 
-stack-bscrystal-unprocessed =
-    { $amount ->
-        [1] необработанный блюспейс кристалл
-       *[other] необработанные блюспейс кристаллы
-    }
+stack-bscrystal-unprocessed = {$amount ->
+    [1] unprocessed bluespace crystal
+    *[other] unprocessed bluespace crystals
+}
 
-stack-bingle-tile =
-    { $amount ->
-        [1] бингл плитка
-       *[other] бингл плитки
-    }
+stack-bingle-tile = {$amount ->
+    [1] bingle tile
+    *[other] bingle tiles
+}
 
 stack-hex-nut =
     шестигранная { $amount ->
@@ -22,8 +19,7 @@ stack-hex-nut =
        *[other] гайки
     }
 
-stack-screw =
-    { $amount ->
-        [1] винт
-       *[other] винты
-    }
+stack-screw = {$amount ->
+    [1] screw
+    *[other] screws
+}

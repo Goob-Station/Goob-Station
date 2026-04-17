@@ -1,1 +1,1 @@
-interaction-verb-wrap-message = [italic]{ $message }[/italic]
+interaction-verb-wrap-message = [italic]{$message}[/italic]

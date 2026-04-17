@@ -1,2 +1,2 @@
-﻿cmd-asay-desc = Send chat messages to the private admin chat channel.
+cmd-asay-desc = Отправляет сообщения в приватный админский чат.
 cmd-asay-help = Использование: asay <text>

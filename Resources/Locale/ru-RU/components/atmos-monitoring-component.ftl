@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 atmos-monitoring-window-title = Мониторинг атмосферной сети
-atmos-monitoring-window-station-name = [color=white][font size=14]{ $stationName }[/font][/color]
+atmos-monitoring-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 atmos-monitoring-window-unknown-location = Неизвестная локация
 atmos-monitoring-window-label-gas-opening = Открытие сети
 atmos-monitoring-window-label-gas-scrubber = Скруббер

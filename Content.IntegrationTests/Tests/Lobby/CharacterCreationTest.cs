@@ -125,5 +125,51 @@ namespace Content.IntegrationTests.Tests.Lobby
             });
             await pair.CleanReturnAsync();
         }
+
+        [Test]
+        public async Task UnicodeNameRoundTripTest()
+        {
+            await using var pair = await PoolManager.GetServerClient(new PoolSettings { InLobby = true });
+            var server = pair.Server;
+            var client = pair.Client;
+
+            var clientNetManager = client.ResolveDependency<IClientNetManager>();
+            var clientStateManager = client.ResolveDependency<IStateManager>();
+            var clientPrefManager = client.ResolveDependency<IClientPreferencesManager>();
+            var serverPrefManager = server.ResolveDependency<IServerPreferencesManager>();
+
+            await pair.RunTicksSync(1);
+            await PoolManager.WaitUntil(client, () => clientStateManager.CurrentState is LobbyState, 600);
+
+            Assert.That(clientNetManager.ServerChannel, Is.Not.Null);
+
+            var clientNetId = clientNetManager.ServerChannel.UserId;
+            const string expectedName = "Аарон Алексеев";
+
+            await client.WaitAssertion(() =>
+            {
+                clientPrefManager.SelectCharacter(0);
+
+                var baseProfile = (HumanoidCharacterProfile) clientPrefManager.Preferences!.Characters[0];
+                var updatedProfile = baseProfile.WithName(expectedName);
+
+                // AltHub Space -> start
+                clientPrefManager.UpdateCharacter(updatedProfile, 0);
+                Assert.That(((HumanoidCharacterProfile) clientPrefManager.Preferences.Characters[0]).Name, Is.EqualTo(expectedName));
+                // AltHub Space -> end
+            });
+
+            await PoolManager.WaitUntil(server,
+                () => ((HumanoidCharacterProfile) serverPrefManager.GetPreferences(clientNetId).Characters[0]).Name == expectedName,
+                maxTicks: 60);
+
+            await server.WaitAssertion(() =>
+            {
+                var serverProfile = (HumanoidCharacterProfile) serverPrefManager.GetPreferences(clientNetId).Characters[0];
+                Assert.That(serverProfile.Name, Is.EqualTo(expectedName));
+            });
+
+            await pair.CleanReturnAsync();
+        }
     }
 }

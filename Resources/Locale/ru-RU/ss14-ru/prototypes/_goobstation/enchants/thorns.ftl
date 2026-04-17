@@ -1,0 +1,2 @@
+ent-EnchantThorns = Шипы
+  .desc = { "" }

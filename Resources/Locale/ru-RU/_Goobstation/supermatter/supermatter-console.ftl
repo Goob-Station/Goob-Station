@@ -1,9 +1,9 @@
 supermatter-console-window-title = Консоль мониторинга Суперматерии
-supermatter-console-window-station-name = [color=white][font size=14]{ $stationName }[/font][/color]
+supermatter-console-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 supermatter-console-window-unknown-location = Неизвестное местоположение
 supermatter-console-window-no-supermatters = [font size=16][color=white]Суперматерия не обнаружена[/font]
 
-supermatter-console-window-label-sm = { CAPITALIZE($name) }
+supermatter-console-window-label-sm = {CAPITALIZE($name)}
 
 supermatter-console-window-label-alert-types = Статус Суперматерии:
 supermatter-console-window-error-status = Ошибка

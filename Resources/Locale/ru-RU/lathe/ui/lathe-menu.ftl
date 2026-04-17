@@ -31,7 +31,7 @@ lathe-reagent-dispense-no-container = Жидкость выливается из
 lathe-menu-result-reagent-display = { $reagent } ({ $amount } ед.)
 lathe-menu-material-display = { $material } { $amount }
 lathe-menu-tooltip-display = { $amount } { $material }
-lathe-menu-description-display = [italic]{ $description }[/italic]
+lathe-menu-description-display = [italic]{$description}[/italic]
 lathe-menu-material-amount =
     { $amount ->
         [1] { NATURALFIXED($amount, 2) } ({ $unit })

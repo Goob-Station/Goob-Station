@@ -1,0 +1,26 @@
+ent-ClothingOuterArmorHoSExperimental = head of security's experimental armored trenchcoat
+  .desc = A greatcoat enhanced with an experimental bluespace assisted alloy for some extra protection and style for those with a commanding presence.
+
+ent-ClothingOuterCoatZeusJacket = zeus jacket
+  .desc = Gives you an urge to hurl the nearest pedestrian at a flying helicopter.
+
+ent-ClothingOuterDavidsJacket = EMT jacket
+  .desc = A bright yellow signal jacket, beloved by paramedics of the end of the 21st century.
+
+ent-ClothingOuterDavidsJacketValid = edgerunner jacket
+  .desc = You're right on the edge. Show 'em you got this.
+
+ent-ClothingOuterCoatWardenBlue = warden's blue jacket
+  .desc = A sturdy, utilitarian jacket for those familiar with the brig.
+
+ent-ClothingOuterCoatRDPurple = research director's experimental lab coat
+  .desc = Woven with experimental technology... this labcoat seems no more protective than your usual one. At least it looks nice.
+
+ent-ClothingOuterCoatRDPurpleOpened = research director's experimental lab coat
+  .desc = { ent-ClothingOuterStorageFoldableBaseOpened.desc }
+
+ent-ClothingOuterCoatHoPLong = hop's longcoat
+  .desc = A smart longcoat for the Head of Personnel.
+
+ent-ClothingOuterArmoredJacketOuterCommand = outer command jacket
+  .desc = A purple jacket with very fancy elements. There is a Terra-Gov insignia on the back.

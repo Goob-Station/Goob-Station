@@ -1,0 +1,9 @@
+ent-WallHierophantArena = hierophant wall
+  .desc = { ent-BaseStructureWall.desc }
+
+ent-WallHierophantArenaTemporary = hierophant field
+  .desc = Keeps the salvager in and... Why are you looking at this in a middle of a fight? You have nothing to do?!
+
+ent-WallNecropolisIndestructible = stone wall
+  .desc = { ent-BaseStructureWall.desc }
+  .suffix = Indestructible

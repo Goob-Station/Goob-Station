@@ -1,0 +1,80 @@
+ent-ClothingOuterVestWebDurathread = тактический жилет из дюроткани
+    .desc = Самодельный бронежилет из дуропатча с пласталевыми пластинами. Несмотря на внушительную защиту, он удивительно легкий.
+
+ent-ClothingOuterArmourDurathread = бронежилет из дюроткани
+    .desc = Бронированный жилет, сделанный из пласталевых пластин, вплетённых в дуропатч. Несмотря на внушительную защиту, он гибкий и лёгкий.
+
+ent-ClothingOuterArmorHelldiver = тактический костюм Спасатель NT-01
+    .desc = Эта броня — стандартное оснащение NanoTrasen, сделанная из того же титановго сплава, что и корпус «Голиафа».
+
+ent-ClothingOuterArmorHoSVestWeb = бронежилет главы службы безопасности
+    .desc = Высококачественный бронированный жилет из прочного синтетического материала. Несмотря на внушительную защиту, он гибкий и лёгкий.
+
+ent-ClothingOuterCapJacket = бронированная куртка капитана
+    .desc = Чрезвычайно дорогая куртка с дополнительной защитой из дюранити в области груди.
+
+ent-ClothingOuterWinterCapArmored = парадная зимняя куртка капитана
+    .desc = Богато украшенная зимняя куртка с баллистической защитой, созданная для лучших на станции.
+
+ent-ClothingBlueshieldArmourVest = бронежилет Синего Щита
+    .desc = Бронированный жилет с символикой Синего Щита.
+
+ent-ClothingBlueshieldArmoredJacket = бронированная куртка Синего Щита
+    .desc = Куртка с вшитыми слоями усиления.
+
+ent-ClothingBlueshieldArmoredCowboyJacket = бронированная ковбойская куртка Синего Щита
+    .desc = Куртка для защиты важных людей в опасных районах.
+
+ent-ClothingOuterWinterBlueshield = бронированная куртка Синего Щита
+    .desc = Синяя зимняя куртка с кевларовым усилением в области груди.
+
+ent-ClothingOuterArmourInvisible = блюспейс бронежилет
+    .desc = Бронированный жилет, использующий технологию блюспейс, который изгибает свет и становится невидимым для глаза при ношении.
+
+ent-ClothingOuterArmourInvisibleChameleon = скрытный бронежилет
+    .desc = Бронированный жилет, использующий технологию блюспейс. Может быть полностью невидимым или выглядеть как любая другая верхняя одежда.
+
+ent-ClothingOuterArmorCloakSith = плащ темного владыки
+    .desc = Изначально простой костюмный плащ, незаконно усиленный бронированными пластинами, превратившийся в функциональную броню. Похоже, даже способен защитить пользователя от вакуума космоса.
+
+ent-ClothingOuterArmourInvisibleSyndie = броня с технологией Redspace
+    .desc = Бронированный жилет, использующий технологию Redspace, чтобы быть невидимым и не портить твой стиль.
+
+ent-ClothingOuterArmorQueenCarapace = панцирь королевы
+    .desc = Череп древней Ксено королевы, перекован в внушительный нагрудник, превращая её прежнюю угрозу в непробиваемую защиту.
+
+ent-ClothingOuterPonchoClassicRobust = истинное ковбойское пончо
+    .desc = Пончо, созданное для настоящих ковбоев.
+
+ent-ClothingOuterArmorTemplar = доспехи крестоносца
+    .desc = Божьий умысел!
+
+ent-ClothingOuterArmorStudent = студенческая роба
+    .desc = Униформа былого института образования.
+
+ent-ClothingOuterArmorWitchhunter = одежда охотника на ведьм
+    .desc = Эта изношенная одежда часто использовалась в своё время.
+
+ent-ClothingOuterArmorAncient = древние доспехи
+    .desc = Защищайте сокровище...
+
+ent-ClothingOuterArmorAdept = роба адепта
+    .desc = Идеальная одежда для сжигания неверных.
+
+ent-ClothingOuterArmorClock = забытые доспехи
+    .desc = Звучит как шипящий пар, тикающие шестерни. Выглядят как мёртвая машина, проявляющая признаки жизни.
+
+ent-ClothingOuterArmorMonk = монашеская ряса
+    .desc = Немного лучше порванного мешка.
+
+ent-ClothingOuterArmorBishop = епископская ряса
+    .desc = Рад видеть, что десятину, которую вы собрали, потратили с пользой.
+
+ent-ClothingOuterArmorDragon = костюм дракона
+    .desc = Чешуя была получена этичным способом, честно.
+
+ent-ClothingOuterArmorInquisitor = бронекуртка инквизитора
+    .desc = Широкая броня, украшенная золотыми цепями и узорами. Покажи ереси свою мощь!
+
+ent-ClothingOuterArmorVeteranSecurity = Veteran security's old armor
+  .desc = An old version of the standard NanoTrasen bulletproof vest, its design provides better protection against surprise attacks by clowns, it still meets NT's protection standards

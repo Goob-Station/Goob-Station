@@ -9,4 +9,4 @@ cmd-rmaction-not-an-action = Сущность не является действ
 cmd-rmaction-player-completion = <EntityUid>
 cmd-rmaction-action-completion = <ActionUid>
 
-cmd-rmaction-action-info = { $action }
+cmd-rmaction-action-info = {$action}

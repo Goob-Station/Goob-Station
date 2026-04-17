@@ -5,7 +5,7 @@ turret-controls-window-armament-controls-label = Режим вооружения
 turret-controls-window-targeting-controls-label = Авторизованный персонал
 
 # Status reports
-turret-controls-window-no-turrets = <! Отсутствуют соединённые устройства !>
+turret-controls-window-no-turrets = <! No linked devices !>
 turret-controls-window-turret-status = » { $device } — Статус: { $status }
 turret-controls-window-turret-disabled = ***ОФФЛАЙН***
 turret-controls-window-turret-retracted = НЕАКТИВНА
@@ -22,7 +22,7 @@ turret-controls-window-stun = Оглушающий
 turret-controls-window-lethal = Летальный
 turret-controls-window-ignore = Игнорировать
 turret-controls-window-target = Цель
-turret-controls-window-access-group-label = { $prefix } { $label }
+turret-controls-window-access-group-label = {$prefix} {$label}
 turret-controls-window-all-checkbox = Все
 
 # Flavor

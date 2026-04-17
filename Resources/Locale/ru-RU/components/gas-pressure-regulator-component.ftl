@@ -1,4 +1,4 @@
-﻿# UI Labels
+# UI Labels
 gas-pressure-regulator-ui-set-threshold = Установить
 gas-pressure-regulator-ui-zero-threshold = Ноль
 gas-pressure-regulator-ui-set-to-current-pressure = Установить на входное давление

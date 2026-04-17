@@ -1,0 +1,90 @@
+ent-BaseWeaponBattery = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-BaseWeaponPowerCell = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-BaseWeaponBatterySmall = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-BaseWeaponPowerCellSmall = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-WeaponLaserSvalinn = Svalinn
+  .desc = A cheap and modular laser pistol often carried by civilians. Takes standard power cells, with higher capacity ones amplifying the capacity and power of the resulting beam.
+
+ent-WeaponLaserGun = retro laser blaster
+  .desc = A laser pistol from another time. Its design is pretty rare in the current era, but it's compatible with modern rechargers. # Goobstation
+
+ent-WeaponMakeshiftLaser = makeshift laser pistol
+  .desc = Better pray it won't burn your hands off.
+
+ent-WeaponTeslaGun = tesla gun
+  .desc = The power of the primordial element of lightning in your hands.
+
+ent-WeaponLaserCarbinePractice = practice laser carbine
+  .desc = A modified laser carbine that fires nearly harmless beams in the 40-watt range, for target practice or training scenarios.
+
+ent-WeaponLaserCarbine = laser carbine
+  .desc = An ergonomic and light laser weapon favored by NanoTrasen security teams because of its low capacity for structural damage.
+
+ent-WeaponPulsePistol = pulse pistol
+  .desc = A state-of-the-art laser pistol that fires a rapidly pulsing beam. It's favored as a sidearm for the Emergency Response corps due to its self-recharging design. # Goobstation
+
+ent-WeaponPulseCarbine = pulse carbine
+  .desc = A state-of-the-art laser carbine that fires a rapidly pulsing beam. Cheaper than its advanced counterpart, though lacks the ability to self-recharge.
+
+ent-WeaponPulseRifle = pulse rifle
+  .desc = A weapon almost as infamous as its users.
+
+ent-WeaponLaserCannon = laser cannon
+  .desc = A heavy and advanced laser weapon that trades out the capacity of a carbine for greatly increased power. Known to inflict third-degree burns straight through bulletproof armor.
+
+ent-WeaponParticleDecelerator = portable particle decelerator
+  .desc = A portable particle decelerator capable of decomposing a tesla or singularity.
+
+ent-WeaponXrayCannon = x-ray cannon
+  .desc = An experimental laser weapon that fires a dense x-ray beam. Leaves intense radiation burns.
+
+ent-WeaponDisablerPractice = practice disabler
+  .desc = A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for use in training scenarios or target practice.
+
+ent-WeaponDisabler = disabler
+  .desc = A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+
+ent-WeaponDisablerSMG = disabler SMG
+  .desc = An iteration of the disabler, reducing the power of each shot for a massive increase in firerate. Though a lot bulkier, the lightweight frame and lack of recoil make it fully usable one-handed.
+
+ent-WeaponTaser = Taser
+  .desc = A handheld stun weapon that fires two electrified darts at the target. Formerly used by NanoTrasen security, though it's mostly been phased out. # Goobstation
+
+ent-WeaponTaserSuper = elite taser
+  .desc = A low-capacity, energy-based stun gun used by elite security teams to disable even the toughest of targets.
+  .suffix = ADMEME
+
+ent-WeaponAntiqueLaser = antique laser pistol
+  .desc = A premium laser pistol from another age, customised with a mahogany grip and sleek chrome filigree. The chamber glows with menacing spikes of energy. There are clown and captain stick figures scratched into the side plate. The clown is dead. The captain is striking a heroic pose.
+
+ent-WeaponAdvancedLaser = advanced laser pistol
+  .desc = An experimental laser pistol fitted with a self-charging nuclear battery.
+
+ent-WeaponPistolCHIMP = C.H.I.M.P. handcannon
+  .desc = Just because it's a little C.H.I.M.P. doesn't mean it can't punch like an A.P.E.
+
+ent-WeaponPistolCHIMPUpgraded = experimental C.H.I.M.P. handcannon
+  .desc = This C.H.I.M.P. seems to have a greater punch than usual...
+
+ent-WeaponBehonkerLaser = eye of a behonker
+  .desc = The eye of a behonker, it fires a laser when squeezed.
+
+ent-WeaponEnergyShotgun = Energy Shotgun
+  .desc = A one-of-a-kind energy weapon that fires a barrage of red-hot plasma rather than a laser beam. Comes with a fire selector between narrow, wide, and disabling, making it a diverse weapon in the right hands.
+
+ent-WeaponTemperatureGun = temperature gun
+  .desc = A versatile energy gun that fires projectiles that modify internal body temperature, originally designed for use against opponents in armored hardsuits. Probably constitutes some kind of war crime in corporate space.
+
+ent-XenoborgLaserGun = xenoborg laser gun
+  .desc = { ent-WeaponAdvancedLaser.desc }
+
+ent-XenoborgHeavyLaserGun = xenoborg heavy laser gun
+  .desc = { ent-WeaponAdvancedLaser.desc }

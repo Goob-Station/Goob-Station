@@ -13,9 +13,10 @@ loadout-traitor-uplink-pen-desc = Ваш Аплинк будет спрятан 
 loadout-traitor-uplink-implant-name = Подкожный Аплинк
 loadout-traitor-uplink-implant-desc = Ваш Аплинк будет имплантирован в кожу. Стоимость 10 ТК. Активируется кнопкой на хот-баре.
 
-ent-LoadoutDummyTraitorPda = PDA Uplink
-    .desc = Your uplink will be hidden in your PDA. Enter the code on your PDA's ringtone to access it.
-ent-LoadoutDummyTraitorPen = Pen Uplink
-    .desc = Your uplink will be hidden in a pen. Spin to your code to unlock. Auto-locks when closed.
-ent-LoadoutDummyTraitorImplant = Subdermal Implant
-    .desc = Your uplink will be implanted under your skin. Costs 10 TC. Activate it from your actions menu.
+ent-LoadoutDummyTraitorPda = КПК Аплинк
+    .desc = Ваш аплинк будет спрятан в КПК. Введите код в рингтоне вашего КПК, чтобы получить к нему доступ.
+ent-LoadoutDummyTraitorPen = Аплинк-ручка
+    .desc = Ваш аплинк будет спрятан в ручке. Прокрутите её до вашего кода, чтобы разблокировать. Автоматически блокируется при закрытии.
+ent-LoadoutDummyTraitorImplant = Подкожный имплант
+    .desc = Ваш аплинк будет имплантирован под кожу. Стоит 10 ТК. Активируется через меню действий.
+# AltHub Space -> end

@@ -1,0 +1,89 @@
+ent-Cigarette = сигарета
+    .desc = Скрутка с табаком и никотином.
+
+ent-SoakedCigarette = сигарета
+    .desc = Скрутка с табаком и никотином, пропитанная какими-то химикатами.
+    .suffix = Пропитанная
+
+ent-CigaretteSpent = { ent-Cigarette }
+    .desc = { ent-Cigarette.desc }
+    .suffix = Окурок
+
+ent-CigaretteSyndicate = сигарета
+    .desc = { ent-Cigarette.desc }
+    .suffix = Синдикат
+
+ent-CigaretteOmnizine = Взрыв вкуса воды хот-дога
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteIron = Ржавый оранжевый нижний взрыв
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteTricordrazine = Лакричный ассорти
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteDylovene = Удалитель туалетного жмыха
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteDermaline = Алоэ-арахисовый маслянный попурри
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteArithrazine = Римский трубопрокат
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteNutriment = Бабушкин рождественский пирог
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteBicaridine = Усовершенствованная сигарета Мокрый пёс
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteDexalin = Мускус скалистых гор
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteSaline = Круиз по Северной Атлантике
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteBbqSauce = Пряно-древесный аромат
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteFrezon = Атмосферное приключение
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteCapsaicinOil = Прохладный П
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteRadium = Экс Рей
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteHaloperidol = Теплый бычий экстракт
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteLaughter = Бонус клоунского соседства
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteLipolicide = Программа тренировок 80-х
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteSodiumPolyacrylate = Вредные привычки
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteMold = Подраковинный экспириенс
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteLicoxide = Пробуждающий звонок
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteWeldingFuel = Плазменный соус
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteRobustHarvest = Романтическая новелла хиппи
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigarettePhlogiston = Симулятор свиданий с драконами
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteBanana = Бонус клоунского пристрастия
+    .desc = { ent-SoakedCigarette.desc }
+
+ent-CigaretteBlackPepper = Английская пряность
+    .desc = { ent-SoakedCigarette.desc }

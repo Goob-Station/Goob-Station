@@ -36,15 +36,14 @@ salvage-magnet-resources =
        *[other] { $resource }
     }
 
-salvage-magnet-resources-count =
-    { $count ->
-        [1] (Мало)
-        [2] (Средне)
-        [3] (Средне)
-        [4] (Много)
-        [5] (Много)
-       *[other] (Изобилие)
-    }
+salvage-magnet-resources-count = {$count ->
+    [1] (Poor)
+    [2] (Moderate)
+    [3] (Moderate)
+    [4] (Rich)
+    [5] (Rich)
+    *[other] (Extraordinary)
+}
 
 # Debris
 salvage-magnet-debris-ChunkDebris = Космический обломок

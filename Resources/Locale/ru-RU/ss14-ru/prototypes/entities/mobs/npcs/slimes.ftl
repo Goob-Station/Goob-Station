@@ -1,0 +1,26 @@
+ent-BaseMobAdultSlime = базовый слайм
+    .desc = Очень похож на желешку. Может, такой же на вкус?
+
+ent-MobAdultSlimes = базовый слайм
+    .desc = Очень похож на желешку. Может, такой же на вкус?
+
+ent-MobAdultSlimesBlue = синий слайм
+    .desc = { ent-MobAdultSlimes.desc }
+
+ent-MobAdultSlimesBlueAngry = синий слайм
+    .desc = { ent-MobAdultSlimesBlue.desc }
+    .suffix = Враждебный
+
+ent-MobAdultSlimesGreen = зелёный слайм
+    .desc = { ent-MobAdultSlimes.desc }
+
+ent-MobAdultSlimesGreenAngry = зелёный слайм
+    .desc = { ent-MobAdultSlimesGreen.desc }
+    .suffix = Враждебный
+
+ent-MobAdultSlimesYellow = жёлтый слайм
+    .desc = { ent-MobAdultSlimes.desc }
+
+ent-MobAdultSlimesYellowAngry = жёлтый слайм
+    .desc = { ent-MobAdultSlimesYellow.desc }
+    .suffix = Враждебный

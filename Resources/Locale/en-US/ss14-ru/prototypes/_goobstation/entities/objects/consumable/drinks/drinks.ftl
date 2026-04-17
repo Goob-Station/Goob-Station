@@ -1,0 +1,14 @@
+ent-DrinkBasePlastic = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-DrinkFitnessShakerBlack = fitness shaker
+  .desc = Big enough to contain enough protein to get perfectly swole. Don't mind the bits.
+
+ent-DrinkFitnessShakerRed = { ent-DrinkFitnessShakerBlack }
+  .desc = { ent-DrinkFitnessShakerBlack.desc }
+
+ent-DrinkFitnessShakerBlue = { ent-DrinkFitnessShakerBlack }
+  .desc = { ent-DrinkFitnessShakerBlack.desc }
+
+ent-DrinkMilkBottleFull = milk bottle
+  .desc = How do plasmamen even drink this?

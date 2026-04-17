@@ -45,13 +45,12 @@ cosmiccult-roundend-cultist-count =
     }
 cosmiccult-roundend-entropy-count = Культ поглотил { $count } энтропии.
 cosmiccult-roundend-cultpop-count = Культисты составляли { $count }% от всего экипажа станции.
-cosmiccult-roundend-monument-stage =
-    { $stage ->
-        [1] Увы, Монумент остался заброшенным.
-        [2] Монумент был усилен, но до завершения не хватило времени.
-        [3] Монумент был завершён.
-       *[other] [color=red]Что-то пошло не так.[/color]
-    }
+cosmiccult-roundend-monument-stage = {$stage ->
+    [1] Alas, the Monument seems abandoned.
+    [2] The Monument progressed, but completion was out of reach.
+    [3] The Monument was completed.
+    *[other] [color=red]Something went REALLY wrong.[/color]
+}
 
 cosmiccult-roundend-cultcomplete = [color=#4cabb3]Культ одержал полную победу![/color]
 cosmiccult-roundend-cultmajor = [color=#4cabb3]Культ одержал крупную победу![/color]

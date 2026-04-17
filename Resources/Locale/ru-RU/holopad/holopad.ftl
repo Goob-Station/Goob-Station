@@ -7,7 +7,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Window headers
-holopad-window-title = { CAPITALIZE($title) }
+holopad-window-title = {CAPITALIZE($title)}
 holopad-window-subtitle = [color=white][bold]Система голографической связи[/bold][/color]
 holopad-window-options = [color=darkgray][font size=10][italic]Пожалуйста, выберите вариант из списка ниже[/italic][/font][/color]
 
@@ -36,7 +36,7 @@ holopad-window-access-denied = В доступе отказано
 # Contact list
 holopad-window-select-contact-from-list = Выберите контакт для начала голо-звонка
 holopad-window-fetching-contacts-list = Нет голопадов, с которыми можно связаться
-holopad-window-contact-label = { CAPITALIZE($label) }
+holopad-window-contact-label = {CAPITALIZE($label)}
 holopad-window-filter-line-placeholder = Поиск контакта
 
 # Flavor

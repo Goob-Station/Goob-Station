@@ -82,7 +82,7 @@ admin-notes-verb-text = Заметки
 # Watchlist and message login
 admin-notes-watchlist = Наблюдение над { $player }: { $message }
 admin-notes-new-message = Вы получили админ сообщение от { $admin }: { $message }
-admin-notes-fallback-admin-name = [Система]
+admin-notes-fallback-admin-name = [System]
 
 # Admin remarks
 admin-remarks-command-description = Открыть страницу админ замечаний
@@ -90,4 +90,4 @@ admin-remarks-command-error = Админ замечания были отклю�
 admin-remarks-title = Админ замечания
 
 # Misc
-system-user = [Система]
+system-user = [System]

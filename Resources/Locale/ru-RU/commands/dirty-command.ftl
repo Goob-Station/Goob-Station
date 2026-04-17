@@ -1,2 +1,2 @@
-﻿cmd-dirty-desc = Marks all components on an entity as dirty. If not specified, dirties everything.
+cmd-dirty-desc = Помечает все компоненты сущности как изменённые. Если не указано, помечает всё.
 cmd-dirty-help = Использование: dirty [entityUid]

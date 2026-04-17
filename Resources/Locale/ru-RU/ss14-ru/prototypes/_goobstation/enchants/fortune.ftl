@@ -1,0 +1,2 @@
+ent-EnchantFortune = Удача
+  .desc = { "" }

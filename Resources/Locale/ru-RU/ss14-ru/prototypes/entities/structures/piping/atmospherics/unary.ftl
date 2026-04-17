@@ -1,0 +1,40 @@
+ent-GasUnaryBase = { ent-GasPipeSansLayers }
+  .desc = { ent-GasPipeSansLayers.desc }
+
+ent-GasVentPump = вентиляция
+    .desc = Имеет клапан и прикреплённый к нему насос.
+
+ent-GasPassiveVent = пассивная вентиляция
+    .desc = Это открытая вентиляция.
+
+ent-GasVentScrubber = скруббер
+    .desc = Он же вытяжка. Имеет клапан и прикреплённый к нему насос.
+
+ent-GasOutletInjector = инжектор
+    .desc = Он же форсунка. Имеет клапан и прикреплённый к нему насос.
+
+ent-BaseGasThermoMachine = термомашина
+    .desc = Нагревает газ в присоединённых трубах.
+
+ent-GasThermoMachineFreezer = охладитель
+    .desc = Охлаждает газ в присоединённых трубах.
+
+ent-GasThermoMachineFreezerEnabled = { ent-GasThermoMachineFreezer }
+    .desc = { ent-GasThermoMachineFreezer.desc }
+    .suffix = Включено
+
+ent-GasThermoMachineHeater = нагреватель
+    .desc = { ent-BaseGasThermoMachine.desc }
+
+ent-GasThermoMachineHeaterEnabled = { ent-GasThermoMachineHeater }
+    .desc = { ent-GasThermoMachineHeater.desc }
+    .suffix = Включено
+
+ent-GasThermoMachineHellfireFreezer = адский охладитель
+    .desc = Продвинутое устройство, охлаждающее газ в присоединённых трубах. Побочный эффект — охлаждение окружающего пространства. Холодно как в аду!
+
+ent-GasThermoMachineHellfireHeater = адский нагреватель
+    .desc = Продвинутое устройство, нагревающее газ в присоединённых трубах. Побочный эффект — нагревание окружающего пространства. Жарко как в аду!
+
+ent-BaseGasCondenser = конденсатор газа
+    .desc = Конденсирует газы в жидкости. Осталось только провести водопровод.

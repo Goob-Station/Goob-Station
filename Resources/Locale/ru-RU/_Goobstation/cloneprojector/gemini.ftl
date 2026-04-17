@@ -1,8 +1,7 @@
-clone-projector-examined-status =
-    { $cloneStatus ->
-        [true] Клон в настоящее время активен.
-       *[false] Клон в настоящее время неактивен.
-    }
+clone-projector-examined-status = { $cloneStatus ->
+[true] The clone is currently active.
+*[false] The clone is currently inactive.
+}
 clone-projector-examined-health = Целостность: { $cloneHealth }%
 
 gemini-projector-clone-created = Из проектора { $user } появляется рой нанитов.

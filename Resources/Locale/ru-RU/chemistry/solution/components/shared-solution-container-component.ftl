@@ -14,7 +14,7 @@ shared-solution-container-component-on-examine-main-text =
     }
 
 examinable-solution-has-recognizable-chemicals = В этом растворе вы можете распознать { $recognizedString }.
-examinable-solution-recognized = [color={ $color }]{ $chemical }[/color]
+examinable-solution-recognized = [color={$color}]{$chemical}[/color]
 
 examinable-solution-on-examine-volume = Ёмкость { $fillLevel ->
     [exact] содержит [color=white]{$current}/{$max}u[/color].
@@ -39,10 +39,10 @@ examinable-solution-on-examine-volume-puddle =
 
 -solution-vague-fill-level =
     { $fillLevel ->
-        [full] [color=white]заполнена[/color]
-        [mostlyfull] [color=#DFDFDF]почти заполнена[/color]
-        [halffull] [color=#C8C8C8]наполовину полная[/color]
-        [halfempty] [color=#C8C8C8]наполовину пустая[/color]
-        [mostlyempty] [color=#A4A4A4]почти пустая[/color]
-       *[empty] [color=gray]пустая[/color]
+        [full] [color=white]Full[/color]
+        [mostlyfull] [color=#DFDFDF]Mostly Full[/color]
+        [halffull] [color=#C8C8C8]Half Full[/color]
+        [halfempty] [color=#C8C8C8]Half Empty[/color]
+        [mostlyempty] [color=#A4A4A4]Mostly Empty[/color]
+       *[empty] [color=gray]Empty[/color]
     }

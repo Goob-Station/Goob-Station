@@ -1,0 +1,67 @@
+ent-ClothingHeadHatArmored = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-ClothingHeadHatArmoredCC = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-ClothingHeadHatBeretEliteNavyOfficer = элитный берет офицера ЦентКом
+    .desc = Тёмно-синий берет с серебряным щитом сил безопасности NanoTrasen.
+
+ent-ClothingHeadHatBeretNavyOfficer = берет офицера ЦентКом
+    .desc = Чёрный берет с серебряным щитом сил безопасности NanoTrasen.
+
+ent-ClothingHeadHatBeretNavyCaptain = берет капитана военно-космического флота
+    .desc = Белый как крахмальная рубашка.
+
+ent-ClothingHeadHatBeretBlueshield = берет офицера Синего Щита
+    .desc = Прочный берет из дюратекста. Обеспечивает защиту.
+
+ent-ClothingHeadHatCowboyBlueshield = ковбойская шляпа Синего Щита
+    .desc = Шериф снова в городе, детки.
+
+ent-ClothingHeadHatUshankaBlueshield = блюшилд бронеушанка
+    .desc = Идеальна для защиты головы в Сибири, дa?
+
+ent-ClothingHeadMailCarrier = шапка почтальона
+    .desc = Пахнет хорошей пенсией.
+
+ent-ClothingHeadHatPropeller = шапка с пропеллером
+    .desc = Ох, ну надо же!
+
+ent-ClothingHeadHatPropellerFlipped = шапка с пропеллером
+    .desc = { ent-ClothingHeadHatPropeller.desc }
+
+ent-ClothingHeadHatImam = головной убор имама
+    .desc = Хвала Аллаху.
+
+ent-ClothingHeadHatTrainer = шапка наставника
+    .desc = Шапка, выданная карьерным тренерам NanoTrasen. Делает вас стильным.
+
+ent-ClothingHeadBeretTrainer = берет наставника
+    .desc = Берет, выданный карьерным тренерам NanoTrasen. Делает вас стильным.
+
+ent-ClothingHeadHatBeretHeadOfSecurityAdvanced = парадный берет главы службы безопасности
+    .desc = Особенно украшенный берет, предназначенный для начальника службы безопасности.
+
+ent-ClothingHeadHatBeretSeniorBotanist = ботанический берет
+    .desc = Зелёный берет с маленьким синим цветком для опытных ботаников.
+
+ent-ClothingHeadSanabi = фуражка генерала бригадира
+    .desc = Пахнет сталью.
+
+ent-ClothingHeadLehmin = топовый головной убор ГВ
+    .desc = Химия. Администрирование. Что-то ещё.
+    .suffix = Адмем
+
+ent-ClothingHeadHatJanitorCap = кепка уборщика
+    .desc = Вычурная фиолетовая кепка только для ЛУЧШИХ уборщиков.
+
+ent-ClothingHeadHatCapcapSenior = фуражка старшего капитана
+    .desc = Величественная и стильная фуражка, которую носят старшие капитаны. Сразу показывает станции, кто здесь главный!
+    .suffix = НЕ МАППИТЬ
+
+ent-ClothingHeadHatTinfoilHat = шапочка из фольги
+    .desc = Высокотехнологичный шлем, состоящий из алюминиевой фольги.
+
+ent-ClothingHeadHatOuterCommandcap = фуражка офицера ОПЗ
+    .desc = Пурпурная позолоченная фуражка с эмблемой ОПЗ.

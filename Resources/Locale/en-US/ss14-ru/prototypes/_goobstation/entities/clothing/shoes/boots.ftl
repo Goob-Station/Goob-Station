@@ -1,0 +1,49 @@
+ent-ClothingShoesBootsChrono = futuristic boots
+  .desc = An advanced futuristic shoe that guarantees wearer comfort and full traction on any surface
+
+ent-ClothingShoesBootsChronoUnremoveable = { ent-ClothingShoesBootsChrono }
+  .desc = { ent-ClothingShoesBootsChrono.desc }
+  .suffix = Unremoveable
+
+ent-ClothingShoesResonant = resonant shoes
+  .desc = Is it not time yet… for the splendid curtain to rise?
+
+ent-ClothingShoesBootsMagEmergencyResponseTeam = tactical response magboots
+  .desc = Look! An emergency responder, we're saved!
+
+ent-ClothingShoesBootsMagDeathsquad = deathsquad magboots
+  .desc = The sound of these boots are iconic; the sound of terror.
+
+ent-ClothingShoesRealJordans = air jordans
+  .desc = State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
+  .suffix = Magboots
+
+ent-ClothingShoesFakeJordans = air jordans
+  .desc = Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
+  .suffix = fake
+
+ent-ClothingShoesCreasedJordans = creased air jordans
+  .desc = No wait... this can't be.... THEY'RE CREASED!
+
+ent-ClothingShoesBootsJackAdvanced = advanced jackboots
+  .desc = This pair of jackboots was designed for the Head of Security. No one knows why are they called advanced, but they are for sure advanced in drip.
+
+ent-ClothingShoesRealJordansAutographed = air jordans
+  .desc = These aren't just any Jordans, these were signed my Micheal Jordan himself. These must be worth a FORTUNE.
+  .suffix = Devil
+
+ent-ClothingShoesBootsWinterSnowjackBso = blueshield's snowjacks
+  .desc = For when you need to save a head from a changeling on a research station in Antarctica.
+
+ent-ClothingShoesWinterCombatBoots = snowjacks boots
+  .desc = Nanotrasen-issue Security combat boots for combat scenarios or combat situations. Now in winter edition.
+
+ent-ClothingShoesColorBlackUnremoveable = { ent-ClothingShoesColorBlack }
+  .desc = { ent-ClothingShoesColorBlack.desc }
+  .suffix = Unremoveable
+
+ent-ClothingShoesBootsCowboyBrownRobust = authentic brown cowboy boots
+  .desc = For a real cowboy.
+
+ent-ClothingShoesBootsJackGaloshes = Jack Galoshes
+  .desc = This pair of jackboots was designed for the elite maids of our station. Perhaps the most coveted item on station.

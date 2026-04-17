@@ -1,4 +1,4 @@
-﻿## Strings for the battery (SMES/substation) menu
+## Strings for the battery (SMES/substation) menu
 
 battery-menu-footer-left = Опасно: высокое напряжение
 battery-menu-footer-right = 7.2 REV 6

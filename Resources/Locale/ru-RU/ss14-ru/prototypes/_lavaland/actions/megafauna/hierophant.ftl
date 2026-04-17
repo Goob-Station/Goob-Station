@@ -1,0 +1,14 @@
+ent-ActionBaseHierophant = Способности Иерофанта
+  .desc = { "" }
+
+ent-ActionHierophantBox = Квадрат
+    .desc = Призывает плитки Иерофанта в виде квадрата.
+
+ent-ActionHierophantCrosses = Кресты
+    .desc = Призывает плитки Иерофанта в виде креста.
+
+ent-ActionHierophantChasers = Преследователи
+    .desc = Призывает плитки Иерофанта, преследующие цель.
+
+ent-ActionHierophantBlink = Скачок
+    .desc = Телепортирует вас в указанную позицию.

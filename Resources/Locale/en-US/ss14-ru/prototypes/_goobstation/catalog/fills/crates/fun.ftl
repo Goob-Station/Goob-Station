@@ -1,0 +1,18 @@
+ent-CrateFunATV = ATV crate
+  .desc = An Absolutely Taxable Vehicle to help cargo with hauling.
+
+ent-CrateFunSyndicateSegway = Syndicate segway crate
+  .desc = A crate containing a two-wheeler that will help you escape from the security officers. Or not.
+
+ent-CrateFunBingleLoot = Bingle loot
+  .desc = { ent-CrateBingle.desc }
+
+ent-CrateFunBingleAdmeme = Bingle
+  .desc = { ent-CrateBingle.desc }
+  .suffix = Admeme voice triggered bingle crate
+
+ent-CrateFunDiscoBeachBall = disco beach ball crate
+  .desc = A crate containing a Disco Beach Ball that turns any beach trip into Studio 54.
+
+ent-CrateWizardAnomCore = Crate of Enchanting
+  .desc = A box containing stolen anomaly cores, used for enchanting.
