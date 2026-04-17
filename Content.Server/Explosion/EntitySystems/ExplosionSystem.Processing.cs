@@ -134,11 +134,9 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared.Body.Components;
 using Content.Server.Destructible;
-using Content.Server.Destructible.Thresholds.Triggers;
-using System.Linq;
+using Content.Shared.Destructible.Thresholds.Triggers;
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -702,7 +700,7 @@ public sealed partial class ExplosionSystem
             // Check if combined damage would exceed threshold
             if (currentDamage + additionalDamage >= damageTypeTrigger.Damage)
             {
-                threshold.Execute(uid, _destructibleSystem, EntityManager, cause);
+                _destructibleSystem.Execute(threshold, uid, cause);
                 return true;
             }
         }

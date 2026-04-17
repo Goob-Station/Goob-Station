@@ -26,7 +26,7 @@ namespace Content.Goobstation.Server.Destructible.Thresholds.Behaviors
             if (!system.EntityManager.TryGetComponent<KillSignComponent>(causeVal, out var killsignComp))
             {
                 system.EntityManager.AddComponent<KillSignComponent>(causeVal);
-                system._adminLogger.Add(LogType.Trigger, LogImpact.High, $"{system.EntityManager.ToPrettyString(causeVal):entity} was Killsigned because they broke a Christmas tree: {system.EntityManager.ToPrettyString(owner):entity}.");
+                system.AdminLogger.Add(LogType.Trigger, LogImpact.High, $"{system.EntityManager.ToPrettyString(causeVal):entity} was Killsigned because they broke a Christmas tree: {system.EntityManager.ToPrettyString(owner):entity}.");
             }
         }
     }
