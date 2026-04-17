@@ -1,5 +1,3 @@
-
-
 using Content.Shared.Chat;
 using Content.Shared.Inventory;
 using Content.Shared.Verbs;
