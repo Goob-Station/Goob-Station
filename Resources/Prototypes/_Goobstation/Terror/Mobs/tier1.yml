@@ -195,7 +195,7 @@
         Brute: 10
   - type: TerrorSpider
     spiderType: GrayTerror
-  - type: BonusDamageOnStunned
+  - type: BonusDamageOnStatusEffect
     damageMultiplier: 2
     requiredStatusEffects:
       - Stun

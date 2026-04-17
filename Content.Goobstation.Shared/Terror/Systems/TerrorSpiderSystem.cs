@@ -52,7 +52,7 @@ public sealed class TerrorSpiderSystem : EntitySystem
             _audio.PlayPredicted(comp.DeathSound, spiderPlayerUid, spiderPlayerUid);
         }
     }
-    private void OnWrappedCorpse(EntityUid uid, TerrorSpiderComponent comp, TerrorWrappedCorpseEvent args)
+    private void OnWrappedCorpse(EntityUid uid, TerrorSpiderComponent comp, ref TerrorWrappedCorpseEvent args)
     {
         comp.WrappedAmount++;
         Dirty(uid, comp);

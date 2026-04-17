@@ -29,7 +29,7 @@ public sealed class SpiderPetCrownSystem : EntitySystem
 
         var pet = Spawn(comp.PetPrototype, Transform(args.Equipee).Coordinates);
         var petComp = EnsureComp<SpiderPetComponent>(pet);
-        petComp.Owner = args.Equipee;
+        petComp.MasterUid = args.Equipee;
         comp.Pet = pet;
 
         // Tell the HTN to always follow the wearer

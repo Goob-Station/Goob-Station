@@ -19,7 +19,7 @@ public sealed class TerrorVentSmashSystem : EntitySystem
         SubscribeLocalEvent<TerrorVentSmashComponent, TerrorVentSmashEvent>(OnSmash);
     }
 
-    private void OnSmash(EntityUid uid, TerrorVentSmashComponent component, TerrorVentSmashEvent args)
+    private void OnSmash(EntityUid uid, TerrorVentSmashComponent component, ref TerrorVentSmashEvent args)
     {
         var target = args.Target;
 

@@ -73,7 +73,7 @@ public sealed class TerrorLaySystem : EntitySystem
             }
         }
 
-        // Fallback to Tier 1
+        // Fallback
         if (!selected)
         {
             var fallbackTier = lay.Tiers[0];

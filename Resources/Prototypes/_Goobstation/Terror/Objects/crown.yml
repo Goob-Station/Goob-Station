@@ -2,7 +2,7 @@
   parent: [ClothingHeadHelmetBase, BaseSecurityContraband]
   id: ClothingHeadHelmetTerrorQueen
   name: Crown of terror
-  description: This crown makes you queen. Put it on to summon a friendly spider, take it off to make it dissapear. The spider will fight hostile fauna for you.
+  description: This crown makes you queen. Put it on to summon a friendly spider, take it off to make it disappear. The spider will fight hostile fauna for you.
   components:
   - type: Sprite
     sprite: _Goobstation/Terror/Objects/crown.rsi # This could use a better sprite, but I ain't got the smarts for it.

@@ -18,8 +18,10 @@ public sealed partial class TerrorWrapDoAfterEvent : SimpleDoAfterEvent;
 
 public sealed partial class TerrorQueenSenseEvent : InstantActionEvent;
 
+[ByRefEvent]
 public sealed partial class TerrorVentSmashEvent : EntityTargetActionEvent;
 
+[ByRefEvent]
 public readonly record struct TerrorWrappedCorpseEvent(EntityUid Spider);
 
 public readonly record struct TerrorSpiderDiedEvent(EntityUid Spider);

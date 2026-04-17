@@ -11,5 +11,5 @@ public sealed partial class SpiderPetComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField]
-    public EntityUid? Owner;
+    public EntityUid? MasterUid;
 }
