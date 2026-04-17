@@ -16,14 +16,7 @@ public sealed class InfestedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<InfestedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<InfestedComponent, ComponentShutdown>(OnShutdown);
-    }
-
-    private void OnStartup(EntityUid uid, InfestedComponent comp, ComponentStartup args)
-    {
-        if (comp.SpawnNumber <= 0)
-            comp.SpawnNumber = _random.Next(1, 4);
     }
 
     private void OnShutdown(EntityUid uid, InfestedComponent comp, ComponentShutdown args)
@@ -41,6 +34,9 @@ public sealed class InfestedSystem : EntitySystem
         var query = EntityQueryEnumerator<InfestedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (comp.SpawnNumber <= 0)
+                comp.SpawnNumber = _random.Next(1, 4);
+
             comp.Accumulator += TimeSpan.FromSeconds(frameTime);
 
             if (comp.Accumulator < comp.SpawnInterval)

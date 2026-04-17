@@ -13,7 +13,6 @@ public sealed partial class InfestedComponent : Component
     [DataField]
     public TimeSpan SpawnInterval = TimeSpan.FromSeconds(89);
 
-    [DataField]
     public int SpawnNumber;
 
     [DataField]
