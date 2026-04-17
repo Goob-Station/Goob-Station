@@ -107,7 +107,9 @@ SPDX-License-Identifier: MIT
   - Проверяет изменённые `.cs`, `.yml` и `.yaml` файлы на отсутствие REUSE/SPDX headers.
   - Запускает доверенный скрипт из base branch против checkout PR.
   - Ничего не пушит обратно.
-  - Создаёт patch artifact и оставляет или обновляет комментарий с предложенными правками.
+  - Если в теле PR не указан `LICENSE: ...`, по умолчанию рекомендует `MIT`.
+  - Для файлов, где GitHub позволяет привязаться к строкам из diff, создаёт inline review suggestions с кнопкой применения.
+  - Для остальных файлов оставляет общий комментарий с preview и patch artifact как fallback.
   - Триггеры: `pull_request_target`.
 
 - `stale.yml`

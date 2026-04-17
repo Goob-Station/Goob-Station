@@ -14,11 +14,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <!-- Guidelines: https://docs.spacestation14.io/en/getting-started/pr-guideline -->
+<!-- AltHub Space -> start -->
 <!-- NOTE: All code submitted to this repository is ALWAYS licensed under the AGPL-3.0-or-later license. 
 The REUSE Specification headers or separate .license files indicate a secondary license (e.g., MPL or MIT) solely to facilitate 
 integration for projects that do not use the AGPL license. This secondary license does not replace the fact that AGPL-3.0-or-later remains the primary and binding license. 
-Uncomment and modify the following line if you wish to change the license from the default of AGPL.-->
-<!--- LICENSE: AGPL -->
+Uncomment and modify the following line if you wish to change the secondary license from the default of MIT.-->
+<!--- LICENSE: MIT -->
+<!-- AltHub Space -> end -->
 ## About the PR
 <!-- What did you change? -->
 

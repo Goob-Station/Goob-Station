@@ -93,8 +93,10 @@ jobs:
             PR_LICENSE=mpl
             echo "License specified in PR: MPL"
           else
-            PR_LICENSE=agpl
-            echo "No license specified in PR, using default: AGPL"
+            # AltHub Space -> start
+            PR_LICENSE=mit
+            echo "No license specified in PR, using default: MIT"
+            # AltHub Space -> end
           fi
 
           echo "added_files=$ADDED_FILES" >> "$GITHUB_OUTPUT"
@@ -135,6 +137,8 @@ jobs:
             echo "<!-- reuse-header-suggestions -->"
             echo "## REUSE header suggestions"
             echo
+            echo "Inline review suggestions will be added where GitHub can anchor them to the PR diff."
+            echo
             echo "The workflow found missing REUSE/SPDX headers in these files:"
             sed 's/^/- `/' "${{ github.workspace }}/reuse-header-files.txt" | sed 's/$/`/'
             echo
@@ -164,6 +168,187 @@ jobs:
             ${{ github.workspace }}/reuse-headers.patch
             ${{ github.workspace }}/reuse-header-files.txt
           if-no-files-found: error
+
+      # AltHub Space -> start
+      - name: Update REUSE inline review suggestions
+        uses: actions/github-script@v7
+        env:
+          PR_REPO_PATH: ${{ github.workspace }}/pr-repo
+          REUSE_FILES_PATH: ${{ github.workspace }}/reuse-header-files.txt
+        with:
+          script: |
+            const fs = require("fs");
+            const path = require("path");
+            const cp = require("child_process");
+
+            const markerPrefix = "<!-- reuse-header-inline-suggestion:";
+            const prRepoPath = process.env.PR_REPO_PATH;
+            const reuseFilesPath = process.env.REUSE_FILES_PATH;
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+            const commit_id = context.payload.pull_request.head.sha;
+
+            const parseManagedPath = (body) => {
+              const match = body?.match(/<!-- reuse-header-inline-suggestion:(.+?) -->/);
+              return match?.[1];
+            };
+
+            const isTopOfFileDiff = (pullFile) => {
+              if (!pullFile) {
+                return false;
+              }
+
+              if (pullFile.status === "added") {
+                return true;
+              }
+
+              const patch = pullFile.patch ?? "";
+              return /^@@ -0,0 \+1(?:,|\b)/m.test(patch) || /^@@ -1(?:,|\b)/m.test(patch);
+            };
+
+            const readTargetFiles = () => {
+              if (!fs.existsSync(reuseFilesPath)) {
+                return [];
+              }
+
+              return fs
+                .readFileSync(reuseFilesPath, "utf8")
+                .split(/\r?\n/)
+                .map(line => line.trim())
+                .filter(Boolean);
+            };
+
+            const buildSuggestion = (filePath) => {
+              const absolutePath = path.join(prRepoPath, filePath);
+
+              if (!fs.existsSync(absolutePath)) {
+                return null;
+              }
+
+              const updated = fs.readFileSync(absolutePath, "utf8");
+              const original = cp.execFileSync(
+                "git",
+                ["show", `HEAD:${filePath}`],
+                { cwd: prRepoPath, encoding: "utf8" }
+              );
+
+              if (!updated.endsWith(original)) {
+                return null;
+              }
+
+              const originalFirstLine = original.split(/\r?\n/, 1)[0];
+              if (!originalFirstLine) {
+                return null;
+              }
+
+              const insertedPrefix = updated.slice(0, updated.length - original.length);
+              if (!insertedPrefix) {
+                return null;
+              }
+
+              return [
+                `${markerPrefix}${filePath} -->`,
+                "REUSE/SPDX header suggestion. You can apply it directly.",
+                "",
+                "```suggestion",
+                `${insertedPrefix}${originalFirstLine}`,
+                "```",
+              ].join("\n");
+            };
+
+            const targetFiles = readTargetFiles();
+            const pullFiles = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number,
+              per_page: 100,
+            });
+            const pullFileMap = new Map(pullFiles.map(file => [file.filename, file]));
+
+            const desiredSuggestions = [];
+            const skippedFiles = [];
+
+            for (const filePath of targetFiles) {
+              const pullFile = pullFileMap.get(filePath);
+
+              if (!isTopOfFileDiff(pullFile)) {
+                skippedFiles.push(`${filePath} (top of file is not part of the PR diff)`);
+                continue;
+              }
+
+              const body = buildSuggestion(filePath);
+              if (!body) {
+                skippedFiles.push(`${filePath} (change is not a simple top-of-file insertion)`);
+                continue;
+              }
+
+              desiredSuggestions.push({
+                filePath,
+                body,
+              });
+            }
+
+            const reviewComments = await github.paginate(github.rest.pulls.listReviewComments, {
+              owner,
+              repo,
+              pull_number,
+              per_page: 100,
+            });
+
+            const managedComments = reviewComments.filter(comment =>
+              comment.user?.type === "Bot" && comment.body?.includes(markerPrefix)
+            );
+
+            const existingByPath = new Map();
+            for (const comment of managedComments) {
+              const managedPath = parseManagedPath(comment.body);
+              if (managedPath) {
+                existingByPath.set(managedPath, comment);
+              }
+            }
+
+            for (const suggestion of desiredSuggestions) {
+              const existing = existingByPath.get(suggestion.filePath);
+
+              if (existing) {
+                await github.rest.pulls.updateReviewComment({
+                  owner,
+                  repo,
+                  comment_id: existing.id,
+                  body: suggestion.body,
+                });
+                existingByPath.delete(suggestion.filePath);
+                continue;
+              }
+
+              await github.rest.pulls.createReviewComment({
+                owner,
+                repo,
+                pull_number,
+                commit_id,
+                path: suggestion.filePath,
+                line: 1,
+                side: "RIGHT",
+                body: suggestion.body,
+              });
+            }
+
+            for (const staleComment of existingByPath.values()) {
+              await github.rest.pulls.deleteReviewComment({
+                owner,
+                repo,
+                comment_id: staleComment.id,
+              });
+            }
+
+            console.log(`Created or updated ${desiredSuggestions.length} inline REUSE suggestions.`);
+            if (skippedFiles.length > 0) {
+              console.log("Skipped inline suggestions for:");
+              for (const skipped of skippedFiles) {
+                console.log(`- ${skipped}`);
+              }
+            }
+      # AltHub Space -> end
 
       - name: Update REUSE suggestion comment
         if: steps.report.outputs.has_changes == 'true'
