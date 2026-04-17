@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-      pull-requests: read # AltHub Space
+      pull-requests: write # AltHub Space
     steps:
     # AltHub Space -> start
     - uses: actions/github-script@v7

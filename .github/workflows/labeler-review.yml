@@ -20,7 +20,7 @@ jobs:
       contains(fromJson('["COLLABORATOR","MEMBER","OWNER"]'), github.event.review.author_association)
     permissions:
       issues: write
-      pull-requests: read # AltHub Space
+      pull-requests: write # AltHub Space
     runs-on: ubuntu-latest
     steps:
     # AltHub Space -> start

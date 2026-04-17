@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-      pull-requests: read
+      pull-requests: write # AltHub Space
     steps:
       - name: size-label
         uses: "pascalgn/size-label-action@v0.5.5"
