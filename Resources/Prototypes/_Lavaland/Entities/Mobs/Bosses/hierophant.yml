@@ -109,8 +109,10 @@
     deleteOnDeath: true
   - type: MegafaunaAi
     actionDelay: 0.5
-    selector: !type:NestedMegafaunaSelector
+    # AltHub Space -> start
+    selector:
       id: Hierophant
+    # AltHub Space -> end
   - type: AngerPlayerScaling
     angerScale: 1.1
     hpScale: 1.2

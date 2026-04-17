@@ -19,7 +19,9 @@ public sealed class MegafaunaNumberSelectorTypeSerializer :
         ISerializationContext? context = null)
     {
         // ConstantMegafaunaNumberSelector validation
-        if (float.TryParse(node.Value, out _))
+        // AltHub Space -> start
+        if (float.TryParse(node.Value, CultureInfo.InvariantCulture, out _))
+        // AltHub Space -> end
             return new ValidatedValueNode(node);
 
         // RangeMegafaunaNumberSelector validation
