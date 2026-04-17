@@ -271,8 +271,8 @@ public sealed partial class DevilContractSystem : EntitySystem
     }
     public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
-        if (!Exists(target) || Deleted(target))
-            return;
+        if (TerminatingOrDeleted(contractee))
+            return false;
 
         // Can't sell what doesn't exist.
         if (HasComp<CondemnedComponent>(contractee)
@@ -369,7 +369,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         //_sawmill.Debug($"Applying {clause.ID} effect to {ToPrettyString(target)}");
 
-        if (!Exists(target) || Deleted(target))
+        if (TerminatingOrDeleted(target))
             return;
 
         DoPolymorphs(target, clause);
