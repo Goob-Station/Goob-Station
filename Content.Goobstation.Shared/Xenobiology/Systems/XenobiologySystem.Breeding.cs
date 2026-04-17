@@ -15,6 +15,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
@@ -113,12 +114,11 @@ public partial class XenobiologySystem
             if (TryComp(sl, out SlimeComponent? newComp))
             {
                 // carries over generations. type shit.
-                var newSlime = sl.Value.Comp;
-                newSlime.Tamer = ent.Comp.Tamer;
-                newSlime.MutationChance = ent.Comp.MutationChance;
-                newSlime.MaxOffspring = ent.Comp.MaxOffspring;
-                newSlime.ExtractsProduced = ent.Comp.ExtractsProduced;
-                slimes.Add(sl.Value.Owner);
+                newComp.Tamer = ent.Comp.Tamer;
+                newComp.MutationChance = ent.Comp.MutationChance;
+                newComp.MaxOffspring = ent.Comp.MaxOffspring;
+                newComp.ExtractsProduced = ent.Comp.ExtractsProduced;
+                slimes.Add(sl);
             }
         }
 
