@@ -8,13 +8,117 @@
 name: "Labels: PR"
 
 on:
-- pull_request_target
+  # AltHub Space -> start
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+  # AltHub Space -> end
 
 jobs:
   labeler:
     permissions:
-      contents: read
+      issues: write # AltHub Space
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/labeler@v5
+    # AltHub Space -> start
+    - uses: actions/github-script@v7
+      with:
+        script: |
+          const managedLabels = [
+            "Changes: Sprites",
+            "Changes: Map",
+            "Changes: UI",
+            "Changes: Shaders",
+            "Changes: Audio",
+            "Changes: No C#",
+          ];
+
+          const { owner, repo } = context.repo;
+          const issue_number = context.issue.number;
+          const pull_number = context.payload.pull_request.number;
+
+          const files = await github.paginate(github.rest.pulls.listFiles, {
+            owner,
+            repo,
+            pull_number,
+            per_page: 100,
+          });
+
+          const changedPaths = files
+            .map(file => file.filename)
+            .filter(Boolean);
+
+          const desiredLabels = new Set();
+
+          if (changedPaths.some(path => /(^|\/)[^/]+\.rsi\/[^/]+\.png$/.test(path))) {
+            desiredLabels.add("Changes: Sprites");
+          }
+
+          if (changedPaths.some(path =>
+            (path.startsWith("Resources/Maps/") || path.startsWith("Resources/Prototypes/Maps/")) &&
+            path.endsWith(".yml")
+          )) {
+            desiredLabels.add("Changes: Map");
+          }
+
+          if (changedPaths.some(path => path.includes(".xaml"))) {
+            desiredLabels.add("Changes: UI");
+          }
+
+          if (changedPaths.some(path => path.endsWith(".swsl"))) {
+            desiredLabels.add("Changes: Shaders");
+          }
+
+          if (changedPaths.some(path => path.endsWith(".ogg"))) {
+            desiredLabels.add("Changes: Audio");
+          }
+
+          if (changedPaths.length > 0 && changedPaths.every(path => !path.endsWith(".cs"))) {
+            desiredLabels.add("Changes: No C#");
+          }
+
+          const currentLabels = await github.paginate(github.rest.issues.listLabelsOnIssue, {
+            owner,
+            repo,
+            issue_number,
+            per_page: 100,
+          });
+
+          const currentManagedLabels = new Set(
+            currentLabels
+              .map(label => label.name)
+              .filter(name => managedLabels.includes(name))
+          );
+
+          const labelsToAdd = [...desiredLabels].filter(name => !currentManagedLabels.has(name));
+          const labelsToRemove = [...currentManagedLabels].filter(name => !desiredLabels.has(name));
+
+          if (labelsToAdd.length > 0) {
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number,
+              labels: labelsToAdd,
+            });
+          }
+
+          for (const name of labelsToRemove) {
+            try {
+              await github.rest.issues.removeLabel({
+                owner,
+                repo,
+                issue_number,
+                name,
+              });
+            } catch (error) {
+              if (error.status !== 404) {
+                throw error;
+              }
+            }
+          }
+
+          console.log("Changed files:", changedPaths);
+          console.log("Desired managed labels:", [...desiredLabels]);
+          console.log("Added labels:", labelsToAdd);
+          console.log("Removed labels:", labelsToRemove);
+    # AltHub Space -> end

@@ -72,7 +72,8 @@ SPDX-License-Identifier: MIT
   - Триггеры: `pull_request_target`.
 
 - `labeler-pr.yml`
-  - Ставит path-based labels по `.github/labeler.yml`.
+  - Ставит и синхронизирует только path-based метки `Changes:*`.
+  - Не трогает чужие метки вроде `size/*`, `S:*`, branch labels и т.д.
   - Триггеры: `pull_request_target`.
 
 - `labeler-review.yml`
