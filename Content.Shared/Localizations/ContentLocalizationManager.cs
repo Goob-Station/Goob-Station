@@ -31,7 +31,10 @@ namespace Content.Shared.Localizations
         [Dependency] private readonly ILocalizationManager _loc = default!;
 
         // If you want to change your codebase's language, do it here.
-        private const string Culture = "en-US";
+        // AltHub Space -> start
+        private const string Culture = "ru-RU";
+        private const string FallbackCulture = "en-US";
+        // AltHub Space -> end
 
         /// <summary>
         /// Custom format strings used for parsing and displaying minutes:seconds timespans.
@@ -46,9 +49,15 @@ namespace Content.Shared.Localizations
 
         public void Initialize()
         {
+            // AltHub Space -> start
             var culture = new CultureInfo(Culture);
+            var fallbackCulture = new CultureInfo(FallbackCulture);
 
             _loc.LoadCulture(culture);
+            _loc.LoadCulture(fallbackCulture);
+            _loc.SetFallbackCluture(fallbackCulture);
+            _loc.AddFunction(culture, "MANY", FormatMany);
+            // AltHub Space -> end
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
             _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
             _loc.AddFunction(culture, "POWERJOULES", FormatPowerJoules);
@@ -128,33 +137,53 @@ namespace Content.Shared.Localizations
             }
         }
 
+        // AltHub Space -> start
+        private static string GetLocalizedConjunction(bool alternative)
+        {
+            var isRussian = CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ru";
+            return (isRussian, alternative) switch
+            {
+                (true, false) => "и",
+                (true, true) => "или",
+                (false, false) => "and",
+                _ => "or"
+            };
+        }
+        // AltHub Space -> end
+
         // TODO: allow fluent to take in lists of strings so this can be a format function like it should be.
         /// <summary>
-        /// Formats a list as per english grammar rules.
+        /// Formats a list using conjunctions for the active culture.
         /// </summary>
         public static string FormatList(List<string> list)
         {
+            // AltHub Space -> start
+            var conjunction = GetLocalizedConjunction(alternative: false);
             return list.Count switch
             {
                 <= 0 => string.Empty,
                 1 => list[0],
-                2 => $"{list[0]} and {list[1]}",
-                _ => $"{string.Join(", ", list.GetRange(0, list.Count - 1))}, and {list[^1]}"
+                2 => $"{list[0]} {conjunction} {list[1]}",
+                _ => $"{string.Join(", ", list.GetRange(0, list.Count - 1))}, {conjunction} {list[^1]}"
             };
+            // AltHub Space -> end
         }
 
         /// <summary>
-        /// Formats a list as per english grammar rules, but uses or instead of and.
+        /// Formats a list using a localized alternative conjunction.
         /// </summary>
         public static string FormatListToOr(List<string> list)
         {
+            // AltHub Space -> start
+            var conjunction = GetLocalizedConjunction(alternative: true);
             return list.Count switch
             {
                 <= 0 => string.Empty,
                 1 => list[0],
-                2 => $"{list[0]} or {list[1]}",
-                _ => $"{string.Join(" or ", list)}"
+                2 => $"{list[0]} {conjunction} {list[1]}",
+                _ => $"{string.Join($" {conjunction} ", list)}"
             };
+            // AltHub Space -> end
         }
 
         /// <summary>

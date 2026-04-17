@@ -1,0 +1,758 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 smudge <138918973+Cerise-Cattowo@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+accent-medieval-prefix-1 = Ах,
+accent-medieval-prefix-2 = Увы,
+accent-medieval-prefix-3 = Достопочтенный,
+accent-medieval-prefix-4 = Клянусь верой,
+accent-medieval-prefix-5 = Клянусь правдой,
+accent-medieval-prefix-6 = Клянусь честью,
+accent-medieval-prefix-7 = Право говорю,
+accent-medieval-prefix-8 = Право говорю я,
+accent-medieval-prefix-9 = Право глаголю,
+accent-medieval-prefix-10 = Право,
+accent-medieval-prefix-11 = Внемли,
+accent-medieval-prefix-12 = Внемлите,
+accent-medieval-prefix-13 = Услышьте меня,
+accent-medieval-prefix-14 = Эге-гей,
+accent-medieval-prefix-15 = Молю вас,
+accent-medieval-prefix-16 = Глаголю,
+accent-medieval-prefix-17 = Глаголю вам,
+accent-medieval-prefix-18 = Уверяю,
+accent-medieval-prefix-19 = Коли угодно вам,
+accent-medieval-prefix-20 = В кратце,
+accent-medieval-prefix-21 = Воистину,
+accent-medieval-prefix-22 = Истинно,
+accent-medieval-prefix-23 = Милостивый государь,
+accent-medieval-prefix-24 = Услышьте,
+accent-medieval-prefix-25 = Слухайте,
+accent-medieval-prefix-26 = Ныне услышьте меня,
+accent-medieval-prefix-27 = Пожалуй,
+accent-medieval-prefix-28 = Прошу простить,
+accent-medieval-prefix-29 = Прошу поведовать,
+accent-medieval-prefix-30 = Молю,
+accent-medieval-prefix-31 = Прошу,
+accent-medieval-prefix-32 = Извольте,
+accent-medieval-prefix-33 = О боги,
+accent-medieval-prefix-34 = Государь,
+accent-medieval-prefix-35 = Уж верно,
+accent-medieval-prefix-36 = Истина в словах ваших, и всё же,
+accent-medieval-prefix-37 = Эй, что за,
+accent-medieval-prefix-38 = Эй вы,
+accent-medieval-prefix-39 = О лорд,
+accent-medieval-prefix-40 = Батюшки,
+accent-medieval-prefix-41 = Вот те на,
+
+accent-medieval-words-1 = Я не буду переводить эту херню.
+accent-medieval-words-replace-1 = Я не буду переводить эту херню.
+
+accent-medieval-words-2 = это
+accent-medieval-words-replace-2 = данное
+
+accent-medieval-words-3 = это было
+accent-medieval-words-replace-3 = сие было
+
+accent-medieval-words-4 = это были
+accent-medieval-words-replace-4 = сие были
+
+accent-medieval-words-5 = это будет
+accent-medieval-words-replace-5 = сие станет
+
+accent-medieval-words-6 = эти
+accent-medieval-words-replace-6 = данные
+
+accent-medieval-words-7 = их
+accent-medieval-words-replace-7 = евошние
+
+accent-medieval-words-8 = здесь
+accent-medieval-words-replace-8 = в данном месте
+
+accent-medieval-words-9 = не должен
+accent-medieval-words-replace-9 = не имеет права
+
+accent-medieval-words-10 = тута
+accent-medieval-words-replace-10 = в данном месте
+
+accent-medieval-words-11 = не будет
+accent-medieval-words-replace-11 = не посмеет
+
+accent-medieval-words-12 = спасибо
+accent-medieval-words-replace-12 = премного благодарен
+
+accent-medieval-words-13 = благодарю
+accent-medieval-words-replace-13 = снимаю шляпу
+
+accent-medieval-words-14 = ты
+accent-medieval-words-replace-14 = вы
+
+accent-medieval-words-15 = твои
+accent-medieval-words-replace-15 = ваши
+
+accent-medieval-words-16 = ваши
+accent-medieval-words-replace-16 = ваши
+
+accent-medieval-words-17 = пришли
+accent-medieval-words-replace-17 = явились
+
+accent-medieval-words-18 = убить
+accent-medieval-words-replace-18 = казнить
+
+accent-medieval-words-19 = убит
+accent-medieval-words-replace-19 = казнён
+
+accent-medieval-words-20 = прощай
+accent-medieval-words-replace-20 = до свидания
+
+accent-medieval-words-21 = пока
+accent-medieval-words-replace-21 = до свидания
+
+accent-medieval-words-22 = увидимся
+accent-medieval-words-replace-22 = еще свидимся
+
+accent-medieval-words-23 = убили
+accent-medieval-words-replace-23 = казнили
+
+accent-medieval-words-24 = убийство
+accent-medieval-words-replace-24 = казнь
+
+accent-medieval-words-25 = да
+accent-medieval-words-replace-25 = верно
+
+accent-medieval-words-26 = нет
+accent-medieval-words-replace-26 = отнюдь
+
+accent-medieval-words-27 = о да
+accent-medieval-words-replace-27 = да что вы
+
+accent-medieval-words-28 = никак
+accent-medieval-words-replace-28 = невозможно
+
+accent-medieval-words-29 = здравствуйте
+accent-medieval-words-replace-29 = добрый день
+
+accent-medieval-words-30 = привет
+accent-medieval-words-replace-30 = мое почтение
+
+accent-medieval-words-31 = прив
+accent-medieval-words-replace-31 = хайль
+
+accent-medieval-words-32 = приветствую
+accent-medieval-words-replace-32 = рад вас видеть
+
+accent-medieval-words-33 = ботаник
+accent-medieval-words-replace-33 = фермер
+
+accent-medieval-words-34 = ботаники
+accent-medieval-words-replace-34 = фермеры
+
+accent-medieval-words-35 = does
+accent-medieval-words-replace-35 = doth
+
+accent-medieval-words-36 = кэп
+accent-medieval-words-replace-36 = Король
+
+accent-medieval-words-37 = капитан
+accent-medieval-words-replace-37 = Король
+
+accent-medieval-words-38 = мой
+accent-medieval-words-replace-38 = именной
+
+accent-medieval-words-39 = моя
+accent-medieval-words-replace-39 = именная
+
+accent-medieval-words-40 = ядерный диск
+accent-medieval-words-replace-40 = ключ Содомы
+
+accent-medieval-words-41 = диск
+accent-medieval-words-replace-41 = ключ Содомы
+
+accent-medieval-words-42 = еда
+accent-medieval-words-replace-42 = пища
+
+accent-medieval-words-43 = розыск
+accent-medieval-words-replace-43 = преследование стражей
+
+accent-medieval-words-44 = иди
+accent-medieval-words-replace-44 = следуйте
+
+accent-medieval-words-45 = идите
+accent-medieval-words-replace-45 = следуйте
+
+accent-medieval-words-46 = the
+accent-medieval-words-replace-46 = yon
+
+accent-medieval-words-47 = шутишь
+accent-medieval-words-replace-47 = смехотворишь
+
+accent-medieval-words-48 = шутки
+accent-medieval-words-replace-48 = прибаутки
+
+accent-medieval-words-49 = шутка
+accent-medieval-words-replace-49 = смехотворно
+
+accent-medieval-words-50 = станция
+accent-medieval-words-replace-50 = замок
+
+accent-medieval-words-51 = пожалуйста
+accent-medieval-words-replace-51 = прошу вас
+
+accent-medieval-words-52 = ок
+accent-medieval-words-replace-52 = согласен
+
+accent-medieval-words-53 = ладно
+accent-medieval-words-replace-53 = как пожелаете
+
+accent-medieval-words-54 = это
+accent-medieval-words-replace-54 = сие
+
+accent-medieval-words-55 = никогда
+accent-medieval-words-replace-55 = ни за что
+
+accent-medieval-words-56 = хаха
+accent-medieval-words-replace-56 = хох, поразительно!
+
+accent-medieval-words-57 = ахаха
+accent-medieval-words-replace-57 = уморительно!
+
+accent-medieval-words-58 = хах
+accent-medieval-words-replace-58 = смехотворно!
+
+accent-medieval-words-59 = хех
+accent-medieval-words-replace-59 = хи-хи-хи!
+
+accent-medieval-words-60 = помогите
+accent-medieval-words-replace-60 = извольте подсобить
+
+accent-medieval-words-61 = спасите
+accent-medieval-words-replace-61 = спасите, молю!
+
+accent-medieval-words-62 = помощь
+accent-medieval-words-replace-62 = содействие
+
+accent-medieval-words-63 = может
+accent-medieval-words-replace-63 = быть может
+
+accent-medieval-words-64 = можете
+accent-medieval-words-replace-64 = могли бы
+
+accent-medieval-words-65 = конечно
+accent-medieval-words-replace-65 = разумеется
+
+accent-medieval-words-66 = может быть
+accent-medieval-words-replace-66 = быть может
+
+accent-medieval-words-67 = возможно
+accent-medieval-words-replace-67 = вероятно
+
+accent-medieval-words-68 = девушка
+accent-medieval-words-replace-68 = леди
+
+accent-medieval-words-69 = женщина
+accent-medieval-words-replace-69 = миледи
+
+accent-medieval-words-70 = девушки
+accent-medieval-words-replace-70 = леди
+
+accent-medieval-words-71 = женщины
+accent-medieval-words-replace-71 = миледи
+
+accent-medieval-words-72 = кот
+accent-medieval-words-replace-72 = зверь
+
+accent-medieval-words-73 = фелинид
+accent-medieval-words-replace-73 = чёрт
+
+accent-medieval-words-74 = позже
+accent-medieval-words-replace-74 = спустя малость
+
+accent-medieval-words-75 = унатх
+accent-medieval-words-replace-75 = чешуйчатое создание
+
+accent-medieval-words-76 = моль
+accent-medieval-words-replace-76 = мохнатое создание
+
+accent-medieval-words-77 = вульпа
+accent-medieval-words-replace-77 = мохнатое создание
+
+accent-medieval-words-78 = вульп
+accent-medieval-words-replace-78 = мохнатых созданий
+
+accent-medieval-words-79 = потом
+accent-medieval-words-replace-79 = чуть погодя
+
+accent-medieval-words-80 = скоро
+accent-medieval-words-replace-80 = в ближайшее время
+
+accent-medieval-words-81 = правда
+accent-medieval-words-replace-81 = истинна
+
+accent-medieval-words-82 = далеко
+accent-medieval-words-replace-82 = далече
+
+accent-medieval-words-83 = существование
+accent-medieval-words-replace-83 = бытие
+
+accent-medieval-words-84 = блять
+accent-medieval-words-replace-84 = о мой лорд
+
+accent-medieval-words-85 = бля
+accent-medieval-words-replace-85 = о мой лорд
+
+accent-medieval-words-86 = тут
+accent-medieval-words-replace-86 = при сем месте
+
+accent-medieval-words-87 = of
+accent-medieval-words-replace-87 = o'
+
+accent-medieval-words-88 = пиздец
+accent-medieval-words-replace-88 = пагубно
+
+accent-medieval-words-89 = эти
+accent-medieval-words-replace-89 = сие
+
+accent-medieval-words-90 = почему
+accent-medieval-words-replace-90 = отчего ж так
+
+accent-medieval-words-91 = база
+accent-medieval-words-replace-91 = истинна
+
+accent-medieval-words-92 = грузчик
+accent-medieval-words-replace-92 = посыльный
+
+accent-medieval-words-93 = снабжение
+accent-medieval-words-replace-93 = гильдия посыльных
+
+accent-medieval-words-94 = км
+accent-medieval-words-replace-94 = Мастер гильдии
+
+accent-medieval-words-95 = квартирмейстер
+accent-medieval-words-replace-95 = Мастер гильдии
+
+accent-medieval-words-96 = моли
+accent-medieval-words-replace-96 = мохнатки
+
+accent-medieval-words-97 = торговый пост
+accent-medieval-words-replace-97 = рынок
+
+accent-medieval-words-98 = отдел сб
+accent-medieval-words-replace-98 = корпус стражей
+
+accent-medieval-words-99 = офицер
+accent-medieval-words-replace-99 = страж
+
+accent-medieval-words-100 = сб
+accent-medieval-words-replace-100 = страж
+
+accent-medieval-words-101 = сб отдел
+accent-medieval-words-replace-101 = корпус стражей
+
+accent-medieval-words-102 = щиткур
+accent-medieval-words-replace-102 = шут
+
+accent-medieval-words-103 = бригмедик
+accent-medieval-words-replace-103 = полевой лекарь
+
+accent-medieval-words-104 = пермабриг
+accent-medieval-words-replace-104 = темница
+
+accent-medieval-words-105 = перму
+accent-medieval-words-replace-105 = темницу
+
+accent-medieval-words-106 = камера
+accent-medieval-words-replace-106 = клетка
+
+accent-medieval-words-107 = перма
+accent-medieval-words-replace-107 = темница
+
+accent-medieval-words-108 = паук
+accent-medieval-words-replace-108 = многолапая тварь
+
+accent-medieval-words-109 = синдикат
+accent-medieval-words-replace-109 = варвар
+
+accent-medieval-words-110 = синди
+accent-medieval-words-replace-110 = варварский
+
+accent-medieval-words-111 = предатель
+accent-medieval-words-replace-111 = изменник
+
+accent-medieval-words-112 = нюка
+accent-medieval-words-replace-112 = предвестник разрушений
+
+accent-medieval-words-113 = нюкеры
+accent-medieval-words-replace-113 = предвестники разрушений
+
+accent-medieval-words-114 = admeme
+accent-medieval-words-replace-114 = deus ex machina
+
+accent-medieval-words-115 = adminbus
+accent-medieval-words-replace-115 = deus ex machina
+
+accent-medieval-words-116 = sci
+accent-medieval-words-replace-116 = alchemists
+
+accent-medieval-words-117 = нр
+accent-medieval-words-replace-117 = Главный Алхимик
+
+accent-medieval-words-118 = научный руководитель
+accent-medieval-words-replace-118 = Главный Алхимик
+
+accent-medieval-words-119 = отдел
+accent-medieval-words-replace-119 = палата
+
+accent-medieval-words-120 = ученый
+accent-medieval-words-replace-120 = алхимик
+
+accent-medieval-words-121 = бар
+accent-medieval-words-replace-121 = паб
+
+accent-medieval-words-122 = бармен
+accent-medieval-words-replace-122 = слуга паба
+
+accent-medieval-words-123 = алкоголь
+accent-medieval-words-replace-123 = спирт
+
+accent-medieval-words-124 = пиво
+accent-medieval-words-replace-124 = эль
+
+accent-medieval-words-126 = гп
+accent-medieval-words-replace-126 = балагур
+
+accent-medieval-words-127 = глава персонала
+accent-medieval-words-replace-127 = балагур
+
+accent-medieval-words-128 = осщ
+accent-medieval-words-replace-128 = Королевская Стража
+
+accent-medieval-words-129 = синий щит
+accent-medieval-words-replace-129 = Королевская Стража
+
+accent-medieval-words-130 = извини
+accent-medieval-words-replace-130 = пардон
+
+accent-medieval-words-131 = прости
+accent-medieval-words-replace-131 = пардон
+
+accent-medieval-words-132 = лон
+accent-medieval-words-replace-132 = одинокий варвар
+
+accent-medieval-words-133 = лон оп
+accent-medieval-words-replace-133 = одинокий варвар
+
+accent-medieval-words-134 = парень
+accent-medieval-words-replace-134 = лорд
+
+accent-medieval-words-135 = парни
+accent-medieval-words-replace-135 = лорды
+
+accent-medieval-words-136 = мужик
+accent-medieval-words-replace-136 = господин
+
+accent-medieval-words-137 = ребята
+accent-medieval-words-replace-137 = господа
+
+accent-medieval-words-138 = блоб
+accent-medieval-words-replace-138 = мерзость
+
+accent-medieval-words-139 = генокрад
+accent-medieval-words-replace-139 = мерзость
+
+accent-medieval-words-140 = cling
+accent-medieval-words-replace-140 = abomination
+
+accent-medieval-words-141 = шаттл
+accent-medieval-words-replace-141 = карета
+
+accent-medieval-words-142 = цена
+accent-medieval-words-replace-142 = стоимость
+
+accent-medieval-words-143 = эвак
+accent-medieval-words-replace-143 = спасительная карета
+
+accent-medieval-words-144 = in the
+accent-medieval-words-replace-144 = i' the
+
+accent-medieval-words-145 = клоуны
+accent-medieval-words-replace-145 = шуты
+
+accent-medieval-words-146 = клоун
+accent-medieval-words-replace-146 = шут
+
+accent-medieval-words-147 = музыкант
+accent-medieval-words-replace-147 = бард
+
+accent-medieval-words-148 = медбей
+accent-medieval-words-replace-148 = цирюльня
+
+accent-medieval-words-149 = мед
+accent-medieval-words-replace-149 = цирюльня
+
+accent-medieval-words-150 = в мед
+accent-medieval-words-replace-150 = в цирюльню
+
+accent-medieval-words-151 = врач
+accent-medieval-words-replace-151 = чумной доктор
+
+accent-medieval-words-152 = парамед
+accent-medieval-words-replace-152 = путешествующий цирюльник
+
+accent-medieval-words-153 = парамедик
+accent-medieval-words-replace-153 = путешествующий цирюльник
+
+accent-medieval-words-154 = парамедики
+accent-medieval-words-replace-154 = путешествующие цирюльники
+
+accent-medieval-words-155 = гв
+accent-medieval-words-replace-155 = Смотритель Цирюльни
+
+accent-medieval-words-156 = главный врач
+accent-medieval-words-replace-156 = Смотритель Цирюльни
+
+accent-medieval-words-157 = химик
+accent-medieval-words-replace-157 = зельевар
+
+accent-medieval-words-158 = химики
+accent-medieval-words-replace-158 = зельевары
+
+accent-medieval-words-159 = журналист
+accent-medieval-words-replace-159 = глашатай
+
+accent-medieval-words-160 = инженер
+accent-medieval-words-replace-160 = чародей
+
+accent-medieval-words-161 = инженерный отдел
+accent-medieval-words-replace-161 = башня чародеев
+
+accent-medieval-words-162 = инженеры
+accent-medieval-words-replace-162 = чародеи
+
+accent-medieval-words-163 = си
+accent-medieval-words-replace-163 = архимаг
+
+accent-medieval-words-164 = старший инженер
+accent-medieval-words-replace-164 = архимаг
+
+accent-medieval-words-165 = атмосферный техник
+accent-medieval-words-replace-165 = ведьма
+
+accent-medieval-words-166 = атмосы
+accent-medieval-words-replace-166 = ведьмы
+
+accent-medieval-words-167 = отделы
+accent-medieval-words-replace-167 = палаты
+
+accent-medieval-words-168 = еретик
+accent-medieval-words-replace-168 = богохульник
+
+accent-medieval-words-169 = еретики
+accent-medieval-words-replace-169 = богохульники
+
+accent-medieval-words-170 = революционеры
+accent-medieval-words-replace-170 = узурпаторы
+
+accent-medieval-words-171 = рева
+accent-medieval-words-replace-171 = узурпаторы
+
+accent-medieval-words-172 = революция
+accent-medieval-words-replace-172 = заговор
+
+accent-medieval-words-173 = глава революции
+accent-medieval-words-replace-173 = крамольник
+
+accent-medieval-words-174 = глава ревы
+accent-medieval-words-replace-174 = крамольник
+
+accent-medieval-words-175 = гр
+accent-medieval-words-replace-175 = крамольник
+
+accent-medieval-words-176 = зомби
+accent-medieval-words-replace-176 = ходячие мертвецы
+
+accent-medieval-words-177 = зомба
+accent-medieval-words-replace-177 = ходячий мертвец
+
+accent-medieval-words-178 = зомбак
+accent-medieval-words-replace-178 = ходячий мертвец
+
+accent-medieval-words-179 = зомбаки
+accent-medieval-words-replace-179 = ходячие мертвецы
+
+accent-medieval-words-180 = круто
+accent-medieval-words-replace-180 = знатно
+
+accent-medieval-words-181 = повар
+accent-medieval-words-replace-181 = кухарка
+
+accent-medieval-words-182 = повара
+accent-medieval-words-replace-182 = кухарки
+
+accent-medieval-words-183 = см
+accent-medieval-words-replace-183 = светящийся артефакт архимагов
+
+accent-medieval-words-184 = суперматерия
+accent-medieval-words-replace-184 = светящийся артефакт архимагов
+
+accent-medieval-words-185 = суперматерию
+accent-medieval-words-replace-185 = светящийся артефакт архимагов
+
+accent-medieval-words-186 = сингулярность
+accent-medieval-words-replace-186 = немыслемая сфера архимагов
+
+accent-medieval-words-187 = сингу
+accent-medieval-words-replace-187 = немыслемую сферу архимагов
+
+accent-medieval-words-188 = тесла
+accent-medieval-words-replace-188 = светоточащий шар архимагов
+
+accent-medieval-words-189 = теслу
+accent-medieval-words-replace-189 = светоточащий шар архимагов
+
+accent-medieval-words-190 = тесле
+accent-medieval-words-replace-190 = светоточащему шару архимагов
+
+accent-medieval-words-191 = ball
+accent-medieval-words-replace-191 = boll
+
+accent-medieval-words-192 = теслалуз
+accent-medieval-words-replace-192 = сбежавшый светоточащий шар архимагов
+
+accent-medieval-words-193 = сингалуз
+accent-medieval-words-replace-193 = сбежавшая немыслемая сфера архимагов
+
+accent-medieval-words-194 = священник
+accent-medieval-words-replace-194 = батюшка
+
+accent-medieval-words-195 = капеллан
+accent-medieval-words-replace-195 = батюшка
+
+accent-medieval-words-196 = священника
+accent-medieval-words-replace-196 = батюшку
+
+accent-medieval-words-197 = почта
+accent-medieval-words-replace-197 = доставка
+
+accent-medieval-words-198 = почту
+accent-medieval-words-replace-198 = доставку
+
+accent-medieval-words-199 = почтальон
+accent-medieval-words-replace-199 = посыльный
+
+accent-medieval-words-200 = кредиты
+accent-medieval-words-replace-200 = монеты
+
+accent-medieval-words-201 = кредитов
+accent-medieval-words-replace-201 = монет
+
+accent-medieval-words-202 = деньги
+accent-medieval-words-replace-202 = монеты
+
+accent-medieval-words-203 = денег
+accent-medieval-words-replace-203 = монет
+
+accent-medieval-words-204 = бачей
+accent-medieval-words-replace-204 = грощiй
+
+accent-medieval-words-205 = преступник
+accent-medieval-words-replace-205 = разыскиваемый
+
+accent-medieval-words-206 = говно
+accent-medieval-words-replace-206 = помёт
+
+accent-medieval-words-207 = дерьмово
+accent-medieval-words-replace-207 = паршиво
+
+accent-medieval-words-208 = преступники
+accent-medieval-words-replace-208 = разыскиваемые
+
+accent-medieval-words-209 = скибиди
+accent-medieval-words-replace-209 = я конченный
+
+accent-medieval-words-210 = ядерщик
+accent-medieval-words-replace-210 = предвестник разрушений
+
+accent-medieval-words-211 = ядерщики
+accent-medieval-words-replace-211 = предвестники разрушений
+
+accent-medieval-words-212 = гнилой
+accent-medieval-words-replace-212 = смрадный
+
+accent-medieval-words-213 = сгнил
+accent-medieval-words-replace-213 = смердит
+
+accent-medieval-words-214 = сгнивший
+accent-medieval-words-replace-214 = смердящий
+
+accent-medieval-words-215 = занятый
+accent-medieval-words-replace-215 = важный
+
+accent-medieval-words-216 = дуэль
+accent-medieval-words-replace-216 = погром
+
+accent-medieval-words-217 = драка
+accent-medieval-words-replace-217 = погром
+
+accent-medieval-words-218 = сдох
+accent-medieval-words-replace-218 = повержен
+
+accent-medieval-words-219 = сдохли
+accent-medieval-words-replace-219 = повержены
+
+accent-medieval-words-220 = стреляй
+accent-medieval-words-replace-220 = открыть огонь
+
+accent-medieval-words-221 = стрельба
+accent-medieval-words-replace-221 = открыли огонь
+
+accent-medieval-words-222 = стреляли
+accent-medieval-words-replace-222 = открывали огонь
+
+accent-medieval-words-223 = танцевать
+accent-medieval-words-replace-223 = двигать телом
+
+accent-medieval-words-224 = танцуй
+accent-medieval-words-replace-224 = двигайте телом
+
+accent-medieval-words-225 = пассажир
+accent-medieval-words-replace-225 = крестьянин
+
+accent-medieval-words-226 = пассажиры
+accent-medieval-words-replace-226 = крестьяне
+
+accent-medieval-words-227 = ассистуха
+accent-medieval-words-replace-227 = крестьянин
+
+accent-medieval-words-228 = ассистенты
+accent-medieval-words-replace-228 = крестьяне
+
+accent-medieval-words-229 = борг
+accent-medieval-words-replace-229 = чудо-юдо
+
+accent-medieval-words-230 = борги
+accent-medieval-words-replace-230 = чудо-юды
+
+accent-medieval-words-231 = дормы
+accent-medieval-words-replace-231 = казармы
+
+accent-medieval-words-232 = дормах
+accent-medieval-words-replace-232 = казармах
+
+accent-medieval-words-233 = ринг
+accent-medieval-words-replace-233 = колизей
+
+accent-medieval-words-234 = ринге
+accent-medieval-words-replace-234 = колизее
+
+accent-medieval-words-235 = дорматории
+accent-medieval-words-replace-235 = казармы
+
+accent-medieval-prefix-236 = дистра
+accent-medieval-words-replace-236 = воздухокачка
+
+accent-medieval-prefix-237 = дистру
+accent-medieval-words-replace-237 = воздухокачку
+
+accent-medieval-prefix-238 = знаешь
+accent-medieval-words-replace-238 = ведомо ли

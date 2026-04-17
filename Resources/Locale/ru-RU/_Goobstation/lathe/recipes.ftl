@@ -1,0 +1,20 @@
+lathe-recipe-BaseTranslatorImplanter-name = имплантер перевода
+
+lathe-recipe-BasicGalaticCommonTranslatorImplanter-subname = Межгалактический
+lathe-recipe-AdvancedGalaticCommonTranslatorImplanter-subname = Продвинутый Межгалактический
+lathe-recipe-BubblishTranslatorImplanter-subname = Булькяз
+lathe-recipe-NekomimeticTranslatorImplanter-subname = Неко
+lathe-recipe-DraconicTranslatorImplanter-subname = Синта'Унати
+lathe-recipe-CanilunztTranslatorImplanter-subname = Канилунцт
+lathe-recipe-SolCommonTranslatorImplanter-subname = Общесолнечный
+lathe-recipe-ChittinTranslatorImplanter-subname = Читин
+lathe-recipe-RootSpeakTranslatorImplanter-subname = Корнеречь
+lathe-recipe-MofficTranslatorImplanter-subname = Моффик
+lathe-recipe-ValyrianStandardTranslatorImplanter-subname = Валирийский
+lathe-recipe-SiikMaasTranslatorImplanter-subname = Сиик'маас
+lathe-recipe-MarishTranslatorImplanter-subname = Мариш
+lathe-recipe-SchechiTranslatorImplanter-subname = Шшечи
+lathe-recipe-NewKinPidginTranslatorImplanter-subname = Ка'ракк
+lathe-recipe-ChevalTranslatorImplanter-subname = Парнокопытный
+lathe-recipe-YowKriolTranslatorImplanter-subname = Йовикрол
+lathe-recipe-SignTranslatorImplanter-subname = Жесты

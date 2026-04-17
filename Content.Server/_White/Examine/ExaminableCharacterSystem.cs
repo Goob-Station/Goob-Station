@@ -154,7 +154,7 @@ public sealed class ExaminableCharacterSystem : EntitySystem
 
             if (!args.IsSecondaryInfo)
             {
-                TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+                TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo; // AltHub Space
                 var item = Loc.GetString("examine-present-tex", ("name", textInfo.ToTitleCase(metaData.EntityName)), ("id", GetNetEntity(uid).Id), ("size", 14));
                 message.AddText($"[color=DarkGray][font size=11]{item}[/font][/color]");
                 message.PushNewline();

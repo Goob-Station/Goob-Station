@@ -1,0 +1,103 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+marking-MobIPCHeadDefault = Монитор
+# Goob - Added 'Masculine' and 'Feminine' to differentiate the options
+marking-MobIPCChestDefault = Шасси, Мужское
+marking-MobIPCChestFemaleDefault = Шасси, Женское
+marking-MobIPCLArmDefault = Рука
+marking-MobIPCLHandDefault = Кисть
+marking-MobIPCLLegDefault = Нога
+marking-MobIPCLFootDefault = Стопа
+marking-MobIPCRArmDefault = Рука
+marking-MobIPCRHandDefault = Кисть
+marking-MobIPCRLegDefault = Нога
+marking-MobIPCRFootDefault = Стопа
+
+marking-CyberLimbsMarkingBishopHead = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopHeadAlt = Bishop Cybernetics альт.
+marking-CyberLimbsMarkingBishopHeadAlt1 = Bishop Cybernetics доп. альт.
+marking-CyberLimbsMarkingBishopChest = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopLArm = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopLHand = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopLLeg = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopLFoot = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopRArm = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopRHand = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopRLeg = Bishop Cybernetics
+marking-CyberLimbsMarkingBishopRFoot = Bishop Cybernetics
+
+marking-CyberLimbsMarkingHesphiastosHead = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosHeadAlt = Hesphiastos Industries альт.
+marking-CyberLimbsMarkingHesphiastosChest = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosLArm = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosLHand = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosLLeg = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosLFoot = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosRArm = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosRHand = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosRLeg = Hesphiastos Industries
+marking-CyberLimbsMarkingHesphiastosRFoot = Hesphiastos Industries
+
+marking-CyberLimbsMarkingWardtakahashiHead = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiHeadAlt = Ward-Takahashi альт.
+marking-CyberLimbsMarkingWardtakahashiHeadAlt1 = Ward-Takahashi доп. альт.
+marking-CyberLimbsMarkingWardtakahashiChest = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiLArm = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiLHand = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiLLeg = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiLFoot = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiRArm = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiRHand = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiRLeg = Ward-Takahashi
+marking-CyberLimbsMarkingWardtakahashiRFoot = Ward-Takahashi
+
+marking-CyberLimbsMarkingXionHead = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionHeadAlt = Xion Manufacturing Group альт.
+marking-CyberLimbsMarkingXionChest = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionLArm = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionLHand = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionLLeg = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionLFoot = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionRArm = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionRHand = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionRLeg = Xion Manufacturing Group
+marking-CyberLimbsMarkingXionRFoot = Xion Manufacturing Group
+
+marking-CyberLimbsMarkingShellguardHead = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardHeadAlt = Shellguard Munitions альт.
+marking-CyberLimbsMarkingShellguardChest = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardLArm = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardLHand = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardLLeg = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardLFoot = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardRArm = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardRHand = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardRLeg = Shellguard Munitions
+marking-CyberLimbsMarkingShellguardRFoot = Shellguard Munitions
+
+marking-CyberLimbsMarkingMorpheusHead = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusHeadAlt = Morpheus Cyberkinetics альт.
+marking-CyberLimbsMarkingMorpheusChest = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusLArm = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusLHand = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusLLeg = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusLFoot = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusRArm = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusRHand = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusRLeg = Morpheus Cyberkinetics
+marking-CyberLimbsMarkingMorpheusRFoot = Morpheus Cyberkinetics
+
+marking-CyberLimbsMarkingZenghuHead = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuChest = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuRHand = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuRArm = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuLHand = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuLArm = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuRLeg = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuRFoot = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuLLeg = Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuLFoot = Zenghu Pharmaceuticals

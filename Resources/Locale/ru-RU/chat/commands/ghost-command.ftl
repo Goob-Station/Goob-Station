@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Schrödinger <132720404+Schrodinger71@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+ghost-command-description = Завязать с жизнью и стать призраком.
+ghost-command-help-text =
+    Команда ghost превращает вас в призрака, а персонаж, которым вы играли, навсегда становится кататоником.
+    Обратите внимание, что это действие необратимо, и вы не сможете вернуться в тело своего персонажа.
+ghost-command-no-session = Вы не в сеансе, вы не можете использовать ghost.
+ghost-command-denied = Вы не можете стать призраком в данный момент.
+ghost-command-error-lobby = Вы не можете стать призраком в данный момент. Вы не в игре!
