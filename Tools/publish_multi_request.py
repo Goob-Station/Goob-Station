@@ -12,7 +12,7 @@ import subprocess
 from typing import Iterable
 
 PUBLISH_TOKEN = os.environ["PUBLISH_TOKEN"]
-VERSION = os.environ["GITHUB_SHA"]
+VERSION = f"{os.environ['GITHUB_SHA']}-{os.environ['FORK_ID']}"
 
 RELEASE_DIR = "release"
 
