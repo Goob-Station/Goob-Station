@@ -317,6 +317,7 @@ def process_file(file_path, pr_license_override=None, pr_base_sha=None, pr_head_
 
 def main():
     parser = argparse.ArgumentParser(description="Update REUSE headers for PR files")
+    parser.add_argument("--repo-path", default=".", help="Path to the repository checkout to update")
     parser.add_argument("--files-added", nargs="*", default=[], help="List of added files")
     parser.add_argument("--files-modified", nargs="*", default=[], help="List of modified files")
     parser.add_argument("--pr-license", help="License override from PR (optional)")
@@ -324,6 +325,9 @@ def main():
     parser.add_argument("--pr-head-sha", help="Head SHA of the PR (unused)")
 
     args = parser.parse_args()
+    global REPO_PATH
+    REPO_PATH = os.path.abspath(args.repo_path)
+    print(f"Using repository path: {REPO_PATH}")
 
     pr_license_override = None
     if args.pr_license:
@@ -356,4 +360,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

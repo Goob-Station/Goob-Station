@@ -38,6 +38,11 @@ jobs:
   build:
     runs-on: self-hosted
     environment: ${{ inputs.target }}
+    # AltHub Space -> start
+    env:
+      ROBUST_CDN_URL: ${{ vars.ROBUST_CDN_URL }}
+      FORK_ID: ${{ vars.FORK_ID }}
+    # AltHub Space -> end
 
     steps:
     - name: Validate target/branch combination
@@ -50,6 +55,18 @@ jobs:
           echo "Production publish is allowed only from master"
           exit 1
         fi
+
+        # AltHub Space -> start
+        if [[ -z "${ROBUST_CDN_URL}" ]]; then
+          echo "ROBUST_CDN_URL environment variable is not set for environment '${{ inputs.target }}'"
+          exit 1
+        fi
+
+        if [[ -z "${FORK_ID}" ]]; then
+          echo "FORK_ID environment variable is not set for environment '${{ inputs.target }}'"
+          exit 1
+        fi
+        # AltHub Space -> end
 
     - name: Fail if we are attempting to run on the master branch
       if: ${{GITHUB.REF_NAME == 'master' && github.repository == 'space-wizards/space-station-14'}}

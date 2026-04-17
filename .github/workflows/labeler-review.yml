@@ -5,28 +5,36 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-#name: "Labels: Approved"
-#
-#on:
-#  pull_request_review:
-#    types: [submitted]
-#
-#jobs:
-#  add_label:
-#    # Change the repository name after you've made sure the team name is correct for your fork!
-#    if: ${{ (github.repository == 'Goob-Station/Goob-Station') && (github.event.review.state == 'APPROVED') }}
-#    permissions:
-#      contents: read
-#      pull-requests: write
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: tspascoal/get-user-teams-membership@v3
-#      id: checkUserMember
-#      with:
-#        username: ${{ github.actor }}
-#        team: "maintainers"
-#        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-#    - if: ${{ steps.checkUserMember.outputs.isTeamMember == 'true' }}
-#      uses: actions-ecosystem/action-add-labels@v1
-#      with:
-#        labels: "S: Approved"
+name: "Labels: Approved"
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  update_review_labels:
+    # pull_request_review on fork PRs gets a read-only token, so label writes are
+    # only reliable for branches opened from this repository.
+    if: |
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      contains(fromJson('["COLLABORATOR","MEMBER","OWNER"]'), github.event.review.author_association)
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+    - if: github.event.review.state == 'approved'
+      uses: actions-ecosystem/action-add-labels@v1
+      with:
+        labels: "S: Approved"
+    - if: github.event.review.state == 'approved'
+      uses: actions-ecosystem/action-remove-labels@v1
+      with:
+        labels: "S: Needs Review, S: Awaiting Changes"
+    - if: github.event.review.state == 'changes_requested'
+      uses: actions-ecosystem/action-add-labels@v1
+      with:
+        labels: "S: Awaiting Changes"
+    - if: github.event.review.state == 'changes_requested'
+      uses: actions-ecosystem/action-remove-labels@v1
+      with:
+        labels: "S: Needs Review, S: Approved"

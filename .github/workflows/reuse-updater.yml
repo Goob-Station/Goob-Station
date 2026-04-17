@@ -17,14 +17,26 @@ on:
 jobs:
   update_headers:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: read
     steps:
-      - name: Checkout Code
+      - name: Checkout trusted base repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base-repo
+          persist-credentials: false
+
+      - name: Checkout pull request head
         uses: actions/checkout@v4
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-          token: ${{ secrets.BOT_TOKEN }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr-repo
+          token: ${{ github.token }}
+          persist-credentials: false
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -35,7 +47,7 @@ jobs:
         id: changed_files
         env:
            PR_BODY: ${{ github.event.pull_request.body }}
-           GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+           GH_TOKEN: ${{ github.token }}
            GH_REPO: ${{ github.repository }}
            PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
@@ -70,47 +82,153 @@ jobs:
           echo "Added Files: $ADDED_FILES"
           echo "Modified Files: $MODIFIED_FILES"
 
-          echo "ADDED_FILES_LIST<<EOF" >> $GITHUB_ENV
-          echo "$ADDED_FILES" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-          echo "MODIFIED_FILES_LIST<<EOF" >> $GITHUB_ENV
-          echo "$MODIFIED_FILES" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
           echo "Checking PR body for license..."
           if grep -q "LICENSE: MIT" <<< "$PR_BODY"; then
-            echo "PR_LICENSE=mit" >> $GITHUB_ENV
+            PR_LICENSE=mit
             echo "License specified in PR: MIT"
           elif grep -q "LICENSE: AGPL" <<< "$PR_BODY"; then
-            echo "PR_LICENSE=agpl" >> $GITHUB_ENV
+            PR_LICENSE=agpl
             echo "License specified in PR: AGPL"
           elif grep -q "LICENSE: MPL" <<< "$PR_BODY"; then
-            echo "PR_LICENSE=mpl" >> $GITHUB_ENV
+            PR_LICENSE=mpl
             echo "License specified in PR: MPL"
           else
-            echo "PR_LICENSE=agpl" >> $GITHUB_ENV
+            PR_LICENSE=agpl
             echo "No license specified in PR, using default: AGPL"
           fi
 
+          echo "added_files=$ADDED_FILES" >> "$GITHUB_OUTPUT"
+          echo "modified_files=$MODIFIED_FILES" >> "$GITHUB_OUTPUT"
+          echo "pr_license=$PR_LICENSE" >> "$GITHUB_OUTPUT"
+
       - name: Run REUSE Header Update Script
         run: |
-          python Tools/update_pr_reuse_headers.py \
-            --files-added ${{ env.ADDED_FILES_LIST }} \
-            --files-modified ${{ env.MODIFIED_FILES_LIST }} \
-            --pr-license ${{ env.PR_LICENSE }} \
+          python "${{ github.workspace }}/base-repo/Tools/update_pr_reuse_headers.py" \
+            --repo-path "${{ github.workspace }}/pr-repo" \
+            --files-added ${{ steps.changed_files.outputs.added_files }} \
+            --files-modified ${{ steps.changed_files.outputs.modified_files }} \
+            --pr-license ${{ steps.changed_files.outputs.pr_license }} \
             --pr-base-sha ${{ github.event.pull_request.base.sha }} \
             --pr-head-sha ${{ github.event.pull_request.head.sha }}
-        working-directory: ${{ github.workspace }}
+      - name: Build REUSE suggestion report
+        id: report
+        shell: bash
+        working-directory: ${{ github.workspace }}/pr-repo
+        run: |
+          set -euo pipefail
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+          if git diff --quiet --exit-code; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            {
+              echo "## REUSE header suggestions"
+              echo
+              echo "No REUSE header changes required."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          git diff --name-only --diff-filter=ACMRT > "${{ github.workspace }}/reuse-header-files.txt"
+          git diff --binary --unified=3 > "${{ github.workspace }}/reuse-headers.patch"
+
+          {
+            echo "<!-- reuse-header-suggestions -->"
+            echo "## REUSE header suggestions"
+            echo
+            echo "The workflow found missing REUSE/SPDX headers in these files:"
+            sed 's/^/- `/' "${{ github.workspace }}/reuse-header-files.txt" | sed 's/$/`/'
+            echo
+            echo "<details><summary>Patch preview</summary>"
+            echo
+            echo '```diff'
+            sed -n '1,120p' "${{ github.workspace }}/reuse-headers.patch"
+            patch_lines=$(wc -l < "${{ github.workspace }}/reuse-headers.patch")
+            if [ "$patch_lines" -gt 120 ]; then
+              echo '...'
+              echo
+              echo "_Patch preview truncated. Download the workflow artifact for the full patch._"
+            fi
+            echo '```'
+            echo
+            echo "</details>"
+          } > "${{ github.workspace }}/reuse-comment.md"
+
+          cat "${{ github.workspace }}/reuse-comment.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload REUSE patch artifact
+        if: steps.report.outputs.has_changes == 'true'
+        uses: actions/upload-artifact@v4
         with:
-          commit_message: "chore: Automatically update REUSE headers"
-          commit_user_name: ${{ vars.CHANGELOG_USER }}
-          commit_user_email: ${{ vars.CHANGELOG_EMAIL }}
-          commit_author: ${{ vars.CHANGELOG_USER }} <${{ vars.CHANGELOG_EMAIL }}>
-          skip_dirty_check: false
-          skip_fetch: true
+          name: reuse-header-suggestions-pr-${{ github.event.pull_request.number }}
+          path: |
+            ${{ github.workspace }}/reuse-headers.patch
+            ${{ github.workspace }}/reuse-header-files.txt
+          if-no-files-found: error
 
-    
+      - name: Update REUSE suggestion comment
+        if: steps.report.outputs.has_changes == 'true'
+        uses: actions/github-script@v7
+        env:
+          COMMENT_PATH: ${{ github.workspace }}/reuse-comment.md
+        with:
+          script: |
+            const fs = require("fs");
+            const marker = "<!-- reuse-header-suggestions -->";
+            const body = fs.readFileSync(process.env.COMMENT_PATH, "utf8");
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number,
+              per_page: 100,
+            });
+
+            const existing = comments.find(comment =>
+              comment.user?.type === "Bot" && comment.body?.includes(marker)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }
+
+      - name: Remove stale REUSE suggestion comment
+        if: steps.report.outputs.has_changes != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = "<!-- reuse-header-suggestions -->";
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number,
+              per_page: 100,
+            });
+
+            const existing = comments.find(comment =>
+              comment.user?.type === "Bot" && comment.body?.includes(marker)
+            );
+
+            if (existing) {
+              await github.rest.issues.deleteComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+              });
+            }

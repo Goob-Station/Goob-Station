@@ -11,8 +11,9 @@ on:
     types: [closed]
 
 env:
-  GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-  CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
+  GITHUB_TOKEN: ${{ github.token }}
+  CHANGELOG_BRANCH: ${{ vars.CHANGELOG_BRANCH || 'master' }}
+  CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR || 'Resources/Changelog/GoobChangelog.yml' }}
   PR_NUMBER: ${{ github.event.number }}
 
 jobs:
@@ -21,12 +22,13 @@ jobs:
     if: github.event.pull_request.merged == true
     permissions:
       contents: write
+      pull-requests: read
     steps:
       - name: Checkout Master
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.BOT_TOKEN }}
-          ref: "${{ vars.CHANGELOG_BRANCH }}"
+          token: ${{ github.token }}
+          ref: "${{ env.CHANGELOG_BRANCH }}"
 
       - name: Setup Git
         run: |
@@ -55,7 +57,7 @@ jobs:
 
       - name: Commit Changelog
         run: |
-          git add *.yml
+          git add "${{ env.CHANGELOG_DIR }}"
           git commit -m "${{ vars.CHANGELOG_MESSAGE }} (#${{ env.PR_NUMBER }})"
           git push
         shell: bash
