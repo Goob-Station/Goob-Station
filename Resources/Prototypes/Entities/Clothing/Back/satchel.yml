@@ -184,8 +184,7 @@
   description: A robust satchel for stealing cargo's loot.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Satchels/cargo.rsi
-
+      sprite: _Goobstation/Clothing/Back/Satchels/cargo.rsi
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelSalvage
@@ -213,7 +212,7 @@
   - type: Storage
     maxItemSize: Huge
     grid:
-    - 0,0,19,9
+    - 0,0,14,5 #Goob
 
 - type: entity
   parent: ClothingBackpackSatchelHolding
@@ -225,3 +224,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0
   - type: HideContrabandContent # Goobstation Contraband detector
+  - type: Storage #Goob, nerf to bag of holding storage size
+    maxItemSize: Huge
+    grid:
+    - 0,0,19,9

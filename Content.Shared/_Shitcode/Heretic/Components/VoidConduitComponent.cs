@@ -7,11 +7,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Shitcode.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class VoidConduitComponent : Component
 {
+    [DataField, AutoNetworkedField]
+    public int Range;
+
     [DataField]
-    public int Range = 8;
+    public bool Active;
+
+    [DataField]
+    public int MaxRange = 8;
 
     [DataField]
     public Vector2 MinMaxWindowDamageMultiplier = new(1f, 2f);
@@ -24,15 +30,17 @@ public sealed partial class VoidConduitComponent : Component
     {
         DamageDict =
         {
-            {"Structural", 30},
+            { "Structural", 50 },
         },
     };
 
     [DataField]
-    public SoundSpecifier WindowDamageSound = new SoundCollectionSpecifier("GlassSmack");
+    public SoundSpecifier WindowDamageSound =
+        new SoundCollectionSpecifier("GlassSmack", AudioParams.Default.WithVolume(-4f));
 
     [DataField]
-    public SoundSpecifier AirlockDamageSound = new SoundPathSpecifier("/Audio/Weapons/smash.ogg");
+    public SoundSpecifier AirlockDamageSound =
+        new SoundPathSpecifier("/Audio/Weapons/smash.ogg", AudioParams.Default.WithVolume(-4f));
 
     [DataField]
     public SpriteSpecifier OverlaySprite =

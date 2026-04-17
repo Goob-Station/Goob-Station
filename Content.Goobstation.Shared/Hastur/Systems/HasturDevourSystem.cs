@@ -36,7 +36,7 @@ public sealed class HasturDevourSystem : EntitySystem
     private void OnTryDevour(Entity<HasturDevourComponent> ent, ref HasturDevourEvent args)
     {
         // Stun the target first
-        _stun.TryStun(args.Target, ent.Comp.StunDuration, false);
+        _stun.TryUpdateStunDuration(args.Target, ent.Comp.StunDuration);
 
         _popup.PopupPredicted(Loc.GetString("hastur-devour", ("user", ent.Owner), ("target", args.Target)),ent.Owner, args.Target, PopupType.LargeCaution);
 
@@ -67,7 +67,7 @@ public sealed class HasturDevourSystem : EntitySystem
         if (args.Cancelled || args.Handled || args.Target is not { } target)
         {
             _appearance.SetData(ent.Owner, DevourVisuals.Devouring, false); // If cancelled, revert sprite.
-            _stun.TryStun(ent.Owner, ent.Comp.StunDuration, false); // If it gets cancelled, Hastur gets stunned instead.
+            _stun.TryUpdateStunDuration(ent.Owner, ent.Comp.StunDuration); // If it gets cancelled, Hastur gets stunned instead.
             return;
         }
 

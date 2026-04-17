@@ -8,18 +8,14 @@
 
 using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 using Content.Server.NPC.HTN;
-using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Coordinates;
 using Content.Shared.Destructible;
-using Content.Shared.Emag.Components;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -29,6 +25,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Content.Shared.Storage.Components;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
@@ -38,7 +35,6 @@ namespace Content.Goobstation.Server.Xenobiology;
 public sealed partial class XenoVacuumSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -60,7 +56,6 @@ public sealed partial class XenoVacuumSystem : EntitySystem
         SubscribeLocalEvent<XenoVacuumTankComponent, ExaminedEvent>(OnTankExamined);
         SubscribeLocalEvent<XenoVacuumTankComponent, DestructionEventArgs>(OnDestruction);
 
-        SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnGotEmagged);
         SubscribeLocalEvent<XenoVacuumComponent, GotEquippedHandEvent>(OnEquippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, GotUnequippedHandEvent>(OnUnequippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnAfterInteract);
@@ -112,16 +107,6 @@ public sealed partial class XenoVacuumSystem : EntitySystem
         Dirty(tank.Value, tankComp);
     }
 
-    private void OnGotEmagged(Entity<XenoVacuumComponent> ent, ref GotEmaggedEvent args)
-    {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
-        || _emag.CheckFlag(ent, EmagType.Interaction)
-        || HasComp<EmaggedComponent>(ent))
-            return;
-
-        args.Handled = true;
-    }
-
     private void OnAfterInteract(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
     {
         var ud = Comp<UseDelayComponent>(ent);
@@ -146,11 +131,12 @@ public sealed partial class XenoVacuumSystem : EntitySystem
             var popup = Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
             _popup.PopupEntity(popup, ent, args.User);
 
-            if (args.Target is { } thrown) _throw.TryThrow(removedEnt, thrown.ToCoordinates());
-            else _throw.TryThrow(removedEnt, args.ClickLocation);
-
-            _stun.TryKnockdown(removedEnt, TimeSpan.FromSeconds(1), true);
-            _htn.SetHTNEnabled(removedEnt, true, 1f);
+            if (args.Target is { } thrown)
+                _throw.TryThrow(removedEnt, thrown.ToCoordinates());
+            else
+                _throw.TryThrow(removedEnt, args.ClickLocation);
+            _stun.TryUpdateParalyzeDuration(removedEnt, TimeSpan.FromSeconds(2));
+            _htn.SetHTNEnabled(removedEnt, true,2f);
         }
 
         if (ud != null) _useDelay.TryResetDelay((ent, ud), false, ReleaseDelayId);
@@ -205,7 +191,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
         var tankComp = tank.Value.Comp;
 
-        if (!HasComp<EmaggedComponent>(vacuum) && !_whitelist.IsWhitelistPass(vacuum.Comp.EntityWhitelist, target))
+        if (!_whitelist.IsWhitelistPass(vacuum.Comp.EntityWhitelist, target))
         {
             var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);

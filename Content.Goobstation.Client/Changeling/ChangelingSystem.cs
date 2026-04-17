@@ -28,26 +28,7 @@ public sealed class ChangelingSystem : SharedChangelingSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
         SubscribeLocalEvent<ChangelingIdentityComponent, GetStatusIconsEvent>(GetChanglingIcon);
-    }
-
-    private void OnUpdateAlert(EntityUid uid, ChangelingIdentityComponent comp, ref UpdateAlertSpriteEvent args)
-    {
-        var stateNormalized = 0f;
-
-        // hardcoded because uhh umm i don't know. send help.
-        switch (args.Alert.AlertKey.AlertType)
-        {
-            case "ChangelingChemicals":
-                stateNormalized = (int) (comp.Chemicals / comp.MaxChemicals * 18);
-                break;
-
-            default:
-                return;
-        }
-        var sprite = args.SpriteViewEnt.Comp;
-        sprite.LayerSetState(AlertVisualLayers.Base, $"{stateNormalized}");
     }
 
     private void GetChanglingIcon(Entity<ChangelingIdentityComponent> ent, ref GetStatusIconsEvent args)
