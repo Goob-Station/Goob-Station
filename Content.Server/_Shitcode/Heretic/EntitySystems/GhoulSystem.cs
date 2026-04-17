@@ -65,8 +65,6 @@ using Content.Shared.Roles;
 using Content.Shared.Species.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Content.Shared.Polymorph;
-using Content.Server.Polymorph.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -89,7 +87,7 @@ public sealed class GhoulSystem : EntitySystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
 
     public override void Initialize()
     {
@@ -97,29 +95,26 @@ public sealed class GhoulSystem : EntitySystem
 
         SubscribeLocalEvent<GhoulComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<GhoulComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<GhoulComponent, AttackAttemptEvent>(OnTryAttack);
-        SubscribeLocalEvent<GhoulComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
         SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
-        SubscribeLocalEvent<GhoulComponent, PolymorphedEvent>(OnPolymorphed);
 
         SubscribeLocalEvent<GhoulRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
         SubscribeLocalEvent<GhoulWeaponComponent, ExaminedEvent>(OnWeaponExamine);
-    }
 
-    private void OnPolymorphed(Entity<GhoulComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<GhoulComponent>(ent, args.NewEntity);
+        SubscribeLocalEvent<HereticMinionComponent, AttackAttemptEvent>(OnTryAttack);
+        SubscribeLocalEvent<HereticMinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
+    }
 
     private void OnGetBriefing(Entity<GhoulRoleComponent> ent, ref GetBriefingEvent args)
     {
         var uid = args.Mind.Comp.OwnedEntity;
 
-        if (!TryComp(uid, out GhoulComponent? ghoul))
+        if (!TryComp(uid, out HereticMinionComponent? minion))
             return;
 
         var start = Loc.GetString("heretic-ghoul-briefing-start-noname");
-        var master = ghoul.BoundHeretic;
+        var master = minion.BoundHeretic;
 
         if (Exists(master))
         {
@@ -136,10 +131,20 @@ public sealed class GhoulSystem : EntitySystem
         args.PushMarkup(Loc.GetString(ent.Comp.ExamineMessage));
     }
 
-    public void SetBoundHeretic(Entity<GhoulComponent> ent, EntityUid heretic, bool dirty = true)
+    public void SetBoundHeretic(Entity<HereticMinionComponent?> ent, EntityUid heretic, bool dirty = true)
     {
+        if (!_heretic.TryGetHereticComponent(heretic, out var hereticComp, out var mind))
+            return;
+
+        hereticComp.Minions.Add(ent);
+        Dirty(mind, hereticComp);
+
+        if (!Resolve(ent, ref ent.Comp, false))
+            ent.Comp = AddComp<HereticMinionComponent>(ent);
+
         ent.Comp.BoundHeretic = heretic;
         _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, heretic.ToCoordinates());
+
         if (dirty)
             Dirty(ent);
     }
@@ -162,18 +167,21 @@ public sealed class GhoulSystem : EntitySystem
 
         EnsureComp<CollectiveMindComponent>(ent).Channels.Add(HereticAbilitySystem.MansusLinkMind);
 
-        if (Exists(ent.Comp.BoundHeretic))
-            SetBoundHeretic(ent, ent.Comp.BoundHeretic.Value, false);
+        if (TryComp(ent.Owner, out HereticMinionComponent? minion) && minion.BoundHeretic is { } heretic)
+            SetBoundHeretic((ent.Owner, minion), heretic, false);
 
         _faction.ClearFactions(ent.Owner);
-        _faction.AddFaction(ent.Owner, HereticRuleSystem.HereticFactionId);
+        _faction.AddFaction(ent.Owner, HereticSystem.HereticFactionId);
 
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind)
         {
             _mind.UnVisit(mindId, mind);
-            SendBriefing(ent);
-            _role.MindAddRole(mindId, GhoulRole, mind);
+            if (!_role.MindHasRole<GhoulRoleComponent>(mindId))
+            {
+                SendBriefing(ent.Owner);
+                _role.MindAddRole(mindId, GhoulRole, mind);
+            }
         }
         else
         {
@@ -198,7 +206,7 @@ public sealed class GhoulSystem : EntitySystem
             _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth * 0.99f, MobState.Critical, th);
         }
 
-        MakeSentientCommand.MakeSentient(ent, EntityManager);
+        _mind.MakeSentient(ent);
 
         if (!hasMind)
         {
@@ -238,8 +246,11 @@ public sealed class GhoulSystem : EntitySystem
             _storage.Insert(slotEnt.Value, blade, out _, out _, playSound: false);
     }
 
-    private void SendBriefing(Entity<GhoulComponent> ent)
+    private void SendBriefing(Entity<HereticMinionComponent?> ent)
     {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
         var brief = Loc.GetString("heretic-ghoul-greeting-noname");
         var master = ent.Comp.BoundHeretic;
 
@@ -266,14 +277,18 @@ public sealed class GhoulSystem : EntitySystem
         QueueDel(ent.Comp.BoundWeapon.Value);
     }
 
-    private void OnTakeGhostRole(Entity<GhoulComponent> ent, ref TakeGhostRoleEvent args)
+    private void OnTakeGhostRole(Entity<HereticMinionComponent> ent, ref TakeGhostRoleEvent args)
     {
-        SendBriefing(ent);
+        SendBriefing(ent.AsNullable());
     }
 
-    private void OnTryAttack(Entity<GhoulComponent> ent, ref AttackAttemptEvent args)
+    private void OnTryAttack(Entity<HereticMinionComponent> ent, ref AttackAttemptEvent args)
     {
-        if (args.Target != null && args.Target == ent.Comp.BoundHeretic)
+        if (args.Target == null)
+            return;
+
+        if (args.Target == ent.Comp.BoundHeretic || HasComp<ShadowCloakEntityComponent>(args.Target.Value) &&
+            Transform(args.Target.Value).ParentUid == ent.Comp.BoundHeretic)
             args.Cancel();
     }
 

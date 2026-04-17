@@ -7,6 +7,7 @@
 
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
@@ -15,6 +16,7 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 public sealed class ChangelingGunSystem : EntitySystem
 {
     [Dependency] private readonly SharedGunSystem _guns = default!;
+    [Dependency] private readonly SharedInternalResourcesSystem _resource = default!;
 
     public override void Initialize()
     {
@@ -28,7 +30,8 @@ public sealed class ChangelingGunSystem : EntitySystem
 
         var parent = Transform(uid).ParentUid;
 
-        if (!TryComp(parent, out ChangelingIdentityComponent? ling))
+        if (!TryComp<ChangelingChemicalComponent>(parent, out var chemComp)
+            || chemComp.ResourceData == null)
             return;
 
         if (component.FireCost == 0)
@@ -38,8 +41,8 @@ public sealed class ChangelingGunSystem : EntitySystem
             return;
         }
 
-        args.Capacity = (int) (ling.MaxChemicals / component.FireCost);
-        args.Count = (int) (ling.Chemicals / component.FireCost);
+        args.Capacity = (int) (chemComp.ResourceData.MaxAmount / component.FireCost);
+        args.Count = (int) (chemComp.ResourceData.CurrentAmount / component.FireCost);
     }
 
     private void OnChangelingTakeAmmo(Entity<ChangelingChemicalsAmmoProviderComponent> ent, ref TakeAmmoEvent args)
@@ -48,20 +51,19 @@ public sealed class ChangelingGunSystem : EntitySystem
 
         var parent = Transform(uid).ParentUid;
 
-        if (!TryComp(parent, out ChangelingIdentityComponent? ling))
+        if (!TryComp<ChangelingChemicalComponent>(parent, out var chemComp)
+            || chemComp.ResourceData == null)
             return;
 
         for (var i = 0; i < args.Shots; i++)
         {
-            if (ling.Chemicals < component.FireCost)
+            if (chemComp.ResourceData.CurrentAmount < component.FireCost)
                 return;
 
-            ling.Chemicals -= component.FireCost;
+            _resource.TryUpdateResourcesAmount(parent, chemComp.ResourceData, -component.FireCost);
 
             var shot = Spawn(component.Proto, args.Coordinates);
             args.Ammo.Add((shot, _guns.EnsureShootable(shot)));
         }
-
-        Dirty(parent, ling);
     }
 }

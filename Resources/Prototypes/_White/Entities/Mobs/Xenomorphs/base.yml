@@ -79,7 +79,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.25
-        density: 1000
+        density: 200
         mask:
         - MobMask
         layer:
@@ -151,10 +151,6 @@
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
-  - type: Access # Goobstation - xeno doors
-    enabled: true
-    groups:
-    - XenomorphAccess
 
 
 - type: entity

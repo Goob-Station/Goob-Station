@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG station at https://github.com/tgstation/tgstation/pull/21818/commits/8959238828600d01ee7c8165a0dd29007570a454 storage, wielded inhands, and worn sprites by JoeHammad, Resprite by RedTerror",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "mag-1"
+        }
+    ]
+}

@@ -202,10 +202,10 @@
       collection: MetalThud # Goobstation ^
 
 - type: entity
-  name: viper
+  name: Viper
   parent: [BaseWeaponPistol, BaseSyndicateContraband]
   id: WeaponPistolViper
-  description: A common handgun illegally modified by the Syndicate. The Viper sports a selector switch between semi-auto and ‘rock and roll’. The standard sidearm for any soldier who fights under the three serpents. Feeds from .35 pistol magazines.
+  description: A sleek machine pistol designed by the Waffle Corporation. Boasting a selector switch that toggles between semi-auto and rock & roll, the Viper punches high above its weight class given its bulk and concealability. Feeds from .35 Auto pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
@@ -237,10 +237,10 @@
     price: 1000
 
 - type: entity
-  name: echis
+  name: Echis
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponPistolEchis
-  description: A cyborg-mounted weapon system based on the Viper pistol. Creates ammunition on the fly from an internal fabricator, which slowly self-charges.
+  description: A cyborg-mounted weapon system based on the Viper platform. Creates ammunition on the fly from an internal fabricator, which slowly self-charges. # Goobstation
   components:
   - type: Gun
     fireRate: 5
@@ -272,10 +272,10 @@
   - type: AmmoCounter
 
 - type: entity
-  name: cobra
+  name: Cobra
   parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
   id: WeaponPistolCobra
-  description: Integrally suppressed semi-automatic pistol used by the Syndicate, firing caseless subsonic rounds. Favored by any agent who likes to keep things quiet and leave no evidence behind. Feeds from 9.5mm pistol magazines.
+  description: An integrally suppressed, semi-automatic pistol that leaves no trace. Being subsonic, the rounds are near silent at the cost of damage. Feeds from 9.5mm pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
@@ -324,10 +324,10 @@
     price: 1500
 
 - type: entity
-  name: mk 58
+  name: MK58
   parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolMk58
-  description: Designed by Nanotrasen’s Small Arms Division, the Mk58 is a conventional semi-automatic pistol with a simple recoil-operated action and excellent reliability. The standard sidearm of Nanotrasen’s station security and emergency response teams. Feeds from .35 pistol magazines.
+  description: A bog standard semi-automatic pistol chambered in thirty-five. Slim, simple, and accurate in the right hands, it's one of NanoTrasen Small Arms' crown jewels and the most common sidearm in the free world. Feeds from .35 Auto pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
@@ -349,7 +349,7 @@
   name: N1984
   parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolN1984
-  description: An exceptionally powerful ‘hand cannon’ designed as part of Nanotrasen's BFG initiative. Chambered in .45, the lord’s caliber, it is generally considered too unwieldy for standard use but has become something of a status symbol among Nanotrasen officials. Feeds from .45 pistol magazines.
+  description: A ridiculously overengineered hand cannon that fires a revolver cartridge. While the firerate is measured in malfunctions per second, it's become a sort of status symbol among the NanoTrasen elite due to its sheer power and gaudy price tag. Feeds from .45 Magnum pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi

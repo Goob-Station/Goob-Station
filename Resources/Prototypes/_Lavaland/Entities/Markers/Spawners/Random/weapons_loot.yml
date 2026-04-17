@@ -1,0 +1,146 @@
+# Crusher loot
+- type: entity
+  name: crusher weapon spawner
+  id: CrusherWeaponLootSpawner
+  parent: MarkerBase
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Melee/crusher.rsi
+      state: icon
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: CrusherWeapons
+
+- type: entity
+  name: crusher upgrade spawner
+  id: CrusherUpgradeLootSpawner
+  parent: MarkerBase
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Melee/crusher.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: CrusherUpgrades
+
+# PKA loot
+- type: entity
+  name: proto-kinetic weapon spawner
+  id: ProtoKineticWeaponLootSpawner
+  parent: MarkerBase
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
+      state: icon
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: ProtoKineticWeapons
+
+- type: entity
+  name: space proto-kinetic weapon spawner
+  id: ProtoKineticWeaponSpaceLootSpawner
+  parent: MarkerBase
+  suffix: Lavaland, Space Upgrade
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
+      state: icon
+    - sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
+      state: upgrade-space
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: ProtoKineticWeaponsSpace
+
+- type: entity
+  name: proto-kinetic upgrade spawner
+  id: ProtoKineticUpgradeLootSpawner
+  parent: MarkerBase
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Lavaland/Objects/Weapons/upgrade.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ProtoKineticUpgrades
+
+# Secondaries loot
+- type: entity
+  name: secondary kinetic weapon spawner
+  id: SecondaryKineticWeaponLootSpawner
+  parent: MarkerBase
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_machete.rsi
+      state: icon
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: SecondaryKineticWeapons
+
+# All lavaland weapons
+- type: entityTable
+  id: LavalandWeapons
+  table: !type:GroupSelector
+    children:
+    # Crusher stuff
+    - !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: CrusherWeapons
+      - !type:NestedSelector
+        tableId: CrusherUpgrades
+        weight: 2
+    # PKA stuff
+    - !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: ProtoKineticWeapons
+        weight: 0.8
+      - !type:NestedSelector
+        tableId: ProtoKineticWeaponsSpace
+        weight: 0.2
+      - !type:NestedSelector
+        tableId: ProtoKineticUpgrades
+        weight: 2
+    # Secondary stuff
+    - !type:NestedSelector
+      weight: 0.5
+      tableId: SecondaryKineticWeapons
+
+- type: entity
+  name: lavaland weapons loot spawner
+  id: LavalandWeaponLootSpawner
+  parent: MarkerBase
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Melee/crusher.rsi
+      state: icon
+    - sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
+      state: icon
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: LavalandWeapons

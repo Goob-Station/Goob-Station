@@ -138,78 +138,64 @@
     - HeadSide
 
 - type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitTutu
+  name: tutu
+  description: Why?..
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/tutu.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/tutu.rsi
+    quickEquip: true
+
+- type: entity
   parent: ClothingOuterBaseToggleable
   id: ClothingOuterArmorHereticCostume
   name: occult robes
   description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
   components:
-  - type: Construction
-    graph: HereticCostume
-    node: start
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi #idi nakhuy
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticCostume
-  - type: Tag
-    tags:
-      - HereticCostume
 
 - type: entity
-  parent: ClothingOuterArmorHereticCostume
-  id: ClothingOuterArmorHereticVoidCostume
-  suffix: Void
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterSchemaMonk
+  name: monastic vestments
+  description: A sign of complete renunciation of the world and the acceptance of heroism. It is worn by those who have chosen the path of prayer and struggle for the human soul. In the silence of the cosmos, it seems especially appropriate.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
-    state: icon
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
   - type: ToggleableClothing
     clothingPrototypes:
-      head: ClothingHeadHatHoodHereticVoidCostume
-
-- type: entity
-  parent: ClothingOuterArmorHereticCostume
-  id: ClothingOuterArmorHereticAshCostume
-  suffix: Ash
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
-    state: icon
-  - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: ClothingHeadHatHoodHereticAshCostume
-
-- type: entity
-  parent: ClothingOuterArmorHereticCostume
-  id: ClothingOuterArmorHereticFleshCostume
-  suffix: Flesh
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
-    state: icon
-  - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: ClothingHeadHatHoodHereticFleshCostume
-
-- type: entity
-  parent: ClothingOuterArmorHereticCostume
-  id: ClothingOuterArmorHereticBladeCostume
-  suffix: Blade
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
-    state: icon
-  - type: Clothing
-    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: ClothingHeadHatHoodHereticBladeCostume
+      head: ClothingHeadHatHoodSchemaMonk
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.5
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0.0
+      NerveDamage: 0.0

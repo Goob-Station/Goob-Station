@@ -27,7 +27,8 @@
     event: !type:EventHereticAshenShift
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-jaunt
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-jaunt
 
 - type: entity
   parent: ActionHereticJaunt
@@ -58,7 +59,8 @@
     event: !type:EventHereticVolcanoBlast
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-volcano
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-volcano
   - type: ChangeUseDelayOnAscension
     newUseDelay: 30
     requiredPath: Ash
@@ -81,7 +83,8 @@
     event: !type:EventHereticNightwatcherRebirth
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-rebirth
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-rebirth
   - type: ChangeUseDelayOnAscension
     newUseDelay: 10
     requiredPath: Ash
@@ -104,7 +107,8 @@
     event: !type:EventHereticFlames
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-flame
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-flame
 
 - type: entity
   parent: BaseAction
@@ -124,4 +128,5 @@
     event: !type:EventHereticCascade
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ash-cascade
+  - type: SpeakOnAction
+    sentence: heretic-speech-ash-cascade

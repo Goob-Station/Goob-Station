@@ -82,7 +82,8 @@ public sealed class MobsterAccentSystem : EntitySystem
             var suffix = "";
             if (component.IsBoss)
             {
-                var pick = _random.Next(1, 4);
+                //Goob edit, more words
+                var pick = _random.Next(1, 6);
                 suffix = Loc.GetString($"accent-mobster-suffix-boss-{pick}");
             }
             else

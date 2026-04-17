@@ -23,7 +23,7 @@ public sealed partial class PuddleMetricComponent : Component
     ///   The cost of each puddle, per mL. Note about 200 mL is one puddle.
     ///   Example: A water puddle of 200mL would contribute (200 * 0.02) = 4 chaos points.
     /// </summary>
-    [DataField("puddles", customTypeSerializer: typeof(DictionarySerializer<string, FixedPoint2>))]
+    [DataField(customTypeSerializer: typeof(DictionarySerializer<string, FixedPoint2>))] // this should be prototyped
     public Dictionary<string, FixedPoint2> Puddles =
         new()
         {
@@ -48,7 +48,7 @@ public sealed partial class PuddleMetricComponent : Component
             { "SpaceGlue", MajorImpact },
         };
 
-    [DataField("puddleDefault")]
+    [DataField]
     public FixedPoint2 PuddleDefault = 0.1f;
 
 }

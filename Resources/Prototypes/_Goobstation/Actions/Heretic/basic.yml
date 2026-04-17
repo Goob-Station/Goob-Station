@@ -79,7 +79,8 @@
     event: !type:EventHereticMansusLink {}
   - type: HereticAction
     requireMagicItem: false
-    messageLoc: heretic-speech-mansuslink
+  - type: SpeakOnAction
+    sentence: heretic-speech-mansuslink
 
 - type: entity
   parent: BaseAction

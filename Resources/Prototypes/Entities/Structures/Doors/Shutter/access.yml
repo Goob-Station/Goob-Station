@@ -12,6 +12,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCentralCommand ]
+      
+- type: entity
+  parent: BlastDoorOpen
+  id: BlastDoorOpenCentralCommand
+  suffix: Open, Central Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
 
 #Window shutters
 

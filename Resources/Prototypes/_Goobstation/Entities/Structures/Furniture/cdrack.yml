@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CdRack
+  parent: BaseStructure
+  name: CD rack
+  description: Mostly filled with CDs.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Furniture/cdrack.rsi
+    snapCardinals: true
+    layers:
+      - state: base
+      - state: cd-0
+      - map: ["enum.StorageFillLayers.Fill"]
+  - type: Appearance
+  - type: StorageFillVisualizer
+    maxFillLevels: 11
+    fillBaseName: cd
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 2
+            max: 3
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Tag
+    tags:
+    - Structure
+    - Wooden
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Anchorable
+  - type: Storage
+    grid:
+    - 0,0,0,9
+    whitelist:
+      tags:
+        - CD
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: InteractionOutline
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Construction
+    graph: CdRackGraph
+    node: CdRackNode

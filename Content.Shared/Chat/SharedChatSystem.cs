@@ -61,6 +61,11 @@ public abstract class SharedChatSystem : EntitySystem
     public const char CollectiveMindPrefix = '+'; // Goobstation - Starlight collective mind port
     public const char DefaultChannelKey = 'h';
 
+    public const int VoiceRange = 10; // how far voice goes in world units
+    public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
+    public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
+    public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
+
     public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 
     public static readonly string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
@@ -289,7 +294,8 @@ public abstract class SharedChatSystem : EntitySystem
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        Color? colorOverride = null // Goobstation
+        Color? colorOverride = null, // Goobstation
+        bool forced = false // goobstation
     ) { }
 
     public string SanitizeMessageCapital(string message)

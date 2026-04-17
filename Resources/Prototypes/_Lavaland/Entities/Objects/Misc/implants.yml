@@ -18,7 +18,7 @@
     - type: TriggerOnMobstateChange
       mobState:
       - Dead
-    - type: Rattle
+    - type: RattleOnTrigger
       radioChannel: Supply
       reportCoordinates: true
 

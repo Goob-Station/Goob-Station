@@ -40,6 +40,29 @@
         stomach:
           maxVol: 30.0
 
+- type: entity # Goobstation add
+  id: XenobioSentientSlimesCore
+  parent: SentientSlimesCore
+  name: mutated slimes core
+  description: "Mutated slime core, looks bigger."
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        stomach:
+          maxVol: 50.0 # 2.5u added per sec when slime latched, 20 sec metabolize time, 2.5 * 20 = 50u
+    - type: Metabolizer
+      maxPoisonsProcessable: 3
+      metabolizerTypes: [ Slime, XenobioSlime ]
+      removeEmpty: true
+      groups:
+        - id: Food
+        - id: Drink
+        - id: Medicine
+        - id: Poison
+        - id: Narcotic
+        - id: Alcohol
+          rateModifier: 0.2
+
 - type: entity
   id: OrganSlimesLungs
   parent: BaseHumanOrgan

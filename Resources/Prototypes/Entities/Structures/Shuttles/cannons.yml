@@ -340,6 +340,7 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+      upgrade_slot_1: !type:ContainerSlot # Lavaland Change
   - type: Destructible
     thresholds:
     - trigger:
@@ -376,9 +377,17 @@
     count: 5
   - type: Machine
     board: ShuttleGunKineticCircuitboard
-  - type: PressureDamageChange # Goobstation
-  - type: UpgradeableGun # Goobstation
-    maxUpgradeCapacity: 40
-    whitelist:
-      tags:
-      - PKAUpgrade
+  - type: PressureDamageChange # Lavaland Change
+    lowerBound: 0
+  - type: UpgradeableWeapon # Lavaland Change
+  - type: ItemSlots # Lavaland Change
+    slots:
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false # can't use the swap...
+        priority: 1
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade

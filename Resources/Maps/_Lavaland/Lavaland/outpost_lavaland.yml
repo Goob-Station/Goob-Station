@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/26/2025 08:18:28
+  time: 01/02/2026 11:21:30
   entityCount: 2079
 maps: []
 grids:
@@ -111,6 +111,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -679,6 +684,7 @@ entities:
       shakeTimes: 10
     - type: LavalandStation
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -8942,27 +8948,27 @@ entities:
     - type: Transform
       pos: 9.5,9.5
       parent: 1
-- proto: LockerSalvageSpecialistFilled
+- proto: LockerShaftMinerFilledHardsuit
   entities:
   - uid: 1342
     components:
     - type: Transform
-      pos: 8.5,-2.5
+      pos: 7.5,-4.5
       parent: 1
   - uid: 1343
     components:
     - type: Transform
-      pos: 7.5,-2.5
+      pos: 8.5,-4.5
       parent: 1
   - uid: 1344
     components:
     - type: Transform
-      pos: 7.5,-4.5
+      pos: 8.5,-2.5
       parent: 1
   - uid: 1345
     components:
     - type: Transform
-      pos: 8.5,-4.5
+      pos: 7.5,-2.5
       parent: 1
 - proto: MachineFrame
   entities:

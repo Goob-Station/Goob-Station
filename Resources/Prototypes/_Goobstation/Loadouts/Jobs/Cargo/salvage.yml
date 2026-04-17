@@ -60,3 +60,36 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+
+# Salvage
+- type: loadout
+  id: SalvageSpecialistJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
+
+- type: loadout
+  id: SalvageSpecialistJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSalvageSpecialist
+
+- type: loadout
+  id: SalvageSpecialistOveralls
+  equipment:
+    jumpsuit: ClothingUniformOverallsSalvageSpecialist
+
+# Shaft Miner
+- type: loadout
+  id: ShaftMinerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitShaftMiner
+
+- type: loadout
+  id: ShaftMinerJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtShaftMiner
+
+- type: loadout
+  id: ShaftMinerOveralls
+  equipment:
+    jumpsuit: ClothingUniformOverallsShaftMiner

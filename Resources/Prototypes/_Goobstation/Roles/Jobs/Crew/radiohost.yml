@@ -16,7 +16,7 @@
   equipment:
     ears: ClothingHeadsetAltRadioHost
     eyes: ClothingEyesGlassesSunglasses
-    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    belt: ClothingBeltStorageWaistbag
     shoes: ClothingShoesColorBlack
     id: RadioHostPDA
 

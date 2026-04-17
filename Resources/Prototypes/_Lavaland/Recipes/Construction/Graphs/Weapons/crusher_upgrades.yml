@@ -1,0 +1,41 @@
+- type: constructionGraph
+  id: CrusherUpgradeCrystalConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: crystal
+      steps:
+      - material: WatcherWing
+        amount: 5
+        doAfter: 4
+  - node: crystal
+    entity: CrusherUpgradeBladeSharpness
+
+- type: constructionGraph
+  id: CrusherUpgradeLavaCrystalConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: crystal
+      steps:
+      - material: WatcherMagmaWing
+        amount: 5
+        doAfter: 4
+  - node: crystal
+    entity: CrusherUpgradeBladeLavaAspect
+
+- type: constructionGraph
+  id: CrusherUpgradeIceCrystalConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: crystal
+      steps:
+      - material: WatcherIceWing
+        amount: 5
+        doAfter: 4
+  - node: crystal
+    entity: CrusherUpgradeBladeIceFrost

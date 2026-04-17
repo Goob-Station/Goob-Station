@@ -29,11 +29,10 @@
     contents:
     - id: ClothingEyesGlassesMeson
     - id: MineralScanner
-    - id: OreBag
     - id: ClothingUniformJumpsuitSalvageSpecialist
     - id: EncryptionKeyCargo
     - id: ClothingMaskGasExplorer
     - id: WeaponProtoKineticAccelerator
     - id: SurvivalKnife
     - id: FlashlightSeclite
-    - id: LavalandJaunter # Lavaland Change
+    - id: LavalandJaunter

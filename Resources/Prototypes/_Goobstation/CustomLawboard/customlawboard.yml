@@ -1,27 +1,11 @@
 - type: entity
-  id: SyndicateCustomLawboard
-  parent: [BaseElectronics, BaseSyndicateAnchoredContraband]
-  name: experimental syndicate law board
-  description: A strange looking experimental lawboard. Judging by the Syndicate display on it, it's probaly used for nefarious purposes.
+  id: BaseCustomLawboard
+  parent: BaseElectronics
+  abstract: True
   components:
-  - type: Sprite
-    sprite: _Goobstation/CustomLawboard/custom_lawboard.rsi
-    state: icon
   - type: SiliconLawProvider
-    laws: AntimovLawset # This is because it starts off as Antimov for convenience.
-    lawset:
-      obeysTo: laws-owner-crew
-      laws:
-      - lawIdentifierOverride: null
-        order: 1
-        lawString: law-antimov-1
-      - lawIdentifierOverride: null
-        order: 2
-        lawString: law-antimov-2
-      - lawIdentifierOverride: null
-        order: 3
-        lawString: law-antimov-3
-    lawUploadSound: /Audio/Ambience/Antag/emagged_borg.ogg # Antimov's sound IS pretty cool but it'd be a bit misleading
+    laws: Crewsimov # The CustomLawboard component handles the laws, this just keeps it error-free.
+    lawUploadSound: /Audio/Ambience/Antag/emagged_borg.ogg
   - type: UserInterface
     interfaces:
       enum.CustomLawboardUiKey.Key:
@@ -31,4 +15,32 @@
     inHandsOnly: false
     key: enum.CustomLawboardUiKey.Key
   - type: StaticPrice
-    price: 10000
+    price: 5000
+
+- type: entity
+  id: SyndicateCustomLawboard
+  parent: [BaseCustomLawboard, BaseSyndicateAnchoredContraband]
+  name: experimental syndicate law board
+  description: A strange looking experimental lawboard. Judging by the Syndicate display on it, it's probaly used for nefarious purposes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/CustomLawboard/custom_lawboard.rsi
+    state: icon
+  - type: CustomLawboard
+    laws:
+    - order: 1
+      lawString: law-antimov-1
+    - order: 2
+      lawString: law-antimov-2
+    - order: 3
+      lawString: law-antimov-3
+        
+- type: entity
+  id: NTCustomLawboard
+  parent: [BaseCustomLawboard, BaseCommandContraband]
+  name: freeform law board
+  description: A freeform lawboard, accepts any custom laws.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/CustomLawboard/custom_lawboard_NT.rsi
+    state: icon

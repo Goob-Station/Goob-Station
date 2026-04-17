@@ -17,10 +17,10 @@
   name: Chester
   parent: [ BaseWeaponRifle, BaseGunWieldable, BaseCentcommContraband ]
   id: WeaponLeverChester
-  description: An improved lever-action rifle designed to fire specialized 8 gauge ammunition for rapid threat removal.
+  description: "A flashy lever-action shotgun designed for NanoTrasen's Blueshield corps. Spinning it to reload fills you with a primal happiness. Feeds from lever rifle magazines."
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester_icon_48x.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -77,7 +77,7 @@
     delay: 0.1
   - type: UseDelayBlockShoot
   - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
     size: Large
     shape:
     - 0,0,4,1
-    storedRotation: 45

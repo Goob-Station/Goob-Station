@@ -50,7 +50,7 @@
 - type: latheRecipePack
   id: Equipment
   recipes:
-  #- HandHeldMassScanner - Goobstation - Removed by Lavaland
+  - HandHeldMassScanner
   - ClothingMaskWeldingGas
   - SignallerAdvanced
 
@@ -63,3 +63,6 @@
   id: SalvageSecurityWeapons
   recipes:
   - WeaponProtoKineticAccelerator
+  - WeaponProtoKineticShotgun
+  - WeaponProtoKineticRepeater
+  - WeaponProtoKineticPistol

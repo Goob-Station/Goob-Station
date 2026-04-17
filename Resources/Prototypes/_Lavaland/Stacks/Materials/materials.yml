@@ -60,7 +60,7 @@
   name: stack-unprocessed-steel-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: iron }
   spawn: SteelOre1Unprocessed
-  maxCount: 30
+  maxCount: 90 # Goobstation
 
 - type: stack
   id: PlasmaOreUnprocessed
@@ -81,7 +81,7 @@
   name: stack-unprocessed-quartz-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: spacequartz }
   spawn: SpaceQuartz1Unprocessed
-  maxCount: 30
+  maxCount: 90 # Goobstation
 
 - type: stack
   id: UraniumOreUnprocessed
@@ -103,11 +103,18 @@
   name: stack-unprocessed-coal
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: coal }
   spawn: Coal1Unprocessed
-  maxCount: 30
+  maxCount: 90 # Goobstation
 
 - type: stack
   id: ArtifactFragmentOreUnprocessed
   name: stack-unprocessed-artifact-fragment-ore
   icon: { sprite: Objects/Specific/Xenoarchaeology/artifact_fragments.rsi, state: ancientball1 }
   spawn: ArtifactFragmentOre1Unprocessed
+  maxCount: 30
+
+- type: stack
+  id: AshwoodPlank
+  name: stack-ashwood-plank
+  icon: { sprite: _Lavaland/Objects/Materials/ashwood.rsi, state: wood }
+  spawn: MaterialAshwoodPlank1
   maxCount: 30

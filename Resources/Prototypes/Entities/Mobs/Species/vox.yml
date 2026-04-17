@@ -148,7 +148,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Bagawk']
+    allowedEmotes: ['Bagawk','Click','Chitter','Hiss','Caw']
   - type: TypingIndicator
     proto: vox
   - type: Vocal
@@ -357,6 +357,8 @@
   - type: FootprintOwner # Corvax-Next-Footprints
   - type: Carriable # Goobstation
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
+  - type: GrabIntent # wilted rose
+  - type: Grabbable 
   # Goobstation end
   - type: Hands
     leftHandDisplacement:
@@ -369,6 +371,7 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  - type: Wagging
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
       - TauCetiBasic

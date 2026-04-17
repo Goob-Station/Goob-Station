@@ -8,3 +8,13 @@
     Plastic: 500
     Plasma: 100
 
+- type: latheRecipe
+  id: ClothingBeltChemBagXenobiologyHolding
+  result: ClothingBeltChemBagXenobiologyHolding
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 500
+    Plasma: 1500
+    Uranium: 100
+    BSCrystal: 100

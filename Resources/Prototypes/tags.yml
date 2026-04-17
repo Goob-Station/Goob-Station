@@ -435,10 +435,16 @@
   id: Bucket
 
 - type: Tag
+  id: Burger
+
+- type: Tag
   id: BulletFoam
 
 - type: Tag
   id: Burnt
+
+- type: Tag
+  id: Bun
 
 - type: Tag
   id: BypassDropChecks
@@ -525,6 +531,9 @@
 - type: Tag
   id: Chicken
 
+- type: Tag
+  id: Cheese
+
 # Allowed to control someone wearing a Chef's hat if inside their hat.
 - type: Tag
   id: ChefPilot
@@ -605,7 +614,13 @@
   id: CottonBoll
 
 - type: Tag
+  id: CottonBurger
+
+- type: Tag
   id: Cow
+
+- type: Tag
+  id: Crab
 
 - type: Tag
   id: Crayon
@@ -1055,6 +1070,9 @@
   id: Knife
 
 - type: Tag
+  id: KnockdownImmune
+
+- type: Tag
   id: LavaBrig
 
 - type: Tag
@@ -1143,6 +1161,9 @@
   id: Maints
 
 - type: Tag
+  id: MaintenanceCloset
+
+- type: Tag
   id: Matchstick
 
 - type: Tag
@@ -1156,6 +1177,9 @@
 
 - type: Tag
   id: Medkit
+
+- type: Tag
+  id: MesonGoggles # Goobstation - more toolbelt items
 
 - type: Tag
   id: Metal
@@ -1201,6 +1225,9 @@
 
 - type: Tag
   id: Mouse
+
+- type: Tag
+  id: MouseWearable # Goobstation - Mice hats
 
 - type: Tag
   id: Multitool
@@ -1438,6 +1465,9 @@
   id: RollingPin
 
 - type: Tag
+  id: Ruminant
+
+- type: Tag
   id: SaltShaker
 
 - type: Tag
@@ -1510,6 +1540,9 @@
   id: Slice # sliced fruit, vegetables, pizza etc.
 
 - type: Tag
+  id: SlowImmune
+
+- type: Tag
   id: SmallAIChip
 
 - type: Tag
@@ -1579,6 +1612,9 @@
   id: Stunbaton
 
 - type: Tag
+  id: StunImmune
+
+- type: Tag
   id: SubdermalImplant
 
 - type: Tag
@@ -1610,6 +1646,9 @@
 
 - type: Tag
   id: TabletopBoard
+
+- type: Tag
+  id: Taco
 
 - type: Tag
   id: TabletopPiece

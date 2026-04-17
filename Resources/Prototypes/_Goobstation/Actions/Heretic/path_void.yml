@@ -25,7 +25,8 @@
     event: !type:HereticVoidBlastEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-blast
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-blast
 
 - type: entity
   parent: BaseAction
@@ -50,7 +51,8 @@
     event: !type:HereticVoidBlinkEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-phase
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-phase
 
 - type: entity
   parent: BaseAction
@@ -77,7 +79,8 @@
     event: !type:HereticVoidPrisonEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-prison
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-prison
 
 - type: entity
   parent: BaseAction
@@ -99,7 +102,8 @@
     event: !type:HereticVoidPullEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-pull
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-pull
 
 - type: entity
   parent: BaseAction
@@ -119,4 +123,5 @@
     event: !type:HereticVoidConduitEvent
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-void-conduit
+  - type: SpeakOnAction
+    sentence: heretic-speech-void-conduit

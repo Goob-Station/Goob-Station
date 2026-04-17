@@ -675,7 +675,6 @@
     components:
     - type: RadiationSource
       intensity: 1
-      slope: 0.3
 
 - type: entity
   id: XenoArtifactChargeBattery
@@ -880,6 +879,10 @@
           weight: 1.0
         - id: MobCarpHolo
           weight: 1.0
+        - id: MobDragonDungeon
+          weight: 0.01
+        - id: MobShark
+          weight: 0.25
 
 - type: entity
   id: XenoArtifactFaunaSpawn
@@ -1136,7 +1139,6 @@
     components:
     - type: RadiationSource
       intensity: 2
-      slope: 0.3
 
 - type: entity
   id: XenoArtifactMaterialSpawnGlass
