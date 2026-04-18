@@ -103,7 +103,7 @@ public sealed class SelectableAmmoSystem : EntitySystem
             return _protoManager.TryIndex(basic.Proto, out var index) ? index.Name : null;
 
         if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBattery))
-            return _protoManager.TryIndex(hitscanBattery.Prototype, out var index) ? index.Name : null;
+            return _protoManager.TryIndex(hitscanBattery.HitscanEntityProto, out var index) ? index.Name : null;
 
         if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBattery))
             return _protoManager.TryIndex(projectileBattery.Prototype, out var index) ? index.Name : null;
@@ -127,7 +127,7 @@ public sealed class SelectableAmmoSystem : EntitySystem
         // this entire system makes me want to sob but im not touching this shit more than i have to
         if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBattery))
         {
-            hitscanBattery.Prototype = proto.ProtoId;
+            hitscanBattery.HitscanEntityProto = proto.ProtoId;
             if (!ShouldSetFireCost(proto))
                 return true;
 

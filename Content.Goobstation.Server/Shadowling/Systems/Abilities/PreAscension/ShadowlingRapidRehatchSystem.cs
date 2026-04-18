@@ -8,6 +8,7 @@ using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Administration.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Administration.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;

@@ -33,9 +33,7 @@ public sealed partial class ForceStealthNearbyEffect : EntityEffectBase<ForceSte
 
     [DataField] public float Chance = 1f;
 
-    public override bool ShouldLog => true;
-
-    public override LogImpact LogImpact => LogImpact.Medium;
+    public override LogImpact? Impact => LogImpact.Medium;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-stealth-entities");

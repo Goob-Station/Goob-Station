@@ -3,7 +3,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DragDrop;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Item;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;

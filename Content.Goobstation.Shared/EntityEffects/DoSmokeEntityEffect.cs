@@ -70,5 +70,5 @@ public sealed partial class DoSmokeEntityEffect : EntityEffectBase<DoSmokeEntity
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => null;
 
-    public override LogImpact LogImpact => LogImpact.Medium;
+    public override LogImpact? Impact => LogImpact.Medium;
 }

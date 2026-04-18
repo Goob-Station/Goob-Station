@@ -36,9 +36,7 @@ public sealed partial class ExtinguishNearby : EntityEffectBase<ExtinguishNearby
         Range = range;
     }
 
-    public override bool ShouldLog => true;
-
-    public override LogImpact LogImpact => LogImpact.Medium;
+    public override LogImpact? Impact => LogImpact.Medium;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-ignite", ("chance", Probability));

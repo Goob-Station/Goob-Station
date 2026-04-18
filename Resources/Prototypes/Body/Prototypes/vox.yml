@@ -20,7 +20,7 @@
       organs:
         brain: OrganHumanBrain
         eyes: OrganVoxEyes
-    torso:
+    chest: # Goob
       part: TorsoVox
       connections:
       - right arm

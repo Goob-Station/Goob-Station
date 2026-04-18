@@ -149,6 +149,7 @@ using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Effects;
 using Robust.Shared.Random; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;

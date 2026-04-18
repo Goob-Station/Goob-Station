@@ -40,9 +40,7 @@ public sealed partial class OxygenateNearby : EntityEffectBase<OxygenateNearby>
         Factor = factor;
     }
 
-    public override bool ShouldLog => true;
-
-    public override LogImpact LogImpact => LogImpact.Medium;
+    public override LogImpact? Impact => LogImpact.Medium;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-ignite", ("chance", Probability)); //In due time...

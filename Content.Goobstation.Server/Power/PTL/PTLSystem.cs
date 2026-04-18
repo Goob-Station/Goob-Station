@@ -127,11 +127,6 @@ public sealed partial class PTLSystem : EntitySystem
                 return;
 
             hitscan.FireCost = desiredFireCost;
-
-            // Scale damage from the planned energy use (in MJ);
-            var plannedMJ = desiredFireCost / (float) megajoule;
-            var prot = _protMan.Index<HitscanPrototype>(hitscan.Prototype);
-            prot.Damage = ent.Comp1.BaseBeamDamage * plannedMJ * 2f;
         }
 
         if (TryComp<GunComponent>(ent, out var gun))

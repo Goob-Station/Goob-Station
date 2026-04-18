@@ -307,19 +307,6 @@ public abstract partial class SharedChatSystem : EntitySystem
         return false;
     }
 
-    public virtual void TrySendInGameICMessage(
-        EntityUid source,
-        string message,
-        InGameICChatType desiredType,
-        bool hideChat, bool hideLog = false,
-        IConsoleShell? shell = null,
-        ICommonSession? player = null, string? nameOverride = null,
-        bool checkRadioPrefix = true,
-        bool ignoreActionBlocker = false,
-        Color? colorOverride = null, // Goobstation
-        bool forced = false // goobstation
-    ) { }
-
     public string SanitizeMessageCapital(string message)
     {
         if (string.IsNullOrEmpty(message))
@@ -495,7 +482,12 @@ public abstract partial class SharedChatSystem : EntitySystem
         ICommonSession? player = null,
         string? nameOverride = null,
         bool checkRadioPrefix = true,
-        bool ignoreActionBlocker = false)
+        bool ignoreActionBlocker = false,
+        Color? colorOverride = null, // Goobstation
+        LanguagePrototype? languageOverride = null, // Einstein Engines - Language
+        bool forced = false // goobstation
+        )
+
     { }
 
     /// <summary>
@@ -520,7 +512,10 @@ public abstract partial class SharedChatSystem : EntitySystem
         ICommonSession? player = null,
         string? nameOverride = null,
         bool checkRadioPrefix = true,
-        bool ignoreActionBlocker = false
+        bool ignoreActionBlocker = false,
+        Color? colorOverride = null, // Goobstation
+        LanguagePrototype? languageOverride = null, // Einstein Engines - Language
+        bool forced = false // goobstation
         )
     { }
 

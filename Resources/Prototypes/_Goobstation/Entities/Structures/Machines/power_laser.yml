@@ -100,17 +100,21 @@
     sound:
       path: /Audio/Ambience/Objects/engine_hum.ogg
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: PTL
-  damage:
-    types:
-      Heat: 30
-  muzzleFlash:
-    sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
-    state: ptl_beam
-  travelFlash:
-    sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
-    state: ptl_beam
-  impactFlash:
-    sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
-    state: ptl_beam
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 30
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
+      state: ptl_beam
+    travelFlash:
+      sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
+      state: ptl_beam
+    impactFlash:
+      sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
+      state: ptl_beam

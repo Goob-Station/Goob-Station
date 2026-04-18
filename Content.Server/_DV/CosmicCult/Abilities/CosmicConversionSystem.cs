@@ -19,6 +19,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 

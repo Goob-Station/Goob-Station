@@ -5,360 +5,449 @@
 
 # region SMG Lasers
 # basic SMG laser
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: SMGLaser
-  damage:
-    types:
-      Heat: 10.5
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 10.5
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light
 # ion SMG laser
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: SMGLaserIon
-  damage:
-    types:
-      Ion: 15
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_ion
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_ion
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_ion
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Ion: 15
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_ion
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_ion
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_ion
+
 # xray SMG laser
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: SMGLaserXray
-  damage:
-    types:
-      Heat: 4.5
-      Radiation: 6
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_xray
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_xray
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_xray
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 4.5
+        Radiation: 6
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_xray
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_xray
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_xray
+
 # overcharged SMG laser
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: SMGLaserOvercharged
-  fireStacks: 0.4
-  damage:
-    types:
-      Heat: 15
-    armorPenetration: -0.2
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_overcharged
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_overcharged
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_overcharged
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 15
+      armorPenetration: -0.2
+  - type: IgniteOnCollide
+    fireStacks: 0.4
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_overcharged
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_overcharged
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_overcharged
+
 # bluespace SMG laser
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: SMGLaserBluespace
-  damage:
-    types:
-      Heat: 9
-    armorPenetration: 0.4
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_pulse
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_pulse
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_pulse
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 9
+      armorPenetration: 0.4
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_pulse
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_pulse
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_pulse
+
 # pulse SMG laser
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: SMGLaserPulse
-  damage:
-    types:
-      Heat: 14
-    armorPenetration: 1
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_pulse
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_pulse
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_pulse
-# endregion SMG Lasers
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 14
+      armorPenetration: 1
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_pulse
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_pulse
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_pulse
 
 # region Sniper Lasers
-# basic sniper laser
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: SniperRedLaser
-  damage:
-    types:
-      Heat: 15
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light
-# ions sniper laser
-- type: hitscan
-  id: SniperIonLaser
-  damage:
-    types:
-      Ion: 21
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_ion
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_ion
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_ion
-# xray sniper laser
-- type: hitscan
-  id: SniperXrayLaser
-  damage:
-    types:
-      Heat: 7.5
-      Radiation: 7.5
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_xray
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_xray
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_xray
-# overcharged sniper laser
-- type: hitscan
-  id: SniperOverchargedLaser
-  fireStacks: 0.7
-  damage:
-    types:
-      Heat: 21
-    armorPenetration: -0.2
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_overcharged
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_overcharged
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_overcharged
-# bluespace sniper laser
-- type: hitscan
-  id: SniperBluespaceLaser
-  damage:
-    types:
-      Heat: 14
-    armorPenetration: 0.4
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_pulse
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_pulse
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_pulse
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 15
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
+  id: SniperIonLaser
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Ion: 21
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_ion
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_ion
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_ion
+
+- type: entity
+  parent: BasicHitscan
+  id: SniperXrayLaser
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 7.5
+        Radiation: 7.5
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_xray
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_xray
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_xray
+
+- type: entity
+  parent: BasicHitscan
+  id: SniperOverchargedLaser
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 21
+      armorPenetration: -0.2
+  - type: IgniteOnCollide
+    fireStacks: 0.7
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_overcharged
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_overcharged
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_overcharged
+
+- type: entity
+  parent: BasicHitscan
+  id: SniperBluespaceLaser
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 14
+      armorPenetration: 0.4
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_pulse
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_pulse
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_pulse
+
+- type: entity
+  parent: BasicHitscan
   id: SniperPulseLaser
-  damage:
-    types:
-      Heat: 20
-    armorPenetration: 1
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_pulse
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_pulse
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_pulse
-# endregion Sniper Lasers
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 20
+      armorPenetration: 1
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_pulse
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_pulse
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_pulse
 
 # region LMG Lasers
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: LMGLaser
-  damage:
-    types:
-      Heat: 10
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 10
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: LMGLaserBluespace
-  damage:
-    types:
-      Heat: 9
-    armorPenetration: 0.4
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_pulse
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_pulse
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_pulse
-# endregion LMG Lasers
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 9
+      armorPenetration: 0.4
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_pulse
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_pulse
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_pulse
 
 # region Revolver Lasers
-# revolver basic laser
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: RevolverRedLaser
-  damage:
-    types:
-      Heat: 13
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light
-# revolver ion laser
-- type: hitscan
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 13
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light
+
+- type: entity
+  parent: BasicHitscan
   id: RevolverIonLaser
-  damage:
-    types:
-      Ion: 18
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_ion
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_ion
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_ion
-# revolver xray laser
-- type: hitscan
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Ion: 18
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_ion
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_ion
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_ion
+
+- type: entity
+  parent: BasicHitscan
   id: RevolverXrayLaser
-  damage:
-    types:
-      Heat: 6
-      Radiation: 6
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_xray
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_xray
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_xray
-# revolver overcharged laser
-- type: hitscan
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 6
+        Radiation: 6
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_xray
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_xray
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_xray
+
+- type: entity
+  parent: BasicHitscan
   id: RevolverOverchargedLaser
-  fireStacks: 0.7
-  damage:
-    types:
-      Heat: 18
-    armorPenetration: -0.2
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_overcharged
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_overcharged
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_overcharged
-# revolver bluespace laser
-- type: hitscan
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 18
+      armorPenetration: -0.2
+  - type: IgniteOnCollide
+    fireStacks: 0.35
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_overcharged
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_overcharged
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_overcharged
+
+- type: entity
+  parent: BasicHitscan
   id: RevolverBluespaceLaser
-  damage:
-    types:
-      Heat: 11.5
-    armorPenetration: 0.4
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_pulse
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_pulse
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_pulse
-# endregion Revolver Lasers
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 11.5
+      armorPenetration: 0.4
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_pulse
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_pulse
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_pulse
 
 # region misc lasers
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: HeavyRedLaser
-  damage:
-    types:
-      Heat: 17
-      Shock: 4
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_beam_heavy
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam_heavy
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_beam_heavy
-    
-- type: hitscan
-  id: MediumOverchargedLaser
-  fireStacks: 0.7
-  damage:
-    types:
-      Heat: 14
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light_overcharged
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light_overcharged
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light_overcharged
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 17
+        Shock: 4
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_beam_heavy
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam_heavy
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_beam_heavy
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
+  id: MediumOverchargedLaser
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 14
+  - type: IgniteOnCollide
+    fireStacks: 0.7
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_overcharged
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_overcharged
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_overcharged
+
+- type: entity
+  parent: BasicHitscan
   id: MediumRedLaser
-  damage:
-    types:
-      Heat: 10
-  muzzleFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: muzzle_beam_light
-  travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: beam_light
-  impactFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
-    state: impact_beam_light
-# endregion misc lasers
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 10
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light

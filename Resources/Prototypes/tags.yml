@@ -961,9 +961,6 @@
 - type: Tag
   id: GunUpgradeReloadSpeed # Used by PKAUpgradeFireRate:GunUpgrade to ensure mutually exclusive upgrades.
 
-- type: Tag
-  id: GunUpgradeRange
-
 ## H ##
 
 - type: Tag
@@ -1152,9 +1149,6 @@
 
 - type: Tag
   id: LightBulb # Storage whitelist: BoxLightbulb. ConstructionGraph: HelmetJustice
-
-- type: Tag
-  id: LightBulb
 
 - type: Tag # Goobstation?
   id: Lighter #Goobstation - whitelisted cig pack strorage (added tag)
