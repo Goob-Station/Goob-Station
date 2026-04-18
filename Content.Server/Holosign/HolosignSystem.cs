@@ -17,10 +17,10 @@
 
 using Content.Shared.Examine;
 using Content.Shared.Coordinates.Helpers;
-using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared.Interaction;
 using Content.Shared.Physics; // Goobstation
+using Content.Shared.Power.Components;
 using Content.Shared.Storage;
 using Content.Shared.Tag; // Goobstation
 using Robust.Shared.Map; // Goobstation

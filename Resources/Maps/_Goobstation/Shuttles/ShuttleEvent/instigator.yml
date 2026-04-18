@@ -1637,7 +1637,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: ClothingBeltAssault
+- proto: ClothingBeltMilitaryWebbing
   entities:
   - uid: 475
     components:

@@ -27,7 +27,6 @@
   components:
   - type: Tag
     tags:
-      - Cartridge
       - CartridgeCaselessRifle
   - type: CartridgeAmmo
     deleteOnSpawn: true

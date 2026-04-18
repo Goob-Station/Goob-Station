@@ -425,6 +425,8 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
+    - PaperworkStatic
+    - TowelsStatic
     #- CargoStatic Goob edit - Moved to Cargo fab
     - MaterialsStatic
     - BasicChemistryStatic
@@ -444,6 +446,7 @@
     emagStaticPacks:
     - SecurityWeaponsStatic
     - SecurityAmmoStatic
+    - SyndicateAmmoStatic
     # Goobstation
     - SecurityWeaponsStaticGoob
     - SecurityAmmoStaticGoob
@@ -788,10 +791,11 @@
     # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
-  - type: EmagLatheRecipes # Goobstation
+  - type: EmagLatheRecipes
     emagStaticPacks:
-    - SyndicateAmmoLightStatic
-    - SyndicateAmmoHeavyStatic
+    - SyndicateAmmoStatic
+    - SyndicateAmmoLightStatic # Goobstation
+    - SyndicateAmmoHeavyStatic # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -825,12 +829,12 @@
       runningState: icon
       staticPacks:
       - SecurityAmmoStatic
-      # Goobstation Packs
-      - SecurityAmmoStaticGoob
-    - type: EmagLatheRecipes # Goobstation Packs
+      - SecurityAmmoStaticGoob # Gooob
+    - type: EmagLatheRecipes
       emagStaticPacks:
-      - SyndicateAmmoLightStatic
-      - SyndicateAmmoHeavyStatic
+      - SyndicateAmmoStatic
+      - SyndicateAmmoLightStatic # Goobstation Packs
+      - SyndicateAmmoHeavyStatic # Goobstation Packs
     - type: MaterialStorage
       whitelist:
         tags:
@@ -924,6 +928,7 @@
     idleState: icon
     runningState: building
     staticPacks:
+    - TowelsStatic
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand
@@ -996,6 +1001,10 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - BioGenEmagStatic
+    - HostileCubesStatic
 
 - type: entity
   parent: [BaseLathe, BaseSiloUtilizer] # Goob edit
@@ -1116,7 +1125,16 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - FloorTilesStatic
+    - FloorDarkTilesStatic
+    - FloorSteelTilesStatic
+    - FloorWhiteTilesStatic
+    - FloorMaintsTilesStatic
+    - FloorWoodTilesStatic
+    - FloorConcreteTilesStatic
+    - CircuitFloorsStatic
+    - FloorMarbleTilesStatic
+    dynamicPacks:
+    - FauxTiles
   - type: MaterialStorage
     whitelist:
       tags:

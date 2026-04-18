@@ -6,6 +6,7 @@
 
 using Content.Server.Kitchen.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Content.Shared.Kitchen.Components;
 using Robust.Shared.Audio;
 
 namespace Content.Server._Shitmed.Medical.Surgery;

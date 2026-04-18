@@ -30,7 +30,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-        - !type:FlammableReaction
+        - !type:Flammable
   plantMetabolism:
     - !type:PlantAdjustWeeds
       amount: -2
@@ -43,6 +43,7 @@
   parent: BasePyrotechnic
   desc: reagent-desc-thermite
   physicalDesc: reagent-physical-desc-grainy
+  contrabandSeverity: Minor
   flavor: bitter
   color: "#757245"
   boilingPoint: 2977.0 # Aluminum oxide
@@ -55,17 +56,18 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Heat: 2
             Poison: 1
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Heat: 2
@@ -76,6 +78,7 @@
   parent: BasePyrotechnic
   desc: reagent-desc-napalm
   physicalDesc: reagent-physical-desc-soapy
+  contrabandSeverity: Major
   flavor: bitter
   color: "#FA00AF"
   tileReactions:
@@ -85,16 +88,16 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.4
   metabolisms:
     Poison:
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Heat: 2
@@ -102,13 +105,13 @@
             Caustic: 0.5 # based off napalm being an irritant
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           types:
             Heat: 2
             Caustic: 0.5 # based off napalm being an irritant
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.4
 
 - type: reagent
@@ -117,6 +120,7 @@
   parent: BasePyrotechnic
   desc: reagent-desc-phlogiston
   physicalDesc: reagent-physical-desc-burning
+  contrabandSeverity: Major
   flavor: bitter
   color: "#D4872A"
   metabolisms:
@@ -124,21 +128,22 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         damage:
           types:
             Heat: 3
             Poison: 1
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Heat: 3
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.1
       - !type:AdjustTemperature
         amount: 6000
@@ -147,7 +152,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.2
       - !type:Ignite
 
@@ -157,6 +162,7 @@
   parent: BasePyrotechnic
   desc: reagent-desc-chlorine-trifluoride
   physicalDesc: reagent-physical-desc-blazing
+  contrabandSeverity: Major
   flavor: bitter
   color: "#FFC8C8"
   tileReactions:
@@ -166,9 +172,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Heat: 2
@@ -176,13 +182,14 @@
             Caustic: 0.5 # CLF3 is corrosive
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Heat: 2
-            Caustic: 0.5 # CLF3 is corrosive    
-      - !type:FlammableReaction
+            Caustic: 0.5 # CLF3 is corrosive
+      - !type:Flammable
         multiplier: 0.2
       - !type:AdjustTemperature
         amount: 6000
@@ -190,7 +197,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.3
       - !type:Ignite
       - !type:Emote
@@ -236,22 +243,21 @@
       - !type:SatiateThirst
         factor: 1
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [Vox]
     Poison:
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox
+          - Yowie # Goobstation - Yowie
+          inverted: true
         damage:
           types:
             Poison: 1
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.4
 
 - type: reagent

@@ -33,6 +33,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
 using System.Text;
+using Content.Shared.Power.Components;
 
 namespace Content.Goobstation.Server.Power.PTL;
 

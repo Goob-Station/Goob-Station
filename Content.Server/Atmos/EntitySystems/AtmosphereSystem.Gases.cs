@@ -42,8 +42,6 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float[] GasSpecificHeats => _gasSpecificHeats;
 
-        public string?[] GasReagents = new string[Atmospherics.TotalNumberOfGases];
-
         private void InitializeGases()
         {
             _gasReactions = _protoMan.EnumeratePrototypes<GasReactionPrototype>().ToArray();
@@ -54,7 +52,6 @@ namespace Content.Server.Atmos.EntitySystems
             for (var i = 0; i < GasPrototypes.Length; i++)
             {
                 _gasSpecificHeats[i] = GasPrototypes[i].SpecificHeat / HeatScale;
-                GasReagents[i] = GasPrototypes[i].Reagent;
             }
         }
 
@@ -475,11 +472,8 @@ namespace Content.Server.Atmos.EntitySystems
                     continue;
 
                 var doReaction = true;
-                for (var i = 0; i < prototype.MinimumRequirements.Length; i++)
+                for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
                 {
-                    if(i >= Atmospherics.TotalNumberOfGases)
-                        throw new IndexOutOfRangeException("Reaction Gas Minimum Requirements Array Prototype exceeds total number of gases!");
-
                     var req = prototype.MinimumRequirements[i];
 
                     if (!(mixture.GetMoles(i) < req))

@@ -128,7 +128,7 @@
   - type: ContainerAmmoProvider
     container: storagebase
   - type: Item
-    size: Normal
+    size: Large
   - type: Clothing
     sprite: Objects/Weapons/Guns/Cannons/pie_cannon.rsi
     quickEquip: false
@@ -173,7 +173,8 @@
   - type: Item
     size: Normal
 
-#- type: entity # Goobstation - proper syringe guns
+# Goobstation - proper syringe guns
+#- type: entity
 #  name: syringe gun
 #  parent: BaseStorageItem
 #  id: LauncherSyringe
@@ -186,7 +187,7 @@
 #  - type: Storage
 #    maxItemSize: Normal
 #    grid:
-#    - 0,0,2,0
+#   - 0,0,2,0
 #    whitelist:
 #      tags:
 #      - SyringeGunAmmo
@@ -204,9 +205,11 @@
 #  - type: ContainerAmmoProvider
 #    container: storagebase
 #  - type: Item
-#    size: Normal
-#  - type: ContainerContainer
-#    containers:
+#    size: Large
+#    shape:
+#   - 0,0,2,1
+# - type: ContainerContainer
+#   containers:
 #      storagebase: !type:Container
 #        ents: []
 

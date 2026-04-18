@@ -82,6 +82,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Prototypes;
@@ -224,6 +225,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var super = AddComp<AnomalySupercriticalComponent>(ent);
         super.EndTime = Timing.CurTime + ent.Comp.SupercriticalDuration;
         Appearance.SetData(ent, AnomalyVisuals.Supercritical, true);
+        SetScannerSupercritical((ent, ent.Comp), true);
         Dirty(ent, super);
     }
 
@@ -424,7 +426,8 @@ public abstract class SharedAnomalySystem : EntitySystem
                 ChangeAnomalyHealth(ent, anomaly.HealthChangePerSecond * frameTime, anomaly);
             }
 
-            if (Timing.CurTime > anomaly.NextPulseTime)
+            var secondsUntilNextPulse = (anomaly.NextPulseTime - Timing.CurTime).TotalSeconds;
+            if (secondsUntilNextPulse < 0)
             {
                 DoAnomalyPulse(ent, anomaly);
             }
@@ -447,6 +450,18 @@ public abstract class SharedAnomalySystem : EntitySystem
                 continue;
             DoAnomalySupercriticalEvent(ent, anom);
             // Removal of the supercritical component is handled by DoAnomalySupercriticalEvent
+        }
+    }
+
+    private void SetScannerSupercritical(Entity<AnomalyComponent> anomalyEnt, bool value)
+    {
+        var scannerQuery = EntityQueryEnumerator<AnomalyScannerComponent>();
+        while (scannerQuery.MoveNext(out var scannerUid, out var scanner))
+        {
+            if (scanner.ScannedAnomaly != anomalyEnt)
+                continue;
+
+            Appearance.SetData(scannerUid, AnomalyScannerVisuals.AnomalyIsSupercritical, value);
         }
     }
 
@@ -524,6 +539,33 @@ public abstract class SharedAnomalySystem : EntitySystem
             resultList.Add(tileref);
         }
         return resultList;
+    }
+
+    public bool TryGetStabilityVisual(Entity<AnomalyComponent?> ent, [NotNullWhen(true)] out AnomalyStabilityVisuals? visual)
+    {
+        visual = null;
+        if (!Resolve(ent, ref ent.Comp, logMissing: false))
+            return false;
+
+        visual = AnomalyStabilityVisuals.Stable;
+        if (ent.Comp.Stability <= ent.Comp.DecayThreshold)
+        {
+            visual = AnomalyStabilityVisuals.Decaying;
+        }
+        else if (ent.Comp.Stability >= ent.Comp.GrowthThreshold)
+        {
+            visual = AnomalyStabilityVisuals.Growing;
+        }
+
+        return true;
+    }
+
+    public AnomalyStabilityVisuals GetStabilityVisualOrStable(Entity<AnomalyComponent?> ent)
+    {
+        if(TryGetStabilityVisual(ent, out var visual))
+            return visual.Value;
+
+        return AnomalyStabilityVisuals.Stable;
     }
 }
 

@@ -137,7 +137,7 @@
         Heat: 5
   - type: WeaponUpgradeEffects
     effects:
-    - !type:FlammableReaction
+    - !type:Flammable
       multiplier: 2
       multiplierOnExisting: 0.5
     - !type:Ignite

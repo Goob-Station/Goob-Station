@@ -148,7 +148,7 @@
     outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: FlashlightSeclite
   storage:
@@ -173,16 +173,44 @@
     outerClothing: ClothingOuterHardsuitERTLeader
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: FlashlightSeclite
   storage:
     back:
-    # - WeaponDisabler - Redundant. It spawns in secbelts now.
-    - MedkitCombatFilled # Goobstation - No reason not to.
+    - WeaponDisabler
+    - MedicatedSuture
+    - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - ERTSecurityUndeterminedWeapon
+    - MagazineMagnum
+
+- type: startingGear
+  id: ERTLeaderGearEVALecter
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    back: ClothingBackpackERTLeader
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTLeader
+    id: ERTLeaderPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: MagazineRifle
+    pocket2: MagazineRifle
+  inhand:
+  - WeaponRifleLecter
+  #- WeaponRifleLecterXL8  # Goobstation resprite and replace the above
+  storage:
+    back:
+    - WeaponDisabler
+    - MedicatedSuture
+    - RegenerativeMesh
+    - BoxZiptie
+    - CrowbarRed
+    - ERTSecurityUndeterminedWeapon # Goobstation?
     # Goobstation - MagazineMagnum
 
 - type: chameleonOutfit
@@ -418,7 +446,7 @@
     outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
     pocket2: FlashlightSeclite
   storage:
@@ -443,7 +471,7 @@
     outerClothing: ClothingOuterHardsuitERTSecurity
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Death to Crew aligned Ballistics
     pocket2: FlashlightSeclite
   storage:

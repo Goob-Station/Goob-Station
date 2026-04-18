@@ -24,7 +24,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.IdentityManagement;
+using Content.Shared.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Power.Components;
@@ -82,6 +82,15 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Actions.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Construction.Components;
+using Content.Shared.Friction;
+using Content.Shared.Item;
+using Content.Shared.Tag;
+using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Shared._Shitcode.Wizard.Components;
+using Content.Shared.Power.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
@@ -189,7 +198,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         var coords = TransformSystem.GetMapCoordinates(ev.Performer);
         foreach (var uid in Lookup.GetEntitiesInRange(coords, ev.Range))
         {
-            _emp.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
+            _emp.TryEmpEffects(uid, ev.EnergyConsumption, TimeSpan.FromSeconds(ev.DisableDuration));
         }
 
         Spawn(ev.Effect, coords);
@@ -338,7 +347,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         Faction.AddFaction(newEntity, WizardRuleSystem.Faction);
         RemCompDeferred<TransferMindOnGibComponent>(newEntity);
         EnsureComp<WizardComponent>(newEntity);
-        if (!Role.MindHasRole<WizardRoleComponent>(mind, out _))
+        if (!Role.MindHasRole<GoobWizardRoleComponent>(mind, out _))
             Role.MindAddRole(mind, WizardRuleSystem.Role.Id, mindComponent, true);
 
         EnsureComp<PhylacteryComponent>(item);

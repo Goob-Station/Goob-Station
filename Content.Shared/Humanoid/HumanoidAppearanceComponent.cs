@@ -115,12 +115,11 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// <summary>
     ///     Which markings the humanoid defaults to when nudity is toggled off.
     /// </summary>
-    /// <remarks>Goob - commented out until it's implemented across all specie</remarks>
-    //[DataField]
-    //public ProtoId<MarkingPrototype>? UndergarmentTop = new ProtoId<MarkingPrototype>("UndergarmentTopTanktop");
-    //
-    //[DataField]
-    //public ProtoId<MarkingPrototype>? UndergarmentBottom = new ProtoId<MarkingPrototype>("UndergarmentBottomBoxers");
+    [DataField]
+    public ProtoId<MarkingPrototype>? UndergarmentTop = new ProtoId<MarkingPrototype>("UndergarmentTopTanktop");
+
+    [DataField]
+    public ProtoId<MarkingPrototype>? UndergarmentBottom = new ProtoId<MarkingPrototype>("UndergarmentBottomBoxers");
 
     /// <summary>
     ///     The displacement maps that will be applied to specific layers of the humanoid.

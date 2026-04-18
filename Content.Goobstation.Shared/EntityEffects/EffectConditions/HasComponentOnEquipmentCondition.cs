@@ -7,13 +7,43 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.EntityEffects;
+using System.Linq;
+using Content.Shared.EntityConditions;
 using Content.Shared.Inventory;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.EntityEffects.EffectConditions;
 
-public sealed partial class HasComponentOnEquipmentCondition : EntityEffectCondition
+public sealed partial class HasComponentOnEquipmentConditionSystem
+    : EntityConditionSystem<SolutionContainerManagerComponent, HasComponentOnEquipmentCondition>
+{
+    protected override void Condition(Entity<SolutionContainerManagerComponent> entity, ref EntityConditionEvent<HasComponentOnEquipmentCondition> args)
+    {
+        if (args.Condition.Components.Count == 0)
+        {
+            args.Result = args.Condition.Invert;
+            return;
+        }
+
+        if (TryComp<InventoryComponent>(entity.Owner, out var inv) &&
+            EntityManager.System<InventorySystem>().TryGetContainerSlotEnumerator(entity.Owner, out var enumerator, SlotFlags.WITHOUT_POCKET))
+        {
+            while (enumerator.NextItem(out var item))
+            {
+                if (!args.Condition.Components.Any(comp =>
+                        HasComp(item, comp.Value.Component.GetType())))
+                    continue;
+                args.Result = !args.Condition.Invert;
+                return;
+            }
+        }
+
+        args.Result = args.Condition.Invert;
+    }
+}
+
+public sealed partial class HasComponentOnEquipmentCondition : EntityConditionBase<HasComponentOnEquipmentCondition>
 {
     [DataField(required: true)]
     public ComponentRegistry Components = default!;
@@ -21,26 +51,9 @@ public sealed partial class HasComponentOnEquipmentCondition : EntityEffectCondi
     [DataField]
     public bool Invert = false;
 
-    public override bool Condition(EntityEffectBaseArgs args)
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
-        if (Components.Count == 0)
-            return Invert;
-
-        if (args.EntityManager.TryGetComponent<InventoryComponent>(args.TargetEntity, out var inv))
-            if (args.EntityManager.System<InventorySystem>().TryGetContainerSlotEnumerator(args.TargetEntity, out var containerSlotEnumerator, SlotFlags.WITHOUT_POCKET))
-                while (containerSlotEnumerator.NextItem(out var item))
-                    foreach (var comp in Components)
-                        if (args.EntityManager.HasComponent(item, comp.Value.Component.GetType()))
-                            return !Invert;
-
-        return Invert;
-    }
-
-    public override string GuidebookExplanation(IPrototypeManager prototype)
-    {
-        // This condition should be only used on reactive things and not on metabolisable chemicals
-        // since equipment doesn't affect your internal metabolism. Additionally, components don't have
-        // user-friendly, or even user-understandable names.
+        // Same reasoning as before
         return "TODO";
     }
 }

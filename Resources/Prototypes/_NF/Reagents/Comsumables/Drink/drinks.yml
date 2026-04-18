@@ -68,7 +68,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.4
-      - !type:ExplosionReactionEffect
+      - !type:ExplosionEffect
         explosionType: Default
         maxIntensity: 0.1
         intensityPerUnit: 0.05
@@ -130,7 +130,8 @@
             Radiation: -0.05
             Asphyxiation: 1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BeesKnees
           min: 35
       - !type:ModifyBloodLevel
         amount: 0.2

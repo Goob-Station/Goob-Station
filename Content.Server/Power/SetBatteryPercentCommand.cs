@@ -11,9 +11,9 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Administration;
+using Content.Shared.Power.Components;
 using Robust.Shared.Console;
 
 namespace Content.Server.Power

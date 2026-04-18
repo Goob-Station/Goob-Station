@@ -69,8 +69,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 7
-        Heat: 7
+        Piercing: 7 # Goobstation
+        Heat: 7 # Goobstation
 
 - type: entity
   id: BulletMagnumAP

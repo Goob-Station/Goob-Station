@@ -34,7 +34,7 @@
         shader: unshaded
   - type: TileEntityEffect
     effects:
-    - !type:FlammableReaction
+    - !type:Flammable
       fireProtectionPenetration: 0.5
       multiplier: 3.75
       multiplierOnExisting: 0.75

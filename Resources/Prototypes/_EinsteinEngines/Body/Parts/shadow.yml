@@ -5,7 +5,7 @@
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
-    state: "chest_m"
+    state: "torso_m"
   - type: BodyPart
     species: Shadow
   - type: Extractable

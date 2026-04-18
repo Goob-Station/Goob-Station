@@ -16,10 +16,14 @@
   - NpcFactionMember
   - EncryptionKeyHolder # Goobstation
   # traits
+  - BlackAndWhiteOverlay # Goobstation?
+  - Clumsy # Goobstation?
+  - Hemophilia # Goobstation?
+  - ImpairedMobility # Goobstation?
   # - LegsParalyzed (you get healed)
-  - BlackAndWhiteOverlay
+  - BlackAndWhiteOverlay # Goobstation?
   - LightweightDrunk
-  - Muted
+  - Muted # Goobstation?
   - Narcolepsy
   - Pacified
   - PainNumbness
@@ -33,16 +37,16 @@
   - Clumsy
   # - MindShield # goob edit - it's an implant. why?
   - MimePowers
-  - SpaceNinja
-  - Thieving
+  - SpaceNinja # Goobstation?
+  - Thieving # Goobstation?
   # accents
   - Accentless
   - BackwardsAccent
   - BarkAccent
   - BleatingAccent
-  - DamagedSiliconAccent
+  - DamagedSiliconAccent # Goobstation?
   - FrenchAccent
-  - FrontalLisp
+  - FrontalLisp # Goobstation?
   - GermanAccent
   - LizardAccent
   - MobsterAccent
@@ -80,7 +84,7 @@
     components:
     - AttachedClothing # helmets, which are part of the suit
     - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
-    - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
+    - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet # Goobstation?
     - VirtualItem
 
 # all antagonist roles
@@ -101,6 +105,39 @@
   copyEquipment: null
   copyInternalStorage: false
   copyImplants: false
+
+# for paradox clones
+- type: cloningSettings
+  id: ParadoxCloningSettings
+  parent: [BaseClone, Antag]
+
+# Upstreamer - requires Changeling devour and transform #34002 or some shit
+## changeling identity copying
+#- type: cloningSettings
+#  id: ChangelingCloningSettings
+#  parent: Body
+#  components:
+#  # These are already part of the base species prototype that is spawned for the clone,
+#  # that means we only need to copy them over when switching between species.
+#  # So these don't need to be part of the Body settings, unless someone makes a trait that adjusts these components.
+#  - BodyEmotes
+#  # - Fixtures TODO: A better way to clone fixtures or a fixture fix. Currently if you devour someone on the ground and transform, you lose collision with tables as they were knocked down when they were copied.
+#  - Speech
+#  - TypingIndicator
+#  - ScaleVisuals # for dwarf height
+#  eventComponents:
+#  # these need special treatment in the event subscription
+#  - Inventory # arachnid pockets and diona feet
+#  - Wagging # lizard tails
+#  - Vocal # voice sounds
+#  - Storage # slime storage
+#  - Rootable # diona
+#  - Sericulture # arachnids
+#  - MovementSpeedModifier # moths when weightless
+#  - JumpAbility # vulp leaping
+#  copyEquipment: null
+#  copyInternalStorage: false
+#  copyImplants: false
 
 # spawner
 

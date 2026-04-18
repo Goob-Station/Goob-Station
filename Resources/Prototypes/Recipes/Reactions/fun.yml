@@ -56,34 +56,6 @@
     BuzzochloricBees: 3
 
 - type: reaction
-  id: CreateSoap
-  impact: Low
-  quantized: true
-  reactants:
-    Fat:
-      amount: 15
-    Saline:
-      amount: 25
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: Soap
-
-- type: reaction
-  id: CreateSoapHomemade
-  impact: Low
-  quantized: true
-  reactants:
-    Fat:
-      amount: 15
-    TableSalt:
-      amount: 10
-    Blood:
-      amount: 10
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: SoapHomemade
-
-- type: reaction
   id: Meatification
   impact: Low
   quantized: true
@@ -97,7 +69,7 @@
     Carbon:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodMeat
 
 - type: reaction
@@ -137,8 +109,8 @@
     SulfuricAcid:
       amount: 4 # Goob edit - revert that once we get energy chem
   effects:
-    - !type:CreateEntityReactionEffect
-      entity: SheetPlastic10
+    - !type:SpawnEntity
+      entity: SheetPlastic1
 
 - type: reaction
   id: FlashFreezeIce
@@ -215,7 +187,7 @@
     Ethanol:
       amount: 5
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: ShardCrystalRandom
 
 - type: reaction
@@ -231,7 +203,7 @@
     Charcoal:
       amount: 2
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: MaterialGunpowder
 
 - type: reaction
@@ -244,7 +216,7 @@
     FrostOil:
       amount: 5
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: IngotGold1
 
 - type: reaction
@@ -257,7 +229,7 @@
     FrostOil:
       amount: 5
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: IngotSilver1
 
 - type: reaction
@@ -270,7 +242,7 @@
     JuiceThatMakesYouHew:
       amount: 1
   effects:
-  - !type:ExplosionReactionEffect
+  - !type:ExplosionEffect
     explosionType: Radioactive
     maxIntensity: 200
     intensityPerUnit: 2

@@ -137,13 +137,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 18000 #5 hrs
-    - !type:RoleTimeRequirement
+      time: 5h
+    - !type:RoleTimeRequirement # Goobstation
       role: JobBrigmedic
-      time: 18000 #5 hrs
+      time: 5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hrs
+      time: 10h
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:

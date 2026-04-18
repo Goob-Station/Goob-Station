@@ -13,11 +13,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Objectives.Components;
-using Content.Server.Roles;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Ninja.Components;
 using Content.Shared.Roles;
 using Content.Shared.Warps;
+using Content.Shared.Roles.Components;
+using Content.Shared.Warps;
+using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;
@@ -28,6 +29,7 @@ namespace Content.Server.Objectives.Systems;
 /// </summary>
 public sealed class NinjaConditionsSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -67,10 +69,13 @@ public sealed class NinjaConditionsSystem : EntitySystem
 
         // choose spider charge detonation point
         var warps = new List<EntityUid>();
-        var query = EntityQueryEnumerator<BombingTargetComponent, WarpPointComponent>();
-        while (query.MoveNext(out var warpUid, out _, out var warp))
+        var allEnts = EntityQueryEnumerator<WarpPointComponent>();
+        var bombingBlacklist = comp.Blacklist;
+
+        while (allEnts.MoveNext(out var warpUid, out var warp))
         {
-            if (warp.Location != null)
+            if (_whitelist.IsBlacklistFail(bombingBlacklist, warpUid)
+                && !string.IsNullOrWhiteSpace(warp.Location))
             {
                 warps.Add(warpUid);
             }

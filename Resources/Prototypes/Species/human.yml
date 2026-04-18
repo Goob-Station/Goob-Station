@@ -57,9 +57,9 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
-    Chest: MobHumanChest
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobHumanTorso
     Groin: MobHumanGroin
     Eyes: MobHumanoidEyes
     HeadTop: MobHumanoidAnyMarking
@@ -90,6 +90,12 @@
       points: 2
       required: false
     HeadTop:
+      points: 1
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
       points: 8
       required: false
     HeadSide:
@@ -97,12 +103,6 @@
       required: false
     Chest:
       points: 10
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
       required: false
     RightLeg:
       points: 2
@@ -161,22 +161,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobHumanChest
+  id: MobHumanTorso
   baseSprite:
     sprite: Mobs/Species/Human/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobHumanChestMale
+  id: MobHumanTorsoMale
   baseSprite:
     sprite: Mobs/Species/Human/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobHumanChestFemale
+  id: MobHumanTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Human/parts.rsi
-    state: chest_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobHumanGroin

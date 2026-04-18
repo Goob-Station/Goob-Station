@@ -28,7 +28,7 @@
   name: "monkey chest"
   components:
   - type: Sprite
-    state: "chest_m"
+    state: "torso_m"
   - type: Extractable
     juiceSolution:
       reagents:

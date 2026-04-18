@@ -8,6 +8,7 @@
 
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Random;
 

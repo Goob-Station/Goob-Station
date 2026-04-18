@@ -81,6 +81,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
 using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Abilities;

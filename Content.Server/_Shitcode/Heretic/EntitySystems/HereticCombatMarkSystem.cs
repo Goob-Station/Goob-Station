@@ -31,6 +31,8 @@ using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Medical;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stunnable;
 

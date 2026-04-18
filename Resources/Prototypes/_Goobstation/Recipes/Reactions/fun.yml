@@ -21,7 +21,7 @@
     JuiceBanana:
       amount: 20
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: SoapHomemadeBanana
 
 # CREATED BY Goldminermac
@@ -83,7 +83,7 @@
     Hercuri:
       amount: 5
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: IngotGold1
 
 - type: reaction
@@ -96,7 +96,7 @@
     Hercuri:
       amount: 5
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: IngotSilver1
 
 - type: reaction

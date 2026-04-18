@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.EntityEffects;
 using Content.Goobstation.Shared.EntityEffects;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
@@ -13,6 +14,7 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Spreader;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Coordinates.Helpers;

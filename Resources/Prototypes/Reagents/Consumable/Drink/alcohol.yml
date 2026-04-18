@@ -100,11 +100,11 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Absinthe
           min: 10
         type: Add
         time: 5
-        refresh: false
       - !type:PopupMessage
         type: Local
         messages:
@@ -112,7 +112,8 @@
         - absinthe-effect-feel-tulips
         probability: 0.02
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Absinthe
           min: 10
 
 - type: reagent
@@ -234,83 +235,84 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 15
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Dwarf
+          - Yowie  # Goobstation - Yowie
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         damage:
           types:
             Poison: 1
-      # dwarves take less toxin damage and heal a marginal amount of brute
-      #- !type:HealthChange
-      #  conditions:
-      #  - !type:ReagentThreshold
-      #    min: 15
-      #  - !type:OrganType
-      #    type: Dwarf
-      #  damage:
-      #    types:
-      #      Poison: 0.2
-      - !type:HealthChange
+            # dwarves take less toxin damage and heal a marginal amount of brute
+# Goobstation Start
+#      - !type:HealthChange
+#        conditions:
+#        - !type:ReagentCondition
+#          reagent: Ethanol
+#          min: 15
+#        - !type:MetabolizerTypeCondition
+#          type: [ Dwarf ]
+#        damage:
+#          types:
+#            Poison: 0.2
+      - !type:HealthChange # Goob Yowies
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 15
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition
+          type: [ Yowie ]
         damage:
           groups:
-            Brute: -1
+            Brute: -1      # Goob Yowies end
       - !type:HealthChange # Goobstation - Dwarf buff
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 3
-        - !type:OrganType
-          type: Dwarf
+        - !type:MetabolizerTypeCondition
+          type: [ Dwarf ]
         damage:
           groups:
             Brute: -1
-            Burn: -1
-      - !type:ModifyBloodLevel # Goobstation
+      - !type:ModifyBloodLevel
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 3
-        - !type:OrganType
-          type: Dwarf
-        amount: 1
-          # Begin DeltaV Additons - Oni take less poison
+        - !type:MetabolizerTypeCondition
+          type: [ Dwarf ]
+        amount: 1 # Goobstation - Dwarf buff end
+# Goobstation End
+      # Begin DeltaV Additons - Oni take less poison
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 15
-        - !type:OrganType
-          type: Oni
+        - !type:MetabolizerTypeCondition
+          type: [ Oni ]
         damage:
           types:
             Poison: 0.2
       # End DeltaV Additons
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.04
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Ethanol
           min: 12
         # dwarves immune to vomiting from alcohol
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Dwarf
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Yowie # Goobstation - Yowie
+          inverted: true
       - !type:Drunk
         boozePower: 2
 
@@ -409,9 +411,10 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Yowie
+          inverted: true
         damage:
           types:
             Poison: 1
@@ -1627,9 +1630,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 1
@@ -2446,9 +2449,10 @@
   metabolisms:
     Drink:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Mayojito
           min: 5
         probability: 0.5
       - !type:HealthChange
@@ -2650,46 +2654,41 @@
         boozePower: 10
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BacchusBlessing
           min: 6
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
-        - !type:OrganType # Goobstation
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:OrganType # DeltaV - Oni are our heavy drinkers
-          type: Oni
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Dwarf
+          - Yowie # Goobstation
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Oni # DeltaV - Oni are our heavy drinkers
+          inverted: true
         damage:
           types:
             Poison: 2 # TODO: Figure out poison amount. Ethanol does 1, this does 2 but also metabolises almost 3 to 4 times as fast as ethanol. This would be more Liver damage when that time arrives.
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BacchusBlessing
           min: 6
-        - !type:OrganType
-          type: Dwarf
-        - !type:OrganType # Delta V - Same as above
-          type: Oni
+        - !type:MetabolizerTypeCondition
+          type:
+          - Dwarf
+          - Oni # DeltaV - Oni are our heavy drinkers
         damage:
           types:
             Poison: 0.4 # TODO: Might increase this, even though it's just double of ethanol from 0.2 to 0.4
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1 #TODO: Tweak vomit probability, maybe make this more violent and poisonous but the body aggressively purges it...
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BacchusBlessing
           min: 8
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:OrganType # Delta V - Same as above
-          type: Oni
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Dwarf
+          - Yowie # Goobstation
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Oni # DeltaV - Oni are our heavy drinkers
+          inverted: true

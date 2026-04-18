@@ -54,10 +54,10 @@
   components:
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
-      state: "chest_m"
+      state: "torso_m"
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
-      state: "chest_m"
+      state: "torso_m"
     - type: Extractable
       juiceSolution:
         reagents:

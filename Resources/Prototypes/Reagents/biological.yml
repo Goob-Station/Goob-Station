@@ -105,6 +105,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   recognizable: true
+  standsout: true
   physicalDesc: reagent-physical-desc-ferrous
   metabolisms:
     Drink:
@@ -112,9 +113,9 @@
       - !type:SatiateThirst
         factor: 1.0
         conditions:
-          - !type:OrganType
-            type: Human
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Human ]
+            inverted: true
     Food:
       effects:
         - !type:AdjustReagent
@@ -124,8 +125,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Bloodsucker
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
         damage:
           groups:
             Brute: -3
@@ -157,6 +158,7 @@
   flavor: slimy
   color: "#2cf274"
   recognizable: true
+  standsout: true
   physicalDesc: reagent-physical-desc-viscous
   viscosity: 0.25
   tileReactions:
@@ -237,17 +239,17 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 4
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         probability: 0.25
 
 - type: reagent
@@ -262,12 +264,15 @@
   metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst
+        factor: 1.5
+      # Goob start
       - !type:SuppressPain
         amount: 4
         time: 28
       - !type:HealthChange # Goobstation - Make Ichor less shit
         damage:
-          types: 
+          types:
             Heat: -5
             Shock: -5
             Cold: -5
@@ -278,17 +283,14 @@
             Bloodloss: -5
             Blunt: -5
             Slash: -5
-            Piercing: -5 
-   
-      - !type:ModifyBloodLevel
+            Piercing: -5
+      - !type:ModifyBleed
             amount: 3
-  
-      - !type:ModifyBleedAmount
-            amount: -1.5
-  # Goobstation, just in case you REALLY  REALLY want to water your plants
+      # Goob end
+  # Just in case you REALLY  REALLY want to water your plants
   plantMetabolism:
   - !type:PlantAdjustWater
-    amount: 1
+    amount: 1 # Goobstation
   footstepSound:
     collection: FootstepBlood
     params:

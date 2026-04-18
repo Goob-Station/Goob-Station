@@ -269,7 +269,7 @@
     Sodium:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: ShardCrystalStyptic
 
 - type: reaction
@@ -287,7 +287,7 @@
   products:
     Hydroxide: 5 # frankly it's there so that this recipe appears in the guidebook at all
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodMeatSynth
 
 - type: reaction

@@ -85,17 +85,17 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # The progenitor. This should only container the most basic components possible.
 # Only put things on here if every mob *must* have it. This includes ghosts.
+# The literal bare minimum needed to be a controllable mob. Cannot move but can interact.
 - type: entity
-  save: false
-  id: BaseMob
   abstract: true
+  save: false
+  id: BaseControllable
   components:
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-  - type: MobCollision
+  - type: GravityAffected
   - type: Physics
-    bodyType: KinematicController
   - type: Fixtures
     fixtures:
       fix1:
@@ -109,11 +109,8 @@
         - MobLayer
   - type: Clickable
   - type: InteractionOutline
-  - type: InputMover
   - type: Input
     context: "human"
-  - type: LagCompensation
-  - type: MobMover
   - type: Actions
   - type: Alerts
   - type: Appearance
@@ -126,7 +123,6 @@
   - type: ContentEye
   - type: CameraRecoil
   - type: MindContainer
-  - type: MovementSpeedModifier
   - type: RequireProjectileTarget
     active: False
   - type: AnimatedEmotes
@@ -138,6 +134,22 @@
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
   - type: StunVisuals
+
+# The progenitor. This should only container the most basic components possible.
+# Only put things on here if every mob *must* have it. This includes ghosts.
+- type: entity
+  abstract: true
+  save: false
+  parent: BaseControllable
+  id: BaseMob
+  components:
+  - type: MobCollision
+  - type: Physics
+    bodyType: KinematicController
+  - type: InputMover
+  - type: MobMover
+  - type: MovementSpeedModifier
+  - type: LagCompensation
 
 - type: entity
   save: false
@@ -180,8 +192,24 @@
     #  - !type:PlaySoundBehavior
     #    sound:
     #      collection: MeatLaserImpact
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Radiation
+        damage: 15
+      behaviors:
+      - !type:PopupBehavior
+        popup: mouth-taste-metal
+        popupType: LargeCaution
+        targetOnly: true
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Radiation
+        damage: 40
+      behaviors:
+      - !type:VomitBehavior
   - type: RadiationReceiver
   - type: Stamina
+  - type: StunVisuals
   - type: MobState
   - type: MobThresholds
     thresholds:

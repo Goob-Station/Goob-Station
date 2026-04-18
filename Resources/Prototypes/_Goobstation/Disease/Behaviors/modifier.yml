@@ -19,7 +19,7 @@
   - type: DiseaseReagentEffect
     timeScale: false
     effects:
-    - !type:MovespeedModifier
+    - !type:MovementSpeedModifier
       walkSpeedModifier: 0.65
       sprintSpeedModifier: 0.65
 
@@ -35,7 +35,7 @@
     effects:
     - !type:AdjustTemperature
       conditions:
-      - !type:Temperature
+      - !type:TemperatureCondition
         max: 393.15 # stops at 100c
       amount: 8000
 

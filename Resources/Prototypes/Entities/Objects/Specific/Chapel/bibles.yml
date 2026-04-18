@@ -86,7 +86,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
+#
 #START SET SELECTION
 - type: entity
   id: ChaplainUndeterminedBible
@@ -214,7 +214,7 @@
     duration: 5
 
 - type: entity
-  parent: [Bible, BaseSyndicateContraband]
+  parent: [Bible]
   name: necronomicon
   description: "There's a note: Klatuu, Verata, Nikto -- Don't forget it again!"
   id: BibleNecronomicon
@@ -252,3 +252,108 @@
     useDelay: 1
   - type: InstantAction
     event: !type:SummonActionEvent
+
+- type: entity
+  parent: Bible
+  name: tanakh
+  description: "For God's chosen crewmembers"
+  id: BibleTanakh
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/tanakh.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/tanakh.rsi
+  - type: MeleeWeapon # Goobstation.
+    soundHit:
+      collection: AlienClaw
+    damage:
+      types:
+        Blunt: 3
+
+- type: entity
+  parent: Bible
+  name: quran
+  description: "Prayer carpet not included"
+  id: BibleQuran
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/quran.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/quran.rsi
+
+- type: entity
+  id: BibleDruid
+  name: druidic tablet
+  parent: Bible
+  description: "It's the mystery of the druids!"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/mysteryofthedruids.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/mysteryofthedruids.rsi
+
+- type: entity
+  id: BibleCommunistManifesto
+  name: communist manifesto
+  parent: Bible
+  description: "Remove the mask of humanity from Capital."
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/communistmanifesto.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/communistmanifesto.rsi
+
+- type: entity
+  parent: Bible
+  name: satanic bible
+  description: "What could possibly go wrong?"
+  id: BibleSatanic
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/satanicbible.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/satanicbible.rsi
+
+- type: entity
+  id: BibleNarsie
+  name: tome of nar'sie
+  parent: Bible
+  description: "What could possibly go wrong with a book covered in blood?"
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/tomeofnarsie.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/tomeofnarsie.rsi
+
+- type: entity
+  id: BibleNanoTrasen
+  name: codex nanotrasimus
+  parent: Bible
+  description: "A familiar book containing the Sacred Operating Procedures."
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/codexnanotrasimus.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/codexnanotrasimus.rsi
+
+- type: entity
+  id: BibleHonk
+  name: mirth of the honkmother
+  parent: Bible
+  description: "Oh great and glorious Mother, Mistress of Mirth, Matron of Mask and Merriments, Blessed is she amongst us jesters."
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/honk.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/honk.rsi
+
+- type: entity
+  id: BibleRatvar
+  name: tablet of ratvar
+  parent: Bible
+  description: "A holy relic of the Clockwork Cult, blessed by the Clockwork Justice, Ratvar."
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/ratvartablet.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/ratvartablet.rsi

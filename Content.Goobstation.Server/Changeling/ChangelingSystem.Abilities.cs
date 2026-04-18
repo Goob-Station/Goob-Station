@@ -78,6 +78,7 @@ using Content.Shared.Tools.Systems;
 using Content.Goobstation.Shared.Devour.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
+using Content.Shared.Light.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -549,7 +550,7 @@ public sealed partial class ChangelingSystem
 
         var pos = _transform.GetMapCoordinates(uid);
         var power = comp.ShriekPower;
-        _emp.EmpPulse(pos, power, 5000f, power * 2);
+        _emp.EmpPulse(pos, power, 5000f,  TimeSpan.FromSeconds(power * 2));
 
         args.Handled = true;
     }

@@ -24,10 +24,10 @@
   - BioGenLeft4Zed
   - BioGenEZNutrient
   - BioGenRobustHarvest
+  - BioGenDiseaseSwab
   - BioGenDylo #Goobstation Change
   - BioGenPhalanx #Goobstation Change
   - BioGenDiethyl #Goobstation Change
-  - BioGenMuta #Goobstation Change
   - BioGenEgg #Goobstation Change
 
 - type: latheRecipePack
@@ -37,3 +37,8 @@
   - BioGenMaterialCardboard1
   - BioGenPaper
   - BioGenPaperRolling1
+
+- type: latheRecipePack
+  id: BioGenEmagStatic
+  recipes:
+  - BioGenUnstableMutagen

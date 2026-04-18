@@ -98,7 +98,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Command
-      time: 3600 # 1 hour
+      time: 1h
 
 # Flowers
 - type: loadout
@@ -197,6 +197,31 @@
     back:
     - CigarGold
   groupBy: "smokeables"
+
+# Folders
+- type: loadout
+  id: BoxFolderBaseThreePapers
+  storage:
+    back:
+    - BoxFolderBaseThreePapers
+  groupBy: "folders"
+
+- type: loadout
+  id: BoxFolderPlasticClipboardThreePapers
+  storage:
+    back:
+    - BoxFolderPlasticClipboardThreePapers
+  groupBy: "folders"
+
+- type: loadout
+  id: BoxFolderClipboardThreePapers
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Command
+  storage:
+    back:
+    - BoxFolderClipboardThreePapers
+  groupBy: "folders"
 
 # Pins
 - type: loadout
@@ -464,7 +489,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:OverallPlaytimeRequirement
-      time: 36000 # 10hr
+      time: 10h
   storage:
     back:
     - TowelColorWhite
@@ -476,7 +501,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:OverallPlaytimeRequirement
-      time: 1800000 # 500hr
+      time: 500h
   storage:
     back:
     - TowelColorSilver
@@ -488,7 +513,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:OverallPlaytimeRequirement
-      time: 3600000 # 1000hr
+      time: 1000h
   storage:
     back:
     - TowelColorGold
@@ -501,7 +526,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Cargo
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorLightBrown
@@ -514,7 +539,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Civilian
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorGreen
@@ -527,7 +552,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Command
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorDarkBlue
@@ -540,7 +565,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorOrange
@@ -553,7 +578,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorLightBlue
@@ -566,7 +591,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Science
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorPurple
@@ -579,7 +604,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorRed
@@ -592,7 +617,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorGray
@@ -605,7 +630,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChaplain
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorBlack
@@ -618,7 +643,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobLibrarian
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorDarkGreen
@@ -631,7 +656,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobLawyer
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorMaroon
@@ -644,7 +669,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorYellow
@@ -657,7 +682,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMime
-      time: 360000 # 100hr
+      time: 100h
   storage:
     back:
     - TowelColorMime

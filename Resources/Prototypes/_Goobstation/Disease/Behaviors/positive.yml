@@ -9,7 +9,7 @@
   - type: DiseaseReagentEffect
     timeScale: false
     effects:
-    - !type:MovespeedModifier
+    - !type:MovementSpeedModifier
       walkSpeedModifier: 1.35
       sprintSpeedModifier: 1.35
     - !type:GenericStatusEffect
@@ -31,7 +31,7 @@
     - !type:HealthChange
       useTargeting: false
       conditions:
-      - !type:TotalDamage
+      - !type:TotalDamageCondition
         max: 50
       damage:
         groups:

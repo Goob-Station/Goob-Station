@@ -130,7 +130,7 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Milk, MilkGoat, MilkSoy, MilkSpoiled ]
       # add new types of milk to reagents as they appear, oat milk isn't on the list
       # because turns out oat milk has 1/30th the amount of calcium in it compared to the rest
@@ -138,7 +138,7 @@
       methods: [ Touch ]
       effects: # TODO: when magic is around - make a milk transformation to a skeleton monster
       - !type:HealthChange
-        scaleByQuantity: true # Woundmed
+        scaling: true
         ignoreBlockers: true # What do broken bones even mean in the context of a skeleton?.. # Woundmed
         splitDamage: SplitEnsureAll
         damage:
@@ -161,6 +161,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: FlashImmunity
+    showInExamine: false
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -168,6 +169,24 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Instrument
+    program: 13 # Xylophone. Woodblock is 115 (another good option)
+  - type: ActivatableUI
+    blockSpectators: true # otherwise they can play client-side music
+    inHandsOnly: false
+    singleUser: true
+    requiresComplex: true
+    verbOnly: true
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: SurgeryTarget # Goobstation
     sepsisImmune: true
   - type: Tag # Goobstation

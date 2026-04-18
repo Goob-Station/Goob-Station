@@ -1888,8 +1888,8 @@
   time: 5
   group: Cake
   solids:
-    FoodCakePlain: 1
-    FoodBerries: 5
+    FoodCakeBlueberry: 1
+    FoodBerries: 2
   reagents:
     Milk: 10
 
@@ -2567,6 +2567,17 @@
     FoodTomato: 1
     FoodCabbage: 1
     FoodOnionSlice: 2
+
+- type: microwaveMealRecipe
+  id: RecipeTacoDragon
+  name: draco recipe
+  result: FoodTacoDragon
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodMeatDragonCutlet: 2
+    FoodChiliPepper: 1
 
 - type: microwaveMealRecipe
   id: RecipeCroissant

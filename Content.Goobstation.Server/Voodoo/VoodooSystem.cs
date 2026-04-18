@@ -28,7 +28,7 @@ namespace Content.Goobstation.Server.Voodoo
 
             SubscribeLocalEvent<VoodooComponent, DamageChangedEvent>(OnDamaged);
             SubscribeLocalEvent<VoodooComponent, DestructionEventArgs>(OnDestroyed);
-            SubscribeLocalEvent<VoodooComponent, ThrownEvent>(OnThrow);
+            SubscribeLocalEvent<VoodooComponent, ThrowEvent>(OnThrow);
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Content.Goobstation.Server.Voodoo
         /// <summary>
         /// Whenever the voodoo item is thrown, throw the player in a random direction
         /// </summary>
-        private void OnThrow(Entity<VoodooComponent> ent, ref ThrownEvent args)
+        private void OnThrow(Entity<VoodooComponent> ent, ref ThrowEvent args)
         {
             foreach (var session in _playerManager.Sessions)
             {

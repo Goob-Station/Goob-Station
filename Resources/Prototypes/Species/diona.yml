@@ -38,9 +38,9 @@
     Head: MobDionaHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
-    Chest: MobDionaChest
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobDionaTorso
     Groin: MobDionaGroin
     Eyes: MobDionaEyes
     LArm: MobDionaLArm
@@ -63,16 +63,16 @@
       points: 4
       required: false
     HeadSide:
+      points: 1
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
       points: 3
       required: false
     Chest:
       points: 4
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
       required: false
     RightLeg:
       points: 2
@@ -128,22 +128,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobDionaChest
+  id: MobDionaTorso
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobDionaChestMale
+  id: MobDionaTorsoMale
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobDionaChestFemale
+  id: MobDionaTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: chest_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobDionaGroin

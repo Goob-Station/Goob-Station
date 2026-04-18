@@ -95,7 +95,7 @@
   components:
   - type: Sprite
     layers:
-    - state: chest_m
+    - state: torso_m
   - type: BodyPart # Shitmed - remove head so you cant turn people into literally ANY simblemob (it should at least be a tech and surgery to add the slot)
     children:
       groin:

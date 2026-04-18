@@ -111,7 +111,7 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
             {
                 var xform = Transform(args.HitEntities.FirstOrDefault());
                 if (_random.Prob(0.2f))
-                    _empSystem.EmpPulse(_transform.GetMapCoordinates(xform), 3f, 50f, 3f);
+                    _empSystem.EmpPulse(_transform.GetMapCoordinates(xform), 3f, 50f, TimeSpan.FromSeconds(3f));
                 break;
             }
         }

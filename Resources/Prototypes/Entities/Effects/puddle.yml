@@ -203,6 +203,32 @@
           Quantity: 30
 
 - type: entity
+  parent: PuddleTemporary
+  id: PuddleFluorosulfuricAcidSmall
+  suffix: FluorosulfuricAcid (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 5
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleFluorosulfuricAcid
+  suffix: FluorosulfuricAcid (15u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 15
+
+- type: entity
   id: PuddleWatermelon
   parent: PuddleTemporary
   suffix: Watermelon
@@ -307,6 +333,7 @@
     delay: 3
     transferAmount: 1
     solution: puddle
+    utensil: Spoon
   - type: ExaminableSolution
     solution: puddle
     locVolume: "examinable-solution-on-examine-volume-puddle"

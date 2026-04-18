@@ -9,6 +9,7 @@
 
 using Content.Server.Emp;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared.Emp;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Stunnable;
 

@@ -27,7 +27,6 @@
   components:
   - type: Tag
     tags:
-    - Cartridge
     - CartridgeLightRifle
   - type: CartridgeAmmo
     proto: BulletLightRifle

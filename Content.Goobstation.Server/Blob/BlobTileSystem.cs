@@ -90,7 +90,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 
         if (blobCoreComponent.CurrentChem == BlobChemType.ElectromagneticWeb)
         {
-            _empSystem.EmpPulse(_transform.GetMapCoordinates(uid), 3f, 50f, 3f);
+            _empSystem.EmpPulse(_transform.GetMapCoordinates(uid), 3f, 50f, TimeSpan.FromSeconds(3f));
         }
     }
 
