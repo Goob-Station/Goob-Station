@@ -15,6 +15,7 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors
 {
@@ -29,10 +30,25 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
             if (!system.EntityManager.TryGetComponent<ContainerManagerComponent>(owner, out var containerManager))
                 return;
 
+            // AltHub Space -> start
+            if (!system.EntityManager.TryGetComponent<MetaDataComponent>(owner, out var ownerMeta))
+                return;
+
+            if (!system.EntityManager.TryGetComponent<TransformComponent>(owner, out var ownerTransform))
+                return;
+
             foreach (var container in system.EntityManager.System<SharedContainerSystem>().GetAllContainers(owner, containerManager))
             {
-                system.ContainerSystem.EmptyContainer(container, true, system.EntityManager.GetComponent<TransformComponent>(owner).Coordinates);
+                if (system.EntityManager.IsQueuedForDeletion(owner) || ownerMeta.EntityLifeStage >= EntityLifeStage.Terminating)
+                {
+                    system.ContainerSystem.EmptyContainer(container, true);
+                }
+                else
+                {
+                    system.ContainerSystem.EmptyContainer(container, true, ownerTransform.Coordinates);
+                }
             }
+            // AltHub Space -> end
         }
     }
 }
