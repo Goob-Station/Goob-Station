@@ -1,0 +1,23 @@
+ent-OrganPlasmamanLungs = plasmaman lungs
+  .desc = The lungs yearn for the plasma. Only plasma gas can satiate these lungs, and oxygen is lethally toxic.
+
+ent-OrganPlasmamanStomach = plasmaman stomach
+  .desc = Why do plasmamen have stomachs if they don't need to eat?
+
+ent-OrganPlasmamanEyes = plasmaman eyes
+  .desc = { ent-OrganHumanEyes.desc }
+
+ent-OrganPlasmamanLiver = plasmaman liver
+  .desc = { ent-OrganHumanLiver.desc }
+
+ent-OrganPlasmamanTongue = plasmaman tongue
+  .desc = { ent-OrganHumanTongue.desc }
+
+ent-OrganPlasmamanKidneys = plasmaman kidneys
+  .desc = { ent-OrganHumanKidneys.desc }
+
+ent-OrganPlasmamanHeart = plasmaman heart
+  .desc = It pulses with plasma even outside the body.
+
+ent-OrganPlasmamanBrain = plasmaman brain
+  .desc = { ent-OrganHumanBrain.desc }

@@ -1,0 +1,263 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+marking-VulpEar-vulp = Основной
+marking-VulpEar-vulp-inner = Внутри
+marking-VulpEar = Вульпканин
+
+marking-VulpEarFade-vulp = Основной
+marking-VulpEarFade-vulp-fade = Градиент
+marking-VulpEarFade = Градиент
+
+marking-VulpEarSharp-vulp = Основной
+marking-VulpEarSharp-vulp-sharp = Острые
+marking-VulpEarSharp = Острые
+
+marking-VulpEarJackal-jackal = Основной
+marking-VulpEarJackal-jackal-inner = Внутри
+marking-VulpEarJackal = Шакал
+
+marking-VulpEarTerrier-terrier = Основной
+marking-VulpEarTerrier-terrier-inner = Внутри
+marking-VulpEarTerrier = Терьер
+
+marking-VulpEarWolf-wolf = Основной
+marking-VulpEarWolf-wolf-inner = Внутри
+marking-VulpEarWolf = Волк
+
+marking-VulpEarFennec-fennec = Основной
+marking-VulpEarFennec-fennec-inner = Внутри
+marking-VulpEarFennec = Фенек
+
+marking-VulpEarFox-fox = Основной
+marking-VulpEarFox = Лиса
+
+marking-VulpEarOtie-otie = Основной
+marking-VulpEarOtie-otie-inner = Внутри
+marking-VulpEarOtie = Оти
+
+marking-VulpEarTajaran-msai = Основной
+marking-VulpEarTajaran-msai-inner = Внутри
+marking-VulpEarTajaran = Таяран
+
+marking-VulpEarShock-shock = Основной
+marking-VulpEarShock = Электро
+
+marking-VulpEarCoyote-coyote = Основной
+marking-VulpEarCoyote = Койот
+
+marking-VulpEarDalmatian-dalmatian = Основной
+marking-VulpEarDalmatian = Далматин
+
+
+marking-VulpSnoutAlt-muzzle_alt = Основной
+marking-VulpSnoutAlt-nose = Нос
+marking-VulpSnoutAlt = Вульпканин альт.
+
+marking-VulpSnout-muzzle = Основной
+marking-VulpSnout-nose = Нос
+marking-VulpSnout = Вульпканин
+
+marking-VulpSnoutSharp-muzzle_sharp = Основной
+marking-VulpSnoutSharp-nose = Нос
+marking-VulpSnoutSharp = Острая
+
+marking-VulpSnoutFade-muzzle_fade = Основной
+marking-VulpSnoutFade-nose = Нос
+marking-VulpSnoutFade = Градиент
+
+marking-VulpSnoutNose-nose = Нос
+marking-VulpSnoutNose = Нос
+
+marking-VulpSnoutMask-mask = Основной
+marking-VulpSnoutMask-nose = Нос
+marking-VulpSnoutMask = Маска
+
+marking-VulpSnoutVulpine-vulpine = Основной
+marking-VulpSnoutVulpine-vulpine-lines = Полосы
+marking-VulpSnoutVulpine = Лиса
+
+marking-VulpSnoutSwift-vulpine-lines = Основной
+marking-VulpSnoutSwift = Корсак
+
+marking-VulpSnoutBlaze-blaze = Основной
+marking-VulpSnoutBlaze = Пламя
+
+marking-VulpSnoutPatch-patch = Основной
+marking-VulpSnoutPatch = Заплатка
+
+
+marking-VulpHeadTiger-tiger_head = Основной
+marking-VulpHeadTiger = Тигр, Полосы
+
+marking-VulpHeadTigerFace-tiger_face = Основной
+marking-VulpHeadTigerFace = Тигр, Морда
+
+marking-VulpHeadSlash-slash = Основной
+marking-VulpHeadSlash = Шрам
+
+
+marking-VulpTail-vulp = Основной
+marking-VulpTail-vulp-fade = Градиент
+marking-VulpTail = Вульпканин
+
+marking-VulpTailTip-vulp = Основной
+marking-VulpTailTip-vulp-tip = Кончик
+marking-VulpTailTip = Кончик
+
+marking-VulpTailWag-vulp_wag = Основной
+marking-VulpTailWag-vulp_wag-fade = Градиент
+marking-VulpTailWag = Виляющий
+
+marking-VulpTailWagTip-vulp_wag = Основной
+marking-VulpTailWagTip-vulp_wag-tip = Кончик
+marking-VulpTailWagTip = Виляющий, Кончик
+
+marking-VulpTailAlt-vulp_alt = Основной
+marking-VulpTailAlt-vulp_alt-fade = Градиент
+marking-VulpTailAlt = Вульпканин альт.
+
+marking-VulpTailAltTip-vulp_alt = Основной
+marking-VulpTailAltTip-vulp_alt-tip = Кончик
+marking-VulpTailAltTip = Кончик альт.
+
+marking-VulpTailLong-long = Основной
+marking-VulpTailLong-long-tip = Кончик
+marking-VulpTailLong = Длинный
+
+marking-VulpTailFox-fox = Основной
+marking-VulpTailFox-fox-fade = Градиент
+marking-VulpTailFox = Лиса
+
+marking-VulpTailFoxTip-fox = Основной
+marking-VulpTailFoxTip-fox-tip = Кончик
+marking-VulpTailFoxTip = Лиса, Кончик
+
+marking-VulpTailFoxWag-fox_wag = Основной
+marking-VulpTailFoxWag-fox_wag-fade = Градиент
+marking-VulpTailFoxWag = Лиса, Виляющий
+
+marking-VulpTailFoxWagTip-fox_wag = Основной
+marking-VulpTailFoxWagTip-fox_wag-tip = Кончик
+marking-VulpTailFoxWagTip = Лиса, Виляющий, Кончик
+
+marking-VulpTailBushy-bushfluff = Основной
+marking-VulpTailBushy = Пушистый
+
+marking-VulpTailBushyWag-bushfluff_wag = Основной
+marking-VulpTailBushyWag = Пушистый, Виляющий
+
+marking-VulpTailCoyote-coyote = Основной
+marking-VulpTailCoyote = Койот
+
+marking-VulpTailCoyoteWag-coyote_wag = Основной
+marking-VulpTailCoyoteWag = Койот, Виляющий
+
+marking-VulpTailCorgiWag-corgi_wag = Основной
+marking-VulpTailCorgiWag = Корги, Виляющий
+
+marking-VulpTailHusky-husky-inner = Внутри
+marking-VulpTailHusky-husky-outer = Основной
+marking-VulpTailHusky = Хаски
+
+marking-VulpTailHuskyAlt-husky = Основной
+marking-VulpTailHuskyAlt = Хаски альт.
+
+marking-VulpTailFox2-fox2 = Основной
+marking-VulpTailFox2 = Лиса альт.
+
+marking-VulpTailFox3-fox3 = Основной
+marking-VulpTailFox3-fox3-tip = Кончик
+marking-VulpTailFox3 = Лиса альт., Кончик
+
+marking-VulpTailFennec-fennec = Основной
+marking-VulpTailFennec = Фенек
+
+marking-VulpTailOtie-otie = Основной
+marking-VulpTailOtie = Ооти
+
+marking-VulpTailFluffy-fluffy = Основной
+marking-VulpTailFluffy = Пушистый
+
+marking-VulpTailDalmatianWag-dalmatian_wag = Основной
+marking-VulpTailDalmatianWag = Далматин, Виляющий
+
+
+marking-VulpBellyCrest-belly_crest = Основной
+marking-VulpBellyCrest = Гребень
+
+marking-VulpBellyFull-belly_full = Основной
+marking-VulpBellyFull = Вульпканин
+
+marking-VulpBellyFox-belly_fox = Основной
+marking-VulpBellyFox = Вульпканина альт.
+
+
+marking-VulpBodyPointsCrest-points_crest = Основной
+marking-VulpBodyPointsCrest = Гребень
+
+marking-VulpBodyPointsFade-points_fade = Основной
+marking-VulpBodyPointsFade = Градиент
+
+marking-VulpBodyPointsSharp-points_sharp = Основной
+marking-VulpBodyPointsSharp = Острый
+
+
+marking-VulpPointsFeet-points_feet = Основной
+marking-VulpPointsFeet = Лапы
+
+marking-VulpPointsCrestLegs-points_crest-legs = Основной
+marking-VulpPointsCrestLegs = Гребень
+
+marking-VulpPointsFadeLegs-points_fade-legs = Основной
+marking-VulpPointsFadeLegs = Градиент
+
+marking-VulpPointsSharpLegs-points_sharp-legs = Основной
+marking-VulpPointsSharpLegs = Острые
+
+
+marking-VulpPointsHands-points_hands = Основной
+marking-VulpPointsHands = Кисти
+
+marking-VulpPointsCrestArms-points_crest-arms = Основной
+marking-VulpPointsCrestArms = Гребень
+
+marking-VulpPointsFadeArms-points_fade-arms = Основной
+marking-VulpPointsFadeArms = Градиент
+
+marking-VulpPointsSharpArms-points_sharp-arms = Основной
+marking-VulpPointsSharpArms = Острые
+
+
+marking-VulpHairAdhara = Адхара
+marking-VulpHairAnita = Анита
+marking-VulpHairApollo = Аполло
+marking-VulpHairBelle = Белль
+marking-VulpHairBraided = Косички
+marking-VulpHairBun = Пучок
+marking-VulpHairCleanCut = Аккуратная стрижка
+marking-VulpHairCurl = Локон
+marking-VulpHairHawk = Ястреб
+marking-VulpHairJagged = Неровная
+marking-VulpHairJeremy = Джереми
+marking-VulpHairKajam = Каджам
+marking-VulpHairKeid = Кейд
+marking-VulpHairKleeia = Клиия
+marking-VulpHairMizar = Мизар
+marking-VulpHairPunkBraided = Панкуха
+marking-VulpHairRaine = Рейн
+marking-VulpHairRough = Грубая
+marking-VulpHairShort = Короткая стрижка
+marking-VulpHairShort2 = Короткая стрижка альт.
+marking-VulpHairSpike = Шипы
+
+marking-VulpFacialHairRuff = Воротник
+marking-VulpFacialHairElder = Старейшина
+marking-VulpFacialHairElderChin = Борода старейшины
+marking-VulpFacialHairKita = Кито

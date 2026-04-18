@@ -1,0 +1,29 @@
+ent-BaseCyberneticOrgan = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-BasicCyberneticEyes = cybernetic eyes
+  .desc = A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
+
+ent-SecurityCyberneticEyes = cybernetic security eyes
+  .desc = A pair of cybernetic eyes that enhance your vision, featuring an integrated SecHUD.
+
+ent-MedicalCyberneticEyes = cybernetic medhud eyes
+  .desc = A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
+
+ent-DiagnosticCyberneticEyes = cybernetic diagnostic eyes
+  .desc = A pair of cybernetic eyes that enhance your vision, featuring an integrated diagnostic hud.
+
+ent-BasicCyberneticHeart = cybernetic heart
+  .desc = A precision-tuned heart that slows down medicine absorption while hastening the absorption of poisons and narcotics resulting in weakened effects.
+
+ent-UpgradedCyberneticHeart = upgraded cybernetic heart
+  .desc = A next-gen circulatory core that slowly delivers medicine throughout the body providing much better healing while heavily accelerating and weakening toxins and narcotics.
+
+ent-BasicCyberneticLiver = cybernetic liver
+  .desc = A high-efficiency synthetic liver that neutralizes all negative effects of alcohol while preserving the buzz.
+
+ent-BasicCyberneticLungs = cybernetic lungs
+  .desc = Advanced synthetic lungs that breathe oxygen and nitrogen, ignore CO2, and resist most other atmospheric hazards.
+
+ent-UpgradedCyberneticLungs = upgraded cybernetic lungs
+  .desc = A self-contained respiratory system that eliminates the need to breathe entirely and grants increased stamina recovery.

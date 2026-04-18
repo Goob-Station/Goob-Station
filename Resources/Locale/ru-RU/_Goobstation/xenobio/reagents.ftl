@@ -1,0 +1,35 @@
+xenobio-reagent-slime-toxin-name = Slime toxin
+xenobio-reagent-slime-toxin-desc = The toxin that slime introduces into victim’s blood during the hunt, maintains the victim in a critical state even with zero blood volume. It also has hallucinogenic and sedative effects.
+
+xenobio-reagent-jelly-purple-name = слаймороид
+xenobio-reagent-jelly-purple-desc = Мощная химическая смесь, заставляющая слайма при переработке производить на один экстракт больше. Максимум до четырёх дополнительных. Стероид действует только на живых слаймах.
+
+xenobio-reagent-jelly-blue-name = слаймолизатор
+xenobio-reagent-jelly-blue-desc = Снижает шанс мутации слайма на 25% и сохраняет эффект между поколениями.
+
+xenobio-reagent-jelly-darkblue-name = слаймочилл
+xenobio-reagent-jelly-darkblue-desc = Это желе делает любого потребителя устойчивым к высоким температурам на немалое время. Шахтёры особенно оценят, так как оно защищает от пепельных бурь.
+
+xenobio-reagent-jelly-cerulean-name = слаймобуст
+xenobio-reagent-jelly-cerulean-desc = При употреблении слизнем увеличивает количество потомства при митозе.
+
+xenobio-reagent-jelly-red-name = деслаймолизатор
+xenobio-reagent-jelly-red-desc = Противоположность слаймового стабилизатора. Увеличивает шанс мутации слизня на 25% и сохраняет эффект между поколениями.
+
+xenobio-reagent-jelly-pink-name = амортенция
+xenobio-reagent-jelly-pink-desc = Делает любое враждебное существо покорным и ручным. Теперь у вас тоже может быть свой питомец, как у Главы Персонала!
+
+xenobio-reagent-jelly-green-name = слаймоген
+xenobio-reagent-jelly-green-desc = Превращает любого гуманоидa, употребившего его в достаточном количестве, в слаймолюда. При употреблении слаймолюдами появляется шанс мутации!
+
+xenobio-reagent-toxin-human-name = челоген
+xenobio-reagent-toxin-human-desc = Превращает любого гуманоидa, употребившего его в достаточном количестве, в человека.
+
+xenobio-reagent-toxin-felinid-name = некоген
+xenobio-reagent-toxin-felinid-desc = Превращает любого гуманоидa, употребившего его в достаточном количестве, в фелинида. Не надо, дядя.
+
+xenobio-reagent-toxin-advanced-name = рандоген
+xenobio-reagent-toxin-advanced-desc = Превращает любого гуманоидa, употребившего его в достаточном количестве, в случайную расу. Да, даже в скелета. Не спрашивай.
+
+xenobio-reagent-genderfluid-name = гендерфлюид
+xenobio-reagent-genderfluid-desc = Меняет пол человека, который его употребил. Мы оба знаем, что ты сделаешь в первую очередь...

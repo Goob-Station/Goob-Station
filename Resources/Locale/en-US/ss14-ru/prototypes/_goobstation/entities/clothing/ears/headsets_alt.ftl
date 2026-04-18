@@ -1,0 +1,30 @@
+ent-ClothingHeadsetAltLoudspeaker = { ent-ClothingHeadsetAlt }
+  .desc = { ent-ClothingHeadsetAlt.desc }
+
+ent-ClothingHeadsetAltSyndicateCommander = blood-red commander over-ear headset
+  .desc = { ent-ClothingHeadsetAltSyndicate.desc }
+
+ent-ClothingHeadsetChronolegioneer = futuristic over-ear headset
+  .desc = A headset from the future that can pick up most station frequencies.
+
+ent-ClothingHeadsetChronolegioneerUnremoveable = { ent-ClothingHeadsetChronolegioneer }
+  .desc = { ent-ClothingHeadsetChronolegioneer.desc }
+  .suffix = Unremoveable
+
+ent-ClothingHeadsetAltWarden = warden's over-ear headset
+  .desc = An updated, modular intercom, allowing for rapid communication with command personnel.
+
+ent-ClothingHeadsetDeathsquad = deathsquad over-ear headset
+  .desc = { ent-ClothingHeadsetAlt.desc }
+
+ent-ClothingHeadsetAltSecurityRegular = security over-ear headset
+  .desc = { ent-ClothingHeadsetAlt.desc }
+
+ent-ClothingHeadsetAltBlueshield = blueshield officers over-ear headset
+  .desc = { ent-ClothingHeadsetAlt.desc }
+
+ent-ClothingHeadsetCommandService = command-service headset
+  .desc = A headset with a command and service channels.
+
+ent-ClothingHeadsetAltRadioHost = Radio host's over-ear headset
+  .desc = An over-ear headset with extra foam padding around the ears.

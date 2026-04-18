@@ -1,0 +1,65 @@
+ent-ChronoPDA = КПК будущего
+    .desc = Мощный квантовый компьютер, замаскированный для маскировки под обычный КПК.
+
+ent-GmanPDA = странный КПК
+    .desc = Ваш разум не может до конца постичь это.
+
+ent-HelldiverPDA = КПК спасателя
+    .desc = Пахнет трупами насекомых и андроидов.
+
+ent-HecuPDA = КПК HECU
+    .desc = Пахнет порохом.
+
+ent-BlueshieldPDA = КПК синего щита
+    .desc = На лицевой стороне выгравирован серебряный щит Синего щита.
+
+ent-DeathsquadPDA = КПК эксадрона смерти
+    .desc = Рвите и метайте всех и вся, пока все не будет готово.
+
+ent-NanotrasenRepresentativePDA = КПК представителя NanoTrasen
+    .desc = Дьявол кроется в деталях.
+
+ent-TrainerPDA = КПК наставника
+    .desc = Стандартный КПК наставника NanoTrasen
+
+ent-NavyCaptainPDA = КПК капитана ВКС
+    .desc = Дьявол кроется в деталях.
+
+ent-NavyOfficerPDA = КПК офицера ЦК
+    .desc = { ent-NavyCaptainPDA.desc }
+
+ent-SpecialOperationsOfficerPDA = КПК офицера специальных операций.
+    .desc = { ent-NavyCaptainPDA.desc }
+
+ent-DiplomatPDA = КПК дипломата.
+    .desc = { ent-NavyCaptainPDA.desc }
+
+ent-InspectorPDA = КПК ревизора.
+    .desc = { ent-NavyCaptainPDA.desc }
+
+ent-SyndiPDANukie = КПК синдиката
+    .desc = Ладно, пришло время стать продуктивным рабоч... о, круто, я плохой парень, пришло время убивать всех!
+
+ent-HighCommandPDA = КПК офицера Синдиката
+    .desc = Обычный КПК синдиката, украшенный позолоченными символами. Его владелец явно занимает более высокое положение.
+
+ent-VirologistPDA = КПК вирусолога
+    .desc = Возможно, трогать это небезопасно.
+
+ent-SecurityClownPDA = КПК офицера-клоуна
+    .desc = Розовое КПК Службы Безопасности, серьезно?
+
+ent-CommandMaidPDA = КПК горничной командования
+    .desc = { ent-JanitorPDA.desc }
+
+ent-PartyMakerPDA = КПК патимейкера
+    .desc = Раскачаем это унылое болото!
+
+ent-RoboticistPDA = КПК робототехника
+    .desc = Пропитано нереализованными амбициями.
+
+ent-RadioHostPDA = КПК радиоведущего
+    .desc = Вы слушаете ласкающую уши музыку на частоте 103.0 FM.
+
+ent-OuterCommandPDA = КПК офицера ОПЗ
+    .desc = Пурпурный КПК для офицеров ОПЗ.

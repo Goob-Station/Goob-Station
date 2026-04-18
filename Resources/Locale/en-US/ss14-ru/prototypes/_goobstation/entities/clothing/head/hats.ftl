@@ -1,0 +1,67 @@
+ent-ClothingHeadHatArmored = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-ClothingHeadHatArmoredCC = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-ClothingHeadHatBeretEliteNavyOfficer = elite navy officer's beret
+  .desc = A navy blue beret with the silver shield of the Nanotrasen security forces.
+
+ent-ClothingHeadHatBeretNavyOfficer = navy officer's beret
+  .desc = A black beret with the silver shield of the Nanotrasen security forces.
+
+ent-ClothingHeadHatBeretNavyCaptain = navy captain's beret
+  .desc = A starch white beret.
+
+ent-ClothingHeadHatBeretBlueshield = blueshield's armored beret
+  .desc = A durable beret woven out of durathread. Provides protection, too.
+
+ent-ClothingHeadHatCowboyBlueshield = blueshield's armored cowboy hat
+  .desc = Sheriff's back in town, kids.
+
+ent-ClothingHeadHatUshankaBlueshield = blueshield's armored ushanka
+  .desc = Perfect for saving heads in Siberia, da?
+
+ent-ClothingHeadMailCarrier = mail carrier's hat
+  .desc = Smells like a good pension.
+
+ent-ClothingHeadHatPropeller = propeller hat
+  .desc = Aw gee willickers!
+
+ent-ClothingHeadHatPropellerFlipped = { ent-ClothingHeadHatPropeller }
+  .desc = { ent-ClothingHeadHatPropeller.desc }
+
+ent-ClothingHeadHatImam = imam head wrap
+  .desc = Praise Allah.
+
+ent-ClothingHeadHatTrainer = NCT's hat
+  .desc = A hat issued to Nanotrasen Career Trainers. Makes you feel stylish.
+
+ent-ClothingHeadBeretTrainer = NCT's beret
+  .desc = A beret issued to Nanotrasen Career Trainers. Makes you feel stylish.
+
+ent-ClothingHeadHatBeretHeadOfSecurityAdvanced = head of security's parade beret
+  .desc = A particularly gilded beret, designed for the Head of Security.
+
+ent-ClothingHeadHatBeretSeniorBotanist = botanical beret
+  .desc = A green beret featuring a small blue flower given to experienced botanists.
+
+ent-ClothingHeadSanabi = brigadier general hat
+  .desc = Smells like steel.
+
+ent-ClothingHeadLehmin = top CMO headgear
+  .desc = Chemistry. Adminning. Something else.
+  .suffix = ADMIN
+
+ent-ClothingHeadHatJanitorCap = janitorial cap
+  .desc = An extravagant purple cap for only the BEST of janitorial workers.
+
+ent-ClothingHeadHatCapcapSenior = cap cap senior
+  .desc = A grand, stylish cap worn by the Seniors Captains. Shows the station who's in charge.
+  .suffix = DO NOT MAP
+
+ent-ClothingHeadHatTinfoilHat = tinfoil hat
+  .desc = A high tech helmet crafted from aluminum foil.
+
+ent-ClothingHeadHatOuterCommandcap = outer command cap
+  .desc = Purple gilded cap with Terra-Gov insignia.

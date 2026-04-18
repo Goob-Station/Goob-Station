@@ -1,0 +1,51 @@
+ent-ClothingHeadHelmetHelldiver = salvage NT-01 tactical helmet
+  .desc = This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
+
+ent-ClothingHeadHelmetHEV = H.E.V helmet
+  .desc = Not included in a set with crowbar, long jump module and gravity manipulation device.
+
+ent-ClothingHeadHelmetBasicAlt = { ent-ClothingHeadHelmetBasic }
+  .desc = { ent-ClothingHeadHelmetBasic.desc }
+  .suffix = Alt
+
+ent-ReverseBearTrap = reverse bear trap
+  .desc = A horrifying set of shut metal jaws, rigged to a kitchen timer and secured by padlock to a head-mounted clamp. To apply, hit someone with it
+
+ent-ClothingHeadHatHoodCloakSith = dark lord hood
+  .desc = What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
+
+ent-ClothingHeadHelmetBaseFoldable = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-ClothingHeadHatCowboyBrownRobust = authentic brown cowboy hat
+  .desc = "This station ain't big enough for the two of us."
+
+ent-ClothingHeadHatHelmetTemplar = crusader helmet
+  .desc = Deus Vult.
+
+ent-ClothingHeadHatHelmetCage = cage
+  .desc = A cage that restrains the will of the self, allowing one to see the profane world for what it is.
+
+ent-ClothingHeadHatHelmetAncient = ancient helmet
+  .desc = None may pass!
+
+ent-ClothingHeadHatHelmetWitchhunter = witchunter hat
+  .desc = This hat saw much use back in the day.
+
+ent-ClothingHeadHatHelmetAdept = adept hood
+  .desc = Its only heretical when others do it.
+
+ent-ClothingHeadHatHelmetClock = forgotten helmet
+  .desc = It has the unyielding gaze of a god eternally forgotten.
+
+ent-ClothingHeadHatHelmetMonk = monk's hood
+  .desc = For when a man wants to cover up his tonsure.
+
+ent-ClothingHeadHatHelmetBishop = bishop mitre
+  .desc = An opulent hat that functions as a radio to God. Or as a lightning rod, depending on who you ask.
+
+ent-ClothingHeadHatHelmetDragon = dragon hood
+  .desc = Fireball spewing not included.
+
+ent-ClothingHeadHatHelmetInquisitor = inquisitor cap
+  .desc = A majestic gilded cap. The personification of the punishment that will befall heretics!

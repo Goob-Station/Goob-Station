@@ -1,0 +1,38 @@
+ent-ClothingEyesGlassesMedSec = medical security glasses
+  .desc = Sunglasses with a medical and security hud
+
+ent-ClothingEyesPrescriptionGlasses = prescription glasses
+  .desc = Your insurance doesn't cover these. Don't lose them.
+
+ent-ClothingEyesGlassesBroken = broken glasses
+  .desc = My glasses! I can't see without my glasses!
+
+ent-ClothingEyesGlassesDiag = diagnostic glasses
+  .desc = Sunglasses with a diagnostic hud.
+
+ent-ClothingEyesGlassesMed = medical glasses
+  .desc = Sunglasses with a medical hud.
+
+ent-ClothingEyesGlassesDeathsquad = central commander shades
+  .desc = Pride. Hubris. Wrath. It's not a sin if you're right.
+  .suffix = DO NOT MAP
+
+ent-ClothingEyesGlassesCentComm = central command shades
+  .desc = A pair of shades designed for central command personnel. It's nothing personal. # *teleports behind you*, Nothing personnel, kid.
+  .suffix = DO NOT MAP
+
+ent-ClothingEyesGlassesCentCommNoThermal = central command shades
+  .desc = A pair of shades designed for central command personnel. Comes with more features than you could imagine.
+  .suffix = No thermals, DO NOT MAP
+
+ent-ClothingEyesGlassesBSO = blueshield officer glasses
+  .desc = Sunglasses with a medical, job and diagnostic hud.
+
+ent-ClothingEyesGlassesMedDiag = meddiag glasses
+  .desc = Sunglasses with a medical and diagnostic hud.
+
+ent-ClothingEyesGlassesSecurityAdvanced = advanced security goggles
+  .desc = A set of goggles that provide flash protection, a security HUD, and basic thermal vision.
+
+ent-ClothingEyesGlassesSecurityContraDetect = contraband detector security glasses
+  .desc = A set of glasses that provide flash protection, a security HUD, and a built in contraband detector.

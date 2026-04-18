@@ -1,0 +1,29 @@
+ent-EngineeringTechFabCircuitboard = engineering techfab machine board
+  .desc = A machine printed circuit board for a engineering techfab.
+
+ent-CargoTechFabCircuitboard = cargo techfab machine board
+  .desc = A machine printed circuit board for a cargo techfab.
+
+ent-ScienceTechFabCircuitboard = science techfab machine board
+  .desc = A machine printed circuit board for a science techfab.
+
+ent-ServiceTechFabCircuitboard = service techfab machine board
+  .desc = A machine printed circuit board for a service techfab.
+
+ent-ERTTechFabCircuitboard = ERT techfab machine board
+  .desc = A machine printed circuit board for a ERT techfab.
+
+ent-TeslaCoilCircuitboard = tesla coil board
+  .desc = { ent-BaseMachineCircuitboard.desc }
+
+ent-RadiationCollectorCircuitboard = radiation collector board
+  .desc = { ent-BaseMachineCircuitboard.desc }
+
+ent-PlumbingPumpCircuitboard = liquid pump board
+  .desc = { ent-BaseMachineCircuitboard.desc }
+
+ent-EnergyChemDispenserMachineCircuitboard = energy chem dispenser machine board
+  .desc = A machine printed circuit board for an energy chem dispenser.
+
+ent-TelecomTransmitterCircuitboard = telecommunication transmitter machine board
+  .desc = A machine printed circuit board for an telecommunication transmitter.

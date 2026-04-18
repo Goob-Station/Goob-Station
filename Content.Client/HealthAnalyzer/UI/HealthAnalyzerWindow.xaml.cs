@@ -537,7 +537,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
         private void DrawOrganDiagnostics(EntityUid ent, string name, FixedPoint2 damage)
         {
-            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo; // AltHub Space
             var groupTitleText = $"{Loc.GetString(
                 "group-organ-status",
                 ("organ", textInfo.ToTitleCase(name)),
@@ -557,7 +557,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
         private void DrawSolutionDiagnostics(Dictionary<NetEntity, Solution> solutions)
         {
-            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo; // AltHub Space
             foreach (var (ent, data) in solutions)
             {
                 var groupTitleText = $"{Loc.GetString(

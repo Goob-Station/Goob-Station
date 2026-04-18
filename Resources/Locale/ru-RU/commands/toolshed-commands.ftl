@@ -1,0 +1,65 @@
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+command-description-visualize = Берёт список сущностей и отображает его в окне интерфейса для удобного просмотра.
+command-description-runverbas = Отправляет всплывающее сообщение над указанными сущностями от имени заданного игрока.
+command-description-acmd-perms = Показывает админ разрешения для указанной команды, если они есть.
+command-description-acmd-caninvoke = Проверяет, может ли указанный игрок вызвать данную команду.
+command-description-jobs-jobs = Отображает список всех профессий на станции.
+command-description-jobs-job = Отображает информацию о конкретной профессии на станции.
+command-description-jobs-isinfinite = Отображает true, если указанная профессия бесконечна, иначе false.
+command-description-jobs-adjust = Изменяет количество слотов для указанной профессии.
+command-description-jobs-set = Устанавливает количество слотов для указанной профессии.
+command-description-jobs-amount = Отображает количество слотов для указанной профессии.
+command-description-laws-list = Отображает список всех сущностей, связанных с законами.
+command-description-laws-get = Отображает все законы для указанной сущности.
+command-description-stations-list = Отображает список всех станций.
+command-description-stations-get = Отображает активную станцию, если она одна.
+command-description-stations-getowningstation = Определяет станцию, которой принадлежит указанная сущность.
+command-description-stations-grids = Отображает все гриды, связанные с указанной станцией.
+command-description-stations-config = Отображает конфигурацию для указанной станции, если она есть.
+command-description-stations-addgrid = Добавляет грид к указанной станции.
+command-description-stations-rmgrid = Удаляет грид из указанной станции.
+command-description-stations-rename = Переименовывает указанную станцию.
+command-description-stations-largestgrid = Отображает самый большой грид на указанной станции, если она есть.
+command-description-stations-rerollBounties = Сбрасывает все текущие награды на станции и выбирает новые.
+command-description-stationevent-lsprob = Показывает вероятность различных событий станции из всего пула.
+command-description-stationevent-lsprobtheoretical = Для прототипа BasicStationEventScheduler, количества игроков и времени раунда показывает вероятность событий на станции.
+command-description-stationevent-prob = Отображает вероятность одного события станции из всего пула.
+command-description-admins-active = Отображает список активных администраторов.
+command-description-admins-all = Отображает список ВСЕХ администраторов, включая деактивированных.
+command-description-marked = Отображает значение $marked как List<EntityUid>.
+command-description-rejuvenate = Восстанавливает указанную сущность: здоровье, статус и т.д.
+command-description-tag-list = Отображает теги для указанных сущностей.
+command-description-tag-with = Отображает только сущности с указанным тегом из переданного списка.
+command-description-tag-add = Добавляет тег к указанным сущностям.
+command-description-tag-rm = Удаляет тег с указанных сущностей.
+command-description-tag-addmany = Добавляет список тегов к указанным сущностям.
+command-description-tag-rmmany = Удаляет список тегов с указанных сущностей.
+command-description-polymorph = Превращает указанную сущность в заданный прототип.
+command-description-unpolymorph = Отменяет раннее превращение.
+command-description-solution-get = Извлекает указанное химическое вещество из сущности.
+command-description-solution-adjreagent = Изменяет количество указанного реагента в сущности.
+command-description-mind-get = Извлекает разум из сущности, если он есть.
+command-description-mind-control = Берёт контроль над сущностью от имени заданного игрока.
+command-description-addaccesslog = Добавляет доступы к сущности. Обходит лимиты и лог.
+command-description-stationevent-simulate = Симулирует N раундов событий и выводит частоту каждого события.
+command-description-xenoartifact-list = Список всех EntityUid созданных артефактов.
+command-description-xenoartifact-printMatrix = Выводит матрицу, показывающую связи между узлами артефакта.
+command-description-xenoartifact-totalResearch = Получает все исследовательские очки, которые можно извлечь из артефакта прямо сейчас.
+command-description-xenoartifact-averageResearch = Рассчитывает среднее количество очков исследования, которое артефакт выдаст при полной активации.
+command-description-xenoartifact-unlockAllNodes = Разблокирует все узлы артефакта.
+command-description-jobboard-completeJob = Завершает указанное задание на доске утилизаторских объявлений для станции.
+command-description-scale-set = Устанавливает масштаб спрайта сущности (не меняя её физические параметры).
+command-description-scale-get = Получает текущий масштаб спрайта сущности, установленный ScaleVisualsComponent. Не включает изменения SpriteComponent.
+command-description-scale-multiply = Умножает масштаб спрайта сущности на заданный коэффициент (без изменения физической модели).
+command-description-scale-multiplyvector = Умножает масштаб спрайта сущности на заданный 2D вектор (без изменения физической модели).
+command-description-scale-multiplywithfixture = Умножает масштаб спрайта сущности на коэффициент, включая физическую модель.

@@ -1,0 +1,38 @@
+ent-ClothingEyesGlassesMedSec = медицинские очки безопасности
+    .desc = Солнцезащитные очки с медицинским и охранным ИЛС.
+
+ent-ClothingEyesPrescriptionGlasses = очки с рецептом
+    .desc = Ваша страховка их не покрывает. Не потеряйте их.
+
+ent-ClothingEyesGlassesBroken = сломанные очки
+    .desc = Мои очки! Я не вижу без них!
+
+ent-ClothingEyesGlassesDiag = диагностические очки
+    .desc = Солнцезащитные очки с диагностическим ИЛС.
+
+ent-ClothingEyesGlassesMed = медицинские очки
+    .desc = Солнцезащитные очки с медицинским ИЛС.
+
+ent-ClothingEyesGlassesDeathsquad = очки командующего Эскадрона Смерти
+    .desc = Гордость. Гордыня. Гнев. Это не грех, если ты прав.
+    .suffix = НЕ МАППИТЬ
+
+ent-ClothingEyesGlassesCentComm = очки центрального командования
+    .desc = Очки для персонала центрального командования. Ничего личного.
+    .suffix = НЕ МАППИТЬ
+
+ent-ClothingEyesGlassesCentCommNoThermal = очки ЦентКом
+    .desc = Пара очков, созданных для персонала Центрального Командования. Оснащены таким функционалом, чем сложно представить.
+    .suffix = Без температуры, НЕ МАППИТЬ
+
+ent-ClothingEyesGlassesBSO = очки Синего Щита
+    .desc = Солнцезащитные очки с медицинским, охранным и диагностическим ИЛС.
+
+ent-ClothingEyesGlassesMedDiag = меддиагностические очки
+    .desc = Солнцезащитные очки с медицинским и диагностическим ИЛС.
+
+ent-ClothingEyesGlassesSecurityAdvanced = продвинутые охранные очки
+    .desc = Набор очков, обеспечивающих защиту от вспышек, охранный ИЛС и базовое тепловизионное зрение.
+
+ent-ClothingEyesGlassesSecurityContraDetect = контрабандные охранные очки
+    .desc = Набор очков, обеспечивающих защиту от вспышек, охранный ИЛС и детектор контрабанды.

@@ -1,0 +1,29 @@
+ent-ActionCreateBlobFactory = Place Factory Blob (80)
+  .desc = Turns selected normal blob into a factory blob, which will produce up to 3 spores and a blobbernaut if placed next to a core or a node.
+
+ent-ActionCreateBlobResource = Place Resource Blob (60)
+  .desc = Turns selected normal blob into a resource blob which will generates resources if placed next to a core or a node.
+
+ent-ActionCreateBlobNode = Place Node Blob (50)
+  .desc = Turns selected normal blob into a node blob. A node blob will activate effects of factory and resource blobs, heal other blobs and slowly expand, destroying walls and creating normal blobs.
+
+ent-ActionCreateBlobbernaut = Produce a Blobbernaut (60)
+  .desc = Creates a blobbernaut on the selected factory. Each factory can only do this once. The blobbernaut will take damage outside of blob tiles and heal when close to nodes.
+
+ent-ActionSplitBlobCore = Split Core (400)
+  .desc = You can only do this once. Turns selected node into an independent core that will act on its own.
+
+ent-ActionSwapBlobCore = Relocate core (200)
+  .desc = Swaps the location of your core and the selected node.
+
+ent-ActionTeleportBlobToCore = Jump to Core
+  .desc = Teleports you to your Blob Core.
+
+ent-ActionSwapBlobChem = Swap chemicals (70)
+  .desc = Lets you swap your current chemical.
+
+ent-ActionTransformToBlob = Transform into a blob
+  .desc = Instantly destoys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
+
+ent-ActionDowngradeBlob = Downgrade blob
+  .desc = Turns the selected tile back into a normal blob to install other types of cages.

@@ -1,0 +1,43 @@
+ent-BaseFenceWood = деревянный забор
+    .desc = Часть деревянного забора. Надеюсь, за ним находится бабушкин сад.
+
+ent-BaseFenceWoodSmall = небольшой деревянный забор
+    .desc = Часть небольшого деревянного забора. Лучшее средство для ограждения частной территории!
+
+ent-FenceWoodHighStraight = { ent-BaseFenceWood }
+    .desc = { ent-BaseFenceWood.desc }
+    .suffix = Прямой
+
+ent-FenceWoodHighEnd = { ent-BaseFenceWood }
+    .desc = { ent-BaseFenceWood.desc }
+    .suffix = Конец
+
+ent-FenceWoodHighCorner = { ent-BaseFenceWood }
+    .desc = { ent-BaseFenceWood.desc }
+    .suffix = Угол
+
+ent-FenceWoodHighTJunction = { ent-BaseFenceWood }
+    .desc = { ent-BaseFenceWood.desc }
+    .suffix = Т-образный
+
+ent-FenceWoodHighGate = ворота деревянного забора
+    .desc = Имеешь ли ты представление, что ждёт тебя за этими воротами? Это может быть как туалет, так и роскошный особняк. А ты продолжай любить своих эмобоев.
+
+ent-FenceWoodSmallStraight = { ent-BaseFenceWoodSmall }
+    .desc = { ent-BaseFenceWoodSmall.desc }
+    .suffix = Прямой
+
+ent-FenceWoodSmallEnd = { ent-BaseFenceWoodSmall }
+    .desc = { ent-BaseFenceWoodSmall.desc }
+    .suffix = Конец
+
+ent-FenceWoodSmallCorner = { ent-BaseFenceWoodSmall }
+    .desc = { ent-BaseFenceWoodSmall.desc }
+    .suffix = Угол
+
+ent-FenceWoodSmallTJunction = { ent-BaseFenceWoodSmall }
+    .desc = { ent-BaseFenceWoodSmall.desc }
+    .suffix = Т-образный
+
+ent-FenceWoodSmallGate = ворота деревянного забора
+    .desc = Глядя на эти ворота, в голове всплывает знакомый образ. Где мой поросёнок?

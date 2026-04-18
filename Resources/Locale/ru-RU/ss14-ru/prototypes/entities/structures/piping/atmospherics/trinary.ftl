@@ -1,0 +1,25 @@
+ent-GasTrinaryBase = { ent-GasPipeSansLayers }
+  .desc = { ent-GasPipeSansLayers.desc }
+
+ent-GasTrinaryFlippedBase = { "" }
+    .desc = { "" }
+    .suffix = Flipped
+
+ent-GasFilterBase = { ent-GasPipeSansLayers }
+  .desc = { ent-GasPipeSansLayers.desc }
+
+ent-GasFilter = газовый фильтр
+    .desc = Очень полезен для фильтрации газов.
+
+ent-GasFilterFlipped = газовый фильтр
+    .desc = { ent-GasFilter.desc }
+
+ent-GasMixer = газовый смеситель
+    .desc = Очень полезен для смешивания газов.
+
+ent-GasMixerFlipped = газовый смеситель
+    .desc = { ent-GasMixer.desc }
+    .suffix = Перевёрнутый
+
+ent-PressureControlledValve = пневматический клапан
+    .desc = Двунаправленный клапан, управляемый давлением. Открывается, если давление в выходной трубе ниже давления в контрольной трубе на 101,325 кПа.

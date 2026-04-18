@@ -1,0 +1,26 @@
+ent-MonkeyCubeBox = коробка кубиков обезьян
+    .desc = Кубики обезьян фирмы Drymate. Просто добавь воды!
+
+ent-BaseWrappedCube = { ent-BaseItem }
+    .desc = { ent-BaseItem.desc }
+    .suffix = Завёрнутый
+
+ent-MonkeyCubeWrapped = кубик обезьяны
+    .desc = Разверните его, чтобы получить кубик обезьяны.
+
+ent-KoboldCubeBox = коробка кубиков кобольдов
+    .desc = Конденсированные кобольды в кубиках. Просто добавь воды!
+
+ent-VariantCubeBox = коробка ассорти-кубиков
+    .desc = Кубики и обезьян, и кобольдов. Просто добавь воды!
+
+ent-KoboldCubeWrapped = кубик кобольда
+    .desc = Разверните его, чтобы получить кубик кобольда.
+
+ent-SyndicateSpongeBox = коробка кубиков обезьян
+    .desc = Кубики обезьян фирмы Drymate. Просто добавь воды!
+    .suffix = Синдикат
+
+ent-SyndicateSpongeWrapped = кубик обезьяны
+    .desc = Разверните его, чтобы получить кубик обезьяны.
+    .suffix = Завёрнутый, Синдикат

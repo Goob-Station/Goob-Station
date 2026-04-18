@@ -1,0 +1,11 @@
+ent-SpawnMobCarp = Space Carp Spawner
+  .desc = { "" }
+
+ent-SpawnMobCarpHolo = Holocarp Spawner
+  .desc = { "" }
+
+ent-SpawnMobCarpMagic = Magicarp Spawner
+  .desc = { "" }
+
+ent-SpawnMobShark = Space Sharkminnow Spawner
+  .desc = { "" }

@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+station-map-window-title = Карта станции
+station-map-user-interface-flavor-left = Не паникуй
+station-map-user-interface-flavor-right = v1.42
+station-map-filter-placeholder = Поиск по названию
+
+nav-beacon-window-title = Станционный маяк
+nav-beacon-toggle-visible = Видимый
+nav-beacon-toggle-invisible = Невидимый
+nav-beacon-text-label = Метка:
+nav-beacon-button-apply = Применить
+nav-beacon-examine-text =
+    Маяк [color={ $enabled ->
+        [true] forestgreen]включён
+       *[false] crimson]выключен
+    }[/color], а на дисплее написано [color={ $color }]"{ $label }"[/color]
+
+nav-beacon-pos-no-beacons = неизвестно где
+nav-beacon-pos-format = [color={ $color }]около { $marker }[/color]
+nav-beacon-pos-format-direction = [color={ $color }]{ $modifier } к { $direction }у от { $marker }[/color]
+nav-beacon-pos-format-direction-mod-far = далеко { "" }

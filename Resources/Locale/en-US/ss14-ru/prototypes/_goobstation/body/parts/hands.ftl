@@ -1,0 +1,23 @@
+ent-LeftHandDwarf = left dwarf hand
+  .desc = { ent-PartHuman.desc }
+
+ent-RightHandDwarf = right dwarf hand
+  .desc = { ent-PartHuman.desc }
+
+ent-LeftHandBananamen = left bananamen hand
+  .desc = { ent-PartHuman.desc }
+
+ent-RightHandBananamen = right bananamen hand
+  .desc = { ent-PartHuman.desc }
+
+ent-SmartlinkLeftHand = SmartLink left hand
+  .desc = A cybernetic left hand that allows its wearer to shoot "smart" bullets from any weapon.
+
+ent-SmartlinkRightHand = SmartLink right hand
+  .desc = A cybernetic right hand that allows its wearer to shoot "smart" bullets from any weapon.
+
+ent-RecoilAbsorberLeftHand = recoil absorbing left hand
+  .desc = A cybernetic left hand that absorbs most of ranged weapons recoil.
+
+ent-RecoilAbsorberRightHand = recoil absorbing right hand
+  .desc = A cybernetic right hand that absorbs most of ranged weapons recoil.

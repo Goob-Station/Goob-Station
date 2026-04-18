@@ -1,0 +1,18 @@
+ent-ClothingModsuitPraetorian = Praetorian modsuit control unit
+  .desc = The main controller for a Praetorian modsuit.
+
+ent-ClothingModsuitGauntletsPraetorian = Praetorian modsuit gauntlets
+  .desc = A pair of gauntlets made for the Praetorian modsuit.
+
+ent-ClothingModsuitHelmetPraetorian = Praetorian modsuit helmet
+  .desc = A state-of-the-art helmet designed by NanoTrasen for the Praetorian modsuit.
+
+ent-ClothingModsuitChestplatePraetorian = Praetorian modsuit chestplate
+  .desc = A state of the art chestplate designed by NanoTrasen for the Praetorian modsuit. It incorporates powered servos to reduce the equipment load.
+
+ent-ClothingModsuitBootsPraetorian = Praetorian modsuit boots
+  .desc = A state-of-the-art pair of magboots for the Praetorian modsuit.
+
+ent-SuitStoragePraetorian = { ent-SuitStorageBase }
+  .desc = { ent-SuitStorageBase.desc }
+  .suffix = Praetorian Modsuit

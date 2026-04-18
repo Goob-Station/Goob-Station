@@ -1,0 +1,6 @@
+ent-MobHastur = ????
+  .desc = He who must not be named...
+
+ent-MobHasturClone = ????
+  .desc = He who must not be named...
+  .suffix = DO NOT MAP

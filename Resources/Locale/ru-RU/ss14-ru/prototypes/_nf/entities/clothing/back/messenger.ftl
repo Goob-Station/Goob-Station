@@ -1,0 +1,65 @@
+ent-ClothingBackpackMessengerBase = { ent-ClothingBackpack }
+  .desc = { ent-ClothingBackpack.desc }
+
+ent-ClothingBackpackMessenger = барсетка
+    .desc = Прочная сумка для хранения мелких вещей.
+
+ent-ClothingBackpackMessengerCaptain = барсетка капитана
+    .desc = Прочная сумка, изготовленная исключительно для офицеров NanoTrasen.
+
+ent-ClothingBackpackMessengerCentcomm = барсетка ЦентКом
+    .desc = Прочная сумка NanoTrasen для высокопоставленных чиновников. Пахент пролитым кофе.
+
+ent-ClothingBackpackMessengerBlueshield = барсетка синего щита
+    .desc = Прочная сумка, изготовленная из защитных материалов. Пахнет, как пистолет.
+
+ent-ClothingBackpackMessengerAtmospherics = барсетка атмос-инженера
+    .desc = Прочная сумка из огнестойких волокон. Пахнет плазмой.
+
+ent-ClothingBackpackMessengerEngineering = барсетка инженера
+    .desc = Прочная сумка для хранения дополнительных инструментов.
+
+ent-ClothingBackpackMessengerCargo = барсетка снабжения
+    .desc = Прочная сумка для хранения большого количества кредитов.
+
+ent-ClothingBackpackMessengerSalvage = барсетка утилизатора
+    .desc = Прочная сумка для хранения добычи из Лаваленда.
+
+ent-ClothingBackpackMessengerMailman = барсетка почтальона
+    .desc = Прочная сумка для транспортировки писем и посылок.
+
+ent-ClothingBackpackMessengerMedical = барсетка медика
+    .desc = Прочная сумка для хранения дополнительных лекарств.
+
+ent-ClothingBackpackMessengerChemistry = барсетка химика
+    .desc = Прочная сумка для хранения дополнительных мензурок и колбочек.
+
+ent-ClothingBackpackMessengerVirology = барсетка вирусолога
+    .desc = Прочная сумка, изготовленная из гипоаллергенных волокон, предотвращающих распространение болезней.
+
+ent-ClothingBackpackMessengerGenetics = барсетка генетика
+    .desc = Прочная стерильная сумка в цветах генетики.
+
+ent-ClothingBackpackMessengerScience = барсетка учёного
+    .desc = Прочная сумка для хранения исследовательских материалов.
+
+ent-ClothingBackpackMessengerClown = барсетка клоуна
+    .desc = Прочная сумка для хранения дополнительных порций пирогов и кожурок.
+
+ent-ClothingBackpackMessengerMime = барсетка мима
+    .desc = Прочная сумка для соблюдения обета молчания.
+
+ent-ClothingBackpackMessengerHydroponics = барсетка ботаника
+    .desc = Прочная сумка, изготовленная из натуральных волокон. Пахнет грязью и травой.
+
+ent-ClothingBackpackMessengerSecurity = барсетка охраны
+    .desc = Прочная сумка для хранения дополнительного снаряжения для ареста клоунов.
+
+ent-ClothingBackpackMessengerBrigmedic = барсетка бригмедика
+    .desc = Прочная сумка для хранения дополнительных хирургических инструментов для пыт... лечения заключённых.
+
+ent-ClothingBackpackMessengerHolding = бездонная барсетка
+    .desc = Барсетка, открывающая локальный карман блюспейса.
+
+ent-ClothingBackpackMessengerSyndicate = барсетка Синдиката
+    .desc = Прочная сумка для хранения дополнительных патронов и взрывчатых веществ.

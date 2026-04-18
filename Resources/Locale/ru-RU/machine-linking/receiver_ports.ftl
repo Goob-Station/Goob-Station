@@ -1,0 +1,110 @@
+# SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+signal-port-name-autoclose = Автозакрытие
+signal-port-description-autoclose = Переключает, должно ли устройство автоматически закрываться.
+
+signal-port-name-toggle = Переключить
+signal-port-description-toggle = Переключает состояние устройства.
+
+signal-port-name-on-receiver = Вкл
+signal-port-description-on-receiver = Включает устройство.
+
+signal-port-name-off-receiver = Выкл
+signal-port-description-off-receiver = Выключает устройство.
+
+signal-port-name-forward = Вперёд
+signal-port-description-forward = Заставляет устройство (например, конвейер) работать в нормальном направлении.
+
+signal-port-name-reverse = Обратно
+signal-port-description-reverse = Заставляет устройство (например, конвейер) работать в обратном направлении.
+
+signal-port-name-open = Открыть
+signal-port-description-open = Открывает устройство.
+
+signal-port-name-close = Закрыть
+signal-port-description-close = Закрывает устройство.
+
+signal-port-name-doorbolt = Болты шлюза
+signal-port-description-doorbolt = Меняет статус болтирования, если поступил высокий уровень сигнала.
+
+signal-port-name-trigger-receiver = Триггер
+signal-port-description-trigger-receiver = Запускает определённый механизм на устройстве.
+
+signal-port-name-order-sender = Отправитель заказа
+signal-port-description-order-sender = Отправляет заказ на консоль заказа грузов
+
+signal-port-name-order-receiver = Получатель заказа
+signal-port-description-order-receiver = Получает заказ на консоль заказа грузов
+
+signal-port-name-pressurize = Нагнетатель давления
+signal-port-description-pressurize = Заставляет устройство закачивать воздух, пока не будет достигнуто заданное давление.
+
+signal-port-name-depressurize = Сбрасыватель давления
+signal-port-description-depressurize = Заставляет устройство откачивать воздух, пока не будет достигнуто заданное давление.
+
+signal-port-name-pod-sender = Капсула клонирования
+signal-port-description-pod-sender = Передатчик сигнала капсулы клонирования
+
+signal-port-name-pod-receiver = Капсула клонирования
+signal-port-description-pod-receiver = Приёмник сигнала капсулы клонирования
+
+signal-port-name-med-scanner-sender = Медицинский сканер
+signal-port-description-med-scanner-sender = Передатчик сигнала медицинского сканера
+
+signal-port-name-med-scanner-receiver = Медицинский сканер
+signal-port-description-med-scanner-receiver = Приёмник сигнала медицинского сканера
+
+signal-port-name-hold-open = Удерживать
+signal-port-description-hold-open = Выключает автоматическое закрытие.
+
+signal-port-name-artifact-analyzer-sender = Консоль
+signal-port-description-artifact-analyzer-sender = Передатчик сигнала аналитической консоли
+
+signal-port-name-artifact-analyzer-receiver = Платформа
+signal-port-description-artifact-analyzer-receiver = Приёмник сигнала анализатора артефактов
+
+signal-port-name-set-particle-delta = Выбрать тип частиц: дельта
+signal-port-description-set-particle-delta = Устанавливает тип частиц, излучаемых этим устройством, на дельта.
+
+signal-port-name-set-particle-epsilon = Выбрать тип частиц: эпсилон
+signal-port-description-set-particle-epsilon = Устанавливает тип частиц, излучаемых этим устройством, на эпсилон.
+
+signal-port-name-set-particle-zeta = Выбрать тип частиц: зета
+signal-port-description-set-particle-zeta = Устанавливает тип частиц, излучаемых этим устройством, на зета.
+
+signal-port-name-set-particle-sigma = Выбрать тип частиц: сигма
+signal-port-description-set-particle-sigma = Устанавливает тип частиц, излучаемых этим устройством, на сигма.
+
+signal-port-name-logic-input-a = Порт А
+signal-port-description-logic-input-a = Первый порт логического элемента.
+
+signal-port-name-logic-input-b = Порт В
+signal-port-description-logic-input-b = Второй порт логического элемента.
+
+signal-port-name-logic-input = Вход
+signal-port-description-logic-input = Входной порт, который принимает только уровни сигнала, высокий или низкий.
+
+signal-port-description-logic-memory-input = Сигнал для загрузки данных в ячейку памяти при включении.
+
+signal-port-name-logic-enable = Включение
+signal-port-description-logic-enable = Загружает входной сигнал в ячейку памяти только при значении HIGH.
+
+signal-port-name-logic-random-input = Вход
+signal-port-description-logic-random-input = Входной порт, который принимает любой сигнал для активации случайного Выхода.

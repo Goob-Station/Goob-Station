@@ -1,0 +1,27 @@
+ent-MobHumanApprenticeBase = ученик мага
+    .desc = { ent-MobHuman.desc }
+    .suffix = Человек, Ученик
+
+ent-MobHumanApprenticeDestruction = ученик разрушения
+    .desc = { ent-MobHumanApprenticeBase.desc }
+
+ent-MobHumanApprenticeEthereal = ученик эфира
+    .desc = { ent-MobHumanApprenticeBase.desc }
+
+ent-MobHumanApprenticeSummon = ученик призыва
+    .desc = { ent-MobHumanApprenticeBase.desc }
+
+ent-MobHumanApprenticeGun = ученик стрелка
+    .desc = { ent-MobHumanApprenticeBase.desc }
+
+ent-MobHumanApprenticeArcane = ученик тайной магии
+    .desc = { ent-MobHumanApprenticeBase.desc }
+
+ent-MobHumanApprenticeSanguine = кровавый ученик
+    .desc = { ent-MobHumanApprenticeBase.desc }
+
+ent-MobHumanApprenticeRobeless = ученик без роб
+    .desc = { ent-MobHumanApprenticeBase.desc }
+
+ent-MobHumanApprenticeChaos = ученик хаоса
+    .desc = { ent-MobHumanApprenticeBase.desc }

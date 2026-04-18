@@ -1,0 +1,17 @@
+ent-UndeterminedVoidsuitParamedic = paramedic hardsuit selector
+  .desc = A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+
+ent-UndeterminedVoidsuitSecurity = security hardsuit selector
+  .desc = A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+
+ent-UndeterminedVoidsuitHeadOfSecurity = head of security hardsuit selector
+  .desc = A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+
+ent-UndeterminedVoidsuitEngineer = engineer hardsuit selector
+  .desc = A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+
+ent-UndeterminedVoidsuitCaptain = captain hardsuit selector
+  .desc = A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+
+ent-UndeterminedVoidsuitRD = research director hardsuit selector
+  .desc = A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.

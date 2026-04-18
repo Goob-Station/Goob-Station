@@ -1,0 +1,253 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+accent-bogan-prefix-1 = Ёбана,
+accent-bogan-prefix-2 = Э ну,
+accent-bogan-prefix-3 = Э, ну, э,
+accent-bogan-prefix-4 = Эмммм,
+
+accent-bogan-suffix-1 = , ебло.
+accent-bogan-suffix-2 = , клянусь бля.
+accent-bogan-suffix-3 = , клянусь те бля.
+accent-bogan-suffix-4 = , наркоша ебанный.
+accent-bogan-suffix-5 = , ебанный ты солевой.
+
+accent-bogan-words-1 = женщина
+accent-bogan-words-replace-1 = малявка
+
+accent-bogan-words-2 = девушка
+accent-bogan-words-replace-2 = малявка
+
+accent-bogan-words-3 = парень
+accent-bogan-words-replace-3 = сопляк
+
+accent-bogan-words-4 = мужик
+accent-bogan-words-replace-4 = сопляк
+
+accent-bogan-words-5 = хороший
+accent-bogan-words-replace-5 = охуенный
+
+accent-bogan-words-6 = крутой
+accent-bogan-words-replace-6 = невъебенный
+
+accent-bogan-words-7 = что?
+accent-bogan-words-replace-7 = чё бля?
+
+accent-bogan-words-8 = наркота
+accent-bogan-words-replace-8 = йоооови
+
+accent-bogan-words-9 = героин
+accent-bogan-words-replace-9 = раскумар
+
+accent-bogan-words-10 = попкорн
+accent-bogan-words-replace-10 = хрустики
+
+accent-bogan-words-11 = дебил
+accent-bogan-words-replace-11 = ебанат
+
+accent-bogan-words-12 = таракан
+accent-bogan-words-replace-12 = пизда на ножках
+
+accent-bogan-words-13 = привет
+accent-bogan-words-replace-13 = чё как?
+
+accent-bogan-words-14 = что происходит?
+accent-bogan-words-replace-14 = какого хера?
+
+accent-bogan-words-15 = Эй
+accent-bogan-words-replace-15 = Йо
+
+accent-bogan-words-16 = прив
+accent-bogan-words-replace-16 = Йо
+
+accent-bogan-words-17 = Здравствуйте
+accent-bogan-words-replace-17 = Йо
+
+accent-bogan-words-18 = чувак
+accent-bogan-words-replace-18 = братан
+
+accent-bogan-words-19 = сломан
+accent-bogan-words-replace-19 = разъебан
+
+accent-bogan-words-20 = шаттл
+accent-bogan-words-replace-20 = корыто
+
+accent-bogan-words-21 = грузчик
+accent-bogan-words-replace-21 = шнырь
+
+accent-bogan-words-22 = утиль
+accent-bogan-words-replace-22 = шахтёришко
+
+accent-bogan-words-23 = снабжение
+accent-bogan-words-replace-23 = шныри
+
+accent-bogan-words-24 = их
+accent-bogan-words-replace-24 = ихняя
+
+accent-bogan-words-25 = жесть
+accent-bogan-words-replace-25 = ахуй
+
+accent-bogan-words-26 = офигеть
+accent-bogan-words-replace-26 = охуеть
+
+accent-bogan-words-27 = много
+accent-bogan-words-replace-27 = дохера
+
+accent-bogan-words-28 = куча
+accent-bogan-words-replace-28 = дохера
+
+accent-bogan-words-29 = сигареты
+accent-bogan-words-replace-29 = сиги
+
+accent-bogan-words-30 = парни
+accent-bogan-words-replace-30 = йовы
+
+accent-bogan-words-31 = слайм
+accent-bogan-words-replace-31 = сопля
+
+accent-bogan-words-32 = слаймы
+accent-bogan-words-replace-32 = сопли
+
+accent-bogan-words-33 = blunt
+accent-bogan-words-replace-33 = doobskin
+
+accent-bogan-words-34 = идиот
+accent-bogan-words-replace-34 = ебантяй
+
+accent-bogan-words-35 = правда
+accent-bogan-words-replace-35 = жопу ставлю
+
+accent-bogan-words-36 = ложь
+accent-bogan-words-replace-36 = пиздабольство
+
+accent-bogan-words-37 = пока
+accent-bogan-words-replace-37 = на созвоне
+
+accent-bogan-words-38 = конечно
+accent-bogan-words-replace-38 = ясен хуй
+
+accent-bogan-words-39 = мой
+accent-bogan-words-replace-39 = маё
+
+accent-bogan-words-40 = ок
+accent-bogan-words-replace-40 = зачилься
+
+accent-bogan-words-41 = дым
+accent-bogan-words-replace-41 = дымъ
+
+accent-bogan-words-42 = друг
+accent-bogan-words-replace-42 = старина
+
+accent-bogan-words-43 = медикаменты
+accent-bogan-words-replace-43 = наркота
+
+accent-bogan-words-44 = химик
+accent-bogan-words-replace-44 = дилер
+
+accent-bogan-words-45 = офицер
+accent-bogan-words-replace-45 = мент
+
+accent-bogan-words-46 = пассажир
+accent-bogan-words-replace-46 = ишак
+
+accent-bogan-words-47 = грибы
+accent-bogan-words-replace-47 = грибовое
+
+accent-bogan-words-48 = бар
+accent-bogan-words-replace-48 = притон
+
+accent-bogan-words-49 = курица
+accent-bogan-words-replace-49 = кура
+
+accent-bogan-words-50 = преступник
+accent-bogan-words-replace-50 = подшконарник
+
+accent-bogan-words-51 = одежда
+accent-bogan-words-replace-51 = шмотьё
+
+accent-bogan-words-52 = туалет
+accent-bogan-words-replace-52 = сральник
+
+accent-bogan-words-53 = конфета
+accent-bogan-words-replace-53 = приколы
+
+accent-bogan-words-54 = пьяный
+accent-bogan-words-replace-54 = алкаш
+
+accent-bogan-words-55 = счастливый
+accent-bogan-words-replace-55 = феня
+
+accent-bogan-words-56 = грустный
+accent-bogan-words-replace-56 = ебало кислое
+
+accent-bogan-words-57 = прекрасный
+accent-bogan-words-replace-57 = легенда
+
+accent-bogan-words-58 = инженер
+accent-bogan-words-replace-58 = чинила
+
+accent-bogan-words-59 = серьезный
+accent-bogan-words-replace-59 = каменное ебало
+
+accent-bogan-words-60 = очки
+accent-bogan-words-replace-60 = лупы
+
+accent-bogan-words-61 = еда
+accent-bogan-words-replace-61 = хавка
+
+accent-bogan-words-62 = смесь
+accent-bogan-words-replace-62 = щи
+
+accent-bogan-words-63 = мыло
+accent-bogan-words-replace-63 = подмывало
+
+accent-bogan-words-64 = фиолетовый
+accent-bogan-words-replace-64 = фолетовы
+
+accent-bogan-words-65 = маг
+accent-bogan-words-replace-65 = грёбанный волшебник
+
+accent-bogan-words-66 = трус
+accent-bogan-words-replace-66 = пиздёнка
+
+accent-bogan-words-67 = бро
+accent-bogan-words-replace-67 = братуха
+
+accent-bogan-words-68 = горячий
+accent-bogan-words-replace-68 = горячое
+
+accent-bogan-words-69 = холодный
+accent-bogan-words-replace-69 = ледяной
+
+accent-bogan-words-70 = кудзу
+accent-bogan-words-replace-70 = чокнутый табак
+
+accent-bogan-words-71 = правда?
+accent-bogan-words-replace-71 = отвечаешь?
+
+accent-bogan-words-72 = сб
+accent-bogan-words-replace-72 = мусарня
+
+accent-bogan-words-73 = ботаник
+accent-bogan-words-replace-73 = шерстяной
+
+accent-bogan-words-74 = магазин
+accent-bogan-words-replace-74 = шоп
+
+accent-bogan-words-75 = деньги
+accent-bogan-words-replace-75 = бабло
+
+accent-bogan-words-76 = нормально
+accent-bogan-words-replace-76 = норм
+
+accent-bogan-words-77 = заткнись
+accent-bogan-words-replace-77 = вальни ебало
+
+accent-bogan-words-78 = уйди
+accent-bogan-words-replace-78 = съеби
+
+accent-bogan-words-79 = быстрее
+accent-bogan-words-replace-79 = шевели булками

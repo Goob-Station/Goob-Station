@@ -1,0 +1,43 @@
+ent-BaseWeaponShotgun = BaseWeaponShotgun
+  .desc = A rooty tooty point and shooty.
+
+ent-WeaponShotgunBulldog = Bulldog
+  .desc = A fully automatic, bullpup shotgun for when you have three seconds to turn eight people into pasta sauce. Kicks like a mule on steroids. Feeds from 12 Gauge drum magazines.
+
+ent-WeaponShotgunDoubleBarreled = double-barreled shotgun
+  .desc = An immortal classic. Uses 12 Gauge shotgun shells.
+
+ent-WeaponShotgunDoubleBarreledRubber = double-barreled shotgun
+  .desc = { ent-WeaponShotgunDoubleBarreled.desc }
+  .suffix = Non-Lethal
+
+ent-WeaponShotgunEnforcer = Enforcer
+  .desc = A premium, semi-automatic shotgun platform designed for law enforcement and counter-terrorism use. Reliable as a pump action, even in extreme conditions. Loads 7 rounds of 12 Gauge.
+
+ent-WeaponShotgunEnforcerRubber = { ent-WeaponShotgunEnforcer }
+  .desc = { ent-WeaponShotgunEnforcer.desc }
+  .suffix = Non-Lethal
+
+ent-WeaponShotgunKammerer = Kammerer
+  .desc = An old and faithful pump action, the Kammerer is cheap, light, and would probably still function if you left it in the burn chamber for a week. Popular for civilian use, and loved by NanoTrasen for its minuscule price tag. Loads 7 rounds of 12 Gauge.
+
+ent-WeaponShotgunSawn = sawn-off shotgun
+  .desc = Groovy! Uses 12 Gauge shotgun shells.
+
+ent-WeaponShotgunSawnEmpty = sawn-off shotgun
+  .desc = { ent-WeaponShotgunSawn.desc }
+  .suffix = Empty
+
+ent-WeaponShotgunHandmade = handmade pistol
+  .desc = Looks unreliable. Uses 12 Gauge shotgun shells.
+
+ent-WeaponShotgunBlunderbuss = blunderbuss
+  .desc = Deadly at close range.
+  .suffix = Pirate
+
+ent-WeaponShotgunImprovised = improvised shotgun
+  .desc = A shitty, hand-made shotgun that uses 12 Gauge shotgun shells. It can only hold one round in the chamber.
+
+ent-WeaponShotgunImprovisedLoaded = improvised shotgun
+  .desc = { ent-WeaponShotgunImprovised.desc }
+  .suffix = Loaded

@@ -1,0 +1,10 @@
+names-tider-last-1 = Тайд
+names-tider-last-2 = Кравлер
+names-tider-last-3 = Король
+names-tider-last-4 = Тулбокс
+names-tider-last-5 = Ломатель
+names-tider-last-6 = Вор
+names-tider-last-7 = Ключ
+names-tider-last-8 = Лом
+names-tider-last-9 = Шиттер
+names-tider-last-10 = Белт

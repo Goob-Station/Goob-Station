@@ -1,0 +1,65 @@
+ent-ChronoPDA = futuristic PDA
+  .desc = A powerful quantum computer disguised as a regular pda for disguise.
+
+ent-GmanPDA = strange PDA
+  .desc = Your mind can't quite comprehend this.
+
+ent-HelldiverPDA = salvage diver PDA
+  .desc = Smells like corpses of insects and androids.
+
+ent-HecuPDA = HECU PDA
+  .desc = Smells of gunpowder.
+
+ent-BlueshieldPDA = blueshield officer PDA
+  .desc = The silver shield of the Blueshield is engraved on the front.
+
+ent-DeathsquadPDA = deathsquad PDA
+  .desc = Rip and tear until it is done.
+
+ent-NanotrasenRepresentativePDA = nanotrasen representative's PDA
+  .desc = The devil's in the details.
+
+ent-TrainerPDA = nct's PDA
+  .desc = A standard-issue nanotrasen career trainer PDA.
+
+ent-NavyCaptainPDA = navy captain's PDA
+  .desc = The devil's in the details.
+
+ent-NavyOfficerPDA = navy officer's PDA
+  .desc = { ent-NavyCaptainPDA.desc }
+
+ent-SpecialOperationsOfficerPDA = special operations officer's PDA
+  .desc = { ent-NavyCaptainPDA.desc }
+
+ent-DiplomatPDA = diplomat's PDA
+  .desc = { ent-NavyCaptainPDA.desc }
+
+ent-InspectorPDA = auditor's PDA
+  .desc = { ent-NavyCaptainPDA.desc }
+
+ent-SyndiPDANukie = syndicate PDA
+  .desc = Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
+
+ent-HighCommandPDA = high commander PDA
+  .desc = An ordinary syndicate PDA, adorned with gilded symbols. It's owner is clearly of a higher standing.
+
+ent-VirologistPDA = virology PDA
+  .desc = You're not sure if touching it is safe.
+
+ent-SecurityClownPDA = security clown PDA
+  .desc = Who has a pink PDA in security?
+
+ent-CommandMaidPDA = command maid PDA
+  .desc = { ent-JanitorPDA.desc }
+
+ent-PartyMakerPDA = party maker PDA
+  .desc = The best helper to make a party.
+
+ent-RoboticistPDA = roboticist PDA
+  .desc = It's covered with failed ambitions.
+
+ent-RadioHostPDA = radio host PDA
+  .desc = You're listening to the smooth sounds of 145.9 FM.
+
+ent-OuterCommandPDA = outer command PDA
+  .desc = Purple pda for outer command members.

@@ -1,0 +1,21 @@
+ent-BaseWeaponSniper = BaseWeaponSniper
+  .desc = A rooty tooty point and shooty.
+
+ent-BaseWeaponSniperMagazine = BaseMagazineSniper
+  .desc = A rooty tooty point and shooty.
+
+ent-WeaponSniperMosin = Kardashev-Mosin
+  .desc = A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 Rifle.
+
+ent-WeaponSniperHristov = Hristov
+  .desc = A portable anti-materiel rifle for when you need to make someone regret their life choices from a safe distance. Comes with an integrated long-range scope. Feeds from .60 Anti-Materiel magazines.
+
+ent-Musket = musket
+  .desc = This should've been in a museum long before you were born. Loads one round of .60 Anti-Materiel.
+
+ent-WeaponPistolFlintlock = flintlock pistol
+  .desc = A pirate's companion. Yarrr! Loads one round of .45 Magnum.
+
+ent-WeaponPistolFlintlockEmpty = { ent-WeaponPistolFlintlock }
+  .desc = { ent-WeaponPistolFlintlock.desc }
+  .suffix = Empty

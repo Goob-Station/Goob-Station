@@ -1,0 +1,44 @@
+ent-CyberneticPartBase = { ent-BasePartInorganic }
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-LeftArmCybernetic = cybernetic left arm
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-RightArmCybernetic = cybernetic right arm
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-LeftLegCybernetic = cybernetic left leg
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-RightLegCybernetic = cybernetic right leg
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-LeftHandCybernetic = cybernetic left hand
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-RightHandCybernetic = cybernetic right hand
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-LeftFootCybernetic = cybernetic left foot
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-RightFootCybernetic = cybernetic right foot
+  .desc = { ent-BasePartInorganic.desc }
+
+ent-JawsOfLifeLeftArm = J.W.L left arm
+  .desc = A cybernetic left arm with the ability to pry doors open.
+
+ent-JawsOfLifeRightArm = J.W.L right arm
+  .desc = A cybernetic right arm with the ability to pry doors open.
+
+ent-SpeedLeftLeg = S.P.E.E.D left leg
+  .desc = A cybernetic left leg that allows its wearer to run faster.
+
+ent-SpeedRightLeg = S.P.E.E.D right leg
+  .desc = A cybernetic left leg that allows its wearer to run faster.
+
+ent-DexLeftHand = D.E.X left hand
+  .desc = A cybernetic left hand that allows its wearer to interact faster.
+
+ent-DexRightHand = D.E.X right hand
+  .desc = A cybernetic right hand that allows its wearer to interact faster.

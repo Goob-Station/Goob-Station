@@ -95,8 +95,10 @@
 
 - type: job
   id: NanotrasenRepresentative
-  name: Nanotrasen Representative
-  description: "Represent NT, Send reports back to them on the station's situation, Inform the heads of anything CentCom orders them to do."
+  # AltHub Space -> start
+  name: job-name-ntr
+  description: job-description-ntr
+  # AltHub Space -> end
   playTimeTracker: JobNanotrasenRepresentative
   requirements:
     - !type:DepartmentTimeRequirement

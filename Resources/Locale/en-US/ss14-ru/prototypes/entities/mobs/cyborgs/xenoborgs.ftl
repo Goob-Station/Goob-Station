@@ -1,0 +1,31 @@
+ent-XenoborgEngi = engi xenoborg
+  .desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This one seems to be an engineering type, as it has more tools for supporting the other Xenoborgs.
+  .suffix = with brain
+
+ent-XenoborgHeavy = heavy xenoborg
+  .desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This type is has heavy lasers and is covered in thick armor plates. It may be tougher, but its speed matches its brawn.
+  .suffix = with brain
+
+ent-XenoborgScout = scout xenoborg
+  .desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This is a scout type, its nimble thrusters allow it to move quickly through space.
+  .suffix = with brain
+
+ent-XenoborgStealth = stealth xenoborg
+  .desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This one is a stealth type. Its armor shimmers in the light like no other material you've seen.
+  .suffix = with brain
+
+ent-XenoborgEngiPrinted = { ent-XenoborgEngi }
+  .desc = { ent-XenoborgEngi.desc }
+  .suffix = no brain
+
+ent-XenoborgHeavyPrinted = { ent-XenoborgHeavy }
+  .desc = { ent-XenoborgHeavy.desc }
+  .suffix = no brain
+
+ent-XenoborgScoutPrinted = { ent-XenoborgScout }
+  .desc = { ent-XenoborgScout.desc }
+  .suffix = no brain
+
+ent-XenoborgStealthPrinted = { ent-XenoborgStealth }
+  .desc = { ent-XenoborgStealth.desc }
+  .suffix = no brain

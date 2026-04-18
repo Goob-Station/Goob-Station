@@ -1,0 +1,29 @@
+ent-BaseMagazineCaselessRifle = magazine (9.5mm HP)
+  .desc = { ent-BaseItem.desc }
+
+ent-BaseMagazineCaselessRifleShort = caseless rifle short magazine (9.5mm HP)
+  .desc = { ent-BaseMagazineCaselessRifle.desc }
+
+ent-BaseMagazinePistolCaselessRifle = pistol magazine (9.5mm HP)
+  .desc = { ent-BaseMagazineCaselessRifle.desc }
+
+ent-MagazineCaselessRifle10x24 = box magazine (9.5mm HP)
+  .desc = { ent-BaseMagazineCaselessRifle.desc }
+
+ent-MagazinePistolCaselessRifle = pistol magazine (9.5mm HP)
+  .desc = 10-round magazine for the Cobra pistol. Intended to hold general-purpose kinetic ammunition.
+
+ent-MagazinePistolCaselessRiflePractice = pistol magazine (9.5mm practice)
+  .desc = 10-round magazine for the Cobra pistol. Intended to hold non-harmful chalk ammunition.
+
+ent-MagazineCaselessRifle = magazine (9.5mm HP)
+  .desc = { ent-BaseMagazineCaselessRifle.desc }
+
+ent-MagazineCaselessRiflePractice = magazine (9.5mm practice)
+  .desc = { ent-BaseMagazineCaselessRifle.desc }
+
+ent-MagazineCaselessRifleShort = short magazine (9.5mm HP)
+  .desc = { ent-BaseMagazineCaselessRifleShort.desc }
+
+ent-MagazineCaselessRifleShortPractice = short magazine (9.5mm practice)
+  .desc = { ent-BaseMagazineCaselessRifleShort.desc }

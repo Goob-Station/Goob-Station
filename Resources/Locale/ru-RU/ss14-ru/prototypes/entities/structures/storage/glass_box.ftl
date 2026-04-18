@@ -1,0 +1,26 @@
+ent-GlassBox = стеклянный короб
+    .desc = Прочная витрина для дорогостоящего экспоната.
+
+ent-GlassBoxLaser = { ent-GlassBox }
+    .desc = { ent-GlassBox.desc }
+    .suffix = Антикварный лазер
+
+ent-GlassBoxLaserOpen = { ent-GlassBoxLaser }
+    .desc = { ent-GlassBoxLaser.desc }
+    .suffix = Антикварный лазер, Открытый
+
+ent-GlassBoxLaserFilled = { ent-GlassBoxLaser }
+    .desc = { ent-GlassBoxLaser.desc }
+    .suffix = Антикварный лазер, Заполненный
+
+ent-GlassBoxLaserFilledOpen = { ent-GlassBoxLaserFilled }
+    .desc = { ent-GlassBoxLaserFilled.desc }
+    .suffix = Антикварный лазер, Заполненный, Открытый
+
+ent-GlassBoxFrame = каркас стеклянного короба
+    .desc = Неостеклённая витрина для дорогостоящего экспоната.
+    .suffix = Каркас
+
+ent-GlassBoxBroken = разбитый стеклянный короб
+    .desc = Разбитая витрина для дорогостоящего экспоната.
+    .suffix = Разбитый

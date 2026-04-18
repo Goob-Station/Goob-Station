@@ -1,0 +1,108 @@
+ent-ClothingUniformJumpsuitDurathread = комбинезон из дюратнки
+    .desc = Свободная изношенная дюратнковая рубашка с серыми штанами, прочные волокна обеспечивают защиту носителю.
+
+ent-ClothingUniformJumpsuitResonant = резонантный комбинезон
+    .desc = Давай играть не так жестко. Ни ты, ни я пока не можем этого достигнуть...
+
+ent-ClothingUniformJumpsuitWestern = истинный ковбойский комбинезон
+    .desc = Давайте покажем ГСБ, как это происходило на Диком Западе.
+
+ent-ClothingUniformJumpsuitNanotrasenRepresentative = костюм представителя Nanotrasen
+    .desc = Чёрный костюм, который носят официальные лица.
+
+ent-ClothingUniformJumpsuitNanotrasenRepresentativeFancy = изысканный костюм представителя Nanotrasen
+    .desc = Чёрный костюм, который носят официальные лица. Украшено большим количеством золотых нитей, чем обычно.
+
+ent-ClothingUniformJumpsuitCasualSyndicate = повседневный комбинезон Синдиката
+    .desc = Короткие рукава, короткий характер.
+
+ent-ClothingUniformJumpsuitCasualCentcom = повседневный комбинезон ЦентКом
+    .desc = Бумажная работа — это тяжело.
+
+ent-ClothingUniformJumpsuitCasualCommand = повседневный командный комбинезон
+    .desc = Подождите, где мой КПК?
+
+ent-ClothingUniformJumpsuitCasualEngineer = повседневный инженерный комбинезон
+    .desc = Искры? Стекловолокно? И что с того?
+
+ent-ClothingUniformJumpsuitBlueshieldOfficer = комбинезон офицера Синего Щита
+    .desc = Серо-голубой комбинезон с короткими рукавами из прочного материала. Стандартное снаряжение офицера Синего Щита.
+
+ent-ClothingUniformJumpsuitBlueshieldShirt = синяя рубашка офицера Синего Щита
+    .desc = Официальная форма службы безопасности. Надежная и загруженная.
+
+ent-ClothingUniformMailCarrier = форма почтальона
+    .desc = Враг собак повсюду.
+
+ent-ClothingUniformHecu = форма HECU
+    .desc = Охоться на Фримена.
+
+ent-ClothingUniformJumpsuitNavyGold = комбинезон офицера ЦентКом
+    .desc = Костюм высокопоставленных членов Центрального Командования. Остальное засекречено.
+
+ent-ClothingUniformJumpsuitSpecOps = комбинезон офицера спец. операций
+    .desc = Костюм высокопоставленных офицеров спец. операций. Остальное засекречено.
+
+ent-ClothingUniformJumpsuitDiplomat = комбинезон дипломата
+    .desc = Костюм сотрудников Центрального Командования, занимающихся дипломатией.
+
+ent-ClothingUniformJumpsuitCentralCommandLiaison = CentComm Liaison Jumpsuit
+  .desc = Rumor has it, the CCO that first saw the Outer Command uniform was so jealous that they stained it green with their envy.
+
+ent-ClothingCostumeAbductor = костюм пришельца
+    .desc = На ярлыке написано: Donk Co. не несет ответственности за инциденты с применением оружия, вызванные этим изделием.
+
+ent-ClothingUniformJumpsuitTrainer = комбинезон наставника
+    .desc = Комбинезон, выданный тренерам Nanotrasen. Наполняет чувством гордости.
+
+ent-ClothingUniformJumpsuitDevil = дьявольский костюм
+    .desc = Стильный чёрный костюм из материалов, не принадлежащих этому измерению. Тёплый на ощупь.
+
+ent-ClothingUniformJumpsuitMercer = уличная одежда Манхэттена
+    .desc = Надеть это может только тот, кто хочет сбежать с самой смертоносной биологической оружием Земли.
+
+ent-ClothingUniformJumpsuitHoSSummer = летняя рубашка ГСБ
+    .desc = Индивидуальный летний наряд главы службы безопасности, на случай, если становится жарко во время погони за грейтайдами.
+
+ent-ClothingUniformJumpsuitRDSummer = летняя рубашка НР
+    .desc = Индивидуальный летний наряд научного руководителя, когда огненные аномалии заставляют вас попотеть.
+
+ent-ClothingUniformJumpsuitQMSummer = летняя рубашка КМ
+    .desc = Индивидуальный летний наряд квартирмейстера, когда хочется похвастаться богатствами перед другими отделами.
+
+ent-ClothingUniformJumpsuitCaptainSummer = летняя рубашка Капитана
+    .desc = Индивидуальный летний наряд капитана, когда дела на высоте.
+
+ent-ClothingUniformJumpsuitHoPSummer = летняя рубашка ГП
+    .desc = Индивидуальный летний наряд главы персонала, чтобы с комфортом заниматься бумажной работой.
+
+ent-ClothingUniformJumpsuitCESummer = летняя рубашка СИ
+    .desc = Индивидуальный летний наряд старшего инженера, чтобы просто лечь и полюбоваться теслой под пивко.
+
+ent-ClothingUniformJumpsuitPassengerQuarterzip = серый свитер с молнией
+    .desc = Свитер с молнией для самых утончённых пассажиров.
+
+ent-ClothingUniformJumpsuitAncientUnremoveable = { ent-ClothingUniformJumpsuitAncient }
+    .desc = { ent-ClothingUniformJumpsuitAncient.desc }
+    .suffix = Неснимаемый
+
+ent-ClothingUniformJumpsuitOuterCommand = комбинезон офицера ОПЗ
+    .desc = Изысканный пурпурный костюм с эмблемой ОПЗ
+
+ent-ClothingUniformJumpsuitShaftMiner = комбинезон шахтёра
+    .desc = Удобный комбинезон, выглядит слегка обгоревшим.
+
+ent-ClothingUniformOverallsCargo = комбинезон грузчика
+    .desc = Прочный рабочий комбинезон. Немного пыльный.
+
+ent-ClothingUniformOverallsSalvageSpecialist = комбинезон утилизатора
+    .desc = Прочный рабочий комбинезон. Очень грязный.
+
+ent-ClothingUniformOverallsShaftMiner = комбинезон шахтёра
+    .desc = Прочный рабочий комбинезон, выглядит слегка обгоревшим.
+
+ent-ClothingUniformJumpsuitResearchDirectorAlt = водолазка научного руководителя
+    .desc = Водолазка, которую носят те, кому хватило знаний, чтобы занять должность научного руководителя. Её ткань обеспечивает незначительную защиту от биологических загрязнений.
+
+ent-ClothingUniformJumpsuitVeteranSecurity = Airy Security Jumpsuit
+  .desc = An airy version of the standard security jumpsuit, normally given on shifts with a lacking atmos department

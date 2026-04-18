@@ -1,0 +1,30 @@
+ent-ClothingHeadsetAltLoudspeaker = { ent-ClothingHeadsetAlt }
+  .desc = { ent-ClothingHeadsetAlt.desc }
+
+ent-ClothingHeadsetAltSyndicateCommander = кроваво-красная полноразмерная гарнитура
+    .desc = { ent-ClothingHeadsetAltSyndicate.desc }
+
+ent-ClothingHeadsetChronolegioneer = полноразмерная футуристическая гарнитура
+    .desc = Гарнитура из будущего, способная принимать большинство частот станции.
+
+ent-ClothingHeadsetChronolegioneerUnremoveable = { ent-ClothingHeadsetChronolegioneer }
+    .desc = { ent-ClothingHeadsetChronolegioneer.desc }
+    .suffix = Не снимаются
+
+ent-ClothingHeadsetAltWarden = полноразмерная гарнитура смотрителя
+    .desc = Модифицированный модульный интерком, позволяющий быстро связываться с командным составом.
+
+ent-ClothingHeadsetDeathsquad = полноразмерная гарнитура Эскадрона Смерти
+    .desc = { ent-ClothingHeadsetAlt.desc }
+
+ent-ClothingHeadsetAltSecurityRegular = полноразмерная гарнитура службы безопасности
+    .desc = { ent-ClothingHeadsetAlt.desc }
+
+ent-ClothingHeadsetAltBlueshield = полноразмерная гарнитура офицера синего щита
+    .desc = { ent-ClothingHeadsetAlt.desc }
+
+ent-ClothingHeadsetCommandService = полноразмерная гарнитура сервиса
+    .desc = Гарнитура с командный и сервисным каналом.
+
+ent-ClothingHeadsetAltRadioHost = наушники радиоведущего
+    .desc = Накладные наушники с дополнительной поролоновой подкладкой вокруг ушей.

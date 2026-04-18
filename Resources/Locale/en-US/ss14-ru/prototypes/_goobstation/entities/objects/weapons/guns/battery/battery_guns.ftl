@@ -1,0 +1,36 @@
+ent-BaseWeaponCustomCell = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-BaseWeaponCustomCellSmall = { ent-BaseItem }
+  .desc = { ent-BaseItem.desc }
+
+ent-MiniatureEnergyCrossbow = Miniature Energy Crossbow
+  .desc = A signature design from Donk Co., this crossbow fires a thin dart loaded with sedatives and depressants designed to pierce even the heaviest of armor.
+
+ent-WeaponPlasmaRifle = plasma rifle
+  .desc = It may or may not explode in your face.
+
+ent-WeaponPlasmaRifleEmpty = { ent-WeaponPlasmaRifle }
+  .desc = { ent-WeaponPlasmaRifle.desc }
+  .suffix = Empty
+
+ent-WeaponEnergyRevolver = EG-4 Equalizer
+  .desc = In the face of death, everyone is equal. The right arm of the Blueshield corps, the Equalizer is a modular energy revolver platform designed for lethal and non-lethal target neutralization. Takes energy speedloaders.
+
+ent-WeaponDisablerAdvanced = advanced disabler
+  .desc = A self-defense weapon for corporate execs with money to burn. Slim, sturdy, and self-recharging for your convenience.
+
+ent-WeaponDisablerSyndicate = syndicate disabler
+  .desc = A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
+
+ent-WeaponPulseCarbineAdvanced = advanced pulse carbine
+  .desc = A state-of-the-art laser carbine that fires a rapidly pulsing beam. Expensive, though favoured by the Emergency Response corps due to its ability to self-recharge.
+
+ent-WeaponEnergyRifle = CR-2 Hera
+  .desc = A versatile plasma assault rifle, iterated off of the now defunct energy gun. Loads from energy rifle magazines.
+
+ent-WeaponEnergyGunLawbringer = DT-12 Lawbringer
+  .desc = Sometimes rank is a function of firepower. A versatile energy gun with a myriad of firing modes designed for the Head of Security. Self-recharges after a 40 second delay.
+
+ent-WeaponEnergyIonRifle = Ion Rifle
+  .desc = A rifle that fires ion bolts designed to degrade mechanical targets. Ideal against combat mechs and silicons, though useless against pretty much everything else.

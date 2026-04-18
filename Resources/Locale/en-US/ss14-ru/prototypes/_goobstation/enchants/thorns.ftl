@@ -1,0 +1,2 @@
+ent-EnchantThorns = Thorns
+  .desc = { "" }

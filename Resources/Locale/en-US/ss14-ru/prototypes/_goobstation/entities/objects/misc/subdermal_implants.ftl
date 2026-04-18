@@ -1,0 +1,62 @@
+ent-BluespaceLifelineImplant = bluespace lifeline implant
+  .desc = Teleports the hosts body to Central Command on activation. They will not be able to return.
+
+ent-CommandTrackingImplant = command tracking implant
+  .desc = This implant reserved for command has a tracking device attached to a private suit sensor network, as well as a condition monitor for the Command radio channel.
+
+ent-PacifismImplant = pacifism implant
+  .desc = Pacifism implant, given to life sentenced prisoners or such to prevent them from committing violence.
+
+ent-SmokeImplant = smoke implant
+  .desc = This implant releases smoke cloud on activation.
+
+ent-KravMagaImplant = krav maga implant
+  .desc = This implant allows the user to perform various Krav Maga moves.
+
+ent-AutoinjectorImplant = autoinjector implant
+  .desc = This implant allows the user to inject themselves with a chemical on use. Ephedrine by default.
+
+ent-NutrimentPumpImplant = nutriment pump implant
+  .desc = This implant allows prevents the user from getting hungry or thirsty.
+
+ent-SpaceProofImplant = space proofing implant
+  .desc = This implant allows the user to survive in space and without air.
+
+ent-StypticStimulatorImplant = styptic stimulator implant
+  .desc = This implant sends the users regeneration into overdrive.
+
+ent-BinaryImplant = binary decoder implant
+  .desc = This implant allows the user to access Binary and communicate with silicons (use +b).
+
+ent-ClumsyImplant = clumsy implant
+  .desc = This implant makes the user clumsy, allowing them to drive a certain vehicle.
+
+ent-ShadowmindImplant = shadowmind implant
+  .desc = This implant allows the user to access Shadowmind channel (use +q).
+
+ent-BlinkImplant = blink implant
+  .desc = This implant allows the user temporarily blink into a higher dimension.
+
+ent-VaporizeImplant = vaporize implant
+  .desc = This implant allows the user to vaporize targets with the power of their mind.
+
+ent-NaniteMenderImplant = nanite mender implant
+  .desc = This implant allows the user to heal entities with microscopic nanites.
+
+ent-ShiftImplant = shift implant
+  .desc = This implant allows the user to teleport to a point in range.
+
+ent-StopTimeImplant = stop time implant
+  .desc = This implant allows the user to stop time in an area briefly.
+
+ent-AntagImplantChangeling = changeling implant
+  .desc = This implant allows the user to shift their bodies like a changeling
+
+ent-AntagImplantSpaceNinja = ninja implant
+  .desc = This implant allows the user to gain the skills of a space ninja.
+
+ent-XenoCompatibilityImplant = xeno compatibility implant
+  .desc = Allows a subject to have xeno organs transplanted.
+
+ent-RedspaceLifelineImplant = redspace lifeline implant
+  .desc = Teleports the hosts body to Syndicate High Command on activation. They will not be able to return.

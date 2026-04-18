@@ -1,0 +1,40 @@
+ent-PuddleTemporary = { ent-Puddle }
+  .desc = { ent-Puddle.desc }
+
+ent-PuddleSmear = { ent-PuddleTemporary }
+    .desc = { ent-PuddleTemporary.desc }
+    .suffix = Мазня
+
+ent-PuddleVomit = { ent-PuddleTemporary }
+    .desc = { ent-PuddleTemporary.desc }
+    .suffix = Рвота
+
+ent-PuddleEgg = { ent-PuddleTemporary }
+    .desc = { ent-PuddleTemporary.desc }
+    .suffix = Яйцо
+
+ent-PuddleTomato = { ent-PuddleTemporary }
+    .desc = { ent-PuddleTemporary.desc }
+    .suffix = Помидор
+
+ent-PuddleBloodSmall = { ent-PuddleTemporary }
+    .desc = { ent-PuddleTemporary.desc }
+    .suffix = Кровь (5u)
+
+ent-PuddleBlood = { ent-PuddleTemporary }
+    .desc = { ent-PuddleTemporary.desc }
+    .suffix = Кровь (30u)
+
+ent-PuddleWatermelon = { ent-PuddleTemporary }
+    .desc = { ent-PuddleTemporary.desc }
+    .suffix = Арбуз
+
+ent-PuddleFlour = { ent-PuddleTemporary }
+    .desc = { ent-PuddleTemporary.desc }
+    .suffix = Мука
+
+ent-PuddleSparkle = Блеск
+    .desc = { "" }
+
+ent-Puddle = лужа
+    .desc = Лужа жидкости.

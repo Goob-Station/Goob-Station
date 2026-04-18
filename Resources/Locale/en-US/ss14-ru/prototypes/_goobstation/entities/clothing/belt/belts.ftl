@@ -1,0 +1,44 @@
+ent-ClothingBeltMilitaryWebbingCMO = chief medical officer's chest rig
+  .desc = A medical chest rig with deep pockets, for use by health professionals.
+
+ent-ClothingBeltDeathsquadWebbing = deathsquad operative chestrig
+  .desc = A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it.
+  .suffix = DO NOT MAP
+
+ent-ClothingBeltSecurityWebbingMedical = ert doctor's chest rig
+  .desc = A medical chest rig with deep pockets, for use by ERT operatives.
+
+ent-ClothingBeltCorporateJudo = Corporate Judo Belt
+  .desc = Teaches the wearer NT Corporate Judo.
+
+ent-ClothingBeltChemBagSyndi = syndicate medical pouch
+  .desc = A robust pouch for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
+
+ent-ClothingBeltSheathHeadOfSecurity = head of security's sheath
+  .desc = A rugged sheath, designed to hold the Head of Security's custom energy sword.
+
+ent-ClothingBeltMilitaryRigGrenadier = grenadier belt
+  .desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+
+ent-ClothingBeltChemBagXenobiology = xenobiology pouch
+  .desc = A slime-resistant pouch intended for use by Xenobiologists. Smells of.. plasma?
+
+ent-ClothingBeltChemBagXenobiologyHolding = xenobiology pouch of holding
+  .desc = A larger slime-resistant pouch intended for use by Xenobiologists. Smells of bluespace extract and monkey hair.
+
+ent-ClothingBeltMilitaryWebbingBSOFilled = blueshield chest rig
+  .desc = A set of tactical webbing worn by Central Command support units.
+
+ent-ClothingBeltUtilityFilledUnremoveable = { ent-ClothingBeltUtilityFilled }
+  .desc = { ent-ClothingBeltUtilityFilled.desc }
+  .suffix = Unremoveable
+
+ent-ClothingBeltSecurityWebbingContractor = contractor's chest rig
+  .desc = A chest rig with deep pockets and explosion resistance, often used by contractors and bounty hunters.
+
+ent-ClothingBeltSecurityWebbingContractorFilled = contractor's chest rig
+  .desc = A chest rig with deep pockets, often used by contractors and bounty hunters.
+
+ent-ClothingBeltWhipping = whipping belt
+  .desc = Where there's a whip, there's a way
+  .suffix = Admeme

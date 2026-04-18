@@ -1,0 +1,59 @@
+ent-BaseMagazinePistol = pistol magazine (.35 auto)
+  .desc = { ent-BaseItem.desc }
+
+ent-BaseMagazinePistolHighCapacity = machine pistol magazine (.35 auto)
+  .desc = { ent-BaseItem.desc }
+
+ent-BaseMagazinePistolSubMachineGun = SMG magazine (.35 auto)
+  .desc = { ent-BaseItem.desc }
+
+ent-MagazinePistolSubMachineGunTopMounted = WT550 magazine (.35 auto top-mounted)
+  .desc = Unconventional 30-round top feeding magazine for the WT550 SMG. Intended to hold general-purpose kinetic ammunition.
+
+ent-MagazinePistolSubMachineGunTopMountedEmpty = WT550 magazine (.35 auto top-mounted any)
+  .desc = Unconventional 30-round top feeding magazine for the WT550 SMG.
+
+ent-MagazinePistol = pistol magazine (.35 auto)
+  .desc = 12-round single-stack magazine for pistols. Intended to hold general-purpose kinetic ammunition.
+
+ent-MagazinePistolEmpty = pistol magazine (.35 auto any)
+  .desc = 12-round single-stack magazine for pistols.
+  .suffix = empty
+
+ent-MagazinePistolIncendiary = pistol magazine (.35 auto incendiary)
+  .desc = 12-round single-stack magazine for pistols. Intended to hold self-igniting incendiary ammunition.
+
+ent-MagazinePistolPractice = pistol magazine (.35 auto practice)
+  .desc = 12-round single-stack magazine for pistols. Intended to hold non-harmful chalk ammunition.
+
+ent-MagazinePistolUranium = pistol magazine (.35 auto uranium)
+  .desc = 12-round single-stack magazine for pistols. Intended to hold exotic uranium-core ammunition.
+
+ent-MagazinePistolHighCapacityEmpty = machine pistol magazine (.35 auto any)
+  .desc = { ent-BaseMagazinePistolHighCapacity.desc }
+  .suffix = empty
+
+ent-MagazinePistolHighCapacity = machine pistol magazine (.35 auto)
+  .desc = { ent-BaseMagazinePistolHighCapacity.desc }
+
+ent-MagazinePistolHighCapacityPractice = machine pistol magazine (.35 auto practice)
+  .desc = { ent-BaseMagazinePistolHighCapacity.desc }
+
+ent-MagazinePistolHighCapacityRubber = machine pistol magazine (.35 auto rubber)
+  .desc = { ent-BaseMagazinePistolHighCapacity.desc }
+
+ent-MagazinePistolSubMachineGun = SMG magazine (.35 auto)
+  .desc = 30-round double-stack magazine for submachine guns. Intended to hold general-purpose kinetic ammunition.
+
+ent-MagazinePistolSubMachineGunEmpty = SMG magazine (.35 auto any)
+  .desc = 30-round double-stack magazine for submachine guns.
+  .suffix = empty
+
+ent-MagazinePistolSubMachineGunPractice = SMG magazine (.35 auto practice)
+  .desc = 30-round double-stack magazine for submachine guns. Intended to hold non-harmful chalk ammunition.
+
+ent-MagazinePistolSubMachineGunUranium = SMG magazine (.35 auto uranium)
+  .desc = 30-round double-stack magazine for submachine guns. Intended to hold exotic uranium-core ammunition.
+
+ent-MagazinePistolSubMachineGunIncendiary = SMG magazine (.35 auto incendiary)
+  .desc = 30-round double-stack magazine for submachine guns. Intended to hold self-igniting incendiary ammunition.

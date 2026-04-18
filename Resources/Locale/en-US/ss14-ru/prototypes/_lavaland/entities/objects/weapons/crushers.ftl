@@ -1,0 +1,30 @@
+ent-BaseWeaponCrusher = crusher
+  .desc = An early design of the proto-kinetic accelerator.
+
+ent-WeaponCrusher = crusher axe
+  .desc = An early design of the proto-kinetic accelerator.
+
+ent-WeaponCrusherGlaive = crusher glaive
+  .desc = An early design of the proto-kinetic accelerator, in glaive form. Provides better healing in exchange for less charged damage.
+
+ent-WeaponCrusherHammer = crusher hammer
+  .desc = A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
+
+ent-WeaponCrusherHalberd = crusher halberd
+  .desc = A universal weapon that combines the power of a crusher and the range of a spear.
+
+ent-CrusherRandomUpgradesFill = { "" }
+  .desc = { "" }
+  .suffix = Random Upgrades
+
+ent-WeaponCrusherFilledRandom = { ent-WeaponCrusher }
+  .desc = { ent-WeaponCrusher.desc }
+
+ent-WeaponCrusherGlaiveFilledRandom = { ent-WeaponCrusherGlaive }
+  .desc = { ent-WeaponCrusherGlaive.desc }
+
+ent-WeaponCrusherHammerFilledRandom = { ent-WeaponCrusherHammer }
+  .desc = { ent-WeaponCrusherHammer.desc }
+
+ent-WeaponCrusherHalberdFilledRandom = { ent-WeaponCrusherHalberd }
+  .desc = { ent-WeaponCrusherHalberd.desc }
