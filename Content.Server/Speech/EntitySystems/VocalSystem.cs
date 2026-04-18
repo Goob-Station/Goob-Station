@@ -84,6 +84,7 @@ public sealed class VocalSystem : EntitySystem
         {
             if (getSoundEv.EmoteSoundProtoId is not { } proto)
                 return;
+
             if (_proto.TryIndex(proto, out EmoteSoundsPrototype? evSounds))
             {
                 args.Handled = _chat.TryPlayEmoteSound(uid, evSounds, args.Emote);
