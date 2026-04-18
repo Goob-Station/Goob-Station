@@ -1,4 +1,3 @@
-using Content.Shared.Damage.Components;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Emoting;
