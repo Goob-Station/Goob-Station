@@ -134,6 +134,7 @@ public sealed class CommandLineArgs
 
     private static void PrintHelp()
     {
+        // AltHub Space -> start
         Console.WriteLine(@"
 Usage: Content.Packaging [client/server] [options]
 
@@ -141,9 +142,10 @@ Options:
   --skip-build          Should we skip building the project and use what's already there.
   --no-wipe-release     Don't wipe the release folder before creating files.
   --hybrid-acz          Use HybridACZ for server builds.
-  --platform            Platform for server builds. Default will output several x64 targets.
+  --platform            Platform for server builds. Default is linux-x64.
   --configuration       Configuration to use for building the server (Release, Debug, Tools). Default is Release.
 ");
+        // AltHub Space -> end
     }
 
     private CommandLineArgs(

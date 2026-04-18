@@ -19,7 +19,9 @@
             "name": "Client",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            // AltHub Space -> start
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Goobstation.Client.dll",
+            // AltHub Space -> end
             "args": [],
             "console": "internalConsole",
             "stopAtEntry": false
@@ -29,7 +31,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build - Tools",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            // AltHub Space
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Goobstation.Client.dll",
             "args": [],
             "console": "internalConsole",
             "stopAtEntry": false
@@ -39,7 +42,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build - Release",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            // AltHub Space
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Goobstation.Client.dll",
             "args": [],
             "console": "internalConsole",
             "stopAtEntry": false
@@ -49,7 +53,10 @@
             "name": "Client - (Compatibility renderer)",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            // AltHub Space -> start
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Goobstation.Client.dll",
+            // AltHub Space -> end
             "args": "--cvar display.compat=true",
             "console": "internalConsole",
             "stopAtEntry": false
@@ -59,7 +66,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build - Tools",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            // AltHub Space
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Goobstation.Client.dll",
             "args": ["--cvar display.compat=true"],
             "console": "internalConsole",
             "stopAtEntry": false
@@ -69,7 +77,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build - Release",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            // AltHub Space
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Goobstation.Client.dll",
             "args": ["--cvar display.compat=true"],
             "console": "internalConsole",
             "stopAtEntry": false
@@ -79,7 +88,9 @@
             "name": "Server",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            // AltHub Space -> start
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Goobstation.Server.dll",
+            // AltHub Space -> end
             "args": [],
             "console": "integratedTerminal",
             "stopAtEntry": false
@@ -88,7 +99,8 @@
             "name": "ServerCursor",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            // AltHub Space
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Goobstation.Server.dll",
             "args": [],
             "console": "integratedTerminal",
             "stopAtEntry": false,
@@ -105,7 +117,8 @@
             "name": "ClientCursor",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            // AltHub Space
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Goobstation.Client.dll",
             "args": [],
             "console": "integratedTerminal",
             "stopAtEntry": false,
@@ -123,7 +136,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build - Tools",
-            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            // AltHub Space
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Goobstation.Server.dll",
             "args": [""],
             "console": "integratedTerminal",
             "stopAtEntry": false
@@ -133,7 +147,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build - Release",
-            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            // AltHub Space
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Goobstation.Server.dll",
             "args": [""],
             "console": "integratedTerminal",
             "stopAtEntry": false
@@ -146,6 +161,8 @@
                 "ServerCursor",
                 "ClientCursor"
             ],
+            // AltHub Space
+            "preLaunchTask": "build",
         },
         {
             "name": "Server/Client",

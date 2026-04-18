@@ -6,6 +6,8 @@ REM SPDX-License-Identifier: AGPL-3.0-or-later
 @echo off
 cd ../../
 
-call dotnet run --project Content.Server --no-build %*
+REM AltHub Space -> start
+call dotnet run --project Content.Goobstation.Server --no-build %*
+REM AltHub Space -> end
 
 pause

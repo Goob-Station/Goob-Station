@@ -46,9 +46,18 @@ jobs:
         uses: actions/setup-dotnet@v4.1.0
         with:
           dotnet-version: 9.0.x
+      # AltHub Space -> start
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('Directory.Packages.props', 'RobustToolbox/Directory.Packages.props', '**/*.csproj', 'global.json', 'nuget.config') }}
+      # AltHub Space -> end
       - name: Install dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release --no-restore /p:WarningsAsErrors= /m
+        # AltHub Space
+        run: dotnet build Content.YAMLLinter/Content.YAMLLinter.csproj --configuration Release --no-restore /p:WarningsAsErrors= /m
       - name: Run Linter
-        run: dotnet run --project Content.YAMLLinter/Content.YAMLLinter.csproj --no-build
+        # AltHub Space
+        run: dotnet run --project Content.YAMLLinter/Content.YAMLLinter.csproj --configuration Release --no-build

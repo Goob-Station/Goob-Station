@@ -34,6 +34,7 @@ public static class ClientPackaging
 
             foreach (var project in clientProjects)
             {
+                // AltHub Space -> start
                 await ProcessHelpers.RunCheck(new ProcessStartInfo
                 {
                     FileName = "dotnet",
@@ -44,11 +45,11 @@ public static class ClientPackaging
                         "-c", configuration,
                         "--nologo",
                         "/v:m",
-                        "/t:Rebuild",
                         "/p:FullRelease=true",
                         "/m"
                     }
                 });
+                // AltHub Space -> end
             }
         }
 
@@ -70,25 +71,11 @@ public static class ClientPackaging
 
     private static List<string> GetClientModules(string path)
     {
-        var clientProjects = new List<string> { Path.Combine("Content.Client", "Content.Client.csproj") };
-
-        var directories = Directory.GetDirectories(path, "Content.*");
-
-        foreach (var dir in directories)
-        {
-            var dirName = Path.GetFileName(dir);
-
-            if (dirName != "Content.Client" && dirName.EndsWith(".Client"))
-            {
-                var projectPath = Path.Combine(dir, $"{dirName}.csproj");
-                if (File.Exists(projectPath))
-                {
-                    clientProjects.Add(projectPath);
-                }
-            }
-        }
-
-        return clientProjects;
+        // AltHub Space -> start
+        return PackagingProjectGraph.GetLeafProjectPaths(
+            path,
+            dirName => dirName.EndsWith(".Client", StringComparison.Ordinal));
+        // AltHub Space -> end
     }
 
     private static List<string> FindAllModules(string path = ".")

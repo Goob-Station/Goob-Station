@@ -109,10 +109,12 @@ public static class ServerPackaging
         .Select(o => o.Rid)
         .ToList();
 
-    private static List<string> PlatformRidsDefault => Platforms
-        .Where(o => o.BuildByDefault)
-        .Select(o => o.Rid)
-        .ToList();
+    // AltHub Space -> start
+    private static List<string> PlatformRidsDefault => new()
+    {
+        "linux-x64",
+    };
+    // AltHub Space -> end
 
     private static readonly List<string> CoreServerContentAssemblies = new()
     {
@@ -156,10 +158,13 @@ public static class ServerPackaging
 
     public static async Task PackageServer(bool skipBuild, bool hybridAcz, IPackageLogger logger, string configuration, List<string>? platforms = null)
     {
-        if (platforms == null)
-        {
-            platforms ??= PlatformRidsDefault;
-        }
+        platforms ??= PlatformRidsDefault; // AltHub Space
+
+        // AltHub Space -> start
+        var selectedPlatforms = Platforms
+            .Where(platform => platforms.Contains(platform.Rid))
+            .ToList();
+        // AltHub Space -> end
 
         if (hybridAcz)
         {
@@ -170,44 +175,28 @@ public static class ServerPackaging
             await ClientPackaging.PackageClient(skipBuild, configuration, logger);
         }
 
-        // Good variable naming right here.
-        foreach (var platform in Platforms)
+        // AltHub Space -> start
+        foreach (var targetOsPlatforms in selectedPlatforms.GroupBy(platform => platform.TargetOs))
         {
-            if (!platforms.Contains(platform.Rid))
-                continue;
+            if (!skipBuild)
+                await BuildServerContent(targetOsPlatforms.Key, configuration, logger);
 
-            await BuildPlatform(platform, skipBuild, hybridAcz, configuration, logger);
+            foreach (var platform in targetOsPlatforms)
+            {
+                await BuildPlatform(platform, skipBuild, hybridAcz, configuration, logger);
+            }
         }
+        // AltHub Space -> end
     }
 
     private static async Task BuildPlatform(PlatformReg platform, bool skipBuild, bool hybridAcz, string configuration, IPackageLogger logger)
     {
-        logger.Info($"Building project for {platform.TargetOs}...");
+        // AltHub Space -> start
+        logger.Info($"Preparing runtime for {platform.Rid}...");
+        // AltHub Space -> end
 
         if (!skipBuild)
         {
-            var serverModules = FindServerModules();
-
-            foreach (var module in serverModules)
-            {
-                await ProcessHelpers.RunCheck(new ProcessStartInfo
-                {
-                    FileName = "dotnet",
-                    ArgumentList =
-                    {
-                        "build",
-                        Path.Combine(module, $"{module}.csproj"),
-                        "-c", configuration,
-                        "--nologo",
-                        "/v:m",
-                        $"/p:TargetOs={platform.TargetOs}",
-                        "/t:Rebuild",
-                        "/p:FullRelease=true",
-                        "/m"
-                    }
-                });
-            }
-
             await PublishClientServer(platform.Rid, platform.TargetOs, configuration);
         }
 
@@ -229,25 +218,11 @@ public static class ServerPackaging
 
     private static List<string> FindServerModules(string path = ".")
     {
-        var serverModules = new List<string> { "Content.Server" };
-
-        var directories = Directory.GetDirectories(path, "Content.*");
-        foreach (var dir in directories)
-        {
-            var dirName = Path.GetFileName(dir);
-
-            // Look for Content.{name}.Server projects
-            if (dirName != "Content.Server" && dirName.EndsWith(".Server"))
-            {
-                var projectPath = Path.Combine(dir, $"{dirName}.csproj");
-                if (File.Exists(projectPath))
-                {
-                    serverModules.Add(dirName);
-                }
-            }
-        }
-
-        return serverModules;
+        // AltHub Space -> start
+        return PackagingProjectGraph.GetLeafProjectPaths(
+            path,
+            dirName => dirName.EndsWith(".Server", StringComparison.Ordinal));
+        // AltHub Space -> end
     }
 
     private static List<string> FindAllServerModules(string path = ".")
@@ -293,6 +268,32 @@ public static class ServerPackaging
             }
         });
     }
+
+    // AltHub Space -> start
+    private static async Task BuildServerContent(string targetOs, string configuration, IPackageLogger logger)
+    {
+        logger.Info($"Building server content for {targetOs}...");
+
+        foreach (var projectPath in FindServerModules())
+        {
+            await ProcessHelpers.RunCheck(new ProcessStartInfo
+            {
+                FileName = "dotnet",
+                ArgumentList =
+                {
+                    "build",
+                    projectPath,
+                    "-c", configuration,
+                    "--nologo",
+                    "/v:m",
+                    $"/p:TargetOs={targetOs}",
+                    "/p:FullRelease=true",
+                    "/m"
+                }
+            });
+        }
+    }
+    // AltHub Space -> end
 
     private static async Task WriteServerResources(
         PlatformReg platform,
