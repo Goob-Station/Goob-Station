@@ -80,11 +80,15 @@ public sealed class VocalSystem : EntitySystem
         // Goobstation start
         var getSoundEv = new GetEmoteSoundsEvent();
         RaiseLocalEvent(uid, ref getSoundEv);
-        if (getSoundEv.EmoteSoundProtoId != null &&
-            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? evSounds))
+        if (getSoundEv.Handled)
         {
-            args.Handled = _chat.TryPlayEmoteSound(uid, evSounds, args.Emote);
-            return;
+            if (getSoundEv.EmoteSoundProtoId is not { } proto)
+                return;
+            if (_proto.TryIndex(proto, out EmoteSoundsPrototype? evSounds))
+            {
+                args.Handled = _chat.TryPlayEmoteSound(uid, evSounds, args.Emote);
+                return;
+            }
         }
         // Goobstation end
 
@@ -109,9 +113,14 @@ public sealed class VocalSystem : EntitySystem
         // Goobstation start
         var getSoundEv = new GetEmoteSoundsEvent();
         RaiseLocalEvent(uid, ref getSoundEv);
-        if (getSoundEv.EmoteSoundProtoId != null &&
-            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? evSounds))
-            return _chat.TryPlayEmoteSound(uid, evSounds, component.ScreamId);
+        if (getSoundEv.Handled)
+        {
+            if (getSoundEv.EmoteSoundProtoId is not { } proto)
+                return false;
+
+            if (_proto.TryIndex(proto, out EmoteSoundsPrototype? evSounds))
+                return _chat.TryPlayEmoteSound(uid, evSounds, component.ScreamId);
+        }
         // Goobstation end
 
         if (_random.Prob(component.WilhelmProbability))

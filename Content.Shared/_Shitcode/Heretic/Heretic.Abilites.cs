@@ -19,6 +19,7 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Polymorph;
 using Content.Shared.StatusEffect;
@@ -96,6 +97,9 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
 
+[ByRefEvent]
+public readonly record struct HereticLostFocusEvent;
+
 // basic
 public sealed partial class HereticStartupEvent : HereticKnowledgeEvent;
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
@@ -105,13 +109,13 @@ public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // 
 [ByRefEvent]
 public readonly record struct HereticMindDetachedEvent(EntityUid Mind);
 
-public sealed partial class EventHereticShadowCloak : InstantActionEvent
+public sealed partial class EventHereticCloak : InstantActionEvent
 {
-    [DataField]
-    public ProtoId<StatusEffectPrototype> Status = "ShadowCloakAlertSE";
+    [DataField(required: true)]
+    public EntProtoId<HereticCloakedStatusEffectComponent> Status;
 
     [DataField]
-    public TimeSpan Lifetime = TimeSpan.FromSeconds(180);
+    public TimeSpan? Lifetime;
 }
 
 // living heart
