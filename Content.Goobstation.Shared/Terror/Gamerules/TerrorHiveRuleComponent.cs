@@ -28,7 +28,7 @@ public sealed partial class TerrorHiveRuleComponent : Component
     /// How many corpses are required to be wrapped for the terrors to "win".
     /// </summary>
     [DataField]
-    public int RequiredWrapsForWin = 50;
+    public int RequiredWrapsForWin = 40; // Might be too much, might be too little. We shall see.
 
     /// <summary>
     /// If the spiders already got snitched on by the announcer.

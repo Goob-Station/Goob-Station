@@ -25,7 +25,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 40
+        Brute: 40 # ARE YOU READY TO HEAR THEM CRUNCHES!!!
       types:
         Structural: 300
   - type: MovementSpeedModifier
@@ -79,8 +79,8 @@
       150: Dead
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 15
+      types:
+        Slash: 15
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Web # Stronger against bullets, weak to fire and slash.

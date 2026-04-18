@@ -60,10 +60,10 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 10
+        Brute: 20
       types:
         Structural: 300
-        Ion: 30 # Fuck them clankas trying to act as secborgs
+        Ion: 20 # Fuck them clankas trying to act as secborgs
   - type: TerrorVentSmash
   - type: ActionGrant
     actions:

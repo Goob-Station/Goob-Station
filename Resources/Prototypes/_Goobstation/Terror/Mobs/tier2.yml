@@ -33,8 +33,8 @@
       100: Dead
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      types:
+        Slash: 10
   - type: TerrorSpider
     spiderType: BlackTerror
   - type: GhostRole
@@ -78,8 +78,9 @@
       200: Dead
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      types:
+        Poison: 2
+        Piercing: 8
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -133,7 +134,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 25
+        Brute: 25 # Are you ready to hear bones crunch?
       types:
         Structural: 100
   - type: Prying
@@ -195,7 +196,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 30
+        Brute: 20
       types:
         Structural: 300
   - type: Prying

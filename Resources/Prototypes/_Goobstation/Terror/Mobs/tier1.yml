@@ -192,8 +192,8 @@
       100: Dead
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      types:
+        Slash: 10
   - type: TerrorSpider
     spiderType: GrayTerror
   - type: BonusDamageOnStatusEffect
@@ -240,8 +240,8 @@
       150: Dead
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      types:
+        Slash: 10
   - type: TerrorSpider
     spiderType: GreenTerror
   - type: ActionGrant
