@@ -130,6 +130,7 @@
   id: TerrorHeavyWeb
   parent: TerrorHeavyWebBase
   name: thick web
-  description: This web is so thick, most cannot see beyond it.
+  description: This web is so thick, most cannot see beyond it. Also prevents the flow of air.
   components:
-  - type: Occluder  
+  - type: Occluder
+  - type: Airtight
