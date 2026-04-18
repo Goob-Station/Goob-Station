@@ -68,7 +68,7 @@ public sealed class TerrorWrapSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!_netManager.IsServer)
+        if (_netManager.IsClient)
             return;
 
         // spawn cocoon and attempt to insert the body

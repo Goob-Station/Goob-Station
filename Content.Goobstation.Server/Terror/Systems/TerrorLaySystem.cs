@@ -28,7 +28,7 @@ public sealed class TerrorLaySystem : EntitySystem
         if (!_proto.TryIndex(comp.SpiderType, out var proto))
             return;
 
-        if (!proto.CanLay || proto.LayConfig is null)
+        if (!proto.CanLay || proto.LayConfig == null)
             return;
 
         var lay = proto.LayConfig;
@@ -67,7 +67,7 @@ public sealed class TerrorLaySystem : EntitySystem
 
             if (roll < cumulative)
             {
-                TrySpawnFromList(tier.Prototypes, args.Target);
+                TryRandomSpawnFromList(tier.Prototypes, args.Target);
                 selected = true;
                 break;
             }
@@ -78,13 +78,13 @@ public sealed class TerrorLaySystem : EntitySystem
         {
             var fallbackTier = lay.Tiers[0];
 
-            TrySpawnFromList(fallbackTier.Prototypes, args.Target);
+            TryRandomSpawnFromList(fallbackTier.Prototypes, args.Target);
         }
 
         args.Handled = true;
     }
 
-    private void TrySpawnFromList(List<EntProtoId> list, EntityUid at)
+    private void TryRandomSpawnFromList(List<EntProtoId> list, EntityUid at)
     {
         if (list.Count == 0)
             return;

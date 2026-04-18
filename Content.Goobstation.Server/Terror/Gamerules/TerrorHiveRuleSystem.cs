@@ -28,20 +28,11 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         SubscribeLocalEvent<TerrorHiveRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
     }
 
-    private string? GetStationName(EntityUid? entity = null)
+    private string? TryGetStationName(EntityUid uid)
     {
-        EntityUid? station = null;
-
-        if (entity != null)
-            station = _stationSystem.GetOwningStation(entity.Value);
-
+        var station = _stationSystem.GetStationInMap(Transform(uid).MapID);
         if (station == null)
-        {
-            var stations = _stationSystem.GetStations();
-            if (stations.Count == 0)
-                return null;
-            station = stations[0];
-        }
+            return null;
 
         return Name(station.Value);
     }
@@ -68,21 +59,21 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 
         if (rule.TotalWrapped >= rule.RequiredWrapsForAnnouncement && !rule.InfestationAnnounced)
         {
-            if (rule.Queen != null)
-                _chat.DispatchStationAnnouncement(
-                    rule.Queen.Value,
-                    Loc.GetString("terror-hive-infestation-detected"),
-                    colorOverride: Color.Red,
-                    announcementSound: rule.DetectedAudio);
+            var announceFrom = rule.Queen ?? uid;
+            _chat.DispatchStationAnnouncement(
+                announceFrom,
+                Loc.GetString("terror-hive-infestation-detected"),
+                colorOverride: Color.Red,
+                announcementSound: rule.DetectedAudio);
 
             rule.InfestationAnnounced = true;
         }
 
-        if (rule.TotalWrapped >= rule.RequiredWrapsForWin)
-        {
-            if (GetLivingSpiders() > 0 && IsQueenAlive(rule.Queen))
-                DoWinCondition(uid, rule);
-        }
+        if (rule.TotalWrapped < rule.RequiredWrapsForWin)
+            return;
+
+        if (GetLivingSpiders() > 0 && IsQueenAlive(rule.Queen))
+            DoWinCondition(uid, rule);
     }
 
     private int GetLivingSpiders()
@@ -127,9 +118,11 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 
         rule.RoundWon = true;
 
-        if (rule.Queen != null)
-            _chat.DispatchStationAnnouncement(rule.Queen.Value,
-            Loc.GetString("terror-hive-infestation-victory"), GetStationName(),
+        var announceFrom = rule.Queen ?? uid;
+        _chat.DispatchStationAnnouncement(
+            announceFrom,
+            Loc.GetString("terror-hive-infestation-victory"),
+            TryGetStationName(announceFrom),
             true,
             rule.CriticalAudio,
             Color.Red);
@@ -139,24 +132,16 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         if (rule.RoundWon || rule.HiveDefeated)
             return;
 
-        var livingSpiders = GetLivingSpiders();
-
-        if (livingSpiders <= 0)
-        {
-            DoHiveDefeat(uid, rule);
-        }
-    }
-
-    private void DoHiveDefeat(EntityUid uid, TerrorHiveRuleComponent rule)
-    {
-        if (rule.HiveDefeated)
+        if (GetLivingSpiders() > 0)
             return;
 
         rule.HiveDefeated = true;
 
-        if (rule.Queen != null)
-            _chat.DispatchStationAnnouncement(rule.Queen.Value,
-            Loc.GetString("terror-hive-defeated"), GetStationName(),
+        var announceFrom = rule.Queen ?? uid;
+        _chat.DispatchStationAnnouncement(
+            announceFrom,
+            Loc.GetString("terror-hive-defeated"),
+            TryGetStationName(announceFrom),
             true,
             rule.DetectedAudio,
             Color.Green);
