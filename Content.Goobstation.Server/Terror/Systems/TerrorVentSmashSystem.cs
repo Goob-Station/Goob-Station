@@ -23,10 +23,10 @@ public sealed class TerrorVentSmashSystem : EntitySystem
     {
         var target = args.Target;
 
-        if (_weldable.IsWelded(target))
-        {
-            _weldable.SetWeldedState(target, false);
-            _audio.PlayPvs(component.SmashSound, uid);
-        }
+        if (!_weldable.IsWelded(target))
+            return;
+
+        _weldable.SetWeldedState(target, false);
+        _audio.PlayPvs(component.SmashSound, uid);
     }
 }

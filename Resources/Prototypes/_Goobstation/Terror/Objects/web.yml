@@ -7,6 +7,9 @@
   - type: StepTrap
     snareTime: 5
   - type: InvisibleOnTile
+    whitelist:
+      components:
+      - TerrorSpider
 
 - type: entity
   id: TerrorSpiderWebSlimy

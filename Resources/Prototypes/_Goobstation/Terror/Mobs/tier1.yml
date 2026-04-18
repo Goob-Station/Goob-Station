@@ -90,7 +90,6 @@
     lightRadius: 0
     toggleAction: null
     thermalShader: null
-  - type: VentCrawler
   - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against them.
     allowedStates:
       - Alive
@@ -163,6 +162,7 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: VentCrawler
 
 
 # =========================================================
@@ -210,6 +210,7 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: VentCrawler
 
 
 # =========================================================
@@ -257,3 +258,4 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: VentCrawler

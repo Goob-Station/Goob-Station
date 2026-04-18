@@ -1,7 +1,10 @@
+using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Shared.Terror.Components;
 
 /// <summary>
-/// Component used on the tile YAML. Not very generic so currently only makes Grey terrors invisible, but easily changeable.
+/// When an entity stepping on this tile passes the component whitelist, apply temporary stealth. Refreshes when stepping on new tiles.
 /// </summary>
 
 [RegisterComponent]
@@ -15,5 +18,8 @@ public sealed partial class InvisibleOnTileComponent : Component
 
     [DataField]
     public TimeSpan? ExpireAt;
+
+    [DataField]
+    public EntityWhitelist? Whitelist;
 
 }

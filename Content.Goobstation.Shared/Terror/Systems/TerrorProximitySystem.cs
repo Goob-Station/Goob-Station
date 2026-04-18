@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.Leash;
+using Content.Goobstation.Shared.Terror;
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Popups;

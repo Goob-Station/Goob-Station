@@ -28,12 +28,22 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
         SubscribeLocalEvent<TerrorHiveRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
     }
 
-    private string? GetStationName() // Because just putting station announcement as the string is somehow bad, apparently.
+    private string? GetStationName(EntityUid? entity = null)
     {
-        var stations = _stationSystem.GetStations();
-        if (stations.Count == 0)
-            return null;
-        return Name(stations[0]);
+        EntityUid? station = null;
+
+        if (entity != null)
+            station = _stationSystem.GetOwningStation(entity.Value);
+
+        if (station == null)
+        {
+            var stations = _stationSystem.GetStations();
+            if (stations.Count == 0)
+                return null;
+            station = stations[0];
+        }
+
+        return Name(station.Value);
     }
     private void OnSelectAntag(EntityUid uid, TerrorHiveRuleComponent rule, AfterAntagEntitySelectedEvent args)
     {
@@ -58,11 +68,12 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 
         if (rule.TotalWrapped >= rule.RequiredWrapsForAnnouncement && !rule.InfestationAnnounced)
         {
-            _chat.DispatchGlobalAnnouncement(
-                Loc.GetString("terror-hive-infestation-detected"), GetStationName(),
-                true,
-                rule.DetectedAudio,
-                Color.Red);
+            if (rule.Queen != null)
+                _chat.DispatchStationAnnouncement(
+                    rule.Queen.Value,
+                    Loc.GetString("terror-hive-infestation-detected"),
+                    colorOverride: Color.Red,
+                    announcementSound: rule.DetectedAudio);
 
             rule.InfestationAnnounced = true;
         }
@@ -116,7 +127,8 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 
         rule.RoundWon = true;
 
-        _chat.DispatchGlobalAnnouncement(
+        if (rule.Queen != null)
+            _chat.DispatchStationAnnouncement(rule.Queen.Value,
             Loc.GetString("terror-hive-infestation-victory"), GetStationName(),
             true,
             rule.CriticalAudio,
@@ -142,7 +154,8 @@ public sealed class TerrorHiveRuleSystem : GameRuleSystem<TerrorHiveRuleComponen
 
         rule.HiveDefeated = true;
 
-        _chat.DispatchGlobalAnnouncement(
+        if (rule.Queen != null)
+            _chat.DispatchStationAnnouncement(rule.Queen.Value,
             Loc.GetString("terror-hive-defeated"), GetStationName(),
             true,
             rule.DetectedAudio,

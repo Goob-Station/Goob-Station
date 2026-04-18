@@ -1,10 +1,10 @@
-using Content.Goobstation.Shared.StepTrap.Components;
+using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Spider;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Shared.StepTrap;
+namespace Content.Goobstation.Shared.Terror;
 
 /// <summary>
 /// Generic step trap system. Paralyzes the tripper and raises

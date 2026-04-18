@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Leash.Components;
+namespace Content.Goobstation.Shared.Terror.Components;
 
 /// <summary>
 /// Marks an entity as a valid anchor for <see cref="ProximityLeashComponent"/>.

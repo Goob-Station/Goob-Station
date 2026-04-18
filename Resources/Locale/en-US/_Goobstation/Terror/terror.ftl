@@ -19,7 +19,7 @@ queen-sense-entry = {name} — {location}
 queen-death-gib = A blood-chilling psychic scream echoes through the hive as the Terror Queen is slain! Your body is torn apart by the psychic feedback!
 queen-death-rage = A blood-chilling psychic scream echoes through the hive as the Terror Queen is slain! You are filled with rage, your attacks dealing more damage the lower your health. Avenge her!
 
-terror-spider-hive-death = A member of the hive has fallen… { $spider }
+terror-spider-hive-death = A member of the hive, { $spider }, has fallen...
 
 terror-hive-infestation-detected = Terror spider infestation detected on station. All personnel must contain the outbreak.
 

@@ -47,7 +47,7 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-
+  - type: VentCrawler
   - type: ActionGrant
     actions:
       - ActionTerrorPoisonWeb
@@ -98,6 +98,7 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: VentCrawler
   - type: ActionGrant
     actions:
       - ActionTerrorInfestedWeb

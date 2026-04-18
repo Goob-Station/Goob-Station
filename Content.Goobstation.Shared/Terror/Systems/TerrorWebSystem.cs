@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.StepTrap;
+using Content.Goobstation.Shared.Terror;
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Popups;
 
@@ -22,25 +22,17 @@ public sealed class TerrorWebSystem : EntitySystem
     {
         if (HasComp<InfestedWebComponent>(uid))
         {
-            _popup.PopupPredicted(
-                Loc.GetString("sticky-web-infested"),
-                ev.Tripper, ev.Tripper,
-                PopupType.MediumCaution);
+            _popup.PopupPredicted(Loc.GetString("sticky-web-infested"), ev.Tripper, ev.Tripper, PopupType.MediumCaution);
             EnsureComp<InfestedComponent>(ev.Tripper);
+            return;
         }
-        else if (HasComp<InjectorTileComponent>(uid))
+
+        if (HasComp<InjectorTileComponent>(uid))
         {
-            _popup.PopupPredicted(
-                Loc.GetString("sticky-web-injected"),
-                ev.Tripper, ev.Tripper,
-                PopupType.MediumCaution);
+            _popup.PopupPredicted(Loc.GetString("sticky-web-injected"), ev.Tripper, ev.Tripper, PopupType.MediumCaution);
+            return;
         }
-        else
-        {
-            _popup.PopupPredicted(
-                Loc.GetString("sticky-web-generic"),
-                ev.Tripper, ev.Tripper,
-                PopupType.MediumCaution);
-        }
+
+        _popup.PopupPredicted(Loc.GetString("sticky-web-generic"), ev.Tripper, ev.Tripper, PopupType.MediumCaution);
     }
 }

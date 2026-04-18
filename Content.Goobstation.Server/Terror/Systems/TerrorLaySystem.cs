@@ -78,8 +78,7 @@ public sealed class TerrorLaySystem : EntitySystem
         {
             var fallbackTier = lay.Tiers[0];
 
-            if (fallbackTier.Prototypes.Count > 0)
-                TrySpawnFromList(fallbackTier.Prototypes, args.Target);
+            TrySpawnFromList(fallbackTier.Prototypes, args.Target);
         }
 
         args.Handled = true;

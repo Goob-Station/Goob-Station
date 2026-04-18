@@ -55,6 +55,7 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
                 continue;
 
             found = true;
+
             var loc = _navMap.GetNearestBeaconString(uid);
             var clean = FormattedMessage.RemoveMarkupPermissive(loc);
 

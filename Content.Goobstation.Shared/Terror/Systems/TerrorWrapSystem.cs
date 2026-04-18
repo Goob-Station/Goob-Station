@@ -29,7 +29,6 @@ public sealed class TerrorWrapSystem : EntitySystem
 
         SubscribeLocalEvent<TerrorWrapComponent, TerrorWrapEvent>(OnTryWrap);
         SubscribeLocalEvent<TerrorWrapComponent, TerrorWrapDoAfterEvent>(OnWrapDoAfter);
-
     }
 
     private void OnTryWrap(Entity<TerrorWrapComponent> ent, ref TerrorWrapEvent args)

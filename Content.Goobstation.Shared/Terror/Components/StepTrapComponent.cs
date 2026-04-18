@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.StepTrap.Components;
+namespace Content.Goobstation.Shared.Terror.Components;
 
 /// <summary>
 /// Generic step trap. Paralyzes any entity that steps on this (unless they have

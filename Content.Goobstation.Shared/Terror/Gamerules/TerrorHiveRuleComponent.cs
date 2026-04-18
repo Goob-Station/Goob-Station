@@ -6,7 +6,7 @@ namespace Content.Goobstation.Shared.Terror.Gamerules;
 public sealed partial class TerrorHiveRuleComponent : Component
 {
     /// <summary>
-    /// Basically who is the Queen of this particular Hive.
+    /// Who is the Queen of this particular Hive.
     /// </summary>
     [DataField]
     public EntityUid? Queen;

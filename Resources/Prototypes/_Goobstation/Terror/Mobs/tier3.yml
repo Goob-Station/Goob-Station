@@ -108,6 +108,7 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: VentCrawler
 
 
 # =========================================================

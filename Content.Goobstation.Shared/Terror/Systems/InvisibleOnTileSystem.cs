@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -15,6 +16,7 @@ public sealed class InvisibleOnTileSystem : EntitySystem
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -26,19 +28,12 @@ public sealed class InvisibleOnTileSystem : EntitySystem
     {
         var tripper = args.Tripper;
 
-        if (!TryComp<TerrorSpiderComponent>(tripper, out var spider))
-            return;
-
-        if (!_proto.TryIndex(spider.SpiderType, out var proto))
-            return;
-
-        if (!proto.IsInvisibleOnWeb || TerminatingOrDeleted(tripper))
+        if (comp.Whitelist != null && !_whitelist.IsValid(comp.Whitelist, tripper))
             return;
 
         var invis = EnsureComp<InvisibleOnTileComponent>(tripper);
         invis.ExpireAt = _timing.CurTime + TimeSpan.FromSeconds(comp.ExpireTime);
 
-        // Apply or refresh stealth
         var stealth = EnsureComp<StealthComponent>(tripper);
         _stealth.SetVisibility(tripper, comp.Invisibility, stealth);
     }

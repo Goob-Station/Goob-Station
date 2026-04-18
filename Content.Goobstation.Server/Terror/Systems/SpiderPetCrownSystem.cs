@@ -1,9 +1,7 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Server.NPC;
-using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared.Inventory.Events;
-using Content.Shared.RatKing;
 using Robust.Shared.Map;
 using System.Numerics;
 
@@ -42,7 +40,7 @@ public sealed class SpiderPetCrownSystem : EntitySystem
         if (args.Slot != "head")
             return;
 
-        if (comp.Pet is { } pet && !TerminatingOrDeleted(pet))
+        if (comp.Pet is { } pet)
             QueueDel(pet);
 
         comp.Pet = null;
@@ -50,7 +48,7 @@ public sealed class SpiderPetCrownSystem : EntitySystem
 
     private void OnCrownShutdown(EntityUid uid, SpiderPetCrownComponent comp, ComponentShutdown args)
     {
-        if (comp.Pet is { } pet && !TerminatingOrDeleted(pet))
+        if (comp.Pet is { } pet)
             QueueDel(pet);
     }
 

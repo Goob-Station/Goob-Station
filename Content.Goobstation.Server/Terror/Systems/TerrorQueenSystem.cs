@@ -48,7 +48,7 @@ public sealed class TerrorQueenSystem : EntitySystem
 
     private void BroadcastQueenDeath(EntityUid queenUid, TerrorQueenComponent comp)
     {
-        // Create a player filter from all terror spiders with ActorComponent. Serious business.
+        // Create a player filter from all terror spiders with ActorComponent
         var filter = Filter.Empty();
         var query = EntityQueryEnumerator<TerrorSpiderComponent, ActorComponent>();
 
@@ -75,7 +75,7 @@ public sealed class TerrorQueenSystem : EntitySystem
 
             if (_random.Prob(comp.DeathGibChance))
             {
-                // 50% chance: gib the spider
+                // chance to gib the spider
                 _popup.PopupEntity(
                     Loc.GetString("queen-death-gib"),
                     spiderUid,
@@ -85,7 +85,7 @@ public sealed class TerrorQueenSystem : EntitySystem
             }
             else
             {
-                // Otherwise: give berserker rage
+                // Otherwise give berserker rage
                 _popup.PopupEntity(
                     Loc.GetString("queen-death-rage"),
                     spiderUid,

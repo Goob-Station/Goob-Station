@@ -1,18 +1,14 @@
-using Content.Goobstation.Shared.Leash.Components;
+using Content.Goobstation.Shared.Terror.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using System.Numerics;
 
-namespace Content.Goobstation.Shared.Leash;
+namespace Content.Goobstation.Shared.Terror;
 
 /// <summary>
-/// Generic proximity leash system. Entities with <see cref="ProximityLeashComponent"/>
-/// must stay within <see cref="ProximityLeashComponent.MaxDistance"/> of any
-/// <see cref="ProximityLeashAnchorComponent"/> on the same map.
-///
-/// Raises <see cref="ProximityLeashTickEvent"/> on each out-of-range interval tick,
-/// and <see cref="ProximityLeashBreakEvent"/> when the tick counter hits the threshold.
-/// Other systems should subscribe to those events to implement specific consequences.
+/// Keeps leashed entities from going too far from their anchor.
+/// Every few seconds while out of range, a tick fires. Stay far for too long
+/// and the leash "breaks". Can be used for gibbing or just dealing damage over time.
 /// </summary>
 public sealed class ProximityLeashSystem : EntitySystem
 {

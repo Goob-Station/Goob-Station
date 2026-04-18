@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.StepTrap;
+using Content.Goobstation.Shared.Terror;
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
