@@ -8,16 +8,42 @@
 
 import requests
 import os
+import re
 import subprocess
 from typing import Iterable
 
 PUBLISH_TOKEN = os.environ["PUBLISH_TOKEN"]
-VERSION = f"{os.environ['GITHUB_SHA']}-{os.environ['FORK_ID']}"
 
 RELEASE_DIR = "release"
 
 ROBUST_CDN_URL = os.environ["ROBUST_CDN_URL"]
 FORK_ID = os.environ["FORK_ID"]
+
+# AltHub Space -> start
+def sanitize_version_part(value: str) -> str:
+    sanitized = re.sub(r"[^0-9A-Za-z._-]+", "-", value.strip())
+    sanitized = sanitized.strip("-._")
+    return sanitized or "unknown"
+
+
+def get_publish_version() -> str:
+    run_number = os.environ.get("GITHUB_RUN_NUMBER")
+    ref_name = os.environ.get("GITHUB_REF_NAME")
+
+    if run_number and ref_name:
+        return "-".join(
+            (
+                sanitize_version_part(run_number),
+                sanitize_version_part(ref_name),
+                sanitize_version_part(FORK_ID),
+            )
+        )
+
+    return f"{sanitize_version_part(os.environ['GITHUB_SHA'])}-{sanitize_version_part(FORK_ID)}"
+
+
+VERSION = get_publish_version()
+# AltHub Space -> end
 
 def main():
     session = requests.Session()

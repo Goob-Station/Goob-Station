@@ -126,6 +126,7 @@ SPDX-License-Identifier: MIT
 - `publish.yml`
   - Ручной release workflow для `development` или `production`.
   - Собирает и пакует проект, публикует сборку в CDN и отправляет changelog в Discord.
+  - Версия публикации формируется как `GITHUB_RUN_NUMBER-GITHUB_REF_NAME-FORK_ID` с безопасной санитизацией имени ветки.
   - Берёт `ROBUST_CDN_URL` и `FORK_ID` из GitHub Environment variables у выбранного environment.
   - Триггеры: `workflow_dispatch`.
 
