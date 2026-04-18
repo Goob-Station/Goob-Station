@@ -10,6 +10,7 @@ import requests
 import os
 import re
 import subprocess
+from datetime import datetime, timezone
 from typing import Iterable
 
 PUBLISH_TOKEN = os.environ["PUBLISH_TOKEN"]
@@ -27,19 +28,18 @@ def sanitize_version_part(value: str) -> str:
 
 
 def get_publish_version() -> str:
-    run_number = os.environ.get("GITHUB_RUN_NUMBER")
-    ref_name = os.environ.get("GITHUB_REF_NAME")
+    branch = sanitize_version_part(os.environ.get("GITHUB_REF_NAME", "unknown"))
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run_number = sanitize_version_part(os.environ.get("GITHUB_RUN_NUMBER", "0"))
 
-    if run_number and ref_name:
-        return "-".join(
-            (
-                sanitize_version_part(run_number),
-                sanitize_version_part(ref_name),
-                sanitize_version_part(FORK_ID),
-            )
+    return "-".join(
+        (
+            sanitize_version_part(FORK_ID),
+            branch,
+            timestamp,
+            run_number,
         )
-
-    return f"{sanitize_version_part(os.environ['GITHUB_SHA'])}-{sanitize_version_part(FORK_ID)}"
+    )
 
 
 VERSION = get_publish_version()
