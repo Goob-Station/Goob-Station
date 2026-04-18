@@ -299,3 +299,61 @@
     - type: MimePowers
       preventWriting: true
     - type: FrenchAccent
+
+- type: entity
+  id: BalloonEggSpawner
+  components:
+  - type: TriggerOnSpawn
+  - type: SpawnEntityTableOnTrigger
+    table: !type:GroupSelector
+      children:
+      - id: BalloonEggBlue
+        weight: 1
+      - id: BalloonEggRed
+        weight: 1
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: BalloonEggBlue
+  components:
+  - type: Sprite
+    state: egg-balloon-blue
+  - type: TimedReplace
+    entity: MobChickBalloon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpawnGasBehavior
+        gasMixture:
+          moles:
+            Oxygen: 100 # Lower than gas on gibbing
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BalloonEggBlue
+  id: BalloonEggRed
+  components:
+  - type: Sprite
+    state: egg-balloon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpawnGasBehavior
+        gasMixture:
+          moles:
+            Plasma: 100 # Lower than gas on gibbing
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

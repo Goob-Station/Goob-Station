@@ -21,16 +21,16 @@
 
 - type: entity
   parent: AppleSeeds
-  name: packet of delicious apple seeds
   id: DeliciousAppleSeeds
+  name: packet of delicious apple seeds
   components:
   - type: Seed
     seedId: DeliciousApple
 
 - type: entity
   parent: AppleSeeds
-  name: packet of meth apple seeds
   id: MethAppleSeeds
+  name: packet of meth apple seeds
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
@@ -39,8 +39,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of clear corn seeds
   id: ClearCornSeeds
+  name: packet of clear corn seeds
   components:
   - type: Seed
     seedId: ClearCorn
@@ -49,8 +49,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of peanut seeds
   id: PeanutSeeds
+  name: packet of peanut seeds
   components:
   - type: Seed
     seedId: Peanut
@@ -59,8 +59,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of magic mushroom seeds
   id: MagicMushroomSeeds
+  name: packet of magic mushroom seeds
   components:
   - type: Seed
     seedId: MagicMushrooms
@@ -69,10 +69,20 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of synth meat seeds
   id: SynthMeatSeeds
+  name: packet of synth meat seeds
   components:
   - type: Seed
     seedId: SynthMeat
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/synthmeat.rsi
+
+- type: entity
+  parent: WatermelonSeeds
+  id: BalloonMelonSeeds
+  name: packet of balloon melon seeds
+  components:
+  - type: Seed
+    seedId: BalloonWatermelon
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/balloon_mellon.rsi

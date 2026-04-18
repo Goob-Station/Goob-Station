@@ -256,3 +256,15 @@
   - MobMimeHen
   requiresSpecialFood: false
   happinessRequired: 15
+
+- type: eggRecipe
+  id: BalloonEgg
+  egg: BalloonEggSpawner
+  requiredChicken:
+  - MobClownHen
+  - MobBalloonHen
+  noSpecialFoodRequiredChickens:
+  - MobBalloonHen
+  happinessRequired: 15
+  foodTagsRequired:
+  - BalloonMelon

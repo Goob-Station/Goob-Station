@@ -21,3 +21,6 @@ seeds-magicmush-display-name = magic mushrooms
 
 seeds-synthmeat-name = synthmeat
 seeds-synthmeat-display-name = synthmeat plant
+
+seeds-balloonmelon-name = melon balloon
+seeds-balloonmelon-display-name = melon balloon plant

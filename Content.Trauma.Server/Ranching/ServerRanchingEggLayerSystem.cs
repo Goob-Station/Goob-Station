@@ -1,4 +1,3 @@
-using Content.Server.Popups;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -17,7 +16,6 @@ public sealed class ServerRanchingEggLayerSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
@@ -68,10 +66,7 @@ public sealed class ServerRanchingEggLayerSystem : EntitySystem
             return;
 
         if (_hunger.GetHunger(hunger) < egglayer.HungerUsage)
-        {
-            _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-too-hungry"), uid, uid);
             return;
-        }
 
         var evfood = new RanchingEggLayAttemptEvent((uid, egglayer));
         RaiseLocalEvent(uid, ref evfood);

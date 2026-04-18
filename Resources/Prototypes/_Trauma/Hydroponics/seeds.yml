@@ -224,3 +224,33 @@
       Min: 5
       Max: 20
       PotencyDivisor: 20
+
+- type: seed
+  id: BalloonWatermelon
+  name: seeds-balloonmelon-name
+  noun: seeds-noun-seeds
+  displayName: seeds-balloonmelon-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/balloon_mellon.rsi
+  packetPrototype: BalloonMelonSeeds
+  productPrototypes:
+  - RedBalloon
+  lifespan: 55
+  maturation: 12
+  production: 3
+  yield: 1
+  potency: 1
+  growthStages: 3
+  idealLight: 8
+  chemicals:
+    Hydrogen:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Water:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Nitrogen:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20

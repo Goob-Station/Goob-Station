@@ -187,3 +187,36 @@
   - type: Tag
     tags:
     - SynthMeat
+
+- type: entity
+  parent: FoodProduceBase
+  id: MelonBalloon
+  name: melon balloon
+  description: Who knew that melons could fly!
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _Trauma/Objects/Fun/balloons/red_balloon.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpillBehavior
+        solution: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+  - type: Tag
+    tags:
+    - BalloonMelon

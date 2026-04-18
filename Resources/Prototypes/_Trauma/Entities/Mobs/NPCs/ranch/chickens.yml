@@ -1151,3 +1151,42 @@
   - type: FavoriteFood
     tag:
     - Cigarette
+
+# Balloon Chicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickBalloon
+  name: balloon chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobMimeHen
+    - MobMimeRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-balloon.rsi
+  - type: FavoriteFood
+    tag:
+    - BalloonMelon
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobBalloonHen
+  name: balloon hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-balloon.rsi
+  - type: FavoriteFood
+    tag:
+    - BalloonMelon
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobBalloonRooster
+  name: balloon rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-balloon.rsi
+  - type: FavoriteFood
+    tag:
+    - BalloonMelon

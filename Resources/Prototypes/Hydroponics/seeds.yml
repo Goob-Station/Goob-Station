@@ -1637,6 +1637,7 @@
     - FoodWatermelon
   mutationPrototypes:
     - holymelon
+    - BalloonWatermelon # Trauma
   lifespan: 55
   maturation: 12
   production: 3
