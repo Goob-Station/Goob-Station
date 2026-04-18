@@ -1,5 +1,4 @@
 using Content.Shared.Whitelist;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
@@ -10,16 +9,28 @@ namespace Content.Goobstation.Shared.Terror.Components;
 [RegisterComponent]
 public sealed partial class InvisibleOnTileComponent : Component
 {
+    /// <summary>
+    /// How strong the invisibility is.
+    /// </summary>
     [DataField]
     public float Invisibility = 0.25f;
 
+    /// <summary>
+    /// How long before the invisiblity expires.
+    /// </summary>
     [DataField]
     public float ExpireTime = 3f;
 
-    [DataField]
-    public TimeSpan? ExpireAt;
-
+    /// <summary>
+    /// Whitelist as to what can trigger this effect, self-explanatory.
+    /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist;
 
+}
+
+[RegisterComponent]
+public sealed partial class InvisibleOnTileActiveComponent : Component
+{
+    public TimeSpan? ExpireAt;
 }

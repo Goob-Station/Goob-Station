@@ -79,6 +79,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+    - TerrorSpider
   - type: NightVision
     color: "#808080"
     activateSound: null

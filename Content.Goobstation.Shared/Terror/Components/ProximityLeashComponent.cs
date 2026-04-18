@@ -5,7 +5,7 @@ namespace Content.Goobstation.Shared.Terror.Components;
 [RegisterComponent, NetworkedComponent]
 
 /// <summary>
-/// Keeps this entity tethered to nearby anchor points. If it wanders too far from all anchors,
+/// Keeps this entity tethered to nearby anchor points (The anchor entity must have ProximityAnchorComponent). If it wanders too far from all anchors,
 /// it starts taking periodic penalty ticks. Stray for long enough and the "leash" breaks entirely.
 /// </summary>
 public sealed partial class ProximityLeashComponent : Component

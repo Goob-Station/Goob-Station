@@ -6,10 +6,13 @@
   - type: TerrorWeb
   - type: StepTrap
     snareTime: 5
+    blacklist:
+      components:
+      - IgnoreSpiderWeb
   - type: InvisibleOnTile
     whitelist:
-      components:
-      - TerrorSpider
+      tags:
+        - TerrorSpider
 
 - type: entity
   id: TerrorSpiderWebSlimy
@@ -112,6 +115,9 @@
     stepOn: true
   - type: StepTrap
     snareTime: 5
+    blacklist:
+      components:
+      - IgnoreSpiderWeb
   - type: AtmosExposed
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.8

@@ -29,18 +29,14 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
     private void OnSense(EntityUid uid, TerrorQueenSenseComponent comp, ref TerrorQueenSenseEvent args)
     {
         var msg = BuildSpiderList();
-        if (string.IsNullOrEmpty(msg))
+        if (msg != "")
         {
-            _popup.PopupEntity(
-                Loc.GetString("queen-sense-none"),
-                uid,
-                uid);
+            _popup.PopupEntity(msg, uid, uid);
             return;
         }
 
-        _popup.PopupEntity(msg, uid, uid);
+        _popup.PopupEntity(Loc.GetString("queen-sense-none"), uid, uid);
     }
-
     private string BuildSpiderList()
     {
         var query = EntityQueryEnumerator<TerrorSpiderComponent, MobStateComponent>();

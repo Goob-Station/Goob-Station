@@ -2,6 +2,9 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
+/// <summary>
+/// Component to say "Hey I belong to SpiderPetCrownComponent wearer."
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
 public sealed partial class SpiderPetComponent : Component

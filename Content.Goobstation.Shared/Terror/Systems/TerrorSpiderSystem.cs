@@ -90,7 +90,7 @@ public sealed class TerrorSpiderSystem : EntitySystem
         }
 
         passive.Damage = newDamage;
-        if (_netManager.IsServer)
+        if (_netManager.IsServer) // Only should run on server because HiveRule is server only and breaks when this runs in shared code.
             RaiseLocalEvent(uid, new TerrorHiveWrappedEvent());
         Dirty(uid, passive);
     }

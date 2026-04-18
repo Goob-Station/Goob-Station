@@ -3,7 +3,6 @@ using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Whitelist;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
@@ -15,7 +14,6 @@ public sealed class InvisibleOnTileSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
@@ -31,7 +29,7 @@ public sealed class InvisibleOnTileSystem : EntitySystem
         if (comp.Whitelist != null && !_whitelist.IsValid(comp.Whitelist, tripper))
             return;
 
-        var invis = EnsureComp<InvisibleOnTileComponent>(tripper);
+        var invis = EnsureComp<InvisibleOnTileActiveComponent>(tripper);
         invis.ExpireAt = _timing.CurTime + TimeSpan.FromSeconds(comp.ExpireTime);
 
         var stealth = EnsureComp<StealthComponent>(tripper);
@@ -44,17 +42,15 @@ public sealed class InvisibleOnTileSystem : EntitySystem
 
         var now = _timing.CurTime;
 
-        var query = EntityQueryEnumerator<InvisibleOnTileComponent>();
-
+        var query = EntityQueryEnumerator<InvisibleOnTileActiveComponent>();
         while (query.MoveNext(out var uid, out var invis))
         {
             if (invis.ExpireAt == null || now < invis.ExpireAt)
                 continue;
 
             invis.ExpireAt = null;
-
-            if (!Deleted(uid))
-                RemCompDeferred<StealthComponent>(uid);
+            RemCompDeferred<InvisibleOnTileActiveComponent>(uid);
+            RemCompDeferred<StealthComponent>(uid);
         }
     }
 }

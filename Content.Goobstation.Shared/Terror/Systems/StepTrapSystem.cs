@@ -2,18 +2,19 @@ using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Spider;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.Terror;
 
 /// <summary>
-/// Generic step trap system. Paralyzes the tripper and raises
-/// <see cref="StepTrapTriggeredEvent"/> so other systems can add effects.
+/// Paralyzes anything that steps on this.
 /// </summary>
 public sealed class StepTrapSystem : EntitySystem
 {
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -29,7 +30,7 @@ public sealed class StepTrapSystem : EntitySystem
 
     private void OnStepOn(EntityUid uid, StepTrapComponent comp, ref StepTriggeredOnEvent args)
     {
-        if (HasComp<IgnoreSpiderWebComponent>(args.Tripper))
+        if (comp.Blacklist != null && _whitelist.IsValid(comp.Blacklist, args.Tripper))
             return;
 
         _stun.TryAddParalyzeDuration(args.Tripper, comp.SnareTime);

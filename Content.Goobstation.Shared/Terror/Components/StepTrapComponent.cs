@@ -1,12 +1,11 @@
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
 /// <summary>
-/// Generic step trap. Paralyzes any entity that steps on this (unless they have
-/// <see cref="IgnoreSpiderWebComponent"/> or similar exemptions) and raises
-/// <see cref="StepTrapTriggeredEvent"/> for other systems to layer effects onto.
+/// When stepped on, paralyzes the tripper and raises StepTrapTriggeredEvent.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StepTrapComponent : Component
@@ -19,4 +18,10 @@ public sealed partial class StepTrapComponent : Component
 
     [DataField]
     public SoundSpecifier CaughtSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
+
+    /// <summary>
+    /// Entities matching this whitelist are ignored and will not be paralyzed.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
 }

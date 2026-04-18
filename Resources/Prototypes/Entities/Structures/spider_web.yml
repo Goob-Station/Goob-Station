@@ -85,8 +85,8 @@
   - type: TerrorWeb # Goobstation - Terror spider
   - type: InvisibleOnTile # Goobstation - Terror spider
     whitelist:
-      components:
-      - TerrorSpider
+      tags:
+        - TerrorSpider
   - type: StepTrigger # Goobstation - Terror spider
     stepOn: true
   - type: SpeedModifierContacts
