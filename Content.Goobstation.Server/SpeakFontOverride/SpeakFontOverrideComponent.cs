@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Server.SpeakFont;
+namespace Content.Goobstation.Server.SpeakFontOverride;
 
 [RegisterComponent]
 public sealed partial class SpeakFontOverrideComponent : Component

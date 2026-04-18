@@ -7,7 +7,7 @@ using Content.Shared.Popups;
 using Robust.Shared.IoC;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Goobstation.Server.SpeakFont;
+namespace Content.Goobstation.Server.SpeakFontOverride;
 
 public sealed partial class SpeakFontOverrideSystem : EntitySystem
 {
