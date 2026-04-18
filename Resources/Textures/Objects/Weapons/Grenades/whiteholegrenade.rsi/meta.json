@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Changed sprites taken from infinity baystation 12, https://github.com/infinitystation/Baystation12/blob/073f678cdce92edb8fcd55f9ffc9f0523bf31506/icons/obj/grenade.dmi. Inhands by TiniestShark (github)",
+  "copyright": "Resprited by @mishutka09 (discord:1152277579206774854). Inhands by TiniestShark (github)",
   "size": {
     "x": 32,
     "y": 32
@@ -12,8 +12,7 @@
     },
     {
       "name": "primed",
-      "delays":
-      [
+      "delays": [
         [
           0.1,
           0.1

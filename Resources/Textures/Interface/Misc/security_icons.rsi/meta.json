@@ -31,8 +31,8 @@
     {
       "name": "hud_perma"
     },
-	{
-	  "name": "hud_demote"
-	}
+    {
+      "name": "hud_demote"
+    }
   ]
 }

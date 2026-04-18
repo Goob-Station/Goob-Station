@@ -19,11 +19,11 @@
       "directions": 4
     },
     {
-      "name": "equipped-SUITSTORAGE",
+      "name": "inhand-left",
       "directions": 4
     },
     {
-      "name": "inhand-left",
+      "name": "equipped-SUITSTORAGE",
       "directions": 4
     }
   ]

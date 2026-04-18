@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Normal beam sprite taken from Monkestation at commit f2f39fdf7c4b6362c796647e0ed131e92d843a69, other sprites taken from Paradise station",
+  "copyright": "Resprite By axeles",
   "size": {
     "x": 32,
     "y": 32
@@ -11,30 +11,38 @@
       "name": "active_gun"
     },
     {
-        "name": "beam",
-        "delays": [
-          [
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1
-          ]
-        ]
-      },
-    {
       "name": "icon"
+    },
+    {
+      "name": "beam",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
     }
   ]
 }

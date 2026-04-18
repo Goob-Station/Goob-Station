@@ -139,17 +139,8 @@
     {
       "name": "wrench_medical"
     },
-	{
+    {
       "name": "keyring"
-    },
-    {
-      "name": "meson"
-    },
-    {
-      "name": "weldmask"
-    },
-	{
-      "name": "mass_scanner"
     },
     {
       "name": "analyzer-equipped-BELT",
@@ -203,13 +194,22 @@
       "name": "tray-equipped-BELT",
       "directions": 4
     },
-	{
+    {
       "name": "keyring-equipped-BELT",
       "directions": 4
     },
     {
       "name": "x4-equipped-BELT",
       "directions": 4
+    },
+    {
+      "name": "meson"
+    },
+    {
+      "name": "weldmask"
+    },
+    {
+      "name": "mass_scanner"
     }
   ]
 }
