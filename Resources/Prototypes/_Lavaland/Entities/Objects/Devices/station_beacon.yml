@@ -1,11 +1,94 @@
+# A default station beacon without warp point components.
 - type: entity
-  parent: DefaultStationBeacon
+  parent: BaseItem
+  id: DefaultStationBeaconNoWarpPoints
+  name: station beacon
+  description: A small device that transmits information to station maps. Can be configured.
+  placement:
+    mode: SnapgridCenter
+  suffix: General
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/station_beacon.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: blink
+      map: ["base"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NavMapBeaconVisuals.Enabled:
+        base:
+          True: {state: blink}
+          False: {state: icon}
+  - type: ConfigurableNavMapBeacon
+  - type: NavMapBeacon
+    defaultText: station-beacon-general
+    color: "#D4D4D496"
+  #- type: WarpPoint
+  #- type: WizardTeleportWarpPoint
+  - type: ActivatableUI
+    key: enum.NavMapBeaconUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.NavMapBeaconUiKey.Key:
+        type: NavMapBeaconBoundUserInterface
+  - type: Item
+    size: Small
+  - type: Visibility
+    layer: 1
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: Construction
+    graph: StationBeaconPart
+    node: complete
+  - type: CollideOnAnchor
+  - type: Physics
+    canCollide: false
+    bodyType: static
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: # for nukes
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+        offset: 0
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+  - type: StaticPrice
+    price: 25
+
+# Station beacon type placed on lavaland ruins.
+- type: entity
+  parent: DefaultStationBeaconNoWarpPoints
   id: DefaultStationBeaconLavalandRuin
-  suffix: Command
+  suffix: Lavaland Ruin
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-command
-    color: "#FFFF00"
+    defaultText: station-beacon-ruin-lavaland
+    color: "#FFAA00"
 
 - type: entity
   parent: DefaultStationBeaconLavalandRuin
