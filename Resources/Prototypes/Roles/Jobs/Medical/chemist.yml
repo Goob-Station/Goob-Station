@@ -75,7 +75,6 @@
   guides: # goobstation
   - Chemist
   - Chemicals
-  goobcoins: 20 #Goob content
   access:
   - Medical
   - Chemistry

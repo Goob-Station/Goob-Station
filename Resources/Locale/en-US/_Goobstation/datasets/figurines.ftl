@@ -1,7 +1,7 @@
 figurines-devil-1 = Won't you shake a poor sinner's hand?
 figurines-devil-2 = Of course you can trust me! Just sign this contract!
 figurines-devil-3 = The chaplain is a scammer, don't you trust him!
-figurines-devil-4 = Have you heard of the next big investment crypto? It's called "Goobcoin" and it's going to the moon!
+figurines-devil-4 = Have you heard of the next big investment crypto? It's called "Funkonium" and it's going absolutely nowhere!
 figurines-devil-5 = Contractor? Contractee? It's really the same thing.
 figurines-devil-6 = CHAPLAIN!! I'M CREW!! I'M CREW!!
 figurines-devil-7 = Hey! Where are you going with my codex? Give that back!

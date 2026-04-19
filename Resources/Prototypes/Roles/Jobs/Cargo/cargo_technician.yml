@@ -81,7 +81,6 @@
   supervisors: job-supervisors-qm
   guides: # goobstation
   - Cargo
-  goobcoins: 20 #Goob content
   access:
   - Cargo
   - Maintenance

@@ -13,7 +13,6 @@
   guides:
   - Salvage # TODO lavaland guide
   - Cargo
-  goobcoins: 20
   supervisors: job-supervisors-qm
   access:
   - Cargo

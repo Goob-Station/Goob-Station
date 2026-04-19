@@ -819,8 +819,6 @@ namespace Content.Server.Database
         public List<Round> Rounds { get; set; } = null!;
         public List<AdminLogPlayer> AdminLogs { get; set; } = null!;
 
-        public int ServerCurrency { get; set; } // Goobstation - Goob coin
-
         public TimeSpan? LastRolledAntag { get; set; } // Goobstation
 
         public DateTime? LastReadRules { get; set; }

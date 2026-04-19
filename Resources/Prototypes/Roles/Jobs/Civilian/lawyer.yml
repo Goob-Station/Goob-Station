@@ -79,7 +79,6 @@
   guides: # goobstation
   - SpaceLaw
   - LegalSOP
-  goobcoins: 10 #Goob content
   access:
   - Service
   - Lawyer

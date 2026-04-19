@@ -162,7 +162,6 @@
   - StandardProceduresSOP
   - HeadOfPersonnelSOP
   - Writing
-  goobcoins: 40 #Goob content
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"

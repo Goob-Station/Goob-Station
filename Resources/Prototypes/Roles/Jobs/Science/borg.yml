@@ -39,7 +39,6 @@
     role: JobBorg
     time: 18000  # 5 hrs
   canBeAntag: false
-  goobcoins: 40 #Goob content
   weight: 10 # Goob Edit
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
@@ -56,7 +55,6 @@
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
   canBeAntag: false
-  goobcoins: 20 #Goob content
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery

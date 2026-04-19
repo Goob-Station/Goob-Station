@@ -88,7 +88,6 @@
   - MedicalDoctor
   - Medical
   - Medicine
-  goobcoins: 20 #Goob content
   access:
   - Medical
   - Maintenance

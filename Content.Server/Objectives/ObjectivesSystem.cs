@@ -43,8 +43,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Common.ServerCurrency;
 using Content.Goobstation.Shared.ManifestListings;
 using Content.Server.Objectives.Commands;
 using Content.Shared.CCVar;
@@ -70,7 +68,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
@@ -78,8 +75,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     private IEnumerable<string>? _objectives;
 
     private bool _showGreentext;
-
-    private int _goobcoinsServerMultiplier = 1;
     public override void Initialize()
     {
         base.Initialize();
@@ -89,7 +84,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         Subs.CVar(_cfg, CCVars.GameShowGreentext, value => _showGreentext = value, true);
 
         _prototypeManager.PrototypesReloaded += CreateCompletions;
-        Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
     }
 
     public override void Shutdown()
@@ -183,7 +177,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     private void AddSummary(StringBuilder result, string agent, List<(EntityUid, string)> minds)
     {
         var agentSummaries = new List<(string summary, float successRate, int completedObjectives)>();
-        var currencyStorage = new Dictionary<NetUserId, float>(); //goobstation - store all currency and add at end off round
 
         foreach (var (mindId, name) in minds)
         {
@@ -241,8 +234,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
                     var objectiveTitle = info.Value.Title;
                     var progress = info.Value.Progress;
-                    var reward = info.Value.ServerCurrency;
-                    var rewardPartial = info.Value.PartialCurrency;
                     totalObjectives++;
 
                     // Goob (even tho the entire file got massacred by John already)
@@ -270,13 +261,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("progress", progress)
                         ));
                         completedObjectives++;
-
-                        // Easiest place to give people points for completing objectives lol
-                        if (userid.HasValue)
-                            if (currencyStorage.ContainsKey(userid.Value))
-                                currencyStorage[userid.Value] += reward;
-                            else
-                                currencyStorage.Add(userid.Value, reward);
                     }
                     else if (progress <= 0.99f && progress >= 0.5f)
                     {
@@ -285,12 +269,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("objective", objectiveTitle),
                             ("progress", progress)
                         ));
-                        //Goobstation
-                        if (userid.HasValue && rewardPartial)
-                            if (currencyStorage.ContainsKey(userid.Value))
-                                currencyStorage[userid.Value] += reward * progress;
-                            else
-                                currencyStorage.Add(userid.Value, reward * progress);
                     }
                     else if (progress < 0.5f && progress > 0f)
                     {
@@ -322,9 +300,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         {
             result.AppendLine(summary);
         }
-
-        foreach (var (key, currency) in currencyStorage)
-            _currencyMan.AddCurrency(key, (int)Math.Round( currency * _goobcoinsServerMultiplier));
     }
 
     public EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)

@@ -166,7 +166,6 @@
   - Succession
   - StandardProceduresSOP
   - CaptainSOP
-  goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

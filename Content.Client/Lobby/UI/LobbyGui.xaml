@@ -136,12 +136,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="10" />
-                    <!-- Server Currency -->
-                    <Label Name="Balance" Access="Public" StyleClasses="LabelHeadingBigger" VAlign="Center"
-                            HorizontalExpand="True" HorizontalAlignment="Center" />
-                    <!-- Gold line -->
-                    <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="2" Access="Public" />
-                    <controls:HSpacer Spacing="10" />
                     <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" Margin="3 3 3 3" MinHeight="50" />
                 </BoxContainer>
                 <TextureButton Name="CollapseButton"

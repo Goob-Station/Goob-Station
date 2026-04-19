@@ -252,11 +252,6 @@ namespace Content.Shared.Roles
         [DataField]
         public List<ProtoId<GuideEntryPrototype>>? Guides;
 
-        /// <summary>
-        ///     Goobstation Change: The amount of Goobcoins a player will receive when they finish a round as this job.
-        /// </summary>
-        [DataField]
-        public int Goobcoins { get; private set; } = 1;
     }
 
     /// <summary>

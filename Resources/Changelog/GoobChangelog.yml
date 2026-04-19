@@ -2133,8 +2133,7 @@ Entries:
   changes:
     - type: Add
       message: >-
-        Goob coin! Super simple setup right now, you can't buy anything with
-        goob coin yet, but you can earn it :-)
+        Added a new round-end progression feature.
   id: 258
   time: '2024-11-23T18:31:49.0000000+00:00'
 - author: Piras314
@@ -3638,7 +3637,7 @@ Entries:
 - author: Aviu
   changes:
     - type: Fix
-      message: Fix goob coins not being saved on server shutdown.
+      message: Fix round-end rewards not being saved on server shutdown.
   id: 403
   time: '2024-12-28T16:31:27.0000000+00:00'
 - author: marc-pelletier
@@ -5373,13 +5372,10 @@ Entries:
 - author: Mocho, AgentePanela
   changes:
     - type: Add
-      message: Disasterous consequences for the Goobconomy.
+      message: Disasterous consequences for the economy.
     - type: Tweak
       message: >-
-        Added CVARs to modify the amount of goobcoins players get at round end,
-        multipliers based on whether or not they can be antags, Goobcoin bonus
-        values based on each job (can be added to each Job prototype),
-        server-specific multipliers and more!
+        Added CVARs to modify round-end rewards and related role/server multipliers.
     - type: Remove
       message: Durk's steak and wine
   id: 622
@@ -8006,15 +8002,13 @@ Entries:
         you'll be put in a queue. (Patrons get priority queue 😄 )
     - type: Tweak
       message: >-
-        Goobflation has ruined the antag token economy (as of writing there are
-        3,676,072 coins in circulation), antag tokens have risen in price to
-        combat this.
+        Store prices have risen to combat inflation.
     - type: Remove
       message: >-
         Mid tier, low tier, and ghost role tokens have been nuked in favor of
         one central antag token.
     - type: Tweak
-      message: Patrons get double goob coins now.
+      message: Patrons get improved supporter rewards now.
   id: 927
   time: '2025-04-29T23:37:06.0000000+00:00'
 - author: pheenty
@@ -9225,7 +9219,7 @@ Entries:
     - type: Tweak
       message: Laying down does knee damage, get to medbay
     - type: Tweak
-      message: Patreons get 10X goob coin and a daily antag token
+      message: Patreons get increased supporter rewards and a daily antag token
     - type: Tweak
       message: Wizard is only rollable via antag token
   id: 1041
@@ -12692,9 +12686,9 @@ Entries:
 - author: Timfa2112
   changes:
     - type: Tweak
-      message: You now earn increased Goobcoin on servers with fewer players
+      message: You now earn increased round-end rewards on servers with fewer players
     - type: Tweak
-      message: You now earn reduced Goobcoin when a round is ended prematurely
+      message: You now earn reduced round-end rewards when a round is ended prematurely
   id: 1400
   time: '2025-07-17T08:37:41.0000000+00:00'
 - author: IrisTheAmped
@@ -18955,9 +18949,9 @@ Entries:
 - author: Fishbait
   changes:
     - type: Tweak
-      message: Changed greentext goobcoin reward from cvar to component.
+      message: Changed greentext reward from cvar to component.
     - type: Tweak
-      message: Changed greentext goobcoin to now be able for partial reward
+      message: Changed greentext reward to support partial payout
   id: 2138
   time: '2025-12-02T08:40:02.0000000+00:00'
 - author: DeusMaldPr

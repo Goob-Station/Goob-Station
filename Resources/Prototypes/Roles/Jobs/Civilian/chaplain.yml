@@ -75,7 +75,6 @@
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
   guides: [ Chaplain ] # goobstation
-  goobcoins: 25 #Goob content
   access:
   - Chapel
   - Maintenance

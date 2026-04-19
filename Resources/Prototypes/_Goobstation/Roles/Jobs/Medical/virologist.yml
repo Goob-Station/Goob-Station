@@ -10,7 +10,6 @@
   startingGear: VirologistGear
   icon: "JobIconVirologist"
   supervisors: job-supervisors-cmo
-  goobcoins: 20 #Goob content
   guides:
   - MedicalDoctor
   - Medical

@@ -825,41 +825,6 @@ namespace Content.Server.Database
                 player.LastSeenHWId);
         }
 
-        public async Task<int> GetServerCurrency(NetUserId userId) // Goobstation
-        {
-            await using var db = await GetDb();
-
-            return await db.DbContext.Player
-                .Where(dbPlayer => dbPlayer.UserId == userId)
-                .Select(dbPlayer => dbPlayer.ServerCurrency)
-                .SingleOrDefaultAsync();
-        }
-
-        public async Task SetServerCurrency(NetUserId userId, int currency) // Goobstation
-        {
-            await using var db = await GetDb();
-
-            var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
-            if (dbPlayer == null)
-                return;
-
-            dbPlayer.ServerCurrency = currency;
-            await db.DbContext.SaveChangesAsync();
-        }
-
-        public async Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta) // Goobstation
-        {
-            await using var db = await GetDb();
-
-            var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
-            if (dbPlayer == null)
-                return currencyDelta;
-
-            dbPlayer.ServerCurrency += currencyDelta;
-            await db.DbContext.SaveChangesAsync();
-            return dbPlayer.ServerCurrency;
-        }
-
         public async Task<TimeSpan> GetLastRolledAntag(NetUserId userId) // Goobstation
         {
             await using var db = await GetDb();

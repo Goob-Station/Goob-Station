@@ -135,7 +135,7 @@ public abstract class SharedObjectivesSystem : EntitySystem
             return null;
         }
 
-        return new ObjectiveInfo(title, description, comp.Icon, progress,comp.ServerCurrency, comp.ServerCurrencyRewardPartial); //goobstation
+        return new ObjectiveInfo(title, description, comp.Icon, progress);
     }
 
     /// <summary>
