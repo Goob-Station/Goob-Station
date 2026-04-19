@@ -38,6 +38,7 @@
       playerRatio: 15
       chaosScore: 250
       lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - CommandStaff
@@ -67,6 +68,7 @@
       max: 2
       playerRatio: 20
       lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - CommandStaff
