@@ -32,8 +32,8 @@ public sealed class GoobJetpackSystem : EntitySystem
         base.Initialize();
         _woundableQuery = GetEntityQuery<WoundableComponent>();
 
-        SubscribeLocalEvent<ActiveJetpackComponent, ComponentStartup>(OnActiveEquip);
-        SubscribeLocalEvent<ActiveJetpackComponent, GotEquippedHandEvent>(OnActiveEquip);
+        // SubscribeLocalEvent<ActiveJetpackComponent, ComponentStartup>(OnActiveEquip);
+        // SubscribeLocalEvent<ActiveJetpackComponent, GotEquippedHandEvent>(OnActiveEquip);
     }
 
     private void OnActiveEquip<T>(EntityUid uid, ActiveJetpackComponent comp, T args)
