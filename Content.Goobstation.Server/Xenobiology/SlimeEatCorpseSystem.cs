@@ -14,6 +14,7 @@ using Content.Shared.Popups;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
@@ -23,8 +24,7 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-
-    private readonly ProtoId<TagPrototype> _slimeTag = "Slime";
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -70,19 +70,18 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
 
     private bool IsEatableOrganOrBodyPart(Entity<CorpseEaterComponent> eater, EntityUid food)
     {
-        CorpseEaterComponent
+        if (!HasComp<EdibleComponent>(food))
+            return false;
+
         if (HasComp<BadFoodComponent>(food))
             return false;
 
-        var notDeadPopup = Loc.GetString(food.ToString());
-        _popup.PopupEntity(notDeadPopup, food);
-
         if (HasComp<OrganComponent>(food))
-            return HasComp<EdibleComponent>(food)
-                && !_tag.HasTag(food, _slimeTag);
+            return _whitelist.CheckBoth(food, eater.Comp.OrganWhitelist, eater.Comp.OrganBlacklist);
 
         if (TryComp<BodyPartComponent>(food, out var part))
-            return part.PartComposition == BodyPartComposition.Organic;
+            return part.PartComposition == BodyPartComposition.Organic
+                && _whitelist.CheckBoth(food, eater.Comp.BodyPartWhitelist, eater.Comp.BodyPartBlacklist);
 
         return false;
     }
