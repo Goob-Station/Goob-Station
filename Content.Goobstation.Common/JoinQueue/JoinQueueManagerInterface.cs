@@ -11,6 +11,11 @@ public interface IJoinQueueManager
     void Initialize();
 
     /// <summary>
+    /// Called each server tick to periodically refresh queue info.
+    /// </summary>
+    void Update(float frameTime);
+
+    /// <summary>
     /// Gets the total number of players currently waiting in any queue (patron or regular).
     /// </summary>
     int PlayerInQueueCount { get; }

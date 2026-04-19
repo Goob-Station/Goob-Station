@@ -2,7 +2,8 @@
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
          xmlns:parallax="clr-namespace:Content.Client.Parallax;assembly=Content.Client"
-         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client">
+         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+         xmlns:queue="clr-namespace:Content.Goobstation.Client.JoinQueue">
     <parallax:ParallaxControl />
     <Control HorizontalAlignment="Center" VerticalAlignment="Center">
         <PanelContainer StyleClasses="AngleRect" />
@@ -19,7 +20,7 @@
             <controls:HighDivider />
 
             <!-- Queue stats -->
-            <BoxContainer Orientation="Horizontal" Margin="0 16 0 12"
+            <BoxContainer Orientation="Horizontal" Margin="0 16 0 8"
                           HorizontalAlignment="Center" SeparationOverride="24">
                 <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
                     <Label Text="{Loc 'queue-position-label'}"
@@ -37,13 +38,29 @@
                 </BoxContainer>
             </BoxContainer>
 
+            <!-- Estimated wait -->
+            <Label Name="EstimatedWait"
+                   StyleClasses="LabelSecondaryColor" Align="Center"
+                   Margin="0 0 0 8" />
+
+            <controls:HighDivider />
+
+            <!-- Server info -->
+            <Label Name="ServerInfo"
+                   StyleClasses="LabelSecondaryColor" Align="Center"
+                   Margin="0 8 0 4" />
+
             <!-- Patron message -->
             <PanelContainer Name="PatronPanel" StyleClasses="AngleRect"
-                            Margin="0 0 0 4" Visible="False">
+                            Margin="0 4 0 4" Visible="False">
                 <Label Name="PatronText" Text="{Loc 'queue-patreon'}"
                        StyleClasses="LabelKeyText" Align="Center"
                        Margin="8 6" />
             </PanelContainer>
         </BoxContainer>
     </Control>
+    <queue:QueueCritterWalk Name="CritterWalk"
+                            VerticalAlignment="Bottom"
+                            HorizontalExpand="True"
+                            MinHeight="116" />
 </Control>
