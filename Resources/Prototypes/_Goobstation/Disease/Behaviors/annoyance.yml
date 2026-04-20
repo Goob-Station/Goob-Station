@@ -129,7 +129,7 @@
     components:
     - type: PermanentBlindness
   - type: DiseaseProgressCondition
-    MinProgress: 0.5
+    minProgress: 0.5
 
 - type: entity
   id: DiseaseBehaviorPainNumbness
@@ -155,7 +155,7 @@
     components:
     - type: Deaf
   - type: DiseaseProgressCondition
-    MinProgress: 0.6
+    minProgress: 0.6
 
 - type: entity
   id: DiseaseBehaviorAnxiety
@@ -225,7 +225,7 @@
     components:
     - type: BlackAndWhiteOverlay
   - type: DiseaseProgressCondition
-    MinProgress: 0.5
+    minProgress: 0.5
 
 - type: entity
   id: DiseaseBehaviorBS
@@ -243,7 +243,7 @@
       rangeMin: 0.2
       rangeMax: 2
   - type: DiseaseProgressCondition
-    MinProgress: 0.5
+    minProgress: 0.5
 
 - type: entity
   id: DiseaseBehaviorDisorientation
@@ -260,4 +260,4 @@
       walkSpeedModifier: -1
       sprintSpeedModifier: -1
   - type: DiseaseProgressCondition
-    MinProgress: 0.8
+    minProgress: 0.8

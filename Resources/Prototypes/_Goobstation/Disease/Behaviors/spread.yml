@@ -71,7 +71,7 @@
         types:
           Piercing: 4
   - type: DiseaseProgressCondition
-    MinProgress: 0.5
+    minProgress: 0.5
 
 - type: entity
   id: DiseaseBehaviorSneeze
@@ -122,7 +122,7 @@
         types:
           Slash: 5
   - type: DiseaseProgressCondition
-    MinProgress: 0.7
+    minProgress: 0.7
 
 
 - type: entity
@@ -152,4 +152,4 @@
         types:
           Slash: 20
   - type: DiseaseProgressCondition
-    MinProgress: 0.9
+    minProgress: 0.9
