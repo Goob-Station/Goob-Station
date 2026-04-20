@@ -7,7 +7,7 @@
   - type: DiseaseEffect
     complexity: 6
   - type: DiseasePeriodicCondition
-    delayMin: 5
+    delayMin: 2
     delayMax: 20
   - type: DiseaseEmoteEffect
     emote: Cough
@@ -19,3 +19,137 @@
       power: 1
       chance: 0.5
       spreadType: Aerial
+
+- type: entity
+  id: DiseaseBehaviorHonk
+  parent: DiseaseBehaviorBase
+  name: HONK!
+  description: HONK! VERY infective.
+  components:
+  - type: DiseaseEffect
+    complexity: 14
+  - type: DiseasePeriodicCondition
+    delayMin: 1
+    delayMax: 20
+  - type: DiseaseEmoteEffect
+    emote: Honk
+  - type: DiseaseSpreadEffect
+    arc: 360
+    range: 2
+    timeScale: false
+    spreadParams:
+      power: 0.5
+      chance: 0.33
+      spreadType: Aerial
+
+- type: entity
+  id: DiseaseBehaviorPneumonia
+  parent: DiseaseBehaviorBase
+  name: Pneumonia
+  description: Makes you cough. Painful to cough.
+  components:
+  - type: DiseaseEffect
+    complexity: 20
+  - type: DiseasePeriodicCondition
+    delayMin: 0
+    delayMax: 20
+  - type: DiseaseEmoteEffect
+    emote: Cough
+  - type: DiseaseSpreadEffect
+    arc: 180
+    range: 3.5
+    timeScale: false
+    spreadParams:
+      power: 1
+      chance: 0.5
+      spreadType: Aerial
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Piercing: 4
+  - type: DiseaseProgressCondition
+    MinProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorSneeze
+  parent: DiseaseBehaviorBase
+  name: Sneeze
+  description: Makes you sneeze. VERY infective.
+  components:
+  - type: DiseaseEffect
+    complexity: 20 #very infective
+  - type: DiseasePeriodicCondition
+    delayMin: 5
+    delayMax: 20
+  - type: DiseaseEmoteEffect
+    emote: Cough
+  - type: DiseaseSpreadEffect
+    arc: 180
+    range: 5
+    timeScale: false
+    spreadParams:
+      power: 1.5
+      chance: 0.7
+      spreadType: Aerial
+
+- type: entity
+  id: DiseaseBehaviorSkinLesion
+  parent: DiseaseBehaviorBase
+  name: Skin lesion
+  description: Deals slash damage. Infective.
+  components:
+  - type: DiseaseEffect
+    complexity: 20
+  - type: DiseasePeriodicCondition
+    delayMin: 4
+    delayMax: 60
+  - type: DiseaseSpreadEffect
+    arc: 360
+    range: 2
+    timeScale: false
+    spreadParams:
+      power: 1
+      chance: 0.6
+      spreadType: Aerial
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Slash: 5
+  - type: DiseaseProgressCondition
+    MinProgress: 0.7
+
+
+- type: entity
+  id: DiseaseBehaviorAbscesses
+  parent: DiseaseBehaviorBase
+  name: Abscesses
+  description: In the final stages, it deals heavy slash damage. Infective.
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseasePeriodicCondition
+    delayMin: 20
+    delayMax: 180
+  - type: DiseaseSpreadEffect
+    arc: 360
+    range: 3.5
+    timeScale: false
+    spreadParams:
+      power: 1
+      chance: 0.8
+      spreadType: Aerial
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Slash: 20
+  - type: DiseaseProgressCondition
+    MinProgress: 0.9

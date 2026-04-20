@@ -10,7 +10,7 @@
     DiseaseBehaviorTemperature: 1.5
     DiseaseBehaviorCold: 1
     DiseaseBehaviorFightImmunity: 0.5
-    DiseaseBehaviorCough: 2
+    DiseaseBehaviorCough: 5
     DiseaseBehaviorHyperactive: 0.5
     DiseaseBehaviorHealing: 0.5
     DiseaseBehaviorRapidMutation: 0.5
@@ -18,3 +18,22 @@
     # DiseaseBehaviorGravitosisA: 0.025
     # DiseaseBehaviorGravitosisB: 0.0125
     # DiseaseBehaviorGravitosisC: 0.0125
+    DiseaseBehaviorHonk: 0.33
+    DiseaseBehaviorOwO: 0.01
+    DiseaseBehaviorBlindness: 0.33
+    DiseaseBehaviorPainNumbness: 0.5
+    DiseaseBehaviorDeaf: 0.25
+    DiseaseBehaviorAnxiety: 0.5
+    DiseaseBehaviorDrowsiness: 0.5
+    DiseaseBehaviorEuphoria: 0.5
+    DiseaseBehaviorBS: 0.05
+    DiseaseBehaviorDisorientation: 0.05
+    DiseaseBehaviorApathy: 0.33
+    DiseaseBehaviorNecrosis: 0.1
+    DiseaseBehaviorPulmonaryEdema: 1
+    DiseaseBehaviorInternalBleeding: 0.5
+    DiseaseBehaviorPneumonia: 0.5
+    DiseaseBehaviorSneeze: 0.5
+    DiseaseBehaviorAbscesses: 0.1
+    DiseaseBehaviorAnemia: 0.5
+    DiseaseBehaviorOrganFailure: 0.05

@@ -5,7 +5,7 @@
   description: Makes you periodically vomit.
   components:
   - type: DiseaseEffect
-    complexity: 12 # can make you constantly hungry
+    complexity: 8 # can make you constantly hungry
   - type: DiseaseReagentEffect
     timeScale: false
     effects:
@@ -54,6 +54,8 @@
     delayMax: 12
   - type: DiseaseFlashEffect
     timeScale: false
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
 
 - type: entity
   id: DiseaseBehaviorGravitosisA
@@ -114,3 +116,148 @@
   - type: DiseaseGrantComponentEffect
     components:
     - type: OwOAccent
+
+- type: entity
+  id: DiseaseBehaviorBlindness
+  parent: DiseaseBehaviorBase
+  name: Blindness
+  description: Rare disease symptom that causes complete blindness.
+  components:
+  - type: DiseaseEffect
+    complexity: 12
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: PermanentBlindness
+  - type: DiseaseProgressCondition
+    MinProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorPainNumbness
+  parent: DiseaseBehaviorBase
+  name: Analgesia
+  description: Rare disease symptom that causes you to become insensitive to pain.
+  components:
+  - type: DiseaseEffect
+    complexity: 12
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: PainNumbness
+
+- type: entity
+  id: DiseaseBehaviorDeaf
+  parent: DiseaseBehaviorBase
+  name: Deaf
+  description: Rare disease symptom that causes complete deaf.
+  components:
+  - type: DiseaseEffect
+    complexity: 14 # VERY annoying
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: Deaf
+  - type: DiseaseProgressCondition
+    MinProgress: 0.6
+
+- type: entity
+  id: DiseaseBehaviorAnxiety
+  parent: DiseaseBehaviorBase
+  name: Anxiety
+  description: Causes anxiety and fear of hugs
+  components:
+  - type: DiseaseEffect
+    complexity: 2
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: SocialAnxiety
+
+- type: entity
+  id: DiseaseBehaviorDrowsiness
+  parent: DiseaseBehaviorBase
+  name: Drowsiness
+  description: Causes a strong desire to sleep
+  components:
+  - type: DiseaseEffect
+    complexity: 10
+  - type: DiseaseReagentEffect
+    timeScale: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDrowsiness
+      time: 30
+      type: Add
+      refresh: false
+  - type: DiseaseEmoteEffect
+    emote: Yawn
+  - type: DiseasePeriodicCondition
+    delayMin: 15
+    delayMax: 60
+
+- type: entity
+  id: DiseaseBehaviorEuphoria
+  parent: DiseaseBehaviorBase
+  name: Euphoria
+  description: Symptom that causes happiness!
+  components:
+  - type: DiseaseEffect
+    complexity: 5
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectSeeingRainbow
+      time: 20
+      type: Add
+      refresh: true
+  - type: DiseasePeriodicCondition
+    delayMin: 10
+    delayMax: 50
+  - type: DiseaseEmoteEffect
+    emote: Laugh
+
+- type: entity
+  id: DiseaseBehaviorApathy
+  parent: DiseaseBehaviorBase
+  name: Apathy
+  description: Symptom causing the loss of world color diversity
+  components:
+  - type: DiseaseEffect
+    complexity: 5
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: BlackAndWhiteOverlay
+  - type: DiseaseProgressCondition
+    MinProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorBS
+  parent: DiseaseBehaviorBase
+  name: Bluespace Instability
+  description: Extremely rare symptom that causes you to teleport erratically.
+  components:
+  - type: DiseaseEffect
+    complexity: 40 #there is a chance of ending up in a wall or in space
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: ChaoticJump
+      jumpMinInterval: 0
+      jumpMaxInterval: 60
+      rangeMin: 0.2
+      rangeMax: 2
+  - type: DiseaseProgressCondition
+    MinProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorDisorientation
+  parent: DiseaseBehaviorBase
+  name: Disorientation
+  description: Rare symptom that causes disorientation in space in the final stages
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:MovespeedModifier #Literally inverts movement. If you move forward, you'll move backward, and so on.
+      walkSpeedModifier: -1
+      sprintSpeedModifier: -1
+  - type: DiseaseProgressCondition
+    MinProgress: 0.8
