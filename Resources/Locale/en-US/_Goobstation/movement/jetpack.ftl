@@ -6,5 +6,3 @@
 
 jetpack-downed = The jetpack turns off
 jetpack-is-down = Can't use the jetpack while lying down
-jetpack-inhand-fly-away = Your jetpack flies away!
-jetpack-inhand-arm-torn = Your jetpack tears your arm off!
