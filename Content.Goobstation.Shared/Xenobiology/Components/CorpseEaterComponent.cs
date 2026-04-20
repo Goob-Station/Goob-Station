@@ -28,4 +28,10 @@ public sealed partial class CorpseEaterComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? BodyPartBlacklist;
+
+    /// <summary>
+    /// How long the do-after to separate body part or organ from corpse.
+    /// </summary>
+    [DataField]
+    public TimeSpan EatCorpseDoAfterDuration = TimeSpan.FromSeconds(20);
 }
