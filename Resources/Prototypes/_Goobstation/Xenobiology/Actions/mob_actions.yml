@@ -47,9 +47,5 @@
       components:
       - MobState
       - Body
-      - BodyPart
-    blacklist:
-      components:
-      - Slime
     canTargetSelf: false
     event: !type:SlimeEatCorpseEvent

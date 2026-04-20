@@ -20,7 +20,6 @@ namespace Content.Goobstation.Server.Xenobiology;
 
 public sealed partial class SlimeEatCorpseSystem : EntitySystem
 {
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -37,30 +36,18 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
         || TerminatingOrDeleted(args.Performer))
             return;
 
-        TryComp<BodyPartComponent>(args.Target, out var part);
-
-        var targetPart = args.Target;
-
-        if (TryComp<BodyComponent>(args.Target, out var body)
-            && body.RootContainer.ContainedEntity is not null
-            && TryComp<BodyPartComponent>(body.RootContainer.ContainedEntity, out var bodyPart))
-        {
-            part = bodyPart;
-            targetPart = (EntityUid) body.RootContainer.ContainedEntity;
-        }
-
-        if (part is null)
+        if (!TryComp<BodyComponent>(args.Target, out var body)
+            || !_body.TryGetRootPart(args.Target, out var rootPart))
             return;
 
-        if (!_body.GetPartContainers(targetPart).Any(x => x.ContainedEntities.Any(y => IsEatableOrganOrBodyPart(ent, y))))
+        if (!_body.GetBodyContainers(args.Target, body, rootPart).Any(container => container.ContainedEntities.Any(slot => IsEatableOrganOrBodyPart(ent, slot))))
         {
             var notEatablePopup = Loc.GetString("slime-eat-corpse-fail-not-eatable", ("target", args.Target));
             _popup.PopupEntity(notEatablePopup, ent, ent);
             return;
         }
 
-        if (TryComp<MobStateComponent>(args.Target, out var mobState)
-            && !_mobState.IsDead(args.Target, mobState))
+        if (!_mobState.IsDead(args.Target))
         {
             var notDeadPopup = Loc.GetString("slime-eat-corpse-fail-not-dead", ("target", args.Target));
             _popup.PopupEntity(notDeadPopup, ent, ent);
