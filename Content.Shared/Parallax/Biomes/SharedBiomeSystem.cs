@@ -32,20 +32,13 @@ public abstract class SharedBiomeSystem : EntitySystem
 
     public const byte ChunkSize = 8; // Lavaland change - make it public
 
-    // Goob Start - Cache Noise
+    // Goob - Cache Noise
     private readonly Dictionary<(FastNoiseLite, int), FastNoiseLite> _noiseCache = new();
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
-    }
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs obj)
+    protected void ClearNoiseCache()
     {
         _noiseCache.Clear();
     }
-    // Goob End - Cache Noise
 
     private T Pick<T>(List<T> collection, float value)
     {
