@@ -629,6 +629,9 @@ public sealed class EntityEffectSystem : EntitySystem
         if (HasComp<IncurableZombieComponent>(args.Args.TargetEntity))
             return;
 
+        // Goob - cure notification
+        bool wasCured = HasComp<PendingZombieComponent>(args.Args.TargetEntity) || HasComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
+
         RemComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
         RemComp<PendingZombieComponent>(args.Args.TargetEntity);
 
@@ -644,7 +647,18 @@ public sealed class EntityEffectSystem : EntitySystem
             && mobStateComp.CurrentState != Shared.Mobs.MobState.Alive)
         {
             _zombie.UnZombify(args.Args.TargetEntity, args.Args.TargetEntity, zombieComp);
+            wasCured = true;
         }
+
+        // Goob - zombie cure notification
+        if (!wasCured)
+            return;
+
+        _popup.PopupEntity(
+            Loc.GetString("zombie-cured-popup"),
+            args.Args.TargetEntity,
+            PopupType.Medium
+        );
     }
 
     private void OnExecuteEmote(ref ExecuteEntityEffectEvent<Emote> args)
