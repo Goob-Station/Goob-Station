@@ -103,6 +103,7 @@ using Content.Shared.Mech.Components;
 using Content.Shared.Rejuvenate; // Shitmed Change
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Mech.EntitySystems; // Goobstation
+using Content.Server.Cloning; // Goob - zedcure
 
 namespace Content.Server.Zombies;
 
@@ -129,6 +130,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedMechSystem _mech = default!; // Goobstation
+    [Dependency] private readonly CloningSystem _cloning = default!; // Goob - zombie cure
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
@@ -168,7 +170,19 @@ public sealed partial class ZombieSystem
 
         //you're a real zombie now, son.
         RaiseLocalEvent(target, new RejuvenateEvent(false, false)); // Shitmed Change
+
+        // Goob start
+        if (!_cloning.TryCloning(target, null, "Antag", out var clone))
+        {
+            Log.Error($"Unable to make a clone for zombification of entity {ToPrettyString(target)}");
+            return;
+        }
+        RemComp<PendingZombieComponent>(clone.Value);
+        // Goob end
+
         var zombiecomp = AddComp<ZombieComponent>(target);
+
+        zombiecomp.BeforeZombificationReferenceEnt = clone; // Goob - reference to cloned entity, for curing later
 
         //we need to basically remove all of these because zombies shouldn't
         //get diseases, breath, be thirst, be hungry, die in space, have offspring or be paraplegic.
