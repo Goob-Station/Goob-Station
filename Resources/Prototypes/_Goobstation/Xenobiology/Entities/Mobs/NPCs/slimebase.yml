@@ -5,6 +5,7 @@
   name: basic slime
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
+  - type: ZombieImmune # zeds fuck up xenobio
   - type: Appearance
   - type: Hunger
     startingHunger: 40
