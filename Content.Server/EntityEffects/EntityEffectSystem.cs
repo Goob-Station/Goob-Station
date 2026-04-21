@@ -50,6 +50,8 @@ using Robust.Shared.Random;
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
 
+using Content.Shared.Mobs.Components; // Goob - zombie cure
+
 namespace Content.Server.EntityEffects;
 
 public sealed class EntityEffectSystem : EntitySystem
@@ -79,6 +81,7 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly TurfSystem _turf = default!; //todo Goobstation? The only thing im using this for is meant to be in RT? Fix if you havent
+    [Dependency] private readonly ZombieSystem _zombie = default!; // Goob - zombie cure
 
     public override void Initialize()
     {
@@ -632,6 +635,15 @@ public sealed class EntityEffectSystem : EntitySystem
         if (args.Effect.Innoculate)
         {
             EnsureComp<ZombieImmuneComponent>(args.Args.TargetEntity);
+        }
+
+        // Goob - zombie cure
+        if (args.Effect.CureCriticalZombies
+            && TryComp(args.Args.TargetEntity, out ZombieComponent? zombieComp)
+            && TryComp(args.Args.TargetEntity, out MobStateComponent? mobStateComp)
+            && mobStateComp.CurrentState != Shared.Mobs.MobState.Alive)
+        {
+            _zombie.UnZombify(args.Args.TargetEntity, args.Args.TargetEntity, zombieComp);
         }
     }
 
