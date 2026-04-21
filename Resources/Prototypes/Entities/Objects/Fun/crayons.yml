@@ -123,6 +123,26 @@
 
 - type: entity
   parent: Crayon
+  id: CrayonRainbowInfinite
+  name: infinite rainbow crayon
+  components:
+  - type: Sprite
+    state: rainbow
+  - type: Item
+    heldPrefix: rainbow
+  - type: Crayon
+    color: Red
+    selectableColor: true
+    capacity: 999999
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
   id: CrayonBlack
   name: black crayon
   components:
