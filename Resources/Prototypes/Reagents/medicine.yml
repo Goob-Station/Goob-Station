@@ -1137,8 +1137,8 @@
             Slash: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Piercing: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
       - !type:ImmunityModifier #Goobstation
-        gainRateModifier: 0.0045 #3x stronger than Immurin
-        strengthModifier: 0.02 #Twice as strong
+        gainRateModifier: 0.0011 #3x stronger than Immurin
+        strengthModifier: 0.0088888888888 #Twice as strong
         statusLifetime: 3
 
 - type: reagent

@@ -13,13 +13,13 @@ public sealed partial class ImmunityComponent : Component
     /// How fast this organism increases immune progress on diseases, per second
     /// </summary>
     [DataField]
-    public float ImmunityGainRate = 0.002f;
+    public float ImmunityGainRate = 0.00111111111111f; // 900 seconds to heal fully
 
     /// <summary>
     /// How fast this organism decreases infection progress at full immunity progress
     /// </summary>
     [DataField]
-    public float ImmunityStrength = 0.02f;
+    public float ImmunityStrength = 0.0088888888888f;
 
     /// <summary>
     /// Which disease types can this affect the immunity strength against and gain immunity to
