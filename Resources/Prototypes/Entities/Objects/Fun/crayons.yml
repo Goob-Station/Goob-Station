@@ -121,6 +121,7 @@
     - Recyclable
     - Trash
 
+# goob edit start
 - type: entity
   parent: Crayon
   id: CrayonRainbowInfinite
@@ -140,6 +141,7 @@
     - Crayon
     - Recyclable
     - Trash
+# goob edit end
 
 - type: entity
   parent: Crayon
