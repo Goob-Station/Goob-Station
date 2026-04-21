@@ -23,3 +23,4 @@ zombification-resistance-coefficient-value = - [color=violet]Infection[/color] c
 
 # Goob
 zombie-cured-popup = The zombie infection vanishes without a trace!
+zombie-cure-failed-popup = The cure fails to take hold!

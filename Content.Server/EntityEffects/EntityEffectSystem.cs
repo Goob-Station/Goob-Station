@@ -646,8 +646,14 @@ public sealed class EntityEffectSystem : EntitySystem
             && TryComp(args.Args.TargetEntity, out MobStateComponent? mobStateComp)
             && mobStateComp.CurrentState != Shared.Mobs.MobState.Alive)
         {
-            _zombie.UnZombify(args.Args.TargetEntity, args.Args.TargetEntity, zombieComp);
-            wasCured = true;
+            if (_zombie.UnZombify(args.Args.TargetEntity, args.Args.TargetEntity, zombieComp))
+                wasCured = true;
+            else
+                _popup.PopupEntity(
+                    Loc.GetString("zombie-cure-failed-popup"),
+                    args.Args.TargetEntity,
+                    PopupType.Medium
+                );
         }
 
         // Goob - zombie cure notification

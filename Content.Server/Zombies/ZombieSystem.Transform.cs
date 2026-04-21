@@ -173,16 +173,16 @@ public sealed partial class ZombieSystem
 
         // Goob start
         if (!_cloning.TryCloning(target, null, "Antag", out var clone))
-        {
             Log.Error($"Unable to make a clone for zombification of entity {ToPrettyString(target)}");
-            return;
-        }
-        RemComp<PendingZombieComponent>(clone.Value);
+        else
+            RemComp<PendingZombieComponent>(clone.Value);
         // Goob end
 
         var zombiecomp = AddComp<ZombieComponent>(target);
 
-        zombiecomp.BeforeZombificationReferenceEnt = clone; // Goob - reference to cloned entity, for curing later
+        // Goob - reference to cloned entity, for curing later
+        if (clone is not null)
+            zombiecomp.BeforeZombificationReferenceEnt = clone;
 
         //we need to basically remove all of these because zombies shouldn't
         //get diseases, breath, be thirst, be hungry, die in space, have offspring or be paraplegic.
