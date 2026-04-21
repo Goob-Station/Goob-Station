@@ -1393,22 +1393,19 @@
   group: Medicine
   desc: reagent-desc-formaldehyde
   physicalDesc: reagent-physical-desc-thick
-  flavor: strange
+  flavor: medicine
   color: "#FFA500"
   worksOnTheDead: true
   metabolisms:
     Poison:
-      metabolismRate: 0.03 # Trauma - harder to make, buffed to 33s/u
+      metabolismRate: 0.05
       effects:
       - !type:HealthChange
-        conditions: # Trauma - this shouldn't be a magic RR unless liver transplant chem
-          - !type:MobStateCondition
-            mobstate: Alive
         damage:
           types:
-            Poison: 0.1 # Trauma
+            Poison: 0.5
     Medicine:
-      metabolismRate: 0.03
+      metabolismRate: 0.05
       effects:
       - !type:ReduceRotting
         seconds: 1
