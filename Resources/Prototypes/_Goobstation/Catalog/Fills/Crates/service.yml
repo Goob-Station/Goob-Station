@@ -317,7 +317,7 @@
   id: CrateRainbowCrayon
   parent: CratePlastic
   name: rainbow crayon crate
-  description: Contains an infinite rainbow crayon for all the talented arists out there (For legal reasons the crayon is not actually infinite and the universe will break apart after you use it enough times)
+  description: Contains an infinite rainbow crayon for all the talented artists out there (For legal reasons the crayon is not actually infinite and the universe will break apart after you use it enough times)
   components:
     - type: StorageFill
       contents:
