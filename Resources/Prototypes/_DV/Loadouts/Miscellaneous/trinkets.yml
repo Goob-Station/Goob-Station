@@ -10,12 +10,14 @@
   storage:
     back:
     - GoldRing
+  groupBy: "ring"
 
 - type: loadout
   id: SilverRing
   storage:
     back:
     - SilverRing
+  groupBy: "ring"
 
 - type: loadout
   id: WhiteCane
