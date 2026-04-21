@@ -390,21 +390,12 @@ namespace Content.Server.Zombies
 
         private void OverrideComp<T>(EntityUid target, EntityUid source) where T : IComponent // Goob, for below function
         {
-            //Log.Error("Remove" + typeof(T).Name);
-            //RemComp<T>(target);
-            //if (!TryComp(source, out T? toCopy))
-            //    return;
-
-            //Log.Error("Copy" + typeof(T).Name);
-            //CopyComp<T>(source, target, toCopy);
             if (!TryComp(source, out T? toCopy))
             {
-                Log.Error("Remove" + typeof(T).Name);
                 RemComp<T>(target);
                 return;
             }
 
-            Log.Error("Copy" + typeof(T).Name);
             CopyComp<T>(source, target, toCopy);
         }
 
