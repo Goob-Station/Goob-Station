@@ -48,5 +48,5 @@
     distance: 3 # Goobstation
     speed: 5
   - type: KnockdownOnHit
-    duration: 0
+    autostand: false
     knockdownOnHeavyAttack: false
