@@ -57,7 +57,7 @@
       task: IdleCompound
 
 - type: htnCompound
-  id: MagicRoosterCompound
+  id: RangedRoosterCompound
   branches:
   - tasks:
     - !type:HTNCompoundTask

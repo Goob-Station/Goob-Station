@@ -1,6 +1,4 @@
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Shared.Ranching.Components;
 
@@ -11,7 +9,7 @@ namespace Content.Trauma.Shared.Ranching.Components;
 public sealed partial class RanchingEggLayerComponent : Component
 {
     /// <summary>
-    ///     The item that gets laid/spawned.
+    /// The item that gets laid/spawned.
     /// </summary>
     [DataField]
     public EntProtoId? EggSpawn;
@@ -20,32 +18,35 @@ public sealed partial class RanchingEggLayerComponent : Component
     public SoundSpecifier EggLaySound = new SoundPathSpecifier("/Audio/Effects/pop.ogg");
 
     /// <summary>
-    ///     Minimum cooldown used for the egg laying.
+    /// Minimum cooldown used for the egg laying.
     /// </summary>
     [DataField]
     public float EggLayCooldownMin = 5f;
 
     /// <summary>
-    ///     Maximum cooldown used for the egg laying.
+    /// Maximum cooldown used for the egg laying.
     /// </summary>
     [DataField]
     public float EggLayCooldownMax = 10f;
 
     /// <summary>
-    ///     The amount of nutrient consumed on eggLay.
+    /// The amount of nutrient consumed on eggLay.
     /// </summary>
     [DataField]
     public float HungerUsage = 15f;
 
     /// <summary>
-    ///     Whether given entity needs to have Hunger in order to lay eggs
+    /// Whether given entity needs to have Hunger in order to lay eggs
     /// </summary>
     [DataField]
     public bool HungerRequired = true;
 
     /// <summary>
-    ///     When to next try to lay an egg.
+    /// When to next try to lay an egg.
     /// </summary>
     [DataField, AutoPausedField]
     public TimeSpan NextGrowth = TimeSpan.Zero;
+
+    [DataField]
+    public string Solution = "bloodstream";
 }

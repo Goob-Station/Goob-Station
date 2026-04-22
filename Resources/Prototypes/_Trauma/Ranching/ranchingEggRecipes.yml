@@ -3,7 +3,6 @@
   egg: WhiteEgg
   requiredChicken:
   - MobWhiteHen
-  requiresSpecialFood: false
   happinessRequired: 15
 
 - type: eggRecipe
@@ -14,7 +13,6 @@
   - MobBrownHen
   chickensRequireDifferentHappiness:
     MobBrownHen: 15
-  requiresSpecialFood: false
   happinessRequired: 50
 
 - type: eggRecipe
@@ -48,7 +46,6 @@
   - MobVoidHen
   noSpecialFoodRequiredChickens:
   - MobVoidHen
-  requiresSpecialFood: false
   happinessRequired: 15
   componentsRequired:
   - type: VomitedEnoughMarker
@@ -59,7 +56,6 @@
   requiredChicken:
   - MobVoidHen
   happinessRequired: 15
-  requiresSpecialFood: false
 
 - type: eggRecipe
   id: BlackSilkieEgg
@@ -116,7 +112,6 @@
   - MobDreamHen
   noSpecialFoodRequiredChickens:
   - MobDreamHen
-  requiresSpecialFood: false
   happinessRequired: 15
 
 - type: eggRecipe
@@ -126,7 +121,6 @@
   - MobPoultrygeistHen
   noSpecialFoodRequiredChickens:
   - MobPoultrygeistHen
-  requiresSpecialFood: false
   happinessRequired: 15
 
 - type: eggRecipe
@@ -170,7 +164,6 @@
   egg: GoldenEgg
   requiredChicken:
   - MobGoldenHen
-  requiresSpecialFood: false
   happinessRequired: 70
 
 - type: eggRecipe
@@ -178,7 +171,6 @@
   egg: ClownEgg
   requiredChicken:
   - MobClownHen
-  requiresSpecialFood: false
   happinessRequired: 60
 
 - type: eggRecipe
@@ -186,7 +178,6 @@
   egg: CluwneEgg
   requiredChicken:
   - MobCluwneHen
-  requiresSpecialFood: false
   happinessRequired: -50 # THE HORDE
 
 - type: eggRecipe
@@ -233,7 +224,8 @@
   - MobWizardHen
   noSpecialFoodRequiredChickens:
   - MobWizardHen
-  happinessRequired: 16
+  happinessRequired: 15
+  weight: 5
   foodTagsRequired:
   - MagicMushroom
 
@@ -245,7 +237,8 @@
   - MobSynthHen
   noSpecialFoodRequiredChickens:
   - MobSynthHen
-  happinessRequired: 16
+  happinessRequired: 15
+  weight: 5
   foodTagsRequired:
   - SynthMeat
 
@@ -254,7 +247,6 @@
   egg: MimeEgg
   requiredChicken:
   - MobMimeHen
-  requiresSpecialFood: false
   happinessRequired: 15
 
 - type: eggRecipe
@@ -268,3 +260,27 @@
   happinessRequired: 15
   foodTagsRequired:
   - BalloonMelon
+
+- type: eggRecipe
+  id: RobotEgg
+  egg: RobotEgg
+  requiredChicken:
+  - MobSynthHen
+  - MobRobotHen
+  noSpecialFoodRequiredChickens:
+  - MobRobotHen
+  happinessRequired: 15
+  weight: 10
+  reagentsRequired:
+    NanoMachines: 0.01 # NANOMACHINES SON THEY HARDEN IN RESPONSE TO PHYSICAL TRAUMA, YOU CAN'T HURT ME JACK!
+
+- type: eggRecipe
+  id: KnightEgg
+  egg: KnightEgg
+  requiredChicken:
+  - MobIxworthHen
+  - MobKnightHen
+  noSpecialFoodRequiredChickens:
+  - MobKnightHen
+  happinessRequired: 15
+  weight: 10

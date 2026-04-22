@@ -4,3 +4,17 @@
   name: shrunk
   components:
   - type: ShrunkStatusEffect
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectDamageMod
+  name: damage mod changed
+  components:
+  - type: ChangeDamageModiferSetStatusEffect
+
+- type: entity
+  parent: StatusEffectDamageMod
+  id: StatusEffectDamageModKnightEgg
+  components:
+  - type: ChangeDamageModiferSetStatusEffect
+    damageModifierSet: KnightChickenEffect

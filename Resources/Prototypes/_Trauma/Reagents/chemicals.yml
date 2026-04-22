@@ -1,4 +1,19 @@
 - type: reagent
+  id: Cement
+  name: reagent-name-cement
+  group: Pyrotechnic
+  desc: reagent-desc-cement
+  physicalDesc: reagent-physical-desc-pungent
+  color: "#7a7866"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 3
+
+- type: reagent
   id: SodiumBicarbonate
   name: reagent-name-sodium-bicarbonate
   desc: reagent-desc-sodium-bicarbonate
@@ -25,8 +40,7 @@
   boilingPoint: 111.5
   meltingPoint: 90.5
   metabolisms:
-    Poison:
-      metabolismRate: 0.5
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -43,8 +57,7 @@
   boilingPoint: 223.9
   meltingPoint: 199.5
   metabolisms:
-    Poison:
-      metabolismRate: 0.5
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -61,10 +74,71 @@
   boilingPoint: 412.8
   meltingPoint: 199.9
   metabolisms:
-    Poison:
-      metabolismRate: 0.5
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
           types:
             Caustic: 1
+
+- type: reagent
+  id: NanoMachines
+  name: reagent-name-nanomachines
+  desc: reagent-desc-nanomachines
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: metallic
+  color: black
+  boilingPoint: 563.7
+  meltingPoint: 353.5
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.1
+      effects:
+      - !type:Polymorph
+        prototype: Cyborg
+        conditions:
+        - !type:ReagentCondition
+          reagent: NanoMachines
+          min: 40
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        probability: 0.03
+        messages:
+        - generic-reagent-effect-burning-insides
+        - generic-reagent-effect-tearing-up
+      - !type:Jitter
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+
+- type: reagent
+  id: NanoProcessor
+  name: reagent-name-nanoprocessor
+  desc: reagent-desc-nanoprocessor
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: metallic
+  color: white
+  meltingPoint: 97.8
+  boilingPoint: 883.0
+
+- type: reagent
+  id: CalciumCarbonate
+  name: reagent-name-calcium-carbonate
+  desc: reagent-desc-calcium-carbonate
+  physicalDesc: reagent-physical-desc-powdery
+  color: white
+
+- type: reagent
+  id: CalciumOxide
+  name: reagent-name-calcium-oxide
+  desc: reagent-desc-calcium-oxide
+  physicalDesc: reagent-physical-desc-powdery
+  color: white
+
+- type: reagent
+  id: CalciumHydroxide
+  name: reagent-name-calcium-hydroxide
+  desc: reagent-desc-calcium-hydroxide
+  physicalDesc: reagent-physical-desc-powdery
+  color: white

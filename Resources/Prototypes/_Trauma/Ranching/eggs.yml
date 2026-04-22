@@ -46,6 +46,10 @@
       effectProto: StatusEffectShink
       time: 30
       type: Add
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDamageMod
+      time: 30
+      type: Add
 
 - type: entity
   parent: BaseRanchingEgg
@@ -143,13 +147,16 @@
       - Advertise
   - type: Speech
     speechVerb: Robotic
-  - type: AddComponentsOnEaten
-    components:
-    - type: TelecomExempt
-    - type: IntrinsicRadioReceiver
-    - type: ActiveRadio
-      channels:
-      - EggRadio
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:AddComponents
+      components:
+      - type: TelecomExempt
+      - type: TelecomExempt
+      - type: IntrinsicRadioReceiver
+      - type: ActiveRadio
+        channels:
+        - EggRadio
   - type: Tag
     tags:
     - Radio
@@ -294,11 +301,13 @@
     state: egg-mime
   - type: TimedReplace
     entity: MobChickMime
-  - type: AddComponentsOnEaten
-    components:
-    - type: MimePowers
-      preventWriting: true
-    - type: FrenchAccent
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:AddComponents
+      components:
+      - type: MimePowers
+        preventWriting: true
+      - type: FrenchAccent
 
 - type: entity
   id: BalloonEggSpawner
@@ -357,3 +366,32 @@
             Plasma: 100 # Lower than gas on gibbing
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: RobotEgg
+  components:
+  - type: Sprite
+    state: egg-robot
+  - type: TimedReplace
+    entity: MobChickVoid
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 50
+    disableDuration: 5
+  - type: TriggerOnIngested
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: KnightEgg
+  components:
+  - type: Sprite
+    state: egg-knight
+  - type: TimedReplace
+    entity: MobChickKnight
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDamageModKnightEgg
+      time: 30
+      type: Add

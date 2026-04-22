@@ -16,4 +16,10 @@ public sealed partial class EntityEffectOnEatenComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Scale = 1f;
+
+    /// <summary>
+    /// White list
+    /// </summary>
+    [DataField]
+    public List<EntProtoId>? WhiteList;
 }

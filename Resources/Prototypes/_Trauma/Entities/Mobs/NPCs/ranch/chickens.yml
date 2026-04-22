@@ -544,6 +544,29 @@
 # Spicy
 
 - type: entity
+  abstract: true
+  id: BaseChickenSpicy
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileAnomalyFireball
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound
+  - type: Damageable
+    damageModifierSet: SpicyChicken
+
+- type: entity
   parent: BaseMobChickRanch
   id: MobChickSpicy
   name: spicy chick
@@ -554,12 +577,14 @@
     - MobSpicyRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+  - type: Damageable
+    damageModifierSet: SpicyChicken
   - type: FavoriteFood
     tag:
     - Chili
 
 - type: entity
-  parent: BaseMobHenRanch
+  parent: [BaseChickenSpicy, BaseMobHenRanch]
   id: MobSpicyHen
   name: spicy hen
   components:
@@ -570,7 +595,7 @@
     - Chili
 
 - type: entity
-  parent: BaseMobRoosterRanch
+  parent: [BaseChickenSpicy, BaseMobRoosterRanch]
   id: MobSpicyRooster
   name: spicy rooster
   components:
@@ -1029,7 +1054,7 @@
     soundGunshot: /Audio/_Goobstation/Wizard/magic_missile.ogg
   - type: HTN
     rootTask:
-      task: MagicRoosterCompound
+      task: RangedRoosterCompound
 
 - type: entity
   parent: BaseMobChickRanch
@@ -1190,3 +1215,107 @@
   - type: FavoriteFood
     tag:
     - BalloonMelon
+
+# Robot Chicken
+
+- type: entity
+  abstract: true
+  id: BaseChickenRobot
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: EmpPulse
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Effects/Lightning/lightningbolt.ogg
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 250
+
+- type: entity
+  parent: [BaseChickenRobot, BaseMobChickRanch]
+  id: MobChickRobot
+  name: robot chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobRobotHen
+    - MobRobotRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
+
+- type: entity
+  parent: [BaseChickenRobot, BaseMobHenRanch]
+  id: MobRobotHen
+  name: robot hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
+
+- type: entity
+  parent: [BaseChickenRobot, BaseMobRoosterRanch]
+  id: MobRobotRooster
+  name: robot rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
+  - type: FavoriteFood
+    tag:
+    - Synthmeat
+
+# Knight Chicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickKnight
+  name: esquire chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobKnightHen
+    - MobKnightRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-knight.rsi
+  - type: FavoriteFood
+    tag:
+    - SteelWheat
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobKnightHen
+  name: Shieldmaidhen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-knight.rsi
+  - type: FavoriteFood
+    tag:
+    - SteelWheat
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobKnightRooster
+  name: Fowlcions
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-knight.rsi
+  - type: FavoriteFood
+    tag:
+    - SteelWheat

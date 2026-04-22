@@ -1,10 +1,14 @@
 using System.Linq;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Content.Trauma.Shared.Ranching.Components;
 using Content.Trauma.Shared.Ranching.Events;
 using Content.Trauma.Shared.TimedReplace;
@@ -20,6 +24,7 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 /// </summary>
 public sealed class RanchingEggLayerSystem : EntitySystem
 {
+
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -27,6 +32,8 @@ public sealed class RanchingEggLayerSystem : EntitySystem
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -97,63 +104,57 @@ public sealed class RanchingEggLayerSystem : EntitySystem
 
     private void OnEggLayAttempt(Entity<RanchingEggLayerComponent> ent, ref RanchingEggLayAttemptEvent args)
     {
-        EntProtoId? eggToLay = null;
-
         if (!TryComp<MostRecentlyEatenFoodTagsComponent>(ent.Owner, out var foodTags)
             || !TryComp<HappinessComponent>(ent.Owner, out var happiness))
             return;
 
-        var sortedRecipes = _proto.EnumeratePrototypes<EggRecipePrototype>()
-            .OrderByDescending(p => p.RequiresSpecialFood)
-            .ThenByDescending(p => p.HappinessRequired);
-
         var currentHappiness = _happiness.GetHappiness((ent.Owner, happiness));
-
         if (currentHappiness is null)
             return;
 
         var entityPrototype = MetaData(ent.Owner).EntityPrototype;
-
         if (entityPrototype is null)
             return;
 
+        var sortedRecipes = _proto.EnumeratePrototypes<EggRecipePrototype>()
+            .OrderByDescending(p => p.ReagentsRequired is not null && p.ReagentsRequired.Count > 0)
+            .ThenByDescending(p => p.FoodTagsRequired is not null && p.FoodTagsRequired.Count > 0)
+            .ThenByDescending(p => p.Weight)
+            .ThenByDescending(p => p.HappinessRequired);
+
         foreach (var proto in sortedRecipes)
         {
-            int requiredHappiness;
-
-            requiredHappiness = proto.HappinessRequired;
-
+            var requiredHappiness = proto.HappinessRequired;
             if (proto.ChickensRequireDifferentHappiness is not null)
             {
-                foreach (var chicken in proto.ChickensRequireDifferentHappiness)
+                foreach (var kvp in proto.ChickensRequireDifferentHappiness)
                 {
-                    if (chicken.Key == entityPrototype.ID)
+                    if (kvp.Key == entityPrototype.ID)
                     {
-                        requiredHappiness = chicken.Value;
+                        requiredHappiness = kvp.Value;
                         break;
                     }
                 }
             }
-
             if (requiredHappiness > currentHappiness)
                 continue;
 
-            var hascomps = true;
-
             if (proto.ComponentsRequired is not null)
             {
-                foreach (var (name, reg) in proto.ComponentsRequired)
+                var hasAll = true;
+                foreach (var (_, comp) in proto.ComponentsRequired)
                 {
-                    if (!HasComp(ent.Owner, reg.Component.GetType()))
-                        hascomps = false;
+                    if (!HasComp(ent.Owner, comp.Component.GetType())) // Why is there no entitymananger.hascomponents
+                    {
+                        hasAll = false;
+                        break;
+                    }
                 }
+                if (!hasAll)
+                    continue;
             }
 
-            if (!hascomps)
-                continue;
-
-            bool chickenAccepted = false;
-
+            var chickenAccepted = false;
             foreach (var chicken in proto.RequiredChicken)
             {
                 if (chicken == entityPrototype.ID)
@@ -162,23 +163,36 @@ public sealed class RanchingEggLayerSystem : EntitySystem
                     break;
                 }
             }
-
             if (!chickenAccepted)
                 continue;
 
-            if (!proto.RequiresSpecialFood)
+            if (proto.ReagentsRequired is not null && !HasRequiredReagent(ent, proto))
+                continue;
+
+            if (proto.FoodTagsRequired is null)
             {
-                eggToLay = proto.Egg;
-                break;
+                ent.Comp.EggSpawn = proto.Egg;
+                var ev = new RanchingEggLayEvent(ent);
+                RaiseLocalEvent(ent.Owner, ref ev);
+                return;
             }
 
+            var noFoodRequired = false;
             foreach (var chicken in proto.NoSpecialFoodRequiredChickens)
             {
                 if (chicken == entityPrototype.ID)
                 {
-                    eggToLay = proto.Egg;
+                    noFoodRequired = true;
                     break;
                 }
+            }
+
+            if (noFoodRequired)
+            {
+                ent.Comp.EggSpawn = proto.Egg;
+                var ev = new RanchingEggLayEvent(ent);
+                RaiseLocalEvent(ent.Owner, ref ev);
+                return;
             }
 
             if (foodTags.Tag is null)
@@ -186,23 +200,43 @@ public sealed class RanchingEggLayerSystem : EntitySystem
 
             foreach (var tag in foodTags.Tag)
             {
-                if (proto.FoodTagsRequired is not null && proto.FoodTagsRequired.Contains(tag))
-                {
-                    eggToLay = proto.Egg;
-                    break;
-                }
-            }
+                if (!proto.FoodTagsRequired.Contains(tag))
+                    continue;
 
-            if (eggToLay is not null)
-                break;
+                ent.Comp.EggSpawn = proto.Egg;
+                var ev = new RanchingEggLayEvent(ent);
+                RaiseLocalEvent(ent.Owner, ref ev);
+                return;
+            }
+        }
+    }
+
+    private bool HasRequiredReagent(Entity<RanchingEggLayerComponent> ent, EggRecipePrototype proto)
+    {
+        if (proto.ReagentsRequired is null)
+            return false;
+
+        foreach (var reagent in proto.ReagentsRequired)
+        {
+            if (!HasComp<SolutionContainerManagerComponent>(ent.Owner))
+                return false;
+
+            if (!_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out var bloodstream, out _))
+                return false;
+
+            if (!bloodstream.Value.Comp.Solution.ContainsPrototype(reagent.Key))
+                return false;
+
+            foreach (var (id, quantity) in bloodstream.Value.Comp.Solution.Contents)
+            {
+                if (id.Prototype != reagent.Key)
+                    continue;
+
+                if (quantity < reagent.Value)
+                    return false;
+            }
         }
 
-        if (eggToLay is null)
-            return;
-
-        ent.Comp.EggSpawn = eggToLay;
-
-        var ev = new RanchingEggLayEvent(ent);
-        RaiseLocalEvent(ent.Owner, ref ev);
+        return true;
     }
 }

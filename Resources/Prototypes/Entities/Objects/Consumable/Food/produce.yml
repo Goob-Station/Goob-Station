@@ -333,12 +333,14 @@
   description: Rich in potassium.
   components:
   # <Trauma>
-  - type: AddComponentsOnEaten
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:AddComponents
+      components:
+      - type: EggFertilizer
+        specialReplacement: MobChickClown
     whiteList:
     - MobWhiteRooster
-    components:
-    - type: EggFertilizer
-      specialReplacement: MobChickClown
   # </Trauma>
   - type: FlavorProfile
     flavors:
