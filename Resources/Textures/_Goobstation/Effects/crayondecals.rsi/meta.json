@@ -1,0 +1,59 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "From crayon decals created by user @Rumpiel ",
+    "states": [
+        {
+            "name": "arrowleft"
+        },
+        {
+            "name": "arrowright"
+        },
+        {
+            "name": "freeaa"
+        },
+        {
+            "name": "horizontalline"
+        },
+        {
+            "name": "moon"
+        },
+        {
+            "name": "nanotrasen"
+        },
+        {
+            "name": "patchofgrass"
+        },
+        {
+            "name": "scratch"
+        },
+        {
+            "name": "shitsec"
+        },
+        {
+            "name": "smallsquare"
+        },
+        {
+            "name": "square"
+        },
+        {
+            "name": "tidestore"
+        },
+        {
+            "name": "tinydot"
+        },
+        {
+            "name": "triangledown"
+        },
+        {
+            "name": "triangleup"
+        },
+        {
+            "name": "weh"
+        }
+    ]
+}
