@@ -16,6 +16,7 @@ using Content.Server.Store.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
+using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Goobstation.Server.Devil;
@@ -74,7 +75,11 @@ public sealed partial class DevilSystem
             return;
 
         if (HasComp<DevilLesserFormComponent>(devil) || HasComp<ArchdevilComponent>(devil)) // Unable to jaunt while in ascended form.
+        {
+            var message = Loc.GetString("jaunt-ascended-fail");
+            _popup.PopupEntity(message, devil, devil);
             return;
+        }
 
         Spawn(devil.Comp.JauntAnimationProto, Transform(devil).Coordinates);
         Spawn(devil.Comp.PentagramEffectProto, Transform(devil).Coordinates);

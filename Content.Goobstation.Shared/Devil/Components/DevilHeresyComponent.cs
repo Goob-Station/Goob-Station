@@ -13,10 +13,4 @@ public sealed partial class DevilHeresyComponent : Component
 
     [DataField]
     public float DrawTime = 14f;
-
-    [ViewVariables]
-    public float ElapsedTime = 0f;
-
-    [ViewVariables]
-    public EntityUid? AnimationEntity;
 }

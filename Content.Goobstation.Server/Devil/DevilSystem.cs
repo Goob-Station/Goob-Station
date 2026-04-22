@@ -102,6 +102,15 @@ public sealed partial class DevilSystem : EntitySystem
 
         SubscribeLocalEvent<IdentityBlockerComponent, InventoryRelayedEvent<IsEyesCoveredCheckEvent>>(OnEyesCoveredCheckEvent);
 
+        foreach (var proto in _prototype.EnumeratePrototypes<DevilBranchPrototype>())
+        {
+            foreach (var unlock in proto.ConditionalUnlocks)
+            {
+                unlock.RequiredComponentType = EntityManager.ComponentFactory
+                    .GetRegistration(unlock.RequiredComponent).Type;
+            }
+        }
+
         InitializeHandshakeSystem();
         SubscribeAbilities();
     }
@@ -180,9 +189,10 @@ public sealed partial class DevilSystem : EntitySystem
         {
             foreach (var unlock in proto.ConditionalUnlocks)
             {
-                var compReg = EntityManager.ComponentFactory.GetRegistration(unlock.RequiredComponent);
+                if (unlock.RequiredComponentType == null)
+                    continue;
 
-                if (!EntityManager.HasComponent(devil, compReg.Type))
+                if (!EntityManager.HasComponent(devil, unlock.RequiredComponentType))
                     continue;
 
                 if (devil.Comp.SoulsWhileLesser < unlock.SoulsRequired)

@@ -134,19 +134,17 @@ public sealed partial class CheatDeathSystem : EntitySystem
         _rejuvenateSystem.PerformRejuvenate(ent);
         _jitter.DoJitter(ent, TimeSpan.FromSeconds(5), true);
 
-        // Remove the action from devil after using it.
-        _actionsSystem.RemoveAction(ent.Owner, args.Action.AsNullable());
-
-        if (ent.Comp.ActionEntity == args.Action)
-            ent.Comp.ActionEntity = null;
-
-        // Decrement remaining revives.
+        // Decrement remaining revives first
         if (!ent.Comp.InfiniteRevives)
             ent.Comp.ReviveAmount--;
 
-        // remove comp if at zero
+        // Remove the action from devil after using it. (If there are no revives remaining)
         if (ent.Comp.ReviveAmount <= 0 && !ent.Comp.InfiniteRevives)
-            RemComp(ent.Owner, ent.Comp);
+        {
+            _actionsSystem.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
+            ent.Comp.ActionEntity = null;
+            RemCompDeferred(ent.Owner, ent.Comp);
+        }
 
         args.Handled = true;
     }

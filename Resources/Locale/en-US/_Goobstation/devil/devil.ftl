@@ -42,3 +42,5 @@ devil-power-level-increase-moderate = You feel your power surge. Your connection
 devil-power-level-increase-powerful = You've almost completed your tasks here. Just a few more souls.
 
 prevent-buckling-message = Your contract prevents you from buckling to this object.
+
+jaunt-ascended-fail = You are unable to jaunt in your ascended form!

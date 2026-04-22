@@ -46,9 +46,7 @@ public sealed class DevilTransformSystem : EntitySystem
         var coords = Transform(uid).Coordinates;
         var newEntity = Spawn(prototype, coords);
 
-        EntityManager.CopyComponents(uid, newEntity);
-
-        if (!TryComp<DevilTransformComponent>(newEntity, out var newComp))
+        if (!EntityManager.TryCopyComponent(uid, newEntity, ref oldComp, out var newComp))
         {
             Del(uid);
             return;

@@ -6,10 +6,15 @@ using Content.Shared.Chat;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Physics;
 using System;
 
 namespace Content.Goobstation.Shared.Devil.Systems;
 
+/// <summary>
+/// fetches all slaughter demons and teleports them to the Devil.
+/// Spawns a massive pool of blood under the devil regardless of it being succesfull or not. And also stuns anyone nearby.
+/// </summary>
 public sealed class DevilAuthoritySystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -17,6 +22,7 @@ public sealed class DevilAuthoritySystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private readonly HashSet<EntityUid> _targets = new();
 
@@ -45,17 +51,11 @@ public sealed class DevilAuthoritySystem : EntitySystem
         // Teleport them to performer :trolled:
         foreach (var target in _targets)
         {
-            if (HasComp<TransformComponent>(target) && HasComp<TransformComponent>(performer))
-            {
-                Transform(target).Coordinates = Transform(performer).Coordinates;
-            }
+            _transform.SetCoordinates(target, Transform(performer).Coordinates);
         }
 
         // Spawn blood puddle at performer
-        if (!string.IsNullOrEmpty(comp.BloodPuddleProto))
-        {
-            EntityManager.SpawnEntity(comp.BloodPuddleProto, Transform(performer).Coordinates);
-        }
+        Spawn(comp.BloodPuddleProto, Transform(performer).Coordinates);
 
         // Force all slaughter demons out of jaunt, if they are jaunting.
         foreach (var demon in _targets)

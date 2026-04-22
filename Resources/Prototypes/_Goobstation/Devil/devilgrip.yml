@@ -11,6 +11,12 @@
     blacklist:
       components:
       - Puddle
+    healing:
+      types:
+        Heat: -15
+        Slash: -15
+        Blunt: -15
+        Piercing: -15
   - type: Sprite
     sprite: _Goobstation/Devil/devil_grip.rsi
     state: icon

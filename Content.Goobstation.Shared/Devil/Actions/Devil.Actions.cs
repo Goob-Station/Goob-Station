@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -55,4 +56,15 @@ public sealed partial class BecomeArchdevilEvent : InstantActionEvent
 [DataDefinition]
 public sealed partial class DevilFireImmuneEvent : EntityEventArgs
 {
+}
+
+[Serializable, NetSerializable]
+public sealed partial class DevilHeresyDoAfterEvent : SimpleDoAfterEvent
+{
+    public NetEntity AnimationEntity;
+
+    public DevilHeresyDoAfterEvent(NetEntity animationEntity)
+    {
+        AnimationEntity = animationEntity;
+    }
 }

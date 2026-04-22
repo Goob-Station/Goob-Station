@@ -4,15 +4,6 @@
   parent: [ SimpleSpaceMobBase, MobCombat ]
   description: A pile of infernal energy, taking a vaguely humanoid form.
   components:
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 4
-    baseSprintSpeed: 4
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Devil/32x64.rsi
@@ -92,12 +83,6 @@
   parent: [ SimpleSpaceMobBase, MobCombat ]
   description: Daemon qui formam ultimam attigit.
   components:
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Devil/32x64.rsi
@@ -113,7 +98,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      2500: Dead # Parity would be 5000 so don't complain
+      1000: Dead # Killable so not round ending. Parity would be 5000 so don't complain
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -125,15 +110,6 @@
         Piercing: 10
         Heat: 15
         Structural: 50
-  - type: SpamEmitSound
-    minInterval: 10
-    maxInterval: 45
-    sound:
-      collection: ArchLaugh
-      params:
-        volume: 6
-        maxDistance: 12
-        variation: 0.1
   - type: FootstepModifier
     footstepSoundCollection:
       collection: XenoFootstepLarge

@@ -18,6 +18,8 @@ contract-soul-added = You gain another soul in your possession...
 contract-uneven-odds = These odds aren't fair. You need {$number} more contract weight.
 devil-contract-examined = This contract has a weight of: {$weight}.
 
+devil-contract-clause-targets-contractor = The clause "{$clause}" targets the contractor and has been ignored.
+
 devil-deal-time-ran-out = Your vision goes black as your muscles fail you. You've run out of time.
 
 revival-contract-accepted = You feel your connection to your body strengthen...
@@ -48,3 +50,6 @@ default-contract-content = This binding contract made this day between:
             {"["}italic]{"["}color=#ac3a0d]Clauses may not be broken. Ever.{"["}/color]{"["}/italic]
 
 popup-pull-prevented = This entity cannot be pulled.
+
+uncontainable-insert-attempt = Unable to insert {THE($name)} into a container, for they are uncontainable!
+uncontainable-pull-attempt = Unable to pull {THE($name)}, for they are uncontainable!

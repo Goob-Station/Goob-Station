@@ -27,8 +27,11 @@ public enum DevilPowerLevel : byte
 [DataDefinition]
 public sealed partial class DevilConditionalUnlock
 {
+
     [DataField(required: true)]
     public string RequiredComponent = default!;
+
+    public Type? RequiredComponentType;
 
     [DataField(required: true)]
     public int SoulsRequired;

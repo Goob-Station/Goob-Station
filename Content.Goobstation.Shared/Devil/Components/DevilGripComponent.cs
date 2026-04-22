@@ -38,13 +38,6 @@ public sealed partial class DevilGripComponent : Component
     [DataField]
     public LocId Invocation = "devil-speech-grip";
 
-    // Devil doesn't have a YAML so we add it here.
     [DataField]
-    public DamageSpecifier Healing = new DamageSpecifier()
-    {
-        DamageDict =
-        {
-            { "Heat", -15 },{ "Slash", -15 },{ "Blunt", -15 },{ "Piercing", -15 }
-        }
-    };
+    public DamageSpecifier Healing = new();
 }

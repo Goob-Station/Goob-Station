@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Devil.Condemned;
+using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Components;
 using Content.Goobstation.Shared.Devil.Condemned;
@@ -43,6 +44,7 @@ public sealed class DevilGripSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly CondemnedSystem _condemned = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly DevilContractSystem _contract = default!;
 
     public override void Initialize()
     {
@@ -97,23 +99,7 @@ public sealed class DevilGripSystem : EntitySystem
 
         // As archdevil, steals souls.
         if (HasComp<ArchdevilComponent>(args.User))
-        {
-            if (!TryComp<CondemnedComponent>(target, out var condemned)
-                || condemned.SoulOwner != args.User)
-            {
-                condemned = EnsureComp<CondemnedComponent>(target);
-                condemned.SoulOwner = args.User;
-                condemned.SoulOwnedNotDevil = false;
-                condemned.CondemnOnDeath = true;
-
-                _condemned.StartCondemnation(
-                    target,
-                    freezeEntity: true,
-                    doFlavor: true,
-                    behavior: CondemnedBehavior.Delete
-                );
-            }
-        }
+            _contract.TryTransferSouls(args.User, target, 0);
 
         CleanupGrip(args.User, devilComp, ent);
         args.Handled = true;

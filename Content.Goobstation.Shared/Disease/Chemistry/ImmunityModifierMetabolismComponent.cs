@@ -6,10 +6,10 @@ namespace Content.Goobstation.Shared.Disease.Chemistry
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class ImmunityModifierMetabolismComponent : Component
     {
-        [DataField("gainRateModifier"), AutoNetworkedField]
+        [DataField, AutoNetworkedField]
         public float GainRateModifier { get; set; }
 
-        [DataField("strengthModifier"), AutoNetworkedField]
+        [DataField, AutoNetworkedField]
         public float StrengthModifier { get; set; }
 
         /// <summary>

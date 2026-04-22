@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Components;
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
 
 namespace Content.Goobstation.Shared.Devil.Systems;
 
@@ -10,47 +11,45 @@ namespace Content.Goobstation.Shared.Devil.Systems;
 public sealed class DevilHeresySystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<DevilHeresyComponent, DevilHeresyEvent>(OnHeresyInstant);
+        SubscribeLocalEvent<DevilHeresyComponent, DevilHeresyDoAfterEvent>(OnDrawComplete);
     }
 
     private void OnHeresyInstant(EntityUid uid, DevilHeresyComponent comp, DevilHeresyEvent args)
     {
-        if (!TryComp(args.Performer, out TransformComponent? userTransform))
-            return;
-
         var coords = _transform.GetMapCoordinates(args.Performer);
-
-        var animation = EntityManager.SpawnEntity(comp.AnimationPrototype, coords);
+        var animation = Spawn(comp.AnimationPrototype, coords);
         _transform.AttachToGridOrMap(animation);
 
-        comp.AnimationEntity = animation;
-        comp.ElapsedTime = 0f;
+        var doAfter = new DoAfterArgs(EntityManager, args.Performer, comp.DrawTime, new DevilHeresyDoAfterEvent(GetNetEntity(animation)), uid)
+        {
+            BreakOnMove = false,
+            BlockDuplicate = true,
+        };
 
+        _doAfter.TryStartDoAfter(doAfter);
         args.Handled = true;
     }
 
-    public override void Update(float frameTime)
+    private void OnDrawComplete(EntityUid uid, DevilHeresyComponent comp, DevilHeresyDoAfterEvent args)
     {
-        foreach (var (comp, transform) in EntityManager.EntityQuery<DevilHeresyComponent, TransformComponent>())
+        var animationEntity = GetEntity(args.AnimationEntity);
+
+        if (args.Cancelled)
         {
-            if (comp.AnimationEntity == null)
-                continue;
-
-            comp.ElapsedTime += frameTime;
-
-            if (comp.ElapsedTime >= comp.DrawTime)
-            {
-                var coords = _transform.GetMapCoordinates(comp.AnimationEntity.Value);
-                var rune = EntityManager.SpawnEntity(comp.RunePrototype, coords);
-                _transform.AttachToGridOrMap(rune);
-
-                EntityManager.DeleteEntity(comp.AnimationEntity.Value);
-                comp.AnimationEntity = null;
-            }
+            QueueDel(animationEntity);
+            return;
         }
+
+        var coords = _transform.GetMapCoordinates(animationEntity);
+        var rune = Spawn(comp.RunePrototype, coords);
+        _transform.AttachToGridOrMap(rune);
+
+        QueueDel(animationEntity);
     }
 }
