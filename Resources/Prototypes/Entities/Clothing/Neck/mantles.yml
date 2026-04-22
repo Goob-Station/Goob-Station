@@ -19,9 +19,9 @@
   description: A comfortable and chique mantle befitting of only the most experienced captain.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/capmantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/capmantle.rsi # Goob Station - mantle resprite
   - type: Clothing
-    sprite: Clothing/Neck/mantles/capmantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/capmantle.rsi # Goob Station - mantle resprite
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -30,9 +30,9 @@
   description: High visibility, check. RIG system, check. High capacity cell, check. Everything a chief engineer could need in a stylish mantle.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/cemantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/cemantle.rsi # Goob Station - mantle resprite
   - type: Clothing
-    sprite: Clothing/Neck/mantles/cemantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/cemantle.rsi # Goob Station - mantle resprite
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -52,9 +52,9 @@
   description: A good HOP knows that paper pushing is only half the job... petting your dog and looking fashionable is the other half.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/hopmantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/hopmantle.rsi # Goob Station - mantle resprite
   - type: Clothing
-    sprite: Clothing/Neck/mantles/hopmantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/hopmantle.rsi # Goob Station - mantle resprite
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -74,9 +74,9 @@
   description: For when long days in the office consist of explosives, poisonous gas, murder robots, and a fresh pizza from cargo; this mantle will keep you comfy.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/rdmantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/rdmantle.rsi # Goob Station - mantle resprite
   - type: Clothing
-    sprite: Clothing/Neck/mantles/rdmantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/rdmantle.rsi # Goob Station - mantle resprite
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
