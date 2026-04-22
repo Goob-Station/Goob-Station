@@ -630,10 +630,18 @@ public sealed class EntityEffectSystem : EntitySystem
             return;
 
         // Goob - cure notification
-        bool wasCured = HasComp<PendingZombieComponent>(args.Args.TargetEntity) || HasComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
-
-        RemComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
-        RemComp<PendingZombieComponent>(args.Args.TargetEntity);
+        if (HasComp<ZombifyOnDeathComponent>(args.Args.TargetEntity)
+            || HasComp<PendingZombieComponent>(args.Args.TargetEntity))
+        {
+            RemComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
+            RemComp<PendingZombieComponent>(args.Args.TargetEntity);
+            
+            _popup.PopupEntity(
+                Loc.GetString("zombie-cured-popup"),
+                args.Args.TargetEntity,
+                PopupType.Medium
+            );
+        }
 
         if (args.Effect.Innoculate)
         {
@@ -647,7 +655,11 @@ public sealed class EntityEffectSystem : EntitySystem
             && mobStateComp.CurrentState != Shared.Mobs.MobState.Alive)
         {
             if (_zombie.UnZombify(args.Args.TargetEntity, args.Args.TargetEntity, zombieComp))
-                wasCured = true;
+                _popup.PopupEntity(
+                    Loc.GetString("zombie-cured-popup"),
+                    args.Args.TargetEntity,
+                    PopupType.Medium
+                );
             else
                 _popup.PopupEntity(
                     Loc.GetString("zombie-cure-failed-popup"),
@@ -655,16 +667,6 @@ public sealed class EntityEffectSystem : EntitySystem
                     PopupType.Medium
                 );
         }
-
-        // Goob - zombie cure notification
-        if (!wasCured)
-            return;
-
-        _popup.PopupEntity(
-            Loc.GetString("zombie-cured-popup"),
-            args.Args.TargetEntity,
-            PopupType.Medium
-        );
     }
 
     private void OnExecuteEmote(ref ExecuteEntityEffectEvent<Emote> args)
