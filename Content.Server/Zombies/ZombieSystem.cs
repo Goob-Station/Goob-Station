@@ -405,9 +405,10 @@ namespace Content.Server.Zombies
         /// </summary>
         /// <param name="source">the entity having the ZombieComponent</param>
         /// <param name="target">the entity you want to unzombify (different from source in case of cloning, for example)</param>
-        /// <param name="zombieCOmp"></param>
+        /// <param name="zombieComp"></param>
         /// <remarks>
-        ///     goob note: this now restores the character pretty much completley, upstream is only skin/eye color
+        ///     goob note: this now restores the character pretty much completely*, upstream is only skin/eye color
+        ///     *not without sacrifices to sane code
         /// </remarks>
         public bool UnZombify(EntityUid source, EntityUid target, ZombieComponent? zombieComp) // This function is really stupid but it works
         {
@@ -454,7 +455,6 @@ namespace Content.Server.Zombies
             OverrideComp<PacifiedComponent>(target, reference);
             OverrideComp<ReplacementAccentComponent>(target, reference);
             OverrideComp<PryingComponent>(target, reference);
-
             if (TryComp(reference, out BloodstreamComponent? referenceBloodstream))
             {
                 EnsureComp<BloodstreamComponent>(target);
