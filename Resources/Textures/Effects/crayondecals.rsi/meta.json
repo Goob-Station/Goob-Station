@@ -143,6 +143,12 @@
 
         },
         {
+            "name": "arrowleft"
+        },
+        {
+            "name": "arrowright"
+        },
+        {
             "name": "b"
 
         },
@@ -283,6 +289,9 @@
 
         },
         {
+            "name": "freeaa"
+        },
+        {
             "name": "g"
 
         },
@@ -301,6 +310,9 @@
         {
             "name": "heart"
 
+        },
+        {
+            "name": "horizontalline"
         },
         {
             "name": "i"
@@ -347,8 +359,14 @@
 
         },
         {
+            "name": "moon"
+        },
+        {
             "name": "n"
 
+        },
+        {
+            "name": "nanotrasen"
         },
         {
             "name": "nay"
@@ -365,6 +383,9 @@
         {
             "name": "pawprint"
 
+        },
+        {
+            "name": "patchofgrass"
         },
         {
             "name": "peace"
@@ -439,8 +460,14 @@
 
         },
         {
+            "name": "scratch"
+        },
+        {
             "name": "scroll"
 
+        },
+        {
+            "name": "shitsec"
         },
         {
             "name": "shop"
@@ -467,6 +494,9 @@
 
         },
         {
+            "name": "smallsquare"
+        },
+        {
             "name": "snake"
 
         },
@@ -477,6 +507,9 @@
         {
             "name": "splatter"
 
+        },
+        {
+            "name": "square"
         },
         {
             "name": "star"
@@ -499,6 +532,12 @@
 
         },
         {
+            "name": "tidestore"
+        },
+        {
+            "name": "tinydot"
+        },
+        {
             "name": "toilet"
 
         },
@@ -511,6 +550,13 @@
 
         },
         {
+            "name": "triangledown"
+        },
+        {
+            "name": "triangleup"
+        },
+        {
+            
             "name": "u"
 
         },
@@ -525,6 +571,9 @@
         {
             "name": "w"
 
+        },
+        {
+            "name": "weh"
         },
         {
             "name": "x"
