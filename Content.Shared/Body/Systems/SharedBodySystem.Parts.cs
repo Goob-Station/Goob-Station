@@ -1086,6 +1086,24 @@ public partial class SharedBodySystem
                && Containers.CanRemove(partId, container);
     }
 
+    // Goobstation start
+    /// <summary>
+    /// Tries find parent body part and detaches a partId part.
+    /// </summary>
+    public bool TryDetachPart(
+        EntityUid partId,
+        BodyPartComponent? part = null)
+    {
+        var parentTuple = GetParentPartAndSlotOrNull(partId);
+        if (parentTuple is null)
+            return false;
+
+        var (parentPartId, slot) = parentTuple ?? default;
+
+        return DetachPart(parentPartId, slot, partId, null, part);
+    }
+    // Goobstation end
+
     /// <summary>
     /// Detaches a body part from the specified body part parent.
     /// </summary>

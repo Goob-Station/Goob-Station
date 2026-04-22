@@ -125,6 +125,12 @@
     speechVerb: Slime
     speechSounds: Slime
   - type: CorpseEater
+    organBlacklist:
+      components:
+      - BadFood
+    bodyPartBlacklist:
+      components:
+      - BadFood
   - type: TypingIndicator
     proto: slime
   - type: LanguageKnowledge # Einstein Engines - Language
