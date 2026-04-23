@@ -1,4 +1,5 @@
 using Content.Shared.Whitelist;
+using Content.Shared._Shitmed.Body.Part;
 
 namespace Content.Goobstation.Shared.Xenobiology;
 
@@ -28,6 +29,11 @@ public sealed partial class CorpseEaterComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? BodyPartBlacklist;
+
+    /// <summary>
+    /// What type of body part composition can be eaten, if null - any.
+    /// </summary>
+    public BodyPartComposition? BodyPartComposition = null;
 
     /// <summary>
     /// How long the do-after to separate body part or organ from corpse.

@@ -107,6 +107,9 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Robust.Shared.Random;
 
+// Goobstation
+using Content.Shared.Destructible;
+
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -124,6 +127,14 @@ public partial class SharedBodySystem
         // Shitmed Change
         SubscribeLocalEvent<BodyPartComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BodyPartComponent, ComponentRemove>(OnBodyPartRemove);
+
+        // Goobstation change
+        SubscribeLocalEvent<BodyPartComponent, DestructionEventArgs>(OnBodyPartDestructed);
+    }
+
+    private void OnBodyPartDestructed(Entity<BodyPartComponent> ent, ref DestructionEventArgs args)
+    {
+        GibPart(ent, ent.Comp);
     }
 
     private void OnMapInit(Entity<BodyPartComponent> ent, ref MapInitEvent args)
