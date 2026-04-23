@@ -1565,3 +1565,14 @@
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: LCZGuardJumpsuit
+  name: "LCZ guard jumpsuit"
+  description: "A jumpsuit worn by the LCZ guards. It's made of a shit and strings and barely holds on"
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/lczguard.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/lczguard.rsi

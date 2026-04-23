@@ -829,3 +829,59 @@
   - type: Construction
     graph: cardHelmet
     node: cardhelmet
+
+# --- ДОДАВАТИ ЗВІДСИ ---
+
+# 0. Створюємо кнопку для інтерфейсу
+- type: entity
+  parent: BaseAction
+  id: ActionToggleGuardHelmet
+  name: Toggle Visor
+  description: Toggles the visor on the guard helmet.
+  components:
+  - type: Action
+    useDelay: 0.5
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleActionEvent
+
+# 1. БАЗОВИЙ ШОЛОМ (шаблон)
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: GuardHelmetBase
+  abstract: true
+  name: Guard helmet
+  description: A helmet worn by the facility guards. The visor looks like it can protect the wearer from weak attacks.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/guard.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/guard.rsi
+
+# 2. ВІДКРИТИЙ шолом (можна їсти)
+- type: entity
+  parent: GuardHelmetBase
+  id: GuardHelmetOpen
+  suffix: Open
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: GuardHelmet 
+    action: ActionToggleGuardHelmet
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/guard.rsi
+    layers:
+    - state: icon-open 
+  - type: Clothing
+    equippedPrefix: open 
+
+# 3. ЗАКРИТИЙ шолом (їсти не можна)
+- type: entity
+  parent: GuardHelmetBase
+  id: GuardHelmet
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: GuardHelmetOpen 
+    action: ActionToggleGuardHelmet
+  - type: IngestionBlocker
+
+# --- ДОСЮДИ ---
