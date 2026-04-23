@@ -201,6 +201,7 @@
   - type: Tag
     tags:
     - PetWearable
+    - MesonGoggles
     - WhitelistChameleon
 
 - type: entity
