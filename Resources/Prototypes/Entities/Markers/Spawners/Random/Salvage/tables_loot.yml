@@ -306,6 +306,7 @@
     - id: MiningDrill
     - id: ClothingEyesGlassesMeson
     - id: ClothingBeltSalvageWebbing
+    - id: ClothingOuterHardsuitSalvage #Goobstation
     - id: WelderIndustrialAdvanced #Goobstation
     - id: SeismicCharge
     - id: MineralScanner
