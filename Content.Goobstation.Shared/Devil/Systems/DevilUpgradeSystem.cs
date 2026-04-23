@@ -4,6 +4,10 @@ using Content.Goobstation.Shared.Devil.Components;
 
 namespace Content.Goobstation.Server.Devil.Grip;
 
+/// <summary>
+/// System to allow the devil store to add new components directly.
+/// </summary>
+
 public sealed class DevilGripUpgradeSystem : EntitySystem
 {
     public override void Initialize()
