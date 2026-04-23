@@ -152,7 +152,6 @@
     - !type:AddComponents
       components:
       - type: TelecomExempt
-      - type: TelecomExempt
       - type: IntrinsicRadioReceiver
       - type: ActiveRadio
         channels:
@@ -395,3 +394,12 @@
       effectProto: StatusEffectDamageModKnightEgg
       time: 30
       type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: StoneEgg
+  components:
+  - type: Sprite
+    state: egg-stone
+  - type: TimedReplace
+    entity: MobChickStone

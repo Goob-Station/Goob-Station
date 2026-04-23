@@ -284,3 +284,18 @@
   - MobKnightHen
   happinessRequired: 15
   weight: 10
+  foodTagsRequired:
+  - SteelWheat
+
+- type: eggRecipe
+  id: StoneEgg
+  egg: StoneEgg
+  requiredChicken:
+  - MobStoneHen
+  - MobGlassHen
+  noSpecialFoodRequiredChickens:
+  - MobStoneHen
+  happinessRequired: 15
+  weight: 10
+  reagentsRequired:
+    THC: 0.01 # make them smoke a blunt to lay the egg peak

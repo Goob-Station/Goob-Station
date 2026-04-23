@@ -24,3 +24,6 @@ seeds-synthmeat-display-name = synthmeat plant
 
 seeds-balloonmelon-name = melon balloon
 seeds-balloonmelon-display-name = melon balloon plant
+
+seeds-steelwheat-name = steel wheat
+seeds-steelwheat-display-name = steel wheat stalks

@@ -254,3 +254,32 @@
       Min: 1
       Max: 5
       PotencyDivisor: 20
+
+- type: seed
+  id: SteelWheat
+  name: seeds-steelwheat-name
+  noun: seeds-noun-seeds
+  displayName: seeds-steelwheat-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/steel_wheat.rsi
+  packetPrototype: SteelWheatSeeds
+  productPrototypes:
+  - SteelWheatBushel
+  mutationPrototypes:
+  - meatwheat
+  lifespan: 25
+  maturation: 6
+  production: 3
+  growthStages: 3
+  yield: 3
+  potency: 5
+  idealLight: 8
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 20
+    Flour:
+      Min: 5
+      Max: 20
+      PotencyDivisor: 20

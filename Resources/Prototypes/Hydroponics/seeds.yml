@@ -11,6 +11,7 @@
     - WheatBushel
   mutationPrototypes:
     - meatwheat
+    - SteelWheat # Trauma
   lifespan: 25
   maturation: 6
   production: 3

@@ -86,3 +86,13 @@
     seedId: BalloonWatermelon
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/balloon_mellon.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of steel wheat seeds
+  id: SteelWheatSeeds
+  components:
+  - type: Seed
+    seedId: SteelWheat
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/steel_wheat.rsi

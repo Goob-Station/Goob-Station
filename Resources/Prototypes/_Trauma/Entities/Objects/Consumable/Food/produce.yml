@@ -220,3 +220,24 @@
   - type: Tag
     tags:
     - BalloonMelon
+
+- type: entity
+  parent: ProduceBase
+  id: SteelWheatBushel
+  name: steel wheat bushel
+  description: Sigh... steel wheat... a-grain?
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/steel_wheat.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Lead
+          Quantity: 0.1
+  - type: Tag
+    tags:
+    - Wheat
+    - SteelWheat

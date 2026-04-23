@@ -1319,3 +1319,91 @@
   - type: FavoriteFood
     tag:
     - SteelWheat
+
+# Stone Chicken
+
+- type: entity
+  abstract: true
+  id: BaseChickenStone
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+      - !type:SpillBehavior
+        solution: bloodstream
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          GoldOre1Unprocessed:
+            min: 0
+            max: 10
+          SilverOre1Unprocessed:
+            min: 0
+            max: 15
+          UraniumOre1Unprocessed:
+            min: 0
+            max: 3
+          PlasmaOre1Unprocessed:
+            min: 0
+            max: 5
+          DiamondOre1Unprocessed:
+            min: 0
+            max: 3
+          BananiumOre1Unprocessed:
+            min: 0
+            max: 1
+          ArtifactFragmentOre1Unprocessed:
+            min: 0
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: [BaseChickenStone, BaseMobChickRanch]
+  id: MobChickStone
+  name: stone chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobStoneHen
+    - MobStoneRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-stone.rsi
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: [BaseChickenStone, BaseMobHenRanch]
+  id: MobStoneHen
+  name: stone hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-stone.rsi
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: [BaseChickenStone, BaseMobRoosterRanch]
+  id: MobStoneRooster
+  name: stone rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-stone.rsi
+  - type: FavoriteFood
+    tag:
+    - Rice
