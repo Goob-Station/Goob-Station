@@ -24,7 +24,7 @@
     castShadows: false
     color: "#0000ff"
   - type: StaticPrice
-    price: 500
+    price: 1500 #Goob station
 
 - type: entity
   parent: BaseItem
@@ -46,7 +46,7 @@
         harddisk_mini: ""
         harddisk_micro: ""
   - type: StaticPrice
-    price: 275
+    price: 1250 #Goob station
 
 - type: entity
   parent: BaseItem
@@ -61,7 +61,7 @@
   - type: Item
     storedRotation: -90
   - type: StaticPrice
-    price: 350
+    price: 1350 #Goob station
 
 - type: entity
   parent: BaseItem
@@ -76,7 +76,7 @@
   - type: Item
     storedRotation: -90
   - type: StaticPrice
-    price: 300
+    price: 1300 #Goob station
 
 - type: entity
   parent: BaseItem
@@ -91,7 +91,7 @@
   - type: Item
     size: Tiny
   - type: StaticPrice
-    price: 750
+    price: 2250 #Goob station
 
 - type: entity
   parent: BaseItem
@@ -114,7 +114,7 @@
         synchronizer: ""
         stabilizer: ""
   - type: StaticPrice
-    price: 120
+    price: 1000 #Goob station
 
 - type: entityTable
   id: TreasureCoinPile
@@ -158,7 +158,7 @@
   - type: Item
     size: Tiny
   - type: StaticPrice
-    price: 75
+    price: 250 #Goob station
 
 - type: entity
   parent: TreasureCoinIron
@@ -167,7 +167,7 @@
   - type: Sprite
     state: coin_silver
   - type: StaticPrice
-    price: 125
+    price: 350 #Goob station
 
 - type: entity
   parent: TreasureCoinIron
@@ -176,7 +176,7 @@
   - type: Sprite
     state: coin_gold
   - type: StaticPrice
-    price: 175
+    price: 500 #Goob station
 
 - type: entity
   parent: TreasureCoinIron
@@ -185,7 +185,7 @@
   - type: Sprite
     state: coin_adamantine
   - type: StaticPrice
-    price: 250
+    price: 1000 #Goob station
 
 - type: entity
   parent: TreasureCoinIron
@@ -194,4 +194,4 @@
   - type: Sprite
     state: coin_diamond
   - type: StaticPrice
-    price: 500
+    price: 2000 #Goob station
