@@ -164,6 +164,25 @@ namespace Content.Server.Doors.Systems
             var query = EntityQueryEnumerator<FirelockComponent, DoorComponent>();
             while (query.MoveNext(out var uid, out var firelock, out var door))
             {
+                // Goob start - Jestographic
+                if (firelock.Inverted)
+                {
+                    EmergencyPressureStop(uid, firelock, door);
+
+                    appearanceQuery.TryGetComponent(uid, out var firelockAppearance);
+                    firelock.Temperature = true;
+                    firelock.Pressure = true;
+
+                    // For visual on client
+                    _appearance.SetData(uid, FirelockVisuals.PressureWarning, true, firelockAppearance);
+                    _appearance.SetData(uid, FirelockVisuals.TemperatureWarning, true, firelockAppearance);
+                    Dirty(uid, firelock);
+
+                    // Skip the check for pressure and fire below
+                    continue;
+                }
+                // Goob end
+
                 if (_atmosAlarmQuery.TryComp(uid, out var alarmable)
                     && alarmable.LastAlarmState == AtmosAlarmType.Danger
                     && this.IsPowered(uid, EntityManager)

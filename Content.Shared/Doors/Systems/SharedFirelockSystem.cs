@@ -76,6 +76,11 @@ using Content.Shared.Prying.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
+// Goob start
+using Content.Shared.Emag.Systems;
+using Content.Goobstation.Common.Emag.Events;
+// Goob end
+
 namespace Content.Shared.Doors.Systems;
 
 public abstract class SharedFirelockSystem : EntitySystem
@@ -85,6 +90,9 @@ public abstract class SharedFirelockSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    // Goob start
+    [Dependency] private readonly EmagSystem _emag = default!;
+    // Goob end
 
     public override void Initialize()
     {
@@ -101,6 +109,33 @@ public abstract class SharedFirelockSystem : EntitySystem
         SubscribeLocalEvent<FirelockComponent, ComponentStartup>(OnComponentStartup);
 
         SubscribeLocalEvent<FirelockComponent, ExaminedEvent>(OnExamined);
+
+        // Goob start
+        SubscribeLocalEvent<FirelockComponent, GotEmaggedEvent>(OnGotEmagged);
+        SubscribeLocalEvent<FirelockComponent, EmagCleanedEvent>(OnEmagCleaned);
+        // Goob end
+    }
+
+    private void OnGotEmagged(Entity<FirelockComponent> ent, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Jestographic))
+            return;
+
+        if (_emag.CheckFlag(ent.Owner, EmagType.Jestographic))
+            return;
+
+        ent.Comp.Inverted = true;
+        Dirty(ent);
+
+        args.Handled = true;
+    }
+
+    private void OnEmagCleaned(Entity<FirelockComponent> ent, ref EmagCleanedEvent args)
+    {
+        ent.Comp.Inverted = false;
+        Dirty(ent);
+
+        args.Handled = !ent.Comp.Inverted;
     }
 
     public bool EmergencyPressureStop(EntityUid uid, FirelockComponent? firelock = null, DoorComponent? door = null)

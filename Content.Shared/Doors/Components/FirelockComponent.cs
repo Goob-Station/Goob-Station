@@ -114,6 +114,13 @@ namespace Content.Shared.Doors.Components
         [DataField, AutoNetworkedField]
         public bool Powered;
 
+        /// <summary>
+        /// Goobstation - If true, it will revert the condition of the firelock.
+        /// E.g It will open if there are too much pressure and will lock if there are none
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public bool Inverted;
+
         #endregion
 
         #region Client animation
