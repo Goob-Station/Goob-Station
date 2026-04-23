@@ -1,6 +1,6 @@
 using Content.Goobstation.Server.Doodons;
 using Content.Goobstation.Shared.Doodon.Objectives;
-using Content.Goobstation.Shared.Doodons; // for DoodonComponent, DoodonTownHallComponent, DoodonBuildingComponent
+using Content.Goobstation.Shared.Doodons;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -43,10 +43,8 @@ public sealed class DoodonObjectiveSystem : EntitySystem
         {
             if (mobState.CurrentState == MobState.Dead)
                 continue;
-
             if (meta.EntityPrototype?.ID != workerProto.Id)
                 continue;
-
             count++;
         }
 
@@ -62,7 +60,6 @@ public sealed class DoodonObjectiveSystem : EntitySystem
             return;
         }
 
-        // MindComponent is already args.Mind
         var owned = args.Mind.OwnedEntity;
         if (owned == null || Deleted(owned.Value))
         {
@@ -83,7 +80,6 @@ public sealed class DoodonObjectiveSystem : EntitySystem
             args.Progress = 0f;
             return;
         }
-
         var connectedBuildings = CountConnectedBuildings(hallUid, hallComp);
         args.Progress = MathF.Min(connectedBuildings / (float) target, 1f);
     }
@@ -96,16 +92,12 @@ public sealed class DoodonObjectiveSystem : EntitySystem
         {
             if (Deleted(b))
                 continue;
-
             if (!TryComp<DoodonBuildingComponent>(b, out var building))
                 continue;
-
             if (!building.Active)
                 continue;
-
             if (building.TownHall != hallUid)
                 continue;
-
             connected++;
         }
 
