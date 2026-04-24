@@ -583,7 +583,7 @@ public abstract partial class SharedStunSystem
 
     private void OnRefreshKnockedSpeed(Entity<KnockedDownComponent> entity, ref RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(entity.Comp.SpeedModifier);
+        args.ModifySpeed(entity.Comp.SpeedModifier, true); // Goob: bypass immunity
     }
 
     private void OnKnockedTileFriction(Entity<KnockedDownComponent> entity, ref TileFrictionEvent args)
