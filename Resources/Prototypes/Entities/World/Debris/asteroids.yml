@@ -70,9 +70,6 @@
           - id: WallRockBSCrystal # Goobstation
             prob: 0.05
             orGroup: rock
-          - id: WallRockBSCrystal # Goobstation
-            prob: 0.01
-            orGroup: rock
           - id: WallRockGibtonite # Goobstation
             prob: 0.005
             orGroup: rock
