@@ -566,31 +566,13 @@
       "name": "syndicate_hand5"
     },
     {
-      "name": "syndicate_joker",
-      "delays": [
-        [
-          0.5,
-          0.5
-        ]
-      ]
+      "name": "syndicate_joker"
     },
     {
-      "name": "nanotrasen_joker",
-      "delays": [
-        [
-          0.5,
-          0.5
-        ]
-      ]
+      "name": "nanotrasen_joker"
     },
     {
-          "name": "black_joker",
-          "delays": [
-              [
-                  0.5,
-                  0.5
-              ]
-          ]
+      "name": "black_joker"
     },
     {
       "name": "syndicate_box"
