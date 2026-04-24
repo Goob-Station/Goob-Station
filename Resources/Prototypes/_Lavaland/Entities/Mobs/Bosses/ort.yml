@@ -1,0 +1,224 @@
+- type: entity
+  name: Bottomless pit
+  id: MercurySpiderRestingPit
+  description: The radiation seeping from below makes your skin crawl. Something is waiting down there.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - SlipLayer
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hole
+
+- type: entity
+  name: ???
+  id: LavalandBossMercurySpiderForming
+  parent: LavalandMobBase
+  description: The air trembles around it...
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury-skeleton
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - FootstepSound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: MercurySpider
+  - type: TileMovement
+  - type: BossMusic
+    soundId: Bubblegum # TO DO: Change later
+  - type: Aggressive
+    forgiveRange: 100 # You woke it up, no more running.
+  - type: CombatPower # Goobstation
+    factor: 9999
+  - type: SpawnLootOnDeath
+    table: !type:AllSelector
+      children:
+      - id: MercurySpiderCombatFormingAnimation
+
+- type: entity
+  name: Spider of Mercury
+  id: LavalandBossMercurySpiderCombatForm
+  parent: LavalandBossMercurySpiderForming
+  description: Its body is not flesh. It is not metal. You don't have a clue as to what it is.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mercury-walking
+    noMovementLayers:
+      movement:
+        state: mercury
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Dead
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BossImpactFootstep # TO DO: Change later
+      params:
+        volume: -5
+  - type: BossMusic
+    soundId: Bubblegum # TO DO: Change later
+  - type: SpawnLootOnDeath
+    table: !type:AllSelector
+      children:
+      - id: LavalandBossMercurySpiderUFO
+  - type: PointLight
+    radius: 5
+    energy: 1.5
+    color: cyan
+
+- type: entity
+  name: UFO
+  id: LavalandBossMercurySpiderUFO
+  parent: LavalandBossMercurySpiderForming
+  description: The spider was only an empty shell. The true body was above all along.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: UFO-spin
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BossImpactFootstep # TO DO: Change later
+      params:
+        volume: -5
+  - type: PointLight
+    radius: 4
+    energy: 1.5
+    color: green
+  - type: BossMusic
+    soundId: Bubblegum # TO DO: Change later
+  - type: SpawnLootOnDeath
+    table: !type:AllSelector
+      children:
+      - id: MercurySpiderUFODeathAnimation # TO DO: Make system that spawns in melee or ranged depending on damage taken.
+
+
+- type: entity
+  name: The ultimate one
+  id: LavalandBossMercurySpiderAdaptedRanged
+  parent: LavalandBossMercurySpiderForming
+  description: Long-range weaponry analyzed. Adaptation complete.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - state: mercury-ring
+      drawdepth: FloorObjects
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: adapted-ranged
+  - type: CombatMode
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: BossMusic
+    soundId: Bubblegum # TO DO: Change later
+  - type: PointLight
+    radius: 5
+    energy: 1.5
+    color: gold
+
+- type: entity
+  name: The ultimate one
+  id: LavalandBossMercurySpiderAdaptedMelee
+  parent: LavalandBossMercurySpiderForming
+  description: Close-quarters weaponry analyzed. Adaptation complete. 
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - state: mercury-ring
+      drawdepth: FloorObjects
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: adapted-melee
+  - type: CombatMode
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Dead
+  - type: BossMusic
+    soundId: Bubblegum # TO DO: Change later
+  - type: PointLight
+    radius: 5
+    energy: 1.5
+    color: gold

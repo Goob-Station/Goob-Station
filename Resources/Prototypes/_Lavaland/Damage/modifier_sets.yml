@@ -19,3 +19,17 @@
     Structural: 0.5
   flatReductions:
     Blunt: 6 # Just a bit more tough
+
+- type: damageModifierSet
+  id: MercurySpider
+  coefficients:
+    Heat: 0.3
+    Shock: 0.3
+    Piercing: 0.1
+    Structural: 0.01
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Cellular: 0.0
+    Cold: 0.0
+    Poison: 0.0

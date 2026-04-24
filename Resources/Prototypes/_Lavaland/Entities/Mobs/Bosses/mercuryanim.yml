@@ -1,0 +1,108 @@
+- type: entity
+  name: ???
+  id: MercurySpiderFormingAnimation
+  description: The air trembles around it...
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury-forming
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - LavalandBossMercurySpiderForming
+    chance: 1.0
+    intervalSeconds: 6.5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 6.5
+
+- type: entity
+  name: ???
+  id: MercurySpiderFormingCombatAnimation
+  description: Oh no...
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury-combat-forming
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - LavalandBossMercurySpiderCombatForm
+    chance: 1.0
+    intervalSeconds: 1.0
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 1.0
+
+- type: entity
+  name: 
+  id: MercurySpiderUFODeathAnimation
+  description:
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: UFO-death
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - LavalandBossMercurySpiderAdaptedMelee # TO DO: Dynamic system yadda yadda
+    chance: 1.0
+    intervalSeconds: 3.6
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 3.6
