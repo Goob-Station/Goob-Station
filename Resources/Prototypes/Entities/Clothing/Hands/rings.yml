@@ -51,7 +51,7 @@
       - state: gem
         color: "#c1ffff"
   - type: StaticPrice
-    price: 2500
+    price: 1500
 
 - type: entity
   parent: [ RingBase, SilverRingBase ]
@@ -65,7 +65,7 @@
       - state: gem
         color: "#c1ffff"
   - type: StaticPrice
-    price: 1750
+    price: 1400
 
 - type: entity
   parent: [ RingBase, GoldRingBase ]
@@ -80,7 +80,7 @@
       - state: gem
         map: [ "gemColor" ]
   - type: StaticPrice
-    price: 3200
+    price: 2100
   - type: RandomSprite
     getAllGroups: true
     available:
@@ -99,7 +99,7 @@
       - state: gem
         map: [ "gemColor" ]
   - type: StaticPrice
-    price: 2700
+    price: 2000
   - type: RandomSprite
     getAllGroups: true
     available:
