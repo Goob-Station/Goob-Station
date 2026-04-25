@@ -21,10 +21,49 @@ public sealed class ParticleOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
+    // Engine cap on quads per <c>DrawPrimitives</c> call, we never want to feed more than this in a single submit.
+    private const int MaxQuadsPerDraw = 16383;
+
+    private readonly DrawVertexUV2DColor[] _vertexScratch = new DrawVertexUV2DColor[MaxQuadsPerDraw * 4];
+    private readonly ushort[] _indexScratch;
+
     public ParticleOverlay(ParticleSystem system)
     {
         IoCManager.InjectDependencies(this);
         _system = system;
+        _indexScratch = BuildQuadIndices(MaxQuadsPerDraw);
+    }
+
+    private static ushort[] BuildQuadIndices(int quadCount)
+    {
+        var indices = new ushort[quadCount * 6];
+        for (var q = 0; q < quadCount; q++)
+        {
+            var v = (ushort)(q * 4);
+            var i = q * 6;
+            indices[i + 0] = v;
+            indices[i + 1] = (ushort)(v + 1);
+            indices[i + 2] = (ushort)(v + 2);
+            indices[i + 3] = v;
+            indices[i + 4] = (ushort)(v + 2);
+            indices[i + 5] = (ushort)(v + 3);
+        }
+        return indices;
+    }
+
+
+    /// <c>DrawPrimitives</c> rejects atlased textures, so we gotta resolve them manually here to get the correct UVs.
+    private static (Texture src, Box2 uv) ResolveAtlas(Texture tex)
+    {
+        if (tex is AtlasTexture atlas)
+        {
+            var w = (float) atlas.SourceTexture.Width;
+            var h = (float) atlas.SourceTexture.Height;
+            var sr = atlas.SubRegion;
+            return (atlas.SourceTexture,
+                new Box2(sr.Left / w, (h - sr.Bottom) / h, sr.Right / w, (h - sr.Top) / h));
+        }
+        return (tex, new Box2(0f, 0f, 1f, 1f));
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -35,10 +74,9 @@ public sealed class ParticleOverlay : Overlay
         var cosR = MathF.Cos(-eyeAngle);
         var sinR = MathF.Sin(-eyeAngle);
 
-        // Sort emitters by RenderLayer so lower layers draw first
         var sorted = _system.GetEmitters().OrderBy(e => e.Overrides?.RenderLayer ?? e.Proto.RenderLayer);
 
-        string? activeShader = null; // track to avoid redundant calls
+        string? activeShader = null;
 
         foreach (var emitter in sorted)
         {
@@ -48,12 +86,11 @@ public sealed class ParticleOverlay : Overlay
 
             var proto = emitter.Proto;
             var ovr = emitter.Overrides;
-            var tex = emitter.Frames[emitter.AnimFrame];
+            var rawTex = emitter.Frames[emitter.AnimFrame];
+            var (drawTex, uv) = ResolveAtlas(rawTex);
             var baseHalfSize = (ovr?.ParticleSize ?? proto.ParticleSize) * 0.5f;
 
-            // Resolve shader override takes precedence, then prototype, then null
-            string? wantedShader = ovr?.Shader ?? (string.IsNullOrEmpty(proto.Shader) ? null : proto.Shader);
-
+            var wantedShader = ovr?.Shader ?? (string.IsNullOrEmpty(proto.Shader) ? null : proto.Shader);
             if (wantedShader != activeShader)
             {
                 if (wantedShader != null)
@@ -76,80 +113,114 @@ public sealed class ParticleOverlay : Overlay
             }
 
             var screenOrigin = emitter.MapCoords.Position;
+            var stretchFactor = ovr?.StretchFactor ?? proto.StretchFactor;
+            var startColor = ovr?.StartColor ?? proto.StartColor;
+            var endColor = ovr?.EndColor ?? proto.EndColor;
+            var tintColor = ovr?.ColorOverride ?? emitter.ColorOverride;
+
+            var hasColorCurve = proto.ColorOverLifetime.Count > 0;
+            var hasAlphaCurve = proto.AlphaOverLifetime.Count > 0;
+            var hasSizeCurve = proto.SizeOverLifetime.Count > 0;
+
+            var uvBL = uv.BottomLeft;
+            var uvBR = uv.BottomRight;
+            var uvTR = uv.TopRight;
+            var uvTL = uv.TopLeft;
+
+            var uv2BL = new Vector2(0f, 0f);
+            var uv2BR = new Vector2(1f, 0f);
+            var uv2TR = new Vector2(1f, 1f);
+            var uv2TL = new Vector2(0f, 1f);
+
+            var verts = _vertexScratch.AsSpan();
+            var quadCount = 0;
 
             foreach (var particle in emitter.Particles)
             {
                 if (!particle.Alive) continue;
+                if (quadCount >= MaxQuadsPerDraw) break;
 
                 var t = particle.AgeRatio;
 
-                // Color: use ColorOverLifetime gradient if available, otherwise lerp StartColor to EndColor
                 Color color;
-                if (proto.ColorOverLifetime.Count > 0)
+                if (hasColorCurve)
                     color = ParticleSystem.SampleColorCurve(proto.ColorOverLifetime, t);
                 else
-                {
-                    var startColor = ovr?.StartColor ?? proto.StartColor;
-                    var endColor   = ovr?.EndColor   ?? proto.EndColor;
                     color = Color.InterpolateBetween(startColor, endColor, t);
-                }
 
-                // ColorOverride tint
-                var tintColor = ovr?.ColorOverride ?? emitter.ColorOverride;
                 if (tintColor is { } tint)
                     color = new Color(color.R * tint.R, color.G * tint.G, color.B * tint.B, color.A * tint.A);
 
-                // AlphaOverLifetime: multiplied on top of color alpha
-                if (proto.AlphaOverLifetime.Count > 0)
+                if (hasAlphaCurve)
                 {
                     var alpha = ParticleSystem.SampleCurve(proto.AlphaOverLifetime, t);
                     color = color.WithAlpha(color.A * alpha);
                 }
 
-                // Size: base * intensity * SizeMultiplier * SizeOverLifetime curve
                 var halfSize = baseHalfSize * particle.SpawnIntensity * particle.SizeMultiplier;
-                if (proto.SizeOverLifetime.Count > 0)
+                if (hasSizeCurve)
                     halfSize *= ParticleSystem.SampleCurve(proto.SizeOverLifetime, t);
 
-                // Convert screen-space LocalOffset to world offset
                 var local = particle.LocalOffset;
                 var worldOffset = new Vector2(local.X * cosR - local.Y * sinR,
                                               local.X * sinR + local.Y * cosR);
-
                 var origin = proto.WorldSpace ? particle.SpawnOrigin : screenOrigin;
                 var worldPos = origin + worldOffset;
 
-                // StretchFactor: elongate along velocity direction proportional to speed
-                var stretchFactor = ovr?.StretchFactor ?? proto.StretchFactor;
-                if (stretchFactor > 0f)
+                float halfX = halfSize;
+                float halfY = halfSize;
+                float cos, sin;
+                if (stretchFactor > 0f && particle.Velocity.LengthSquared() > 0.000001f)
                 {
                     var velLen = particle.Velocity.Length();
-                    if (velLen > 0.001f)
-                    {
-                        var stretchY = 1f + velLen * stretchFactor;
-                        // Align sprite "up" with velocity direction (screen-space atan2)
-                        var velAngle = MathF.Atan2(particle.Velocity.X, particle.Velocity.Y);
-                        var totalRot = -eyeAngle + velAngle;
-                        var cV = MathF.Cos(totalRot);
-                        var sV = MathF.Sin(totalRot);
-                        handle.SetTransform(new Matrix3x2(cV, sV, -sV, cV, worldPos.X, worldPos.Y));
-                        handle.DrawTextureRect(tex,
-                            new Box2(-halfSize, -halfSize * stretchY, halfSize, halfSize * stretchY),
-                            color);
-                        continue; // skip
-                    }
+                    halfY = halfSize * (1f + velLen * stretchFactor);
+                    var velAngle = MathF.Atan2(particle.Velocity.X, particle.Velocity.Y);
+                    var totalRot = -eyeAngle + velAngle;
+                    cos = MathF.Cos(totalRot);
+                    sin = MathF.Sin(totalRot);
+                }
+                else
+                {
+                    var totalRot = -eyeAngle + particle.Rotation;
+                    cos = MathF.Cos(totalRot);
+                    sin = MathF.Sin(totalRot);
                 }
 
-                // Draw with rotation applied. Rotation is in radians, positive is clockwise, and 0 means "facing up" (aligned with SCREEN/eye/whatever Y axis).
-                var totalRotation = -eyeAngle + particle.Rotation;
-                var cos = MathF.Cos(totalRotation);
-                var sin = MathF.Sin(totalRotation);
-                handle.SetTransform(new Matrix3x2(cos, sin, -sin, cos, worldPos.X, worldPos.Y));
-                handle.DrawTextureRect(tex, new Box2(-halfSize, -halfSize, halfSize, halfSize), color);
+                var hxC = halfX * cos;
+                var hxS = halfX * sin;
+                var hyC = halfY * cos;
+                var hyS = halfY * sin;
+                var tx = worldPos.X;
+                var ty = worldPos.Y;
+
+                var blX = -hxC + hyS + tx;
+                var blY = -hxS - hyC + ty;
+                var brX = hxC + hyS + tx;
+                var brY = hxS - hyC + ty;
+                var trX = hxC - hyS + tx;
+                var trY = hxS + hyC + ty;
+                var tlX = -hxC - hyS + tx;
+                var tlY = -hxS + hyC + ty;
+
+                var v = quadCount * 4;
+                verts[v + 0] = new DrawVertexUV2DColor(new Vector2(blX, blY), uvBL, color) { UV2 = uv2BL };
+                verts[v + 1] = new DrawVertexUV2DColor(new Vector2(brX, brY), uvBR, color) { UV2 = uv2BR };
+                verts[v + 2] = new DrawVertexUV2DColor(new Vector2(trX, trY), uvTR, color) { UV2 = uv2TR };
+                verts[v + 3] = new DrawVertexUV2DColor(new Vector2(tlX, tlY), uvTL, color) { UV2 = uv2TL };
+
+                quadCount++;
             }
+
+            if (quadCount == 0)
+                continue;
+
+            handle.DrawPrimitives(
+                DrawPrimitiveTopology.TriangleList,
+                drawTex,
+                _indexScratch.AsSpan(0, quadCount * 6),
+                verts.Slice(0, quadCount * 4));
         }
 
-        handle.SetTransform(Matrix3x2.Identity);
         handle.UseShader(null);
     }
 }

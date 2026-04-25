@@ -52,7 +52,7 @@ public sealed partial class ParticleSystem : EntitySystem
     /// <summary>
     /// Default global particle budgets per quality level.
     /// </summary>
-    private static readonly int[] QualityBudgets = { 0, 2250, 5500, 8000 };
+    private static readonly int[] QualityBudgets = { 0, 2250, 5500, 10000 };
 
     /// <summary>
     /// Absolute ceiling on live particles regardless of quality settings or anything else.
@@ -66,13 +66,15 @@ public sealed partial class ParticleSystem : EntitySystem
     ///   <item>Emitters stack multiplicatively. Ten "small" effects at 500 particles each is already
     ///   5,000 particles before considering anything else in the scene.</item>
     /// </list>
-    /// I would KILL to be able to render these on the GPU, but that is not currently an option without engine changes.
+    /// Rendering is submitted as one batched GPU draw call per emitter via <see cref="ParticleOverlay"/>,
+    /// so the bottleneck is purely CPU-side simulation. Offloading the physics step to the GPU would require
+    /// engine changes, and we aint doing allat.
     /// <b>Do not raise this limit just because your machine can handle it.</b>
     /// This limit exists to protect performance across all hardware and real gameplay conditions.
     /// If you believe this needs to be increased, you should first justify why the effect cannot
     /// be achieved more efficiently. You do NOT need that many particles.
     /// </summary>
-    private const int HardMaxParticles = 8000;
+    private const int HardMaxParticles = 10000;
 
     /// <summary>
     /// Maximum particles per emitter for <see cref="ParticleEffectPrototype.IgnoreQualitySettings"/> effects
