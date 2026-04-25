@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -17,12 +16,21 @@ public sealed class ParticleOverlay : Overlay
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private readonly ParticleSystem _system;
-    private readonly Dictionary<string, ShaderInstance> _shaderCache = new();
+    private readonly Dictionary<string, ShaderInstance?> _shaderCache = new();
+    private readonly List<ActiveEmitter> _sortBuffer = new();
+    private static readonly Comparison<ActiveEmitter> RenderLayerComparison =
+        (a, b) => (a.Overrides?.RenderLayer ?? a.Proto.RenderLayer)
+            .CompareTo(b.Overrides?.RenderLayer ?? b.Proto.RenderLayer);
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
     // Engine cap on quads per <c>DrawPrimitives</c> call, we never want to feed more than this in a single submit.
     private const int MaxQuadsPerDraw = 16383;
+
+    private static readonly Vector2 Uv2BL = new(0f, 0f);
+    private static readonly Vector2 Uv2BR = new(1f, 0f);
+    private static readonly Vector2 Uv2TR = new(1f, 1f);
+    private static readonly Vector2 Uv2TL = new(0f, 1f);
 
     private readonly DrawVertexUV2DColor[] _vertexScratch = new DrawVertexUV2DColor[MaxQuadsPerDraw * 4];
     private readonly ushort[] _indexScratch;
@@ -74,11 +82,15 @@ public sealed class ParticleOverlay : Overlay
         var cosR = MathF.Cos(-eyeAngle);
         var sinR = MathF.Sin(-eyeAngle);
 
-        var sorted = _system.GetEmitters().OrderBy(e => e.Overrides?.RenderLayer ?? e.Proto.RenderLayer);
+        _sortBuffer.Clear();
+        var live = _system.GetEmitters();
+        for (var i = 0; i < live.Count; i++)
+            _sortBuffer.Add(live[i]);
+        _sortBuffer.Sort(RenderLayerComparison);
 
         string? activeShader = null;
 
-        foreach (var emitter in sorted)
+        foreach (var emitter in _sortBuffer)
         {
             if (emitter.MapCoords.MapId != mapId) continue;
             if (!args.WorldBounds.Contains(emitter.MapCoords.Position)) continue;
@@ -98,10 +110,8 @@ public sealed class ParticleOverlay : Overlay
                     if (!_shaderCache.TryGetValue(wantedShader, out var cached))
                     {
                         if (_proto.Resolve<ShaderPrototype>(wantedShader, out var shaderProto))
-                        {
                             cached = shaderProto.Instance();
-                            _shaderCache[wantedShader] = cached;
-                        }
+                        _shaderCache[wantedShader] = cached;
                     }
                     handle.UseShader(cached);
                 }
@@ -127,18 +137,22 @@ public sealed class ParticleOverlay : Overlay
             var uvTR = uv.TopRight;
             var uvTL = uv.TopLeft;
 
-            var uv2BL = new Vector2(0f, 0f);
-            var uv2BR = new Vector2(1f, 0f);
-            var uv2TR = new Vector2(1f, 1f);
-            var uv2TL = new Vector2(0f, 1f);
-
             var verts = _vertexScratch.AsSpan();
             var quadCount = 0;
 
             foreach (var particle in emitter.Particles)
             {
                 if (!particle.Alive) continue;
-                if (quadCount >= MaxQuadsPerDraw) break;
+
+                if (quadCount >= MaxQuadsPerDraw)
+                {
+                    handle.DrawPrimitives(
+                        DrawPrimitiveTopology.TriangleList,
+                        drawTex,
+                        _indexScratch.AsSpan(0, quadCount * 6),
+                        verts.Slice(0, quadCount * 4));
+                    quadCount = 0;
+                }
 
                 var t = particle.AgeRatio;
 
@@ -170,14 +184,16 @@ public sealed class ParticleOverlay : Overlay
                 float halfX = halfSize;
                 float halfY = halfSize;
                 float cos, sin;
-                if (stretchFactor > 0f && particle.Velocity.LengthSquared() > 0.000001f)
+                var velSq = particle.Velocity.LengthSquared();
+                if (stretchFactor > 0f && velSq > 0.000001f)
                 {
-                    var velLen = particle.Velocity.Length();
+                    var velLen = MathF.Sqrt(velSq);
                     halfY = halfSize * (1f + velLen * stretchFactor);
-                    var velAngle = MathF.Atan2(particle.Velocity.X, particle.Velocity.Y);
-                    var totalRot = -eyeAngle + velAngle;
-                    cos = MathF.Cos(totalRot);
-                    sin = MathF.Sin(totalRot);
+                    var invLen = 1f / velLen;
+                    var cosVel = particle.Velocity.Y * invLen;
+                    var sinVel = particle.Velocity.X * invLen;
+                    cos = cosR * cosVel - sinR * sinVel;
+                    sin = sinR * cosVel + cosR * sinVel;
                 }
                 else
                 {
@@ -203,10 +219,10 @@ public sealed class ParticleOverlay : Overlay
                 var tlY = -hxS + hyC + ty;
 
                 var v = quadCount * 4;
-                verts[v + 0] = new DrawVertexUV2DColor(new Vector2(blX, blY), uvBL, color) { UV2 = uv2BL };
-                verts[v + 1] = new DrawVertexUV2DColor(new Vector2(brX, brY), uvBR, color) { UV2 = uv2BR };
-                verts[v + 2] = new DrawVertexUV2DColor(new Vector2(trX, trY), uvTR, color) { UV2 = uv2TR };
-                verts[v + 3] = new DrawVertexUV2DColor(new Vector2(tlX, tlY), uvTL, color) { UV2 = uv2TL };
+                verts[v + 0] = new DrawVertexUV2DColor(new Vector2(blX, blY), uvBL, color) { UV2 = Uv2BL };
+                verts[v + 1] = new DrawVertexUV2DColor(new Vector2(brX, brY), uvBR, color) { UV2 = Uv2BR };
+                verts[v + 2] = new DrawVertexUV2DColor(new Vector2(trX, trY), uvTR, color) { UV2 = Uv2TR };
+                verts[v + 3] = new DrawVertexUV2DColor(new Vector2(tlX, tlY), uvTL, color) { UV2 = Uv2TL };
 
                 quadCount++;
             }
@@ -221,6 +237,7 @@ public sealed class ParticleOverlay : Overlay
                 verts.Slice(0, quadCount * 4));
         }
 
+        _sortBuffer.Clear();
         handle.UseShader(null);
     }
 }

@@ -32,10 +32,54 @@ public sealed partial class ParticleSystem : EntitySystem
 
     private readonly List<ActiveEmitter> _emitters = new();
     private readonly List<(ProtoId<ParticleEffectPrototype> Id, MapCoordinates Coords)> _pendingSubEmitters = new();
+    private readonly Dictionary<ParticleEffectPrototype, (Texture[] Frames, float[] Delays)> _frameCache = new();
+    private readonly HashSet<ParticleEffectPrototype> _frameResolveFailures = new();
     private ParticleOverlay _particleOverlay = default!;
 
     private int _quality;
+
+    /// <summary>
+    /// Manual override from <see cref="GoobCVars.ParticleGlobalBudget"/>.
+    /// </summary>
+    private int _manualBudget;
+
+    /// <summary>
+    /// Effective global budget for the current frame, derived from <see cref="_quality"/> and <see cref="_manualBudget"/>.
+    /// </summary>
     private int _globalBudget;
+
+    /// <summary>
+    /// Running tally of <see cref="ParticleEffectPrototype.IgnoreQualitySettings"/> emitters in
+    /// <see cref="_emitters"/> so the quality-0 spawn cap doesn't have to scan the whole list every frame.
+    /// </summary>
+    private int _ignoreQualityEmitterCount;
+
+    /// <summary>
+    /// Running tally of all live particles across every emitter. Incremented in
+    /// <see cref="EmitParticle"/>, decremented anywhere a particle's alive state gets set to false.
+    /// </summary>
+    private int _liveParticleCount;
+
+    private static readonly Predicate<ActiveEmitter> RemoveNonIgnoreQualityPredicate =
+        e => !e.Proto.IgnoreQualitySettings;
+
+    private const float TeleportThresholdSquared = 16f * 16f;
+
+    private const float MinParticleLifetimeSeconds = 0.05f;
+
+    /// <summary>
+    /// Eye view-bounds buffer used by the simulation. Off-screen emitters within this padded box
+    /// still simulate so particles already in flight aren't frozen at the screen edge.
+    /// </summary>
+    private const float ViewBoundsPaddingFactor = 1.5f;
+
+    private const int MaxIgnoreQualityEmittersAtZero = 8;
+
+    /// <summary>
+    /// Hard cap on sub-emitter spawns chained from a single tick. Stops
+    /// SubEmitterOnSpawn -> SubEmitterOnSpawn cycles killing the client down with infinite recursion :(
+    /// </summary>
+    private const int MaxSubEmittersPerTick = 256;
 
     /// <summary>
     /// Incrementing handle counter. Old values are abandoned when emitters die, handles are never reused.
@@ -91,22 +135,56 @@ public sealed partial class ParticleSystem : EntitySystem
         _overlay.AddOverlay(_particleOverlay);
 
         _cfg.OnValueChanged(GoobCVars.ParticleQuality, OnQualityChanged, invokeImmediately: true);
-        _cfg.OnValueChanged(GoobCVars.ParticleGlobalBudget, v => _globalBudget = v, invokeImmediately: true);
+        _cfg.OnValueChanged(GoobCVars.ParticleGlobalBudget, OnManualBudgetChanged, invokeImmediately: true);
+
+        _proto.PrototypesReloaded += OnPrototypesReloaded;
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
         _cfg.UnsubValueChanged(GoobCVars.ParticleQuality, OnQualityChanged);
+        _cfg.UnsubValueChanged(GoobCVars.ParticleGlobalBudget, OnManualBudgetChanged);
+        _proto.PrototypesReloaded -= OnPrototypesReloaded;
         _overlay.RemoveOverlay(_particleOverlay);
         _emitters.Clear();
+        _pendingSubEmitters.Clear();
+        _frameCache.Clear();
+        _frameResolveFailures.Clear();
+        _ignoreQualityEmitterCount = 0;
+        _liveParticleCount = 0;
     }
 
     private void OnQualityChanged(int quality)
     {
         _quality = quality;
-        if (quality >= 0 && quality < QualityBudgets.Length)
-            _globalBudget = QualityBudgets[quality];
+        RecomputeBudget();
+    }
+
+    private void OnManualBudgetChanged(int budget)
+    {
+        _manualBudget = budget;
+        RecomputeBudget();
+    }
+
+
+    private void RecomputeBudget()
+    {
+        var qualityBudget = _quality >= 0 && _quality < QualityBudgets.Length
+            ? QualityBudgets[_quality]
+            : 0;
+
+        _globalBudget = _quality >= QualityBudgets.Length - 1
+            ? Math.Min(_manualBudget, HardMaxParticles)
+            : qualityBudget;
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        if (!args.WasModified<ParticleEffectPrototype>())
+            return;
+        _frameCache.Clear();
+        _frameResolveFailures.Clear();
     }
 
     public IReadOnlyList<ActiveEmitter> GetEmitters() => _emitters;
@@ -120,6 +198,9 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         var count = _emitters.Count;
         _emitters.Clear();
+        _pendingSubEmitters.Clear();
+        _ignoreQualityEmitterCount = 0;
+        _liveParticleCount = 0;
         return count;
     }
 
@@ -136,29 +217,29 @@ public sealed partial class ParticleSystem : EntitySystem
             return null;
 
         // Skip quality check if this is a gameplay-critical particle
-        if (_quality == 0 && !proto.IgnoreQualitySettings)
-            return null;
-
-        // Even IgnoreQualitySettings effects are capped at 8 simultaneous emitters when quality is Off.
-        if (_quality == 0 && proto.IgnoreQualitySettings)
+        if (_quality == 0)
         {
-            var ignoreQualityEmitterCount = 0;
-            foreach (var e in _emitters)
-            {
-                if (e.Proto.IgnoreQualitySettings)
-                    ignoreQualityEmitterCount++;
-            }
-            if (ignoreQualityEmitterCount >= 8)
+            if (!proto.IgnoreQualitySettings)
+                return null;
+
+            // Even IgnoreQualitySettings effects are capped at 8 simultaneous emitters when quality is Off.
+            if (_ignoreQualityEmitterCount >= MaxIgnoreQualityEmittersAtZero)
                 return null;
         }
 
         var emitter = CreateEmitter(proto, coords, attachedEntity);
         emitter.ColorOverride = colorOverride;
 
-        if (proto.Burst)
-            BurstEmit(emitter);
-
         _emitters.Add(emitter);
+        if (proto.IgnoreQualitySettings)
+            _ignoreQualityEmitterCount++;
+
+        if (proto.Burst)
+        {
+            BurstEmit(emitter);
+            emitter.Exhausted = true;
+        }
+
         return emitter;
     }
 
@@ -237,10 +318,10 @@ public sealed partial class ParticleSystem : EntitySystem
         EntityUid targetEntity,
         EntityUid? attachedEntity = null)
     {
-        var emitter = SpawnEffect(effectId, coords, attachedEntity);
-        if (emitter != null)
-            emitter.TargetEntity = targetEntity;
-        return emitter;
+        Vector2? targetPos = null;
+        if (!Deleted(targetEntity))
+            targetPos = _transform.GetMapCoordinates(targetEntity).Position;
+        return SpawnEffectAimedInternal(effectId, coords, targetEntity, targetPos, attachedEntity);
     }
 
     /// <summary>
@@ -252,71 +333,202 @@ public sealed partial class ParticleSystem : EntitySystem
         Vector2 targetWorldPosition,
         EntityUid? attachedEntity = null)
     {
-        var emitter = SpawnEffect(effectId, coords, attachedEntity);
-        if (emitter != null)
-            emitter.TargetPosition = targetWorldPosition;
+        return SpawnEffectAimedInternal(effectId, coords, null, targetWorldPosition, attachedEntity);
+    }
+
+    private ActiveEmitter? SpawnEffectAimedInternal(
+        ProtoId<ParticleEffectPrototype> effectId,
+        MapCoordinates coords,
+        EntityUid? targetEntity,
+        Vector2? targetPosition,
+        EntityUid? attachedEntity)
+    {
+        if (!_proto.Resolve(effectId, out var proto))
+            return null;
+
+        if (_quality == 0)
+        {
+            if (!proto.IgnoreQualitySettings)
+                return null;
+            if (_ignoreQualityEmitterCount >= MaxIgnoreQualityEmittersAtZero)
+                return null;
+        }
+
+        var emitter = CreateEmitter(proto, coords, attachedEntity);
+        emitter.TargetEntity = targetEntity;
+        emitter.TargetPosition = targetPosition;
+
+        // Resolve aim angle BEFORE the burst so the burst actually points where it should.
+        if (targetPosition.HasValue)
+        {
+            var eyeAngle = (float) _eye.CurrentEye.Rotation;
+            var worldDir = targetPosition.Value - emitter.MapCoords.Position;
+            if (worldDir.LengthSquared() > 0.0001f)
+            {
+                var cosE = MathF.Cos(eyeAngle);
+                var sinE = MathF.Sin(eyeAngle);
+                var sx = worldDir.X * cosE - worldDir.Y * sinE;
+                var sy = worldDir.X * sinE + worldDir.Y * cosE;
+                emitter.EffectiveEmitAngle = MathF.Atan2(sx, sy);
+            }
+        }
+
+        _emitters.Add(emitter);
+        if (proto.IgnoreQualitySettings)
+            _ignoreQualityEmitterCount++;
+
+        if (proto.Burst)
+        {
+            BurstEmit(emitter);
+            emitter.Exhausted = true;
+        }
+
         return emitter;
     }
 
     public override void FrameUpdate(float frameTime)
     {
+        _pendingSubEmitters.Clear();
+
         // If particles are fully disabled, drop all emitters except those flagged to ignore quality settings.
         if (_quality == 0)
         {
-            _emitters.RemoveAll(e => !e.Proto.IgnoreQualitySettings);
+            for (var i = _emitters.Count - 1; i >= 0; i--)
+            {
+                var em = _emitters[i];
+                if (!RemoveNonIgnoreQualityPredicate(em))
+                    continue;
+
+                foreach (var p in em.Particles)
+                    if (p.Alive)
+                        _liveParticleCount--;
+                SwapRemoveAt(i);
+            }
             if (_emitters.Count == 0)
                 return;
         }
 
         var eye = _eye.CurrentEye;
-        var eyePos = eye.Position.Position;
         var eyeAngle = (float) eye.Rotation;
-        var halfSize = new Vector2(eye.Zoom.X > 0 ? 20f / eye.Zoom.X : 20f, eye.Zoom.Y > 0 ? 15f / eye.Zoom.Y : 15f) * 1.5f;
-        var viewBounds = new Box2(eyePos - halfSize, eyePos + halfSize);
         var currentMapId = eye.Position.MapId;
         var ageCheck = TimeSpan.FromSeconds(frameTime);
 
-        var remainingBudget = _globalBudget;
-        _pendingSubEmitters.Clear();
-        // Iterate emitters in reverse so we can safely remove exhausted ones by index.
-        // For each emitter: skip simulation if off-screen, otherwise deduct its live particles
-        // from the remaining budget and tick it. Remove any emitter that is exhausted and has no live particles left.
+        var viewport = _eye.GetWorldViewport();
+        var pad = MathF.Max(viewport.Width, viewport.Height) * (ViewBoundsPaddingFactor - 1f) * 0.5f;
+        var viewBounds = viewport.Enlarged(pad);
+
         for (var i = _emitters.Count - 1; i >= 0; i--)
         {
             var emitter = _emitters[i];
 
-            // Check if attached entity was deleted even when off-screen.
-            if (emitter.AttachedEntity is { } attachedEnt && Deleted(attachedEnt))
-            {
-                emitter.Exhausted = true;
-                emitter.AttachedEntity = null;
-            }
+            UpdateEmitterPosition(emitter, frameTime);
+            AdvanceEmitterAge(emitter, ageCheck);
 
             var inView = emitter.MapCoords.MapId == currentMapId
                 && viewBounds.Contains(emitter.MapCoords.Position);
 
             if (inView)
-            {
-                foreach (var p in emitter.Particles)
-                {
-                    if (p.Alive)
-                        remainingBudget--;
-                }
-                TickEmitter(emitter, frameTime, eyeAngle, ref remainingBudget, ageCheck);
-            }
+                TickEmitter(emitter, frameTime, eyeAngle);
+            else
+                AgeOffScreenParticles(emitter, ageCheck);
 
             if (emitter.Exhausted && !emitter.HasLiveParticles())
-                _emitters.RemoveAt(i);
+            {
+                if (emitter.Proto.IgnoreQualitySettings)
+                    _ignoreQualityEmitterCount--;
+                SwapRemoveAt(i);
+            }
         }
 
-        // Spawn any sub-emitters collected during this tick.
-        // Use an index-based for loop instead of foreach because SpawnEffect can itself add
-        // new entries to _pendingSubEmitters (sub-emitters of sub-emitters (dont do that)), which would
-        // throw if we were iterating with an enumerator.
-        for (int subIdx = 0; subIdx < _pendingSubEmitters.Count; subIdx++)
+        var processed = 0;
+        for (var subIdx = 0; subIdx < _pendingSubEmitters.Count; subIdx++)
         {
+            if (processed++ >= MaxSubEmittersPerTick)
+            {
+                Log.Warning($"Particle sub-emitter cap of {MaxSubEmittersPerTick} hit in one frame; dropping remaining spawns. Likely a SubEmitterOnSpawn cycle.");
+                break;
+            }
             var (id, coords) = _pendingSubEmitters[subIdx];
             SpawnEffect(id, coords);
+        }
+    }
+
+    private void SwapRemoveAt(int index)
+    {
+        var last = _emitters.Count - 1;
+        if (index != last)
+            _emitters[index] = _emitters[last];
+        _emitters.RemoveAt(last);
+    }
+
+    private void UpdateEmitterPosition(ActiveEmitter emitter, float dt)
+    {
+        if (emitter.AttachedEntity is not { } attachedEnt)
+        {
+            if (!emitter.VelocityInitialized)
+            {
+                emitter.PreviousPosition = emitter.MapCoords.Position;
+                emitter.VelocityInitialized = true;
+            }
+            return;
+        }
+
+        if (Deleted(attachedEnt))
+        {
+            emitter.Exhausted = true;
+            emitter.AttachedEntity = null;
+            return;
+        }
+
+        var attachedCoords = _transform.GetMapCoordinates(attachedEnt);
+        var newPos = attachedCoords.Position;
+        emitter.MapCoords = attachedCoords;
+
+        if (!emitter.VelocityInitialized)
+        {
+            emitter.PreviousPosition = newPos;
+            emitter.VelocityInitialized = true;
+            return;
+        }
+
+        var delta = newPos - emitter.PreviousPosition;
+        if (dt > 0f)
+        {
+            // Detect teleports, without this, particles inheriting velocity get sent flying off-screen
+            // when the attached entity is moved (admin teleport, jaunt, bluespace, etc etc)
+            emitter.EmitterVelocity = delta.LengthSquared() > TeleportThresholdSquared
+                ? Vector2.Zero
+                : delta / dt;
+        }
+        emitter.PreviousPosition = newPos;
+    }
+
+    private static void AdvanceEmitterAge(ActiveEmitter emitter, TimeSpan ageCheck)
+    {
+        emitter.Age += ageCheck;
+
+        if (emitter.Exhausted)
+            return;
+
+        var ovr = emitter.Overrides;
+        var duration = (float)(ovr?.Duration ?? emitter.Proto.Duration).TotalSeconds;
+        if (duration > 0f && emitter.Age.TotalSeconds >= duration)
+            emitter.Exhausted = true;
+    }
+
+    private void AgeOffScreenParticles(ActiveEmitter emitter, TimeSpan ageCheck)
+    {
+        foreach (var p in emitter.Particles)
+        {
+            if (!p.Alive)
+                continue;
+            p.Age += ageCheck;
+            if (p.Age >= p.Lifetime)
+            {
+                p.Alive = false;
+                _liveParticleCount--;
+                emitter.FreePool.Enqueue(p);
+            }
         }
     }
 
@@ -390,37 +602,9 @@ public sealed partial class ParticleSystem : EntitySystem
     /// </summary>
     public static void UpdateIntensity(ActiveEmitter emitter, float intensity) => emitter.Intensity = intensity;
 
-    private void TickEmitter(ActiveEmitter emitter, float dt, float eyeAngle, ref int remainingBudget, TimeSpan ageCheck)
+    private void TickEmitter(ActiveEmitter emitter, float dt, float eyeAngle)
     {
         var proto = emitter.Proto;
-
-        // Update attached entity position and track emitter velocity
-        var newPos = emitter.MapCoords.Position;
-        if (emitter.AttachedEntity is { } attachedEnt)
-        {
-            if (Deleted(attachedEnt))
-            {
-                emitter.Exhausted = true;
-                emitter.AttachedEntity = null;
-            }
-            else
-            {
-                var attachedCoords = _transform.GetMapCoordinates(attachedEnt);
-                newPos = attachedCoords.Position;
-                emitter.MapCoords = attachedCoords; // update both position AND MapId
-            }
-        }
-
-        if (!emitter.VelocityInitialized)
-        {
-            emitter.PreviousPosition = newPos;
-            emitter.VelocityInitialized = true;
-        }
-
-        if (dt > 0f)
-            emitter.EmitterVelocity = (newPos - emitter.PreviousPosition) / dt;
-
-        emitter.PreviousPosition = newPos;
 
         // Aim-at: recompute emit angle toward target each tick
         Vector2? targetWorldPos = null;
@@ -450,7 +634,7 @@ public sealed partial class ParticleSystem : EntitySystem
         {
             // No target, keep in sync with the overridden emit angle if set, otherwise prototype default
             var baseAngle = emitter.Overrides?.EmitAngle ?? emitter.Proto.EmitAngle;
-            emitter.EffectiveEmitAngle = (float) baseAngle.Theta;
+            emitter.EffectiveEmitAngle = (float)baseAngle.Theta;
         }
 
         // Resolve overridable scalars once per tick
@@ -461,14 +645,14 @@ public sealed partial class ParticleSystem : EntitySystem
         var gravity = ovr?.Gravity ?? proto.Gravity;
         var noiseStr = ovr?.NoiseStrength ?? proto.NoiseStrength;
         var noiseFreq = ovr?.NoiseFrequency ?? proto.NoiseFrequency;
-        var duration = (float) (ovr?.Duration ?? proto.Duration).TotalSeconds;
+        var duration = (float)(ovr?.Duration ?? proto.Duration).TotalSeconds;
         var emissionRate = ovr?.EmissionRate ?? proto.EmissionRate;
         var maxCount = ovr?.MaxCount ?? proto.MaxCount;
 
-        // Advance age and check duration
-        emitter.Age += ageCheck;
-        if (!emitter.Exhausted && duration > 0f && emitter.Age.TotalSeconds >= duration)
-            emitter.Exhausted = true;
+        // Drag is exp(-drag*dt) per tick, same value for every particle. Do the math once and pass
+        // the multiplier in to not do this math every single particle..
+        var dragMul = drag > 0f ? MathF.Exp(-drag * dt) : 1f;
+        var termSpeedSq = termSpeed > 0f ? termSpeed * termSpeed : 0f;
 
         // RSI animation
         if (emitter.Delays.Length > 0 && emitter.Frames.Length > 0)
@@ -484,15 +668,17 @@ public sealed partial class ParticleSystem : EntitySystem
             }
         }
 
-        // Simulate live particles
-        int liveCount = 0;
+        // Simulate live particles. Death decrements _liveParticleCount so the emission caps below
+        // (which read _globalBudget - _liveParticleCount) see the freed-up capacity immediately.
+        // liveCount is the post-tick number of survivors used to enforce MaxCount below.
+        var liveCount = 0;
+        var dtSpan = TimeSpan.FromSeconds(dt);
         foreach (var p in emitter.Particles)
         {
             if (!p.Alive)
                 continue;
 
-            liveCount++;
-            p.Age += TimeSpan.FromSeconds(dt);
+            p.Age += dtSpan;
 
             if (p.Age >= p.Lifetime)
             {
@@ -504,19 +690,22 @@ public sealed partial class ParticleSystem : EntitySystem
                 }
 
                 p.Alive = false;
+                _liveParticleCount--;
                 emitter.FreePool.Enqueue(p);
-                liveCount--;
                 continue;
             }
 
-            SimulateParticle(p, dt, drag, constForce, termSpeed, gravity, noiseStr, noiseFreq, proto);
+            SimulateParticle(p, dt, dragMul, constForce, termSpeedSq, termSpeed, gravity, noiseStr, noiseFreq, proto);
+            liveCount++;
         }
 
         // Timed bursts
         if (emitter.Exhausted)
             return;
 
-        for (int b = 0; b < proto.Bursts.Count; b++)
+        var qualityMult = proto.IgnoreQualitySettings ? 1f : QualityMultipliers[Math.Clamp(_quality, 0, QualityMultipliers.Length - 1)];
+
+        for (var b = 0; b < proto.Bursts.Count; b++)
         {
             if (emitter.FiredBursts[b])
                 continue;
@@ -524,55 +713,39 @@ public sealed partial class ParticleSystem : EntitySystem
             if (emitter.Age < burst.Time)
                 continue;
 
-            // Bypass quality settings for gameplay-critical particles
-            var qualityMult = proto.IgnoreQualitySettings ? 1f : QualityMultipliers[Math.Clamp(_quality, 0, QualityMultipliers.Length - 1)];
             var toEmit = (int) Math.Ceiling(burst.Count * qualityMult * emitter.Intensity);
-            for (int j = 0; j < toEmit && remainingBudget > 0; j++)
-            {
+            for (var j = 0; j < toEmit && _liveParticleCount < _globalBudget; j++)
                 EmitParticle(emitter, eyeAngle);
-                remainingBudget--;
-            }
             emitter.FiredBursts[b] = true;
         }
 
         // Continuous emission
-        if (!proto.Burst)
+        // IgnoreQualitySettings emitters are capped at IgnoreQualityMaxParticles unless quality is High.
+        var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
+            ? Math.Min(maxCount, IgnoreQualityMaxParticles)
+            : maxCount;
+        var scaledMax = (int) Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult * emitter.Intensity);
+        var capacity = _globalBudget - _liveParticleCount;
+        var canEmit = Math.Min(scaledMax - liveCount, capacity);
+        if (canEmit > 0)
         {
-            // Bypass quality settings for gameplay-critical particles
-            var qualityMult = proto.IgnoreQualitySettings ? 1f : QualityMultipliers[Math.Clamp(_quality, 0, QualityMultipliers.Length - 1)];
-            // IgnoreQualitySettings emitters are capped at IgnoreQualityMaxParticles unless quality is High.
-            var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
-                ? Math.Min(maxCount, IgnoreQualityMaxParticles)
-                : maxCount;
-            var scaledMax = (int) Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult * emitter.Intensity);
-            var canEmit = Math.Min(scaledMax - liveCount, remainingBudget);
-            if (canEmit > 0)
+            var emissionMult = 1f;
+            if (proto.EmissionOverTime.Count > 0)
             {
-                // EmissionOverTime rate multiplier
-                float emissionMult = 1f;
-                if (proto.EmissionOverTime.Count > 0)
-                {
-                    var t = duration > 0f
-                        ? Math.Clamp((float) (emitter.Age.TotalSeconds / duration), 0f, 1f)
-                        : Math.Clamp((float) emitter.Age.TotalSeconds, 0f, 1f);
-                    emissionMult = SampleCurve(proto.EmissionOverTime, t);
-                }
-
-                emitter.EmitAccum += emissionRate * emissionMult * dt * emitter.Intensity;
-                int toEmit = (int) emitter.EmitAccum;
-                emitter.EmitAccum -= toEmit;
-                toEmit = Math.Min(toEmit, canEmit);
-
-                for (int i = 0; i < toEmit; i++)
-                {
-                    EmitParticle(emitter, eyeAngle);
-                    remainingBudget--;
-                }
+                var t = duration > 0f
+                    ? Math.Clamp((float) (emitter.Age.TotalSeconds / duration), 0f, 1f)
+                    : Math.Clamp((float) emitter.Age.TotalSeconds, 0f, 1f);
+                emissionMult = SampleCurve(proto.EmissionOverTime, t);
             }
-        }
 
-        if (proto.Burst)
-            emitter.Exhausted = true;
+            emitter.EmitAccum += emissionRate * emissionMult * dt * emitter.Intensity;
+            var toEmit = (int) emitter.EmitAccum;
+            emitter.EmitAccum -= toEmit;
+            toEmit = Math.Min(toEmit, canEmit);
+
+            for (var i = 0; i < toEmit; i++)
+                EmitParticle(emitter, eyeAngle);
+        }
     }
 
     private void BurstEmit(ActiveEmitter emitter)
@@ -585,7 +758,12 @@ public sealed partial class ParticleSystem : EntitySystem
         var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
             ? Math.Min(proto.MaxCount, IgnoreQualityMaxParticles)
             : proto.MaxCount;
-        var count = (int) Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult);
+        var count = (int) Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult * emitter.Intensity);
+        var capacity = _globalBudget - _liveParticleCount;
+        if (capacity <= 0)
+            return;
+        if (count > capacity)
+            count = capacity;
         for (int i = 0; i < count; i++)
             EmitParticle(emitter, eyeAngle);
     }
@@ -609,6 +787,7 @@ public sealed partial class ParticleSystem : EntitySystem
         }
 
         p.Alive = true;
+        _liveParticleCount++;
 
         // Resolve spawn time overridable fields
         var ovr = emitter.Overrides;
@@ -625,8 +804,8 @@ public sealed partial class ParticleSystem : EntitySystem
         var rotSpeedVar = (float) (ovr?.RotationSpeedVariance?.Theta ?? proto.RotationSpeedVariance.Theta);
 
         p.Lifetime = TimeSpan.FromSeconds(lifetime + _random.NextFloat(-lifetimeVar, lifetimeVar));
-        if (p.Lifetime < TimeSpan.FromSeconds(0.05))
-            p.Lifetime = TimeSpan.FromSeconds(0.05);
+        if (p.Lifetime < TimeSpan.FromSeconds(MinParticleLifetimeSeconds))
+            p.Lifetime = TimeSpan.FromSeconds(MinParticleLifetimeSeconds);
 
         var spreadHalf = spreadAngle * 0.5f;
         var angle = emitter.EffectiveEmitAngle + _random.NextFloat(-spreadHalf, spreadHalf);
@@ -687,8 +866,9 @@ public sealed partial class ParticleSystem : EntitySystem
     private static void SimulateParticle(
         ParticleData p,
         float dt,
-        float drag,
+        float dragMul,
         Vector2 constForce,
+        float termSpeedSq,
         float termSpeed,
         float gravity,
         float noiseStr,
@@ -696,8 +876,8 @@ public sealed partial class ParticleSystem : EntitySystem
         ParticleEffectPrototype proto)
     {
         // Drag
-        if (drag > 0f)
-            p.Velocity *= MathF.Exp(-drag * dt);
+        if (dragMul != 1f)
+            p.Velocity *= dragMul;
 
         // ConstantForce
         if (constForce != Vector2.Zero)
@@ -717,11 +897,10 @@ public sealed partial class ParticleSystem : EntitySystem
         }
 
         // Terminal speed cap
-        if (termSpeed > 0f)
+        if (termSpeedSq > 0f)
         {
             var speedSq = p.Velocity.LengthSquared();
-            var capSq = termSpeed * termSpeed;
-            if (speedSq > capSq)
+            if (speedSq > termSpeedSq)
                 p.Velocity *= termSpeed / MathF.Sqrt(speedSq);
         }
 
@@ -739,8 +918,9 @@ public sealed partial class ParticleSystem : EntitySystem
         // Noise
         if (noiseStr > 0f)
         {
-            var nx = ValueNoise(p.NoiseOffset.X + (float) p.Age.TotalSeconds * noiseFreq, p.NoiseOffset.Y);
-            var ny = ValueNoise(p.NoiseOffset.X, p.NoiseOffset.Y + (float) p.Age.TotalSeconds * noiseFreq);
+            var noiseT = (float) p.Age.TotalSeconds * noiseFreq;
+            var nx = ValueNoise(p.NoiseOffset.X + noiseT, p.NoiseOffset.Y);
+            var ny = ValueNoise(p.NoiseOffset.X, p.NoiseOffset.Y + noiseT);
             p.LocalOffset += new Vector2(nx, ny) * noiseStr * dt;
         }
 
@@ -764,7 +944,22 @@ public sealed partial class ParticleSystem : EntitySystem
 
     private void ResolveFrames(ActiveEmitter emitter)
     {
-        switch (emitter.Proto.Sprite)
+        var proto = emitter.Proto;
+
+        if (_frameCache.TryGetValue(proto, out var cached))
+        {
+            emitter.Frames = cached.Frames;
+            emitter.Delays = cached.Delays;
+            return;
+        }
+
+        if (_frameResolveFailures.Contains(proto))
+            return;
+
+        Texture[]? frames = null;
+        float[] delays = Array.Empty<float>();
+
+        switch (proto.Sprite)
         {
             case SpriteSpecifier.Rsi rsi:
                 {
@@ -778,27 +973,46 @@ public sealed partial class ParticleSystem : EntitySystem
                     }
                     catch (Exception e)
                     {
-                        Log.Error($"Could not resolve RSI resource '{rsi.RsiPath}' for particle prototype {emitter.Proto.ID}: {e}");
-                        break;
+                        Log.Error($"Could not resolve RSI resource '{rsi.RsiPath}' for particle prototype {proto.ID}: {e}");
+                        _frameResolveFailures.Add(proto);
+                        return;
                     }
 
                     if (!resource.TryGetState(rsi.RsiState, out var state))
-                        break;
+                    {
+                        _frameResolveFailures.Add(proto);
+                        return;
+                    }
 
-                    emitter.Frames = state.GetFrames(RsiDirection.South);
-                    emitter.Delays = state.GetDelays();
+                    frames = state.GetFrames(RsiDirection.South);
+                    delays = state.GetDelays();
                     break;
                 }
             case SpriteSpecifier.Texture tex:
                 {
-                    try { emitter.Frames = new[] { _sprite.Frame0(tex) }; }
+                    try
+                    {
+                        frames = new[] { _sprite.Frame0(tex) };
+                    }
                     catch (Exception e)
                     {
-                        Log.Error($"Could not resolve sprite texture '{tex.TexturePath}' for particle prototype {emitter.Proto.ID}: {e}");
+                        Log.Error($"Could not resolve sprite texture '{tex.TexturePath}' for particle prototype {proto.ID}: {e}");
+                        _frameResolveFailures.Add(proto);
+                        return;
                     }
                     break;
                 }
         }
+
+        if (frames == null)
+        {
+            _frameResolveFailures.Add(proto);
+            return;
+        }
+
+        _frameCache[proto] = (frames, delays);
+        emitter.Frames = frames;
+        emitter.Delays = delays;
     }
 
     private Vector2 SampleEmissionShape(EmissionShapeData shape)

@@ -47,39 +47,38 @@ public sealed class FlammableParticleSystem : EntitySystem
         if (!_appearance.TryGetData(ent, FireVisuals.FireStacks, out float stacks))
             stacks = 0f;
 
-        if (!_active.TryGetValue(ent, out var state))
-        {
-            state = new FireState();
-            _active[ent] = state;
-        }
+        _active.TryGetValue(ent, out var state);
 
-        if (onFire && !state.OnFire)
+        if (onFire)
         {
-            // Ignited: spawn emitter
-            var coords = _transform.GetMapCoordinates(ent);
-            state.SmokeEmitter = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner);
-            state.FireEmitter  = _particles.SpawnEffect(FireEffect,  coords, ent.Owner);
+            if (state == null)
+            {
+                state = new FireState();
+                _active[ent] = state;
+            }
 
-            if (state.SmokeEmitter != null) state.SmokeEmitter.Intensity = 1f;
-            if (state.FireEmitter != null)  state.FireEmitter.Intensity  = 1f;
+            if (!state.OnFire)
+            {
+                var coords = _transform.GetMapCoordinates(ent);
+                state.SmokeEmitter = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner);
+                state.FireEmitter  = _particles.SpawnEffect(FireEffect,  coords, ent.Owner);
 
-            state.OnFire = true;
-        }
-        else if (!onFire && state.OnFire)
-        {
-            // Extinguished: stop emitters
-            StopState(state);
-            state.OnFire = false;
-        }
+                if (state.SmokeEmitter != null) state.SmokeEmitter.Intensity = 1f;
+                if (state.FireEmitter != null)  state.FireEmitter.Intensity  = 1f;
 
-        // Update intensity on live emitters
-        if (state.OnFire && state.FireEmitter != null)
-        {
+                state.OnFire = true;
+            }
+
             var intensity = Math.Clamp(stacks / MaxStacks * 2f, 1f, 2f);
             if (state.FireEmitter != null)
                 state.FireEmitter.Intensity = intensity;
             if (state.SmokeEmitter != null)
                 state.SmokeEmitter.Intensity = intensity;
+        }
+        else if (state is { OnFire: true })
+        {
+            StopState(state);
+            state.OnFire = false;
         }
     }
 
