@@ -1028,49 +1028,288 @@
     - state: default
     - state: idseniorofficer
 
+
+
+# ==========================================
+# TEMPLATE FOR KEYCARDS - DO NOT TOUCH OR I WILL FIND YOU!
+# ==========================================
+
 - type: entity
-  parent: IDCardStandard
-  id: UniversalIDCard
-  name: universal ID card
-  suffix: Admin
-  description: An ID card that gives you access beyond your wildest dreams.
+  parent: Clothing
+  id: IDBaseKeycard
+  name: Level 0 keycard
+  description: A card necessary to access various areas aboard the station.
+  abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    layers:
-    - state: admin
-    - state: idadmin
+    sprite: Objects/Misc/scp_cards.rsi
   - type: Clothing
-    sprite: Objects/Misc/id_cards.rsi
+    slots:
+    - idcard
+    sprite: Objects/Misc/scp_cards.rsi
   - type: Item
-    heldPrefix: green
-  - type: IdCard
-    jobTitle: job-title-universal
-    jobIcon: JobIconAdmin
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
   - type: Access
-    groups:
-    - AllAccess
-    - Silicon
-    tags:
-    - CentralCommand
-    - NuclearOperative
-    - SyndicateAgent
-    - Wizard
-    - Xenoborg
-    # Goobstation
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
-  - type: NanoChatCard # DeltaV
-    notificationsMuted: true
-    listNumber: false
-  - type: Tag #  Ignore Chameleon tags
+  - type: IdCard
+  - type: StationRecordKeyStorage
+  - type: Tag
     tags:
     - DoorBumpOpener
-  - type: AgentIDCard
-  - type: ActivatableUI
-    key: enum.AgentIDCardUiKey.Key
-    inHandsOnly: true
-  - type: UserInterface
-    interfaces:
-      enum.AgentIDCardUiKey.Key:
-        type: AgentIDCardBoundUserInterface
+    - WhitelistChameleon
+    - WhitelistChameleonIdCard
+  - type: StealTarget
+    stealGroup: IDCard
+  - type: MiningPoints 
+  - type: NanoChatCard 
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/card_pickup.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/card_drop.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/card_drop.ogg
+      params:
+        volume: -5
+
+# ==========================================
+# COMMAND & ADMINISTRATION CARDS
+# ==========================================
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardBase
+  name: Level 0 keycard
+  components:
+  - type: Sprite
+    state: base
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardO5
+  name: O5 Command keycard
+  description: A keycard that grants unrestricted access to all facilities.
+  components:
+  - type: Sprite
+    state: o5
+  - type: PresetIdCard
+    job: O5
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardAdmin1
+  name: Level 1 Administration keycard
+  components:
+  - type: Sprite
+    state: adminlvl1
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardAdmin2
+  name: Level 2 Administration keycard
+  components:
+  - type: Sprite
+    state: adminlvl2
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardAdmin3
+  name: Level 3 Administration keycard
+  components:
+  - type: Sprite
+    state: adminlvl3
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardAdmin4
+  name: Level 4 Administration keycard
+  components:
+  - type: Sprite
+    state: adminlvl4
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardAdmin5
+  name: Level 5 Administration keycard (Site Director)
+  description: A keycard belonging to the Site Director. Grants full administrative access to the facility.
+  components:
+  - type: Sprite
+    state: adminlvl5
+  - type: PresetIdCard
+    job: SiteDirector
+
+# ==========================================
+# SCIENCE CARDS
+# ==========================================
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardScience1
+  name: Level 1 Science keycard
+  components:
+  - type: Sprite
+    state: sciencelvl1
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardScience2
+  name: Level 2 Science keycard
+  components:
+  - type: Sprite
+    state: sciencelvl2
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardScience3
+  name: Level 3 Science keycard
+  components:
+  - type: Sprite
+    state: sciencelvl3
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardScience4
+  name: Level 4 Science keycard
+  components:
+  - type: Sprite
+    state: sciencelvl4
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardScience5
+  name: Level 5 Science keycard (Research Director)
+  description: A keycard belonging to the Research Director. Grants full access to all scientific sectors.
+  components:
+  - type: Sprite
+    state: sciencelvl5
+  - type: PresetIdCard
+    job: ResearchDirector
+
+# ==========================================
+# SECURITY CARDS
+# ==========================================
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardSecurity1
+  name: Level 1 Security keycard
+  components:
+  - type: Sprite
+    state: securitylvl1
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardSecurity2
+  name: Level 2 Security keycard
+  components:
+  - type: Sprite
+    state: securitylvl2
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardSecurity3
+  name: Level 3 Security keycard
+  components:
+  - type: Sprite
+    state: securitylvl3
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardSecurity4
+  name: Level 4 Security keycard
+  components:
+  - type: Sprite
+    state: securitylvl4
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardSecurity5
+  name: Level 5 Security keycard
+  components:
+  - type: Sprite
+    state: securitylvl5
+
+# ==========================================
+# CLASS-D CARDS
+# ==========================================
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardClassD
+  name: Class-D keycard
+  components:
+  - type: Sprite
+    state: classd
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardClassDBotany
+  name: Class-D Botany keycard
+  components:
+  - type: Sprite
+    state: classdbot
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardClassDCook
+  name: Class-D Cook keycard
+  components:
+  - type: Sprite
+    state: classdcook
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardClassDJanitor
+  name: Class-D Janitor keycard
+  components:
+  - type: Sprite
+    state: classdjan
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardClassDMedical
+  name: Class-D Medical keycard
+  components:
+  - type: Sprite
+    state: classdmed
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardClassDMining
+  name: Class-D Mining keycard
+  components:
+  - type: Sprite
+    state: classdmine
+
+# ==========================================
+# CHAOS INSURGENCY CARDS
+# ==========================================
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardCI
+  name: Chaos Insurgency keycard
+  description: A keycard belonging to a Chaos Insurgency operative. Designed to bypass Foundation security systems.
+  components:
+  - type: Sprite
+    state: ci
+  - type: PresetIdCard
+    job: ChaosInsurgencyOperative
+
+- type: entity
+  parent: IDBaseKeycard
+  id: IDCardCILead
+  name: Chaos Insurgency Leader keycard
+  description: A high-level keycard belonging to a Chaos Insurgency cell leader. Grants access to the organization's most secure facilities.
+  components:
+  - type: Sprite
+    state: cilead
+  - type: PresetIdCard
+    job: ChaosInsurgencyLeader

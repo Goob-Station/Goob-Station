@@ -1066,3 +1066,15 @@
     tags:
     - ClownSuit
     - WhitelistChameleon
+
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: JumpskirtService
+  name: service suitskirt
+  description: Basic service uniform from a cheap material.
+  components:
+    - type: Sprite
+      sprite: Clothing/Uniforms/Jumpskirt/service.rsi
+    - type: Clothing
+      sprite: Clothing/Uniforms/Jumpskirt/service.rsi

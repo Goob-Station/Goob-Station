@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "license": "CC-BY-3.0",
+    "copyright": "None",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        { "name": "base" },
+        { "name": "o5" },
+        { "name": "ci" },
+        { "name": "cilead" },
+        { "name": "adminlvl1" },
+        { "name": "adminlvl2" },
+        { "name": "adminlvl3" },
+        { "name": "adminlvl4" },
+        { "name": "adminlvl5" },
+        { "name": "sciencelvl1" },
+        { "name": "sciencelvl2" },
+        { "name": "sciencelvl3" },
+        { "name": "sciencelvl4" },
+        { "name": "sciencelvl5" },
+        { "name": "securitylvl1" },
+        { "name": "securitylvl2" },
+        { "name": "securitylvl3" },
+        { "name": "securitylvl4" },
+        { "name": "securitylvl5" },
+        { "name": "classd" },
+        { "name": "classdbot" },
+        { "name": "classdcook" },
+        { "name": "classdjan" },
+        { "name": "classdmed" },
+        { "name": "classdmine" }
+    ]
+}
