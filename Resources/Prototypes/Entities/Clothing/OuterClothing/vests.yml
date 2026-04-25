@@ -288,9 +288,9 @@
     - Groin
     modifiers:
       coefficients:
-        Blunt: 0.2
-        Slash: 0.2
-        Piercing: 0.15
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.9
         Heat: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9

@@ -830,58 +830,39 @@
     graph: cardHelmet
     node: cardhelmet
 
-# --- ДОДАВАТИ ЗВІДСИ ---
 
-# 0. Створюємо кнопку для інтерфейсу
-- type: entity
-  parent: BaseAction
-  id: ActionToggleGuardHelmet
-  name: Toggle Visor
-  description: Toggles the visor on the guard helmet.
-  components:
-  - type: Action
-    useDelay: 0.5
-    itemIconStyle: BigItem
-  - type: InstantAction
-    event: !type:ToggleActionEvent
 
-# 1. БАЗОВИЙ ШОЛОМ (шаблон)
+    #guard Helmet
 - type: entity
-  parent: ClothingHeadHelmetBase
-  id: GuardHelmetBase
-  abstract: true
-  name: Guard helmet
-  description: A helmet worn by the facility guards. The visor looks like it can protect the wearer from weak attacks.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Helmets/guard.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Helmets/guard.rsi
-
-# 2. ВІДКРИТИЙ шолом (можна їсти)
-- type: entity
-  parent: GuardHelmetBase
-  id: GuardHelmetOpen
-  suffix: Open
-  components:
-  - type: ToggleableClothing
-    clothingPrototype: GuardHelmet 
-    action: ActionToggleGuardHelmet
-  - type: Sprite
-    sprite: Clothing/Head/Helmets/guard.rsi
-    layers:
-    - state: icon-open 
-  - type: Clothing
-    equippedPrefix: open 
-
-# 3. ЗАКРИТИЙ шолом (їсти не можна)
-- type: entity
-  parent: GuardHelmetBase
+  parent: [ClothingHeadHelmetBase, BaseSecurityContraband, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: GuardHelmet
+  name: Guard helmet
+  description: Basic helmet used by foundation guards. Provides decent protection. Yet it seems visor should be able to open, but it doesn't. Maybe it's just a design choice?
   components:
-  - type: ToggleableClothing
-    clothingPrototype: GuardHelmetOpen 
-    action: ActionToggleGuardHelmet
-  - type: IngestionBlocker
-
-# --- ДОСЮДИ ---
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/guard.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/guard.rsi
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: FaceHuggerBlocker # Goobstation
+  #- type: HideLayerClothing    #Goobstation
+  #  layers:
+  #    Hair: HEAD

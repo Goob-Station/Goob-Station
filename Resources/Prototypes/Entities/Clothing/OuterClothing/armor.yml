@@ -766,9 +766,9 @@
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
-  id: GuardArmor
+  id: GuardArmour
   name: Guard armour
-  description: Good piece of armor that can protect against most attacks, yet still has some weakpoints.
+  description: Good piece of armor that can protect against most attacks, yet it has some weakpoints.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/guard_armor.rsi
@@ -778,7 +778,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
     - Arm
     - Leg
     traumaDeductions:
@@ -789,10 +788,10 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.40
-        Piercing: 0.45
-        Heat: 0.35
+        Blunt: 0.60
+        Slash: 0.50
+        Piercing: 0.40
+        Heat: 0.45
   - type: GroupExamine
   - type: ModifyDelayedKnockdown
     delayDelta: 2.5
@@ -802,19 +801,18 @@
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
-  id: HeavyGuardArmor
-  name: Heavy Guard armor
-  description: Robust suit that can protect against various attacks and unlike basic armor, this armour doesn`t have weakpoints.
+  id: SergantGuardArmour
+  name: Sergant Guard armour
+  description: Improved version of a basic guard armour. Most weakpoints were removed.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/heavy_guard_armor.rsi
+    sprite: Clothing/OuterClothing/Armor/sergeant_guard_armor.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/heavy_guard_armor.rsi
+    sprite: Clothing/OuterClothing/Armor/sergeant_guard_armor.rsi
   - type: Armor
     coverage:
     - Chest
     - Groin
-    - Tail
     - Arm
     - Leg
     traumaDeductions:
@@ -825,10 +823,10 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.40
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.40
+        Blunt: 0.60
+        Slash: 0.50
+        Piercing: 0.40
+        Heat: 0.45
   - type: GroupExamine
   - type: ModifyDelayedKnockdown
     delayDelta: 2.5
@@ -838,32 +836,31 @@
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
-  id: SergeantGuardArmour
-  name: Sergeant Guard armour
-  description: Improved suit of armor that offers enhanced protection compared to standard guard armor.
+  id: HeavyGuardArmour
+  name: Heavy Guard armour
+  description: Version of armor for heavy contaiment zone guards, designed to protect from any threat.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/sergeant_guard_armor.rsi
+    sprite: Clothing/OuterClothing/Armor/heavy_guard_armor.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/sergeant_guard_armor.rsi
+    sprite: Clothing/OuterClothing/Armor/heavy_guard_armor.rsi
   - type: Armor
     coverage:
     - Chest
     - Groin
-    - Tail
     - Arm
     - Leg
     traumaDeductions:
-      Dismemberment: 0.5
+      Dismemberment: 0.33
       OrganDamage: 0.33
       BoneDamage: 0.33
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.5
+        Blunt: 0.60
+        Slash: 0.50
+        Piercing: 0.40
         Heat: 0.45
   - type: GroupExamine
   - type: ModifyDelayedKnockdown

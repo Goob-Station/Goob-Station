@@ -1,11 +1,11 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Foundation 19",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Foundation 19",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "icon"
@@ -13,14 +13,6 @@
         {
             "name": "equipped-HELMET",
             "directions": 4
-        },
-        {
-            "name": "icon-open"
-        },
-        {
-            "name": "equipped-HELMET-open",
-            "directions": 4
         }
-
     ]
 }

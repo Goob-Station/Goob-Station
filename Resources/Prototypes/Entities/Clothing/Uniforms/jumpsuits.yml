@@ -1569,10 +1569,109 @@
 - type: entity
   parent: ClothingUniformBase
   id: LCZGuardJumpsuit
-  name: "LCZ guard jumpsuit"
-  description: "A jumpsuit worn by the LCZ guards. It's made of a shit and strings and barely holds on"
+  name: LCZ guard jumpsuit
+  description: A jumpsuit worn by the LCZ guards. It's made of a shit and strings and barely holds on
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/lczguard.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/lczguard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: LCZGuardSergeantJumpsuit
+  name: LCZ sergeant guard jumpsuit
+  description: A jumpsuit worn by the LCZ sergeant guards. Made from synthetic materials
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/lcz_sergeant.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/lcz_sergeant.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: LCZGuardCommanderJumpsuit
+  name: LCZ commander guard jumpsuit
+  description: A jumpsuit worn by the LCZ commander guards. Made from natural materials
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/lcz_commander.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/lcz_commander.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Dclass1Jumpsuit
+  name: D-class jumpsuit
+  description: A jumpsuit worn by D-class personnel. It stinks
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/d_class1.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/d_class1.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Dclass2Jumpsuit
+  name: D-class jumpsuit
+  description: A jumpsuit worn by D-class personnel. It stinks
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/d_class2.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/d_class2.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Servicejumpsuit1
+  name: Facility personnel jumpsuit
+  description: Basic jumpsuit which is worn by a facility personnel
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/Service1.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/Service1.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Servicejumpsuit2
+  name: Facility personnel jumpsuit
+  description: Basic jumpsuit which is worn by a facility personnel
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/Service2.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/Service2.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: WhiteLcz
+  name: LCZ Guard white jumpsuit
+  description: A jumpsuit worn by LCZ guards.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/LCZ_white.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/LCZ_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: EngineerJumpsuit
+  name: Engineer jumpsuit
+  description: A jumpsuit worn by Engineers
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/siteengineer.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/siteengineer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: WhiteLczSergeant
+  name: LCZ Sergeant Guard white jumpsuit
+  description: A jumpsuit worn by LCZ sergeant guards.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/LCZ_sergeant_white.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/LCZ_sergeant_white.rsi
