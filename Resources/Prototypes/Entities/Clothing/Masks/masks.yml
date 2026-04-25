@@ -685,6 +685,7 @@
         Heat: 0.9
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
+  - type: Hailer # Goobstation - Hailer
 
 - type: entity
   parent: [ ClothingMaskGas, BaseSecurityCargoContraband ]
