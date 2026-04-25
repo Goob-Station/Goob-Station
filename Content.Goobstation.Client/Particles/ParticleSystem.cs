@@ -191,67 +191,39 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         emitter.Overrides ??= new ParticleRuntimeOverrides();
         var dst = emitter.Overrides;
+        dst.StartColor = src.StartColor ?? dst.StartColor;
+        dst.EndColor = src.EndColor ?? dst.EndColor;
+        dst.ColorOverride = src.ColorOverride ?? dst.ColorOverride;
+        dst.Shader = src.Shader ?? dst.Shader;
+        dst.RenderLayer = src.RenderLayer ?? dst.RenderLayer;
+        dst.ParticleSize = src.ParticleSize ?? dst.ParticleSize;
+        dst.SizeVariance = src.SizeVariance ?? dst.SizeVariance;
+        dst.StretchFactor = src.StretchFactor ?? dst.StretchFactor;
+        dst.Lifetime = src.Lifetime ?? dst.Lifetime;
+        dst.LifetimeVariance = src.LifetimeVariance ?? dst.LifetimeVariance;
+        dst.Speed = src.Speed ?? dst.Speed;
+        dst.SpeedVariance = src.SpeedVariance ?? dst.SpeedVariance;
+        dst.ConstantForce = src.ConstantForce ?? dst.ConstantForce;
+        dst.Gravity = src.Gravity ?? dst.Gravity;
+        dst.Drag = src.Drag ?? dst.Drag;
+        dst.TerminalSpeed = src.TerminalSpeed ?? dst.TerminalSpeed;
+        dst.NoiseStrength = src.NoiseStrength ?? dst.NoiseStrength;
+        dst.NoiseFrequency = src.NoiseFrequency ?? dst.NoiseFrequency;
+        dst.InheritVelocity = src.InheritVelocity ?? dst.InheritVelocity;
+        dst.StartRotation = src.StartRotation ?? dst.StartRotation;
+        dst.StartRotationVariance = src.StartRotationVariance ?? dst.StartRotationVariance;
+        dst.RotationSpeed = src.RotationSpeed ?? dst.RotationSpeed;
+        dst.RotationSpeedVariance = src.RotationSpeedVariance ?? dst.RotationSpeedVariance;
+        dst.EmissionRate = src.EmissionRate ?? dst.EmissionRate;
+        dst.MaxCount = src.MaxCount ?? dst.MaxCount;
+        dst.Duration = src.Duration ?? dst.Duration;
+        dst.SpreadAngle = src.SpreadAngle ?? dst.SpreadAngle;
 
-        // GAZE UPON THY UNHOLY IF STATEMENT BLOCK AND DESPAIR
-        if (src.StartColor.HasValue)
-            dst.StartColor = src.StartColor;
-        if (src.EndColor.HasValue)
-            dst.EndColor = src.EndColor;
-        if (src.ColorOverride.HasValue)
-            dst.ColorOverride = src.ColorOverride;
-        if (src.Shader != null)
-            dst.Shader = src.Shader;
-        if (src.RenderLayer.HasValue)
-            dst.RenderLayer = src.RenderLayer;
-        if (src.ParticleSize.HasValue)
-            dst.ParticleSize = src.ParticleSize;
-        if (src.SizeVariance.HasValue)
-            dst.SizeVariance = src.SizeVariance;
-        if (src.StretchFactor.HasValue)
-            dst.StretchFactor = src.StretchFactor;
-        if (src.Lifetime.HasValue)
-            dst.Lifetime = src.Lifetime;
-        if (src.LifetimeVariance.HasValue)
-            dst.LifetimeVariance = src.LifetimeVariance;
-        if (src.Speed.HasValue)
-            dst.Speed = src.Speed;
-        if (src.SpeedVariance.HasValue)
-            dst.SpeedVariance = src.SpeedVariance;
-        if (src.ConstantForce.HasValue)
-            dst.ConstantForce = src.ConstantForce;
-        if (src.Gravity.HasValue)
-            dst.Gravity = src.Gravity;
-        if (src.Drag.HasValue)
-            dst.Drag = src.Drag;
-        if (src.TerminalSpeed.HasValue)
-            dst.TerminalSpeed = src.TerminalSpeed;
-        if (src.NoiseStrength.HasValue)
-            dst.NoiseStrength = src.NoiseStrength;
-        if (src.NoiseFrequency.HasValue)
-            dst.NoiseFrequency = src.NoiseFrequency;
-        if (src.InheritVelocity.HasValue)
-            dst.InheritVelocity = src.InheritVelocity;
-        if (src.StartRotation.HasValue)
-            dst.StartRotation = src.StartRotation;
-        if (src.StartRotationVariance.HasValue)
-            dst.StartRotationVariance = src.StartRotationVariance;
-        if (src.RotationSpeed.HasValue)
-            dst.RotationSpeed = src.RotationSpeed;
-        if (src.RotationSpeedVariance.HasValue)
-            dst.RotationSpeedVariance = src.RotationSpeedVariance;
-        if (src.EmissionRate.HasValue)
-            dst.EmissionRate = src.EmissionRate;
-        if (src.MaxCount.HasValue)
-            dst.MaxCount = src.MaxCount;
-        if (src.Duration.HasValue)
-            dst.Duration = src.Duration;
-        if (src.SpreadAngle.HasValue)
-            dst.SpreadAngle = src.SpreadAngle;
-        if (src.EmitAngle.HasValue)
+        if (src.EmitAngle is { } emitAngle)
         {
-            dst.EmitAngle = src.EmitAngle;
+            dst.EmitAngle = emitAngle;
             if (emitter.TargetEntity == null && emitter.TargetPosition == null)
-                emitter.EffectiveEmitAngle = (float)src.EmitAngle.Value.Theta;
+                emitter.EffectiveEmitAngle = (float) emitAngle.Theta;
         }
     }
 
@@ -298,7 +270,7 @@ public sealed partial class ParticleSystem : EntitySystem
 
         var eye = _eye.CurrentEye;
         var eyePos = eye.Position.Position;
-        var eyeAngle = (float)eye.Rotation;
+        var eyeAngle = (float) eye.Rotation;
         var halfSize = new Vector2(eye.Zoom.X > 0 ? 20f / eye.Zoom.X : 20f, eye.Zoom.Y > 0 ? 15f / eye.Zoom.Y : 15f) * 1.5f;
         var viewBounds = new Box2(eyePos - halfSize, eyePos + halfSize);
         var currentMapId = eye.Position.MapId;
@@ -366,7 +338,7 @@ public sealed partial class ParticleSystem : EntitySystem
         };
         ResolveFrames(emitter);
 
-        emitter.EffectiveEmitAngle = (float)emitter.Proto.EmitAngle.Theta;
+        emitter.EffectiveEmitAngle = (float) emitter.Proto.EmitAngle.Theta;
 
         foreach (var _ in proto.Bursts)
             emitter.FiredBursts.Add(false);
@@ -478,20 +450,20 @@ public sealed partial class ParticleSystem : EntitySystem
         {
             // No target, keep in sync with the overridden emit angle if set, otherwise prototype default
             var baseAngle = emitter.Overrides?.EmitAngle ?? emitter.Proto.EmitAngle;
-            emitter.EffectiveEmitAngle = (float)baseAngle.Theta;
+            emitter.EffectiveEmitAngle = (float) baseAngle.Theta;
         }
 
         // Resolve overridable scalars once per tick
-        var ovr          = emitter.Overrides;
-        var drag         = ovr?.Drag          ?? proto.Drag;
-        var constForce   = ovr?.ConstantForce ?? proto.ConstantForce;
-        var termSpeed    = ovr?.TerminalSpeed ?? proto.TerminalSpeed;
-        var gravity      = ovr?.Gravity       ?? proto.Gravity;
-        var noiseStr     = ovr?.NoiseStrength ?? proto.NoiseStrength;
-        var noiseFreq    = ovr?.NoiseFrequency ?? proto.NoiseFrequency;
-        var duration     = (float)(ovr?.Duration      ?? proto.Duration).TotalSeconds;
-        var emissionRate = ovr?.EmissionRate  ?? proto.EmissionRate;
-        var maxCount     = ovr?.MaxCount      ?? proto.MaxCount;
+        var ovr = emitter.Overrides;
+        var drag = ovr?.Drag ?? proto.Drag;
+        var constForce = ovr?.ConstantForce ?? proto.ConstantForce;
+        var termSpeed = ovr?.TerminalSpeed ?? proto.TerminalSpeed;
+        var gravity = ovr?.Gravity ?? proto.Gravity;
+        var noiseStr = ovr?.NoiseStrength ?? proto.NoiseStrength;
+        var noiseFreq = ovr?.NoiseFrequency ?? proto.NoiseFrequency;
+        var duration = (float) (ovr?.Duration ?? proto.Duration).TotalSeconds;
+        var emissionRate = ovr?.EmissionRate ?? proto.EmissionRate;
+        var maxCount = ovr?.MaxCount ?? proto.MaxCount;
 
         // Advance age and check duration
         emitter.Age += ageCheck;
@@ -554,7 +526,7 @@ public sealed partial class ParticleSystem : EntitySystem
 
             // Bypass quality settings for gameplay-critical particles
             var qualityMult = proto.IgnoreQualitySettings ? 1f : QualityMultipliers[Math.Clamp(_quality, 0, QualityMultipliers.Length - 1)];
-            var toEmit = (int)Math.Ceiling(burst.Count * qualityMult * emitter.Intensity);
+            var toEmit = (int) Math.Ceiling(burst.Count * qualityMult * emitter.Intensity);
             for (int j = 0; j < toEmit && remainingBudget > 0; j++)
             {
                 EmitParticle(emitter, eyeAngle);
@@ -572,7 +544,7 @@ public sealed partial class ParticleSystem : EntitySystem
             var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
                 ? Math.Min(maxCount, IgnoreQualityMaxParticles)
                 : maxCount;
-            var scaledMax = (int)Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult * emitter.Intensity);
+            var scaledMax = (int) Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult * emitter.Intensity);
             var canEmit = Math.Min(scaledMax - liveCount, remainingBudget);
             if (canEmit > 0)
             {
@@ -581,13 +553,13 @@ public sealed partial class ParticleSystem : EntitySystem
                 if (proto.EmissionOverTime.Count > 0)
                 {
                     var t = duration > 0f
-                        ? Math.Clamp((float)(emitter.Age.TotalSeconds / duration), 0f, 1f)
-                        : Math.Clamp((float)emitter.Age.TotalSeconds, 0f, 1f);
+                        ? Math.Clamp((float) (emitter.Age.TotalSeconds / duration), 0f, 1f)
+                        : Math.Clamp((float) emitter.Age.TotalSeconds, 0f, 1f);
                     emissionMult = SampleCurve(proto.EmissionOverTime, t);
                 }
 
                 emitter.EmitAccum += emissionRate * emissionMult * dt * emitter.Intensity;
-                int toEmit = (int)emitter.EmitAccum;
+                int toEmit = (int) emitter.EmitAccum;
                 emitter.EmitAccum -= toEmit;
                 toEmit = Math.Min(toEmit, canEmit);
 
@@ -606,14 +578,14 @@ public sealed partial class ParticleSystem : EntitySystem
     private void BurstEmit(ActiveEmitter emitter)
     {
         var proto = emitter.Proto;
-        var eyeAngle = (float)_eye.CurrentEye.Rotation;
+        var eyeAngle = (float) _eye.CurrentEye.Rotation;
         // Bypass quality settings for gameplay-critical particles
         var qualityMult = proto.IgnoreQualitySettings ? 1f : QualityMultipliers[Math.Clamp(_quality, 0, QualityMultipliers.Length - 1)];
         // IgnoreQualitySettings emitters are capped at IgnoreQualityMaxParticles to prevent performance issues or otherwise abuse.
         var effectiveMax = proto.IgnoreQualitySettings && _quality < 3
             ? Math.Min(proto.MaxCount, IgnoreQualityMaxParticles)
             : proto.MaxCount;
-        var count = (int)Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult);
+        var count = (int) Math.Ceiling(Math.Min(effectiveMax, HardMaxParticles) * qualityMult);
         for (int i = 0; i < count; i++)
             EmitParticle(emitter, eyeAngle);
     }
@@ -640,17 +612,17 @@ public sealed partial class ParticleSystem : EntitySystem
 
         // Resolve spawn time overridable fields
         var ovr = emitter.Overrides;
-        var lifetime        = (float)(ovr?.Lifetime         ?? proto.Lifetime).TotalSeconds;
-        var lifetimeVar     = (float)(ovr?.LifetimeVariance  ?? proto.LifetimeVariance).TotalSeconds;
-        var spreadAngle     = (float)(ovr?.SpreadAngle?.Theta     ?? proto.SpreadAngle.Theta);
-        var speed0          = ovr?.Speed             ?? proto.Speed;
-        var speedVar        = ovr?.SpeedVariance     ?? proto.SpeedVariance;
-        var sizeVar         = ovr?.SizeVariance      ?? proto.SizeVariance;
-        var inheritVel      = ovr?.InheritVelocity   ?? proto.InheritVelocity;
-        var startRot        = (float)(ovr?.StartRotation?.Theta         ?? proto.StartRotation.Theta);
-        var startRotVar     = (float)(ovr?.StartRotationVariance?.Theta ?? proto.StartRotationVariance.Theta);
-        var rotSpeed        = (float)(ovr?.RotationSpeed?.Theta         ?? proto.RotationSpeed.Theta);
-        var rotSpeedVar     = (float)(ovr?.RotationSpeedVariance?.Theta ?? proto.RotationSpeedVariance.Theta);
+        var lifetime = (float) (ovr?.Lifetime ?? proto.Lifetime).TotalSeconds;
+        var lifetimeVar = (float) (ovr?.LifetimeVariance ?? proto.LifetimeVariance).TotalSeconds;
+        var spreadAngle = (float) (ovr?.SpreadAngle?.Theta ?? proto.SpreadAngle.Theta);
+        var speed0 = ovr?.Speed ?? proto.Speed;
+        var speedVar = ovr?.SpeedVariance ?? proto.SpeedVariance;
+        var sizeVar = ovr?.SizeVariance ?? proto.SizeVariance;
+        var inheritVel = ovr?.InheritVelocity ?? proto.InheritVelocity;
+        var startRot = (float) (ovr?.StartRotation?.Theta ?? proto.StartRotation.Theta);
+        var startRotVar = (float) (ovr?.StartRotationVariance?.Theta ?? proto.StartRotationVariance.Theta);
+        var rotSpeed = (float) (ovr?.RotationSpeed?.Theta ?? proto.RotationSpeed.Theta);
+        var rotSpeedVar = (float) (ovr?.RotationSpeedVariance?.Theta ?? proto.RotationSpeedVariance.Theta);
 
         p.Lifetime = TimeSpan.FromSeconds(lifetime + _random.NextFloat(-lifetimeVar, lifetimeVar));
         if (p.Lifetime < TimeSpan.FromSeconds(0.05))
@@ -767,8 +739,8 @@ public sealed partial class ParticleSystem : EntitySystem
         // Noise
         if (noiseStr > 0f)
         {
-            var nx = ValueNoise(p.NoiseOffset.X + (float)p.Age.TotalSeconds * noiseFreq, p.NoiseOffset.Y);
-            var ny = ValueNoise(p.NoiseOffset.X, p.NoiseOffset.Y + (float)p.Age.TotalSeconds * noiseFreq);
+            var nx = ValueNoise(p.NoiseOffset.X + (float) p.Age.TotalSeconds * noiseFreq, p.NoiseOffset.Y);
+            var ny = ValueNoise(p.NoiseOffset.X, p.NoiseOffset.Y + (float) p.Age.TotalSeconds * noiseFreq);
             p.LocalOffset += new Vector2(nx, ny) * noiseStr * dt;
         }
 
@@ -795,37 +767,37 @@ public sealed partial class ParticleSystem : EntitySystem
         switch (emitter.Proto.Sprite)
         {
             case SpriteSpecifier.Rsi rsi:
-            {
-                RSI? resource;
-                try
                 {
-                    var path = rsi.RsiPath.IsRooted
-                        ? rsi.RsiPath
-                        : SpriteSpecifierSerializer.TextureRoot / rsi.RsiPath;
-                    resource = _resource.GetResource<RSIResource>(path).RSI;
-                }
-                catch (Exception e)
-                {
-                    Log.Error($"Could not resolve RSI resource '{rsi.RsiPath}' for particle prototype {emitter.Proto.ID}: {e}");
+                    RSI? resource;
+                    try
+                    {
+                        var path = rsi.RsiPath.IsRooted
+                            ? rsi.RsiPath
+                            : SpriteSpecifierSerializer.TextureRoot / rsi.RsiPath;
+                        resource = _resource.GetResource<RSIResource>(path).RSI;
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error($"Could not resolve RSI resource '{rsi.RsiPath}' for particle prototype {emitter.Proto.ID}: {e}");
+                        break;
+                    }
+
+                    if (!resource.TryGetState(rsi.RsiState, out var state))
+                        break;
+
+                    emitter.Frames = state.GetFrames(RsiDirection.South);
+                    emitter.Delays = state.GetDelays();
                     break;
                 }
-
-                if (!resource.TryGetState(rsi.RsiState, out var state))
-                    break;
-
-                emitter.Frames = state.GetFrames(RsiDirection.South);
-                emitter.Delays = state.GetDelays();
-                break;
-            }
             case SpriteSpecifier.Texture tex:
-            {
-                try { emitter.Frames = new[] { _sprite.Frame0(tex) }; }
-                catch (Exception e)
                 {
-                    Log.Error($"Could not resolve sprite texture '{tex.TexturePath}' for particle prototype {emitter.Proto.ID}: {e}");
+                    try { emitter.Frames = new[] { _sprite.Frame0(tex) }; }
+                    catch (Exception e)
+                    {
+                        Log.Error($"Could not resolve sprite texture '{tex.TexturePath}' for particle prototype {emitter.Proto.ID}: {e}");
+                    }
+                    break;
                 }
-                break;
-            }
         }
     }
 
@@ -836,21 +808,21 @@ public sealed partial class ParticleSystem : EntitySystem
             case EmissionShapeType.Point:
                 return Vector2.Zero;
             case EmissionShapeType.CircleEdge:
-            {
-                var a = _random.NextFloat(0f, MathF.PI * 2f);
-                return new Vector2(MathF.Cos(a), MathF.Sin(a)) * shape.Radius;
-            }
+                {
+                    var a = _random.NextFloat(0f, MathF.PI * 2f);
+                    return new Vector2(MathF.Cos(a), MathF.Sin(a)) * shape.Radius;
+                }
             case EmissionShapeType.CircleFill:
-            {
-                var a = _random.NextFloat(0f, MathF.PI * 2f);
-                var r = shape.Radius * MathF.Sqrt(_random.NextFloat(0f, 1f));
-                return new Vector2(MathF.Cos(a), MathF.Sin(a)) * r;
-            }
+                {
+                    var a = _random.NextFloat(0f, MathF.PI * 2f);
+                    var r = shape.Radius * MathF.Sqrt(_random.NextFloat(0f, 1f));
+                    return new Vector2(MathF.Cos(a), MathF.Sin(a)) * r;
+                }
             case EmissionShapeType.Box:
-            {
-                return new Vector2(_random.NextFloat(-shape.BoxExtents.X, shape.BoxExtents.X),
-                                   _random.NextFloat(-shape.BoxExtents.Y, shape.BoxExtents.Y));
-            }
+                {
+                    return new Vector2(_random.NextFloat(-shape.BoxExtents.X, shape.BoxExtents.X),
+                                       _random.NextFloat(-shape.BoxExtents.Y, shape.BoxExtents.Y));
+                }
             default:
                 return Vector2.Zero;
         }
@@ -957,8 +929,8 @@ public sealed partial class ParticleSystem : EntitySystem
     /// </summary>
     private static float ValueNoise(float x, float y)
     {
-        var ix = (int)MathF.Floor(x);
-        var iy = (int)MathF.Floor(y);
+        var ix = (int) MathF.Floor(x);
+        var iy = (int) MathF.Floor(y);
         var fx = x - ix;
         var fy = y - iy;
 
@@ -966,9 +938,9 @@ public sealed partial class ParticleSystem : EntitySystem
         fx = fx * fx * (3f - 2f * fx);
         fy = fy * fy * (3f - 2f * fy);
 
-        var a = Hash(ix,     iy);
+        var a = Hash(ix, iy);
         var b = Hash(ix + 1, iy);
-        var c = Hash(ix,     iy + 1);
+        var c = Hash(ix, iy + 1);
         var d = Hash(ix + 1, iy + 1);
 
         // maths scare me what do these letters mean
