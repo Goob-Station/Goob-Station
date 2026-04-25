@@ -96,7 +96,7 @@ public sealed partial class ParticleSystem : EntitySystem
     /// <summary>
     /// Default global particle budgets per quality level.
     /// </summary>
-    private static readonly int[] QualityBudgets = { 0, 2250, 5500, 10000 };
+    private static readonly int[] QualityBudgets = { 0, 2250, 5500, 10000, 20000 };
 
     /// <summary>
     /// Absolute ceiling on live particles regardless of quality settings or anything else.

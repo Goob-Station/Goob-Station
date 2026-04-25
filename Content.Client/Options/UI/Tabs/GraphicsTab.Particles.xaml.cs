@@ -10,10 +10,11 @@ public sealed partial class GraphicsTab
         private readonly IConfigurationManager _cfg;
         private readonly OptionDropDown _dropDown;
 
-        private const int QualityOff    = 0;
-        private const int QualityLow    = 1;
+        private const int QualityOff = 0;
+        private const int QualityLow = 1;
         private const int QualityMedium = 2;
-        private const int QualityHigh   = 3;
+        private const int QualityHigh = 3;
+        private const int QualityUltra = 4;
         private const int QualityDefault = QualityHigh;
 
         public OptionParticleQuality(OptionsTabControlRow controller, IConfigurationManager cfg, OptionDropDown dropDown) : base(controller)
@@ -21,10 +22,11 @@ public sealed partial class GraphicsTab
             _cfg = cfg;
             _dropDown = dropDown;
             var button = dropDown.Button;
-            button.AddItem(Loc.GetString("ui-options-particles-off"),    QualityOff);
-            button.AddItem(Loc.GetString("ui-options-particles-low"),    QualityLow);
+            button.AddItem(Loc.GetString("ui-options-particles-off"), QualityOff);
+            button.AddItem(Loc.GetString("ui-options-particles-low"), QualityLow);
             button.AddItem(Loc.GetString("ui-options-particles-medium"), QualityMedium);
-            button.AddItem(Loc.GetString("ui-options-particles-high"),   QualityHigh);
+            button.AddItem(Loc.GetString("ui-options-particles-high"), QualityHigh);
+            button.AddItem(Loc.GetString("ui-options-particles-ultra"), QualityUltra);
             button.OnItemSelected += args =>
             {
                 _dropDown.Button.SelectId(args.Id);
