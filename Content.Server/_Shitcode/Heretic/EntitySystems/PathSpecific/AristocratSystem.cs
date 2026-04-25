@@ -14,7 +14,7 @@
 
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Audio;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
@@ -51,6 +51,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Content.Server.Atmos.Components;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 

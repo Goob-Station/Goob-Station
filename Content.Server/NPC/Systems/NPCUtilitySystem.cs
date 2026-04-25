@@ -35,6 +35,7 @@ using Content.Server._Goobstation.Wizard.NPC;
 using Content.Shared.Foldable;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
+using Content.Server.Nutrition.EntitySystems;
 
 namespace Content.Server.NPC.Systems;
 
