@@ -334,6 +334,8 @@
     - WhitelistChameleon
     - GasMask
     - Mask
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskPullableBase
