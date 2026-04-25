@@ -2,6 +2,7 @@
 
 using Content.Goobstation.Shared.Particles;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Particles;
 

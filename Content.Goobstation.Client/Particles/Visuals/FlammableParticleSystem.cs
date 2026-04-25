@@ -4,6 +4,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Particles;
 using Robust.Client.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Particles.Visuals;
 
@@ -11,7 +12,7 @@ namespace Content.Goobstation.Client.Particles.Visuals;
 /// Particles when entities are on fire.
 /// </summary>
 public sealed class FlammableParticleSystem : EntitySystem
-{
+{ /* flammable isnt shared yet gg.
     [Dependency] private readonly ParticleSystem _particles = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -102,4 +103,5 @@ public sealed class FlammableParticleSystem : EntitySystem
             state.SmokeEmitter = null;
         }
     }
+    */
 }
