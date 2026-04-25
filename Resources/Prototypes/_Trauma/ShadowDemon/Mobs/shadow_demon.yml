@@ -1,0 +1,166 @@
+# Note: ShadowGrapple exists on the heart of the shadow demon
+- type: entity
+  parent: [AppearanceShadowDemon, SimpleSpaceMobBase]
+  id: BaseMobShadowDemon
+  name: shadow demon
+  suffix: ""
+  description: A creature that's barely tangible, you can feel its gaze piercing you.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/ShadowDemon/demon.rsi
+    state: shadow_demon
+  - type: Stamina
+    baseCritThreshold: 150
+  - type: NightVision
+    color: "#AA4A44"
+    activateSound: null
+    deactivateSound: null
+  - type: Insulated
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ShadowDemon
+  - type: StatusEffects # Overwriting basesimplemob to remove flash
+    allowed:
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - RadiationProtection
+    - Drowsiness
+    - Adrenaline
+  - type: MobMover
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: InteractionOutline
+  - type: NoSlip
+  - type: Clickable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-shadow-demon-name
+    description: ghost-role-information-shadow-demon-description
+    rules: ghost-role-information-shadow-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Physics
+    bodyType: KinematicController
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: Examiner
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      collection: ShadowDemonPunch
+    animation: WeaponArcShadowClaw
+    damage:
+      types:
+        Heat: 10
+        Slash: 12
+        Structural: 50
+  - type: Evil
+  - type: DemonicWhisper # Allows the demon to demonic whisper
+  - type: Puller
+    needsHands: false
+  - type: Targeting
+  - type: Speech # It has same speech patterns as other demons
+    speechVerb: SlaughterDemon
+    speechSounds: ShadowDemon
+  - type: TypingIndicator
+    proto: guardian
+  - type: Crawler
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: StandingState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 666
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: NpcFactionMember
+    factions:
+    - DevilFaction
+  - type: AlwaysTakeHoly
+  - type: PressureImmunity
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Trauma/Mobs/ShadowDemon/shadowdeath.ogg
+  - type: Vocal
+    sounds:
+      Male: ShadowDemon
+      Female: ShadowDemon
+      Unsexed: ShadowDemon
+  - type: ZombieImmune
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      100: 1
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Sulfur
+        Quantity: 300
+    bleedReductionAmount: 30
+  - type: TemperatureDamage
+    coldDamage:
+      types:
+        Cold: 0
+    heatDamage:
+      types:
+        Heat: 0
+    heatDamageThreshold: 666
+    coldDamageThreshold: 66
+  - type: ActionGrant
+    actions:
+      - ShadowDemonicWhisperAction
+  - type: LightDetection
+    onLightLevel: 0.5
+  - type: LightDetectionDamage
+    detectionValueRegeneration: 1
+    maxDetection: 8
+    damageToDeal:
+      types:
+        Heat: 16
+  - type: LightSpeedModifier       # Makes you run faster on light or darkness
+  # requiredLightLevel: 0.25       # | The light level required to activate the speed modifier
+    walkModifier: 1.5
+    sprintModifier: 1.5
+  - type: ShadowCocoonMaker      # Allows you to make shadow cocoons
+  # cocoonDelay: 4                 # | How long it to takes to cocoon someone
+  - type: ShadowCrawl            # Allows you to shadow crawl
+    phaseIn: ShadowDemonPhaseIn
+    phaseOut: ShadowDemonPhaseOut
+  # damageModiferFromLights: 0.5   # | How much damage immunity they get while in crawl form
+  # actionCooldown: 4              # | The cooldown when they exit jaunt
+  # actionCooldownAfterGrapple: 10 # | The cooldown they shoot a grapple
+  - type: LanguageSpeaker
+    speaks:
+    - TauCetiBasic
+    - Eldritch
+    understands:
+    - TauCetiBasic
+    - Eldritch
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound

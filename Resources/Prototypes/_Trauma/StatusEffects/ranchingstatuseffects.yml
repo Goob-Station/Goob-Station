@@ -18,3 +18,27 @@
   components:
   - type: ChangeDamageModiferSetStatusEffect
     damageModifierSet: KnightChickenEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectDreamEgg
+  name: dream egg effect
+  components:
+  - type: StunnedStatusEffect
+  - type: StatusEffectAlert
+    alert: Stun
+  - type: KnockdownStatusEffect
+  - type: StatusEffectEffects
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Asphyxiation: -5
+          Blunt: -5
+          Heat: -5
+          Piercing: -5
+          Slash: -5
+          Cold: -5
+          Radiation: -2
+          Poison: -2
+      useTargeting: false

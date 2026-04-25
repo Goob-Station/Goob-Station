@@ -6,3 +6,5 @@ age-markup-adult = It's in it's golden years
 age-markup-senior = [color=#d1d1d1]It's movements are slow and it's hairs are turning gray[/color]
 
 grabbed-shatter-popup = The chicken shatters!
+
+dream-egg-popup = You feel your muscles shut down as they undergo regeneration...

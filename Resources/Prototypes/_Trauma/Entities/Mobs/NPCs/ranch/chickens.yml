@@ -494,6 +494,9 @@
     - MobDreamRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -502,6 +505,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
 
 - type: entity
   parent: BaseMobHenRanch
@@ -510,6 +516,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
 
 # Poultrygeist
 
@@ -524,6 +533,9 @@
     - MobPoultrygeistRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
 
 - type: entity
   parent: BaseMobHenRanch
@@ -532,6 +544,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -540,6 +555,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
 
 # Spicy
 
@@ -959,6 +977,12 @@
   - type: NpcFactionMember
     factions:
     - Raptor
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-reptile
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/lizard_happy.ogg
   - type: FavoriteFood
     tag:
     - Nugget
@@ -972,6 +996,7 @@
     entToSpawn:
     - MobRaptorHen
     - MobRaptorRooster
+  - type: Tameable
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-raptor.rsi
 

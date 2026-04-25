@@ -1,14 +1,14 @@
-using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Traits.Assorted;
 using Content.Trauma.Shared.AnimalAgeing.Components;
 using Content.Trauma.Shared.AnimalAgeing.Events;
 using Content.Trauma.Shared.Ranching.Components;
 using Content.Trauma.Shared.Ranching.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Trauma.Shared.AnimalAgeing;
@@ -21,6 +21,7 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
     [Dependency] private readonly HappinessSystem _happiness = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     public override void Initialize()
     {
@@ -186,6 +187,12 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         var spawnedEnt = PredictedSpawnAtPosition(entToSpawn, uid.ToCoordinates());
 
         CopyComps(uid, spawnedEnt);
+
+        if (TryComp<NpcFactionMemberComponent>(uid, out var factionMember))
+        {
+            _faction.ClearFactions(uid);
+            _faction.AddFactions(uid, factionMember.Factions);
+        }
 
         // Directly copy age as CopyComps doesn't copy variables for some reason
         var addedAgeingComponent = CopyComp(uid,  spawnedEnt, animalAgeing);

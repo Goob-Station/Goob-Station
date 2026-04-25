@@ -30,6 +30,35 @@
   - Wizard
   - Xenoborg
   - NanoTrasen
+  - RaptorTamed
+
+- type: npcFaction
+  id: RaptorTamed
+  friendly:
+  - NanoTrasen
+  hostile:
+  - Chicken
+  - Changeling
+  - Heretic
+  - Blob
+  - Shadowling
+  - PirateFaction
+  - Wraith
+  - Lavafauna
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Xenoborg
+  - Raptor # For Jurassic park
 
 - type: npcFaction
   id: Insurgent
