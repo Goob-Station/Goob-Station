@@ -38,7 +38,7 @@ jobs:
 
       - name: Generate Changelog
         run: |
-          cd "Tools/batch_changelog"
+          cd "Tools/changelog"
           node batch_changelog.js
         shell: bash
         continue-on-error: true
