@@ -138,7 +138,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         _explosion.QueueExplosion(
             args.User,
             typeId: "Default",
-            totalIntensity: 1, // contract explosions should not cause any kind of major structural damage. you should at worst need to weld a window or repair a table.
+            totalIntensity: 1,
             slope: 1,
             maxTileIntensity: 1,
             maxTileBreak: 0,
@@ -303,7 +303,18 @@ public sealed partial class DevilContractSystem : EntitySystem
             if (!match.Success)
                 continue;
 
+            var targetKey = match.Groups["target"].Value.Trim().ToLowerInvariant().Replace(" ", "");
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
+
+            var locId = _targetResolvers.Keys.FirstOrDefault(id =>
+                Loc.GetString(id).Equals(targetKey, StringComparison.OrdinalIgnoreCase));
+
+            if (locId == default)
+                continue;
+
+            var target = _targetResolvers[locId](contract.Comp);
+            if (target == contract.Comp.ContractOwner)
+                continue;
 
             if (!_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clauseProto)
                 || !contract.Comp.CurrentClauses.Add(clauseProto))
@@ -333,12 +344,19 @@ public sealed partial class DevilContractSystem : EntitySystem
             var targetKey = match.Groups["target"].Value.Trim().ToLowerInvariant().Replace(" ", "");
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
-            var locId = _targetResolvers.Keys.FirstOrDefault(id => Loc.GetString(id).Equals(targetKey, StringComparison.OrdinalIgnoreCase));
-            var resolver = _targetResolvers[locId];
+            var locId = _targetResolvers.Keys.FirstOrDefault(id =>
+                Loc.GetString(id).Equals(targetKey, StringComparison.OrdinalIgnoreCase));
 
-            if (resolver(contract.Comp) == null)
+            if (locId == default)
+                continue;
+
+            var targetEntity = _targetResolvers[locId](contract.Comp);
+
+            if (targetEntity == contract.Comp.ContractOwner)
             {
-                _sawmill.Warning($"Unknown resolver: {resolver(contract.Comp)}");
+                _sawmill.Warning($"Skipping clause {clauseKey}: targets contract owner.");
+                if (contract.Comp.Signer is { } signer)
+                    _popupSystem.PopupEntity(Loc.GetString("devil-contract-clause-targets-contractor", ("clause", clauseKey)), contract, signer, PopupType.MediumCaution);
                 continue;
             }
 
@@ -355,13 +373,10 @@ public sealed partial class DevilContractSystem : EntitySystem
                 continue;
             }
 
-
-            var targetEntity = resolver(contract.Comp);
-
             if (targetEntity is not null)
                 ApplyEffectToTarget(targetEntity.Value, clause, contract);
             else
-                _sawmill.Warning($"Invalid target entity from resolver for clause {clauseKey} in contract {ToPrettyString(contract)}");
+                _sawmill.Warning($"Invalid target entity for clause {clauseKey} in contract {ToPrettyString(contract)}");
         }
     }
 

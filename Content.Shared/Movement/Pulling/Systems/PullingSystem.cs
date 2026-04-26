@@ -537,10 +537,17 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
+        // Goob section start - Devil clause can prevent pulling
+        if (!TryComp<PullableComponent>(pullableUid, out var pullableComp))
+        {
+            return false;
+        }
+
         if (!TryComp<PhysicsComponent>(pullableUid, out var physics))
         {
             return false;
         }
+        // Goob section end
 
         if (physics.BodyType == BodyType.Static)
         {

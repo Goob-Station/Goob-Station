@@ -62,6 +62,9 @@ public sealed partial class DevilContractSoulOwnershipEvent : BaseDevilContractE
 public sealed partial class DevilContractLoseHandEvent : BaseDevilContractEvent;
 
 [DataDefinition, Serializable]
+public sealed partial class DevilContractLoseArmsEvent : BaseDevilContractEvent;
+
+[DataDefinition, Serializable]
 public sealed partial class DevilContractLoseLegEvent : BaseDevilContractEvent;
 
 [DataDefinition, Serializable]
