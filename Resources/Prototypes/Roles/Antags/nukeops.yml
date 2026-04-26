@@ -141,13 +141,13 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 90000 # 25 hours - Goobstation
+    time: 108000 # 30 hours - Goobstation
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000 # 10h Goobstation
+    time: 54000 # 15h Goobstation
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 18000 # 5h Goobstation
+    time: 36000 # 10h Goobstation
 # should be changed to nukie playtime when thats tracked (wyci)
   - !type:SpeciesRequirement
     inverted: true
