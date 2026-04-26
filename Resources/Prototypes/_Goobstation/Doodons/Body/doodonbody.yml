@@ -1,0 +1,40 @@
+- type: body
+  id: Doodon
+  name: "doodon"
+  root: chest           # Animal with human arms
+  slots:
+    chest:
+      part: ChestAnimal
+      connections:
+      - groin
+      - right hand
+      - left hand
+      organs:
+        lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal
+    # right arm:
+      # part: RightArmHuman
+      # connections:
+      # - right hand
+    # left arm:
+      # part: LeftArmHuman
+      # connections:
+      # - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
