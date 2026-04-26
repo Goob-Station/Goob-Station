@@ -16,3 +16,5 @@ lathe-category-mechs-durand = Durand
 lathe-category-mechs-equipment = Mech equipment
 lathe-category-mechs-weapons = Mech weapons
 lathe-category-modsuit = MOD Suits
+lathe-category-shipments = Goods shipments
+lathe-category-license-receipts = License receipts

@@ -73,6 +73,7 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+    - ClothingShoes # Goobstation
   - type: ProtectedFromStepTriggers
   - type: Armor # provide minimal covering to your feet
     coverage:

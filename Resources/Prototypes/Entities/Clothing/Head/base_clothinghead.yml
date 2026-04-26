@@ -131,6 +131,7 @@
     - ClothMade
     - WhitelistChameleon
     - DroneUsable # Goobstation
+    - ClothingHats # Goobstation
 
 - type: entity
   abstract: true

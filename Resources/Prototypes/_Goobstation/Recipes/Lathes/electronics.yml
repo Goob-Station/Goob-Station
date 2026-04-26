@@ -175,3 +175,10 @@
   id: CameraElectronics
   icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }
   result: CameraElectronics
+
+#MARK: Cargo
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+  id: GoodsPackerCircuitboard
+  icon: { sprite: _Goobstation/Structures/Machines/goods_packer.rsi, state: base } # Goobstation
+  result: GoodsPackerCircuitboard
