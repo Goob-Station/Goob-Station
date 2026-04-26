@@ -1639,6 +1639,7 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
+  - type: ZombieImmune # Goob - zeds fuck up xenobio
   - type: VentCrawler # goobstation - Ventcrawl
     allowInventory: false
   - type: CombatMode
