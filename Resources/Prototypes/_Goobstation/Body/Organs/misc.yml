@@ -14,9 +14,40 @@
     sprite: _Goobstation/Objects/Misc/sandevistan.rsi
     state: icon
     scale: 0.5, 0.5
+  - type: OrganActions
+    actions:
+    - ActionToggleSandevistan
   - type: Organ
     onAdd:
     - type: SandevistanUser
+
+- type: entity
+  parent: [ OrganHumanHeart, BaseSyndicateContraband ]
+  id: OrganHeartStatvekaSandevistan
+  name: mi13 statveka sandevistan
+  description: A cybernetic heart implant that drastically improves the user's speed and reflexes for a short duration, at the cost of endurance. Once used by a certain mercenary.
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/sandevistan.rsi
+    layers:
+    - state: icon
+    scale: 0.5, 0.5
+  - type: OrganActions
+    actions:
+    - ActionToggleSandevistan
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
+      movementSpeedModifier: 1
+      attackSpeedModifier: 1
+      doAfterModifier: 1
+      slowfieldEnabled: true
+      thresholds:
+        Warning: 6
+        Shaking: 10
+        Damage: 20
+        Disable: 24
 
 - type: entity
   parent: [OrganHumanHeart, BaseSyndicateContraband]
