@@ -220,7 +220,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSecTechFilled
-  cost: 2200
+  cost: 3000 # Goobstation - was 2200, increased because of EMP stock
   category: cargoproduct-category-name-security
   group: market
 
