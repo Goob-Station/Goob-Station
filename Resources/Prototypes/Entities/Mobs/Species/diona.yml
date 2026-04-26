@@ -142,6 +142,7 @@
     understands:
     - TauCetiBasic
     - RootSpeak
+  - type: FoliageIgnoringVision # Goobstation - Dynamic Foliage Layer Changes
   - type: BodyEmotes
     soundsId: DionaBodyEmotes
   - type: IgnoreKudzu

@@ -65,6 +65,7 @@
       sprite: Objects/Misc/kudzu.rsi
       state: kudzu_11
       drawdepth: Overdoors
+    - type: IsFoliage # Goobstation - Dynamic Foliage Layer Changes
     - type: KudzuVisuals
     - type: Clickable
     - type: Fixtures
