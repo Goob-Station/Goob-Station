@@ -1,0 +1,81 @@
+- type: entity
+  id: FloraMossPale
+  name: pale moss
+  description: A pale carpet of moss that looks disgusting and tasty at the same time.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Appearance
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Sprite
+    drawdepth: HighFloorObjects
+    sprite: _Lavaland/Objects/Decoration/Flora/Misc/moss_light.rsi
+    state: full
+  - type: IconSmooth
+    key: palemoss
+    base: moss
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: "/Audio/Weapons/slash.ogg"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Temperature
+    heatDamage: { }
+    coldDamageThreshold: 293 # Doesn't survive room temperature
+    coldDamage:
+      types:
+        Cold: 5
+  - type: Food
+    requiredStomachs: 2 # ruminants have 4 stomachs but i dont care to give them literally 4 stomachs. 2 is good
+    delay: 0.5
+  - type: FlavorProfile
+    flavors:
+    - fiber
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ WeedKiller, PlantBGone ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          types:
+            Heat: 0.5
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.9
+    sprintSpeedModifier: 0.9
+    ignoreWhitelist:
+      components:
+      - IgnoreKudzu

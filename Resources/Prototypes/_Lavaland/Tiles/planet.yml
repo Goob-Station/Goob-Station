@@ -32,3 +32,30 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+
+- type: tile
+  id: FloorPlanetGrassLight
+  name: tiles-grass-light-planet-floor
+  sprite: /Textures/_Lavaland/Tiles/Planet/LightGrass/grass.png
+  variants: 2
+  placementVariants:
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 3
+  edgeSprites:
+    SouthEast: /Textures/_Lavaland/Tiles/Planet/LightGrass/single_edge_SE.png
+    NorthEast: /Textures/_Lavaland/Tiles/Planet/LightGrass/single_edge_NE.png
+    NorthWest: /Textures/_Lavaland/Tiles/Planet/LightGrass/single_edge_NW.png
+    SouthWest: /Textures/_Lavaland/Tiles/Planet/LightGrass/single_edge_SW.png
+    South: /Textures/_Lavaland/Tiles/Planet/LightGrass/double_edge_S.png
+    East: /Textures/_Lavaland/Tiles/Planet/LightGrass/double_edge_E.png
+    North: /Textures/_Lavaland/Tiles/Planet/LightGrass/double_edge_N.png
+    West: /Textures/_Lavaland/Tiles/Planet/LightGrass/double_edge_W.png
+  baseTurf: FloorBasaltLavaland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemGrass
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
