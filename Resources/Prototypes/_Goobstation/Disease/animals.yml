@@ -35,3 +35,20 @@
       chance: 1
       power: 2
       spreadType: Blood
+
+- type: entity
+  parent: MobMousePlague
+  id: MobMouseLyme
+  suffix: lyme
+  components:
+  - type: GrantDisease
+    baseDisease: DiseaseLyme
+    complexity: 30
+    possibleTypes:
+    - Bacterial
+  - type: DiseaseOnHit
+    disease: DiseaseLyme
+    spreadParams:
+      chance: 0.2 # higher chance for plague mice
+      power: 1
+      spreadType: Contact

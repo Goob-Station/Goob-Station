@@ -19,3 +19,31 @@
       power: 1
       chance: 0.5
       spreadType: Aerial
+
+- type: entity
+  id: DiseaseBehaviorSpreadOnContact
+  parent: DiseaseBehaviorBase
+  name: collide spread
+  description: can now transmit on contact
+  components:
+  - type: DiseaseEffect
+    complexity: 20 # incresed spread
+  - type: DiseaseOnCollide
+    whitelist:
+      components:
+      - DiseaseCarrier # standard target
+    spreadParams:
+      chance: 1
+      power: 1
+      spreadType: Contact
+
+- type: entity
+  id: DiseaseBehaviorSpreadOnContactIgnorePuddles
+  parent: DiseaseBehaviorSpreadOnContact
+  name: collide spread
+  description: can now transmit on contact
+  components:
+  - type: DiseaseOnCollide
+    blacklist:
+      components:
+      - puddle

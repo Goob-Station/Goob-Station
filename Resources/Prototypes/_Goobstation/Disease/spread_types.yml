@@ -6,3 +6,7 @@
 - type: diseaseSpread
   id: Blood
   name: Blood
+
+- type: diseaseSpread
+  id: Contact
+  name: Contact
