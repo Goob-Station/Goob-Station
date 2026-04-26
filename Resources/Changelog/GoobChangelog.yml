@@ -22767,3 +22767,11 @@ Entries:
       message: Captain gear colour corrected
   id: 2605
   time: '2026-04-26T01:19:22.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: Hailer to swat mask
+    - type: Add
+      message: Smoke blocker to explorer mask
+  id: 2606
+  time: '2026-04-26T11:40:14.0000000+00:00'
