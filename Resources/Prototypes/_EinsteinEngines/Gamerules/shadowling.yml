@@ -10,7 +10,6 @@
     - prefRoles: [ Shadowling ]
       playerRatio: 30
       chaosScore: 500
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - CommandStaff

@@ -62,7 +62,7 @@
     sprite: _Goobstation/Heretic/Clothing/Head/toy_hood.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHoodSchemaMonk
   categories: [ HideSpawnMenu ]
   name: hood of a monastic vestments
@@ -78,21 +78,3 @@
   - type: HideLayerClothing
     slots:
     - Hair
-  - type: Armor
-    coverage:
-    - Head
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Caustic: 0.5
-    traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
-      VeinsDamage: 0.0
-      NerveDamage: 0.0
-  - type: FireProtection
-    reduction: 0.1

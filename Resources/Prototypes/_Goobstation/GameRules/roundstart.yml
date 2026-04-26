@@ -67,7 +67,6 @@
       max: 4
       playerRatio: 12
       chaosScore: 200
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - CommandStaff
@@ -279,7 +278,6 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
         - CommandStaff
