@@ -702,6 +702,8 @@
   - type: VentClogRule
     weakReagents:
     - Slime
+    - SpaceGlue
+    - SpaceLube
 
 - type: entity
   id: SlimesSpawn
