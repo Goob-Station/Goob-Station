@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterDraculaCoat
+  name: vampire coat
+  description: One cookie… two cookies… three cookies… Ah ah ah!
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Coats/draculacoat.rsi
+    - type: Clothing
+      sprite: _Goobstation/Clothing/OuterClothing/Coats/draculacoat.rsi

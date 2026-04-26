@@ -36,7 +36,7 @@ namespace Content.Shared.Body.Systems;
 
 public abstract partial class SharedBloodstreamSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
+    [Dependency] public readonly SharedSolutionContainerSystem SolutionContainer = default!; // Goobstation: made from protected to public
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
