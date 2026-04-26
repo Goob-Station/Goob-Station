@@ -110,11 +110,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> RoundEndNoEorgPopupTime =
         CVarDef.Create("game.round_end_eorg_popup_time", 5f, CVar.SERVER | CVar.REPLICATED);
-  
-    /// Easy mode for biomass requirements on cloning. If true, 30% less biomass is required to clone mobs.
-    /// </summary>
-    public static readonly CVarDef<bool> CloneBiomassEasyMode =
-        CVarDef.Create("goob.clone_biomass_easy_mode", false, CVar.SERVER | CVar.SERVER);
 
     #region Player Listener
 
