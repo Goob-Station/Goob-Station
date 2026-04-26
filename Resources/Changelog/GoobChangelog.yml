@@ -21715,3 +21715,9 @@ Entries:
       message: Removed Hristov from the ThunderDome.
   id: 2470
   time: '2026-03-05T03:34:31.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Captain gear colour corrected
+  id: 2471
+  time: '2026-04-26T01:19:22.0000000+00:00'
