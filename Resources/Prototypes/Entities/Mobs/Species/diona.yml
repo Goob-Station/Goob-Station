@@ -46,6 +46,10 @@
   id: BaseMobDiona
   abstract: true
   components:
+  # Goobstation - Diona can see through kudzu rendered on the "kudzu" layer.
+  - type: SeeOverLayer
+    layers:
+    - kudzu
   - type: HumanoidAppearance
     species: Diona
   - type: Hunger
