@@ -256,6 +256,8 @@
         - id: ClothingNeckCloakGay
         - id: ClothingNeckCloakEnby
         - id: ClothingNeckCloakPan
+        - id: ClothingNeckCloakKaijuCloak #Imported from Impstation14, Illegal Cloaks
+        - id: ClothingNeckCloakFugitiveCloak #Imported from Impstation14, Illegal Cloaks
       - id: ToySkeleton
       - id: Basketball
       - id: Football
