@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "bush 1-3 made by @sturm3046 (Discord), bush 4-7 made by Jaraten for Engenia project",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bush1"
+    },
+    {
+      "name": "bush2"
+    },
+    {
+      "name": "bush3"
+    },
+    {
+      "name": "bush4"
+    },
+    {
+      "name": "bush5"
+    },
+    {
+      "name": "bush6"
+    },
+    {
+      "name": "bush7"
+    }
+  ]
+}
