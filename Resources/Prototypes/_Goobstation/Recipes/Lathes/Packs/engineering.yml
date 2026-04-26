@@ -32,7 +32,6 @@
   recipes:
   - LatheUpgradeKitHyper
   - LatheUpgradeKitCryo
-  - UpgradeKitAutomation
   - AutodocUpgradeKitBluespace
 
 - type: latheRecipePack
