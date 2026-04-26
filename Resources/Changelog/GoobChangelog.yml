@@ -21745,3 +21745,13 @@ Entries:
       message: extended functionality of the intellicard
   id: 2475
   time: '2026-03-30T06:37:38.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Citric juices, Allicin (garlic/onions), Vitamins and Omnizine will now
+        help you if you get sick; to varying degrees
+    - type: Add
+      message: 'Anacea and Pax will now weaken your immune system. '
+  id: 2476
+  time: '2026-03-30T06:39:16.0000000+00:00'
