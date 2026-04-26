@@ -21745,3 +21745,11 @@ Entries:
       message: All Heretic icons resprited
   id: 2475
   time: '2026-04-03T17:31:00.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        The character editor is now available from the escape menu, allowing you
+        to edit profiles at any time.
+  id: 2476
+  time: '2026-04-15T01:16:48.0000000+00:00'
