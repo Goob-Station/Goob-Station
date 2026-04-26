@@ -457,6 +457,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: SpeakFontOverride # Goob - clown speaks pink comic sans
+    fontId: LDFComicSans
+    color: "#e93790"
 
 - type: entity
   parent: ClothingMaskClownBase
