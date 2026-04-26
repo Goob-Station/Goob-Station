@@ -1,3 +1,4 @@
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -13,4 +14,9 @@ public sealed partial class ClothingCoatingComponent : Component
     [DataField(required: true)]
     [AlwaysPushInheritance]
     public ComponentRegistry Components { get; private set; } = new();
+
+    /// <summary>
+    ///     Entities on this blacklist cannot be coated
+    /// </summary>
+    [DataField] public EntityWhitelist? Blacklist;
 }

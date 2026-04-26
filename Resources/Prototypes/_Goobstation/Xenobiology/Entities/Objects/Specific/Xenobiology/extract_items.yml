@@ -173,6 +173,9 @@
       color: "#ff3333"
   - type: ClothingCoating
     coatingName: clothing-coating-xenobio-volatile
+    blacklist:
+      tags:
+      - NoSlimeExtractSlowReset
     components:
     - type: VeryFlammable
     - type: SpeedModifierImmunity
