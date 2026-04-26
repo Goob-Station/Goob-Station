@@ -28,8 +28,8 @@ public sealed class SSDTimerSystem : EntitySystem
         if (!args.IsInDetailsRange || !component.IsSSD)
             return;
 
-		var curTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
-		var time = curTime - component.FallAsleepTime;
+		var timeFellAsleep = component.FallAsleepTime - TimeSpan.FromSeconds(_icSsdSleepTime);
+		var time = _timing.CurTime - timeFellAsleep;
 		args.PushMarkup(Loc.GetString("comp-ssd-person-examined", ("ent", uid), ("time", (int) time.TotalMinutes)));
     }
 }
