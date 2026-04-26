@@ -1,0 +1,47 @@
+- type: entity
+  id: OrganMassMushroomOrganismStomach
+  parent: OrganHumanStomach
+  name: stomach
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/organs.rsi
+    state: mush_stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 75
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Metabolizer
+    # mm very yummy
+    maxPoisonsProcessable: 6
+    metabolizerTypes: [ Plant ]
+
+- type: entity
+  id: OrganMassMushroomOrganismLungs
+  parent: OrganHumanLungs
+  name: lungs
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/organs.rsi
+    layers:
+    - state: mush_lungs
+
+- type: entity
+  id: OrganMassMushroomOrganismEyes
+  parent: OrganHumanEyes
+  name: eyes
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/MassMushroomOrganism/organs.rsi
+    layers:
+    - state: mush_eye
+  - type: Organ
+    onAdd:
+    - type: NightVision
+      color: DarkOrange
+      activateSound: null
+      deactivateSound: null
