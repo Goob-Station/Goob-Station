@@ -21765,3 +21765,11 @@ Entries:
       message: Cult starting spell now is Shunt instead of Null Glare
   id: 2478
   time: '2026-03-30T02:45:07.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: Abductor ship now has biofabs for all your devious experiments.
+    - type: Tweak
+      message: uranium window and syndicate IFF console to abductor ship
+  id: 2479
+  time: '2026-03-30T04:04:17.0000000+00:00'
