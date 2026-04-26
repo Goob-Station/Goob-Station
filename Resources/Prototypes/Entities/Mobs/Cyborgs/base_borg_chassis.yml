@@ -670,12 +670,7 @@
     stunTime: 5
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
-    subverted: true
-  - type: IntrinsicRadioReceiver # Goob - moved binary to CM
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+  - type: IntrinsicRadioReceiver # can only use binary and xenoborg channel
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
@@ -683,6 +678,11 @@
     channels:
     - Mothership
     - Xenoborg
+    #- Binary # Goob - moved binary to CM
+  - type: CollectiveMind # Goob
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: Repairable
     doAfterDelay: 13 # 25% more HP, so 30% more time to heal
   - type: BorgChassis
@@ -743,6 +743,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PinpointerMothership: # drop a pinpointer to the mothership upon being destructed
+            min: 1
+            max: 1
       - !type:EmptyContainersBehaviour
         containers:
         - borg_brain
@@ -756,7 +761,7 @@
     guides:
     - Cyborgs
     - Robotics
-    # TODO: add Xenoborg guide (part 7 spoilers)
+    - Xenoborgs
   - type: Access
     enabled: false
     tags:
@@ -767,3 +772,4 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Xenoborg

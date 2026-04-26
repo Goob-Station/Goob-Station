@@ -39,3 +39,5 @@
         Steel: 25
       chemicalComposition:
         Silicon: 5
+    - type: Circuitboard
+
