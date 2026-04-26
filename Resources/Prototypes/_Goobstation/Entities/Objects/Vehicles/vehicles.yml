@@ -47,10 +47,10 @@
           !type:PhysShapeCircle
           radius: 0.45
         density: 100
-        mask:
-          - MobMask
+        mask:   # Goobstation vehicle layer
+          - VehicleMask 
         layer:
-          - MobLayer
+          - VehicleLayer # Goobstation vehicle layer end
         hard: true
   - type: Pullable
   - type: Damageable
