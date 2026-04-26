@@ -58,7 +58,7 @@ public sealed partial class VentClogRuleComponent : Component
     [DataField]
     public IReadOnlyList<ProtoId<ReagentPrototype>> WeakReagents = new ProtoId<ReagentPrototype>[]
     {
-        "SpaceLube", "SpaceGlue"
+        "SpaceLube", "SpaceGlue", "Slime" ///Slime: Goobstation
     };
 
     /// <summary>
