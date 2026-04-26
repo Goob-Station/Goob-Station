@@ -21755,3 +21755,9 @@ Entries:
       message: 'Anacea and Pax will now weaken your immune system. '
   id: 2476
   time: '2026-03-30T06:39:16.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: extended functionality of the intellicard
+  id: 2477
+  time: '2026-03-30T06:37:38.0000000+00:00'
