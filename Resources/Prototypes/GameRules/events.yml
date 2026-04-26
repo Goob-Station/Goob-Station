@@ -700,6 +700,8 @@
   - type: GameRule
     chaosScore: 70
   - type: VentClogRule
+    weakReagents:
+    - Slime
 
 - type: entity
   id: SlimesSpawn
