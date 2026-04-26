@@ -76,7 +76,7 @@ public sealed class CreatePollCommand : LocalizedEntityCommands
     }
 }
 
-[AdminCommand(AdminFlags.Maintainer)]
+[AdminCommand(AdminFlags.Polls)]
 public sealed class ClosePollCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly PollManager _pollManager = default!;
