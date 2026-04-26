@@ -48,7 +48,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 6565
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
