@@ -1,0 +1,124 @@
+using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Nyanotrasen.Holograms;
+using Content.Shared.Popups;
+using Robust.Shared.Spawners;
+using Robust.Shared.Timing;
+
+namespace Content.Goobstation.Shared.ObraDinn;
+
+/// <summary>
+/// This handles the clock item
+/// </summary>
+public sealed class ObraDinnClockSystem : EntitySystem
+{
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mobstate = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<ObraDinnClockComponent,UseInHandEvent>(OnUseInHand);
+        SubscribeLocalEvent<ObraDinnClockComponent,AfterInteractEvent>(OnInteract);
+    }
+
+    private void OnUseInHand(Entity<ObraDinnClockComponent> ent, ref UseInHandEvent args)
+    {
+        if (_timing.CurTime < ent.Comp.Cooldown)
+            return;
+        ent.Comp.Cooldown = _timing.CurTime + ent.Comp.CooldownTime;
+
+        if (ent.Comp.Map == null && ent.Comp.Location == null )
+        {
+            _popup.PopupPredicted(Loc.GetString("obradinn-activate-fail-case"),args.User,args.User);
+            return;
+        }
+        if (ent.Comp.Map == null ||  ent.Comp.Map.Value != Transform(args.User).MapID)
+        {
+            _popup.PopupPredicted(Loc.GetString("obradinn-activate-fail-map"),args.User,args.User);
+            return;
+        }
+        if (ent.Comp.Location == null  || !Transform(args.User).Coordinates.TryDistance(EntityManager, ent.Comp.Location.Value, out var distance))
+        {
+            _popup.PopupPredicted(Loc.GetString("obradinn-activate-fail-no-distance"),args.User,args.User);
+            return;
+        }
+
+        if (distance > ent.Comp.DistanceFromCrimeScene)
+        {
+            _popup.PopupPredicted(Loc.GetString("obradinn-activate-fail-distance", ("distance",Math.Round(distance))),args.User,args.User);
+            return;
+        }
+
+        _popup.PopupPredicted(Loc.GetString("obradinn-activate-success"), args.User,args.User);
+
+        WatchActivates(ent, args.User);
+
+        ent.Comp.Location = null;
+        ent.Comp.Map = null;
+        ent.Comp.Witnesses.Clear();
+        ent.Comp.Cooldown = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.Lifetime);// clock cant be used as long as the holograms are active
+
+        Dirty(ent);
+    }
+    private void OnInteract(Entity<ObraDinnClockComponent> ent, ref AfterInteractEvent args)
+    {
+        if (_timing.CurTime < ent.Comp.Cooldown)
+            return;
+        ent.Comp.Cooldown = _timing.CurTime + ent.Comp.CooldownTime;
+
+        if (args.Target == null)
+            return;
+
+        if (!_mobstate.IsDead(args.Target.Value) || !TryComp<ObraDinnBodyComponent>(args.Target, out var body))
+        {
+            _popup.PopupPredicted(Loc.GetString("obradinn-interact-fail-target"), args.User, args.User);
+            return;
+        }
+
+        ent.Comp.Location = body.Location;
+        ent.Comp.Map = body.Map;
+        ent.Comp.Witnesses.Clear();
+
+        foreach (var witness in body.Witnesses) //if we just copy the list it gets deleted on clear.
+            ent.Comp.Witnesses.Add(witness);
+
+        _popup.PopupPredicted(Loc.GetString("obradinn-interact-success"), args.User,args.User);
+        Dirty(ent);
+    }
+
+    private void WatchActivates(Entity<ObraDinnClockComponent> ent, EntityUid user)
+    {
+        foreach (var witness in ent.Comp.Witnesses)
+        {
+            if (TerminatingOrDeleted(witness.Uid))
+                continue;
+
+            var proto = MetaData(witness.Uid).EntityPrototype;
+            if(proto == null)
+                continue;
+
+            var hologram = PredictedSpawnAtPosition (proto.ID, witness.Loc);
+
+            _humanoidAppearance.CloneAppearance(witness.Uid, hologram );
+
+            _metaData.SetEntityName(hologram, Loc.GetString("obradinn-hologram-name"));
+            _mobstate.ChangeMobState(hologram, witness.MobState);
+
+            //add despawn
+            var despawn = EnsureComp<TimedDespawnComponent>(hologram);
+            despawn.Lifetime = ent.Comp.Lifetime;
+
+            EnsureComp<HologramVisualsComponent>(hologram);
+
+            var hologramComp = EnsureComp<ObraDinnHologramComponent>(hologram);
+            hologramComp.RealName = witness.Name;
+        }
+    }
+
+}
