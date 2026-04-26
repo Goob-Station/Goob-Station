@@ -21787,3 +21787,37 @@ Entries:
       message: Changed Drone Hp from 60 to 25
   id: 2480
   time: '2026-03-30T05:49:06.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        New base changeling ability - Regenerate. Regrow missing limbs and heal
+        broken bones on the fly.
+    - type: Tweak
+      message: Leaving regenerative stasis now only costs 15 chemicals (from 30).
+    - type: Tweak
+      message: >-
+        Regenerative stasis now only takes up a single action slot rather than
+        2.
+    - type: Tweak
+      message: Regenerative stasis automatically triggers when you die.
+    - type: Tweak
+      message: You can no longer ghost while in regenerative stasis.
+    - type: Tweak
+      message: >-
+        Instead of showing popups when the timer isn't met, the time to exit
+        stasis is displayed as the action's cooldown.
+    - type: Tweak
+      message: >-
+        Regenerative stasis no longer regrows limbs, cures diseases and purges
+        chemicals.
+    - type: Tweak
+      message: Headslugs no longer have regenerative stasis
+    - type: Tweak
+      message: >-
+        Changeling fleshmend will no longer restore blood volume. Use regenerate
+        instead.
+    - type: Fix
+      message: Stasis is no longer instant for creatures without a critical state.
+  id: 2481
+  time: '2026-03-30T06:31:53.0000000+00:00'
