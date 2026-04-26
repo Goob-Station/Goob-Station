@@ -21759,3 +21759,9 @@ Entries:
       message: Gate no longer has a mapped holoparasite.
   id: 2477
   time: '2026-04-22T08:39:00.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Cult starting spell now is Shunt instead of Null Glare
+  id: 2478
+  time: '2026-03-30T02:45:07.0000000+00:00'
