@@ -1,0 +1,52 @@
+name: PR Changelogs (Batch)
+on:
+  workflow_dispatch:
+
+env:
+  GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+  CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
+
+jobs:
+  changelog:
+    runs-on: self-hosted
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Master
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          ref: "${{ vars.CHANGELOG_BRANCH }}"
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "${{ vars.CHANGELOG_USER }}"
+          git config --global user.email "${{ vars.CHANGELOG_EMAIL }}"
+        shell: bash
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install Dependencies
+        run: |
+          cd "Tools/changelog"
+          npm install
+        shell: bash
+        continue-on-error: true
+
+      - name: Generate Changelog
+        run: |
+          cd "Tools/changelog"
+          node batch_changelog.js
+        shell: bash
+        continue-on-error: true
+
+      - name: Commit Changelog
+        run: |
+          git add *.yml
+          git commit -m "Batch Changelog"
+          git push
+        shell: bash
+        continue-on-error: true

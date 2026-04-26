@@ -54,7 +54,7 @@ using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Actions;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Emp;
