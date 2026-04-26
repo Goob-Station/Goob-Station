@@ -80,7 +80,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
+using Content.Goobstation.Common.Emag;
 using Content.Goobstation.Common.Materials;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
@@ -89,6 +89,7 @@ using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Humanoid;
 using Content.Shared.Lock;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
@@ -98,6 +99,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared.Materials;
 
@@ -110,7 +112,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly SharedAmbientSoundSystem AmbientSound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] protected readonly SharedAudioSystem _audio = default!; // Gooobstation - Make it protected
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
@@ -146,10 +148,10 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, MaterialReclaimerComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareAnyFlag(args.Type, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckAnyFlag(uid, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic. Only allow one emag type
             return;
 
         args.Handled = true;
@@ -184,6 +186,8 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         if (HasComp<RecyclableOnUnlockComponent>(item) && _lockSystem.IsLocked(item))
             return false;
 
+        if (HasComp<MobStateComponent>(item) && !CanGib(uid, item, component) && !CanCluwnified(uid, item, component)) // Goobstation - Added Cluwnified
+       
         // Goobstation
         if (HasComp<MaterialReclaimerImmuneComponent>(item))
             return false;
@@ -310,6 +314,23 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
                !component.Broken &&
                HasComp<BodyComponent>(victim) &&
                _emag.CheckFlag(uid, EmagType.Interaction);
+    }
+
+    /// <summary>
+    /// Goobstation - Can someone be dressed like cluwne when reclaimed
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="victim"></param>
+    /// <param name="component"></param>
+    /// <returns></returns>
+    public bool CanCluwnified(EntityUid uid, EntityUid victim, MaterialReclaimerComponent component)
+    {
+        return component.Powered &&
+               component.Enabled &&
+               !component.Broken &&
+               HasComp<HumanoidAppearanceComponent>(victim) &&
+               !HasComp<CluwneImmuneComponent>(victim) &&
+               _emag.CheckFlag(uid, EmagType.Jestographic);
     }
 
     /// <summary>

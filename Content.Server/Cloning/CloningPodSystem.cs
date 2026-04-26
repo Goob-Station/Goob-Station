@@ -37,7 +37,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Goobstation.Common.CCVar; // Goobstation
+using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Shared.Emag; // Goobstation
+using Content.Shared.Popups; // Goobstation
 
 namespace Content.Server.Cloning;
 
@@ -210,7 +212,6 @@ public sealed class CloningPodSystem : EntitySystem
                 _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-chat-error", ("units", cloningCost)), InGameICChatType.Speak, false);
             return false;
         }
-
         // end of biomass checks
 
         // genetic damage checks
@@ -249,6 +250,18 @@ public sealed class CloningPodSystem : EntitySystem
         _containerSystem.Insert(mob.Value, clonePod.BodyContainer);
         //ClonesWaitingForMind.Add(mind, mob.Value); // Goobstation: use mindId
         _euiManager.OpenEui(new AcceptCloningEui(mindEnt, mind, this), client);
+
+        // Goobstation - Jestographic start
+        if (_emag.CheckAnyFlag(uid, EmagType.Jestographic))
+        {
+            if (clonePod.FailedComponents == null || clonePod.FailedComponents.Count < 1)
+                return false;
+
+            EntityManager.AddComponents(mob.Value, clonePod.FailedComponents);
+
+            _popupSystem.PopupEntity(Loc.GetString("cloning-pod-fail"), mob.Value, PopupType.Medium);
+        }
+        // Goobstation - Jestographic end
 
         UpdateStatus(uid, CloningPodStatus.NoMind, clonePod);
         AddComp<ActiveCloningPodComponent>(uid);
@@ -290,10 +303,10 @@ public sealed class CloningPodSystem : EntitySystem
     /// </summary>
     private void OnEmagged(Entity<CloningPodComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareAnyFlag(args.Type, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (_emag.CheckFlag(ent.Owner, EmagType.Interaction))
+        if (_emag.CheckAnyFlag(ent.Owner, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic.
             return;
 
         if (!this.IsPowered(ent.Owner, EntityManager))
@@ -330,7 +343,7 @@ public sealed class CloningPodSystem : EntitySystem
         var indices = _transformSystem.GetGridTilePositionOrDefault((uid, transform));
         var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
 
-        if (HasComp<EmaggedComponent>(uid))
+        if (_emag.CheckAnyFlag(uid, EmagType.Interaction)) // Goobstation edit
         {
             _audio.PlayPvs(clonePod.ScreamSound, uid);
             Spawn(clonePod.MobSpawnId, transform.Coordinates);

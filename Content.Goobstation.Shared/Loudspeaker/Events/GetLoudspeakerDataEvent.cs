@@ -9,4 +9,5 @@ public record struct GetLoudspeakerDataEvent(
     int? FontSize = null,
     bool AffectRadio = false,
     bool AffectChat = false,
+    string? Message = null,
     ProtoId<SpeechSoundsPrototype>? SpeechSounds = null);

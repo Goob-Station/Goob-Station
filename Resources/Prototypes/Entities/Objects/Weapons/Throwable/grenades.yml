@@ -129,6 +129,7 @@
   parent: BaseItem
   id: GrenadeBase
   components:
+  - type: Grenade #Goobstation - Jestographic
   - type: Sprite
     sprite: Objects/Weapons/Grenades/grenade.rsi
     layers:

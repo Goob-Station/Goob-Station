@@ -1,8 +1,10 @@
+using Content.Shared.Dataset;
 using Content.Shared.Inventory;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.Emag.Systems;
 
 namespace Content.Goobstation.Shared.Loudspeaker.Components;
 
@@ -65,4 +67,16 @@ public sealed partial class LoudspeakerComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<SpeechSoundsPrototype>? SpeechSounds;
+
+    /// <summary>
+    /// The messages that will be shown when the megaphone is emagged.
+    /// </summary>
+    [DataField]
+    public ProtoId<LocalizedDatasetPrototype>? ScrambledMessages = "LoudspeakerScrambledMessages";
+
+    /// <summary>
+    /// The sounds that will be played when the megaphone is emagged
+    /// </summary>
+    [DataField]
+    public SoundSpecifier ScrambledSound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg");
 }

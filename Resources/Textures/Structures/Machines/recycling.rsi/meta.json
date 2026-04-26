@@ -159,6 +159,44 @@
         {
             "name": "separator-BO0"
 
+        },
+		{
+            "name": "grinder-o0jst",
+            "directions": 4
+        },
+        {
+            "name": "grinder-o1jst",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "grinder-o2jst",
+            "directions": 4
         }
     ]
 }

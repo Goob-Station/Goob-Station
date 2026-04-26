@@ -31,9 +31,10 @@ using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Goobstation.Common.Emag.Events;
+using Content.Goobstation.Common.Emag.Components;
 
 namespace Content.Shared.VendingMachines;
 
@@ -337,10 +338,10 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareAnyFlag(args.Type, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckFlag(uid, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic - Allow more than one emag
             return;
 
         // only emag if there are emag-only items
@@ -349,7 +350,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
     /// <summary>
     /// Returns all of the vending machine's inventory. Only includes emagged and contraband inventories if
-    /// <see cref="EmaggedComponent"/> with the EmagType.Interaction flag exists and <see cref="VendingMachineComponent.Contraband"/> is true
+    /// <see cref="EmaggedComponent"/> with the EmagType.Interaction or EmagType.Jestographic flag exists and <see cref="VendingMachineComponent.Contraband"/> is true
     /// are <c>true</c> respectively.
     /// </summary>
     /// <param name="uid"></param>
@@ -362,7 +363,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         var inventory = new List<VendingMachineInventoryEntry>(component.Inventory.Values);
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckAnyFlag(uid, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic
             inventory.AddRange(component.EmaggedInventory.Values);
 
         if (component.Contraband)

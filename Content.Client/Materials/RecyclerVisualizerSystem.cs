@@ -19,14 +19,16 @@ public sealed class RecyclerVisualizerSystem : VisualizerSystem<RecyclerVisualsC
         AppearanceSystem.TryGetData<ConveyorState>(uid, ConveyorVisuals.State, out var running);
         AppearanceSystem.TryGetData<bool>(uid, RecyclerVisuals.Bloody, out var bloody);
         AppearanceSystem.TryGetData<bool>(uid, RecyclerVisuals.Broken, out var broken);
+        AppearanceSystem.TryGetData<bool>(uid, RecyclerVisuals.Clowned, out var clowned); // Goobstation - Jestographic
 
         var activityState = running == ConveyorState.Off ? 0 : 1;
         if (broken) //breakage overrides activity
             activityState = 2;
 
         var bloodyKey = bloody ? component.BloodyKey : string.Empty;
+        var clownedKey = clowned ? component.ClownedKey : string.Empty;
 
-        var state = $"{component.BaseKey}{activityState}{bloodyKey}";
+        var state = $"{component.BaseKey}{activityState}{bloodyKey}{clownedKey}";
         SpriteSystem.LayerSetRsiState((uid, args.Sprite), layer, state);
     }
 }

@@ -11,6 +11,7 @@
   parent: BaseItem
   id: ScatteringGrenadeBase
   components:
+  - type: Grenade #Goobstation - Jestographic
   - type: Appearance
   - type: ContainerContainer
     containers:

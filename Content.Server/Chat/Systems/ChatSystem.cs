@@ -1288,6 +1288,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // goob start - loudspeakers
 
         int? loudSpeakFont = null;
+        string? loudSpeakMessageOverride = null;
 
         var getLoudspeakerEv = new GetLoudspeakerEvent();
         RaiseLocalEvent(source, ref getLoudspeakerEv);
@@ -1301,6 +1302,8 @@ public sealed partial class ChatSystem : SharedChatSystem
                 if (loudSpeakerEv.IsActive && loudSpeakerEv.AffectChat)
                 {
                     loudSpeakFont = loudSpeakerEv.FontSize;
+                    loudSpeakMessageOverride = loudSpeakerEv.Message;
+
                     break;
                 }
             }
@@ -1314,7 +1317,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
             ("fontSize", loudSpeakFont ?? language.SpeechOverride.FontSize ?? speech.FontSize), // goob edit - "loudSpeakFont"
             ("boldFontType", language.SpeechOverride.BoldFontId ?? language.SpeechOverride.FontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
-            ("message", message),
+            ("message", loudSpeakMessageOverride ?? message), // Goob edit - loud speak Override
             ("language", languageDisplay));
     }
     // Einstein Engines - Language end

@@ -1,31 +1,38 @@
 using Content.Goobstation.Common.Speech;
+using Content.Goobstation.Shared.Emag;
 using Content.Goobstation.Shared.Loudspeaker.Components;
 using Content.Goobstation.Shared.Loudspeaker.Events;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Loudspeaker.Systems;
 
-public sealed class LoudSpeakerSystem : EntitySystem
+public sealed partial class LoudspeakerSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
-
         base.Initialize();
 
         SubscribeLocalEvent<LoudspeakerComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<LoudspeakerComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<LoudspeakerComponent, GotEquippedHandEvent>(OnEquippedHands);
         SubscribeLocalEvent<LoudspeakerComponent, GotUnequippedHandEvent>(OnUnequippedHands);
+        SubscribeLocalEvent<LoudspeakerComponent, GotEmaggedEvent>(OnGotEmagged);
 
         SubscribeLocalEvent<LoudspeakerHolderComponent, GetLoudspeakerEvent>(GetLoudSpeakers);
         SubscribeLocalEvent<LoudspeakerComponent, GetLoudspeakerDataEvent>(OnGetLoudspeakerData);
@@ -72,6 +79,21 @@ public sealed class LoudSpeakerSystem : EntitySystem
         DoRemovalCheck(args.User, holder);
     }
 
+    private void OnGotEmagged(Entity<LoudspeakerComponent> ent, ref GotEmaggedEvent args)
+    {
+        // Only megaphone and not headset
+        if (!ent.Comp.WorksInHand)
+            return;
+
+        if (!_emag.CompareFlag(args.Type, EmagType.Jestographic))
+            return;
+
+        if (_emag.CheckFlag(ent.Owner, EmagType.Jestographic))
+            return;
+
+        args.Handled = true;
+    }
+
     private void GetLoudSpeakers(Entity<LoudspeakerHolderComponent> ent, ref GetLoudspeakerEvent args)
     {
         args.Loudspeakers = ent.Comp.Loudspeakers;
@@ -85,18 +107,35 @@ public sealed class LoudSpeakerSystem : EntitySystem
         args.AffectRadio = ent.Comp.AffectRadio;
         args.AffectChat = ent.Comp.AffectChat;
         args.SpeechSounds = ent.Comp.SpeechSounds;
+
+        // Important here because if deleted, it will always spew out the scrambled messages
+        if (!_emag.CheckFlag(ent.Owner, EmagType.Jestographic))
+            return;
+
+        if (!_proto.TryIndex(ent.Comp.ScrambledMessages, out var proto))
+            return;
+
+        var msg = _random.Pick(proto);
+
+        args.Message = msg;
     }
 
     private void OnGetSpeechSound(Entity<LoudspeakerHolderComponent> ent, ref GetSpeechSoundEvent args)
     {
-
         foreach (var loudspeaker in ent.Comp.Loudspeakers)
         {
             var speechEv = new GetLoudspeakerDataEvent();
             RaiseLocalEvent(loudspeaker, ref speechEv);
 
+            var comp = EnsureComp<LoudspeakerComponent>(loudspeaker);
+
             if (speechEv.SpeechSounds != null)
             {
+                if (_emag.CheckFlag(loudspeaker, EmagType.Jestographic))
+                {
+                    _audio.PlayPredicted(comp.ScrambledSound, loudspeaker, loudspeaker);
+                    return;
+                }
                 args.SpeechSoundProtoId = speechEv.SpeechSounds;
                 return;
             }

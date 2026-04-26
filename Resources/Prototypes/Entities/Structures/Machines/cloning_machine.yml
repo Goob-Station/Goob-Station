@@ -48,6 +48,8 @@
   components:
   - type: CloningPod
     cloningTime: 90 # Goobstation
+    failedComponents: # Goobstation - Jestographic
+    - type: Clumsy
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired

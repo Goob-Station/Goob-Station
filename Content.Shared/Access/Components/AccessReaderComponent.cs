@@ -162,6 +162,12 @@ public sealed partial class AccessReaderComponent : Component
     /// </summary>
     [DataField]
     public bool BreakOnAccessBreaker = true;
+
+    /// <summary>
+    /// Whether or not the access reader is inverted.
+    /// </summary>
+    [DataField]
+    public bool Inverted = false;
 }
 
 [DataDefinition, Serializable, NetSerializable]
@@ -185,8 +191,9 @@ public sealed class AccessReaderComponentState : ComponentState
     public List<(NetEntity, uint)> AccessKeys;
     public Queue<AccessRecord> AccessLog;
     public int AccessLogLimit;
+    public bool Inverted; // Goobstation
 
-    public AccessReaderComponentState(bool enabled, HashSet<ProtoId<AccessLevelPrototype>> denyTags, List<HashSet<ProtoId<AccessLevelPrototype>>> accessLists, List<(NetEntity, uint)> accessKeys, Queue<AccessRecord> accessLog, int accessLogLimit)
+    public AccessReaderComponentState(bool enabled, HashSet<ProtoId<AccessLevelPrototype>> denyTags, List<HashSet<ProtoId<AccessLevelPrototype>>> accessLists, List<(NetEntity, uint)> accessKeys, Queue<AccessRecord> accessLog, int accessLogLimit, bool inverted)
     {
         Enabled = enabled;
         DenyTags = denyTags;
@@ -194,6 +201,7 @@ public sealed class AccessReaderComponentState : ComponentState
         AccessKeys = accessKeys;
         AccessLog = accessLog;
         AccessLogLimit = accessLogLimit;
+        Inverted = inverted; // Goob
     }
 }
 

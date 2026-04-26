@@ -388,3 +388,6 @@ uplink-jetpack-contractor-desc = This Jetpack was made specifically for The Guil
 
 uplink-cuffs-contractor-name = Handcuffs
 uplink-cuffs-contractor-desc = Used to detain criminals and other assholes.
+
+uplink-jestographic-sequencer-name = Jestographic Sequencer
+uplink-jestographic-sequencer-desc = The Jestographic Sequencer, also known as a C-Mag, is a small card that inverts the access on any door it's used on. Perfect for locking command out of their own departments. Honk!

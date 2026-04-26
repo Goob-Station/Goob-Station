@@ -1,0 +1,11 @@
+- type: entity
+  id: PranksimovCircuitBoard
+  parent: BaseElectronics
+  name: law board (Pranksimov)
+  description: An electronics board containing the Pranksimov lawset.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/module.rsi
+    state: pranksimov
+  - type: SiliconLawProvider
+    laws: PranksimovLawset

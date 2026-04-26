@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: LoudspeakerScrambledMessages
+  values:
+    prefix: loudspeaker-scrambled-messages-
+    count: 10

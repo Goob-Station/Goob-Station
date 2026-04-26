@@ -1326,6 +1326,9 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
+  - type: LubeItemsOnEmag # Goobstation - Jestographic
+    slipsLeft: 5
+    slipStrength: 10
 
 
 - type: entity

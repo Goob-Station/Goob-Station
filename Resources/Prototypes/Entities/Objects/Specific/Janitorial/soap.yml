@@ -115,6 +115,7 @@
   - type: CleansForensics
   - type: FloorCleaner # Goobstation
     cleanDelay: 12
+  - type: CleanEmag #Goobstation
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-green

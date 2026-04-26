@@ -31,10 +31,11 @@ public sealed partial class BorgSwitchableTypeSystem
         _law.SetLaws(laws.Laws, uid);
 
         // re-add law 0 and final law based on new lawset
-        if (CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName != null)
+        // Goob edit
+        if (TryComp<EmagSiliconLawComponent>(uid, out var emagSilicon) && emagSilicon.OwnerName != null)
         {
             // raising the event manually to bypass re-emagging checks
-            var ev = new SiliconEmaggedEvent(uid);
+            var ev = new SiliconEmaggedEvent(uid, emagSilicon.EmagType);
             RaiseLocalEvent(uid, ref ev);
         }
 

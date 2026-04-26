@@ -8,6 +8,7 @@
 using Content.Shared.Damage;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Materials;
+using Content.Shared.Mind;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -80,6 +81,12 @@ public sealed partial class CloningPodComponent : Component
             { "Cellular", 20},
         }
     };
+
+    /// <summary>
+    /// Goobstation - Added to the contained entity when emagged jestographic cloning pod fail
+    /// </summary>
+    [DataField]
+    public ComponentRegistry? FailedComponents;
 }
 
 [Serializable, NetSerializable]

@@ -56,10 +56,10 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
 
     private void OnGotEmagged(EntityUid uid, EmagSiliconLawComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        if (!_emag.CompareAnyFlag(args.Type, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic
             return;
 
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        if (_emag.CheckAnyFlag(uid, EmagType.Interaction | EmagType.Jestographic)) // Goobstation - Jestographic. Dont let cyborg have 2 type of emag
             return;
 
         // Corvax-Next-AiRemoteControl-Start
@@ -82,13 +82,15 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
             return;
         }
 
-        var ev = new SiliconEmaggedEvent(args.UserUid);
+        var ev = new SiliconEmaggedEvent(args.UserUid, args.Type); // Goobstation - Jestographic
         RaiseLocalEvent(uid, ref ev);
 
         component.OwnerName = Name(args.UserUid);
+        component.EmagType = args.Type; // Goobstation - Jestographic
 
         NotifyLawsChanged(uid, component.EmaggedSound);
-        if(_mind.TryGetMind(uid, out var mindId, out _))
+
+        if (_mind.TryGetMind(uid, out var mindId, out _))
             EnsureSubvertedSiliconRole(mindId);
 
         _stunSystem.TryUpdateParalyzeDuration(uid, component.StunTime);
@@ -113,4 +115,4 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
 }
 
 [ByRefEvent]
-public record struct SiliconEmaggedEvent(EntityUid user);
+public record struct SiliconEmaggedEvent(EntityUid User, EmagType EmagType); // Goobstation - Jestographic

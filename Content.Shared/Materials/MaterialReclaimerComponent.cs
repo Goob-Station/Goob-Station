@@ -136,13 +136,26 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </remarks>
     [DataField, AutoNetworkedField]
     public int ItemsProcessed;
+
+    /// <summary>
+    /// How long is the stun duration transform will last
+    /// </summary>
+    [DataField]
+    public TimeSpan StunDuration = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// Goobstation - What sound is used when reclaimer is transforming an entity
+    /// </summary>
+    [DataField]
+    public SoundSpecifier HonkSound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg");
 }
 
 [NetSerializable, Serializable]
 public enum RecyclerVisuals
 {
     Bloody,
-    Broken
+    Broken,
+    Clowned // Goobstation - Jestographic
 }
 
 [UsedImplicitly]

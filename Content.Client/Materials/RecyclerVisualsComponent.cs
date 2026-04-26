@@ -19,4 +19,10 @@ public sealed partial class RecyclerVisualsComponent : Component
     /// </summary>
     [DataField]
     public string BaseKey = "grinder-o";
+
+    /// <summary>
+    /// Goobstation - Key appended to state string if clowned
+    /// </summary>
+    [DataField]
+    public string ClownedKey = "jst";
 }
