@@ -21827,3 +21827,9 @@ Entries:
       message: Xenobio points values have been tweaked to reflect their tier level.
   id: 2482
   time: '2026-03-26T07:39:33.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Lets slaughter demons be butchered to recover the bodies inside.
+  id: 2483
+  time: '2026-03-30T02:05:55.0000000+00:00'
