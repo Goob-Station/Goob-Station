@@ -11,6 +11,7 @@ using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 
 namespace Content.Shared.Heretic.Systems;
 
@@ -26,13 +27,47 @@ public sealed class HereticMagicItemSystem : EntitySystem
         SubscribeLocalEvent<HereticMagicItemComponent, HeldRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
         SubscribeLocalEvent<HereticMagicItemComponent, InventoryRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
         SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
+        SubscribeLocalEvent<HereticMagicItemComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<HereticMagicItemComponent, GotUnequippedEvent>(OnUnequip);
+        SubscribeLocalEvent<HereticMagicItemComponent, GotUnequippedHandEvent>(OnUnequipHand);
+    }
+
+    private void OnUnequipHand(Entity<HereticMagicItemComponent> ent, ref GotUnequippedHandEvent args)
+    {
+        RaiseLostFocusEvent(args.User);
+    }
+
+    private void OnUnequip(Entity<HereticMagicItemComponent> ent, ref GotUnequippedEvent args)
+    {
+        RaiseLostFocusEvent(args.Equipee);
+    }
+
+    private void OnShutdown(Entity<HereticMagicItemComponent> ent, ref ComponentShutdown args)
+    {
+        var parent = Transform(ent).ParentUid;
+        if (TerminatingOrDeleted(parent))
+            return;
+        RaiseLostFocusEvent(parent);
+    }
+
+    private void RaiseLostFocusEvent(EntityUid uid)
+    {
+        var checkEv = new CheckMagicItemEvent();
+        RaiseLocalEvent(uid, checkEv);
+        if (checkEv.Handled)
+            return;
+        var ev = new HereticLostFocusEvent();
+        RaiseLocalEvent(uid, ref ev);
     }
 
     private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref CheckMagicItemEvent args)
         => args.Handled = true;
+
     private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref HeldRelayedEvent<CheckMagicItemEvent> args)
         => args.Args.Handled = true;
-    private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
+
+    private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent,
+        ref InventoryRelayedEvent<CheckMagicItemEvent> args)
         => args.Args.Handled = true;
 
     private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
