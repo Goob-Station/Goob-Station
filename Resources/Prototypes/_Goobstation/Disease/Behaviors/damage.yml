@@ -44,7 +44,103 @@
       useTargeting: false
       damage:
         types:
-          Blunt: 0.3
+          Blunt: 0.5
+
+- type: entity
+  id: DiseaseBehaviorNecrosis
+  parent: DiseaseBehaviorBase
+  name: Necrosis
+  description: In the final stages, it deals heavy poison and blood loss damage over time.
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Poison: 1.5
+          Bloodloss: 5
+  - type: DiseaseProgressCondition
+    minProgress: 0.8
+
+- type: entity
+  id: DiseaseBehaviorPulmonaryEdema
+  parent: DiseaseBehaviorBase
+  name: Pulmonary edema
+  description: Deals asphyxiation damage over time.
+  components:
+  - type: DiseaseEffect
+    complexity: 14
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Asphyxiation: 3
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorInternalBleeding
+  parent: DiseaseBehaviorBase
+  name: Internal bleeding
+  description: In the final stages, deals piercing damage over time and reduces the amount of blood in the body.
+  components:
+  - type: DiseaseEffect
+    complexity: 14
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Piercing: 0.5
+    - !type:ModifyBloodLevel
+      amount: -8
+  - type: DiseaseProgressCondition
+    minProgress: 0.8
+
+- type: entity
+  id: DiseaseBehaviorAnemia
+  parent: DiseaseBehaviorBase
+  name: Anemia
+  description: In the final stages, deals heavy asphyxiation damage over time.
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Asphyxiation: 8
+    - !type:ModifyBloodLevel
+      amount: -3
+  - type: DiseaseProgressCondition
+    minProgress: 0.9
+
+- type: entity
+  id: DiseaseBehaviorOrganFailure
+  parent: DiseaseBehaviorBase
+  name: Organ Failure
+  description: In the final stage, there is a chance of instant death
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      probability: 0.01
+      damage:
+        types:
+          Bloodloss: 200
+  - type: DiseaseProgressCondition
+    minProgress: 1
 
 # this is broken and hits the owning entity but i'm leaving it here so someone can fix it
 - type: entity
