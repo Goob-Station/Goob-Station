@@ -195,6 +195,7 @@ namespace Content.Server.Database
         public DbSet<Poll> Polls { get; set; } = default!;
         public DbSet<PollOption> PollOptions { get; set; } = default!;
         public DbSet<PollVote> PollVotes { get; set; } = default!;
+        public DbSet<PollSeen> PollSeen { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -610,6 +611,23 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<PollVote>()
                 .HasIndex(v => new { v.PollId, v.PlayerUserId, v.PollOptionId })
+                .IsUnique();
+
+            modelBuilder.Entity<PollSeen>()
+                .HasOne(s => s.Poll)
+                .WithMany()
+                .HasForeignKey(s => s.PollId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PollSeen>()
+                .HasOne(s => s.Player)
+                .WithMany()
+                .HasForeignKey(s => s.PlayerUserId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PollSeen>()
+                .HasIndex(s => new { s.PollId, s.PlayerUserId })
                 .IsUnique();
         }
 
