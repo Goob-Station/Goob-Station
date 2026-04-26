@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Wanted; // Goobstation - notoriety
 using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Security;
@@ -35,6 +36,9 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
                 RemComp<CriminalRecordComponent>(uid);
             else
                 SetCriminalIcon(name, status, uid);
+
+            // Goobstation - notify notoriety system of the status change on this entity
+            RaiseLocalEvent(new CriminalStatusUpdatedEvent(uid, (byte) status));
         }
     }
 
