@@ -21753,3 +21753,9 @@ Entries:
         to edit profiles at any time.
   id: 2476
   time: '2026-04-15T01:16:48.0000000+00:00'
+- author: TheNumberRus
+  changes:
+    - type: Tweak
+      message: Gate no longer has a mapped holoparasite.
+  id: 2477
+  time: '2026-04-22T08:39:00.0000000+00:00'
