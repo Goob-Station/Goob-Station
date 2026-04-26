@@ -21773,3 +21773,17 @@ Entries:
       message: uranium window and syndicate IFF console to abductor ship
   id: 2479
   time: '2026-03-30T04:04:17.0000000+00:00'
+- author: widgetbeck , Fishbait
+  changes:
+    - type: Add
+      message: Added battery to drones
+    - type: Add
+      message: Added drones die when they run out of power
+    - type: Add
+      message: Drones no longer see other beings
+    - type: Tweak
+      message: Changed movment in space, now it feels more like weigthless in space.
+    - type: Tweak
+      message: Changed Drone Hp from 60 to 25
+  id: 2480
+  time: '2026-03-30T05:49:06.0000000+00:00'
