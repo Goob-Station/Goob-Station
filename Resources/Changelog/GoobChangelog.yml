@@ -22793,3 +22793,11 @@ Entries:
       message: Tennis bundle
   id: 2608
   time: '2026-04-26T11:46:28.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: >-
+        Feroxi security officers now spawn with the proper gas mask in their
+        survival box.
+  id: 2609
+  time: '2026-04-26T11:46:49.0000000+00:00'
