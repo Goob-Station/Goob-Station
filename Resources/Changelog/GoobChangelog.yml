@@ -22775,3 +22775,15 @@ Entries:
       message: Smoke blocker to explorer mask
   id: 2606
   time: '2026-04-26T11:40:14.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: A bunch of more gear and loot to salvage loot pools
+    - type: Fix
+      message: Gold rings can now be recycled.
+    - type: Add
+      message: Gibtonite can now spawn on asteroid debris. Be careful where you swing.
+    - type: Tweak
+      message: Broken uranium generators spawn slightly less often on wrecks.
+  id: 2607
+  time: '2026-04-26T11:42:27.0000000+00:00'
