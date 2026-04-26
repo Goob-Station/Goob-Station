@@ -53,6 +53,7 @@
   - type: Tag
     tags:
     - Sheet
+    - ConstructionMaterial
     - DroneUsable # Goobstation
   - type: Damageable
     damageContainer: Inorganic
@@ -153,6 +154,7 @@
     tags:
     - Sheet
     - SheetPlasma
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -176,16 +178,6 @@
     count: 1
 
 - type: entity
-  parent: SheetPlasma
-  id: SheetPlasmaLingering0
-  name: plasma
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
@@ -195,6 +187,7 @@
     tags:
     - Plastic
     - Sheet
+    - ConstructionMaterial
     - DroneUsable # Goobstation
   - type: Material
   - type: PhysicalComposition

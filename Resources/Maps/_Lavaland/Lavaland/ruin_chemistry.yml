@@ -317,7 +317,7 @@ entities:
     - type: Transform
       pos: 8.5,10.5
       parent: 1
-- proto: BorgBeaker
+- proto: BluespaceBeaker
   entities:
   - uid: 38
     components:
