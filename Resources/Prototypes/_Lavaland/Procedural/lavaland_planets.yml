@@ -65,9 +65,12 @@
         max: 120
     - weather: Ashfall
       duration:
-        min: 120
-        max: 180
+        min: 90
+        max: 120
     - weather: AshfallLight
       duration:
         min: 30
         max: 30
+  - type: LightCycle
+    duration: 900 # 15 minutes
+    minLightLevel: 0.3 # You can barely see things moving at this light level
