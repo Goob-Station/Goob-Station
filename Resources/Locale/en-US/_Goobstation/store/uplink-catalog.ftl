@@ -372,6 +372,8 @@ uplink-cddisknumber-desc = Call in a threat to distract the station... good luck
 uplink-box-xenobio-name = Xenobiology slimes box
 uplink-box-xenobio-desc = Slimes for your xenobiology needs. Contains 9 random T1 slimes.
 
+uplink-hypnoflash-name = Hypnoflash bundle
+uplink-hypnoflash-desc = The pinnacle of neuroengineering machine of brainwashing.co. Contains a briefcase with a hypnoflash, a single use device that will hypnotize everyone in its activation radius upon activation. Hypnotized people will follow the first sentence they hear after being flashed.
 #Contractor
 
 uplink-moduist-contractor-name = Contractor Modsuit

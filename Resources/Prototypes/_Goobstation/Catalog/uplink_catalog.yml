@@ -1240,6 +1240,21 @@
       tags:
       - ContractorUplink
 
+- type: listing
+  id: UplinkHypnoflash
+  name: uplink-hypnoflash-name
+  description: uplink-hypnoflash-desc
+  productEntity: BriefcaseSyndieSuperValidHypnoflash
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 # Ammo
 
 - type: listing

@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleHypnotized
+  name: Hypnotized
+  components:
+  - type: MindRole
+    roleType: HypnotizedRole
+    antagPrototype: HypnotizedAntag
+    subtype: role-subtype-hypnotized-victim
+
+- type: antag
+  id: HypnotizedAntag
+  name: role-subtype-hypnotized-victim
+  antagonist: true
+  objective: roles-antag-hypnotized
+
+- type: roleType
+  id: HypnotizedRole
+  name: hypnotized-victim-role-name-freeagent
+  color: "#ffff00"
+  symbol: "☯"

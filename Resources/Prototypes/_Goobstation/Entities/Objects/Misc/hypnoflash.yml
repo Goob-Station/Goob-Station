@@ -1,0 +1,100 @@
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: HypnoflashSyndicate
+  name: hypnoflash
+  suffix: syndicate, 1 charge
+  description: A special flash, manufactured by the Brainwashing dot co, capable of erasing temporal memory of anyone it flashes, rendering the first words heard echo through the mind of the flashed.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Antag/hypnoflash.rsi
+    layers:
+    - state: icon-off
+      map: [ "enum.FlashVisualLayers.BaseLayer" ]
+    - state: icon
+      visible: false
+      map: [ "enum.FlashVisualLayers.LightLayer" ]
+  - type: Hypnoflash
+    unremoveable: true # will make the item unremoveable for the duration of the flash so you cant just activate it and toss it into a crowd
+    protoOnFlash: AdminInstantEffectFlash
+    blacklist:
+      components:
+      - MindShield
+      - FlashImmunity
+  - type: UseDelay
+    delay: 8
+  - type: Appearance
+  - type: ItemToggle
+    onActivate: false
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: GenericVisualizer
+    visuals:
+      enum.FlashVisuals.Burnt:
+        enum.FlashVisualLayers.BaseLayer:
+          True: {state: icon-off}
+      enum.FlashVisuals.Flashing:
+        enum.FlashVisualLayers.LightLayer:
+          True: {visible: true}
+          False: {visible: false}
+
+- type: entity
+  parent: HypnoflashSyndicate
+  id: HypnoflashDebug
+  suffix: Debug
+  components:
+  - type: LimitedCharges
+    maxCharges: 999
+  - type: AutoRecharge
+    rechargeDuration: 1
+
+# le valid briefcase
+
+- type: entity
+  parent: [BriefcaseSyndie, BaseSyndicateContraband]
+  id: BriefcaseSyndieSuperValidEmpty
+  name: briefcase
+  description: One bald dude used to carry one of those for sure.
+  suffix: empty
+  components:
+  - type: MeleeWeapon # a heavy metal briefcase? would probably hit the same as a toolbox
+    damage:
+      types:
+        Blunt: 12
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Antag/briefcase.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Item
+    size: Large
+    storedRotation: -90
+    shape:
+    - 0,0,1,3
+    sprite: _Goobstation/Objects/Specific/Antag/briefcase.rsi
+  - type: Appearance
+
+- type: entity
+  id: PaperWrittenHypnoflashAd
+  suffix: hypnoflash ad
+  parent: Paper
+  components:
+  - type: Paper
+    content: paper-text-hypnoflash-info
+
+- type: entity
+  parent: BriefcaseSyndieSuperValidEmpty
+  id: BriefcaseSyndieSuperValidHypnoflash
+  suffix: filled, hypnoflash
+  components:
+  - type: StorageFill
+    contents:
+    - id: HypnoflashSyndicate
+    - id: ClothingNeckTieRed
+    - id: ClothingUniformJumpsuitLawyerBlack
+    - id: PaperWrittenHypnoflashAd
+    - id: ClothingEyesGlassesSunglasses
+    - id: ClothingHandsGlovesColorBlack
+    - id: ClothingShoesBootsLaceup
