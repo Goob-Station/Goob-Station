@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Skyrat - https://github.com/Skyrat-SS13/Skyrat-tg/commit/b09a67f33bb2c03834b80ff028b730967d3dc56f inhand sprites by diggy",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+		{
+            "name": "inhand-left",
+            "directions": 4
+        },
+		{
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+#Uniforms
+
+- type: loadout
+  id: EliteBlueShieldJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtEliteBlueShield
+
+- type: loadout
+  id: EliteBlueShieldJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEliteBlueShield
+
+- type: loadout
+  id: BlueShieldShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlueShieldCaptain
+
+# Neck
+
+- type: loadout
+  id: BlueShieldEliteCloak
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    neck: ClothingNeckCloakBsoElite
+
+# Head
+
+- type: loadout
+  id: BlueshieldOfficerBeretElite #Omu - Starlight port - ported Starlight BSO beret as Elite Beret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    head: ClothingHeadHatBeretBlueShieldElite
+
+# Belt
+
+- type: loadout #Omu - Starlight repurposing
+  id: BeltBlueshieldEliteFilled
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    belt: ClothingBeltBlueshieldEliteFilled
+

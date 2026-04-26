@@ -1,0 +1,30 @@
+# Jumpsuits / Jumpskirts
+- type: loadout
+  id: CargoTechnicianSweater
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargotechSweater
+
+- type: loadout
+  id: CargoTechnicianSweaterSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargotechSweaterSkirt
+
+- type: loadout
+  id: CargoTechnicianShortPantsIfuckinghateyouifyouwearthisbtw
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargotechShorts
+
+- type: loadout
+  id: CargoTechnicianShortSkirtsInsteadofPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargotechShortsSkirt
+
+
+
+
+# OuterClothing
+- type: loadout
+  id: CargoTechnicianJacket
+  equipment:
+    outerClothing: ClothingOuterJacketCargoTech
+

@@ -47,6 +47,7 @@
   - type: SetSelector
     possibleSets:
     - VoidsuitSelectorHeadOfSecurityVoidsuit
+    - VoidsuitSelectorHeadOfSecurityParadeVoidsuit # Omu
     - VoidsuitSelectorHeadOfSecurityHardsuit
 
 # engineer
