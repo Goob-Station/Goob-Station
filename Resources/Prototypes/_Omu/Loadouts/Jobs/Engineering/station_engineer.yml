@@ -1,0 +1,7 @@
+- type: loadout
+  id: SeniorEngineerXelthiaJacket
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    outerClothing: ClothingOuterJacketSeniorEngineer

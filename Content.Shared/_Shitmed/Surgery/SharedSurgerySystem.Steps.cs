@@ -703,9 +703,15 @@ public abstract partial class SharedSurgerySystem
             surgeryTargetComponent.SepsisImmune)
             return;
 
-        var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 5);
-        var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
-        RaiseLocalEvent(args.Body, ref ev);
+        // EE Glovejacket supercode start
+        _inventory.TryGetSlotEntity(args.User, "outerClothing", out var glovejacket);
+        if (!HasComp<GloveJacketComponent>(glovejacket) || !_inventory.TryGetSlotEntity(args.User, "mask", out var _))
+        {
+            var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 5);
+            var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
+            RaiseLocalEvent(args.Body, ref ev);
+        }
+        // EE Glovejacket supercode end
     }
 
     private bool TryToolAudio(Entity<SurgeryStepComponent> ent, SurgeryStepEvent args)

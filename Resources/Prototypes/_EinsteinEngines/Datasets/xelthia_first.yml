@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: NamesXelthiaFirst
+  values:
+    prefix: names-xelthia-first-dataset-
+    count: 100

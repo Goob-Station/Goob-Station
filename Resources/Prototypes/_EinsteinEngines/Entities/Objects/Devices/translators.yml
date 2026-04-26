@@ -1,0 +1,16 @@
+- type: entity # needs to be properly added to research and all that. not sure how to do that.
+  id: QiilourTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Qiilour translator
+  description: Translates speech between Qiilour and Galactic Common. Useful for talking to Xelthia.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Qiilour
+    understood:
+    - TauCetiBasic
+    - Qiilour
+    requires:
+    - TauCetiBasic
+    - Qiilour

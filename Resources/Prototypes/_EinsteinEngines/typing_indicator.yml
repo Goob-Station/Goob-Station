@@ -11,3 +11,10 @@
   typingState: skeleton0
   idleState: skeleton1
   offset: 0, 0.125
+
+- type: typingIndicator
+  id: xelthia
+  spritePath: /Textures/_EinsteinEngines/Effects/speech.rsi
+  typingState: xelthia0
+  idleState: xelthia1
+  offset: 0, 0.2

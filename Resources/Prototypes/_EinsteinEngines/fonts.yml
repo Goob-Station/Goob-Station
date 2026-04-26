@@ -12,3 +12,11 @@
 - type: font
   id: LDFComicSansBold
   path: /Fonts/_EinsteinEngines/LDFComicSans/LDFComicSans-Bold.ttf
+
+- type: font
+  id: Aliensatemymum
+  path: /Fonts/_EinsteinEngines/Aliensatemymum/Aliensatemymum.ttf
+
+- type: font
+  id: NovaFlat
+  path: /Fonts/_EinsteinEngines/NovaFlat/NovaFlat-Regular.ttf

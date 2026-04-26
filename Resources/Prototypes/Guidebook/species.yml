@@ -47,6 +47,7 @@
     - Plasmaman
     - Feroxi
     - Shadowkin
+    - Xelthia # OMU - EE species
 
 - type: guideEntry
   id: Arachnid
@@ -138,3 +139,8 @@
   id: Shadowkin
   name: species-name-shadowkin
   text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"
+
+- type: guideEntry
+  id: Xelthia
+  name: species-name-xelthia
+  text: "/ServerInfo/_EinsteinEngines/Guidebook/Mobs/Xelthia.xml"
