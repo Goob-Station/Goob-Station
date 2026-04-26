@@ -313,6 +313,22 @@
   technologyPrerequisites:
   - CritterMechs
   # Goobstation R&D Console rework end
+  
+- type: technology  # Goobstation
+  id: ServiceBluespaceChemistry
+  name: research-technology-service-energy-chem
+  icon:
+    sprite: _Goobstation/Structures/Machines/service_dispenser.rsi
+    state: industrial
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ServiceEnergyChemMachineCircuitboard
+  position: -4,7
+  technologyPrerequisites:
+  - MeatManipulation
+
 
 # Tier 3
 
@@ -353,3 +369,4 @@
   technologyPrerequisites:
   - BiochemicalStasis
   # Goobstation R&D Console rework end
+  
