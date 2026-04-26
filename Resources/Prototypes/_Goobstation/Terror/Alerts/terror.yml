@@ -1,0 +1,7 @@
+- type: alert
+  id: Infested
+  icons:
+  - sprite: _Goobstation/Terror/alerts.rsi
+    state: spiderling
+  name: alerts-infested-name
+  description: alerts-infested-desc
