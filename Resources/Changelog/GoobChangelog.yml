@@ -21821,3 +21821,9 @@ Entries:
       message: Stasis is no longer instant for creatures without a critical state.
   id: 2481
   time: '2026-03-30T06:31:53.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Xenobio points values have been tweaked to reflect their tier level.
+  id: 2482
+  time: '2026-03-26T07:39:33.0000000+00:00'
