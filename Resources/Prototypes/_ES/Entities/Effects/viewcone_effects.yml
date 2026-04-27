@@ -1,9 +1,5 @@
 # Effects spawned when certain things happen
 # that only appear to viewcone users when out of vision.
-# TODO these would probably look better as actual animations modulating alpha
-# instead of like. rsi animations
-# also i kinda wanted like, a "sound wave propagatey" sprite to underlay the actual effecta, and i thought tg had those too, but i guess not
-# idk i dont want to sprite i t.
 
 - type: entity
   id: ESBaseViewconeEffect
@@ -17,28 +13,11 @@
     drawdepth: Effects
     noRot: true
     color: '#FFFFFF00' # 0 alpha by default, will get overriden by setalpha overlay
-<<<<<<< HEAD
-<<<<<<< HEAD
     loop: false
   - type: Transform
     anchored: true
   - type: TimedDespawn
     lifetime: 3.0
-=======
-    # what the fuck? removing looping didnt exist until literally a few hours ago?
-    # and now i have to version engine again?
-    # loop: false
-  - type: Transform
-    anchored: true
-  - type: TimedDespawn
->>>>>>> e356feddcd (viewcone effect support + footsteps)
-=======
-    loop: false
-  - type: Transform
-    anchored: true
-  - type: TimedDespawn
-    lifetime: 3.0
->>>>>>> ffe0c67ffb (f)
 
 - type: entity
   id: ESViewconeEffectFootstep
@@ -46,75 +25,41 @@
   components:
   - type: Sprite
     state: footstep
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   - type: TimedDespawn
     lifetime: 1.4
->>>>>>> e356feddcd (viewcone effect support + footsteps)
-=======
->>>>>>> ffe0c67ffb (f)
 
-# TODO UNUSED
 - type: entity
   id: ESViewconeEffectAttack
   parent: ESBaseViewconeEffect
   components:
   - type: Sprite
     state: attack
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   - type: TimedDespawn
     lifetime: 1.4
->>>>>>> e356feddcd (viewcone effect support + footsteps)
-=======
->>>>>>> ffe0c67ffb (f)
 
-# TODO UNUSED
 - type: entity
   id: ESViewconeEffectForcefield
   parent: ESBaseViewconeEffect
   components:
   - type: Sprite
     state: forcefield
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   - type: TimedDespawn
     lifetime: 0.6
->>>>>>> e356feddcd (viewcone effect support + footsteps)
-=======
->>>>>>> ffe0c67ffb (f)
 
-# TODO UNUSED
 - type: entity
   id: ESViewconeEffectGunfire
   parent: ESBaseViewconeEffect
   components:
   - type: Sprite
     state: gunfire
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   - type: TimedDespawn
     lifetime: 1.2
->>>>>>> e356feddcd (viewcone effect support + footsteps)
-=======
->>>>>>> ffe0c67ffb (f)
 
-# TODO UNUSED
 - type: entity
   id: ESViewconeEffectTalk
   parent: ESBaseViewconeEffect
   components:
   - type: Sprite
     state: talk
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   - type: TimedDespawn
     lifetime: 1.4
->>>>>>> e356feddcd (viewcone effect support + footsteps)
-=======
->>>>>>> ffe0c67ffb (f)
