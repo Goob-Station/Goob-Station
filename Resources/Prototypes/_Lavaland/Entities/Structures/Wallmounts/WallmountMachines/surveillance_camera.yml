@@ -1,0 +1,21 @@
+- type: entity
+  parent: SurveillanceCameraBase
+  id: SurveillanceCameraLavaland
+  name: camera
+  suffix: Lavaland
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraLavaland
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SurveillanceCameraRouterLavaland
+  name: lavaland camera router
+  suffix: Lavaland
+  components:
+  - type: SurveillanceCameraRouter
+    subnetFrequency: SurveillanceCameraLavaland

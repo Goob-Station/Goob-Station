@@ -337,7 +337,7 @@ ClothingHandsGlovesColorYellowUnsulated: null
 AirlockMusicianLocked: null
 AirlockMimeLocked: null
 DoorElectronicsParamedic: null
-AirlockExternalGlassSalvageLocked: AirlockExternalGlassCargoLocked
+#AirlockExternalGlassSalvageLocked: AirlockExternalGlassCargoLocked # Lavaland Change
 AirlockExternalGlassShuttleEscapeSub: AirlockExternalGlassCargoLocked
 AirlockParamedicLocked: AirlockMedicalLocked
 FoodMothBakedCheesePlatter: null

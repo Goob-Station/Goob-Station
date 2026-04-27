@@ -22,7 +22,7 @@
 - type: entity
   parent: AirlockGlassShuttle
   id: AirlockExternalGlassShuttleMining
-  suffix: External, Mining, Glass, Docking, Locked
+  suffix: External, Mining, Locked
   components:
   - type: PriorityDock
     tag: DockMining
@@ -44,3 +44,25 @@
     - type: IFF
       flags:
       - HideLabel
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalSalvageLocked
+  suffix: External, Salvage, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvage ]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassSalvageLocked
+  suffix: External, Glass, Salvage, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvage ]
+  - type: Wires
+    layoutId: AirlockCargo
