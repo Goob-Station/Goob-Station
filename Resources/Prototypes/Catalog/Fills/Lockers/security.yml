@@ -130,6 +130,8 @@
     - id: Wrench # Goobstation
     - id: ContrabandDetectorFlatpack # Goobstation
     - id: SecurityMegaphone # goob - loudspeakers
+    - id: ClothingHeadHatDogEars #goob
+      prob: 0.01
 
 - type: entityTable
   id: FillLockerWardenHarduit
