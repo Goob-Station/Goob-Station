@@ -1,0 +1,25 @@
+- type: htnCompound
+  id: AutoCryoCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:PickAccessibleComponentOperator
+            component: Cryostorage
+            rangeKey: CryoSearchRange
+            targetKey: TargetCoordinates
+            target: Target
+            pathfindKey: TargetPathfind
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: InteractRange
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: InteractRange
+          operator: !type:EnterCryostorageOperator
+            targetKey: Target
