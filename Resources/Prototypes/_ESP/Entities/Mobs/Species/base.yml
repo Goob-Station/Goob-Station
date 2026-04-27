@@ -3,7 +3,6 @@
   parent:
   - BaseMob
   - ESBaseMob
-  - ESPMobDamageable
   - MobPolymorphable
   - MobCombat
   - StripableInventoryBase

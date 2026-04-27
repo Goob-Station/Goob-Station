@@ -5,6 +5,12 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Physics;
 using Robust.Shared.Player;
+using System;
+using Content.Shared.MouseRotator;
+using Robust.Client.Input;
+using Robust.Client.Graphics;
+using Robust.Shared.Maths;
+using Robust.Shared.Map;
 
 namespace Content.Client._ES.Viewcone;
 
@@ -79,5 +85,45 @@ public sealed class ESViewconeOverlayManagementSystem : EntitySystem
         _overlayMan.RemoveOverlay(_coneOverlay);
         _overlayMan.RemoveOverlay(_setAlphaOverlay);
         _overlayMan.RemoveOverlay(_resetAlphaOverlay);
+    }
+    public bool IsEntityInView(EntityUid player, EntityUid target)
+    {
+        if (!TryComp<ESViewconeComponent>(player, out var viewcone) ||
+            !TryComp<TransformComponent>(player, out var playerXform) ||
+            !TryComp<TransformComponent>(target, out var targetXform))
+        {
+            return true;
+        }
+
+        if (playerXform.MapID != targetXform.MapID)
+            return false;
+
+        var xformSys = EntityManager.System<SharedTransformSystem>();
+        var playerPos = xformSys.GetWorldPosition(playerXform);
+        var targetPos = xformSys.GetWorldPosition(targetXform);
+
+        var diff = targetPos - playerPos;
+
+        if (diff.LengthSquared() < 2.0f)
+            return true;
+
+        var angleToTarget = diff.ToAngle();
+        var playerAngle = xformSys.GetWorldRotation(playerXform);
+
+        if (HasComp<MouseRotatorComponent>(player))
+        {
+            var input = IoCManager.Resolve<IInputManager>();
+            var eye = IoCManager.Resolve<IEyeManager>();
+            var mousePos = eye.PixelToMap(input.MouseScreenPosition);
+            if (mousePos.MapId != MapId.Nullspace)
+            {
+                var mouseAngle = (mousePos.Position - playerPos).ToAngle();
+                playerAngle = new Angle(mouseAngle.Theta + Math.PI / 2.0); 
+            }
+        }
+
+        var angleDiff = Angle.ShortestDistance(playerAngle, angleToTarget);
+
+        return Math.Abs(angleDiff.Degrees) <= (viewcone.ConeAngle / 2f) + (viewcone.ConeFeather / 2f);
     }
 }

@@ -2,8 +2,8 @@
   save: false
   parent:
   - BaseMob
+  - MobDamageable
   - ESBaseMob
-  - ESPMobDamageable
   - MobPolymorphable
   id: ESPBaseSimpleMob
   suffix: AI

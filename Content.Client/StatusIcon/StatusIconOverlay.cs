@@ -19,6 +19,8 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Client._ES.Viewcone;
+using Robust.Client.Player;
 
 namespace Content.Client.StatusIcon;
 
@@ -29,11 +31,14 @@ public sealed class StatusIconOverlay : Overlay
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPlayerManager _player = default!; 
+   
 
     private readonly SpriteSystem _sprite;
     private readonly TransformSystem _transform;
     private readonly StatusIconSystem _statusIcon;
     private readonly ShaderInstance _unshadedShader;
+    private readonly ESViewconeOverlayManagementSystem _viewcone;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
@@ -44,6 +49,7 @@ public sealed class StatusIconOverlay : Overlay
         _sprite = _entity.System<SpriteSystem>();
         _transform = _entity.System<TransformSystem>();
         _statusIcon = _entity.System<StatusIconSystem>();
+        _viewcone = _entity.System<ESViewconeOverlayManagementSystem>();
         _unshadedShader = _prototype.Index(UnshadedShader).Instance();
     }
 
@@ -57,9 +63,19 @@ public sealed class StatusIconOverlay : Overlay
         var scaleMatrix = Matrix3Helpers.CreateScale(new Vector2(1, 1));
         var rotationMatrix = Matrix3Helpers.CreateRotation(-eyeRot);
 
+        // Отримуємо локального гравця перед циклом
+        var localPlayer = _player.LocalSession?.AttachedEntity;
+
         var query = _entity.AllEntityQueryEnumerator<StatusIconComponent, SpriteComponent, TransformComponent, MetaDataComponent>();
         while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform, out var meta))
         {
+            // ПЕРЕВІРКА КОНУСА ЗОРУ
+            if (localPlayer != null && uid != localPlayer)
+            {
+                if (!_viewcone.IsEntityInView(localPlayer.Value, uid))
+                    continue;
+            }
+
             if (xform.MapID != args.MapId || !sprite.Visible)
                 continue;
 
@@ -108,9 +124,8 @@ public sealed class StatusIconOverlay : Overlay
                         accOffsetL += texture.Height;
                         countL++;
                     }
-                    yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float)(accOffsetL - proto.Offset) / EyeManager.PixelsPerMeter;
+                    yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float) (accOffsetL - proto.Offset) / EyeManager.PixelsPerMeter;
                     xOffset = -(bounds.Width + sprite.Offset.X) / 2f;
-
                 }
                 else
                 {
@@ -121,9 +136,8 @@ public sealed class StatusIconOverlay : Overlay
                         accOffsetR += texture.Height;
                         countR++;
                     }
-                    yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float)(accOffsetR - proto.Offset) / EyeManager.PixelsPerMeter;
-                    xOffset = (bounds.Width + sprite.Offset.X) / 2f - (float)texture.Width / EyeManager.PixelsPerMeter;
-
+                    yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float) (accOffsetR - proto.Offset) / EyeManager.PixelsPerMeter;
+                    xOffset = (bounds.Width + sprite.Offset.X) / 2f - (float) texture.Width / EyeManager.PixelsPerMeter;
                 }
 
                 if (proto.IsShaded)

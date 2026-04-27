@@ -85,7 +85,8 @@
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
+//FOV overlay change explined by a drunk coder - with var local player = _playerManager... etc. is a way of get entity of the creature.
+//IF statment checks can we see the creature and if we can, we use "!_viewcone.IsEntityInView" to check if it in the cone of vision. 
 using System.Numerics;
 using Content.Client.StatusIcon;
 using Content.Client.UserInterface.Systems;
@@ -102,6 +103,8 @@ using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using static Robust.Shared.Maths.Color;
+using Content.Client._ES.Viewcone;
+using Robust.Client.Player;
 
 namespace Content.Client.Overlays;
 
@@ -119,7 +122,8 @@ public sealed class EntityHealthBarOverlay : Overlay
     private readonly StatusIconSystem _statusIconSystem;
     private readonly SpriteSystem _spriteSystem;
     private readonly ProgressColorSystem _progressColor;
-
+    private readonly ESViewconeOverlayManagementSystem _viewcone;
+    private readonly IPlayerManager _playerManager;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
     public HashSet<string> DamageContainers = new();
@@ -129,6 +133,8 @@ public sealed class EntityHealthBarOverlay : Overlay
     {
         _entManager = entManager;
         _prototype = prototype;
+        _viewcone = _entManager.System<ESViewconeOverlayManagementSystem>();
+        _playerManager = IoCManager.Resolve<IPlayerManager>();
         _transform = _entManager.System<SharedTransformSystem>();
         _mobStateSystem = _entManager.System<MobStateSystem>();
         _mobThresholdSystem = _entManager.System<MobThresholdSystem>();
@@ -148,6 +154,9 @@ public sealed class EntityHealthBarOverlay : Overlay
         var rotationMatrix = Matrix3Helpers.CreateRotation(-rotation);
         _prototype.TryIndex(StatusIcon, out var statusIcon);
 
+        
+        var localPlayer = _playerManager.LocalSession?.AttachedEntity;
+
         var query = _entManager.AllEntityQueryEnumerator<MobThresholdsComponent, MobStateComponent, DamageableComponent, SpriteComponent>();
         while (query.MoveNext(out var uid,
             out var mobThresholdsComponent,
@@ -155,6 +164,13 @@ public sealed class EntityHealthBarOverlay : Overlay
             out var damageableComponent,
             out var spriteComponent))
         {
+            // we want to check if the mob can be seen by player 
+            if (localPlayer != null && uid != localPlayer)
+            {
+                if (!_viewcone.IsEntityInView(localPlayer.Value, uid))
+                    continue;
+            }
+
             if (statusIcon != null && !_statusIconSystem.IsVisible((uid, _entManager.GetComponent<MetaDataComponent>(uid)), statusIcon))
                 continue;
 
