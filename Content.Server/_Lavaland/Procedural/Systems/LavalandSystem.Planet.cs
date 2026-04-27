@@ -10,6 +10,7 @@ using Content.Server.Atmos.Components;
 using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.Gravity;
 using Content.Shared.Parallax.Biomes;
+using Content.Shared.Pinpointer;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Map;
@@ -142,6 +143,7 @@ public sealed partial class LavalandSystem
 
             _transform.SetCoordinates(result.Value, new EntityCoordinates(lavaland, layout.Position));
             _metaData.SetEntityName(result.Value, Loc.GetString(layout.Name));
+            _navMap.RefreshGrid(result.Value.Owner, EnsureComp<NavMapComponent>(result.Value.Owner), result.Value.Comp);
 
             Log.Debug($"Spawned {ToPrettyString(result.Value)} grid on planet {ToPrettyString(lavaland)}.");
             spawned.Add(result.Value);

@@ -239,7 +239,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     #region: Grid functions
 
-    private void RefreshGrid(EntityUid uid, NavMapComponent component, MapGridComponent mapGrid)
+    public void RefreshGrid(EntityUid uid, NavMapComponent component, MapGridComponent mapGrid) // Goob edit - made public
     {
         // Clear stale data
         component.Chunks.Clear();
