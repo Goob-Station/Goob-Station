@@ -30,6 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using System.Linq;
+using Content.Goobstation.Shared.Communications;
 
 namespace Content.Server.Telephone;
 
@@ -483,7 +484,12 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
                 return sourceXform.GridUid == receiverXform.GridUid;
 
             case TelephoneRange.Map:
-                return sourceXform.MapID == receiverXform.MapID;
+                // Goob edit - signal transmitters
+                var ev = new TelecomConnectionOverrideEvent(sourceXform.MapID, receiverXform.MapID);
+                RaiseLocalEvent(ref ev);
+                // Goob edit end
+                return sourceXform.MapID == receiverXform.MapID
+                    || !ev.Cancelled; // Goob edit - signal transmitters
 
             case TelephoneRange.Unlimited:
                 return true;
