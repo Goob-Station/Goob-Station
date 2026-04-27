@@ -26,6 +26,7 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<AnimalAgeingComponent, AddAgeToMobEvent>(OnAddAge);
         SubscribeLocalEvent<AnimalAgeingComponent, ChangeMobAgeStateEvent>(OnChangeState);
         SubscribeLocalEvent<AnimalAgeingComponent, OldAgeDeathEvent>(OnOldAgeDeath);
@@ -37,6 +38,19 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         SubscribeLocalEvent<SpawnEntityOnAgeUpComponent, ChangeMobAgeStateEvent>(OnStateChangedAgeSpawn);
 
         SubscribeLocalEvent<SpawnEntityOnOldAgeDeathComponent, OldAgeDeathEvent>(OnOldAgeDeathSpawn);
+
+        SubscribeLocalEvent<AgelessComponent, AddAgeToMobAttemptEvent>(OnAddAgeAttempt);
+        SubscribeLocalEvent<AgelessComponent, ChangeMobAgeStateAttemptEvent>(OnChangeStateAttempt);
+    }
+
+    private void OnChangeStateAttempt(Entity<AgelessComponent> ent, ref ChangeMobAgeStateAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    private void OnAddAgeAttempt(Entity<AgelessComponent> ent, ref AddAgeToMobAttemptEvent args)
+    {
+        args.Cancelled = true;
     }
 
     private void OnOldAgeDeathSpawn(Entity<SpawnEntityOnOldAgeDeathComponent> ent, ref OldAgeDeathEvent args)

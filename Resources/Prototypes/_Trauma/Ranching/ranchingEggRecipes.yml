@@ -20,6 +20,7 @@
   egg: IxworthEgg
   requiredChicken:
   - MobWhiteHen
+  - MobIxworthHen
   noSpecialFoodRequiredChickens:
   - MobIxworthHen
   happinessRequired: 15
@@ -299,3 +300,16 @@
   weight: 10
   reagentsRequired:
     THC: 0.01 # make them smoke a blunt to lay the egg peak
+
+- type: eggRecipe
+  id: CockatriceEgg
+  egg: CockatriceEgg
+  requiredChicken:
+  - MobStoneHen
+  - MobCockatriceHen
+  noSpecialFoodRequiredChickens:
+  - MobCockatriceHen
+  happinessRequired: 15
+  weight: 10
+  foodTagsRequired:
+  - LizardTail

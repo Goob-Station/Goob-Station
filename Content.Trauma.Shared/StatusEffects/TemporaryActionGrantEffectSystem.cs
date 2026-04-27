@@ -1,0 +1,35 @@
+using Content.Shared.Actions;
+using Content.Shared.StatusEffectNew;
+
+namespace Content.Trauma.Shared.StatusEffects;
+
+public sealed class TemporaryActionGrantEffectSystem : EntitySystem
+{
+    [Dependency] private readonly SharedActionsSystem _action = default!;
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<TemporaryActionGrantEffectComponent, StatusEffectAppliedEvent>(OnApply);
+        SubscribeLocalEvent<TemporaryActionGrantEffectComponent, StatusEffectRemovedEvent>(OnRemove);
+    }
+
+    private void OnApply(Entity<TemporaryActionGrantEffectComponent> ent, ref StatusEffectAppliedEvent args)
+    {
+        foreach (var action in ent.Comp.ActionPrototypes)
+        {
+            EntityUid? actionUid = null;
+            _action.AddAction(args.Target, ref actionUid, action);
+
+            if (actionUid != null)
+                ent.Comp.Actions.Add(actionUid.Value);
+        }
+    }
+
+    private void OnRemove(Entity<TemporaryActionGrantEffectComponent> ent, ref StatusEffectRemovedEvent args)
+    {
+        foreach (var action in ent.Comp.Actions)
+        {
+            _action.RemoveAction(args.Target, action);
+        }
+    }
+}

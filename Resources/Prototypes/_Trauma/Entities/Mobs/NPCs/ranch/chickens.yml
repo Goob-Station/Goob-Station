@@ -1432,3 +1432,61 @@
   - type: FavoriteFood
     tag:
     - Rice
+
+# Cockatrice
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickCockatrice
+  name: cockatrice chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobCockatriceHen
+    - MobCockatriceRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cockatrice.rsi
+  - type: FavoriteFood
+    tag:
+    - LizardTail
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobCockatriceHen
+  name: cockatrice hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cockatrice.rsi
+  - type: FavoriteFood
+    tag:
+    - LizardTail
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobCockatriceRooster
+  name: cockatrice rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cockatrice.rsi
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 6
+        Poison: 4
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Hephaestium
+          Quantity: 90
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 6
+  - type: FavoriteFood
+    tag:
+    - LizardTail

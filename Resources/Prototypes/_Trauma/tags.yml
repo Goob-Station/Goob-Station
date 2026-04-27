@@ -134,6 +134,9 @@
   id: IngotWorkableSteel
 
 - type: Tag
+  id: LizardTail
+
+- type: Tag
   id: MagazineTurret
 
 - type: Tag

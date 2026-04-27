@@ -113,6 +113,57 @@
         probability: 0.1
 
 - type: reagent
+  id: Hephaestium
+  name: reagent-name-hephaestium
+  desc: reagent-desc-hephaestium
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: sour
+  color: "#7a7866"
+  boilingPoint: 563.7
+  meltingPoint: 353.5
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.1
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectMedusa
+        time: 30
+        type: Add
+        conditions:
+        - !type:ReagentCondition
+          reagent: Hephaestium
+          min: 10
+
+- type: reagent
+  id: Ageium
+  name: reagent-name-ageium
+  desc: reagent-desc-ageium
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: sweet
+  color: "#FF69B4"
+  boilingPoint: 831
+  meltingPoint: 607
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.4
+      effects:
+      - !type:AddComponents
+        components:
+        - type: Ageless
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ageium
+          min: 20
+      - !type:RemoveComponents
+        components:
+        - type: Ageless
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ageium
+          min: 0
+          max: 5
+
+- type: reagent
   id: NanoProcessor
   name: reagent-name-nanoprocessor
   desc: reagent-desc-nanoprocessor

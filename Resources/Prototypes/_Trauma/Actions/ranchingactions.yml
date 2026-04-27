@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseAction
+  id: CockatricePowerAction
+  name: Cockatrice's power
+  description: The Cockatrice's egg has given you the power to turn people into stone statues!
+  components:
+  - type: Action
+    raiseOnAction: true
+    useDelay: 10
+    icon:
+      sprite: _Trauma/Actions/ranching.rsi
+      state: cockatrice
+  - type: TargetAction
+    interactOnMiss: false
+    range: 4
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - HumanoidProfile
+    canTargetSelf: false
+    event: !type:EffectTargetActionEvent
+  - type: EffectAction
+    onPerformed: false
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectMedusa
+      time: 15
+      type: Add

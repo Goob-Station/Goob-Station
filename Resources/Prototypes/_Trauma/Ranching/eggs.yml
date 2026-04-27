@@ -57,6 +57,12 @@
   components:
   - type: Sprite
     state: egg-pet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ageium
+          Quantity: 50
   - type: TimedReplace
     entity: MobChickIxworth
 
@@ -421,3 +427,18 @@
     state: egg-stone
   - type: TimedReplace
     entity: MobChickStone
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: CockatriceEgg
+  components:
+  - type: Sprite
+    state: egg-cockatrice
+  - type: TimedReplace
+    entity: MobChickCockatrice
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectCockatricePower
+      time: 30
+      type: Add

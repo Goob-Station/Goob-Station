@@ -42,3 +42,30 @@
           Radiation: -2
           Poison: -2
       useTargeting: false
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCockatricePower
+  name: cockatrice egg effect
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - CockatricePowerAction
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectMedusa
+  name: Turned into stone
+  components:
+  - type: StunnedStatusEffect
+  - type: AddShaderStatusEffect
+    shader: Greyscale
+  - type: StatusEffectEffectsApply
+    effectsOnApply:
+    - !type:PopupMessage
+      visualType: LargeCaution
+      type: Local
+      messages:
+      - medusa-popup
+    - !type:PlaySoundEffect
+      sound: /Audio/Effects/break_stone.ogg
