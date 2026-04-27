@@ -72,5 +72,5 @@
         min: 30
         max: 30
   - type: LightCycle
-    duration: 900 # 15 minutes
-    minLightLevel: 0.3 # You can barely see things moving at this light level
+    duration: 1200 # 20 minutes
+    minLightLevel: 0.4 # You can barely see things moving at this light level
