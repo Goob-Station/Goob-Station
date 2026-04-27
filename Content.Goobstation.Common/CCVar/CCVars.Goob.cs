@@ -110,7 +110,7 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> RoundEndNoEorgPopupTime =
         CVarDef.Create("game.round_end_eorg_popup_time", 5f, CVar.SERVER | CVar.REPLICATED);
-  
+
     /// Easy mode for biomass requirements on cloning. If true, 30% less biomass is required to clone mobs.
     /// </summary>
     public static readonly CVarDef<bool> CloneBiomassEasyMode =
@@ -668,4 +668,20 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> GpsUpdateRate =
         CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
+
+    #region AutoCryo
+
+    /// <summary>
+    ///     Whether SSD players will automatically cryo after being SSD for too long.
+    /// </summary>
+    public static readonly CVarDef<bool> AutoCryoEnabled =
+        CVarDef.Create("ic.auto_cryo_enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Time in seconds after going SSD before a player automatically cryos themself.
+    /// </summary>
+    public static readonly CVarDef<float> AutoCryoTime =
+        CVarDef.Create("ic.auto_cryo_time", 600f, CVar.SERVERONLY);
+
+    #endregion
 }
