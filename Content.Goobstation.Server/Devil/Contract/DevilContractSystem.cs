@@ -271,6 +271,9 @@ public sealed partial class DevilContractSystem : EntitySystem
     }
     public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
+        if (TerminatingOrDeleted(contractee))
+            return false;
+
         // Can't sell what doesn't exist.
         if (HasComp<CondemnedComponent>(contractee)
             || devil == contractee)
@@ -365,6 +368,9 @@ public sealed partial class DevilContractSystem : EntitySystem
     private void ApplyEffectToTarget(EntityUid target, DevilClausePrototype clause, Entity<DevilContractComponent>? contract)
     {
         //_sawmill.Debug($"Applying {clause.ID} effect to {ToPrettyString(target)}");
+
+        if (TerminatingOrDeleted(target))
+            return;
 
         DoPolymorphs(target, clause);
 

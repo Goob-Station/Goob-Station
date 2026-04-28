@@ -146,3 +146,23 @@
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
       - id: DoubleEmergencyPlasmaTankFilled
+
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelTennisGame
+  name: tennis game bundle
+  description: "Contains all you need to start a tennis match!"
+  components:
+  - type: StorageFill
+    contents:
+    - id: TennisBall
+      amount: 2
+    - id: BaseTennisRacket
+      amount: 2
+    - id: NTTennisRacket
+      amount: 2
+    - id: SyndicateTennisRacket
+      amount: 2
+    - id: CrayonRainbow
+      amount: 1
