@@ -24,6 +24,7 @@ public sealed class PollBoothSystem : EntitySystem
         SubscribeLocalEvent<PollBoothComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<PollBoothComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<PollBoothComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<PollBoothComponent, MoveEvent>(OnMove);
         _polls.OnUnseenChanged += RefreshAll;
     }
 
@@ -53,8 +54,8 @@ public sealed class PollBoothSystem : EntitySystem
         var layer = _sprite.AddLayer((ent.Owner, sprite), AlertSprite);
         _sprite.LayerMapSet((ent.Owner, sprite), PollBoothLayer.Alert, layer);
         sprite.LayerSetShader(layer, "unshaded");
-        _sprite.LayerSetOffset((ent.Owner, sprite), layer, new Vector2(0f, 1f));
         _sprite.LayerSetVisible((ent.Owner, sprite), layer, _polls.HasUnseenPolls);
+        UpdateAlertTransform((ent.Owner, sprite), layer);
 
         if (!_requestedPolls)
         {
@@ -72,6 +73,24 @@ public sealed class PollBoothSystem : EntitySystem
             return;
 
         _sprite.RemoveLayer((ent.Owner, sprite), layer);
+    }
+
+    private void OnMove(Entity<PollBoothComponent> ent, ref MoveEvent args)
+    {
+        if (!TryComp<SpriteComponent>(ent, out var sprite))
+            return;
+
+        if (!_sprite.LayerMapTryGet((ent.Owner, sprite), PollBoothLayer.Alert, out var layer, false))
+            return;
+
+        UpdateAlertTransform((ent.Owner, sprite), layer);
+    }
+
+    private void UpdateAlertTransform(Entity<SpriteComponent?> sprite, int layer)
+    {
+        var rot = Transform(sprite.Owner).LocalRotation;
+        _sprite.LayerSetRotation(sprite, layer, -rot);
+        _sprite.LayerSetOffset(sprite, layer, (-rot).RotateVec(new Vector2(0f, 1f)));
     }
 
     private void RefreshAll()
