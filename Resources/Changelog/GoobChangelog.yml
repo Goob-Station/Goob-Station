@@ -22807,3 +22807,35 @@ Entries:
       message: New set of IPC wings.
   id: 2610
   time: '2026-04-26T11:47:18.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Added a new xeno nest lavaland ruin.
+  id: 2611
+  time: '2026-04-27T16:05:33.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Actually made pirates rarer.
+  id: 2612
+  time: '2026-04-28T08:25:45.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Gemini is now invulnerable whilst stored inside of the projector.
+    - type: Fix
+      message: >-
+        Gemini's death will no longer magically damage its host after the
+        projector has already been removed.
+    - type: Tweak
+      message: >-
+        Gemini's body temperature is now automatically cooled to safe levels
+        while inside the projector.
+  id: 2613
+  time: '2026-04-28T08:35:11.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Ballistic shield has an inhand sprite now
+  id: 2614
+  time: '2026-04-28T09:00:03.0000000+00:00'
