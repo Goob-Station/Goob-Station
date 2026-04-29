@@ -22839,3 +22839,21 @@ Entries:
       message: Ballistic shield has an inhand sprite now
   id: 2614
   time: '2026-04-28T09:00:03.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added polling booths! (not yet mapped.)
+  id: 2615
+  time: '2026-04-29T00:27:44.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Mapped polling booths! They will always be in library, mostly in bar,
+        sometimes near cryo or dorms.
+    - type: Remove
+      message: Replaced command Inspector on origin with a russian revolver
+    - type: Remove
+      message: Removed turrets from CC landing area, added polling to CC.
+  id: 2616
+  time: '2026-04-29T18:48:07.0000000+00:00'
