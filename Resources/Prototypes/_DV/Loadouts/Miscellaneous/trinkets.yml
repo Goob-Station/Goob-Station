@@ -69,3 +69,32 @@
     neck: ClothingNeckClassicPumpkinScarf
   groupBy: "scarves"
 
+- type: loadout
+  id: ClothingNeckClassicPurpleScarf
+  equipment:
+    neck: ClothingNeckClassicPurpleScarf
+  groupBy: "scarves"
+
+- type: loadout
+  id: ClothingNeckClassicWhiteScarf
+  equipment:
+    neck: ClothingNeckClassicWhiteScarf
+  groupBy: "scarves"
+
+- type: loadout
+  id: ClothingNeckClassicIndigoScarf
+  equipment:
+    neck: ClothingNeckClassicIndigoScarf
+  groupBy: "scarves"
+
+- type: loadout
+  id: ClothingNeckClassicPinkScarf
+  equipment:
+    neck: ClothingNeckClassicPinkScarf
+  groupBy: "scarves"
+
+- type: loadout
+  id: ClothingNeckClassicGreyScarf
+  equipment:
+    neck: ClothingNeckClassicGreyScarf
+  groupBy: "scarves"

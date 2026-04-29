@@ -63,3 +63,57 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Scarf/pumpkinscarf.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicPurpleScarf
+  name: A purple scarf
+  description: It's a scarf that is purple.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/purplescarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/purplescarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicWhiteScarf
+  name: A white scarf
+  description: It's a scarf that is white.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/whitescarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/whitescarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicIndigoScarf
+  name: An indigo scarf
+  description: It's a scarf that is indigo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/indigoscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/indigoscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicPinkScarf
+  name: A pink scarf
+  description: It's a scarf that is pink.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/pinkscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/pinkscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicGreyScarf
+  name: A grey scarf
+  description: It's a scarf that is grey.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/greyscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/greyscarf.rsi
