@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 06:38:51
-  entityCount: 6902
-maps:
-- 45
+  time: 04/29/2026 14:38:20
+  entityCount: 6894
+maps: []
 grids:
 - 1668
-orphans: []
+orphans:
+- 1668
 nullspace: []
 tilemap:
   0: Space
@@ -47,22 +47,12 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 45
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 1668
     components:
     - type: MetaData
       name: Central Command
     - type: Transform
-      parent: 45
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -28787,22 +28777,17 @@ entities:
       parent: 1668
 - proto: PollBooth
   entities:
-  - uid: 170
+  - uid: 45
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 34.5,12.5
       parent: 1668
-  - uid: 632
+  - uid: 170
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 34.5,11.5
-      parent: 1668
-  - uid: 741
-    components:
-    - type: Transform
-      pos: -1.5,-15.5
       parent: 1668
 - proto: PortableScrubber
   entities:
@@ -42188,15 +42173,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -13.5,22.5
       parent: 1668
-  - uid: 674
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,14.5
-      parent: 1668
-    - type: AccessReader
-      access:
-      - - CentralCommand
   - uid: 675
     components:
     - type: Transform
@@ -42215,15 +42191,6 @@ entities:
     - type: AccessReader
       access:
       - - CentralCommand
-  - uid: 855
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,10.5
-      parent: 1668
-    - type: AccessReader
-      access:
-      - - CentralCommand
   - uid: 910
     components:
     - type: Transform
@@ -42235,24 +42202,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 18.5,20.5
-      parent: 1668
-    - type: AccessReader
-      access:
-      - - CentralCommand
-  - uid: 989
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -3.5,4.5
-      parent: 1668
-    - type: AccessReader
-      access:
-      - - CentralCommand
-  - uid: 1304
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 11.5,12.5
       parent: 1668
     - type: AccessReader
       access:
@@ -42275,18 +42224,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 5624
-  - uid: 6752
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 17.5,-5.5
-      parent: 1668
-    - type: AccessReader
-      access:
-      - - CentralCommand
-    - type: DeviceNetwork
-      deviceLists:
-      - 5623
   - uid: 6760
     components:
     - type: Transform
@@ -42338,12 +42275,6 @@ entities:
     - type: AccessReader
       access:
       - - CentralCommand
-  - uid: 6771
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 4.5,-9.5
-      parent: 1668
   - uid: 6779
     components:
     - type: Transform
@@ -42425,26 +42356,20 @@ entities:
       - 569
       - 462
       - 76
-      - 989
       - 201
       - 281
       - 198
       - 278
       - 813
-      - 1304
-      - 855
       - 910
       - 965
-      - 674
       - 675
-      - 6752
       - 6760
       - 6761
       - 6764
       - 6765
       - 6770
       - 6769
-      - 6771
       - 6779
       - 6780
       - 6793
@@ -42461,9 +42386,6 @@ entities:
     - type: AccessReader
       access:
       - - CentralCommand
-    - type: DeviceList
-      devices:
-      - 6752
   - uid: 5624
     components:
     - type: Transform
@@ -43021,9 +42943,9 @@ entities:
       pos: 3.69186,-28.411167
       parent: 1668
     - type: MeleeWeapon
-      nextAttack: -69.467116
+      nextAttack: -31.2888423
     - type: EmitSoundOnCollide
-      nextSound: -69.467116
+      nextSound: -31.2888423
 - proto: WizardsGrimoire
   entities:
   - uid: 5863
