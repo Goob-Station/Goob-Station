@@ -692,6 +692,11 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+  - type: Bounceable
+    entityToSpawn: MobChickGolden
+    effects:
+    - !type:ThrowRandomly
+      speed: 5
   - type: FavoriteFood
     tag:
     - Sugar
