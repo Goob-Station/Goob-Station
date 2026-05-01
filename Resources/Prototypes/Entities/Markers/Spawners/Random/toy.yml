@@ -209,7 +209,7 @@
     - id: PlushieFern # Goobstation
     - id: PlushieAbductor # Goobstation
     # WD EDIT START
-    - FaceHuggerToys
+    - id: FaceHuggerToys
     # WD EDIT END
     - !type:NestedSelector
       tableId: AllFigurineMechsTable

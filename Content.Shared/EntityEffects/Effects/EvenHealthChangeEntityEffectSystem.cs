@@ -1,9 +1,10 @@
 ﻿using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.EntityEffects.Effects;
 using Content.Shared.Localizations;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.EntityEffects.Effects;
 
@@ -19,35 +20,26 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
 
     protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<EvenHealthChange> args)
     {
-        var damageSpec = new DamageSpecifier();
-
         foreach (var (group, amount) in args.Effect.Damage)
         {
+            // <Goob>
+            var healing = amount * args.Scale;
+            if (args.Effect.ScaleByTemperature is {} scaleTemp)
+            {
+                if (!TryComp<TemperatureComponent>(entity, out var temp))
+                    return; // condition stays the same so this is actually a good return in loop
+
+                healing *= scaleTemp.GetEfficiencyMultiplier(temp.CurrentTemperature, args.Scale, false);
+            }
+            var spec = new DamageSpecifier(); // todo marty unfuck this after damagesystem
             var groupProto = _proto.Index(group);
-            var groupDamage = new Dictionary<string, FixedPoint2>();
-            foreach (var damageId in groupProto.DamageTypes)
+            foreach (var type in groupProto.DamageTypes)
             {
-                var damageAmount = entity.Comp.Damage.DamageDict.GetValueOrDefault(damageId);
-                if (damageAmount != FixedPoint2.Zero)
-                    groupDamage.Add(damageId, damageAmount);
+                spec.DamageDict[type] = healing / groupProto.DamageTypes.Count;
             }
-
-            var sum = groupDamage.Values.Sum();
-            foreach (var (damageId, damageAmount) in groupDamage)
-            {
-                var existing = damageSpec.DamageDict.GetOrNew(damageId);
-                damageSpec.DamageDict[damageId] = existing + damageAmount / sum * amount;
-            }
+            _damageable.TryChangeDamage(entity, spec, ignoreResistances: args.Effect.IgnoreResistances);
+            // </Goob>
         }
-
-        damageSpec *= args.Scale;
-
-        _damageable.TryChangeDamage(
-            entity,
-            damageSpec,
-            args.Effect.IgnoreResistances,
-            interruptsDoAfters: false,
-            damageable: entity.Comp);
     }
 }
 
@@ -65,6 +57,12 @@ public sealed partial class EvenHealthChange : EntityEffectBase<EvenHealthChange
     /// </summary>
     [DataField]
     public bool IgnoreResistances = true;
+
+    /// <summary>
+    /// Shitmed - How to scale the effect based on the temperature of the target entity.
+    /// </summary>
+    [DataField]
+    public TemperatureScaling? ScaleByTemperature;
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {

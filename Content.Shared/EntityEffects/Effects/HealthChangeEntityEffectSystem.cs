@@ -23,7 +23,6 @@ public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<
 
         damageSpec *= args.Scale;
 
-
         // Goobstation Start
         if (args.Effect.ScaleByTemperature is {} scaleTemp)
         {

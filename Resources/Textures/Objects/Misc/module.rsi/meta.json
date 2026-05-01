@@ -137,6 +137,9 @@
       "name": "cpu_syndicate"
     },
     {
+        "name": "cpu_wizard"
+    },
+    {
       "name": "cpu_centcomm"
     },
     {
@@ -323,9 +326,9 @@
       "name": "selfrepair_on",
       "delays": [
         [
-          0.1, 
-          0.1, 
-          0.1, 
+          0.1,
+          0.1,
+          0.1,
           0.1
         ]
       ]
