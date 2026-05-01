@@ -1098,7 +1098,7 @@ ChemDispenser: EnergyChemDispenser
 
 # 2026-02-14 Goobstation, upstreaming. wild.
 MailTeleporter: CargoMailTeleporter
-
+MaterialSilo: MachineMaterialSilo
 
 # 2025-10-08
 ClothingBeltAssault: ClothingBeltMilitaryWebbing
