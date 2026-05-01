@@ -132,6 +132,8 @@ public static class ServerPackaging
         "Npgsql",
         "Microsoft",
         "Concentus",
+        "NetCord",
+        "0Harmony", // Omu include harmony in packaging, remove on upstreaming to latest RT.
     };
 
     private static readonly List<string> ServerNotExtraAssemblies = new()
