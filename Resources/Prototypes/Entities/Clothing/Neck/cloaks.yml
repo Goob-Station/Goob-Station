@@ -84,12 +84,23 @@
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckCloakCe
-  name: chief engineer's cloak
+  id: ClothingNeckCloakWhiteCe
+  name: chief engineer's white cloak
   description: A white cloak with orange adornments, given to those who proved themselves to master the precise art of engineering.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Cloaks/ce.rsi # Goob Station - cloak resprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/Chief Engineer/whitece.rsi # Goob Station - cloak resprite
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakGreenCe
+  name: chief engineer's green cloak
+  description: A green cloak with yellow and blue adornments, given to those who proved themselves to master the precise art of engineering.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/Chief Engineer/greence.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 

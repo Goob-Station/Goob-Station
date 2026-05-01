@@ -25,14 +25,25 @@
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckMantleCE
-  name: chief engineer's mantle
+  id: ClothingNeckMantleWhiteCE
+  name: chief engineer's white mantle
   description: High visibility, check. RIG system, check. High capacity cell, check. Everything a chief engineer could need in a stylish mantle.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Mantle/cemantle.rsi # Goob Station - mantle resprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/Chief Engineer/whitecemantle.rsi # Goob Station - mantle resprite
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Mantle/cemantle.rsi # Goob Station - mantle resprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/Chief Engineer/whitecemantle.rsi # Goob Station - mantle resprite
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckMantleOrangeCE
+  name: chief engineer's orange mantle
+  description: High visibility, check. RIG system, check. High capacity cell, check. Everything a chief engineer could need in a stylish mantle.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/Chief Engineer/orangecemantle.rsi # Goob Station - mantle resprite
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Mantle/Chief Engineer/orangecemantle.rsi # Goob Station - mantle resprite
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
