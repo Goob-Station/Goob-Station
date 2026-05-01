@@ -44,10 +44,10 @@
   - type: Targeting
   - type: SurgeryTarget
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: FluorosulfuricAcid
-        Quantity: 1
+        Quantity: 200
   - type: PressureImmunity
   - type: NightVision
     color: "#BF40BF"

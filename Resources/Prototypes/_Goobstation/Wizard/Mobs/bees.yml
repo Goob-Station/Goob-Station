@@ -13,10 +13,10 @@
     lifetime: 48
     fadeOutTime: 2
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Water
-        Quantity: 1
+        Quantity: 200
     chemicalMaxVolume: 12.5
     bloodMaxVolume: 12.5
   - type: InjectableSolution
@@ -39,7 +39,7 @@
   name: bee (licoxide)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Licoxide
         Quantity: 1
@@ -61,7 +61,7 @@
   name: bee (lexorin)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Lexorin
         Quantity: 1
@@ -72,7 +72,7 @@
   name: bee (chloral hydrate)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: ChloralHydrate
         Quantity: 1
@@ -83,7 +83,7 @@
   name: bee (unstable mutagen)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: UnstableMutagen
         Quantity: 1
@@ -94,7 +94,7 @@
   name: bee (mindbreaker toxin)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: MindbreakerToxin
         Quantity: 1
@@ -105,7 +105,7 @@
   name: bee (pax)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Pax
         Quantity: 1
@@ -117,7 +117,7 @@
   name: bee (lead)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Lead
         Quantity: 1
@@ -128,7 +128,7 @@
   name: bee (lipolicide)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Lipolicide
         Quantity: 1
@@ -140,7 +140,7 @@
   name: bee (impedrezene)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Impedrezene
         Quantity: 1
@@ -151,7 +151,7 @@
   name: bee (razorium)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Razorium
         Quantity: 1
@@ -162,7 +162,7 @@
   name: bee (mute toxin)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: MuteToxin
         Quantity: 1
@@ -173,7 +173,7 @@
   name: bee (buzzochloric bees)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: BuzzochloricBees
         Quantity: 1
@@ -184,7 +184,7 @@
   name: bee (laughter)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Laughter
         Quantity: 1
@@ -195,7 +195,7 @@
   name: bee (toxin)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Toxin
         Quantity: 1

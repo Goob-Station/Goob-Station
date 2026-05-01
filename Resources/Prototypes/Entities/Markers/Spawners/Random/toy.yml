@@ -38,7 +38,7 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
-    - id: PlushieVulp
+    # - id: PlushieVulp # Goob fuck off
     - !type:GroupSelector
       children:
       - id: PlushieBee

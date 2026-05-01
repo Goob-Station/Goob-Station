@@ -81,11 +81,10 @@
       Dead:
         Base: dead
   - type: Bloodstream
-    bloodMaxVolume: 100
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Nitrogen # by request
-        Quantity: 1
+        Quantity: 100
   - type: MeleeWeapon
     altDisarm: false
     soundHit:

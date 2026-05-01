@@ -26,7 +26,7 @@ public sealed partial class BloodReagentThresholdEntityConditionSystem : EntityC
             return;
         }
 
-        if (EntityManager.System<SharedSolutionContainerSystem>().ResolveSolution(entity.Owner, entity.Comp.ChemicalSolutionName, ref entity.Comp.ChemicalSolution, out var chemSolution))
+        if (EntityManager.System<SharedSolutionContainerSystem>().ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var chemSolution))
         {
             var reagentID = new ReagentId(args.Condition.Reagent, null);
             if (chemSolution.TryGetReagentQuantity(reagentID, out var quant))

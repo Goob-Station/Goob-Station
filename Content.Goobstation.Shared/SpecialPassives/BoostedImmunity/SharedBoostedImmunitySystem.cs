@@ -117,7 +117,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         }
 
         if (ent.Comp.CleanseChemicals)
-            _bloodSys.FlushChemicals(ent.Owner, null, ent.Comp.CleanseChemicalsAmount);
+            _bloodSys.FlushChemicals(ent.Owner, ent.Comp.CleanseChemicalsAmount, null);
 
         HealDamage(ent);
     }

@@ -58,11 +58,10 @@
       0: Alive
       60: Dead
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 1
-    bloodMaxVolume: 40
+        Quantity: 40
   - type: Tag
     tags:
     - Trash

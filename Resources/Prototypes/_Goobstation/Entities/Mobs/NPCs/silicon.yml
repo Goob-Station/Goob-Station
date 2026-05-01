@@ -45,11 +45,10 @@
     - id: SheetPlasteel1
       amount: 2
   - type: Bloodstream
-    bloodMaxVolume: 10
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Oil
-        Quantity: 1
+        Quantity: 10
   - type: Fixtures
     fixtures:
       fix1:

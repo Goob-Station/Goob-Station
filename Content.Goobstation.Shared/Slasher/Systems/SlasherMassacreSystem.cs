@@ -280,8 +280,8 @@ public sealed class SlasherMassacreSystem : EntitySystem
 
         // Apply healing via slasherium
         if (healAmount > 0 && TryComp<BloodstreamComponent>(user, out var bloodstream))
-            if (_solutions.ResolveSolution(user, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution))
-                _solutions.TryAddReagent(bloodstream.ChemicalSolution.Value,
+            if (_solutions.ResolveSolution(user, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution))
+                _solutions.TryAddReagent(bloodstream.BloodSolution.Value,
                     new ReagentId(comp.HealReagent, null),
                     FixedPoint2.New(healAmount),
                     out _);

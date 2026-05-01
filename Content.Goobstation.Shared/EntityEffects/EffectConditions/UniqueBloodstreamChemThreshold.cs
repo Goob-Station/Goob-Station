@@ -20,7 +20,7 @@ public sealed partial class UniqueBloodstreamChemThresholdSystem : EntityConditi
 
     protected override void Condition(Entity<BloodstreamComponent> entity, ref EntityConditionEvent<UniqueBloodstreamChemThreshold> args)
     {
-        if (_solution.ResolveSolution(entity.Owner, entity.Comp.ChemicalSolutionName, ref entity.Comp.ChemicalSolution, out var chemSolution))
+        if (_solution.ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var chemSolution))
         {
             args.Result = chemSolution.Contents.Count > args.Condition.Min &&
                           chemSolution.Contents.Count < args.Condition.Max;

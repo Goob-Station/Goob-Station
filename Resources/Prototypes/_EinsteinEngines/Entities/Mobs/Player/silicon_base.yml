@@ -179,10 +179,10 @@
     - type: HasJobIcons # Goobstation
     #- type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
     #  damageBleedModifiers: BloodlossIPC
-    #  bloodReagents:
+    #  bloodReferenceSolution:
     #  reagents:
     #    - ReagentId: Oil
-    #      Quantity: 1
+    #      Quantity: 200
     #  bleedReductionAmount: 0
     #  bloodMaxVolume: 500
     #  chemicalMaxVolume: 0

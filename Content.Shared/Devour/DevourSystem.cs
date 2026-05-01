@@ -115,7 +115,7 @@ public sealed class DevourSystem : EntitySystem
         }
         // <Goobstation> voring walls is good for iron intake
         if (args.Args.Target is {} target && _solution.TryGetSolution(target, "food", out _, out var food))
-            _bloodstreamSystem.TryAddToChemicals(ent.Owner, food);
+            _bloodstreamSystem.TryAddToBloodstream(ent.Owner, food);
         // </Goobstation>
 
         // If the devoured thing meets the stomach whitelist criteria, add it to the stomach

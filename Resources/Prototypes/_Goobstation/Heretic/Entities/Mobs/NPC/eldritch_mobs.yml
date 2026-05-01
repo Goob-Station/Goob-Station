@@ -246,11 +246,10 @@
   - type: Damageable
     damageModifierSet: FireShark
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Plasma
-        Quantity: 1
-    bloodMaxVolume: 10
+        Quantity: 10
     bleedReductionAmount: 0.1
     maxBleedAmount: 0.5
 

@@ -111,10 +111,10 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -0.25
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: BlackBlood
-        Quantity: 1
+        Quantity: 200
   - type: Temperature
     heatDamageThreshold: 330
     coldDamageThreshold: 195
