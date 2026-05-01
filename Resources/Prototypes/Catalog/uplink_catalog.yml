@@ -400,11 +400,11 @@
   description: uplink-hushpup-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 8
+  #discountCategory: rareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 8
   cost:
-    Telecrystal: 10
+    Telecrystal: 30 # goob
   categories:
   - UplinkWeaponry
 

@@ -237,7 +237,7 @@
     - id: PlushieLamp
     - id: PlushieSharkBlue
     - id: PlushieMoth
-    - id: PlushieVulp
+    # - id: PlushieVulp # AAAAAA Goob
     - id: PlushieArachind
     - id: PlushieLizardJobMultiweh # the exceedingly rare multiweh!
     - id: PlushieThrongler #hehe
