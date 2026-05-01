@@ -106,7 +106,10 @@
     damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
-    bloodReagent: InsectBlood # it's still somewhat an insect... somehow
+    bloodReagents:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 1
   - type: Respirator
   - type: CombatMode
   - type: Butcherable

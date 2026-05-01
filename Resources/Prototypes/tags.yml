@@ -1826,6 +1826,8 @@
 - type: Tag
   id: WizardWand # that evil vvizard vvand
                  # .cs: ChargeSpellEvent. Storage whitelist: ClothingBeltWand
+- type: Tag
+  id: WizardStaff # Goob, used for some spell recharge shit.
 
 - type: Tag
   id: Wooden # just like our atmos

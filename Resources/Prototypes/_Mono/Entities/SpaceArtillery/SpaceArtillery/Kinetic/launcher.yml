@@ -453,7 +453,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 12000
-    autoRechargePause: true
+    autoRechargePauseTime: 300
   - type: SpaceArtillery
     powerChargeRate: 800
     powerUsePassive: 1500
@@ -514,7 +514,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 12000
-    autoRechargePause: true
+    autoRechargePauseTime: 300
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 1500

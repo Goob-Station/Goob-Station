@@ -129,7 +129,10 @@
   - type: CombatMode
   - type: Bloodstream
     bloodMaxVolume: 650
-    bloodReagent: Entropy
+    bloodReagents:
+      reagents:
+      - ReagentId: Entropy
+        Quantity: 1
     bloodlossDamage:
       types:
         Bloodloss: 0.5

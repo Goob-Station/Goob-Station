@@ -30,4 +30,10 @@ public sealed partial class PredictedBatterySelfRechargerComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField, ViewVariables]
     public TimeSpan? NextAutoRecharge = TimeSpan.FromSeconds(0);
+
+    // Goobstation
+    /// <summary>
+    /// Whether to disable recharging when EMPed for the EMP's specified duration.
+    /// </summary>
+    [DataField] public bool CanEmp = false;
 }

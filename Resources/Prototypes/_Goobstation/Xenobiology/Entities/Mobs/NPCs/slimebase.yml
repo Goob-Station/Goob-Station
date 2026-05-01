@@ -72,7 +72,10 @@
     damageContainer: Biological
     damageModifierSet: Slime
   - type: Bloodstream
-    bloodReagent: Slime
+    bloodReagents:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 1
     smokeImmune: true  #No more 50000 slime extracts midshift
     bloodlossDamage:
       types:

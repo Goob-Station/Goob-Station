@@ -12,7 +12,10 @@
   components:
   - type: Bloodstream
     bloodMaxVolume: 5
-    bloodReagent: MindbreakerToxin
+    bloodReagents:
+      reagents:
+      - ReagentId: MindbreakerToxin
+        Quantity: 1
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Demons/curse.rsi
@@ -199,7 +202,10 @@
       price: 3000
     - type: Bloodstream
       bloodMaxVolume: 300
-      bloodReagent: Laughter
+      bloodReagents:
+        reagents:
+        - ReagentId: Laughter
+          Quantity: 1
     - type: Fauna # Lavaland Change
     - type: CombatPower # Goobstation
       factor: 3 # times more dangerous than a crew-member
@@ -284,7 +290,10 @@
         amount: 1
     - type: Bloodstream
       bloodMaxVolume: 300
-      bloodReagent: Haloperidol
+      bloodReagents:
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 1
     - type: Fauna # Lavaland Change
     - type: CombatPower # Goobstation
       factor: 3 # times more dangerous than a crew-member

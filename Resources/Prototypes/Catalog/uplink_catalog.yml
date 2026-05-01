@@ -299,12 +299,12 @@
   id: UplinkEnergyCrossbow
   name: uplink-energycrossbow-name
   description: uplink-energycrossbow-desc
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 3
+  #discountCategory: rareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 3
   productEntity: WeaponEnergyCrossbow
   cost:
-    Telecrystal: 5
+    Telecrystal: 30 # Goob
   categories:
   - UplinkWeaponry
   conditions:
@@ -1871,7 +1871,6 @@
       blacklist:
         components:
           - SurplusBundle
-          - ContravendUplink
 
 - type: listing
   id: UplinkFakeMindshield
@@ -2617,11 +2616,11 @@
   description: uplink-saw-advanced-desc
   icon: { sprite:  Objects/Specific/Medical/Surgery/saw.rsi, state: advanced}
   productEntity: SawAdvanced
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
+  #discountCategory: rareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 5
   cost:
-    Telecrystal: 2
+    Telecrystal: 15 # Goob
   categories:
   - UplinkJob
   conditions:
@@ -2634,11 +2633,11 @@
   name: uplink-briefcase-gun-name
   description: uplink-briefcase-gun-desc
   productEntity: WeaponSubMachineGunBriefcase
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
+  #discountCategory: veryRareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 10
   cost:
-    Telecrystal: 15
+    Telecrystal: 25 # Goob
   categories:
   - UplinkJob
   conditions:

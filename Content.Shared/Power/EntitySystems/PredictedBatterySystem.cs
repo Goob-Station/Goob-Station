@@ -18,6 +18,8 @@ public sealed partial class PredictedBatterySystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
+    private EntityQuery<EmpDisabledComponent> _disabledQuery; // Goobstation
+
     public override void Initialize()
     {
         base.Initialize();
@@ -128,6 +130,10 @@ public sealed partial class PredictedBatterySystem : EntitySystem
         while (rechargerQuery.MoveNext(out var uid, out var recharger, out var battery))
         {
             if (recharger.NextAutoRecharge == null || curTime < recharger.NextAutoRecharge)
+                continue;
+
+            // Goobstation
+            if (recharger.CanEmp && _disabledQuery.HasComponent(uid))
                 continue;
 
             recharger.NextAutoRecharge = null; // Don't refresh every tick.

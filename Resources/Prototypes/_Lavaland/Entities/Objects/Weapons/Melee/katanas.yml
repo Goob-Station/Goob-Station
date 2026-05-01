@@ -151,7 +151,4 @@
     delay: 3
   - type: StaticPrice
     price: 25000
-  - type: Tag
-    tags:
-    - Katana
   # TODO: SWOON

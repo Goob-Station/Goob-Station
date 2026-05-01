@@ -148,7 +148,7 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
-    - id: PlushieVulp
+    #- id: PlushieVulp # Goob kill he
     - !type:GroupSelector
       children:
       - id: PlushieBee

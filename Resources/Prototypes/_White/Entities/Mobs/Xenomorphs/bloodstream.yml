@@ -3,7 +3,10 @@
   parent: MobBloodstream
   components:
   - type: Bloodstream
-    bloodReagent: Blood
+    bloodReagents:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 1
     bloodMaxVolume: 300
     chemicalMaxVolume: 250
     bleedReductionAmount: 5

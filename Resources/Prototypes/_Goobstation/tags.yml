@@ -534,6 +534,21 @@
   id: SiliconMob
 
 - type: Tag
+  id: SkeletonMotorcycleKeys
+
+- type: Tag
+  id: SecwayKeys
+
+- type: Tag
+  id: SyndicateSegwayKeys
+
+- type: Tag
+  id: ATVKeys
+
+- type: Tag
+  id: Debug
+
+- type: Tag
   id: SnapPop
 
 - type: Tag

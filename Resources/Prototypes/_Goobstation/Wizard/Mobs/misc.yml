@@ -36,7 +36,10 @@
         Slash: 15
         Piercing: 15
   - type: Bloodstream
-    bloodReagent: Blood
+    bloodReagents:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 1
 
 - type: entity
   name: Simmons

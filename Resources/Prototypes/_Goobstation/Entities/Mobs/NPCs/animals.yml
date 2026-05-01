@@ -277,7 +277,10 @@
       0: Alive
       100: Dead
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReagents:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 1
     bloodMaxVolume: 40
   - type: Tag
     tags:
@@ -488,7 +491,10 @@
       0: Alive
       50: Dead
   - type: Bloodstream
-    bloodReagent: Blood
+    bloodReagents:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 1
     bloodMaxVolume: 40
   - type: Tag
     tags:
@@ -561,7 +567,10 @@
       speechVerb: Cluwne
     - type: Bloodstream
       bloodMaxVolume: 150
-      bloodReagent: Laughter
+      bloodReagents:
+        reagents:
+        - ReagentId: Laughter
+          Quantity: 1
     - type: Clumsy
     - type: NoSlip
     - type: Tag
@@ -910,7 +919,10 @@
         Blunt: 0.1
   - type: Bloodstream
     bloodMaxVolume: 50
-    bloodReagent: Honk
+    bloodReagents:
+      reagents:
+      - ReagentId: Honk
+        Quantity: 1
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClown

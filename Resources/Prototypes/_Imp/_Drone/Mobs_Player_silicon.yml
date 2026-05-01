@@ -28,7 +28,10 @@
   - type: Damageable
     damageContainer: Inorganic
   - type: Bloodstream
-    bloodReagent: Oil
+    bloodReagents:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 1
     bloodMaxVolume: 50
     bloodlossDamage:
       types:

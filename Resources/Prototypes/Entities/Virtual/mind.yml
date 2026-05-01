@@ -5,8 +5,8 @@
   components:
   - type: Mind
   - type: LastWords # Goob
-  - type: ContainerContainer
   - type: MindLastMob
+  - type: ContainerContainer
     containers:
       mind_roles: !type:Container
         ents: []

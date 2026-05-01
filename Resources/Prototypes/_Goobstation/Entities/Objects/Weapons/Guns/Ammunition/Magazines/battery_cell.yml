@@ -13,7 +13,6 @@
     pricePerJoule: 0.15
   - type: BatteryDrinkerSource
   - type: PowerCell
-    powerCellVisualsLevels: 4
   - type: Explosive
     explosionType: Default
     maxIntensity: 200

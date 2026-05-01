@@ -21,7 +21,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
-    autoRechargePause: true
     autoRechargePauseTime: 12
   - type: AmmoCounter
   - type: Appearance

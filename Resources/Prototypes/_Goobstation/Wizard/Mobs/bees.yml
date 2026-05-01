@@ -13,7 +13,10 @@
     lifetime: 48
     fadeOutTime: 2
   - type: Bloodstream
-    bloodReagent: Water
+    bloodReagents:
+      reagents:
+      - ReagentId: Water
+        Quantity: 1
     chemicalMaxVolume: 12.5
     bloodMaxVolume: 12.5
   - type: InjectableSolution
@@ -36,7 +39,7 @@
   name: bee (licoxide)
   components:
   - type: Bloodstream
-    bloodReagent: Licoxide
+    bloodReagents: Licoxide
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -44,7 +47,10 @@
   name: bee (amatoxin)
   components:
   - type: Bloodstream
-    bloodReagent: Amatoxin
+    bloodReagents:
+      reagents:
+      - ReagentId: Amatoxin
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -52,7 +58,10 @@
   name: bee (lexorin)
   components:
   - type: Bloodstream
-    bloodReagent: Lexorin
+    bloodReagents:
+      reagents:
+      - ReagentId: Lexorin
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -60,7 +69,10 @@
   name: bee (chloral hydrate)
   components:
   - type: Bloodstream
-    bloodReagent: ChloralHydrate
+    bloodReagents:
+      reagents:
+      - ReagentId: ChloralHydrate
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -68,7 +80,10 @@
   name: bee (unstable mutagen)
   components:
   - type: Bloodstream
-    bloodReagent: UnstableMutagen
+    bloodReagents:
+      reagents:
+      - ReagentId: UnstableMutagen
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -76,7 +91,10 @@
   name: bee (mindbreaker toxin)
   components:
   - type: Bloodstream
-    bloodReagent: MindbreakerToxin
+    bloodReagents:
+      reagents:
+      - ReagentId: MindbreakerToxin
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -84,7 +102,11 @@
   name: bee (pax)
   components:
   - type: Bloodstream
-    bloodReagent: Pax
+    bloodReagents:
+      reagents:
+      - ReagentId: Pax
+        Quantity: 1
+
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -92,7 +114,10 @@
   name: bee (lead)
   components:
   - type: Bloodstream
-    bloodReagent: Lead
+    bloodReagents:
+      reagents:
+      - ReagentId: Lead
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -100,7 +125,11 @@
   name: bee (lipolicide)
   components:
   - type: Bloodstream
-    bloodReagent: Lipolicide
+    bloodReagents:
+      reagents:
+      - ReagentId: Lipolicide
+        Quantity: 1
+
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -108,7 +137,10 @@
   name: bee (impedrezene)
   components:
   - type: Bloodstream
-    bloodReagent: Impedrezene
+    bloodReagents:
+      reagents:
+      - ReagentId: Impedrezene
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -116,7 +148,10 @@
   name: bee (razorium)
   components:
   - type: Bloodstream
-    bloodReagent: Razorium
+    bloodReagents:
+      reagents:
+      - ReagentId: Razorium
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -124,7 +159,10 @@
   name: bee (mute toxin)
   components:
   - type: Bloodstream
-    bloodReagent: MuteToxin
+    bloodReagents:
+      reagents:
+      - ReagentId: MuteToxin
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -132,7 +170,10 @@
   name: bee (buzzochloric bees)
   components:
   - type: Bloodstream
-    bloodReagent: BuzzochloricBees
+    bloodReagents:
+      reagents:
+      - ReagentId: BuzzochloricBees
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -140,7 +181,10 @@
   name: bee (laughter)
   components:
   - type: Bloodstream
-    bloodReagent: Laughter
+    bloodReagents:
+      reagents:
+      - ReagentId: Laughter
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -148,4 +192,7 @@
   name: bee (toxin)
   components:
   - type: Bloodstream
-    bloodReagent: Toxin
+    bloodReagents:
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 1

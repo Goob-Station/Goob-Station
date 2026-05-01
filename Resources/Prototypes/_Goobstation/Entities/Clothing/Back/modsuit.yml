@@ -77,7 +77,7 @@
       cell_slot: true
   - type: PowerCellDraw
     drawRate: 0.8 # Sealed draw rate
-    useRate: 4 # Draw rate for sealing
+    useCharge: 4 # Draw rate for sealing
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
@@ -151,7 +151,7 @@
       cell_slot: true
   - type: PowerCellDraw
     drawRate: 0.8 # Sealed draw rate
-    useRate: 4 # Draw rate for sealing
+    useCharge: 4 # Draw rate for sealing
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false

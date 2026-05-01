@@ -48,7 +48,10 @@
       amount: 12
   - type: Bloodstream
     bloodMaxVolume: 200
-    bloodReagent: SpaceGlue
+    bloodReagents:
+      reagents:
+      - ReagentId: SpaceGlue
+        Quantity: 1
     bloodlossDamage:
       types:
         Bloodloss:

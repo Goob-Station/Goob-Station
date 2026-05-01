@@ -144,12 +144,12 @@
     channels:
     - Mothership
     - Xenoborg
-    - Binary
+    #- Binary Goob
   - type: ActiveRadio
     channels:
     - Mothership
     - Xenoborg
-    - Binary
+    #- Binary Goob
   - type: Xenoborg
     mindRole: MindRoleMothershipCore
     briefingText: mothership-welcome
@@ -236,6 +236,10 @@
   - type: ShowElectrocutionHUD
   - type: PowerMonitoringCableNetworks
   - type: RadarConsole
+  - type: CollectiveMind # Goobstation collectivemind binary
+    defaultChannel: Binary
+    channels:
+    - Binary
 
 - type: entity
   parent: BaseAGhostAction

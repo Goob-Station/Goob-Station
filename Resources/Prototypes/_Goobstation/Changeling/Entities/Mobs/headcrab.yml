@@ -31,7 +31,10 @@
       sprite: _Goobstation/Changeling/headcrab.rsi
   - type: Physics
   - type: Bloodstream
-    bloodReagent: BloodChangeling
+    bloodReagents:
+      reagents:
+      - ReagentId: BloodChangeling
+        Quantity: 1
     bloodMaxVolume: 60
   - type: DamageStateVisuals
     states:

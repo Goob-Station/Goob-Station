@@ -8,7 +8,10 @@
   components:
   - type: Bloodstream
     bloodMaxVolume: 650
-    bloodReagent: FluorosulfuricAcid
+    bloodReagents:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 1
     bleedReductionAmount: 30
   - type: TypingIndicator
     proto: alien

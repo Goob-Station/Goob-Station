@@ -83,7 +83,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20
-    autoRechargePause: true
     autoRechargePauseTime: 60
 
 - type: entity
@@ -133,5 +132,4 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 15
-    autoRechargePause: true
     autoRechargePauseTime: 90

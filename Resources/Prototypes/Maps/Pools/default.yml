@@ -53,7 +53,7 @@
   id: DefaultMapPool
   maps:
   - Atlas
-  - Amber
+  #- Amber kil by upstream we still have ours but it testfails oh well.
   - Bagel
   - Box
   - Cluster

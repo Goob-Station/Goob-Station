@@ -28,7 +28,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 50
-    autoRechargePause: true
     autoRechargePauseTime: 40
   - type: DisarmMalus
   - type: Tag
