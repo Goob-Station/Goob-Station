@@ -35,7 +35,7 @@
     powerUsePassive: 750
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipMissileASM417
     fireCost: 867
   - type: RadarBlip
@@ -82,7 +82,7 @@
     autoRecharge: true
     autoRechargeRate: 60
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipMissileASM501
     fireCost: 350
   - type: RadarBlip
@@ -126,7 +126,7 @@
     autoRecharge: true
     autoRechargeRate: 60
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipMissileASM302
     fireCost: 300
   - type: SpaceArtillery
@@ -195,7 +195,7 @@
     powerUsePassive: 2500
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipMissileASM557
     fireCost: 12500
   - type: RadarBlip

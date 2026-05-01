@@ -103,7 +103,7 @@
         Base: brimdemon
       Dead:
         Base: brimdemon_dead
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ProjectileFireball
     fireCost: 50
   - type: BatterySelfRecharger

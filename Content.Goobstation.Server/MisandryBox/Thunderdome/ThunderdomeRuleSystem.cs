@@ -628,8 +628,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
                     if (!inGun && TryComp<BallisticAmmoProviderComponent>(contained, out var ballistic))
                         RefillBallistic((contained, ballistic));
 
-                    if (!inGun && (HasComp<HitscanBatteryAmmoProviderComponent>(contained)
-                        || HasComp<ProjectileBatteryAmmoProviderComponent>(contained)))
+                    if (!inGun && (HasComp<BatteryAmmoProviderComponent>(contained)))
                         RefillBattery(contained);
 
                     if (!inGun && TryComp<RevolverAmmoProviderComponent>(contained, out var revolver))

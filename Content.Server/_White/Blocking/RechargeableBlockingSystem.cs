@@ -10,13 +10,13 @@
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
+using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 
 namespace Content.Server._White.Blocking;
@@ -37,16 +37,13 @@ public sealed class RechargeableBlockingSystem : EntitySystem
         SubscribeLocalEvent<RechargeableBlockingComponent, PowerCellChangedEvent>(OnPowerCellChanged);
     }
 
-    private void OnExamined(EntityUid uid, RechargeableBlockingComponent component, ExaminedEvent args)
+    private void OnExamined(Entity<RechargeableBlockingComponent> ent, ref ExaminedEvent args)
     {
-        if (!component.Discharged)
-        {
-            _powerCell.OnBatteryExamined(uid, null, args);
+        if (!ent.Comp.Discharged)
             return;
-        }
 
         args.PushMarkup(Loc.GetString("rechargeable-blocking-discharged"));
-        args.PushMarkup(Loc.GetString("rechargeable-blocking-remaining-time", ("remainingTime", GetRemainingTime(uid))));
+        args.PushMarkup(Loc.GetString("rechargeable-blocking-remaining-time", ("remainingTime", GetRemainingTime(ent))));
     }
 
     private int GetRemainingTime(EntityUid uid)

@@ -36,7 +36,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
     defaultDirection: 1, 0
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumSplitLaser
     fireCost: 80
   - type: StaticPrice
@@ -84,7 +84,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
     defaultDirection: 1, 0
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserHeavy
     fireCost: 33
   - type: StaticPrice
@@ -125,7 +125,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserSpreadHeavy
     fireCost: 125
   - type: StaticPrice
@@ -166,7 +166,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     fireRate: 0.75
   - type: GunRequiresWield
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: LaserSniper
     fireCost: 100
   - type: SpeedModifiedOnWield

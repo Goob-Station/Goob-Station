@@ -208,7 +208,7 @@
         Base: herald
       Dead:
         Base: herald_dying
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletKineticShuttle
     fireCost: 50
   - type: BatterySelfRecharger

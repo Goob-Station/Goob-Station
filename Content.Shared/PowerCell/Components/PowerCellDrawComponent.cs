@@ -1,3 +1,5 @@
+using Content.Goobstation.Common.Augments;
+using Content.Goobstation.Common.Clothing.Systems;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.PowerCell.Components;
@@ -9,7 +11,8 @@ namespace Content.Shared.PowerCell.Components;
 /// With ActivatableUI it will activate and deactivate when the ui is opened and closed, drawing power inbetween.
 /// </remarks>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(PowerCellSystem))]
+[Access(typeof(PowerCellSystem),
+    typeof(CommonAugmentPowerCellSystem), typeof(CommonPoweredSealableClothingSystem))] // Goob
 public sealed partial class PowerCellDrawComponent : Component
 {
     /// <summary>

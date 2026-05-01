@@ -151,7 +151,7 @@
     sprite: Structures/Power/power.rsi
     state: generator
   - type: Anchorable # goob end
-  - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+  - type: BatteryAmmoProvider # goob edit - svalinn buff fix
     proto: MediumOverchargedLaser # hot potato
     fireCost: 70
 
@@ -181,7 +181,7 @@
       Steel: 12
     chemicalComposition:
       Zinc: 5
-  - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+  - type: BatteryAmmoProvider # goob edit - svalinn buff fix
     proto: RedLightLaser
     fireCost: 45 # 8 shots
 
@@ -229,7 +229,7 @@
   - type: PredictedBattery
     maxCharge: 720
     startingCharge: 720
-  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+  - type: BatteryAmmoProvider # goob edit - battery hitscan buff
     proto: MediumRedLaser
     fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -275,7 +275,7 @@
   - type: PredictedBattery
     maxCharge: 1080
     startingCharge: 1080
-  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+  - type: BatteryAmmoProvider # goob edit - battery hitscan buff
     proto: RedLaser
     fireCost: 135 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -321,7 +321,7 @@
   - type: PredictedBattery
     maxCharge: 1800
     startingCharge: 1800
-  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+  - type: BatteryAmmoProvider # goob edit - battery hitscan buff
     proto: HeavyRedLaser
     fireCost: 225 # 8 shots
 
@@ -363,7 +363,7 @@
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
     # Goobstation
     canEmp: true
-  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+  - type: BatteryAmmoProvider # goob edit - battery hitscan buff
     proto: MediumRedLaser
     fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -409,7 +409,7 @@
       startingCharge: 1200
     - type: PredictedBatterySelfRecharger
       autoRechargeRate: 40
-    - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+    - type: BatteryAmmoProvider # goob edit - svalinn buff fix
       proto: RedLaser
       fireCost: 75 # 16 shots
 

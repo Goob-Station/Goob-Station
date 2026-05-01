@@ -28,7 +28,7 @@
       slots:
         - suitStorage
         - Belt
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: BulletDislippler
       fireCost: 100
     - type: Multishot

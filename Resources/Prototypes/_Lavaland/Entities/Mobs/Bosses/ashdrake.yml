@@ -37,7 +37,7 @@
         Base: dragon
       Dead:
         Base: dragon_dead
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ProjectileFireball
     fireCost: 50
   - type: BatterySelfRecharger

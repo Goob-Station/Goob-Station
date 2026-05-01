@@ -107,7 +107,7 @@
             - PowerCell
             - PowerCellSmall
             - PotatoBattery # goob edits start
-  # - type: HitscanBatteryAmmoProvider
+  # - type: BatteryAmmoProvider
   #   proto: RedLightLaser
   #   fireCost: 50
   - type: MagazineAmmoProvider # goob edits end

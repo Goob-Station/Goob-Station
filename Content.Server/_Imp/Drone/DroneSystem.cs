@@ -25,7 +25,6 @@ using Content.Shared.UserInterface;
 using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
-using Content.Server.PowerCell;
 
 namespace Content.Server._Imp.Drone
 {
@@ -128,7 +127,7 @@ namespace Content.Server._Imp.Drone
         {
         	if (TerminatingOrDeleted(uid))
         		return;
-        	
+
             UpdateBatteryAlert((uid, component));
 
             // if we run out of charge & the drone isn't being deleted, kill the drone

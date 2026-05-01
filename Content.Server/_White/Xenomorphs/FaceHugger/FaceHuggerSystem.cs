@@ -94,7 +94,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     {
         if (args.Slot != component.Slot
             || _mobState.IsDead(uid)
-            || _entityWhitelist.IsBlacklistPass(component.Blacklist, args.Equipee))
+            || _entityWhitelist.IsWhitelistPass(component.Blacklist, args.Equipee))
             return;
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-equip", ("equipment", uid)), uid, args.Equipee);
         _popup.PopupEntity(
@@ -218,7 +218,7 @@ public sealed class FaceHuggerSystem : EntitySystem
 
     public bool TryEquipFaceHugger(EntityUid uid, EntityUid target, FaceHuggerComponent component)
     {
-        if (!component.Active || _mobState.IsDead(uid) || _entityWhitelist.IsBlacklistPass(component.Blacklist, target))
+        if (!component.Active || _mobState.IsDead(uid) || _entityWhitelist.IsWhitelistPass(component.Blacklist, target))
             return false;
 
         // Check for any blocking masks or equipment

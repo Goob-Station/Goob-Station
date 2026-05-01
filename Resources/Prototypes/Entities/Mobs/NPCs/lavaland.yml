@@ -210,7 +210,7 @@
     radius: 1
     energy: 3
     color: deepskyblue
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: WatcherBoltIcewing
     fireCost: 50
   - type: Butcherable # Lavaland Change

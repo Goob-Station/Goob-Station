@@ -8,7 +8,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Lightning;
 using Content.Server.Popups;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Server._EinsteinEngines.Silicon.Charge;
 using Content.Server.Lightning.Components; // Goobstation - Fix IPC shock loops
 using Content.Server.Power.EntitySystems; // Goobstation - Energycrit

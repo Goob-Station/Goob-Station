@@ -119,7 +119,7 @@ public sealed partial class PTLSystem : EntitySystem
             return;
 
         // Configure consumption and damage based on planned energy use (capped).
-        if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))
+        if (TryComp<BatteryAmmoProviderComponent>(ent, out var hitscan))
         {
             var desiredFireCost = (float) Math.Min(chargeBefore, ent.Comp1.MaxEnergyPerShot);
             if (desiredFireCost <= 0)

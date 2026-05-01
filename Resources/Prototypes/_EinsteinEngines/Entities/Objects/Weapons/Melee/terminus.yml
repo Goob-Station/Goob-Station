@@ -35,7 +35,7 @@
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisablerSmgSpread
     fireCost: 100
   - type: MeleeWeapon

@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Inventory;
 using Content.Shared.Power.Components;
 using Content.Shared.PowerCell.Components;
 using JetBrains.Annotations;
@@ -46,6 +47,35 @@ public sealed partial class PowerCellSystem
         }
 
         if (!TryComp<PredictedBatteryComponent>(slot.Item, out var batteryComp))
+        {
+            battery = null;
+            return false;
+        }
+
+        battery = (slot.Item.Value, batteryComp);
+        return true;
+    }
+
+    // Goobstation
+    // fucking kill me.
+    [PublicAPI]
+    public bool TryGetNotPredictedBatteryFromSlot(
+        Entity<PowerCellSlotComponent?> ent,
+        [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+        {
+            battery = null;
+            return false;
+        }
+
+        if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CellSlotId, out var slot))
+        {
+            battery = null;
+            return false;
+        }
+
+        if (!TryComp<BatteryComponent>(slot.Item, out var batteryComp))
         {
             battery = null;
             return false;

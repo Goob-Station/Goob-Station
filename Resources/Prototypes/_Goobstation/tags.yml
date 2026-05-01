@@ -597,9 +597,6 @@
   id: Tongue
 
 - type: Tag
-  id: Tourniquet
-
-- type: Tag
   id: ToyGrenade
 
 - type: Tag

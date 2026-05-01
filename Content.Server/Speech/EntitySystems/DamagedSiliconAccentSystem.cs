@@ -35,10 +35,20 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             {
                 currentChargeLevel = ent.Comp.OverrideChargeLevel.Value;
             }
-            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery) ||
-                     TryComp<BatteryComponent>(uid, out battery)) // Goobstation - Energycrit: Make this work with BatteryComponent too
+            else
             {
-                currentChargeLevel = _battery.GetChargeLevel(battery.Value.AsNullable());
+                Entity<PredictedBatteryComponent?>? batteryEnt;
+                PredictedBatteryComponent? batteryComp = null;
+
+                if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
+                    //|| TryComp(uid, out batteryComp)) // Goobstation - Energycrit: Make this work with BatteryComponent too todo fix ee shit
+                {
+                    batteryEnt = battery != null
+                        ? (battery.Value.Owner, battery.Value.Comp)
+                        : (uid, batteryComp);
+
+                    currentChargeLevel = _battery.GetChargeLevel(batteryEnt.Value);
+                }
             }
             currentChargeLevel = Math.Clamp(currentChargeLevel, 0.0f, 1.0f);
             // Corrupt due to low power (drops characters on longer messages)

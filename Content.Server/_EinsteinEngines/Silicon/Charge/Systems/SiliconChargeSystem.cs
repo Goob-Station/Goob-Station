@@ -22,7 +22,7 @@ using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.CCVar;
 using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
@@ -70,8 +70,12 @@ public sealed class SiliconChargeSystem : EntitySystem
         }
 
         // Try to get inserted battery
-        if (_powerCell.TryGetBatteryFromSlot(silicon, out batteryEnt, out batteryComp))
+        if (_powerCell.TryGetNotPredictedBatteryFromSlot(silicon, out var battery))
+        {
+            batteryComp = battery.Value.Comp;
+            batteryEnt = battery.Value.Owner;
             return true;
+        }
 
         // Goobstation - Energycrit: Deshitcodified this
         /*
