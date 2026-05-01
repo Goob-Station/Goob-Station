@@ -193,11 +193,6 @@
     icon: { sprite: _Goobstation/Actions/devil.rsi, state: hellstep }
   - type: InstantAction
     event: !type:DevilHellstepEvent
-  - type: EntityEffects
-    effects:
-    - !type:HellstepEffect
-      firePrototype: HereticFireAA
-      lavaPrototype: FloorLavaEntityTemporary
 
 - type: entity
   id: ActionSmallFavor
