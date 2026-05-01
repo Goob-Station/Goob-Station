@@ -49,9 +49,8 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly AudioSystem _aud = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
-    [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
-    [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";
-    [ValidatePrototypeId<TagPrototype>] private readonly string _tagMultitool = "Multitool";
+    private static readonly ProtoId<TagPrototype> _tagScrewdriver = "Screwdriver";
+    private static readonly ProtoId<TagPrototype> _tagMultitool = "Multitool";
 
     private readonly SoundPathSpecifier _soundKaching = new("/Audio/Effects/kaching.ogg");
     private readonly SoundPathSpecifier _soundSparks = new("/Audio/Effects/sparks4.ogg");
@@ -207,8 +206,8 @@ public sealed partial class PTLSystem : EntitySystem
         {
             if (!Transform(ent).Anchored) // Check if Anchored.
                 return;
-            var stackPrototype = _protMan.Index<StackPrototype>(_stackCredits);
-            _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
+            var spesos = Spawn("SpaceCash", Transform(args.User).Coordinates);
+            _stack.SetCount(spesos, (int) ent.Comp.SpesosHeld);
             ent.Comp.SpesosHeld = 0;
             _popup.PopupEntity(Loc.GetString("ptl-interact-spesos"), ent);
             _aud.PlayPvs(_soundKaching, args.User);

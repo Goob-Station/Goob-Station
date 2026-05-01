@@ -1234,9 +1234,6 @@
 - type: Tag # Goobstation?
   id: MaintenanceCloset
 
-- type: Tag # Goobstation?
-  id: Matchstick
-
 - type: Tag
   id: Matchstick # Storage whitelist: Ashtray. ConstructionGraph: ImprovisedShotgunShellGraph
 

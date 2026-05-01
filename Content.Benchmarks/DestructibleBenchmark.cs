@@ -7,7 +7,7 @@ using Content.IntegrationTests.Pair;
 using Content.Server.Destructible;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Maps;
 using Robust.Shared;
 using Robust.Shared.Analyzers;

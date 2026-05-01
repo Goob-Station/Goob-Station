@@ -151,7 +151,6 @@ using Content.Server.GuideGenerator;
 using Content.Server.Info;
 using Content.Server.IoC;
 using Content.Server.Maps;
-using Content.Server.MoMMI;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
@@ -181,8 +180,8 @@ namespace Content.Server.Entry
         [Dependency] private readonly CVarControlManager _cvarCtrl = default!;
         [Dependency] private readonly ContentLocalizationManager _loc = default!;
         [Dependency] private readonly ContentNetworkResourceManager _netResMan = default!;
-        //[Dependency] private readonly DiscordChatLink _discordChatLink = default!; // Goobstation no
-        //[Dependency] private readonly DiscordLink _discordLink = default!;
+        [Dependency] private readonly DiscordChatLink _discordChatLink = default!;
+        [Dependency] private readonly DiscordLink _discordLink = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly GhostKickManager _ghostKick = default!;
         [Dependency] private readonly IAdminManager _admin = default!;

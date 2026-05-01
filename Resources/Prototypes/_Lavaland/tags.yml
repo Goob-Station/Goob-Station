@@ -45,9 +45,6 @@
   id: LegionSkull
 
 - type: Tag
-  id: PKAUpgrade
-
-- type: Tag
   id: PKAUpgradeSpace
 
 - type: Tag
