@@ -291,7 +291,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             foreach (var station in _station.GetStations())
             {
-                _roundEnd.CancelRoundEndCountdown(checkCooldown: false);
+                _roundEnd.CancelRoundEndCountdown(forceRecall: true);
                 _chatSystem.DispatchStationAnnouncement(station, Loc.GetString("cult-alert-recall-shuttle"), colorOverride: Color.FromHex("#4cabb3"));
             }
         }

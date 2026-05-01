@@ -24,7 +24,7 @@
       maxSoundDistance: 7
       sounds:
         collection: Paracusia
-    - type: PainNumbness
+    - type: PainNumbnessStatusEffect
     - type: PermanentBlindness
     - type: SocialAnxiety
     - type: TileMovement

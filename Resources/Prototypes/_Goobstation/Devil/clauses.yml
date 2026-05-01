@@ -117,7 +117,7 @@
   id: pain
   clauseWeight: -5
   addedComponents:
-  - type: PainNumbness
+  - type: PainNumbnessStatusEffect
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 1
