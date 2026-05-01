@@ -44,3 +44,5 @@ devil-power-level-increase-powerful = You've almost completed your tasks here. J
 prevent-buckling-message = Your contract prevents you from buckling to this object.
 
 jaunt-ascended-fail = You are unable to jaunt in your ascended form!
+
+devil-ascension-announcement = An infernal presence surges through the station. {$trueName} has shed their mortal guise and ascended back to their true form!

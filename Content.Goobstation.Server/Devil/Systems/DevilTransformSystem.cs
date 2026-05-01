@@ -1,11 +1,18 @@
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Components;
+using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Server.Actions;
+using Content.Server.Antag.Components;
+using Content.Server.Atmos.Components;
+using Content.Server.Zombies;
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Mind;
+using Content.Shared.Shuttles.Components;
 using System.Linq;
 
 namespace Content.Goobstation.Server.Devil.Systems;
@@ -45,6 +52,8 @@ public sealed class DevilTransformSystem : EntitySystem
 
         var coords = Transform(uid).Coordinates;
         var newEntity = Spawn(prototype, coords);
+
+        CopyDevilComponents(uid, newEntity);
 
         if (!EntityManager.TryCopyComponent(uid, newEntity, ref oldComp, out var newComp))
         {
@@ -94,6 +103,9 @@ public sealed class DevilTransformSystem : EntitySystem
             RemComp<DevilLesserFormComponent>(newEntity);
             EnsureComp<ArchdevilComponent>(newEntity);
 
+            var ev = new DevilAscendedEvent();
+            RaiseLocalEvent(newEntity, new DevilAscendedEvent());
+
             // Archdevils lose hellfire, gain archfire.
             _actions.RemoveAction(newEntity, newComp.HellfireActionEntity);
 
@@ -102,5 +114,36 @@ public sealed class DevilTransformSystem : EntitySystem
         }
 
         Del(uid);
+    }
+
+    private void CopyDevilComponents(EntityUid oldUid, EntityUid newUid) // This is really dirty but it works.
+    {
+        // Abilities
+        CopyIfExists<DevilAuthorityComponent>(oldUid, newUid);
+        CopyIfExists<DevilGripComponent>(oldUid, newUid);
+        CopyIfExists<DevilHeresyComponent>(oldUid, newUid);
+        CopyIfExists<DevilSummonPitchforkComponent>(oldUid, newUid);
+        CopyIfExists<HellstepActionComponent>(oldUid, newUid);
+        // Grip effects
+        CopyIfExists<GripSidegradeRotComponent>(oldUid, newUid);
+        CopyIfExists<GripSidegradeStunComponent>(oldUid, newUid);
+        // Traits
+        CopyIfExists<NoLimbForYouComponent>(oldUid, newUid);
+        CopyIfExists<PreventBucklingComponent>(oldUid, newUid);
+        CopyIfExists<UncontainableComponent>(oldUid, newUid);
+        // Original traits
+        CopyIfExists<ZombieImmuneComponent>(oldUid, newUid);
+        CopyIfExists<BreathingImmunityComponent>(oldUid, newUid);
+        CopyIfExists<PressureImmunityComponent>(oldUid, newUid);
+        CopyIfExists<WeakToHolyComponent>(oldUid, newUid);
+        CopyIfExists<AntagImmuneComponent>(oldUid, newUid);
+        CopyIfExists<SupermatterImmuneComponent>(oldUid, newUid);
+        CopyIfExists<FTLSmashImmuneComponent>(oldUid, newUid);
+    }
+
+    private void CopyIfExists<T>(EntityUid oldUid, EntityUid newUid) where T : IComponent, new()
+    {
+        if (TryComp<T>(oldUid, out var comp))
+            CopyComp(oldUid, newUid, comp);
     }
 }

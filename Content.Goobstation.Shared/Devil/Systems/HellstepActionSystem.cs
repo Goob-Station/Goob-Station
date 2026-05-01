@@ -1,5 +1,7 @@
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Components;
+using Content.Goobstation.Shared.Devil.EntityEffects;
+using Content.Shared.EntityEffects;
 
 namespace Content.Goobstation.Shared.Devil.Systems;
 
@@ -8,7 +10,6 @@ public sealed class HellstepActionSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<HellstepActionComponent, DevilHellstepEvent>(TryUse);
     }
 
@@ -17,8 +18,7 @@ public sealed class HellstepActionSystem : EntitySystem
         if (args.Handled)
             return;
 
-        EnsureComp<HellstepComponent>(uid);
+        new HellstepEffect().Effect(new EntityEffectBaseArgs(uid, EntityManager));
         args.Handled = true;
     }
 }
-

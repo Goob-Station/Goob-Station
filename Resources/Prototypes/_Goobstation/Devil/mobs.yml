@@ -98,7 +98,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1000: Dead # Killable so not round ending. Parity would be 5000 so don't complain
+      2500: Dead # Parity would be 5000 so don't complain
   - type: MeleeWeapon
     altDisarm: false
     angle: 0

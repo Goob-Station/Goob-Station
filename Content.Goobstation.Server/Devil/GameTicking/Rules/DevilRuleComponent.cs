@@ -28,4 +28,10 @@ public sealed partial class DevilRuleComponent : Component
 
     [DataField]
     public ProtoId<StoreCategoryPrototype> StoreCategory = "DevilAbilities";
+
+    [DataField]
+    public bool AscensionAnnounced = false;
+
+    [DataField]
+    public SoundPathSpecifier AscensionSound = new("/Audio/_Goobstation/Devil/demonchant3.ogg");
 }
