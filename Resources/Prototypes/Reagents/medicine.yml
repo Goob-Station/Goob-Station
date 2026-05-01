@@ -401,7 +401,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: Yowie
+          type: [Yowie]
           inverted: true
         - !type:ReagentCondition
           reagent: Dermaline
@@ -572,10 +572,10 @@
         conditions:
         - !type:ReagentCondition
           reagent: Epinephrine
+          min: 20
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
           inverted: true
-          min: 20
         damage:
           types:
             Asphyxiation: 1
@@ -915,7 +915,7 @@
           min: 30
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
-          shouldHave: false
+          inverted: true
         damage:
           types:
             Asphyxiation: 3.5
@@ -1354,7 +1354,7 @@
           reagent: Sigynate
           min: 16
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: Yowie
+          type: [Yowie]
           inverted: true
         damage:
           types:
@@ -1426,7 +1426,7 @@
           min: 12
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
-          iverted: true
+          inverted: true
         damage:
           types:
             Cold: 3 # Goobstation - 30 per u?

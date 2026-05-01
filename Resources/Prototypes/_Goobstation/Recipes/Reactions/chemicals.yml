@@ -48,7 +48,6 @@
   effects:
     - !type:AdjustSolutionThermalEnergy
       delta: -100 # I know noone will use this one since hotbeakering and second recipe, but one can dream
-      scaled: true
 
 - type: reaction
   id: CryostylaneIodineCooling
@@ -62,4 +61,3 @@
   effects:
     - !type:AdjustSolutionThermalEnergy
       delta: -200
-      scaled: true

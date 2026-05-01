@@ -125,7 +125,6 @@
         component: SeeingRainbows
         type: Add
         time: 20
-        refresh: false
       - !type:Drunk
         boozePower: 10
       - !type:Emote # Now a bunch of emotes

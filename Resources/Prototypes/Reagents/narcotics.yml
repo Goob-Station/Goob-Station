@@ -619,7 +619,7 @@
         - norepinephricacid-effect-blindness
         conditions:
         - !type:ReagentCondition
-          reagent: Teargas
+          reagent: TearGas
           min: 5
       - !type:Emote
         emote: Scream

@@ -28,6 +28,8 @@ public abstract partial class BaseSpawnEntityEntityEffect<T> : EntityEffectBase<
     [DataField]
     public bool Predicted = true;
 
+
+
     /// <inheritdoc cref="EntityEffect.Scaling"/>
     public override bool Scaling => true;
 

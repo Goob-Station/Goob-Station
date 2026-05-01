@@ -36,7 +36,6 @@
         time: 3
         frequency: 20
       - !type:SpawnEntity
-        delay: 3
         entity: MobSlimeXenobioBabyGrey
         number: 3
     - reagents: [ Blood ]

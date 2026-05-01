@@ -139,8 +139,6 @@
       effects: # TODO: when magic is around - make a milk transformation to a skeleton monster
       - !type:HealthChange
         scaling: true
-        ignoreBlockers: true # What do broken bones even mean in the context of a skeleton?.. # Woundmed
-        splitDamage: SplitEnsureAll
         damage:
           groups:
             Burn: -4 # healing obviously up to discussion # Shitmed value

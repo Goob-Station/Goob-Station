@@ -87,7 +87,6 @@
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
-          shouldHave: false
         amount: 5 # effectively 3 "sleeps" per 20OD, but only 1 on 10 (like with 2 syringes)
         immediate: false
       - !type:MovementSpeedModifier # kinda sleepiness
@@ -123,7 +122,6 @@
           inverted: true
         key: ForcedSleep
         component: ForcedSleeping
-        refresh: false
         type: Add
         time: 10
       - !type:TakeStaminaDamage
@@ -798,9 +796,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
-        ignoreBlockers: false
         damage:
           types:
             Heat: -1.5
@@ -863,7 +859,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         ignoreBlockers: false
         damage:
@@ -918,7 +913,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         ignoreBlockers: false
         damage: #1/4th of the brute healing of Styptic Powder and 1/4th the burn healing of Silver Sulfide, so 1/2 of the overall healing of either chem
@@ -962,7 +956,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
         ignoreBlockers: false
         damage:
@@ -1124,7 +1117,6 @@
         component: RadiationProtection
         time: 2
         type: Add
-        refresh: false
 
 - type: reagent
   id: Atropine
@@ -1257,7 +1249,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -1314,7 +1305,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:

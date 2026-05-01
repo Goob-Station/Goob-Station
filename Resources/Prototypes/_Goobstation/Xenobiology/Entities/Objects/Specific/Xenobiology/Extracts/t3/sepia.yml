@@ -37,7 +37,6 @@
         time: 5
         frequency: 20
       - !type:SpawnEntity
-        delay: 5
         entity: XenoExtractChronofield
         number: 1
     - reagents: [ Blood ]

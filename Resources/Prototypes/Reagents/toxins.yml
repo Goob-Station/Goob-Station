@@ -71,7 +71,7 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
-          invertd: true
+          inverted: true
         damage:
           types:
             Poison: 4

@@ -8,10 +8,10 @@
     - !type:PopupMessage
       type: Local
       messages: [ "curse-weakness-slow" ]
-    - !type:MovementSpeedModifier
-      walkSpeedModifier: 0.5
-      sprintSpeedModifier : 0.5
-      statusLifetime: 8
+    - !type:ModifyStatusEffect
+      effectProto: CurseWeaknessSlowDownEffect
+      type: Add
+      time: 8
     0.3:
     - !type:PopupMessage
       type: Local
@@ -27,7 +27,6 @@
       effectProto: StatusEffectDrowsiness
       time: 15
       type: Add
-      refresh: false
 
 - type: curse
   id: CurseBlood

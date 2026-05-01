@@ -957,7 +957,7 @@
         - id: MobAdultSlimesYellowAngry
         - id: MobAngryBee
         - id: MobBearSpace
-        - id: MobXenoRavager
+        - id: CMMobXenoRavager # Goobstation?
         - id: MobTick
         - id: MobSpiderSpace
         - id: MobPurpleSnake

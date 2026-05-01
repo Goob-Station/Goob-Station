@@ -26,7 +26,6 @@
         frequency: 20
       - !type:AreaReactionEffect
         duration: 10
-        delay: 5
         prototypeId: AluminiumMetalFoam
         sound:
           path: /Audio/Effects/extinguish.ogg

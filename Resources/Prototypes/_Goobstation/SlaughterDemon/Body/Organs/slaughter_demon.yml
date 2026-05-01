@@ -110,6 +110,5 @@
     slotId: heart
     partType: Chest
   - type: Edible
-    requiredStomachs: 666 # So you can't just eat it on use lmao
   - type: StaticPrice
     price: 50000

@@ -220,7 +220,7 @@
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type:
           - Yowie
-          shouldHave: false
+          inverted: true
         - !type:ReagentCondition
           reagent: SodiumHydroxide
           min: 5

@@ -1,7 +1,9 @@
 ﻿using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.EntityEffects.Effects;
 using Content.Shared.Localizations;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects;
@@ -20,6 +22,17 @@ public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<
         var damageSpec = new DamageSpecifier(args.Effect.Damage);
 
         damageSpec *= args.Scale;
+
+
+        // Goobstation Start
+        if (args.Effect.ScaleByTemperature is {} scaleTemp)
+        {
+            if (!TryComp<TemperatureComponent>(entity, out var temp))
+                return; // condition stays the same so this is actually a good return in loop
+
+            damageSpec *= scaleTemp.GetEfficiencyMultiplier(temp.CurrentTemperature, args.Scale, false);
+        }
+        // Goobstation End
 
         _damageable.TryChangeDamage(
                 entity,
@@ -40,6 +53,9 @@ public sealed partial class HealthChange : EntityEffectBase<HealthChange>
 
     [DataField]
     public bool IgnoreResistances = true;
+
+    [DataField]
+    public TemperatureScaling? ScaleByTemperature;
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         {

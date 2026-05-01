@@ -37,7 +37,6 @@
         time: 5
         frequency: 20
       - !type:Explosion
-        delay: 5
         explosionType: FireBomb # bomboclat
         maxIntensity: 1050
         intensitySlope: 4

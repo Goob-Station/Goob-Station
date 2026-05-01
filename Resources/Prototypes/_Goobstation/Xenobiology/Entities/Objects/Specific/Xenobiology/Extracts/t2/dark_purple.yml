@@ -46,7 +46,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateGas
         gas: Plasma
-        multiplier: 55
+        moles: 55
   - type: Tag
     tags:
     - XenobiologyDarkPurpleExtract

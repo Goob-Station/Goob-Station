@@ -27,7 +27,6 @@
       - !type:SpawnEntity
         entity: RPassiveMobSpawner
         number: 5
-        delay: 3
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -43,7 +42,6 @@
       - !type:SpawnEntity
         entity: RHostileMobSpawner
         number: 5
-        delay: 3
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -59,7 +57,6 @@
       - !type:SpawnEntity
         entity: RNeutralMobSpawner
         number: 5
-        delay: 3
   - type: Tag
     tags:
     - XenobiologyGoldExtract

@@ -136,12 +136,12 @@
         - !type:MetabolizerTypeCondition # Goobstation
           type:
           - Yowie # Goobstation - Yowie
-          - Cybernetics # Shitmed - Cybernetic Organs
+          - Cybernetic # Shitmed - Cybernetic Organs
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition
           type:
-          - Cybernetics # Shitmed - Cybernetic Organs
+          - Cybernetic # Shitmed - Cybernetic Organs
         ratios:
           CarbonDioxide: 0.5
           Oxygen: -0.5

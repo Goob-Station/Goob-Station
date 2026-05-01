@@ -21,11 +21,11 @@
         component: BlurryVision
         time: 6.0
       31:
-      - !type:MovementSpeedModifier
+      - !type:ModifyStatusEffect
+        effectProto: DisgustSlowDownEffect
         probability: 0.03
-        walkSpeedModifier: 0.7
-        sprintSpeedModifier: 0.7
-        statusLifetime: 6.0
+        type: Add
+        time: 6
       32:
       - !type:TakeStaminaDamage
         probability: 0.06
