@@ -913,7 +913,6 @@
       effects:
       - !type:HealthChange
         ignoreResistances: false
-        ignoreBlockers: false
         damage: #1/4th of the brute healing of Styptic Powder and 1/4th the burn healing of Silver Sulfide, so 1/2 of the overall healing of either chem
           types:
             Blunt: -0.5
@@ -956,7 +955,6 @@
       effects:
       - !type:HealthChange
         ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
-        ignoreBlockers: false
         damage:
           types:
             Blunt: 0.25

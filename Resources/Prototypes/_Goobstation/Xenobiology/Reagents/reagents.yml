@@ -46,7 +46,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
       - !type:Drunk
         conditions:
         - !type:MetabolizerTypeCondition

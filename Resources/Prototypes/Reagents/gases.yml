@@ -149,7 +149,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Plasmaman ]
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -220,7 +219,6 @@
           - Cybernetic # Shitmed - Cybernetic Organs
           inverted: true
 # Goobstation end
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -257,7 +255,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Cybernetic ]
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -349,7 +346,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Plasmaman ]
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -646,7 +642,6 @@
         - !type:ReagentCondition
           reagent: Frezon
           min: 0.5
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -659,7 +654,6 @@
         - !type:ReagentCondition
           reagent: Frezon
           min: 0.5
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:

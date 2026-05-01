@@ -145,7 +145,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
           inverted: true
-          shouldHave: false
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add

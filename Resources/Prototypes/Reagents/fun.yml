@@ -181,7 +181,7 @@
             Piercing: 2
         conditions:
         - !type:MetabolizerTypeCondition
-          type: Yowie
+          type: [Yowie]
         - !type:TagCondition
           inverted: true
           tag: Bee

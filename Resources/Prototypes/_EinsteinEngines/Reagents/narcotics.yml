@@ -36,7 +36,6 @@
         component: Drowsiness
         time: 2.5
         type: Add
-        refresh: false
       - !type:SuppressPain
         amount: 50
         time: 30
