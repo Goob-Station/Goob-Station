@@ -83,12 +83,10 @@ using System.Numerics;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
-using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
-using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
@@ -112,6 +110,8 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Mind.Components;
+using Content.Server.Maps;
+using Content.Shared.Maps;
 
 namespace Content.Server.GameTicking
 {

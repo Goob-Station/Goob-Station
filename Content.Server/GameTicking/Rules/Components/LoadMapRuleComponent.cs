@@ -8,7 +8,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Maps;
 using Content.Shared.GridPreloader.Prototypes;
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;

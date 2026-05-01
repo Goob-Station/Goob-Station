@@ -242,6 +242,9 @@
   id: FrozenIgnoreMindAction
 
 - type: Tag
+  id: GasTank
+
+- type: Tag
   id: GasMask
 
 - type: Tag

@@ -945,9 +945,9 @@
   description: uplink-chemistry-kit-desc
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: vials }
   productEntity: ChemicalSynthesisKit
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 10 # Goob
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 10 # Goob
   cost:
     Telecrystal: 20 # Goob
   categories:
@@ -984,9 +984,9 @@
   name: uplink-nocturine-chemistry-bottle-name
   description: uplink-nocturine-chemistry-bottle-desc
   productEntity: ChemistryBottleNocturine
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 15 # Goob
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 15 # Goob
   cost:
     Telecrystal: 30 # goob
   categories:
@@ -1888,9 +1888,9 @@
   name: uplink-black-jetpack-name
   description: uplink-black-jetpack-desc
   productEntity: JetpackBlackFilled
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 1
+  #discountCategory: veryRareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1901,9 +1901,9 @@
   name: uplink-voice-mask-name
   description: uplink-voice-mask-desc
   productEntity: ClothingMaskGasVoiceChameleon
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:

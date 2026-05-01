@@ -3,7 +3,8 @@
   id: WeaponEnergyGunMultiphaseStealObjective
   components:
   - type: NotJobRequirement
-    job: HeadOfSecurity
+    jobs:
+    - HeadOfSecurity
   - type: StealCondition
     stealGroup: WeaponEnergyGunMultiphase
   - type: Objective

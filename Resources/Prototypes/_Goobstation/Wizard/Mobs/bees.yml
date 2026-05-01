@@ -39,7 +39,10 @@
   name: bee (licoxide)
   components:
   - type: Bloodstream
-    bloodReagents: Licoxide
+    bloodReagents:
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 1
 
 - type: entity
   parent: MobAngryBeeWizard
