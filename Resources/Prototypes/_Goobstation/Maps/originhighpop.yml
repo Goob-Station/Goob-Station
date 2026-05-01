@@ -97,7 +97,6 @@
             Clown: [ 2, 2 ]
             Mime: [ 2, 2 ]
             Musician: [ 3, 3 ]
-            Boxer: [ 2, 2 ]
 
         # Goobstation blob-config-start HUGE
         - type: StationBlobConfig

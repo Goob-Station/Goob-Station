@@ -217,7 +217,7 @@
 - type: entity
   id: ShellTranquilizer
   name: shell (12 Gauge tranquilizer) # Goobstation
-  parent: [ BaseShellShotgun, BaseSecurityZookeeperContraband ] # Goobstation
+  parent: [ BaseShellShotgun, BaseSecurityContraband ] # Goobstation
   components:
   - type: Tag
     tags:

@@ -35,7 +35,6 @@
             RadioHost: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 3, 3 ]
-            Zookeeper: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
