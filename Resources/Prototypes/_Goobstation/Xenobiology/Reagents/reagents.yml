@@ -75,7 +75,6 @@
         effectProto: StatusEffectDrowsiness
         time: 2
         type: Add
-        refresh: false
 
 
 - type: reagent
@@ -125,11 +124,9 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectFireImmune
         time: 60
-        refresh: false
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWeatherImmune
         time: 60
-        refresh: false
 
 - type: reagent
   parent: BaseXenobioReagent
