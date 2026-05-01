@@ -131,7 +131,6 @@
         - !type:MetabolizerTypeCondition # Shitmed - Cybernetic Organs
           type: [ Cybernetic ]
           inverted: true
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -225,7 +224,6 @@
         - !type:ReagentCondition
           reagent: Healium
           max: 24
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           groups:
@@ -280,7 +278,6 @@
         - !type:ReagentCondition
           reagent: Healium
           max: 24
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           groups:
@@ -478,7 +475,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:

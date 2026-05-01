@@ -250,7 +250,7 @@
   rules:
   - Nukeops
   - DummyNonAntagChance
-  - SubGamemodesRuleNoWizard
+  # - SubGamemodesRuleNoWizard Goob
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -268,7 +268,7 @@
   rules:
   - DummyNonAntagChance
   - Revolutionary
-  - SubGamemodesRuleNoWizard
+  # - SubGamemodesRuleNoWizard Goob
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler

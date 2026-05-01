@@ -230,7 +230,6 @@
         component: TemporaryBlindness
         type: Add
         time: 2
-        refresh: false
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
@@ -456,7 +455,6 @@
         component: SeeingRainbows
         type: Add
         time: 20
-        refresh: false
       - !type:Drunk
         boozePower: 10
         conditions:
