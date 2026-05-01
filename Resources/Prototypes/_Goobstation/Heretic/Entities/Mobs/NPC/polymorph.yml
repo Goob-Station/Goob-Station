@@ -60,7 +60,10 @@
   categories: [ DoNotMap ]
   components:
   - type: Bloodstream
-    bloodMaxVolume: 1984
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 1984
     bleedReductionAmount: 5
   - type: Destructible
     thresholds:

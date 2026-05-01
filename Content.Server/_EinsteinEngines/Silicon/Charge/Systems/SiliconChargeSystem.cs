@@ -70,7 +70,7 @@ public sealed class SiliconChargeSystem : EntitySystem
         }
 
         // Try to get inserted battery
-        if (_powerCell.TryGetNotPredictedBatteryFromSlot(silicon, out var battery))
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out var battery))
         {
             batteryComp = battery.Value.Comp;
             batteryEnt = battery.Value.Owner;
@@ -158,7 +158,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             _battery.TryUseCharge(batteryEnt.Value, frameTime * drainRate); // Goobstation - Use BatterySystem instead of PowerCellSystem
 
             // Figure out the current state of the Silicon.
-            var chargePercent = (short) MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);
+            var chargePercent = (short) MathF.Round(batteryComp.LastCharge / batteryComp.MaxCharge * 10f);
 
             UpdateChargeState(silicon, chargePercent, siliconComp);
         }

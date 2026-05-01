@@ -182,9 +182,8 @@
     #  bloodReferenceSolution:
     #  reagents:
     #    - ReagentId: Oil
-    #      Quantity: 200
+    #      Quantity: 500
     #  bleedReductionAmount: 0
-    #  bloodMaxVolume: 500
     #  chemicalMaxVolume: 0
     #  bleedPuddleThreshold: 3
     #  bleedRefreshAmount: 0

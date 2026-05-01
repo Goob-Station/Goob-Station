@@ -45,7 +45,7 @@ public sealed class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
             return;
         }
 
-        var percent = 100f * battery.Comp.CurrentCharge / battery.Comp.MaxCharge;
+        var percent = 100f * battery.Comp.LastCharge / battery.Comp.MaxCharge;
         var draw = CompOrNull<PowerCellDrawComponent>(augment)?.DrawRate ?? 0f;
         _popup.PopupEntity(Loc.GetString("augments-power-cell-info", ("percent", $"{percent:F0}"), ("draw", draw)), user, user);
     }
@@ -56,7 +56,7 @@ public sealed class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
     /// </summary>
     public Entity<BatteryComponent>? GetAugmentCell(EntityUid augment)
     {
-        if (_powerCell.TryGetNotPredictedBatteryFromSlot(augment, out var battery))
+        if (_powerCell.TryGetBatteryFromSlot(augment, out var battery))
             return (battery.Value, battery.Value.Comp);
 
         return null;
@@ -132,7 +132,7 @@ public sealed class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
 
             _alerts.ClearAlert(uid, augment.Comp.NoBatteryAlert);
 
-            var chargePercent = (short) MathF.Round(battery.Comp.CurrentCharge / battery.Comp.MaxCharge * 10f);
+            var chargePercent = (short) MathF.Round(battery.Comp.LastCharge / battery.Comp.MaxCharge * 10f);
             _alerts.ShowAlert(uid, augment.Comp.BatteryAlert, chargePercent);
         }
     }

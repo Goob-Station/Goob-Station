@@ -128,11 +128,10 @@
   - type: CanMoveInAir
   - type: CombatMode
   - type: Bloodstream
-    bloodMaxVolume: 650
     bloodReferenceSolution:
       reagents:
       - ReagentId: Entropy
-        Quantity: 200
+        Quantity: 650
     bloodlossDamage:
       types:
         Bloodloss: 0.5

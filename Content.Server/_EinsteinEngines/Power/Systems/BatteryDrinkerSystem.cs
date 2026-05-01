@@ -134,8 +134,8 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
 
         var amountToDrink = drinkerComp.DrinkMultiplier * 1000;
 
-        amountToDrink = MathF.Min(amountToDrink, sourceBattery.CurrentCharge);
-        amountToDrink = MathF.Min(amountToDrink, drinkerBatteryComponent!.MaxCharge - drinkerBatteryComponent.CurrentCharge);
+        amountToDrink = MathF.Min(amountToDrink, sourceBattery.LastCharge);
+        amountToDrink = MathF.Min(amountToDrink, drinkerBatteryComponent!.MaxCharge - drinkerBatteryComponent.LastCharge);
 
         if (sourceComp != null && sourceComp.MaxAmount > 0)
             amountToDrink = MathF.Min(amountToDrink, (float) sourceComp.MaxAmount);
@@ -147,10 +147,10 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
         }
 
         if (_battery.TryUseCharge(source, amountToDrink))
-            _battery.SetCharge(drinkerBattery.Value, drinkerBatteryComponent.CurrentCharge + amountToDrink); // DeltaV - people with augment power cells can drink batteries
+            _battery.SetCharge(drinkerBattery.Value, drinkerBatteryComponent.LastCharge + amountToDrink); // DeltaV - people with augment power cells can drink batteries
         else
         {
-            _battery.SetCharge(drinkerBattery.Value, sourceBattery.CurrentCharge + drinkerBatteryComponent.CurrentCharge); // DeltaV - people with augment power cells can drink batteries
+            _battery.SetCharge(drinkerBattery.Value, sourceBattery.LastCharge + drinkerBatteryComponent.LastCharge); // DeltaV - people with augment power cells can drink batteries
             _battery.SetCharge(source, 0);
         }
 

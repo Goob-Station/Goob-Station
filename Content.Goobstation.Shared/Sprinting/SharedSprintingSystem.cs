@@ -90,7 +90,7 @@ public abstract class SharedSprintingSystem : EntitySystem
         base.Update(frameTime);
 
         // We dont add it to the EQE since the comp might get added as this runs.
-        var query = EntityQueryEnumerator<SprinterComponent, StaminaModifierComponent>();
+        var query = EntityQueryEnumerator<SprinterComponent, StaminaModifierStatusEffectComponent>();
         while (query.MoveNext(out var uid, out var sprinterComp, out var staminaComp))
         {
             if (!sprinterComp.IsSprinting

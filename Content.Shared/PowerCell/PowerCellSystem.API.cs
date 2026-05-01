@@ -56,35 +56,6 @@ public sealed partial class PowerCellSystem
         return true;
     }
 
-    // Goobstation
-    // fucking kill me.
-    [PublicAPI]
-    public bool TryGetNotPredictedBatteryFromSlot(
-        Entity<PowerCellSlotComponent?> ent,
-        [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
-    {
-        if (!Resolve(ent, ref ent.Comp, false))
-        {
-            battery = null;
-            return false;
-        }
-
-        if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CellSlotId, out var slot))
-        {
-            battery = null;
-            return false;
-        }
-
-        if (!TryComp<BatteryComponent>(slot.Item, out var batteryComp))
-        {
-            battery = null;
-            return false;
-        }
-
-        battery = (slot.Item.Value, batteryComp);
-        return true;
-    }
-
     /// <summary>
     /// First tries to get a battery from the entity's power cell slot.
     /// If that fails check if the entity itself is a battery with <see cref="BatteryComponent"/>.

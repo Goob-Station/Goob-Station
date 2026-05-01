@@ -43,8 +43,8 @@
         time: 3
         type: Remove
       - !type:GenericStatusEffect
-        key: StaminaModifier
-        component: StaminaModifier
+        key: StaminaModifierStatusEffect
+        component: StaminaModifierStatusEffect
         time: 3
         type: Add
       - !type:GenericStatusEffect

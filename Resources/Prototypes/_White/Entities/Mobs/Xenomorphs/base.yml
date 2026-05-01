@@ -88,8 +88,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: FluorosulfuricAcid
-        Quantity: 300
-    bloodMaxVolume: 250
+        Quantity: 250
     bloodlossDamage:
       types:
         Bloodloss: 0.05

@@ -37,8 +37,8 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             }
             else
             {
-                Entity<PredictedBatteryComponent?>? batteryEnt;
-                PredictedBatteryComponent? batteryComp = null;
+                Entity<BatteryComponent?>? batteryEnt;
+                BatteryComponent? batteryComp = null;
 
                 if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
                     //|| TryComp(uid, out batteryComp)) // Goobstation - Energycrit: Make this work with BatteryComponent too todo fix ee shit

@@ -51,7 +51,7 @@ public sealed class MechGunSystem : EntitySystem
 
     private void OnCheckBattery(EntityUid uid, BatteryAmmoProviderComponent component, CheckMechWeaponBatteryEvent args)
     {
-        if (args.Battery.CurrentCharge > component.FireCost)
+        if (args.Battery.LastCharge > component.FireCost)
             args.Cancelled = true;
     }
 
@@ -64,7 +64,7 @@ public sealed class MechGunSystem : EntitySystem
             return;
 
         var maxCharge = component.MaxCharge;
-        var currentCharge = component.CurrentCharge;
+        var currentCharge = component.LastCharge;
 
         var chargeDelta = maxCharge - currentCharge;
 

@@ -61,7 +61,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
         if (!TryComp<ApcPowerReceiverComponent>(uid, out var apc) && !hasBattery)
             return;
 
-        if (apc is { Powered: true } || battery?.CurrentCharge >= component.PowerUseActive)
+        if (apc is { Powered: true } || battery?.LastCharge >= component.PowerUseActive)
             TryFireArtillery(uid, Transform(uid), component);
         else
             OnMalfunction(uid, component);
@@ -74,12 +74,10 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
         {
             if (args.Powered)
             {
-                batteryCharger.AutoRecharge = true;
                 batteryCharger.AutoRechargeRate = component.PowerChargeRate;
             }
             else
             {
-                batteryCharger.AutoRecharge = true;
                 batteryCharger.AutoRechargeRate = component.PowerUsePassive * -1;
             }
         }
@@ -90,7 +88,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
     {
         if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPowerReceiver) && TryComp<BatteryComponent>(uid, out var battery))
         {
-            apcPowerReceiver.Load = battery.CurrentCharge >= battery.MaxCharge * 0.99 ? component.PowerUsePassive : component.PowerUsePassive + component.PowerChargeRate;
+            apcPowerReceiver.Load = battery.LastCharge >= battery.MaxCharge * 0.99 ? component.PowerUsePassive : component.PowerUsePassive + component.PowerChargeRate;
         }
     }
 

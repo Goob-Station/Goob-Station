@@ -16,9 +16,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Water
-        Quantity: 200
-    chemicalMaxVolume: 12.5
-    bloodMaxVolume: 12.5
+        Quantity: 12.5
   - type: InjectableSolution
     solution: bloodstream
   - type: MeleeChemicalInjector

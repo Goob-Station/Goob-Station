@@ -1,8 +1,10 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Cargo;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.Power.Components;
 using Content.Shared.Rejuvenate;
+using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Power.EntitySystems;
@@ -12,8 +14,12 @@ namespace Content.Shared.Power.EntitySystems;
 /// </summary>
 public abstract partial class SharedBatterySystem : EntitySystem
 {
+    [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
+
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
+    private EntityQuery<EmpDisabledComponent> _disabledQuery; // Goobstation
 
     public override void Initialize()
     {
@@ -123,6 +129,10 @@ public abstract partial class SharedBatterySystem : EntitySystem
             if (recharger.NextAutoRecharge == null || curTime < recharger.NextAutoRecharge)
                 continue;
 
+            // Goobstation
+            if (recharger.CanEmp && _disabledQuery.HasComponent(uid))
+                continue;
+
             recharger.NextAutoRecharge = null; // Don't refresh every tick.
             Dirty(uid, recharger);
             RefreshChargeRate((uid, battery)); // Cooldown is over, apply the new recharge rate.
@@ -174,4 +184,40 @@ public abstract partial class SharedBatterySystem : EntitySystem
         // We have a separate component for this to not duplicate the networking cost unless we actually use it.
         _appearance.SetData(ent.Owner, BatteryVisuals.State, args.NewState);
     }
+    // Goobstation
+    public float GetChargeDifference(EntityUid uid, BatteryComponent? battery = null) // Debug
+    {
+        if (!Resolve(uid, ref battery))
+            return 0;
+
+        return (battery.MaxCharge - battery.LastCharge);
+    }
+
+    // WD EDIT START
+    public bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,
+        [NotNullWhen(true)] out EntityUid? batteryUid)
+    {
+        if (TryComp(uid, out battery))
+        {
+            batteryUid = uid;
+            return true;
+        }
+
+        if (!_containers.TryGetContainer(uid, "cell_slot", out var container)
+            || container is not ContainerSlot slot)
+        {
+            battery = null;
+            batteryUid = null;
+            return false;
+        }
+
+        batteryUid = slot.ContainedEntity;
+
+        if (batteryUid != null)
+            return TryComp(batteryUid, out battery);
+
+        battery = null;
+        return false;
+    }
+    // WD EDIT END
 }

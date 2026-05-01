@@ -30,7 +30,7 @@ public sealed class ProjectileImmunitySystem : EntitySystem
         }
 
         var cost = batteryComp.MaxCharge * (ent.Comp.BatteryCostPerDodge / 100);
-        if (batteryComp.CurrentCharge < cost)
+        if (batteryComp.LastCharge < cost)
         {
             args.Cancelled = true;
             return;

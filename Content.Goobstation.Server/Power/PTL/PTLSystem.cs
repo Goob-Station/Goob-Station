@@ -102,7 +102,7 @@ public sealed partial class PTLSystem : EntitySystem
     private void Tick(Entity<PTLComponent> ent)
     {
         if (!TryComp<BatteryComponent>(ent, out var battery)
-        || battery.CurrentCharge < ent.Comp.MinShootPower)
+        || battery.LastCharge < ent.Comp.MinShootPower)
             return;
 
         Shoot((ent, ent.Comp, battery));
@@ -114,7 +114,7 @@ public sealed partial class PTLSystem : EntitySystem
         var megajoule = 1e6;
 
         // Measure battery before firing.
-        var chargeBefore = ent.Comp2.CurrentCharge;
+        var chargeBefore = ent.Comp2.LastCharge;
         if (chargeBefore <= 0)
             return;
 
@@ -145,7 +145,7 @@ public sealed partial class PTLSystem : EntitySystem
         }
 
         // Determine actual energy used.
-        var chargeAfter = ent.Comp2.CurrentCharge;
+        var chargeAfter = ent.Comp2.LastCharge;
         var energyUsed = Math.Max(0.0, chargeBefore - chargeAfter);
         if (energyUsed <= 0)
             return;
