@@ -31,6 +31,8 @@
   parent: LavalandMobBase
   description: The air trembles around it...
   components:
+  - type: RadiationSource
+    intensity: 3
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
@@ -81,6 +83,8 @@
   parent: LavalandBossMercurySpiderForming
   description: Its body is not flesh. It is not metal. You don't have a clue as to what it is.
   components:
+  - type: RadiationSource
+    intensity: 2
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
@@ -128,6 +132,8 @@
   parent: LavalandBossMercurySpiderForming
   description: The spider was only an empty shell. The true body was above all along.
   components:
+  - type: RadiationSource
+    intensity: 4
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
@@ -169,6 +175,8 @@
   parent: LavalandBossMercurySpiderForming
   description: Long-range weaponry analyzed. Adaptation complete.
   components:
+  - type: RadiationSource
+    intensity: 1
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
@@ -199,6 +207,8 @@
   parent: LavalandBossMercurySpiderForming
   description: Close-quarters weaponry analyzed. Adaptation complete. 
   components:
+  - type: RadiationSource
+    intensity: 1
   - type: Physics
     bodyType: KinematicController
   - type: Clickable

@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by OnsenCapy (Github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "crystalstalagmite1"
+        },
+                {
+            "name": "crystalstalagmite2"
+        },
+                {
+            "name": "crystalstalagmite3"
+        },
+                {
+            "name": "crystalstalagmite4"
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+- type: entity
+  name: Crystal seed
+  id: LavalandMobCrystalSeed
+  parent: LavalandMobBase
+  description: Will one day be a tree.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.5,0.2,0.5"
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/lavaland_monsters.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crystalseed
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletFlock
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 5
+    fireRate: 0.2 
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/_Goobstation/Weapons/Guns/Gunshots/TaserGoon.ogg
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlasmaOre1Unprocessed:
+            min: 1
+            max: 8 # Supposed to be an insanely good way of farming plasma ore.
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: MercurySpider
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+  - type: RadiationSource
+    intensity: 1

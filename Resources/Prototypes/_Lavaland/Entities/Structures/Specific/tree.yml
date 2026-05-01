@@ -1,0 +1,109 @@
+- type: entity
+  parent: BaseTree
+  id: TreeCrystal
+  name: Crystal tree
+  description: This tree does not look like it belongs here.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/tree.rsi
+    state: crystaltree
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.18,-0.35,0.18,0.35"
+        density: 2000
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          LavalandMobCrystalSeed:
+            min: 1
+            max: 2
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: Purple
+
+- type: entity
+  parent: BaseTree
+  id: TreeCrystalStump1
+  name: tree trunk
+  description: This tree does not look like it belongs here.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/tree.rsi
+    state: crystalstump1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.18,-0.35,0.18,0.35"
+        density: 2000
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          LavalandMobCrystalSeed:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: TreeCrystalStump1
+  id: TreeCrystalStump2
+  name: tree stump
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/tree.rsi
+    state: crystalstump2
+
+- type: entity
+  parent: TreeCrystalStump1
+  id: TreeCrystalStump3
+  name: tree stump
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/tree.rsi
+    state: crystalstump3
