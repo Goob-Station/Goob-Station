@@ -73,17 +73,17 @@
       both: !type:ItemSwitchState
         verb: both
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
           state: icon
       mantle: !type:ItemSwitchState
         verb: mantle
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
         verb: cloak
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
           state: cloak-icon
 
 - type: entity
@@ -117,17 +117,17 @@
       both: !type:ItemSwitchState
         verb: both
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
           state: icon
       mantle: !type:ItemSwitchState
         verb: mantle
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
         verb: cloak
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
           state: cloak-icon
 
 - type: entity
