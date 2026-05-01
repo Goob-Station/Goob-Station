@@ -58,9 +58,9 @@
       right:
       - state: inhand-right
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Ensembles/Chief Engineer/whitece.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Ensembles/Chief Engineer/whitece.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
     equippedPrefix: both
     slots:
     - Neck
@@ -102,9 +102,9 @@
       right:
       - state: inhand-right
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Ensembles/Chief Engineer/greence.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Ensembles/Chief Engineer/greence.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
     equippedPrefix: both
     slots:
     - Neck

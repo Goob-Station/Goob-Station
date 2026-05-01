@@ -89,7 +89,7 @@
   description: A white cloak with orange adornments, given to those who proved themselves to master the precise art of engineering.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Cloaks/Chief Engineer/whitece.rsi # Goob Station - cloak resprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/ChiefEngineer/whitece.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -100,7 +100,7 @@
   description: A green cloak with yellow and blue adornments, given to those who proved themselves to master the precise art of engineering.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Cloaks/Chief Engineer/greence.rsi # Goob Station - cloak resprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/ChiefEngineer/greence.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
