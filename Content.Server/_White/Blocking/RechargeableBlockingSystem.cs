@@ -16,6 +16,7 @@ using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.PowerCell.Components;
 
 namespace Content.Server._White.Blocking;
@@ -67,7 +68,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             return;
 
         var batteryUse = Math.Min(args.DamageDelta.GetTotal().Float(), batteryComponent.CurrentCharge);
-        _battery.TryUseCharge(batteryUid.Value, batteryUse, batteryComponent);
+        _battery.TryUseCharge(batteryUid.Value, batteryUse);
     }
 
     private void AttemptToggle(EntityUid uid, RechargeableBlockingComponent component, ref ItemToggleActivateAttemptEvent args)

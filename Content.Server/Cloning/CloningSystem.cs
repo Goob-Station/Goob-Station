@@ -97,7 +97,7 @@ namespace Content.Server.Cloning;
 ///     System responsible for making a copy of a humanoid's body.
 ///     For the cloning machines themselves look at CloningPodSystem, CloningConsoleSystem and MedicalScannerSystem instead.
 /// </summary>
-public sealed partial class CloningSystem : EntitySystem
+public sealed partial class CloningSystem : SharedCloningSystem
 {
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;

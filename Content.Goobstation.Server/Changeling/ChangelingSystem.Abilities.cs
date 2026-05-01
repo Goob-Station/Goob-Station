@@ -737,9 +737,9 @@ public sealed partial class ChangelingSystem
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
-            var cuff = cuffs.LastAddedCuffs;
+            var cuff = cuffs.Container.ContainedEntities[^1];
 
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
+            _cuffs.Uncuff(uid, uid, cuff, cuffs);
             QueueDel(cuff);
         }
 

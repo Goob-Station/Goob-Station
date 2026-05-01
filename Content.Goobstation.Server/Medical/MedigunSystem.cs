@@ -128,9 +128,9 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         var batteryToWithdraw = comp.UberActivated ? comp.UberBatteryWithdraw: comp.BatteryWithdraw;
         if (_batteryQuery.TryComp(ent.Owner, out var batteryComp)
-            && !_battery.TryUseCharge(ent, batteryToWithdraw, batteryComp))
+            && !_battery.TryUseCharge(ent.Owner, batteryToWithdraw))
         {
-            _battery.SetCharge(ent, 0f, batteryComp); // Trigger recharging & cooldown
+            _battery.SetCharge(ent.Owner, 0f); // Trigger recharging & cooldown
             return false;
         }
 

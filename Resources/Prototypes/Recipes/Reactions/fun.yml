@@ -91,8 +91,6 @@
       amount: 1
     Zinc:
       amount: 1
-    Lithium: # goob edit
-      amount: 1
   products:
     Licoxide: 1
 

@@ -78,7 +78,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
             || !ent.Comp.States.TryGetValue(ent.Comp.State, out var state))
             return;
 
-        _battery.TryUseCharge(ent, state.EnergyPerUse, battery);
+        _battery.TryUseCharge(ent.Owner, state.EnergyPerUse);
     }
 
     private void OnAttemptMelee(EntityUid uid, ItemSwitchComponent component, ref AttemptMeleeEvent args)

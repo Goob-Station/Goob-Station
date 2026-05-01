@@ -15,24 +15,24 @@
 using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
-using Robust.Shared.GameObjects;
+using Content.Shared.Atmos.Prototypes;
 
-namespace Content.IntegrationTests.Tests.Atmos
+namespace Content.IntegrationTests.Tests.Atmos;
+
+[TestOf(typeof(Atmospherics))]
+public sealed class ConstantsTest
 {
-    [TestFixture]
-    [TestOf(typeof(Atmospherics))]
-    public sealed class ConstantsTest
+    [Test]
+    public async Task TotalGasesTest()
     {
-        [Test]
-        public async Task TotalGasesTest()
-        {
-            await using var pair = await PoolManager.GetServerClient();
-            var server = pair.Server;
-            var entityManager = server.ResolveDependency<IEntityManager>();
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var entityManager = server.EntMan;
+        var protoManager = server.ProtoMan;
 
-            await server.WaitPost(() =>
-            {
-                var atmosSystem = entityManager.System<AtmosphereSystem>();
+        await server.WaitPost(() =>
+        {
+            var atmosSystem = entityManager.System<AtmosphereSystem>();
 
             Assert.Multiple(() =>
             {

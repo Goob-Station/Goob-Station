@@ -678,11 +678,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
             var degrade = charge * ev.WandDegradePercentagePerCharge;
             var afterDegrade = MathF.Max(ev.MinWandDegradeCharge, battery.MaxCharge - degrade);
             if (battery.MaxCharge > ev.MinWandDegradeCharge)
-                _battery.SetMaxCharge(uid, afterDegrade, battery);
+                _battery.SetMaxCharge(uid, afterDegrade);
             _battery.AddCharge(uid, charge, battery);
         }
         else
-            _battery.SetCharge(uid, battery.MaxCharge, battery);
+            _battery.SetCharge(uid, battery.MaxCharge);
 
         PopupCharged(uid, ev.Performer, false);
         return true;

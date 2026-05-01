@@ -389,7 +389,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         // <Goobstation>
         // after we've had the puddle interact with skin, add back reagents that aren't supposed to stick
-        var addBack = new List<string>(); // has to be string or it dies
+        var addBack = new List<ProtoId<ReagentPrototype>>();
         foreach (var (proto, amt) in splitSol.GetReagentPrototypes(_prototypeManager))
         {
             if (!proto.SticksToSkin)

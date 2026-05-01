@@ -36,6 +36,6 @@ public sealed class ProjectileImmunitySystem : EntitySystem
             return;
         }
 
-        _battery.UseCharge(battery.Value, cost, batteryComp);
+        _battery.UseCharge(battery.Value, cost);
     }
 }

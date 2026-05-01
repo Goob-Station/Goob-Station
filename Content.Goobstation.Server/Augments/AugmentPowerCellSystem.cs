@@ -96,7 +96,7 @@ public sealed class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
             return false;
         }
 
-        if (!_battery.TryUseCharge(battery.Owner, amount, battery.Comp))
+        if (!_battery.TryUseCharge(battery.Owner, amount))
         {
             _popup.PopupEntity(Loc.GetString("power-cell-insufficient"), body, body, PopupType.MediumCaution);
             return false;

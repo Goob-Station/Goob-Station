@@ -92,10 +92,11 @@
   description: Wallmount Space Cleaner dispenser.
   components:
   - type: Sprite
+    sprite: Structures/Wallmounts/walldispenser.rsi
     layers:
     - state: cleanerdispenser
     - state: fill-1
-      map: ["enum.SolutionContainerLayers.Fill"]
+      map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
   - type: SolutionContainerVisuals
     maxFillLevels: 5

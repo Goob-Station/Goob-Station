@@ -206,7 +206,6 @@ Entries:
   id: 8673
   time: '2025-06-14T16:09:06.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37440
-﻿Entries:
 - author: PJB3005
   changes:
   - message: Fixed various worn clothing items being invisible when seen through UI,

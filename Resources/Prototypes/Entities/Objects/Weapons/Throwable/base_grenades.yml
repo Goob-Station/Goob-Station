@@ -1,5 +1,4 @@
-- type: entity # Starts fuse after taking 10 damage.
-  parent: BaseItem
+- type: entity
   abstract: true
   id: GrenadeBase
   components:
@@ -25,7 +24,10 @@
         !type:DamageTrigger
         damage: 10
       behaviors:
-      - !type:TimerStartBehavior
+      - !type:TriggerBehavior
+        keyOut: timer # explode immediately
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Appearance
   - type: AnimationPlayer
   - type: GenericVisualizer
@@ -34,8 +36,9 @@
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
-  - type: Tag
+  - type: Tag # Goobstation
     tags:
+    - Grenade
     - HandGrenade
   - type: Fixtures
     fixtures:

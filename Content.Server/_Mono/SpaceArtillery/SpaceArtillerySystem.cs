@@ -133,9 +133,9 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
             return;
         }
 
-        if (TryComp<BatteryComponent>(uid, out var battery))
+        if (HasComp<BatteryComponent>(uid))
         {
-            _battery.UseCharge(uid, component.PowerUseActive, battery);
+            _battery.UseCharge(uid, component.PowerUseActive);
         }
     }
 

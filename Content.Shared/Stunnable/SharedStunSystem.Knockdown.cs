@@ -2,6 +2,7 @@ using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;

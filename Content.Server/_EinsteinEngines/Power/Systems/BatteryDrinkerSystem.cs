@@ -146,10 +146,10 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
         }
 
         if (_battery.TryUseCharge(source, amountToDrink))
-            _battery.SetCharge(drinkerBattery.Value, drinkerBatteryComponent.CurrentCharge + amountToDrink, drinkerBatteryComponent); // DeltaV - people with augment power cells can drink batteries
+            _battery.SetCharge(drinkerBattery.Value, drinkerBatteryComponent.CurrentCharge + amountToDrink); // DeltaV - people with augment power cells can drink batteries
         else
         {
-            _battery.SetCharge(drinkerBattery.Value, sourceBattery.CurrentCharge + drinkerBatteryComponent.CurrentCharge, drinkerBatteryComponent); // DeltaV - people with augment power cells can drink batteries
+            _battery.SetCharge(drinkerBattery.Value, sourceBattery.CurrentCharge + drinkerBatteryComponent.CurrentCharge); // DeltaV - people with augment power cells can drink batteries
             _battery.SetCharge(source, 0);
         }
 

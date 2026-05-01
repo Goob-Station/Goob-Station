@@ -76,7 +76,7 @@ public sealed class MechGunSystem : EntitySystem
         if (!_mech.TryChangeEnergy(mechEquipment.EquipmentOwner.Value, -chargeDelta, mech))
             return;
 
-        _battery.SetCharge(uid, component.MaxCharge, component);
+        _battery.SetCharge(uid, component.MaxCharge);
     }
 }
 
