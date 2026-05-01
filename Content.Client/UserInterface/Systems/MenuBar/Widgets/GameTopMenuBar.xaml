@@ -96,7 +96,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         ToolTip="Open the Language Menu"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <ui:MenuButton
         Name="AdminButton"

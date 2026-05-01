@@ -92,7 +92,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
                         </PanelContainer>
                         <!-- Goobstation start -->
-                        <PanelContainer StyleClasses="AngleRect">
+                        <PanelContainer StyleClasses="BackgroundPanel">
                             <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
                         </PanelContainer>
                         <!-- Goobstation end -->
