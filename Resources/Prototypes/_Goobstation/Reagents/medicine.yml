@@ -1228,7 +1228,7 @@
             Heat: 1
             Blunt: 1
             Piercing: 1
-      - !type:ExplosionEffect
+      - !type:Explosion
         explosionType: Default
         maxIntensity: 0.4
         intensityPerUnit: 0.2

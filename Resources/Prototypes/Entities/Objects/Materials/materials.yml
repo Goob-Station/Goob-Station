@@ -771,8 +771,6 @@
     interfaces:
       enum.StackCustomSplitUiKey.Key:
         type: StackCustomSplitBoundUserInterface
-  - type: Food
-    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
       - cobwebs

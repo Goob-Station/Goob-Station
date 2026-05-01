@@ -90,7 +90,7 @@ public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
             return;
 
         // Blob doesn't spawn when blob carrier was eaten.
-        RemComp<FoodComponent>(carrier);
+        RemComp<EdibleComponent>(carrier);
         RemComp<FelinidFoodComponent>(carrier);
 
 

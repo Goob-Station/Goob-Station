@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Client.Remote.UI;
 using Content.Client.Items;
 using Content.Client.Remotes.UI;
 using Content.Shared.Remotes.Components;

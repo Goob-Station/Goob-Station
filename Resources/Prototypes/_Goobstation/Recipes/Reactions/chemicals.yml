@@ -17,7 +17,7 @@
     Sodium:
       amount: 1
   effects:
-    - !type:ExplosionEffect
+    - !type:Explosion
       explosionType: Default
       maxIntensity: 100
       intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion

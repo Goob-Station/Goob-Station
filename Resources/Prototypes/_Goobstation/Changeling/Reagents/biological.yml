@@ -27,7 +27,7 @@
   effects:
     - !type:SpawnEntity
       entity: FleshKudzu
-    - !type:ExplosionEffect
+    - !type:Explosion
       explosionType: Default
       maxIntensity: 2
       intensityPerUnit: 0.5

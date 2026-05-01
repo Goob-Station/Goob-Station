@@ -68,7 +68,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.4
-      - !type:ExplosionEffect
+      - !type:Explosion
         explosionType: Default
         maxIntensity: 0.1
         intensityPerUnit: 0.05

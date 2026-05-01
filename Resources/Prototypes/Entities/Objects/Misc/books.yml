@@ -159,7 +159,7 @@
       types:
         Blunt: 1
   # Goobstation Edit Start - Moth food
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     delay: 15
     forceFeedDelay: 15
@@ -204,7 +204,7 @@
     damage:
       types:
   # Goobstation Edit Start - Moth food
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     delay: 15
     forceFeedDelay: 15

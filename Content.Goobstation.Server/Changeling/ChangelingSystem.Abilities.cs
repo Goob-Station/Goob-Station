@@ -304,7 +304,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
 
-        if (!TryComp<FoodComponent>(target, out var food))
+        if (!TryComp<EdibleComponent>(target, out var food))
             return;
 
         if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))

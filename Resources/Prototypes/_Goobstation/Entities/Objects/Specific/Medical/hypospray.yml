@@ -350,7 +350,7 @@
         reagents:
         - ReagentId: Amnestizine
           Quantity: 10
-  - type: Food
+  - type: Edible
     delay: 0.2
     forceFeedDelay: 1.5
     transferAmount: null

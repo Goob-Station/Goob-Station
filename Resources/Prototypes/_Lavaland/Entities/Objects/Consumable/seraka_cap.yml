@@ -4,7 +4,7 @@
   id: FoodMealSerakaCap
   description: Small, deeply flavourful mushrooms originally native to Tizira.
   components:
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
       - berry
