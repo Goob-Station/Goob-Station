@@ -31,8 +31,6 @@
           - Slime
           - Cybernetic # Shitmed - Cybernetic Organs
           inverted: true
-          shouldHave: false
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -50,7 +48,6 @@
         component: SeeingRainbows
         type: Add
         time: 150
-        refresh: false
       - !type:Emote
         conditions:
         - !type:ReagentCondition
@@ -153,7 +150,6 @@
         component: SeeingRainbows
         type: Add
         time: 150
-        refresh: false
       - !type:Emote
         conditions:
         - !type:ReagentCondition

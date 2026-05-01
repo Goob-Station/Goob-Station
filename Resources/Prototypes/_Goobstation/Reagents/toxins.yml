@@ -53,10 +53,10 @@
         amount: -5
       - !type:ModifyBleed
         amount: 0.5
-      - !type:MovementSpeedModifier # primairly to decrease speed for a while longer after finishing vomiting
-        walkSpeedModifier: 0.8
-        sprintSpeedModifier: 0.8
-        statusLifetime: 6
+      - !type:ModifyStatusEffect
+        effectProto: TriclorSlowdownEffect
+        type: Add
+        time: 6
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -274,7 +274,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -340,7 +339,6 @@
         component: SeeingRainbows
         type: Add
         time: 20
-        refresh: false
       - !type:ModifyParalysis
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie

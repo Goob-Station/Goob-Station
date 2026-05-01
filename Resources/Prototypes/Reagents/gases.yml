@@ -331,10 +331,9 @@
 # Goobstation start
         conditions:
         - !type:MetabolizerTypeCondition # Shitmed - Cybernetic Organs
-          type: Cybernetic
+          type: [Cybernetic]
           inverted: true
 # Goobstation end
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:

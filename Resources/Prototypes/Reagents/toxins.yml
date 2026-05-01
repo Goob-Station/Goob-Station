@@ -98,7 +98,7 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          invertd: true
+          inverted: true
         damage:
           types:
             Poison: 4
@@ -106,7 +106,7 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          invertd: true
+          inverted: true
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
@@ -173,7 +173,7 @@
           conditions:
           - !type:MetabolizerTypeCondition # Goobstation - Yowie
             type: [ Yowie ]
-            invertd: true
+            inverted: true
           damage:
             types:
               Poison: 2
@@ -203,7 +203,7 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          invertd: true
+          inverted: true
         damage:
           types:
             Poison: 1
@@ -411,7 +411,7 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          invertd: true
+          inverted: true
         damage:
           types:
             Asphyxiation: 5
@@ -573,7 +573,7 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Vox
           type: [ Vox ]
-          invertd: true
+          inverted: true
 
 - type: reagent
   id: Romerol

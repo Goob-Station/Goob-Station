@@ -29,7 +29,6 @@
     effects:
     # weaker trico
     - !type:HealthChange
-      useTargeting: false
       conditions:
       - !type:TotalDamageCondition
         max: 50

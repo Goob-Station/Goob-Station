@@ -48,6 +48,15 @@
     walkSpeedModifier: 0.7
     sprintSpeedModifier: 0.7
 
+- type: entity
+  parent: StatusEffectSlowdown
+  id: TriclorSlowdownEffect
+  name: triclor slowdown
+  components:
+  - type: MovementModStatusEffect
+    walkSpeedModifier: 0.8
+    sprintSpeedModifier: 0.8
+
 - type: entity # todo move this
   parent: StatusEffectSpeed
   id: NitriumStatusEffect

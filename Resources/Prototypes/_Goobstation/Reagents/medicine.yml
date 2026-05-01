@@ -860,7 +860,6 @@
       effects:
       - !type:HealthChange
         ignoreResistances: false
-        ignoreBlockers: false
         damage:
           types:
             Blunt: -2
