@@ -327,6 +327,8 @@
       - id: BeachBall
       - id: TennisBall
         amount: 2
+      - id: TennisBallGoob # Goob
+        amount: 2
     - !type:GroupSelector # PAIs are basically toys
       children:
       - id: PersonalAI
