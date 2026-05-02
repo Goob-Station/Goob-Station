@@ -138,7 +138,6 @@
     proto: BulletMic
     fireCost: 900
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 900
   - type: Appearance
   - type: MagazineVisuals
@@ -280,7 +279,6 @@
     fireCost: 50
   - type: PacifismAllowedGun
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 40
 
 - type: entity
@@ -319,7 +317,6 @@
       spreadMultiplier: 1.25
       spreadAddition: 10
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 50
 
 - type: entity
@@ -332,7 +329,6 @@
     tags:
     - Rifle
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 80
 
 - type: entity
@@ -476,7 +472,6 @@
     deleteAfterExplosion: false
     repeatable: true
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 50
     autoRechargePauseTime: 40
 

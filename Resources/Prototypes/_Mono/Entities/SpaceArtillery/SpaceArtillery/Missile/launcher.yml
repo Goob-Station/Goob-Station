@@ -28,7 +28,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 200
   - type: SpaceArtillery
     powerChargeRate: 200
@@ -79,7 +78,6 @@
     powerChargeRate: 250
     powerUsePassive: 200
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 60
   - type: Actions
   - type: BatteryAmmoProvider
@@ -123,7 +121,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 60
   - type: Actions
   - type: BatteryAmmoProvider
@@ -188,7 +185,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 500
   - type: SpaceArtillery
     powerChargeRate: 500

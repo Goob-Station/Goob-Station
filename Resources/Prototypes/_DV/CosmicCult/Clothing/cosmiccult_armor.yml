@@ -92,7 +92,6 @@
     maxCharge: 100
     startingCharge: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 5
   - type: UnholyItem # Goobstation Shitchap
 

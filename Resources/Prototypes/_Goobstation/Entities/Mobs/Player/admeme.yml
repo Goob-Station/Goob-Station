@@ -496,7 +496,7 @@
       1000: 1.5
       1500: 2
   - type: Stamina
-    critThreshold: 100000
+    baseCritThreshold: 100000
   - type: PassiveDamage
     allowedStates:
     - Alive

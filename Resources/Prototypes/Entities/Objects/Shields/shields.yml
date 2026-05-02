@@ -705,7 +705,6 @@
       maxCharge: 35
       startingCharge: 35
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 3
     - type: RechargeableBlocking
       dischargedRechargeRate: 2

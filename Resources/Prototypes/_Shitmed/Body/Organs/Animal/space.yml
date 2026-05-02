@@ -69,7 +69,6 @@
       proto: RedLightLaser
       fireCost: 50
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 25
     - type: Battery
       maxCharge: 100

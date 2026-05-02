@@ -32,7 +32,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 550
   - type: SpaceArtillery
     powerChargeRate: 100
@@ -84,7 +83,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 220
   - type: SpaceArtillery
     powerChargeRate: 220
@@ -137,7 +135,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 125
   - type: SpaceArtillery
     powerChargeRate: 125
@@ -185,7 +182,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 214
   - type: SpaceArtillery
     powerChargeRate: 214
@@ -250,7 +246,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
@@ -315,7 +310,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
@@ -363,7 +357,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 350
   - type: SpaceArtillery
     powerChargeRate: 350
@@ -451,7 +444,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12000
     autoRechargePauseTime: 300
   - type: SpaceArtillery
@@ -512,7 +504,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12000
     autoRechargePauseTime: 300
   - type: SpaceArtillery

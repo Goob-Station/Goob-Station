@@ -35,7 +35,6 @@
       spreadMultiplier: 1.25
       spreadAddition: 10
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 50
 
 - type: entity

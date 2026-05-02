@@ -89,7 +89,7 @@
   - type: DodgeWideswing
     staminaRatio: 2
   - type: Stamina
-    critThreshold: 20
+    baseCritThreshold: 20
     animationThreshold: 10 # Goob edit
   - type: Respirator
     damage:

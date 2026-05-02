@@ -580,7 +580,6 @@
     - Sidearm
     - LaserWeapon
   - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
-    autoRecharge: true
     autoRechargeRate: 40
 
 - type: entity

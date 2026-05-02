@@ -90,7 +90,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   #- type: BatterySelfRecharger
-  #  autoRecharge: true
   #  autoRechargeRate: 350
   - type: SpaceArtillery
     powerChargeRate: 100

@@ -72,7 +72,7 @@
     damageContainer: Biological
     damageModifierSet: Xenomorph
   - type: Stamina
-    critThreshold: 500
+    baseCritThreshold: 500
   - type: Fixtures
     fixtures:
       fix1:

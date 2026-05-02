@@ -16,7 +16,6 @@
     maxCharge: 5200
     startingCharge: 5200
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 40
   - type: EmpImmune
   - type: SolutionContainerManager

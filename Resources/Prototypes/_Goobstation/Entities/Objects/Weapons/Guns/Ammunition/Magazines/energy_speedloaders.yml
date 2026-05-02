@@ -19,7 +19,6 @@
   - type: BatteryDrinkerSource
     maxAmount: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 40
     autoRechargePauseTime: 12
   - type: AmmoCounter

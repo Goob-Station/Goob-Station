@@ -55,7 +55,7 @@
     baseWalkSpeed: 2
     baseSprintSpeed: 4
   - type: Stamina
-    critThreshold: 120
+    baseCritThreshold: 120
   - type: StaminaDamageOnHit
     damage: 5 # shove (x2 with overtime)
     overtime: 5
