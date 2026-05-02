@@ -646,6 +646,23 @@
   - type: Action
     useDelay: 20
 
+# Rathen's Secret
+- type: entity
+  parent: ActionRathenSpell
+  id: ActionRathenSpellII
+  name: Rathen's Secret II
+  components:
+  - type: Action
+    useDelay: 35
+
+- type: entity
+  parent: ActionRathenSpell
+  id: ActionRathenSpellIII
+  name: Rathen's Secret III
+  components:
+  - type: Action
+    useDelay: 20
+
 # Knock
 - type: entity
   parent: ActionKnock

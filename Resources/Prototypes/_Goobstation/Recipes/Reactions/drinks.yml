@@ -34,6 +34,8 @@
 
 - type: reaction
   id: MilkChoco
+  requiredMixerCategories:
+  - Shake
   reactants:
     Milk:
       amount: 1

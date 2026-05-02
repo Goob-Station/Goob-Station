@@ -1112,3 +1112,56 @@
   - type: Tag
     tags:
     - Meat
+
+- type: entity
+  parent: FoodBurgerBase
+  name: mothroachburger
+  description: The last lamp it saw was the one inside the microwave.
+  id: FoodBurgerMustard
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - meaty
+      - light
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/mothroach_burger.rsi
+    state: mustard_mothroach
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 7
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  parent: FoodBurgerMustard
+  id: FoodBurgerleopard
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/mothroach_burger.rsi
+    state: leopard_mothroach
+
+- type: entity
+  parent: FoodBurgerMustard
+  id: FoodBurgerlunar
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/mothroach_burger.rsi
+    state: lunar_mothroach
+
+- type: entity
+  parent: FoodBurgerMustard
+  id: FoodBurgerCecropia
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/mothroach_burger.rsi
+    state: cecropia_mothroach

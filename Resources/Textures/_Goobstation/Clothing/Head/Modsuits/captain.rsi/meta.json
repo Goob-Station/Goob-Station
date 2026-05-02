@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, sprites made by YERO",
+  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, sprites made by YERO, feroxi by RedTerror",
   "size": {
     "x": 32,
     "y": 32
@@ -39,6 +39,10 @@
     },
     {
       "name": "equipped-HEAD-sealed-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-feroxi",
       "directions": 4
     }
   ]

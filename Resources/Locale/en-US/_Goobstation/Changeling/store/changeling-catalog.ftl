@@ -132,7 +132,7 @@ evolutionmenu-utility-panacea-desc =
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
-    Evolve additional features in your eyes, such toggleable thermal vision and flash protection. You become more vulnerable to flash-based devices while in thermal vision mode.
+    Evolve additional features in your eyes, such toggleable x-ray vision and flash protection. You become vulnerable to flash-based devices while in x-ray vision mode.
     Cost-free.
 
 evolutionmenu-utility-biodegrade-name = Biodegrade
@@ -143,8 +143,7 @@ evolutionmenu-utility-biodegrade-desc =
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
-    Alter the pigment in your skin to match your surroundings, rendering you invisible.
-    Maintaining this chameleon state slows chemical generation.
+    Alter the pigment in your skin to match your surroundings, rendering you invisible when motionless.
     Costs 20 chemicals.
 
 evolutionmenu-utility-voidadapt-name = Void Adaption
@@ -165,7 +164,7 @@ evolutionmenu-utility-stims-desc =
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Applies "fleshmend" status effect, rapidly healing brute damage, as well as burn/asphyxiation at a lower amount.
-    Additionally, bleeding will gradually heal and blood volume will slowly be restored.
+    Additionally, bleeding will gradually heal.
     Lasts 10 seconds.
     Effects will cease while on fire or dead.
     Costs 35 chemicals.

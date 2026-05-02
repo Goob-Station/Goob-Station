@@ -72,6 +72,10 @@
       - Xenomorph
   - type: Tag
     tags: [ Carpet ]
+  - type: MeleeSound #omu
+    soundGroups:
+      Brute:
+        collection: XenoResinBreak
 
 - type: entity
   parent: ResinWeed
@@ -94,3 +98,7 @@
     radius: 2.5
     energy: 2
     color: "#00CED1"
+  - type: MeleeSound #omu
+    soundGroups:
+      Brute:
+        collection: XenoResinBreak

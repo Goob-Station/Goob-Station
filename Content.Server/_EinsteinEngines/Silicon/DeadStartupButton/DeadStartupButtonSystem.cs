@@ -22,6 +22,12 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
+ // Goobstation - Revive notification
+using Content.Server.EUI;
+using Content.Shared.Mind;
+using Content.Server.Ghost;
+using Robust.Shared.Player;
+
 namespace Content.Server._EinsteinEngines.Silicon.DeadStartupButton;
 
 public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
@@ -36,6 +42,11 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly BatterySystem _battery = default!; // Goobstation - Energycrit
+
+     // Goobstation - Revive notification
+    [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -97,6 +108,15 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
 
         _popup.PopupEntity(Loc.GetString("dead-startup-system-reboot-success", ("target", MetaData(uid).EntityName)), uid);
         _audio.PlayPvs(comp.Sound, uid);
+
+        // GoobStation - Revive notification
+        if (_mind.TryGetMind(uid, out _, out var mind) &&
+            _player.TryGetSessionById(mind.UserId, out var playerSession))
+        {
+            // notify them they're being revived
+            if (mind.CurrentEntity != uid)
+                _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _player), playerSession);
+        }
     }
 
 }

@@ -20,10 +20,13 @@ public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior
             return false;
 
         var targets = new List<EntityUid>();
-        for (var i = 0; i < Max; i++)
+        foreach (var uid in uids)
         {
-            if (args.EntityManager.HasComponent<StarMarkComponent>(uids[i]))
-                targets.Add(uids[i]);
+            if (args.EntityManager.HasComponent<StarMarkComponent>(uid))
+                targets.Add(uid);
+
+            if (targets.Count >= Max)
+                break;
         }
 
         if (targets.Count < Min)

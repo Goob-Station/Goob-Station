@@ -1,5 +1,3 @@
-using Content.Goobstation.Common.Atmos;
-using Content.Goobstation.Common.Temperature.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Surgery;
 using Content.Shared.DoAfter;
@@ -13,10 +11,8 @@ public abstract partial class SharedHereticAbilitySystem
 {
     protected virtual void SubscribeFlesh()
     {
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgery>(OnFleshSurgery);
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgeryDoAfter>(OnFleshSurgeryDoAfter);
-        SubscribeLocalEvent<HereticComponent, HereticAscensionFleshEvent>(OnAscensionFlesh);
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshPassive>(OnFleshPassive);
+        SubscribeLocalEvent<EventHereticFleshSurgery>(OnFleshSurgery);
+        SubscribeLocalEvent<EventHereticFleshSurgeryDoAfter>(OnFleshSurgeryDoAfter);
 
         SubscribeLocalEvent<FleshPassiveComponent, ImmuneToPoisonDamageEvent>(OnPoisonImmune);
 
@@ -49,6 +45,7 @@ public abstract partial class SharedHereticAbilitySystem
             BreakOnMove = true,
             BreakOnHandChange = false,
             BreakOnDropItem = false,
+            Broadcast = true,
         };
 
         if (DoAfter.TryStartDoAfter(dargs))
@@ -65,30 +62,16 @@ public abstract partial class SharedHereticAbilitySystem
         args.Args.Cancel();
     }
 
-    private void OnFleshPassive(Entity<HereticComponent> ent, ref EventHereticFleshPassive args)
+    private void OnFleshSurgery(EventHereticFleshSurgery args)
     {
-        EnsureComp<FleshPassiveComponent>(ent);
-    }
-
-    private void OnAscensionFlesh(Entity<HereticComponent> ent, ref HereticAscensionFleshEvent args)
-    {
-        EnsureComp<SpecialHighTempImmunityComponent>(ent);
-        EnsureComp<SpecialLowTempImmunityComponent>(ent);
-        EnsureComp<SpecialPressureImmunityComponent>(ent);
-
-        EnsureComp<FleshPassiveComponent>(ent);
-    }
-
-    private void OnFleshSurgery(Entity<HereticComponent> ent, ref EventHereticFleshSurgery args)
-    {
-        var touch = GetTouchSpell<EventHereticFleshSurgery, FleshSurgeryComponent>(ent, ref args);
+        var touch = GetTouchSpell<EventHereticFleshSurgery, FleshSurgeryComponent>(args.Performer, ref args);
         if (touch == null)
             return;
 
         EnsureComp<FleshSurgeryComponent>(touch.Value).Action = args.Action.Owner;
     }
 
-    private void OnFleshSurgeryDoAfter(Entity<HereticComponent> ent, ref EventHereticFleshSurgeryDoAfter args)
+    private void OnFleshSurgeryDoAfter(EventHereticFleshSurgeryDoAfter args)
     {
         if (args.Cancelled)
             return;

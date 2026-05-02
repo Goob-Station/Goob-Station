@@ -41,9 +41,9 @@
   description: For a CMO that has been in enough medbays to know that more PPE means less central command dry cleaning visits when the shift is over.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/cmomantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/cmomantle.rsi # Goob Station - mantle resprite
   - type: Clothing
-    sprite: Clothing/Neck/mantles/cmomantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/cmomantle.rsi # Goob Station - mantle resprite
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]

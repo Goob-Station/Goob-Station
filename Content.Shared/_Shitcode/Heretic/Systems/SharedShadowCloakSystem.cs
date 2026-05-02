@@ -323,6 +323,9 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
     private void RemoveShadowCloak(Entity<ShadowCloakedComponent> ent)
     {
+        if (ent.Comp.LifeStage >= ComponentLifeStage.Stopping || TerminatingOrDeleted(ent))
+            return;
+
         _status.TryRemoveStatusEffect(ent, ent.Comp.ShadowCloakAlert, remComp: false);
         RemCompDeferred(ent.Owner, ent.Comp);
     }

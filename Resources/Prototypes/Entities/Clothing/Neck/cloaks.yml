@@ -100,7 +100,7 @@
   description: A sterile blue cloak with a green cross, radiating with a sense of duty and willingness to help others.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/cmo.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/cmo.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -122,7 +122,7 @@
   description: A strong brown cloak with a reflective stripe, while not as fancy as others, it does show your managing skills.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/qm.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/qm.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 

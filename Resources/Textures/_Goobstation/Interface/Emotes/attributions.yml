@@ -104,3 +104,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by Loltart"
   source: "https://github.com/loltart"
+
+- files: ["flip.png", "jump.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Rouge2t7"
+  source: "https://github.com/Sarahon"
