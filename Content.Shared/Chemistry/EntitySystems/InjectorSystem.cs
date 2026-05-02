@@ -6,7 +6,7 @@ using Content.Shared.Chemistry.Events;
 using Content.Shared.Chemistry.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Forensics.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;

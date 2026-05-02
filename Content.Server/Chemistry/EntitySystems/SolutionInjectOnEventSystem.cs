@@ -81,10 +81,6 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         if (args.IsHit)
         {
             TryInjectTargets((entity.Owner, entity.Comp), args.HitEntities, args.User);
-            // goob start
-            if (TryComp<InjectorComponent>(entity.Owner, out var injector))
-                injector.ToggleState = InjectorToggleMode.Draw;
-            // goob end
         }
     }
 

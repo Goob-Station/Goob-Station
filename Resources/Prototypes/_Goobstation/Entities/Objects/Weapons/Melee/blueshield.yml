@@ -116,13 +116,12 @@
       injector:
         maxVol: 5
   - type: Injector
-    delay: 1
-    currentTransferAmount: 15
-    toggleState: Draw
-    transferAmounts:
-    - 5
-    - 10
-    - 15
+    solutionName: hypospray
+    ignoreClosed: false
+    activeModeProtoId: HyposprayDynamicMode
+    allowedModes:
+    - HyposprayDynamicMode
+    - HyposprayInjectMode
   - type: MeleeChemicalInjector
     transferAmount: 5
     solution: injector

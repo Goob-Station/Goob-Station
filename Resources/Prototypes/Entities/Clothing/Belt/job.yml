@@ -206,7 +206,7 @@
       hypo:
         whitelist:
           tags:
-          - Hypospray
+          - Injector
       pill:
         whitelist:
           components:

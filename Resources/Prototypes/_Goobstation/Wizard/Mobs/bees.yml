@@ -48,7 +48,7 @@
   name: bee (amatoxin)
   components:
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Amatoxin
         Quantity: 1
