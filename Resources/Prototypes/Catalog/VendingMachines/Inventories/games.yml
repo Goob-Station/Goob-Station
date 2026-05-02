@@ -31,7 +31,7 @@
     MysteryFigureBox: 2
     BooksBag: 3
     CardBoxBlack: 3 # GoobStation
-    PokerChips: 4 # GoobStation
+    PokerChips100: 6 # GoobStation
   contrabandInventory:
     Basketball: 1
     FoodSnackBoritos: 3
