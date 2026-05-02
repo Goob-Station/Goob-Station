@@ -63,6 +63,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: back_black
+    drawdepth: SmallObjects
   - type: UserInterface
     interfaces:
       enum.CardUiKey.Key:
@@ -79,6 +80,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: deck_black_full
+    drawdepth: SmallObjects
   - type: Item
     size: Normal
   - type: CardDeck
@@ -115,6 +117,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: deck_black_full
+    drawdepth: SmallObjects
   - type: CardStack
     content:
     # Clubs
@@ -211,6 +214,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs2
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -222,6 +226,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs3
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -233,6 +238,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs4
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -244,6 +250,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs5
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -255,6 +262,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs6
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -266,6 +274,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs7
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -277,6 +286,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs8
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -288,6 +298,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs9
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -299,6 +310,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs10
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -310,6 +322,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs1
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -321,6 +334,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs11
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -332,6 +346,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs13
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -343,6 +358,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: clubs12
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -354,6 +370,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds11
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -365,6 +382,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds12
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -376,6 +394,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds13
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -387,6 +406,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds1
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -398,6 +418,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds2
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -409,6 +430,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds3
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -420,6 +442,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds4
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -431,6 +454,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds5
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -442,6 +466,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds6
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -453,6 +478,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds7
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -464,6 +490,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds8
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -475,6 +502,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds9
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -486,6 +514,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: diamonds10
+    drawdepth: SmallObjects
 
 
 - type: entity
@@ -498,6 +527,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts2
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -509,6 +539,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts3
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -520,6 +551,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts4
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -531,6 +563,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts5
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -542,6 +575,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts6
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -553,6 +587,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts7
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -564,6 +599,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts8
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -575,6 +611,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts9
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -586,6 +623,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts10
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -597,6 +635,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts13
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -608,6 +647,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts12
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -619,6 +659,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts11
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -630,6 +671,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: hearts1
+    drawdepth: SmallObjects
 
 
 - type: entity
@@ -642,6 +684,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades2
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -653,6 +696,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades3
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -664,6 +708,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades4
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -675,6 +720,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades5
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -686,6 +732,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades6
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -697,6 +744,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades7
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -708,6 +756,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades8
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -719,6 +768,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades9
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -730,6 +780,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades10
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -741,6 +792,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades13
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -752,6 +804,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades12
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -763,6 +816,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades11
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -774,6 +828,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: spades1
+    drawdepth: SmallObjects
 
 - type: entity
   parent: CardBase
@@ -785,6 +840,7 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: joker
+    drawdepth: SmallObjects
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
   - type: ThrowingAngle
