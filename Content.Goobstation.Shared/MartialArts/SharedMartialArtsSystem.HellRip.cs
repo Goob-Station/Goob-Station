@@ -109,7 +109,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
+        var knockdownTime = proto.ParalyzeTime;
 
         var ev = new BeforeStaminaDamageEvent(1f);
         RaiseLocalEvent(target, ref ev);

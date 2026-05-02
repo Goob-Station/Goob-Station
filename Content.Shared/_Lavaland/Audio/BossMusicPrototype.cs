@@ -27,10 +27,10 @@ namespace Content.Shared._Lavaland.Audio;
 /// <summary>
 /// Attaches a rules prototype to sound files to play ambience.
 /// </summary>
-[Prototype("bossMusic")]
+[Prototype]
 public sealed partial class BossMusicPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; } = string.Empty;
+    [IdDataField] public string ID { get; private set; } = string.Empty;
 
     [DataField("fade")]
     public bool FadeIn;

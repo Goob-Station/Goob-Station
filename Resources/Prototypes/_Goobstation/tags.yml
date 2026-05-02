@@ -504,6 +504,9 @@
   id: InquisitorChainSword
 
 - type: Tag
+  id: Injector
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag

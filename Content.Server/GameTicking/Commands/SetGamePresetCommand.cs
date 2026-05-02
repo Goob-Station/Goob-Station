@@ -16,7 +16,6 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.GameTicking.Presets;
 using Content.Shared.Administration;
-using Linguini.Shared.Util;
 using Robust.Shared.Console;
 
 namespace Content.Server.GameTicking.Commands
@@ -32,7 +31,7 @@ namespace Content.Server.GameTicking.Commands
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            if (!args.Length.InRange(1, 3))
+            if (args.Length is <= 1 or >= 3)
             {
                 shell.WriteError(Loc.GetString("shell-need-between-arguments", ("lower", 1), ("upper", 3), ("currentAmount", args.Length)));
                 return;

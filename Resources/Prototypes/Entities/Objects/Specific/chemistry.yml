@@ -747,7 +747,6 @@
   components:
   - type: Injector
     currentTransferAmount: 15
-    toggleState: Draw
   - type: Tag
     tags:
     - Syringe

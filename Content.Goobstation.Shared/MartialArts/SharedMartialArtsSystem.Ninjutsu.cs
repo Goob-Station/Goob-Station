@@ -227,7 +227,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         // Paralyze, not knockdown
-        var time = TimeSpan.FromSeconds(proto.ParalyzeTime);
+        var time = proto.ParalyzeTime;
         if (_status.TryGetTime(target, "KnockedDown", out var knockdownStartEnd))
         {
             var knockdownTime = knockdownStartEnd.Value.Item2 - _timing.CurTime;
@@ -262,7 +262,7 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+        _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);

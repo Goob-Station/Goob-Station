@@ -59,7 +59,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         // Paralyze, not knockdown
-        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
+        _stun.TryUpdateParalyzeDuration(target, proto.ParalyzeTime);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
@@ -80,7 +80,7 @@ public abstract partial class SharedMartialArtsSystem
         else
         {
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+            _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         }
 

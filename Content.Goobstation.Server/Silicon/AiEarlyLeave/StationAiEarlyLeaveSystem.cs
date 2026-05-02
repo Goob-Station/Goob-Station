@@ -1,7 +1,5 @@
 using Content.Goobstation.Shared.Silicon;
 using Content.Goobstation.Shared.Silicon.Components;
-using Linguini.Bundle.Errors;
-
 using Content.Server.Chat.Systems;
 using Robust.Shared.Player;
 using Content.Server.EUI;
