@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "copyright": "Cards by coookies369. Boxes are from VictorJob.",
+  "copyright": "coookies369",
   "license": "CC-BY-SA-3.0",
   "size": {
     "x": 32,
@@ -182,16 +182,35 @@
       "name": "syndicate_box_open"
     },
     {
+      "name": "syndicate_box_full"
+    },
+    {
       "name": "black_box"
     },
     {
       "name": "black_box_open"
     },
     {
+      "name": "black_box_full"
+    },
+    {
       "name": "nanotrasen_box"
     },
     {
       "name": "nanotrasen_box_open"
+    },
+    {
+      "name": "nanotrasen_box_full"
+    },
+    
+    {
+      "name": "deck_black_full"
+    },
+    {
+      "name": "deck_nanotrasen_full"
+    },
+    {
+      "name": "deck_syndicate_full"
     }
   ]
 }

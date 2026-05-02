@@ -17,13 +17,14 @@
     size: Small
     shape:
     - 0,0,1,1
-  - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
-    layers:
-    - state: black_box
-    - state: black_box_open
-      map: [ "openLayer" ]
-      visible: false
+  - type: ItemCounter # FIXME
+    count:
+      components:
+      - CardDeck
+    composite: true
+    layerStates:
+      - fullLayer
+      - fullLayer
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -94,8 +95,12 @@
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     layers:
     - state: black_box
+      map: [ "closeLayer" ]
     - state: black_box_open
       map: [ "openLayer" ]
+      visible: false
+    - state: black_box_full
+      map: [ "fullLayer" ]
       visible: false
   - type: OpenTriggeredStorageFill
     contents:

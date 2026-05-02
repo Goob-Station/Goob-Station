@@ -26,8 +26,12 @@
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     layers:
     - state: syndicate_box
+      map: [ "closeLayer" ]
     - state: syndicate_box_open
       map: [ "openLayer" ]
+      visible: false
+    - state: syndicate_box_full
+      map: [ "fullLayer" ]
       visible: false
   - type: OpenTriggeredStorageFill
     contents:
