@@ -71,20 +71,12 @@
     bloodlossThreshold: 0
     bleedReductionAmount: 0
     maxBleedAmount: 0
-    bloodlossDamage:
-      types:
-        Blunt: 0
-    bloodlossHealDamage:
-      types:
-        Blunt: 0
-    bloodRefreshAmount: 0
     bloodReferenceSolution:
       reagents:
-      - ReagentId: Milk
-        Quantity: 0
+      - ReagentId: Plasma
+        Quantity: 300
   - type: Damageable
     damageModifierSet: Plasmaman
-
   - type: MeleeWeapon
     soundHit:
       collection: FirePunch
