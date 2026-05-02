@@ -43,6 +43,7 @@
   save: false
   components:
   - type: Temperature
+  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 5

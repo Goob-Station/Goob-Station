@@ -41,7 +41,7 @@
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Hair: MobHumanoidMarkingMatchSkin
-    Chest: MobIPCTorso
+    Chest: MobIPCChest
     Groin: MobIPCGroin
     LArm: MobIPCLArm
     RArm: MobIPCRArm
@@ -69,7 +69,7 @@
     Chest:
       points: 1
       required: true
-      defaultMarkings: [ MobIPCTorsoDefault ]
+      defaultMarkings: [ MobIPCChestDefault ]
     HeadSide:
       points: 1
       required: false
@@ -141,31 +141,31 @@
 # Torso
 
 - type: humanoidBaseSprite
-  id: MobIPCTorso
+  id: MobIPCChest
 
 - type: humanoidBaseSprite
-  id: MobIPCTorsoMale
+  id: MobIPCChestMale
 
 - type: humanoidBaseSprite
-  id: MobIPCTorsoFemale
+  id: MobIPCChestFemale
 
 - type: marking
-  id: MobIPCTorsoDefault
+  id: MobIPCChestDefault
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ IPC ]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: marking
-  id: MobIPCTorsoFemaleDefault
+  id: MobIPCChestFemaleDefault
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ IPC ]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
-    state: torso_f
+    state: chest_f
 
 # Groin
 

@@ -57,7 +57,7 @@
   parent: [PartDiona, BaseChest]
   components:
   - type: Sprite
-    state: "torso_m"
+    state: "chest_m"
 
 - type: entity
   id: GroinDiona

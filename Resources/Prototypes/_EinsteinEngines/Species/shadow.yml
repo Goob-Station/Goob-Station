@@ -16,7 +16,7 @@
     HeadSide: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobShadowTorso
+    Chest: MobShadowChest
     Groin: MobShadowGroin
     Eyes: MobShadowEyes
     LArm: MobShadowLArm
@@ -54,22 +54,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobShadowTorso
+  id: MobShadowChest
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobShadowTorsoMale
+  id: MobShadowChestMale
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobShadowTorsoFemale
+  id: MobShadowChestFemale
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobShadowGroin

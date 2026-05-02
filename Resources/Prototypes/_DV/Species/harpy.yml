@@ -42,7 +42,7 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobHarpyTorso
+    Chest: MobHarpyChest
     Groin: MobHarpyGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -135,22 +135,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobHarpyTorso
+  id: MobHarpyChest
   baseSprite:
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobHarpyTorsoMale
+  id: MobHarpyChestMale
   baseSprite:
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobHarpyTorsoFemale
+  id: MobHarpyChestFemale
   baseSprite:
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobHarpyGroin

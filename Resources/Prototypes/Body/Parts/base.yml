@@ -58,9 +58,9 @@
   name: "chest"
   components:
   - type: Sprite
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
-    state: "torso_m"
+    state: "chest_m"
   - type: BodyPart
     partType: Chest
     # Shitmed Change Start

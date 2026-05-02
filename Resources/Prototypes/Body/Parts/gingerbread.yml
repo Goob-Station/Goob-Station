@@ -44,7 +44,7 @@
   components:
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Extractable
     juiceSolution:
       reagents:

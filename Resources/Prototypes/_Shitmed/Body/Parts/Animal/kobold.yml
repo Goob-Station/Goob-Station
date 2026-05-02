@@ -28,7 +28,7 @@
   name: "kobold chest"
   components:
   - type: Sprite
-    state: "torso_m"
+    state: "chest_m"
   - type: Extractable
     juiceSolution:
       reagents:

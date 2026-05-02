@@ -20,7 +20,7 @@
     Special: MobMonkeyAnyMarking
     Head: MobMonkeyHead
     HeadTop: MobMonkeyAnyMarking
-    Chest: MobMonkeyTorso
+    Chest: MobMonkeyChest
     Groin: MobMonkeyGroin
     Tail: MobMonkeyTail
     Eyes: MobMonkeyEyes
@@ -59,22 +59,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobMonkeyTorso
+  id: MobMonkeyChest
   baseSprite:
     sprite: Mobs/Animals/monkey.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobMonkeyTorsoMale
+  id: MobMonkeyChestMale
   baseSprite:
     sprite: Mobs/Animals/monkey.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobMonkeyTorsoFemale
+  id: MobMonkeyChestFemale
   baseSprite:
     sprite: Mobs/Animals/monkey.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobMonkeyGroin

@@ -54,7 +54,7 @@
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Extractable
     juiceSolution:
       reagents:

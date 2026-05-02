@@ -236,6 +236,7 @@
       types:
         Heat: 0
   - type: Temperature
+  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 0

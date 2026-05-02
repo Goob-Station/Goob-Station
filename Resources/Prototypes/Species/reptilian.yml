@@ -42,8 +42,8 @@
     Snout: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
-    Chest: MobReptilianTorso
-    Groin: MobReptilianGroin # Goob
+    Chest: MobReptilianChest
+    Groin: MobReptilianGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -134,22 +134,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobReptilianTorso
+  id: MobReptilianChest
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobReptilianTorsoMale
+  id: MobReptilianChestMale
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobReptilianTorsoFemale
+  id: MobReptilianChestFemale
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobReptilianGroin

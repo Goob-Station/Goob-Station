@@ -38,7 +38,7 @@
     Snout: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
-    Chest: MobArachnidTorso
+    Chest: MobArachnidChest
     Groin: MobArachnidGroin
     Hair: MobHumanoidAnyMarking # imp, arachnid hair arachnid hair!
     HeadTop: MobHumanoidAnyMarking
@@ -131,22 +131,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobArachnidTorso
+  id: MobArachnidChest
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobArachnidTorsoMale
+  id: MobArachnidChestMale
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobArachnidTorsoFemale
+  id: MobArachnidChestFemale
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobArachnidGroin

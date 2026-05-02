@@ -13,7 +13,7 @@
   id: MobScurretSprites
   sprites:
     Head: MobScurretHead
-    Chest: MobScurretTorso
+    Chest: MobScurretChest
     Groin: MobScurretGroin
     Tail: MobScurretTail
     LArm: MobScurretLArm
@@ -44,22 +44,22 @@
     state: head
 
 - type: humanoidBaseSprite
-  id: MobScurretTorso
+  id: MobScurretChest
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
-    state: torso
+    state: chest
 
 - type: humanoidBaseSprite
-  id: MobScurretTorsoMale
+  id: MobScurretChestMale
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
-    state: torso
+    state: chest
 
 - type: humanoidBaseSprite
-  id: MobScurretTorsoFemale
+  id: MobScurretChestFemale
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
-    state: torso
+    state: chest
 
 - type: humanoidBaseSprite
   id: MobScurretGroin

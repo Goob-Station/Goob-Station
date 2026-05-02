@@ -72,10 +72,10 @@
   components:
     - type: Sprite
       sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "torso_m"
+      state: "chest_m"
     - type: Icon
       sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "torso_m"
+      state: "chest_m"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseGroinInorganic ]

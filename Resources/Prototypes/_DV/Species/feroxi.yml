@@ -19,7 +19,7 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobFeroxiTorso
+    Chest: MobFeroxiChest
     Groin: MobFeroxiGroin
     HeadTop: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -98,22 +98,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobFeroxiTorso
+  id: MobFeroxiChest
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobFeroxiTorsoMale
+  id: MobFeroxiChestMale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobFeroxiTorsoFemale
+  id: MobFeroxiChestFemale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobFeroxiGroin

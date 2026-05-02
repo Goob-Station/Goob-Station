@@ -19,7 +19,7 @@
   sprites:
     Special: MobKoboldAnyMarking
     Head: MobKoboldHead
-    Chest: MobKoboldTorso
+    Chest: MobKoboldChest
     Groin: MobKoboldGroin
     Tail: MobKoboldTail
     Eyes: MobKoboldEyes
@@ -66,22 +66,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobKoboldTorso
+  id: MobKoboldChest
   baseSprite:
     sprite: Mobs/Animals/kobold.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobKoboldTorsoMale
+  id: MobKoboldChestMale
   baseSprite:
     sprite: Mobs/Animals/kobold.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobKoboldTorsoFemale
+  id: MobKoboldChestFemale
   baseSprite:
     sprite: Mobs/Animals/kobold.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobKoboldGroin

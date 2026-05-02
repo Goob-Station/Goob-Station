@@ -19,7 +19,7 @@
   name: "scurret chest"
   components:
   - type: Sprite
-    state: "torso"
+    state: "chest"
     enableOverrideDir: true
     overrideDir: south
   - type: Extractable

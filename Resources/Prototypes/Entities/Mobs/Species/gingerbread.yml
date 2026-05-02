@@ -37,6 +37,7 @@
     damageContainer: Biological
     damageModifierSet: Gingerbread
   - type: Temperature
+  - type: TemperatureDamage
     coldDamage:
       types:
         Cold: 0.0 #per second, scales with temperature & other constants

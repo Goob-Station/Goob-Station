@@ -24,7 +24,7 @@ public sealed partial class SuppressPain : EntityEffectBase<SuppressPain>
     /// The body part to change the pain for.
     /// </summary>
     [DataField]
-    public string OrganCategory = "Torso";
+    public string OrganCategory = "Chest";
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-suppress-pain");

@@ -57,7 +57,7 @@
   components:
     - type: Sprite
       sprite: Mobs/Species/Slime/parts.rsi
-      state: "torso_m"
+      state: "chest_m"
 
 - type: entity
   id: GroinSlime

@@ -38,9 +38,9 @@
   parent: [PartChitinidBase, BaseChest]
   components:
   - type: Sprite
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
-    state: "torso_m"
+    state: "chest_m"
   - type: Extractable
     juiceSolution:
       reagents:

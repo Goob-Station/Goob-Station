@@ -32,10 +32,10 @@
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseGroin ]

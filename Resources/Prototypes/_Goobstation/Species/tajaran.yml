@@ -99,7 +99,7 @@
     Snout: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
-    Chest: MobTajaranTorso
+    Chest: MobTajaranChest
     Groin: MobTajaranGroin
     Eyes: MobTajaranEyes
     LArm: MobTajaranLArm
@@ -137,22 +137,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobTajaranTorso
+  id: MobTajaranChest
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobTajaranTorsoMale
+  id: MobTajaranChestMale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobTajaranTorsoFemale
+  id: MobTajaranChestFemale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobTajaranGroin

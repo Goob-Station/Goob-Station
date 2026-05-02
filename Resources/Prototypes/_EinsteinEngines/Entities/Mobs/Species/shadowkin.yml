@@ -117,10 +117,10 @@
         Quantity: 200
   - type: Temperature
     currentTemperature: 310.15
+    specificHeat: 46
   - type: TemperatureDamage
     heatDamageThreshold: 330
     coldDamageThreshold: 195
-    specificHeat: 46
     coldDamage:
       types:
         Cold: 0.05 #per second, scales with temperature & other constants

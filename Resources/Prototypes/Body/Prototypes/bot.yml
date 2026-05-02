@@ -21,9 +21,18 @@
     box:
       part: TorsoBorg
       connections:
-      - right_arm
-      - left_arm
-    right_arm:
+      - right arm
+      - left arm
+    right arm:
       part: RightArmBorg
-    left_arm:
+      connections: # Goobstation
+      - right hand # Goobstation
+    left arm:
       part: LeftArmBorg
+      connections: # Goobstation
+      - left hand # Goobstation
+    # Goobstation start
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman

@@ -36,7 +36,7 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobVulpkaninTorso
+    Chest: MobVulpkaninChest
     Groin: MobVulpkaninGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -121,22 +121,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobVulpkaninTorso
+  id: MobVulpkaninChest
   baseSprite:
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVulpkaninTorsoMale
+  id: MobVulpkaninChestMale
   baseSprite:
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVulpkaninTorsoFemale
+  id: MobVulpkaninChestFemale
   baseSprite:
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninGroin

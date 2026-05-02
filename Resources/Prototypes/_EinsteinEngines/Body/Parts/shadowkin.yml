@@ -13,10 +13,10 @@
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Extractable
     juiceSolution:
       reagents:
@@ -34,9 +34,9 @@
   parent: [PartShadowkin, BaseChest]
   components:
     - type: Sprite
-      state: "torso_m"
+      state: "chest_m"
     - type: Icon
-      state: "torso_m"
+      state: "chest_m"
     - type: Extractable # Goob edit start
       juiceSolution:
         reagents:
