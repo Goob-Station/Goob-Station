@@ -2,7 +2,7 @@ using Content.Goobstation.Common.Flammability;
 using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Robust.Shared.GameObjects;
 
 namespace Content.Server.Goobstation.Devil;
