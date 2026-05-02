@@ -47,7 +47,7 @@ public abstract partial class SharedGunSystem
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-projectile"));
 
         // Goobstation START - partial armor penetration
-        var ap = GetProjectilePenetration(component.Prototype);
+        var ap = GetProjectilePenetration(ent.Comp.Prototype);
         if (ap == 0)
             return;
         var abs = Math.Abs(ap);
