@@ -16,7 +16,7 @@ public sealed partial class SlimeLatchEvent : EntityTargetActionEvent
     public float Damage = 5;
 }
 
-public sealed partial class SlimeEatCorpseEvent : EntityTargetActionEvent;
+public sealed partial class EatCorpseEvent : EntityTargetActionEvent;
 
 public sealed partial class XenoVacEvent : EntityTargetActionEvent;
 

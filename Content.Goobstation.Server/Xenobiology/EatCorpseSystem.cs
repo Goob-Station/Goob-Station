@@ -12,11 +12,12 @@ using Content.Shared.Whitelist;
 using Content.Shared.DoAfter;
 using Content.Shared.Jittering;
 using Content.Shared.Gibbing.Events;
-using Content.Shared.StatusEffect;// TODO: change to StatusEffectNew when jittering would be migrated
+using Content.Shared.StatusEffect;
+using Content.Shared.Mobs.Components;// TODO: change to StatusEffectNew when jittering would be migrated
 
 namespace Content.Goobstation.Server.Xenobiology;
 
-public sealed partial class SlimeEatCorpseSystem : EntitySystem
+public sealed partial class EatCorpseSystem : EntitySystem
 {
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -28,11 +29,11 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<CorpseEaterComponent, SlimeEatCorpseEvent>(OnSlimeEatCorpseAttempt);
+        SubscribeLocalEvent<CorpseEaterComponent, EatCorpseEvent>(OnEatCorpseAttempt);
         SubscribeLocalEvent<CorpseEaterComponent, EatCorpseDoAfterEvent>(OnEatCorpseDoAfterEvent);
     }
 
-    private void OnSlimeEatCorpseAttempt(Entity<CorpseEaterComponent> eater, ref SlimeEatCorpseEvent args)
+    private void OnEatCorpseAttempt(Entity<CorpseEaterComponent> eater, ref EatCorpseEvent args)
     {
         var target = args.Target;
         if (TerminatingOrDeleted(target)
@@ -58,6 +59,9 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
             return;
         }
 
+        if (CanEatCorpse(eater, target, eater.Comp, body)) // all conditions already above, but just in case
+            return;
+
         var doAfterArgs = new DoAfterArgs(EntityManager, eater, eater.Comp.EatCorpseDoAfterDuration, new EatCorpseDoAfterEvent(), eater, target)
         {
             BreakOnDamage = true,
@@ -71,6 +75,26 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
         _jitter.DoJitter(target, eater.Comp.EatCorpseDoAfterDuration, true);
         var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", eater), ("ent", target));
         _popup.PopupEntity(attemptPopup, eater, PopupType.MediumCaution);
+    }
+
+    public bool CanEatCorpse(EntityUid eaterUid,
+        EntityUid targetUid,
+        CorpseEaterComponent? eater = null,
+        BodyComponent? targetBody = null,
+        MobStateComponent? targetState = null)
+    {
+        if (!Resolve(eaterUid, ref eater)
+            || !Resolve(targetUid, ref targetState, ref targetBody))
+            return false;
+
+        if (!_mobState.IsDead(targetUid))
+            return false;
+
+        if (!_body.GetBodyOrgans(targetUid, targetBody).Any(organ => IsValidOrganOrBodyPart((eaterUid, eater), organ.Id))
+            && !_body.GetBodyChildren(targetUid, targetBody).Any(part => IsValidOrganOrBodyPart((eaterUid, eater), part.Id)))
+            return false;
+
+        return true;
     }
 
     private void OnEatCorpseDoAfterEvent(Entity<CorpseEaterComponent> eater, ref EatCorpseDoAfterEvent args)
@@ -103,14 +127,14 @@ public sealed partial class SlimeEatCorpseSystem : EntitySystem
         _body.TryDetachPart(toRemove);
     }
 
-    private bool IsValidOrganOrBodyPart(Entity<CorpseEaterComponent> detacher, EntityUid detached)
+    private bool IsValidOrganOrBodyPart(Entity<CorpseEaterComponent> eater, EntityUid target)
     {
-        if (HasComp<OrganComponent>(detached))
-            return _whitelist.CheckBoth(detached, detacher.Comp.OrganBlacklist, detacher.Comp.OrganWhitelist);
+        if (HasComp<OrganComponent>(target))
+            return _whitelist.CheckBoth(target, eater.Comp.OrganBlacklist, eater.Comp.OrganWhitelist);
 
-        if (TryComp<BodyPartComponent>(detached, out var part))
-            return part.PartComposition == detacher.Comp.BodyPartComposition || detacher.Comp.BodyPartComposition is null
-                && _whitelist.CheckBoth(detached, detacher.Comp.BodyPartBlacklist, detacher.Comp.BodyPartWhitelist);
+        if (TryComp<BodyPartComponent>(target, out var part))
+            return part.PartComposition == eater.Comp.BodyPartComposition || eater.Comp.BodyPartComposition is null
+                && _whitelist.CheckBoth(target, eater.Comp.BodyPartBlacklist, eater.Comp.BodyPartWhitelist);
 
         return false;
     }
