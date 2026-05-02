@@ -53,18 +53,41 @@ public sealed class RanchingEggLayerSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<EggFertilizerComponent>(args.User, out var fertilizer) || !TryComp<HappinessComponent>(args.User, out var happiness))
+        if (!TryComp<EggFertilizerComponent>(args.User, out var fertilizer))
             return;
 
         if (fertilizer.SpecialReplacement is null)
-            ent.Comp.SpawnTime = _timing.CurTime;
-        else
         {
-            ent.Comp.Entity = fertilizer.SpecialReplacement.Value;
             ent.Comp.SpawnTime = _timing.CurTime;
-            fertilizer.SpecialReplacement = null;
-            _happiness.SetHappiness((args.User, happiness), 30f);
+            return;
         }
+
+        if (fertilizer.SpecialReplacementRequiredEgg is null)
+        {
+            ReplaceAndHatchEgg(ent, fertilizer, args);
+            return;
+        }
+
+        var entityPrototype = MetaData(ent.Owner).EntityPrototype;
+
+        if (entityPrototype is null)
+            return;
+
+        if (fertilizer.SpecialReplacementRequiredEgg.Value == entityPrototype.ID)
+            ReplaceAndHatchEgg(ent, fertilizer, args);
+
+    }
+
+    private void ReplaceAndHatchEgg(Entity<TimedReplaceComponent> ent, EggFertilizerComponent fertilizer, FertilizeDoAfterEvent args)
+    {
+
+        if (!TryComp<HappinessComponent>(args.User, out var happiness) || fertilizer.SpecialReplacement is null)
+            return;
+
+        ent.Comp.Entity = fertilizer.SpecialReplacement.Value;
+        ent.Comp.SpawnTime = _timing.CurTime;
+        fertilizer.SpecialReplacement = null;
+        _happiness.SetHappiness((args.User, happiness), 30f);
     }
 
     private void OnInteraction(Entity<TimedReplaceComponent> ent, ref ActivateInWorldEvent args)

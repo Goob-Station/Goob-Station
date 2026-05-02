@@ -313,3 +313,10 @@
   weight: 10
   foodTagsRequired:
   - LizardTail
+
+- type: eggRecipe
+  id: SickleEgg
+  egg: SickleEgg
+  requiredChicken:
+  - MobSickleHen
+  happinessRequired: 15

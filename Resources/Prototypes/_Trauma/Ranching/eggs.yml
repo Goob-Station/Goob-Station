@@ -17,8 +17,6 @@
   - type: TimedReplace
     entity: MobChickWhite
 
-# First generation
-
 - type: entity
   parent: BaseRanchingEgg
   id: WhiteEgg
@@ -92,8 +90,6 @@
     state: egg-silkie_black
   - type: TimedReplace
     entity: MobChickBlackSilkie
-
-# second generation
 
 - type: entity
   parent: BaseRanchingEgg
@@ -263,6 +259,12 @@
     state: egg-snow
   - type: TimedReplace
     entity: MobChickSnow
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: SnowEggEffect
+      time: 10
+      type: Add
 
 - type: entity
   parent: BaseRanchingEgg
@@ -441,4 +443,23 @@
     - !type:ModifyStatusEffect
       effectProto: StatusEffectCockatricePower
       time: 30
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SickleEgg
+  components:
+  - type: Sprite
+    state: egg-popsicle
+  - type: TimedReplace
+    entity: MobChickSicle
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: SnowEggEffectNoDamage
+      time: 30
+      type: Add
+    - !type:ModifyStatusEffect
+      effectProto: DreamsicleEggEffect
+      time: 60
       type: Add

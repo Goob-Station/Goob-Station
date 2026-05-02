@@ -112,7 +112,7 @@
       MinimumIdleTime: !type:Single
         5
       MaximumIdleTime: !type:Single
-        60
+        20
   - type: Happiness
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
@@ -480,6 +480,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-snow.rsi
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: CandyEgg
+    specialReplacement: SickleEgg
 
 # Dream
 
@@ -711,6 +714,9 @@
   - type: FavoriteFood
     tag:
     - Sugar
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: SnowEgg
+    specialReplacement: SickleEgg
 
 # Golden
 
@@ -1495,3 +1501,46 @@
   - type: FavoriteFood
     tag:
     - LizardTail
+
+# Sickle
+
+- type: entity
+  abstract: true
+  id: BaseChickenSicle
+  components:
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dead
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+
+- type: entity
+  parent: [BaseChickenSicle, BaseMobChickRanch]
+  id: MobChickSicle
+  name: sickle chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSicleHen
+    - MobSicleRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dreamsickle.rsi
+
+- type: entity
+  parent: [BaseChickenSicle, BaseMobHenRanch]
+  id: MobSicleHen
+  name: sickle hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dreamsickle.rsi
+
+- type: entity
+  parent: [BaseChickenSicle, BaseMobRoosterRanch]
+  id: MobSicleRooster
+  name: sickle rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dreamsickle.rsi

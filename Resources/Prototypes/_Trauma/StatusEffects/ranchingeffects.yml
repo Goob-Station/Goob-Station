@@ -69,3 +69,53 @@
       - medusa-popup
     - !type:PlaySoundEffect
       sound: /Audio/Effects/break_stone.ogg
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: SnowEggEffect
+  name: Snow trail!
+  components:
+  - type: Trail
+    color: "#ffffff"
+    lifetime: 1
+    sprite:
+      sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect
+      state: icon
+  - type: StatusEffectEffects
+    effects:
+    - !type:SpawnEntity
+      entity: WallRockSnow
+    - !type:HealthChange
+      damage:
+        types:
+          Cold: -5
+      useTargeting: false
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: DreamsicleEggEffect
+  name: Orange Dreamsicle High
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - ActionDashMoth
+  - type: StatusEffectEffects
+    effects:
+    - !type:Jitter
+    - !type:MovementSpeedModifier
+      walkSpeedModifier: 4
+      sprintSpeedModifier: 4
+
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: SnowEggEffectNoDamage
+  name: Snow trail!
+  components:
+  - type: Trail
+    color: "#ffffff"
+    lifetime: 5
+    frequency: 0.05
+    sprite:
+      sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect
+      state: icon
