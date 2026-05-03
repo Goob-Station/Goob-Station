@@ -26,11 +26,16 @@
       state: hole
 
 - type: entity
-  name: ???
+  name: pulsing exoskeleton
   id: LavalandBossMercurySpiderForming
   parent: LavalandMobBase
   description: The air trembles around it...
   components:
+  - type: CoreBootUp
+  - type: PointLight
+    radius: 2
+    energy: 1
+    color: cyan
   - type: RadiationSource
     intensity: 3
   - type: Physics
