@@ -29,8 +29,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Dead 
-  - type: Doodon    
+      50: Dead   
   - type: Bloodstream
     bloodReagent: AlienBlood
     bloodMaxVolume: 40
@@ -99,7 +98,6 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: DoodonTownHallVision
   - type: Tag
     tags:
     - VimPilot
@@ -149,7 +147,6 @@
     action: ActionDoodonResin
     productionLength: 1
     hungerCost: 5
-  - type: PapaDoodon
   - type: MindContainer
   - type: GhostTakeoverAvailable
   - type: GhostRole
@@ -178,27 +175,6 @@
     understands:
     - TauCetiBasic
     - Doodon
-  - type: DoodonBuilder # Doodon Buildings
-    buildables:
-    - DoodonDwelling
-    - DoodonWarriorHut
-    - DoodonPasture
-    - DoodonMetalRefiner
-    - DoodonGlassRefiner
-    - DoodonShieldsmith
-    - DoodonSwordsmith
-    - DoodonGemCutter
-  - type: UserInterface
-    interfaces:
-      enum.Content.Goobstation.Shared.Doodon.Building.DoodonBuildUiKey.Key:
-        type: DoodonBuildMenuBoundUserInterface
-      enum.StrippingUiKey.Key:  # Needed due to UI interference 
-        type: StrippableBoundUserInterface
-  - type: ActionGrant
-    actions:
-      - ActionDoodonBuildSelect
-      - ActionDoodonBuildPlace
-  - type: DoodonBuildMenu
   - type: NPCRetaliation
     attackMemoryLength: 10
   - type: GroupRetaliation
@@ -255,11 +231,6 @@
   - type: NpcFactionMember
     factions:
       - Doodon
-  - type: HTN
-    rootTask:
-      task: DoodonWorkerCompound
-  - type: Doodon
-    requiredHousing: Worker
   - type: Physics
     bodyType: KinematicController
   - type: CombatMode
@@ -284,27 +255,6 @@
       - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
-  - type: DoodonBuilder
-    buildables:
-    - DoodonDwelling
-    - DoodonWarriorHut
-    - DoodonPasture
-    - DoodonMetalRefiner
-    - DoodonGlassRefiner
-    - DoodonShieldsmith
-    - DoodonSwordsmith
-    - DoodonGemCutter
-  - type: UserInterface     # access the build menu
-    interfaces:
-      enum.Content.Goobstation.Shared.Doodon.Building.DoodonBuildUiKey.Key:
-        type: DoodonBuildMenuBoundUserInterface
-      enum.StrippingUiKey.Key:  # Strip the doodon
-        type: StrippableBoundUserInterface
-  - type: ActionGrant
-    actions:
-      - ActionDoodonBuildSelect
-      - ActionDoodonBuildPlace
-  - type: DoodonBuildMenu
     
 - type: entity          # Warrior
   parent: BaseDoodon
@@ -316,7 +266,6 @@
   - type: Puller   
   - type: Physics
     bodyType: KinematicController
-  - type: Doodon
     requiredHousing: Warrior
   - type: Sprite
     drawdepth: SmallMobs
@@ -330,7 +279,6 @@
       state: body-overlay-2
       visible: false
   - type: Cuffable # Arrest the doodon
-  - type: DoodonWarrior
   - type: NpcFactionMember
     factions:
     - DoodonFighter
@@ -368,9 +316,6 @@
     sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
     state: moodon
     drawdepth: SmallMobs
-  - type: Doodon
-    requiredHousing: Moodon
-    countsTowardPopulation: false      # Moodons are cattle, and do not count towards city population. They do still require pastures though
   - type: SolutionContainerManager
     solutions:
       juice:
