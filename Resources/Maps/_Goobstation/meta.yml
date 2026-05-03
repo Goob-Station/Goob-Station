@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/12/2026 06:57:50
-  entityCount: 28138
+  time: 04/27/2026 05:41:45
+  entityCount: 28142
 maps:
 - 1
 grids:
@@ -7121,7 +7121,7 @@ entities:
           16,-6:
             0: 143
             1: 8704
-            6: 32768
+            5: 32768
           13,-3:
             0: 62719
           13,-2:
@@ -7917,34 +7917,34 @@ entities:
             1: 257
           16,-4:
             1: 8738
-            5: 136
-            6: 32768
+            6: 136
+            5: 32768
           16,-3:
             1: 8738
-            6: 32904
+            5: 32904
           16,-2:
             1: 57890
-            6: 136
+            5: 136
           16,-5:
             1: 8738
-            5: 32768
-            6: 136
+            6: 32768
+            5: 136
           17,-4:
-            5: 51
-            6: 12288
+            6: 51
+            5: 12288
             0: 2176
             1: 32768
           17,-3:
-            6: 12339
+            5: 12339
             1: 34952
           17,-2:
-            6: 51
+            5: 51
             1: 55432
             0: 8192
           17,-5:
-            5: 12288
+            6: 12288
             0: 34816
-            6: 51
+            5: 51
             1: 136
           18,-4:
             0: 3975
@@ -7986,7 +7986,7 @@ entities:
             0: 7677
           17,-6:
             0: 31
-            6: 12288
+            5: 12288
             1: 34816
           17,-9:
             0: 65535
@@ -8362,7 +8362,7 @@ entities:
           3,-16:
             1: 3745
           3,-14:
-            6: 3822
+            5: 3822
             0: 16384
           4,-15:
             0: 53070
@@ -9062,7 +9062,7 @@ entities:
           - 0
           - 0
           - 0
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -9081,7 +9081,7 @@ entities:
           - 0
           - 0
           - 0
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -11276,7 +11276,7 @@ entities:
       pos: 44.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -941.96
+      secondsUntilStateChange: -1105.9761
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11560,7 +11560,7 @@ entities:
       pos: -7.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11717.316
+      secondsUntilStateChange: -11881.332
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11772,7 +11772,7 @@ entities:
       pos: 63.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -30941.154
+      secondsUntilStateChange: -31105.17
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -11920,7 +11920,7 @@ entities:
       pos: 98.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34656.316
+      secondsUntilStateChange: -34820.332
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12248,7 +12248,7 @@ entities:
       pos: -43.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -33803.316
+      secondsUntilStateChange: -33967.332
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -12283,7 +12283,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -61522.777
+      secondsUntilStateChange: -61686.793
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -12988,7 +12988,7 @@ entities:
       pos: -2.5,-60.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16598.186
+      secondsUntilStateChange: -16762.201
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -129186,6 +129186,31 @@ entities:
     - type: Transform
       pos: 45.507812,-16.51924
       parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 28139
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -32.5,-13.5
+      parent: 2
+  - uid: 28140
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -31.5,-13.5
+      parent: 2
+  - uid: 28141
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,-7.5
+      parent: 2
+  - uid: 28142
+    components:
+    - type: Transform
+      pos: 20.5,19.5
+      parent: 2
 - proto: PoppySeeds
   entities:
   - uid: 19239
@@ -176234,7 +176259,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -30615.756
+      secondsUntilStateChange: -30779.771
       state: Opening
     - type: Airlock
       autoClose: False
