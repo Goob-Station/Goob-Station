@@ -82,7 +82,7 @@ public sealed class SharedMultishotSystem : EntitySystem
             if (gunComp.Target == null || !gunComp.BurstActivated || !gunComp.LockOnTargetBurst)
                 gunComp.Target = target;
 
-            _gunSystem.AttemptShoot(user.Value, gunEnt, gunComp, shootCoords);
+            _gunSystem.AttemptShoot(user.Value, (gunEnt, gunComp), shootCoords);
         }
     }
 

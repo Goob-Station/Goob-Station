@@ -49,9 +49,9 @@
   - type: Flammable
     firestackFade: -0.08 # until you light it up, cuz it's oily too. 20% lower than default
   - type: Temperature
-    coldDamageThreshold: 248.15 # -25 degrees centigrade, like 12 degrees below normal "takes cold damage"
     currentTemperature: 311.76  # Body temperature of cat
   - type: TemperatureDamage
+    coldDamageThreshold: 248.15 # -25 degrees centigrade, like 12 degrees below normal "takes cold damage"
     coldDamage:
       types:
         Cold: 0.080 # in line with cold resist

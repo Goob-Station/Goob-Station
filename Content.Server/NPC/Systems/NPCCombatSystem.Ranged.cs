@@ -74,7 +74,7 @@ public sealed partial class NPCCombatSystem
         }
 
         // Goobstation
-        if (_gun.TryGetGun(uid, out var gunUid, out _) && TryComp(gunUid, out LaserPointerComponent? laser) &&
+        if (_gun.TryGetGun(uid, out var gunUid) && TryComp(gunUid, out LaserPointerComponent? laser) &&
             TryComp(gunUid, out WieldableComponent? wieldable) && TryComp(gunUid, out TransformComponent? xform))
             _pointer.AddOrRemoveLine(GetNetEntity(gunUid), laser, wieldable, xform, null, null);
     }
@@ -85,7 +85,7 @@ public sealed partial class NPCCombatSystem
 
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
-            if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
+            if (!_gun.TryGetGun(uid, out var gunUid))
             {
                 comp.Status = CombatStatus.NoWeapon;
                 comp.ShootAccumulator = 0f;

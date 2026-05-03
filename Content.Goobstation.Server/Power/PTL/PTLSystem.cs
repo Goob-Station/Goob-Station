@@ -140,7 +140,7 @@ public sealed partial class PTLSystem : EntitySystem
 
             var targetCoords = xform.Coordinates.Offset(directionInParentSpace);
 
-            _gun.AttemptShoot(ent, ent, gun, targetCoords);
+            _gun.AttemptShoot(ent, (ent, gun), targetCoords);
         }
 
         // Determine actual energy used.

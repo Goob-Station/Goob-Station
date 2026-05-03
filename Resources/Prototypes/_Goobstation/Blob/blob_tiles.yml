@@ -125,6 +125,7 @@
   description: An ordinary part of yours required for the construction of more advanced tiles.
   components:
   - type: Temperature
+  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 5
@@ -189,6 +190,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5
@@ -227,6 +229,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5
@@ -267,6 +270,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5
