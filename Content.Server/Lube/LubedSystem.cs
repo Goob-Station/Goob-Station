@@ -9,7 +9,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Lube; // Goobstation
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -56,14 +55,6 @@ public sealed class LubedSystem : EntitySystem
     /// </remarks>
     private void OnHandPickUp(Entity<LubedComponent> ent, ref BeforeGettingEquippedHandEvent args)
     {
-        /* todo marty move this
-        // <Goobstation>
-        var ev = new CanLubedInsertEvent(args.Container);
-        RaiseLocalEvent(uid, ref ev);
-
-        if (ev.CanInsert)
-            return;
-        */// </Goobstation>
 
         if (args.Cancelled)
             return;

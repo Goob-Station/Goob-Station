@@ -8,12 +8,13 @@
   id: OrganicPotash
   minTemp: 354
   reactants:
-    Water:
-      amount: 1
-    Ash:
+    Lye: # changed cause wiz added Lye. Apparently lye and potash are similar?
+      amount: 2   # wikipedia tells me potash = 2KOH + CO2 -> K2CO3 + H2O . Potassium presumably in the Lye(?) so fuck it.
+    CarbonDioxide:
       amount: 1
   products:
-    Potash: 2
+    Potash: 1 # todo, fuck chemistry? this is kind of a shit yield, but if you want to change it make up a good reason first.
+    Water: 1
 
 - type: reaction
   id: Potash

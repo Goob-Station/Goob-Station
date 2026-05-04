@@ -177,7 +177,8 @@ public sealed class RCDTest : InteractionTest
 
         // Check that the cost of the deconstruction was subtracted from the current charges.
         newCharges = sCharges.GetCurrentCharges(ToServer(rcd));
-        Assert.That(initialCharges - wallComp.Cost, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
+        // Trauma - goob rcd refunds half the cost instead of taking full cost
+        Assert.That(initialCharges + wallComp.Cost / 2, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
         initialCharges = newCharges;
 
         // Deconstruct the airlock.
@@ -188,7 +189,8 @@ public sealed class RCDTest : InteractionTest
 
         // Check that the cost of the deconstruction was subtracted from the current charges.
         newCharges = sCharges.GetCurrentCharges(ToServer(rcd));
-        Assert.That(initialCharges - airlockComp.Cost, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
+        // Trauma - goob rcd refunds half the cost instead of taking full cost
+        Assert.That(initialCharges + wallComp.Cost / 2, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
         initialCharges = newCharges;
 
         // Deconstruct the steel tile.
@@ -198,7 +200,8 @@ public sealed class RCDTest : InteractionTest
 
         // Check that the cost of the deconstruction was subtracted from the current charges.
         newCharges = sCharges.GetCurrentCharges(ToServer(rcd));
-        Assert.That(initialCharges - settingDeconstructTile.Cost, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
+        // Trauma - goob rcd refunds half the cost instead of taking full cost
+        Assert.That(initialCharges + wallComp.Cost / 2, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
         initialCharges = newCharges;
 
         // Deconstruct the plating.
@@ -208,7 +211,8 @@ public sealed class RCDTest : InteractionTest
 
         // Check that the cost of the deconstruction was subtracted from the current charges.
         newCharges = sCharges.GetCurrentCharges(ToServer(rcd));
-        Assert.That(initialCharges - settingDeconstructTile.Cost, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
+        // Trauma - goob rcd refunds half the cost instead of taking full cost
+        Assert.That(initialCharges + wallComp.Cost / 2, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
         initialCharges = newCharges;
 
         // Deconstruct the lattice.
@@ -218,7 +222,8 @@ public sealed class RCDTest : InteractionTest
 
         // Check that the cost of the deconstruction was subtracted from the current charges.
         newCharges = sCharges.GetCurrentCharges(ToServer(rcd));
-        Assert.That(initialCharges - settingDeconstructLattice.Cost, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
+        // Trauma - goob rcd refunds half the cost instead of taking full cost
+        Assert.That(initialCharges + wallComp.Cost / 2, Is.EqualTo(newCharges), "RCD has wrong amount of charges after deconstructing something.");
 
         // Wait for the visual effect to disappear.
         await RunSeconds(3);
