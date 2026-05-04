@@ -24,13 +24,13 @@ public sealed partial class AnimalAgeingComponent : Component
     ///     Minimum age time used.
     /// </summary>
     [DataField]
-    public float AgeTimeMin = 10f;
+    public float AgeTimeMin = 60f;
 
     /// <summary>
     ///     Maximum age time used.
     /// </summary>
     [DataField]
-    public float AgeTimeMax = 15f;
+    public float AgeTimeMax = 120f;
 
     [DataField]
     public int YearsPerUpdate = 1;

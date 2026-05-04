@@ -106,6 +106,15 @@
       walkSpeedModifier: 4
       sprintSpeedModifier: 4
 
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectZappyPower
+  name: zappy egg effect
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - ZappyPowerAction
+    - ActionMutationShockTouch
 
 - type: entity
   parent: MobStatusEffectBase

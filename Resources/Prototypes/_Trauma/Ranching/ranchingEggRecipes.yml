@@ -320,3 +320,10 @@
   requiredChicken:
   - MobSickleHen
   happinessRequired: 15
+
+- type: eggRecipe
+  id: ZappyEgg
+  egg: ZappyEgg
+  requiredChicken:
+  - MobZappyHen
+  happinessRequired: 15

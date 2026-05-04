@@ -26,3 +26,24 @@
       effectProto: StatusEffectMedusa
       time: 15
       type: Add
+
+- type: entity
+  parent: BaseAction
+  id: ZappyPowerAction
+  name: Zappy's power
+  description: The Zappy's egg has given you the power to summon clouds of thunder!
+  components:
+  - type: Action
+    useDelay: 10
+    icon:
+      sprite: _Trauma/Mobs/Ranch/chicken-zappy.rsi
+      state: rooster
+    itemIconStyle: BigAction
+    raiseOnAction: true
+  - type: InstantAction
+    event: !type:EffectInstantActionEvent
+  - type: EffectAction
+    effects:
+    - !type:SpawnRandomEntities
+      entity: ThunderCloud
+      number: 3

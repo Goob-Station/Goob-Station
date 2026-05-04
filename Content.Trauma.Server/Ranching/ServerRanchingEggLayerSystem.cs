@@ -65,7 +65,7 @@ public sealed class ServerRanchingEggLayerSystem : EntitySystem
         if (!TryComp<HungerComponent>(uid, out var hunger))
             return;
 
-        if (_hunger.GetHunger(hunger) < egglayer.HungerUsage)
+        if (_hunger.GetHunger(hunger) < egglayer.HungerUsage || _hunger.GetHungerThreshold(hunger).GetHashCode() < egglayer.HungerThresholdRequired.GetHashCode())
             return;
 
         var evfood = new RanchingEggLayAttemptEvent((uid, egglayer));

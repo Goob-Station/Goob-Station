@@ -1544,3 +1544,73 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-dreamsickle.rsi
+
+# Zappy
+
+- type: entity
+  abstract: true
+  id: BaseChickenZappy
+  components:
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: SpawnLootOnDeath
+    deleteOnDeath: True
+    table:
+      id: TeslaMiniEnergyBall
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 2
+    color: "#4080FF"
+
+- type: entity
+  parent: [BaseChickenZappy, BaseMobChickRanch]
+  id: MobChickZappy
+  name: zappy chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobZappyHen
+    - MobZappyRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-zappy.rsi
+
+- type: entity
+  parent: [BaseChickenZappy, BaseMobHenRanch]
+  id: MobZappyHen
+  name: zappy hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-zappy.rsi
+
+- type: entity
+  parent: [BaseChickenZappy, BaseMobRoosterRanch]
+  id: MobZappyRooster
+  name: zappy rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-zappy.rsi
+  - type: NPCRetaliation
+    attackMemoryLength: 20
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: ThunderCloud
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Effects/Lightning/lightningshock.ogg
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound

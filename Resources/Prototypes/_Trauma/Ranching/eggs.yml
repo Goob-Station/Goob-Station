@@ -463,3 +463,18 @@
       effectProto: DreamsicleEggEffect
       time: 60
       type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: ZappyEgg
+  components:
+  - type: Sprite
+    state: egg-zappy
+  - type: TimedReplace
+    entity: MobChickZappy
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectZappyPower
+      time: 30
+      type: Add

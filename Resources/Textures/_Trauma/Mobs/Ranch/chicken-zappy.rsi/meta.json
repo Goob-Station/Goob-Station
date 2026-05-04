@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from the goonstation wiki https://wiki.ss13.co/Rancher",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "rooster",
+      "directions": 4
+    },
+    {
+      "name": "chick",
+      "directions": 4
+    },
+    {
+      "name": "hen",
+      "directions": 4
+    }
+  ]
+}

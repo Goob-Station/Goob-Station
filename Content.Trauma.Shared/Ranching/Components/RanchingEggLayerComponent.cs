@@ -1,3 +1,4 @@
+using Content.Shared.Nutrition.Components;
 using Robust.Shared.Audio;
 
 namespace Content.Trauma.Shared.Ranching.Components;
@@ -21,19 +22,25 @@ public sealed partial class RanchingEggLayerComponent : Component
     /// Minimum cooldown used for the egg laying.
     /// </summary>
     [DataField]
-    public float EggLayCooldownMin = 5f;
+    public float EggLayCooldownMin = 40f;
 
     /// <summary>
     /// Maximum cooldown used for the egg laying.
     /// </summary>
     [DataField]
-    public float EggLayCooldownMax = 10f;
+    public float EggLayCooldownMax = 100f;
 
     /// <summary>
     /// The amount of nutrient consumed on eggLay.
     /// </summary>
     [DataField]
-    public float HungerUsage = 15f;
+    public float HungerUsage = 10f;
+
+    /// <summary>
+    /// What hunger threshold is required
+    /// </summary>
+    [DataField]
+    public HungerThreshold HungerThresholdRequired = HungerThreshold.Okay;
 
     /// <summary>
     /// Whether given entity needs to have Hunger in order to lay eggs
