@@ -62,7 +62,7 @@ public sealed class AdminNotesEui : BaseEui
         return new AdminNotesEuiState(
             NotedPlayerName,
             Notes,
-            _notesMan.CanCreate(Player) && HasConnectedBefore,
+            _notesMan.CanCreate(Player), // Trauma - removed HasConnectedBefore check it doesn't work in debug?
             _notesMan.CanDelete(Player),
             _notesMan.CanEdit(Player)
         );

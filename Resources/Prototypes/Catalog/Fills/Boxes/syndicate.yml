@@ -47,16 +47,16 @@
       storagebase: !type:AllSelector
         children:
         - id: Beaker
-          #amount: 2 #Goob
+        #  amount: 2
         - id: TimerTrigger # Goobstation
         - id: Dropper
         # It would be cool to have special "syndicate" chemical analysis goggles
         - id: ClothingEyesGlassesChemical
-        #- id: SyringeStimulants #Goob
         - id: VestineChemistryVial
           amount: 2
+        # - id: Syringe # Goobstation
         - id: ChemicalPayload # Goobstation
-        - id: BaseChemistryEmptyVial
+        - id: SyringeStimulants
 
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]

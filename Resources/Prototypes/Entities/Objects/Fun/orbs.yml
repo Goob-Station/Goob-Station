@@ -82,25 +82,25 @@
   - type: TileFrictionModifier
     modifier: 0.001
 
-# The true orb
-- type: entity
-  parent: PonderingOrb
-  id: PonderingOrbWizard
-  name: pondering orb
-  description: Ponderous, man... Really ponderous. Magically shows the station's camera network.
-  suffix: Wizard
-  components:
-  - type: ActivatableUI
-    requireActiveHand: false
-    inHandsOnly: true
-    key: enum.SurveillanceCameraMonitorUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        type: SurveillanceCameraMonitorBoundUserInterface
-  - type: DeviceNetwork
-    deviceNetId: Wired
-    receiveFrequencyId: SurveillanceCamera
-    transmitFrequencyId: SurveillanceCamera
-  - type: WiredNetworkConnection
-  - type: SurveillanceCameraMonitor
+# The true orb # Goob we have our own
+#- type: entity
+#  parent: PonderingOrb
+#  id: PonderingOrbWizard
+#  name: pondering orb
+#  description: Ponderous, man... Really ponderous. Magically shows the station's camera network.
+#  suffix: Wizard
+#  components:
+#  - type: ActivatableUI
+#    requireActiveHand: false
+#    inHandsOnly: true
+#    key: enum.SurveillanceCameraMonitorUiKey.Key
+#  - type: UserInterface
+#    interfaces:
+#      enum.SurveillanceCameraMonitorUiKey.Key:
+#        type: SurveillanceCameraMonitorBoundUserInterface
+#  - type: DeviceNetwork
+#    deviceNetId: Wired
+#    receiveFrequencyId: SurveillanceCamera
+#    transmitFrequencyId: SurveillanceCamera
+#  - type: WiredNetworkConnection
+#  - type: SurveillanceCameraMonitor

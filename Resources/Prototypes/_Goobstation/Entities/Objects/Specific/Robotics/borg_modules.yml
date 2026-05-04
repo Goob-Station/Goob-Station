@@ -57,7 +57,7 @@
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
     - item: WeaponProtoKineticAccelerator
       hand:
         emptyLabel: borg-slot-WeaponProtoKineticAccelerator-empty-goob

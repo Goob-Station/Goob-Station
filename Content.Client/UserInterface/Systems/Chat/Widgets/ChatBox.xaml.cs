@@ -188,7 +188,7 @@ public partial class ChatBox : UIWidget
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
-        Contents.AddMessage(formatted, tagsAllowed: null);
+        Contents.AddMessage(formatted);
         if(repeat != 0) // WD EDIT START
         {
             int displayRepeat = repeat + 1;

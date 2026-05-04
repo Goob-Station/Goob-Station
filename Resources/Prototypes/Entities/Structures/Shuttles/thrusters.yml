@@ -420,7 +420,6 @@
           Heat: 40
     - type: InteractionOutline
     - type: Appearance
-    - type: ThrusterVisuals
     - type: ApcPowerReceiver
       powerLoad: 1500
     - type: ExtensionCableReceiver

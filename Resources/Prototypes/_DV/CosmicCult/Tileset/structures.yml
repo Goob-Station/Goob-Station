@@ -150,7 +150,6 @@
         Cold: 40
   - type: InteractionOutline
   - type: Appearance
-  - type: ThrusterVisuals
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmicthruster.rsi
     layers:

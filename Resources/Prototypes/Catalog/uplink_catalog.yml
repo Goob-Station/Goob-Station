@@ -1247,11 +1247,11 @@
   name: uplink-exploding-syndicate-bomb-fake-name
   description: uplink-exploding-syndicate-bomb-fake-desc
   productEntity: SyndicateBombFake
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
   cost:
-    Telecrystal: 4
+    Telecrystal: 10 # Goob
   categories:
   - UplinkDeception
   conditions:

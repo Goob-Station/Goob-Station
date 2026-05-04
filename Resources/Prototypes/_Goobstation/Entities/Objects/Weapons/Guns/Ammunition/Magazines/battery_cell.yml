@@ -28,7 +28,6 @@
   - type: DrawableSolution
     solution: battery
   - type: Appearance
-  - type: PowerCellVisuals
   - type: Riggable
   - type: BatteryAmmoProvider
     proto: SmallRedLaser
