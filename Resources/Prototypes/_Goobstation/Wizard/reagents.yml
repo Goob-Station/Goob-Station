@@ -20,8 +20,8 @@
           inverted: true
         - !type:HasComponentCondition
           components:
-            - Wizard
-            - Apprentice
+          - type: Wizard
+          - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
           invert: true
         emote: Cough
@@ -34,8 +34,8 @@
           inverted: true
         - !type:HasComponentCondition
           components:
-            - Wizard
-            - Apprentice
+          - type: Wizard
+          - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
           invert: true
         probability: 0.2
@@ -63,8 +63,8 @@
         conditions:
         - !type:HasComponentCondition
           components:
-            - Wizard
-            - Apprentice
+          - type: Wizard
+          - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
       - !type:HealthChange
         damage:
@@ -77,24 +77,24 @@
         conditions:
         - !type:HasComponentCondition
           components:
-            - Wizard
-            - Apprentice
+          - type: Wizard
+          - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
       - !type:ModifyBleed
         amount: -1.5
         conditions:
         - !type:HasComponentCondition
           components:
-            - Wizard
-            - Apprentice
+          - type: Wizard
+          - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
       - !type:CleanBloodstream
         cleanseRate: 6
         conditions:
         - !type:HasComponentCondition
           components:
-            - Wizard
-            - Apprentice
+          - type: Wizard
+          - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -103,6 +103,6 @@
         conditions:
         - !type:HasComponentCondition
           components:
-            - Wizard
-            - Apprentice
+          - type: Wizard
+          - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice

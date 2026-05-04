@@ -33,7 +33,7 @@ public sealed class CosmicHibernateSystem : EntitySystem
         comp.HibernationTimer = comp.HibernationWait + _timing.CurTime;
         _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Action);
         _appearance.SetData(ent, ColossusVisuals.Hibernation, ColossusAction.Running);
-        _stun.TryStun(ent, comp.HibernationWait, true);
+        _stun.TryUpdateStunDuration(ent, comp.HibernationWait);
         _popup.PopupCoordinates(
             Loc.GetString("ghost-role-colossus-hibernate"),
             Transform(ent).Coordinates,

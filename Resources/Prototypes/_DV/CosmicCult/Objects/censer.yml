@@ -9,7 +9,7 @@
   parent: BaseItem
   id: CosmicCenser
   name: ardent censer
-  description: Cleanses and sanctifies the air around it.
+  description: Cleanses and sanctifies the air around it. If used on another being, it would irreversibly wipe their memories.
   components:
   - type: Item
     size: Small
@@ -20,11 +20,11 @@
     - state: flame
       visible: false
       shader: unshaded
-      map: ["enum.ToggleVisuals.Layer"]
+      map: ["enum.ToggleableVisuals.Layer"]
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
   - type: ItemToggleSize
@@ -32,22 +32,28 @@
   - type: ItemToggle
     predictable: false
   - type: CosmicCenser
+    failedDeconversionDamage:
+      types:
+        Cold: 80
   - type: Tool
     qualities: Censer
   - type: Welder
     fuelSolutionName: Censer
-    fuelReagent: Holywater
+    fuelReagent: MindbreakerToxin
+    fuelConsumption: 0.5
   - type: RefillableSolution
     solution: Censer
   - type: SolutionContainerManager
     solutions:
       Censer:
         reagents:
-        - ReagentId: Holywater
-          Quantity: 100
-        maxVol: 100
+        - ReagentId: MindbreakerToxin
+          Quantity: 50
+        maxVol: 50
   - type: ItemTogglePointLight
-  - type: ToggleableLightVisuals
+  - type: Spillable
+    solution: Censer
+  - type: ToggleableVisuals
     spriteLayer: flame
     inhandVisuals:
       left:

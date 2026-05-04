@@ -10,7 +10,6 @@
 
 using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server._DV.CosmicCult.Components;
-using Content.Goobstation.Shared.Religion;
 using Content.Server._EinsteinEngines.Radio; // Goobstation - Shitchap
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
@@ -23,7 +22,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Radio;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
@@ -54,7 +53,7 @@ using Content.Shared.Radio.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
-public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
+public sealed partial class CosmicCultSystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AlertLevelSystem _alert = default!;
@@ -157,15 +156,16 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     /// <summary>
     /// Add the starting powers to the cultist.
     /// </summary>
-    private void OnStartCultist(Entity<CosmicCultComponent> uid, ref ComponentInit args)
+    private void OnStartCultist(Entity<CosmicCultComponent> ent, ref ComponentInit args)
     {
-        _eye.RefreshVisibilityMask(uid.Owner);
-        _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
-        if (!HasComp<HumanoidAppearanceComponent>(uid)) return; // Non-humanoids don't get abilities
-        foreach (var actionId in uid.Comp.CosmicCultActions)
+        _eye.RefreshVisibilityMask(ent.Owner);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.EntropyAlert);
+
+        if (!HasComp<HumanoidAppearanceComponent>(ent)) return; // Non-humanoids don't get abilities
+        foreach (var actionId in ent.Comp.CosmicCultActions)
         {
-            var actionEnt = _actions.AddAction(uid, actionId);
-            uid.Comp.ActionEntities.Add(actionEnt);
+            var actionEnt = _actions.AddAction(ent, actionId);
+            ent.Comp.ActionEntities.Add(actionEnt);
         }
     }
 
@@ -260,7 +260,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnGotSpeechOverrideEquipped(Entity<SpeechOverrideComponent> ent, ref GotEquippedEvent args)
     {
-        if (ent.Comp.OverrideIDs is not { } overrides || !TryComp<VocalComponent>(args.Equipee, out var vocalComp)) return;
+        if (ent.Comp.OverrideIDs is not { } overrides || !TryComp<VocalComponent>(args.Equipee, out var vocalComp))
+            return;
         ent.Comp.StoredIDs = vocalComp.Sounds;
         vocalComp.Sounds = overrides;
         var ev = new SoundsChangedEvent();

@@ -41,22 +41,25 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
         conditions:
-          - !type:ReagentThreshold
-            max: 10
-      - !type:MovespeedModifier # You can use 2 injectors at once for even more speed
+        - !type:ReagentCondition
+          reagent: AntiEntropy
+          max: 10
+      - !type:MovementSpeedModifier # You can use 2 injectors at once for even more speed
         walkSpeedModifier: 1.5
         sprintSpeedModifier: 1.5
         conditions:
-          - !type:ReagentThreshold
-            min: 10.1
+        - !type:ReagentCondition
+          reagent: AntiEntropy
+          min: 10.1
       - !type:HealthChange # But you probably won't survive it
         conditions:
-          - !type:ReagentThreshold
-            min: 10.1
+        - !type:ReagentCondition
+          reagent: AntiEntropy
+          min: 10.1
         damage:
           types:
             Cold: 2.5
@@ -65,8 +68,8 @@
         damage:
           Brute: -1 # Not great, but will help you to tank an extra bullet or two
         conditions: # This one only works for cultists
-        - !type:HasComponent
-          explanation: reagent-condition-is-cultist
+        - !type:HasComponentCondition
+          guidebookComponentName: reagent-condition-is-cultist
           components:
           - type: CosmicCult
       - !type:Jitter
@@ -89,8 +92,8 @@
             Cold: 1.5
             Asphyxiation: 3
         conditions:
-        - !type:HasComponent
-          explanation: reagent-condition-is-not-cultist
+        - !type:HasComponentCondition
+          guidebookComponentName: reagent-condition-is-not-cultist
           components:
           - type: CosmicCult
           shouldHave: false

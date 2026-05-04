@@ -37,11 +37,12 @@
         reagents:
         - ReagentId: AntiEntropy
           Quantity: 10
-  - type: Hypospray
+  - type: Injector
     solutionName: pen
-    transferAmount: 10
-    onlyAffectsMobs: false
-    injectOnly: true
+    currentTransferAmount: null
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
   - type: ExaminableSolution
     solution: pen
   - type: Appearance

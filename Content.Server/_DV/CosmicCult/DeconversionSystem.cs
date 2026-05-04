@@ -132,10 +132,10 @@ public sealed class DeconversionSystem : EntitySystem
     private void DeconvertCultist(EntityUid uid)
     {
         RemComp<CosmicCultComponent>(uid);
-        if (TryComp<PolymorphedEntityComponent>(uid, out var polyComp)) // If the cultist is polymorphed, we revert the polymorph and deconvert the original entity too.
+        if (TryComp<PolymorphedEntityComponent>(uid, out var polyComp) && polyComp.Parent.HasValue) // If the cultist is polymorphed, we revert the polymorph and deconvert the original entity too.
         {
             _polymorph.Revert((uid, polyComp));
-            RemCompDeferred<CosmicCultComponent>(polyComp.Parent);
+            RemCompDeferred<CosmicCultComponent>(polyComp.Parent.Value);
         }
     }
 }

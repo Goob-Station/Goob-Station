@@ -1,1 +1,0 @@
-damage-type-ion = Ion

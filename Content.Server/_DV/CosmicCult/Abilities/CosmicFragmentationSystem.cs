@@ -2,7 +2,6 @@ using Content.Server._DV.Objectives.Events;
 using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.DoAfter;
@@ -10,6 +9,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Containers;
@@ -55,7 +55,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         comp.CosmicImpositionDuration = CosmicCultComponent.DefaultCosmicImpositionDuration;
         comp.CosmicBlankDuration = CosmicCultComponent.DefaultCosmicBlankDuration;
         comp.CosmicBlankDelay = CosmicCultComponent.DefaultCosmicBlankDelay;
-        _actions.RemoveAction(ent, comp.CosmicFragmentationActionEntity);
+        _actions.RemoveAction(ent.Owner, comp.CosmicFragmentationActionEntity);
         comp.CosmicFragmentationActionEntity = null;
     }
 

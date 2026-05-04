@@ -5,33 +5,36 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using Content.Shared.EntityConditions;
 using Content.Shared.Mind;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Content.Shared.EntityConditions;
 
 namespace Content.Shared._Shitcode.Wizard.Chemistry;
 
 public sealed partial class HasComponentConditionSystem : EntityConditionSystem<MetaDataComponent, HasComponentCondition>
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly EntityManager _ent = default!;
 
-    protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<HasComponentCondition> args) // Metadata comp fucking kill me holy shit.
+    protected override void Condition(Entity<MetaDataComponent> ent, ref EntityConditionEvent<HasComponentCondition> args)
     {
-        EntityUid? mind = null;
-        if (args.Condition.CheckMind && _mind.TryGetMind(entity.Owner, out var mindId, out _))
-            mind = mindId;
+        var target = ent.Owner;
 
-        var hasComp = false;
-        foreach (var component in args.Condition.Components)
+        bool entHasComp = args.Condition.ConsiderAll
+            ? args.Condition.Components.Values.All(c => _ent.HasComponent(target, c.Component.GetType()))
+            : args.Condition.Components.Values.Any(c => _ent.HasComponent(target, c.Component.GetType()));
+
+        bool mindEntHasComp = false;
+        if (args.Condition.CheckMind && _mind.TryGetMind(target, out var mindId, out _))
         {
-            var comp = EntityManager.ComponentFactory.GetRegistration(component).Type;
-            hasComp = EntityManager.HasComponent(entity.Owner, comp) ||
-                      EntityManager.HasComponent(mind, comp);
-
-            if (hasComp)
-                break;
+            mindEntHasComp = args.Condition.ConsiderAll
+                ? args.Condition.Components.Values.All(c => _ent.HasComponent(mindId, c.Component.GetType()))
+                : args.Condition.Components.Values.Any(c => _ent.HasComponent(mindId, c.Component.GetType()));
         }
+
+        var hasComp = entHasComp || mindEntHasComp;
 
         args.Result = hasComp ^ args.Condition.Invert;
     }
@@ -41,17 +44,35 @@ public sealed partial class HasComponentConditionSystem : EntityConditionSystem<
 [UsedImplicitly]
 public sealed partial class HasComponentCondition : EntityConditionBase<HasComponentCondition>
 {
+    /// <summary>
+    /// The set of components that this condition cares about
+    /// </summary>
     [DataField(required: true)]
-    public HashSet<string> Components = new();
+    public ComponentRegistry Components = default!;
 
+    /// <summary>
+    /// Whether the check is an existential or universal check
+    /// </summary>
     [DataField]
-    public LocId? GuidebookComponentName;
+    public bool ConsiderAll;
 
+    /// <summary>
+    /// Whether the given components should be present
+    /// </summary>
     [DataField]
     public bool Invert;
 
+    /// <summary>
+    /// Whether we check the mind entity for the components
+    /// </summary>
     [DataField]
     public bool CheckMind;
+
+    /// <summary>
+    /// Guidebook text
+    /// </summary>
+    [DataField]
+    public LocId? GuidebookComponentName;
 
     public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {

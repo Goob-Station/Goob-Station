@@ -69,13 +69,14 @@ namespace Content.Server.Stunnable.Components
         [DataField]
         public bool Drop = true;
 
-    /// <summary>
-    /// Fixture we track for the collision.
-    /// </summary>
-    [DataField("fixture")] public string FixtureID = "projectile";
+        /// <summary>
+        /// Fixture we track for the collision.
+        /// </summary>
+        [DataField("fixture")] public string FixtureID = "projectile";
 
-    // Begin DeltaV Additions
-    [DataField]
-    public EntityWhitelist? Blacklist;
-    // End DeltaV Additions
+        // Begin DeltaV Additions
+        [DataField]
+        public EntityWhitelist? Blacklist;
+        // End DeltaV Additions
+    }
 }

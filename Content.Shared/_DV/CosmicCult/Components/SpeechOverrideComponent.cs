@@ -1,6 +1,7 @@
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Humanoid;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared._DV.CosmicCult.Components;
@@ -14,14 +15,12 @@ public sealed partial class SpeechOverrideComponent : Component
     /// <summary>
     /// Sounds to assign to the entity equipping this item.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdValueDictionarySerializer<Sex, EmoteSoundsPrototype>))]
     [AutoNetworkedField]
-    public Dictionary<Sex, string>? OverrideIDs = null;
+    public Dictionary<Sex, ProtoId<EmoteSoundsPrototype>>? OverrideIDs = null;
 
     /// <summary>
     /// Entity's original sounds to use when the item is unequipped.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdValueDictionarySerializer<Sex, EmoteSoundsPrototype>))]
     [AutoNetworkedField]
-    public Dictionary<Sex, string>? StoredIDs = null;
+    public Dictionary<Sex, ProtoId<EmoteSoundsPrototype>>? StoredIDs = null;
 }

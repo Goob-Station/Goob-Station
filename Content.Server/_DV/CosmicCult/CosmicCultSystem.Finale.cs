@@ -111,7 +111,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         Dirty(uid, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));
 
-        if (!_evac.EmergencyShuttleArrived && _roundEnd.IsRoundEndRequested()) _roundEnd.CancelRoundEndCountdown(checkCooldown: false);
+        if (!_evac.EmergencyShuttleArrived && _roundEnd.IsRoundEndRequested()) _roundEnd.CancelRoundEndCountdown(forceRecall: true);
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var cultComp))
         {

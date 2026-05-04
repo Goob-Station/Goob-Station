@@ -8,24 +8,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server.Bible.Components;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion; // Goobstation - Bible
 using Content.Server.Flash;
-using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
-using Content.Server.Stunnable;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Effects;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
@@ -98,7 +92,7 @@ public sealed class CosmicGlareSystem : EntitySystem
         {
             var targetEnt = GetEntity(target);
 
-            _flash.Flash(targetEnt, uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun, ignoreProtection: uid.Comp.CosmicEmpowered);
+            _flash.Flash(targetEnt, uid, args.Action, uid.Comp.CosmicGlareDuration, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun, ignoreProtection: uid.Comp.CosmicEmpowered);
 
             // Goob start we dont have whatever EE comps they're using take ours.
             if (HasComp<BorgChassisComponent>(targetEnt) // fuck them clankers

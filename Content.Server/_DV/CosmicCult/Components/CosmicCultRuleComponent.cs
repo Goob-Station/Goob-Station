@@ -1,5 +1,6 @@
 using Content.Server._DV.CosmicCult.Abilities;
 using Content.Server.RoundEnd;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -10,7 +11,8 @@ namespace Content.Server._DV.CosmicCult.Components;
 /// <summary>
 /// Component for the CosmicCultRuleSystem that should store gameplay info.
 /// </summary>
-[RegisterComponent, Access(typeof(CosmicCultRuleSystem), typeof(CosmicMonumentSystem))]
+[RegisterComponent, Access(typeof(CosmicCultRuleSystem), typeof(CosmicMonumentSystem),
+     typeof(SharedCosmicCultSystem))] // Goob
 [AutoGenerateComponentPause]
 public sealed partial class CosmicCultRuleComponent : Component
 {

@@ -201,12 +201,12 @@ public sealed class MonumentSystem : SharedMonumentSystem
         return _monumentStorageMap.Value;
     }
 
-    public void PhaseOutMonument(Entity<MonumentComponent> ent) =>
+    public void PhaseOutMonument(Entity<MonumentComponent> ent)
     {
         ent.Comp.PhaseOutTimer = _timing.CurTime + TimeSpan.FromSeconds(0.45);
     }
 
-    public void UpdateMonumentProgress(Entity<MonumentComponent> ent, Entity<CosmicCultRuleComponent> cult) =>
+    public void UpdateMonumentProgress(Entity<MonumentComponent> ent, Entity<CosmicCultRuleComponent> cult)
     {
         ent.Comp.CurrentProgress = ent.Comp.TotalEntropy + cult.Comp.TotalCult * _config.GetCVar(DCCVars.CosmicCultistEntropyValue);
     }
@@ -329,22 +329,22 @@ public sealed class MonumentSystem : SharedMonumentSystem
         }
     }
 
-    public void SetCanTierUp(Entity<MonumentComponent> ent, bool canTierUp) =>
+    public void SetCanTierUp(Entity<MonumentComponent> ent, bool canTierUp)
     {
         ent.Comp.CanTierUp = canTierUp;
     }
 
-    public void SetTargetProgess(Entity<MonumentComponent> ent, int targetProgress) =>
+    public void SetTargetProgess(Entity<MonumentComponent> ent, int targetProgress)
     {
         ent.Comp.TargetProgress = targetProgress;
     }
 
-    public void Disable(Entity<MonumentComponent> ent) =>
+    public void Disable(Entity<MonumentComponent> ent)
     {
         ent.Comp.Enabled = false;
     }
 
-    public void Enable(Entity<MonumentComponent> ent) =>
+    public void Enable(Entity<MonumentComponent> ent)
     {
         ent.Comp.Enabled = true;
     }
@@ -430,7 +430,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         while (leaderQuery.MoveNext(out var leader, out var leaderComp))
         {
             if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
-                _actions.AddAction(polyComp.Parent, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent);
+                _actions.AddAction(polyComp.Parent.Value, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent.Value);
             else
                 _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
         }
@@ -486,7 +486,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         {
             _actions.RemoveAction(leader, leaderComp.CosmicMonumentMoveActionEntity);
             if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
-                _actions.RemoveAction(polyComp.Parent, polyLeaderComp.CosmicMonumentMoveActionEntity);
+                _actions.RemoveAction(polyComp.Parent.Value, polyLeaderComp.CosmicMonumentMoveActionEntity);
         }
 
         Dirty(uid);

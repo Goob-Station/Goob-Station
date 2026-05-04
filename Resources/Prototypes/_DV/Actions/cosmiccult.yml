@@ -14,13 +14,12 @@
   description: Silently siphon entropy from your target.
   components:
   - type: Action
-    useDelay: 15
+    useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: siphon
   - type: TargetAction
-    deselectOnMiss: true
   - type: EntityTargetAction
     whitelist:
       components:
@@ -28,6 +27,7 @@
     blacklist:
       components:
       - CosmicCult
+      - BibleUser
     event: !type:EventCosmicSiphon {}
 
 - type: entity
@@ -43,7 +43,6 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: blank
   - type: TargetAction
-    deselectOnMiss: true
   - type: EntityTargetAction
     canTargetSelf: true
     whitelist:
@@ -52,6 +51,7 @@
     blacklist:
       components:
       - CosmicCult
+      - BibleUser
     event: !type:EventCosmicBlank {}
 
 - type: entity
@@ -81,7 +81,7 @@
   description: Your work is imperative, and the end is inevitable. Ensure that it is completed under your watch.
   components:
   - type: Action
-    useDelay: 600
+    useDelay: 600 # Goobstation
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -92,7 +92,7 @@
   - type: InstantAction
     event: !type:EventCosmicMoveMonument
   - type: MonumentPlacementPreview
-    tier: 1
+    tier: 2
 
 - type: entity
   parent: BaseAction
@@ -117,13 +117,12 @@
   description: Lapse your target's corporeal form, temporarily rendering it immutable, impassible, and frozen in place.
   components:
   - type: Action
-    useDelay: 24
+    useDelay: 45
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: lapse
   - type: TargetAction
-    deselectOnMiss: true
   - type: EntityTargetAction
     canTargetSelf: true
     whitelist:
@@ -132,10 +131,6 @@
     blacklist:
       components:
       - BibleUser
-    itemIconStyle: NoItem
-    icon:
-      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: lapse
     event: !type:EventCosmicLapse {}
 
 - type: entity
@@ -144,17 +139,17 @@
   name: Null Glare
   description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you. Its effects are amplified against silicon-based entities.
   components:
-  - type: ConfirmableAction
-    popup: cosmicability-glare-confirm
-    confirmDelay: 0.1
-    primeTime: 5 #increased to give you more time to figure out where you want to put it
-  - type: InstantAction
+  - type: Action
     useDelay: 60
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: glare
+  - type: ConfirmableAction
+    popup: cosmicability-glare-confirm
+    confirmDelay: 0.1
+    primeTime: 5 #increased to give you more time to figure out where you want to put it
   - type: InstantAction
     event: !type:EventCosmicGlare {}
 
@@ -171,11 +166,10 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: ingress
   - type: TargetAction
-    deselectOnMiss: true
   - type: EntityTargetAction
     whitelist:
       components:
-        - Door
+      - Door
     event: !type:EventCosmicIngress {}
 
 - type: entity
@@ -201,8 +195,7 @@
   description: Hurl a large and disruptive blast of astral energy.
   components:
   - type: Action
-    useDelay: 30
-    raiseOnUser: true
+    useDelay: 60
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -213,71 +206,84 @@
     event: !type:EventCosmicNova {}
 
 - type: entity
+  parent: BaseAction
   id: ActionCosmicFragmentation
   name: Null Fragmentation
   description: Transfer your malign empowerment into a digital system, such as an AI Upload Console or Cyborg, corrupting it in the process. Doing so will expend your empowerment.
   components:
-  - type: LimitedCharges
-    maxCharges: 1
-  - type: EntityTargetAction
+  - type: Action
     useDelay: 25
-    whitelist:
-      components:
-      - BorgChassis
-      - SiliconLawUpdater
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: corruption
+  - type: TargetAction
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - BorgChassis
+      - SiliconLawUpdater
     event: !type:EventCosmicFragmentation {}
+  - type: LimitedCharges
+    maxCharges: 1
 
 ## COLOSSUS ACTIONS
 
 - type: entity
+  parent: BaseAction
   id: ActionCosmicColossusSunder
   name: Entropic Sunder
   description: Warp to the target location and unleash a cascading detonation of malign energy.
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 18
-    range: 7
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: sunder
+  - type: TargetAction
+    range: 7
+  - type: WorldTargetAction
     event: !type:EventCosmicColossusSunder
 
 - type: entity
+  parent: BaseAction
   id: ActionCosmicColossusIngress
   name: Colossal Ingress
   description: Use your colossal strength to force open a doorway.
   components:
-  - type: EntityTargetAction
+  - type: Action
     useDelay: 8
-    range: 2
-    whitelist:
-      components:
-        - Door
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: ingress
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Door
     event: !type:EventCosmicColossusIngress
 
 - type: entity
+  parent: BaseAction
   id: ActionCosmicColossusHibernate
   name: Slumber Shell
   description: Slumber your body for a period of time to regenerate integrity. Must be done on stable ground.
   components:
-  - type: LimitedCharges
-    maxCharges: 2
-  - type: InstantAction
-    useDelay: 120
+  - type: Action
+    useDelay: 180
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: slumber
+  - type: ConfirmableAction
+    popup: cosmicability-hibernate-confirm
+    confirmDelay: 0.1
+    primeTime: 5
+  - type: InstantAction
     event: !type:EventCosmicColossusHibernate {}
 
 - type: entity
@@ -285,10 +291,11 @@
   name: Beckon an Effigy
   description: Draw out an Effigy of Entropy into realspace.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 999
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
+  - type: InstantAction
     event: !type:EventCosmicColossusEffigy {}

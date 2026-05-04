@@ -8,8 +8,6 @@
     reoccurrenceDelay: 20
     minimumPlayers: 25
     duration: null
-  - type: PrecognitionResult
-    message: psionic-power-precognition-colossus-spawn-result-message
   - type: SpaceSpawnRule
   - type: AntagSpawner
     prototype: MobCosmicColossusLone
