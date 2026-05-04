@@ -9,7 +9,7 @@
   id: PokerChips
   parent: BaseItem
   name: poker chips
-  description: TODO!
+  description: Play money for adults
   components:
   - type: Stack
     stackType: PokerChips
