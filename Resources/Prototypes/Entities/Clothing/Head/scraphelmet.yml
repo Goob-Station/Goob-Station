@@ -12,7 +12,7 @@
     state: construction-1
   - type: Item
     size: Normal
-    sprite: Clothing/Head/Helmets/scrap_helmet.rsi
+    sprite: Objects/Tools/bucket.rsi #Goobstation
   - type: Construction
     graph: scraphelmet
     node: wiredbucket
@@ -28,7 +28,7 @@
     state: construction-2
   - type: Item
     size: Normal
-    sprite: Clothing/Head/Helmets/scrap_helmet.rsi
+    sprite: Objects/Tools/bucket.rsi #Goobstation
   - type: Construction
     graph: scraphelmet
     node: slicedbucket
