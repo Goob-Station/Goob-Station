@@ -109,14 +109,14 @@ public sealed partial class EatCorpseSystem : EntitySystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
-            DuplicateCondition = DuplicateConditions.SameEvent,
+            DuplicateCondition = DuplicateConditions.SameTool,
         };
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out doAfterId))
             return false;
 
         _jitter.DoJitter(targetUid, eater.EatCorpseDoAfterDuration, true);
-        var attemptPopup = Loc.GetString("slime-latch-attempt", ("eater", eater), ("target", targetUid));
+        var attemptPopup = Loc.GetString("slime-eat-corpse-success", ("eater", eaterUid), ("target", targetUid));
         _popup.PopupEntity(attemptPopup, eaterUid, PopupType.MediumCaution);
 
         return true;

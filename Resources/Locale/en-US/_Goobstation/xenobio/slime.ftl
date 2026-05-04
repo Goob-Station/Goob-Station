@@ -12,7 +12,7 @@ slime-eat-corpse-success = {THE($eater)} is trying to tear something away from {
 
 slime-eat-corpse-fail-not-eatable = {THE($target)} don't look eatable.
 
-slime-eat-corpse-fail-not-dead = {The($target)} should be dead!
+slime-eat-corpse-fail-not-dead = {THE($target)} should be dead!
 
 slime-examined-stomach = [color=red]You can see something moving inside of it![/color]
 
