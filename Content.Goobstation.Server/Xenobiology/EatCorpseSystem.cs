@@ -1,8 +1,7 @@
 using Content.Goobstation.Shared.Xenobiology;
+using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Body.Part;
-using Content.Shared._Shitmed.Body.Part;
 using Content.Shared.Body.Organ;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using System.Linq;
@@ -13,6 +12,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Jittering;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.StatusEffect;
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Mobs.Components;// TODO: change to StatusEffectNew when jittering would be migrated
 
 namespace Content.Goobstation.Server.Xenobiology;
@@ -35,46 +35,11 @@ public sealed partial class EatCorpseSystem : EntitySystem
 
     private void OnEatCorpseAttempt(Entity<CorpseEaterComponent> eater, ref EatCorpseEvent args)
     {
-        var target = args.Target;
-        if (TerminatingOrDeleted(target)
-        || TerminatingOrDeleted(args.Performer))
+        if (TerminatingOrDeleted(args.Target)
+            || TerminatingOrDeleted(args.Performer))
             return;
 
-        if (!TryComp<BodyComponent>(target, out var body)
-            || !_body.TryGetRootPart(target, out var rootPart, body))
-            return;
-
-        if (!_body.GetBodyOrgans(target, body).Any(organ => IsValidOrganOrBodyPart(eater, organ.Id))
-            && !_body.GetBodyChildren(target, body, rootPart).Any(part => IsValidOrganOrBodyPart(eater, part.Id)))
-        {
-            var notEatablePopup = Loc.GetString("slime-eat-corpse-fail-not-eatable", ("target", target));
-            _popup.PopupEntity(notEatablePopup, eater, eater);
-            return;
-        }
-
-        if (!_mobState.IsDead(target))
-        {
-            var notDeadPopup = Loc.GetString("slime-eat-corpse-fail-not-dead", ("target", target));
-            _popup.PopupEntity(notDeadPopup, eater, eater);
-            return;
-        }
-
-        if (CanEatCorpse(eater, target, eater.Comp, body)) // all conditions already above, but just in case
-            return;
-
-        var doAfterArgs = new DoAfterArgs(EntityManager, eater, eater.Comp.EatCorpseDoAfterDuration, new EatCorpseDoAfterEvent(), eater, target)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            DuplicateCondition = DuplicateConditions.SameEvent,
-        };
-
-        if (!_doAfter.TryStartDoAfter(doAfterArgs))
-            return;
-
-        _jitter.DoJitter(target, eater.Comp.EatCorpseDoAfterDuration, true);
-        var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", eater), ("ent", target));
-        _popup.PopupEntity(attemptPopup, eater, PopupType.MediumCaution);
+        TryEatCorpse(eater.Owner, args.Target, eater.Comp);
     }
 
     public bool CanEatCorpse(EntityUid eaterUid,
@@ -90,9 +55,69 @@ public sealed partial class EatCorpseSystem : EntitySystem
         if (!_mobState.IsDead(targetUid))
             return false;
 
-        if (!_body.GetBodyOrgans(targetUid, targetBody).Any(organ => IsValidOrganOrBodyPart((eaterUid, eater), organ.Id))
-            && !_body.GetBodyChildren(targetUid, targetBody).Any(part => IsValidOrganOrBodyPart((eaterUid, eater), part.Id)))
+        if (!_body.GetBodyOrgans(targetUid, targetBody).Any(organ => IsValidOrganOrBodyPart(eater, organ.Id))
+            && !_body.GetBodyChildren(targetUid, targetBody).Any(part => IsValidOrganOrBodyPart(eater, part.Id)))
             return false;
+
+        return true;
+    }
+
+    public bool TryEatCorpse(EntityUid eaterUid,
+        EntityUid targetUid,
+        CorpseEaterComponent? eater = null,
+        BodyComponent? targetBody = null,
+        MobStateComponent? targetState = null)
+    {
+        return TryEatCorpse(eaterUid, targetUid, out _, eater, targetBody, targetState);
+    }
+
+    public bool TryEatCorpse(EntityUid eaterUid,
+        EntityUid targetUid,
+        [NotNullWhen(true)] out DoAfterId? doAfterId,
+        CorpseEaterComponent? eater = null,
+        BodyComponent? targetBody = null,
+        MobStateComponent? targetState = null)
+    {
+
+        doAfterId = null;
+        if (!Resolve(eaterUid, ref eater)
+            || !Resolve(targetUid, ref targetState, ref targetBody))
+            return false;
+
+        if (!_body.TryGetRootPart(targetUid, out var rootPart, targetBody))
+            return false;
+
+        if (!_body.GetBodyOrgans(targetUid, targetBody).Any(organ => IsValidOrganOrBodyPart(eater, organ.Id))
+            && !_body.GetBodyChildren(targetUid, targetBody, rootPart).Any(part => IsValidOrganOrBodyPart(eater, part.Id)))
+        {
+            var notEatablePopup = Loc.GetString("slime-eat-corpse-fail-not-eatable", ("target", targetUid));
+            _popup.PopupEntity(notEatablePopup, eaterUid, eaterUid);
+            return false;
+        }
+
+        if (!_mobState.IsDead(targetUid))
+        {
+            var notDeadPopup = Loc.GetString("slime-eat-corpse-fail-not-dead", ("target", targetUid));
+            _popup.PopupEntity(notDeadPopup, eaterUid, eaterUid);
+            return false;
+        }
+
+        if (!CanEatCorpse(eaterUid, targetUid, eater, targetBody)) // all conditions already above, but just in case
+            return false;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, eaterUid, eater.EatCorpseDoAfterDuration, new EatCorpseDoAfterEvent(), eaterUid, targetUid)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            DuplicateCondition = DuplicateConditions.SameEvent,
+        };
+
+        if (!_doAfter.TryStartDoAfter(doAfterArgs, out doAfterId))
+            return false;
+
+        _jitter.DoJitter(targetUid, eater.EatCorpseDoAfterDuration, true);
+        var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", eater), ("ent", targetUid));
+        _popup.PopupEntity(attemptPopup, eaterUid, PopupType.MediumCaution);
 
         return true;
     }
@@ -127,14 +152,14 @@ public sealed partial class EatCorpseSystem : EntitySystem
         _body.TryDetachPart(toRemove);
     }
 
-    private bool IsValidOrganOrBodyPart(Entity<CorpseEaterComponent> eater, EntityUid target)
+    private bool IsValidOrganOrBodyPart(CorpseEaterComponent eater, EntityUid target)
     {
         if (HasComp<OrganComponent>(target))
-            return _whitelist.CheckBoth(target, eater.Comp.OrganBlacklist, eater.Comp.OrganWhitelist);
+            return _whitelist.CheckBoth(target, eater.OrganBlacklist, eater.OrganWhitelist);
 
         if (TryComp<BodyPartComponent>(target, out var part))
-            return part.PartComposition == eater.Comp.BodyPartComposition || eater.Comp.BodyPartComposition is null
-                && _whitelist.CheckBoth(target, eater.Comp.BodyPartBlacklist, eater.Comp.BodyPartWhitelist);
+            return part.PartComposition == eater.BodyPartComposition || eater.BodyPartComposition is null
+                && _whitelist.CheckBoth(target, eater.BodyPartBlacklist, eater.BodyPartWhitelist);
 
         return false;
     }

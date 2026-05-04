@@ -1,7 +1,7 @@
 using Content.Shared.Whitelist;
 using Content.Shared._Shitmed.Body.Part;
 
-namespace Content.Goobstation.Shared.Xenobiology;
+namespace Content.Goobstation.Shared.Xenobiology.Components;
 
 [RegisterComponent]
 public sealed partial class CorpseEaterComponent : Component
