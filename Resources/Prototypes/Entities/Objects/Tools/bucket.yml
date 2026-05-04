@@ -181,7 +181,7 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
+        Blunt: 0.95
 
 - type: entity
   parent: Bucket
