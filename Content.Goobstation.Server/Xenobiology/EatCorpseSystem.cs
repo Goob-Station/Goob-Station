@@ -12,7 +12,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Jittering;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.StatusEffect;
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Mobs.Components;// TODO: change to StatusEffectNew when jittering would be migrated
 
 namespace Content.Goobstation.Server.Xenobiology;
@@ -68,18 +67,6 @@ public sealed partial class EatCorpseSystem : EntitySystem
         BodyComponent? targetBody = null,
         MobStateComponent? targetState = null)
     {
-        return TryEatCorpse(eaterUid, targetUid, out _, eater, targetBody, targetState);
-    }
-
-    public bool TryEatCorpse(EntityUid eaterUid,
-        EntityUid targetUid,
-        [NotNullWhen(true)] out DoAfterId? doAfterId,
-        CorpseEaterComponent? eater = null,
-        BodyComponent? targetBody = null,
-        MobStateComponent? targetState = null)
-    {
-
-        doAfterId = null;
         if (!Resolve(eaterUid, ref eater)
             || !Resolve(targetUid, ref targetState, ref targetBody))
             return false;
@@ -109,10 +96,10 @@ public sealed partial class EatCorpseSystem : EntitySystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
-            DuplicateCondition = DuplicateConditions.SameTool,
+            DuplicateCondition = DuplicateConditions.SameTool, // multiple slimes can eat one target, but one slime can't eat multiple targets
         };
 
-        if (!_doAfter.TryStartDoAfter(doAfterArgs, out doAfterId))
+        if (!_doAfter.TryStartDoAfter(doAfterArgs, out eater.LastDoAfterId))
             return false;
 
         _jitter.DoJitter(targetUid, eater.EatCorpseDoAfterDuration, true);

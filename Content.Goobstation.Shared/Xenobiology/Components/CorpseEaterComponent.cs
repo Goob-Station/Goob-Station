@@ -1,4 +1,5 @@
 using Content.Shared.Whitelist;
+using Content.Shared.DoAfter;
 using Content.Shared._Shitmed.Body.Part;
 
 namespace Content.Goobstation.Shared.Xenobiology.Components;
@@ -40,4 +41,10 @@ public sealed partial class CorpseEaterComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan EatCorpseDoAfterDuration = TimeSpan.FromSeconds(20);
+
+    /// <summary>
+    /// Stores last eat corpse DoAfter id, used for HTN stuff.
+    /// </summary>
+    [DataField]
+    public DoAfterId? LastDoAfterId = null;
 }

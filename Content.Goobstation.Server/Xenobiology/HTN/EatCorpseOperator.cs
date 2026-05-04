@@ -3,6 +3,7 @@ using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared.DoAfter;
+using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
 
@@ -11,8 +12,6 @@ public sealed partial class EatCorpseOperator : HTNOperator
     [Dependency] private readonly IEntityManager _entManager = default!;
     private EatCorpseSystem _eatCorpse = default!;
     private SharedDoAfterSystem _doAfter = default!;
-    private bool _runningDoAfter = false;
-    private DoAfterId? _doAfterID = null;
 
     [DataField]
     public string CorpseKey = string.Empty;
@@ -31,26 +30,24 @@ public sealed partial class EatCorpseOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var target = blackboard.GetValue<EntityUid>(CorpseKey);
 
-        if (_runningDoAfter)
+        if (!_entManager.TryGetComponent<CorpseEaterComponent>(owner, out var eater))
+            return HTNOperatorStatus.Failed;
+
+        if (eater.LastDoAfterId is { } doAfterId)
         {
-            var doAfterStatus = _doAfter.GetStatus(_doAfterID);
-            if (doAfterStatus == DoAfterStatus.Running)
+            var status = _doAfter.GetStatus(doAfterId);
+            if (status == DoAfterStatus.Running)
                 return HTNOperatorStatus.Continuing;
 
-            _runningDoAfter = false;
-            _doAfterID = null;
-            if (doAfterStatus == DoAfterStatus.Finished)
+            eater.LastDoAfterId = null;
+            if (status == DoAfterStatus.Finished)
                 return HTNOperatorStatus.Finished;
 
             return HTNOperatorStatus.Failed;
         }
 
-        if (!_entManager.TryGetComponent<CorpseEaterComponent>(owner, out var eater))
-            return HTNOperatorStatus.Failed;
-
-        if (_eatCorpse.TryEatCorpse(owner, target, out _doAfterID, eater))
+        if (_eatCorpse.TryEatCorpse(owner, target, eater))
         {
-            _runningDoAfter = true;
             return HTNOperatorStatus.Continuing;
         }
 
