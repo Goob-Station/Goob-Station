@@ -1501,11 +1501,11 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-      #- !type:CleanseCult # DeltaV - Cosmic Cult # todo marty
-      #  conditions:
-      #  - !type:ReagentCondition
-      #    reagent: Holywater
-      #    min: 10
+      - !type:CleanseCult # DeltaV - Cosmic Cult
+        conditions:
+        - !type:ReagentCondition
+          reagent: Holywater
+          min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamageCondition
