@@ -116,7 +116,7 @@ public sealed partial class EatCorpseSystem : EntitySystem
             return false;
 
         _jitter.DoJitter(targetUid, eater.EatCorpseDoAfterDuration, true);
-        var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", eater), ("ent", targetUid));
+        var attemptPopup = Loc.GetString("slime-latch-attempt", ("eater", eater), ("target", targetUid));
         _popup.PopupEntity(attemptPopup, eaterUid, PopupType.MediumCaution);
 
         return true;
@@ -135,6 +135,7 @@ public sealed partial class EatCorpseSystem : EntitySystem
             || !_body.TryGetRootPart(target, out var rootPart, body))
             return;
 
+        // TODO: randomize body parts or give a choice of which to tear off
         // we want to remove parts from the furthest from root to the nearest and remove organs of part before part itself
         var partsAndOrgans = _body.GetBodyChildren(target, body, rootPart).SelectMany(part => _body.GetPartOrgans(part.Id, part.Component).Select(organ => organ.Id).Prepend(part.Id));
         var toRemove = partsAndOrgans.Reverse().FirstOrDefault(x => IsValidOrganOrBodyPart(eater, x), EntityUid.Invalid);

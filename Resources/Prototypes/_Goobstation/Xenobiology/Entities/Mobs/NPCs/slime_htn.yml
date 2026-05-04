@@ -14,6 +14,9 @@
       task: LatchCompound
   - tasks:
     - !type:HTNCompoundTask
+      task: EatCorpseCompound
+  - tasks:
+    - !type:HTNCompoundTask
       task: IdleCompound
 
 - type: htnCompound
@@ -59,6 +62,30 @@
     - !type:HTNPrimitiveTask
       operator: !type:SlimeLatchOperator
         latchKey: LatchTarget
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+      operator: !type:WaitOperator
+        key: IdleTime
+
+- type: htnCompound
+  id: EatCorpseCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:PickCorpseEaterTargetOperator
+        targetKey: MovementTarget
+        corpseKey: CorpseTarget
+        rangeKey: IdleRange
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: false
+        targetKey: MovementTarget
+        rangeKey: MeleeRange
+    - !type:HTNPrimitiveTask
+      operator: !type:EatCorpseOperator
+        corpseKey: CorpseTarget
     - !type:HTNPrimitiveTask
       preconditions:
       - !type:KeyExistsPrecondition
