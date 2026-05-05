@@ -1,13 +1,11 @@
 using Content.Goobstation.Shared.InternalResources.Components;
-using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
-using Content.Shared.Coordinates;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs.Systems;
 using Content.Trauma.Shared.AnimalAgeing;
 using Content.Trauma.Shared.Ranching.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
@@ -16,6 +14,8 @@ public sealed class HappinessSystem : EntitySystem
     [Dependency] private readonly SharedInternalResourcesSystem _internalResources = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedAnimalAgeingSystem _ageing = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -81,7 +81,7 @@ public sealed class HappinessSystem : EntitySystem
 
     public void ChangeHappiness(Entity<HappinessComponent> ent, float amount)
     {
-        if (!TryComp<InternalResourcesComponent>(ent, out var internalResources))
+        if (!TryComp<InternalResourcesComponent>(ent, out var internalResources) || _mobState.IsDead(ent.Owner))
             return;
 
         var happinessResource = _prototype.Index(ent.Comp.HappinessResource);

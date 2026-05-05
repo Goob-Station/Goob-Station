@@ -86,7 +86,10 @@ public sealed class RanchingEggLayerSystem : EntitySystem
 
         ent.Comp.Entity = fertilizer.SpecialReplacement.Value;
         ent.Comp.SpawnTime = _timing.CurTime;
-        fertilizer.SpecialReplacement = null;
+
+        if (fertilizer.SpecialReplacementRequiredEgg is null)
+            fertilizer.SpecialReplacement = null;
+
         _happiness.SetHappiness((args.User, happiness), 30f);
     }
 

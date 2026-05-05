@@ -9,3 +9,6 @@ grabbed-shatter-popup = The chicken shatters!
 
 dream-egg-popup = You feel your muscles shut down as they undergo regeneration...
 medusa-popup = You turn into a stone statue!
+
+# Bizarre....
+action-speech-spell-fireball-phoenix = MAGICIAN'S RED!!!!

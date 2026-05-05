@@ -111,6 +111,9 @@
     },
     {
       "name": "egg-zappy"
+    },
+    {
+      "name": "egg-phoenix"
     }
   ]
 }

@@ -478,3 +478,22 @@
       effectProto: StatusEffectZappyPower
       time: 30
       type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: PhoenixEgg
+  components:
+  - type: Sprite
+    state: egg-phoenix
+  - type: TimedReplace
+    entity: MobChickPhoenix
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectPhoenixHeal
+      time: 9
+      type: Add
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectPhoenixPower
+      time: 60
+      type: Add

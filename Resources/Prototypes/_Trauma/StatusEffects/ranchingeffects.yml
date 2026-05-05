@@ -128,3 +128,28 @@
     sprite:
       sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect
       state: icon
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectPhoenixHeal
+  name: phoenix heal
+  components:
+  - type: StatusEffectEffects
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Blunt: -5
+          Heat: -5
+          Radiation: -5
+          Poison: -5
+      useTargeting: false
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectPhoenixPower
+  name: phoenix egg effect
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - ActionFireballPhoenix

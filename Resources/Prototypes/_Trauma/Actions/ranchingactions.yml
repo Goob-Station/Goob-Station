@@ -47,3 +47,33 @@
     - !type:SpawnRandomEntities
       entity: ThunderCloud
       number: 3
+
+- type: entity
+  parent: BaseAction
+  id: ActionFireballPhoenix
+  name: Phoenix Fireball
+  description: Fires an explosive fireball towards the clicked location.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: fireball
+  - type: Action
+    useDelay: 10
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: fireball
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileFireball
+      speed: 20
+  - type: SpeakOnAction
+    sentence: action-speech-spell-fireball-phoenix

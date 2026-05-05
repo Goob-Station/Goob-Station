@@ -82,17 +82,29 @@
 
 - type: entity
   abstract: true
-  parent: [BaseMobChickRanch, MobCombat]
+  parent: BaseMobChickRanch
+  id: BaseMobAdultChickenRanch
+  components:
+  - type: Happiness
+  - type: AnimalAgeing # Not exactly needed, but probably should do for spawning in
+    currentAgeState: Adult
+    yearsOld: 15
+
+- type: entity
+  abstract: true
+  parent: [BaseMobAdultChickenRanch, MobCombat]
   id: BaseMobRoosterRanch
   components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: rooster
   - type: MobThresholds
     thresholds:
       0: Alive
       60: Critical
       100: Dead
-  - type: AnimalAgeing # Not exactly needed, but probably should do for spawning in
-    currentAgeState: Adult
-    yearsOld: 15
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -103,7 +115,6 @@
     attackMemoryLength: 60
   - type: GroupRetaliation
     range: 5
-  - type: MostRecentlyEatenFoodTags
   - type: EggFertilizer
   - type: HTN
     rootTask:
@@ -113,12 +124,6 @@
         5
       MaximumIdleTime: !type:Single
         20
-  - type: Happiness
-  - type: Sprite
-    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: rooster
   - type: DamageStateVisuals
     states:
       Alive:
@@ -130,7 +135,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseMobRoosterRanch
+  parent: BaseMobAdultChickenRanch
   id: BaseMobHenRanch
   components:
   - type: MobThresholds
@@ -622,6 +627,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: OnagadoriEgg
+    specialReplacement: PhoenixEgg
   - type: FavoriteFood
     tag:
     - Chili
@@ -696,7 +704,7 @@
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
   - type: Bounceable
-    entityToSpawn: MobChickGolden
+    entityToSpawn: ZappyEgg
     effects:
     - !type:ThrowRandomly
       speed: 5
@@ -714,6 +722,11 @@
   - type: FavoriteFood
     tag:
     - Sugar
+  - type: Bounceable
+    entityToSpawn: ZappyEgg
+    effects:
+    - !type:ThrowRandomly
+      speed: 5
   - type: EggFertilizer
     specialReplacementRequiredEgg: SnowEgg
     specialReplacement: SickleEgg
@@ -1065,6 +1078,9 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-onagadori.rsi
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: SpicyEgg
+    specialReplacement: PhoenixEgg
   - type: FavoriteFood
     tag:
     - Peanut
@@ -1502,10 +1518,23 @@
     tag:
     - LizardTail
 
+# Legendary
+
+- type: entity
+  abstract: true
+  id: BaseChickenLegendary
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      250: Dead
+
 # Sickle
 
 - type: entity
   abstract: true
+  parent: BaseChickenLegendary
   id: BaseChickenSicle
   components:
   - type: DamageStateVisuals
@@ -1549,6 +1578,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseChickenLegendary
   id: BaseChickenZappy
   components:
   - type: MobState
@@ -1560,7 +1590,7 @@
       0: Alive
       300: Dead
   - type: SpawnLootOnDeath
-    deleteOnDeath: True
+    deleteOnDeath: true
     table:
       id: TeslaMiniEnergyBall
   - type: PointLight
@@ -1614,3 +1644,65 @@
   - type: HTN
     rootTask:
       task: RangedRoosterCompound
+
+# Phoenix
+
+- type: entity
+  parent: BaseChickenLegendary
+  id: BaseChickenPhoenix
+  components:
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: Ash
+      - id: PhoenixEgg
+
+- type: entity
+  parent: [BaseChickenPhoenix, BaseMobChickRanch]
+  id: MobChickPhoenix
+  name: phoenix chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobPhoenixHen
+    - MobPhoenixRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-phoenix.rsi
+
+- type: entity
+  parent: [BaseChickenPhoenix, BaseMobHenRanch]
+  id: MobPhoenixHen
+  name: phoenix hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-phoenix.rsi
+
+- type: entity
+  parent: [BaseChickenPhoenix, BaseMobRoosterRanch]
+  id: MobPhoenixRooster
+  name: phoenix rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-phoenix.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 10
+        Heat: 10

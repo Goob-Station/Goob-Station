@@ -4,6 +4,8 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Polymorph;
+using Content.Shared.Polymorph.Systems;
 using Content.Shared.Traits.Assorted;
 using Content.Trauma.Shared.AnimalAgeing.Components;
 using Content.Trauma.Shared.AnimalAgeing.Events;
@@ -21,7 +23,10 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
     [Dependency] private readonly HappinessSystem _happiness = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedPolymorphSystem _polymorph = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
+    public const string Polymorph = "ChickenRanchMorph";
 
     public override void Initialize()
     {
@@ -74,6 +79,11 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         SpawnAtPosition(entity, ent.Owner.ToCoordinates());
     }
 
+    /// <summary>
+    /// TODO REMOVE THIS
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
     private void OnExamineHappiness(Entity<HappinessComponent> ent, ref ExaminedEvent args)
     {
         var happiness = _happiness.GetHappiness(ent);
@@ -120,7 +130,6 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         {
             EntityManager.AddComponents(ent.Owner, ent.Comp.SeniorComponentsToAdd);
             EntityManager.RemoveComponents(ent.Owner, ent.Comp.SeniorComponentsToRemove);
-            return;
         }
     }
 
@@ -195,24 +204,13 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
 
     public void CopyAndReplaceEntity(EntProtoId entToSpawn, EntityUid uid)
     {
-        if (!TryComp<AnimalAgeingComponent>(uid, out var animalAgeing))
+        if (!_proto.TryIndex<PolymorphPrototype>(Polymorph, out var proto))
             return;
 
-        var spawnedEnt = PredictedSpawnAtPosition(entToSpawn, uid.ToCoordinates());
+        var poly = proto.Configuration;
+        poly.Entity = entToSpawn;
 
-        CopyComps(uid, spawnedEnt);
-
-        if (TryComp<NpcFactionMemberComponent>(uid, out var factionMember))
-        {
-            _faction.ClearFactions(uid);
-            _faction.AddFactions(uid, factionMember.Factions);
-        }
-
-        // Directly copy age as CopyComps doesn't copy variables for some reason
-        var addedAgeingComponent = CopyComp(uid,  spawnedEnt, animalAgeing);
-
-        Dirty(spawnedEnt, addedAgeingComponent);
-        PredictedDel(uid);
+        _polymorph.PolymorphEntity(uid, poly);
     }
 
     #endregion
