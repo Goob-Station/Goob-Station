@@ -6,7 +6,10 @@
 - type: htnCompound
   id: XenoSlimeCompound
   branches:
-  - tasks:
+  - preconditions:
+    - !type:HasActiveDoAfterPrecondition
+      invert: true
+    tasks:
     - !type:HTNCompoundTask
       task: XenoSlimeFoodCompound
   - tasks:
