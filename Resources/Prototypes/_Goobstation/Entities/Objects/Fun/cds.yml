@@ -135,7 +135,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/GroupsPSA.ogg
+      path: /Audio/_Goobstation/RadioStation/ads/security_psa.ogg
 
 - type: entity
   parent: BaseCdDisk
@@ -144,7 +144,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/security_psa.ogg
+      path: /Audio/_Goobstation/RadioStation/ads/GroupsPSA.ogg
 # the weird stuff
 
 - type: entity
