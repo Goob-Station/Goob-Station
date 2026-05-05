@@ -135,8 +135,16 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/ads/security_psa.ogg
+      path: /Audio/_Goobstation/RadioStation/ads/GroupsPSA.ogg
 
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (groups psa)
+  id: CdDiskGroupPsa
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/security_psa.ogg
 # the weird stuff
 
 - type: entity
@@ -198,6 +206,16 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/trial_of_heisenbee.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (felinids aren't real)
+  id: CdDiskFelinids
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/felinids.ogg
+
 
 - type: entity
   parent: CdDiskWeird
