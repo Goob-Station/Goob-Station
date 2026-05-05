@@ -214,7 +214,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/misc/felinids.ogg
+      path: /Audio/_Goobstation/RadioStation/misc/Felinids.ogg
 
 
 - type: entity
