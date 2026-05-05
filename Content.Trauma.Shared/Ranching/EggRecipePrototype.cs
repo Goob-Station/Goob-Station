@@ -29,7 +29,7 @@ public sealed partial class EggRecipePrototype : IPrototype
     /// HappinessRequired, recipes are sorted by RequiresSpecialFood then happiness then weight.
     /// </summary>
     [DataField]
-    public int HappinessRequired { get; set; }
+    public int HappinessRequired { get; set; } = 15;
 
     /// <summary>
     /// The "weight" the egg recipe has, used when sorting the recipes into a list should be used when you want an egg to have higher priority than another.

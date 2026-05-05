@@ -153,3 +153,44 @@
   - type: TemporaryActionGrantEffect
     actionPrototypes:
     - ActionFireballPhoenix
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectDragonPower
+  name: dragon's power
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - ActionFireballPhoenix
+  - type: StatusEffectEffects
+    updateDelay: 5.5
+    effects:
+    - !type:PlaySoundEffect
+      sound: /Audio/Animals/space_dragon_roar.ogg
+    - !type:RelayNearby
+      compName: AwakeMob
+      range: 2
+      blacklist:
+        components:
+        - BorgChassis # Borgs cant feel fear
+      effect: !type:NestedEffect
+        proto: StatusEffectFear
+
+- type: entityEffect
+  id: StatusEffectFear
+  effects:
+  - !type:PopupMessage
+    type: Local
+    visualType: LargeCaution
+    messages:
+    - entity-effect-popup-fear-affected
+  - !type:GenericStatusEffect
+    key: BlurryVision
+    component: BlurryVision
+    time: 3
+  - !type:GenericStatusEffect
+    key: TemporaryBlindness
+    component: TemporaryBlindness
+    time: 2
+  - !type:ModifyParalysis
+    time: 2

@@ -3,7 +3,6 @@
   egg: WhiteEgg
   requiredChicken:
   - MobWhiteHen
-  happinessRequired: 15
 
 - type: eggRecipe
   id: BrownEgg
@@ -23,7 +22,6 @@
   - MobIxworthHen
   noSpecialFoodRequiredChickens:
   - MobIxworthHen
-  happinessRequired: 15
   foodTagsRequired:
   - Tomato
 
@@ -35,7 +33,6 @@
   - MobSilkieHen
   noSpecialFoodRequiredChickens:
   - MobSilkieHen
-  happinessRequired: 15
   foodTagsRequired:
   - Apple
 
@@ -47,7 +44,6 @@
   - MobVoidHen
   noSpecialFoodRequiredChickens:
   - MobVoidHen
-  happinessRequired: 15
   componentsRequired:
   - type: VomitedEnoughMarker
 
@@ -56,7 +52,6 @@
   egg: VoidEgg
   requiredChicken:
   - MobVoidHen
-  happinessRequired: 15
 
 - type: eggRecipe
   id: BlackSilkieEgg
@@ -66,7 +61,6 @@
   - MobBlackSilkieHen
   noSpecialFoodRequiredChickens:
   - MobBlackSilkieHen
-  happinessRequired: 15
   foodTagsRequired:
   - DeliciousLookingApple
 
@@ -78,7 +72,6 @@
   - MobWhiteSilkieHen
   noSpecialFoodRequiredChickens:
   - MobWhiteSilkieHen
-  happinessRequired: 15
   foodTagsRequired:
   - MethApple
 
@@ -113,7 +106,6 @@
   - MobDreamHen
   noSpecialFoodRequiredChickens:
   - MobDreamHen
-  happinessRequired: 15
 
 - type: eggRecipe
   id: PoultrygeistEgg
@@ -122,7 +114,6 @@
   - MobPoultrygeistHen
   noSpecialFoodRequiredChickens:
   - MobPoultrygeistHen
-  happinessRequired: 15
 
 - type: eggRecipe
   id: SpicyEgg
@@ -132,7 +123,6 @@
   - MobSpicyHen
   noSpecialFoodRequiredChickens:
   - MobSpicyHen
-  happinessRequired: 15
   foodTagsRequired:
   - Chili
 
@@ -144,7 +134,6 @@
   - MobSilkieHen
   noSpecialFoodRequiredChickens:
   - MobPigeonHen
-  happinessRequired: 15
   foodTagsRequired:
   - Peas
 
@@ -189,7 +178,6 @@
   - MobGlassHen
   noSpecialFoodRequiredChickens:
   - MobGlassHen
-  happinessRequired: 15
   foodTagsRequired:
   - ClearCorn
 
@@ -201,7 +189,6 @@
   - MobRaptorHen
   noSpecialFoodRequiredChickens:
   - MobRaptorHen
-  happinessRequired: 15
   foodTagsRequired:
   - Meat
 
@@ -213,7 +200,6 @@
   - MobOnagadoriHen
   noSpecialFoodRequiredChickens:
   - MobOnagadoriHen
-  happinessRequired: 15
   foodTagsRequired:
   - Peanut
 
@@ -225,7 +211,6 @@
   - MobWizardHen
   noSpecialFoodRequiredChickens:
   - MobWizardHen
-  happinessRequired: 15
   weight: 5
   foodTagsRequired:
   - MagicMushroom
@@ -238,7 +223,6 @@
   - MobSynthHen
   noSpecialFoodRequiredChickens:
   - MobSynthHen
-  happinessRequired: 15
   weight: 5
   foodTagsRequired:
   - SynthMeat
@@ -248,7 +232,6 @@
   egg: MimeEgg
   requiredChicken:
   - MobMimeHen
-  happinessRequired: 15
 
 - type: eggRecipe
   id: BalloonEgg
@@ -258,7 +241,6 @@
   - MobBalloonHen
   noSpecialFoodRequiredChickens:
   - MobBalloonHen
-  happinessRequired: 15
   foodTagsRequired:
   - BalloonMelon
 
@@ -270,7 +252,6 @@
   - MobRobotHen
   noSpecialFoodRequiredChickens:
   - MobRobotHen
-  happinessRequired: 15
   weight: 10
   reagentsRequired:
     NanoMachines: 0.01 # NANOMACHINES SON THEY HARDEN IN RESPONSE TO PHYSICAL TRAUMA, YOU CAN'T HURT ME JACK!
@@ -283,7 +264,6 @@
   - MobKnightHen
   noSpecialFoodRequiredChickens:
   - MobKnightHen
-  happinessRequired: 15
   weight: 10
   foodTagsRequired:
   - SteelWheat
@@ -296,7 +276,6 @@
   - MobGlassHen
   noSpecialFoodRequiredChickens:
   - MobStoneHen
-  happinessRequired: 15
   weight: 10
   reagentsRequired:
     THC: 0.01 # make them smoke a blunt to lay the egg peak
@@ -309,7 +288,6 @@
   - MobCockatriceHen
   noSpecialFoodRequiredChickens:
   - MobCockatriceHen
-  happinessRequired: 15
   weight: 10
   foodTagsRequired:
   - LizardTail
@@ -319,11 +297,15 @@
   egg: SickleEgg
   requiredChicken:
   - MobSickleHen
-  happinessRequired: 15
 
 - type: eggRecipe
   id: ZappyEgg
   egg: ZappyEgg
   requiredChicken:
   - MobZappyHen
-  happinessRequired: 15
+
+- type: eggRecipe
+  id: DragonEgg
+  egg: DragonEgg
+  requiredChicken:
+  - MobDragonHen

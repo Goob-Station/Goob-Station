@@ -580,7 +580,7 @@
     capacity: 1
     count: 1
   - type: Gun
-    fireRate: 1
+    fireRate: 0.4
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -1665,6 +1665,9 @@
       children:
       - id: Ash
       - id: PhoenixEgg
+  - type: FavoriteFood
+    tag:
+    - Chili
 
 - type: entity
   parent: [BaseChickenPhoenix, BaseMobChickRanch]
@@ -1693,9 +1696,6 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-phoenix.rsi
-  - type: FavoriteFood
-    tag:
-    - Chili
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -1706,3 +1706,63 @@
       types:
         Piercing: 10
         Heat: 10
+
+# Dragon
+
+- type: entity
+  abstract: true
+  parent: BaseChickenLegendary
+  id: BaseChickenDragon
+  components:
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+
+- type: entity
+  parent: [BaseChickenDragon, BaseMobChickRanch]
+  id: MobChickDragon
+  name: dragon chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobDragonHen
+    - MobDragonRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dragon.rsi
+
+- type: entity
+  parent: [BaseChickenDragon, BaseMobHenRanch]
+  id: MobDragonHen
+  name: dragon hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dragon.rsi
+
+- type: entity
+  parent: [BaseChickenDragon, BaseMobRoosterRanch]
+  id: MobDragonRooster
+  name: dragon rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dragon.rsi
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileFireball
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound

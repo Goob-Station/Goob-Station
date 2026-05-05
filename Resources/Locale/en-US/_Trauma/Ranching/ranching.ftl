@@ -12,3 +12,5 @@ medusa-popup = You turn into a stone statue!
 
 # Bizarre....
 action-speech-spell-fireball-phoenix = MAGICIAN'S RED!!!!
+
+entity-effect-popup-fear-affected = Your body shuts down as fear controls you!!

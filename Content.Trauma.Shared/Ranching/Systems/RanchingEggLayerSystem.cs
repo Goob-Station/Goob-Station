@@ -47,9 +47,9 @@ public sealed class RanchingEggLayerSystem : EntitySystem
 
     private void OnFertilize(Entity<TimedReplaceComponent> ent, ref FertilizeDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled && args.Target is not null)
         {
-            EnsureComp<EggFertilizationTargetComponent>(ent.Owner);
+            EnsureComp<EggFertilizationTargetComponent>(args.Target.Value);
             return;
         }
 
@@ -99,7 +99,7 @@ public sealed class RanchingEggLayerSystem : EntitySystem
             return;
 
         var doAfter =
-            new DoAfterArgs(EntityManager, args.User, user.DoAfter, new FertilizeDoAfterEvent(), ent.Owner)
+            new DoAfterArgs(EntityManager, args.User, user.DoAfter, new FertilizeDoAfterEvent(), ent.Owner, ent.Owner)
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,

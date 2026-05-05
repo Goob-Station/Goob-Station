@@ -114,6 +114,9 @@
     },
     {
       "name": "egg-phoenix"
+    },
+    {
+      "name": "egg-dragon"
     }
   ]
 }
