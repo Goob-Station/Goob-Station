@@ -31,7 +31,11 @@
   parent: LavalandMobBase
   description: The air trembles around it...
   components:
-  - type: CoreBootUp
+  - type: PulsingLight
+  - type: VicinitySpawner
+    offsetForSpawn: 7
+    prototype:
+    - LavalandMobCrystalSeed # TO DO: Change later to crystal tendril
   - type: PointLight
     radius: 2
     energy: 1

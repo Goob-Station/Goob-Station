@@ -1,19 +1,19 @@
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 /// <summary>
-/// This component is added to an entity that is in the process of booting up for visual flare.
-/// Increases brightness, emits a sound, and optionally.
+/// This component can be added to an entity to give the appearance of a pulsing light with sound.
 /// </summary>
 
-[RegisterComponent]
-public sealed partial class CoreBootUpComponent : Component
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class PulsingLightComponent : Component
 {
     /// <summary>
     /// How brightly the entity should glow. Serves as a cap.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float GlowIntensity = 5;
 
     /// <summary>
@@ -24,7 +24,7 @@ public sealed partial class CoreBootUpComponent : Component
     /// <summary>
     /// How rapidly the glow increaes per tick.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float IncreaseBy = 0.1f;
 
     /// <summary>
@@ -43,11 +43,11 @@ public sealed partial class CoreBootUpComponent : Component
     [DataField]
     public SoundSpecifier BootUpSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/ominous_pulse.ogg");
 
-    public TimeSpan NextTick;
+    public TimeSpan NextUpdate;
 
     [DataField]
     public TimeSpan Interval;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Color LightColor = Color.Cyan;
 }

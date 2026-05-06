@@ -10,7 +10,7 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Systems;
 /// <summary>
 /// This system handles increasing the glow of an entity and lowering it on a loop. Additionally, plays a sound when the loop begins.
 /// </summary>
-public sealed class CoreBootUpSystem : EntitySystem
+public sealed class PulsingLightSystem : EntitySystem
 {
 
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -27,24 +27,24 @@ public sealed class CoreBootUpSystem : EntitySystem
         base.Update(frameTime);
 
         // This iterates over all entities that have this component.
-        var query = EntityQueryEnumerator<CoreBootUpComponent>();
+        var query = EntityQueryEnumerator<PulsingLightComponent>();
 
         // this uses UID, comp because we want both the entity and the data
         while (query.MoveNext(out var uid, out var comp))
         {
             // if it's not time yet, skip the entity.
-            if (_timing.CurTime < comp.NextTick)
+            if (_timing.CurTime < comp.NextUpdate)
                 continue;
 
             // schedules the next time the logic will run
-            comp.NextTick = _timing.CurTime + comp.Interval;
+            comp.NextUpdate = _timing.CurTime + comp.Interval;
 
             // passes both uid and comp because it needs both the entity and the component data.
             OnBootUp((uid, comp));
         }
     }
 
-    private void OnBootUp(Entity<CoreBootUpComponent> ent)
+    private void OnBootUp(Entity<PulsingLightComponent> ent)
     {
         // deconstructs tuple, which is a set of unchangeable elements, into readable variables. 
         var (uid, comp) = ent;
@@ -86,6 +86,8 @@ public sealed class CoreBootUpSystem : EntitySystem
                 comp.ReduceGlow = true;
             }
         }
+
+        Dirty(uid, comp);
 
     }
 }
