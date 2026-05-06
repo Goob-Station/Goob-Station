@@ -133,8 +133,8 @@
           type: Yowie
           shouldHave: false
       - !type:ImmunityModifier
-        gainRateModifier: -0.0024 #double spaceacilin penalty AND over a longer period of time
-        strengthModifier: -0.008 #ditto
+        gainRateModifier: -0.00111111111111 #double spaceacilin penalty AND over a longer period of time
+        strengthModifier: -0.0088888888888 #ditto
         statusLifetime: 1.5 # 1.5s per 1u
 
 - type: reagent

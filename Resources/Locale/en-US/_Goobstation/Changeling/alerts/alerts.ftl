@@ -27,4 +27,4 @@ alerts-changeling-panacea-desc =
 
 alerts-changeling-voidadapt-name = Void Adaption
 alerts-changeling-voidadapt-desc =
-    The low extremes are being adapted to. [color=yellow]Chemical regeneration is decreased by 25%[/color]. [color=red]Effects will cease while on fire.[/color]
+    The low extremes are being adapted to. [color=yellow]Chemical regeneration is halted[/color]. [color=red]Effects will cease while on fire.[/color]
