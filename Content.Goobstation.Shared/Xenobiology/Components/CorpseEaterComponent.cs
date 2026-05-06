@@ -34,6 +34,7 @@ public sealed partial class CorpseEaterComponent : Component
     /// <summary>
     /// What type of body part composition can be eaten, if null - any.
     /// </summary>
+    [DataField]
     public BodyPartComposition? BodyPartComposition = null;
 
     /// <summary>

@@ -3,7 +3,6 @@ using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared.DoAfter;
-using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
 
