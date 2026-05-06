@@ -31,11 +31,20 @@
   parent: LavalandMobBase
   description: The air trembles around it...
   components:
+  - type: DangerZone
+    popupRange: 15
+    popup:
+    - ort-sense-danger1
+    - ort-sense-danger2
+    - ort-sense-danger3
+    - ort-sense-danger4
+    - ort-sense-danger5
+    - ort-sense-danger6
   - type: PulsingLight
-  - type: VicinitySpawner
-    offsetForSpawn: 7
-    prototype:
-    - LavalandMobCrystalSeed # TO DO: Change later to crystal tendril
+ # - type: VicinitySpawner
+ #   offsetForSpawn: 7
+ #   prototype:
+ #   - LavalandMobCrystalSeed # TO DO: Change later to crystal tendril
   - type: PointLight
     radius: 2
     energy: 1
