@@ -1,0 +1,32 @@
+using Content.Shared.Interaction;
+using Content.Shared.Stacks;
+using Content.Shared.Whitelist;
+using Content.Trauma.Shared.AnimalAgeing;
+using Content.Trauma.Shared.Ranching.Components;
+using Robust.Shared.Random;
+
+namespace Content.Trauma.Shared.Ranching.Systems;
+
+public sealed class PolyMorphOnItemsGivenSystem : EntitySystem
+{
+    [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly SharedAnimalAgeingSystem _ageing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<PolymorphOnItemsGivenComponent, InteractUsingEvent>(OnInteract);
+    }
+
+    private void OnInteract(Entity<PolymorphOnItemsGivenComponent> ent, ref InteractUsingEvent args)
+    {
+        if (_stack.GetCount(args.Used) < ent.Comp.Amount || !_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.Used))
+            return;
+
+        var entity = _random.Pick(ent.Comp.ReplacementEntities);
+        _ageing.CopyAndReplaceEntity(entity, args.Target);
+        _stack.ReduceCount(args.Used, ent.Comp.Amount);
+        RemComp<PolymorphOnItemsGivenComponent>(args.Target);
+    }
+}

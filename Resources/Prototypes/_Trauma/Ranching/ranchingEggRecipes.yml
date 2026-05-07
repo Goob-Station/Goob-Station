@@ -309,3 +309,9 @@
   egg: DragonEgg
   requiredChicken:
   - MobDragonHen
+
+- type: eggRecipe
+  id: CoralEgg
+  egg: CoralEgg
+  requiredChicken:
+  - MobCoralHen

@@ -512,3 +512,16 @@
       effectProto: StatusEffectDragonPower
       time: 60
       type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: CoralEgg
+  components:
+  - type: Sprite
+    state: egg-coral
+  - type: TimedReplace
+    entity: MobChickCoral
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:SpawnFriendly
+      entity: MobShark #https://static.wikia.nocookie.net/imagecomics/images/e/e8/Thragg%27s_Children_Invincible_Vol_1_136.jpg/revision/latest?cb=20250322215620

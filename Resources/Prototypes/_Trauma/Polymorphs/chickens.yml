@@ -7,3 +7,5 @@
     revertOnDeath: false
     revertOnDelete: false
     revertOnEat: false
+    polymorphPopup: null
+    exitPolymorphPopup: null
