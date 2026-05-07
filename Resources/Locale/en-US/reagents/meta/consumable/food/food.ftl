@@ -29,3 +29,6 @@ reagent-desc-butter = You can believe it!
 
 reagent-name-pumpkin-flesh = pumpkin flesh
 reagent-desc-pumpkin-flesh = The mushy, sweet remains of a pumpkin.
+
+reagent-name-queso = queso
+reagent-desc-queso = Its queso! Everyone loves queso... Right?
