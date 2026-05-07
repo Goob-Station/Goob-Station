@@ -29,6 +29,9 @@
     outputs:
       - Plating
       - FloorCanvas
+  - type: Construction
+    graph: TileCanvas
+    node: canvastile
   - type: Stack
     stackType: FloorTileCanvas
 
