@@ -118,3 +118,33 @@
   - EncryptionKeySyndie
   - C4 # 1
   - C4 # 2
+
+- type: selectableSet
+  id: SyndicateTunnelClownSet
+  name: selectable-set-syndicate-tunnel-clown-name
+  description: selectable-set-syndicate-tunnel-clown-description
+  sprite:
+    sprite: Clothing/Mask/clown.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - ClothingMaskClown
+  - ClothingUniformJumpsuitClown
+  - ClothingHandsGlovesCombat
+  - ClothingShoesClown
+  - ClothingOuterVestWeb
+  - ClothingBackpackClown
+  - ClothingEyesNightVisionGogglesSyndie
+  - ClownPDA
+  - FireAxeFlaming
+  - Stunprod
+  - Stunprod
+  - FreedomImplanter
+  - MicroBombImplanter
+  - SadTromboneImplanter
+  - Handcuffs
+  - Handcuffs
+  - BoxHoloClown
+  - CombatMedipen
+  - SyndicateBusinessCard
+  - BikeHorn

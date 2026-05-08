@@ -41,3 +41,11 @@ selectable-set-syndicate-door-kicker-description =
     syndicate operative pda, web vest, chest rig, syndicate gas mask,
     syndicate jaws of death, 'bojevic' combat shotgun, shell box,
     syndicate encryption key, and two C-4.
+
+selectable-set-syndicate-tunnel-clown-name = Tunnel Clown Bundle
+selectable-set-syndicate-tunnel-clown-description =
+    Equip your clown gear, honk and kill people in maintenance.
+    Contains: syndicate encryption key, clown loadout, web vest,
+    combat gloves, syndicate nightvision goggles, Flaming Fire Axe,
+    two stunprods, freedom implant, microbomb implant, sad trombone implant,
+    two handcuffs, holoclown, combat medipen and a syndicate business card.
