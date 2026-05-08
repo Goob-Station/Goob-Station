@@ -49,7 +49,7 @@ public sealed class PulsingLightSystem : EntitySystem
         // deconstructs tuple, which is a set of unchangeable elements, into readable variables. 
         var (uid, comp) = ent;
 
-        if (!comp.SoundPlayed)
+        if (!comp.SoundPlayed || comp.ShouldPlaySound)
         {
             _audio.PlayPredicted(comp.BootUpSound, uid, uid, null);
             comp.SoundPlayed = true;

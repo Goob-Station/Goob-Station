@@ -5,6 +5,7 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 /// <summary>
 /// This component can be added to an entity to give the appearance of a pulsing light with sound.
+/// Sound is optional.
 /// </summary>
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -31,6 +32,12 @@ public sealed partial class PulsingLightComponent : Component
     /// Used for reversing the logic.
     /// </summary>
     public bool ReduceGlow;
+
+    /// <summary>
+    /// If true, plays sound.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShouldPlaySound;
 
     /// <summary>
     /// Used to prevent sound spam.

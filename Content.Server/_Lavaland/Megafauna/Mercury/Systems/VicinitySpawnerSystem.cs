@@ -5,6 +5,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using SixLabors.ImageSharp;
 
 namespace Content.Server._Lavaland.Megafauna.Mercury.Systems;
 
@@ -54,38 +55,42 @@ public sealed class VicinitySpawnerSystem : EntitySystem
         var grid = transform.GridUid;
         var center = transform.Coordinates;
 
-        // Determine valid spawn coordinates
-        EntityCoordinates spawnCoords = default;
-        var attempts = 0;
-        const int MaxAttempts = 250; // Same comment as original portal comment, lower this if this causes any issues.
-
-        do
+        // Checks how many entities it should spawn and spawns them at the same time in different coordinates.
+        for (var i = 0; i < comp.NumberToSpawn; i++)
         {
-            attempts++;
+            // Determine valid spawn coordinates
+            EntityCoordinates spawnCoords = default;
+            var attempts = 0;
+            const int MaxAttempts = 250; // Same comment as original portal comment, lower this if this causes any issues.
 
-            spawnCoords = grid != null
-                ? new EntityCoordinates(
-                    grid.Value,
-                    center.X + _random.Next(-comp.OffsetForSpawn, comp.OffsetForSpawn + 1),
-                    center.Y + _random.Next(-comp.OffsetForSpawn, comp.OffsetForSpawn + 1)
-                  )
-                : center;
+            do
+            {
+                attempts++;
 
-            // This spawns in an empty prototype, then checks if it is inside an object. Regardless of it is or not, it gets deleted as soon as the confirmation is sent.
-            var tempEnt = Spawn(comp.EmptyPrototype, spawnCoords);
-            bool obstructed = _physics.GetEntitiesIntersectingBody(tempEnt, (int) CollisionGroup.Impassable).Count > 0;
-            QueueDel(tempEnt);
+                spawnCoords = grid != null
+                    ? new EntityCoordinates(
+                        grid.Value,
+                        center.X + _random.Next(-comp.OffsetForSpawn, comp.OffsetForSpawn + 1),
+                        center.Y + _random.Next(-comp.OffsetForSpawn, comp.OffsetForSpawn + 1)
+                      )
+                    : center;
 
-            if (!obstructed)
-                break;
+                // This spawns in an empty prototype, then checks if it is inside an object. Regardless of it is or not, it gets deleted as soon as the confirmation is sent.
+                var tempEnt = Spawn(comp.EmptyPrototype, spawnCoords);
+                bool obstructed = _physics.GetEntitiesIntersectingBody(tempEnt, (int) CollisionGroup.Impassable).Count > 0;
+                QueueDel(tempEnt);
 
-        } while (attempts < MaxAttempts); // If it does not find a unobstructed tile it just spawns anyway at the last coordinate.
+                if (!obstructed)
+                    break;
 
-        // Decide what to spawn
-        EntProtoId protoToSpawn;
+            } while (attempts < MaxAttempts); // If it does not find a unobstructed tile it just spawns anyway at the last coordinate.
 
-        protoToSpawn = _random.Pick(comp.Prototype);
+            // Decide what to spawn
+            EntProtoId protoToSpawn;
 
-        Spawn(protoToSpawn, spawnCoords);
+            protoToSpawn = _random.Pick(comp.Prototype);
+
+            Spawn(protoToSpawn, spawnCoords);
+        }
     }
 }

@@ -19,6 +19,12 @@ public sealed partial class VicinitySpawnerComponent : Component
     public TimeSpan Accumulator = TimeSpan.Zero;
 
     /// <summary>
+    /// How many entities to spawn per spawn interval.
+    /// </summary>
+    [DataField]
+    public int NumberToSpawn = 1;
+
+    /// <summary>
     /// List of mobs that can be summoned.
     /// </summary>
     [DataField(required: true)]

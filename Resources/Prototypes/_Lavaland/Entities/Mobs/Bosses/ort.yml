@@ -100,7 +100,9 @@
     - ort-sense-danger5
     - ort-sense-danger6
   - type: PulsingLight
+    shouldPlaySound: true
   - type: VicinitySpawner
+    numberToSpawn: 2
     offsetForSpawn: 7
     prototype:
     - CrystalSpikeEmerging
@@ -144,7 +146,7 @@
   - type: SpawnLootOnDeath
     table: !type:AllSelector
       children:
-      - id: LavalandBossMercurySpiderUFO
+      - id: ORTUFO
   - type: PointLight
     radius: 5
     energy: 1.5
@@ -201,12 +203,12 @@
     intensity: 1
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
     layers:
-    - state: mercury-ring
+    - state: mercury_ring
       drawdepth: FloorObjects
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: adapted-ranged
+      state: adapted_ranged
   - type: CombatMode
   - type: MobThresholds
     thresholds:
@@ -229,12 +231,12 @@
     intensity: 1
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
     layers:
-    - state: mercury-ring
+    - state: mercury_ring
       drawdepth: FloorObjects
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: adapted-melee
+      state: adapted_melee
   - type: CombatMode
   - type: MobThresholds
     thresholds:

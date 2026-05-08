@@ -102,7 +102,7 @@
           0.1,
           0.1,
           0.1,
-          0.5
+          999
         ]
       ]
     },
@@ -119,21 +119,12 @@
           0.1,
           0.1,
           0.1,
-          0.1
+          999
         ]
       ]
     },
     {
       "name": "mercury-skeleton"
-    },
-    {
-      "name": "adapted-melee"
-    },
-    {
-      "name": "adapted-ranged"
-    },
-    {
-      "name": "mercury-ring"
     },
     {
       "name": "hole",

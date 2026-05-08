@@ -3,6 +3,8 @@
   name: Dark matter plankton
   description: Looks unstable. Kill it fast!
   components:
+  - type: Rotating
+    increaseOvertime: true
   - type: FadingIn
     fadeInTime: 1
   - type: InteractionOutline
@@ -24,10 +26,22 @@
     intervalSeconds: 4.9
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: DarkMatterPlanktonExplode
   components:
+  - type: Rotating  
   - type: InteractionOutline
   - type: Sprite
     sprite: _Lavaland/Effects/plankton.rsi
