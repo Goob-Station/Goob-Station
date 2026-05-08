@@ -1,8 +1,10 @@
 - type: entity
   name: ???
-  id: MercurySpiderFormingAnimation
-  description: The air trembles around it...
+  id: BaseORTAnimation
+  description: The air trembles around it.
+  abstract: true
   components:
+  - type: Timer
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
@@ -18,13 +20,17 @@
         - LargeMobMask
         layer:
         - LargeMobLayer
+
+- type: entity
+  id: ORTFormingAnimation
+  parent: BaseORTAnimation
+  components:
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mercury-forming
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - LavalandBossMercurySpiderForming
@@ -36,32 +42,16 @@
     lifetime: 6.5
 
 - type: entity
-  name: ???
-  id: MercurySpiderFormingCombatAnimation
+  id: ORTCombatAnimation
+  parent: BaseORTAnimation
   description: Oh no...
   components:
-  - type: Physics
-    bodyType: KinematicController
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-1,-2,1,1"
-        density: 1000
-        mask:
-        - LargeMobMask
-        layer:
-        - LargeMobLayer
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mercury-combat-forming
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - LavalandBossMercurySpiderCombatForm
@@ -73,30 +63,16 @@
     lifetime: 1.0
 
 - type: entity
-  name: 
-  id: MercurySpiderUFODeathAnimation
-  description:
+  id: ORTUFODeathAnimation
+  parent: BaseORTAnimation
+  description: Is it finally over?
   components:
-  - type: Physics
-    bodyType: KinematicController
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-1,-2,1,1"
-        density: 1000
-        mask:
-        - LargeMobMask
-        layer:
-        - LargeMobLayer
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: UFO-death
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - LavalandBossMercurySpiderAdaptedMelee # TO DO: Dynamic system yadda yadda

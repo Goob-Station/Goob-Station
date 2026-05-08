@@ -1,6 +1,42 @@
 - type: entity
+  name: Spider of Mercury
+  id: BaseORT
+  parent: LavalandMobBase
+  description:
+  abstract: true
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - FootstepSound
+  - type: TileMovement
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: MercurySpider
+  - type: Fauna
+  - type: Aggressive
+    forgiveRange: 1000 # You woke it up, no more running.
+  - type: CombatPower # Goobstation
+    factor: 9999
+
+- type: entity
   name: Bottomless pit
-  id: MercurySpiderRestingPit
+  id: ORTPit
   description: The radiation seeping from below makes your skin crawl. Something is waiting down there.
   components:
   - type: Physics
@@ -27,10 +63,33 @@
 
 - type: entity
   name: pulsing exoskeleton
-  id: LavalandBossMercurySpiderForming
-  parent: LavalandMobBase
+  id: ORTForming
+  parent: BaseORT
   description: The air trembles around it...
   components:
+  - type: PointLight
+    radius: 2
+    energy: 1
+    color: cyan
+  - type: RadiationSource
+    intensity: 3
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury-skeleton
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: BossMusic
+    soundId: Bubblegum # TO DO: Change later
+  - type: SpawnLootOnDeath
+    table: !type:AllSelector
+      children:
+      - id: MercurySpiderCombatFormingAnimation
+  # Actual boss from here
   - type: DangerZone
     popupRange: 15
     popup:
@@ -41,72 +100,19 @@
     - ort-sense-danger5
     - ort-sense-danger6
   - type: PulsingLight
- # - type: VicinitySpawner
- #   offsetForSpawn: 7
- #   prototype:
- #   - LavalandMobCrystalSeed # TO DO: Change later to crystal tendril
-  - type: PointLight
-    radius: 2
-    energy: 1
-    color: cyan
-  - type: RadiationSource
-    intensity: 3
-  - type: Physics
-    bodyType: KinematicController
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-1.5,-1.5,1.5,1.5"
-        density: 1000
-        mask:
-        - LargeMobMask
-        layer:
-        - LargeMobLayer
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: mercury-skeleton
-  - type: Tag
-    tags:
-    - CannotSuicide
-    - FootstepSound
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      500: Dead
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: MercurySpider
-  - type: TileMovement
-  - type: BossMusic
-    soundId: Bubblegum # TO DO: Change later
-  - type: Aggressive
-    forgiveRange: 100 # You woke it up, no more running.
-  - type: CombatPower # Goobstation
-    factor: 9999
-  - type: SpawnLootOnDeath
-    table: !type:AllSelector
-      children:
-      - id: MercurySpiderCombatFormingAnimation
+  - type: VicinitySpawner
+    offsetForSpawn: 7
+    prototype:
+    - CrystalSpikeEmerging
 
 - type: entity
   name: Spider of Mercury
-  id: LavalandBossMercurySpiderCombatForm
-  parent: LavalandBossMercurySpiderForming
+  id: ORTCombatForm
+  parent: BaseORT
   description: Its body is not flesh. It is not metal. You don't have a clue as to what it is.
   components:
   - type: RadiationSource
     intensity: 2
-  - type: Physics
-    bodyType: KinematicController
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
@@ -146,16 +152,15 @@
 
 - type: entity
   name: UFO
-  id: LavalandBossMercurySpiderUFO
-  parent: LavalandBossMercurySpiderForming
+  id: ORTUFO
+  parent: BaseORT
   description: The spider was only an empty shell. The true body was above all along.
   components:
+  - type: SingularityDistortion
+    intensity: 5
+    falloffPower: 5
   - type: RadiationSource
     intensity: 4
-  - type: Physics
-    bodyType: KinematicController
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
@@ -186,19 +191,14 @@
       children:
       - id: MercurySpiderUFODeathAnimation # TO DO: Make system that spawns in melee or ranged depending on damage taken.
 
-
 - type: entity
   name: The ultimate one
-  id: LavalandBossMercurySpiderAdaptedRanged
-  parent: LavalandBossMercurySpiderForming
+  id: ORTXibalbaRanged
+  parent: BaseORT
   description: Long-range weaponry analyzed. Adaptation complete.
   components:
   - type: RadiationSource
     intensity: 1
-  - type: Physics
-    bodyType: KinematicController
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
@@ -221,16 +221,12 @@
 
 - type: entity
   name: The ultimate one
-  id: LavalandBossMercurySpiderAdaptedMelee
-  parent: LavalandBossMercurySpiderForming
+  id: ORTXibalbaMelee
+  parent: BaseORT
   description: Close-quarters weaponry analyzed. Adaptation complete. 
   components:
   - type: RadiationSource
     intensity: 1
-  - type: Physics
-    bodyType: KinematicController
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi

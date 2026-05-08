@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by OnsenCapy (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "plankton"
+    },
+        {
+        "name": "plankton_projectile"
+    },
+    {
+      "name": "plankton_explode",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1
+        ]
+      ]
+    }
+  ]
+}

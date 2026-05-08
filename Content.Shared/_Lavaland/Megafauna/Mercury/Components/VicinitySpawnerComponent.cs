@@ -19,7 +19,7 @@ public sealed partial class VicinitySpawnerComponent : Component
     public TimeSpan Accumulator = TimeSpan.Zero;
 
     /// <summary>
-    /// Weighted list of mobs that can be summoned.
+    /// List of mobs that can be summoned.
     /// </summary>
     [DataField(required: true)]
     public List<EntProtoId> Prototype = new();
