@@ -234,6 +234,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Saltern",
             "Serpentcrest",
+			"Shoukou",
             "TestTeg",        // Dev map
             "Train"           // Not in pool
             // Goob end
@@ -278,6 +279,7 @@ namespace Content.IntegrationTests.Tests
               "Reach",
               "Saltern",
               "Serpentcrest",
+			  "Shoukou",
         };
         // Goobstation edit end
 
