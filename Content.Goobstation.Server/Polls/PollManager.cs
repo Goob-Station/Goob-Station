@@ -140,6 +140,7 @@ public sealed class PollManager : IPostInjectInit
     private async Task<PollData?> ConvertToPollData(Poll poll)
     {
         var results = await _db.GetPollResultsAsync(poll.Id);
+        var seenCount = await _db.GetPollSeenCountAsync(poll.Id);
 
         string? creatorName = null;
         if (poll.CreatedBy != null)
@@ -158,6 +159,7 @@ public sealed class PollManager : IPostInjectInit
             Active = poll.Active,
             AllowMultipleChoices = poll.AllowMultipleChoices,
             CreatedByName = creatorName,
+            SeenCount = seenCount,
             Options = [.. poll.Options.OrderBy(o => o.DisplayOrder).Select(o => new PollOptionData
             {
                 OptionId = o.Id,
@@ -177,8 +179,30 @@ public sealed class PollManager : IPostInjectInit
     private async void OnRequestActivePolls(MsgRequestActivePolls msg)
     {
         var polls = await GetActivePolls();
-        var response = new MsgActivePollsResponse { Polls = polls };
+        var seenIds = new List<int>();
+
+        if (_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session) && session.UserId != default)
+        {
+            var seen = await _db.GetSeenPollIdsAsync(session.UserId);
+            seenIds = [.. seen];
+        }
+
+        var response = new MsgActivePollsResponse { Polls = polls, SeenPollIds = seenIds };
         _net.ServerSendMessage(response, msg.MsgChannel);
+    }
+
+    private async void OnMarkPollSeen(MsgMarkPollSeen msg)
+    {
+        if (!_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session) || session.UserId == default)
+            return;
+
+        var added = await _db.MarkPollSeenAsync(msg.PollId, session.UserId);
+        if (!added)
+            return;
+
+        var updated = await GetPoll(msg.PollId);
+        if (updated != null)
+            BroadcastPollUpdate(updated);
     }
 
     private async void OnRequestPollDetails(MsgRequestPollDetails msg)
@@ -253,5 +277,6 @@ public sealed class PollManager : IPostInjectInit
         _net.RegisterNetMessage<MsgPollVoteResponse>();
         _net.RegisterNetMessage<MsgPollUpdated>();
         _net.RegisterNetMessage<MsgPollClosed>();
+        _net.RegisterNetMessage<MsgMarkPollSeen>(OnMarkPollSeen);
     }
 }
