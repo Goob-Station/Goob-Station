@@ -11,13 +11,11 @@ using Content.Goobstation.Common.CCVar; // Goobstation Change
 using Content.Shared._Goobstation.Heretic.Components; // Goobstation Change
 using Content.Shared.Chat;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Globalization;
-using Content.Shared.IdentityManagement.Components;
 
 namespace Content.Server._White.Examine;
 public sealed class ExaminableCharacterSystem : EntitySystem
@@ -42,7 +40,8 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             || !args.IsInDetailsRange)
             return;
 
-        var showExamine = _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine);
+        var showExamine =
+            _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine);
 
         var selfaware = args.Examiner == args.Examined;
         string canseeloc = "examine-can-see";
@@ -181,6 +180,7 @@ public sealed class ExaminableCharacterSystem : EntitySystem
     }
 
     // TODO ENGINE: kill this after next engine update
+    // todo marty holy fuck delta
     private System.Text.StringBuilder _sb = new();
     private string ToMarkup(FormattedMessage message)
     {

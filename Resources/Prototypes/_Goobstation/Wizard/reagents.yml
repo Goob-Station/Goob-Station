@@ -23,7 +23,7 @@
           - type: Wizard
           - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
-          invert: true
+          inverted: true
         emote: Cough
         showInChat: true
         probability: 0.2
@@ -37,7 +37,7 @@
           - type: Wizard
           - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
-          invert: true
+          inverted: true
         probability: 0.2
 
 - type: reagent

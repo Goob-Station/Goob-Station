@@ -353,6 +353,7 @@
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
 
+
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
   id: ClothingBeltMilitaryWebbing
@@ -367,42 +368,6 @@
     damageCoefficient: 0.1
   - type: StaticPrice
     price: 500
-  # Goobstaton start?
-  - type: Storage
-    whitelist:
-      tags:
-        - CigPack
-        - Taser
-        - SecBeltEquip
-        - HandheldCrewMonitor
-        - EnergySpeedloader
-        - Sidearm
-        - PepperSpray
-      components:
-        - Stunbaton
-        - FlashOnTrigger
-        - SmokeOnTrigger
-        - Flash
-        - Handcuff
-        - BallisticAmmoProvider
-        - Ammo
-  - type: ItemMapper
-    sprite: Clothing/Belt/belt_overlay.rsi
-    mapLayers:
-      flashbang:
-        whitelist:
-          components:
-          - FlashOnTrigger
-      stunbaton:
-        whitelist:
-          components:
-          - Stunbaton
-      tear_gas_grenade:
-        whitelist:
-          components:
-          - SmokeOnTrigger
-  - type: Appearance
-  # Goobstation end
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing

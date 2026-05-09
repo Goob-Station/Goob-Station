@@ -96,4 +96,4 @@
           guidebookComponentName: reagent-condition-is-not-cultist
           components:
           - type: CosmicCult
-          shouldHave: false
+          inverted: true # Goobstation

@@ -96,7 +96,7 @@
           - type: Heretic
           - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-          invert: true
+          inverted: true
         probability: 0.5
       - !type:HealthChange
         damage:
@@ -109,6 +109,6 @@
           - type: Heretic
           - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-          invert: true
+          inverted: true
   tileReactions:
   - !type:ChangeTileReaction # Rusts tile

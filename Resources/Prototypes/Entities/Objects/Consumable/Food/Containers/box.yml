@@ -849,7 +849,7 @@
     - id: FoamBlade
     - id: ClothingHeadHatBunny
     - id: PersonalAI
-    - id: CrayonBox
+    #- id: CrayonBox # goob?
     - id: ToySword
     - id: RevolverCapGun
     - id: ToyRubberDuck

@@ -2,6 +2,8 @@
   parent: BaseGameRule
   id: ColossusSpawn
   components:
+  - type: GameRule # Goobstation, same as dragon?
+    chaosScore: 600
   - type: StationEvent
     weight: 4.5
     earliestStart: 30

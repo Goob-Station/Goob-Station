@@ -17,7 +17,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
-internal struct CustomRichTextEntry
+public struct CustomRichTextEntry
 {
     public static readonly Type[] DefaultTags =
     [
@@ -298,7 +298,7 @@ internal struct CustomRichTextEntry
         DrawBoxContent(tagManager, handle, defaultFont, drawBox, verticalOffset, scrollBarPixelSize, context, uiScale, lineHeightScale);
     }
 
-    private UIBox2 DrawBoxContent(
+    private readonly UIBox2 DrawBoxContent(
         MarkupTagManager tagManager,
         DrawingHandleBase handle,
         Font defaultFont,

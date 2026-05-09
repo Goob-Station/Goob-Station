@@ -36,7 +36,7 @@ public sealed partial class HasComponentConditionSystem : EntityConditionSystem<
 
         var hasComp = entHasComp || mindEntHasComp;
 
-        args.Result = hasComp ^ args.Condition.Invert;
+        args.Result = hasComp ^ args.Condition.Inverted;
     }
 }
 
@@ -57,12 +57,6 @@ public sealed partial class HasComponentCondition : EntityConditionBase<HasCompo
     public bool ConsiderAll;
 
     /// <summary>
-    /// Whether the given components should be present
-    /// </summary>
-    [DataField]
-    public bool Invert;
-
-    /// <summary>
     /// Whether we check the mind entity for the components
     /// </summary>
     [DataField]
@@ -81,6 +75,6 @@ public sealed partial class HasComponentCondition : EntityConditionBase<HasCompo
 
         return Loc.GetString("reagent-effect-condition-guidebook-has-component",
             ("comp", Loc.GetString(GuidebookComponentName)),
-            ("invert", Invert));
+            ("invert", Inverted));
     }
 }
