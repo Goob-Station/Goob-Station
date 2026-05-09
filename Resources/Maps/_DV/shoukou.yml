@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/09/2026 17:16:05
-  entityCount: 13713
+  time: 05/09/2026 17:24:15
+  entityCount: 13715
 maps:
 - 1
 grids:
@@ -57062,6 +57062,13 @@ entities:
     - type: Transform
       pos: 40.5,-31.5
       parent: 2
+- proto: GlassBoxLawbringerFilled
+  entities:
+  - uid: 9391
+    components:
+    - type: Transform
+      pos: 26.5,3.5
+      parent: 2
 - proto: GravityGenerator
   entities:
   - uid: 8552
@@ -62258,9 +62265,9 @@ entities:
     - type: Transform
       pos: -17.5,-16.5
       parent: 2
-- proto: LockerHeadOfSecurityFilled
+- proto: LockerHeadOfSecurityFilledHardsuit
   entities:
-  - uid: 9391
+  - uid: 11291
     components:
     - type: Transform
       pos: 25.5,3.5
@@ -73680,6 +73687,17 @@ entities:
     - type: Transform
       pos: -10.5,2.5
       parent: 2
+  - uid: 13714
+    components:
+    - type: Transform
+      pos: 10.5,8.5
+      parent: 2
+  - uid: 13715
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,6.5
+      parent: 2
 - proto: SpawnVehicleChairOfficeLight
   entities:
   - uid: 13688
@@ -74155,13 +74173,6 @@ entities:
     components:
     - type: Transform
       pos: 37.5,-6.5
-      parent: 2
-- proto: SuitStorageHOS
-  entities:
-  - uid: 11291
-    components:
-    - type: Transform
-      pos: 26.5,3.5
       parent: 2
 - proto: SuitStorageSec
   entities:
