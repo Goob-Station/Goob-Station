@@ -34,7 +34,7 @@ public sealed partial class StaminaResistanceComponent : Component
     /// Passed <c>value</c> from 0 to 100.
     /// </summary>
     [DataField]
-    public LocId Examine = "armor-stamina-projectile-coefficient-value"; // DeltaV
+    public LocId Examine = "stamina-resistance-coefficient-value";
 
 
     /// <summary>

@@ -50,10 +50,12 @@
             sound:
               path: /Audio/_DV/CosmicCult/ability_lapse.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
     maxBleedAmount: 10.75
     bleedReductionAmount: 0.1
-    bloodReagent: Entropy
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Entropy
+        Quantity: 100
     bloodlossDamage:
       types:
         Bloodloss:

@@ -1,5 +1,5 @@
 - type: emoteSounds
-  id: CosmicEmotesMale
+  id:   CosmicEmotesMale
   params:
     variation: 0.125
   sounds:

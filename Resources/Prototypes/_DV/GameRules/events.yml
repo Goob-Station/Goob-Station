@@ -4,13 +4,13 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-- type: entityTable
-  id: BasicCalmEventsTableDeltaV
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: MothroachSpawn
-    - id: XenoVents
-    - id: MalignRiftSpawn # DeltaV
+
+#- type: entityTable # Goob unused
+#  id: BasicCalmEventsTableDeltaV
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+#    - id: MothroachSpawn
+#    - id: MalignRiftSpawn # DeltaV
 
 - type: entity
   id: MothroachSpawn

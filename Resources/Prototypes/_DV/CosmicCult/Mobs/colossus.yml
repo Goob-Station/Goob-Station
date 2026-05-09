@@ -254,7 +254,6 @@
     guides:
     - CosmicColossus
 
-
 - type: entity
   parent: [ MobCosmicColossusBase ]
   categories: [ HideSpawnMenu ]
