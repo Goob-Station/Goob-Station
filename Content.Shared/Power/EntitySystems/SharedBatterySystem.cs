@@ -25,6 +25,8 @@ public abstract partial class SharedBatterySystem : EntitySystem
     {
         base.Initialize();
 
+        _disabledQuery = GetEntityQuery<EmpDisabledComponent>();
+
         SubscribeLocalEvent<BatteryComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<BatteryComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BatteryComponent, EmpPulseEvent>(OnEmpPulse);
