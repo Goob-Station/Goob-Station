@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/09/2026 17:24:15
-  entityCount: 13715
+  time: 05/09/2026 17:33:38
+  entityCount: 13718
 maps:
 - 1
 grids:
@@ -2655,13 +2655,13 @@ entities:
             2: 15
           -10,-10:
             0: 63232
-            6: 14
+            4: 14
           -10,-12:
             0: 14
             3: 3584
           -10,-11:
-            4: 14
-            5: 3584
+            5: 14
+            6: 3584
           -10,-13:
             0: 61166
           -9,-13:
@@ -3409,6 +3409,25 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
           - 0
           - 0
           - 6666.982
@@ -3429,25 +3448,6 @@ entities:
           moles:
           - 6666.982
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -5036,14 +5036,22 @@ entities:
         139:
         - - DoorStatus
           - DoorBolt
-- proto: AirlockExternalGlassShuttleEmergencyLocked
+- proto: AirlockExternalGlassShuttleArrivals
   entities:
   - uid: 141
     components:
     - type: Transform
       rot: 3.141592653589793 rad
+      pos: 6.5,20.5
+      parent: 2
+  - uid: 151
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
       pos: 12.5,20.5
       parent: 2
+- proto: AirlockExternalGlassShuttleEmergencyLocked
+  entities:
   - uid: 142
     components:
     - type: Transform
@@ -5094,12 +5102,6 @@ entities:
     components:
     - type: Transform
       pos: -20.5,-43.5
-      parent: 2
-  - uid: 151
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 6.5,20.5
       parent: 2
 - proto: AirlockExternalGlassShuttleMiningFilled
   entities:
@@ -40797,19 +40799,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 6445
-    components:
-    - type: Transform
-      anchored: False
-      pos: 28.5,1.5
-      parent: 2
-    - type: VentCrawlerTube
-      connected: False
-    - type: Physics
-      canCollide: True
-      bodyType: Dynamic
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
   - uid: 6446
     components:
     - type: Transform
@@ -63999,6 +63988,13 @@ entities:
       parent: 2
 - proto: PlushieSharkBlue
   entities:
+  - uid: 6445
+    components:
+    - type: MetaData
+      desc: gnshes
+    - type: Transform
+      pos: -48.492134,-30.873884
+      parent: 2
   - uid: 9664
     components:
     - type: Transform
@@ -73698,6 +73694,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,6.5
       parent: 2
+  - uid: 13716
+    components:
+    - type: Transform
+      pos: -18.5,-19.5
+      parent: 2
 - proto: SpawnVehicleChairOfficeLight
   entities:
   - uid: 13688
@@ -73738,6 +73739,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -31.5,2.5
+      parent: 2
+  - uid: 13717
+    components:
+    - type: Transform
+      pos: -47.5,-31.5
       parent: 2
 - proto: SpiderWeb
   entities:
@@ -77249,6 +77255,15 @@ entities:
     components:
     - type: Transform
       pos: 29.45367,4.57589
+      parent: 2
+- proto: ToyFigurineMouse
+  entities:
+  - uid: 13718
+    components:
+    - type: MetaData
+      desc: Evil..
+    - type: Transform
+      pos: -32.837963,3.0148368
       parent: 2
 - proto: ToyFigurinePassenger
   entities:
