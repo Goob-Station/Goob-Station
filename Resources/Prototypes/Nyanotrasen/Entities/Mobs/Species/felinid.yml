@@ -47,6 +47,7 @@
 #    - OwOnavirus
   - type: Speech
     speechSounds: Alto
+    allowedEmotes: [ 'Meow', 'Mew', 'Purr', 'Trill', 'Hiss', 'Growl' ] # Omu
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic

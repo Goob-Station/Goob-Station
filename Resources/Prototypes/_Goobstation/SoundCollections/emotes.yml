@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: soundCollection
@@ -24,6 +31,9 @@
   id: Trill
   files:
     - /Audio/_Goobstation/Voice/Resomi/trill.ogg
+    - /Audio/_Starlight/Voice/Resomi/trill1.ogg # Omu start
+    - /Audio/_Starlight/Voice/Resomi/trill2.ogg
+    - /Audio/_Starlight/Voice/Resomi/trill3.ogg # Omu end - added from starlight
 
 - type: soundCollection
   id: Warble
@@ -39,26 +49,26 @@
   id: Bagawk
   files:
   - /Audio/_Mono/Voice/bagawk.ogg
-  
-- type: soundCollection 
+
+- type: soundCollection
   id: VoxCough
   files:
   - /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
   - /Audio/_Goobstation/Voice/Vox/vox_cough2.ogg
-  
-- type: soundCollection 
+
+- type: soundCollection
   id: VoxChitter
   files:
   - /Audio/_Goobstation/Voice/Vox/vox_chitter.ogg
   - /Audio/_Goobstation/Voice/Vox/vox_chitter1.ogg
   - /Audio/_Goobstation/Voice/Vox/vox_chitter2.ogg
- 
-- type: soundCollection 
+
+- type: soundCollection
   id: VoxClick
   files:
   - /Audio/_Goobstation/Voice/Vox/vox_click.ogg
-  
-- type: soundCollection 
+
+- type: soundCollection
   id: VoxHiss
   files:
   - /Audio/_Goobstation/Voice/Vox/voxhiss.ogg

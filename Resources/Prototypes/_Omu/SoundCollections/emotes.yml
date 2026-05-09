@@ -1,0 +1,67 @@
+#I am a lizard, and I must scream.
+- type: soundCollection
+  id: ReptilianScream
+  files:
+  - /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+#alternative screams from RMC
+- type: soundCollection
+  id: ReptilianScreech
+  files:
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_2.ogg
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_3.ogg
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_4.ogg
+
+# Vulp emotes
+
+- type: soundCollection
+  id: VulpYips
+  files:
+    - /Audio/Animals/fox_squeak.ogg
+
+- type: soundCollection
+  id: VulpYaps
+  files:
+    - /Audio/_Omu/Voice/Vulp/yap1.ogg
+    - /Audio/_Omu/Voice/Vulp/yap2.ogg
+    - /Audio/_Omu/Voice/Vulp/yap3.ogg
+
+# Rodentia emotes
+
+- type: soundCollection
+  id: RodentiaSquees
+  files:
+    - /Audio/_Starlight/Voice/Lagomorph/squeak1.ogg
+    - /Audio/_Starlight/Voice/Lagomorph/squeak2.ogg
+
+- type: soundCollection
+  id: RodentiaSnorts
+  files:
+    - /Audio/_Starlight/Voice/Lagomorph/snort1.ogg
+    - /Audio/_Starlight/Voice/Lagomorph/snort2.ogg
+
+# Feroxi Sounds
+
+- type: soundCollection
+  id: FeroxiChirps
+  files:
+    - /Audio/_Omu/Voice/Feroxi/feroxi-chirp1.ogg
+    - /Audio/_Omu/Voice/Feroxi/feroxi-chirp2.ogg
+    - /Audio/_Omu/Voice/Feroxi/feroxi-chirp3.ogg
+
+- type: soundCollection
+  id: FeroxiSqueak
+  files:
+    - /Audio/_Omu/Voice/Feroxi/feroxi-squeak.ogg
+
+- type: soundCollection
+  id: FeroxiCry
+  files:
+    - /Audio/_Omu/Voice/Feroxi/feroxi-cry1.ogg
+    - /Audio/_Omu/Voice/Feroxi/feroxi-cry2.ogg
+
+- type: soundCollection
+  id: FeroxiScream
+  files:
+    - /Audio/_Omu/Voice/Feroxi/feroxi-scream1.ogg
+    - /Audio/_Omu/Voice/Feroxi/feroxi-scream2.ogg

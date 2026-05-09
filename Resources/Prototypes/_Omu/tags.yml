@@ -6,3 +6,12 @@
 
 - type: Tag
   id: HudMedichem
+
+- type: Tag
+  id: RodentiaEmotes
+
+- type: Tag
+  id: FeroxiEmotes
+
+- type: Tag
+  id: RollerBedCompact

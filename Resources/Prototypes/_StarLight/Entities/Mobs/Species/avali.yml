@@ -1,0 +1,231 @@
+- type: entity
+  save: false
+  name: Urist McAvali
+  parent: [ BaseMobSpeciesOrganic ] # BaseSpeciesPickupable - Omu, this doesn't exist here.
+  id: BaseMobAvali
+  abstract: true
+  components:
+    - type: LanguageKnowledge
+      speaks:
+      - TauCetiBasic
+      - Schechi # Omu, todo - replace this with a unique language.
+      understands:
+      - TauCetiBasic
+      - Schechi # Omu, todo - replace this with a unique language.
+    - type: Tag
+      tags:
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
+        - AnomalyHost
+        - Avali
+        - AvaliEmotes # Omu
+    - type: Absorbable
+    - type: HumanoidAppearance
+      species: Avali
+      hideLayersOnEquip:
+      - Tail
+      - HeadTop
+    - type: Hunger # on 2x more
+      thresholds:
+        Overfed: 250
+        Okay: 200
+        Peckish: 150
+        Starving: 100
+        Dead: 0
+      baseDecayRate: 0.03
+    - type: Thirst
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Avali/parts.rsi
+      state: full
+    - type: Body
+      prototype: Avali
+      requiredLegs: 2
+    - type: Inventory
+      speciesId: avali
+      displacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: jumpsuit
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: outerclothing
+        shoes: # DM only for colored shoes!
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: shoes
+        head:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: head
+        hand:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: hand
+        back:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: back
+        gloves:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: gloves
+    - type: Butcherable
+      butcheringType: Spike
+      spawned:
+        - id: FoodMeatChicken
+          amount: 3
+    - type: Speech
+      speechVerb: Parrot # RMC did it right.
+      speechSounds: MaleResomi
+      allowedEmotes: ['Chirp', 'Hiss', 'Growl', 'Trill', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk'] # Omu, removed purring
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        90: Critical
+        180: Dead
+    - type: TemperatureSpeed
+      thresholds:
+        250: 0.9
+        230: 0.8
+        223: 0.6
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 95 #tiny
+          restitution: 0.0
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: Vocal
+      sounds:
+        Male: MaleAvali # Omu start
+        Female: FemaleAvali
+        Unsexed: MaleAvali # Omu end
+    - type: MovementSpeedModifier
+      weightlessAcceleration: 1.6 # Avalis are specifically built to fly in low-g environments
+      weightlessFriction: 1
+      weightlessModifier: 1
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Avali
+#    - type: DamageVisuals # Omu, This sprite doesn't exist.
+#      damageOverlayGroups:
+#        Brute:
+#          sprite: Mobs/Effects/brute_damage.rsi
+#          color: "#6C3BAA"
+    - type: Bloodstream
+      bloodReagent: AvaliBlood
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Weapons/pierce.ogg
+      angle: 30
+      animation: WeaponArcClaw
+      damage:
+        types:
+          Slash: 6.25
+    - type: Temperature
+      heatDamageThreshold: 310
+      coldDamageThreshold: 223
+      currentTemperature: 261
+      specificHeat: 48
+    - type: ThermalRegulator
+      metabolismHeat: 400 # icebirb go brrr
+      radiatedHeat: 100
+      implicitHeatRegulation: 1500
+      sweatHeatRegulation: 2000
+      shiveringHeatRegulation: 2000
+      normalBodyTemperature: 261
+      thermalRegulationTemperatureThreshold: 1
+#    - type: Stasis # Move this to a organ, Omu.
+#      enterStasisAction: ActionStasisEnter
+#      exitStasisAction: ActionStasisExit
+#      updateInterval: 1s
+#      healingPerUpdate:
+#        types:
+#          Heat: 2
+#          Cold: 2
+#        groups:
+#          Brute: 6
+#      bleedHealPerUpdate: 1.0
+#      critHealingModifier: 2.0
+#      stasisDamageReduction: 0.5
+    - type: PseudoItem
+      storedOffset: 20,0
+      shape:
+        - 0,3,0,2
+        - 1,3,2,3
+        - 3,3,3,2
+        - 4,4,5,0
+        - 6,3,6,0
+        - 7,1,7,0
+  # - type: CollectiveMind # Omu, kinda annoying dude
+  #  defaultChannel: Nexus
+  #  channels:
+  #  - Nexus
+
+# Chirp!
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAvaliDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy avali meant to be used in character setup.
+  components:
+    - type: HumanoidAppearance
+      species: Avali
+#      Undershirt: UndergarmentTopTanktopAvali # Omu
+#      Underwear: UndergarmentBottomBoxersAvali # Omu, we don't have these markings yet.
+    - type: Inventory
+      speciesId: Avali
+      displacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: jumpsuit
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: outerclothing
+        shoes: # DM only for colored shoes!
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: shoes
+        head:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: head
+        hand:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: hand
+        back:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: back
+        gloves:
+          sizeMaps:
+            32:
+              sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+              state: gloves
+
+# Chirp!

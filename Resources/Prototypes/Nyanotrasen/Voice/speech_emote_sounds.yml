@@ -47,6 +47,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Trill: # Omu
+      collection: Trill
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -95,3 +97,5 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Trill: # Omu
+      collection: Trill

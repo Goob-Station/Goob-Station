@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PeccNeck <74548962+PeccNeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -50,8 +63,8 @@
     requiredLegs: 2
   - type: Speech
     speechVerb: Parrot
-    speechSounds: MaleAvali
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble'] #goob
+    speechSounds: MaleAvali # Omu
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk', 'Hiss', 'Growl'] #goob # omu, add 'Scree', 'Call', 'Squawk' # omu again, added hiss and growl from avali in avali-resomi emote merge
   - type: Vocal
     sounds:
       Male: MaleAvaliEmote
@@ -63,6 +76,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+    - Resomi # Starlight
   - type: Hands
     handDisplacement:
       sizeMaps:

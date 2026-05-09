@@ -22,7 +22,7 @@
   - type: Speech
     speechSounds: Tenor
     speechVerb: Feroxi
-    allowedEmotes: [ "Gnash", "Thump" ] #goob edit
+    allowedEmotes: [ "Gnash", "Thump", "Chirp", "Squeak" ] #goob edit # Omu, Squeak and Chirp
   - type: Vocal
     sounds:
       Male: MaleFeroxi

@@ -61,6 +61,7 @@
   - type: Speech
     speechVerb: Felinid
     speechSounds: Alto
+    allowedEmotes: [ 'Meow', 'Mew', 'Purr', 'Trill', 'Hiss', 'Growl' ] # Omu
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - TauCetiBasic
