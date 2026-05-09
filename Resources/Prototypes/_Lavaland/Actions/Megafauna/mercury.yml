@@ -1,0 +1,32 @@
+- type: entity
+  id: ActionBaseORT
+  parent: BaseAction
+  name: spider of mercury action
+  abstract: true
+  components:
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Effects/plankton.rsi
+      state: plankton
+    itemIconStyle: NoItem
+  - type: TargetAction
+    checkCanAccess: false
+    range: 30
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTEtherDrain
+  name: Ether Drain
+  description: ██□■■■ □□□▣▣ ▢■■□
+  components:
+  - type: TargetAction
+    checkCanAccess: false
+    range: 2
+  - type: AngerDelayAction
+    minDelay: 1
+    maxDelay: 3
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:EtherDrainEvent

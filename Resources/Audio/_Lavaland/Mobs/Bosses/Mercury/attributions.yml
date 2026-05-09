@@ -23,6 +23,56 @@
   copyright: "Made by Psychronic"
   source: "https://pixabay.com/music/techno-trance-alien-dance-party-293052/"
 
+- files: ["glitch.ogg"]
+  license: "Custom"
+  copyright: "Made by CoffeeBagAudioLab"
+  source: "https://pixabay.com/sound-effects/film-special-effects-glitch-sound-232391/"
+
+- files: ["ufo_ambience.ogg"]
+  license: "Custom"
+  copyright: "Made by Freesound Community"
+  source: "https://pixabay.com/sound-effects/film-special-effects-034771-ufo-unidentified-flying-object-sound-effect-63296/"
+
+- files: ["ufo_noise.ogg"]
+  license: "Custom"
+  copyright: "Made by Jorgerosa (Freesound)"
+  source: "https://pixabay.com/sound-effects/film-special-effects-friend-ship-1-68541/"
+
+- files: ["ufo_active.ogg"]
+  license: "Custom"
+  copyright: "Made by SoundReality"
+  source: "https://pixabay.com/sound-effects/film-special-effects-ufo-chaser-143721/"
+
+- files: ["ufo_death.ogg"]
+  license: "Custom"
+  copyright: "Made by waterboy920 (Freesound)"
+  source: "https://pixabay.com/sound-effects/film-special-effects-ufo-landing-93632/"
+
+- files: ["communicating.ogg"]
+  license: "Custom"
+  copyright: "Made by kontraa"
+  source: "https://pixabay.com/sound-effects/film-special-effects-insects-ufo-hyperpop-sci-fi-sfx-208951/"
+
+- files: ["beam1.ogg"]
+  license: "Custom"
+  copyright: "Made by Yodguard"
+  source: "https://pixabay.com/sound-effects/film-special-effects-short-energy-beam-shot-3-482517/"
+
+- files: ["beam2.ogg"]
+  license: "Custom"
+  copyright: "Made by Yodguard"
+  source: "https://pixabay.com/sound-effects/technology-short-energy-beam-shot-1-482495/"
+
+- files: ["alien_noise.ogg"]
+  license: "Custom"
+  copyright: "Made by TanwerAman"
+  source: "https://pixabay.com/sound-effects/film-special-effects-alien-bird-321627/"
+
+- files: ["heavy_beam.ogg"]
+  license: "Custom"
+  copyright: "Made by Deleted_user_1941307"
+  source: "https://pixabay.com/sound-effects/film-special-effects-heavy-beam-weapon-7052/"
+
 - files: ["breaking_glass1.ogg"]
   license: "Custom"
   copyright: "Made by AleXZavesa"

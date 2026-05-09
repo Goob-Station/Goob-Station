@@ -79,16 +79,18 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mercury-skeleton
+  - type: AngerPlayerScaling
+    angerScale: 1.2
+    hpScale: 1.2
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Dead
-  - type: BossMusic
-    soundId: Bubblegum # TO DO: Change later
+      750: Dead
   - type: SpawnLootOnDeath
+    deleteOnDeath: true
     table: !type:AllSelector
       children:
-      - id: MercurySpiderCombatFormingAnimation
+      - id: ORTCombatAnimation
   # Actual boss from here
   - type: DangerZone
     popupRange: 15
@@ -136,21 +138,44 @@
     thresholds:
       0: Alive
       1500: Dead
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: BossImpactFootstep # TO DO: Change later
-      params:
-        volume: -5
-  - type: BossMusic
-    soundId: Bubblegum # TO DO: Change later
+  - type: AngerPlayerScaling
+    angerScale: 1.3
+    hpScale: 1.3
   - type: SpawnLootOnDeath
+    deleteOnDeath: true
     table: !type:AllSelector
       children:
       - id: ORTUFO
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: CrystalStep
+      params:
+        volume: -5
+  - type: BossMusic
+    soundId: ORT
   - type: PointLight
     radius: 5
     energy: 1.5
     color: cyan
+  # Actual boss from here
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: Mercury
+  - type: ActionGrant
+    actions:
+    - ActionORTEtherDrain
+  - type: VicinitySpawner # TO DO: Make an action that adds this component on a timer.
+    numberToSpawn: 1
+    offsetForSpawn: 7
+    prototype:
+    - DarkMatterPlankton
 
 - type: entity
   name: UFO
@@ -176,22 +201,27 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1000: Dead
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: BossImpactFootstep # TO DO: Change later
-      params:
-        volume: -5
+      1500: Dead
+  - type: AngerPlayerScaling
+    angerScale: 1.2
+    hpScale: 1.1
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: ORTUFODeathAnimation
+  - type: AmbientSound
+    enabled: true
+    volume: -5
+    range: 20
+    sound:
+      path: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_ambience.ogg
   - type: PointLight
     radius: 4
     energy: 1.5
     color: green
   - type: BossMusic
-    soundId: Bubblegum # TO DO: Change later
-  - type: SpawnLootOnDeath
-    table: !type:AllSelector
-      children:
-      - id: MercurySpiderUFODeathAnimation # TO DO: Make system that spawns in melee or ranged depending on damage taken.
+    soundId: ORT
 
 - type: entity
   name: The ultimate one
@@ -214,12 +244,23 @@
     thresholds:
       0: Alive
       2500: Dead
+  - type: AngerPlayerScaling
+    angerScale: 1.5
+    hpScale: 1.2
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: DarkMatterPlankton
   - type: BossMusic
-    soundId: Bubblegum # TO DO: Change later
+    soundId: UltimateOne
   - type: PointLight
     radius: 5
     energy: 1.5
     color: gold
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/alien_noise.ogg
 
 - type: entity
   name: The ultimate one
@@ -242,9 +283,20 @@
     thresholds:
       0: Alive
       1500: Dead
+  - type: AngerPlayerScaling
+    angerScale: 1.5
+    hpScale: 1.2
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: DarkMatterPlankton
   - type: BossMusic
-    soundId: Bubblegum # TO DO: Change later
+    soundId: UltimateOne
   - type: PointLight
     radius: 5
     energy: 1.5
     color: gold
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/communicating.ogg

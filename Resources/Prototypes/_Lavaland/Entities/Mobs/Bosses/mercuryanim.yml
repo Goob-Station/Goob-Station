@@ -25,6 +25,9 @@
   id: ORTFormingAnimation
   parent: BaseORTAnimation
   components:
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_active.ogg
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
@@ -56,17 +59,20 @@
     prototypes:
       - ORTCombatForm
     chance: 1.0
-    intervalSeconds: 1.0
+    intervalSeconds: 0.9
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: TimedDespawn
-    lifetime: 1.0
+    lifetime: 1
 
 - type: entity
   id: ORTUFODeathAnimation
   parent: BaseORTAnimation
   description: Is it finally over?
   components:
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_death.ogg
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
@@ -77,11 +83,11 @@
     prototypes:
       - ORTStarCell
     chance: 1.0
-    intervalSeconds: 3.6
+    intervalSeconds: 12.9
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: TimedDespawn
-    lifetime: 3.6
+    lifetime: 13
 
 - type: entity
   id: ORTStarCell
@@ -91,10 +97,10 @@
   components:
   - type: PointLight
     radius: 5
-    energy: 2
+    energy: 3
     color: gold
   - type: PulsingLight
-    color: gold
+    lightColor: gold
   - type: Rotating
     rotationSpeed: 30
     increaseOvertime: true

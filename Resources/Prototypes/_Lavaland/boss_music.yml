@@ -68,3 +68,21 @@
   positionOnEnd: 0
   sound:
     path: /Audio/_Lavaland/Mobs/Bosses/miniboss_fight.ogg
+
+- type: bossMusic
+  id: ORT
+  fade: true
+  fadeInTime: 5
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/Mercury/Finale.ogg
+
+- type: bossMusic
+  id: UltimateOne
+  fade: true
+  fadeInTime: 3
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/Mercury/Xibalba.ogg
