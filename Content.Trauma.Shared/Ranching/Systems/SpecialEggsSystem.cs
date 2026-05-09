@@ -1,7 +1,7 @@
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Coordinates;
 using Content.Shared.Interaction;
 using Content.Shared.Stacks;
+using Content.Trauma.Common.Nutrition;
 using Content.Trauma.Shared.Ranching.Components;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
@@ -17,18 +17,19 @@ public sealed class SpecialEggsSystem : EntitySystem
     {
         SubscribeLocalEvent<PlateableChickenComponent, InteractUsingEvent>(OnInteract);
 
-        SubscribeLocalEvent<CopyInjectedReagentsComponent, SolutionContainerChangedEvent>(OnChanged);
+        SubscribeLocalEvent<ChickenChestComponent, FullyAteEvent>(OnChanged);
     }
 
-    private void OnChanged(Entity<CopyInjectedReagentsComponent> ent, ref SolutionContainerChangedEvent args)
+    private void OnChanged(Entity<ChickenChestComponent> ent, ref FullyAteEvent args)
     {
-        if (args.SolutionId == "Blood" || TerminatingOrDeleted(ent.Owner))
+        var foodproto = Prototype(args.Food);
+
+        if (foodproto is null)
             return;
 
-        var regen = EnsureComp<SolutionRegenerationComponent>(ent.Owner);
-        regen.SolutionName = ent.Comp.Solution;
-        regen.Generated = args.Solution;
-        RemComp<CopyInjectedReagentsComponent>(ent.Owner);
+        // Minecraft crazy craft chicken chest, if you know you know.
+        PredictedSpawnAtPosition(foodproto.ID, ent.Owner.ToCoordinates());
+        PredictedSpawnAtPosition(foodproto.ID, ent.Owner.ToCoordinates());
     }
 
     private void OnInteract(Entity<PlateableChickenComponent> ent, ref InteractUsingEvent args)

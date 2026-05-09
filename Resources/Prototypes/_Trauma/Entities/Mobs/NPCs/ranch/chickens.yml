@@ -915,7 +915,7 @@
   description: Looks very fragile...
   components:
   - type: DealDamageOnPulled
-  - type: CopyInjectedReagents
+  - type: ChickenChest
   - type: SolutionContainerManager
     solutions:
       glasschicken:
