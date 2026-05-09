@@ -1,4 +1,5 @@
 using Content.Shared.Coordinates;
+using Content.Trauma.Shared.AnimalAgeing.Components;
 using Content.Trauma.Shared.TimedReplace;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -41,11 +42,8 @@ public sealed class TimedReplaceSystem : EntitySystem
         }
     }
 
-    public void ReplaceEntity(EntityUid uid, TimedReplaceComponent? replace)
+    public void ReplaceEntity(EntityUid uid, TimedReplaceComponent replace)
     {
-        if (!Resolve(uid, ref replace))
-            return;
-
         SpawnAtPosition(replace.Entity, uid.ToCoordinates());
         Del(uid);
     }

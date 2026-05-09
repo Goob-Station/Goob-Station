@@ -1,6 +1,3 @@
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-
 namespace Content.Trauma.Shared.TimedReplace;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]

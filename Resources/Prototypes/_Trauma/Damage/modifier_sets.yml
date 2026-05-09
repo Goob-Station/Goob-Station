@@ -43,6 +43,18 @@
     Heat: 0
 
 - type: damageModifierSet
+  id: StoneChicken
+  coefficients:
+    Structural: 4
+    Blunt: 0.5
+    Slash: 0.25
+    Piercing: 0.75
+    Heat: 0.5
+    Radiation: 0
+  flatReductions:
+    Blunt: 5
+
+- type: damageModifierSet
   id: KnightChickenEffect
   coefficients:
     Shock: 0.8

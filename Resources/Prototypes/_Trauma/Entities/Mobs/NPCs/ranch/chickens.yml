@@ -915,6 +915,11 @@
   description: Looks very fragile...
   components:
   - type: DealDamageOnPulled
+  - type: CopyInjectedReagents
+  - type: SolutionContainerManager
+    solutions:
+      glasschicken:
+        maxVol: 30
   - type: Destructible
     thresholds:
     - trigger:
@@ -1264,8 +1269,8 @@
   components:
   - type: SpawnEntityOnAgeUp
     entToSpawn:
-    - MobMimeHen
-    - MobMimeRooster
+    - MobBalloonHen
+    - MobBalloonRooster
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-balloon.rsi
   - type: FavoriteFood
@@ -1406,7 +1411,7 @@
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: Rock
+    damageModifierSet: StoneChicken
   - type: Destructible
     thresholds:
     - trigger:
@@ -1471,6 +1476,7 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-stone.rsi
+  - type: PlateableChicken
   - type: FavoriteFood
     tag:
     - Rice
@@ -1485,6 +1491,7 @@
   - type: EggFertilizer
     specialReplacementRequiredEgg: SelkieEgg
     specialReplacement: CoralEgg
+  - type: PlateableChicken
   - type: FavoriteFood
     tag:
     - Rice

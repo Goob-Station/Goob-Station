@@ -39,7 +39,6 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         SubscribeLocalEvent<AnimalAgeingComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HappinessComponent, ExaminedEvent>(OnExamineHappiness);
 
-        SubscribeLocalEvent<ChangeComponentsOnAgeUpComponent, ChangeMobAgeStateEvent>(OnStateChanged);
         SubscribeLocalEvent<SpawnEntityOnAgeUpComponent, ChangeMobAgeStateEvent>(OnStateChangedAgeSpawn);
 
         SubscribeLocalEvent<SpawnEntityOnOldAgeDeathComponent, OldAgeDeathEvent>(OnOldAgeDeathSpawn);
@@ -116,21 +115,6 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         var enttospawn = _random.Pick(ent.Comp.EntToSpawn);
 
         CopyAndReplaceEntity(enttospawn, ent.Owner);
-    }
-    private void OnStateChanged(Entity<ChangeComponentsOnAgeUpComponent> ent, ref ChangeMobAgeStateEvent args)
-    {
-        if (args.NewState == AnimalAgeState.Adult)
-        {
-            EntityManager.AddComponents(ent.Owner, ent.Comp.AdultComponentsToAdd);
-            EntityManager.RemoveComponents(ent.Owner, ent.Comp.AdultComponentsToRemove);
-            return;
-        }
-
-        if (args.NewState == AnimalAgeState.Senior)
-        {
-            EntityManager.AddComponents(ent.Owner, ent.Comp.SeniorComponentsToAdd);
-            EntityManager.RemoveComponents(ent.Owner, ent.Comp.SeniorComponentsToRemove);
-        }
     }
 
     private void OnExamine(Entity<AnimalAgeingComponent> ent, ref ExaminedEvent args)
