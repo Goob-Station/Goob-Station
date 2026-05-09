@@ -60701,7 +60701,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
           - 7734
           - 7745
           - 7749
@@ -60744,8 +60743,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
-          - invalid
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
