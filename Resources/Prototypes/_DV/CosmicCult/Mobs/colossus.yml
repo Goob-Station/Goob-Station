@@ -10,8 +10,13 @@
     cultistText: cosmic-examine-text-cultentity
     othersText: cosmic-examine-text-entities
   - type: AntagImmune
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
   - type: StaminaResistance
     damageCoefficient: 0 # No more stunning colossi
+    worn: false
+    meleeResistance: true
   - type: Sprite
     drawdepth: Mobs
     sprite: _DV/CosmicCult/Mobs/colossus.rsi
@@ -75,7 +80,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.25
+          radius: 0.42
         density: 2500
         mask:
         - FlyingMobMask
@@ -88,6 +93,7 @@
       - GhostOnlyWarp
   - type: Body
     requiredLegs: 0
+    prototype: ColossusBody # Goob
   - type: Emoting
   - type: Speech
     speechSounds: ColossusSpeech
@@ -104,7 +110,7 @@
     baseWalkSpeed: 2
     baseSprintSpeed: 3
     baseWeightlessModifier: 1
-    weightlessAcceleration: 1.5
+    weightlessAcceleration: 2.5
     weightlessFriction: 1
   - type: AmbientSound
     volume: +8
@@ -122,13 +128,15 @@
     - GhostOnlyWarp # Prevents it from being warped to or being a warp location bombing target
     - TaserImmune
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
+    damageContainer: InorganicMetaphysical
+    damageModifierSet: EntropicColossus
   - type: Bloodstream
-    bloodMaxVolume: 650
     maxBleedAmount: 0.1
     bleedReductionAmount: 0.1
-    bloodReagent: Entropy
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Entropy
+        Quantity: 650
     bloodlossDamage:
       types:
         Bloodloss:
@@ -167,12 +175,11 @@
     maxZoom: 1.2, 1.2
   - type: Eye
     visMask:
-      - Normal
-      - CosmicCultMonument
+    - Normal
+    - CosmicCultMonument
   - type: StatusEffects
     allowed:
     - Stutter
-    - Stun
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -212,9 +219,9 @@
     range: 2
     damage:
       types:
-        Blunt: 25
-        Asphyxiation: 5
-        Cold: 5
+        Blunt: 35
+        Asphyxiation: 10
+        Cold: 10
         Structural: 60
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
@@ -229,14 +236,6 @@
   - type: MeleeThrowOnHit
     speed: 8
     distance: 7
-  - type: Reflect
-    reflectProb: .15
-    spread: 120
-    soundOnReflect:
-      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
-      params:
-        variation: 0.2
-        volume: -6
   - type: GhostRole
     name: ghost-role-information-colossus-name
     description: ghost-role-information-colossus-description
@@ -249,6 +248,7 @@
   - type: GuideHelp
     guides:
     - CosmicColossus
+
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
@@ -270,6 +270,13 @@
     mobile: true
     autoDisable: false
     corruptionReduction: 0
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -1
+        Burn: -0.5
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
@@ -365,9 +372,9 @@
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         layer:
-          - SlipLayer
+        - SlipLayer
         mask:
-          - ItemMask
+        - ItemMask
         density: 2500
         hard: false
   - type: StepTrigger
@@ -376,7 +383,7 @@
     ignoreWeightless: true
     blacklist:
       tags:
-        - Catwalk
+      - Catwalk
   - type: TileEntityEffect
     effects:
     - !type:HealthChange
