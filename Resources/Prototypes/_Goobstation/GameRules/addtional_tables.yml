@@ -1,0 +1,46 @@
+#A leftover file from the Hermit revert, was renamed and made to store spawning tables for any addtional gamemode created.
+
+- type: entityTable
+  id: BasicGameRulesTableLowpop
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: BasicAntagEventsTableLowpop
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+- type: entityTable
+  id: BasicAntagEventsTableLowpop
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: ClosetSkeleton
+   # - id: DragonSpawn removed for low pop Too little sec
+    - id: KingRatMigration
+    - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
+    #- id: RevenantSpawn  # GoobStation - removed till rework
+    - id: SleeperAgents
+   # - id: ZombieOutbreak removed for low pop too little sec
+   # - id: LoneOpsSpawn removed for low pop too little sec
+    - id: DerelictCyborgSpawn
+    #- id: BlobSpawn # Goobstation - removed for low pop too little sec
+    - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
+    - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
+    - id: BingleSpawn #Goobstation - Bingle
+    - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
+   # - id: XenomorphsInfestation # WD EDIT removed for low pop too little sec
+    - id: SlasherSpawn # Goobstation - The Slasher
+    - id: SpacePirates # Goobstation - you probably can read whom this rule spawns
+    - id: GreyTideAntagMidround # Goobstation - New Midrounds
+    - id: SingulothKnightsMidround # Goobstation - New Midrounds
+    #- id: DarkLordMidround # Goobstation - New Midrounds
+    - id: MimeAssassinMidround # Goobstation - New Midrounds
+    - id: DarkPriestMidround # Goobstation - New Midrounds
+    - id: VoxRaidersMidround # Goobstation - New Midrounds
+    - id: TunnelClownMidround # Goobstation
