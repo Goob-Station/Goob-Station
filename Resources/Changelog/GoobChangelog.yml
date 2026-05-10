@@ -22857,3 +22857,9 @@ Entries:
       message: Removed turrets from CC landing area, added polling to CC.
   id: 2616
   time: '2026-04-29T18:48:07.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Tweak
+      message: Re-sprited the BSO mantle
+  id: 2617
+  time: '2026-05-10T08:10:50.0000000+00:00'
