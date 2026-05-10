@@ -1,5 +1,4 @@
 using Content.Shared.Coordinates;
-using Content.Trauma.Shared.AnimalAgeing.Components;
 using Content.Trauma.Shared.TimedReplace;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -15,9 +14,11 @@ public sealed class TimedReplaceSystem : EntitySystem
     {
         SubscribeLocalEvent<TimedReplaceComponent, MapInitEvent>(OnMapInit);
     }
-
     private void OnMapInit(Entity<TimedReplaceComponent> ent, ref MapInitEvent args)
     {
+        if (!ent.Comp.Active)
+            return;
+
         ent.Comp.SpawnTime = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(ent.Comp.MinTime, ent.Comp.MaxTime));
     }
 
@@ -30,7 +31,7 @@ public sealed class TimedReplaceSystem : EntitySystem
         var query = EntityQueryEnumerator<TimedReplaceComponent>();
         while (query.MoveNext(out var uid, out var replace))
         {
-            if (_timing.CurTime < replace.SpawnTime)
+            if (!replace.Active || _timing.CurTime < replace.SpawnTime)
                 continue;
 
             toReplace.Add((uid, replace));
@@ -42,7 +43,7 @@ public sealed class TimedReplaceSystem : EntitySystem
         }
     }
 
-    public void ReplaceEntity(EntityUid uid, TimedReplaceComponent replace)
+    private void ReplaceEntity(EntityUid uid, TimedReplaceComponent replace)
     {
         SpawnAtPosition(replace.Entity, uid.ToCoordinates());
         Del(uid);

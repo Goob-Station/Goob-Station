@@ -1,0 +1,75 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: RanchIncubator
+  name: incubator
+  description: Put an egg in here to make a chicken!
+  components:
+  - type: Sprite
+    sprite: _Trauma/Structures/Machines/ranchobjects.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: incubator
+    - state: incubator-egg
+      map: ["egg"]
+      visible: false
+  - type: ApcPowerReceiver
+    powerLoad: 20
+  - type: ItemSlots
+    slots:
+      egg-slot:
+        priority: 4
+        whitelist:
+          tags:
+          - Egg
+  - type: ContainerContainer
+    containers:
+      egg-slot: !type:ContainerSlot
+  - type: GenericVisualizer
+    visuals:
+      enum.EggIncubatorVisuals.Egg:
+        egg:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: EggIncubator
+
+- type: entity
+  id: ChickenCarrier
+  name: chicken carrier
+  description: Allows chickens to be carried comfortably. It smells vaguely of toilet water and explosives.
+  parent: PetCarrier
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Items
+    sprite: _Trauma/Structures/Machines/ranchobjects.rsi
+    layers:
+    - state: chicken-carrier
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: chicken-carrier
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: chicken-carrier
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+  - type: EntityStorage
+    capacity: 1
+    airtight: false
+    whitelist:
+      tags:
+      - Chicken
+  - type: EntityStorageVisuals
+    stateDoorOpen: chicken-carrier
+    stateDoorClosed: chicken-carrier
+
+- type: entity
+  parent: BaseStructure
+  id: RanchBox
+  name: nesting box
+  description: Was nice place for a hen to lay her eggs. Due to advancements in bluespace chickens science they no longer have to.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Structures/Machines/ranchobjects.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    state: box

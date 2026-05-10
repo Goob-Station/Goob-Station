@@ -12,6 +12,9 @@ public sealed partial class TimedReplaceComponent : Component
     [DataField]
     public float MaxTime = 300f;
 
+    [DataField]
+    public bool Active;
+
     [DataField, AutoPausedField]
     public TimeSpan SpawnTime = TimeSpan.Zero;
 }

@@ -5,7 +5,7 @@
   name: egg
   components:
   - type: Perishable
-    rotAfter: 6000
+    rotAfter: 99999999 # For my birthday wish I wish to remove rotting
     molsPerSecondPerUnitMass: 0
   - type: RotInto
     entity: Eggshells
@@ -16,6 +16,7 @@
   - type: EggFertilizationTarget
   - type: TimedReplace
     entity: MobChickWhite
+  - type: BadFood
 
 - type: entity
   parent: BaseRanchingEgg
