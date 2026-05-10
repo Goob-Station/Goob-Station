@@ -11,4 +11,4 @@ survivalplus-title = Survival+
 survivalplus-description = Starts pretty calm. Ends up not quite.
 
 secretplus-lowpop-title= Secret+ Lowpop
-secretplus-lowpop-description= More active less threating. For skeleton crews
+secretplus-lowpop-description= More active less threatening. For skeleton crews.
