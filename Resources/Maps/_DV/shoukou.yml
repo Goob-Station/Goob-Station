@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/09/2026 17:33:38
-  entityCount: 13718
+  time: 05/10/2026 07:31:57
+  entityCount: 13717
 maps:
 - 1
 grids:
@@ -3482,12 +3482,6 @@ entities:
     - type: NavMap
     - type: ImplicitRoof
     - type: FTLDrive
-- proto: ActionToggleLight
-  entities:
-  - uid: 4
-    components:
-    - type: Transform
-      parent: 3
 - proto: AirAlarm
   entities:
   - uid: 5
@@ -62007,22 +62001,8 @@ entities:
     - type: Transform
       pos: 35.390247,-12.513891
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 4
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 4
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 13441
     components:
     - type: Transform
