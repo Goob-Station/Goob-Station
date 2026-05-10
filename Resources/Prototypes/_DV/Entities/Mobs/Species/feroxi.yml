@@ -202,9 +202,9 @@
       sprite: "_DV/Effects/creampie.rsi"
       state: "creampie_feroxi"
       visible: false
-  - type: Inventory
+  - type: Inventory # Goob-Feroxi-Resprite-Start
     speciesId: feroxi
-    femaleDisplacements: # Goob-Feroxi-Resprite-Start
+    femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
