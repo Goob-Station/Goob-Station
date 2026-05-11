@@ -40,7 +40,7 @@
     - id: GreyTideAntagMidround 
     #- id: SingulothKnightsMidround 
     #- id: DarkLordMidround 
-    #- id: MimeAssassinMidround 
+    - id: MimeAssassinMidround 
     - id: DarkPriestMidround 
-    - id: VoxRaidersMidround 
+    #- id: VoxRaidersMidround 
     - id: TunnelClownMidround 
