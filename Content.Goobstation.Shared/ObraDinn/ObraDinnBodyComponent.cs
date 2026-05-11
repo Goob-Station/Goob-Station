@@ -1,3 +1,4 @@
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mobs;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -7,6 +8,7 @@ namespace Content.Goobstation.Shared.ObraDinn;
 [RegisterComponent, NetworkedComponent,AutoGenerateComponentState]
 public sealed partial class ObraDinnBodyComponent : Component
 {
+
     /// <summary>
     /// range of witnesses we store
     /// </summary>
@@ -39,15 +41,17 @@ public sealed partial class ObraDinnBodyComponent : Component
 /// <param name="location"> location</param>
 /// <param name="name"> Indentity name</param>
 /// <param name="mobState"> mobstate comp</param>
-public struct ObraDinnWitness(EntityUid entity, EntityCoordinates location, string name, MobState mobState)
+public struct ObraDinnWitness(EntityUid entity, EntityCoordinates location, string name, MobState mobState, MarkingSet marks)
 {
+
     public readonly EntityUid Uid = entity;
     public readonly EntityCoordinates Loc = location;
     public readonly string Name = name;
     public readonly MobState MobState = mobState;
+    public readonly MarkingSet Markings = marks;
 
     public ObraDinnWitness Copy()
     {
-        return new ObraDinnWitness(Uid, Loc, Name, MobState);
+        return new ObraDinnWitness(Uid, Loc, Name, MobState, Markings);
     }
 } // Quote: "Can i be a witness to my own death? I should think so, i was there".

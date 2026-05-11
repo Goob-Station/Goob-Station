@@ -1,3 +1,5 @@
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -45,10 +47,16 @@ public sealed class ObraDinnBodySystem : EntitySystem
             if(!TryComp<MobStateComponent>(possibleWitness, out var mobStateComponent) )
                 continue;
 
+            MarkingSet markings = new MarkingSet();
+            // copy the markings to make sure the markings e.g. hair and beard at the time of death is stored
+            if (TryComp<HumanoidAppearanceComponent>(possibleWitness, out var appearanceComponent))
+                markings = new MarkingSet(appearanceComponent.MarkingSet);
+
             ent.Comp.Witnesses.Add( new ObraDinnWitness( possibleWitness,
                 Transform(possibleWitness).Coordinates,
                 Identity.Name(possibleWitness,EntityManager,ent.Owner),
-                mobStateComponent.CurrentState
+                mobStateComponent.CurrentState,
+                markings
                 ));
         }
         Dirty(ent);

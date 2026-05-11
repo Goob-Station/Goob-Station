@@ -1,4 +1,5 @@
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Systems;
@@ -105,10 +106,13 @@ public sealed class ObraDinnClockSystem : EntitySystem
 
             var hologram = PredictedSpawnAtPosition (proto.ID, witness.Loc);
 
-            _humanoidAppearance.CloneAppearance(witness.Uid, hologram );
+            _humanoidAppearance.CloneAppearance(witness.Uid, hologram);
 
             _metaData.SetEntityName(hologram, Loc.GetString("obradinn-hologram-name"));
             _mobstate.ChangeMobState(hologram, witness.MobState);
+
+            if (TryComp<HumanoidAppearanceComponent>(hologram, out var humanoidAppearance))
+                humanoidAppearance.MarkingSet = new MarkingSet(witness.Markings); // Makes sure Hair stays the same as when the death happened
 
             //add despawn
             var despawn = EnsureComp<TimedDespawnComponent>(hologram);
