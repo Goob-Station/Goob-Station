@@ -16,3 +16,9 @@
   files:
   - /Audio/_Lavaland/Mobs/Bosses/Mercury/beam1.ogg
   - /Audio/_Lavaland/Mobs/Bosses/Mercury/beam2.ogg
+
+- type: soundCollection
+  id: ThunderStrike
+  files:
+  - /Audio/_Goobstation/Effects/thunder_clap.ogg
+  - /Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg
