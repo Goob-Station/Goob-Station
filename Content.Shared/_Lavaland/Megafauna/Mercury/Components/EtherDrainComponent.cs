@@ -14,7 +14,13 @@ public sealed partial class EtherDrainComponent : Component
     /// How much stamina the action should drain.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int StaminaDrain = 50;
+    public int StaminaDrain = 25;
+
+    /// <summary>
+    /// Lookup range.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Range = 30f;
 
     /// <summary>
     /// Prototype spawned in under target.

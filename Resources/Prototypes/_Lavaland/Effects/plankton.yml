@@ -3,17 +3,34 @@
   name: Dark matter plankton
   description: Looks unstable. Kill it fast!
   components:
+  - type: Clickable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: MercurySpider
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3, -0.3, 0.3, 0.3"
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer  
   - type: Rotating
     increaseOvertime: true
   - type: FadingIn
-    fadeInTime: 1
-  - type: InteractionOutline
+    fadeInTime: 3
   - type: Sprite
     sprite: _Lavaland/Effects/plankton.rsi
     state: plankton
     drawdepth: Effects
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 10
   - type: PointLight
     radius: 2
     energy: 2
@@ -23,18 +40,15 @@
   - type: TimedSpawner
     prototypes:
       - DarkMatterPlanktonExplode
-    intervalSeconds: 4.9
+    intervalSeconds: 9.9
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15
+        damage: 10 # Just don't punch it and you'll get em'
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WindowShatter
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
@@ -75,8 +89,15 @@
     damage:
       groups:
         Genetic: 5
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: MercuryBeam
+      params:
+        volume: -6
   - type: TriggerOnSpawn
   - type: ProjectileGrenade
+    minVelocity: 0.1
+    maxVelocity: 0.3
     fillPrototype: DarkMatterPlanktonProjectile
     capacity: 8
 

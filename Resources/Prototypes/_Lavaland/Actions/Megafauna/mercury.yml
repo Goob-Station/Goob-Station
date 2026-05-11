@@ -21,12 +21,8 @@
   name: Ether Drain
   description: ██□■■■ □□□▣▣ ▢■■□
   components:
-  - type: TargetAction
-    checkCanAccess: false
-    range: 2
   - type: AngerDelayAction
-    minDelay: 1
-    maxDelay: 3
-  - type: EntityTargetAction
-    canTargetSelf: false
+    minDelay: 8
+    maxDelay: 20
+  - type: InstantAction
     event: !type:EtherDrainEvent

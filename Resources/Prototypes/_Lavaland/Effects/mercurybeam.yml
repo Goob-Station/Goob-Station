@@ -10,6 +10,7 @@
     sprite: _Lavaland/Effects/beam.rsi
     state: beam_ring
     drawdepth: Effects
+    noRot: true
   - type: TimedDespawn
     lifetime: 1.1
   - type: PointLight

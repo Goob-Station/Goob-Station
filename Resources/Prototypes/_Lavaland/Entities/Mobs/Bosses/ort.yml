@@ -121,7 +121,7 @@
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mercury
   - type: SpriteMovement
     movementLayers:
@@ -168,11 +168,13 @@
     actionDelay: 0.5
     selector: !type:NestedMegafaunaSelector
       id: Mercury
+  - type: EtherDrain
   - type: ActionGrant
     actions:
     - ActionORTEtherDrain
   - type: VicinitySpawner # TO DO: Make an action that adds this component on a timer.
-    numberToSpawn: 1
+    spawnInterval: 1.5
+    numberToSpawn: 2
     offsetForSpawn: 7
     prototype:
     - DarkMatterPlankton
@@ -198,6 +200,12 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 2
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
   - type: MobThresholds
     thresholds:
       0: Alive
