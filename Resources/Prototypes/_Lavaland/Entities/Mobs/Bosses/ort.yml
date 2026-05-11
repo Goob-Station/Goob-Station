@@ -28,6 +28,7 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: MercurySpider
+  - type: AddOrRemoveComponent
   - type: Fauna
   - type: Aggressive
     forgiveRange: 1000 # You woke it up, no more running.
@@ -172,12 +173,8 @@
   - type: ActionGrant
     actions:
     - ActionORTEtherDrain
-  - type: VicinitySpawner # TO DO: Make an action that adds this component on a timer.
-    spawnInterval: 1.5
-    numberToSpawn: 2
-    offsetForSpawn: 7
-    prototype:
-    - DarkMatterPlankton
+    #- ActionORTPlanktonFlood
+    - ActionORTEnergyDischarge
 
 - type: entity
   name: UFO

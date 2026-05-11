@@ -12,6 +12,8 @@
   selector: !type:GroupMegafaunaSelector
     children:
     - id: ActionORTEtherDrain
+    #- id: ActionORTPlanktonFlood
+    - id: ActionORTEnergyDischarge
 
 - type: megafaunaSelector
   id: ActionORTEtherDrain
@@ -23,3 +25,25 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionORTEtherDrain
+
+- type: megafaunaSelector
+  id: ActionORTPlanktonFlood
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTPlanktonFlood
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTPlanktonFlood
+
+- type: megafaunaSelector
+  id: ActionORTEnergyDischarge
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTEnergyDischarge
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTEnergyDischarge

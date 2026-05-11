@@ -11,9 +11,6 @@
       sprite: _Lavaland/Effects/plankton.rsi
       state: plankton
     itemIconStyle: NoItem
-  - type: TargetAction
-    checkCanAccess: false
-    range: 30
 
 - type: entity
   parent: ActionBaseORT
@@ -24,5 +21,50 @@
   - type: AngerDelayAction
     minDelay: 8
     maxDelay: 20
+  - type: TargetAction
+    checkCanAccess: false
+    range: 30
   - type: InstantAction
     event: !type:EtherDrainEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTPlanktonFlood
+  name: Plankton Flood
+  description:  ■■ ■■□□▣ █□■■■□
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:AddComponentActionEvent
+      targetComponent:
+        - type: VicinitySpawner
+          spawnInterval: 2
+          numberToSpawn: 4
+          offsetForSpawn: 8
+          prototype:
+            - DarkMatterPlankton
+      timeToRemoval: 8
+      removeAfterTimer: true
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTEnergyDischarge
+  name: Energy Discharge
+  description: ■■□█□□▣ ■■ ■■□■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:AddComponentActionEvent
+      targetComponent:
+        - type: VicinitySpawner
+          spawnInterval: 1
+          numberToSpawn: 2
+          offsetForSpawn: 8
+          prototype:
+            - LightningCrackle
+      timeToRemoval: 6
+      removeAfterTimer: true

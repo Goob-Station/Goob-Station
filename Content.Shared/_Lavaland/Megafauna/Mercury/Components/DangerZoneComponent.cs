@@ -8,27 +8,26 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 /// The pop-up can be selected from a list, and is picked at random.
 /// </summary>
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DangerZoneComponent : Component
 {
     /// <summary>
     /// How far the entity searches for targets to show a pop-up to.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float PopUpRange = 10f;
 
     /// <summary>
     /// A list of possible FTL strings for the pop-up.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public List<LocId> Popup = new();
 
     /// <summary>
     /// Interval between spawn attempts.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan Interval = TimeSpan.FromSeconds(5);
 
-    [DataField]
     public TimeSpan Accumulator = TimeSpan.Zero;
 }
