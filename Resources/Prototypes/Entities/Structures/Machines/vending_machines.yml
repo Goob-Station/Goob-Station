@@ -1232,9 +1232,16 @@
     radius: 1.5
     energy: 3.0
     color: "#9dc5c9"
+    mask: /Textures/Effects/LightMasks/cone.png # Goobstation
+    autoRot: true # Goobstation
   - type: GuideHelp
     guides:
     - MedicalDoctor
+  - type: Transform # Goobstation Start
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: false
+    rotateWhilePulling: true # Goobstation End
 
 - type: entity
   parent: VendingMachineMedicalBase
@@ -2691,7 +2698,7 @@
   components:
   - type: VendingMachine
     pack: NanoMedCivilianWallInventory
-    offState: off-civilian
+    offState: off # Goob
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded

@@ -370,6 +370,7 @@
     containers:
       mech-assembly-container: !type:Container
       battery-container: !type:Container
+      part-container: !type:Container
   - type: MechAssemblyVisuals
     statePrefix: gygax
   - type: Sprite

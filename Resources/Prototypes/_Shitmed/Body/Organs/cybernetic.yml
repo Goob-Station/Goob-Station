@@ -242,6 +242,8 @@
       Lung:
         maxVol: 100.0
         canReact: false
+      food:
+        maxVol: 0
   - type: Tag
     tags:
     - Organ

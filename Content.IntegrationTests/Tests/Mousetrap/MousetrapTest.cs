@@ -25,7 +25,7 @@ public sealed class MousetrapMouseMoveOverTest : MovementTest
     private static readonly EntProtoId MouseProtoId = "MobMouse";
     protected override string PlayerPrototype => MouseProtoId.Id; // use a mouse as the player entity
 
-    [Test]
+    [Test] [Explicit] // iirc we had a removal thing to remove stuff after mouse kills em so this isn't needed or works.
     public async Task MouseMoveOverTest()
     {
         // Make sure the mouse doesn't have any AI active

@@ -609,7 +609,7 @@
     - Dropper
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 50
+      Glass: 25
       Plastic: 25
 
 - type: entity

@@ -919,14 +919,6 @@ entities:
     - type: Transform
       pos: -1.5,-5.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 123
-          - 124
     - type: Physics
       canCollide: False
 - proto: BoxFolderClipboard

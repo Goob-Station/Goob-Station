@@ -369,9 +369,9 @@
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/centcomm_carapace.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/centcomm_carapace.rsi.
+    sprite: Clothing/OuterClothing/Armor/centcomm_carapace.rsi
 
-## Goob - These are meant to be here in upstream. Why are ours elsewhere. Fixme.
+## Goob - These are meant to be here in upstream. Why are ours elsewhere. Fixme. todo marty
 ##Web vest
 #- type: entity
 #  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]

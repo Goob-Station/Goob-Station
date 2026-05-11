@@ -53,6 +53,12 @@ public sealed class WeaponTests : InteractionTest
         Assert.That(wieldComp.Wielded, Is.True, "Mosin failed to wield when interacted with!");
 
         await AttemptShoot(urist);
+
+        // Goob edit start, our mosin does not autocycle, otherwise ammocount counts spent casing
+        if (TryComp<BallisticAmmoProviderComponent>(mosinNet, out var ballistic) && !ballistic.AutoCycle)
+            await UseInHand();
+        // Goob edit end.
+
         updatedAmmo = gunSystem.GetAmmoCount(mosinEnt);
 
         Assert.That(updatedAmmo, Is.EqualTo(startAmmo - 1), "Mosin failed to discharge appropriate amount of ammo!");

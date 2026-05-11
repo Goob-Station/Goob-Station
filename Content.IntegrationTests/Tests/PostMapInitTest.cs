@@ -230,7 +230,7 @@ namespace Content.IntegrationTests.Tests
             // Goobstation edit:
             // order this list alphabetically, mark dev maps
             // if upstreaming take ours here and edit manually.
-            "Amber",
+            //"Amber", kill
             "Atlas",
             "Bagel",
             "Barratry",
@@ -273,7 +273,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] GameMapsInCurrentPool = // plus dev
         {
             // order this list alphabetically, mark dev maps
-              "Amber",
+              //"Amber", kill
               "Atlas",
               "Bagel",
               "Barratry",

@@ -693,7 +693,7 @@ namespace Content.Shared.Movement.Systems
             }
         }
     }
-
+    /* Goob moved to Content.Goobstation.Common/Movement
     [Flags]
     [Serializable, NetSerializable]
     public enum MoveButtons : byte
@@ -705,7 +705,7 @@ namespace Content.Shared.Movement.Systems
         Right = 8,
         Walk = 16,
         AnyDirection = Up | Down | Left | Right,
-    }
+    }*/
 
     [Flags]
     public enum ShuttleButtons : byte

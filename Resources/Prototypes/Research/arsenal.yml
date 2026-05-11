@@ -227,13 +227,13 @@
   cost: 10000
   recipeUnlocks:
   - SignallerAdvanced
-  - SignalTrigger
-  - VoiceTrigger
-  - TimerTrigger
-  - FlashPayload
+  #- SignalTrigger # Goob roundstart
+  #- VoiceTrigger
+  #- TimerTrigger
+  #- FlashPayload
   - ShrapnelPayload # Goob
   #- ExplosivePayload # Goob if you uncomment this its the syndie exploding version
-  - ChemicalPayload
+  #- ChemicalPayload # Goobstation roundstart?
   - CableDetStack1
   - EmptyDetonator
   # Goobstation R&D Console rework start

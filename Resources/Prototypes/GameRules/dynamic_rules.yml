@@ -39,13 +39,13 @@
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 20
-        - id: Wizard
-          weight: 5
-          conditions:
-          - !type:HasBudgetCondition
-          - !type:MaxRuleOccurenceCondition
-          - !type:PlayerCountCondition
-            min: 10
+#        - id: Wizard # Goob we dont use this
+#          weight: 5
+#          conditions:
+#          - !type:HasBudgetCondition
+#          - !type:MaxRuleOccurenceCondition
+#          - !type:PlayerCountCondition
+#            min: 10
       # Roundstart Minor Rules
       - !type:GroupSelector
         conditions:

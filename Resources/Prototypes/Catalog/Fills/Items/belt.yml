@@ -332,14 +332,14 @@
   parent: ClothingBeltHolster
   suffix: Filled, Inspector # Goobstation
   components:
-  - type: ContainerFill # Goobstation
+  - type: EntityTableContainerFill
     containers:
-      item:
-      - WeaponRevolverInspector
-  - type: StorageFill
-    contents:
+      item: # Goob
+        id: WeaponRevolverInspector
+      storagebase: !type:AllSelector
+        children:
+        #- id: WeaponRevolverInspector # Goob - moved to its own slot
         - id: SpeedLoaderMagnum
-        # - id: WeaponRevolverInspector # Goobstation
 
 - type: entity
   id: ClothingBeltChefFilled

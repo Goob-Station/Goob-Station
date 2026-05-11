@@ -30,7 +30,7 @@ public abstract partial class SharedMoverController
 
         if (session.Channel is not { } channel) return;
 
-        ent.Comp.DefaultSprinting = _netConfig.GetClientCVar(channel, CCVars.DefaultWalk);
+        ent.Comp.DefaultSprinting = !_netConfig.GetClientCVar(channel, CCVars.DefaultWalk);
         RaiseLocalEvent(ent, new SprintingInputEvent(ent)); // WD EDIT
     }
 
@@ -45,7 +45,7 @@ public abstract partial class SharedMoverController
         if (args.SenderSession.AttachedEntity is not { } uid || !TryComp<InputMoverComponent>(uid, out var mover))
             return;
 
-        mover.DefaultSprinting = _netConfig.GetClientCVar(args.SenderSession.Channel, CCVars.DefaultWalk);
+        mover.DefaultSprinting = !_netConfig.GetClientCVar(args.SenderSession.Channel, CCVars.DefaultWalk);
         RaiseLocalEvent(uid, new SprintingInputEvent((uid, mover))); // WD EDIT
     }
 }

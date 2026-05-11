@@ -33,6 +33,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.Movement.Events;
 
 namespace Content.Goobstation.Shared.Sprinting;
 public abstract class SharedSprintingSystem : EntitySystem

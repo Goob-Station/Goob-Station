@@ -214,10 +214,9 @@
   id: FillAtmosphericsHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitAtmos
+    #- id: ClothingOuterHardsuitAtmos # Goob
     - id: OxygenTankFilled
-    #- id: ClothingMaskBreath
-    - id: ClothingMaskGasAtmos # Goobstation
+    - id: ClothingMaskBreath
     - id: ClothingModsuitAtmostechPowerCell # Goob edit
 
 - type: entity

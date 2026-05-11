@@ -627,5 +627,231 @@ namespace Content.IntegrationTests.Tests
 
             await pair.CleanReturnAsync();
         }
+
+        /// <summary>
+        /// Goobstation test.
+        /// Why add it here and not in goob namespace? Fuck you thats why i'm so fucking tired of the above tests but lets be real
+        /// they actually catch some fucked up shit sometimes.
+        /// This test is Explicit for a reason. It is designed to fail.
+        /// It runs a binary search, splitting the batches every time it fails to search for the bad proto.
+        /// It will EAT your ram. Keep batches small and earlystop = true.
+        /// (runs in SpawnAndDirty format, each ent on separate map)
+        ///
+        /// note; the evil proto might not be evil itself, i.e. lockerfill containing the fucker.
+        /// if you actually manage to only catch bad ents on this when two entities exist at the same time in separate maps,
+        /// dm me, @notactuallymarty, I've never seen that shit.
+        /// todo marty this is kinda shitcode.
+        /// </summary>
+        [Test, Explicit]
+        public async Task FindBadPrototype()
+        {
+            const bool verifyLastPrototype = true; // two at the end, do we check last?
+            const bool fastSearch = true; // if left = good assume right = bad and split right early, check splits.
+            const int ticksPerBatch = 5; // how many ticks to test for on each map. most shit dies at t = 3.
+            const int batchSize = 1000; // size of initial batch
+            const int batchUpToPercent = 100; // limit of total protos to test. i.e. 100% = 15k, 50% = 7.5k
+
+            // if we found bad proto in initial batch, find it, then stop looking and end early.
+            // made due to ram constraints. will still find ALL bad protos within the initial batch though,
+            // just won't continue further batches. if false, it'll go on until proto list end.
+            const bool earlyStop = true;
+
+            var badPrototypes = new List<(int Index, string Id)>();
+            var unresolvedFailures = new List<string>();
+
+            var settings = new PoolSettings { Connected = true, Dirty = true };
+
+            IReadOnlyList<(int Index, string Id)> allPrototypes;
+
+            {
+                await using var pair = await PoolManager.GetServerClient(settings);
+
+                var server = pair.Server;
+                var cfg = server.ResolveDependency<IConfigurationManager>();
+                var prototypeMan = server.ResolveDependency<IPrototypeManager>();
+
+                Assert.That(cfg.GetCVar(CVars.NetPVS), Is.False);
+
+                var protoIds = prototypeMan
+                    .EnumeratePrototypes<EntityPrototype>()
+                    .Where(p => !p.Abstract)
+                    .Where(p => !pair.IsTestPrototype(p))
+                    .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
+                    .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // goob edit - fuck them mimics
+                    .Where(p => !p.Components.ContainsKey("Supermatter")) // Goobstation - Supermatter eats everything, oh no!
+                    .Where(p => !p.Components.ContainsKey("SoundCollection")) // Omu
+                    .Where(p => !p.Components.ContainsKey("RandomSpawner")) // Omu
+                    .Where(p => !p.Components.ContainsKey("Marker")) // Omu - we spawn ALL entities including the ones the fucking markers spawn
+                    .Where(p => !p.Components.ContainsKey("GameRule")) // Trauma - are you stupid why would you do this
+                    .Select(p => p.ID)
+                    .ToList();
+
+                var percent = Math.Clamp(batchUpToPercent, 1, 100);
+                var maxCount = (int) Math.Ceiling(protoIds.Count * (percent / 100.0));
+
+                allPrototypes = protoIds
+                    .Take(maxCount)
+                    .Select((id, index) => (Index: index + 1, Id: id))
+                    .ToList();
+
+                await pair.CleanReturnAsync();
+            }
+
+            async Task<bool> RunSubset(IReadOnlyList<(int Index, string Id)> subset)
+            {
+                var subsetPair = await PoolManager.GetServerClient(settings);
+                var clean = false;
+
+                try
+                {
+                    var subsetServer = subsetPair.Server;
+                    var subsetCfg = subsetServer.ResolveDependency<IConfigurationManager>();
+                    var mapManager = subsetServer.ResolveDependency<IMapManager>();
+                    var entMan = subsetServer.ResolveDependency<IEntityManager>();
+                    var mapSys = subsetServer.System<SharedMapSystem>();
+
+                    Assert.That(subsetCfg.GetCVar(CVars.NetPVS), Is.False);
+
+                    await subsetServer.WaitPost(() =>
+                    {
+                        foreach (var proto in subset)
+                        {
+                            mapSys.CreateMap(out var mapId);
+                            var grid = mapManager.CreateGridEntity(mapId);
+
+                            var ent = entMan.SpawnEntity(
+                                proto.Id,
+                                new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
+
+                            foreach (var (_, component) in entMan.GetNetComponents(ent))
+                            {
+                                entMan.Dirty(ent, component);
+                            }
+                        }
+                    });
+
+                    for (var tick = 0; tick < ticksPerBatch; tick++)
+                    {
+                        await subsetPair.RunTicksSync(1);
+                    }
+
+                    await subsetPair.CleanReturnAsync();
+                    clean = true;
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+                finally
+                {
+                    if (!clean)
+                    {
+                        try
+                        {
+                            await subsetPair.DisposeAsync();
+                        }
+                        catch
+                        {
+                            // Expected after a failing run.
+                        }
+                    }
+                }
+            }
+
+            async Task MarkBad(IReadOnlyList<(int Index, string Id)> subset, bool verify)
+            {
+                var proto = subset[0];
+
+                if (verify && await RunSubset(subset))
+                    return;
+
+                badPrototypes.Add(proto);
+
+                await TestContext.Progress.WriteLineAsync(
+                    $"Bad prototype found: #{proto.Index}/{allPrototypes.Count} {proto.Id}");
+            }
+
+            async Task Explore(IReadOnlyList<(int Index, string Id)> subset, bool knownFailing = true)
+            {
+                await TestContext.Progress.WriteLineAsync(
+                    $"Entering branch: #{subset.First().Index}-{subset.Last().Index} ({subset.Count})");
+
+                if (subset.Count == 0)
+                    return;
+
+                if (subset.Count == 1)
+                {
+                    await MarkBad(subset, verifyLastPrototype);
+                    return;
+                }
+
+                var mid = subset.Count / 2;
+                var leftHalf = subset.Take(mid).ToList();
+                var rightHalf = subset.Skip(mid).ToList();
+
+                var leftFails = !await RunSubset(leftHalf);
+
+                if (fastSearch && knownFailing && !leftFails)
+                {
+                    await Explore(rightHalf);
+                    return;
+                }
+
+                var rightFails = !await RunSubset(rightHalf);
+
+                if (!leftFails && !rightFails)
+                {
+                    unresolvedFailures.Add(
+                        $"Combination failure only: #{subset.First().Index}-{subset.Last().Index} " +
+                        $"({subset.Count}), {subset.First().Id}..{subset.Last().Id}");
+
+                    return;
+                }
+
+                if (leftFails)
+                    await Explore(leftHalf);
+
+                if (rightFails)
+                    await Explore(rightHalf);
+            }
+
+            for (var batchStart = 0; batchStart < allPrototypes.Count; batchStart += batchSize)
+            {
+                var batch = allPrototypes
+                    .Skip(batchStart)
+                    .Take(batchSize)
+                    .ToList();
+
+                await TestContext.Progress.WriteLineAsync(
+                    $"Testing batch: #{batch.First().Index}-{batch.Last().Index} ({batch.Count})");
+
+                if (await RunSubset(batch))
+                    continue;
+
+                await Explore(batch);
+
+                if (earlyStop && badPrototypes.Count > 0)
+                    break;
+            }
+
+            if (badPrototypes.Count > 0)
+            {
+                Assert.Fail(
+                    "Bad prototypes found:\n" +
+                    string.Join("\n",
+                        badPrototypes.Select(p =>
+                            $"#{p.Index}/{allPrototypes.Count}: {p.Id}")));
+            }
+
+            if (unresolvedFailures.Count > 0)
+            {
+                Assert.Fail(
+                    "Failing combinations found, but no single bad prototype isolated:\n" +
+                    string.Join("\n", unresolvedFailures));
+            }
+        }
     }
 }
+
+

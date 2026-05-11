@@ -71,9 +71,9 @@
   recipes:
   - ChemicalPayload
   - FlashPayload
-  - TimerTrigger
-  - SignalTrigger
-  - VoiceTrigger
+  #- TimerTrigger # Goobstation roundstart
+  #- SignalTrigger
+  #- VoiceTrigger
 
 - type: latheRecipePack
   id: ScienceBoards

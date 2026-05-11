@@ -55,6 +55,8 @@
       solutions:
         stomach:
           maxVol: 50.0 # 2.5u added per sec when slime latched, 20 sec metabolize time, 2.5 * 20 = 50u
+        food:
+          maxVol: 0
     - type: Metabolizer
       maxPoisonsProcessable: 3
       metabolizerTypes: [ Slime, XenobioSlime ]

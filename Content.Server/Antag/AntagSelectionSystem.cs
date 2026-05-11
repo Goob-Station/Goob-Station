@@ -107,11 +107,12 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
-using Content.Server.Players.PlayTimeTracking; // Goobstation
+using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -540,13 +541,16 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (antagEnt is not { } player)
         {
-            Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
-            _adminLogger.Add(LogType.AntagSelection, $"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
+            // <Trauma> - moved logs inside the if statement from here
             if (session != null && ent.Comp.RemoveUponFailedSpawn)
             {
                 ent.Comp.AssignedSessions.Remove(session);
                 ent.Comp.PreSelectedSessions[def].Remove(session);
+
+                Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
+                _adminLogger.Add(LogType.AntagSelection, $"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
             }
+            // </Trauma>
 
             return;
         }

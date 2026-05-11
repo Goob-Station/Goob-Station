@@ -144,7 +144,7 @@
     price: 10
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 100
+      Glass: 50
 
 # A mug is a type of cup.[2]
 - type: entity
@@ -229,7 +229,7 @@
     solution: drink
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 50
 
 # Mugs
 - type: entity

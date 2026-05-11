@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Mail-only items. If/when these get used for anything else, please move them to another folder.
 # Pranks: admin items or effects put into an envelope, released when opened or damaged.
 #- type: entity todo <mailfix>
@@ -70,38 +71,38 @@
 #        - ReagentId: Opporozidone
 #          Quantity: 15
 #
-#- type: entity
-#  id: NecrosolChemistryBottle
-#  parent: BaseChemistryBottleFilled
-#  name: necrosol bottle
-#  components:
-#  - type: SolutionContainerManager
-#    solutions:
-#      drink:
-#        maxVol: 30
-#        reagents:
-#        - ReagentId: Necrosol
-#          Quantity: 30
-#
+- type: entity
+  id: NecrosolChemistryBottle
+  parent: BaseChemistryBottleFilled
+  name: necrosol bottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Necrosol
+          Quantity: 30
+
 ## Premium Alcohol: wait, it's just marketing?
 ## TODO: different sprites would be nice.
-#- type: entity
-#  id: DrinkPremiumVodkaBottleFull
-#  parent: DrinkVodkaBottleFull
-#  name: Moment of Clarity vodka bottle
-#  description: When things get a bit hectic, all you need is a Moment of Clarity.
-#
-#- type: entity
-#  id: DrinkPremiumGinBottleFull
-#  parent: DrinkGinBottleFull
-#  name: Harry's gin bottle
-#  description: An interesting set of botanicals, for sure. Is that pumpkin?
-#
-#- type: entity
-#  id: DrinkPremiumTequilaBottleFull
-#  parent: DrinkTequilaBottleFull
-#  name: Casa del Eorg tequila bottle
-#  description: Save the best for last. Casa del Eorg, 100% agave.
+- type: entity
+  id: DrinkPremiumVodkaBottleFull
+  parent: DrinkVodkaBottleFull
+  name: Moment of Clarity vodka bottle
+  description: When things get a bit hectic, all you need is a Moment of Clarity.
+
+- type: entity
+  id: DrinkPremiumGinBottleFull
+  parent: DrinkGinBottleFull
+  name: Harry's gin bottle
+  description: An interesting set of botanicals, for sure. Is that pumpkin?
+
+- type: entity
+  id: DrinkPremiumTequilaBottleFull
+  parent: DrinkTequilaBottleFull
+  name: Casa del Eorg tequila bottle
+  description: Save the best for last. Casa del Eorg, 100% agave.
 
 - type: entity
   id: DrinkPremiumWhiskeyBottleFull
@@ -109,14 +110,14 @@
   name: Ol' Prowler 18 whiskey bottle
   description: Surprisingly smooth, it has a nasty habit of sneaking up on you.
 
-#- type: entity
-#  id: DrinkPremiumRumBottleFull
-#  parent: DrinkRumBottleFull
-#  name: Redeemer's Bounty rum bottle
-#  description: Well, you asked for it. Navy strength.
-#
-#- type: entity
-#  id: DrinkPremiumAbsintheBottleFull
-#  parent: DrinkAbsintheBottleFull
-#  name: Bureaucracy's Kiss absinthe bottle
-#  description: A refined taste that tends to linger.
+- type: entity
+  id: DrinkPremiumRumBottleFull
+  parent: DrinkRumBottleFull
+  name: Redeemer's Bounty rum bottle
+  description: Well, you asked for it. Navy strength.
+
+- type: entity
+  id: DrinkPremiumAbsintheBottleFull
+  parent: DrinkAbsintheBottleFull
+  name: Bureaucracy's Kiss absinthe bottle
+  description: A refined taste that tends to linger.

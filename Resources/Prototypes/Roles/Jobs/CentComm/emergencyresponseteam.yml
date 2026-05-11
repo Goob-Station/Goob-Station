@@ -190,8 +190,8 @@
     # WeaponRifleLecterXL8  # Goobstation resprite and replace the above
   storage:
     back:
-    - HoloprojectorField
-    - PhoneInstrument
+    #- HoloprojectorField # Goobstation
+    #- PhoneInstrument
     - PinpointerNuclear
     - MagazineRifle
     - MagazineRifle
@@ -201,14 +201,14 @@
     - GrenadeShrapnel
     - EmpGrenade
     - ERTSecurityUndeterminedWeapon # Goobstation?
-    belt:
-    - Truncheon
-    - Handcuffs
-    - Handcuffs
-    - CrowbarRed
-    - WeaponPistolN1984
-    - MagazineMagnum
-    - EmergencyMedipen
+    #belt: # Goobstation
+    #- Truncheon
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolN1984
+    #- MagazineMagnum
+    #- EmergencyMedipen
 
 - type: chameleonOutfit
   id: ERTLeaderChameleonOutfit
@@ -522,14 +522,14 @@
     - GrenadeFlash
     - GrenadeFlash
     - MagazinePistol
-    belt:
-    - Truncheon
-    - Handcuffs
-    - Handcuffs
-    - CrowbarRed
-    - WeaponPistolMk58
-    - MagazinePistol
-    - EmergencyMedipen
+    #belt: # Goobstation
+    #- Truncheon
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolMk58
+    #- MagazinePistol
+    #- EmergencyMedipen
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -551,14 +551,14 @@
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
-    belt:
-    - Truncheon
-    - Handcuffs
-    - Handcuffs
-    - CrowbarRed
-    - WeaponPistolMk58
-    - MagazinePistol
-    - EmergencyMedipen
+    #belt: # Goobstation
+    #- Truncheon
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolMk58
+    #- MagazinePistol
+    #- EmergencyMedipen
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -577,14 +577,14 @@
     - ExGrenade
     - CableDetStack
     - BoxDetonator
-    belt:
-    - Truncheon
-    - Handcuffs
-    - Handcuffs
-    - CrowbarRed
-    - WeaponPistolMk58
-    - MagazinePistol
-    - EmergencyMedipen
+    #belt: # Goobstation
+    #- Truncheon
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolMk58
+    #- MagazinePistol
+    #- EmergencyMedipen
 
 - type: chameleonOutfit
   id: ERTSecurityChameleonOutfit
@@ -693,15 +693,15 @@
     - MedkitCombatFilled
     - ClothingEyesGlassesChemical
     - ChemistryBottleOmnizine
-    belt:
-    - Truncheon
-    - Zipties
-    - CrowbarRed
-    - MagazineRifle
-    - MagazineRifle
-    - MagazineRifleIncendiary
-    - MagazineRifleUranium # End of first line
-    - Zipties
+    #belt: # Goobstation
+    #- Truncheon
+    #- Zipties
+    #- CrowbarRed
+    #- MagazineRifle
+    #- MagazineRifle
+    #- MagazineRifleIncendiary
+    #- MagazineRifleUranium # End of first line
+    #- Zipties
 
 - type: chameleonOutfit
   id: ERTMedicalChameleonOutfit
@@ -740,7 +740,6 @@
     shoes: ClothingShoesGaloshes
     head: ClothingHeadHelmetERTJanitor
     outerClothing: ClothingOuterArmourDurathread # Goobstation
-    pocket2: FlashlightSeclite
 
 - type: startingGear
   id: ERTJanitorGearEVA
@@ -754,9 +753,10 @@
     outerClothing: ClothingOuterHardsuitERTJanitor
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltJanitorFilled
+    belt: ClothingBeltMilitaryWebbingERT # Goobstation fuck it
     pocket2: CombatKnife
     pocket1: WeaponPulsePistol # Goobstation Literally described as "Favored sidearm of NT ERT operatives".
+    suitstorage: WeaponLauncherHydra # Goobstation
   storage:
     back:
     - TrashBag

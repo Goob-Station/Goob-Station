@@ -91,9 +91,9 @@ namespace Content.Shared.Movement.Components
         public const float WalkingSoundModifier = 1.5f;
 
         public bool Sprinting => DefaultSprinting
-        ? (HeldMoveButtons & MoveButtons.Walk) != 0x0
-        : (HeldMoveButtons & MoveButtons.Walk) == 0x0;
-        
+            ? (HeldMoveButtons & MoveButtons.Walk) == 0x0
+            : (HeldMoveButtons & MoveButtons.Walk) != 0x0;
+
         public bool DefaultSprinting = true;
 
         [ViewVariables(VVAccess.ReadWrite)]

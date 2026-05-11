@@ -13,6 +13,7 @@
     size: Tiny
     heldPrefix: bloody
   - type: Crayon
+    selectedState: heart
     color: '#a70000'
   - type: BloodCrayon
     wpConsume: -5

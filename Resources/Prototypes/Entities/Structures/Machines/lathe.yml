@@ -417,6 +417,7 @@
         - Ingot
         - Metal # Goobstation Start
         - Wooden
+        - SheetPlasma
         - Plastic # Goobstation End
   - type: Lathe
     idleState: icon
@@ -712,6 +713,7 @@
       tags:
         - Sheet
         - RawMaterial
+        - SheetPlasma # Goob
   - type: Lathe
     idleState: icon
     runningState: building

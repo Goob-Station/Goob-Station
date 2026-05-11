@@ -332,22 +332,22 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: OxygenBreather
-  equipment:
-    pocket1: DoubleEmergencyOxygenTankFilled
+  #equipment: # Goobstation
+ #   pocket1: DoubleEmergencyOxygenTankFilled
   storage:
     back:
-    - BoxSurvivalMilitaryDouble
+    - BoxSurvivalSlotsEngineering # Goobstation
 
 - type: loadout
   id: EmergencyNitrogenMilitaryDouble
   effects:
   - !type:GroupLoadoutEffect
     proto: NitrogenBreather
-  equipment:
-    pocket1: DoubleEmergencyNitrogenTankFilled
+  #equipment: # Goobstation
+  #  pocket1: DoubleEmergencyNitrogenTankFilled
   storage:
     back:
-    - BoxSurvivalMilitaryDoubleNitrogen
+    - BoxSurvivalSlotsEngineeringNitrogen # Goobstation
 
 # Pre-equipped species gear
 
