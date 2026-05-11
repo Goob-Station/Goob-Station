@@ -71,7 +71,7 @@ public sealed class AddOrRemoveComponentSystem : EntitySystem
             return;
 
         var comp = ent.Comp;
-        var uid = args.Performer;
+        var uid = ent.Owner;
 
         comp.TargetComponent = args.TargetComponent;
         Dirty(uid, comp);
@@ -83,7 +83,10 @@ public sealed class AddOrRemoveComponentSystem : EntitySystem
 
     private void TryRemove(EntityUid uid, AddOrRemoveComponentComponent comp)
     {
-        EntityManager.RemoveComponents(uid, comp.TargetComponent);
+        if (comp.TargetComponent != null)
+        {
+            EntityManager.RemoveComponents(uid, comp.TargetComponent);
+        }
 
         // So it doesn't endlessly try to remove it.
         comp.RemoveAfterTimer = false;

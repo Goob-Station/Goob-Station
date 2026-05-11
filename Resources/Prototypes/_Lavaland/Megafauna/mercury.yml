@@ -14,6 +14,7 @@
     - id: ActionORTEtherDrain
     #- id: ActionORTPlanktonFlood
     - id: ActionORTEnergyDischarge
+    - id: ActionGalacticaSupercell
 
 - type: megafaunaSelector
   id: ActionORTEtherDrain
@@ -47,3 +48,14 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionORTEnergyDischarge
+
+- type: megafaunaSelector
+  id: ActionGalacticaSupercell
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionGalacticaSupercell
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionGalacticaSupercell

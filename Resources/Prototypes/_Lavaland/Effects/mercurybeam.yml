@@ -3,6 +3,8 @@
   name: High energy buildup
   description: Get out of the way!!!
   components:
+  - type: Transform
+    noRot: true    
   - type: FadingIn
     fadeInTime: 0.5
   - type: InteractionOutline
@@ -36,6 +38,8 @@
   id: ORTBeamSmall
   name: beam
   components:
+  - type: Transform
+    noRot: true    
   - type: InteractionOutline
   - type: Sprite
     sprite: _Lavaland/Effects/beam.rsi

@@ -31,12 +31,15 @@
   name: lightning strike
   description: Does strike twice in the same spot, contrary to popular belief. Should you really be inspecting this?
   components:
+  - type: Transform
+    noRot: true  
   - type: InteractionOutline
   - type: Sprite
     sprite: _Lavaland/Effects/64x128.rsi
     state: lightning_1
     drawdepth: Effects
     noRot: true
+    offset: "0.5, 1.5"
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -44,7 +47,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4, -3, 0.6, 0.4"
+          bounds: "-0.3, -0.2, 0.4, 1.4"
         density: 100
         mask:
         - MobMask
@@ -88,10 +91,23 @@
         volume: -2  
 
 - type: entity
+  id: StormSpawner
+  components:
+  - type: TimedDespawn
+    lifetime: 0.2
+  - type: Timer
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: ThunderStormBuildup
+    predicted: true
+
+- type: entity
   id: ThunderStormBuildup
   name: Massive static buildup
   description: Run. Now!!!
   components:
+  - type: Transform
+    noRot: true    
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_noise.ogg
@@ -132,6 +148,8 @@
   name: Galactica Supercell
   description: A cluster of thunderclouds created through nuclear fusion. Emits an ungodly amount of radiation.
   components:
+  - type: Transform
+    noRot: true    
   - type: InteractionOutline
   - type: Sprite
     sprite: _Lavaland/Effects/160x160.rsi

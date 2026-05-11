@@ -12,7 +12,7 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AddOrRemoveComponentComponent : Component
 {
-    public ComponentRegistry TargetComponent;
+    public ComponentRegistry? TargetComponent;
 
     [AutoNetworkedField]
     public bool RemoveAfterTimer;

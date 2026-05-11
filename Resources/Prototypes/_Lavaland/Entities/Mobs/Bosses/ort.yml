@@ -175,6 +175,7 @@
     - ActionORTEtherDrain
     #- ActionORTPlanktonFlood
     - ActionORTEnergyDischarge
+    - ActionGalacticaSupercell
 
 - type: entity
   name: UFO
