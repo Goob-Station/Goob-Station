@@ -1,0 +1,31 @@
+- type: job
+  id: Rancher
+  name: job-name-rancher
+  description: job-description-rancher
+  playTimeTracker: JobRancher
+  startingGear: RancherGear
+  icon: "JobIconRancher"
+  supervisors: job-supervisors-hop
+  setPreference: true
+  access:
+  - Service
+  - Botany
+  - Hydroponics
+
+- type: startingGear
+  id: RancherGear
+  equipment:
+    id: RancherPDA
+    ears: ClothingHeadsetService
+    pocket1: HandLabeler
+
+- type: chameleonOutfit
+  id: RancherChameleonOutfit
+  job: Rancher
+  equipment:
+    head: ClothingHeadHatBeretRND
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskSterile
+    neck: ClothingNeckTieSci
+    outerClothing: ClothingOuterWinterGen
+    gloves: ClothingHandsGlovesLatex

@@ -233,7 +233,7 @@
   plantRsi: _Trauma/Objects/Specific/Hydroponics/balloon_mellon.rsi
   packetPrototype: BalloonMelonSeeds
   productPrototypes:
-  - RedBalloon
+  - MelonBalloon
   lifespan: 55
   maturation: 12
   production: 3

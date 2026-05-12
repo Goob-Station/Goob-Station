@@ -55,6 +55,7 @@
   - type: EntityStorage
     capacity: 1
     airtight: false
+    showContents: true
     whitelist:
       tags:
       - Chicken

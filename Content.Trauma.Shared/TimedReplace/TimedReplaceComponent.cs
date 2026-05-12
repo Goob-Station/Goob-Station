@@ -7,10 +7,10 @@ public sealed partial class TimedReplaceComponent : Component
     public EntProtoId Entity;
 
     [DataField]
-    public float MinTime = 240f;
+    public float MinTime = 50f;
 
     [DataField]
-    public float MaxTime = 300f;
+    public float MaxTime = 60f;
 
     [DataField]
     public bool Active;

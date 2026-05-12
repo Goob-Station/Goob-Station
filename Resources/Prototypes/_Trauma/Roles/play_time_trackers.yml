@@ -1,0 +1,8 @@
+- type: playTimeTracker
+  id: JobGeneticist
+
+- type: playTimeTracker
+  id: JobPhoneMerchant
+
+- type: playTimeTracker
+  id: JobRancher

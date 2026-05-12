@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by Armok for TraumaStation, idphonemerchant & idrancher made by John John",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "idrevolutionary"
+    },
+    {
+      "name": "revolutionary"
+    },
+    {
+      "name": "idphonemerchant"
+    },
+    {
+      "name": "idrancher"
+    }
+  ]
+}

@@ -59,6 +59,7 @@ public sealed class RanchingEggLayerSystem : EntitySystem
         if (fertilizer.SpecialReplacement is null)
         {
             ent.Comp.SpawnTime = _timing.CurTime;
+            ent.Comp.Active = true;
             return;
         }
 

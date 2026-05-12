@@ -1,5 +1,3 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Trauma.Shared.AnimalAgeing;
 
 /// <summary>
@@ -24,13 +22,13 @@ public sealed partial class AnimalAgeingComponent : Component
     ///     Minimum age time used.
     /// </summary>
     [DataField]
-    public float AgeTimeMin = 60f;
+    public float AgeTimeMin = 15f;
 
     /// <summary>
     ///     Maximum age time used.
     /// </summary>
     [DataField]
-    public float AgeTimeMax = 120f;
+    public float AgeTimeMax = 30f;
 
     [DataField]
     public int YearsPerUpdate = 1;

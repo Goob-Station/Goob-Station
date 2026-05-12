@@ -1,0 +1,43 @@
+- type: entity
+  parent: BasePDA
+  id: GeneticistPDA
+  name: geneticist PDA
+  description: Unfortunately, this PDA does not come with a free sample of Hulk DNA.
+  components:
+  - type: Icon
+    state: pda-genetics
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType: !type:String
+       pda-genetics
+  - type: Pda
+    id: GeneticistIDCard
+  - type: PdaBorderColor
+    borderColor: "#FAFAFA"
+    accentVColor: "#0097CA"
+
+- type: entity
+  parent: BasePDA
+  id: PhoneMerchantPDA
+  name: phone merchant PDA
+  description: Ring a ding ding!
+  components:
+  - type: Pda
+    id: PhoneMerchantIDCard
+  - type: PdaBorderColor
+    borderColor: "#c48c4d"
+    accentVColor: "#C0C0C0"
+
+- type: entity
+  parent: BasePDA
+  id: RancherPDA
+  name: rancher PDA
+  description: The second best friend of a rancher!
+  components:
+  - type: Icon
+    state: pda-rancher
+  - type: Pda
+    id: GeneticistIDCard
+  - type: PdaBorderColor
+    borderColor: "#4eb349"
+    accentVColor: "#60c95b"
