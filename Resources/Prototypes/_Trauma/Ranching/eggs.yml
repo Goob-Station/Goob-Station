@@ -214,6 +214,12 @@
     state: egg-candy
   - type: TimedReplace
     entity: MobChickCandy
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: SugarRushEffect
+      time: 20
+      type: Add
 
 - type: entity
   parent: BaseRanchingEgg
@@ -227,6 +233,7 @@
 - type: entity
   parent: BaseItem
   id: GoldenEgg
+  name: golden chicken egg
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Misc/eggs.rsi

@@ -16,7 +16,7 @@ public sealed class EntityEffectOnEatenSystem : EntitySystem
 
     private void OnEaten(Entity<EntityEffectOnEatenComponent> ent, ref FullyEatenEvent args)
     {
-        if (!_whitelist.IsWhitelistPass(ent.Comp.WhiteList, args.Eater))
+        if (ent.Comp.WhiteList is not null && !_whitelist.IsWhitelistPass(ent.Comp.WhiteList, args.Eater))
             return;
 
         if (ent.Comp.EntityWhiteList is null)

@@ -194,3 +194,15 @@
     time: 2
   - !type:ModifyParalysis
     time: 2
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: SugarRushEffect
+  name: sugar rush!
+  components:
+  - type: StatusEffectEffects
+    effects:
+    - !type:Jitter
+    - !type:MovementSpeedModifier
+      walkSpeedModifier: 3
+      sprintSpeedModifier: 3
