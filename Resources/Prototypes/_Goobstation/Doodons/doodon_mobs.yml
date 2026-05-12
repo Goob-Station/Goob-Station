@@ -101,6 +101,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - DoodonCraft
   - type: CollectiveMind        # The Collective mind
     defaultChannel: DoodonMind
     channels:
@@ -115,7 +116,8 @@
     hasPainScreams: false
     threshold: 70
     cap: 140
-    
+  - type: Doodon
+  
 - type: entity      # Papa
   parent: BaseDoodon
   id: PapaDoodon
@@ -198,6 +200,10 @@
         Base: papa_dead
       Dead:
         Base: papa_dead
+  - type: PapaDoodon
+  - type: ActionGrant
+    actions:
+    - ActionEstablishTownhall
     
 - type: entity      # Worker
   parent: BaseDoodon

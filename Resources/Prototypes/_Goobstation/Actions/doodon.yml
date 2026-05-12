@@ -12,3 +12,19 @@
   - type: InstantAction
     event: !type:SericultureActionEvent
 
+- type: entity
+  parent: BaseAction
+  id: ActionEstablishTownhall
+  name: Establish Townhall
+  description: 
+  components:
+  - type: Action
+    useDelay: 8
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/town_hall_actions.rsi
+      state: build
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:EstablishTownhallTileActionEvent

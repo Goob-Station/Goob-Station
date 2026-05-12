@@ -64,7 +64,8 @@
           params:
             variation: 0.125
             volume: -2
-    
+  - type: DoodonTownhall
+  
 - type: entity
   parent: BaseDoodonStructure       # Dwelling
   id: DoodonDwelling
@@ -74,7 +75,9 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: dwelling
-
+  - type: Construction
+    graph: DoodonGraph
+    node: dwelling
     
 - type: entity
   parent: BaseDoodonStructure       # Warrior Hut
@@ -85,7 +88,10 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: warriorhut
-  
+  - type: Construction
+    graph: DoodonGraph
+    node: hut
+    
 - type: entity          # Metal refiner
   parent: BaseDoodonStructure
   id: DoodonMetalRefiner
@@ -95,7 +101,9 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: metalrefiner
-    
+  - type: Construction
+    graph: DoodonGraph
+    node: MRefiner
         
 - type: entity              # Glass refiner
   parent: BaseDoodonStructure
@@ -106,7 +114,10 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: glassrefiner
-      
+  - type: Construction
+    graph: DoodonGraph
+    node: GRefiner
+    
 - type: entity              # Pasture
   parent: BaseDoodonStructure
   id: DoodonPasture
@@ -116,6 +127,9 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: pasture
+  - type: Construction
+    graph: DoodonGraph
+    node: pasture
     
 - type: entity                      # Shieldsmith
   parent: BaseDoodonStructure
@@ -126,6 +140,9 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: shieldsmith
+  - type: Construction
+    graph: DoodonGraph
+    node: shield
     
 - type: entity                      # Swordsmith
   parent: BaseDoodonStructure
@@ -136,6 +153,9 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: swordsmith
+  - type: Construction
+    graph: DoodonGraph
+    node: sword
     
 - type: entity                          # Gem Cutter
   parent: BaseDoodonStructure
@@ -146,3 +166,6 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: gemcutter
+  - type: Construction
+    graph: DoodonGraph
+    node: gem

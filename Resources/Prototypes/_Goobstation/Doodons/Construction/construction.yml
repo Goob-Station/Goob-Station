@@ -1,0 +1,127 @@
+- type: construction
+  id: DoodonDwelling
+  graph: DoodonGraph
+  startNode: start
+  targetNode: dwelling
+  category: construction-category-doodon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - DoodonCraft
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: DoodonWarriorHut
+  graph: DoodonGraph
+  startNode: start
+  targetNode: hut
+  category: construction-category-doodon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - DoodonCraft
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: DoodonPasture
+  graph: DoodonGraph
+  startNode: start
+  targetNode: pasture
+  category: construction-category-doodon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - DoodonCraft
+  conditions:
+    - !type:TileNotBlocked
+  
+- type: construction
+  id: DoodonMetalRefiner
+  graph: DoodonGraph
+  startNode: start
+  targetNode: MRefiner
+  category: construction-category-doodon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - DoodonCraft
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: DoodonGlassRefiner
+  graph: DoodonGraph
+  startNode: start
+  targetNode: GRefiner
+  category: construction-category-doodon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - DoodonCraft
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: DoodonSwordsmith
+  graph: DoodonGraph
+  startNode: start
+  targetNode: sword
+  category: construction-category-doodon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - DoodonCraft
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: DoodonShieldSmith
+  graph: DoodonGraph
+  startNode: start
+  targetNode: shield
+  category: construction-category-doodon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - DoodonCraft
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: DoodonGemCutter
+  graph: DoodonGraph
+  startNode: start
+  targetNode: gem
+  category: construction-category-doodon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - DoodonCraft
+  conditions:
+    - !type:TileNotBlocked

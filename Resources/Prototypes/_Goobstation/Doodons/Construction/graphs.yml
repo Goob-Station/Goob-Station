@@ -1,0 +1,169 @@
+- type: constructionGraph       # doodonDwelling
+  id: DoodonGraph
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: dwelling
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: DoodonResin
+              amount: 2
+              doAfter: 3
+              
+        - to: hut
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: DoodonResin
+              amount: 6
+              doAfter: 3
+              
+        - to: pasture
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: DoodonResin
+              amount: 3
+              doAfter: 3
+              
+        - to: MRefiner
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: DoodonResin
+              amount: 2
+              doAfter: 3     
+              
+        - to: GRefiner
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: DoodonResin
+              amount: 2
+              doAfter: 3         
+        
+        - to: sword
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: DoodonResin
+              amount: 3
+              doAfter: 3 
+              
+        - to: shield
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: DoodonResin
+              amount: 3
+              doAfter: 3    
+              
+        - to: gem
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: DoodonResin
+              amount: 3
+              doAfter: 3
+              
+    # Deconstruction
+    - node: dwelling
+      entity: DoodonDwelling
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 20
+              
+    - node: hut
+      entity: DoodonWarriorHut
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 20
+              
+    - node: pasture
+      entity: DoodonPasture
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 20
+            
+    - node: MRefiner
+      entity: DoodonMetalRefiner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 20
+              
+    - node: GRefiner
+      entity: DoodonGlassRefiner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 20
+              
+                  
+    - node: sword
+      entity: DoodonSwordsmith
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 20
+              
+    - node: shield
+      entity: DoodonShieldsmith
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 20
+              
+    - node: gem
+      entity: DoodonGemCutter
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialDoodonResin
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 20             
