@@ -79,7 +79,7 @@
     color: "#ffffff"
     lifetime: 1
     sprite:
-      sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect
+      sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect.rsi
       state: icon
   - type: StatusEffectEffects
     effects:
@@ -126,7 +126,7 @@
     lifetime: 5
     frequency: 0.05
     sprite:
-      sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect
+      sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect.rsi
       state: icon
 
 - type: entity

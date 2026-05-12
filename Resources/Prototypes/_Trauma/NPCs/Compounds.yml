@@ -55,8 +55,6 @@
         minHungerState: Okay
       operator: !type:UtilityOperator
         proto: NearbyEggs
-        targetKey: Target
-        targetMoveKey: TargetCoordinates
 
     - !type:HTNPrimitiveTask
       operator: !type:MoveToOperator
@@ -90,8 +88,6 @@
         minHungerState: Okay
       operator: !type:UtilityOperator
         proto: NearbyRaptorEggs
-        targetKey: Target
-        targetMoveKey: TargetCoordinates
 
     - !type:HTNPrimitiveTask
       operator: !type:MoveToOperator

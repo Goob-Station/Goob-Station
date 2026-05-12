@@ -37,7 +37,6 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
         SubscribeLocalEvent<AnimalAgeingComponent, OldAgeDeathEvent>(OnOldAgeDeath);
 
         SubscribeLocalEvent<AnimalAgeingComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<HappinessComponent, ExaminedEvent>(OnExamineHappiness);
 
         SubscribeLocalEvent<SpawnEntityOnAgeUpComponent, ChangeMobAgeStateEvent>(OnStateChangedAgeSpawn);
 
@@ -76,21 +75,6 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
             entity = ent.Comp.HappyDeathEnt;
 
         SpawnAtPosition(entity, ent.Owner.ToCoordinates());
-    }
-
-    /// <summary>
-    /// TODO REMOVE THIS
-    /// </summary>
-    /// <param name="ent"></param>
-    /// <param name="args"></param>
-    private void OnExamineHappiness(Entity<HappinessComponent> ent, ref ExaminedEvent args)
-    {
-        var happiness = _happiness.GetHappiness(ent);
-
-        if (happiness == null)
-            return;
-
-        args.PushMarkup(happiness.ToString() ?? "No happiness");
     }
 
     private void OnOldAgeDeath(Entity<AnimalAgeingComponent> ent, ref OldAgeDeathEvent args)
@@ -133,8 +117,6 @@ public sealed class SharedAnimalAgeingSystem : EntitySystem
                 args.PushMarkup(Loc.GetString("age-markup-senior"));
                 break;
         }
-
-        args.PushMarkup(ent.Comp.YearsOld.ToString());
     }
 
     private void OnChangeState(Entity<AnimalAgeingComponent> ent, ref ChangeMobAgeStateEvent args)

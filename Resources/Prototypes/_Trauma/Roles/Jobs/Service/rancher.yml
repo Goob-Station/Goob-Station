@@ -9,7 +9,6 @@
   setPreference: true
   access:
   - Service
-  - Botany
   - Hydroponics
 
 - type: startingGear

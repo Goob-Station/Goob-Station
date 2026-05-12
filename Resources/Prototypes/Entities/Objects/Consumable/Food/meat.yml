@@ -321,9 +321,6 @@
     whiteList:
       tags:
       - Chicken
-    blackList:
-      tags:
-      - Raptor
   # </Trauma>
 
 - type: entity

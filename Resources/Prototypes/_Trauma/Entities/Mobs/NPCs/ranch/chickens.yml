@@ -320,7 +320,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 - type: entity
   parent: BaseMobHenRanch
@@ -331,7 +331,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -342,7 +342,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 # Black Silkie
 
@@ -401,7 +401,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 - type: entity
   parent: BaseMobHenRanch
@@ -412,7 +412,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -423,7 +423,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 # Selkie Silkie
 
@@ -881,7 +881,6 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
-  - type: Cluwne
   - type: SpawnEntityOnAgeUp
     entToSpawn:
     - MobCluwneHen
@@ -897,7 +896,6 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
-  - type: Cluwne
   - type: FavoriteFood
     tag:
     - Banana
@@ -909,7 +907,6 @@
   components:
   - type: Sprite
     sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
-  - type: Cluwne
   - type: FavoriteFood
     tag:
     - Banana
@@ -1207,7 +1204,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 - type: entity
   parent: BaseMobHenRanch
@@ -1218,7 +1215,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 - type: entity
   parent: BaseMobRoosterRanch
@@ -1229,7 +1226,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 # Mime Chicken
 
@@ -1350,7 +1347,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 - type: entity
   parent: [BaseChickenRobot, BaseMobHenRanch]
@@ -1361,7 +1358,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 - type: entity
   parent: [BaseChickenRobot, BaseMobRoosterRanch]
@@ -1372,7 +1369,7 @@
     sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
   - type: FavoriteFood
     tag:
-    - Synthmeat
+    - SynthMeat
 
 # Knight Chicken
 

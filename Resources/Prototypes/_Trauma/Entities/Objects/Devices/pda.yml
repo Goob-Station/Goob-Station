@@ -35,6 +35,7 @@
   description: The second best friend of a rancher!
   components:
   - type: Icon
+    sprite: /Textures/_Trauma/Objects/Devices/pda.rsi
     state: pda-rancher
   - type: Pda
     id: RancherIDCard

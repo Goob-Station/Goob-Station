@@ -296,7 +296,7 @@
   id: SickleEgg
   egg: SickleEgg
   requiredChicken:
-  - MobSickleHen
+  - MobSicleHen
 
 - type: eggRecipe
   id: ZappyEgg
