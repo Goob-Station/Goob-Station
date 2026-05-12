@@ -4,5 +4,5 @@
   description: internal-resources-happiness-desc
   baseMinAmount: -1000
   maxAmount: 1000
-  regenerationRate: -0.05
+  regenerationRate: -0.1
   startingAmount: 20

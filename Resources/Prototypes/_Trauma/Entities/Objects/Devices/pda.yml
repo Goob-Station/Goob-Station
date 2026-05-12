@@ -37,7 +37,7 @@
   - type: Icon
     state: pda-rancher
   - type: Pda
-    id: GeneticistIDCard
+    id: RancherIDCard
   - type: PdaBorderColor
     borderColor: "#4eb349"
     accentVColor: "#60c95b"

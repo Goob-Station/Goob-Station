@@ -1,0 +1,42 @@
+# Misc
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SpawnSupplyEmpty
+  id: DropPodPlayer
+  name: crew drop pod
+  components:
+  - type: ContainerContainer
+    containers:
+      contents: !type:Container
+  - type: DropPod
+    container: contents
+
+# Science
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointGeneticist
+  name: geneticist spawn point
+  components:
+  - type: SpawnPoint
+    job_id: Geneticist
+  - type: Sprite
+    layers:
+    - state: green
+    - state: geneticist
+
+# Service
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointRancher
+  name: SpawnPointRancher
+  components:
+  - type: SpawnPoint
+    job_id: Rancher
+  - type: Sprite
+    layers:
+    - state: green
+    - state: rancher
+      sprite: _Trauma/Markers/jobs.rsi

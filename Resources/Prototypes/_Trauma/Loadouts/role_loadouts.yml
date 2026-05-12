@@ -1,0 +1,32 @@
+- type: roleLoadout
+  id: JobGeneticist
+  groups:
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - GeneticistJumpsuit
+  - GeneticistBackpack
+  - GeneticistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - ScientistEnvirohelm
+  - ScientistEnvirosuit
+  - ScientistEnvirogloves
+  - ExclusiveItems
+
+- type: roleLoadout
+  id: JobRancher
+  groups:
+  - GroupTankHarness
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - BotanistEnvirohelm
+  - BotanistEnvirosuit
+  - BotanistEnvirogloves
+  - ExclusiveItems

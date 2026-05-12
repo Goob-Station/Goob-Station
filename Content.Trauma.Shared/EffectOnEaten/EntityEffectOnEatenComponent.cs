@@ -1,4 +1,5 @@
 using Content.Shared.EntityEffects;
+using Content.Shared.Whitelist;
 
 namespace Content.Trauma.Shared.EffectOnEaten;
 
@@ -18,8 +19,14 @@ public sealed partial class EntityEffectOnEatenComponent : Component
     public float Scale = 1f;
 
     /// <summary>
+    /// entity White list
+    /// </summary>
+    [DataField]
+    public List<EntProtoId>? EntityWhiteList;
+
+    /// <summary>
     /// White list
     /// </summary>
     [DataField]
-    public List<EntProtoId>? WhiteList;
+    public EntityWhitelist? WhiteList;
 }

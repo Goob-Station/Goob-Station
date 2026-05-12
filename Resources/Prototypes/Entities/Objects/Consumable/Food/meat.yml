@@ -314,6 +314,17 @@
       - state: generic-pink-inhand-left
       right:
       - state: generic-pink-inhand-right
+  # <Trauma>
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:Vomit
+    whiteList:
+      tags:
+      - Chicken
+    blackList:
+      tags:
+      - Raptor
+  # </Trauma>
 
 - type: entity
   parent: FoodMeatRawBase

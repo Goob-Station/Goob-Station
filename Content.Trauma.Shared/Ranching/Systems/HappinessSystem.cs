@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
+using Content.Medical.Common.Vomiting;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Systems;
@@ -22,9 +23,15 @@ public sealed class HappinessSystem : EntitySystem
         SubscribeLocalEvent<HappinessComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HappinessComponent, InteractionSuccessEvent>(OnSuccessPet);
         SubscribeLocalEvent<HappinessComponent, DamageChangedEvent>(OnDamaged);
+        SubscribeLocalEvent<HappinessComponent, VomitedEvent>(OnVomit);
 
         SubscribeLocalEvent<AddComponentOnHappyComponent, InternalResourcesAmountChangedEvent>(OnHappinessChanged);
         SubscribeLocalEvent<ReplaceOnUnhappyComponent, InternalResourcesAmountChangedEvent>(OnHappinessChangedReplace);
+    }
+
+    private void OnVomit(Entity<HappinessComponent> ent, ref VomitedEvent args)
+    {
+        ChangeHappiness(ent, ent.Comp.DamageDecrease);
     }
 
     private void OnDamaged(Entity<HappinessComponent> ent, ref DamageChangedEvent args)

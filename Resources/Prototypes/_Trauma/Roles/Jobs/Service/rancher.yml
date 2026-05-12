@@ -17,15 +17,19 @@
   equipment:
     id: RancherPDA
     ears: ClothingHeadsetService
-    pocket1: HandLabeler
+    jumpsuit: ClothingUniformJumpsuitRancher
+    back: ClothingBackpackHydroponics
+    shoes: ClothingShoesBootsCowboyBrown
+    belt: ClothingBeltRancher
+    head: ClothingHeadHatRancher
 
 - type: chameleonOutfit
   id: RancherChameleonOutfit
   job: Rancher
   equipment:
-    head: ClothingHeadHatBeretRND
-    eyes: ClothingEyesGlasses
-    mask: ClothingMaskSterile
-    neck: ClothingNeckTieSci
-    outerClothing: ClothingOuterWinterGen
-    gloves: ClothingHandsGlovesLatex
+    jumpsuit: ClothingUniformJumpsuitRancher
+    ears: ClothingHeadsetService
+    shoes: ClothingShoesBootsCowboyBrown
+    back: ClothingBackpackHydroponics
+    belt: ClothingBeltRancher
+    head: ClothingHeadHatRancher

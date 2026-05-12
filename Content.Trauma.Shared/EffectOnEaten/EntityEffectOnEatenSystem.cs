@@ -1,12 +1,13 @@
 using Content.Shared.EntityEffects;
 using Content.Shared.Nutrition;
+using Content.Shared.Whitelist;
 
 namespace Content.Trauma.Shared.EffectOnEaten;
 
 public sealed class EntityEffectOnEatenSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -15,7 +16,10 @@ public sealed class EntityEffectOnEatenSystem : EntitySystem
 
     private void OnEaten(Entity<EntityEffectOnEatenComponent> ent, ref FullyEatenEvent args)
     {
-        if (ent.Comp.WhiteList is null)
+        if (!_whitelist.IsWhitelistPass(ent.Comp.WhiteList, args.Eater))
+            return;
+
+        if (ent.Comp.EntityWhiteList is null)
         {
             _effects.ApplyEffects(args.Eater, ent.Comp.Effects, ent.Comp.Scale);
             return;
@@ -27,7 +31,7 @@ public sealed class EntityEffectOnEatenSystem : EntitySystem
         if (entityPrototype is null)
             return;
 
-        foreach (var entity in ent.Comp.WhiteList)
+        foreach (var entity in ent.Comp.EntityWhiteList)
         {
             if (entity.Id == entityPrototype.ID)
                 isAllowed = true;

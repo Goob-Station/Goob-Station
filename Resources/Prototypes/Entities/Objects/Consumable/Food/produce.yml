@@ -339,7 +339,7 @@
       components:
       - type: EggFertilizer
         specialReplacement: MobChickClown
-    whiteList:
+    entityWhiteList:
     - MobWhiteRooster
   # </Trauma>
   - type: FlavorProfile

@@ -14,7 +14,7 @@ public sealed partial class HappinessComponent : Component
     public ProtoId<InternalResourcesPrototype> HappinessResource = "Happiness";
 
     [DataField]
-    public float HappinessIncrease = 5f;
+    public float HappinessIncrease = 1f;
 
     [DataField]
     public float DamageDecrease = -10f;

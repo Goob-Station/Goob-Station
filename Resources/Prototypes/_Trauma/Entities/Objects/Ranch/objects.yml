@@ -42,16 +42,13 @@
   components:
   - type: Sprite
     noRot: true
-    drawdepth: Items
+    drawdepth: OverMobs
     sprite: _Trauma/Structures/Machines/ranchobjects.rsi
     layers:
     - state: chicken-carrier
       map: [ "enum.StorageVisualLayers.Base" ]
     - state: chicken-carrier
       map: [ "enum.StorageVisualLayers.Door" ]
-    - state: chicken-carrier
-      visible: false
-      map: [ "enum.WeldableLayers.BaseWelded" ]
   - type: EntityStorage
     capacity: 1
     airtight: false

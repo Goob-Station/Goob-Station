@@ -5,6 +5,8 @@
   name: chicken
   description: Comes before an egg, and IS a dinosaur!
   components:
+  - type: UnhappyWhenCrowded
+    tag: Chicken
   - type: Happiness
   - type: NpcFactionMember
     factions:
@@ -54,7 +56,7 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatChicken
-      amount: 1
+      amount: 3
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -116,6 +118,11 @@
   - type: NPCRetaliation
     attackMemoryLength: 60
   - type: EggFertilizer
+  - type: HostileWhenUnhappy
+    unhappyTask: !type:HTNCompoundTask
+      task: SimpleHostileCompound
+    happyTask: !type:HTNCompoundTask
+      task: RoosterCompound
   - type: HTN
     rootTask:
       task: RoosterCompound
@@ -1015,6 +1022,9 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
+  - type: Tag
+    tags:
+    - Raptor
   - type: FavoriteFood
     tag:
     - Nugget
@@ -1684,6 +1694,7 @@
 # Phoenix
 
 - type: entity
+  abstract: true
   parent: BaseChickenLegendary
   id: BaseChickenPhoenix
   components:
