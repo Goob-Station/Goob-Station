@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Clothing;
 using Content.Shared.Tag;
 using Content.Trauma.Shared.AnimalAgeing;

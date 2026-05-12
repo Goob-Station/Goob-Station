@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Trauma.Shared.Ranching.Components;
 using Content.Trauma.Shared.TimedReplace;
 using Robust.Shared.Containers;

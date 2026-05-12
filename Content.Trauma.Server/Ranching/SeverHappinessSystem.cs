@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Server.NPC.HTN;
 using Content.Shared.Tag;

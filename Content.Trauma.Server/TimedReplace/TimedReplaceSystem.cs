@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Coordinates;
 using Content.Trauma.Shared.TimedReplace;
 using Robust.Shared.Random;

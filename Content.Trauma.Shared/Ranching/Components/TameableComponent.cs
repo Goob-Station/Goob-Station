@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.NPC.Prototypes;
 
 namespace Content.Trauma.Shared.Ranching.Components;
