@@ -22863,3 +22863,9 @@ Entries:
       message: Re-sprited the BSO mantle
   id: 2617
   time: '2026-05-10T08:10:50.0000000+00:00'
+- author: Gopararelav
+  changes:
+    - type: Fix
+      message: Fixed a bug when bluespace tomato changed parents
+  id: 2618
+  time: '2026-05-13T12:44:10.0000000+00:00'
