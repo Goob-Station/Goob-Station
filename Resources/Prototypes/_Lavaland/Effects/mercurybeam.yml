@@ -3,6 +3,20 @@
   name: High energy buildup
   description: Get out of the way!!!
   components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5, -0.5, 0.5, 0.5"
+        density: 100
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable  
   - type: Transform
     noRot: true    
   - type: FadingIn
@@ -11,7 +25,7 @@
   - type: Sprite
     sprite: _Lavaland/Effects/beam.rsi
     state: beam_ring
-    drawdepth: Effects
+    drawdepth: BelowMobs
     noRot: true
   - type: TimedDespawn
     lifetime: 1.1
@@ -44,7 +58,7 @@
   - type: Sprite
     sprite: _Lavaland/Effects/beam.rsi
     state: beam_fire
-    drawdepth: Effects
+    drawdepth: BelowMobs
     noRot: true
   - type: Physics
     bodyType: Static
@@ -81,3 +95,38 @@
       collection: MercuryBeam
       params:
         volume: -2
+
+- type: entity
+  id: ORTCosmicRay
+  components:
+  - type: TailedEntity
+    amount: 5
+    speed: 0
+    spacing: 1
+    prototype: ORTCosmicRaySegment
+  - type: Sprite
+    sprite: _Lavaland/Effects/ray.rsi
+    state: ray_start
+    noRot: false
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+
+- type: entity
+  id: ORTCosmicRaySegment
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/ray.rsi
+    state: ray_segment
+    noRot: false
+  - type: Physics
+    bodyType: Static
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      groups:
+        Genetic: 10

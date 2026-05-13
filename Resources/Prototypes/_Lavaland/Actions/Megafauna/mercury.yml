@@ -71,6 +71,18 @@
 
 - type: entity
   parent: ActionBaseORT
+  id: ActionORTCosmicRays
+  name: Cosmic Rays
+  description: ■■▣ ■ ■■■□■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:CardinalSpawnerActionEvent
+
+- type: entity
+  parent: ActionBaseORT
   id: ActionGalacticaSupercell
   name: Galactica Supercell
   description: ■■□■■ ■■█□■■■ □██■■■■ ■■■■■ ■■■■██■■□■ ■■■

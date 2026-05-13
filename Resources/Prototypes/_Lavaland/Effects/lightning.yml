@@ -9,7 +9,7 @@
   - type: Sprite
     sprite: _Lavaland/Effects/eletricity.rsi
     state: lightning
-    drawdepth: Effects
+    drawdepth: BelowMobs
     noRot: true
   - type: TimedDespawn
     lifetime: 2.5
@@ -37,7 +37,7 @@
   - type: Sprite
     sprite: _Lavaland/Effects/64x128.rsi
     state: lightning_1
-    drawdepth: Effects
+    drawdepth: BelowMobs
     noRot: true
     offset: "0.5, 1.5"
   - type: Physics
@@ -210,9 +210,9 @@
   - type: ChasingWalk
     chasingComponent:
     - type: Actor
-    maxChaseRadius: 20
-    minSpeed: 2
-    maxSpeed: 3
+    maxChaseRadius: 8
+    minSpeed: 1
+    maxSpeed: 1
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/tesla_collapse.ogg

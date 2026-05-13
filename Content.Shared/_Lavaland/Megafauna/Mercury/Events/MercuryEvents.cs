@@ -5,6 +5,8 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Events;
 
 public sealed partial class EtherDrainEvent : InstantActionEvent;
 
+public sealed partial class CardinalSpawnerActionEvent : InstantActionEvent;
+
 public sealed partial class AddComponentActionEvent : InstantActionEvent
 {
     /// <summary>

@@ -15,6 +15,7 @@
     #- id: ActionORTPlanktonFlood
     - id: ActionORTEnergyDischarge
     - id: ActionGalacticaSupercell
+    - id: ActionORTCosmicRays
 
 - type: megafaunaSelector
   id: ActionORTEtherDrain
@@ -59,3 +60,14 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionGalacticaSupercell
+
+- type: megafaunaSelector
+  id: ActionORTCosmicRays
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTCosmicRays
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTCosmicRays
