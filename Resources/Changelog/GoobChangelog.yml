@@ -22875,3 +22875,9 @@ Entries:
       message: Fixed Abductors and Skeletons not being able to grab or be grabbed.
   id: 2619
   time: '2026-05-13T12:44:51.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Fix
+      message: Feroxi are now displayed correctly in lobby
+  id: 2620
+  time: '2026-05-13T12:45:24.0000000+00:00'
