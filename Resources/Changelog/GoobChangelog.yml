@@ -22869,3 +22869,9 @@ Entries:
       message: Fixed a bug when bluespace tomato changed parents
   id: 2618
   time: '2026-05-13T12:44:10.0000000+00:00'
+- author: BeanyBoi69
+  changes:
+    - type: Fix
+      message: Fixed Abductors and Skeletons not being able to grab or be grabbed.
+  id: 2619
+  time: '2026-05-13T12:44:51.0000000+00:00'
