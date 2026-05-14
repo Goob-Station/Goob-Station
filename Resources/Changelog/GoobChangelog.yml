@@ -22857,3 +22857,45 @@ Entries:
       message: Removed turrets from CC landing area, added polling to CC.
   id: 2616
   time: '2026-04-29T18:48:07.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Tweak
+      message: Re-sprited the BSO mantle
+  id: 2617
+  time: '2026-05-10T08:10:50.0000000+00:00'
+- author: Gopararelav
+  changes:
+    - type: Fix
+      message: Fixed a bug when bluespace tomato changed parents
+  id: 2618
+  time: '2026-05-13T12:44:10.0000000+00:00'
+- author: BeanyBoi69
+  changes:
+    - type: Fix
+      message: Fixed Abductors and Skeletons not being able to grab or be grabbed.
+  id: 2619
+  time: '2026-05-13T12:44:51.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Fix
+      message: Feroxi are now displayed correctly in lobby
+  id: 2620
+  time: '2026-05-13T12:45:24.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Add
+      message: Added a new lobby art, "Nukies Bridge!!" by seyriix.
+  id: 2621
+  time: '2026-05-14T14:19:51.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: Added a few more slasher names.
+  id: 2622
+  time: '2026-05-14T14:20:29.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: Xenomorph Hunters now lose all stealth on death
+  id: 2623
+  time: '2026-05-14T14:21:03.0000000+00:00'
