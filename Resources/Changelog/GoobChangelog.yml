@@ -22813,3 +22813,71 @@ Entries:
       message: Added a new xeno nest lavaland ruin.
   id: 2611
   time: '2026-04-27T16:05:33.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Actually made pirates rarer.
+  id: 2612
+  time: '2026-04-28T08:25:45.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Gemini is now invulnerable whilst stored inside of the projector.
+    - type: Fix
+      message: >-
+        Gemini's death will no longer magically damage its host after the
+        projector has already been removed.
+    - type: Tweak
+      message: >-
+        Gemini's body temperature is now automatically cooled to safe levels
+        while inside the projector.
+  id: 2613
+  time: '2026-04-28T08:35:11.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Ballistic shield has an inhand sprite now
+  id: 2614
+  time: '2026-04-28T09:00:03.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added polling booths! (not yet mapped.)
+  id: 2615
+  time: '2026-04-29T00:27:44.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Mapped polling booths! They will always be in library, mostly in bar,
+        sometimes near cryo or dorms.
+    - type: Remove
+      message: Replaced command Inspector on origin with a russian revolver
+    - type: Remove
+      message: Removed turrets from CC landing area, added polling to CC.
+  id: 2616
+  time: '2026-04-29T18:48:07.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Tweak
+      message: Re-sprited the BSO mantle
+  id: 2617
+  time: '2026-05-10T08:10:50.0000000+00:00'
+- author: Gopararelav
+  changes:
+    - type: Fix
+      message: Fixed a bug when bluespace tomato changed parents
+  id: 2618
+  time: '2026-05-13T12:44:10.0000000+00:00'
+- author: BeanyBoi69
+  changes:
+    - type: Fix
+      message: Fixed Abductors and Skeletons not being able to grab or be grabbed.
+  id: 2619
+  time: '2026-05-13T12:44:51.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Fix
+      message: Feroxi are now displayed correctly in lobby
+  id: 2620
+  time: '2026-05-13T12:45:24.0000000+00:00'
