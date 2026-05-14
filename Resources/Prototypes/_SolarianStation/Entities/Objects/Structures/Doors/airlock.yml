@@ -1,0 +1,19 @@
+- type: entity
+  parent: Airlock
+  id: AirlockSANSecurity
+  suffix: Security, SAN
+  components:
+  - type: Sprite
+    sprite: _SolarianStation/Objects/Structures/Doors/Airlocks/Standard/SecSANAirlock.rsi
+  - type: Wires
+    layoutId: AirlockSANSecurity
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockSANSecurityGlass
+  suffix: Security, SAN
+  components:
+  - type: Sprite
+    sprite: _SolarianStation/Objects/Structures/Doors/Airlocks/Glass/secSANAirlockGlass.rsi
+  - type: Wires
+    layoutId: AirlockSANSecurity

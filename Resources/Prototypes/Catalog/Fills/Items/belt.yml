@@ -249,6 +249,28 @@
     - id: HydroponicsToolClippers
     - id: ChemistryBottleRobustHarvest
 
+# Solarian Changes start
+- type: entity
+  id: ClothingBeltSheathFilledMarineOfficerSabre
+  parent: ClothingBeltSheath
+  suffix: Filled, Marine, SAN
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - MarineOfficerSabre
+
+- type: entity
+  id: ClothingBeltSheathFilledOfficerSabre
+  parent: ClothingBeltSheath
+  suffix: Filled, SAN
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - OfficerSabre
+# Solarian Changes end
+
 - type: entity
   id: ClothingBeltSheathFilled
   parent: ClothingBeltSheath

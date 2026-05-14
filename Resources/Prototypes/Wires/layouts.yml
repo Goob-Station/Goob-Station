@@ -107,6 +107,12 @@
   parent: Airlock
   id: AirlockSecurity
 
+# Solarian Changes START
+- type: wireLayout
+  parent: Airlock
+  id: AirlockSANSecurity
+# Solarian Changes END
+
 - type: wireLayout
   parent: Airlock
   id: AirlockService

@@ -33,10 +33,54 @@
     prototypes:
       - RandomPosterContraband
       - RandomPosterLegit
+      - RandomPosterNanoTrasen #SolStation
+      - RandomPosterSAN #SolStation
     chance: 0.95
     rarePrototypes:
       - PosterBroken
     rareChance: 0.05
+
+#Solarian changes START
+
+- type: entity
+  parent: MarkerBase
+  id: RandomPosterNanoTrasen
+  name: random NT poster spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Wallmounts/posters.rsi
+        state: random_nt
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - PosterLegitNanotrasenLogo
+      - PosterLegitNTTGC
+    chance: 1
+
+
+- type: entity
+  parent: MarkerBase
+  id: RandomPosterSAN
+  name: random SAN poster spawner
+  suffix: SAN
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Wallmounts/posters.rsi
+        state: random_sol
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - PosterSanRedarmyState
+      - PosterSanFlagState
+      - PosterSanTGCState
+      - PosterSanJoinState
+    chance: 1
+
+# Solarian Changes END
 
 - type: entity
   parent: MarkerBase
@@ -134,7 +178,6 @@
     offset: 0
     prototypes:
       - PosterLegitHereForYourSafety
-      - PosterLegitNanotrasenLogo
       - PosterLegitCleanliness
       - PosterLegitHelpOthers
       - PosterLegitBuild
@@ -174,7 +217,6 @@
       - PosterLegitSecWatch
       - PosterLegitVacation
       - PosterLegitRenault
-      - PosterLegitNTTGC
       - PosterLegitSafetyMothDelam
       - PosterLegitSafetyMothEpi
       - PosterLegitSafetyMothPiping

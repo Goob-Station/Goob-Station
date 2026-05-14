@@ -1,0 +1,9 @@
+# For faction clothing related to the Sol Alliance Navy and her Armed Forces
+# Lore Info Link
+
+- type: guideEntry
+  id: SolAllianceInfo
+  name: guide-lore-solarian
+  text: "/ServerInfo/Guidebook/SolAlliance.xml"
+
+

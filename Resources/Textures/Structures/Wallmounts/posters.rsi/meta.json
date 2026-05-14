@@ -8,6 +8,12 @@
   },
   "states": [
     {
+      "name": "rolled_sol"
+    },
+    {
+      "name": "rolled_nt"
+    },
+    {
       "name": "rolled_contraband"
     },
     {
@@ -53,6 +59,18 @@
     },
     {
       "name": "poster_broken"
+    },
+    {
+      "name": "poster1_sol"
+    },
+    {
+      "name": "poster2_sol"
+    },
+    {
+      "name": "poster3_sol"
+    },
+    {
+      "name": "poster4_sol"
     },
     {
       "name": "poster1_contraband"
@@ -241,7 +259,7 @@
       "name": "poster1_legit"
     },
     {
-      "name": "poster2_legit"
+      "name": "poster2_nt"
     },
     {
       "name": "poster3_legit"
@@ -388,7 +406,7 @@
       "name": "poster50_legit"
     },
     {
-      "name": "poster51_legit"
+      "name": "poster51_nt"
     },
     {
       "name": "poster52_legit"

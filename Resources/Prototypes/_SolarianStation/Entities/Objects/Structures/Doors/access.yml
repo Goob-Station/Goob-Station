@@ -1,0 +1,17 @@
+- type: entity
+  parent: AirlockSANSecurity
+  id: AirlockSANSecurityLocked
+  suffix: Security, Locked, SAN
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: AirlockSANSecurityGlass
+  id: AirlockSANSecurityGlassLocked
+  suffix: Security, Locked, SAN
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]

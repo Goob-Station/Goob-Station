@@ -16,7 +16,7 @@
     medical: AirlockMedical
     salvage: AirlockSalvage
     science: AirlockScience
-    security: AirlockSecurity
+    security: AirlockSANSecurity # Solarian Changes
     virology: AirlockVirology
 
 - type: paintableGroup
@@ -36,5 +36,5 @@
     medical: AirlockMedicalGlass
     salvage: AirlockSalvageGlass
     science: AirlockScienceGlass
-    security: AirlockSecurityGlass
+    security: AirlockSANSecurityGlass # Solarian Changes
     virology: AirlockVirologyGlass

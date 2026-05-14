@@ -1,0 +1,193 @@
+# Headgear other than armor
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyCampaign
+  name: Solarian campaign hat
+  suffix: SAN
+  description: A hat worn by Solarian officers on parades.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_campaign.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_campaign.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyCap
+  name: Solarian army cap
+  suffix: SAN
+  description: Tradition holds that the brim of this hat must never be used to shield one's eyes from mother Sol'.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_cap.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyCapOfficer
+  name: Solarian army officer cap
+  suffix: SAN
+  description: Tradition holds that the brim of this hat must never be used to shield one's eyes from mother Sol'. This hat bears officer chevrons.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_cap_officer.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_cap_officer.rsi
+
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyCapSenior
+  name: Solarian army senior officer cap
+  suffix: SAN
+  description: A pristine hat worn for the purpose of casting a larger shadow when looking down on aliens.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_cap_senior.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_cap_senior.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyField
+  name: Solarian army field hat
+  suffix: SAN
+  description: A common field hat worn by Solarian grunts. This one is colored olive drab.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_field.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_field.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyFieldGrey
+  name: Solarian army field hat
+  suffix: SAN
+  description: A common field hat worn by Solarian grunts. This one is colored stone grey.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_field_grey.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_field_grey.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyGarrison
+  name: Solarian army garrison hat
+  suffix: SAN
+  description: A garrison hat worn by grunts in the Solarian PDF.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_garrison.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_garrison.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyGarrisonCaptain
+  name: Solarian army garrison captain hat
+  suffix: SAN
+  description: A garrison hat worn by a Solarian PDF Captain.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_garrison_captain.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_garrison_captain.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANArmyGarrisonOficer
+  name: Solarian army garrison officer hat
+  suffix: SAN
+  description: A garrison hat worn by a Solarian PDF Officer.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_garrison_officer.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_army_garrison_officer.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANMarineUtility
+  name: Solarian marine utility hat
+  suffix: SAN
+  description: A common hat worn by Solarian grunts. This one is colored olive drab.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_marine_utility.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_marine_utility.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANMarineUtilityGrey
+  name: Solarian marine utility hat
+  suffix: SAN
+  description: A common hat worn by Solarian grunts. This one is colored stone grey.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_marine_utility_grey.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_marine_utility_grey.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANNavyCap
+  name: Solarian navy cap
+  suffix: SAN
+  description: A simple cap worn by Solarian Navy ratings.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_navy_cap.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_navy_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANNavyCapAdmiral
+  name: Solarian navy admiral cap
+  suffix: SAN
+  description: When ordering the glassing of Xenos cities, accept no substitute but this hat upon thy head.
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_navy_cap_admiral.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_navy_cap_admiral.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANNavyCapOfficer
+  name: Solarian navy officer cap
+  suffix: SAN
+  description: A hat worn by officers in the Solarian Navy
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_navy_cap_officer.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_navy_cap_officer.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANNavyCapOfficerSenior
+  name: Solarian navy senior officer cap
+  suffix: SAN
+  description: A hat worn by senior officers in the Solarian Navy
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_navy_cap_senior.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_navy_cap_senior.rsi
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatSANWheelCap
+  name: Solarian wheel cap
+  suffix: SAN
+  description: Also known as a "Mechanic hat", this hat is worn by technicians in the Solarian Armed Forces
+  components:
+    - type: Sprite
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_wheel_cap.rsi
+    - type: Clothing
+      sprite: _SolarianStation/Clothing/Head/Helmets/SAN_wheel_cap.rsi

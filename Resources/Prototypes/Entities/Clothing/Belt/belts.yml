@@ -766,12 +766,16 @@
         whitelist:
           tags:
           - CaptainSabre
+          - OfficerSabre # Solarian Changes
+          - MarineOfficerSabre # Solarian Changes
   - type: ItemMapper
     mapLayers:
       sheath-sabre:
         whitelist:
           tags:
           - CaptainSabre
+          - OfficerSabre # Solarian Changes
+          - MarineOfficerSabre # Solarian Changes
   - type: Appearance
 
 - type: entity

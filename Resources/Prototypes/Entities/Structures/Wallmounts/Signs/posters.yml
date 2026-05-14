@@ -159,6 +159,50 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
+# SAN
+
+- type: entity
+  parent: PosterBase
+  id: PosterSanRedarmyState
+  name: "Solarian Army State"
+  suffix: SAN
+  description: "Glory for SAN!"
+  components:
+  - type: Sprite
+    state: poster1_sol
+
+- type: entity
+  parent: PosterBase
+  id: PosterSanFlagState
+  name: "Solarian flag State"
+  suffix: SAN
+  description: "Glory for Solarian Aliance!!"
+  components:
+  - type: Sprite
+    state: poster2_sol
+
+- type: entity
+  parent: PosterBase
+  id: PosterSanTGCState
+  name: "Solarian Tactical Game Cards"
+  suffix: SAN
+  description: "An advertisement for Solarian's TCG cards: BUY MORE CARDS."
+  components:
+  - type: Sprite
+    state: poster3_sol
+
+- type: entity
+  parent: PosterBase
+  id: PosterSanJoinState
+  name: "Join NOW!"
+  suffix: SAN
+  description: "Join SAN army forces TODAY!"
+  components:
+  - type: Sprite
+    state: poster4_sol
+
+
+
 # Contraband
 - type: entity
   parent: PosterBase
@@ -737,6 +781,26 @@
   - type: Sprite
     state: poster66_contraband
 
+# Nano Trasen
+- type: entity
+  parent: PosterBase
+  id: PosterLegitNanotrasenLogo
+  name: "Nanotrasen Logo"
+  description: "A poster depicting the Nanotrasen logo."
+  components:
+  - type: Sprite
+    state: poster2_nt
+
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitNTTGC
+  name: "Nanotrasen Tactical Game Cards"
+  description: "An advertisement for Nanotrasen's TCG cards: BUY MORE CARDS."
+  components:
+    - type: Sprite
+      state: poster51_nt
+
 # Legit
 - type: entity
   parent: PosterBase
@@ -746,15 +810,6 @@
   components:
   - type: Sprite
     state: poster1_legit
-
-- type: entity
-  parent: PosterBase
-  id: PosterLegitNanotrasenLogo
-  name: "Nanotrasen Logo"
-  description: "A poster depicting the Nanotrasen logo."
-  components:
-  - type: Sprite
-    state: poster2_legit
 
 - type: entity
   parent: PosterBase
@@ -1187,15 +1242,6 @@
   components:
     - type: Sprite
       state: poster50_legit
-
-- type: entity
-  parent: PosterBase
-  id: PosterLegitNTTGC
-  name: "Nanotrasen Tactical Game Cards"
-  description: "An advertisement for Nanotrasen's TCG cards: BUY MORE CARDS."
-  components:
-    - type: Sprite
-      state: poster51_legit
 
 - type: entity
   parent: PosterBase

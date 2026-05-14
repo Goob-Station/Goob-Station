@@ -365,6 +365,8 @@
     hiddenSlots:
     - jumpsuit
 
+
+
 - type: entity
   abstract: true
   parent: [ClothingOuterBase, AllowSuitStorageClothing]
