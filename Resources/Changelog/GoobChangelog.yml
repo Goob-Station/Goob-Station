@@ -22893,3 +22893,9 @@ Entries:
       message: Added a few more slasher names.
   id: 2622
   time: '2026-05-14T14:20:29.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: Xenomorph Hunters now lose all stealth on death
+  id: 2623
+  time: '2026-05-14T14:21:03.0000000+00:00'
