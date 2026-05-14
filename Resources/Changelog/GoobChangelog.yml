@@ -22863,3 +22863,21 @@ Entries:
       message: Re-sprited the BSO mantle
   id: 2617
   time: '2026-05-10T08:10:50.0000000+00:00'
+- author: Gopararelav
+  changes:
+    - type: Fix
+      message: Fixed a bug when bluespace tomato changed parents
+  id: 2618
+  time: '2026-05-13T12:44:10.0000000+00:00'
+- author: BeanyBoi69
+  changes:
+    - type: Fix
+      message: Fixed Abductors and Skeletons not being able to grab or be grabbed.
+  id: 2619
+  time: '2026-05-13T12:44:51.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Fix
+      message: Feroxi are now displayed correctly in lobby
+  id: 2620
+  time: '2026-05-13T12:45:24.0000000+00:00'
