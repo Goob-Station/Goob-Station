@@ -3,7 +3,7 @@
   mapName: 'Shōkō'
   mapPath: /Maps/_DV/shoukou.yml
   minPlayers: 0
-  maxPlayers: 35
+  maxPlayers: 40
   stations:
     Shoukou:
       stationProto: StandardNanotrasenStation
@@ -46,6 +46,7 @@
             Chemist: [ 1, 2 ]
             MedicalIntern: [ 2, 3 ]
             Psychologist: [ 1, 1 ]
+            Virologist: [ 1, 1 ]
           #Security
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 2, 4 ]
