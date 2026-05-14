@@ -22881,3 +22881,21 @@ Entries:
       message: Feroxi are now displayed correctly in lobby
   id: 2620
   time: '2026-05-13T12:45:24.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Add
+      message: Added a new lobby art, "Nukies Bridge!!" by seyriix.
+  id: 2621
+  time: '2026-05-14T14:19:51.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: Added a few more slasher names.
+  id: 2622
+  time: '2026-05-14T14:20:29.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: Xenomorph Hunters now lose all stealth on death
+  id: 2623
+  time: '2026-05-14T14:21:03.0000000+00:00'
