@@ -1284,6 +1284,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         var languageDisplay = language.IsVisibleLanguage
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
+        // goob start - font modifiers
+        var fontModifierEv = new TransformSpeakerFontEvent(source);
+        RaiseLocalEvent(source, fontModifierEv);
+        string? modFontId = fontModifierEv.FontId;
+        int? modFontSize = fontModifierEv.FontSize;
+        Color? modFontColor = fontModifierEv.Color;
+        // goob end - font modifiers
 
         // goob start - loudspeakers
 
@@ -1308,11 +1315,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         // goob end
 
         return Loc.GetString(wrapId,
-            ("color", color),
+            ("color", modFontColor ?? color),
             ("entityName", entityName),
             ("verb", Loc.GetString(verbId)),
-            ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
-            ("fontSize", loudSpeakFont ?? language.SpeechOverride.FontSize ?? speech.FontSize), // goob edit - "loudSpeakFont"
+            ("fontType", modFontId ?? language.SpeechOverride.FontId ?? speech.FontId),
+            ("fontSize", loudSpeakFont ?? modFontSize ?? language.SpeechOverride.FontSize ?? speech.FontSize), // goob edit - "loudSpeakFont"
             ("boldFontType", language.SpeechOverride.BoldFontId ?? language.SpeechOverride.FontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
             ("message", message),
             ("language", languageDisplay));
