@@ -6,12 +6,14 @@ using Content.Shared.Database;
 using Content.Shared.Popups;
 using Robust.Shared.IoC;
 using System.Diagnostics.CodeAnalysis;
+using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.SpeakFontOverride;
+namespace Content.Goobstation.Shared.SpeakFontOverride;
 
 public sealed partial class SpeakFontOverrideSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {
@@ -47,6 +49,11 @@ public sealed partial class SpeakFontOverrideSystem : EntitySystem
     private void SwitchMode(EntityUid ent, SpeakFontOverrideComponent comp)
     {
         comp.Enabled = !comp.Enabled;
-        _popupSystem.PopupEntity(comp.Enabled ? Loc.GetString("speakfontoverride-enabled") : Loc.GetString("speakfontoverride-disabled"), ent);
+        Dirty(ent, comp);
+        if (_playerManager.LocalSession?.AttachedEntity == null)
+            return;
+
+        var player = _playerManager.LocalSession.AttachedEntity;
+        _popupSystem.PopupClient(comp.Enabled ? Loc.GetString("speakfontoverride-enabled") : Loc.GetString("speakfontoverride-disabled"), ent, player.Value);
     }
 }

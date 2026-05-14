@@ -1,9 +1,12 @@
-namespace Content.Goobstation.Server.SpeakFontOverride;
+using Robust.Shared.GameStates;
 
-[RegisterComponent]
+namespace Content.Goobstation.Shared.SpeakFontOverride;
+
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class SpeakFontOverrideComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Enabled = false;
 
     [DataField]
