@@ -9,7 +9,7 @@ namespace Content.Trauma.Client.StatusEffects;
 
 public sealed partial class AddStatusEffectSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
     {
