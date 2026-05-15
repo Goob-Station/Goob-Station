@@ -7,7 +7,7 @@ namespace Content.Trauma.Shared.StatusEffects;
 
 public sealed class TemporaryActionGrantEffectSystem : EntitySystem
 {
-    [Dependency] readonly SharedActionsSystem _action = default!;
+    [Dependency] private SharedActionsSystem _action = default!;
 
     public override void Initialize()
     {

@@ -12,8 +12,8 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 
 public sealed class RanchingFoodSystem : EntitySystem
 {
-    [Dependency] readonly SharedInternalResourcesSystem _internalResources = default!;
-    [Dependency] readonly IPrototypeManager _prototype = default!;
+    [Dependency] private SharedInternalResourcesSystem _internalResources = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

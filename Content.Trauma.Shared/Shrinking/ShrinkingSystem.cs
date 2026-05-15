@@ -8,7 +8,7 @@ namespace Content.Trauma.Shared.Shrinking;
 
 public sealed class ShrinkingSystem : EntitySystem
 {
-    [Dependency] readonly SharedScaleVisualsSystem _scale = default!;
+    [Dependency] private SharedScaleVisualsSystem _scale = default!;
 
     public override void Initialize()
     {

@@ -9,8 +9,8 @@ namespace Content.Trauma.Server.TimedReplace;
 
 public sealed class TimedReplaceSystem : EntitySystem
 {
-    [Dependency] readonly IRobustRandom _random = default!;
-    [Dependency] readonly IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

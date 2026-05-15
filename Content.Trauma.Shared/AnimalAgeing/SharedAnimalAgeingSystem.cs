@@ -22,11 +22,11 @@ namespace Content.Trauma.Shared.AnimalAgeing;
 /// </summary>
 public sealed class SharedAnimalAgeingSystem : EntitySystem
 {
-    [Dependency] readonly SharedSuicideSystem _suicide = default!;
-    [Dependency] readonly HappinessSystem _happiness = default!;
-    [Dependency] readonly IRobustRandom _random = default!;
-    [Dependency] readonly SharedPolymorphSystem _polymorph = default!;
-    [Dependency] readonly IPrototypeManager _proto = default!;
+    [Dependency] private SharedSuicideSystem _suicide = default!;
+    [Dependency] private HappinessSystem _happiness = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedPolymorphSystem _polymorph = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public const string Polymorph = "ChickenRanchMorph";
 

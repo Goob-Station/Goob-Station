@@ -10,8 +10,8 @@ namespace Content.Trauma.Server.Ranching;
 
 public sealed class ReplaceOnItemEquippedSystem : EntitySystem
 {
-    [Dependency] readonly TagSystem _tag = default!;
-    [Dependency] readonly SharedAnimalAgeingSystem _ageing = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedAnimalAgeingSystem _ageing = default!;
 
     public override void Initialize()
     {

@@ -10,10 +10,10 @@ namespace Content.Trauma.Shared.Bouncing;
 
 public sealed class BouncingSystem : EntitySystem
 {
-    [Dependency] readonly SharedEntityEffectsSystem _effects = default!;
-    [Dependency] readonly SharedAudioSystem _audio = default!;
-    [Dependency] readonly IGameTiming _timing = default!;
-    [Dependency] readonly INetManager _net = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

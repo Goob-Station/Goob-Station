@@ -11,10 +11,10 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 
 public sealed class PolyMorphOnItemsGivenSystem : EntitySystem
 {
-    [Dependency] readonly SharedStackSystem _stack = default!;
-    [Dependency] readonly SharedAnimalAgeingSystem _ageing = default!;
-    [Dependency] readonly IRobustRandom _random = default!;
-    [Dependency] readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
+    [Dependency] private SharedAnimalAgeingSystem _ageing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

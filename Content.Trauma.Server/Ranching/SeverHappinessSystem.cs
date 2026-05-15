@@ -11,11 +11,11 @@ namespace Content.Trauma.Server.Ranching;
 
 public sealed class SeverHappinessSystem : EntitySystem
 {
-    [Dependency] readonly HTNSystem _htn = default!;
-    [Dependency] readonly EntityLookupSystem _lookup = default!;
-    [Dependency] readonly IGameTiming _timing = default!;
-    [Dependency] readonly TagSystem _tag = default!;
-    [Dependency] readonly HappinessSystem _happiness = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private HappinessSystem _happiness = default!;
 
     public override void Initialize()
     {

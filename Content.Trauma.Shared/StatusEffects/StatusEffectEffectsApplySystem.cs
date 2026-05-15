@@ -7,7 +7,7 @@ namespace Content.Trauma.Shared.StatusEffects;
 
 public sealed class StatusEffectEffectsApplySystem : EntitySystem
 {
-    [Dependency] readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
 
     public override void Initialize()
     {

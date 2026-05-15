@@ -13,9 +13,9 @@ namespace Content.Trauma.Server.Ranching;
 /// </summary>
 public sealed class AnimalAgeingSystem : EntitySystem
 {
-    [Dependency] readonly IRobustRandom _random = default!;
-    [Dependency] readonly IGameTiming _timing = default!;
-    [Dependency] readonly MobStateSystem _mobState = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
