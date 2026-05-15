@@ -205,12 +205,15 @@ public sealed class RanchingEggLayerSystem : EntitySystem
             }
 
             var noFoodRequired = false;
-            foreach (var chicken in proto.NoSpecialFoodRequiredChickens)
+            if (proto.NoSpecialFoodRequiredChickens is not null)
             {
-                if (chicken == entityPrototype.ID)
+                foreach (var chicken in proto.NoSpecialFoodRequiredChickens)
                 {
-                    noFoodRequired = true;
-                    break;
+                    if (chicken == entityPrototype.ID)
+                    {
+                        noFoodRequired = true;
+                        break;
+                    }
                 }
             }
 

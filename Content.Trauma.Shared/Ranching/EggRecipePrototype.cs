@@ -53,7 +53,7 @@ public sealed partial class EggRecipePrototype : IPrototype
     /// Chickens that don't need the FoodTagsRequired to lay the egg, used for chickens that lay the egg as default.
     /// </summary>
     [DataField]
-    public required List<EntProtoId> NoSpecialFoodRequiredChickens { get; set; }
+    public required List<EntProtoId>? NoSpecialFoodRequiredChickens { get; set; }
 
     /// <summary>
     /// Used to set the amount of happiness that a chicken needs, e.g white hen needs 60 happiness to lay brown egg but brown hen only needs 15.
