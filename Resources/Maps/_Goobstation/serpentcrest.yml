@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/11/2026 01:14:37
-  entityCount: 29500
+  time: 04/27/2026 06:22:14
+  entityCount: 29503
 maps:
 - 1
 grids:
@@ -137208,6 +137208,26 @@ entities:
     components:
     - type: Transform
       pos: 9.501029,-6.4710045
+      parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 29501
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,-14.5
+      parent: 2
+  - uid: 29502
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-15.5
+      parent: 2
+  - uid: 29503
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -44.5,-4.5
       parent: 2
 - proto: PortableFlasher
   entities:
