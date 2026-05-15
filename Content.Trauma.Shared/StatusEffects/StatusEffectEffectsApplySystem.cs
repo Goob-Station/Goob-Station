@@ -5,7 +5,7 @@ using Content.Shared.StatusEffectNew;
 
 namespace Content.Trauma.Shared.StatusEffects;
 
-public sealed class StatusEffectEffectsApplySystem : EntitySystem
+public sealed partial class StatusEffectEffectsApplySystem : EntitySystem
 {
     [Dependency] private SharedEntityEffectsSystem _effects = default!;
 

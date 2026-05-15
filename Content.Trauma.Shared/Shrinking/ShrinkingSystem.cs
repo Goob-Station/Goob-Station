@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Content.Shared.Sprite;
 using Content.Shared.StatusEffectNew;
 
 namespace Content.Trauma.Shared.Shrinking;
 
-public sealed class ShrinkingSystem : EntitySystem
+public sealed partial class ShrinkingSystem : EntitySystem
 {
     [Dependency] private SharedScaleVisualsSystem _scale = default!;
 

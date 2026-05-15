@@ -6,7 +6,7 @@ using Content.Shared.Whitelist;
 
 namespace Content.Trauma.Shared.EffectOnEaten;
 
-public sealed class EntityEffectOnEatenSystem : EntitySystem
+public sealed partial class EntityEffectOnEatenSystem : EntitySystem
 {
     [Dependency] private SharedEntityEffectsSystem _effects = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;

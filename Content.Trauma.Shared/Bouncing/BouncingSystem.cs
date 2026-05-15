@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Trauma.Shared.Bouncing;
 
-public sealed class BouncingSystem : EntitySystem
+public sealed partial class BouncingSystem : EntitySystem
 {
     [Dependency] private SharedEntityEffectsSystem _effects = default!;
     [Dependency] private SharedAudioSystem _audio = default!;

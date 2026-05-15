@@ -5,7 +5,7 @@ using Content.Shared.StatusEffectNew;
 
 namespace Content.Trauma.Shared.StatusEffects;
 
-public sealed class TemporaryActionGrantEffectSystem : EntitySystem
+public sealed partial class TemporaryActionGrantEffectSystem : EntitySystem
 {
     [Dependency] private SharedActionsSystem _action = default!;
 

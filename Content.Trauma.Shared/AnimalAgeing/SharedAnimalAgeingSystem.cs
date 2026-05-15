@@ -20,7 +20,7 @@ namespace Content.Trauma.Shared.AnimalAgeing;
 /// <summary>
 /// This handles all the logic behind the animal ageing system
 /// </summary>
-public sealed class SharedAnimalAgeingSystem : EntitySystem
+public sealed partial class SharedAnimalAgeingSystem : EntitySystem
 {
     [Dependency] private SharedSuicideSystem _suicide = default!;
     [Dependency] private HappinessSystem _happiness = default!;
