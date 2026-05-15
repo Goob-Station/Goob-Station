@@ -6,7 +6,7 @@ using Content.Trauma.Shared.Ranching.Events;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public sealed class VomitCounterSystem : EntitySystem
+public sealed partial class VomitCounterSystem : EntitySystem
 {
     public override void Initialize()
     {

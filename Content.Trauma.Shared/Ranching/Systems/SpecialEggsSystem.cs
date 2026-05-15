@@ -11,7 +11,7 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 /// <summary>
 /// Used for those stupid chickens that make me do more work.
 /// </summary>
-public sealed class SpecialEggsSystem : EntitySystem
+public sealed partial class SpecialEggsSystem : EntitySystem
 {
     [Dependency] private SharedStackSystem _stack = default!;
 

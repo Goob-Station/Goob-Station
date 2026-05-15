@@ -9,7 +9,7 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 /// <summary>
 /// This handles gibing stuff when its pulled
 /// </summary>
-public sealed class DealDamageOnPulledSystem : EntitySystem
+public sealed partial class DealDamageOnPulledSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
 

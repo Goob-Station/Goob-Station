@@ -11,7 +11,7 @@ namespace Content.Trauma.Server.Ranching;
 /// <summary>
 /// This handles raising the age up event on mobs
 /// </summary>
-public sealed class AnimalAgeingSystem : EntitySystem
+public sealed partial class AnimalAgeingSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;

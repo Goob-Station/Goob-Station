@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public sealed class EggIncubatorSystem : EntitySystem
+public sealed partial class EggIncubatorSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;

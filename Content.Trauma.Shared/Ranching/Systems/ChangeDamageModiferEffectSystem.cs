@@ -7,7 +7,7 @@ using Content.Trauma.Shared.Ranching.Components;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public sealed class ChangeDamageModiferEffectSystem : EntitySystem
+public sealed partial class ChangeDamageModiferEffectSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
 

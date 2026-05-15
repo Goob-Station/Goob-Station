@@ -9,7 +9,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Trauma.Server.Ranching;
 
-public sealed class SeverHappinessSystem : EntitySystem
+public sealed partial class SeverHappinessSystem : EntitySystem
 {
     [Dependency] private HTNSystem _htn = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;

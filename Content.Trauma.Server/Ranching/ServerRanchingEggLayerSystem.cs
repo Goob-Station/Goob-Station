@@ -13,7 +13,7 @@ namespace Content.Trauma.Server.Ranching;
 /// <summary>
 /// This handles raising the egg layer event on the chicken when it should lay an egg.
 /// </summary>
-public sealed class ServerRanchingEggLayerSystem : EntitySystem
+public sealed partial class ServerRanchingEggLayerSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private HungerSystem _hunger = default!;

@@ -7,7 +7,7 @@ using Robust.Shared.Random;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public sealed class TameableSystem : EntitySystem
+public sealed partial class TameableSystem : EntitySystem
 {
     [Dependency] private NpcFactionSystem _faction = default!;
     [Dependency] private IRobustRandom _random = default!;

@@ -24,7 +24,7 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 /// <summary>
 /// Handles the ranching egg layer system, use this for ranching instead of the upstream version so we don't have to fuck it up more than goob has and also ranching needs to change the eggs to a single proto, not a list
 /// </summary>
-public sealed class RanchingEggLayerSystem : EntitySystem
+public sealed partial class RanchingEggLayerSystem : EntitySystem
 {
 
     [Dependency] private SharedAudioSystem _audio = default!;

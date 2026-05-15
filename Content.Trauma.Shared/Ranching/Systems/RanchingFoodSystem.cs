@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public sealed class RanchingFoodSystem : EntitySystem
+public sealed partial class RanchingFoodSystem : EntitySystem
 {
     [Dependency] private SharedInternalResourcesSystem _internalResources = default!;
     [Dependency] private IPrototypeManager _prototype = default!;

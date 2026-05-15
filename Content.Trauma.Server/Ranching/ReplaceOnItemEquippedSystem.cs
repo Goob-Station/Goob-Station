@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Trauma.Server.Ranching;
 
-public sealed class ReplaceOnItemEquippedSystem : EntitySystem
+public sealed partial class ReplaceOnItemEquippedSystem : EntitySystem
 {
     [Dependency] private TagSystem _tag = default!;
     [Dependency] private SharedAnimalAgeingSystem _ageing = default!;

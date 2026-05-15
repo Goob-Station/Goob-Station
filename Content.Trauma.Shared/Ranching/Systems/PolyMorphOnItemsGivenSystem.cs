@@ -9,7 +9,7 @@ using Robust.Shared.Random;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public sealed class PolyMorphOnItemsGivenSystem : EntitySystem
+public sealed partial class PolyMorphOnItemsGivenSystem : EntitySystem
 {
     [Dependency] private SharedStackSystem _stack = default!;
     [Dependency] private SharedAnimalAgeingSystem _ageing = default!;
