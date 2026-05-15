@@ -8,8 +8,8 @@ namespace Content.Trauma.Shared.EffectOnEaten;
 
 public sealed class EntityEffectOnEatenSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

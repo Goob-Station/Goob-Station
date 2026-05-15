@@ -9,8 +9,8 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 
 public sealed class TameableSystem : EntitySystem
 {
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] readonly NpcFactionSystem _faction = default!;
+    [Dependency] readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {

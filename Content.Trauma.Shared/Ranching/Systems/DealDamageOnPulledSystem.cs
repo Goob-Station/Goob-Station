@@ -11,7 +11,7 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 /// </summary>
 public sealed class DealDamageOnPulledSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {

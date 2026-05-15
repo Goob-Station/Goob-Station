@@ -9,7 +9,7 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 
 public sealed class ChangeDamageModiferEffectSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {

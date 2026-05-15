@@ -10,9 +10,9 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 
 public sealed class EggIncubatorSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] readonly IRobustRandom _random = default!;
+    [Dependency] readonly IGameTiming _timing = default!;
+    [Dependency] readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

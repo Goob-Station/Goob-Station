@@ -27,14 +27,14 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 public sealed class RanchingEggLayerSystem : EntitySystem
 {
 
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly HappinessSystem _happiness = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] readonly SharedAudioSystem _audio = default!;
+    [Dependency] readonly SharedPopupSystem _popup = default!;
+    [Dependency] readonly IPrototypeManager _proto = default!;
+    [Dependency] readonly HappinessSystem _happiness = default!;
+    [Dependency] readonly HungerSystem _hunger = default!;
+    [Dependency] readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] readonly IGameTiming _timing = default!;
+    [Dependency] readonly SharedSolutionContainerSystem _solution = default!;
 
     public override void Initialize()
     {

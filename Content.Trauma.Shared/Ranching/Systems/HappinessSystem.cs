@@ -14,10 +14,10 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 
 public sealed class HappinessSystem : EntitySystem
 {
-    [Dependency] private readonly SharedInternalResourcesSystem _internalResources = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedAnimalAgeingSystem _ageing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] readonly SharedInternalResourcesSystem _internalResources = default!;
+    [Dependency] readonly IPrototypeManager _prototype = default!;
+    [Dependency] readonly SharedAnimalAgeingSystem _ageing = default!;
+    [Dependency] readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

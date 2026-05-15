@@ -13,7 +13,7 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 /// </summary>
 public sealed class SpecialEggsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] readonly SharedStackSystem _stack = default!;
 
     public override void Initialize()
     {

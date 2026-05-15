@@ -15,10 +15,10 @@ namespace Content.Trauma.Server.Ranching;
 /// </summary>
 public sealed class ServerRanchingEggLayerSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] readonly IRobustRandom _random = default!;
+    [Dependency] readonly HungerSystem _hunger = default!;
+    [Dependency] readonly IGameTiming _timing = default!;
+    [Dependency] readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
