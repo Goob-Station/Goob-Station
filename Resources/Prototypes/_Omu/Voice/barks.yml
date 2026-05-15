@@ -1,0 +1,37 @@
+﻿# MORTIS
+- type: soundCollection
+  id: MortisBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Mortis/a.ogg
+  - /Audio/_Omu/Voice/Barks/Mortis/e.ogg
+  - /Audio/_Omu/Voice/Barks/Mortis/i.ogg
+  - /Audio/_Omu/Voice/Barks/Mortis/o.ogg
+  - /Audio/_Omu/Voice/Barks/Mortis/u.ogg
+  - /Audio/_Omu/Voice/Barks/Mortis/y.ogg
+
+- type: bark
+  id: Mortis
+  name: Mortis
+  volume: 0.7
+  soundCollection:
+    collection: MortisBark
+  speciesWhitelist:
+  - IPC
+  - Harpy
+
+# Moff squeaksqueaksqueaksqueak
+- type: soundCollection
+  id: MothSqueakBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth.ogg
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth_ask.ogg
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth_exclaim.ogg
+
+- type: bark
+  id: MothSqueak
+  name: Moth Squeak
+  soundCollection:
+    collection: MothSqueakBark
+  speciesWhitelist:
+    - Moth
+    - Harpy # The Egg demands that harpies get all barks...
