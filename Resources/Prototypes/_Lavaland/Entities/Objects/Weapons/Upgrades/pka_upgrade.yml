@@ -78,7 +78,7 @@
   - type: GunUpgrade
     name: gun-upgrade-range-name
   - type: GunUpgradeSpeed
-    coefficient: 1.5
+    coefficient: 1.30
 
 - type: entity
   id: PKAUpgradeFireRate

@@ -4,13 +4,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
 /// <summary>
 /// Changes pressure modifiers on a weapon that supports them.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class GunUpgradePressureComponent : Component
 {
     [DataField]

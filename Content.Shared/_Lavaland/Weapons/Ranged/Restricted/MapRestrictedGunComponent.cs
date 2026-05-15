@@ -10,10 +10,10 @@ namespace Content.Shared._Lavaland.Weapons.Ranged.Restricted;
 public sealed partial class MapRestrictedGunComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntityWhitelist? PlanetWhitelist;
+    public EntityWhitelist? MapWhitelist;
 
     [DataField, AutoNetworkedField]
-    public EntityWhitelist? PlanetBlacklist;
+    public EntityWhitelist? MapBlacklist;
 
     [DataField, AutoNetworkedField]
     public LocId? PopupOnBlock;

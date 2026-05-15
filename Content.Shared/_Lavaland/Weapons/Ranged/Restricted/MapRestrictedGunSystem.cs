@@ -19,8 +19,8 @@ public sealed class MapRestrictedGunSystem : EntitySystem
         var xform = Transform(ent);
         if (args.Cancelled
             || xform.MapUid == null
-            || _whitelist.IsWhitelistPassOrNull(ent.Comp.PlanetWhitelist, xform.MapUid.Value)
-            && _whitelist.IsBlacklistFailOrNull(ent.Comp.PlanetBlacklist, xform.MapUid.Value))
+            || _whitelist.IsWhitelistPassOrNull(ent.Comp.MapWhitelist, xform.MapUid.Value)
+            && _whitelist.IsBlacklistFailOrNull(ent.Comp.MapBlacklist, xform.MapUid.Value))
             return;
 
         args.Cancelled = true;

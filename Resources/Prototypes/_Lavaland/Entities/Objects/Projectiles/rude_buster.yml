@@ -52,3 +52,9 @@
   - type: HomingProjectile # TODO this doesn't work since it needs a target to be assigned by an action
     #homingTime: 0
     homingSpeed: 2160
+  - type: PointLight
+    radius: 1.5
+    energy: 5
+    color: "#ae00ff"
+  - type: TimedDespawn
+    lifetime: 2.0
