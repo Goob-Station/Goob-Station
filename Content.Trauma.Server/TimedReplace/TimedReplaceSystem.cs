@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Trauma.Server.TimedReplace;
 
-public sealed class TimedReplaceSystem : EntitySystem
+public sealed partial class TimedReplaceSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;

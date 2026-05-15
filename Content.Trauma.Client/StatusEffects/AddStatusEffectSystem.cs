@@ -7,7 +7,7 @@ using Robust.Client.Graphics;
 
 namespace Content.Trauma.Client.StatusEffects;
 
-public sealed class AddStatusEffectSystem : EntitySystem
+public sealed partial class AddStatusEffectSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
