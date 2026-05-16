@@ -22899,3 +22899,9 @@ Entries:
       message: Xenomorph Hunters now lose all stealth on death
   id: 2623
   time: '2026-05-14T14:21:03.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Tweak
+      message: Re-sprited most command cloaks and mantles
+  id: 2624
+  time: '2026-05-16T16:42:39.0000000+00:00'
