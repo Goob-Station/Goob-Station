@@ -277,6 +277,8 @@
   background: /Textures/LobbyScreens/fuckingkillHoPalready.webp
   name: E tu, HoP?
   artist: MsMunde
+
+- type: lobbyBackground
   id: nukies-bridge
   background: /Textures/LobbyScreens/nukies_bridge.webp
   name: Nukies Bridge!!
