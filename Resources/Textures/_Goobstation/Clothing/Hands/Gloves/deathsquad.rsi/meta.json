@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by ShootsTheMoon",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-on"
+        },
+        {
+            "name": "claws-equipped-HAND",
+            "directions": 4
+        },
+        {
+            "name": "claws-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "claws-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "gauntlet-equipped-HAND",
+            "directions": 4
+        },
+        {
+            "name": "gauntlet-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "gauntlet-inhand-right",
+            "directions": 4
+        }
+    ]
+}

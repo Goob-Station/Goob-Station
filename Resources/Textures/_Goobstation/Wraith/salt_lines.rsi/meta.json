@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Goonstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "salt_0"
+    },
+    {
+      "name": "salt_1"
+    },
+    {
+      "name": "salt_2"
+    },
+    {
+      "name": "salt_3"
+    },
+    {
+      "name": "salt_4"
+    },
+    {
+      "name": "salt_5"
+    },
+    {
+      "name": "salt_6"
+    },
+    {
+      "name": "salt_7"
+    },
+    {
+      "name": "salt_8"
+    },
+    {
+      "name": "salt_9"
+    },
+    {
+      "name": "salt_10"
+    },
+    {
+      "name": "salt_11"
+    },
+    {
+      "name": "salt_12"
+    },
+    {
+      "name": "salt_13"
+    },
+    {
+      "name": "salt_14"
+    },
+    {
+      "name": "salt_15"
+    }
+  ]
+}

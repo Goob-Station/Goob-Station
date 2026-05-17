@@ -25,7 +25,7 @@
 - type: entity
   id: TorsoHydrakin
   name: "hydrakin torso"
-  parent: [PartHydrakin, BaseTorso]
+  parent: [PartHydrakin, BaseChest]
   components:
   - type: Sprite
     sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi

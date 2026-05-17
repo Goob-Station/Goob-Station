@@ -1,0 +1,21 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from CMSS13",
+    "size": {
+        "x": 88,
+        "y": 70
+    },
+    "states": [
+        {
+            "name": "queen",
+            "directions": 4
+        },
+        {
+            "name": "dead"
+        },
+        {
+            "name": "crit"
+        }
+    ]
+}

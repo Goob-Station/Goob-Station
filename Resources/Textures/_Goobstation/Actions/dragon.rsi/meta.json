@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Carp sprite taken from https://github.com/tgstation/tgstation/blob/master/icons/mob/animal.dmi, modified by namelessname338 (Discord)",
+    "states": [
+        {
+            "name": "carp_horde"
+        },
+        {
+            "name": "wing_flap"
+        }
+    ]
+}

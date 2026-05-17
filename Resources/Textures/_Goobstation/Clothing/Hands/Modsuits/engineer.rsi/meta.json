@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "From Baystation12 - https://github.com/Baystation12/Baystation12/pull/34564",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "gauntlets"
+    },
+		{
+		  "name": "gauntlets-sealed"
+		},
+		{
+			"name": "equipped-HAND",
+			"directions": 4
+		},
+		{
+			"name": "equipped-HAND-sealed",
+			"directions": 4
+		},
+    		{
+			"name": "equipped-HAND-resomi",
+			"directions": 4
+		},
+		{
+			"name": "equipped-HAND-sealed-resomi",
+			"directions": 4
+		},
+		{
+		  "name": "equipped-HAND-sealed-vox",
+		  "directions": 4
+		},
+		{
+		  "name": "equipped-HAND-vox",
+		  "directions": 4
+		}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tg at https://github.com/tgstation/tgstation/blob/master/icons/mob/clothing/head.dmi , transform-equipped-HELMET created by the_biggestbruh using the helmet as a base.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+	"name": "icon"
+    },
+    {
+	"name": "equipped-HELMET",
+	"directions": 4
+    },
+    {
+      	"name": "transform-equipped-HELMET",
+      	"directions": 4,
+      	"delays": [
+                [ 0.5, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 1 ],
+                [ 0.5, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 1 ],
+                [ 0.5, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 1 ],
+                [ 0.5, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 1 ]
+            ]
+        }
+    ]
+}

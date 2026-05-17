@@ -1,0 +1,48 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Made by Hardbassman",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "equipped-BELT",
+            "directions": 4
+        },
+        {
+            "name": "icon"
+        },
+        {
+            "name": "belt-punishment"
+        },
+        {
+            "name": "belt-beating"
+        },
+        {
+            "name": "buckled-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "buckled-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "beating-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "beating-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "punishment-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "punishment-inhand-right",
+            "directions": 4
+        }
+    ]
+}

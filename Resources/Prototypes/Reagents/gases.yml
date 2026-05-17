@@ -259,16 +259,14 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-<<<<<<< HEAD
         - !type:OrganType # EE - Plasmeme
           type: Plasmaman
           shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
-=======
+          shouldHave: false
         - !type:OrganType
           type: Hydrakin
->>>>>>> bd8a5fa551 (Hydrakin (#2644))
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -287,7 +285,6 @@
             min: 1.5
         clear: True
         time: 5
-<<<<<<< HEAD
       - !type:Oxygenate
         factor: 4
         conditions:
@@ -325,7 +322,6 @@
             Caustic: -0.66
             Asphyxiation: -0.66
             Poison: -0.66
-=======
       - !type:HealthChange # Mono
         conditions:
         - !type:OrganType
@@ -336,7 +332,6 @@
         damage:
           types:
             Heat: -0.5
->>>>>>> bd8a5fa551 (Hydrakin (#2644))
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -402,7 +397,6 @@
             min: 1.5
         clear: True
         time: 5
-<<<<<<< HEAD
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
         - !type:OrganType
@@ -413,7 +407,6 @@
           types:
             Radiation:
               0.5
-=======
       - !type:HealthChange # Mono
         conditions:
         - !type:OrganType
@@ -425,7 +418,6 @@
           types:
             Heat: -0.5
             Poison: -0.5
->>>>>>> bd8a5fa551 (Hydrakin (#2644))
 
 - type: reagent
   id: CarbonDioxide
@@ -646,7 +638,6 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-<<<<<<< HEAD
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
@@ -656,11 +647,9 @@
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
-=======
         - !type:OrganType # Mono - Hydrakin
           type: Hydrakin
           shouldHave: false
->>>>>>> bd8a5fa551 (Hydrakin (#2644))
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
@@ -674,23 +663,17 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-<<<<<<< HEAD
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
-        effectProto: StatusEffectForcedSleeping
-        time: 3
-=======
         - !type:OrganType # Mono - Hydrakin
           type: Hydrakin
           shouldHave: false
-        key: ForcedSleep
-        component: ForcedSleeping
-        time: 200 # This reeks, but I guess it works LMAO
->>>>>>> bd8a5fa551 (Hydrakin (#2644))
+        effectProto: StatusEffectForcedSleeping
+        time: 3
         type: Add
       - !type:HealthChange
         conditions:
@@ -779,13 +762,11 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-<<<<<<< HEAD
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
-=======
+          shouldHave: false
         - !type:OrganType # Mono - Hydrakin
-          type: Hydrakin 
->>>>>>> bd8a5fa551 (Hydrakin (#2644))
+          type: Hydrakin
           shouldHave: false
         - !type:ReagentThreshold
           reagent: Frezon
@@ -839,8 +820,6 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
-<<<<<<< HEAD
-=======
       - !type:AdjustTemperature # Mono - Hydrakin
         conditions:
         - !type:ReagentThreshold
@@ -851,5 +830,4 @@
         - !type:OrganType
           type: Hydrakin
         amount: -10000
- 
->>>>>>> bd8a5fa551 (Hydrakin (#2644))
+

@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Zethine",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-up"
+        },
+        {
+            "name": "equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HELMET-resomi",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HELMET-vox",
+            "directions": 4
+        },
+        {
+            "name": "up-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "up-equipped-HELMET-resomi",
+            "directions": 4
+        },
+        {
+            "name": "up-equipped-HELMET-vox",
+            "directions": 4
+        }
+    ]
+}

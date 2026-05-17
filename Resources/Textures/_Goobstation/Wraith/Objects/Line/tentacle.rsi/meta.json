@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/icons/obj/projectiles.dmi",
+    "size": {
+        "x": 16,
+        "y": 16
+    },
+    "states": [
+        {
+            "name": "start_tentacle"
+        },
+        {
+            "name": "mid_tentacle"
+        },
+        {
+            "name": "end_tentacle"
+        }
+    ]
+}

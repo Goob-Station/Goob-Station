@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13 https://wiki.ss13.co/File:Lion.png",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "lion",
+            "directions": 4
+        },
+        {
+            "name": "lion_dead"
+        }
+    ]
+}
