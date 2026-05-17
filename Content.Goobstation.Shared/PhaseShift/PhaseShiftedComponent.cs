@@ -1,16 +1,16 @@
 using Content.Shared.Physics;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.PhaseShift;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PhaseShiftedComponent : Component
 {
     [DataField]
-    public ProtoId<StatusEffectPrototype> StatusEffectId = "PhaseShifted";
+    public EntProtoId StatusEffectId = "PhaseShifted";
 
     [DataField]
     public float MovementSpeedBuff = 1.5f;
@@ -33,6 +33,9 @@ public sealed partial class PhaseShiftedComponent : Component
     [DataField]
     public SoundSpecifier PhaseOutSound =
         new SoundPathSpecifier(new ResPath("/Audio/_EinsteinEngines/Shadowling/veilout.ogg"));
+
+    [DataField]
+    public bool SpawnEffects = true;
 
     public int StoredMask;
     public int StoredLayer;

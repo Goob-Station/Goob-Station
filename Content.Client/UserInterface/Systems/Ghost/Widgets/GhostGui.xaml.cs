@@ -33,6 +33,7 @@ public sealed partial class GhostGui : UIWidget
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
+    public event Action? ThunderdomePressed; // Goobstation - Thunderdome
     private int _prevNumberRoles;
 
     public GhostGui()
@@ -47,6 +48,7 @@ public sealed partial class GhostGui : UIWidget
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleBase.ButtonCaution);
+        ThunderdomeButton.OnPressed += _ => ThunderdomePressed?.Invoke(); // Goobstation - Thunderdome
     }
 
     public void Hide()
@@ -76,6 +78,12 @@ public sealed partial class GhostGui : UIWidget
         }
 
         TargetWindow.Populate();
+    }
+
+    // Goobstation - Thunderdome
+    public void UpdateThunderdome(int playerCount)
+    {
+        ThunderdomeButton.Text = Loc.GetString("thunderdome-ghost-button", ("count", playerCount));
     }
 
     protected override void Dispose(bool disposing)

@@ -1265,9 +1265,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var userPos = TransformSystem.ToMapCoordinates(user.ToCoordinates()).Position;
         var targetPos = TransformSystem.ToMapCoordinates(target.ToCoordinates()).Position;
         var pushVector = (targetPos - userPos).Normalized() * force;
-
         var animated = HasComp<ItemComponent>(target);
-
         _throwing.TryThrow(target, pushVector, force * _shoveSpeed, animated: animated);
     }
 

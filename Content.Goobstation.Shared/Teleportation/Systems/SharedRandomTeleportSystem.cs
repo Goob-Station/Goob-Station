@@ -10,6 +10,8 @@
 using System.Numerics;
 using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Effects;
+using Content.Goobstation.Common.Grab;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Movement.Pulling.Components;
@@ -137,7 +139,8 @@ public partial class SharedRandomTeleportSystem : EntitySystem
         var stage = GrabStage.No;
         if (TryComp<PullerComponent>(uid, out var puller))
         {
-            stage = puller.GrabStage;
+            if (TryComp<GrabIntentComponent>(uid, out var grabIntent))
+                stage = grabIntent.GrabStage;
             pullableEntity = puller.Pulling;
         }
 

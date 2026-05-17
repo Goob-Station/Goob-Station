@@ -12,7 +12,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
@@ -158,7 +160,9 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || !downed
             || !TryComp<PullerComponent>(ent, out var puller)
-            || !TryComp<PullableComponent>(target, out var pullable))
+            || !TryComp<GrabIntentComponent>(ent, out var grabIntent)
+            || !TryComp<PullableComponent>(target, out var pullable)
+            || !TryComp<GrabbableComponent>(target, out var grabbable))
             return;
 
         var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
@@ -175,9 +179,9 @@ public partial class SharedMartialArtsSystem
         }
 
         // Taking someone in an armbar is an equivalent of taking them in a choke grab
-        if (puller.GrabStage != GrabStage.Suffocate
-            || pullable.GrabStage != GrabStage.Suffocate)
-            _pulling.TrySetGrabStages((ent, puller), (target, pullable), GrabStage.Suffocate);
+        if (grabIntent.GrabStage != GrabStage.Suffocate
+            || grabbable.GrabStage != GrabStage.Suffocate)
+            _grab.TrySetGrabStages((ent, puller, grabIntent), (target, pullable, grabbable), GrabStage.Suffocate);
 
         _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 

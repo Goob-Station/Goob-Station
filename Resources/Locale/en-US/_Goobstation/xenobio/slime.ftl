@@ -4,6 +4,8 @@ slime-latch-attempt = The {$slime} tries to latch onto the {$ent}!
 
 slime-latch-fail-target-dead = You do not want to consume the {$ent}, it is dead!
 
+slime-latch-fail-already-latched = You can't latch to the {$ent}, it latched by somebody else!
+
 slime-latch-fail-max-entities = You cannot consume the {$ent}, you are full!
 
 slime-examined-stomach = [color=red]You can see something moving inside of it![/color]

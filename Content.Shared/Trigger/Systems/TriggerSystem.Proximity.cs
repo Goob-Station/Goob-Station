@@ -129,6 +129,13 @@ public sealed partial class TriggerSystem
                 if (colliding.LinearVelocity.Length() < trigger.TriggerSpeed)
                     continue;
 
+                // Goobstation begin
+                var attemptEv = new AttemptTriggerEvent(collidingUid);
+                RaiseLocalEvent(uid, ref attemptEv);
+                if (attemptEv.Cancelled)
+                    continue;
+                // Goobstation end
+
                 // Trigger!
                 Activate((uid, trigger), collidingUid);
                 break;

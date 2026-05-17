@@ -96,8 +96,6 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, StingExtractDNAEvent>(OnStingExtractDNA);
         SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingTransformEvent>(OnTransform);
-        SubscribeLocalEvent<ChangelingIdentityComponent, EnterStasisEvent>(OnEnterStasis);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ExitStasisEvent>(OnExitStasis);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmbladeEvent>(OnToggleArmblade);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmHammerEvent>(OnToggleHammer);
@@ -117,7 +115,6 @@ public sealed partial class ChangelingSystem
 
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionBiodegradeEvent>(OnBiodegrade);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ActionChameleonSkinEvent>(OnChameleonSkin);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionAdrenalineReservesEvent>(OnAdrenalineReserves);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionFleshmendEvent>(OnHealUltraSwag);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLastResortEvent>(OnLastResort);
@@ -422,93 +419,6 @@ public sealed partial class ChangelingSystem
         args.Handled = true;
     }
 
-    private void OnEnterStasis(EntityUid uid, ChangelingIdentityComponent comp, ref EnterStasisEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail"), uid, uid);
-            return;
-        }
-
-        if (_mobState.IsAlive(uid))
-        {
-            // fake our death
-            var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", uid));
-            _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true);
-        }
-
-        var currentTime = comp.StasisTime;
-        var lowestTime = comp.DefaultStasisTime;
-        var highestTime = comp.CatastrophicStasisTime;
-
-        // tell the changeling how bad they screwed up
-        if (currentTime == lowestTime)
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter"), uid, uid);
-        else if (currentTime > lowestTime && currentTime < highestTime)
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-damaged"), uid, uid);
-        else
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-catastrophic"), uid, uid);
-
-        if (!_mobState.IsDead(uid))
-            _mobState.ChangeMobState(uid, MobState.Dead);
-
-        comp.IsInStasis = true;
-
-        args.Handled = true;
-    }
-    private void OnExitStasis(EntityUid uid, ChangelingIdentityComponent comp, ref ExitStasisEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        // check if we're allowed to revive
-        var reviveEv = new BeforeSelfRevivalEvent(uid, "self-revive-fail");
-        RaiseLocalEvent(uid, ref reviveEv);
-
-        if (reviveEv.Cancelled)
-            return;
-
-        if (!comp.IsInStasis)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail"), uid, uid);
-            return;
-        }
-        if (HasComp<AbsorbedComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-dead"), uid, uid);
-            return;
-        }
-        if (comp.StasisTime > 0)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-time"), uid, uid);
-            return;
-        }
-
-        if (!TryComp<DamageableComponent>(uid, out var damageable))
-            return;
-
-        // heal of everything
-        var stasisEv = new RejuvenateEvent(false, true);
-        RaiseLocalEvent(uid, stasisEv);
-
-        _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
-
-        // stuns or knocks down anybody grabbing you
-        if (_pull.IsPulled(uid))
-        {
-            var puller = Comp<PullableComponent>(uid).Puller;
-            if (puller != null)
-            {
-                _stun.KnockdownOrStun(puller.Value, TimeSpan.FromSeconds(1), true);
-            }
-        }
-
-        args.Handled = true;
-    }
-
     #endregion
 
     #region Combat Abilities
@@ -780,7 +690,6 @@ public sealed partial class ChangelingSystem
         eggComp.lingComp = comp;
         eggComp.lingMind = (EntityUid) mind;
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-        eggComp.AugmentedEyesightPurchased = HasComp<Shared.Overlays.ThermalVisionComponent>(uid);
 
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
@@ -833,11 +742,11 @@ public sealed partial class ChangelingSystem
             QueueDel(cuff);
         }
 
-        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
+        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) &&
+            ensnareable.IsEnsnared && ensnareable.Container.ContainedEntities.Count > 0)
         {
             var bola = ensnareable.Container.ContainedEntities[0];
-            // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, 0, new EnsnareableDoAfterEvent(), uid, uid, bola));
+            _snare.ForceFree(bola, Comp<EnsnaringComponent>(bola));
             QueueDel(bola);
         }
 
@@ -848,7 +757,7 @@ public sealed partial class ChangelingSystem
         {
             if (weldable.IsWelded)
             {
-            _weldable.SetWeldedState(parent, false);
+                _weldable.SetWeldedState(parent, false);
             }
         }
         // Goobstation end
@@ -876,28 +785,6 @@ public sealed partial class ChangelingSystem
             }
         }
         _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, soln, out _);
-
-        args.Handled = true;
-    }
-    public void OnChameleonSkin(EntityUid uid, ChangelingIdentityComponent comp, ref ActionChameleonSkinEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (!comp.ChameleonActive)
-        {
-            EnsureComp<StealthComponent>(uid);
-            EnsureComp<StealthOnMoveComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
-            comp.ChameleonActive = true;
-        }
-        else
-        {
-            RemComp<StealthComponent>(uid);
-            RemComp<StealthOnMoveComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("changeling-chameleon-end"), uid, uid);
-            comp.ChameleonActive = false;
-        }
 
         args.Handled = true;
     }
@@ -938,6 +825,7 @@ public sealed partial class ChangelingSystem
         fleshmend.PassiveSound = args.PassiveSound;
         fleshmend.ResPath = args.ResPath;
         fleshmend.EffectState = args.EffectState;
+        fleshmend.BloodLevelAdjust = 0;
 
         AddComp(uid, fleshmend, true);
 

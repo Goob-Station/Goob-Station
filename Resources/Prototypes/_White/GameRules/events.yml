@@ -22,6 +22,7 @@
   - type: XenomorphsRule
     xenomorphInfestationSound:
       collection: xeno_start #Goobstation
+      volume: -2
   - type: AntagObjectives
     objectives:
     - XenomorphSurviveObjective

@@ -22,7 +22,7 @@ public sealed partial class StampWidget : PanelContainer
 {
     private static readonly ProtoId<ShaderPrototype> PaperStamp = "PaperStamp";
 
-    private StyleBoxTexture _borderTexture;
+    private StyleBoxTexture? _borderTexture; // Goobstation stamp
     private ShaderInstance? _stampShader;
 
     public float Orientation
@@ -33,25 +33,58 @@ public sealed partial class StampWidget : PanelContainer
 
     public StampDisplayInfo StampInfo {
         set {
-            StampedByLabel.Text = Loc.GetString(value.StampedName);
-            StampedByLabel.FontColorOverride = value.StampedColor;
-            ModulateSelfOverride = value.StampedColor;
+            // Goobstation - start
+
+           // StampedByLabel.Text = Loc.GetString(value.StampedName);
+           // StampedByLabel.FontColorOverride = value.StampedColor;
+           // ModulateSelfOverride = value.StampedColor;
+
+           var icon = value.StampLargeIcon;
+           if (icon != null)
+           {
+               var resCache = IoCManager.Resolve<IResourceCache>();
+               var borderImage = resCache.GetResource<TextureResource>(
+                   "/Textures/_Goobstation/Interface/Paper/Stamps/" + icon + ".png");
+
+               _borderTexture = new StyleBoxTexture { Texture = borderImage };
+               PanelOverride = _borderTexture;
+
+               // make stamps 50% larger to better match the original stamp sizes
+               var width = (int)(borderImage.Texture.Width * 1.5);
+               var height = (int)(borderImage.Texture.Height * 1.5);
+               SetSize = new Vector2(width, height);
+           }
+
+           else
+           {
+               StampedByLabel.Text = Loc.GetString(value.StampedName);
+               StampedByLabel.FontColorOverride = value.StampedColor;
+               ModulateSelfOverride = value.StampedColor;
+           }
+           //Goobstation  - end
         }
     }
 
     public StampWidget()
     {
         RobustXamlLoader.Load(this);
+        // goob start
+        var prototypes = IoCManager.Resolve<IPrototypeManager>();
+        _stampShader = prototypes.Index<ShaderPrototype>("PaperStamp").InstanceUnique();
+
+        if (PanelOverride != null)
+            return;
+        //Goob end
+
         var resCache = IoCManager.Resolve<IResourceCache>();
         var borderImage = resCache.GetResource<TextureResource>(
                 "/Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png");
-        _borderTexture = new StyleBoxTexture {
-            Texture = borderImage,
-        };
+
+        _borderTexture = new StyleBoxTexture { Texture = borderImage }; //Goob
         _borderTexture.SetPatchMargin(StyleBoxTexture.Margin.All, 7.0f);
         PanelOverride = _borderTexture;
 
-        var prototypes = IoCManager.Resolve<IPrototypeManager>();
+        //var prototypes = IoCManager.Resolve<IPrototypeManager>(); //Goob
         _stampShader = prototypes.Index(PaperStamp).InstanceUnique();
     }
 

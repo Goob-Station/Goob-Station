@@ -17,6 +17,7 @@
 
 using System.Linq;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.IdentityManagement;
@@ -86,7 +87,9 @@ public partial class SharedMartialArtsSystem
             case >= 3:
                 if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
-                _faction.AddFaction(args.User, "Dragon");
+                _faction.AddFaction(args.User, ent.Comp.FactionToAdd);
+                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(args.User);
+                userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.Examinable = false; // no doxxing scarp users by examining lmao
                 userReflect.ReflectProb = 1;

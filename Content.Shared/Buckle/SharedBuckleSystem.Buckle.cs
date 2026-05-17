@@ -183,7 +183,26 @@ public abstract partial class SharedBuckleSystem
             return;
 
         if (!CanUnbuckle(ent!, args.Puller, false))
+        {
             args.Cancel();
+            return;
+        }
+
+        // Goobstation - doafter for unbuckle by others
+        if (args.Puller != ent.Owner
+            && TryComp<StrapComponent>(ent.Comp.BuckledTo, out var strap)
+            && strap.UnbuckleDoafterTime > 0)
+        {
+            args.Cancel();
+            var doAfter = new DoAfterArgs(EntityManager, args.Puller, TimeSpan.FromSeconds(strap.UnbuckleDoafterTime), new UnbuckleDoAfterEvent(), ent.Owner, target: ent.Owner)
+            {
+                BreakOnMove = true,
+                BreakOnDamage = true,
+            };
+            _doAfter.TryStartDoAfter(doAfter);
+            return;
+        }
+        // Goobstation
     }
 
     private void OnPullStarted(Entity<BuckleComponent> ent, ref PullStartedMessage args)
@@ -287,10 +306,10 @@ public abstract partial class SharedBuckleSystem
     // WD EDIT START
     private void OnUnbuckleDoAfter(EntityUid uid, BuckleComponent component, UnbuckleDoAfterEvent args)
     {
-        if (args.Cancelled || !CanUnbuckle((uid, component), uid, true, out var strap))
+        if (args.Cancelled || !CanUnbuckle((uid, component), args.User, true, out var strap)) // Goobstation
             return;
 
-        Unbuckle((uid, component), strap, uid);
+        Unbuckle((uid, component), strap, args.User); // Goobstation
     }
     // WD EDIT END
 
@@ -493,7 +512,7 @@ public abstract partial class SharedBuckleSystem
                 _standing.Stand(buckle, force: true);
                 break;
             case StrapPosition.Down:
-                _standing.Down(buckle, false, false);
+                _standing.Down(buckle, false, false, force: true);
                 break;
         }
 
@@ -542,6 +561,18 @@ public abstract partial class SharedBuckleSystem
             return _doAfter.TryStartDoAfter(doAfter);
         }
         // WD EDIT END
+
+        // Goobstation - doafter for unbuckle by others
+        if (user != null && buckle.Owner != user && strap.Comp.UnbuckleDoafterTime > 0)
+        {
+            var doAfter = new DoAfterArgs(EntityManager, user.Value, TimeSpan.FromSeconds(strap.Comp.UnbuckleDoafterTime), new UnbuckleDoAfterEvent(), buckle.Owner, target: buckle.Owner)
+            {
+                BreakOnMove = true,
+                BreakOnDamage = true,
+            };
+            return _doAfter.TryStartDoAfter(doAfter);
+        }
+        // Goobstation
 
         Unbuckle(buckle!, strap, user);
         return true;

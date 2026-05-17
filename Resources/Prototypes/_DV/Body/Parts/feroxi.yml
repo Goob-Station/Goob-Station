@@ -11,7 +11,7 @@
   name: feroxi body part
   components:
     - type: Sprite
-      sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+      sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     - type: Damageable # Shitmed
       damageModifierSet: Feroxi
     - type: WoundableVisuals

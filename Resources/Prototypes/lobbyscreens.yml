@@ -117,12 +117,6 @@
   artist: asardonicsailor
 
 - type: lobbyBackground
-  id: cburn
-  background: /Textures/LobbyScreens/cburn.webp
-  name: Cburn
-  artist: PubliclyExecutedPig
-
-- type: lobbyBackground
   id: clown
   background: /Textures/LobbyScreens/clown.webp
   name: Clown

@@ -178,3 +178,32 @@
         Heat: 0.9
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskGasThunderdome
+  name: Thunderdome gas mask
+  suffix: DONT MAP
+  description: ARE YOU READY TO RUMBLEEEE?
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Clothing/Mask/gassecurity.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/gassecurity.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers: #equalizes the secvest so head targeting doesnt provide an advantage
+      coefficients:
+        Blunt: 0.82 #this turns out them out to be ABOUT equal without being too decimal
+        Slash: 0.82
+        Piercing: 0.82
+        Heat: 0.9 #i didnt precisely tune this because i dont care
+  - type: Tag
+    tags: [] # no whitelist chameleon
+  - type: Hailer # needs its own voicelines for thunderdome eventually but for now its good enough
+  - type: IngestionBlocker
+    blockSmokeIngestion: true
+    enabled: false
