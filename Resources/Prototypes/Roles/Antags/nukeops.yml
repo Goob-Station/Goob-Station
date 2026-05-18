@@ -141,10 +141,10 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 108000 # 30 hours - Goobstation
+    time: 144000 # 40 hours - Goobstation
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 54000 # 15h Goobstation
+    time: 72000 # 20h Goobstation
   - !type:DepartmentTimeRequirement
     department: Command
     time: 36000 # 10h Goobstation
