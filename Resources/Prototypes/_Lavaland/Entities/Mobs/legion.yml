@@ -47,9 +47,9 @@
       task: SimpleRangedHostileCompound
     blackboard:
       VisionRadius: !type:Single
-        4
-      AggroVisionRadius: !type:Single
         7
+      AggroVisionRadius: !type:Single
+        8
       NavSmash: !type:Bool
         true
   - type: SpawnLootOnDeath
