@@ -22905,3 +22905,9 @@ Entries:
       message: Re-sprited most command cloaks and mantles
   id: 2624
   time: '2026-05-16T16:42:39.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Fix
+      message: Mothroach variants now show the correct sprite when equipped.
+  id: 2625
+  time: '2026-05-19T11:43:57.0000000+00:00'
