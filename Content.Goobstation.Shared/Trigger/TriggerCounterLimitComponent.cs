@@ -10,8 +10,5 @@ namespace Content.Goobstation.Shared.Trigger;
 public sealed partial class TriggerCounterLimitComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public int MinCount;
-
-    [DataField, AutoNetworkedField]
     public int MaxCount = 1;
 }

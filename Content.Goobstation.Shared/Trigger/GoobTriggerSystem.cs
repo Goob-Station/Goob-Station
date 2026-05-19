@@ -120,7 +120,7 @@ public sealed class GoobTriggerSystem : EntitySystem
     {
         if (args.Handled)
             return;
-        
+
         ent.Comp.Count++;
     }
 
@@ -129,8 +129,7 @@ public sealed class GoobTriggerSystem : EntitySystem
         if (!TryComp(ent.Owner, out TriggerCounterComponent? comp))
             return;
 
-        if (comp.Count > ent.Comp.MaxCount
-            || comp.Count < ent.Comp.MinCount)
+        if (comp.Count >= ent.Comp.MaxCount)
             args.Cancelled = true;
     }
 }
