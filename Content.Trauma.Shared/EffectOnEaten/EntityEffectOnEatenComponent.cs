@@ -21,14 +21,14 @@ public sealed partial class EntityEffectOnEatenComponent : Component
     public float Scale = 1f;
 
     /// <summary>
-    /// entity White list
+    /// If the entity whitelist is not null only entities are contained in the EntProtoId will have the effects added to them
     /// </summary>
     [DataField]
-    public List<EntProtoId>? EntityWhiteList;
+    public List<EntProtoId>? EntityWhitelist;
 
     /// <summary>
-    /// White list
+    /// If the whitelist is not null then the entity will be rejected if it does not pass the whitelist
     /// </summary>
     [DataField]
-    public EntityWhitelist? WhiteList;
+    public EntityWhitelist? Whitelist;
 }

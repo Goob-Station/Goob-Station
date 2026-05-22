@@ -12,6 +12,8 @@ public sealed partial class TimedReplaceSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;
 
+    List<Entity<TimedReplaceComponent>> toReplace = new ();
+
     public override void Initialize()
     {
         SubscribeLocalEvent<TimedReplaceComponent, MapInitEvent>(OnMapInit);
@@ -28,7 +30,7 @@ public sealed partial class TimedReplaceSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var toReplace = new List<(EntityUid uid, TimedReplaceComponent comp)>();
+        toReplace.Clear();
 
         var query = EntityQueryEnumerator<TimedReplaceComponent>();
         while (query.MoveNext(out var uid, out var replace))
@@ -47,7 +49,7 @@ public sealed partial class TimedReplaceSystem : EntitySystem
 
     private void ReplaceEntity(EntityUid uid, TimedReplaceComponent replace)
     {
-        SpawnAtPosition(replace.Entity, uid.ToCoordinates());
+        SpawnAtPosition(replace.Entity, Transform(uid).Coordinates);
         Del(uid);
     }
 }

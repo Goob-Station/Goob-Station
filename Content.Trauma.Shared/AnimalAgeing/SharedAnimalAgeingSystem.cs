@@ -3,6 +3,7 @@
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
@@ -18,17 +19,18 @@ using Robust.Shared.Random;
 namespace Content.Trauma.Shared.AnimalAgeing;
 
 /// <summary>
-/// This handles all the logic behind the animal ageing system
+/// This handles some of the logic behind the animal ageing system
 /// </summary>
 public sealed partial class SharedAnimalAgeingSystem : EntitySystem
 {
     [Dependency] private SharedSuicideSystem _suicide = default!;
-    [Dependency] private HappinessSystem _happiness = default!;
+    [Dependency] private SharedHappinessSystem _happiness = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedPolymorphSystem _polymorph = default!;
     [Dependency] private IPrototypeManager _proto = default!;
 
-    public const string Polymorph = "ChickenRanchMorph";
+    public ProtoId<PolymorphPrototype> Polymorph = "ChickenRanchMorph";
+    public ProtoId<DamageTypePrototype> Cellular = "Cellular";
 
     public override void Initialize()
     {
@@ -68,15 +70,16 @@ public sealed partial class SharedAnimalAgeingSystem : EntitySystem
         if (happiness == null)
             return;
 
-        EntProtoId entity = new();
+        EntProtoId entity;
 
         if (happiness <= ent.Comp.UnHappinessRequired)
             entity = ent.Comp.SadDeathEnt;
-
-        if (happiness >= ent.Comp.HappinessRequired)
+        else if (happiness >= ent.Comp.HappinessRequired)
             entity = ent.Comp.HappyDeathEnt;
+        else
+            return;
 
-        SpawnAtPosition(entity, ent.Owner.ToCoordinates());
+        SpawnAtPosition(entity, Transform(ent.Owner).Coordinates);
     }
 
     private void OnOldAgeDeath(Entity<AnimalAgeingComponent> ent, ref OldAgeDeathEvent args)
@@ -84,10 +87,10 @@ public sealed partial class SharedAnimalAgeingSystem : EntitySystem
         if (!TryComp<DamageableComponent>(ent.Owner,  out var damageable))
             return;
 
-        _suicide.ApplyLethalDamage((ent.Owner, damageable), "Cellular");
+        _suicide.ApplyLethalDamage((ent.Owner, damageable), Cellular);
 
         EnsureComp<UnrevivableComponent>(ent.Owner);
-        RemComp<AnimalAgeingComponent>(ent.Owner);
+        RemComp(ent, ent.Comp);
     }
 
     private void OnStateChangedAgeSpawn(Entity<SpawnEntityOnAgeUpComponent> ent, ref ChangeMobAgeStateEvent args)
@@ -105,20 +108,7 @@ public sealed partial class SharedAnimalAgeingSystem : EntitySystem
 
     private void OnExamine(Entity<AnimalAgeingComponent> ent, ref ExaminedEvent args)
     {
-        switch (ent.Comp.CurrentAgeState)
-        {
-            case AnimalAgeState.Baby:
-                args.PushMarkup(Loc.GetString("age-markup-baby"));
-                break;
-
-            case AnimalAgeState.Adult:
-                args.PushMarkup(Loc.GetString("age-markup-adult"));
-                break;
-
-            case AnimalAgeState.Senior:
-                args.PushMarkup(Loc.GetString("age-markup-senior"));
-                break;
-        }
+        args.PushMarkup(Loc.GetString("age-markup" + ent.Comp.CurrentAgeState.ToString().ToLower()));
     }
 
     private void OnChangeState(Entity<AnimalAgeingComponent> ent, ref ChangeMobAgeStateEvent args)

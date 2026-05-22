@@ -13,12 +13,14 @@ namespace Content.Trauma.Server.Ranching;
 /// <summary>
 /// This handles raising the egg layer event on the chicken when it should lay an egg.
 /// </summary>
-public sealed partial class ServerRanchingEggLayerSystem : EntitySystem
+public sealed partial class RanchingEggLayerSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private HungerSystem _hunger = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private MobStateSystem _mobState = default!;
+
+    private List<Entity<RanchingEggLayerComponent>> toLayEgg = new();
 
     public override void Initialize()
     {
@@ -34,7 +36,7 @@ public sealed partial class ServerRanchingEggLayerSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var toLayEgg = new List<(EntityUid uid, RanchingEggLayerComponent comp)>();
+        toLayEgg.Clear();
 
         var query = EntityQueryEnumerator<RanchingEggLayerComponent>();
         while (query.MoveNext(out var uid, out var eggLayer))

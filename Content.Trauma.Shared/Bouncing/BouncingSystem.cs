@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Coordinates;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
@@ -13,10 +12,10 @@ public sealed partial class BouncingSystem : EntitySystem
     [Dependency] private SharedEntityEffectsSystem _effects = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<BounceableComponent, StartCollideEvent>(OnCollide);
     }
 
@@ -44,7 +43,6 @@ public sealed partial class BouncingSystem : EntitySystem
 
         ent.Comp.TimesBounced = 0;
 
-        if (_net.IsServer)
-            SpawnAtPosition(ent.Comp.EntityToSpawn, ent.Owner.ToCoordinates());
+        PredictedSpawnAtPosition(ent.Comp.EntityToSpawn, Transform(ent.Owner).Coordinates);
     }
 }

@@ -25,7 +25,7 @@
   name: packet of delicious apple seeds
   components:
   - type: Seed
-    seedId: deliciousApple
+    seedId: DeliciousApple
 
 - type: entity
   parent: AppleSeeds

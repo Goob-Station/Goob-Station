@@ -17,6 +17,8 @@ public sealed partial class AnimalAgeingSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private MobStateSystem _mobState = default!;
 
+    private List<Entity<AnimalAgeingComponent>> toAgeUp = new();
+
     public override void Initialize()
     {
         SubscribeLocalEvent<AnimalAgeingComponent, MapInitEvent>(OnMapInit);
@@ -31,7 +33,7 @@ public sealed partial class AnimalAgeingSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var toAgeUp = new List<(EntityUid uid, AnimalAgeingComponent comp)>();
+        toAgeUp.Clear();
 
         var query = EntityQueryEnumerator<AnimalAgeingComponent>();
         while (query.MoveNext(out var uid, out var ageComp))

@@ -42,6 +42,7 @@ public sealed partial class AnimalAgeingComponent : Component
     public TimeSpan NextAgeTime = TimeSpan.Zero;
 }
 
+[Serializable, NetSerializable]
 public enum AnimalAgeState: byte
 {
     Baby,

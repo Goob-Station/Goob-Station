@@ -9,13 +9,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Trauma.Server.Ranching;
 
-public sealed partial class SeverHappinessSystem : EntitySystem
+public sealed partial class HappinessSystem : EntitySystem
 {
     [Dependency] private HTNSystem _htn = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private TagSystem _tag = default!;
-    [Dependency] private HappinessSystem _happiness = default!;
+    [Dependency] private Shared.Ranching.Systems.SharedHappinessSystem _happiness = default!;
 
     public override void Initialize()
     {

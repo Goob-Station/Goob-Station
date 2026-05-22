@@ -148,7 +148,7 @@
         canReact: True
         maxVol: 0
         name: food
-        reagents: [ ]
+        reagents: []
   - type: Tag
     tags:
     - Peanut
@@ -237,6 +237,8 @@
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/steel_wheat.rsi
+  - type: Produce
+    seedId: SteelWheat
   - type: SolutionContainerManager
     solutions:
       food:
@@ -245,6 +247,8 @@
           Quantity: 5
         - ReagentId: Lead
           Quantity: 0.1
+        - ReagentId: Iron
+          Quantity: 2
   - type: Tag
     tags:
     - Wheat

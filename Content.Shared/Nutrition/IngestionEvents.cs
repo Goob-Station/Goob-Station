@@ -169,7 +169,7 @@ public record struct IngestedEvent(EntityUid User, EntityUid Target, Solution Sp
 /// Raised directed at the food after finishing eating it and before it's deleted.
 /// </summary>
 [ByRefEvent]
-public readonly record struct FullyEatenEvent(EntityUid User, EntityUid Eater) // Trauma Added snake eater
+public readonly record struct FullyEatenEvent(EntityUid User, EntityUid Eater) // Trauma - Added eater
 {
     /// <summary>
     /// The entity that started the doafter to eat the food e.g if force fed it'll be the entity who fed it, NOT the entity that ate it
@@ -177,7 +177,7 @@ public readonly record struct FullyEatenEvent(EntityUid User, EntityUid Eater) /
     public readonly EntityUid User = User;
 
     /// <summary>
-    /// Trauma The entity that ate the food
+    /// Trauma - The entity that ate the food
     /// </summary>
     public readonly EntityUid Eater = Eater;
 }

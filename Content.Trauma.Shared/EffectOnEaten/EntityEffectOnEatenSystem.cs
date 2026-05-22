@@ -13,30 +13,33 @@ public sealed partial class EntityEffectOnEatenSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<EntityEffectOnEatenComponent, FullyEatenEvent>(OnEaten);
     }
 
     private void OnEaten(Entity<EntityEffectOnEatenComponent> ent, ref FullyEatenEvent args)
     {
-        if (ent.Comp.WhiteList is not null && !_whitelist.IsWhitelistPass(ent.Comp.WhiteList, args.Eater))
+        if (ent.Comp.Whitelist is not null && _whitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Eater))
             return;
 
-        if (ent.Comp.EntityWhiteList is null)
+        if (ent.Comp.EntityWhitelist is null)
         {
             _effects.ApplyEffects(args.Eater, ent.Comp.Effects, ent.Comp.Scale);
             return;
         }
 
         var isAllowed = false;
-        var entityPrototype = MetaData(args.Eater).EntityPrototype;
 
-        if (entityPrototype is null)
+        if (Prototype(args.Eater) is not {} id)
             return;
 
-        foreach (var entity in ent.Comp.EntityWhiteList)
+        foreach (var entity in ent.Comp.EntityWhitelist)
         {
-            if (entity.Id == entityPrototype.ID)
+            if (entity.Id == id.ID)
+            {
                 isAllowed = true;
+                break;
+            }
         }
 
         if (!isAllowed)

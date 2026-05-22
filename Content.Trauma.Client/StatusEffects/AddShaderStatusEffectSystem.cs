@@ -7,13 +7,16 @@ using Robust.Client.Graphics;
 
 namespace Content.Trauma.Client.StatusEffects;
 
-public sealed partial class AddStatusEffectSystem : EntitySystem
+public sealed partial class AddShaderStatusEffectSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    private EntityQuery<SpriteComponent> _spriteQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _spriteQuery = GetEntityQuery<SpriteComponent>();
 
         SubscribeLocalEvent<AddShaderStatusEffectComponent, StatusEffectAppliedEvent>(OnStartUp);
         SubscribeLocalEvent<AddShaderStatusEffectComponent, StatusEffectRemovedEvent>(OnShutdown);
@@ -27,7 +30,7 @@ public sealed partial class AddStatusEffectSystem : EntitySystem
 
     private void OnStartUp(Entity<AddShaderStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        if (!TryComp<SpriteComponent>(args.Target, out var sprite))
+        if (!_spriteQuery.HasComp(args.Target))
             return;
 
         SetShader(args.Target, true, ent.Comp.Shader);
@@ -35,12 +38,15 @@ public sealed partial class AddStatusEffectSystem : EntitySystem
 
     private void SetShader(EntityUid uid, bool enabled, ProtoId<ShaderPrototype> shaderproto)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!_spriteQuery.TryComp(uid, out var sprite))
             return;
 
-        var shader = _protoMan.Index(shaderproto).InstanceUnique();
+        if (enabled)
+        {
+            var shader = _proto.Index(shaderproto).Instance();
+            sprite.PostShader = shader;
+        }
 
-        sprite.PostShader = enabled ? shader : null;
         sprite.GetScreenTexture = enabled;
         sprite.RaiseShaderEvent = enabled;
     }

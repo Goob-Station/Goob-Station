@@ -8,6 +8,6 @@ namespace Content.Trauma.Shared.Ranching.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PlateableChickenOreComponent : Component
 {
-    [DataField]
+    [DataField(required: true)]
     public ComponentRegistry Components;
 }
