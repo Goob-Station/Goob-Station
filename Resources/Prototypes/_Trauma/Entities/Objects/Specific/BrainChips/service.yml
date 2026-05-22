@@ -1,0 +1,62 @@
+- type: entity
+  parent: BaseSkillChip
+  id: SkillChipHeadOfPersonnel
+  name: skill chip (HOP)
+  components:
+  - type: KnowledgeGrantOnWear
+    skills:
+      LiteracyKnowledge: 50
+
+- type: entity
+  parent: BaseSkillChip
+  id: SkillChipBartender
+  name: skill chip (bartender)
+  components:
+  - type: KnowledgeGrantOnWear
+    skills:
+      MeleeKnowledge: 26
+      ShootingKnowledge: 26
+
+- type: entity
+  parent: BaseSkillChip
+  id: SkillChipBotanist
+  name: skill chip (botanist)
+  components:
+  - type: KnowledgeGrantOnWear
+    skills:
+      FabricationKnowledge: 26
+      SmokeablesKnowledge: 50
+
+- type: entity
+  parent: BaseSkillChip
+  id: SkillChipChef
+  name: skill chip (chef)
+  components:
+  - type: KnowledgeGrantOnWear
+    skills:
+      MartialArtCQCChef: 1 # work your way up chuddy
+      MeleeKnowledge: 10
+      CookingKnowledge: 26
+      LanguageSpaceItalian: 100 # born and raised
+
+- type: entity
+  parent: BaseSkillChip
+  id: SkillChipServiceWorker
+  name: skill chip (service worker)
+  components:
+  - type: KnowledgeGrantOnWear
+    skills:
+      CookingKnowledge: 10
+      FabricationKnowledge: 10 # idk
+      LanguageSpaceItalian: 10 # so you can understand chefs
+
+
+- type: entity
+  parent: BaseSkillChip
+  id: SkillChipRancher # Idk chicken skill when
+  name: skill chip (rancher)
+  components:
+  - type: KnowledgeGrantOnWear
+    skills:
+      FabricationKnowledge: 26
+      SmokeablesKnowledge: 50

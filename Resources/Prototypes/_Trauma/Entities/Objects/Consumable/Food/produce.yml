@@ -141,6 +141,14 @@
     sprite: _Trauma/Objects/Specific/Hydroponics/peanut.rsi
   - type: Produce
     seedId: Peanut
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        temperature: 293.15
+        canReact: True
+        maxVol: 0
+        name: food
+        reagents: [ ]
   - type: Tag
     tags:
     - Peanut
