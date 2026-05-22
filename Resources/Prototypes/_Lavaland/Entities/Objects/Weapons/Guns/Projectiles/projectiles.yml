@@ -46,7 +46,6 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.18 # roughly 4 tiles
-  - type: GatheringProjectile
 
 - type: entity
   id: BulletKineticShuttle
@@ -73,7 +72,6 @@
     radius: 2.5
     color: white
     energy: 0.5
-  - type: GatheringProjectile
 
 - type: entity
   id: RapidBulletKinetic # Used for PK repeater and pistol
