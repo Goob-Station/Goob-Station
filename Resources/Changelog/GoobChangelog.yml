@@ -22911,3 +22911,9 @@ Entries:
       message: Mothroach variants now show the correct sprite when equipped.
   id: 2625
   time: '2026-05-19T11:43:57.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Singulo knight hammer is now magical contra.
+  id: 2626
+  time: '2026-05-22T12:52:43.0000000+00:00'
