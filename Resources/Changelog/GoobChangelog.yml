@@ -23007,3 +23007,9 @@ Entries:
       message: All machines that support automation now have automation ports built-in.
   id: 2639
   time: '2026-05-23T20:42:07.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed lavaland ruin beacons having ghost warp points.
+  id: 2640
+  time: '2026-05-23T20:42:39.0000000+00:00'
