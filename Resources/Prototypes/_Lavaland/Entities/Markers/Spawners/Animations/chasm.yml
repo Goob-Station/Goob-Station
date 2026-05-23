@@ -1,0 +1,24 @@
+- type: entity
+  id: FloorChasmOpeningSpawner
+  name: chasm opening
+  description: A rapidly opening chasm. If it's under you, RUN!!!
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: _Lavaland/Tiles/Planet/Chasms/chasm_opening.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: chasm-opening
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 4.78
+  - type: SpawnOnDespawn
+    prototype: FloorChasmEntity
