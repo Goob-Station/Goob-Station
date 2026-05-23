@@ -22989,3 +22989,13 @@ Entries:
       message: Honkops can roll on secret+ again with at least 20 players
   id: 2637
   time: '2026-05-23T20:41:26.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Lavaland light cycle is now 20 minutes instead of 30.
+    - type: Tweak
+      message: Lavaland storms are now 1,5-2 minutes instead of 2-3.
+    - type: Tweak
+      message: Lavaland ruins now spawn much closer to each other.
+  id: 2638
+  time: '2026-05-23T20:41:47.0000000+00:00'
