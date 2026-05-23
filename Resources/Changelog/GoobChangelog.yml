@@ -23035,3 +23035,11 @@ Entries:
       message: Playing card hands can be flipped by using them in hand
   id: 2642
   time: '2026-05-23T20:45:50.0000000+00:00'
+- author: Dezzzix
+  changes:
+    - type: Add
+      message: Added plasmic crayon and canvas tile
+    - type: Add
+      message: Added a tile check for protection against decal clearing
+  id: 2643
+  time: '2026-05-23T20:48:44.0000000+00:00'
