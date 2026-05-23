@@ -23103,3 +23103,9 @@ Entries:
       message: Fixed Blob tiles automatically spreading under asteroid rocks.
   id: 2650
   time: '2026-05-23T20:55:51.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Added [form], [signature], and [check] paperwork tags.
+  id: 2651
+  time: '2026-05-23T20:56:30.0000000+00:00'
