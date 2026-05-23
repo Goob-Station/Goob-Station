@@ -23025,3 +23025,13 @@ Entries:
       message: Shadow cloak cancels itself when you lose focus.
   id: 2641
   time: '2026-05-23T20:43:11.0000000+00:00'
+- author: coookies369
+  changes:
+    - type: Add
+      message: Poker chips
+    - type: Tweak
+      message: Playing cards resprite
+    - type: Tweak
+      message: Playing card hands can be flipped by using them in hand
+  id: 2642
+  time: '2026-05-23T20:45:50.0000000+00:00'
