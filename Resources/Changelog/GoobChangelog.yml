@@ -23083,3 +23083,13 @@ Entries:
       message: Diona and diona nymphs can see over friendly kudzu again.
   id: 2648
   time: '2026-05-23T20:54:16.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed goliaths being stupid.
+    - type: Fix
+      message: >-
+        Fixed performance issues caused by Lavaland mobs being constantly
+        active.
+  id: 2649
+  time: '2026-05-23T20:55:30.0000000+00:00'
