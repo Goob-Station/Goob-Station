@@ -213,9 +213,6 @@ public sealed partial class HereticVoidPullEvent : InstantActionEvent
     };
 
     [DataField]
-    public TimeSpan StunTime = TimeSpan.FromSeconds(0.5);
-
-    [DataField]
     public TimeSpan KnockDownTime = TimeSpan.FromSeconds(3);
 
     [DataField]
