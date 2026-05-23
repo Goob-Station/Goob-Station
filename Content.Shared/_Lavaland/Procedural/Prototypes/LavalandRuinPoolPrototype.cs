@@ -51,15 +51,8 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
 
     /// <summary>
     /// List of all dungeon ruins and their count.
-    /// Used for ruins that are generated with Dungeon configs.
-    /// </summary>
-    [DataField]
-    public Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> DungeonRuins = new();
-
-    /// <summary>
-    /// List of all marker ruins and their count.
     /// Used for ruins that are generated with Dungeon markers.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<LavalandMarkerRuinPrototype>, ushort> MarkerRuins = new();
+    public Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> DungeonRuins = new();
 }
