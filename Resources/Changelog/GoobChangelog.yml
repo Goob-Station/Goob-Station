@@ -23059,3 +23059,13 @@ Entries:
       message: Added xenobio slimes crate to cargo.
   id: 2645
   time: '2026-05-23T20:50:24.0000000+00:00'
+- author: liegend
+  changes:
+    - type: Add
+      message: Added armor brass on craft menu
+    - type: Add
+      message: added 2 slavic books to priest
+    - type: Tweak
+      message: new wood shield color sprite
+  id: 2646
+  time: '2026-05-23T20:53:04.0000000+00:00'
