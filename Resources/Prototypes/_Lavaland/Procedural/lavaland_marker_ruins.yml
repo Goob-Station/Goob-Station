@@ -4,8 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: lavalandMarkerRuin
-  id: Experiment
+  id: CommonRuin5x5
   boundary: 5,5
-  config: Experiment
+  spawnedMarker: LavalandInteriorRoomMarker
   priority: 0
-  spawnAttempts: 50
