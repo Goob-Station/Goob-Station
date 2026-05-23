@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server._EinsteinEngines.Language;
-using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -26,7 +25,7 @@ using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Atmos;
-using Content.Shared.Audio;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates.Helpers;
@@ -49,6 +48,9 @@ using Robust.Shared.Random;
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
+using Content.Shared.Atmos.Components;
+
+using Content.Shared.Mobs.Components; // Goob - zombie cure
 
 namespace Content.Server.EntityEffects;
 
@@ -79,6 +81,7 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly TurfSystem _turf = default!; //todo Goobstation? The only thing im using this for is meant to be in RT? Fix if you havent
+    [Dependency] private readonly ZombieSystem _zombie = default!; // Goob - zombie cure
 
     public override void Initialize()
     {
@@ -626,12 +629,43 @@ public sealed class EntityEffectSystem : EntitySystem
         if (HasComp<IncurableZombieComponent>(args.Args.TargetEntity))
             return;
 
-        RemComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
-        RemComp<PendingZombieComponent>(args.Args.TargetEntity);
+        // Goob - cure notification
+        if (HasComp<ZombifyOnDeathComponent>(args.Args.TargetEntity)
+            || HasComp<PendingZombieComponent>(args.Args.TargetEntity))
+        {
+            RemComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
+            RemComp<PendingZombieComponent>(args.Args.TargetEntity);
+            
+            _popup.PopupEntity(
+                Loc.GetString("zombie-cured-popup"),
+                args.Args.TargetEntity,
+                PopupType.Medium
+            );
+        }
 
         if (args.Effect.Innoculate)
         {
             EnsureComp<ZombieImmuneComponent>(args.Args.TargetEntity);
+        }
+
+        // Goob - zombie cure
+        if (args.Effect.CureCriticalZombies
+            && TryComp(args.Args.TargetEntity, out ZombieComponent? zombieComp)
+            && TryComp(args.Args.TargetEntity, out MobStateComponent? mobStateComp)
+            && mobStateComp.CurrentState != Shared.Mobs.MobState.Alive)
+        {
+            if (_zombie.UnZombify(args.Args.TargetEntity, args.Args.TargetEntity, zombieComp))
+                _popup.PopupEntity(
+                    Loc.GetString("zombie-cured-popup"),
+                    args.Args.TargetEntity,
+                    PopupType.Medium
+                );
+            else
+                _popup.PopupEntity(
+                    Loc.GetString("zombie-cure-failed-popup"),
+                    args.Args.TargetEntity,
+                    PopupType.Medium
+                );
         }
     }
 

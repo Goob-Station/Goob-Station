@@ -106,7 +106,7 @@
       - id: ClothingUniformJumpskirtChiefEngineerTurtle
       - id: ClothingHeadHatBeretEngineering
       - id: ClothingOuterWinterCE
-      - id: ClothingNeckCloakCe
+      - id: ClothingNeckCloakWhiteCe
 
 - type: entity
   id: DresserChiefMedicalOfficerFilled

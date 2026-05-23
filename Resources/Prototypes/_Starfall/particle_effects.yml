@@ -1,0 +1,295 @@
+- type: particleEffect
+  id: SfWeldingSparks
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: curl
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#FFFFFFFF"
+    - time: 0.1
+      color: "#FFEE88FF"
+    - time: 0.5
+      color: "#FF8800BB"
+    - time: 1.0
+      color: "#FF220000"
+  lifetime: 0.3
+  lifetimeVariance: 0.25
+  speed: 2.5
+  speedVariance: 1.5
+  particleSize: 0.8
+  stretchFactor: 0.5
+  emissionRate: 18
+  maxCount: 30
+  burst: false
+  duration: 0
+  gravity: 5.0
+  drag: 0.02
+  spreadAngle: 90
+  emitAngle: 0
+  shape:
+    type: CircleFill
+    radius: 0.1
+
+- type: particleEffect
+  id: SfGibMist
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: soft_dot_big
+  startColor: "#FFFFFFFF" #Gets changed by GibParticleSystem's ColorOverride to match the victim's blood color.
+  endColor: "#FFFFFF00"
+  alphaOverLifetime:
+    - time: 0.0
+      value: 1
+    - time: 0.08
+      value: 1
+    - time: 0.5
+      value: 0.6
+    - time: 1.0
+      value: 0.0
+  sizeOverLifetime:
+    - time: 0.0
+      value: 0.3
+    - time: 0.2
+      value: 1.2
+    - time: 1.0
+      value: 2.0
+  lifetime: 1.4
+  lifetimeVariance: 0.4
+  speed: 1
+  speedVariance: 1.2
+  particleSize: 0.5
+  sizeVariance: 0.3
+  emissionRate: 0
+  maxCount: 55
+  burst: true
+  gravity: 1
+  drag: 0.85
+  noiseStrength: 0.5
+  noiseFrequency: 0.9
+  spreadAngle: 60
+  emitAngle: 0
+  startRotation: 0
+  startRotationVariance: 60
+  rotationSpeed: 1
+  rotationSpeedVariance: 45
+  shape:
+    type: CircleFill
+    radius: 0.2
+
+- type: particleEffect
+  id: SfWeldingBurst
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: curl
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#FFFFFFFF"
+    - time: 0.1
+      color: "#FFEE88FF"
+    - time: 0.6
+      color: "#FF8800AA"
+    - time: 1.0
+      color: "#FF220000"
+  lifetime: 0.3
+  lifetimeVariance: 0.3
+  speed: 5.0
+  speedVariance: 2.0
+  particleSize: 0.8
+  stretchFactor: 0.5
+  emissionRate: 0
+  maxCount: 35
+  burst: true
+  gravity: 5.0
+  drag: 0.02
+  spreadAngle: 120
+  emitAngle: 0
+  shape:
+    type: CircleFill
+    radius: 0.12
+
+- type: particleEffect
+  id: SfSmoke
+  sprite:
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+  startColor: "#CCCCCCCC"
+  endColor: "#CCCCCC00"
+  lifetime: 2.0
+  lifetimeVariance: 0.5
+  speed: 0.5
+  speedVariance: 0.2
+  particleSize: 0.35
+  sizeVariance: 0.3
+  emissionRate: 8
+  maxCount: 32
+  burst: false
+  duration: 3.0
+  gravity: -0.3  # floats up
+  drag: 0.4
+  noiseStrength: 0.08
+  noiseFrequency: 0.6
+  spreadAngle: 60
+  emitAngle: 0
+  startRotationVariance: 180
+  rotationSpeedVariance: 25
+
+- type: particleEffect
+  id: SfFireContinuous
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: dot
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#FCE6B6FF"
+    - time: 0.2
+      color: "#FBAF4DFF"
+    - time: 0.5
+      color: "#FD6B1CFF"
+    - time: 0.8
+      color: "#CC220088"
+    - time: 1.0
+      color: "#40000000"
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.0
+    - time: 0.05
+      value: 1.0
+    - time: 0.7
+      value: 1.0
+    - time: 1.0
+      value: 0.0
+  emissionRate: 10
+  maxCount: 100
+  particleSize: 1
+  burst: false
+  duration: 0
+  gravity: -0.25 # negative values float up
+  drag: 0.1
+  noiseStrength: 0.15
+  noiseFrequency: 0.8
+  spreadAngle: 60
+  emitAngle: 0
+  shape:
+    type: CircleFill
+    radius: 0.3
+
+- type: particleEffect
+  id: SfFireSmoke
+  sprite:
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+  startColor: "#555555AA"
+  endColor: "#33333300"
+  sizeOverLifetime:
+    - time: 0.0
+      value: 0.5
+    - time: 1.0
+      value: 1.4
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.0
+    - time: 0.05
+      value: 1.0
+    - time: 0.95
+      value: 1.0
+    - time: 1.0
+      value: 0.0
+  lifetime: 2.5
+  lifetimeVariance: 0.8
+  speed: 0.3
+  speedVariance: 0.1
+  particleSize: 0.4
+  sizeVariance: 0.4
+  emissionRate: 8
+  maxCount: 20
+  burst: false
+  duration: 0
+  gravity: -0.4
+  drag: 0.15
+  noiseStrength: 0.1
+  noiseFrequency: 0.5
+  spreadAngle: 25
+  emitAngle: 0
+  startRotationVariance: 180
+  rotationSpeedVariance: 40
+  shape:
+    type: CircleFill
+    radius: 0.25
+
+- type: particleEffect
+  id: SfFireEmbers
+  sprite:
+    sprite: Effects/fire.rsi
+    state: fire
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#FFB347FF"
+    - time: 0.3
+      color: "#FF6600CC"
+    - time: 0.7
+      color: "#CC220066"
+    - time: 1.0
+      color: "#FF000000"
+  lifetime: 1.2
+  lifetimeVariance: 0.4
+  speed: 1.5
+  speedVariance: 0.5
+  particleSize: 0.18
+  sizeVariance: 0.5
+  stretchFactor: 0.25
+  emissionRate: 0
+  maxCount: 30
+  burst: true
+  gravity: -0.5
+  spreadAngle: 180
+  emitAngle: 0
+
+- type: particleEffect
+  id: SfFootstepDust
+  sprite:
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+  startColor: "#CCCCCC88"
+  endColor: "#CCCCCC00"
+  sizeOverLifetime:
+    - time: 0.0
+      value: 0.3
+    - time: 0.3
+      value: 1.0
+    - time: 1.0
+      value: 0.8
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.0
+    - time: 0.15
+      value: 1.0
+    - time: 0.6
+      value: 1.0
+    - time: 1.0
+      value: 0.0
+  lifetime: 0.6
+  lifetimeVariance: 0.2
+  speed: 0.4
+  speedVariance: 0.2
+  particleSize: 0.25
+  sizeVariance: 0.4
+  emissionRate: 0
+  maxCount: 4
+  burst: true
+  gravity: -0.1
+  drag: 0.8
+  noiseStrength: 0.05
+  noiseFrequency: 1.2
+  spreadAngle: 120
+  emitAngle: 0
+  startRotation: 0
+  startRotationVariance: 180
+  rotationSpeed: 0
+  rotationSpeedVariance: 90
+  shape:
+    type: CircleFill
+    radius: 0.1

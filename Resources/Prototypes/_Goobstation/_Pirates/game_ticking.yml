@@ -16,7 +16,7 @@
   id: SpacePirates
   components:
   - type: StationEvent
-    weight: 5
+    weight: 3
     duration: null
     earliestStart: 20
     reoccurrenceDelay: 60
