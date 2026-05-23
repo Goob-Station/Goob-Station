@@ -22937,3 +22937,9 @@ Entries:
       message: Slime puddles from vent clog events are much smaller.
   id: 2629
   time: '2026-05-23T20:32:30.0000000+00:00'
+- author: wejf
+  changes:
+    - type: Fix
+      message: Capoeira kick up move is working now.
+  id: 2630
+  time: '2026-05-23T20:32:49.0000000+00:00'
