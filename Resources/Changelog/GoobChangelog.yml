@@ -23013,3 +23013,15 @@ Entries:
       message: Fixed lavaland ruin beacons having ghost warp points.
   id: 2640
   time: '2026-05-23T20:42:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: >-
+        Shadow cloak is no longer immune to stun batons, injectors, grabs,
+        shoves, martial arts, mansus grasp and so on.
+    - type: Fix
+      message: Fix shadow cloak not replacing bark sounds.
+    - type: Add
+      message: Shadow cloak cancels itself when you lose focus.
+  id: 2641
+  time: '2026-05-23T20:43:11.0000000+00:00'
