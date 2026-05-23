@@ -22957,3 +22957,9 @@ Entries:
         needed to trigger its effects.
   id: 2632
   time: '2026-05-23T20:35:51.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Gave Gemini Hologram role requirement
+  id: 2633
+  time: '2026-05-23T20:38:01.0000000+00:00'
