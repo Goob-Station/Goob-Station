@@ -23077,3 +23077,9 @@ Entries:
         flora and a new biome of Pale forests.
   id: 2647
   time: '2026-05-23T20:53:41.0000000+00:00'
+- author: Nevec
+  changes:
+    - type: Fix
+      message: Diona and diona nymphs can see over friendly kudzu again.
+  id: 2648
+  time: '2026-05-23T20:54:16.0000000+00:00'
