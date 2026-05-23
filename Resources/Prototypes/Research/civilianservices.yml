@@ -128,6 +128,7 @@
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
     - BorgModuleLollypop # Goobstation
+    - CrayonRainbowLarge # Goobstation
   position: 0,2
 
 - type: technology
