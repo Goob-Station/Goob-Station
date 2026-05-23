@@ -260,3 +260,16 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretPlusLowpop
+  alias:
+    - Lowpop
+    - Lowpopulation
+    - Bare
+  name: secretplus-lowpop-title
+  description: secretplus-lowpop-description
+  showInVote: true
+  maxPlayers: 40
+  rules:
+    - SecretPlusLowpop

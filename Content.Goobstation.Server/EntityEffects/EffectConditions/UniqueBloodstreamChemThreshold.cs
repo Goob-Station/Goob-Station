@@ -28,7 +28,7 @@ public sealed partial class UniqueBloodstreamChemThreshold : EntityEffectConditi
         if (args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var blood))
         {
             if (args.EntityManager.System<SharedSolutionContainerSystem>().ResolveSolution(args.TargetEntity, blood.ChemicalSolutionName, ref blood.ChemicalSolution, out var chemSolution))
-                return chemSolution.Contents.Count > Min && chemSolution.Contents.Count < Max;
+                return chemSolution.Contents.Count >= Min && chemSolution.Contents.Count <= Max;
             return false;
         }
         throw new NotImplementedException();

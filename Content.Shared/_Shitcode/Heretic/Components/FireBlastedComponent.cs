@@ -1,3 +1,4 @@
+using Content.Shared._Shitcode.Heretic.SpriteOverlay;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -7,14 +8,10 @@ using Robust.Shared.Utility;
 namespace Content.Shared._Shitcode.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class FireBlastedComponent : Component
+public sealed partial class FireBlastedComponent : BaseSpriteOverlayComponent
 {
     [DataField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Magic/fireball.ogg");
-
-    [DataField]
-    public SpriteSpecifier Sprite =
-        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Heretic/Effects/effects.rsi"), "blessed");
 
     [DataField]
     public int BouncesForBonusEffect = 4;
@@ -101,6 +98,12 @@ public sealed partial class FireBlastedComponent : Component
     [DataField]
     public SpriteSpecifier FireBlastBeamSprite =
         new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Heretic/Effects/effects.rsi"), "solar_beam");
+
+    public override Enum Key { get; set; } = FireBlastedKey.Key;
+
+    [DataField]
+    public override SpriteSpecifier? Sprite { get; set; } =
+        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Heretic/Effects/effects.rsi"), "blessed");
 }
 
 public enum FireBlastedKey : byte
