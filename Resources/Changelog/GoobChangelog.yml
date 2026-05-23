@@ -22931,3 +22931,9 @@ Entries:
       message: Voidpull doesnt disarm and stun anymore.
   id: 2628
   time: '2026-05-23T20:31:00.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Slime puddles from vent clog events are much smaller.
+  id: 2629
+  time: '2026-05-23T20:32:30.0000000+00:00'
