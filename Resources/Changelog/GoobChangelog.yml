@@ -23069,3 +23069,11 @@ Entries:
       message: new wood shield color sprite
   id: 2646
   time: '2026-05-23T20:53:04.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Lavaland Planet had received another rework, and now it's filled with
+        flora and a new biome of Pale forests.
+  id: 2647
+  time: '2026-05-23T20:53:41.0000000+00:00'
