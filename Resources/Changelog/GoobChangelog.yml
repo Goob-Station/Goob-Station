@@ -22983,3 +22983,9 @@ Entries:
         sec, station clearing midrounds like dragons and nukies from spawning .
   id: 2636
   time: '2026-05-23T20:40:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: Honkops can roll on secret+ again with at least 20 players
+  id: 2637
+  time: '2026-05-23T20:41:26.0000000+00:00'
