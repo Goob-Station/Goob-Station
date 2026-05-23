@@ -22999,3 +22999,11 @@ Entries:
       message: Lavaland ruins now spawn much closer to each other.
   id: 2638
   time: '2026-05-23T20:41:47.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Remove
+      message: Removed automation upgrades.
+    - type: Tweak
+      message: All machines that support automation now have automation ports built-in.
+  id: 2639
+  time: '2026-05-23T20:42:07.0000000+00:00'
