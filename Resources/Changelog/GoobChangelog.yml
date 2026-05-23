@@ -22943,3 +22943,9 @@ Entries:
       message: Capoeira kick up move is working now.
   id: 2630
   time: '2026-05-23T20:32:49.0000000+00:00'
+- author: Tisme
+  changes:
+    - type: Add
+      message: Add overalls to the passenger loadout options
+  id: 2631
+  time: '2026-05-23T20:34:14.0000000+00:00'
