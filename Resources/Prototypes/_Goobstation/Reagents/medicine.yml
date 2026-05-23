@@ -499,7 +499,7 @@
         amount: -3
         conditions:
         - !type:UniqueBloodstreamChemThreshold
-          max: 2 # Omu fixed intent
+          max: 2
       - !type:AdjustReagent
         group: Poison
         amount: -3
@@ -513,7 +513,7 @@
       - !type:HealthChange
         conditions:
         - !type:UniqueBloodstreamChemThreshold
-          min: 3 # Omu fixed intent
+          min: 3
         damage:
           types:
             Poison: -3
