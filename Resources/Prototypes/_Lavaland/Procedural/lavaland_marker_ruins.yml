@@ -8,4 +8,3 @@
   boundary: 5,5
   config: Experiment
   priority: 0
-  spawnAttempts: 50
