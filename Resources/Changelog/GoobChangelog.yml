@@ -22949,3 +22949,11 @@ Entries:
       message: Add overalls to the passenger loadout options
   id: 2631
   time: '2026-05-23T20:34:14.0000000+00:00'
+- author: Archee
+  changes:
+    - type: Fix
+      message: >-
+        Multivers guidebook entry now correctly shows how many chemicals are
+        needed to trigger its effects.
+  id: 2632
+  time: '2026-05-23T20:35:51.0000000+00:00'
