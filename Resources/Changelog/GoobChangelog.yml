@@ -23093,3 +23093,13 @@ Entries:
         active.
   id: 2649
   time: '2026-05-23T20:55:30.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Blob's tile placement - now it feels much better since you don't
+        have to exactly click on a target to attack it.
+    - type: Fix
+      message: Fixed Blob tiles automatically spreading under asteroid rocks.
+  id: 2650
+  time: '2026-05-23T20:55:51.0000000+00:00'
