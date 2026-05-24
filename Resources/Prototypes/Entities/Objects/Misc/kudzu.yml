@@ -56,6 +56,12 @@
   parent: BaseKudzu
   description: A rapidly growing, dangerous plant. WHY ARE YOU STOPPING TO LOOK AT IT?!
   components:
+    # Goobstation - Kudzu uses the "kudzu" layer so Diona can see through it.
+    # normalDrawDepth: Overdoors (10), seeOverDrawDepth: HighFloorObjects (-5)
+    - type: SeeOverLayerVisuals
+      layer: kudzu
+      normalDrawDepth: 10
+      seeOverDrawDepth: -5
     - type: MeleeSound
       soundGroups:
         Brute:
@@ -152,6 +158,13 @@
   description: A colorful carpet of flowers sprawling in every direction. You're not sure whether to take it down or leave it up.
   parent: Kudzu
   components:
+    # Goobstation - Flower carpet uses the "kudzu" layer. Both depths are
+    # HighFloorObjects (-5) since the sprite already sits low — no visual
+    # change for Diona, but the component keeps the system consistent.
+    - type: SeeOverLayerVisuals
+      layer: kudzu
+      normalDrawDepth: -5
+      seeOverDrawDepth: -5
     - type: Sprite
       drawdepth: HighFloorObjects
       sprite: Objects/Misc/kudzuflower.rsi
