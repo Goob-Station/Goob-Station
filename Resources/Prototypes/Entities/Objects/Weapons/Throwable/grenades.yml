@@ -430,7 +430,7 @@
       - type: GravityWell
         maxRange: 7
         baseRadialAcceleration: -20
-        baseTangentialAcceleration: -10
+        baseTangentialAcceleration: -5
         gravPulsePeriod: 0.01
       - type: SingularityDistortion
         intensity: -200
