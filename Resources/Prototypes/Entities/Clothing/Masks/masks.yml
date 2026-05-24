@@ -1106,7 +1106,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - GasMask
+    - GasMask # Goobstation
   - type: HideLayerClothing
     slots:
     - Snout
