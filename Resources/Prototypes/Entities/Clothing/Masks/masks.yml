@@ -255,7 +255,7 @@
     - PetWearable
     - WhitelistChameleon
     - SyndicateBreathMask
-    - GasMask
+    - GasMask # Goobstation
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
 
