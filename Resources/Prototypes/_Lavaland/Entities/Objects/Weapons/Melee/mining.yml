@@ -58,7 +58,7 @@
 
 - type: entity
   name: diamond pickaxe
-  parent: Pickaxe
+  parent: [ Pickaxe, BaseSalvageContraband ]
   id: PickaxeDiamond
   description: Covered with diamond to reduce weight, notched to perfection for jamming it into rocks.
   components:
@@ -84,7 +84,7 @@
 
 - type: entity
   name: super mining drill
-  parent: MiningDrill
+  parent: [ MiningDrill, BaseSalvageContraband ]
   id: MiningDrillSuper
   description: An even more efficient mining drill with faster mining speed and range.
   components:
