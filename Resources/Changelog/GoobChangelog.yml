@@ -23115,3 +23115,9 @@ Entries:
       message: Fixed Goob yaml
   id: 2652
   time: '2026-05-23T22:12:03.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Reduced the price of the holoparasite kit to 60tc.
+  id: 2653
+  time: '2026-05-24T22:46:11.0000000+00:00'
