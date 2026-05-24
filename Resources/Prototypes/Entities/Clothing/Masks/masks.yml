@@ -224,7 +224,7 @@
     - PetWearable
     - WhitelistChameleon
     - SecurityBreathMask
-    - GasMask
+    - GasMask # Goobstation
   - type: Hailer # Goobstation - Hailer
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
