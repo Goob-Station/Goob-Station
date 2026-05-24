@@ -22911,3 +22911,207 @@ Entries:
       message: Mothroach variants now show the correct sprite when equipped.
   id: 2625
   time: '2026-05-19T11:43:57.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Singulo knight hammer is now magical contra.
+  id: 2626
+  time: '2026-05-22T12:52:43.0000000+00:00'
+- author: Swino4ka
+  changes:
+    - type: Tweak
+      message: Animals are no longer immune to zombie infection!
+  id: 2627
+  time: '2026-05-23T20:30:40.0000000+00:00'
+- author: wejf
+  changes:
+    - type: Add
+      message: You can use void prison on yourself now.
+    - type: Tweak
+      message: Voidpull doesnt disarm and stun anymore.
+  id: 2628
+  time: '2026-05-23T20:31:00.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Slime puddles from vent clog events are much smaller.
+  id: 2629
+  time: '2026-05-23T20:32:30.0000000+00:00'
+- author: wejf
+  changes:
+    - type: Fix
+      message: Capoeira kick up move is working now.
+  id: 2630
+  time: '2026-05-23T20:32:49.0000000+00:00'
+- author: Tisme
+  changes:
+    - type: Add
+      message: Add overalls to the passenger loadout options
+  id: 2631
+  time: '2026-05-23T20:34:14.0000000+00:00'
+- author: Archee
+  changes:
+    - type: Fix
+      message: >-
+        Multivers guidebook entry now correctly shows how many chemicals are
+        needed to trigger its effects.
+  id: 2632
+  time: '2026-05-23T20:35:51.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Gave Gemini Hologram role requirement
+  id: 2633
+  time: '2026-05-23T20:38:01.0000000+00:00'
+- author: Beanyboi69, Munde
+  changes:
+    - type: Add
+      message: New lobby art
+  id: 2634
+  time: '2026-05-23T20:38:26.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Added shield bashing!
+  id: 2635
+  time: '2026-05-23T20:40:18.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Add
+      message: >-
+        A low pop game mode which spawns only tots round start. Keeps out low
+        sec, station clearing midrounds like dragons and nukies from spawning .
+  id: 2636
+  time: '2026-05-23T20:40:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: Honkops can roll on secret+ again with at least 20 players
+  id: 2637
+  time: '2026-05-23T20:41:26.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Lavaland light cycle is now 20 minutes instead of 30.
+    - type: Tweak
+      message: Lavaland storms are now 1,5-2 minutes instead of 2-3.
+    - type: Tweak
+      message: Lavaland ruins now spawn much closer to each other.
+  id: 2638
+  time: '2026-05-23T20:41:47.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Remove
+      message: Removed automation upgrades.
+    - type: Tweak
+      message: All machines that support automation now have automation ports built-in.
+  id: 2639
+  time: '2026-05-23T20:42:07.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed lavaland ruin beacons having ghost warp points.
+  id: 2640
+  time: '2026-05-23T20:42:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: >-
+        Shadow cloak is no longer immune to stun batons, injectors, grabs,
+        shoves, martial arts, mansus grasp and so on.
+    - type: Fix
+      message: Fix shadow cloak not replacing bark sounds.
+    - type: Add
+      message: Shadow cloak cancels itself when you lose focus.
+  id: 2641
+  time: '2026-05-23T20:43:11.0000000+00:00'
+- author: coookies369
+  changes:
+    - type: Add
+      message: Poker chips
+    - type: Tweak
+      message: Playing cards resprite
+    - type: Tweak
+      message: Playing card hands can be flipped by using them in hand
+  id: 2642
+  time: '2026-05-23T20:45:50.0000000+00:00'
+- author: Dezzzix
+  changes:
+    - type: Add
+      message: Added plasmic crayon and canvas tile
+    - type: Add
+      message: Added a tile check for protection against decal clearing
+  id: 2643
+  time: '2026-05-23T20:48:44.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Add
+      message: Chefs rejoice! Added Energy food synthesizer
+    - type: Tweak
+      message: 'Bowls now fit inside chem dispenser '
+  id: 2644
+  time: '2026-05-23T20:49:07.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: Slime scanners nd xenobio bounty consoles are now craftable.
+    - type: Add
+      message: Added xenobio slimes crate to cargo.
+  id: 2645
+  time: '2026-05-23T20:50:24.0000000+00:00'
+- author: liegend
+  changes:
+    - type: Add
+      message: Added armor brass on craft menu
+    - type: Add
+      message: added 2 slavic books to priest
+    - type: Tweak
+      message: new wood shield color sprite
+  id: 2646
+  time: '2026-05-23T20:53:04.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Lavaland Planet had received another rework, and now it's filled with
+        flora and a new biome of Pale forests.
+  id: 2647
+  time: '2026-05-23T20:53:41.0000000+00:00'
+- author: Nevec
+  changes:
+    - type: Fix
+      message: Diona and diona nymphs can see over friendly kudzu again.
+  id: 2648
+  time: '2026-05-23T20:54:16.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed goliaths being stupid.
+    - type: Fix
+      message: >-
+        Fixed performance issues caused by Lavaland mobs being constantly
+        active.
+  id: 2649
+  time: '2026-05-23T20:55:30.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Blob's tile placement - now it feels much better since you don't
+        have to exactly click on a target to attack it.
+    - type: Fix
+      message: Fixed Blob tiles automatically spreading under asteroid rocks.
+  id: 2650
+  time: '2026-05-23T20:55:51.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Added [form], [signature], and [check] paperwork tags.
+  id: 2651
+  time: '2026-05-23T20:56:30.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed Goob yaml
+  id: 2652
+  time: '2026-05-23T22:12:03.0000000+00:00'
