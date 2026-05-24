@@ -85,7 +85,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("o-o", "chatsan-wide-eyed"),
         Entry("o.o", "chatsan-wide-eyed"),
         Entry("._.", "chatsan-surprised"),
-        Entry( "!", "chatsan-surprised"), // Goobstation
+        //Entry( "!", "chatsan-surprised"), // Goobstation -> Deleted by French Translation
         Entry(".-.", "chatsan-confused"),
         Entry("-_-", "chatsan-unimpressed"),
         Entry("smh", "chatsan-unimpressed"),
