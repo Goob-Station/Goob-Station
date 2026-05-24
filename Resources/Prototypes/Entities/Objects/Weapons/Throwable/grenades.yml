@@ -428,9 +428,9 @@
         sound:
           path: /Audio/Effects/Grenades/Supermatter/whitehole_loop.ogg
       - type: GravityWell
-        maxRange: 10
-        baseRadialAcceleration: -180
-        baseTangentialAcceleration: -5
+        maxRange: 7
+        baseRadialAcceleration: -20
+        baseTangentialAcceleration: -10
         gravPulsePeriod: 0.01
       - type: SingularityDistortion
         intensity: -200
