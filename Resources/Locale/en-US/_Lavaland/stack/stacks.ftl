@@ -16,6 +16,16 @@ stack-ashwood-plank = {$amount ->
 *[other] ashwood planks
 }
 
+stack-ashwood-stick = {$amount ->
+[1] ashwood stick
+*[other] ashwood sticks
+}
+
+stack-wood-stick = {$amount ->
+[1] wood stick
+*[other] wood sticks
+}
+
 stack-watcher-wing = {$amount ->
 [1] watcher wing
 *[other] watcher wings

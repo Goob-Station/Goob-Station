@@ -13,3 +13,19 @@
   targetNode: cloth
   category: construction-category-materials
   objectType: Item
+
+- type: construction
+  id: AshwoodStick
+  graph: AshwoodStick
+  startNode: start
+  targetNode: stick
+  category: construction-category-materials
+  objectType: Item
+
+- type: construction
+  id: WoodStick
+  graph: WoodStick
+  startNode: start
+  targetNode: stick
+  category: construction-category-materials
+  objectType: Item
