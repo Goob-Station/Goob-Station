@@ -56,7 +56,7 @@
   cost: 1500
   category: cargoproduct-category-name-fun
   group: market
- 
+
 - type: cargoProduct
   id: FunPremiumBalloonPack
   icon:
@@ -84,5 +84,15 @@
     state: icon
   product: CrateDartMonkey
   cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: FunTennisDuffel
+  icon:
+    sprite: _Goobstation/Objects/Fun/tennis.rsi
+    state: tennis_bundle_icon
+  product: ClothingBackpackDuffelTennisGame
+  cost: 1000
   category: cargoproduct-category-name-fun
   group: market
