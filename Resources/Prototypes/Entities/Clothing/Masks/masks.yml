@@ -779,7 +779,7 @@
         Heat: 0.75
   - type: Tag
     tags: # ignore "WhitelistChameleon" tag
-    - GasMask
+    - GasMask # Goobstation
   # Goobstation
   - type: DiseaseProtection
     # full immunity
