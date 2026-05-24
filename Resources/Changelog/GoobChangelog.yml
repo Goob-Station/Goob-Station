@@ -23121,3 +23121,19 @@ Entries:
       message: Reduced the price of the holoparasite kit to 60tc.
   id: 2653
   time: '2026-05-24T22:46:11.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Add
+      message: ported tunnel clown undetermined bundle set from trauma station
+    - type: Add
+      message: Ported Syndicate Lawyer undetermined bundle set from Trauma station
+    - type: Add
+      message: Ported Syndicate Terrorist undetermined bundle set Trauma station
+    - type: Add
+      message: Ported Syndicate Pirate Captain undetermined bundle set Trauma station
+    - type: Add
+      message: Ported Syndicate Engineer undetermined bundle set Trauma station
+    - type: Add
+      message: Ported Syndicate Door Kicker undetermined bundle set Trauma station
+  id: 2654
+  time: '2026-05-24T22:46:20.0000000+00:00'
