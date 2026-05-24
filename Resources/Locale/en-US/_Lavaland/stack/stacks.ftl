@@ -35,3 +35,13 @@ stack-legion-skull = {$amount ->
 [1] legion skull
 *[other] legion skull
 }
+
+stack-flowers-ash = {$amount ->
+[1] ash flower
+*[other] ash flowers
+}
+
+stack-flowers-pale = {$amount ->
+[1] pale flower
+*[other] pale flowers
+}
