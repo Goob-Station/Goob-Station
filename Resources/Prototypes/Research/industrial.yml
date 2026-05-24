@@ -318,6 +318,7 @@
     - AdvancedMineralScannerEmpty
     - BorgModuleAdvancedMining
     - MechEquipmentDrillDiamond # Goobstation
+    - PickaxeDiamond # Lavaland Change
   # Goobstation R&D Console rework start
   position: 0,-6
   technologyPrerequisites:

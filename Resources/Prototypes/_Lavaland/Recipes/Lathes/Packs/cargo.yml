@@ -1,0 +1,5 @@
+- type: latheRecipePack
+  id: MiningLavaland
+  recipes:
+  - MiningDrillSuper
+  - PickaxeDiamond

@@ -95,7 +95,7 @@
   - WeaponProtoKineticPistol
   # Lavaland Change end
   # These are roundstart but not replenishable for salvage
-  position: 1,0 # Goobstation R&D Console rework
+  position: 1,1 # Goobstation R&D Console rework
 
 - type: technology
   id: DraconicMunitions
