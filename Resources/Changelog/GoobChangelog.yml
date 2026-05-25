@@ -23137,3 +23137,27 @@ Entries:
       message: Ported Syndicate Door Kicker undetermined bundle set Trauma station
   id: 2654
   time: '2026-05-24T22:46:20.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Added a new sandevistan variant, the Statveka. It slows down time near
+        the user but lasts for way less time than the normal sandevistan.
+    - type: Tweak
+      message: >-
+        Sandevistans now have a status alert telling you what your current load
+        level is. If you hover your mouse over it, it will tell you your
+        thresholds. (20 seconds causes jittering, 40 causes damage, 60 causes
+        death, etc)
+    - type: Tweak
+      message: >-
+        the normal sandevistan variant now gives a 50% speed boost to all
+        do-afters.
+    - type: Tweak
+      message: Brand new trail for the sandevistan.
+    - type: Tweak
+      message: Sandevistans no longer have a build up to be disabled.
+    - type: Tweak
+      message: The cyberpsychosis bundle now comes with the new sandevistan variant.
+  id: 2655
+  time: '2026-05-25T08:16:12.0000000+00:00'
