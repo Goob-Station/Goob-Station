@@ -194,7 +194,7 @@
 
 - type: lavalandGridRuin
   id: Reclaimer
-  name: NT-Reclaimer
+  name: lavaland-ruin-reclaimer
   path: /Maps/_Lavaland/Lavaland/reclaimer_shuttle_ruin.yml
   priority: -1 # highest priority
   patchToPlanet: false
