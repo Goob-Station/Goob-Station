@@ -20,6 +20,11 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser
+      thresholds:
+        Warning: 15
+        Shaking: 30
+        Damage: 45
+        Disable: 60
 
 - type: entity
   parent: [ OrganHumanHeart, BaseSyndicateContraband ]

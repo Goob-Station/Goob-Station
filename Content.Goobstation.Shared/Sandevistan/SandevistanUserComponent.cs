@@ -33,13 +33,7 @@ public sealed partial class SandevistanUserComponent : Component
     public float LoadPerInactiveSecond = -0.25f;
 
     [DataField, AutoNetworkedField]
-    public Dictionary<SandevistanState, FixedPoint2> Thresholds = new()
-    {
-        { SandevistanState.Warning, 15 },
-        { SandevistanState.Shaking, 30 },
-        { SandevistanState.Damage, 45 },
-        { SandevistanState.Disable, 60 },
-    };
+    public Dictionary<SandevistanState, FixedPoint2> Thresholds = new();
 
     [DataField]
     public Dictionary<SandevistanState, SandevistanEffect[]> Effects = new()
