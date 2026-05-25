@@ -307,6 +307,13 @@
           types:
             Poison:
               0.5
+      - !type:HealthChange # Mono
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        damage:
+          types:
+            Heat: -0.8
     Medicine: # EE Plasmeme
       effects:
       - !type:HealthChange
@@ -322,16 +329,6 @@
             Caustic: -0.66
             Asphyxiation: -0.66
             Poison: -0.66
-      - !type:HealthChange # Mono
-        conditions:
-        - !type:OrganType
-          type: Hydrakin
-        - !type:ReagentThreshold
-          reagent: Plasma
-          min: 0.01
-        damage:
-          types:
-            Heat: -0.5
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -382,6 +379,9 @@
         conditions:
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
+          shouldHave: false
+        - !type:OrganType # Mono
+          type: Hydrakin
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
