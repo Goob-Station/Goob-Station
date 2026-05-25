@@ -12,9 +12,9 @@
   markingLimits: MobHydrakinMarkingLimits
   dollPrototype: MobHydrakinDummy
   skinColoration: Hues
-  maleFirstNames: names_hydrakin_unisex
-  femaleFirstNames: names_hydrakin_unisex
-  naming: First
+  maleFirstNames: NamesHydrakin
+  femaleFirstNames: NamesHydrakin
+  naming: FirstDashFirst
   sexes:
   - Unsexed
   - Male
@@ -127,7 +127,7 @@
   id: MobHydrakinTorsoFemale
   baseSprite:
     sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
-    state: torso_f
+    state: chest_f
 
 - type: humanoidBaseSprite
   id: MobHydrakinLLeg

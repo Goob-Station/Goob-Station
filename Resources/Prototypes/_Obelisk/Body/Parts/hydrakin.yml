@@ -12,6 +12,8 @@
   components:
   - type: Icon # Shitmed Change
     sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Hydrakin
   - type: Extractable
