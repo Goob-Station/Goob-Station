@@ -84,3 +84,8 @@
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
   - SheetifierMachineCircuitboard # Goobstation - Moved from ScienceBoards
+
+- type: latheRecipePack
+  id: Service
+  recipes:
+  - DrinkShakerBluespace
