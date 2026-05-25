@@ -147,12 +147,6 @@
     table: !type:AllSelector
       children:
       - id: ORTUFO
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
   - type: FootstepModifier
     footstepSoundCollection:
       collection: CrystalStep
@@ -165,10 +159,9 @@
     energy: 1.5
     color: cyan
   # Actual boss from here
-  - type: CardinalSpawner
-    spawnAttached: true
-    standardPrototype: DarkMatterPlankton
-    allDirections: true
+  - type: CosmicRayCirculator
+    beamPrototype: ORTBeamSmall
+    warningPrototype: ORTWarningBox
   - type: MegafaunaAi
     actionDelay: 0.5
     selector: !type:NestedMegafaunaSelector
@@ -176,11 +169,11 @@
   - type: EtherDrain
   - type: ActionGrant
     actions:
-    - ActionORTEtherDrain
-    #- ActionORTPlanktonFlood
-    - ActionORTEnergyDischarge
-    - ActionGalacticaSupercell
     - ActionORTCosmicRays
+    #- ActionORTEtherDrain
+    #- ActionORTPlanktonFlood
+    #- ActionORTEnergyDischarge
+    #- ActionGalacticaSupercell
 
 - type: entity
   name: UFO

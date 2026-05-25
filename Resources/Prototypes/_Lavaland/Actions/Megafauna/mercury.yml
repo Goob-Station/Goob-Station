@@ -77,9 +77,9 @@
   components:
   - type: AngerDelayAction
     minDelay: 10
-    maxDelay: 20
+    maxDelay: 16
   - type: InstantAction
-    event: !type:CardinalSpawnerActionEvent
+    event: !type:CosmicRayCirculatorActionEvent
 
 - type: entity
   parent: ActionBaseORT

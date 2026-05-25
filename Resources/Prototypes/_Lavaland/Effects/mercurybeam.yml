@@ -67,7 +67,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.3, -0.3, 0.3, 0.3"
+          bounds: "-0.35, -0.8, 0.35, 0.5"
         density: 100
         mask:
         - MobMask
@@ -97,29 +97,53 @@
         volume: -2
 
 - type: entity
-  id: ORTCosmicRay
+  id: ORTWarningBox
   components:
-  - type: TailedEntity
-    amount: 5
-    speed: 0
-    spacing: 1
-    prototype: ORTCosmicRaySegment
+  - type: Sprite
+    sprite: _Lavaland/Effects/warning.rsi
+    state: warning_box
+    shader: unshaded
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - ORTBeamSmall
+    intervalSeconds: 1
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: Physics
+    bodyType: Static
+  - type: FadingIn
+    fadeInTime: 0.3
+  - type: FadingTimedDespawn
+    lifetime: 1.1
+    fadeOutTime: 0.3
+
+- type: entity
+  id: ORTCosmicRayStart
+  components:
   - type: Sprite
     sprite: _Lavaland/Effects/ray.rsi
     state: ray_start
-    noRot: false
+    shader: unshaded
   - type: Physics
     bodyType: Static
-  - type: Transform
-    noRot: true
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 2
+    fadeOutTime: 0.5
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: MercuryBeam
+      params:
+        volume: -2
 
 - type: entity
   id: ORTCosmicRaySegment
   components:
-  - type: Sprite
-    sprite: _Lavaland/Effects/ray.rsi
-    state: ray_segment
-    noRot: false
   - type: Physics
     bodyType: Static
   - type: DamageOnCollide
@@ -130,3 +154,27 @@
     damage:
       groups:
         Genetic: 10
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 2
+    fadeOutTime: 0.5
+
+- type: entity
+  id: ORTCosmicRayEnd
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      groups:
+        Genetic: 15
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 2
+    fadeOutTime: 0.5

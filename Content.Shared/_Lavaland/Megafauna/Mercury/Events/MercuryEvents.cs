@@ -7,6 +7,8 @@ public sealed partial class EtherDrainEvent : InstantActionEvent;
 
 public sealed partial class CardinalSpawnerActionEvent : InstantActionEvent;
 
+public sealed class CardinalSpawnedEvent : EntityEventArgs;
+
 public sealed partial class AddComponentActionEvent : InstantActionEvent
 {
     /// <summary>
@@ -33,3 +35,5 @@ public sealed partial class RemoveComponentActionEvent : InstantActionEvent
     [DataField(required: true)]
     public ComponentRegistry TargetComponent = [];
 }
+
+public sealed partial class CosmicRayCirculatorActionEvent : InstantActionEvent;
