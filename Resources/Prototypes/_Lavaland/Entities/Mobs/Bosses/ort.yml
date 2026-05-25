@@ -159,6 +159,7 @@
     energy: 1.5
     color: cyan
   # Actual boss from here
+  - type: MegafaunaAnchor
   - type: CosmicRayCirculator
     beamPrototype: ORTBeamSmall
     warningPrototype: ORTWarningBox

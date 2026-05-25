@@ -12,12 +12,6 @@ public sealed partial class CosmicRayCirculatorComponent : Component
     public EntProtoId WarningPrototype;
 
     /// <summary>
-    /// Real entity to spawn
-    /// </summary>
-    [DataField]
-    public EntProtoId BeamPrototype;
-
-    /// <summary>
     /// Radius of ring entities are spawned in.
     /// </summary>
     [DataField]
@@ -57,11 +51,6 @@ public sealed partial class CosmicRayCirculatorComponent : Component
     /// Action is being used to hold still.
     /// </summary>
     public bool Active;
-
-    /// <summary>
-    /// Time at which delay ends and beam proto spawns in. Plus boss movement resumees.
-    /// </summary>
-    public TimeSpan EndTime;
 
     /// <summary>
     /// Time at which the next wave spawns.

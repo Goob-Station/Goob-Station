@@ -42,7 +42,7 @@ public sealed class CosmicRayCirculatorSystem : EntitySystem
 
             var waveRadius = comp.Radius + comp.RadiusIncrease * comp.CurrentWave;
             var shape = new RingEntityShape { Radius = waveRadius, Size = comp.Count };
-            _shapes.SpawnEntityShape(shape, uid, comp.BeamPrototype, out _);
+            _shapes.SpawnEntityShape(shape, uid, comp.WarningPrototype, out _);
 
             comp.CurrentWave++;
 
@@ -60,14 +60,10 @@ public sealed class CosmicRayCirculatorSystem : EntitySystem
             }
         }
     }
-
     private void OnAction(EntityUid uid, CosmicRayCirculatorComponent comp, CosmicRayCirculatorActionEvent args)
     {
         if (!_net.IsServer)
             return;
-
-        var shape = new RingEntityShape { Radius = comp.Radius, Size = comp.Count };
-        _shapes.SpawnEntityShape(shape, uid, comp.WarningPrototype, out _);
 
         // Don't want the boss moving during this cause it looks whack
         if (TryComp<MegafaunaAnchorComponent>(uid, out var anchor))
