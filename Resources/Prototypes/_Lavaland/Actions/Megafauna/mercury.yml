@@ -98,3 +98,29 @@
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
       spawn: StormSpawner
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTResonanceHorizontal
+  name: Environmental Resonance
+  description: ■■□■■■ ■■■□□ ■■■■■□ ■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:EnvironmentalResonanceActionEvent
+      vertical: false
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTResonanceVertical
+  name: Environmental Resonance
+  description: ■■□■■■ ■■■□□ ■■■■■□ ■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:EnvironmentalResonanceActionEvent
+      vertical: true

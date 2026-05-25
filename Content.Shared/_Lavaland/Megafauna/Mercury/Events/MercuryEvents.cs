@@ -5,10 +5,6 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Events;
 
 public sealed partial class EtherDrainEvent : InstantActionEvent;
 
-public sealed partial class CardinalSpawnerActionEvent : InstantActionEvent;
-
-public sealed class CardinalSpawnedEvent : EntityEventArgs;
-
 public sealed partial class AddComponentActionEvent : InstantActionEvent
 {
     /// <summary>
@@ -37,3 +33,12 @@ public sealed partial class RemoveComponentActionEvent : InstantActionEvent
 }
 
 public sealed partial class CosmicRayCirculatorActionEvent : InstantActionEvent;
+
+public sealed partial class EnvironmentalResonanceActionEvent : InstantActionEvent
+{
+    /// <summary>
+    /// If true, spawns the entities so they head vertically.
+    /// </summary>
+    [DataField]
+    public bool Vertical;
+}

@@ -160,6 +160,7 @@
     color: cyan
   # Actual boss from here
   - type: MegafaunaAnchor
+  - type: EnvironmentalResonance
   - type: CosmicRayCirculator
     beamPrototype: ORTBeamSmall
     warningPrototype: ORTWarningBox
@@ -170,7 +171,9 @@
   - type: EtherDrain
   - type: ActionGrant
     actions:
-    - ActionORTCosmicRays
+    #- ActionORTCosmicRays
+    - ActionORTResonanceVertical
+    - ActionORTResonanceHorizontal
     #- ActionORTEtherDrain
     #- ActionORTPlanktonFlood
     #- ActionORTEnergyDischarge

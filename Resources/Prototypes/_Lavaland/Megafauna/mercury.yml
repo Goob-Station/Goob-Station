@@ -16,6 +16,8 @@
     - id: ActionORTEnergyDischarge
     - id: ActionGalacticaSupercell
     - id: ActionORTCosmicRays
+    - id: ActionORTResonanceVertical
+    - id: ActionORTResonanceHorizontal
 
 - type: megafaunaSelector
   id: ActionORTEtherDrain
@@ -71,3 +73,25 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionORTCosmicRays
+
+- type: megafaunaSelector
+  id: ActionORTResonanceHorizontal
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTResonanceHorizontal
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTResonanceHorizontal
+
+- type: megafaunaSelector
+  id: ActionORTResonanceVertical
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTResonanceVertical
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTResonanceVertical
