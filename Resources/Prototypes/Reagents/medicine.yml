@@ -349,6 +349,7 @@
   id: Doxarubixadone
   name: reagent-name-doxarubixadone
   group: Medicine
+  desc: reagent-desc-doxarubixadone
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"

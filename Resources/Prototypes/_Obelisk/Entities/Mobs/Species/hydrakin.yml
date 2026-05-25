@@ -109,6 +109,11 @@
           32:
             sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
             state: head
+      neck: # Goob
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: neck
   - type: Carriable # Frontier: Carrying system from nyanotrasen.
   - type: Speech
     speechSounds: Hydrakin
@@ -153,3 +158,8 @@
           32:
             sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
             state: head
+      neck: # Goob
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: neck

@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server._Obelisk.Species.Components;
 
@@ -16,8 +17,8 @@ public sealed partial class HydrakinComponent : Component
     [DataField]
     public float CoolOffCoefficient = 0.1f;
 
-    [DataField]
-    public EntProtoId<InstantActionComponent> CoolOffActionId = "ActionHydrakinCoolOff";
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string CoolOffActionId = "ActionHydrakinCoolOff";
 
     [DataField]
     public SoundSpecifier? CoolOffSound = new SoundCollectionSpecifier("HydrakinFlap");

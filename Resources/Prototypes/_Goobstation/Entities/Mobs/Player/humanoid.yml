@@ -307,12 +307,7 @@
         settings: short
       requirements:
 
-<<<<<<< HEAD
 ## ERT Leader
-=======
-
-# Navy Captain
->>>>>>> efa7daa13c (Minor Hydrakin Visual Fixes + Hunger/Thirst (#3243))
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderNoReq

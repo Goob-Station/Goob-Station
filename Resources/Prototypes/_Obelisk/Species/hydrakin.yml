@@ -115,13 +115,13 @@
   id: MobHydrakinTorso
   baseSprite:
     sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
   id: MobHydrakinTorsoMale
   baseSprite:
     sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
   id: MobHydrakinTorsoFemale

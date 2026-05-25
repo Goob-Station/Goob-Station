@@ -21,16 +21,21 @@
     torso:
       part: TorsoHydrakin
       connections:
+      - groin
       - right arm
       - left arm
-      - right leg
-      - left leg
       - head # Shitmed
       organs:
         heart: OrganHydrakinHeart
         lungs: OrganHydrakinLungs
-        stomach: OrganHydrakinStomach
-        liver: OrganHydrakinLiver
+    groin:
+      part: GroinHydrakin
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganHumanStomach
+        liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
     right arm:
       part: RightArmHydrakin

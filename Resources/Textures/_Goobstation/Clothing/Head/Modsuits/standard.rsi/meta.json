@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, vulp sprites made by YERO, feroxi by RedTerror",
+  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, vulp sprites made by YERO, feroxi by RedTerror. Hydrakin sprites by bobbble (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -47,6 +47,14 @@
     },
     {
       "name": "equipped-HEAD-feroxi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-hydrakin",
       "directions": 4
     }
   ]

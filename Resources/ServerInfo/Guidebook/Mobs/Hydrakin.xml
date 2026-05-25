@@ -4,26 +4,13 @@
   <Box>
     <GuideEntityEmbed Entity="MobHydrakin" Caption=""/>
   </Box>
-
-  ## Lore
-
-  Hydrakin are avian creatures with an odd appearance and an extreme tolerance for cold. Fluffy, exceptionally warm, and notoriously noisy, these birds originate from a desolate iceworld far beyond the normal limits of habitable space. Their home planet is locked in perpetual ice storms, dimly lit, and surrounded by liquid oxygen oceans beneath a frezon-heavy atmosphere—once thought entirely lifeless.
-
-  Previously not meeting qualifications for sentience, the species was uplifted by Ullman Industries. Instead of being uplifted for integration or labor, Ullman pursued uplift as a proof-of-concept experiment to demonstrate its technological capability to investors. Once sapience and communication benchmarks were met, the project was declared a success, but the uplifted species itself was considered uneconomical to corporate interests.
-
-  Transport disruptions, bluespace storms, and corporate negligence scattered Hydrakin shipments and colonies across the Colossus, leaving many outside Ullman control. Today, the Hydrakin exist as a partially uplifted, displaced species, struggling to adapt to a sector they were never meant to inhabit.
-
   ## Food
 
-<<<<<<< HEAD
-  Hydrakin bodies overheat extremely quickly in hot environments due to highly heat generating adaptations.
-=======
   - Hydrakins mostly prefer raw food. Onions and theobromine-containing food are [color=#FFA500]highly toxic to them[/color].
->>>>>>> 3ce7df2433 (Adjust Hydrakin (#3377))
 
   ## Physical properties
 
-  - They are [color=#4169E1]10% more resistant to piercing and blunt damage[/color].
+  - They are [color=#4169E1]10% more resistant to blunt damage[/color].
   - They take [color=#FFA500]25% more heat damage and 15% more slash damage[/color].
   - Wearing glasses is [color=#FFA500]not possible[/color] due to the head anatomy.
 

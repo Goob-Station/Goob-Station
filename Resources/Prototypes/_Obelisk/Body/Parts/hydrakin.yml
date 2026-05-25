@@ -29,7 +29,7 @@
   components:
   - type: Sprite
     sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Extractable
     juiceSolution:
       reagents:
@@ -54,6 +54,11 @@
         Quantity: 5
       - ReagentId: AmmoniaBlood
         Quantity: 10
+
+- type: entity
+  id: GroinHydrakin
+  name: hydrakin groin
+  parent: [PartHydrakin, BaseGroin]
 
 - type: entity
   id: LeftArmHydrakin
