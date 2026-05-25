@@ -22,3 +22,8 @@ stack-screw = {$amount ->
     [1] screw
     *[other] screws
 }
+
+stack-canvas-tile = {$amount ->
+    [1] canvas tile
+    *[other] canvas tiles
+}
