@@ -48,7 +48,7 @@
   maxSeverity: 5
 
 - type: alert
-  id: ShadowCloakAlert
+  id: ShadowCloak
   icons:
   - sprite: /Textures/_Goobstation/Heretic/Interface/Alerts/shdaow_cloak.rsi
     state: curse

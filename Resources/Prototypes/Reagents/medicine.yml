@@ -944,6 +944,7 @@
     Medicine:
       effects:
         - !type:CureZombieInfection
+          cureCriticalZombies: true # Goob
           conditions:
             - !type:ReagentThreshold
               min: 10
@@ -961,6 +962,7 @@
       effects:
         - !type:CureZombieInfection
           innoculate: true
+          cureCriticalZombies: true # Goob
           conditions:
             - !type:ReagentThreshold
               min: 5
