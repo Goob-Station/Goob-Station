@@ -147,3 +147,15 @@
     sprite: _Goobstation/Clothing/OuterClothing/Coats/outcommjacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Coats/outcommjacket.rsi
+
+#central command jacket
+- type: entity
+  parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase, BaseCentcommContraband ]
+  id: ClothingOuterArmoredJacketCentralCommand
+  name: central command jacket
+  description: A green jacket with golden shoulder-pads and a high collar.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/centcommjacket.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/centcommjacket.rsi
