@@ -67,7 +67,7 @@
     equipDelay: 3
     unequipDelay: 3 #shorter on the helmet.
   - type: IngestionBlocker
-  - type: Armor
+  - type: Armor # Goobstation
     coverage:
     - Head
     traumaDeductions:
