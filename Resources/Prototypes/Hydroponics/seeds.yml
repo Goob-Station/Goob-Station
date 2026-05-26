@@ -748,7 +748,7 @@
     - FoodApple
   mutationPrototypes:
     - goldenApple
-    - deliciousApple # Trauma
+    - DeliciousApple # Trauma
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
