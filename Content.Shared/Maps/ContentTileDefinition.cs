@@ -185,5 +185,11 @@ namespace Content.Shared.Maps
 
         [DataField]
         public float TileRipResistance = 125f;
+
+        /// <summary>
+        /// If true, decals on this tile cannot be cleaned by mops or space cleaner.
+        /// </summary>
+        [DataField]
+        public bool ProtectDecals = false; // Goob
     }
 }
