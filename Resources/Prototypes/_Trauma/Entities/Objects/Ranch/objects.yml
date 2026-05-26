@@ -63,12 +63,8 @@
     containers:
       entity_storage: !type:Container
         showEnts: True
-        occludes: True
-        ents: []
       paper_label: !type:ContainerSlot
         showEnts: False
-        occludes: True
-        ent: null
 
 - type: entity
   parent: BaseStructure
