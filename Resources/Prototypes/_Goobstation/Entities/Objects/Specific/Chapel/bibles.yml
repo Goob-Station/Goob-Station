@@ -48,3 +48,25 @@
     sprite: _ShitChap/Objects/clockwork_slab.rsi
   - type: Item
     sprite: _ShitChap/Objects/clockwork_slab.rsi
+
+- type: entity
+  parent: Bible
+  name: slavic-Aryan Vedas
+  description: A book of the new religious movement Ynglism, one of the Slavic neopaganisms.
+  id: BibleVeda
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Chapel/veda.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Chapel/veda.rsi
+
+- type: entity
+  parent: Bible
+  name: book of veles
+  description: It plays a significant role in many directions of Slavic neopaganism, where it is used as a basis and proof of neopagan religiosity.
+  id: BibleVelesBook
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Chapel/veles_book.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Chapel/veles_book.rsi
