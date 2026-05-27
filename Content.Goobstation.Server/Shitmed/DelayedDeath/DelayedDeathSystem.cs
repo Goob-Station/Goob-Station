@@ -18,7 +18,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 
-namespace Content.Server._Shitmed.DelayedDeath;
+namespace Content.Goobstation.Server.Shitmed.DelayedDeath;
 
 public partial class DelayedDeathSystem : EntitySystem
 {

@@ -5,12 +5,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.BodyEffects.Subsystems;
-using Content.Shared.Body.Organ;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 
-namespace Content.Server._Shitmed.BodyEffects.Subsystems;
+namespace Content.Goobstation.Server.Shitmed.BodyEffects.Subsystems;
 
 public sealed class RandomStatusActivationSystem : EntitySystem
 {

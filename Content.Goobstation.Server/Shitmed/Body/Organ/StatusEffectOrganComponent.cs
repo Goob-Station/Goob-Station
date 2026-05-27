@@ -8,7 +8,7 @@ using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Shitmed.Body.Organ;
+namespace Content.Goobstation.Server.Shitmed.Body.Organ;
 
 [RegisterComponent, Access(typeof(StatusEffectOrganSystem))]
 [AutoGenerateComponentPause]

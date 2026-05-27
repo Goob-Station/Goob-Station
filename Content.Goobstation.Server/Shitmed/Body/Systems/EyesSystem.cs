@@ -15,7 +15,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Robust.Shared.Containers;
 
-namespace Content.Server._Shitmed.Body.Systems
+namespace Content.Goobstation.Server.Shitmed.Body.Systems
 {
     public sealed class EyesSystem : EntitySystem
     {

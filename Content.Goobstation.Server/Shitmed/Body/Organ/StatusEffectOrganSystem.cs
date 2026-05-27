@@ -8,7 +8,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Shitmed.Body.Organ;
+namespace Content.Goobstation.Server.Shitmed.Body.Organ;
 
 public sealed class StatusEffectOrganSystem : EntitySystem
 {

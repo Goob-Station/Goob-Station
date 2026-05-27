@@ -16,7 +16,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Containers;
 using System.Numerics;
 
-namespace Content.Server._Shitmed.BodyEffects.Subsystems;
+namespace Content.Goobstation.Server.Shitmed.BodyEffects.Subsystems;
 
 public sealed class GenerateChildPartSystem : EntitySystem
 {

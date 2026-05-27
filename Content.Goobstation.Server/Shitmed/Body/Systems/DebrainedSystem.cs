@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Shitmed.DelayedDeath;
+using Content.Goobstation.Server.Shitmed.DelayedDeath;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Server.Popups;
@@ -12,7 +12,7 @@ using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 
-namespace Content.Server._Shitmed.Body.Systems;
+namespace Content.Goobstation.Server.Shitmed.Body.Systems;
 
 /// <summary>
 ///     This system handles behavior on entities when they lose their head or their brains are removed.

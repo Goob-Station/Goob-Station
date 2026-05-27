@@ -7,18 +7,14 @@
 using Content.Goobstation.Common.DelayedDeath;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devour.Events;
-using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Jittering;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
-using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Devil.CheatDeath;
 

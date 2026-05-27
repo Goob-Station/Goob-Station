@@ -6,10 +6,10 @@
 
 using Content.Shared.Body.Part;
 using JetBrains.Annotations;
+using Content.Server.Destructible.Thresholds.Behaviors;
+using Content.Server.Destructible;
 
-// Leaving this one in the default namespace because I am afraid to test it
-// in the Shitmed namespace lmao.
-namespace Content.Server.Destructible.Thresholds.Behaviors;
+namespace Content.Goobstation.Server.Shitmed.Destructible.Thresholds.Behaviors;
 
 [UsedImplicitly]
 [DataDefinition]
