@@ -168,6 +168,6 @@
   description: A green-and-black jacket.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Coats/centcomm_ike.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/centcom_ike.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Coats/centcomm_ike.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/centcom_ike.rsi
