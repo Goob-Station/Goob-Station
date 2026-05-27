@@ -13,7 +13,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client._Shitmed.Choice.UI;
+using Content.Goobstation.Client.Shitmed.Choice.UI;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Body.Components;
@@ -24,7 +24,7 @@ using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitmed.Medical.Surgery;
+namespace Content.Goobstation.Client.Shitmed.Medical.Surgery;
 
 [UsedImplicitly]
 public sealed class SurgeryBui : BoundUserInterface

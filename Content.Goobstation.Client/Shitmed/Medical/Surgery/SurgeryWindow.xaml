@@ -7,7 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <controls:SurgeryWindow
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client._Shitmed.Medical.Surgery"
+    xmlns:controls="clr-namespace:Content.Goobstation.Client.Shitmed.Medical.Surgery"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     MinSize="400 400">

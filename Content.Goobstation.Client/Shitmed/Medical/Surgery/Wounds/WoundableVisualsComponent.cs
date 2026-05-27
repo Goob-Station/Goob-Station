@@ -10,13 +10,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
-using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
-namespace Content.Client._Shitmed.Medical.Surgery.Wounds;
+namespace Content.Goobstation.Client.Shitmed.Medical.Surgery.Wounds;
 
 [RegisterComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class WoundableVisualsComponent : Component

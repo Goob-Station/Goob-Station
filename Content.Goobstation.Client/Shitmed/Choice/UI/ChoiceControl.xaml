@@ -8,7 +8,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <ui:ChoiceControl
     xmlns="https://spacestation14.io"
-    xmlns:ui="clr-namespace:Content.Client._Shitmed.Choice.UI">
+    xmlns:ui="clr-namespace:Content.Goobstation.Client.Shitmed.Choice.UI">
     <BoxContainer Orientation="Horizontal">
         <Button Name="Button" Access="Public"
                 HorizontalExpand="True" VerticalExpand="False"

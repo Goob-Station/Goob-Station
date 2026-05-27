@@ -22,7 +22,7 @@ using Robust.Client.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitmed.Medical.Surgery.Wounds;
+namespace Content.Goobstation.Client.Shitmed.Medical.Surgery.Wounds;
 
 /// <summary>
 /// Handles visual representation of wounds and damage on body parts

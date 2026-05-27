@@ -5,7 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Shitmed.Antags.Abductor;
-using Content.Client._Shitmed.Choice.UI;
+using Content.Goobstation.Client.Shitmed.Choice.UI;
 using JetBrains.Annotations;
 using static Content.Shared.Pinpointer.SharedNavMapSystem;
 

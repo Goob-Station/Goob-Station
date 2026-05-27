@@ -10,7 +10,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitmed.Choice.UI;
+namespace Content.Goobstation.Client.Shitmed.Choice.UI;
 
 [GenerateTypedNameReferences]
 [Virtual]

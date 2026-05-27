@@ -5,7 +5,7 @@
 
 using Content.Shared._Shitmed.Medical.Surgery;
 
-namespace Content.Client._Shitmed.Medical.Surgery;
+namespace Content.Goobstation.Client.Shitmed.Medical.Surgery;
 
 public sealed class SurgerySystem : SharedSurgerySystem
 {

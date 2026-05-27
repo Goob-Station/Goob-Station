@@ -7,5 +7,5 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <controls:SurgeryStepButton
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client._Shitmed.Medical.Surgery">
+    xmlns:controls="clr-namespace:Content.Goobstation.Client.Shitmed.Medical.Surgery">
 </controls:SurgeryStepButton>
