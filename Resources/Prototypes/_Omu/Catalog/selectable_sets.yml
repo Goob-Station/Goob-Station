@@ -121,13 +121,3 @@
     state: base
   content:
   - HosIreLander
-
-- type: selectableSet
-  id: WardenRapierSet
-  name: selectable-set-warden-rapier-name
-  description: selectable-set-warden-rapier-description
-  sprite:
-    sprite: _Omu/Objects/Weapons/Melee/wardenrapier.rsi
-    state: icon
-  content:
-  - ClothingNeckWardenParryCloakFilled

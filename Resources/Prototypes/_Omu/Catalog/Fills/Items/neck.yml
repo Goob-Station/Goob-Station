@@ -1,9 +1,0 @@
-- type: entity
-  id: ClothingNeckWardenParryCloakFilled
-  parent: ClothingNeckWardenParryCloak
-  suffix: Filled
-  components:
-  - type: ContainerFill
-    containers:
-      item:
-      - WardenRapier
