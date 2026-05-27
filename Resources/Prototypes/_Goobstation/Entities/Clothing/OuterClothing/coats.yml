@@ -159,3 +159,15 @@
     sprite: _Goobstation/Clothing/OuterClothing/Coats/centcommjacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Coats/centcommjacket.rsi
+
+#central command ike
+- type: entity
+  parent: [ ClothingOuterStorageBase, BaseCentcommContraband ]
+  id: ClothingOuterJacketCentralCommandIke
+  name: central command ike jacket
+  description: A green-and-black jacket.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/centcomm_ike.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/centcomm_ike.rsi
