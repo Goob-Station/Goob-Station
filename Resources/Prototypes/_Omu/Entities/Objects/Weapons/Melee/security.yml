@@ -46,3 +46,40 @@
   - type: UndetectableContraband #Goobstation-Contraband detector
   - type: StealTarget
     stealGroup: WeaponSecHeadSword
+
+- type: entity
+  name: warden's rapier
+  parent: [ BaseSword, BaseWardenContraband ]
+  id: WardenRapier
+  description: A thin, elegant sword made for lunging over banana peels.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/wardenrapier.rsi
+  - type: MeleeWeapon
+    angle: 0
+    animationRotation: -90
+    wideAnimationRotation: -90
+    heavyStaminaCost: 2.5
+    damage:
+      types:
+        Piercing: 20 # slightly more than the captain sabre but with less attack speed, idk how high this should really be
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    shape:
+    - 0,0,0,3
+    storedRotation: -45
+  - type: MeleeDash
+    emoteOnDash: null
+    maxDashLength: 2
+  - type: UseDelay
+    delay: 1.5
+  - type: Tag
+    tags:
+    - WardenRapier
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun
+  - type: DisarmMalus
+  - type: Reflect
+    reflectProb: 0.3
+    spread: 30
