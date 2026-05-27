@@ -1,4 +1,5 @@
 - type: Tag
+<<<<<<< HEAD
   id: AdvancedEnergyMagAmmo
 
 - type: Tag
@@ -6,3 +7,7 @@
 
 - type: Tag
   id: HudMedichem
+=======
+- type: Tag
+  id: WardenRapier
+>>>>>>> 23521b346b (Duty Weapon Slop: Rapier Edition (#191))
