@@ -8,7 +8,7 @@ using Content.Shared.DoAfter;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Shared.Shitmed.Antags.Abductor;
 
 [Serializable, NetSerializable]
 public sealed partial class AbductorReturnDoAfterEvent : SimpleDoAfterEvent

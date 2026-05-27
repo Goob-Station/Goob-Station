@@ -4,15 +4,20 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Actions;
+/*
+    2026-05-27
+    This is currently in Common as a few modified downstream files check for an AbductorScientistComponent.
+    If that is changed. then this file and AbductorEnums can go back into shared, and CommonAbductorSystem
+    be deleted entirely in lieu of the existing SharedAbductorSystem.
+*/
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Audio;
 
-namespace Content.Shared._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Common.Shitmed.Antags.Abductor;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class AbductorHumanObservationConsoleComponent : Component
 {
     [DataField(readOnly: true)]
@@ -21,7 +26,7 @@ public sealed partial class AbductorHumanObservationConsoleComponent : Component
     [DataField, AutoNetworkedField]
     public NetEntity? RemoteEntity;
 }
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class AbductorConsoleComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -37,12 +42,12 @@ public sealed partial class AbductorConsoleComponent : Component
     public NetEntity? Armor;
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem))]
 public sealed partial class AbductorAlienPadComponent : Component
 {
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class AbductorExperimentatorComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -52,14 +57,14 @@ public sealed partial class AbductorExperimentatorComponent : Component
     public string ContainerId = "storage";
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class AbductorGizmoComponent : Component
 {
     [DataField, AutoNetworkedField]
     public NetEntity? Target;
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem))]
 public sealed partial class AbductorComponent : Component
 {
 }
@@ -77,10 +82,10 @@ public sealed partial class AbductorVictimComponent : Component
     public TimeSpan? LastActivation;
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem))]
 public sealed partial class AbductorOrganComponent : Component;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class AbductorScientistComponent : Component
 {
     [DataField("position"), AutoNetworkedField]
@@ -90,14 +95,14 @@ public sealed partial class AbductorScientistComponent : Component
     public EntityUid? Console;
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class RemoteEyeSourceContainerComponent : Component
 {
     [DataField, AutoNetworkedField]
     public EntityUid? Actor;
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class AbductorsAbilitiesComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -110,30 +115,17 @@ public sealed partial class AbductorsAbilitiesComponent : Component
     public EntityUid[] HiddenActions = [];
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(CommonAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class AbductorVestComponent : Component
 {
     [DataField, AutoNetworkedField]
     public AbductorArmorModeType CurrentState = AbductorArmorModeType.Stealth;
 }
-[RegisterComponent, Access(typeof(SharedAbductorSystem))]
+[RegisterComponent, Access(typeof(CommonAbductorSystem))]
 public sealed partial class AbductConditionComponent : Component
 {
     [DataField("abducted"), ViewVariables(VVAccess.ReadWrite)]
     public int Abducted;
     [DataField("hashset"), ViewVariables(VVAccess.ReadWrite)]
     public HashSet<NetEntity> AbductedHashs = [];
-}
-
-public sealed partial class ExitConsoleEvent : InstantActionEvent
-{
-
-}
-public sealed partial class SendYourselfEvent : WorldTargetActionEvent
-{
-
-}
-public sealed partial class AbductorReturnToShipEvent : InstantActionEvent
-{
-
 }

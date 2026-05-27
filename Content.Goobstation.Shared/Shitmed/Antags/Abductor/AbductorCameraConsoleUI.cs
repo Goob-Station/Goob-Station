@@ -4,11 +4,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Goobstation.Common.Shitmed.Antags.Abductor;
 using static Content.Shared.Pinpointer.SharedNavMapSystem;
 
-namespace Content.Shared._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Shared.Shitmed.Antags.Abductor;
 
 [Serializable, NetSerializable]
 public sealed class AbductorCameraConsoleBuiState : BoundUserInterfaceState

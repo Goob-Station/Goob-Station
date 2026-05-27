@@ -8,10 +8,11 @@ using System.Linq;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Body.Organ;
+using Content.Goobstation.Common.Shitmed.Antags.Abductor;
 
-namespace Content.Shared._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Shared.Shitmed.Antags.Abductor;
 
-public abstract class SharedAbductorSystem : EntitySystem
+public abstract class SharedAbductorSystem : CommonAbductorSystem
 {
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;

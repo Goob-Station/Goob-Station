@@ -6,7 +6,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Common.Shitmed.Antags.Abductor;
 
 [Serializable, NetSerializable]
 public enum AbductorExperimentatorVisuals : byte

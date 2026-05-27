@@ -5,17 +5,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Shitmed.GameTicking.Rules.Components;
+using Content.Goobstation.Common.Shitmed.Antags.Abductor;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Goobstation.Shared.Shitmed.Antags.Abductor;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Robust.Shared.Player;
-namespace Content.Server._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Server.Shitmed.Antags.Abductor;
 
 public sealed partial class AbductorSystem : SharedAbductorSystem
 {

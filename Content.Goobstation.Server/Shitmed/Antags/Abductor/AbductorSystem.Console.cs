@@ -4,10 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Goobstation.Shared.Shitmed.Antags.Abductor;
+using Content.Goobstation.Common.Shitmed.Antags.Abductor;
 using Content.Shared._Shitmed.ItemSwitch;
 using Content.Shared._Shitmed.ItemSwitch.Components;
-using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind.Components;
@@ -19,7 +19,7 @@ using Content.Shared.UserInterface;
 using Robust.Shared.Spawners;
 using System.Linq;
 
-namespace Content.Server._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Server.Shitmed.Antags.Abductor;
 
 public sealed partial class AbductorSystem : SharedAbductorSystem
 {

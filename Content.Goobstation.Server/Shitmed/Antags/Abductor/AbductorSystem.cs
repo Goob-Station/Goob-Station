@@ -6,9 +6,9 @@
 
 using Content.Server.Actions;
 using Content.Server.DoAfter;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Goobstation.Shared.Shitmed.Antags.Abductor;
+using Content.Goobstation.Common.Shitmed.Antags.Abductor;
 using Content.Shared.Eye;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -19,12 +19,11 @@ using Content.Shared.Silicons.StationAi;
 using Content.Shared.UserInterface;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
-namespace Content.Server._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Server.Shitmed.Antags.Abductor;
 
 public sealed partial class AbductorSystem : SharedAbductorSystem
 {

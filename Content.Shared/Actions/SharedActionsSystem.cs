@@ -135,7 +135,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Actions;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Goobstation.Common.Shitmed.Antags.Abductor;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Popups;
 

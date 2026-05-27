@@ -4,7 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Goobstation.Shared.Shitmed.Antags.Abductor;
+using Content.Goobstation.Common.Shitmed.Antags.Abductor;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
@@ -16,7 +17,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Shitmed.Antags.Abductor;
+namespace Content.Goobstation.Server.Shitmed.Antags.Abductor;
 
 public sealed partial class AbductorSystem : SharedAbductorSystem
 {
