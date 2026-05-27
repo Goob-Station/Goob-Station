@@ -111,7 +111,7 @@ using Content.Shared._DV.CosmicCult.Components; // DeltaV
 // Shitmed Change
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Body.Components;
-using Content.Shared._Shitmed.Body.Organ;
+using Content.Goobstation.Common.Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 

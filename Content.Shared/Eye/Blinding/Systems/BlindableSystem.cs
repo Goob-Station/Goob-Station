@@ -24,7 +24,7 @@ using JetBrains.Annotations;
 // Shitmed Change
 using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
-using Content.Shared._Shitmed.Body.Organ;
+using Content.Goobstation.Common.Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 namespace Content.Shared.Eye.Blinding.Systems;

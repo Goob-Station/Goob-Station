@@ -1,7 +1,6 @@
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
-using Content.Shared.Body.Organ;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Toggleable;

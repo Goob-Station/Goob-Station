@@ -1,6 +1,3 @@
-using Content.Shared._Shitmed.Body.Organ;
-using Content.Shared.Body.Organ;
-
 namespace Content.Goobstation.Shared.Augments;
 
 public sealed class AugmentActivatableUISystem : EntitySystem

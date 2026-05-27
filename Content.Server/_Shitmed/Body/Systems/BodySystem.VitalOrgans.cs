@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
-using Content.Shared._Shitmed.Body.Organ;
+using Content.Goobstation.Common.Shitmed.Body.Organ;
 using Content.Shared.Body.Components;
 
 namespace Content.Server.Body.Systems;
