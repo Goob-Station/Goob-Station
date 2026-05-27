@@ -12,8 +12,8 @@
 
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Shared._Shitmed.ItemSwitch;
-using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Goobstation.Shared.Shitmed.ItemSwitch;
+using Content.Goobstation.Shared.Shitmed.ItemSwitch.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee.Events;

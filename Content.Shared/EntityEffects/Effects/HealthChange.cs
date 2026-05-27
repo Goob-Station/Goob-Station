@@ -68,10 +68,6 @@ using Content.Shared._Shitmed.EntityEffects.Effects;
 using Content.Shared._Shitmed.Targeting;
 using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared.Heretic;
-using Content.Shared.Temperature;
-using Content.Shared.Temperature.Components;
-using Content.Shared.Temperature.Systems;
-
 namespace Content.Shared.EntityEffects.Effects
 {
     /// <summary>

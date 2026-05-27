@@ -6,7 +6,7 @@
 
 using Content.Goobstation.Shared.Shitmed.Antags.Abductor;
 using Content.Goobstation.Common.Shitmed.Antags.Abductor;
-using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Goobstation.Shared.Shitmed.ItemSwitch.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction;

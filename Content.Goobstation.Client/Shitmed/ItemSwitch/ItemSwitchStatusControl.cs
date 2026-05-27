@@ -8,7 +8,7 @@ using Content.Client.Items.UI;
 using Content.Client.Message;
 using Content.Client.Stylesheets;
 using Robust.Client.UserInterface.Controls;
-using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Goobstation.Shared.Shitmed.ItemSwitch.Components;
 
 namespace Content.Goobstation.Client.Shitmed.ItemSwitch.UI;
 

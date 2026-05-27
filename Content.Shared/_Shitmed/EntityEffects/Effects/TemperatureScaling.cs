@@ -4,8 +4,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.Serialization;
-using Robust.Shared.GameObjects;
+/*
+    2026-05-26
+    All other shitmed EntityEffects have been moved into Content.Goobstation.Shared. This one
+    remains here, since it is relied on by Content.Shared/EntityEffects/Effects/HealthChange.cs
+
+    I would have put this into common, except that seems to cause an issue with using Content.Goobstation.Maths.
+    Should common depend on the math module? I'm not qualified to say.
+*/
+
 using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Shared._Shitmed.EntityEffects.Effects;

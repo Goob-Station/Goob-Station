@@ -17,6 +17,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
+using Content.Goobstation.Common.Shitmed.Medical.Surgery.Tools;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 

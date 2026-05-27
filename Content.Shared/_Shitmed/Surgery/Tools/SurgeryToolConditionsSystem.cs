@@ -12,6 +12,7 @@ using Content.Shared.Smoking.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Goobstation.Common.Shitmed.Medical.Surgery.Tools;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 

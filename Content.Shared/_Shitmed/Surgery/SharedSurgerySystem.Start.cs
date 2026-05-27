@@ -1,5 +1,5 @@
 using Content.Goobstation.Common.Shitmed.CCVar;
-using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Content.Goobstation.Common.Shitmed.Medical.Surgery.Tools;
 using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;

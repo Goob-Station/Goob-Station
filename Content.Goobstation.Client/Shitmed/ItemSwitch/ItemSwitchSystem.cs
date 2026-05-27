@@ -5,8 +5,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Items;
-using Content.Shared._Shitmed.ItemSwitch;
-using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Goobstation.Shared.Shitmed.ItemSwitch;
+using Content.Goobstation.Shared.Shitmed.ItemSwitch.Components;
 using Content.Goobstation.Client.Shitmed.ItemSwitch.UI;
 using Robust.Client.GameObjects;
 

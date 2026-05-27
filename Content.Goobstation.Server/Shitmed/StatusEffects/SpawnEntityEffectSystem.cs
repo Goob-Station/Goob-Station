@@ -6,7 +6,8 @@
 
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
-using Content.Shared._Shitmed.StatusEffects;
+using Content.Goobstation.Common.Shitmed.StatusEffects;
+using Content.Goobstation.Shared.Shitmed.StatusEffects;
 
 namespace Content.Goobstation.Server.Shitmed.StatusEffects;
 

@@ -82,7 +82,7 @@
 
 using System.Numerics;
 using System.Text;
-using Content.Shared._Shitmed.StatusEffects;
+using Content.Goobstation.Common.Shitmed.StatusEffects;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;

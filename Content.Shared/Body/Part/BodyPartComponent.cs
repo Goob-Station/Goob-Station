@@ -29,7 +29,7 @@ using Robust.Shared.Serialization;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Part;
-using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Content.Goobstation.Common.Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Prototypes;

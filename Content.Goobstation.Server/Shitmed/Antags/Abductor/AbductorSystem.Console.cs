@@ -6,8 +6,8 @@
 
 using Content.Goobstation.Shared.Shitmed.Antags.Abductor;
 using Content.Goobstation.Common.Shitmed.Antags.Abductor;
-using Content.Shared._Shitmed.ItemSwitch;
-using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Goobstation.Shared.Shitmed.ItemSwitch;
+using Content.Goobstation.Shared.Shitmed.ItemSwitch.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind.Components;
