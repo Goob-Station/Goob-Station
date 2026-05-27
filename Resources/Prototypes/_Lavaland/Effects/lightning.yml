@@ -75,10 +75,11 @@
     inverted: true
     damage:
       types:
-        Shock: 40 # It's a fucking thunder strike!
+        Shock: 35 # It's a fucking thunder strike!
 
 - type: entity
   id: ThunderSound # Because EmitSoundOnTrigger deletes the sound of the entity getting deleted as well. Nice job blizzard.
+  categories: [HideSpawnMenu]
   components:
   - type: TimedDespawn
     lifetime: 5
@@ -88,10 +89,24 @@
     sound:
       collection: ThunderStrike
       params:
-        volume: -2  
+        volume: -2
+
+- type: entity
+  id: ORTMassiveThunderstrike
+  components:
+  - type: Timer
+  - type: VicinitySpawner
+    spawnInterval: 0.2
+    numberToSpawn: 4
+    offsetForSpawn: 2
+    prototype:
+      - LightningStrike
+  - type: TimedDespawn
+    lifetime: 3
 
 - type: entity
   id: StormSpawner
+  categories: [HideSpawnMenu]
   components:
   - type: TimedDespawn
     lifetime: 0.2

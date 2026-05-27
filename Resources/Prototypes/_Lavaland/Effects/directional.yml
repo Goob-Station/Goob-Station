@@ -1,19 +1,21 @@
 - type: entity
   id: MoveUp
+  categories: [HideSpawnMenu]
   components:
   - type: Transform
     noRot: true  
   - type: Physics
-    bodyType: Dynamic  
+    bodyType: Static  
   - type: DirectionalMovement
-    moveNorth: true  
+    moveNorth: true
+    speed: 20
   - type: TimedDespawn
     lifetime: 3
   - type: Timer
   - type: TimedSpawner
     prototypes:
       - WarningVerticalSpawner
-    intervalSeconds: 0.1
+    intervalSeconds: 0.03
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: TriggerOnSpawn
@@ -25,20 +27,22 @@
 
 - type: entity
   id: MoveDown
+  categories: [HideSpawnMenu]
   components:
   - type: Transform
     noRot: true  
   - type: Physics
-    bodyType: Dynamic  
+    bodyType: Static  
   - type: DirectionalMovement
-    moveSouth: true  
+    moveSouth: true
+    speed: 20
   - type: TimedDespawn
     lifetime: 3
   - type: Timer
   - type: TimedSpawner
     prototypes:
       - WarningVerticalSpawner
-    intervalSeconds: 0.1
+    intervalSeconds: 0.03
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: TriggerOnSpawn
@@ -50,20 +54,22 @@
 
 - type: entity
   id: MoveLeft
+  categories: [HideSpawnMenu]
   components:
   - type: Transform
     noRot: true    
   - type: Physics
-    bodyType: Dynamic  
+    bodyType: Static  
   - type: DirectionalMovement
-    moveWest: true  
+    moveWest: true
+    speed: 20
   - type: TimedDespawn
     lifetime: 3
   - type: Timer
   - type: TimedSpawner
     prototypes:
       - WarningHorizontalSpawner
-    intervalSeconds: 0.1
+    intervalSeconds: 0.03
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: TriggerOnSpawn
@@ -75,20 +81,22 @@
 
 - type: entity
   id: MoveRight
+  categories: [HideSpawnMenu]
   components:
   - type: Transform
     noRot: true    
   - type: Physics
-    bodyType: Dynamic  
+    bodyType: Static  
   - type: DirectionalMovement
-    moveEast: true  
+    moveEast: true
+    speed: 20
   - type: TimedDespawn
     lifetime: 3
   - type: Timer
   - type: TimedSpawner
     prototypes:
       - WarningHorizontalSpawner
-    intervalSeconds: 0.1
+    intervalSeconds: 0.03
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: TriggerOnSpawn
@@ -101,6 +109,7 @@
 - type: entity
   id: WarningVerticalSpawner
   parent: ORTWarningBox
+  categories: [HideSpawnMenu]
   components:
   - type: TimedSpawner
     prototypes:
@@ -108,6 +117,8 @@
     intervalSeconds: 1.4
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
+  - type: Transform
+    noRot: true  
   - type: FadingIn
     fadeInTime: 0.3
   - type: FadingTimedDespawn
@@ -117,6 +128,7 @@
 - type: entity
   id: WarningHorizontalSpawner
   parent: ORTWarningBox
+  categories: [HideSpawnMenu]
   components:
   - type: TimedSpawner
     prototypes:
@@ -124,6 +136,8 @@
     intervalSeconds: 1.4
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
+  - type: Transform
+    noRot: true  
   - type: FadingIn
     fadeInTime: 0.3
   - type: FadingTimedDespawn
@@ -132,18 +146,20 @@
 
 - type: entity
   id: ORTThickBeamVertical
+  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     sprite: _Lavaland/Effects/thick_beam.rsi
     state: thick_beamV
     shader: unshaded
+    drawdepth: Mobs
     noRot: true
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.35, -0.35, 0.35, 0.35"
+          bounds: "-0.3, -0.5, 0.3, 0.5"
         density: 9999
         hard: false
         mask:
@@ -152,6 +168,8 @@
         - GlassLayer
   - type: Physics
     bodyType: Static
+  - type: Transform
+    noRot: true  
   - type: DamageOnCollide
     ignoreWhitelist:
       components:
@@ -159,27 +177,31 @@
     inverted: true
     damage:
       groups:
-        Genetic: 10
+        Genetic: 5
   - type: FadingTimedDespawn
     lifetime: 0.5
     fadeOutTime: 0.5
 
 - type: entity
   id: ORTThickBeamHorizontal
+  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     sprite: _Lavaland/Effects/thick_beam.rsi
     state: thick_beamH
     shader: unshaded
+    drawdepth: Mobs
     noRot: true
   - type: Physics
     bodyType: Static
+  - type: Transform
+    noRot: true  
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.35, -0.35, 0.35, 0.35"
+          bounds: "-0.5, -0.3, 0.5, 0.3"
         density: 9999
         hard: false
         mask:
@@ -193,7 +215,7 @@
     inverted: true
     damage:
       groups:
-        Genetic: 10
+        Genetic: 5
   - type: FadingTimedDespawn
     lifetime: 0.5
     fadeOutTime: 0.5

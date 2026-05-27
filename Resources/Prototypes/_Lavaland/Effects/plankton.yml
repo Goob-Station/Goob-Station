@@ -17,6 +17,7 @@
           !type:PhysShapeAabb
           bounds: "-0.3, -0.3, 0.3, 0.3"
         density: 100
+        hard: false
         mask:
         - MobMask
         layer:
@@ -54,6 +55,7 @@
 
 - type: entity
   id: DarkMatterPlanktonExplode
+  categories: [HideSpawnMenu]
   components:
   - type: Rotating  
   - type: InteractionOutline
@@ -70,6 +72,7 @@
           !type:PhysShapeAabb
           bounds: "-0.3, -0.3, 0.3, 0.3"
         density: 100
+        hard: false
         mask:
         - MobMask
         layer:

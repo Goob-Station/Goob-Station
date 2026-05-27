@@ -71,6 +71,19 @@
 
 - type: entity
   parent: ActionBaseORT
+  id: ActionORTEnergySurge
+  name: Energy Burst
+  description: ■■■ ■■□■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: EmptyWarningSpawner
+
+- type: entity
+  parent: ActionBaseORT
   id: ActionORTCosmicRays
   name: Cosmic Rays
   description: ■■▣ ■ ■■■□■

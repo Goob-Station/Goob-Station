@@ -33,13 +33,13 @@ public sealed partial class EnvironmentalResonanceComponent : Component
     /// Self-explanatory, determines how far away from the entity the prototype will spawn.
     /// </summary>
     [DataField]
-    public float HorizontalOffset = 10f;
+    public float HorizontalOffset;
 
     /// <summary>
     /// Self-explanatory, determines how far away from the entity the prototype will spawn.
     /// </summary>
     [DataField]
-    public float VerticalOffset = 10f;
+    public float VerticalOffset;
 
     /// <summary>
     /// How many tiles to skip before spawning the next entity.
@@ -51,6 +51,6 @@ public sealed partial class EnvironmentalResonanceComponent : Component
     /// Number of rows to spawn entities in.
     /// </summary>
     [DataField]
-    public int RowNumber = 12;
+    public int RowNumber;
 
 }

@@ -75,7 +75,7 @@
   - type: RadiationSource
     intensity: 3
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: OverMobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -119,7 +119,7 @@
   - type: RadiationSource
     intensity: 2
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: OverMobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
@@ -161,6 +161,9 @@
   # Actual boss from here
   - type: MegafaunaAnchor
   - type: EnvironmentalResonance
+    horizontalOffset: 12
+    verticalOffset: 12
+    rowNumber: 14
   - type: CosmicRayCirculator
     beamPrototype: ORTBeamSmall
     warningPrototype: ORTWarningBox
@@ -172,9 +175,10 @@
   - type: ActionGrant
     actions:
     #- ActionORTCosmicRays
-    - ActionORTResonanceVertical
-    - ActionORTResonanceHorizontal
+    #- ActionORTResonanceVertical
+    #- ActionORTResonanceHorizontal
     #- ActionORTEtherDrain
+    - ActionORTEnergySurge
     #- ActionORTPlanktonFlood
     #- ActionORTEnergyDischarge
     #- ActionGalacticaSupercell
@@ -191,7 +195,7 @@
   - type: RadiationSource
     intensity: 4
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: OverMobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -240,7 +244,7 @@
   - type: RadiationSource
     intensity: 1
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: OverMobs
     sprite: _Lavaland/Mobs/Bosses/96x96.rsi
     layers:
     - state: mercury_ring
@@ -279,7 +283,7 @@
   - type: RadiationSource
     intensity: 1
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: OverMobs
     sprite: _Lavaland/Mobs/Bosses/96x96.rsi
     layers:
     - state: mercury_ring
