@@ -7,7 +7,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Shitmed.Autodoc;
+namespace Content.Goobstation.Shared.Shitmed.Autodoc;
 
 [Serializable, NetSerializable]
 public enum AutodocUiKey : byte

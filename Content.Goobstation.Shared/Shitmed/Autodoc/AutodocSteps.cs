@@ -4,8 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Autodoc.Components;
-using Content.Shared._Shitmed.Autodoc.Systems;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Components;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Systems;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Body.Part;
 using Content.Shared.Hands.Components;
@@ -13,7 +13,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Shitmed.Autodoc;
+namespace Content.Goobstation.Shared.Shitmed.Autodoc;
 
 [Serializable, NetSerializable, DataRecord]
 public sealed partial class AutodocProgram

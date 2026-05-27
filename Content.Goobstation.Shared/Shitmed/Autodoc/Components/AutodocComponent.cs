@@ -4,13 +4,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Autodoc.Systems;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Systems;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Shitmed.Autodoc.Components;
+namespace Content.Goobstation.Shared.Shitmed.Autodoc.Components;
 
 /// <summary>
 /// God component for autodoc.

@@ -7,7 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared._Shitmed.Autodoc.Components;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Components;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared.Administration.Logs;
@@ -28,7 +28,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
 
-namespace Content.Shared._Shitmed.Autodoc.Systems;
+namespace Content.Goobstation.Shared.Shitmed.Autodoc.Systems;
 
 public abstract class SharedAutodocSystem : EntitySystem
 {

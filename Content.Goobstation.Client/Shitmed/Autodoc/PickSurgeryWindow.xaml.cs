@@ -7,7 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.UserInterface.Controls;
-using Content.Shared._Shitmed.Autodoc;
+using Content.Goobstation.Shared.Shitmed.Autodoc;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared.Body.Part;
@@ -16,7 +16,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Shitmed.Autodoc;
+namespace Content.Goobstation.Client.Shitmed.Autodoc;
 
 [GenerateTypedNameReferences]
 public sealed partial class PickSurgeryWindow : FancyWindow

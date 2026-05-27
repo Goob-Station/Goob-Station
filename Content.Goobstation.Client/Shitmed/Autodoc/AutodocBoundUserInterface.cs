@@ -6,10 +6,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Autodoc;
+using Content.Goobstation.Shared.Shitmed.Autodoc;
 using Robust.Client.Player;
 
-namespace Content.Client._Shitmed.Autodoc;
+namespace Content.Goobstation.Client.Shitmed.Autodoc;
 
 public sealed class AutodocBoundUserInterface : BoundUserInterface
 {

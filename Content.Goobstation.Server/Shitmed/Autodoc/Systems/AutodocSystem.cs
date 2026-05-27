@@ -10,12 +10,12 @@ using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Power.EntitySystems;
-using Content.Shared._Shitmed.Autodoc.Components;
-using Content.Shared._Shitmed.Autodoc.Systems;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Components;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chat;
 
-namespace Content.Server._Shitmed.Autodoc.Systems;
+namespace Content.Goobstation.Server.Shitmed.Autodoc.Systems;
 
 public sealed class AutodocSystem : SharedAutodocSystem
 {

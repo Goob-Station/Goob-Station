@@ -4,12 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Autodoc.Systems;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Shitmed.Autodoc.Components;
+namespace Content.Goobstation.Shared.Shitmed.Autodoc.Components;
 
 /// <summary>
 /// Component added while operating on a patient.

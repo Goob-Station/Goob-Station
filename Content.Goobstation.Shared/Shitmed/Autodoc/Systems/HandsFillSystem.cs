@@ -4,11 +4,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Autodoc.Components;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 
-namespace Content.Shared._Shitmed.Autodoc.Systems;
+namespace Content.Goobstation.Shared.Shitmed.Autodoc.Systems;
 
 public sealed class HandsFillSystem : EntitySystem
 {

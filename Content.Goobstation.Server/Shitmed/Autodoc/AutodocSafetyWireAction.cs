@@ -5,11 +5,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Wires;
-using Content.Shared._Shitmed.Autodoc.Components;
-using Content.Shared._Shitmed.Autodoc.Systems;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Components;
+using Content.Goobstation.Shared.Shitmed.Autodoc.Systems;
 using Content.Shared.Wires;
 
-namespace Content.Server._Shitmed.Autodoc;
+namespace Content.Goobstation.Server.Shitmed.Autodoc;
 
 public sealed partial class AutodocSafetyWireAction : ComponentWireAction<AutodocComponent>
 {
