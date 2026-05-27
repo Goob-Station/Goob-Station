@@ -10,7 +10,7 @@
 
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Body;
-using Content.Shared._Shitmed.CCVar;
+using Content.Goobstation.Common.Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Components;

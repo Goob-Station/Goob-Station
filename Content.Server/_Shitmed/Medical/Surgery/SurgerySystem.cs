@@ -19,7 +19,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;

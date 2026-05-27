@@ -2,7 +2,7 @@ using Content.Goobstation.Common.Stunnable;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Goobstation.Shared.Clothing;
 using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;

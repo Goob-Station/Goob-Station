@@ -1,6 +1,5 @@
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
-using Content.Shared.Weapons.Melee;
 
 namespace Content.Shared._Shitmed.Weapons.Melee.Events;
 

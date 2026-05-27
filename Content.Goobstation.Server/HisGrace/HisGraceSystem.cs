@@ -15,7 +15,7 @@ using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Body.Components;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;

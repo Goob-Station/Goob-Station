@@ -49,10 +49,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
-using Content.Shared._Shitmed.CCVar;
-using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Goobstation.Common.Shitmed.CCVar;
+using Content.Goobstation.Common.Shitmed.Humanoid.Events;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;

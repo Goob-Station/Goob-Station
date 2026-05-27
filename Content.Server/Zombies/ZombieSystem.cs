@@ -71,7 +71,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 
 // Language Change

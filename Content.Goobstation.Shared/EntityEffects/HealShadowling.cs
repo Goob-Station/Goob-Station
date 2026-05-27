@@ -6,7 +6,7 @@
 
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Shadowling.Components;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.EntityEffects;
 using Content.Shared._Shitmed.Targeting;

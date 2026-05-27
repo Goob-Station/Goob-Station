@@ -9,7 +9,7 @@
 
 using Content.Client.Gameplay;
 using Content.Client._Shitmed.UserInterface.Systems.PartStatus.Widgets;
-using Content.Shared._Shitmed.PartStatus.Events;
+using Content.Goobstation.Common.Shitmed.PartStatus.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Client._Shitmed.Targeting;
 using Robust.Client.GameObjects;

@@ -5,7 +5,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Localizations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using System.Text.Json.Serialization;
 
 namespace Content.Shared.EntityEffects.Effects;

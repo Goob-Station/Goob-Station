@@ -15,7 +15,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.MagicMirror;
-using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Goobstation.Common.Shitmed.Humanoid.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.IdentityManagement;

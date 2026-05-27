@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Content.Shared._Shitmed.CCVar;
+using Content.Goobstation.Common.Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Pain;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;

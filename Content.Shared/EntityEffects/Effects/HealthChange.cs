@@ -66,7 +66,7 @@ using Content.Goobstation.Common.Temperature;
 // Shitmed Changes
 using Content.Shared._Shitmed.EntityEffects.Effects;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Temperature;
 using Content.Shared.Temperature.Components;

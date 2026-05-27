@@ -132,7 +132,7 @@ using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 // Shitmed Change
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Body;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared.Body.Components;

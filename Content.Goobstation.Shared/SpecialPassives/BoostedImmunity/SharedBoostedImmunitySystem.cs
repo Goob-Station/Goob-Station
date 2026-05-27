@@ -2,7 +2,7 @@ using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Medical;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
 using Content.Shared.Body.Systems;

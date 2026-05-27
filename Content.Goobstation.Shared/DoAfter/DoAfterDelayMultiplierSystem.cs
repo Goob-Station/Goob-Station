@@ -7,7 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.DoAfter;
-using Content.Shared._Shitmed.Cybernetics;
+using Content.Goobstation.Shared.Shitmed.Cybernetics;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;

@@ -1,7 +1,7 @@
 using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Shared.SecondSkin;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;

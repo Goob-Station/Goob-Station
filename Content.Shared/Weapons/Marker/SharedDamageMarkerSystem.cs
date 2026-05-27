@@ -40,7 +40,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Content.Shared._Lavaland.Weapons.Marker; // Lavaland Change
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared._Shitmed.Damage; // Shitmed Change
+using Content.Goobstation.Common.Shitmed.Damage; // Shitmed Change
 
 namespace Content.Shared.Weapons.Marker;
 

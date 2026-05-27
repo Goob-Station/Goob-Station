@@ -89,7 +89,7 @@ using Robust.Shared.Utility;
 // Shitmed Change
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Body.Part;
-using Content.Shared._Shitmed.Damage;
+using Content.Goobstation.Common.Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
