@@ -41,6 +41,9 @@ using Content.Shared.Stunnable;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Triggers;
 using Content.Goobstation.Common.Materials;
+using Content.Goobstation.Shared.Xenomorph;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.StepTrigger.Systems;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -89,6 +92,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, KnockDownAttemptEvent>(OnKnockDownAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, FlashAttemptEvent>(OnFlashAttempt);
         SubscribeLocalEvent<TriggerOnProximityComponent, AttemptTriggerEvent>(OnProximityTriggerAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
     }
 
     private void OnMapInit(Entity<SlasherIncorporealComponent> ent, ref MapInitEvent args)
@@ -203,7 +207,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void EnterIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
+    public void EnterIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
     {
         ent.Comp.IsIncorporeal = true;
         ent.Comp.IncorporealStartTime = _timing.CurTime;
@@ -218,6 +222,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         FreezeCooldowns((uid, ent.Comp));
 
         RemComp<KnockedDownComponent>(uid);
+        EnsureComp<FacehuggerImmuneComponent>(uid);
 
         var phase = new PhaseShiftedComponent
         {
@@ -266,7 +271,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         RaiseLocalEvent(uid, ref enteredEv);
     }
 
-    private void ExitIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
+    public void ExitIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
     {
         ent.Comp.IsIncorporeal = false;
         Dirty(ent);
@@ -302,23 +307,24 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _tags.AddTag(uid, FootstepSoundTag);
 
         // Let them speak
-        RemComp<MutedComponent>(uid);
+        RemCompDeferred<MutedComponent>(uid);
 
         // Restore FOV
         _eye.SetDrawFov(uid, true);
 
         // Remove space immunity
-        RemComp<MovementIgnoreGravityComponent>(uid);
-        RemComp<SpecialPressureImmunityComponent>(uid);
-        RemComp<SpecialBreathingImmunityComponent>(uid);
-        RemComp<SpecialLowTempImmunityComponent>(uid);
-        RemComp<SpecialHighTempImmunityComponent>(uid);
+        RemCompDeferred<MovementIgnoreGravityComponent>(uid);
+        RemCompDeferred<SpecialPressureImmunityComponent>(uid);
+        RemCompDeferred<SpecialBreathingImmunityComponent>(uid);
+        RemCompDeferred<SpecialLowTempImmunityComponent>(uid);
+        RemCompDeferred<SpecialHighTempImmunityComponent>(uid);
 
         // Remove supermatter immunity
-        RemComp<SupermatterImmuneComponent>(uid);
+        RemCompDeferred<SupermatterImmuneComponent>(uid);
 
         // Remove recycler immunity
-        RemComp<MaterialReclaimerImmuneComponent>(uid);
+        RemCompDeferred<MaterialReclaimerImmuneComponent>(uid);
+        RemCompDeferred<FacehuggerImmuneComponent>(uid);
     }
 
     // Goida as shit.. I couldn't find a better way stop cooldowns
@@ -385,7 +391,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
     private void OnAttemptInteract(EntityUid uid, SlasherIncorporealComponent comp, ref InteractionAttemptEvent args)
     {
-        if (!comp.IsIncorporeal || args.Target == null)
+        if (!comp.IsIncorporeal
+            || args.Target == null
+            || args.Target == uid)
             return;
 
         // Allow them to stop pulling things
@@ -423,9 +431,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (!TryComp<SlasherIncorporealComponent>(user, out var comp) || !comp.IsIncorporeal)
             return;
 
-        // Allow nightvision / corporealize.
+        // Allow nightvision / corporealize / wake up.
         if (comp.CorporealizeActionEnt == action.Owner
-            || _actions.GetEvent(action.Owner) is ToggleNightVisionEvent)
+            || _actions.GetEvent(action.Owner) is ToggleNightVisionEvent or WakeActionEvent)
             return;
 
         args.Cancelled = true;
@@ -464,6 +472,12 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
 
     private void OnFlashAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref FlashAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancelled = true;
+    }
+
+    private void OnStepTriggerAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref StepTriggerAttemptEvent args)
     {
         if (comp.IsIncorporeal)
             args.Cancelled = true;

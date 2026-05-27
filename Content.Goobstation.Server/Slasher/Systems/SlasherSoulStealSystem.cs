@@ -189,8 +189,8 @@ public sealed class SlasherSoulStealSystem : EntitySystem
             comp.DeadSouls++;
 
         // Update absorb souls objective progress
-        if (_mindSystem.TryGetMind(user, out var mindId, out var mind))
-            foreach (var objUid in mind.Objectives)
+        if (_mindSystem.TryGetMind(user, out _, out var mind))
+            foreach (var objUid in mind.Objectives.ToList())
             {
                 if (!TryComp<SlasherAbsorbSoulsConditionComponent>(objUid, out var absorbObj))
                     continue;

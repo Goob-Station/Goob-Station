@@ -6,8 +6,6 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Cuffs;
-using Content.Shared.Cuffs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Audio.Systems;
@@ -17,7 +15,6 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 public sealed class SlasherRegenerateSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -66,14 +63,6 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         RaiseLocalEvent(uid, new RejuvenateEvent());
 
         TryInjectReagent(uid, comp);
-
-        // If our entity is cuffed/in-cuffs --> uncuff them
-        if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
-        {
-            var cuff = cuffs.LastAddedCuffs;
-            _cuffs.Uncuff(uid, uid, cuff);
-            QueueDel(cuff);
-        }
 
         // Spawn the visual and light effect entity
         var effectEnt = Spawn(comp.RegenerateEffect, _transform.GetMapCoordinates(uid));

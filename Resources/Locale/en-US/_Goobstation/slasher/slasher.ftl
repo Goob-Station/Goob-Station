@@ -5,6 +5,28 @@ ghost-role-information-slasher-description = Slaughter and terrorize the living 
 
 slasher-round-end-agent-name = Slasher
 
+slasher-kit-select-title = Choose Your Kit
+slasher-kit-select-header = Choose a kit. Each one comes with a unique song and a unique look.
+slasher-kit-select-button = Select
+
+slasher-kit-butcher = Butcher
+slasher-kit-butcher-desc = The classic. A welding mask and apron for a no nonsense killing machine.
+
+slasher-kit-spring = Spring
+slasher-kit-spring-desc = Comes with a special spring-locked suit. The springs will hold.. probably.
+
+slasher-kit-billy = Billy
+slasher-kit-billy-desc = "Oh hey there"
+
+slasher-kit-cult = Cultist
+slasher-kit-cult-desc = Comes with a special mask. The eldritch deities are watching with great interest.
+
+slasher-kit-maintenance = Maintenance
+slasher-kit-maintenance-desc = Comes with a harmonica. "I wonder where I've seen this before?"
+
+slasher-kit-cannibal = Cannibal
+slasher-kit-cannibal-desc = Dinner is served and the secret secret ingredient is spacemen.
+
 slasher-machete-no-hands = You have no hands!
 slasher-machete-hands-full = Your hands are full!
 slasher-machete-already-holding = You're already holding your machete!
