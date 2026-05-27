@@ -127,13 +127,3 @@
   completetime: 0.4
   materials:
     Steel: 100
-
-- type: latheRecipe
-  id: DrinkShakerBluespace
-  result: DrinkShakerBluespace
-  completetime: 2
-  materials:
-    Steel: 500
-    Plastic: 500
-    Plasma: 150
-    Silver: 50

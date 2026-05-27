@@ -291,9 +291,10 @@
     - CameraBoards
     - ServiceTools
     - ServiceBoardsGoob # goob
+    - EntertainmentPack # goob
+    - BartendingPack # goob
     # Einstein Engines Packs
     - Translators
-    - Service
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ServiceBoardsEvilStatic # Donk Co microwave circiutboard
