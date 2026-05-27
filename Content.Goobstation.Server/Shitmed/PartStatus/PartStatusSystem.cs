@@ -31,7 +31,7 @@ using Content.Shared.Verbs;
 using Content.Shared.HealthExaminable;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Shitmed.PartStatus;
+namespace Content.Goobstation.Server.Shitmed.PartStatus;
 
 public sealed class PartStatusSystem : EntitySystem
 {

@@ -6,10 +6,10 @@
 
 using Content.Server.Objectives.Systems;
 
-namespace Content.Server._Shitmed.Objectives.Components;
+namespace Content.Goobstation.Server.Shitmed.Objectives.Components;
 
 /// <summary>
-///     Objective doesn't have a completion objective. Purely exists as a fancier roleplay prompt. Greentext by default.
+///     I had a really bad idea and im shitcoding this!
 /// </summary>
 [RegisterComponent]
-public sealed partial class RoleplayObjectiveComponent : Component;
+public sealed partial class ForceHereticObjectiveComponent : Component;

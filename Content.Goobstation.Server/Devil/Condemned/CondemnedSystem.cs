@@ -7,7 +7,7 @@
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Religion;
-using Content.Server._Shitmed.StatusEffects;
+using Content.Goobstation.Server.Shitmed.StatusEffects;
 using Content.Server.IdentityManagement;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;

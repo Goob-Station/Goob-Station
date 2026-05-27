@@ -8,7 +8,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared.Body.Part;
 
-namespace Content.Server._Shitmed.PartStatus;
+namespace Content.Goobstation.Server.Shitmed.PartStatus;
 
 // collecting a body parts information together
 // ik its another bs level of abstraction but i think it helps for now..

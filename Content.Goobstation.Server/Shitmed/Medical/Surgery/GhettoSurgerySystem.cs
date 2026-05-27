@@ -8,7 +8,7 @@ using Content.Server.Kitchen.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Robust.Shared.Audio;
 
-namespace Content.Server._Shitmed.Medical.Surgery;
+namespace Content.Goobstation.Server.Shitmed.Medical.Surgery;
 
 /// <summary>
 /// Makes all sharp things usable for incisions and sawing through bones, though worse than any other kind of ghetto analogue.

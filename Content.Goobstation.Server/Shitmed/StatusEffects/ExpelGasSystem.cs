@@ -9,7 +9,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Random;
 
-namespace Content.Server._Shitmed.StatusEffects;
+namespace Content.Goobstation.Server.Shitmed.StatusEffects;
 
 public sealed class ExpelGasEffectSystem : EntitySystem
 {

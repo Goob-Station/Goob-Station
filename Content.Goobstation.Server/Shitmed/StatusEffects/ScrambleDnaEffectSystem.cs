@@ -19,7 +19,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Popups;
 using Content.Shared.Forensics.Components;
 
-namespace Content.Server._Shitmed.StatusEffects;
+namespace Content.Goobstation.Server.Shitmed.StatusEffects;
 
 public sealed class ScrambleDnaEffectSystem : EntitySystem
 {

@@ -18,7 +18,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Server._Shitmed.ItemSwitch;
+namespace Content.Goobstation.Server.Shitmed.ItemSwitch;
 
 public sealed class ItemSwitchSystem : SharedItemSwitchSystem
 {

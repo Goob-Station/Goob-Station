@@ -31,7 +31,7 @@ using Robust.Shared.Utility;
 using Content.Shared.Weapons.Melee.Events;
 using System.Linq;
 
-namespace Content.Server._Shitmed.Medical.Surgery;
+namespace Content.Goobstation.Server.Shitmed.Medical.Surgery;
 
 public sealed class SurgerySystem : SharedSurgerySystem
 {

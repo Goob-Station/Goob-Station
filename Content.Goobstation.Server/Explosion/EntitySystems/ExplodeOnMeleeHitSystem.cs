@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Explosion.Components;
-using Content.Server._Shitmed.ItemSwitch;
+using Content.Goobstation.Server.Shitmed.ItemSwitch;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Weapons.Melee.Events;

@@ -6,15 +6,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Weapons.Ranged;
-using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared.Mobs;
 
-namespace Content.Server._Shitmed.Targeting;
+namespace Content.Goobstation.Server.Shitmed.Targeting;
+
 public sealed class TargetingSystem : SharedTargetingSystem
 {
     [Dependency] private readonly WoundSystem _woundSystem = default!;

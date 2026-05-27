@@ -8,7 +8,7 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared._Shitmed.StatusEffects;
 
-namespace Content.Server._Shitmed.StatusEffects;
+namespace Content.Goobstation.Server.Shitmed.StatusEffects;
 
 public sealed class SpawnEntityEffectSystem : EntitySystem
 {

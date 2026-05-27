@@ -7,7 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.EntityEffects;
-using Content.Server._Shitmed.StatusEffects;
+using Content.Goobstation.Server.Shitmed.StatusEffects;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Humanoid;

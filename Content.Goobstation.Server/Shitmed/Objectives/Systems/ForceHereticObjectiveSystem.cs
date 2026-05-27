@@ -4,14 +4,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Shitmed.Objectives.Components;
+using Content.Goobstation.Server.Shitmed.Objectives.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Robust.Shared.Player;
-namespace Content.Server._Shitmed.Objectives.Systems;
+namespace Content.Goobstation.Server.Shitmed.Objectives.Systems;
 
 public sealed class ForceHereticObjectiveSystem : EntitySystem
 {

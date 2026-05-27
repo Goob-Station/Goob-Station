@@ -4,11 +4,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Shitmed.Objectives.Components;
+using Content.Goobstation.Server.Shitmed.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Server._Shitmed.Objectives.Systems;
+namespace Content.Goobstation.Server.Shitmed.Objectives.Systems;
 
 public sealed class RoleplayObjectiveSystem : EntitySystem
 {

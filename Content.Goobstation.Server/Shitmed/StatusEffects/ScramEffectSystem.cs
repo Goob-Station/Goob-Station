@@ -7,9 +7,8 @@
 using Content.Shared._Shitmed.StatusEffects;
 using Content.Shared.Teleportation;
 using Content.Goobstation.Shared.Teleportation.Systems;
-using Content.Goobstation.Shared.Teleportation.Components;
 
-namespace Content.Server._Shitmed.StatusEffects;
+namespace ConteContent.Goobstation.Server.Shitmed.StatusEffects;
 
 public sealed class ScrambleLocationEffectSystem : EntitySystem
 {

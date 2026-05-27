@@ -6,7 +6,7 @@
 
 using Content.Shared.Roles;
 
-namespace Content.Server.Roles;
+namespace Content.Goobstation.Server.Shitmed.Roles;
 
 /// <summary>
 ///     Added to mind role entities to tag that they are an Abductor Victim.

@@ -9,7 +9,7 @@ using Content.Server.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Coordinates;
 
-namespace Content.Server._Shitmed.StatusEffects;
+namespace Content.Goobstation.Server.Shitmed.StatusEffects;
 
 public sealed class ActivateArtifactEffectSystem : EntitySystem
 {
