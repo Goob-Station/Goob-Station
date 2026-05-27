@@ -47,8 +47,8 @@
     state: icon
   content:
   - WeaponSubMachineGunBRDIR25HoS
-  - MagazineCaselessRifleFMJ
-  - MagazineCaselessRifleFMJ
+  - MagazineCaselessRifle
+  - MagazineCaselessRifle
 
 - type: selectableSet
   id: BSOBRDISet
