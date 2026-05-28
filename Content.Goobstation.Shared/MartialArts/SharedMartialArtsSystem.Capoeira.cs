@@ -45,6 +45,7 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<GrantCapoeiraComponent, ClothingGotUnequippedEvent>(OnRemove);
         // Omu end
     }
+
     // Omu start
     private void OnWear(EntityUid uid, GrantCapoeiraComponent component, ref ClothingGotEquippedEvent args)
     {
