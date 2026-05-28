@@ -180,7 +180,9 @@ namespace Content.Server.Stack
         private List<int> CalculateSpawns(string entityPrototype, int amount)
         {
             var proto = _prototypeManager.Index<EntityPrototype>(entityPrototype);
-            proto.TryGetComponent<StackComponent>(out var stack, EntityManager.ComponentFactory);
+            if (proto.TryGetComponent<StackComponent>(out var stack, EntityManager.ComponentFactory)) // Goobstation if added
+                amount *= stack.Count; // Goobstation, 10 stacks by 10 units = 100 units
+
             var maxCountPerStack = GetMaxCount(stack);
             var amounts = new List<int>();
             while (amount > 0)
