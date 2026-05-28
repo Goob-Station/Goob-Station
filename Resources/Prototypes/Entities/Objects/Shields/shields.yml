@@ -188,6 +188,19 @@
       price: 100
     - type: DisarmMalus # Goobstation
       malus: 1
+    - type: MeleeThrowOnHit #Goob start
+      distance: 0.05 #this is ~half a tile
+    - type: MeleeWeapon
+      attackRate: 0.9
+      damage:
+        types:
+          Blunt: 6
+      animationRotation: -90
+      wideAnimationRotation: -90
+      angle: 0
+      animation: WeaponArcThrust
+      soundHit:
+        collection: MetalThud #Goob end
 
 #Security Shields
 
@@ -365,6 +378,14 @@
               max: 4
     - type: StaticPrice
       price: 20
+    - type: MeleeThrowOnHit #Goob start
+      distance: 0
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 0
+      soundHit:
+        path: /Audio/Items/Toys/card_tube_bonk.ogg #Goob end
 
 - type: entity
   name: makeshift shield
