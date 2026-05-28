@@ -217,6 +217,7 @@
     - EngineeringBoards
     - SharedBoards
     - ScienceBoards
+    - ScienceBoardsGoob
     - ShuttleBoards
     - ShuttleBoardsGoob
     - MedicalBoardsGoob
@@ -291,6 +292,7 @@
     - CameraBoards
     - ServiceTools
     - ServiceBoardsGoob # goob
+    - EntertainmentPack # goob
     # Einstein Engines Packs
     - Translators
   - type: EmagLatheRecipes
