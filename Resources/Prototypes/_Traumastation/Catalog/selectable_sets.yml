@@ -1,0 +1,150 @@
+- type: selectableSet
+  id: SyndicateLawyerSet
+  name: selectable-set-syndicate-lawyer-name
+  description: selectable-set-syndicate-lawyer-description
+  sprite:
+    sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+    state: icon
+  content:
+  - ClothingUniformJumpsuitLawyerRed
+  - ClothingNeckLawyerbadge
+  - LawyerPDA
+  - ClothingEyesGlassesHiddenSecurity
+  - ClothingHeadsetChameleon
+  - ClothingBackpackChameleon
+  - EncryptionKeySyndie
+  - BookSpaceLaw
+  - CyberPen
+  - RubberStampLawyer
+  - RubberStampSyndicate
+  - CaneSheathFilled
+  - DnaScramblerImplanter
+  - WeaponPistolCobra # Nerfed from trauma to be a low vaulue set
+  - MagazinePistolCaselessRifle # 1
+  - MagazinePistolCaselessRifle # 2
+  - MagazinePistolCaselessRifle # 3
+  - MagazinePistolCaselessRifle # 4
+
+- type: selectableSet
+  id: SyndicateNoRussianSet
+  name: selectable-set-syndicate-no-russian-name
+  description: selectable-set-no-russian-description
+  sprite:
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    state: icon
+  content:
+  - ClothingUniformJumpsuitLawyerBlack
+  - ClothingBeltMilitaryWebbing
+  - ClothingEyesGlassesHiddenSecurity
+  - EncryptionKeySyndie
+  - WeaponLightMachineGunL6
+  - MagazineLightRifleBox
+
+- type: selectableSet
+  id: SyndicatePirateCaptainSet
+  name: selectable-set-syndicate-pirate-captain-name
+  description: selectable-set-syndicate-pirate-captain-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+    state: icon
+  content:
+  - ClothingUniformJumpsuitPirate
+  - ClothingHeadHatPirate
+  - ClothingNeckCloakPirateCap
+  - ClothingShoesBootsMagSyndie
+  - ClothingMaskGasExplorer
+  - ClothingOuterHardsuitPirateCap
+  - ClothingEyesEyepatch
+  - ClothingHeadsetAltFreelancer
+  - PiratePDA
+  - EncryptionKeySyndie
+  - WeaponRevolverPirate
+  - SpeedLoaderMagnum # 1
+  - SpeedLoaderMagnum # 2
+  - WeaponLauncherPirateCannon
+  - CannonBall # 1
+  - CannonBall # 2
+  - CannonBallGrapeshot # 1
+  - CannonBallGrapeshot # 2
+  - CannonBallGlassshot # 1
+  - CannonBallGlassshot # 2
+  - EnergyCutlass
+  - MicroBombImplanter
+
+- type: selectableSet
+  id: SyndicateEngineerSet
+  name: selectable-set-syndicate-engineer-name
+  description: selectable-set-syndicate-engineer-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    state: syndie_off
+  content:
+  - ToolboxElectricalTurret # 1
+  - ToolboxElectricalTurret # 2
+  - ToolboxElectricalTurret # 3
+  - ToolboxElectricalTurret # 4
+  - ToolboxSyndicateFilled
+  - EmpGrenade # 1
+  - EmpGrenade # 2
+  - ExGrenade # 1
+  - ExGrenade # 2
+  - PowerSink
+  - AcousticGuitarInstrument
+  - ClothingHeadHatHardhatArmored
+  - ClothingOuterVestHazard
+  - ClothingUniformJumpsuitRepairmanSyndie
+  - ClothingShoesBootsWork
+  - EncryptionKeySyndie
+
+- type: selectableSet
+  id: SyndicateDoorKickerSet
+  name: selectable-set-syndicate-door-kicker-name
+  description: selectable-set-syndicate-door-kicker-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
+    state: icon
+  content:
+  - ClothingUniformJumpsuitOperative
+  - ClothingBeltMilitaryWebbing
+  - ClothingHeadHelmetSwatSyndicate
+  - ClothingOuterVestWeb
+  - ClothingEyesThermalVisionGogglesSyndie
+  - ClothingHandsGlovesCombat
+  - SyndiPDA
+  - SyndicateJawsOfLife
+  - WeaponShotgunCombat
+  - MagazineBoxShotgunHighCaliber
+  - ClothingMaskGasSyndicate
+  - EncryptionKeySyndie
+  - C4 # 1
+  - C4 # 2
+
+- type: selectableSet
+  id: SyndicateTunnelClownSet
+  name: selectable-set-syndicate-tunnel-clown-name
+  description: selectable-set-syndicate-tunnel-clown-description
+  sprite:
+    sprite: Clothing/Mask/clown.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - ClothingMaskClown
+  - ClothingUniformJumpsuitClown
+  - ClothingHandsGlovesCombat
+  - ClothingShoesClown
+  - ClothingOuterVestWeb
+  - ClothingBackpackClown
+  - ClothingEyesNightVisionGogglesSyndie
+  - ClownPDA
+  - FireAxeFlaming
+  - Stunprod
+  - Stunprod
+  - FreedomImplanter
+  - MicroBombImplanter
+  - SadTromboneImplanter
+  - Handcuffs
+  - Handcuffs
+  - BoxHoloclown
+  - CombatMedipen
+  - SyndicateBusinessCard
+  - BikeHorn
