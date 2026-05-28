@@ -273,6 +273,10 @@
   - type: TriggerOnSpawn
   - type: EmitSoundOnTrigger
     sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/alien_noise.ogg
+  # Actual boss from here
+  - type: FadingAnchoredTeleport
+  - type: FloatingVisuals
+    floatRegardlessOfGravity: true
 
 - type: entity
   name: The ultimate one
@@ -312,3 +316,7 @@
   - type: TriggerOnSpawn
   - type: EmitSoundOnTrigger
     sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/communicating.ogg
+  # Actual boss from here
+  - type: FadingAnchoredTeleport
+  - type: FloatingVisuals
+    floatRegardlessOfGravity: true

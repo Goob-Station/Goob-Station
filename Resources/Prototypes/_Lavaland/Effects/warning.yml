@@ -86,3 +86,9 @@
     fadeInTime: 0.3
   - type: FadingTimedDespawn
     lifetime: 4
+
+- type: entity
+  id: ORTAnchor
+  categories: [HideSpawnMenu]
+  components:
+  - type: Transform  

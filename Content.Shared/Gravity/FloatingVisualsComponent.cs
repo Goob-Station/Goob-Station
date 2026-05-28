@@ -32,5 +32,12 @@ public sealed partial class FloatingVisualsComponent : Component
     [AutoNetworkedField]
     public bool CanFloat = false;
 
+    // Goobstation
+    /// <summary>
+    /// If true, the entity will float regardless of gravity. Because it looks cool.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool FloatRegardlessOfGravity;
+
     public readonly string AnimationKey = "gravity";
 }
