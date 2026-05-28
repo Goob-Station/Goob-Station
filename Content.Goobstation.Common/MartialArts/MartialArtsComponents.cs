@@ -51,10 +51,9 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
     [AutoNetworkedField]
     public string OriginalFistDamageType;
 
-    //omu start
+    // Omu
     [DataField]
     public bool Removable = false;
-    //omu end
 }
 
 public enum MartialArtsForms
