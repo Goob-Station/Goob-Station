@@ -19,12 +19,12 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
-using Content.Goobstation.Maths.FixedPoint; //omu
-using Content.Shared.Clothing; //omu
-using Content.Shared.Clothing.Components; //omu
-using Content.Shared.Damage; // omu
-using Content.Shared.Damage.Components; // omu
-using Content.Shared.Damage.Prototypes; // omu
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Clothing;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
