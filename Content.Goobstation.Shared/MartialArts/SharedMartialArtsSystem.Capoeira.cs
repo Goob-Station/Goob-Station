@@ -39,10 +39,11 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, KickUpPerformedEvent>(OnKickUp);
 
         SubscribeLocalEvent<GrantCapoeiraComponent, UseInHandEvent>(OnGrantCQCUse);
-        // omu start
+
+        // Omu start
         SubscribeLocalEvent<GrantCapoeiraComponent, ClothingGotEquippedEvent>(OnWear);
         SubscribeLocalEvent<GrantCapoeiraComponent, ClothingGotUnequippedEvent>(OnRemove);
-        // omu end
+        // Omu end
     }
     // Omu start
     private void OnWear(EntityUid uid, GrantCapoeiraComponent component, ref ClothingGotEquippedEvent args)
