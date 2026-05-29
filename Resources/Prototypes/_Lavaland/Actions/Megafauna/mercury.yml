@@ -137,3 +137,15 @@
   - type: InstantAction
     event: !type:EnvironmentalResonanceActionEvent
       vertical: true
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTSolarStorm
+  name: Solar Storm
+  description: ■■■■ ■■ ■■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 20
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:ORTSolarStormActionEvent

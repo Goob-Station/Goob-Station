@@ -1,0 +1,44 @@
+- type: entity
+  id: ORTSolarParticle
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Effects/particle.rsi
+    shader: unshaded
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: solarparticle
+  - type: ChasingWalk
+    chasingComponent:
+      - type: MegafaunaAnchor
+    maxChaseRadius: 50
+    minSpeed: 15
+    maxSpeed: 30
+    impulseInterval: 0.05
+    changeVectorMinInterval: 0.05
+    changeVectorMaxInterval: 0.1
+  - type: FadingIn
+    fadeInTime: 0.2
+  - type: FadingTimedDespawn
+    lifetime: 1.3
+    fadeOutTime: 1
+  - type: Transform
+    noRot: true
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: InAir
+    sleepingAllowed: false
+  - type: CanMoveInAir
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1, -0.1, 0.1, 0.1"
+        density: 9999
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - GlassLayer

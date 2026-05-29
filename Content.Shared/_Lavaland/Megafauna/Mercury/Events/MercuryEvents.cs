@@ -42,3 +42,5 @@ public sealed partial class EnvironmentalResonanceActionEvent : InstantActionEve
     [DataField]
     public bool Vertical;
 }
+
+public sealed partial class ORTSolarStormActionEvent : InstantActionEvent;

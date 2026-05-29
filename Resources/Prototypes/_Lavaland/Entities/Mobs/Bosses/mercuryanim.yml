@@ -1,6 +1,7 @@
 - type: entity
   name: ???
   id: BaseORTAnimation
+  categories: [HideSpawnMenu]
   description: The air trembles around it.
   abstract: true
   components:
@@ -24,6 +25,7 @@
 - type: entity
   id: ORTFormingAnimation
   parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
   components:
   - type: TriggerOnSpawn
   - type: EmitSoundOnTrigger
@@ -47,6 +49,7 @@
 - type: entity
   id: ORTCombatAnimation
   parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
   description: Oh no...
   components:
   - type: Sprite
@@ -68,6 +71,7 @@
 - type: entity
   id: ORTUFODeathAnimation
   parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
   description: Is it finally over?
   components:
   - type: TriggerOnSpawn
@@ -92,6 +96,7 @@
 - type: entity
   id: ORTStarCell
   parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
   name: Star cell
   description: Space-time continuum analyzed. Manifesting Star Cell colony invasive entity.
   components:

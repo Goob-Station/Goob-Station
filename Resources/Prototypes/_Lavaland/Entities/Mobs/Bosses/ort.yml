@@ -28,6 +28,14 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: MercurySpider
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Structural: 9999
   - type: AddOrRemoveComponent
   - type: Fauna
   - type: Aggressive
@@ -160,6 +168,7 @@
     color: cyan
   # Actual boss from here
   - type: MegafaunaAnchor
+    anchored: false
   - type: EnvironmentalResonance
     horizontalOffset: 12
     verticalOffset: 12
@@ -234,6 +243,16 @@
     color: green
   - type: BossMusic
     soundId: ORT
+  # Actual boss from here
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: UFO
+  - type: ActionGrant
+    actions:
+    - ActionORTEnergySurge
+    - ActionORTEnergyDischarge
+    - ActionGalacticaSupercell
 
 - type: entity
   name: The ultimate one
@@ -264,8 +283,8 @@
     table: !type:AllSelector
       children:
       - id: DarkMatterPlankton
-  - type: BossMusic
-    soundId: UltimateOne
+  #- type: BossMusic
+  #  soundId: UltimateOne
   - type: PointLight
     radius: 5
     energy: 1.5
@@ -274,9 +293,43 @@
   - type: EmitSoundOnTrigger
     sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/alien_noise.ogg
   # Actual boss from here
-  - type: FadingAnchoredTeleport
+  #- type: FadingAnchoredTeleport
+  #  moveInstead: true
+  #  moveSpeed: 25
+  #  dashTrail:
+  #    - type: Trail
+  #      color: "#ae00ffdd"
+  #      scale: 1.1
+  #      frequency: 0.02
+  #      lifetime: 0.8
+  #      lerpTime: 0.005
+  #      alphaLerpAmount: 0.2
+  #      scaleLerpAmount: 0.1
+  #      shader: unshaded
+  #      sprite:
+  #        sprite: /Textures/_Lavaland/Mobs/Bosses/96x96.rsi
+  #        state: adapted_ranged
   - type: FloatingVisuals
     floatRegardlessOfGravity: true
+  - type: MegafaunaAnchor
+    anchored: false
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: ORTRanged
+  - type: ORTSolarStorm
+    glowIntensity: 8
+    stormDamage:
+      types:
+        Heat: 3
+        Radiation: 3
+  - type: EtherDrain
+  - type: ActionGrant
+    actions:
+    #- ActionORTEtherDrain
+    #- ActionORTEnergySurge
+    #- ActionORTEnergyDischarge
+    - ActionORTSolarStorm
 
 - type: entity
   name: The ultimate one
@@ -307,8 +360,8 @@
     table: !type:AllSelector
       children:
       - id: DarkMatterPlankton
-  - type: BossMusic
-    soundId: UltimateOne
+  #- type: BossMusic
+  #  soundId: UltimateOne
   - type: PointLight
     radius: 5
     energy: 1.5
@@ -317,6 +370,40 @@
   - type: EmitSoundOnTrigger
     sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/communicating.ogg
   # Actual boss from here
-  - type: FadingAnchoredTeleport
+  #- type: FadingAnchoredTeleport
+  #  moveInstead: true
+  #  moveSpeed: 25
+  #  dashTrail:
+  #    - type: Trail
+  #      color: "#ae00ffdd"
+  #      scale: 1.1
+  #      frequency: 0.02
+  #      lifetime: 0.8
+  #      lerpTime: 0.005
+  #      alphaLerpAmount: 0.2
+  #      scaleLerpAmount: 0.1
+  #      shader: unshaded
+  #      sprite:
+  #        sprite: /Textures/_Lavaland/Mobs/Bosses/96x96.rsi
+  #        state: adapted_melee
   - type: FloatingVisuals
     floatRegardlessOfGravity: true
+  - type: MegafaunaAnchor
+    anchored: false
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: ORTMelee
+  - type: ORTSolarStorm
+    glowIntensity: 8
+    stormDamage:
+      types:
+        Heat: 3
+        Radiation: 3
+  - type: EtherDrain
+  - type: ActionGrant
+    actions:
+    #- ActionORTEtherDrain
+    #- ActionORTEnergySurge
+    #- ActionORTEnergyDischarge
+    - ActionORTSolarStorm

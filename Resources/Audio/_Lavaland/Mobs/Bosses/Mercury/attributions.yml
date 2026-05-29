@@ -117,3 +117,13 @@
   license: "Custom"
   copyright: "Made by AleXZavesa"
   source: "https://pixabay.com/users/alexzavesa-24262182/"
+
+- files: ["ChargeSolarStorm.ogg"]
+  license: "Custom"
+  copyright: "Made by LPHypeR"
+  source: "https://pixabay.com/sound-effects/film-special-effects-starship-rail-gun-charge-35904/"
+
+- files: ["heavyimpact.ogg"]
+  license: "Custom"
+  copyright: "Made by Soundtaker"
+  source: "https://pixabay.com/sound-effects/horror-heavy-shot-sound-477215/"

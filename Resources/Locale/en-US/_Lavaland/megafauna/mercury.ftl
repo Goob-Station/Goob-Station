@@ -11,3 +11,13 @@ ort-thunder-warning1 = Your body is screaming at you to get away from that storm
 ort-thunder-warning2 = That storm is bad news!
 ort-thunder-warning3 = Something about that storms sends a chill down your spine...
 ort-thunder-warning4 = Something is coming! Get away from that storm, now!
+
+ort-solar-storm-warning1 = It's charging up something bad! Stay away from it!
+ort-solar-storm-warning2 = You've never felt heat this intense before! Get the hell away from it!!!
+ort-solar-storm-warning3 = You hear something spinning inside that thing. Your body tells you to stay away!
+ort-solar-storm-warning4 = That thing is charging something really bad! Stay away from it!
+
+ort-solar-storm-death1 = Oh fuck, it burns!
+ort-solar-storm-death2 = Your flesh is melting!
+ort-solar-storm-death3 = Your insides are boiling!
+ort-solar-storm-death4 = Your whole body is being bombarbed with radiation!

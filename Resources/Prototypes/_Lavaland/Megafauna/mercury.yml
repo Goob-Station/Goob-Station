@@ -6,6 +6,29 @@
     - id: PickTargetSimple
     - id: MercuryActions
 
+- type: megafaunaSelector
+  id: UFO
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: UFOActions
+
+- type: megafaunaSelector
+  id: ORTMelee
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: ORTGenericActions
+    #- id: ORTMeleeActions
+
+- type: megafaunaSelector
+  id: ORTRanged
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: ORTGenericActions
+    #- id: ORTRangedActions
+
 # Actions
 - type: megafaunaSelector
   id: MercuryActions
@@ -13,12 +36,41 @@
     children:
     - id: ActionORTEtherDrain
     - id: ActionORTPlanktonFlood
-    - id: ActionORTEnergyDischarge
-    - id: ActionGalacticaSupercell
     - id: ActionORTCosmicRays
     - id: ActionORTResonanceVertical
     - id: ActionORTResonanceHorizontal
+
+- type: megafaunaSelector
+  id: UFOActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionORTEnergyDischarge
+    - id: ActionGalacticaSupercell
     - id: ActionORTEnergySurge
+
+- type: megafaunaSelector
+  id: ORTGenericActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionORTEtherDrain
+    - id: ActionORTPlanktonFlood
+    - id: ActionORTEnergyDischarge
+    - id: ActionORTEnergySurge
+    - id: ActionORTSolarStorm
+
+#- type: megafaunaSelector
+#  id: ORTMeleeActions
+#  selector: !type:GroupMegafaunaSelector
+#    children:
+    #- id: 
+
+#- type: megafaunaSelector
+#  id: ORTRangedActions
+#  selector: !type:GroupMegafaunaSelector
+#    children:
+    #- id: 
+    #- id: 
+    #- id: 
 
 - type: megafaunaSelector
   id: ActionORTEtherDrain
@@ -107,3 +159,14 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionORTResonanceVertical
+
+- type: megafaunaSelector
+  id: ActionORTSolarStorm
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTSolarStorm
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTSolarStorm
