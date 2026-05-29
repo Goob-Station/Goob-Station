@@ -21,3 +21,8 @@ ort-solar-storm-death1 = Oh fuck, it burns!
 ort-solar-storm-death2 = Your flesh is melting!
 ort-solar-storm-death3 = Your insides are boiling!
 ort-solar-storm-death4 = Your whole body is being bombarbed with radiation!
+
+ort-paradigm-start = The entity begins analyzing your wounds...
+ort-paradigm-no-damage = The entity finishes analyzing you. It looks puzzled.
+ort-paradigm-genetic-highest = The entity attempts to shift your genetic makeup...but it has already been shifted before.
+ort-paradigm-finished = You feel your external wounds healed, but...something is terribly, terribly wrong!

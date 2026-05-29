@@ -57,6 +57,7 @@
     - id: ActionORTEnergyDischarge
     - id: ActionORTEnergySurge
     - id: ActionORTSolarStorm
+    - id: ActionORTParadigmInflation
 
 #- type: megafaunaSelector
 #  id: ORTMeleeActions
@@ -170,3 +171,14 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionORTSolarStorm
+
+- type: megafaunaSelector
+  id: ActionORTParadigmInflation
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTParadigmInflation
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTParadigmInflation

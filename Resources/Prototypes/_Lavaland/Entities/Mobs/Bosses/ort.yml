@@ -324,12 +324,14 @@
         Heat: 3
         Radiation: 3
   - type: EtherDrain
+  - type: ParadigmInflation
   - type: ActionGrant
     actions:
     #- ActionORTEtherDrain
     #- ActionORTEnergySurge
     #- ActionORTEnergyDischarge
-    - ActionORTSolarStorm
+    #- ActionORTSolarStorm
+    - ActionORTParadigmInflation
 
 - type: entity
   name: The ultimate one
@@ -401,9 +403,11 @@
         Heat: 3
         Radiation: 3
   - type: EtherDrain
+  - type: ParadigmInflation
   - type: ActionGrant
     actions:
     #- ActionORTEtherDrain
     #- ActionORTEnergySurge
     #- ActionORTEnergyDischarge
-    - ActionORTSolarStorm
+    #- ActionORTSolarStorm
+    - ActionORTParadigmInflation

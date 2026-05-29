@@ -149,3 +149,16 @@
     maxDelay: 30
   - type: InstantAction
     event: !type:ORTSolarStormActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTParadigmInflation
+  name: Paradigm Inflation
+  description: ■■■■ ■■ ■■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 20
+    maxDelay: 30
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:ParadigmInflationActionEvent

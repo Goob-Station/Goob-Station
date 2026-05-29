@@ -92,3 +92,27 @@
   categories: [HideSpawnMenu]
   components:
   - type: Transform  
+
+- type: entity
+  id: ParadigmInflationTarget
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/target.rsi
+    state: ORT_target
+    shader: unshaded
+    drawdepth: Effects
+    noRot: true
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+    castShadows: true
+  - type: Timer
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 5
+  - type: Rotating
+    increaseOvertime: true
+    rotationSpeed: 35
