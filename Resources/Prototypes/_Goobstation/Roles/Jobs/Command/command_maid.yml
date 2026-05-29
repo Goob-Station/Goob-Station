@@ -12,16 +12,21 @@
   startingGear: CommandMaidGear
   icon: "JobIconCommandMaid"
   supervisors: job-supervisors-command
-  setPreference: false
   access:
   - Service
   - Janitor
   - Maintenance
   - Command
+  - Brig
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay
     prototype: WeaponRevolverInspector
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
 
 - type: startingGear
   id: CommandMaidGear

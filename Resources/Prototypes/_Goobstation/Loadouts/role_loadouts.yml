@@ -215,6 +215,16 @@
   - ServiceWorkerEnvirosuit
   - ServiceWorkerEnvirogloves
 
+- type: roleLoadout
+  id: JobCommandMaid
+  groups:
+  - Glasses
+  - CommonBackpack
+  - Survival
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+
 # gives plasmaman a plasma breathing tank
 # other species get nothing
 - type: roleLoadout
@@ -230,13 +240,6 @@
   - ClownBackpack
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
-
-- type: roleLoadout
-  id: JobCommandMaid
-  groups:
-  - CommonBackpack
-  - Survival
-  - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobPartyMaker
