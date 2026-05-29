@@ -42,9 +42,9 @@ public sealed class MimeFuckYouSystem : EntitySystem
             _popupSystem.PopupEntity(Loc.GetString("lazy-mime-" + violationCount.ToString()), ent, PopupType.SmallCaution);
             args.Cancel();
         }
-        else if (violationCount == maxViolationCount)
+        else if (violationCount == maxViolationCount) // punishment
         {
-            _popupSystem.PopupEntity(Loc.GetString("lazy-mime-too-much"), ent, PopupType.SmallCaution);
+            _popupSystem.PopupEntity(Loc.GetString("lazy-mime-too-much"), ent, PopupType.LargeCaution);
             _stunSystem.TryAddParalyzeDuration(ent, TimeSpan.FromSeconds(5));
             EnsureComp<KillSignComponent>(ent);
         }
