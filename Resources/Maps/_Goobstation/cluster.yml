@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:10:09
-  entityCount: 12868
+  time: 05/29/2026 14:51:23
+  entityCount: 12867
 maps:
 - 1
 grids:
@@ -58852,18 +58852,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: MobSlimeXenobioBabyGrey
-  entities:
-  - uid: 4703
-    components:
-    - type: Transform
-      pos: -14.5,-19.5
-      parent: 2
-  - uid: 4704
-    components:
-    - type: Transform
-      pos: -15.5,-19.5
-      parent: 2
 - proto: MonkeyCube
   entities:
   - uid: 8654
@@ -69329,6 +69317,13 @@ entities:
     components:
     - type: Transform
       pos: -10.5,-29.5
+      parent: 2
+- proto: SpawnPointCommandMaid
+  entities:
+  - uid: 4703
+    components:
+    - type: Transform
+      pos: -3.5,29.5
       parent: 2
 - proto: SpawnPointDetective
   entities:
