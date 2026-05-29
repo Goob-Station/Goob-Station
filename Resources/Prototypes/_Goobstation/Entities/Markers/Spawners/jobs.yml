@@ -66,6 +66,18 @@
     - state: radiohost
 
 - type: entity
+  id: SpawnPointCommandMaid
+  parent: SpawnPointJobBase
+  name: SpawnPointCommandMaid
+  components:
+  - type: SpawnPoint
+    job_id: CommandMaid
+  - type: Sprite
+    layers:
+      - state: green
+      - state: janitor
+
+- type: entity
   id: SpawnPointVirologist
   parent: SpawnPointJobBase
   name: virologist
