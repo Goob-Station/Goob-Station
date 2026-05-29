@@ -23161,3 +23161,9 @@ Entries:
       message: The cyberpsychosis bundle now comes with the new sandevistan variant.
   id: 2655
   time: '2026-05-25T08:16:12.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Blind people can no longer be masters of reading sign language.
+  id: 2656
+  time: '2026-05-29T19:20:13.0000000+00:00'
