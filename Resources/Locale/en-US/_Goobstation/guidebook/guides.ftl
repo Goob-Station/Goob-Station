@@ -80,6 +80,7 @@ guide-entry-sop-rd = Research Director
 guide-entry-sop-cmo = Chief Medical Ofc.
 guide-entry-sop-ce = Chief Engineer
 guide-entry-sop-qm = Quartermaster
+guide-entry-sop-cm = Command Maid
 # - Engineering
 guide-entry-sop-atmostech = Atmos Tech
 guide-entry-sop-stationengineer = Station Engineer

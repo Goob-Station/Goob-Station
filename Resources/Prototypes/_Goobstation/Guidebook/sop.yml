@@ -115,6 +115,7 @@
   - ChiefMedicalOfficerSOP
   - ChiefEngineerSOP
   - QuartermasterSOP
+  - CommandMaidSOP
 
 - type: guideEntry
   id: EngineeringSOP
@@ -363,6 +364,11 @@
   id: QuartermasterSOP
   name: guide-entry-sop-qm
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/QuartermasterSOP.xml"
+
+- type: guideEntry
+  id: CommandMaidSOP
+  name: guide-entry-sop-cm
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CommandMaidSOP.xml"
 
 # Engineering SOP Entries
 - type: guideEntry

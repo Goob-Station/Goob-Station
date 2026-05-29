@@ -18,6 +18,8 @@
   - Maintenance
   - Command
   - Brig
+  guides:
+  - CommandMaidSOP
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay
