@@ -10,15 +10,19 @@
     state: tail
   - sprite: _Goobstation/Mobs/Customization/Resomi/Resomi_tail.rsi
     state: resomibigtail
-
-
 # Resomi head
-
+- type: marking
+  id: ResomiEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_headtop.rsi
+    state: resomi_ears
 # Resomi Chest
-
 - type: marking
   id: ResomiFluffyChest
-  bodyPart: Chest
+  bodyPart: Tail
   markingCategory: Chest
   speciesRestriction: [Resomi]
   sprites:
