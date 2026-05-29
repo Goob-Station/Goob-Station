@@ -80,25 +80,4 @@ public sealed partial class MimePowersComponent : Component
     public LocId FailWriteMessage = "paper-component-illiterate-mime";
 
     public override bool SendOnlyToOwner => true;
-
-
-    // Goob - punish mime for cheating with sign language
-
-    /// <summary>
-    /// Amount of times mime has tried to speak with a nonverbal language.
-    /// </summary>
-    [DataField]
-    public int NonverbalViolationCount = 0;
-
-    /// <summary>
-    /// Amount of violations before mime is punished for trying to use nonverbal languages.
-    /// </summary>
-    [DataField]
-    public int NonverbalMaxViolationCount = 3;
-
-    /// <summary>
-    /// smite.
-    /// </summary>
-    [DataField]
-    public int NonverbalViolationCountYouAreDone = 10;
 }
