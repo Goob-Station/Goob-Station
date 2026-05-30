@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Systems;
 using Content.Goobstation.Shared.Slasher.UI;
@@ -5,6 +6,7 @@ using Content.Shared.Actions;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Station;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
@@ -81,23 +83,56 @@ public sealed class SlasherKitSelectSystem : EntitySystem
             MovementSpeedModifierComponent.DefaultAcceleration);
         _movement.RefreshMovementSpeedModifiers(ent.Owner);
 
-        var kits = new List<SlasherKit>(ent.Comp.Kits.Values);
-        if (args.Index < 0 || args.Index >= kits.Count)
+        if (args.Index < 0 || args.Index >= ent.Comp.Kits.Count)
             return;
 
-        var selectedKit = kits[args.Index];
+        var selectedKit = ent.Comp.Kits.Values.ElementAt(args.Index);
 
         EntityManager.AddComponents(ent.Owner, ent.Comp.PostSelectionComponents);
 
         _stationSpawning.EquipStartingGear(ent.Owner, selectedKit.Gear);
 
-        if (selectedKit.MachetePrototype is { } macheteProto
-            && TryComp<SlasherSummonMacheteComponent>(ent.Owner, out var summonComp))
-            summonComp.MachetePrototype = macheteProto;
+        if (TryComp<SlasherSummonMacheteComponent>(ent.Owner, out var summonComp))
+        {
+            if (selectedKit.MachetePrototype is { } macheteProto)
+                summonComp.MachetePrototype = macheteProto;
+        }
 
-        if (selectedKit.BloodTrailMusic is { } bloodMusic
-            && TryComp<SlasherBloodTrailComponent>(ent.Owner, out var bloodTrail))
-            bloodTrail.Funkyslasher = bloodMusic;
+        if (TryComp<SlasherBloodTrailComponent>(ent.Owner, out var bloodTrail))
+        {
+            if (selectedKit.BloodTrailMusic is { } bloodMusic)
+                bloodTrail.BloodTrailMusic = bloodMusic;
+
+            if (selectedKit.JumpscareSound is { } jumpscareSound)
+                bloodTrail.JumpscareSounds = new()
+                {
+                    jumpscareSound
+                };
+
+            if (selectedKit.BloodTrailReagent is { } bloodReagent)
+                bloodTrail.BloodTrailReagent = bloodReagent;
+        }
+
+        if (TryComp<SlasherSummonMeatSpikeComponent>(ent.Owner, out var meatSpikeComp))
+        {
+            if (selectedKit.MeatSpikePrototype is { } meatSpikeProto)
+                meatSpikeComp.MeatSpikePrototype = meatSpikeProto;
+        }
+
+        if (TryComp<SlasherSoulStealComponent>(ent.Owner, out var soulSteal))
+        {
+            if (selectedKit.AscensionGear is { } ascensionGear)
+                soulSteal.AscensionGear = ascensionGear;
+
+            if (selectedKit.AscendanceAnnouncementKey is { } announcementKey)
+                soulSteal.AscendanceAnnouncementKey = announcementKey;
+
+            if (selectedKit.AscendanceSound is { } ascendanceSound)
+                soulSteal.AscendanceSound = ascendanceSound;
+
+            if (selectedKit.SoulStealSound is { } soulStealSound)
+                soulSteal.SoulStealSound = soulStealSound;
+        }
 
         _ui.CloseUi(ent.Owner, SlasherKitSelectUiKey.Key);
     }

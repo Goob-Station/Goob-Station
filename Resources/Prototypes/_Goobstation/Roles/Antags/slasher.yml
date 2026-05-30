@@ -82,6 +82,37 @@
     mask: ClothingMaskSlasherCannibal
     outerClothing: ClothingOuterSlasherCannibal
 
+- type: startingGear
+  id: SlasherGearGlutton
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadSlasherGlutton
+    outerClothing: ClothingOuterSlasherGlutton
+
+- type: startingGear
+  id: SlasherGearClown
+  parent: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformSlasherClown
+    head: ClothingMaskSlasherClown
+    outerClothing: ClothingOuterSlasherClown
+    shoes: ClothingShoesSlasherClown
+
+- type: startingGear
+  id: SlasherGearClownAscended
+  equipment:
+    jumpsuit: ClothingUniformSlasherClownAscended
+    head: ClothingMaskSlasherClownAscended
+    shoes: ClothingShoesSlasherClownAscended
+
+- type: startingGear
+  id: SlasherGearHockey
+  parent: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformSlasherHockey
+    head: ClothingMaskSlasherHockey
+    outerClothing: ClothingOuterSlasherHockey
+
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner

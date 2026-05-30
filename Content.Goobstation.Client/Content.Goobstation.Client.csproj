@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 
@@ -31,21 +31,4 @@ SPDX-License-Identifier: AGPL-3.0-or-later
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     </ItemGroup>
 
-    <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
-    <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
-    <ItemGroup>
-      <EmbeddedResource Remove="Slasher\UI\SlasherKitCard.xaml" />
-      <EmbeddedResource Remove="Slasher\UI\SlasherKitSelectMenu.xaml" />
-    </ItemGroup>
-    <ItemGroup>
-      <AdditionalFiles Update="Slasher\UI\SlasherKitCard.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </AdditionalFiles>
-      <AdditionalFiles Update="Slasher\UI\SlasherKitSelectMenu.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </AdditionalFiles>
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Slasher\Systems\" />
-    </ItemGroup>
 </Project>

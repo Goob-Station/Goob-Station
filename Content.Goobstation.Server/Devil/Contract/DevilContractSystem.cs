@@ -38,6 +38,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.Slasher.Components;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 
@@ -247,7 +248,8 @@ public sealed partial class DevilContractSystem : EntitySystem
             || HasComp<SiliconComponent>(user)
             || HasComp<DroneComponent>(user)
             || HasComp<ChangelingComponent>(user)
-            || HasComp<BorgChassisComponent>(user))
+            || HasComp<BorgChassisComponent>(user)
+            || HasComp<SoullessComponent>(user))
         {
             failReason = Loc.GetString("devil-contract-no-soul-sign-failed");
             return false;
@@ -276,6 +278,7 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         // Can't sell what doesn't exist.
         if (HasComp<CondemnedComponent>(contractee)
+            || HasComp<SoullessComponent>(contractee)
             || devil == contractee)
             return false;
 

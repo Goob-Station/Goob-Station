@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
-using Content.Server._White.Xenomorphs.FaceHugger;
+using Content.Goobstation.Shared.Slasher;
 using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Light.Components;
