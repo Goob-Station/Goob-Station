@@ -390,11 +390,18 @@
 
 - type: entity
   name: eldritch blade
-  parent: EldritchBlade
+  parent: SlasherMachete
   id: SlasherEldritchBlade
   categories: [ HideSpawnMenu ]
   description: A sword humming with unholy energy. The slasher has claimed it as their own.
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cult_blade.rsi
+    state: icon
+  - type: Item
+    storedSprite:
+      state: icon
+      sprite: Objects/Weapons/Melee/cult_blade.rsi
   - type: Tag
     tags:
     - Machete
