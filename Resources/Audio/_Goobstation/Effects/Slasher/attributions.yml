@@ -55,7 +55,7 @@
   source: "https://pixabay.com/sound-effects/horror-orchestra-warning-338415/"
 
 - files: ["Jumpscare1.ogg", "Jumpscare2.ogg", "Jumpscare3.ogg", "Jumpscare4.ogg"]
-  license: "CC0"
+  license: "CC0-1.0"
   copyright: "Created by Alessandro Alcinesio"
   source: "https://99sounds.org/rumore-cinematic-impacts/"
 

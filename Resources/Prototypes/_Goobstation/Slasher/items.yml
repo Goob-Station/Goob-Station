@@ -290,7 +290,8 @@
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
-    - state: icon
+    - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+      state: icon
       color: "#1a1a1a"
   - type: Item
     inhandVisuals:

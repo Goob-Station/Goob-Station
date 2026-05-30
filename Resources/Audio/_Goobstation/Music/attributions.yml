@@ -69,7 +69,7 @@
   source: "https://github.com/BeeStation/BeeStation-Hornet/commit/951fab19dc228507b299a132c33e0d1c41f6a655"
 
 - files: ["that_handsome_devil_midi.ogg"]
-  license: "CC0"
+  license: "CC0-1.0"
   copyright: "Created by Death_Rider_03"
   source: "https://onlinesequencer.net/3416638"
 
