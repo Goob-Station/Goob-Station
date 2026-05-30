@@ -181,6 +181,13 @@
   name: slasher mask
   description: A face-covering mask. You can't smell the fear through it, but you can cause it.
   components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
   - type: SelfUnremovableClothing
   - type: SelfEquipOnly
     unequipRequireConscious: false
@@ -586,8 +593,8 @@
   description: When you need to stand out in a room full of clowns. Or crime scenes.
   components:
   - type: Sprite
-    state: "icon"
     sprite: Clothing/Shoes/Specific/large_clown.rsi
+    state: icon
   - type: Clothing
     sprite: Clothing/Shoes/Specific/large_clown.rsi
     clothingVisuals:

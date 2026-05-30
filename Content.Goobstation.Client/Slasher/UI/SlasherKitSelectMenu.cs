@@ -28,14 +28,13 @@ public sealed class SlasherKitSelectMenu : FancyWindow
         IoCManager.InjectDependencies(this);
         _spriteSystem = _entManager.System<SpriteSystem>();
 
-        var resCache = StaticIoC.ResC;
         var textColor = Color.FromHex("#fff5f8");
 
-        StyleBoxTexture MakeTexture(string path, string color, bool tile = false)
+        StyleBoxTexture MakeTexture(SpriteSpecifier sprite, string color, bool tile = false)
         {
             var texture = new StyleBoxTexture
             {
-                Texture = resCache.GetTexture(path),
+                Texture = _spriteSystem.Frame0(sprite),
                 Modulate = Color.FromHex(color),
                 Mode = tile ? StyleBoxTexture.StretchMode.Tile : StyleBoxTexture.StretchMode.Stretch
             };
@@ -46,12 +45,12 @@ public sealed class SlasherKitSelectMenu : FancyWindow
             return texture;
         }
 
-        var outerChromeTexture = MakeTexture("/Textures/_Goobstation/Heretic/Effects/effects.rsi/cloud_swirl.png", "#ff1744", true);
-        var frameTexture = MakeTexture("/Textures/Interface/Nano/transparent_window_background_bordered.png", "#ff9caf");
-        var rootTexture = MakeTexture("/Textures/Interface/Nano/window_background_bordered.png", "#1a0c10");
-        var headerTexture = MakeTexture("/Textures/Interface/Nano/window_header_alert.png", "#d61f49");
-        var panelTexture = MakeTexture("/Textures/Interface/Nano/black_panel_red_thin_border.png", "#ffb0be");
-        var insetTexture = MakeTexture("/Textures/Interface/Nano/light_panel_background_bordered.png", "#4b1e29");
+        var outerChromeTexture = MakeTexture(new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Heretic/Effects/effects.rsi"), "cloud_swirl"), "#ff1744", true);
+        var frameTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/transparent_window_background_bordered.png")), "#ff9caf");
+        var rootTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/window_background_bordered.png")), "#1a0c10");
+        var headerTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/window_header_alert.png")), "#d61f49");
+        var panelTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/black_panel_red_thin_border.png")), "#ffb0be");
+        var insetTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/light_panel_background_bordered.png")), "#4b1e29");
 
         Title = Loc.GetString("slasher-kit-select-title");
         HideCloseButton(this);

@@ -1,10 +1,9 @@
-using Content.Client.IoC;
-using Content.Client.Resources;
 using Content.Goobstation.Shared.Slasher.UI;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Slasher.UI;
 
@@ -17,16 +16,15 @@ public sealed class SlasherKitCard : Control
 
     public SlasherKitCard(SlasherKitInfo kit, SpriteSystem spriteSystem)
     {
-        var resCache = StaticIoC.ResC;
         var accentColor = Color.FromHex("#d5ddd7");
         var accentDim = Color.FromHex("#98a39b");
         var textColor = Color.FromHex("#eef3ef");
 
-        StyleBoxTexture MakeTexture(string path, string color, bool tile = false)
+        StyleBoxTexture MakeTexture(SpriteSpecifier sprite, string color, bool tile = false)
         {
             var texture = new StyleBoxTexture
             {
-                Texture = resCache.GetTexture(path),
+                Texture = spriteSystem.Frame0(sprite),
                 Modulate = Color.FromHex(color),
                 Mode = tile ? StyleBoxTexture.StretchMode.Tile : StyleBoxTexture.StretchMode.Stretch
             };
@@ -37,12 +35,12 @@ public sealed class SlasherKitCard : Control
             return texture;
         }
 
-        var frameTexture = MakeTexture("/Textures/Interface/Nano/transparent_window_background_bordered.png", "#a1aea6");
-        var headerTexture = MakeTexture("/Textures/Interface/Nano/window_header.png", "#5f6c63");
-        var sectionTexture = MakeTexture("/Textures/Interface/Nano/black_panel_light_thin_border.png", "#b3bdb6");
-        var insetTexture = MakeTexture("/Textures/Interface/Nano/light_panel_background_bordered.png", "#303833");
-        var stripeTexture = MakeTexture("/Textures/Interface/Nano/stripeback.svg.96dpi.png", "#f2fff6", true);
-        var stripeTextureDim = MakeTexture("/Textures/Interface/Nano/stripeback.svg.96dpi.png", "#d4e2da", true);
+        var frameTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/transparent_window_background_bordered.png")), "#a1aea6");
+        var headerTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/window_header.png")), "#5f6c63");
+        var sectionTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/black_panel_light_thin_border.png")), "#b3bdb6");
+        var insetTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/light_panel_background_bordered.png")), "#303833");
+        var stripeTexture = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/stripeback.svg.96dpi.png")), "#f2fff6", true);
+        var stripeTextureDim = MakeTexture(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/stripeback.svg.96dpi.png")), "#d4e2da", true);
 
         var outerPanel = new PanelContainer
         {
