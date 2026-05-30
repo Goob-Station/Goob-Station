@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Created by Jaraten for Engenia Project",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "light_1"
+    },
+    {
+      "name": "light_2"
+    },
+    {
+      "name": "light_3"
+    },
+    {
+      "name": "dark_1"
+    },
+    {
+      "name": "dark_2"
+    },
+    {
+      "name": "dark_3"
+    }
+  ]
+}
