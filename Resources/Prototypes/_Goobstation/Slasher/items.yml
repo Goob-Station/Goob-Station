@@ -290,8 +290,7 @@
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
     layers:
-    - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
-      state: icon
+    - state: icon
       color: "#1a1a1a"
   - type: Item
     inhandVisuals:
@@ -301,6 +300,9 @@
       right:
       - state: inhand-right
         color: "#1a1a1a"
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/black.rsi
+
 
 - type: entity
   name: crowbar
