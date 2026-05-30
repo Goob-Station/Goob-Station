@@ -214,7 +214,8 @@
   - type: SpringlockClothing
     lockedClothingVisuals:
       head:
-      - state: locked-equipped-HELMET
+      - sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+        state: locked-equipped-HELMET
         offset: "-0.03, 0.32"
 
 - type: entity
@@ -234,7 +235,8 @@
   - type: SpringlockClothing
     lockedClothingVisuals:
       outerClothing:
-      - state: locked-equipped-OUTERCLOTHING
+      - sprite: _Goobstation/Objects/Specific/Slasher/spring_apron.rsi
+        state: locked-equipped-OUTERCLOTHING
 
 # Billy Kit
 
