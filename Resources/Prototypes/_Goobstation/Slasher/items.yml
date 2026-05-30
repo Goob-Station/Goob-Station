@@ -650,7 +650,6 @@
     layers:
     - state: bananium_clown
       map: ["base"]
-    drawdepth: Mobs
     offset: "0.0,0.5"
 
 # Clown Kit – Ascended variants

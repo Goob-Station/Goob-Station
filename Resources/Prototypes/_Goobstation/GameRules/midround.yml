@@ -595,7 +595,7 @@
               sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
               state: icon
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/padtext_horror.ogg
+              path: /Audio/_Goobstation/Music/horror_synthwave.ogg
               params:
                 volume: -7
                 loop: true

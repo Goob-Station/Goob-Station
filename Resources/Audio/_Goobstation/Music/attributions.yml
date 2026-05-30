@@ -102,3 +102,8 @@
   license: "CC-BY-3.0"
   copyright: "Created by Padtext"
   source: "https://pixabay.com/music/horror-scene-padtext-horror-117590/"
+
+- files: ["horror_synthwave.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by Karl Casey @ White Bat Audio, Modified by Loltart"
+  source: "https://www.youtube.com/watch?v=bRvES2Yw9lU"
