@@ -14,7 +14,7 @@
     sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi
   - type: Item
     size: Small
-  - type: GunUpgrade
+  - type: ItemUpgrade
   - type: StaticPrice
     price: 750
   - type: Tag
@@ -31,7 +31,7 @@
     layers:
     - state: base
     - state: kinetic-marker
-  - type: GunUpgrade
+  - type: ItemUpgrade
     name: gun-upgrade-crusher-kinetic-marker-name
     uniqueGroup: mainUpgrade
   - type: GunUpgradeComponents
@@ -43,10 +43,11 @@
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
       fireRate: 1
       useKey: false
-    - type: MapRestrictedGun
+    - type: MapRestricted
       mapWhitelist:
         components:
         - Biome
+    - type: MapRestrictedGun
       popupOnBlock: gun-lavaland-restricted-message
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 1
@@ -71,7 +72,7 @@
     layers:
     - state: base
     - state: rude-buster
-  - type: GunUpgrade
+  - type: ItemUpgrade
     name: gun-upgrade-crusher-rude-buster-name
     uniqueGroup: mainUpgrade
   - type: GunUpgradeComponents
@@ -84,10 +85,11 @@
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
       fireRate: 10
       useKey: false
-    - type: MapRestrictedGun
+    - type: MapRestricted
       mapWhitelist:
         components:
         - Biome
+    - type: MapRestrictedGun
       popupOnBlock: gun-lavaland-restricted-message
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 2
@@ -114,7 +116,7 @@
     sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi
   - type: Item
     size: Small
-  - type: GunUpgrade
+  - type: ItemUpgrade
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -129,7 +131,7 @@
   components:
   - type: Sprite
     state: lava-shard
-  - type: GunUpgrade
+  - type: ItemUpgrade
     name: gun-upgrade-crusher-lava-aspect
   - type: WeaponUpgradeDamage
     bonusDamage:
@@ -159,7 +161,7 @@
   components:
   - type: Sprite
     state: ice-shard
-  - type: GunUpgrade
+  - type: ItemUpgrade
     name: gun-upgrade-crusher-ice-frost
   - type: WeaponUpgradeDamage
     bonusDamage:
@@ -185,7 +187,7 @@
   components:
   - type: Sprite
     state: black-shard
-  - type: GunUpgrade
+  - type: ItemUpgrade
     name: gun-upgrade-crusher-sharpness
   - type: WeaponUpgradeDamage
     bonusDamage:
@@ -211,7 +213,7 @@
     sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi
   - type: Item
     size: Small
-  - type: GunUpgrade
+  - type: ItemUpgrade
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -226,7 +228,7 @@
   components:
   - type: Sprite
     state: handle-weights
-  - type: GunUpgrade
+  - type: ItemUpgrade
     name: gun-upgrade-crusher-weights
   - type: GunUpgradeComponents
     components:
@@ -247,7 +249,7 @@
   components:
   - type: Sprite
     state: handle-lightweight
-  - type: GunUpgrade
+  - type: ItemUpgrade
     name: gun-upgrade-crusher-lightweight
   - type: WeaponUpgradeSpeed
     attackRateMultiplier: 1.3 # 30% faster
@@ -264,7 +266,7 @@
   components:
   - type: Sprite
     state: handle-spikes # Why spikes improve range? Cuz they're badass.
-  - type: GunUpgrade
+  - type: ItemUpgrade
     name: gun-upgrade-crusher-range
   - type: WeaponUpgradeRange
     rangeMultiplier: 1.2 # 20% longer
