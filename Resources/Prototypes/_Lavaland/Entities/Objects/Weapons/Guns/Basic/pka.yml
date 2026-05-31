@@ -63,8 +63,6 @@
     burstCooldown: 1.5
     availableModes:
     - Burst
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: BasicEntityAmmoProvider
     proto: RapidBulletKinetic
     capacity: 3
