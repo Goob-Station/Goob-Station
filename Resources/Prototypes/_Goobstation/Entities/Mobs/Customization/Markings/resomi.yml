@@ -17,7 +17,7 @@
   markingCategory: HeadTop
   speciesRestriction: [Resomi]
   sprites:
-  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_headtop.rsi
+  - sprite: _Goobstation/Mobs/Customization/Resomi/Resomi_headtop.rsi
     state: resomi_ears
 # Resomi Chest
 - type: marking
