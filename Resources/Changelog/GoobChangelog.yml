@@ -23179,3 +23179,9 @@ Entries:
       message: Fixed blind people not being able to hear nearby conversations
   id: 2658
   time: '2026-05-30T20:02:26.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed blob spending points on automatic attacks.
+  id: 2659
+  time: '2026-05-31T19:56:57.0000000+00:00'
