@@ -97,7 +97,7 @@
   - type: ItemUpgrade
     name: gun-upgrade-reload-name
   - type: GunUpgradeFireRate
-    coefficient: 1.5
+    coefficient: 1.20
 
 - type: entity
   id: PKAUpgradePressure
