@@ -23167,3 +23167,15 @@ Entries:
       message: Blind people can no longer be masters of reading sign language.
   id: 2656
   time: '2026-05-29T19:20:13.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Mimes are now encouraged to actually do their job.
+  id: 2657
+  time: '2026-05-30T02:47:56.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Fixed blind people not being able to hear nearby conversations
+  id: 2658
+  time: '2026-05-30T20:02:26.0000000+00:00'
