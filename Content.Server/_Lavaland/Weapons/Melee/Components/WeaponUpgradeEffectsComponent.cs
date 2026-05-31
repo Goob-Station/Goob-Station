@@ -1,6 +1,6 @@
 ﻿using Content.Shared.EntityEffects;
 
-namespace Content.Server._Lavaland.ItemUpgrades.Components;
+namespace Content.Server._Lavaland.Weapons.Melee.Components;
 
 /// <summary>
 /// Applies a list of entity effects on a target when hit with a melee attack.

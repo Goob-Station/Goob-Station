@@ -11,7 +11,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Shared._Lavaland.ItemUpgrades;
 
-public abstract partial class SharedItemUpgradesSystem
+public sealed partial class ItemUpgradesSystem
 {
     private void InitializeRelay()
     {

@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged;
 
-public sealed class SharedGunUpgradesSystem : EntitySystem
+public abstract class SharedGunUpgradesSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

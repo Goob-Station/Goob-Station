@@ -1,43 +1,16 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Server._Lavaland.ItemUpgrades.Components;
-using Content.Server._Lavaland.Pressure;
-using Content.Shared._Lavaland.ItemUpgrades;
-using Content.Shared._Lavaland.Weapons.Ranged.Events;
+﻿using Content.Server._Lavaland.Pressure;
+using Content.Shared._Lavaland.Weapons.Ranged;
 using Content.Shared._Lavaland.Weapons.Ranged.Components;
-using Content.Shared.EntityEffects;
+using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared.Projectiles;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;
 
-namespace Content.Server._Lavaland.ItemUpgrades;
+namespace Content.Server._Lavaland.Weapons.Ranged;
 
-public sealed class ItemUpgradesSystem : SharedItemUpgradesSystem
+public sealed class GunUpgradesSystem : SharedGunUpgradesSystem
 {
     [Dependency] private readonly PressureEfficiencyChangeSystem _pressure = default!;
-    [Dependency] private readonly SharedEntityEffectSystem _entityEffect = default!;
 
     public override void Initialize()
     {
@@ -47,8 +20,6 @@ public sealed class ItemUpgradesSystem : SharedItemUpgradesSystem
         SubscribeLocalEvent<GunUpgradeDamageComponent, ProjectileShotEvent>(OnProjectileShot);
         SubscribeLocalEvent<GunUpgradePressureComponent, EntGotInsertedIntoContainerMessage>(OnPressureUpgradeInserted);
         SubscribeLocalEvent<GunUpgradePressureComponent, EntGotRemovedFromContainerMessage>(OnPressureUpgradeRemoved);
-
-        SubscribeLocalEvent<WeaponUpgradeEffectsComponent, MeleeHitEvent>(OnEffectsUpgradeHit);
     }
 
     private void OnDamageGunShot(Entity<GunUpgradeDamageComponent> ent, ref GunShotEvent args)
@@ -94,6 +65,7 @@ public sealed class ItemUpgradesSystem : SharedItemUpgradesSystem
         if (!TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
             return;
 
+        // TODO grrr shitcode
         comp.SavedAppliedModifier = pdc.AppliedModifier;
         comp.SavedApplyWhenInRange = pdc.ApplyWhenInRange;
         comp.SavedLowerBound = pdc.LowerBound;
@@ -119,16 +91,5 @@ public sealed class ItemUpgradesSystem : SharedItemUpgradesSystem
         pdc.ApplyWhenInRange = comp.SavedApplyWhenInRange;
         pdc.LowerBound = comp.SavedLowerBound;
         pdc.UpperBound = comp.SavedUpperBound;
-    }
-
-    private void OnEffectsUpgradeHit(Entity<WeaponUpgradeEffectsComponent> ent, ref MeleeHitEvent args)
-    {
-        foreach (var hit in args.HitEntities)
-        {
-            foreach (var effect in ent.Comp.Effects)
-            {
-                _entityEffect.Effect(effect, new EntityEffectBaseArgs(hit, EntityManager));
-            }
-        }
     }
 }

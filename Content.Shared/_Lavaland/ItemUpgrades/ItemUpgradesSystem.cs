@@ -36,7 +36,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._Lavaland.ItemUpgrades;
 
-public abstract partial class SharedItemUpgradesSystem : EntitySystem
+public sealed partial class ItemUpgradesSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;

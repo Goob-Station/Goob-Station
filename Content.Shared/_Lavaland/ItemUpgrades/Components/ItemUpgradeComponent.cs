@@ -24,7 +24,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.ItemUpgrades.Components;
 
-[Access(typeof(SharedItemUpgradesSystem))]
+[Access(typeof(ItemUpgradesSystem))]
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ItemUpgradeComponent : Component
 {

@@ -4,7 +4,7 @@ using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared._Lavaland.Weapons.Melee;
 
-public sealed class MeleeUpgradesSystem : EntitySystem
+public abstract class SharedMeleeUpgradesSystem : EntitySystem
 {
     public override void Initialize()
     {
