@@ -140,7 +140,7 @@
   - type: GunUpgradePressure
     newLowerBound: 0
     newUpperBound: 10
-    newAppliedModifier: 1.5 # Basically 2 damage upgrades in 1
+    newAppliedModifier: 2
   - type: Tag
     tags:
     - PKAUpgrade
