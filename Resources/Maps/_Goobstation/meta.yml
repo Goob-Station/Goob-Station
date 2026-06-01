@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:41:45
+  time: 06/01/2026 21:59:11
   entityCount: 28142
 maps:
 - 1
@@ -11276,7 +11276,7 @@ entities:
       pos: 44.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1105.9761
+      secondsUntilStateChange: -1243.0536
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11560,7 +11560,7 @@ entities:
       pos: -7.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11881.332
+      secondsUntilStateChange: -12018.409
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11772,7 +11772,7 @@ entities:
       pos: 63.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31105.17
+      secondsUntilStateChange: -31242.248
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -11920,7 +11920,7 @@ entities:
       pos: 98.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34820.332
+      secondsUntilStateChange: -34957.41
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12248,7 +12248,7 @@ entities:
       pos: -43.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -33967.332
+      secondsUntilStateChange: -34104.41
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -12283,7 +12283,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -61686.793
+      secondsUntilStateChange: -61823.87
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -12988,7 +12988,7 @@ entities:
       pos: -2.5,-60.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16762.201
+      secondsUntilStateChange: -16899.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -65776,11 +65776,6 @@ entities:
     - type: Transform
       pos: 3.5,2.5
       parent: 2
-  - uid: 10055
-    components:
-    - type: Transform
-      pos: -42.5,33.5
-      parent: 2
   - uid: 10056
     components:
     - type: Transform
@@ -65879,6 +65874,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -77.5,12.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 10055
+    components:
+    - type: Transform
+      pos: -42.5,33.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -176259,7 +176261,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -30779.771
+      secondsUntilStateChange: -30916.85
       state: Opening
     - type: Airlock
       autoClose: False

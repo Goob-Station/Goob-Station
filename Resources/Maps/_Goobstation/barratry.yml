@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 04:59:23
+  time: 06/01/2026 22:01:24
   entityCount: 15874
 maps:
 - 1
@@ -42761,12 +42761,6 @@ entities:
       parent: 2
 - proto: ComputerRadar
   entities:
-  - uid: 5495
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -49.5,-13.5
-      parent: 2
   - uid: 5496
     components:
     - type: Transform
@@ -42827,6 +42821,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -44.5,-13.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 5495
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -49.5,-13.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -51170,7 +51172,7 @@ entities:
       pos: -2.5,38.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7078.412
+      secondsUntilStateChange: -7121.8877
       state: Closing
   - uid: 6681
     components:

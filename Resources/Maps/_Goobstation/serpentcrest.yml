@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 06:22:14
-  entityCount: 29503
+  time: 06/01/2026 22:12:00
+  entityCount: 29500
 maps:
 - 1
 grids:
@@ -74637,12 +74637,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 54.5,-54.5
       parent: 2
-  - uid: 21975
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 51.5,-43.5
-      parent: 2
   - uid: 26314
     components:
     - type: Transform
@@ -74714,6 +74708,12 @@ entities:
       parent: 2
 - proto: ComputerSalvageJobBoard
   entities:
+  - uid: 10246
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 53.5,-43.5
+      parent: 2
   - uid: 21437
     components:
     - type: Transform
@@ -74748,6 +74748,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 58.5,-38.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 7160
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 51.5,-43.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -134574,28 +134582,6 @@ entities:
     components:
     - type: Transform
       pos: 55.45204,38.469296
-      parent: 2
-- proto: MobSlimeXenobioBabyGrey
-  entities:
-  - uid: 7160
-    components:
-    - type: Transform
-      pos: 69.5,9.5
-      parent: 2
-  - uid: 10246
-    components:
-    - type: Transform
-      pos: 72.5,9.5
-      parent: 2
-  - uid: 27574
-    components:
-    - type: Transform
-      pos: 62.5,9.5
-      parent: 2
-  - uid: 28172
-    components:
-    - type: Transform
-      pos: 65.5,9.5
       parent: 2
 - proto: MonkeyCube
   entities:

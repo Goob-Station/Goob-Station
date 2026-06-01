@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:45:47
-  entityCount: 13950
+  time: 06/01/2026 21:56:37
+  entityCount: 13947
 maps:
 - 1
 grids:
@@ -33731,13 +33731,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -61.5,-8.5
       parent: 2
-- proto: ComputerRadar
-  entities:
-  - uid: 10014
-    components:
-    - type: Transform
-      pos: 29.5,16.5
-      parent: 2
 - proto: ComputerResearchAndDevelopment
   entities:
   - uid: 5255
@@ -33828,6 +33821,13 @@ entities:
     components:
     - type: Transform
       pos: 28.5,16.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 4696
+    components:
+    - type: Transform
+      pos: 29.5,16.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -63795,23 +63795,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: MobSlimeXenobioBabyGrey
-  entities:
-  - uid: 4696
-    components:
-    - type: Transform
-      pos: 4.5,-33.5
-      parent: 2
-  - uid: 5008
-    components:
-    - type: Transform
-      pos: 4.5,-32.5
-      parent: 2
-  - uid: 11502
-    components:
-    - type: Transform
-      pos: 4.5,-34.5
-      parent: 2
 - proto: MonkeyCubeBox
   entities:
   - uid: 5120

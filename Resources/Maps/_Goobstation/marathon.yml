@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:38:17
-  entityCount: 23076
+  time: 06/01/2026 21:42:11
+  entityCount: 23075
 maps:
 - 1
 grids:
@@ -11308,7 +11308,7 @@ entities:
       pos: -1.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5156.457
+      secondsUntilStateChange: -5252.9233
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11807,7 +11807,7 @@ entities:
       pos: 40.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8902.282
+      secondsUntilStateChange: -8998.748
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11844,7 +11844,7 @@ entities:
       pos: 41.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5750.8228
+      secondsUntilStateChange: -5847.289
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -55649,6 +55649,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 38.5,-10.5
       parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 15781
+    components:
+    - type: Transform
+      pos: 29.5,-9.5
+      parent: 2
 - proto: ComputerSolarControl
   entities:
   - uid: 8716
@@ -66115,7 +66122,7 @@ entities:
       pos: 12.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4118.7905
+      secondsUntilStateChange: -4215.257
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 1795.33154
@@ -104203,18 +104210,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: MobSlimeXenobioBabyGrey
-  entities:
-  - uid: 15781
-    components:
-    - type: Transform
-      pos: 47.5,12.5
-      parent: 2
-  - uid: 15782
-    components:
-    - type: Transform
-      pos: 46.5,12.5
-      parent: 2
 - proto: MonkeyCube
   entities:
   - uid: 15783

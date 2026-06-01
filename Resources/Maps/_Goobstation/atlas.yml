@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 04:50:16
-  entityCount: 9252
+  time: 06/01/2026 21:31:01
+  entityCount: 9253
 maps:
 - 1
 grids:
@@ -4531,7 +4531,7 @@ entities:
       pos: 4.5,19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12902.408
+      secondsUntilStateChange: -13001.518
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21592,6 +21592,14 @@ entities:
     components:
     - type: Transform
       pos: -39.5,21.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 9252
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -33.5,19.5
       parent: 2
 - proto: ComputerSolarControl
   entities:

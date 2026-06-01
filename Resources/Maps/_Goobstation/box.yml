@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:03:37
-  entityCount: 27699
+  time: 06/01/2026 21:35:11
+  entityCount: 27700
 maps:
 - 1
 grids:
@@ -10768,7 +10768,7 @@ entities:
       pos: 7.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -767.0555
+      secondsUntilStateChange: -823.9055
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10951,7 +10951,7 @@ entities:
       pos: -11.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -442.7002
+      secondsUntilStateChange: -499.55023
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11924,7 +11924,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -52163.87
+      secondsUntilStateChange: -52220.723
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -69655,6 +69655,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -26.5,-38.5
       parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 27700
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -37.5,-38.5
+      parent: 2
 - proto: ComputerSolarControl
   entities:
   - uid: 10890
@@ -83893,7 +83901,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -46352.41
+      secondsUntilStateChange: -46409.26
       state: Closing
   - uid: 13120
     components:
@@ -84381,7 +84389,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -38100.145
+      secondsUntilStateChange: -38156.996
       state: Closing
   - uid: 13217
     components:

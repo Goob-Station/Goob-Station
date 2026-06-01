@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:35:21
-  entityCount: 26994
+  time: 06/01/2026 22:02:47
+  entityCount: 26995
 maps:
 - 1
 grids:
@@ -68023,11 +68023,6 @@ entities:
     - type: Transform
       pos: 46.5,30.5
       parent: 2
-  - uid: 10241
-    components:
-    - type: Transform
-      pos: 47.5,30.5
-      parent: 2
 - proto: ComputerShuttleMiningLavaland
   entities:
   - uid: 17194
@@ -68035,6 +68030,19 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 47.5,33.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 10241
+    components:
+    - type: Transform
+      pos: 47.5,30.5
+      parent: 2
+  - uid: 26994
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 42.5,35.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -82054,7 +82062,7 @@ entities:
       pos: -4.5,37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2512.7007
+      secondsUntilStateChange: -2583.6199
       state: Closing
   - uid: 12318
     components:

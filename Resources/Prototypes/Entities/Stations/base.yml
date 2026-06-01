@@ -131,6 +131,9 @@
           paths:
             - /Maps/_Goobstation/Shuttles/trading_outpost.yml #Goobstation
           nameDataset: TradeStationNames
+        mining: !type:GridSpawnGroup # Goob - Nuh uh
+          paths:
+          - /Maps/Shuttles/mining.yml # Reclaimer
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
