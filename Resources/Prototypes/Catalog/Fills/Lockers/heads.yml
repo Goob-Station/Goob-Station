@@ -172,6 +172,7 @@
     - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
+    - id: SalvageShuttleConsoleCircuitboard # Goob - no unfun allowed
     - id: CargoMegaphone # goob - loudspeaker
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
 
