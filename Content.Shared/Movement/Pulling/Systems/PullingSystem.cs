@@ -561,7 +561,7 @@ public sealed class PullingSystem : EntitySystem
         {
             return false;
         }
-        
+
         var getPulled = new BeingPulledAttemptEvent(puller, pullableUid, ask);
         RaiseLocalEvent(pullableUid, getPulled, true);
         var startPull = new StartPullAttemptEvent(puller, pullableUid);
