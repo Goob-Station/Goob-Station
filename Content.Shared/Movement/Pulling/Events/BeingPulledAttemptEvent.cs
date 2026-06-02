@@ -16,13 +16,16 @@ namespace Content.Shared.Pulling.Events
     /// </summary>
     public sealed class BeingPulledAttemptEvent : CancellableEntityEventArgs
     {
-        public BeingPulledAttemptEvent(EntityUid puller, EntityUid pulled)
+        public BeingPulledAttemptEvent(EntityUid puller, EntityUid pulled, bool canpullask) // goob fix edit
         {
             Puller = puller;
             Pulled = pulled;
+            CanPullAsk = canpullask; // goob fix
         }
 
         public EntityUid Puller { get; }
         public EntityUid Pulled { get; }
+
+        public bool CanPullAsk { get; } // goob fix for those moments you just want to ask
     }
 }

@@ -189,6 +189,12 @@ public abstract partial class SharedBuckleSystem
         }
 
         // Goobstation - doafter for unbuckle by others
+        if (args.CanPullAsk)
+        {
+            args.Uncancel();
+            return;
+        }
+        
         if (args.Puller != ent.Owner
             && TryComp<StrapComponent>(ent.Comp.BuckledTo, out var strap)
             && strap.UnbuckleDoafterTime > 0)
@@ -200,7 +206,6 @@ public abstract partial class SharedBuckleSystem
                 BreakOnDamage = true,
             };
             _doAfter.TryStartDoAfter(doAfter);
-            return;
         }
         // Goobstation
     }

@@ -383,6 +383,8 @@ public sealed class PullingSystem : EntitySystem
         if (args.User == target) // Trama - args.Target -> target
             return;
 
+        bool ask = true; //goob shitcode fix
+
         //TODO VERB ICONS add pulling icon
         if (component.Puller == args.User)
         {
@@ -394,7 +396,7 @@ public sealed class PullingSystem : EntitySystem
             };
             args.Verbs.Add(verb);
         }
-        else if (CanPull(args.User, target)) // Trauma - args.Target -> target
+        else if (CanPull(args.User, target, ask: ask)) // Trauma - args.Target -> target + goob unbuckle context menu fix
         {
             Verb verb = new()
             {
@@ -516,7 +518,7 @@ public sealed class PullingSystem : EntitySystem
         TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player, true); // Goob - Grab Intent
     }
 
-    public bool CanPull(EntityUid puller, EntityUid pullableUid, PullerComponent? pullerComp = null)
+    public bool CanPull(EntityUid puller, EntityUid pullableUid, PullerComponent? pullerComp = null, bool ask = false)
     {
         if (!Resolve(puller, ref pullerComp, false))
         {
@@ -559,8 +561,8 @@ public sealed class PullingSystem : EntitySystem
         {
             return false;
         }
-
-        var getPulled = new BeingPulledAttemptEvent(puller, pullableUid);
+        
+        var getPulled = new BeingPulledAttemptEvent(puller, pullableUid, ask);
         RaiseLocalEvent(pullableUid, getPulled, true);
         var startPull = new StartPullAttemptEvent(puller, pullableUid);
         RaiseLocalEvent(puller, startPull, true);
