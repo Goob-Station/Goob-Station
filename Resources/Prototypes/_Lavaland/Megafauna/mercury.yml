@@ -18,16 +18,14 @@
   selector: !type:AllMegafaunaSelector
     children:
     - id: PickTargetSimple
-    - id: ORTGenericActions
-    #- id: ORTMeleeActions
+    - id: ORTMeleeActions
 
 - type: megafaunaSelector
   id: ORTRanged
   selector: !type:AllMegafaunaSelector
     children:
     - id: PickTargetSimple
-    - id: ORTGenericActions
-    #- id: ORTRangedActions
+    - id: ORTRangedActions
 
 # Actions
 - type: megafaunaSelector
@@ -49,29 +47,23 @@
     - id: ActionORTEnergySurge
 
 - type: megafaunaSelector
-  id: ORTGenericActions
+  id: ORTMeleeActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionORTSolarStorm
+    - id: ActionORTParadigmInflation
+    - id: ActionORTPhaseConversion
+    - id: ActionORTReflectiveThreads
+
+- type: megafaunaSelector
+  id: ORTRangedActions
   selector: !type:GroupMegafaunaSelector
     children:
     - id: ActionORTEtherDrain
-    - id: ActionORTPlanktonFlood
     - id: ActionORTEnergyDischarge
     - id: ActionORTEnergySurge
-    - id: ActionORTSolarStorm
-    - id: ActionORTParadigmInflation
-
-#- type: megafaunaSelector
-#  id: ORTMeleeActions
-#  selector: !type:GroupMegafaunaSelector
-#    children:
-    #- id: 
-
-#- type: megafaunaSelector
-#  id: ORTRangedActions
-#  selector: !type:GroupMegafaunaSelector
-#    children:
-    #- id: 
-    #- id: 
-    #- id: 
+    - id: ActionORTPhaseConversion
+    - id: ActionORTDarkMatterShell
 
 - type: megafaunaSelector
   id: ActionORTEtherDrain
@@ -182,3 +174,36 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionORTParadigmInflation
+
+- type: megafaunaSelector
+  id: ActionORTPhaseConversion
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTPhaseConversion
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTPhaseConversion
+
+- type: megafaunaSelector
+  id: ActionORTReflectiveThreads
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTReflectiveThreads
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTReflectiveThreads
+
+- type: megafaunaSelector
+  id: ActionORTDarkMatterShell
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTDarkMatterShell
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTDarkMatterShell

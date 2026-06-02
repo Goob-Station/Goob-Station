@@ -5,6 +5,9 @@
   description:
   abstract: true
   components:
+  - type: StatusEffects
+    allowed:
+    - RadiationProtection
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
@@ -25,6 +28,7 @@
     - CannotSuicide
     - FootstepSound
   - type: TileMovement
+  - type: NoSlip
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: MercurySpider
@@ -256,20 +260,29 @@
 
 - type: entity
   name: The ultimate one
-  id: ORTXibalbaRanged
+  id: ORTXibalba
   parent: BaseORT
   description: Long-range weaponry analyzed. Adaptation complete.
   components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-1,0.5,1.5"
+        density: 10000
+        hard: false
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
   - type: RadiationSource
     intensity: 1
   - type: Sprite
-    drawdepth: OverMobs
     sprite: _Lavaland/Mobs/Bosses/96x96.rsi
-    layers:
-    - state: mercury_ring
-      drawdepth: FloorObjects
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: adapted_ranged
+    state: adapted_ranged
+    drawdepth: OverMobs
+    noRot: true
   - type: CombatMode
   - type: MobThresholds
     thresholds:
@@ -293,22 +306,22 @@
   - type: EmitSoundOnTrigger
     sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/alien_noise.ogg
   # Actual boss from here
-  #- type: FadingAnchoredTeleport
-  #  moveInstead: true
-  #  moveSpeed: 25
-  #  dashTrail:
-  #    - type: Trail
-  #      color: "#ae00ffdd"
-  #      scale: 1.1
-  #      frequency: 0.02
-  #      lifetime: 0.8
-  #      lerpTime: 0.005
-  #      alphaLerpAmount: 0.2
-  #      scaleLerpAmount: 0.1
-  #      shader: unshaded
-  #      sprite:
-  #        sprite: /Textures/_Lavaland/Mobs/Bosses/96x96.rsi
-  #        state: adapted_ranged
+  - type: FadingAnchoredTeleport
+    moveInstead: true
+    moveSpeed: 25
+    dashTrail:
+      - type: Trail
+        color: "#ae00ffdd"
+        scale: 1.1
+        frequency: 0.02
+        lifetime: 0.8
+        lerpTime: 0.005
+        alphaLerpAmount: 0.2
+        scaleLerpAmount: 0.1
+        shader: unshaded
+        sprite:
+          sprite: /Textures/_Lavaland/Mobs/Bosses/96x96.rsi
+          state: adapted_melee
   - type: FloatingVisuals
     floatRegardlessOfGravity: true
   - type: MegafaunaAnchor
@@ -325,89 +338,19 @@
         Radiation: 3
   - type: EtherDrain
   - type: ParadigmInflation
-  - type: ActionGrant
-    actions:
+  - type: Appearance
+  - type: ReflectiveThreads
+  - type: OrbitingRing
+    prototype: DarkMatterPlanktonOrbiting
+  - type: PhaseConversion
+    switchDelay: 1.0
+  #- type: ActionGrant
+  # actions:
     #- ActionORTEtherDrain
-    #- ActionORTEnergySurge
     #- ActionORTEnergyDischarge
-    #- ActionORTSolarStorm
-    - ActionORTParadigmInflation
-
-- type: entity
-  name: The ultimate one
-  id: ORTXibalbaMelee
-  parent: BaseORT
-  description: Close-quarters weaponry analyzed. Adaptation complete. 
-  components:
-  - type: RadiationSource
-    intensity: 1
-  - type: Sprite
-    drawdepth: OverMobs
-    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
-    layers:
-    - state: mercury_ring
-      drawdepth: FloorObjects
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: adapted_melee
-  - type: CombatMode
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      1500: Dead
-  - type: AngerPlayerScaling
-    angerScale: 1.5
-    hpScale: 1.2
-  - type: SpawnLootOnDeath
-    deleteOnDeath: true
-    table: !type:AllSelector
-      children:
-      - id: DarkMatterPlankton
-  #- type: BossMusic
-  #  soundId: UltimateOne
-  - type: PointLight
-    radius: 5
-    energy: 1.5
-    color: gold
-  - type: TriggerOnSpawn
-  - type: EmitSoundOnTrigger
-    sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/communicating.ogg
-  # Actual boss from here
-  #- type: FadingAnchoredTeleport
-  #  moveInstead: true
-  #  moveSpeed: 25
-  #  dashTrail:
-  #    - type: Trail
-  #      color: "#ae00ffdd"
-  #      scale: 1.1
-  #      frequency: 0.02
-  #      lifetime: 0.8
-  #      lerpTime: 0.005
-  #      alphaLerpAmount: 0.2
-  #      scaleLerpAmount: 0.1
-  #      shader: unshaded
-  #      sprite:
-  #        sprite: /Textures/_Lavaland/Mobs/Bosses/96x96.rsi
-  #        state: adapted_melee
-  - type: FloatingVisuals
-    floatRegardlessOfGravity: true
-  - type: MegafaunaAnchor
-    anchored: false
-  - type: MegafaunaAi
-    actionDelay: 0.5
-    selector: !type:NestedMegafaunaSelector
-      id: ORTMelee
-  - type: ORTSolarStorm
-    glowIntensity: 8
-    stormDamage:
-      types:
-        Heat: 3
-        Radiation: 3
-  - type: EtherDrain
-  - type: ParadigmInflation
-  - type: ActionGrant
-    actions:
-    #- ActionORTEtherDrain
     #- ActionORTEnergySurge
-    #- ActionORTEnergyDischarge
     #- ActionORTSolarStorm
-    - ActionORTParadigmInflation
+    #- ActionORTParadigmInflation
+    #- ActionORTPhaseConversion
+    #- ActionORTReflectiveThreads
+    #- ActionORTDarkMatterShell

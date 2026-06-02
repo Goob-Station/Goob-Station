@@ -154,6 +154,9 @@ public sealed class ORTSolarStormSystem : EntitySystem
 
     private void OnActionUsed(EntityUid uid, ORTSolarStormComponent comp, ORTSolarStormActionEvent args)
     {
+        if (args.Handled)
+            return;
+
         // so it doesn't try to charge mid already charging or firing
         if (comp.IsCharging || comp.StormSoon || comp.IsActive)
             return;

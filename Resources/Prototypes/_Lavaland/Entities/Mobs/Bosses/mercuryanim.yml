@@ -119,7 +119,7 @@
       state: star_cell
   - type: TimedSpawner
     prototypes:
-      - ORTXibalbaMelee # TO DO: Dynamic system yadda yadda
+      - ORTXibalba
     chance: 1.0
     intervalSeconds: 10
     minimumEntitiesSpawned: 1

@@ -19,6 +19,9 @@ public sealed class EnvironmentalResonanceSystem : EntitySystem
 
     private void OnResonance(EntityUid uid, EnvironmentalResonanceComponent comp, EnvironmentalResonanceActionEvent args)
     {
+        if (args.Handled)
+            return;
+
         var coords = Transform(uid).Coordinates;
 
         // The system is fairly simple but basically it spawns two entities, one at each corner of the screen
@@ -48,5 +51,6 @@ public sealed class EnvironmentalResonanceSystem : EntitySystem
                 //PredictedSpawnAtPosition(comp.UpPrototype, coordsSW, null); // Mispredicted spawning leads to misalignment. Potentially too busy
             }
         }
+        args.Handled = true;
     }
 }

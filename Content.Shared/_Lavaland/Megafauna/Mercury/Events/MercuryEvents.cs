@@ -46,3 +46,10 @@ public sealed partial class EnvironmentalResonanceActionEvent : InstantActionEve
 public sealed partial class ORTSolarStormActionEvent : InstantActionEvent;
 
 public sealed partial class ParadigmInflationActionEvent : EntityTargetActionEvent;
+
+public sealed partial class PhaseConversionActionEvent : InstantActionEvent;
+
+
+public sealed partial class ReflectiveThreadsActionEvent : InstantActionEvent;
+
+public sealed partial class OrbitingRingActionEvent : InstantActionEvent;

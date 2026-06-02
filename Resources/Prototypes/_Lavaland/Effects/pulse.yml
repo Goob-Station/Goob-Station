@@ -1,0 +1,49 @@
+- type: entity
+  id: ORTPhaseConversionEffect
+  categories: [HideSpawnMenu]
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true    
+  - type: FadingIn
+    fadeInTime: 0.2
+  - type: Sprite
+    sprite: _Lavaland/Effects/64x64.rsi
+    state: bfg_explode
+    drawdepth: BelowMobs
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 1
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: Green
+    castShadows: false
+  - type: Timer
+  - type: ExpandAndCollapse
+    expandTime: 10
+    collapseTime: 10
+    startingScale: 1
+    peakScale: 2
+
+- type: entity
+  id: ORTReflectiveThreadsEffect
+  categories: [HideSpawnMenu]
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true    
+  - type: FadingIn
+    fadeInTime: 1
+  - type: Sprite
+    sprite: _Lavaland/Effects/64x64.rsi
+    state: explo_energy
+    drawdepth: BelowMobs
+    noRot: true
+  - type: ExpandAndCollapse
+    expandTime: 40
+    collapseTime: 10
+    startingScale: 3
+    peakScale: 4

@@ -127,3 +127,8 @@
   license: "Custom"
   copyright: "Made by Soundtaker"
   source: "https://pixabay.com/sound-effects/horror-heavy-shot-sound-477215/"
+
+- files: ["conversion.ogg"]
+  license: "Custom"
+  copyright: "Made by AudioPapkin"
+  source: "https://pixabay.com/sound-effects/film-special-effects-morph-transforms-sound-effect-7-100388/"

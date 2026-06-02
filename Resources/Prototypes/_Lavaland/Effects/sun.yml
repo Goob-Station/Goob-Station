@@ -57,13 +57,6 @@
     fadeInTime: 0.1
   - type: RadiationSource
     intensity: 10
-  - type: DangerZone
-    popupRange: 0.5
-    popup:
-    - ort-solar-storm-death1
-    - ort-solar-storm-death2
-    - ort-solar-storm-death3
-    - ort-solar-storm-death4
   - type: AmbientSound
     volume: 1
     range: 10

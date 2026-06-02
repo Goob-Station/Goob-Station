@@ -15,13 +15,13 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.3, -0.3, 0.3, 0.3"
-        density: 100
-        hard: false
+          bounds: "-0.2, -0.2, 0.2, 0.2"
+        density: 1
         mask:
         - MobMask
         layer:
-        - MobLayer  
+        - InteractImpassable
+        - BulletImpassable
   - type: Rotating
     increaseOvertime: true
   - type: FadingIn
@@ -148,3 +148,16 @@
         Genetic: 2
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg # TO DO: Change later
+
+- type: entity
+  id: DarkMatterPlanktonOrbiting
+  parent: DarkMatterPlankton
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 35
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

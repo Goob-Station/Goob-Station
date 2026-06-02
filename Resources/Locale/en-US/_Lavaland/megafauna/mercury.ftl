@@ -26,3 +26,5 @@ ort-paradigm-start = The entity begins analyzing your wounds...
 ort-paradigm-no-damage = The entity finishes analyzing you. It looks puzzled.
 ort-paradigm-genetic-highest = The entity attempts to shift your genetic makeup...but it has already been shifted before.
 ort-paradigm-finished = You feel your external wounds healed, but...something is terribly, terribly wrong!
+
+ort-phase-conversion = Adaptation complete.

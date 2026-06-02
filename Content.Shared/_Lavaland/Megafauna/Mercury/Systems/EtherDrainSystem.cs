@@ -25,6 +25,9 @@ public sealed partial class EtherDrainSystem : EntitySystem
 
     private void OnDrain(Entity<EtherDrainComponent> ent, ref EtherDrainEvent args) // This was supposed to be a EntityTargetActionEvent but either I'm stupid or the Megafauna system doesn't work with those.
     {
+        if (args.Handled)
+            return;
+
         var comp = ent.Comp;
         var coords = Transform(ent.Owner).Coordinates;
 
@@ -43,9 +46,7 @@ public sealed partial class EtherDrainSystem : EntitySystem
             _popup.PopupPredicted(Loc.GetString("ort-ether-drain"), mob, mob, PopupType.MediumCaution);
 
             PredictedSpawnAtPosition(comp.Prototype, Transform(mob).Coordinates);
-
-            args.Handled = true;
-
         }
+        args.Handled = true;
     }
 }

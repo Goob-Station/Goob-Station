@@ -162,3 +162,39 @@
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:ParadigmInflationActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTPhaseConversion
+  name: Phase Conversion
+  description: ■■■□□■■■ □■■ ■■■■□■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 20
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:PhaseConversionActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTReflectiveThreads
+  name: Reflective Threads
+  description: ■■■■■■■□□■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 15
+    maxDelay: 25
+  - type: InstantAction
+    event: !type:ReflectiveThreadsActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTDarkMatterShell
+  name: D.M. Shell
+  description: ■■■■ ■□ ■□ ■■■ ■■□
+  components:
+  - type: AngerDelayAction
+    minDelay: 15
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:OrbitingRingActionEvent

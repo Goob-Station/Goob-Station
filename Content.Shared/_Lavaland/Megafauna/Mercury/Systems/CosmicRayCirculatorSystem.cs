@@ -62,6 +62,9 @@ public sealed class CosmicRayCirculatorSystem : EntitySystem
     }
     private void OnAction(EntityUid uid, CosmicRayCirculatorComponent comp, CosmicRayCirculatorActionEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!_net.IsServer)
             return;
 
@@ -72,5 +75,7 @@ public sealed class CosmicRayCirculatorSystem : EntitySystem
         comp.Active = true;
         comp.CurrentWave = 0;
         comp.NextWaveTime = _timing.CurTime + comp.Delay;
+
+        args.Handled = true;
     }
 }

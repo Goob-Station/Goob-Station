@@ -57,6 +57,9 @@ public sealed class ParadigmInflationSystem : EntitySystem
 
     private void OnAnalyze(EntityUid uid, ParadigmInflationComponent comp, ParadigmInflationActionEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (comp.IsAnalyzing)
             return;
 
@@ -76,9 +79,11 @@ public sealed class ParadigmInflationSystem : EntitySystem
         // I tried making it PopUpPredicted. nothing. I tried PopUpEntity. Nothing. For some UNGODLY reason, only PopUpEntity inside a server check works.
         if (_net.IsServer)
         {
-            _popup.PopupEntity(Loc.GetString("ort-paradigm-start"), args.Target, args.Target, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString("ort-paradigm-start"), args.Target, args.Target, PopupType.Medium);
         }
         _audio.PlayPredicted(comp.AnalyzeSound, uid, uid, AudioParams.Default.WithVolume(-5f));
+
+        args.Handled = true;
     }
 
     private void DoParadigm(EntityUid uid, ParadigmInflationComponent comp, EntityUid target)
@@ -106,7 +111,7 @@ public sealed class ParadigmInflationSystem : EntitySystem
         {
             if (_net.IsServer) // refer to comment on first popup
             {
-                _popup.PopupEntity(Loc.GetString("ort-paradigm-no-damage"), target, target, PopupType.SmallCaution);
+                _popup.PopupEntity(Loc.GetString("ort-paradigm-no-damage"), target, target, PopupType.Medium);
             }
             return;
         }
@@ -117,7 +122,7 @@ public sealed class ParadigmInflationSystem : EntitySystem
         {
             if (_net.IsServer) // refer to comment on first popup
             {
-                _popup.PopupEntity(Loc.GetString("ort-paradigm-genetic-highest"), target, target, PopupType.SmallCaution);
+                _popup.PopupEntity(Loc.GetString("ort-paradigm-genetic-highest"), target, target, PopupType.Medium);
             }
             return;
         }
