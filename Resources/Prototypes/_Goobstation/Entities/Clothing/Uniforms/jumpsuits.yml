@@ -506,7 +506,7 @@
   parent: [ ClothingUniformBase, BaseCentcommContraband ]
   id: ClothingUniformJumpsuitGoldenLiaison
   name: Golden Liaison CentCom Jumpsuit
-  description: A fancy white-and-gold suit worn by high-ranking members of Central Command. 
+  description: A finely-tailored white-and-gold uniform worn by senior officials of Central Command.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi

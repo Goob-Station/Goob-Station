@@ -123,7 +123,7 @@
   parent: [ClothingNeckBase, BaseCentcommContraband]
   id: ClothingNeckCloakHighCommand
   name: high central command cloak
-  description: An expensive-looking green cloak adorned with gold trim.
+  description: A magnificent green cloak featuring luxurious gold-lined edges.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/cchighcommand.rsi
@@ -135,7 +135,7 @@
   parent: [ClothingNeckBase, BaseCentcommContraband]
   id: ClothingNeckCloakHighCommandCape
   name: high central command cape
-  description: An expensive-looking green and red cape adorned with gold trims and epaulettes.
+  description: A lavish green-and-red cape decorated with gold trim and ornate epaulettes.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/highcmdcape.rsi
@@ -159,7 +159,7 @@
   parent: [ClothingNeckBase, BaseCentcommContraband]
   id: ClothingNeckCloakCentComPoncho
   name: central command poncho
-  description: A gold-trimmed green poncho from Central Command.
+  description: A regal green-and-black poncho embellished with rich golden accents.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/centcom_poncho.rsi

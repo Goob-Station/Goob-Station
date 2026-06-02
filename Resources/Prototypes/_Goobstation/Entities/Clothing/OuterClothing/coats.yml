@@ -153,7 +153,7 @@
   parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase, BaseCentcommContraband ]
   id: ClothingOuterArmoredJacketCentralCommand
   name: central command jacket
-  description: A green jacket with golden shoulder-pads and a high collar.
+  description: A formal green coat-like jacket accented with gilded shoulder armor and a high collar.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Coats/centcommjacket.rsi
@@ -165,7 +165,7 @@
   parent: [ ClothingOuterStorageBase, BaseCentcommContraband ]
   id: ClothingOuterJacketCentralCommandIke
   name: central command ike jacket
-  description: A green-and-black jacket.
+  description: A utilitarian green-and-black jacket featuring a sharp, military-inspired design, worn within Central Command.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Coats/centcom_ike.rsi
