@@ -45,7 +45,7 @@
         Structural: 15
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.12 # roughly 2.5 tiles
+    lifetime: 0.14 # roughly 3.5 tiles
 
 - type: entity
   id: BulletKineticShuttle
@@ -84,8 +84,6 @@
       types:
         Blunt: 6.5
         Structural: 8
-  - type: TimedDespawn
-    lifetime: 0.12 # roughly 2.5 tiles
 
 - type: entity
   id: WeakBulletKinetic # Used for PK shotgun
