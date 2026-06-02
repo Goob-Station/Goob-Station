@@ -255,12 +255,12 @@ public readonly record struct UnbuckledEvent(Entity<StrapComponent> Strap, Entit
 [Serializable, NetSerializable]
 public sealed partial class UnbuckleDoAfterEvent : SimpleDoAfterEvent
 {
-    public readonly bool PullIntent = false;
+    public readonly bool PullIntent = false; // goobstation - start unbuckle fix
 
     public UnbuckleDoAfterEvent(bool pullIntent = false)
     {
         PullIntent = pullIntent;
-    }
+    } // goobstation - end unbuckle fix
 
 }
 // WD EDIT END

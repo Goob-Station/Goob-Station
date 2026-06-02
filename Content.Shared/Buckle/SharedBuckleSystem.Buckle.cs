@@ -146,7 +146,7 @@ public abstract partial class SharedBuckleSystem
         SubscribeLocalEvent<BuckleComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
 
         SubscribeLocalEvent<BuckleComponent, StartPullAttemptEvent>(OnPullAttempt);
-        SubscribeLocalEvent<BuckleComponent, PullAttemptEvent>(OnBeingPulledAttempt);
+        SubscribeLocalEvent<BuckleComponent, PullAttemptEvent>(OnBeingPulledAttempt); // goobstation edit - unbuckle fix
         SubscribeLocalEvent<BuckleComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<BuckleComponent, UnbuckleAlertEvent>(OnUnbuckleAlert);
 
@@ -180,11 +180,11 @@ public abstract partial class SharedBuckleSystem
             args.Cancel();
     }
 
-    private void OnBeingPulledAttempt(Entity<BuckleComponent> ent, ref PullAttemptEvent args)
+    private void OnBeingPulledAttempt(Entity<BuckleComponent> ent, ref PullAttemptEvent args) // the second arg is also goobstation
     {
         if (args.Cancelled || !ent.Comp.Buckled)
             return;
-
+        // goobstation - unbuckle fix start
         if (!CanUnbuckle(ent!, args.PullerUid, false))
         {
             args.Cancelled = true;
@@ -205,7 +205,7 @@ public abstract partial class SharedBuckleSystem
             _doAfter.TryStartDoAfter(doAfter);
             return;
         }
-        // Goobstation
+        // Goobstation - end
     }
 
     private void OnPullStarted(Entity<BuckleComponent> ent, ref PullStartedMessage args)
