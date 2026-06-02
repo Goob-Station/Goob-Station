@@ -23185,3 +23185,9 @@ Entries:
       message: Fixed blob spending points on automatic attacks.
   id: 2659
   time: '2026-05-31T19:56:57.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed Gate station.
+  id: 2660
+  time: '2026-06-02T15:06:06.0000000+00:00'
