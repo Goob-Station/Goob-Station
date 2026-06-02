@@ -62,6 +62,8 @@
     - CrusherUpgradeMain
     - CrusherUpgradeMainMarker
 
+# TODO turn it into an action gun and add auto-targeting
+# TODO make it charge when doing hits to an entity, instead of just a cooldown
 - type: entity
   id: CrusherUpgradeMainRudeBuster
   parent: BaseCrusherUpgradeMain
@@ -80,7 +82,7 @@
     - type: AmmoCounter
     - type: UseDelayOnShoot
     - type: GunRequiresWield
-    - type: Gun # TODO turn it into an action gun and add auto-targeting
+    - type: Gun
       projectileSpeed: 12 # Needed for the trail to look good
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
       fireRate: 10
@@ -92,7 +94,7 @@
     - type: MapRestrictedGun
       popupOnBlock: gun-lavaland-restricted-message
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 8
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
     - type: BasicEntityAmmoProvider

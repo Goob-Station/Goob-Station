@@ -44,7 +44,7 @@ public sealed class MapRestrictedSystem : EntitySystem
 
     private void OnAttemptShoot(Entity<MapRestrictedGunComponent> ent, ref AttemptShootEvent args)
     {
-        if (!CheckRestricted(ent.Owner))
+        if (CheckRestricted(ent.Owner))
             return;
 
         args.Cancelled = true;
