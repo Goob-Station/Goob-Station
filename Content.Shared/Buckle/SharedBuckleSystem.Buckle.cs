@@ -313,10 +313,10 @@ public abstract partial class SharedBuckleSystem
             return;
 
         Unbuckle((uid, component), strap, args.User); // Goobstation
-        if (args.PullIntent)
+        if (args.PullIntent) // Goobstation - unbuckle fix start
         {
             _pullingSystem.TryStartPull(args.User, uid);
-        }
+        } // Goobstation - unbuckle fix end
     }
     // WD EDIT END
 
