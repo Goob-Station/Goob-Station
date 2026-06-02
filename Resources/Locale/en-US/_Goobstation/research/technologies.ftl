@@ -44,3 +44,4 @@ research-technology-extended-communication = Extended Communications
 research-technology-bluespace-munitions = Bluespace Munitions
 research-technology-radio-music-communication = Radio Music Communications
 research-technology-cloning = Biological Reconstruction
+research-technology-service-energy-chem = Organic Electrosynthesis
